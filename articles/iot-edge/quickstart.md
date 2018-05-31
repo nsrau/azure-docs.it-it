@@ -6,14 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 05/03/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f9ad01d3194ee0f8be4c3b4321c83c4bb15ea55c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 888f74d215956f4ad38605ca247f681da700a787
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166217"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Guida introduttiva: Distribuire il primo modulo di IoT Edge dal portale di Azure in un dispositivo Windows - Anteprima
 
@@ -29,7 +30,7 @@ Questa esercitazione presuppone che si usi un computer o una macchina virtuale c
    * Windows 10 
    * Windows Server
 2. Installare [Docker per Windows][lnk-docker] e assicurarsi che sia in esecuzione.
-3. Installare [Python 2.7 su Windows][lnk-python] e assicurarsi di usare il comando pip.
+3. Installare [Python su Windows][lnk-python] e assicurarsi di usare il comando pip. Questa guida introduttiva è stata testata con Python a partire dalle versioni 2.7.9 e 3.5.4.  
 4. Eseguire il comando seguente per scaricare lo script di controllo di IoT Edge.
 
    ```cmd

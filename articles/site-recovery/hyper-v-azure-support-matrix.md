@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: d2c637dc742ee854c7787cf7cd883930c4eaa8bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011374"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice di supporto per la replica Hyper-V in Azure
 
@@ -23,9 +24,9 @@ Questo articolo riepiloga i componenti supportati e le impostazioni per il ripri
 ## <a name="supported-scenarios"></a>Scenari supportati
 
 **Scenario** | **Dettagli**
---- | --- 
+--- | ---
 Hyper-V con Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V gestiti nell'infrastruttura di System Center Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.<br/><br/> Se gli host Hyper-V vengono gestiti da Virtual Machine Manager, è anche possibile eseguire il ripristino di emergenza in un sito locale secondario. Per altre informazioni su questo scenario, vedere [questa esercitazione](tutorial-vmm-to-vmm.md).
-Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V non gestiti da Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell. 
+Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V non gestiti da Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.
 
 
 ## <a name="on-premises-servers"></a>Server locali
@@ -39,7 +40,7 @@ Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 20
 ## <a name="replicated-vms"></a>VM replicate
 
 
-La tabella seguente riepiloga il supporto per VM. Site Recovery supporta i carichi di lavoro in esecuzione in un sistema operativo supportato. 
+La tabella seguente riepiloga il supporto per VM. Site Recovery supporta i carichi di lavoro in esecuzione in un sistema operativo supportato.
 
  **Componente** | **Dettagli**
 --- | ---
@@ -78,7 +79,8 @@ Più NIC | Sì | Sì
 IP riservato | Sì | Sì
 IPv4 | Sì | Sì
 Conservazione indirizzo IP di origine | Sì | Sì
-Endpoint del servizio Rete virtuale di Azure<br/><br/> (firewall e reti virtuali di Archiviazione di Azure) | No  | No 
+Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
+Rete accelerata | No  | No 
 
 
 ## <a name="hyper-v-host-storage"></a>Archiviazione host Hyper-V
@@ -125,7 +127,7 @@ BLOB in blocchi | No  | No
 Crittografia per dati inattivi (SSE)| Sì | Sì
 Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No  | No 
-Endpoint del servizio Rete virtuale di Azure (firewall e reti virtuali di Archiviazione di Azure) in un account di archiviazione di destinazione/archiviazione della cache usato per i dati di replica | No  | No 
+Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No  | No 
 
 
 ## <a name="azure-compute-features"></a>Funzionalità di calcolo di Azure
@@ -159,9 +161,9 @@ Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Wi
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 
 **Azione** |  **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
---- | --- | --- 
-Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No  
-Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No  
+--- | --- | ---
+Spostamento insieme di credenziali tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No 
+Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risorse<br/><br/> All'interno e tra sottoscrizioni | No  | No 
 
 
 ## <a name="provider-and-agent"></a>Provider e agente
@@ -179,4 +181,4 @@ Agente di Servizi di ripristino di Microsoft Azure | Coordina la replica tra le 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come [preparare Azure](tutorial-prepare-azure.md) per il ripristino di emergenza delle VM Hyper-V. 
+Informazioni su come [preparare Azure](tutorial-prepare-azure.md) per il ripristino di emergenza delle VM Hyper-V.

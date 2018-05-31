@@ -5,14 +5,15 @@ services: virtual-machines-windows
 author: dlepow
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/16/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 689e45f96ed5e7aaea3aecd1193e9cd58f10e80d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9b36a8e90c20c8f0d08ca241e48e9306fb5b10f8
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307506"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemi operativi e driver supportati
 
@@ -26,8 +27,8 @@ I collegamenti ai download dei driver nella tabella seguente sono quelli attivi 
 
 | OS | Driver |
 | -------- |------------- |
-| Windows Server 2016 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2016-international.exe) (con estensione exe) |
-| Windows Server 2012 R2 | [390.85](http://us.download.nvidia.com/Windows/Quadro_Certified/390.85/390.85-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (con estensione exe) |
+| Windows Server 2016 | [391.29](http://us.download.nvidia.com/Windows/Quadro_Certified/391.29/391.29-tesla-desktop-winserver2016-international.exe) (.exe) |
+| Windows Server 2012 R2 | [391.29](http://us.download.nvidia.com/Windows/Quadro_Certified/391.29/391.29-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
 ### <a name="nv-series---nvidia-grid-drivers"></a>Serie NV: driver NVIDIA GRID
 

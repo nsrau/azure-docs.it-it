@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
 ms.author: iainfou
-ms.openlocfilehash: 08bf4675378918097e177228ee1be4e4e690c63b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89c4c5c986375177918f14417c6b5a9a24925908
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271743"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Linux collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Linux per risolvere eventuali errori e quindi ricreare la VM originale.
@@ -31,6 +32,7 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 4. Smontare e scollegare il disco rigido virtuale dalla macchina virtuale usata per la risoluzione dei problemi.
 5. Creare una VM usando il disco rigido virtuale originale.
 
+Per la macchina virtuale che usa il disco gestito, vedere [Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 ## <a name="determine-boot-issues"></a>Individuare i problemi di avvio
 Esaminare la diagnostica di avvio e la schermata della VM per determinare perché la macchina virtuale non è in grado di avviarsi correttamente. Un esempio comune è una voce non valida in `/etc/fstab`, oppure l'eliminazione o lo spostamento di un disco rigido virtuale sottostante.
@@ -170,6 +172,13 @@ Il modello viene caricato nel portale di Azure per la distribuzione. Immettere i
 Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diagnostica di avvio potrebbe non essere abilitata automaticamente. Per controllare lo stato della diagnostica di avvio e attivarla se necessario, selezionare la macchina virtuale nel portale. In **Monitoraggio**, fare clic su **Impostazioni di diagnostica**. Verificare che lo stato sia **Attivo** e che il segno di spunta accanto a **Diagnostica di avvio** sia selezionato. Se si apportano modifiche, fare clic su **Salva**:
 
 ![Aggiornare le impostazioni di diagnostica di avvio](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo
+1. Arrestare la macchina virtuale Windows con disco gestito interessata.
+2. [Creare uno snapshot del disco gestito](../windows/snapshot-copy-managed-disk.md) per il disco del sistema operativo della macchina virtuale con disco gestito.
+3. [Creare un disco gestito da uno snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Collegare un disco dati a una macchina virtuale Windows](../windows/attach-disk-ps.md).
+5. [Modificare il disco dati del passaggio 4 nel disco del sistema operativo](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si sono verificati problemi durante la connessione alla macchina virtuale, vedere l'articolo sulla [risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per problemi relativi all'accesso alle applicazioni in esecuzione nella macchina virtuale, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

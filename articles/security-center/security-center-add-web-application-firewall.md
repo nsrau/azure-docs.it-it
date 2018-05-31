@@ -5,27 +5,28 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 05/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 4454d18893d698e49f118048eca0bfc94df315a5
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: e28a1f6b865dae3abe2cb9dfac2921c6a2034491
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203523"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Aggiungere un Web application firewall al Centro sicurezza di Azure
 È possibile che il Centro sicurezza di Azure consigli di aggiungere un WAF (Web Application Firewall) di un partner Microsoft per proteggere le applicazioni Web. Questo documento contiene un esempio su come eseguire questa operazione.
 
 Viene visualizzata una raccomandazione WAF per qualsiasi IP pubblico (IP a livello di istanza o IP con carico bilanciato) cui è associato un gruppo di sicurezza di rete con porte Web in ingresso aperte (80, 443).
 
-Il Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e negli Ambienti del servizio app esterni. Un Ambiente del servizio app è un'opzione del piano di servizio [Premium](https://azure.microsoft.com/pricing/details/app-service/) del Servizio app di Azure che offre un ambiente completamente isolato e dedicato per eseguire in modo sicuro tutte le app del servizio. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/environment/intro.md).
+Il Centro sicurezza consiglia di effettuare il provisioning di un WAF per consentire la protezione da attacchi contro le applicazioni Web nelle macchine virtuali e negli Ambienti del servizio app esterni distribuiti nel piano di servizio [Isolato](https://azure.microsoft.com/pricing/details/app-service/windows/). Il piano Isolato ospita le app in un ambiente di Azure privato e dedicato ed è ottimale per le app che richiedono connessioni sicure alla rete locale o prestazioni e scalabilità aggiuntive. Oltre a essere in un ambiente isolato, l'app deve avere un bilanciamento del carico con indirizzo IP esterno. Per altre informazioni sull'ambiente del servizio app, vedere [Documentazione relativa agli ambienti del servizio app](../app-service/environment/intro.md).
 
 > [!NOTE]
 > Il documento introduce il servizio usando una distribuzione di esempio.  Questo argomento non costituisce una guida dettagliata.

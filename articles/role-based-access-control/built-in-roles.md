@@ -15,12 +15,12 @@ ms.date: 05/11/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 85a9b3a4f1fc21cbb47d41a61661de38d6fc246d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160836"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203506"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
 Il [controllo degli accessi in base al ruolo](overview.md) ha diverse definizioni di ruolo predefinite che è possibile assegnare a utenti, gruppi ed entità servizio. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse in Azure. Non è possibile modificare i ruoli predefiniti, ma è possibile creare [ruoli personalizzati](custom-roles.md) in base a esigenze specifiche dell'organizzazione.

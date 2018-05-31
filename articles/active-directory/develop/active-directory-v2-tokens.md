@@ -1,25 +1,28 @@
 ---
-title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Documentazione Microsoft
+title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Microsoft Docs
 description: Tipi di token e attestazioni generati dall'endpoint di Azure AD 2.0.
 services: active-directory
 documentationcenter: ''
-author: hpsin
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: hirsin
+ms.date: 04/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 071e0c2b802b1bb6ef68092362c61bf3960fd45a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164459"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -49,14 +52,14 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 ```
 
 > [!TIP]
-> A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollando quest'ultimo in [calebb.net](http://calebb.net/).
+> A scopo di esercitazione, provare a verificare le attestazioni nel token ID di esempio incollando quest'ultimo in [jwt.ms](http://jwt.ms/).
 >
 >
 
 #### <a name="claims-in-id-tokens"></a>Attestazioni nei token ID
 | NOME | Attestazione | Valore di esempio | DESCRIZIONE |
 | --- | --- | --- | --- |
-| destinatari |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione dell'app, assegnato a quest'ultima nel portale di registrazione delle applicazioni di Microsoft. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
+| audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifica il destinatario del token. Nei token ID il destinatario è l'ID applicazione dell'app, assegnato a quest'ultima nel portale di registrazione delle applicazioni di Microsoft. L'app deve convalidare questo valore e rifiutare il token, se il valore non corrisponde. |
 | autorità di certificazione |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token e il tenant di Azure AD in cui l'utente è stato autenticato. L'app deve convalidare l'attestazione Autorità di certificazione per assicurarsi che il token sia stato fornito dall'endpoint 2.0. Deve usare la parte GUID dell'attestazione per limitare il set di tenant che può accedere all'app. Il GUID che indica che l'utente è un utente consumer di un account Microsoft è `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | ora di emissione |`iat` |`1452285331` |Ora in cui il token è stato generato, rappresentata dal valore epoch time. |
 | scadenza |`exp` |`1452289231` |Ora in cui il token non è più valido, rappresentata dal valore epoch time. L'app deve usare questa attestazione per verificare la validità della durata del token. |
@@ -69,8 +72,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | name |`name` |`Babe Ruth` |Questa attestazione fornisce un valore leggibile che identifica l'oggetto del token. Il valore potrebbe non essere univoco, è modificabile e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |Indirizzo di posta elettronica primario associato all'account utente, se presente. Il valore è modificabile e può variare nel tempo. Per ricevere questa attestazione, è necessario l'ambito `email` . |
 | nome utente preferito |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |Nome utente primario che rappresenta l'utente nell'endpoint 2.0. Potrebbe trattarsi di un indirizzo di posta elettronica, di un numero di telefono o di un nome utente generico senza un formato specificato. Il valore è modificabile e può variare nel tempo. Poiché è mutevole, questo valore non deve essere usato per prendere decisioni in merito alle autorizzazioni. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
-| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico.  Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto.  Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
-| ID oggetto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente.  Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`.  Ciò significa che può essere usato quando si eseguono query in Microsoft Online Services, ad esempio Microsoft Graph.  Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente.  Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
+| subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
+| ID oggetto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente. Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. Ciò significa che può essere usato quando si eseguono query in Microsoft Online Services, ad esempio Microsoft Graph. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 
 ### <a name="access-tokens"></a>Token di accesso
 
@@ -83,7 +86,7 @@ I token di aggiornamento sono token di sicurezza che l'app può usare per ottene
 
 Si tratta di token a più risorse, ossia un token di aggiornamento ricevuto durante una richiesta di token per una risorsa può essere riscattato per i token di accesso a una risorsa completamente diversa.
 
-Per ricevere un aggiornamento in una risposta del token, l'app deve richiedere e ottenere l'ambito `offline_acesss`. Per altre informazioni sull'ambito `offline_access`, vedere l'articolo relativo a [consenso e ambiti](active-directory-v2-scopes.md).
+Per ricevere un aggiornamento in una risposta del token, l'app deve richiedere e ottenere l'ambito `offline_access`. Per altre informazioni sull'ambito `offline_access`, vedere l'articolo relativo a [consenso e ambiti](active-directory-v2-scopes.md).
 
 I token di aggiornamento sono e saranno sempre completamente opachi per l'app. Vengono generati dall'endpoint 2.0 di Azure AD e possono essere controllati e interpretati solo dall'endpoint 2.0. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito. I token di aggiornamento possono essere invalidati in qualsiasi momento per vari motivi. Per altri dettagli, vedere [Revoca dei token](active-directory-token-and-claims.md#token-revocation). L'unico modo per l'app di sapere se un token di aggiornamento è valido è tentare di riscattarlo mediante una richiesta di token all'endpoint 2.0.
 
@@ -123,7 +126,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 >
 >
 
-Il documento di metadati è un oggetto JSON contenente diverse informazioni utili, ad esempio la posizione dei vari endpoint necessari per l'autenticazione di OpenID Connect.  Il documento include anche un oggetto *jwks_uri* che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Il documento JSON in jwks_uri include tutte le informazioni sulla chiave pubblica corrente. L'app può usare l'attestazione `kid` nell'intestazione del token JWT per selezionare la chiave pubblica del documento usata per firmare un token. Esegue quindi la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
+Il documento di metadati è un oggetto JSON contenente diverse informazioni utili, ad esempio la posizione dei vari endpoint necessari per l'autenticazione di OpenID Connect. Il documento include anche un oggetto *jwks_uri* che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Il documento JSON in jwks_uri include tutte le informazioni sulla chiave pubblica corrente. L'app può usare l'attestazione `kid` nell'intestazione del token JWT per selezionare la chiave pubblica del documento usata per firmare un token. Esegue quindi la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
 
 La convalida della firma non rientra nelle finalità di questo documento. A tale scopo è possibile consultare le varie librerie open source disponibili.
 

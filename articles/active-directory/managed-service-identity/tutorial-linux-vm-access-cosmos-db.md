@@ -7,17 +7,19 @@ author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
+ms.component: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: 692bc5eb401ccda36ef42006de509144170f7757
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: bcbafcb5b72fd156f0d8b4a4ddd52aab1d699996
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076256"
 ---
 # <a name="use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Usare un'identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Cosmos DB 
 
@@ -72,29 +74,30 @@ Per creare una VM abilitata per MSI:
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
+   ```
 
-## Create a Cosmos DB account 
+## <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB 
 
-If you don't already have one, create a Cosmos DB account. You can skip this step and use an existing Cosmos DB account. 
+Se non ne è già disponibile uno, creare un account Cosmos DB. È possibile ignorare questo passaggio e usare un account Cosmos DB esistente. 
 
-1. Click the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
-2. Click **Databases**, then **Azure Cosmos DB**, and a new "New account" panel  displays.
-3. Enter an **ID** for the Cosmos DB account, which you use later.  
-4. **API** should be set to "SQL." The approach described in this tutorial can be used with the other available API types, but the steps in this tutorial are for the SQL API.
-5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.  Select a **Location** where Cosmos DB is available.
-6. Click **Create**.
+1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
+2. Fare clic su **Database**, quindi su **Azure Cosmos DB**. Verrà visualizzato un nuovo pannello "Nuovo account".
+3. Immettere un **ID** per l'account Cosmos DB, da usare in un secondo momento.  
+4. **API** deve essere impostato su "SQL". L'approccio descritto in questa esercitazione può essere usato con gli altri tipi di API disponibili, ma i passaggi illustrati si riferiscono all'API SQL.
+5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.  Selezionare un **Percorso** in cui è disponibile Cosmos DB.
+6. Fare clic su **Crea**.
 
-## Create a collection in the Cosmos DB account
+## <a name="create-a-collection-in-the-cosmos-db-account"></a>Creare una raccolta nell'account Cosmos DB
 
-Next, add a data collection in the Cosmos DB account that you can query in later steps.
+Successivamente, aggiungere una raccolta di dati nell'account Cosmos DB su cui è possibile eseguire query nei passaggi successivi.
 
-1. Navigate to your newly created Cosmos DB account.
-2. On the **Overview** tab click the **+/Add Collection** button, and an "Add Collection" panel slides out.
-3. Give the collection a database ID, collection ID, select a storage capacity, enter a partition key, enter a throughput value, then click **OK**.  For this tutorial, it is sufficient to use "Test" as the database ID and collection ID, select a fixed storage capacity and lowest throughput (400 RU/s).  
+1. Passare all'account Cosmos DB appena creato.
+2. Nella scheda **Panoramica** fare clic sul pulsante **+/Aggiungi raccolta**. Verrà visualizzato il pannello "Aggiungi raccolta".
+3. Assegnare alla raccolta un ID database e un ID raccolta, selezionare una capacità di archiviazione, immettere una chiave di partizione, specificare un valore di velocità effettiva, quindi fare clic su **OK**.  Per questa esercitazione, è sufficiente usare "Test" come ID database e ID raccolta, selezionare una capacità di archiviazione fissa e una velocità effettiva più bassa (400 UR/sec).  
 
-## Retrieve the `principalID` of the Linux VM's MSI
+## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux
 
-To gain access to the Cosmos DB account access keys from the Resource Manager in the following section, you need to retrieve the `principalID` of the Linux VM's MSI.  Be sure to replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resource group in which you VM resides), and `<VM NAME>` parameter values with your own values.
+Per ottenere l'accesso alle chiavi di accesso dell'account Cosmos DB da Gestione risorse nella sezione seguente, è necessario recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux.  Assicurarsi di sostituire i valori dei parametri `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (gruppo di risorse in cui si trova la macchina virtuale) e `<VM NAME>` con valori personalizzati.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01

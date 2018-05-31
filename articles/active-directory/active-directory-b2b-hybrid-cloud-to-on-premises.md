@@ -2,22 +2,20 @@
 title: Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali | Microsoft Docs
 description: Illustra come fornire agli utenti B2B cloud l'accesso alle app locali con Collaborazione B2B di Azure AD.
 services: active-directory
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: ''
-tags: ''
 ms.service: active-directory
+ms.component: B2B
 ms.topic: article
-ms.workload: identity
 ms.date: 04/20/2018
 ms.author: twooley
+author: twooley
+manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0eb567c8587b0eec367160facc86f163ef6b3c15
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 028bbb28c7091db3c3ebea321ca2e167b999949d
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068797"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -30,7 +28,7 @@ Se l'app locale usa l'autenticazione basata su SAML, è possibile renderla facil
 Sono necessarie entrambe queste operazioni:
 
 - Integrare l'app SAML usando il modello di applicazione non nella raccolta, come descritto in [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](active-directory-saas-custom-apps.md). Assicurarsi di prendere nota del valore usato per **URL di accesso**.
--  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](application-proxy-publish-azure-portal.md). 
+-  Usare Azure AD Application Proxy per pubblicare l'app locale, configurando **Azure Active Directory** come origine dell'autenticazione. Per istruzioni, vedere [Pubblicare applicazioni con Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md). 
 
    Quando si configura l'impostazione **URL interno**, usare l'URL di accesso specificato nel modello di applicazione non nella raccolta. In questo modo, gli utenti possono accedere all'app dall'esterno dei confini dell'organizzazione. Application Proxy esegue l'accesso Single Sign-On SAML per l'app locale.
  
@@ -40,13 +38,13 @@ Sono necessarie entrambe queste operazioni:
 
 Per fornire agli utenti B2B l'accesso alle applicazioni locali protette con l'autenticazione integrata di Windows e la delega vincolata Kerberos, sono necessari i componenti seguenti:
 
-- **Autenticazione tramite Azure AD Application Proxy**. Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [Attività iniziali del proxy di applicazione e installazione del connettore](active-directory-application-proxy-enable.md) e [Pubblicare applicazioni con Azure AD Application Proxy](application-proxy-publish-azure-portal.md).
-- **Autorizzazione tramite un oggetto utente B2B nella directory locale**. L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](active-directory-application-proxy-sso-using-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
+- **Autenticazione tramite Azure AD Application Proxy**. Gli utenti B2B devono poter eseguire l'autenticazione nell'applicazione locale. A tale scopo, è necessario pubblicare l'app locale tramite Azure AD Application Proxy. Per altre informazioni, vedere [Attività iniziali del proxy di applicazione e installazione del connettore](manage-apps/application-proxy-enable.md) e [Pubblicare applicazioni con Azure AD Application Proxy](manage-apps/application-proxy-publish-azure-portal.md).
+- **Autorizzazione tramite un oggetto utente B2B nella directory locale**. L'applicazione deve poter eseguire i controlli di accesso utente e concedere l'accesso alle risorse corrette. L'autenticazione integrata di Windows e la delega vincolata Kerberos richiedono un oggetto utente nell'istanza locale di Windows Server Active Directory per completare l'autorizzazione. Come descritto in [Funzionamento di Single Sign-On con KCD](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works), Application Proxy richiede questo oggetto utente per rappresentare l'utente e ottenere un token Kerberos per l'app. 
 
    Per lo scenario utente B2B, sono disponibili due metodi per creare gli oggetti utente guest necessari per l'autorizzazione nella directory locale:
 
-   - [Microsoft Identity Manager (MIM) e l'agente di gestione MIM per Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). Questa soluzione richiede una sottoscrizione di Azure AD Premium P1. 
-   - [Script di PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). L'uso dello script è una soluzione più semplice che non richiede MIM o Azure AD Premium. 
+   - Microsoft Identity Manager (MIM) e l'[agente di gestione MIM per Microsoft Graph](#create-b2b-guest-user-objects-through-mim-preview). 
+   - [Script di PowerShell](#create-b2b-guest-user-objects-through-a-script-preview). L'uso dello script è una soluzione più semplice che non richiede MIM. 
 
 Il diagramma seguente offre una panoramica generale del funzionamento combinato di Azure AD Application Proxy e della generazione dell'oggetto utente B2B nella directory locale per concedere agli utenti B2B l'accesso alle app locali di autenticazione integrata di Windows e delega vincolata Kerberos. I passaggi numerati sono descritti in dettaglio nel diagramma seguente.
 
@@ -86,6 +84,6 @@ Assicurarsi di avere le licenze CAL (Client Access License) corrette per gli ute
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Collaborazione B2B di Azure Active Directory per organizzazioni ibride](active-directory-b2b-hybrid-organizations.md)
-- [Concedere agli account partner gestiti in locale l'accesso alle risorse cloud usando Collaborazione B2B di Azure AD](active-directory-b2b-hybrid-on-premises-to-cloud.md)
+
 - Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](connect/active-directory-aadconnect.md).
 

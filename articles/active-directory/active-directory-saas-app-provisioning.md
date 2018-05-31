@@ -1,11 +1,11 @@
 ---
-title: Provisioning utenti automatizzato per app SaaS in Azure AD | Microsoft Docs
-description: "Introduzione all'uso di Azure AD per eseguire automaticamente il provisioning, il deprovisioning e l'aggiornamento continuo degli account utente in più applicazioni SaaS di terze parti."
+title: Provisioning di utenti automatizzato per app SaaS in Azure AD | Microsoft Docs
+description: Introduzione all'uso di Azure AD per eseguire automaticamente il provisioning, il deprovisioning e l'aggiornamento continuo degli account utente in più applicazioni SaaS di terze parti.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: e14ba62ce2d6c48e47a6b75387bcede68bb1a5b0
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069894"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Informazioni sul provisioning utenti automatizzato per app SaaS
@@ -80,7 +81,7 @@ Per contattare il team di progettazione di Azure AD e richiedere supporto per il
 
 La configurazione del servizio di provisioning di Azure AD per un'applicazione selezionata viene avviata nel **[portale di Azure](https://portal.azure.com)**. Nella sezione **Azure Active Directory > Applicazioni aziendali** selezionare **Aggiungi**, quindi scegliere **Tutti** e aggiungere quanto segue a seconda dello scenario:
 
-* Tutte le applicazioni nella sezione **Applicazioni in primo piano** supportano il provisioning automatico. Per eventuali altre applicazioni, vedere l'[elenco delle esercitazioni sulle applicazioni per il provisioning utenti]active-directory-saas-tutorial-list.md).
+* Tutte le applicazioni nella sezione **Applicazioni in primo piano** supportano il provisioning automatico. Per eventuali altre applicazioni, vedere l'[elenco delle esercitazioni sulle applicazioni per il provisioning utenti](active-directory-saas-tutorial-list.md).
 
 * Usare l'opzione "Applicazione non nella raccolta" per le integrazioni SCIM sviluppate in modo personalizzato
 
@@ -176,7 +177,7 @@ Dopo che tutti gli errori sono stati risolti, il processo di provisioning viene 
 
 Il livello delle prestazioni varia a seconda che la sincronizzazione eseguita dal processo di provisioning sia iniziale o incrementale.
 
-Per le sincronizzazioni iniziali, il tempo di completamento dipende direttamente dal numero di utenti, gruppi e membri di gruppo presenti nel sistema di origine. I sistemi di origine di dimensioni molto ridotte con un numero di oggetti nell'ordine delle centinaia possono completare la sincronizzazione iniziale in pochi minuti. Al contrario, i sistemi di origine con centinaia di migliaia o milioni di oggetti combinati posso richiedere un tempo molto lungo.
+Per le sincronizzazioni iniziali, il tempo di completamento dipende direttamente dal numero di utenti, gruppi e membri di gruppo presenti nel sistema di origine. I sistemi di origine di dimensioni molto ridotte con un numero di oggetti nell'ordine delle centinaia possono completare la sincronizzazione iniziale in pochi minuti. Al contrario, i sistemi di origine con centinaia di migliaia o milioni di oggetti combinati richiedono più tempo.
 
 Per le sincronizzazioni incrementali, il tempo necessario dipende dal numero di modifiche rilevate in un ciclo di sincronizzazione specifico. Se vengono rilevate meno di 5000 modifiche relative a utenti o membri di gruppi, la sincronizzazione può essere in genere completata entro 40 minuti. 
 
@@ -194,7 +195,7 @@ Se non è necessario eseguire la sincronizzazione di gruppi o appartenenze a gru
 2. Usare i [filtri di ambito](active-directory-saas-scoping-filters.md) anziché le assegnazioni per filtrare l'elenco di utenti di cui viene eseguito il provisioning.
 
 > [!NOTE]
-> Per le applicazioni che supportano il provisioning dei nomi e delle proprietà dei gruppi, come ServiceNow e Google Apps, la disabilitazione del provisioning di questi dati consente di ridurre il tempo necessario per completare una sincronizzazione iniziale. Se non si vuole effettuare il provisioning di membri e nomi di gruppo nell'applicazione, è possibile disabilitare questa opzione nei [mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md) della configurazione di provisioning.
+> Per le applicazioni che supportano il provisioning dei nomi e delle proprietà dei gruppi, come ServiceNow e Google Apps, la disabilitazione del provisioning di questi dati consente di ridurre il tempo necessario per completare una sincronizzazione iniziale. Se non si vuole effettuare il provisioning di appartenenze e nomi di gruppo nell'applicazione, è possibile disabilitare questa opzione nei [mapping degli attributi](active-directory-saas-customizing-attribute-mappings.md) della configurazione di provisioning.
 
 **Come è possibile monitorare lo stato del processo di provisioning corrente?**
 
@@ -220,4 +221,5 @@ Vedere [Uso di System for Cross-Domain Identity Management per abilitare il prov
 * [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Panoramica dell'API di sincronizzazione di Azure AD)
+* [Step-by-step deployment plan for outbound user provisioning of an application](https://aka.ms/userprovisioningdeploymentplan) (Piano di distribuzione dettagliato per il provisioning degli utenti in uscita di un'applicazione)
 

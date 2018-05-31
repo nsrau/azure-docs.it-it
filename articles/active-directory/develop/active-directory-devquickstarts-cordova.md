@@ -2,24 +2,26 @@
 title: Introduzione a Cordova per Azure AD | Microsoft Docs
 description: Come compilare un'applicazione Cordova che si integra con Azure AD per l'accesso e chiama le API protette di Azure AD usando OAuth.
 services: active-directory
-documentationcenter: 
-author: vibronet
+documentationcenter: ''
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b1a8d7bd-7ad6-44d5-8ccb-5255bb623345
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: vittorib
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d6f1d545265f0965a03afb23e5791cdd5e5e379c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6d6d514875aa675bf160ee08a3e94b58944020ee
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156732"
 ---
 # <a name="azure-ad-cordova-getting-started"></a>Introduzione a Cordova per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -33,7 +35,7 @@ Un plug-in Cordova esegue il wrapping di SDK nativi di Azure AD in iOS, Android,
 In questa esercitazione viene usato il plug-in Apache Cordova per Active Directory Authentication Library (ADAL) per migliorare una semplice app aggiungendo le funzionalità seguenti:
 
 * Sono sufficienti poche righe di codice per autenticare un utente e ottenere un token.
-* Usare il token per richiamare l'API Graph per eseguire query sulla directory e visualizzare i risultati.  
+* Usare il token per richiamare l'API Graph per eseguire query sulla directory e visualizzare i risultati. 
 * Usare la cache dei token di ADAL per ridurre al minimo le richieste di autenticazione per l'utente.
 
 Per apportare i miglioramenti, è necessario eseguire queste operazioni:
@@ -47,7 +49,7 @@ Per apportare i miglioramenti, è necessario eseguire queste operazioni:
 Per completare questa esercitazione, sono necessari:
 
 * Tenant di Azure AD nel quale è disponibile un account con diritti per lo sviluppo di app.
-* Ambiente di sviluppo configurato per l'uso di Apache Cordova.  
+* Ambiente di sviluppo configurato per l'uso di Apache Cordova. 
 
 Se entrambi questi elementi sono già configurati, andare direttamente al passaggio 1.
 
@@ -94,12 +96,12 @@ Azure AD rilascia token solo alle applicazioni note. Prima di poter usare Azure 
   * Il **nome** descrive l'applicazione agli utenti.
   * **URI di reindirizzamento** è l'URI usato per restituire i token all'app. Immettere **http://MyDirectorySearcherApp**.
 
-Al termine della registrazione, Azure AD assegna un ID applicazione univoco all'app. Questo valore servirà nelle sezioni successive. È possibile trovarlo nella scheda applicazione dell'app appena creata.
+Dopo aver completato la registrazione, Azure AD assegna all'app un ID applicazione univoco. Questo valore servirà nelle sezioni successive. È possibile trovarlo nella scheda applicazione dell'app appena creata.
 
 Per eseguire `DirSearchClient Sample`, assegnare all'app appena creata l'autorizzazione ad eseguire query nell'API Graph di Azure AD:
 
-1. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e selezionare **Aggiungi**.  
-2. Per l'applicazione Azure Active Directory, selezionare **Microsoft Graph** come API e aggiungere l'autorizzazione **Access the directory as the signed-in user** (Accesso alla directory come utente connesso) in **Autorizzazioni delegate**.  In questo modo l'applicazione può cercare gli utenti nell'API Graph.
+1. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e selezionare **Aggiungi**. 
+2. Per l'applicazione Azure Active Directory, selezionare **Microsoft Graph** come API e aggiungere l'autorizzazione **Access the directory as the signed-in user** (Accesso alla directory come utente connesso) in **Autorizzazioni delegate**. In questo modo l'applicazione può cercare gli utenti nell'API Graph.
 
 ## <a name="step-2-clone-the-sample-app-repository"></a>Passaggio 2: Clonare il repository di app di esempio
 Dalla shell o dalla riga di comando digitare il comando seguente:

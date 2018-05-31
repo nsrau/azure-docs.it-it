@@ -11,16 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/14/2018
 ms.author: vinagara
-ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166183"
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Come estendere (copiare) avvisi da OMS ad Azure
 A partire dal **14 maggio 2018**, tutti gli avvisi configurati in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) verranno estesi ad Azure. Gli avvisi estesi ad Azure hanno le stesse caratteristiche degli avvisi di OMS. Le funzionalità di monitoraggio rimangono inalterate. L'estensione degli avvisi creati in OMS ad Azure offre numerosi vantaggi. Per altre informazioni sui vantaggi e sul processo di estensione degli avvisi da OMS ad Azure, vedere [Estendere gli avvisi da OMS ad Azure](monitoring-alerts-extend.md).
+
+> [!NOTE]
+> A partire dal 14 maggio 2018 Microsoft inizierà il processo di estensione automatica degli avvisi in Azure. Non tutte le aree di lavoro e gli avvisi verranno estesi in quel giorno: Microsoft inizierà a estendere automaticamente gli avvisi in quote nelle prossime settimane. Di conseguenza gli avvisi nel portale di OMS non verranno estesi automaticamente in Azure il 14 maggio 2018 e gli utenti potranno ancora estendere manualmente gli avvisi usando le opzioni seguenti.
 
 I clienti che vogliono spostare gli avvisi da OMS ad Azure immediatamente, possono usare una delle opzioni indicate di seguito.
 
@@ -236,6 +240,14 @@ Di seguito sono elencate le procedure di correzione per ogni errore:
     a. Quando è abilitato il blocco dell'ambito, che limita le nuove modifiche nella sottoscrizione o nel gruppo di risorse contenente l'area di lavoro di Log Analytics (OMS), il sistema non è in grado di estendere (copiare) gli avvisi in Azure e creare i gruppi di azioni necessari.
     
     b. Per risolvere il problema, eliminare il blocco *ReadOnly* sulla sottoscrizione o il gruppo di risorse che contiene l'area di lavoro usando PowerShell, l'interfaccia della riga di comando di Azure, il portale di Azure o l'API. Per altre informazioni, vedere l'articolo sull'[utilizzo del blocco delle risorse](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Una volta risolto l'errore in base alla procedura illustrata nell'articolo, OMS estenderà gli avvisi in Azure durante l'esecuzione pianificata del giorno successivo senza bisogno di alcun intervento.
+
+3. **Error: Policy is present at subscription/resource group level** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un criterio): ![Pagina Impostazioni avvisi del portale di OMS con messaggio di errore di criterio](./media/monitor-alerts-extend/ErrorPolicy.png)
+
+    a. Quando è applicato il [criterio di Azure](../azure-policy/azure-policy-introduction.md), che limita le nuove risorse nella sottoscrizione o nel gruppo di risorse contenente l'area di lavoro di Log Analytics (OMS), il sistema non è in grado di estendere (copiare) gli avvisi in Azure e creare i gruppi di azioni necessari.
+    
+    b. Per risolvere, modificare il criterio che causa l'errore *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*  che impedisce la creazione di nuove risorse nella sottoscrizione o nel gruppo di risorse che contiene l'area di lavoro. Usando il portale di Azure, Powershell, l'interfaccia della riga di comando di Azure o l'API è possibile controllare le azioni per trovare il criterio che provoca l'errore. Per altre informazioni, visualizzare l'articolo sulla [visualizzazione dei log attività per il controllo delle azioni](../azure-resource-manager/resource-group-audit.md). 
     
     c. Una volta risolto l'errore in base alla procedura illustrata nell'articolo, OMS estenderà gli avvisi in Azure durante l'esecuzione pianificata del giorno successivo senza bisogno di alcun intervento.
 

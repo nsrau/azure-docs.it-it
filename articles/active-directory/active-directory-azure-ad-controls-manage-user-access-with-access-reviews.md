@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 05/16/2018
 ms.author: billmath
-ms.openlocfilehash: b11f0b2032a102501de1da8315e80df88bfd57d5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192490"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -30,7 +31,11 @@ Con Azure Active Directory (Azure AD), è possibile verificare facilmente che gl
 
 ## <a name="prerequisites"></a>prerequisiti 
 
+
+Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md). Ogni utente che interagisce con questa funzionalità, ad esempio per creare una verifica, compilarla oppure verificare il proprio accesso, necessita di una licenza. 
+
 Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-whatis.md). Ogni utente che interagisce con questa funzionalità per accedere a una verifica oppure crearne o applicarne una necessita di una licenza.
+
 
 
 ## <a name="create-and-perform-an-access-review"></a>Creare ed eseguire una verifica di accesso

@@ -1,6 +1,6 @@
 ---
-title: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
-description: Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
+title: Progetto di sicurezza e conformità di Azure - Applicazioni Web per FedRAMP
+description: Progetto di sicurezza e conformità di Azure - Applicazioni Web per FedRAMP
 services: security
 documentationcenter: na
 author: jomolesk
@@ -12,83 +12,125 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2018
+ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 28da21ad962b29810a3c4dace9fba8b1a96799f1
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b7a81db6a1caf11ac4a85a5202c5ed943225e849
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941936"
 ---
-# <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP
+# <a name="azure-security-and-compliance-blueprint-web-application-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: Applicazioni Web per FedRAMP
 
 ## <a name="overview"></a>Panoramica
 
-Il [programma FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov) è un programma governativo degli Stati Uniti che stabilisce un approccio standard per quanto riguarda valutazione della sicurezza, autorizzazione e monitoraggio continuo per i prodotti e i servizi cloud. Questo progetto di automazione Azure Security and Compliance Blueprint contiene le linee guida per la distribuzione di un ambiente di infrastruttura distribuita come servizio (IaaS) conforme a FedRAMP adatto per una semplice applicazione Web per Internet. Questa soluzione automatizza la distribuzione e la configurazione delle risorse di Azure per un'architettura di riferimento comune, mostrando i diversi modi in cui i clienti possono soddisfare requisiti specifici di sicurezza e conformità, e costituisce un'architettura di base con cui i clienti possono creare e configurare soluzioni personalizzate in Azure. La soluzione implementa un subset di controlli basati sui principi di base di FedRAMP High e su NIST SP 800-53. Per altre informazioni sui requisiti di FedRAMP High e su questa soluzione, vedere [FedRAMP High Requirements - High-Level Overview](fedramp-iaaswa-controls-overview.md) (Requisiti di FedRAMP High - Panoramica generale). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
+Il [programma FedRAMP, ovvero Federal Risk and Authorization Management Program](https://www.fedramp.gov), è un programma governativo degli Stati Uniti che stabilisce un approccio standard per quanto riguarda valutazione della sicurezza, autorizzazione e monitoraggio continuo per i prodotti e i servizi cloud. L'automazione del progetto di sicurezza e conformità di Azure contiene le linee guida per la distribuzione di un ambiente di infrastruttura distribuita come servizio, ovvero IaaS, conforme a FedRAMP adatto a una semplice applicazione Web per Internet. Questa soluzione automatizza la distribuzione e la configurazione delle risorse di Azure per un'architettura di riferimento comune, mostrando i diversi modi in cui i clienti possono soddisfare requisiti specifici di sicurezza e conformità, e costituisce un'architettura di base con cui i clienti possono creare e configurare soluzioni personalizzate in Azure. La soluzione implementa un subset di controlli basati sui principi di base di FedRAMP High e su NIST SP 800-53. Per altre informazioni sui requisiti di FedRAMP e su questa soluzione, vedere la [documentazione sulla conformità](#compliance-documentation).
+> [!NOTE]
+> Questa soluzione viene distribuita in Azure per enti pubblici.
+
+Questo progetto di automazione Azure Security and Compliance Blueprint distribuisce automaticamente un'architettura di riferimento per applicazioni Web IaaS con controlli di sicurezza preconfigurati per aiutare i clienti a realizzare la conformità ai requisiti di FedRAMP. La soluzione è costituita da modelli di Azure Resource Manager e script di PowerShell che semplificano la distribuzione e la configurazione delle risorse.
 
 Questa architettura è una soluzione di base che i clienti possono adattare ai propri requisiti specifici e che non deve essere usata così com'è in un ambiente di produzione. La distribuzione di un'applicazione in questo ambiente senza modifiche non è sufficiente a soddisfare completamente i requisiti dei principi di base di FedRAMP High. Tenere presente quanto segue:
 - Questa architettura offre una soluzione di base per aiutare i clienti a usare Azure in modo conforme a FedRAMP.
-- I clienti hanno la responsabilità di svolgere una valutazione appropriata della sicurezza e della conformità di qualsiasi soluzione creata con questa architettura, in quanto i requisiti possono variare a seconda delle specifiche dell'implementazione di ogni cliente. 
+- I clienti hanno la responsabilità di svolgere una valutazione appropriata della sicurezza e della conformità di qualsiasi soluzione creata con questa architettura, in quanto i requisiti possono variare a seconda delle specifiche dell'implementazione di ogni cliente.
 
 Per una rapida panoramica del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/fedrampblueprintvideo), che ne spiega e descrive la distribuzione.
 
 Fare clic [qui](https://aka.ms/fedrampblueprintrepo) per le istruzioni di distribuzione.
 
-## <a name="solution-components"></a>Componenti della soluzione
+## <a name="architecture-diagram-and-components"></a>Diagramma e componenti dell'architettura
+Questa soluzione distribuisce un'architettura di riferimento per un'applicazione Web IaaS con back-end di SQL Server. L'architettura include un livello Web, un livello dati, un'infrastruttura Active Directory, un gateway applicazione e un bilanciamento del carico. Le macchine virtuali distribuite nei livelli Web e dati sono configurate in un set di disponibilità, mentre le istanze di SQL Server sono configurate in un gruppo di disponibilità AlwaysOn per disponibilità elevata. Le macchine virtuali sono aggiunte a un dominio e vengono usati criteri di gruppo di Active Directory per applicare le configurazioni di sicurezza e conformità a livello di sistema operativo. Un bastion host offre una connessione sicura agli amministratori per accedere alle risorse distribuite. **Azure consiglia di configurare una rete VPN o una connessione Azure ExpressRoute per la gestione e l'importazione dei dati in questa subnet dell'architettura di riferimento.**
 
-Questo progetto di automazione Azure Security and Compliance Blueprint distribuisce automaticamente un'architettura di riferimento per applicazioni Web IaaS con controlli di sicurezza preconfigurati per aiutare i clienti a realizzare la conformità ai requisiti di FedRAMP. La soluzione è costituita da modelli di Azure Resource Manager e script di PowerShell che semplificano la distribuzione e la configurazione delle risorse. Viene fornita la [documentazione sulla conformità](#compliance-documentation) correlata, che indica i controlli di sicurezza ereditati da Azure e le risorse e le configurazioni distribuite allineate ai controlli di sicurezza NIST SP 800-53, per consentire alle organizzazioni di adeguarsi agli obblighi in materia di conformità.
-
-## <a name="architecture-diagram"></a>Diagramma dell'architettura
-
-Questa soluzione distribuisce un'architettura di riferimento per un'applicazione Web IaaS con back-end di database. L'architettura include un livello Web, un livello dati, un'infrastruttura Active Directory, un gateway applicazione e un servizio di bilanciamento del carico. Le macchine virtuali distribuite nei livelli Web e dati sono configurate in un set di disponibilità, mentre le istanze di SQL Server sono configurate in un gruppo di disponibilità AlwaysOn per disponibilità elevata. Le macchine virtuali sono aggiunte a un dominio e vengono usati criteri di gruppo di Active Directory per applicare le configurazioni di sicurezza e conformità a livello di sistema operativo. Un jumpbox di gestione (bastion host) fornisce una connessione sicura agli amministratori per accedere alle risorse distribuite.
-
-![testo alternativo](images/fedramp-iaaswa-architecture.png?raw=true "Azure Security and Compliance Blueprint - Automazione di applicazioni Web per FedRAMP")
+![Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FedRAMP](images/fedramp-iaaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web IaaS per FedRAMP")
 
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
-* **Macchine virtuali di Azure**
-    - (1) Gestione/bastion (Windows Server 2016 Datacenter)
+- Macchine virtuali di Azure
+    - (1) Bastion host (Windows Server 2016 Datacenter)
     - (2) Controller di dominio Active Directory (Windows Server 2016 Datacenter)
-    - (2) Nodo del cluster SQL Server (SQL Server 2016 su Windows Server 2012 R2)
-    - (1) Controllo di SQL Server (Windows Server 2016 Datacenter)
+    - (2) Nodo del cluster SQL Server (SQL Server 2017 su Windows Server 2016)
     - (2) Web/IIS (Windows Server 2016 Datacenter)
-* **Set di disponibilità**
+- SET DI DISPONIBILITÀ
     - (1) Controller di dominio Active Directory
-    - (1) Controllo e nodi del cluster SQL
+    - (1) Nodi del cluster SQL
     - (1) Web/IIS
-* **Rete virtuale di Azure**
+- Rete virtuale di Azure
     - (1) /16 reti virtuali
     - (5) /24 subnet
     - Impostazioni DNS configurate in entrambi i controller di dominio
-* **Servizio di bilanciamento del carico di Azure**
-    - (1) Servizio di bilanciamento del carico SQL
-* **Gateway applicazione Azure**
+- Azure Load Balancer
+- Gateway applicazione di Azure
     - (1) Gateway applicazione WAF abilitato
-      - Modalità firewall: prevenzione
-      - Set di regole: OWASP 3.0
-      - Listener: porta 443
-* **Archiviazione di Azure**
+        - Modalità firewall: prevenzione
+        - Set di regole: OWASP 3.0
+        - Listener: porta 443
+- Archiviazione di Azure
     - (7) Account di archiviazione con ridondanza geografica
-* **Backup di Azure**
-    - (1) Insieme di credenziali di Servizi di ripristino
-* **Insieme di credenziali chiave Azure**
-    - (1) Key Vault
-* **Azure Active Directory**
-* **Azure Resource Manager**
-* **Log Analytics di Azure**
-    - (1) Area di lavoro di Log Analytics
-* **Automazione di Azure**
-    - (1) Account di automazione
+- Cloud di controllo di Azure
+- Insieme di credenziali dei servizi di ripristino
+- Azure Key Vault
+- Azure Active Directory (Azure AD)
+- Azure Resource Manager
+- Operations Management Suite (OMS)
+- Monitoraggio di Azure
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
 La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e implementazione.
 
-### <a name="network-segmentation-and-security"></a>Segmentazione e sicurezza della rete
+**Bastion host**: il bastion host è l'unico punto di ingresso che offre una connessione sicura agli amministratori per accedere alle risorse distribuite. Il gruppo di sicurezza di rete del bastion host consente le connessioni solo sulla porta TCP 3389 per RDP. I clienti possono anche configurare il bastion host per soddisfare i requisiti di protezione avanzata del sistema aziendale.
 
-#### <a name="application-gateway"></a>Gateway applicazione
+### <a name="virtual-network"></a>Rete virtuale
+L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10.200.0.0/16.
 
-L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione con web application firewall (WAF) e il set di regole OWASP abilitati. Altre funzionalità:
+**Gruppi di sicurezza di rete**: questa soluzione distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate all'interno di una rete virtuale. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione.
+
+Vedere la configurazione per i [gruppi di sicurezza di rete](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribuita con questa soluzione. I clienti possono configurare i gruppi di sicurezza di rete modificando il file indicato sopra mediante [questa documentazione](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) come riferimento.
+
+Ognuna delle subnet ha un gruppo di sicurezza di rete dedicato:
+- 1 gruppo di sicurezza di rete per il gateway applicazione (LBNSG)
+- 1 gruppo di sicurezza di rete per il bastion host (MGTNSG)
+- 1 gruppo di sicurezza di rete per i controller di dominio primario e di backup (ADNSG)
+- 1 gruppo sicurezza di rete per SQL Server (SQLNSG)
+- 1 gruppo di sicurezza di rete per il livello Web (WEBNSG)
+
+**Subnet**: ogni subnet è associata al gruppo di sicurezza di rete corrispondente.
+
+### <a name="data-at-rest"></a>Dati inattivi
+
+L'architettura protegge i dati inattivi attraverso diverse misure di crittografia.
+
+**Archiviazione di Azure**: per soddisfare i requisiti di crittografia dei dati inattivi, tutti gli account di archiviazione usano la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+
+**SQL Server**: SQL Server è configurato per l'uso di [Transparent Data Encryption, ovvero TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), che esegue la crittografia e la decrittografia in tempo reale dei dati e dei file di log per proteggere le informazioni inattive. TDE garantisce che i dati archiviati non siano soggetti ad accesso non autorizzato.
+
+I clienti possono anche configurare le misure di sicurezza seguenti per SQL Server:
+-   L'[autenticazione e l'autorizzazione di AD](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) consentono la gestione delle identità degli utenti del database e di altri servizi Microsoft in una posizione centrale.
+-   Il [controllo del database SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing-get-started) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo in un account di Archiviazione di Azure.
+-   Le [regole del firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) impediscono completamente l'accesso ai server di database fino alla concessione delle autorizzazioni appropriate. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
+-   Il [servizio di rilevamento delle minacce di SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-threat-detection-get-started) consente di rilevare e di rispondere a minacce potenziali non appena si verificano, visualizzando avvisi relativi alla sicurezza per attività sospette del database, vulnerabilità potenziali, attacchi SQL injection e modelli di accesso al database anomali.
+-   Le [colonne Always Encrypted](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault) assicurano che i dati sensibili non vengano mai visualizzati come testo non crittografato all'interno del sistema di database. Dopo l'abilitazione della crittografia dei dati, solo le applicazioni client o i server applicazioni con accesso alle chiavi possono accedere ai dati in testo non crittografato.
+-   [La maschera dati dinamica del database SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-dynamic-data-masking-get-started) può essere creata dopo la distribuzione dell'architettura di riferimento. I clienti dovranno modificare le impostazioni della maschera dati dinamica in modo da adattarle al proprio schema del database.
+
+**Crittografia dischi di Azure**: questo servizio viene usato per crittografare i dischi delle macchine virtuali IaaS Windows. [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) sfrutta la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Azure Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
+
+### <a name="identity-management"></a>Gestione delle identità
+
+Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'ambiente Azure:
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud.
+- L'autenticazione a un'applicazione Web distribuita dal cliente può essere eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
+- Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione, mentre l'accesso alle risorse può essere limitato in base al ruolo utente.
+- Un'istanza di Active Directory IaaS distribuita fornisce la gestione delle identità a livello di sistema operativo per le macchine virtuali IaaS distribuite.
+
+### <a name="security"></a>Sicurezza
+**Gestione dei segreti**: la soluzione usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi e dei segreti. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Azure Key Vault consente di gestire le chiavi e i segreti di crittografia dei dischi delle macchine virtuali IaaS per questa architettura di riferimento.
+
+**Gestione delle patch**: le macchine virtuali Windows distribuite tramite l'automazione del progetto di sicurezza e conformità di Azure vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
+
+**Protezione da malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato prova a installare o eseguire se stesso su macchine virtuali protette.
+
+**Gateway applicazione**: l'architettura riduce il rischio di vulnerabilità della sicurezza tramite un gateway applicazione con web application firewall, ovvero WAF, e il set di regole OWASP abilitato. Altre funzionalità:
 
 - [SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Offload SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
@@ -96,125 +138,52 @@ L'architettura riduce il rischio di vulnerabilità della sicurezza tramite un ga
 - [Web application firewall](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (modalità WAF)
 - [Modalità di prevenzione](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) con set di regole OWASP 3.0
 
-#### <a name="virtual-network"></a>Rete virtuale
+### <a name="business-continuity"></a>Continuità aziendale
 
-L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10.200.0.0/16.
+**Disponibilità elevata**: almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, rispettando il Contratto di servizio di Azure al 99,95%. La soluzione distribuisce tutte le macchine virtuali di livello Web e di livello dati in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). I set di disponibilità assicurano che le macchine virtuali vengano distribuite in più cluster hardware isolati per migliorare la disponibilità. Questa soluzione distribuisce anche macchine virtuali SQL Server in un set di disponibilità come il [gruppo di disponibilità AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). Il gruppo di disponibilità Always On offre funzionalità di ripristino di emergenza e disponibilità elevata.
 
-#### <a name="network-security-groups"></a>Gruppi di sicurezza di rete
+**Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
 
-Questa soluzione distribuisce le risorse in un'architettura con una subnet Web, una subnet di database, una subnet Active Directory e una subnet di gestione separate all'interno di una rete virtuale. Le subnet sono separate logicamente da regole del gruppo di sicurezza di rete applicate alle singole subnet per limitare il traffico tra subnet esclusivamente a quello necessario per le funzionalità di sistema e di gestione.
-
-Vedere la configurazione per i [gruppi di sicurezza di rete](https://github.com/Azure/fedramp-iaas-webapp/blob/master/nestedtemplates/virtualNetworkNSG.json) distribuita con questa soluzione. Le organizzazioni possono configurare gruppi di sicurezza di rete modificando il file indicato sopra usando [questa documentazione](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) come riferimento.
-
-Ognuna delle subnet ha un gruppo di sicurezza di rete dedicato:
-- 1 gruppo di sicurezza di rete per il gateway applicazione (LBNSG)
-- 1 gruppo di sicurezza di rete per il jumpbox (MGTNSG)
-- 1 gruppo di sicurezza di rete per i controller di dominio primario e di backup (ADNSG)
-- 1 gruppo di sicurezza di rete per SQL Server e il controllo di condivisione file (SQLNSG)
-- 1 gruppo di sicurezza di rete per il livello Web (WEBNSG)
-
-#### <a name="subnets"></a>Subnet
-
-Ogni subnet è associata al rispettivo gruppo di sicurezza di rete.
-
-### <a name="data-at-rest"></a>Dati inattivi
-
-L'architettura protegge i dati inattivi attraverso diverse misure di crittografia.
-
-#### <a name="azure-storage"></a>Archiviazione di Azure
-
-Per soddisfare i requisiti di crittografia dei dati inattivi, tutti gli account di archiviazione usano la [crittografia del servizio di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
-
-#### <a name="sql-database"></a>Database SQL
-
-Il database SQL è configurato per l'uso di [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption), che esegue la crittografia e la decrittografia in tempo reale dei dati e dei file di log per proteggere le informazioni inattive. TDE garantisce che i dati archiviati non siano soggetti ad accesso non autorizzato. 
-
-#### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-
-Crittografia dischi di Azure viene usato per crittografare i dischi delle macchine virtuali IaaS Windows. [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) sfrutta la funzionalità BitLocker di Windows per fornire la crittografia del volume per i dischi dati e del sistema operativo. La soluzione è integrata con Azure Key Vault per semplificare il controllo e la gestione delle chiavi di crittografia dei dischi.
+**Cloud di controllo**: il [cloud di controllo](https://docs.microsoft.com/en-us/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) è un tipo di controllo del quorum del cluster di failover in Windows Server 2016 che sfrutta Azure come punto di arbitraggio. Il cloud di controllo, come qualsiasi altro controllo del quorum, ottiene un voto e può partecipare ai calcoli del quorum, ma usa il servizio Archiviazione BLOB di Azure standard disponibile pubblicamente. Ciò consente di evitare il sovraccarico di manutenzione per le macchine virtuali ospitate in un cloud pubblico.
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) fornisce una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. 
+OMS offre una soluzione di registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) di OMS raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 
-- **Log attività:** i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione.
+- **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) includono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
 - **Log di diagnostica:** i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
-- **Archiviazione dei log:**  i log attività e i log di diagnostica di Azure possono essere connessi ad Azure Log Analytics per l'elaborazione, l'archiviazione e la creazione di dashboard. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione.
+- **Archiviazione di log**: tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log si connettono quindi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la creazione di report nel dashboard.
 
-### <a name="secrets-management"></a>Gestione dei segreti
+Questa architettura include anche l'installazione delle soluzioni OMS seguenti. Si noti che è responsabilità del cliente configurare le soluzioni per allinearle ai controlli di sicurezza FedRAMP:
+-   [Valutazione AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
+-   [Valutazione antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la soluzione Antimalware crea report relativi a malware, minacce e stato della protezione.
+-   [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la soluzione Automazione di Azure archivia, esegue e gestisce i runbook.
+-   [Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): il dashboard Sicurezza e controllo offre informazioni dettagliate sullo stato di sicurezza delle risorse, grazie a metriche relative a domini di sicurezza, problemi rilevanti, rilevamenti, intelligence per le minacce e query comuni per la sicurezza.
+-   [Valutazione SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la soluzione Controllo integrità SQL valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
+-   [Gestione aggiornamenti](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): la soluzione Gestione aggiornamenti consente ai clienti di gestire gli aggiornamenti della sicurezza del sistema operativo, offrendo anche lo stato degli aggiornamenti disponibili e un processo per l'installazione di quelli necessari.
+-   [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): la soluzione Integrità agente segnala il numero di agenti distribuiti e la rispettiva distribuzione geografica, oltre al numero di agenti non reattivi e a quello di agenti che inviano dati operativi.
+-   [Log attività di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la soluzione Analisi log attività fornisce assistenza per l'analisi dei log attività di Azure in tutte le sottoscrizioni di Azure per un cliente.
+-   [Rilevamento modifiche](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): la soluzione Rilevamento modifiche consente ai clienti di identificare con facilità le modifiche apportate all'ambiente.
 
-La soluzione usa Azure Key Vault per gestire chiavi e segreti.
+**Monitoraggio di Azure**
+[Monitoraggio di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) consente agli utenti di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze, consentendo alle organizzazioni di controllare, creare avvisi e archiviare i dati, incluso il rilevamento delle chiamate API nelle risorse di Azure dei clienti.
 
-- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) consente di proteggere le chiavi di crittografia e i segreti usati da applicazioni e servizi cloud. 
-- La soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi delle macchine virtuali IaaS.
+## <a name="threat-model"></a>Modello di minaccia
+Il diagramma di flusso di dati per questa architettura di riferimento è disponibile per il [download](https://aka.ms/fedrampWAdfd) o è riportato più avanti. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema quando vengono apportate modifiche.
 
-### <a name="identity-management"></a>Gestione delle identità
-
-Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'ambiente Azure.
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud.
-- L'autenticazione a un'applicazione Web distribuita dal cliente può essere eseguita tramite Azure AD. Per altre informazioni, vedere [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- Il [controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) consente un'accurata gestione degli accessi per Azure. L'accesso alla sottoscrizione è limitato all'amministratore della sottoscrizione, mentre l'accesso alle risorse può essere limitato in base al ruolo utente.
-- Un'istanza di Active Directory IaaS distribuita fornisce la gestione delle identità a livello di sistema operativo per le macchine virtuali IaaS distribuite.
-   
-### <a name="compute-resources"></a>Risorse di calcolo
-
-#### <a name="web-tier"></a>Livello Web
-
-La soluzione distribuisce macchine virtuali di livello Web in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). I set di disponibilità assicurano che le macchine virtuali vengano distribuite in più cluster hardware isolati per migliorare la disponibilità.
-
-#### <a name="database-tier"></a>Livello database
-
-La soluzione distribuisce macchine virtuali di livello database in un set di disponibilità come [gruppo di disponibilità AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview). Il gruppo di disponibilità Always On offre funzionalità di ripristino di emergenza e disponibilità elevata. 
-
-#### <a name="active-directory"></a>Active Directory
-
-Tutte le macchine virtuali distribuite dalla soluzione sono aggiunte a un dominio e vengono usati criteri di gruppo di Active Directory per applicare le configurazioni di sicurezza e conformità a livello di sistema operativo. Le macchine virtuali Active Directory vengono distribuite in un set di disponibilità.
-
-
-#### <a name="jumpbox-bastion-host"></a>Jumpbox (bastion host)
-
-Un jumpbox di gestione (bastion host) fornisce una connessione sicura agli amministratori per accedere alle risorse distribuite. Il gruppo di sicurezza di rete associato alla subnet di gestione in cui si trova la macchina virtuale jumpbox consente connessioni solo sulla porta TCP 3389 per RDP. 
-
-### <a name="malware-protection"></a>Protezione antimalware
-
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato tenta di installare o eseguire se stesso su macchine virtuali protette.
-
-### <a name="patch-management"></a>Gestione delle patch
-
-Le macchine virtuali Windows distribuite tramite questo progetto di automazione Azure Security and Compliance Blueprint vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione distribuisce anche la soluzione di automazione di Azure tramite la quale è possibile creare distribuzioni di aggiornamento per distribuire patch nei server Windows in base alle esigenze.
-
-### <a name="operations-management"></a>Operations Management
-
-#### <a name="log-analytics"></a>Log Analytics
-
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio che consente la raccolta e l'analisi dei dati generati dalle risorse in Azure e negli ambienti locali.
-
-#### <a name="management-solutions"></a>Soluzioni di gestione
-
-Le soluzioni di gestione seguenti sono preinstallate come parte di questa soluzione:
-- [Valutazione di AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
-- [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
-- [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)
-- [Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)
-- [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)
-- [Gestione degli aggiornamenti](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management)
-- [Integrità agente](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)
-- [Log attività di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)
-- [Rilevamento delle modifiche](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)
+![Modello di minaccia dell'applicazione Web IaaS per FedRAMP](images/fedramp-iaaswa-threat-model.png?raw=true "Modello di minaccia dell'applicazione Web IaaS per FedRAMP")
 
 ## <a name="compliance-documentation"></a>Documentazione sulla conformità
 
-### <a name="customer-responsibility-matrix"></a>Matrice delle responsabilità del cliente
+Il [Progetto di conformità e sicurezza di Azure - Matrice di responsabilità clienti FedRAMP High](https://aka.ms/blueprinthighcrm) elenca tutti i controlli di sicurezza richiesti dalla baseline FedRAMP High. La matrice denota se l'implementazione di ogni controllo è responsabilità di Microsoft, del cliente o di entrambi.
 
-La [matrice delle responsabilità del cliente](https://aka.ms/blueprinthighcrm) (cartella di lavoro di Excel) elenca tutti i controlli di sicurezza richiesti dai principi di base di FedRAMP High. La matrice indica, per ogni controllo (o sottoparte di un controllo), se la responsabilità dell'implementazione per il controllo è di Microsoft, del cliente o condivisa tra i due. 
-
-### <a name="control-implementation-matrix"></a>Matrice di implementazione dei controlli
-
-La [matrice di implementazione dei controlli](https://aka.ms/blueprintwacim) (cartella di lavoro di Excel) elenca tutti i controlli di sicurezza richiesti dai principi di base di FedRAMP High. La matrice indica, per ogni controllo (o sottoparte di un controllo) per cui è assegnata una responsabilità al cliente nella matrice delle responsabilità del cliente, 1) se la soluzione di automazione implementa il controllo e 2) una descrizione dell'allineamento dell'implementazione ai requisiti di controllo. Queste informazioni sono disponibili anche [qui](fedramp-iaaswa-controls-overview.md).
+Il [Progetto di conformità e sicurezza di Azure - Matrice di implementazione del controllo di applicazioni Web IaaS per FedRAMP High](https://aka.ms/blueprintwacim) elenca tutti i controlli di sicurezza richiesti dalla baseline di FedRAMP High. La matrice offre informazioni sui controlli previsti dall'architettura dell'applicazione Web IaaS, incluse le descrizioni dettagliate del modo in cui l'implementazione soddisfa i requisiti di ogni controllo previsto.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo). ***Nota: questa soluzione viene distribuita in Azure per enti pubblici.***
+Questo progetto di automazione Azure Security and Compliance Blueprint è costituito da file di configurazione JSON e script di PowerShell gestiti dal servizio API di Azure Resource Manager per distribuire risorse in Azure. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/fedrampblueprintrepo).
+> [!NOTE]
+> Questa soluzione viene distribuita in Azure per enti pubblici.
 
 #### <a name="quickstart"></a>Guida introduttiva
 1. Clonare o scaricare [questo](https://aka.ms/fedrampblueprintrepo) repository GitHub nella workstation locale.
@@ -224,6 +193,16 @@ Questo progetto di automazione Azure Security and Compliance Blueprint è costit
 3. Fare clic sul pulsante di seguito, accedere al portale di Azure, immettere i parametri del modello di Azure Resource Manager richiesti e quindi fare clic su **Acquista**.
 
     [![Distribuzione in Azure](http://azuredeploy.net/AzureGov.png)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Ffedramp-iaas-webapp%2Fmaster%2Fazuredeploy.json)
+
+## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
+### <a name="vpn-and-expressroute"></a>VPN ed ExpressRoute
+È necessario configurare un tunnel VPN sicuro o un'istanza di [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) per stabilire in modo sicuro la connessione alle risorse distribuite come parte di questa architettura di riferimento dell'applicazione Web IaaS. La configurazione corretta di una VPN o di una connessione ExpressRoute consente ai clienti di aggiungere un livello di protezione per i dati in transito.
+
+L'implementazione di un tunnel VPN sicuro con Azure consente di creare una connessione virtuale privata tra una rete locale e una rete virtuale di Azure. Questa connessione viene eseguita via Internet e consente ai clienti di inviare in modo sicuro le informazioni attraverso un "tunnel" all'interno di un collegamento crittografato tra la rete del cliente e Azure. La rete VPN da sito a sito è una tecnologia sicura e collaudata, che viene distribuita da aziende di ogni dimensione ormai da decenni. La [modalità tunnel IPsec](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) viene usata in questa opzione come meccanismo di crittografia.
+
+Poiché il traffico entro il tunnel VPN attraversa Internet con una connessione VPN da sito a sito, Microsoft offre un'altra opzione di connessione ancora più sicura. Azure ExpressRoute è un collegamento WAN dedicato tra Azure e una posizione locale o un provider di hosting di Exchange. Poiché le connessioni ExpressRoute non sfruttano la rete Internet, queste connessioni offrono un livello di sicurezza superiore, maggiore affidabilità, velocità più elevate e minori latenze rispetto alle connessioni Internet tradizionali. Poiché inoltre si tratta di una connessione diretta del provider di telecomunicazioni del cliente, i dati non vengono trasmessi su Internet e quindi non vengono esposti a Internet.
+
+Sono [disponibili](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) procedure consigliate per l'implementazione di una rete ibrida protetta che estende una rete locale in Azure.
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
 

@@ -6,14 +6,15 @@ ms.service: automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b3ff1991d76b3ab5b4b3c44f4fbe28fbb986d4bd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193353"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario
 
@@ -45,7 +46,13 @@ Selezionare **Gestione aggiornamenti** in **GESTIONE AGGIORNAMENTI**. L'area di 
 
 Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di Automazione in **RISORSE CORRELATE** selezionare **Area di lavoro**. Quindi nell'area di lavoro in **ORIGINI DATI DELL'AREA DI LAVORO** selezionare **Configurazioni ambito**.
 
-Le due configurazioni dell'ambito create per impostazione predefinita sono **MicrosoftDefaultScopeConfig-ChangeTracking** e **MicrosoftDefaultScopeConfig-Updates**.
+Se l'area di lavoro selezionata non include ancora le soluzioni Gestione aggiornamenti o Rilevamento modifiche, vengono create le configurazioni di ambito seguenti:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Se l'area di lavoro selezionata include già la soluzione. La soluzione non viene ridistribuita e la configurazione dell'ambito non viene aggiunta.
 
 ## <a name="saved-searches"></a>Ricerche salvate
 

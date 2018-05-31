@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f3abaefbeb9e941e41bf664654bb67803156be7b
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157793"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -83,8 +84,20 @@ Verificare che gli URL seguenti siano accessibili dall'interno della rete aziend
 
 - https://device.login.microsoftonline.com
 
-Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrarsi ad Azure AD.
+- Servizio token di sicurezza dell'organizzazione (domini federati)
 
+Se questa operazione non è già stata eseguita, il servizio token di sicurezza dell'organizzazione (per i domini federati) deve essere incluso nelle impostazioni Intranet locali dell'utente.
+
+Se l'organizzazione prevede di usare l'SSO facile, gli URL seguenti devono essere raggiungibili dai computer all'interno dell'organizzazione e devono anche essere aggiunti all'area Intranet locale dell'utente:
+
+- https://autologon.microsoftazuread-sso.com
+
+- https://aadg.windows.net.nsatc.net
+
+- Inoltre, è necessario abilitare l'impostazione seguente nell'area Intranet dell'utente: "Consenti aggiornamenti alla barra di stato tramite script".
+
+
+Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrarsi ad Azure AD.
 
 ## <a name="configuration-steps"></a>Procedura di configurazione
 
@@ -549,8 +562,6 @@ Al termine dei passaggi necessari, i dispositivi aggiunti a un dominio sono pron
 ### <a name="remarks"></a>Osservazioni
 
 - Per controllare l'implementazione della registrazione automatica dei computer Windows 10 e Windows Server 2016 aggiunti al dominio, è possibile usare un oggetto Criteri di gruppo. **Se non si vuole che tali dispositivi vengano registrati automaticamente in Azure AD o se si vuole controllare la registrazione**, è necessario implementare i criteri di gruppo disabilitando la registrazione automatica per tutti questi dispositivi prima di eseguire gli altri passaggi di configurazione. Dopo avere completato la configurazione, quando si è pronti a eseguire il test, è necessario implementare i criteri di gruppo abilitando la registrazione automatica solo per i dispositivi di test e quindi per gli altri dispositivi di propria scelta.
-
-- Con l'aggiornamento di novembre 2015 di Windows 10, l'aggiunta automatica ad Azure AD viene eseguita **solo** se è impostato l'oggetto Criteri di gruppo di implementazione.
 
 - Per implementare i computer Windows di livello inferiore, è possibile distribuire un [pacchetto di Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nei computer selezionati.
 

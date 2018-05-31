@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-ms.openlocfilehash: e96f31b3e91066bfc04af62c2bf82db200f35002
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bff31dafdf3263ec189f67da7de8fea6eb3d2662
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271487"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli-20"></a>Risolvere i problemi relativi a una VM Linux collegando il disco del sistema operativo a una VM di ripristino tramite l'interfaccia della riga di comando di Azure 2.0
 Se nella VM Linux viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire dei passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è una voce non valida in `/etc/fstab` che impedisce il corretto avvio della macchina virtuale. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure 2.0 per connettere il disco rigido virtuale a un'altra VM Linux al fine di risolvere eventuali errori e quindi ricreare la VM originale. È possibile anche eseguire questi passaggi tramite l'[interfaccia della riga di comando di Azure 1.0](troubleshoot-recovery-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -31,6 +32,8 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 3. Connettersi alla macchina virtuale usata per la risoluzione dei problemi. Modificare i file o eseguire eventuali strumenti per risolvere i problemi nel disco rigido virtuale originale.
 4. Smontare e scollegare il disco rigido virtuale dalla macchina virtuale usata per la risoluzione dei problemi.
 5. Creare una VM usando il disco rigido virtuale originale.
+
+Per la macchina virtuale che usa il disco gestito, vedere [Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
 Per eseguire questi passaggi per la risoluzione dei problemi, è necessario aver installato la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e aver eseguito l'accesso a un account Azure con il comando [az login](/cli/azure/reference-index#az_login).
 
@@ -183,6 +186,13 @@ Quando si crea la macchina virtuale dal disco rigido virtuale esistente, la diag
 ```azurecli
 az vm boot-diagnostics enable --resource-group myResourceGroup --name myDeployedVM
 ```
+
+## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo
+1. Arrestare la macchina virtuale Windows con disco gestito interessata.
+2. [Creare uno snapshot del disco gestito](../windows/snapshot-copy-managed-disk.md) per il disco del sistema operativo della macchina virtuale con disco gestito.
+3. [Creare un disco gestito da uno snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Collegare un disco dati a una macchina virtuale Windows](../windows/attach-disk-ps.md).
+5. [Modificare il disco dati del passaggio 4 nel disco del sistema operativo](../windows/os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se si sono verificati problemi durante la connessione alla macchina virtuale, vedere l'articolo sulla [risoluzione dei problemi di connessione SSH a una macchina virtuale di Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Per problemi relativi all'accesso alle applicazioni in esecuzione nella macchina virtuale, vedere [Risolvere i problemi di connettività delle applicazioni in una macchina virtuale di Azure per Linux](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

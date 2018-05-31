@@ -1,21 +1,22 @@
 ---
-title: Eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery (anteprima)
+title: Eseguire il failover e il failback delle macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery
 description: Informazioni su come eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209274"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Eseguire il failover e il failback di macchine virtuali di Azure tra aree di Azure (anteprima)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
@@ -26,6 +27,8 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 > * Riproteggere la macchina virtuale secondaria di Azure in modo che possa essere replicata nell'area primaria
 > * Eseguire il failback della macchina virtuale secondaria
 > * Riprotteggere la macchina virtuale primaria anche nell'area secondaria
+
+La replica da Azure ad Azure è attualmente in anteprima.
 
 ## <a name="prerequisites"></a>prerequisiti
 

@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: tdykstra
-ms.openlocfilehash: ae24031922c2ef01c9274f6ecf572158a9a194d4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01ddebd219a97a59ba3f979d32d6c563a0d31f8a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304114"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -33,6 +34,8 @@ Questo articolo descrive come usare le associazioni del bus di servizio in Funzi
 Le associazioni del bus di servizio sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus). Il codice sorgente del pacchetto si trova nel repository GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/).
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
+
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
 
 ## <a name="trigger"></a>Trigger
 
@@ -49,16 +52,22 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che registra un messaggio della coda del bus di servizio.
+L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) che legge i [metadati del messaggio](#trigger---message-metadata) e registra un messaggio della coda del bus di servizio:
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
 public static void Run(
     [ServiceBusTrigger("myqueue", AccessRights.Manage, Connection = "ServiceBusConnection")] 
-    string myQueueItem, 
+    string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
     TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -66,7 +75,7 @@ Questo esempio si riferisce a Funzioni di Azure versione 1.x. Per la versione 2.
  
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
-L'esempio seguente mostra un'associazione di trigger del bus di servizio in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione registra un messaggio della coda del bus di servizio.
+L'esempio seguente mostra un'associazione di trigger del bus di servizio in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione legge i [metadati del messaggio](#trigger---message-metadata) e registra un messaggio della coda del bus di servizio.
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -88,9 +97,19 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script C#:
 
 ```cs
-public static void Run(string myQueueItem, TraceWriter log)
+using System;
+
+public static void Run(string myQueueItem,
+    Int32 deliveryCount,
+    DateTime enqueuedTimeUtc,
+    string messageId,
+    TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+
+    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.Info($"DeliveryCount={deliveryCount}");
+    log.Info($"MessageId={messageId}");
 }
 ```
 
@@ -124,7 +143,7 @@ let Run(myQueueItem: string, log: TraceWriter) =
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
 
-L'esempio seguente mostra un'associazione di trigger del bus di servizio in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione registra un messaggio della coda del bus di servizio. 
+L'esempio seguente mostra un'associazione di trigger del bus di servizio in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione legge i [metadati del messaggio](#trigger---message-metadata) e registra un messaggio della coda del bus di servizio. 
 
 Ecco i dati di associazione nel file *function.json*:
 
@@ -148,6 +167,9 @@ Ecco il codice script JavaScript:
 ```javascript
 module.exports = function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
+    context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
+    context.log('DeliveryCount =', context.bindingData.deliveryCount);
+    context.log('MessageId =', context.bindingData.messageId);
     context.done();
 };
 ```
@@ -247,7 +269,30 @@ La gestione dei messaggi non elaborabili non può essere controllata o configura
 
 ## <a name="trigger---peeklock-behavior"></a>Trigger - Comportamento di PeekLock
 
-Il runtime di Funzioni di Azure riceve un messaggio in [modalità PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Chiama quindi `Complete` nel messaggio se la funzione viene completata correttamente oppure chiama `Abandon` se la funzione non riesce. Se il tempo di esecuzione della funzione supera il timeout di `PeekLock` , il blocco viene rinnovato automaticamente.
+Il runtime di Funzioni di Azure riceve un messaggio in [modalità PeekLock](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode). Chiama quindi `Complete` nel messaggio se la funzione viene completata correttamente oppure chiama `Abandon` se la funzione non riesce. Se il tempo di esecuzione della funzione supera il timeout di `PeekLock`, il blocco viene rinnovato automaticamente finché la funzione è in esecuzione. 
+
+Funzioni di Azure 1.x consente di configurare `autoRenewTimeout` in *host.json*, che esegue il mapping a [OnMessageOptions.AutoRenewTimeout](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.onmessageoptions.autorenewtimeout?view=azure-dotnet#Microsoft_ServiceBus_Messaging_OnMessageOptions_AutoRenewTimeout). Il valore massimo consentito per questa impostazione è 5 minuti in base alla documentazione del bus di servizio, ma è possibile aumentare il limite temporale di Funzioni di Azure dal valore predefinito di 5 minuti a 10 minuti. Per le funzioni del bus di servizio non si voleva eseguire questa operazione in quel momento perché sarebbe stato superato il limite di rinnovo del bus di servizio.
+
+## <a name="trigger---message-metadata"></a>Trigger - metadati del messaggio
+
+Il trigger del bus di servizio fornisce diverse [proprietà di metadati](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
+
+|Proprietà|type|DESCRIZIONE|
+|--------|----|-----------|
+|`DeliveryCount`|`Int32`|Il numero di recapiti.|
+|`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
+|`ExpiresAtUtc`|`DateTime`|L'ora di scadenza in formato UTC.|
+|`EnqueuedTimeUtc`|`DateTime`|Il tempo di accodamento in formato UTC.|
+|`MessageId`|`string`|Valore definito dall'utente che il bus di servizio può usare per identificare i messaggi duplicati, se abilitato.|
+|`ContentType`|`string`|Un identificatore del tipo di contenuto usato dal mittente e dal destinatario per la logica specifica dell'applicazione.|
+|`ReplyTo`|`string`|La risposta all'indirizzo della coda.|
+|`SequenceNumber`|`Int64`|Il numero univoco assegnato a un messaggio dal bus di servizio.|
+|`To`|`string`|L'indirizzo di destinazione.|
+|`Label`|`string`|L'etichetta specifica dell'applicazione.|
+|`CorrelationId`|`string`|L'ID di correlazione.|
+|`Properties`|`IDictionary<String,Object>`|Le proprietà del messaggio specifiche dell'applicazione.|
+
+Vedere gli [esempi di codice](#trigger---example) che usano queste proprietà in precedenza in questo articolo.
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - proprietà di host.json
 
@@ -404,7 +449,7 @@ Ecco il codice script JavaScript che crea un singolo messaggio:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = message;
+    context.bindings.outputSbQueue = message;
     context.done();
 };
 ```
@@ -415,9 +460,9 @@ Ecco il codice script JavaScript che crea più messaggi:
 module.exports = function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
-    context.bindings.outputSbQueueMsg = [];
-    context.bindings.outputSbQueueMsg.push("1 " + message);
-    context.bindings.outputSbQueueMsg.push("2 " + message);
+    context.bindings.outputSbQueue = [];
+    context.bindings.outputSbQueue.push("1 " + message);
+    context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
 ```

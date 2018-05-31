@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2018
+ms.date: 05/14/2018
 ms.author: terrylan
-ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 847127c96f23bbeb3cf3a5d1c9768af6e0cc0dc4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203972"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Esempi di tali dati sono: tipo e versione del sistema operativo, log del sistema operativo (registri eventi di Windows), processi in esecuzione, nome computer, indirizzi IP, utente connesso e ID tenant. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Abilitare il provisioning automatico di Microsoft Monitoring Agent     
-Dopo aver abilitato il provisioning automatico, il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Il provisioning automatico è fortemente consigliato, ma è disponibile anche l'installazione manuale dell'agente. [Informazioni sull'installazione dell'estensione Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
+Il provisioning automatico è disattivato per impostazione predefinita. Dopo aver abilitato il provisioning automatico, il Centro sicurezza effettua il provisioning di Microsoft Monitoring Agent in tutte le macchine virtuali di Azure supportate e in quelle nuove che vengono create. Il provisioning automatico è fortemente consigliato, ma è disponibile anche l'installazione manuale dell'agente. [Informazioni sull'installazione dell'estensione Microsoft Monitoring Agent](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
 > La disabilitazione automatica del provisioning limita il monitoraggio delle risorse. Per altre informazioni, vedere [Disabilitare il provisioning automatico](security-center-enable-data-collection.md#disable-automatic-provisioning) in questo articolo. Gli snapshot del disco della macchina virtuale e la raccolta di elementi resteranno abilitati anche se il provisioning automatico viene disabilitato.
@@ -32,13 +33,16 @@ Dopo aver abilitato il provisioning automatico, il Centro sicurezza effettua il 
 >
 
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
-1. selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
+1. Selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
 2. Selezionare la sottoscrizione.
+
+  ![Selezionare la sottoscrizione][7]
+
 3. In **Criteri di sicurezza** selezionare **Raccolta dati**.
-4. In **Onboarding** selezionare **On** (Abilita) per abilitare il provisioning automatico.
+4. In **Provisioning automatico** selezionare **Attivato** per abilitare il provisioning automatico.
 5. Selezionare **Salva**.
 
-![Abilitare il provisioning automatico][1]
+  ![Abilitare il provisioning automatico][1]
 
 ## <a name="default-workspace-configuration"></a>Configurazione dell'area di lavoro predefinita
 I dati raccolti dal Centro sicurezza vengono archiviati nell'area di lavoro di Log Analytics.  È possibile scegliere di archiviare i dati raccolti dalle macchine virtuali di Azure nelle aree di lavoro create dal Centro sicurezza o in un'area di lavoro esistente creata dall'utente.
@@ -49,16 +53,16 @@ Per usare l'area di lavoro di Log Analytics esistente:
 
 Per selezionare l'area di lavoro di Log Analytics esistente:
 
-1. In **Security policy – Data Collection** (Criteri di sicurezza - Raccolta dati) selezionare **Use another workspace** (Usare un'altra area di lavoro).
+1. In **Configurazione dell'area di lavoro predefinita** selezionare **Usa un'altra area di lavoro**.
 
    ![Selezionare un'area di lavoro esistente][2]
 
 2. Nel menu a discesa selezionare un'area di lavoro dove archiviare i dati raccolti.
 
-> [!NOTE]
-> Nel menu a discesa vengono visualizzate solo le aree di lavoro a cui si ha accesso e che si trovano nella sottoscrizione di Azure.
->
->
+  > [!NOTE]
+  > Nel menu a discesa sono disponibile tutte le aree di lavoro delle sottoscrizioni. Per altre informazioni, vedere [Selezione di un'area di lavoro tra sottoscrizioni](security-center-enable-data-collection.md#cross-subscription-workspace-selection).
+  >
+  >
 
 3. Selezionare **Salva**.
 4. Dopo aver selezionato **Salva**, verrà richiesto se si desidera riconfigurare le macchine virtuali monitorate.
@@ -73,7 +77,15 @@ Per selezionare l'area di lavoro di Log Analytics esistente:
 
    - Selezionare **Annulla** per annullare l'operazione.
 
-   ![Selezionare un'area di lavoro esistente][3]
+     ![Selezionare un'area di lavoro esistente][3]
+
+## <a name="cross-subscription-workspace-selection"></a>Selezione di un'area di lavoro tra sottoscrizioni
+Quando si seleziona un'area di lavoro per archiviare i dati, sono disponibili tutte le aree di lavoro delle sottoscrizioni. La selezione di un'area di lavoro tra sottoscrizioni consente di raccogliere i dati da macchine virtuali in esecuzione in diverse sottoscrizioni e di archiviarli nell'area di lavoro scelta. Questa funzionalità può essere usata sia per le macchine virtuali in esecuzione su Windows che su Linux.
+
+> [!NOTE]
+> La selezione di un'area di lavoro tra sottoscrizioni è un componente del livello gratuito del Centro sicurezza di Azure. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+>
+>
 
 ## <a name="data-collection-tier"></a>Livello della raccolta dati
 Il Centro sicurezza può ridurre il volume di eventi mantenendo un numero sufficiente di eventi per l'analisi, il controllo e il rilevamento delle minacce. È possibile scegliere i criteri di filtraggio corretti per le sottoscrizioni e le aree di lavoro da quattro insiemi di eventi raccolti dall'agente.
@@ -84,7 +96,8 @@ Il Centro sicurezza può ridurre il volume di eventi mantenendo un numero suffic
 - **Nessuno**: per disabilitare la raccolta di eventi di sicurezza dai registri di sicurezza e di App Locker. Per i clienti che scelgono questa opzione, i dashboard di sicurezza presentano solo i registri di Windows Firewall e le valutazioni proattive come antimalware, iniziali e di aggiornamento.
 
 > [!NOTE]
-> Questi insiemi sono stati progettati per soddisfare gli scenari tipici. Assicurarsi di valutare quale di questi si adatti alle proprie esigenze prima di implementarlo.
+> Questi set di eventi di sicurezza sono disponibili solo nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+Questi insiemi sono stati progettati per soddisfare gli scenari tipici. Assicurarsi di valutare quale di questi si adatti alle proprie esigenze prima di implementarlo.
 >
 >
 
@@ -115,7 +128,7 @@ Di seguito è riportata una suddivisione completa degli ID di eventi di sicurezz
 >
 
 Per scegliere i criteri di filtraggio:
-1. Nel pannello **Security policy & settings** (Criteri e impostazioni di sicurezza) selezionare i criteri di filtraggio in **Eventi di sicurezza**.
+1. Nel pannello **Criteri di sicurezza - Raccolta di dati** selezionare i criteri di filtraggio in **Eventi di sicurezza**.
 2. Selezionare **Salva**.
 
    ![Scegliere i criteri di filtraggio][5]
@@ -129,12 +142,13 @@ Per scegliere i criteri di filtraggio:
 >
 
 1. Tornare al menu principale del Centro sicurezza e selezionare Criteri di sicurezza.
-
-   ![Disabilitare il provisioning automatico][6]
-
 2. Selezionare la sottoscrizione per cui si desidera disabilitare il provisioning automatico.
-3. Nel pannello **Security policy – Data Collection** (Criteri di sicurezza - Raccolta dati), in **Onboarding** selezionare **Disattiva** per disabilitare il provisioning automatico.
-4. Selezionare **Salva**.  
+3. Nel pannello **Criteri di sicurezza - Raccolta di dati**, in **Provisioning automatico** selezionare **Disattivato**.
+4. Selezionare **Salva**.
+
+  ![Disabilitare il provisioning automatico][6]
+
+Quando il provisioning automatico è disabilitato (disattivato), la sezione di configurazione dell'area di lavoro predefinita non viene visualizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato il funzionamento della raccolta dati e del provisioning automatico nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -153,4 +167,5 @@ In questo articolo è stato illustrato il funzionamento della raccolta dati e de
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-automatic-provisioning.png
+[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
+[7]: ./media/security-center-enable-data-collection/select-subscription.png

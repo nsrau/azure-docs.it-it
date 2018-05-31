@@ -7,13 +7,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d54ecb3f92754fa6575ec17ec5572b6fb9abb88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072437"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -240,18 +241,13 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
 1. Collegare un nuovo disco da 1 TB alla macchina virtuale del server di destinazione master Linux e avviare il computer.
 
-2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione.
-    
-     `multipath -ll`
+2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione:**multipath -ll**
 
-        ![The multipath ID of the retention disk](./media/vmware-azure-install-linux-master-target/media/image22.png)
+    ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image22.png)
 
-3. Formattare l'unità e creare un file system nella nuova unità.
-
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
     
-    `mkfs.ext4 /dev/mapper/<Retention disk's multipath id>`
-    
-    ![Creazione di un file system nell'unità](./media/vmware-azure-install-linux-master-target/image23-centos.png)
+    ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
 4. Dopo aver creato il file system, montare il disco di conservazione.
 
@@ -335,9 +331,9 @@ Dopo aver completato l'installazione, registrare il server di configurazione tra
      Attendere il termine dello script. Se registrato correttamente, il server di destinazione master viene elencato nella pagina **Infrastruttura di Site Recovery** del portale.
 
 
-### <a name="install-vmware-tools-on-the-master-target-server"></a>Installare gli strumenti VMware nel server master di destinazione
+### <a name="install-vmware-tools--open-vm-tools-on-the-master-target-server"></a>Installare gli strumenti VMware/open-vm-tools nel server master di destinazione
 
-È necessario installare gli strumenti VMware per consentire al server di destinazione master di rilevare gli archivi dati. Se non sono installati gli strumenti, la schermata di riprotezione non viene elencata negli archivi dati. Dopo l'installazione degli strumenti VMware è necessario riavviare il computer.
+È necessario installare gli strumenti VMware o open-vm-tools per consentire al server di destinazione master di rilevare gli archivi dati. Se non sono installati gli strumenti, la schermata di riprotezione non viene elencata negli archivi dati. Dopo l'installazione degli strumenti VMware è necessario riavviare il computer.
 
 ### <a name="upgrade-the-master-target-server"></a>Aggiornare il server di destinazione master
 
