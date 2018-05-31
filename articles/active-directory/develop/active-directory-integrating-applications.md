@@ -3,23 +3,25 @@ title: Integrazione di applicazioni con Azure Active Directory
 description: Come aggiungere, aggiornare o rimuovere un'applicazione in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: PatAltimore
+author: CelesteDG
 manager: mtillman
-editor: mbaldwin
+editor: ''
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
-ms.author: bryanla
+ms.date: 04/18/2018
+ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 76c6ef7d4cf53872dda308628790994b35d8431c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157997"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrazione di applicazioni con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -56,7 +58,7 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 5. Al termine, fare clic su **Crea**. Azure AD assegna un ID applicazione univoco all'applicazione e si viene reindirizzati alla pagina di registrazione principale dell'applicazione. A seconda che si tratti di un'applicazione Web o nativa, sono fornite opzioni diverse per l'aggiunta di altre funzionalità all'applicazione. Vedere la sezione successiva per una panoramica del consenso e informazioni dettagliate sull'abilitazione di funzionalità di configurazione aggiuntive nella registrazione dell'applicazione (credenziali, autorizzazioni, abilitazione dell'accesso per gli utenti di altri tenant).
 
   > [!NOTE]
-  > Per impostazione predefinita, l'applicazione appena registrata viene configurata in modo da consentire **solo** agli utenti dello stesso tenant di accedere all'applicazione stessa.
+  > Per impostazione predefinita, un'applicazione Web appena registrata viene configurata in modo da consentire **solo** agli utenti dello stesso tenant di accedere all'applicazione stessa.
   > 
   > 
 
@@ -65,13 +67,13 @@ Una volta registrata con Azure AD, l'applicazione potrebbe dover essere aggiorna
 
 ### <a name="overview-of-the-consent-framework"></a>Panoramica del framework di consenso
 
-Il framework di consenso di Azure AD semplifica lo sviluppo di applicazioni client Web multi-tenant e native, incluse le applicazioni a più livelli. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Esse possono anche dover accedere ad API Web come l'API Microsoft Graph (per l'accesso ad Azure Active Directory, Intune e ai servizi di Office 365) e le API di altri servizi Microsoft, oltre alle API Web personalizzate. Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory.
+Il framework di consenso di Azure AD semplifica lo sviluppo di applicazioni client Web multi-tenant e native. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Esse possono anche dover accedere ad API Web come l'API Microsoft Graph (per l'accesso ad Azure Active Directory, Intune e ai servizi di Office 365) e le API di altri servizi Microsoft, oltre alle API Web personalizzate. Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory.
 
 Ad esempio, se un'applicazione client Web deve leggere le informazioni del calendario dell'utente da Office 365, l'utente deve prima fornire il consenso all'applicazione client. Una volta ottenuto il consenso, l'applicazione client potrà chiamare l'API di Microsoft Graph per conto dell'utente e usare le informazioni del calendario nel modo necessario. L'[API Microsoft Graph](https://graph.microsoft.io) fornisce l'accesso ai dati in Office 365 (come calendari e messaggi di Exchange, siti ed elenchi di SharePoint, documenti di OneDrive, blocchi appunti di OneNote, attività di Planner, cartelle di lavoro di Excel e così via), nonché a utenti e gruppi di Azure AD e ad altri oggetti dati di più servizi cloud Microsoft. 
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0 Azure AD consente di compilare molti tipi diversi di applicazioni client, ad esempio su un telefono, un tablet, un server o un'applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 
-Per altre informazioni sull'utilizzo del framework di consenso con concessioni di autorizzazione di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory](active-directory-protocols-oauth-code.md) e [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md). Per informazioni su come ottenere l'accesso autorizzato a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (Autenticazione delle app con Microsoft Graph).
+Per altre informazioni sull'uso del framework di consenso con concessioni di autorizzazione di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web con OAuth 2.0 e Azure Active Directory](active-directory-protocols-oauth-code.md) e [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md). Per informazioni su come ottenere l'accesso autorizzato a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (Autenticazione delle app con Microsoft Graph).
 
 #### <a name="example-of-the-consent-experience"></a>Esempio dell'esperienza di autorizzazione
 
@@ -93,17 +95,17 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
 5. Dopo che l'utente ha concesso il consenso, all'applicazione viene restituito un codice di autorizzazione, che viene riscattato per acquisire un token di accesso e di aggiornamento. Per altre informazioni su questo flusso, vedere la sezione [Da applicazione Web ad API Web di Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md#web-application-to-web-api).
 
-6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e viene eseguita la pagina dell'applicazione nel [portale di Azure](https://portal.azure.com). Dalla pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni**. 
+6. In qualità di amministratore, è possibile inoltre consentire le autorizzazioni delegate di un'applicazione per conto di tutti gli utenti nel proprio tenant. Il consenso amministrativo evita la visualizzazione della finestra di dialogo di consenso per ogni utente del tenant e può essere eseguito nel [portale di Azure](https://portal.azure.com) da utenti con ruolo di amministratore. Dalla pagina **Impostazioni** dell'applicazione selezionare **Autorizzazioni necessarie** e fare clic sul pulsante **Concedi autorizzazioni**. 
 
   ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/active-directory-integrating-applications/grantpermissions.png)
     
   > [!NOTE]
-  > La concessione esplicita del consenso utilizzando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.   
+  > La concessione esplicita del consenso utilizzando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurare un'applicazione client per accedere alle API Web
 Per consentire a un'applicazione Web/client riservato di partecipare a un flusso di concessioni di autorizzazioni che richiede l'autenticazione (e ottenere un token di accesso), è necessario definire credenziali protette. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave privata. Questa sezione illustra i passaggi di configurazione necessari per fornire alla chiave privata le credenziali del client.
 
-Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazione della risorsa (ad esempio l'API Microsoft Graph), il framework di consenso assicura che il client ottenga la concessione delle autorizzazioni necessaria, in base alle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono scegliere le autorizzazioni da "Windows Azure Active Directory" (API Graph) e "API Gestione dei servizi di Microsoft Azure". L'[autorizzazione "Accedi e leggi il profilo di un altro utente" dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) è selezionata anch'essa per impostazione predefinita. Se il client viene registrato in un tenant che dispone di account con sottoscrizione per Office 365, saranno disponibili per la selezione le API Web e le autorizzazioni per SharePoint ed Exchange Online. È possibile scegliere fra [due tipi di autorizzazioni](active-directory-dev-glossary.md#permissions) per ogni API Web desiderata:
+Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazione della risorsa (ad esempio l'API Graph Microsoft), il framework di consenso assicura che il client ottenga la concessione delle autorizzazioni necessaria, in base alle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono scegliere le autorizzazioni da "Windows Azure Active Directory" (API Graph) e "API Gestione dei servizi di Microsoft Azure". L'[autorizzazione "Accedi e leggi il profilo di un altro utente" dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) è selezionata anch'essa per impostazione predefinita. Se il client viene registrato in un tenant che dispone di account con sottoscrizione per Office 365, saranno disponibili per la selezione le API Web e le autorizzazioni per SharePoint ed Exchange Online. È possibile scegliere fra [due tipi di autorizzazioni](active-directory-dev-glossary.md#permissions) per ogni API Web desiderata:
 
 - Autorizzazioni applicazione: l'applicazione client deve accedere direttamente all'API Web come se stessa (nessun contesto utente). Questo tipo di autorizzazione richiede il consenso dell'amministratore e non è disponibile per le applicazioni client native.
 
@@ -120,7 +122,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
    ![Aggiornare la registrazione di un'applicazione](./media/active-directory-integrating-applications/update-app-registration.png)
 
 4. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione. Per aggiungere una chiave privata per le credenziali dell'applicazione Web:
-  - Fare clic nella sezione **Chiavi** della pagina **Impostazioni**.  
+  - Fare clic nella sezione **Chiavi** della pagina **Impostazioni**. 
   - Aggiungere una descrizione per la chiave.
   - Selezionare la durata di uno o due anni.
   - Fare clic su **Save**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
@@ -141,7 +143,7 @@ Inoltre, prima che un client possa accedere a un'API Web esposta da un'applicazi
 6. Al termine, fare clic sul pulsante **Seleziona** della pagina **Abilita accesso**, quindi sul pulsante **Fatto** della pagina **Aggiungi accesso all'API**. Verrà visualizzata di nuovo la pagina **Autorizzazioni necessarie**, in cui la nuova risorsa viene aggiunta all'elenco di API.
 
   > [!NOTE]
-  > Facendo clic sul pulsante **Fine**, vengono automaticamente impostate anche le autorizzazioni per l'applicazione nella directory in base a quelle configurate per altre applicazioni.  È possibile visualizzare queste autorizzazioni per l'applicazione osservando il contenuto della pagina **Impostazioni** dell'applicazione stessa.
+  > Facendo clic sul pulsante **Fine**, vengono automaticamente impostate anche le autorizzazioni per l'applicazione nella directory in base a quelle configurate per altre applicazioni. È possibile visualizzare queste autorizzazioni per l'applicazione osservando il contenuto della pagina **Impostazioni** dell'applicazione stessa.
   > 
   > 
 
@@ -182,7 +184,7 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
   > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando l'attestazione (o le attestazioni) di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
   > 
 
-6. Al termine fare clic su **Salva**. Ora l'API Web è configurata in modo che possa essere usata da altre applicazioni nella directory.  
+6. Al termine fare clic su **Salva**. Ora l'API Web è configurata in modo che possa essere usata da altre applicazioni nella directory. 
 
   ![Aggiornare la registrazione di un'applicazione](./media/active-directory-integrating-applications/update-app-registration-manifest.png)
 
@@ -210,7 +212,7 @@ Per altre informazioni sui concetti generali relativi al manifesto dell'applicaz
 
 Come accennato in precedenza, oltre a esporre/accedere alle API nelle applicazioni, è possibile registrare l'applicazione client per accedere alle API esposte dalle risorse Microsoft. L'API Microsoft Graph, indicata come "Microsoft Graph" nell'elenco di risorse/API del portale, è disponibile per tutte le applicazioni che sono registrate con Azure AD. Se si sta registrando l'applicazione client in un tenant che contiene account dotati di sottoscrizione per Office 365, è possibile accedere anche agli ambiti esposti da varie risorse di Office 365.
 
-Per informazioni dettagliate sugli ambiti esposti dall'API Microsoft Graph, vedere l'articolo [Ambiti di autorizzazione | Concetti relativi all'API Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
+Per informazioni dettagliate sugli ambiti esposti dall'API Graph Microsoft, vedere l'articolo [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference) (Riferimenti autorizzazioni Microsoft Graph).
 
 > [!NOTE]
 > A causa di una limitazione attualmente in vigore, le applicazioni client native possono richiamare l'API Graph di Azure AD solo se usano l'autorizzazione "Accedere alla directory dell'organizzazione". Questa restrizione non è valida per le applicazioni Web.
@@ -289,7 +291,7 @@ Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata
 Questa sezione descrive come rimuovere la registrazione di un'applicazione dal tenant di Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Rimozione di un'applicazione autorizzata dall'organizzazione
-Le applicazioni che l'organizzazione ha registrato compaiono sotto il filtro "Mie app" nella pagina principale "Registrazioni per l'app" del tenant. Queste sono applicazioni registrate manualmente nel portale di Azure classico o a livello di codice con PowerShell o l'API Graph. Più precisamente, sono rappresentate sia da un oggetto applicazione che da un oggetto entità servizio nel tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md).
+Le applicazioni che l'organizzazione ha registrato appaiono sotto il filtro "Mie app" nella pagina principale "Registrazioni per l'app" del tenant. Queste sono applicazioni registrate manualmente nel portale di Azure classico o a livello di codice con PowerShell o l'API Graph. Più precisamente, sono rappresentate sia da un oggetto applicazione che da un oggetto entità servizio nel tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio](active-directory-application-objects.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Per rimuovere un'applicazione a tenant singolo dalla directory
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -309,7 +311,7 @@ Le applicazioni che l'organizzazione ha registrato compaiono sotto il filtro "Mi
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Rimozione di un'applicazione multi-tenant autorizzata da un'altra organizzazione
 Un sottoinsieme delle applicazioni visualizzate con il filtro "Tutte le app" (escluse le registrazioni "Mie app") nella pagina "Registrazioni per l'app" principale del tenant, sono applicazioni multi-tenant. In termini tecnici, queste applicazioni multi-tenant provengono da un altro tenant e sono state registrate nel tenant durante il processo di consenso. Più precisamente, sono rappresentate solo da un oggetto entità servizio nel tenant, senza oggetto applicazione corrispondente. Per altre informazioni sulle differenze fra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure AD](active-directory-application-objects.md).
 
-Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere la sua entità servizio. L'amministratore deve avere l'accesso di amministratore globale e può rimuovere l'accesso tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
+Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere la sua entità servizio. L'amministratore deve avere l'accesso di amministratore globale e può rimuoverlo tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sul funzionamento dell'autenticazione in Azure AD, vedere [Scenari di autenticazione per Azure AD](active-directory-authentication-scenarios.md).

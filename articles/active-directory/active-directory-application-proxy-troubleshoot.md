@@ -2,24 +2,25 @@
 title: Risolvere i problemi del proxy dell'applicazione | Microsoft Docs
 description: Illustra come risolvere gli errori nel Proxy applicazione di Azure AD.
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: barbkess
 manager: mtillman
-ms.assetid: 970caafb-40b8-483c-bb46-c8b032a4fb74
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: markvi
+ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 6fcf360df6da36919c251bef0a8214deba6b5605
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 838bdccb06e5763d33f63208cb6f941a55778b32
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155814"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
@@ -27,14 +28,14 @@ Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante
 * Aprire la console dei servizi Windows e verificare che il servizio **Microsoft AAD Application Proxy Connector** sia abilitato e in esecuzione. È anche possibile osservare la pagina delle proprietà del servizio Proxy applicazione, come mostrato nell'immagine seguente:   
   ![Schermata della finestra delle proprietà del connettore Proxy applicazione di Microsoft AAD](./media/active-directory-application-proxy-troubleshoot/connectorproperties.png)
 * Aprire il Visualizzatore eventi e cercare gli eventi correlati al connettore del proxy di applicazione in **Registri applicazioni e servizi** > **Microsoft** > **AadApplicationProxy** > **Connector** > **Admin**.
-* Se necessario, [attivando i log di sessione dei connettore proxy di applicazione](application-proxy-understand-connectors.md#under-the-hood) sono disponibili log più dettagliati.
+* Se necessario, [attivando i log di sessione dei connettore proxy di applicazione](manage-apps/application-proxy-connectors.md#under-the-hood) sono disponibili log più dettagliati.
 
 Per altre informazioni sullo strumento di risoluzione dei problemi di Azure AD, vedere [Troubleshooting tool to validate connector networking prerequisites](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites) (Strumento di risoluzione dei problemi per convalidare i prerequisiti di rete del connettore).
 
 ## <a name="the-page-is-not-rendered-correctly"></a>La pagina non viene visualizzata correttamente
 È possibile che si verifichino problemi di rendering o di funzionamento dell'applicazione, ma che non vengano visualizzati messaggi di errore specifici. Ciò può verificarsi se è stato pubblicato il percorso dell'articolo, ma l'applicazione richiede contenuto esistente al di fuori di tale percorso.
 
-Se ad esempio si pubblica il percorso https://yourapp/app, ma l'applicazione chiama le immagini in https://yourapp/media, il rendering di queste ultime non verrà eseguito. Assicurarsi di pubblicare l'applicazione usando il percorso di livello più alto necessario per includere tutto il contenuto rilevante. In questo esempio il percorso sarebbe http://yourapp/.
+Se ad esempio si pubblica il percorso https://yourapp/app, ma l'applicazione chiama le immagini in https://yourapp/media, il rendering di queste ultime non verrà eseguito. Assicurarsi di pubblicare l'applicazione usando il percorso di livello più alto necessario per includere tutto il contenuto rilevante. In questo esempio si tratta di http://yourapp/.
 
 Se si modifica il percorso per includere il contenuto a cui viene fatto riferimento, ma è comunque necessario che gli utenti possano accedere a un collegamento più diretto del percorso, vedere il post di blog [Setting the right link for Application Proxy Applications in the Azure AD access panel and Office 365 app launcher](https://blogs.technet.microsoft.com/applicationproxyblog/2016/04/06/setting-the-right-link-for-application-proxy-applications-in-the-azure-ad-access-panel-and-office-365-app-launcher/)(Impostazione del collegamento corretto per le applicazioni del proxy di applicazione nel pannello di accesso di Azure AD e nell'icona di avvio delle app di Office 365).
 
@@ -50,7 +51,7 @@ Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabel
 
 | Tipi di errore | Procedure consigliate |
 | ----- | ----------------- |
-| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell'applicazione](active-directory-application-proxy-enable.md). |
+| La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "Si sono verificati uno o più errori". | Se si è chiusa la finestra di registrazione senza aver eseguito l'accesso ad Azure AD, eseguire di nuovo la creazione guidata del connettore e registrarlo. <br><br> Se la finestra di registrazione si apre e poi si chiude immediatamente senza consentire all'utente di accedere, è probabile che venga visualizzato questo errore. L'errore si verifica quando viene rilevato un errore di rete nel sistema. Assicurarsi che sia possibile connettersi da un browser a un sito Web pubblico e che le porte siano aperte come specificato in [Prerequisiti del Proxy dell’applicazione](manage-apps/application-proxy-enable.md). |
 | Viene visualizzato un errore di cancellazione nella finestra di registrazione. Impossibile proseguire | Se viene visualizzato questo errore e la finestra si chiude, è stato commesso un errore durante l'immissione di nome utente o password. Riprovare. |
 | La registrazione del connettore non è riuscita: assicurarsi di avere abilitato il Proxy applicazione nel portale di gestione di Azure e di avere immesso il nome utente e la password di Active Directory corretti. Errore: "AADSTS50059: non sono state trovate informazioni di identificazione del tenant nella richiesta o incluse in modo implicito nelle credenziali fornite e la ricerca in base all'URI dell'entità servizio non è riuscita". | Si sta provando ad accedere con un account Microsoft e non con un dominio che fa parte dell'ID organizzazione della directory a cui si vuole accedere. Assicurarsi che l'amministratore faccia parte dello stesso nome di dominio del dominio tenant. Ad esempio, se il dominio di Azure AD è contoso.com, l'amministratore dovrà essere admin@contoso.com. |
 | Non è possibile recuperare i criteri di esecuzione correnti per l'esecuzione degli script PowerShell. | Se l'installazione del connettore non riesce, verificare che il criterio di esecuzione di PowerShell non sia disabilitato. <br><br>1. Aprire l'Editor Criteri di gruppo.<br>2. Passare a **Configurazione computer** > **Modelli amministrativi** > **Componenti di Windows** > **Windows PowerShell** e fare doppio clic su **Attiva l'esecuzione di script**.<br>3. L'esecuzione di questo criterio può essere impostata su **Non configurato** o **Abilitato**. Se l'impostazione è **Abilitato**, verificare che in Opzioni la voce Criteri di esecuzione sia impostata su **Consenti script locali e script remoti firmati** o su **Consenti tutti gli script**. |
@@ -87,10 +88,10 @@ Questo elenco contiene gli errori che potrebbero verificarsi quando gli utenti f
 Se si verifica un errore o un problema con il Proxy dell'applicazione Azure AD che non è elencato in questa guida alla risoluzione dei problemi, è necessario segnalarlo. Invia un'email al [team che si occupa del feedback](mailto:aadapfeedback@microsoft.com) specificando i dettagli dell'errore che si è verificato.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Abilitare il proxy di applicazione per Azure Active Directory](active-directory-application-proxy-enable.md)
-* [Pubblicare le applicazioni con il proxy di applicazione](active-directory-application-proxy-publish.md)
-* [Abilita Single Sign-On](active-directory-application-proxy-sso-using-kcd.md)
-* [Abilitare l'accesso condizionale](application-proxy-enable-remote-access-sharepoint.md)
+* [Abilitare il proxy di applicazione per Azure Active Directory](manage-apps/application-proxy-enable.md)
+* [Pubblicare le applicazioni con il proxy di applicazione](manage-apps/application-proxy-publish-azure-portal.md)
+* [Abilita Single Sign-On](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+* [Abilitare l'accesso condizionale](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: Utilizzo del controllo dell’accesso in base all’età in Azure Active Directory B2C | Documenti Microsoft
+title: Utilizzo del controllo dell’accesso in base all’età in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni su come identificare i minori che utilizzano l'applicazione.
 services: active-directory-b2c
 documentationcenter: ''
@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/29/2018
 ms.author: davidmu
-ms.openlocfilehash: 3d6804f7e546547d734f966656362111b31078a4
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9186579126525cc269f7e3f9e778e06902b30eb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261283"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilizzo del controllo dell’accesso in base all’età in Azure Active Directory B2C
 
@@ -50,22 +51,19 @@ Dopo l'abilitazione del controllo dell'accesso in base all'età nel flusso utent
 È possibile scegliere che sia Azure Active Directory B2C a bloccare i minori senza il consenso dei genitori oppure a fornire loro l’autorizzazione, lasciando all’applicazione la decisione su come procedere.  
 
 ###<a name="allowing-minors-without-parental-consent"></a>Consenso ai minori senza il consenso dei genitori
-Per i flussi utente con la funzionalità di registrazione, accesso o entrambe, è possibile scegliere di consentire l’accesso all’applicazione ai minori senza consenso.  Ai minori senza il consenso dei genitori viene concesso di accedere o registrarsi come di consueto; viene emesso un token ID con l’attestazione `legalAgeGroupClassification`.  Tramite questa attestazione è possibile scegliere l'esperienza degli utenti, ad esempio attraverso un'esperienza per raccogliere il consenso dei genitori (e aggiornare il campo `consentProvidedForMinor`).
+Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di consentire l’accesso all’applicazione ai minori senza consenso.  Ai minori senza il consenso dei genitori viene concesso di accedere o registrarsi come di consueto e Azure Active Directory B2C emette un token ID con l’attestazione `legalAgeGroupClassification`.  Tramite questa attestazione è possibile scegliere l'esperienza degli utenti, ad esempio attraverso un'esperienza per raccogliere il consenso dei genitori (e aggiornare il campo `consentProvidedForMinor`).
 
 ###<a name="blocking-minors-without-parental-consent"></a>Blocco dei minori senza il consenso dei genitori
-Per i flussi utente con la funzionalità di registrazione, accesso o entrambe, è possibile scegliere di bloccare l’accesso all’applicazione ai minori senza consenso.  Sono disponibili due opzioni per la gestione degli utenti bloccati in Azure Active Directory B2C:
+Per i flussi utente che consentono la registrazione, l'accesso o entrambi, è possibile scegliere di bloccare l’accesso all’applicazione ai minori senza consenso.  Sono disponibili due opzioni per la gestione degli utenti bloccati in Azure Active Directory B2C:
 * Restituisci un messaggio JSON all'applicazione, questa opzione invierà una risposta all'applicazione rispetto alla quale è stato bloccato un minore.
 * Mostra una pagina di errore, l'utente visualizzerà una pagina che lo informa dell’impossibilità di accedere all'applicazione
 
 ##<a name="known-issues"></a>Problemi noti
-###<a name="customization-unavailable-for-new-pages"></a>Personalizzazione non disponibile per le nuove pagine
-Esistono due nuove pagine che possono essere disponibili nel flusso utente quando si abilita il controllo dell'accesso in base all'età.  Le pagine per la raccolta dei dati relativi del Paese e della data di nascita al momento dell’accesso e la pagina di errore non possono essere utilizzate con personalizzazione del layout di pagina o della lingua.  Questa opzione sarà disponibile in un aggiornamento successivo.
-
 ###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Formato della risposta quando viene bloccato un minore.
 La risposta attualmente non è espressa correttamente, il bug verrà risolto in un aggiornamento successivo.
 
 ###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>L'eliminazione di attributi specifici aggiunti durante l'installazione può impedire alla directory di utilizzare il controllo dell'accesso in base all'età.
-Nella configurazione del controllo dell'accesso in base all'età, la directory viene configurata in `Properties` tramite un'opzione.  Se si elimina `legalCountry` o `dateOfBirth`, il tenant non potrà più usare il controllo dell'accesso in base all'età e le proprietà non potranno essere ricreate.
+Nella configurazione del controllo dell'accesso in base all'età, la directory viene configurata in `Properties` tramite un'opzione.  Se si elimina `legalCountry` o `dateOfBirth` mediante Graph, la directory non potrà più usare il controllo dell'accesso in base all'età e le proprietà non potranno essere ricreate.
 
 ###<a name="list-of-countries-is-incomplete"></a>L’elenco dei Paesi è incompleto
 Attualmente l'elenco di Paesi per legalCountry è incompleto, i Paesi restanti verranno aggiunti in un aggiornamento successivo.

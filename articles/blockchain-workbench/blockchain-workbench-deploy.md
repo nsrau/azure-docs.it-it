@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 4/22/2018
+ms.date: 5/17/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 85a627678f862d783d47013d82bae8b485d7d4e9
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303944"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Distribuire Azure Blockchain Workbench
 
@@ -23,6 +24,25 @@ Azure Blockchain Workbench viene distribuito usando un modello di soluzione in A
 Per altre informazioni sui componenti di Blockchain Workbench, vedere [Architettura di Azure Blockchain Workbench](blockchain-workbench-architecture.md).
 
 ## <a name="prepare-for-deployment"></a>Preparare la distribuzione
+
+Blockchain Workbench consente di distribuire un libro mastro blockchain insieme a un set di servizi di Azure pertinenti usati frequentemente per compilare un'applicazione basata su blockchain. La distribuzione di Blockchain Workbench comporta il provisioning dei seguenti servizi Azure all'interno di un gruppo di risorse nella sottoscrizione Azure.
+
+* 1 argomento di Griglia di eventi
+* 1 spazio dei nomi del bus di servizio
+* 1 Application Insights
+* 1 database SQL (S0 Standard)
+* 2 Servizi app (Standard)
+* 2 Azure Key Vault
+* 2 account di Archiviazione di Azure (archiviazione con ridondanza locale standard)
+* 2 set di scalabilità di macchine virtuali (per i nodi di convalida e di lavoro)
+* 2 reti virtuali (che includono il bilanciamento del carico, il gruppo di sicurezza di rete e l'indirizzo IP pubblico per ogni rete virtuale)
+* Facoltativo: Monitoraggio di Azure
+
+Di seguito è riportato un esempio di distribuzione creata nel gruppo di risorse **myblockchain**.
+
+![Distribuzione di esempio](media/blockchain-workbench-deploy/example-deployment.png)
+
+Il costo di Blockchain Workbench è un'aggregazione del costo dei servizi Azure sottostanti. Per calcolare i prezzi per i servizi di Azure, usare il [Calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/).
 
 Azure Blockchain Workbench richiede l'esecuzione di diverse operazioni preliminari prima della distribuzione. Queste operazioni preliminari includono le registrazioni dell'applicazione e della configurazione di Azure AD.
 
@@ -253,6 +273,15 @@ Dopo la distribuzione di Azure Blockchain Workbench, il passaggio successivo con
     ![URL di risposta](media/blockchain-workbench-deploy/configure-reply-url.png)
 
 7. Selezionare **Salva** per aggiornare la registrazione del client.
+
+## <a name="remove-a-deployment"></a>Rimuovere una distribuzione
+
+È possibile rimuovere una distribuzione non più necessaria eliminando il gruppo di risorse di Blockchain Workbench.
+
+1. Nel portale di Azure passare a **Gruppo di risorse** nel riquadro di spostamento a sinistra e selezionare il gruppo di risorse da eliminare. 
+2. Selezionare **Elimina gruppo di risorse**. Confermare l'eliminazione immettendo il nome del gruppo di risorse e selezionare **Elimina**.
+
+    ![Eliminare un gruppo di risorse](media/blockchain-workbench-deploy/delete-resource-group.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

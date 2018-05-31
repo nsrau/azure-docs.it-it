@@ -2,29 +2,34 @@
 title: Informazioni di riferimento sull'API di controllo di Azure Active Directory | Microsoft Docs
 description: Come iniziare a usare l'API di controllo di Azure Active Directory
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 44e46be8-09e5-4981-be2b-d474aaa92792
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 05/08/2018
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cdf80ff1cc49b1582302d411ee6fcc8f193c021
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: e620a7f488e51a60bff6943135831eea0d12816d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158048"
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Informazioni di riferimento sull'API di controllo di Azure Active Directory
-Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
-La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati.
-L'obiettivo di questo argomento è fornire informazioni di riferimento sull' **API di controllo**.
+
+> [!TIP] 
+> Esplorare la nuova API Graph di Microsoft per la [creazione di report](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit), che sostituirà infine questa API. 
+
+
+Questo articolo fa parte di una raccolta di articoli sull'API di creazione report di Azure Active Directory (Azure AD). La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati di controllo tramite codice o strumenti correlati.
+L'obiettivo di questo articolo è fornire informazioni di riferimento sull'**API di controllo**.
 
 Vedere:
 
@@ -48,24 +53,23 @@ Per:
 ## <a name="prerequisites"></a>prerequisiti
 Per accedere a questo report tramite l'API di creazione report, è necessario:
 
-* Un' [edizione gratuita di Azure Active Directory o superiore](active-directory-editions.md)
+* Un' [edizione gratuita di Azure Active Directory o superiore](active-directory-whatis.md)
 * Aver completato i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md). 
 
 ## <a name="accessing-the-api"></a>Accesso all'API
-È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Al fine di consentire a Per PowerShell di interpretare correttamente la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD, è necessario fare uso dell'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx)e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
+È possibile accedere a questa API tramite [Graph Explorer](https://graphexplorer2.cloudapp.net) o a livello di codice, ad esempio usando PowerShell. Usare l'apice inverso, ovvero l'accento grave, per eseguire l'"escape" del carattere $ al fine di consentire a PowerShell di interpretare la sintassi del filtro OData usata nelle chiamate REST di Graph di AAD. L'apice inverso viene usato come [carattere di escape di PowerShell](https://technet.microsoft.com/library/hh847755.aspx)e consente a PowerShell di eseguire un'interpretazione letterale del carattere $, che evita la confusione con il nome di una variabile di PowerShell (ad esempio: $filter).
 
-Questo argomento si concentra su Graph Explorer. Per un esempio di PowerShell, vedere questo [script di PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
+Questo articolo si concentra su Graph Explorer. Per un esempio di PowerShell, vedere questo [script di PowerShell](active-directory-reporting-api-audit-samples.md#powershell-script).
 
 ## <a name="api-endpoint"></a>Endpoint API
+
 È possibile accedere a questa API tramite l'URI seguente:  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta
 
-Non esiste alcun limite al numero di record restituiti dall'API di controllo di Azure AD (usando l'impaginazione OData).
-Per i limiti di conservazione sui dati dei report, consultare [Criteri di conservazione dei report](active-directory-reporting-retention.md).
+Non esiste alcun limite al numero di record restituiti dall'API di controllo di Azure AD (usando l'impaginazione OData). Per i limiti di conservazione sui dati dei report, vedere [Criteri di conservazione dei report](active-directory-reporting-retention.md).
 
-Questa chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record.  
-Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le informazioni sullo skiptoken dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.  
+La chiamata restituisce i dati in batch. Ogni batch contiene un massimo di 1000 record. Per ottenere il batch successivo di record, usare il link **Avanti**. Ottenere le informazioni sullo skip token dal primo set di record restituiti. Il token skip si trova alla fine del set di risultati.  
 
     https://graph.windows.net/contoso.com/activities/audit?api-version=beta&%24skiptoken=-1339686058
 
@@ -73,14 +77,15 @@ Per ottenere il batch successivo di record, usare il link Avanti. Ottenere le in
 
 
 ## <a name="supported-filters"></a>Filtri supportati
+
 È possibile restringere il numero di record restituiti da una chiamata API usando un filtro.  
 Per i dati relativi all'API di accesso sono supportati i filtri seguenti:
 
-* **$top=\<numero di record da restituire\>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non è consigliabile usare questo filtro se si desidera restituire migliaia di oggetti.     
+* **$top=\<numero di record da restituire\>**: per limitare il numero di record restituiti. Si tratta di un'operazione impegnativa. Non usare questo filtro se si desidera restituire migliaia di oggetti.     
 * **$filter=\<istruzione per il filtro\>**: per specificare il tipo di record da restituire, sulla base dei campi filtro supportati
 
 ## <a name="supported-filter-fields-and-operators"></a>Operatori e campi dei filtri supportati
-Per specificare il tipo di record da restituire, è possibile compilare un'istruzione per il filtro che può contenere uno o una combinazione dei campi filtro seguenti:
+Per specificare il tipo di record da restituire, è possibile compilare un'istruzione per il filtro con uno o una combinazione dei campi filtro seguenti:
 
 * [activityDate](#activitydate): definisce una data o un intervallo di date
 * [category](#category): definisce la categoria in base alla quale applicare il filtro
@@ -213,7 +218,7 @@ Non fa distinzione tra maiuscole e minuscole.
 **Note**:
 
 * Non fa distinzione tra maiuscole e minuscole.
-* È necessario aggiungere lo spazio dei nomi completo quando si eseguono query su Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
+* Aggiungere lo spazio dei nomi completo quando si eseguono query su Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.TargetResourceUserEntity
 
 - - -
 ### <a name="targetobjectid"></a>target/name
@@ -234,10 +239,12 @@ Non fa distinzione tra maiuscole e minuscole.
 **Note**:
 
 * Non fa distinzione tra maiuscole e minuscole. 
-* È necessario aggiungere lo spazio dei nomi completo quando si eseguono query su Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
+* Aggiungere lo spazio dei nomi completo quando si eseguono query su Microsoft.ActiveDirectory.DataService.PublicApi.Model.Reporting.AuditLog.ActorUserEntity
 
 - - -
 ## <a name="next-steps"></a>Passaggi successivi
-* Si desidera vedere esempi sulle attività di sistema filtrate? Vedere gli [esempi dell'API di controllo Azure Active Directory](active-directory-reporting-api-audit-samples.md).
-* Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
+
+- Si desidera vedere esempi sulle attività di sistema filtrate? Vedere gli [esempi dell'API di controllo Azure Active Directory](active-directory-reporting-api-audit-samples.md).
+
+- Si desiderano altre informazioni sull'API di creazione report di Azure AD? Vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
