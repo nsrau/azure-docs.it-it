@@ -2,7 +2,7 @@
 title: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Store | Microsoft Docs
 description: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: stewu
 manager: amitkul
 editor: stewu
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 57bd8758c2ae24922a959c9ce3893aad90dfe7e1
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32168912"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store
 
@@ -29,7 +30,7 @@ Le impostazioni predefinite sono state impostate per fornire buone prestazioni p
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Azure Data Lake Store**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
 * **Cluster Azure HDInsight** con accesso a un account di Archivio Data Lake. Vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Esecuzione di Hive in HDInsight**.  Per ulteriori informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Linee guida per l'ottimizzazione delle prestazioni in ADLS**.  Per i concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametri
@@ -88,6 +89,6 @@ Per verificare la presenza di limitazioni, è necessario abilitare la registrazi
 ## <a name="further-information-on-hive-tuning"></a>Ulteriori informazioni sull'ottimizzazione di Hive
 
 Ecco alcuni articoli di blog che consentiranno di ottimizzare le query di Hive:
-* [Ottimizzare le query Hive per Hadoop in HDInsight](https://azure.microsoft.com/en-us/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
+* [Ottimizzare le query Hive per Hadoop in HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
 * [Risoluzione dei problemi di prestazioni delle query Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 * [Discussione Ignite sull'ottimizzazione di Hive in HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 51674f80e918f28febf0e854caa72c0da43c589c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360207"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -41,9 +42,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     La modalità di connessione di un client ad Azure Cosmos DB influisce significativamente sulle prestazioni, in particolare in termini di latenza lato client osservata. Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la *modalità* di connessione e il [protocollo di *connessione*](#connection-protocol).  Le due modalità disponibili sono:
 
    1. Modalità gateway (predefinita)
+      
+      La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata. Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
+
    2. Modalità diretta
 
-      La modalità gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata.  Se l'applicazione è in esecuzione in una rete aziendale con limitazioni rigide del firewall, la modalità gateway è la scelta migliore, perché usa la porta HTTPS standard e un singolo endpoint. A livello di prestazioni, tuttavia, la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
+     La modalità diretta supporta la connettività tramite protocolli TCP e HTTPS. Attualmente, direct è supportato in .NET 2.0 Standard solo per la piattaforma Windows.
+      
 <a id="use-tcp"></a>
 2. **Criteri di connessione: usare il protocollo TCP**
 

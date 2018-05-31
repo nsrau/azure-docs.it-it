@@ -1,5 +1,5 @@
 ---
-title: Connessione di una macchina virtuale SQL a Ricerca di Azure | Documentazione Microsoft
+title: Connessione di una macchina virtuale SQL a Ricerca di Azure | Microsoft Docs
 description: Abilitare connessioni crittografate e configurare il firewall per consentire connessioni a SQL Server in una macchina virtuale (VM) Azure da un indicizzatore in Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 34c5d1999625d1728e884adb794af235ba415c26
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366461"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurare una connessione da un indicizzatore di Ricerca di Azure a SQL Server in una VM Azure
 Come indicato in [Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la creazione di indici per **SQL Server in macchine virtuali di Azure** (o in breve **VM di SQL Azure**) è supportata da Ricerca di Azure, ma prima è necessario occuparsi di alcuni prerequisiti riguardanti la sicurezza. 
@@ -55,11 +56,11 @@ Non è insolito configurare il gruppo di sicurezza di rete e il corrispondente e
 I collegamenti seguenti forniscono istruzioni sulla configurazione del gruppo di sicurezza di rete per le distribuzioni VM. Usare queste istruzioni per inserire nell'elenco di controllo di accesso un endpoint di Ricerca di Azure in base all'indirizzo IP.
 
 > [!NOTE]
-> Per informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+> Per informazioni, vedere [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
 > 
 > 
 
-* Per una VM di **Resource Manager** , vedere [Come creare gruppi di sicurezza di rete per le distribuzioni Azure Resource Manager](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+* Per una VM di **Resource Manager** , vedere [Come creare gruppi di sicurezza di rete per le distribuzioni Azure Resource Manager](../virtual-network/tutorial-filter-network-traffic.md). 
 * Per una VM **classica** , vedere [Come creare gruppi di sicurezza di rete per le distribuzioni classiche](../virtual-network/virtual-networks-create-nsg-classic-ps.md).
 
 L'indirizzamento IP può creare alcune difficoltà facilmente superabili se si conoscono il problema e le potenziali soluzioni alternative. Le sezioni rimanenti contengono suggerimenti per gestire i problemi correlati agli indirizzi IP nell'elenco di controllo di accesso.

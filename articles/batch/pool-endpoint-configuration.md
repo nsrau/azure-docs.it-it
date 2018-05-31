@@ -8,11 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep
-ms.openlocfilehash: fdc68744406c3e995a2764f93d4474b807337ff5
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 5898206761e5029f94b6d1f1b48223481ae2ca13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358728"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurare o disabilitare l'accesso remoto ai nodi di calcolo in un pool di Azure Batch
 
@@ -23,7 +24,7 @@ Nell'ambiente in uso potrebbe essere necessario limitare o disabilitare queste i
 ## <a name="about-the-pool-endpoint-configuration"></a>Informazioni sulla configurazione dell'endpoint del pool
 La configurazione dell'endpoint è costituita da uno o più [pool Network Address Translation](/rest/api/batchservice/pool/add#inboundnatpool) delle porte front-end. Non confondere un pool NAT con il pool di Batch dei nodi di calcolo. Impostare ciascun pool NAT affinché sostituisca le impostazioni di connessione predefinite nei nodi di calcolo del pool. 
 
-Ogni configurazione del pool NAT include una o più [regole del gruppo di sicurezza di rete](/rest/api/batchservice/pool/add#networksecuritygrouprule). Ogni regola del gruppo di sicurezza di rete consente o rifiuta un determinato traffico di rete all'endpoint. È possibile scegliere di consentire o rifiutare tutto il traffico, il traffico identificato da un [tag predefinito](../virtual-network/virtual-networks-nsg.md#default-tags), ad esempio "Internet", o il traffico proveniente da specifici indirizzi IP o subnet.
+Ogni configurazione del pool NAT include una o più [regole del gruppo di sicurezza di rete](/rest/api/batchservice/pool/add#networksecuritygrouprule). Ogni regola del gruppo di sicurezza di rete consente o rifiuta un determinato traffico di rete all'endpoint. È possibile scegliere di consentire o rifiutare tutto il traffico, il traffico identificato da un [tag del servizio](../virtual-network/security-overview.md#service-tags), ad esempio "Internet", o il traffico proveniente da specifici indirizzi IP o subnet.
 
 ### <a name="considerations"></a>Considerazioni
 * La configurazione dell'endpoint del pool fa parte della [configurazione di rete](/rest/api/batchservice/pool/add#NetworkConfiguration) del pool. La configurazione di rete può includere facoltativamente impostazioni per aggiungere il pool a una [rete virtuale di Azure](batch-virtual-network.md). Se si configura il pool in una rete virtuale, è possibile creare le regole del gruppo di sicurezza di rete che usano le impostazioni dell'indirizzo nella rete virtuale.
@@ -124,7 +125,7 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle regole del gruppo di sicurezza di rete, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+- Per altre informazioni sulle regole del gruppo di sicurezza di rete, vedere [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
 - Per una panoramica dettagliata di Batch, vedere [Sviluppare soluzioni di calcolo parallele su larga scala con Batch](batch-api-basics.md).
 

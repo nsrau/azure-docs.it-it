@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 0c7dd884eaadd1fba4fcbc19b6c9cf92c68a59ac
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e7cc1df5e550dec62869c2a6f68cdc2a84167142
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34352413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform Identity Authentication
 
@@ -30,7 +31,7 @@ L'integrazione di SAP Cloud Platform Identity Authentication con Azure AD offre 
 - È possibile abilitare gli utenti per l'accesso automatico alle applicazioni SAP con i propri account Azure AD.
 - Gli account possono essere gestiti da una posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere l'articolo [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere l'articolo [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -126,21 +127,25 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
  
     ![Finestra di dialogo Single Sign-On](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. Se si desidera configurare l'applicazione in modalità avviata da **IDP**, nella sezione **Dominio e URL di SAP Cloud Platform Identity Authentication** digitare un URL nella casella **Identificatore** usando il modello seguente: `https://<entity-id>.accounts.ondemand.com`.  
+3. Se si desidera configurare l'applicazione in modalità avviata da **IDP**, nella sezione **Dominio e URL di SAP Cloud Platform Identity Authentication** eseguire la procedura seguente:  
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Cloud Platform Identity Authentication](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url.png)
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'ID effettivo. Contattare il [team di supporto di SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) per ottenere questo valore. Se non si conosce questo valore, seguire la documentazione di SAP Cloud Platform Identity Authentication in [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) (Configurazione del tenant SAML 2.0).
+    a. Nella casella **Identificatore** digitare un URL usando il modello seguente: `<IAS-tenant-id>.accounts.ondemand.com`
 
-4. Se si desidera configurare l'applicazione in modalità avviata da **SP**, selezionare **Mostra impostazioni URL avanzate**. 
+    b. Nella casella **URL di risposta** digitare un URL nel formato seguente: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
+
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il [team di supporto di SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) per ottenere questi valori. Se non si conosce il valore dell'identificatore, seguire la documentazione di SAP Cloud Platform Identity Authentication in [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) (Configurazione del tenant SAML 2.0).
+
+4. Se si desidera configurare l'applicazione in modalità avviata da **SP**, selezionare **Mostra impostazioni URL avanzate**.
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di SAP Cloud Platform Identity Authentication](./media/active-directory-saas-sapcloudauth-tutorial/tutorial_sapcpia_url1.png)
 
-    Nella casella **URL accesso** digitare un URL corrispondente al modello seguente: `https://<entity-id>.accounts.ondemand.com/admin`.
+    Nella casella **URL accesso** digitare un URL corrispondente al modello seguente: `{YOUR BUSINESS APPLICATION URL}`.
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Contattare il [team di supporto di SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) per ottenere questo valore.
+    > [!NOTE]
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Usare l'URL del Sign-on dell'applicazione aziendale specifica. Contattare il [team di supporto di SAP Cloud Platform Identity Authentication Client](https://cloudplatform.sap.com/capabilities/security/trustcenter.html) in caso di dubbi.
 
 5. Nella sezione **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati sul computer.
 
@@ -274,7 +279,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -289,4 +294,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello
 [201]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sapcloudauth-tutorial/tutorial_general_203.png
-

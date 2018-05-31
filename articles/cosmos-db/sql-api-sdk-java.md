@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: API Java, risorse e SDK per SQL | Microsoft Docs'
+title: 'Azure Cosmos DB: API Java, risorse e SDK per SQL | Documentazione Microsoft'
 description: Informazioni complete sull'SDK e sull'API Java, incluse le date di rilascio e di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Java SDK.
 services: cosmos-db
 documentationcenter: java
@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/16/2018
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b1d8c1dee087abdc13ff1b1a0a9595d1e5b29d9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62941b3654204533d982b11f56b6ca08d591a72f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360149"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -54,6 +55,22 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* Aggiunta del supporto per indice univoco.
+* Aggiunta del supporto per limitare la dimensione del token di continuazione nelle opzioni di feed.
+* Correzione di un bug nella serializzazione Json (timestamp).
+* Correzione di un bug nella serializzazione Json (enumerazione).
+* Dipendenza su com.fasterxml.jackson.core:jackson-databind.aggiornata a 2.9.5.
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+* Funzionalità migliorata per il pool di connessioni per la modalità diretta.
+* Funzionalità migliorata per il piano di query di prelettura per query di partizione non orderby.
+* Funzionalità migliorata per la generazione UUID.
+* Funzionalità migliorata per la logica di coerenza di sessione.
+* Aggiunta di supporto per multipoligoni.
+* Aggiunta del supporto per le statistiche dell'intervallo di chiavi di partizione per la raccolta.
+* Correzione di un bug in modalità di supporto per più aree.
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * Miglioramento delle prestazioni di serializzazione Json.
@@ -184,6 +201,8 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |16 maggio 2018 |--- |
+| [1.16.0](#1.16.0) |15 marzo 2018 |--- |
 | [1.15.0](#1.15.0) |14 novembre 2017 |--- |
 | [1.14.0](#1.14.0) |28 ottobre 2017 |--- |
 | [1.13.0](#1.13.0) |25 agosto 2017 |--- |

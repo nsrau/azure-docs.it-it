@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f25c39b602449be3ab9d1cd7e67d6fcfc78afb17
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176287"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -39,12 +40,11 @@ Di seguito è riportato un altro riepilogo analogo dell'utilizzo e dei costi. Qu
 
 ## <a name="new-pricing-model"></a>Nuovo modello tariffario
 
-Nel mese di aprile 2018, è stato rilasciato un nuovo modello tariffario per il servizio di monitoraggio, che prevede la determinazione di prezzi in base al consumo e pensati per il cloud. Si paga solo per le risorse usate, senza vincoli legati ai nodi. Il nuovo modello tariffario fornisce informazioni dettagliate per [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/).
+Ad aprile 2018 è stato rilasciato un [nuovo modello tariffario per il servizio di monitoraggio](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/),  che prevede la determinazione di prezzi in base al consumo e pensati per il cloud. Si paga solo per le risorse usate, senza vincoli legati ai nodi. Il nuovo modello tariffario fornisce informazioni dettagliate per [avvisi, metriche, notifiche](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Per i clienti che iniziano a usare Log Analytics o Application Insights dopo il 2 aprile 2018, il nuovo modello tariffario è l'unica opzione disponibile. Per i clienti che usano già questi servizi, il passaggio al nuovo modello tariffario è facoltativo.
+Per l'onboarding dei clienti in Log Analytics o Application Insights dopo il 2 aprile 2018, il nuovo modello tariffario è l'unica opzione disponibile. Per i clienti che usano già questi servizi, il passaggio al nuovo modello tariffario è facoltativo.
 
 ## <a name="assessing-the-impact-of-the-new-pricing-model"></a>Valutazione dell'impatto del nuovo modello tariffario
-
 Il nuovo modello di determinazione dei prezzi avrà ripercussioni diverse su ogni cliente in base ai relativi criteri di monitoraggio dell'utilizzo. Per i clienti che usavano già Log Analytics o Application Insights prima del 2 aprile 2018, la pagina **Utilizzo e costi stimati** in Monitoraggio di Azure consente di stimare qualsiasi modifica dei costi in caso di passaggio al nuovo modello tariffario. Consente inoltre di spostare una sottoscrizione nel nuovo modello. Per la maggior parte dei clienti il nuovo modello di determinazione dei prezzi sarà vantaggioso. Per i clienti con modelli di utilizzo dei dati particolarmente elevati o che si trovano in aree con costi più elevati potrebbe non essere la scelta più appropriata.
 
 Per visualizzare una stima dei costi per le sottoscrizioni scelte nella pagina **Utilizzo e costi stimati**, selezionare l'intestazione blu nella parte superiore della pagina. È consigliabile eseguire questa operazione una sottoscrizione alla volta, dal momento che è il livello in corrispondenza del quale può essere adottato il nuovo modello tariffario.
@@ -71,11 +71,30 @@ Il nuovo modello tariffario non ha allocazioni di dati inclusi in base ai nodi. 
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Nuovo modello tariffario e diritti della sottoscrizione di Operations Management Suite
 
-I clienti che hanno acquistato Microsoft Operations Management Suite E1 ed E2 possono usufruire dei diritti di inserimento dati per nodo per [Log Analytics](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Per ricevere questi diritti per le aree di lavoro di Log Analytics o le risorse di Application Insights in una determinata sottoscrizione, il modello tariffario della sottoscrizione deve essere un modello antecedente ad aprile 2018. È in questo modello che sono disponibili il piano tariffario "Per nodo (OMS)" di Log Analytics e il piano tariffario "Enterprise" di Application Insights. A seconda del numero di nodi della suite acquistata dall'organizzazione, potrebbe essere vantaggioso spostare alcune sottoscrizioni nel nuovo modello tariffario. Ma è necessario fare prima un'attenta valutazione.
+I clienti che hanno acquistato Microsoft Operations Management Suite E1 ed E2 possono usufruire dei diritti di inserimento dati per nodo per [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) e [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing#the-price-plans). Per ricevere questi diritti per le aree di lavoro di Log Analytics o le risorse di Application Insights in una determinata sottoscrizione: 
+
+- Il modello tariffario della sottoscrizione deve essere antecedente ad aprile 2018.
+- Le aree di lavoro di Log Analytics devono usare il piano tariffario "Per nodo (OMS)".
+- Le risorse di Application Insights devono usare il piano tariffario "Enterprise".
+
+A seconda del numero di nodi della suite acquistata dall'organizzazione, potrebbe essere vantaggioso spostare alcune sottoscrizioni al nuovo modello tariffario, ma è necessario fare prima un'attenta valutazione. In generale è consigliabile mantenere il modello 2018 antecedente ad aprile, come descritto in precedenza.
+
+> [!WARNING]
+> Se la propria organizzazione ha acquistato Microsoft Operations Management Suite E1 ed E2, in genere è consigliabile mantenere le sottoscrizioni nel modello tariffario 2018 antecedente ad aprile. 
+>
 
 ## <a name="changes-when-youre-moving-to-the-new-pricing-model"></a>Modifiche in caso di passaggio al nuovo modello tariffario
 
-Lo spostamento di una sottoscrizione nel nuovo modello di determinazione dei prezzi modificherà il piano tariffario per ogni sessione di Log Analytics in un nuovo livello per GB e comporterà uno spostamento generale ("pergb2018" in Azure Resource Manager). Questo passaggio modificherà anche eventuali risorse di Application Insights nel piano Enterprise in piano Basic. La stima dei costi mostra gli effetti di queste modifiche.
+Il nuovo modello tariffario semplifica le opzioni dei prezzi di Log Analytics e Application Insights a un singolo piano. Lo spostamento di una sottoscrizione al nuovo modello tariffario determinerà:
+
+- La modifica del piano tariffario per ogni sessione di Log Analytics in un nuovo livello per GB, denominato "pergb2018" in Azure Resource Manager.
+- Questo passaggio modificherà anche eventuali risorse di Application Insights nel piano Enterprise in piano Basic.
+
+La stima dei costi mostra gli effetti di queste modifiche.
+
+> [!WARNING]
+> Ecco una nota importante se si usa Azure Resource Manager o PowerShell per distribuire [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) o [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in una sottoscrizione passata a un nuovo modello tariffario. Se si specifica un piano tariffario diverso da "pergb2018" per Log Analytics o "Basic" per Application Insights, anziché generare un errore di distribuzione a causa della specifica di un piano tariffario non valido, l'operazione verrà eseguita con esito positivo **ma usando solo il piano tariffario valido**. 
+>
 
 ## <a name="moving-to-the-new-pricing-model"></a>Passaggio al nuovo modello tariffario
 

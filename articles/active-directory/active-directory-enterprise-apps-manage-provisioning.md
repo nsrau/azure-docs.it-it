@@ -6,8 +6,8 @@ documentationcenter: ''
 author: asmalser
 manager: mtillman
 editor: ''
-ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,25 +15,26 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a6f9f35931ff13eb3f0f35748b3a040af37df672
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337895"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestione del provisioning degli account utente per le app aziendali nel portale di Azure
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per gestire il provisioning e il deprovisioning automatici degli account per le applicazioni che li supportano, in particolare per le applicazioni aggiunte dalla categoria "In primo piano" della [raccolta di applicazioni di Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Per altre informazioni sul provisioning automatico degli account utente e sul relativo funzionamento, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Individuazione delle app nel portale
-Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
+Tutte le applicazioni configurate per l'accesso Single Sign-On in una directory da un amministratore di directory che usa la [raccolta di applicazioni di Azure Active Directory](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery) possono essere visualizzate e gestite nel [portale di Azure](https://portal.azure.com). Le applicazioni sono disponibili nella sezione **Tutti i servizi** &gt; **Applicazioni aziendali** del portale. Le app aziendali sono app distribuite e usate all'interno dell'organizzazione.
 
-![Riquadro Applicazioni aziendali][0]
+![Riquadro Applicazioni aziendali](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.png)
 
 Se si seleziona il collegamento **Tutte le applicazioni** a sinistra, viene visualizzato un elenco di tutte le app configurate, incluse le app aggiunte dalla raccolta. Se si seleziona un'app, viene caricato il riquadro delle risorse per tale app, in cui è possibile visualizzare i report per l'app e gestire diverse impostazioni.
 
 Le impostazioni del provisioning degli account utente possono essere gestite selezionando **Provisioning** a sinistra.
 
-![Riquadro della risorsa dell'applicazione][1]
+![Riquadro della risorsa dell'applicazione](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modalità di provisioning
 Il riquadro **Provisioning** inizia con un menu **Modalità**, che mostra le modalità di provisioning supportate per un'applicazione aziendale e ne consente la configurazione. Le opzioni disponibili includono:
@@ -54,7 +55,7 @@ In questa sezione gli amministratori possono visualizzare e modificare gli attri
 
 Esiste un set preconfigurato di mapping tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti, quali Gruppi o Contatti. Se si seleziona uno di questi mapping nella tabella, viene visualizzato l'editor di mapping, che consente di visualizzare e personalizzare i mapping.
 
-![Riquadro della risorsa dell'applicazione][2]
+![Riquadro della risorsa dell'applicazione](./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.png)
 
 Le personalizzazioni supportate includono:
 
@@ -65,7 +66,7 @@ Le personalizzazioni supportate includono:
 ### <a name="settings"></a>Impostazioni
 Questa sezione consente agli amministratori di avviare e arrestare il servizio di provisioning di Azure AD per l'applicazione selezionata, oltre a cancellare facoltativamente la cache di provisioning e riavviare il servizio.
 
-Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Il servizio di provisioning di Azure AD esegue quindi una sincronizzazione iniziale, durante la quale legge gli utenti assegnati nella sezione **Utenti e gruppi**, esegue query nell'applicazione di destinazione alla ricerca di tali utenti e quindi esegue le azioni di provisioning definite nella sezione **Mapping** di Azure AD. Durante questo processo il servizio di provisioning archivia i dati memorizzati nella cache relativi agli account utente gestiti, in modo che gli account non gestiti all'interno dell'applicazione di destinazione non inclusi nell'ambito dell'assegnazione non siano interessati dalle operazioni di deprovisioning. Dopo la sincronizzazione iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo a intervalli di dieci minuti.
+Se il provisioning viene abilitato per la prima volta per un'applicazione, attivare il servizio impostando **Stato del provisioning** su **Sì**. Questa modifica fa sì che il servizio di provisioning di Azure AD esegua una sincronizzazione iniziale, durante la quale legge gli utenti assegnati nella sezione **Utenti e gruppi**, esegue query nell'applicazione di destinazione alla ricerca di tali utenti e quindi esegue le azioni di provisioning definite nella sezione **Mapping** di Azure AD. Durante questo processo il servizio di provisioning archivia i dati memorizzati nella cache relativi agli account utente gestiti, in modo che gli account non gestiti all'interno dell'applicazione di destinazione non inclusi nell'ambito dell'assegnazione non siano interessati dalle operazioni di deprovisioning. Dopo la sincronizzazione iniziale, il servizio di provisioning sincronizza automaticamente gli oggetti utente e gruppo a intervalli di dieci minuti.
 
 Se si imposta **Stato del provisioning** su **No**, il servizio di provisioning viene semplicemente sospeso. In questo stato Azure non crea, aggiorna o rimuove oggetti utente o gruppo nell'app. Se si reimposta lo stato su Sì, il servizio ripartirà dal punto in cui si era interrotto.
 
@@ -78,9 +79,5 @@ Sono disponibili collegamenti al **report dell'attività di provisioning**, che 
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 
-Speriamo che gli utenti apprezzino Azure AD e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Microsoft accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
+e inviino commenti e suggerimenti. È possibile inviare commenti e idee per apportare miglioramenti nella sezione **Portale di amministrazione** del [forum dei commenti](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Il team di progettazione accoglie i suggerimenti degli utenti per definire nuove funzionalità ogni giorno.
 
-
-[0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-pane.PNG
-[1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
-[2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG

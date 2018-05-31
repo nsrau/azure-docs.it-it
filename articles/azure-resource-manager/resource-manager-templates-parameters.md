@@ -8,16 +8,17 @@ manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/19/2018
+ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a519908f43193e41da9237a236d720fe2db58eb
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359204"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parameters dei modelli di Azure Resource Manager
 Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare i parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, località e proprietà.
@@ -85,7 +86,7 @@ L'esempio precedente mostra solo alcune delle proprietà che è possibile usare 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
 | parameterName |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **secureString**, **int**, **bool**, **object**, **secureObject** e **array**. |
+| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | defaultValue |No  |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No  |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No  |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -225,7 +226,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
    }
    ```
 
-* Usare **SecureString** per tutte le password e i segreti. Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
+* Usare **securestring** per tutte le password e i segreti. Se si passano dati sensibili in un oggetto JSON, usare il tipo **secureObject**. Non è possibile leggere i parametri di modello di tipo secureString o secureObject dopo la distribuzione delle risorse. 
    
    ```json
    "parameters": {

@@ -3,23 +3,24 @@ title: Installare il gateway dati locale - App per la logica di Azure | Microsof
 description: Prima di accedere alle origini dei dati in locale, installare il gateway di dati locale per il trasferimento rapido dei dati e la crittografia tra le origini dati locale e le app per la logica
 keywords: accesso ai dati, locale, trasferimento dei dati, crittografia, origini dei dati
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 47e3024e-88a0-4017-8484-8f392faec89d
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/14/2017
 ms.author: LADocs; millopis; estfan
-ms.openlocfilehash: e061f24f3160de82548c4debf6da5821318ad2fb
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6c1c954209c08c4ce1262bdc1620755e4a3a6d7e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179011"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per le app per la logica di Azure
 
@@ -242,6 +243,11 @@ Pertanto quando l'utente nel cloud interagisce con un elemento connesso a un'ori
 6. I risultati vengono quindi inviati dall'origine dati al gateway e quindi al servizio cloud del gateway. Infine, il servizio cloud del gateway usa i risultati.
 
 <a name="faq"></a>
+
+## <a name="tenant-level-administration"></a>Amministrazione a livello di tenant 
+
+Attualmente non è presente alcuna posizione singola in cui gli amministratori tenant possono gestire tutti i gateway che altri utenti hanno installato e configurato.  Se l'utente è un amministratore tenant, è consigliabile chiedere agli utenti dell'organizzazione di essere aggiunti come amministratori a ogni gateway che installano. In questo modo è possibile gestire tutti i gateway all'interno dell'organizzazione tramite la pagina delle impostazioni del gateway oppure tramite [i comandi di PowerShell](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters#powershell-support-for-gateway-clusters). 
+
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

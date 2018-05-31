@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi relativi ai gruppi di sicurezza di rete - PowerShell | Documentazione Microsoft
+title: Risolvere i problemi relativi ai gruppi di sicurezza di rete - PowerShell | Microsoft Docs
 description: Informazioni su come risolvere i problemi dei gruppi di sicurezza di rete nel modello di distribuzione Azure Resource Manager con Azure PowerShell.
 services: virtual-network
 documentationcenter: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 3d1928428915d3ea5f9f28dc400f251b9f90679f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: edbf76ef5dcf581acfec17970becdf698445cbeb
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365441"
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>Risolvere i problemi relativi ai gruppi di sicurezza di rete tramite Azure PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +31,9 @@ ms.lasthandoff: 05/14/2018
 
 Se sono stati configurati gruppi di sicurezza di rete nella macchina virtuale (VM) e si verificano problemi di connettività alla VM, questo articolo offre una panoramica delle funzionalità di diagnostica per i gruppi di sicurezza di rete per risolvere il problema.
 
-I gruppi di sicurezza di rete consentono di controllare i tipi di traffico che scorrono dentro e fuori le macchine virtuali (VM). I gruppi di sicurezza di rete possono essere applicati alle subnet in una rete virtuale di Azure, nelle interfacce di rete o in entrambe. Le regole effettive applicate a un'interfaccia di rete (NIC) sono un'aggregazione delle regole esistenti nei gruppi di sicurezza di rete applicati a un'interfaccia di rete e alla subnet a cui è connessa. Talvolta le regole nei gruppi di sicurezza di rete possono essere in conflitto tra loro e influire sulla connettività di rete della VM.  
+I gruppi di sicurezza di rete consentono di controllare i tipi di traffico che scorrono dentro e fuori le macchine virtuali (VM). I gruppi di sicurezza di rete possono essere applicati alle subnet in una rete virtuale di Azure, nelle interfacce di rete o in entrambe. Le regole effettive applicate a un'interfaccia di rete (NIC) sono un'aggregazione delle regole esistenti nei gruppi di sicurezza di rete applicati a un'interfaccia di rete e alla subnet a cui è connessa. Talvolta le regole nei gruppi di sicurezza di rete possono essere in conflitto tra loro e influire sulla connettività di rete della VM.
 
-È possibile visualizzare tutte le regole di sicurezza effettive dai gruppi di sicurezza di rete, così come vengono applicate nelle interfacce di rete della VM. Questo articolo illustra come risolvere i problemi di connettività delle VM usando queste regole nel modello di distribuzione Azure Resource Manager. Se si ha scarsa dimestichezza con i concetti di rete virtuale e gruppo di sicurezza di rete, vedere gli articoli generali sulle [reti virtuali](virtual-networks-overview.md) e sui [gruppi di sicurezza di rete](virtual-networks-nsg.md).
+È possibile visualizzare tutte le regole di sicurezza effettive dai gruppi di sicurezza di rete, così come vengono applicate nelle interfacce di rete della VM. Questo articolo illustra come risolvere i problemi di connettività delle VM usando queste regole nel modello di distribuzione Azure Resource Manager. Se si ha scarsa dimestichezza con i concetti di rete virtuale e gruppo di sicurezza di rete, vedere la [panoramica sulle reti virtuali](virtual-networks-overview.md) e sui [gruppi di sicurezza di rete](security-overview.md).
 
 ## <a name="using-effective-security-rules-to-troubleshoot-vm-traffic-flow"></a>Uso di regole di sicurezza effettive per risolvere i problemi di flusso del traffico delle VM
 Lo scenario seguente è un esempio di un problema di connessione comune:
@@ -159,8 +160,7 @@ Completare i passaggi seguenti per risolvere i problemi dei gruppi di sicurezza 
    
    * Esistono due sezioni in **NetworkSecurityGroup**: una è associata a una subnet (*Subnet1*), l'altra a un'interfaccia di rete (*VM1-NIC1*). In questo esempio, è stato applicato un gruppo di sicurezza di rete a ciascuna.
    * **Associazione** mostra la risorsa (subnet o interfaccia di rete) a cui è associato un determinato gruppo di sicurezza di rete. Se la risorsa del gruppo di sicurezza di rete viene spostata oppure se viene eliminata la sua associazione appena prima di eseguire il comando, potrebbe essere necessario attendere qualche secondo prima che la modifica sia effettiva nell'output del comando. 
-   * I nomi delle regole precedute da *defaultSecurityRules*: quando viene creato un gruppo di risorse di rete, vengono create varie regole predefinite al suo interno. Le regole predefinite non possono essere rimosse, tuttavia possono essere sostituite con regole dalla priorità più elevata.
-     Per ulteriori informazioni sulle regole di sicurezza predefinite dei gruppi di sicurezza di rete, leggere l'articolo [Panoramica dei gruppi di sicurezza di rete](virtual-networks-nsg.md#default-rules) .
+   * I nomi delle regole precedute da *defaultSecurityRules*: quando viene creato un gruppo di risorse di rete, vengono create varie regole predefinite al suo interno. Le regole predefinite non possono essere rimosse, tuttavia possono essere sostituite con regole dalla priorità più elevata. Altre informazioni sulle [regole di sicurezza predefinite](security-overview.md#default-security-rules).
    * **ExpandedAddressPrefix** espande i prefissi degli indirizzi per i tag predefiniti dei gruppi di sicurezza di rete. I tag rappresentano più prefissi di indirizzi. L'espansione dei tag può essere utile per la risoluzione dei problemi di connettività delle VM da e verso prefissi di indirizzi specifici. Ad esempio, con il peering reti virtuali, il tag VIRTUAL_NETWORK viene espanso per visualizzare i prefissi delle reti virtuali con peering nell'output precedente.
      
      > [!NOTE]

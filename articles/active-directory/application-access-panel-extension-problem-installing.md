@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 5/4/18
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 3903e0f55e996d2ff793f17fb710843c5c64127f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8db0c28b0ea6b6f78ef86c773ff24f9d22fe3ecd
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34353875"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installare l'estensione del browser per il pannello di accesso
 
@@ -83,6 +84,12 @@ Per installare l'estensione del browser per il pannello di accesso, seguire ques
    3. Cercare un'app disponibile nel portale delle app personali.
    4. Nell'elenco dei risultati della ricerca selezionare l'app.  
        Nell'elenco di collegamenti **Recently Used** (Usate di recente) verranno visualizzate le ultime tre app usate.
+       
+* Per usare gli URL aziendali interni in remoto, procedere come segue:
+    1. [Configurare il proxy dell'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) nel tenant
+    2. [Pubblicare l'applicazione](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e l'URL con il proxy dell'applicazione
+    3. Installare l'estensione e accedervi selezionando Accedi per iniziare
+    4. È ora possibile passare all'URL aziendale interno anche in remoto
 
 > [!NOTE]
 > Le opzioni precedenti sono disponibili solo per Microsoft Edge, Chrome e Firefox.
@@ -118,4 +125,4 @@ Aprire un ticket di supporto con le informazioni seguenti, se disponibili:
 -   Tracce Fiddler
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+[Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)

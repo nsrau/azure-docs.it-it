@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/30/2018
+ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3b2fd59444f50f4ac5da6bf569cb0247f3a36943
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361183"
 ---
-# <a name="compare-managed-and-custom-labs-in-azure-lab-services"></a>Confrontare lab gestiti e personalizzati in Azure Lab Services
+# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Confrontare lab gestiti e DevTest Labs in Azure Lab Services
 È possibile creare due tipi di lab, **lab gestiti** con Azure Lab Services e **lab personalizzati** con Azure DevTest Labs. Se si vuole semplicemente indicare le caratteristiche richieste per il lab e consentire al servizio di configurare e gestire l'infrastruttura necessaria per il lab, scegliere uno dei **lab gestiti**. Attualmente il **lab per le classi** è l'unico tipo di lab gestito che è possibile creare con Azure Lab Services. Se si vuole gestire la propria infrastruttura, creare un **lab personalizzato** tramite Azure DevTest Labs.
 
 Le sezioni seguenti includono altre informazioni dettagliate su queste opzioni. 
@@ -37,10 +38,10 @@ Ecco alcuni **casi d'uso per i lab gestiti**:
 - Eseguire rapidamente il provisioning di un lab di macchine virtuali per ospitare un hackathon. Al termine dell'operazione, eliminare il lab con un solo clic. 
 
 
-## <a name="custom-labs"></a>Lab personalizzati
+## <a name="devtest-labs"></a>DevTest Labs
 In alcuni scenari è possibile gestire autonomamente l'infrastruttura e la configurazione, all'interno della propria sottoscrizione. A tale scopo, creare un lab personalizzato in Azure DevTest Labs nel portale di Azure. Per questi lab non è necessario creare un account del lab. Tali lab non vengono visualizzati nell'account del lab, che è destinato ai lab gestiti.  
 
-Ecco alcuni **casi d'uso per i lab personalizzati**: 
+Ecco alcuni **casi d'uso per DevTest Labs**: 
 
 - Eseguire rapidamente il provisioning di un lab di macchine virtuali per ospitare un hackathon o una sessione pratica durante una conferenza. Al termine dell'operazione, eliminare il lab con un solo clic. 
 - Creare un pool di macchine virtuali configurate con l'applicazione e consentire al team di usare facilmente una macchina virtuale per i bug bash.  
@@ -50,10 +51,10 @@ Ecco alcuni **casi d'uso per i lab personalizzati**:
 - Offrire sessioni di training ai clienti usando un lab configurato con la versione più recente del prodotto. Assegnare a ogni cliente un numero limitato di ore per l'uso del lab. 
 
 
-## <a name="managed-labs-vs-custom-labs"></a>Confronto tra lab gestiti e lab personalizzati
+## <a name="managed-labs-vs-devtest-labs"></a>Confronto tra lab gestiti e DevTest Labs
 La tabella seguente confronta due tipi di lab supportati da Azure Lab Services: 
 
-| Funzionalità | Lab gestiti | Lab personalizzati |
+| Funzionalità | Lab gestiti | DevTest Labs |
 | -------- | ----------------  | ---------- |
 | Gestione dell'infrastruttura di Azure nel lab. |  Gestita automaticamente dal servizio | Gestita autonomamente  |
 | Resilienza predefinita per i problemi dell'infrastruttura | Gestita automaticamente dal servizio | Gestita autonomamente  |

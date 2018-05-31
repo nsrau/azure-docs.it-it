@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d15c5556325284dd3b0b6f11a080c9abc263286c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356325"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Associazioni HTTP e webhook in Funzioni di Azure
 
@@ -37,11 +38,13 @@ Le associazioni HTTP sono incluse nel pacchetto NuGet [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+
 ## <a name="trigger"></a>Trigger
 
 Un trigger HTTP consente di richiamare una funzione con una richiesta HTTP e può essere usato per compilare API senza server e rispondere ai webhook. 
 
-Per impostazione predefinita, un trigger HTTP risponde alla richiesta con un codice di stato HTTP 200 OK e un corpo vuoto. Per modificare la risposta, configurare un'[associazione di output HTTP](#http-output-binding).
+Per impostazione predefinita, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto nelle funzioni 1.x o HTTP 204 Nessun contenuto con un corpo vuoto nelle funzioni 2.x. Per modificare la risposta, configurare un'[associazione di output HTTP](#http-output-binding).
 
 ## <a name="trigger---example"></a>Trigger - esempio
 
@@ -54,7 +57,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 
 ### <a name="trigger---c-example"></a>Trigger - esempio in C#
 
-L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
+L'esempio seguente mostra una [funzione in C#](functions-dotnet-class-library.md) che cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP. Si noti che il valore restituito viene usato per l'associazione di output, ma non è necessario un attributo di valore restituito.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,15 +88,29 @@ public static async Task<HttpResponseMessage> Run(
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco il file *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,
+    "bindings": [
+        {
+            "authLevel": "function",
+            "name": "req",
+            "type": "httpTrigger",
+            "direction": "in",
+            "methods": [
+                "get",
+                "post"
+            ]
+        },
+        {
+            "name": "$return",
+            "type": "http",
+            "direction": "out"
+        }
+    ]
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -145,15 +162,25 @@ public class CustomObject {
 
 L'esempio seguente mostra un'associazione di trigger in un file *function.json* e una [funzione F#](functions-reference-fsharp.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco il file *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "res",
+      "type": "http",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -201,15 +228,25 @@ let Run(req: HttpRequestMessage) =
 
 L'esempio seguente illustra un'associazione di trigger in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione cerca un parametro `name` nella stringa di query o nel corpo della richiesta HTTP.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco il file *function.json*:
 
 ```json
 {
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-    "authLevel": "function"
-},
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -222,7 +259,7 @@ module.exports = function(context, req) {
 
     if (req.query.name || (req.body && req.body.name)) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "Hello " + (req.query.name || req.body.name)
         };
     }
@@ -261,15 +298,25 @@ public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous,
 
 L'esempio seguente mostra un'associazione di trigger webhook in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. Questa funzione registra i commenti sui problemi di GitHub.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco il file *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -301,15 +348,25 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 
 L'esempio seguente mostra un'associazione di trigger webhook in un file *function.json* e una [funzione F#](functions-reference-fsharp.md) che usa l'associazione. Questa funzione registra i commenti sui problemi di GitHub.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco il file *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -345,11 +402,21 @@ Ecco i dati di associazione nel file *function.json*:
 
 ```json
 {
-    "webHookType": "github",
-    "name": "req",
-    "type": "httpTrigger",
-    "direction": "in",
-},
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "webHookType": "github",
+      "name": "req"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "disabled": false
+}
 ```
 
 Queste proprietà sono descritte nella sezione [configuration](#trigger---configuration).
@@ -384,7 +451,6 @@ Per un esempio completo, vedere [Trigger - esempio in C#](#trigger---c-example).
 ## <a name="trigger---configuration"></a>Trigger - configurazione
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `HttpTrigger`.
-
 
 |Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
 |---------|---------|----------------------|
@@ -470,13 +536,13 @@ module.exports = function (context, req) {
 
     if (!id) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: "All " + category + " items were requested."
         };
     }
     else {
         context.res = {
-            // status: 200, /* Defaults to 200 */
+            // status defaults to 200 */
             body: category + " item with id = " + id + " was requested."
         };
     }
@@ -547,35 +613,24 @@ Il file [host.json](functions-host-json.md) contiene le impostazioni che control
 
 ## <a name="output"></a>Output
 
-Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene specificato un binding di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto. 
+Usare l'associazione di output HTTP per rispondere al mittente della richiesta HTTP. Questa associazione richiede un trigger HTTP e consente di personalizzare la risposta associata alla richiesta del trigger. Se non viene fornita un'associazione di output HTTP, un trigger HTTP restituisce HTTP 200 OK con un corpo vuoto nelle funzioni 1.x o HTTP 204 Nessun contenuto con un corpo vuoto nelle funzioni 2.x.
 
 ## <a name="output---configuration"></a>Output - configurazione
 
-Per le librerie di classi C# non esistono proprietà di configurazione di binding specifiche dell'output. Per inviare una risposta HTTP, impostare il tipo restituito della funzione su `HttpResponseMessage` o `Task<HttpResponseMessage>`.
-
-Per gli altri linguaggi un binding di output HTTP è definito come un oggetto JSON nella matrice `bindings` di function.json, come illustrato nell'esempio seguente:
-
-```json
-{
-    "name": "res",
-    "type": "http",
-    "direction": "out"
-}
-```
-
-Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*.
+Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json*. Per le librerie di classe C# non vi sono proprietà di attributo che corrispondano a queste proprietà *function.json*. 
 
 |Proprietà  |DESCRIZIONE  |
 |---------|---------|
 | **type** |Il valore deve essere impostato su `http`. |
 | **direction** | Il valore deve essere impostato su `out`. |
-|**nome** | Nome della variabile usato nel codice della funzione per la risposta. |
+|**nome** | Nome della variabile usato nel codice della funzione per la risposta, o `$return`per usare il valore restituito. |
 
 ## <a name="output---usage"></a>Output - uso
 
-È possibile usare il parametro di output per rispondere al chiamante HTTP o webhook. È anche possibile usare modelli di risposta standard del linguaggio. Per altre risposte di esempio, vedere l'[esempio di trigger](#trigger---example) e l'[esempio di webhook](#trigger---webhook-example).
+Per inviare una risposta HTTP, usare modelli di risposta standard del linguaggio. In C# o nello script C#, eseguire il tipo restituito della funzione `HttpResponseMessage` o `Task<HttpResponseMessage>`. In C#, non è necessario un attributo del valore restituito.
+
+Per altre risposte di esempio, vedere l'[esempio di trigger](#trigger---example) e l'[esempio di webhook](#trigger---webhook-example).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
+[Altre informazioni su trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)

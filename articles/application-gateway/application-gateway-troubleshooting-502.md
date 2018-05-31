@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 1d431ead-d318-47d8-b3ad-9c69f7e08813
 ms.service: application-gateway
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 4eca6a588d2c95189f0ba995b8db195907e9dc39
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356036"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
@@ -92,7 +93,7 @@ Gli errori 502 possono anche indicare frequentemente che il probe di integrità 
 * La chiamata a http://127.0.0.1:port deve restituire un codice risultato HTTP di 200. Questo valore deve essere restituito entro il periodo di timeout di 30 secondi.
 * Verificare che la porta configurata sia aperta e che non esistano regole del firewall o gruppi di sicurezza di rete di Azure che bloccano il traffico in ingresso o in uscita sulla porta configurata.
 * Se le macchine virtuali classiche di Azure o il servizio cloud vengono usati con indirizzi FQDN o IP pubblici, verificare che l' [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente sia aperto.
-* Se la macchina virtuale è stata configurata tramite Azure Resource Manager e si trova all'esterno della rete virtuale in cui è distribuito il gateway applicazione, è necessario configurare un [Gruppo di sicurezza di rete](../virtual-network/virtual-networks-nsg.md) per consentire l'accesso alla porta desiderata.
+* Se la macchina virtuale è stata configurata tramite Azure Resource Manager e si trova all'esterno della rete virtuale in cui è distribuito il gateway applicazione, è necessario configurare un [Gruppo di sicurezza di rete](../virtual-network/security-overview.md) per consentire l'accesso alla porta desiderata.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemi con il probe di integrità personalizzato
 

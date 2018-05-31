@@ -1,11 +1,11 @@
 ---
 title: 'Gestire le acquisizioni di pacchetti con Azure Network Watcher: portale di Azure | Microsoft Docs'
-description: "Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando il portale di Azure"
+description: Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando il portale di Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 40414afbfcd456353b4290585ccd9d594fbf55dd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 508b9e7eef757277d4bc0e93a26f3a63045f31e4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187532"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando il portale
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
+> - [Portale di Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Interfaccia della riga di comando 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
 > - [Interfaccia della riga di comando 2.0](network-watcher-packet-capture-manage-cli.md)
@@ -131,7 +132,7 @@ Nella visualizzazione dell'acquisizione di pacchetti fare clic sul **menu contes
 
 ## <a name="download-a-packet-capture"></a>Scaricare un'acquisizione di pacchetti
 
-Dopo aver completato la sessione di acquisizione di pacchetti, il file di acquisizione viene caricato nell'archivio BLOB o in un file locale nella macchina virtuale. La posizione di archiviazione dell'acquisizione di pacchetti viene definita al momento della creazione della sessione. Uno strumento utile per accedere ai file di acquisizione salvati in un account di archiviazione è Esplora archivi di Microsoft Azure, disponibile qui: http://storageexplorer.com/
+Dopo aver completato la sessione di acquisizione di pacchetti, il file di acquisizione viene caricato nell'archivio BLOB o in un file locale nella macchina virtuale. La posizione di archiviazione dell'acquisizione di pacchetti viene definita al momento della creazione della sessione. Uno strumento utile per accedere ai file di acquisizione salvati in un account di archiviazione è Microsoft Azure Storage Explorer, disponibile qui: http://storageexplorer.com/
 
 Se viene specificato un account di archiviazione, i file di acquisizione di pacchetti vengono salvati in un account di archiviazione nel percorso seguente:
 ```
@@ -142,7 +143,7 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 Per altre informazioni su come automatizzare le acquisizioni di pacchetti tramite gli avvisi della macchina virtuale, leggere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md).
 
-Per stabilire se un traffico specificato è consentito all'interno o all'esterno di una macchina virtuale, vedere [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md) (Controllare la verifica del flusso IP).
+Per stabilire se un traffico specificato è consentito all'interno o all'esterno di una macchina virtuale, vedere [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md) (Controllare la verifica del flusso IP).
 
 <!-- Image references -->
 [1]: ./media/network-watcher-packet-capture-manage-portal/figure1.png
