@@ -1,8 +1,8 @@
 ---
-title: Domande frequenti sulla creazione di report in Azure Active Directory | Documentazione Microsoft
+title: Domande frequenti sulla creazione di report in Azure Active Directory | Microsoft Docs
 description: Domande frequenti sulla creazione di report in Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -11,27 +11,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 05/10/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a39183e65306ddc7cb81825b7abf27677339a3ba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067011"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
 Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](active-directory-reporting-azure-portal.md). 
 
-**D: se si usano le API dell'endpoint https://graph.windows.net/&lt;nome-tentant&gt;/reports/ per eseguire il pull a livello di codice dei report di controllo e di utilizzo delle applicazioni integrate di Azure AD, a quale API occorre passare?**
+**D: se si usano le API endpoint https://graph.windows.net/&ltnome-tenant&gt;/reports/ per eseguire il pull a livello di codice dei report di controllo e di utilizzo delle applicazioni integrate di Azure AD, a quale API occorre passare?**
 
-**R:** consultare la [documentazione Microsoft di riferimento sulle API](https://developer.microsoft.com/graph/) per vedere come è possibile usare le nuove API per accedere ai [report sulle attività](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Questo endpoint dispone di due report (Controllo e Accessi) che forniscono tutti i dati che si ottengono nell'endpoint delle API precedente. Anche questo nuovo endpoint include un report sugli accessi con la licenza Azure AD Premium, che è possibile usare per ottenere informazioni sull'utilizzo dell'app, l'utilizzo dei dispositivi e gli accessi degli utenti.
+**R:** consultare la [documentazione di riferimento sulle API](https://developer.microsoft.com/graph/) per vedere come è possibile usare le nuove API per accedere ai [report attività](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Questo endpoint dispone di due report (Controllo e Accessi) che forniscono tutti i dati che si ottengono nell'endpoint delle API precedente. Anche questo nuovo endpoint include un report sugli accessi con la licenza Azure AD Premium, che è possibile usare per ottenere informazioni sull'utilizzo dell'app, l'utilizzo dei dispositivi e gli accessi degli utenti.
 
 
 --- 
 
-**D: se si usano le API dell'endpoint https://graph.windows.net/&lt;nome-tenant&gt;/reports/ per eseguire il pull a livello di codice dei report sulla sicurezza di Azure AD (tipi specifici di rilevamenti, come perdita di credenziali o accessi da indirizzi IP anonimi) nei sistemi di gestione dei report, a quale API occorre passare?**
+**D: se si usano le API endpoint https://graph.windows.net/&ltnome-tenant&gt;/reports/ per eseguire il pull a livello di codice dei report sulla sicurezza di Azure AD (tipi specifici di rilevamenti, come perdita di credenziali o accessi da indirizzi IP anonimi) nei sistemi di gestione dei report, a quale API occorre passare?**
 
 **R:** è possibile usare l'[API per gli eventi di rischio di protezione dell'identità](active-directory-identityprotection-graph-getting-started.md) per accedere ai rilevamenti relativi alla sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità per l'esecuzione di query sui dati, grazie a filtri avanzati, modalità di selezione dei campi e altro, oltre a standardizzare gli eventi di rischio su un solo tipo per una più facile integrazione con gli strumenti per la raccolta di informazioni di sicurezza e gestione degli eventi e altri dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Saranno quindi necessari interventi per estendere gli investimenti esistenti per Microsoft Graph o per avviare la transizione a questa nuova piattaforma standard.
 
@@ -39,7 +40,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Qual è la conservazione dei dati per i log attività (controllo e accessi) nel portale di Azure?** 
 
-**R:** vengono offerti 7 giorni di dati per i clienti con sottoscrizione gratuita. In alternativa, è possibile accedere ai dati fino a 30 giorni acquistando una licenza Azure AD Premium 1 o 2. Per altre informazioni sulla conservazione dei report, vedere [Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).
+**R:** vedere [per quanto tempo rimangono archiviati i dati raccolti?](active-directory-reporting-retention.md#q-for-how-long-is-the-collected-data-stored) per una risposta a questa domanda.
 
 --- 
 
@@ -124,6 +125,6 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Cosa significa l'evento di rischio "È stato rilevato un accesso con rischi aggiuntivi"?**
 
-**R:** Per offrire informazioni approfondite su tutti gli accessi rischiosi effettuati nell'ambiente, viene visualizzato l'evento di rischio "È stato rilevato un accesso con rischi aggiuntivi" per gli accessi considerati rischiosi a seguito di rilevamenti effettuati esclusivamente per i sottoscrittori di Azure AD Identity Protection.
+**R:** Per offrire informazioni approfondite su tutti gli accessi rischiosi effettuati nell'ambiente, "È stato rilevato un accesso con rischi aggiuntivi" funziona come segnaposto per gli accessi per rilevamenti esclusivi per i sottoscrittori di Azure AD Identity Protection.
 
 ---

@@ -1,26 +1,28 @@
 ---
-title: Informazioni sul manifesto dell'applicazione Azure Active Directory | Documentazione Microsoft
+title: Informazioni sul manifesto dell'applicazione Azure Active Directory | Microsoft Docs
 description: Descrizione dettagliata del manifesto dell'applicazione Azure Active Directory, che rappresenta una configurazione dell'identità dell'applicazione in un tenant di Azure AD e che viene usato per facilitare l'autorizzazione OAuth, per l'esperienza di consenso e altro ancora.
 services: active-directory
 documentationcenter: ''
-author: sureshja
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/20/2017
-ms.author: sureshja
+ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: ee4e7eb6625cab274455ca787feeb7f267e11051
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157076"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Manifesto dell'applicazione di Azure Active Directory
 Le app che si integrano con Azure AD devono essere registrate con un tenant di Azure AD. Questa app può essere configurata con il manifesto dell'app (nel pannello di Azure AD) nel [portale di Azure](https://portal.azure.com).
@@ -33,29 +35,29 @@ Le app che si integrano con Azure AD devono essere registrate con un tenant di A
 |---------|---------|---------|---------|
 |appID     |  Stringa dell'identificatore       |""|  Identificatore univoco per l'applicazione che viene assegnato a un'app da Azure AD.|
 |appRoles     |    Tipo di matrice     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Raccolta di ruoli che un'applicazione può dichiarare. Questi ruoli possono essere assegnati a utenti, gruppi o entità servizio.|
-|availableToOtherTenants|boolean|`true`|Se questo valore è impostato su true, l'applicazione è disponibile per altri tenant.  Se è impostato su false, l'app è disponibile solo per il tenant in cui è registrata.  Per ulteriori informazioni, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|boolean|`true`|Se questo valore è impostato su true, l'applicazione è disponibile per altri tenant. Se è impostato su false, l'app è disponibile solo per il tenant in cui è registrata. Per ulteriori informazioni, vedere [Come consentire l'accesso a qualsiasi utente di Azure Active Directory (AD) usando il modello di applicazione multi-tenant](active-directory-devhowto-multi-tenant-overview.md). |
 |displayName     |stringa         |`MyRegisteredApp`         |Nome visualizzato dell'applicazione. |
 |errorURL     |stringa         |`http://MyRegisteredAppError`         |URL per gli errori riscontrati in un'applicazione. |
-|groupMembershipClaims     |    stringa     |    `1`     |   Maschera di bit che configura l'attestazione "groups" rilasciata in un token di accesso utente oppure OAuth 2.0 previsto dall'applicazione. I valori della maschera di bit sono: 0: Nessuno. 1: Gruppi di sicurezza e ruoli di Azure AD. 2: Riservato. 4: Riservato. Se si imposta la maschera di bit su 7, vengono restituiti tutti i gruppi di sicurezza, i gruppi di distribuzione e i ruoli della directory di Azure AD a cui appartiene l'utente connesso.      |
-|optionalClaims     |  stringa       |     `null`    |    Le [attestazioni facoltative](active-directory-optional-claims.md) restituite nel token dal servizio token di sicurezza per questa specifica app.     |
+|groupMembershipClaims     |    stringa     |    `1`     |   Maschera di bit che configura l'attestazione "groups" rilasciata in un token di accesso utente oppure OAuth 2.0 previsto dall'applicazione. I valori della maschera di bit sono: 0: Nessuno. 1: Gruppi di sicurezza e ruoli di Azure AD. 2: Riservato. 4: Riservato. Se si imposta la maschera di bit su 7, vengono restituiti tutti i gruppi di sicurezza, i gruppi di distribuzione e i ruoli della directory di Azure AD a cui appartiene l'utente connesso. |
+|optionalClaims     |  stringa       |     `null`    |    Le [attestazioni facoltative](active-directory-optional-claims.md) restituite nel token dal servizio token di sicurezza per questa specifica app. |
 |acceptMappedClaims    |      boolean   | `true`        |    Se questo valore è impostato su true, consente a un'applicazione di usare il mapping di attestazioni senza specificare una chiave di firma personalizzata.|
-|homepage     |  stringa       |`http://MyRegistererdApp`         |    URL della home page dell'applicazione.     |
-|identifierUris     |  Matrice di stringhe       | `http://MyRegistererdApp`        |   URI definiti dall'utente che identificano in modo univoco un'applicazione Web entro il rispettivo tenant di Azure AD oppure entro un dominio personalizzato verificato se l'applicazione è multi-tenant.      |
-|keyCredentials     |   Tipo di matrice      | <code>[{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]</code>      |   Questa proprietà contiene riferimenti a credenziali assegnate dall'applicazione, segreti condivisi basati su stringa e certificati X.509.  Queste credenziali sono utilizzate in fase di richiesta dei token di accesso (quando l'app funge da client, anziché da risorsa).     |
-|knownClientApplications     |     Tipo di matrice    |    [guid]     |     Il valore viene usato per unire il consenso se una soluzione contiene due parti, un'applicazione client e un'applicazione API Web personalizzata. Se si immette l'appID dell'applicazione client in questo valore, l'utente deve fornire il consenso solo una volta per l'applicazione client. Azure AD sa che il consenso al client implica il consenso all'API Web ed effettua automaticamente il provisioning delle entità servizio per il client e l'API Web contemporaneamente.  Sia il client sia l'applicazione dell'API Web devono essere registrati nello stesso tenant.|
-|logoutUrl     |   stringa      |     `http://MyRegisteredAppLogout`    |   URL di disconnessione dell'applicazione.      |
+|homepage     |  stringa       |`http://MyRegistererdApp`         |    URL della home page dell'applicazione. |
+|identifierUris     |  Matrice di stringhe       | `http://MyRegistererdApp`        |   URI definiti dall'utente che identificano in modo univoco un'applicazione Web entro il rispettivo tenant di Azure AD oppure entro un dominio personalizzato verificato se l'applicazione è multi-tenant. |
+|keyCredentials     |   Tipo di matrice      | <code>[{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]</code>      |   Questa proprietà contiene riferimenti a credenziali assegnate dall'applicazione, segreti condivisi basati su stringa e certificati X.509. Queste credenziali sono utilizzate in fase di richiesta dei token di accesso (quando l'app funge da client, anziché da risorsa). |
+|knownClientApplications     |     Tipo di matrice    |    [guid]     |     Il valore viene usato per unire il consenso se una soluzione contiene due parti, un'applicazione client e un'applicazione API Web personalizzata. Se si immette l'appID dell'applicazione client in questo valore, l'utente deve fornire il consenso solo una volta per l'applicazione client. Azure AD sa che il consenso al client implica il consenso all'API Web ed effettua automaticamente il provisioning delle entità servizio per il client e l'API Web contemporaneamente. Sia il client sia l'applicazione dell'API Web devono essere registrati nello stesso tenant.|
+|logoutUrl     |   stringa      |     `http://MyRegisteredAppLogout`    |   URL di disconnessione dell'applicazione. |
 |oauth2AllowImplicitFlow     |   boolean      |  `false`       |       Specifica se questa applicazione Web può richiedere token di flusso implicito OAuth 2.0. Il valore predefinito è false. Questo flag viene usato per le app basate su browser, ad esempio le app JavaScript a pagina singola. |
-|oauth2AllowUrlPathMatching     |   boolean      |  `false`       |   Specifica se, come parte delle richieste di token OAuth 2.0, Azure AD consentirà la verifica della corrispondenza tra percorsi dell'URI di reindirizzamento rispetto al valore replyUrls dell'applicazione. Il valore predefinito è false.      |
+|oauth2AllowUrlPathMatching     |   boolean      |  `false`       |   Specifica se, come parte delle richieste di token OAuth 2.0, Azure AD consentirà la verifica della corrispondenza tra percorsi dell'URI di reindirizzamento rispetto al valore replyUrls dell'applicazione. Il valore predefinito è false. |
 |oauth2Permissions     | Tipo di matrice         |      <code>[{<br>"adminConsentDescription":"Allow the application to access resources on behalf of the signed-in user.",<br>"adminConsentDisplayName":"Access resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"Allow the application to access resource1 on your behalf.",<br>"userConsentDisplayName":"Access resources",<br>"value":"user_impersonation"<br>}]  </code> |  Raccolta di ambiti di autorizzazione OAuth 2.0 che l'applicazione dell'API web (risorsa) espone alle applicazioni client. Questi ambiti di autorizzazione possono essere concessi alle applicazioni client durante il consenso. |
-|oauth2RequiredPostResponse     | boolean        |    `false`     |      Specifica se, come parte delle richieste dei token OAuth 2.0, Azure AD consente richieste POST, anziché richieste GET. L'impostazione predefinita è false, che specifica che sono consentite solo richieste GET.   
-|objectId     | Stringa dell'identificatore        |     ""    |    Identificatore univoco per l'applicazione nella directory.  Questo ID non è l'identificatore usato per identificare l'app nelle transazioni di protocollo.  Viene usato per fare riferimento all'oggetto nelle query di directory.|
-|passwordCredentials     | Tipo di matrice        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Vedere la descrizione per la proprietà keyCredentials.     |
-|publicClient     |  boolean       |      `false`   | Specifica se un'applicazione è un client pubblico, ad esempio un'applicazione installata in esecuzione in un dispositivo mobile. Il valore predefinito è false.        |
-|supportsConvergence     |  boolean       |   `false`      | Questa proprietà non deve essere modificata.  Accettare il valore predefinito.        |
+|oauth2RequiredPostResponse     | boolean        |    `false`     |      Specifica se, come parte delle richieste dei token OAuth 2.0, Azure AD consente richieste POST, anziché richieste GET. L'impostazione predefinita è false, che specifica che sono consentite solo richieste GET. 
+|objectId     | Stringa dell'identificatore        |     ""    |    Identificatore univoco per l'applicazione nella directory. Questo ID non è l'identificatore usato per identificare l'app nelle transazioni di protocollo. Viene usato per fare riferimento all'oggetto nelle query di directory.|
+|passwordCredentials     | Tipo di matrice        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Vedere la descrizione per la proprietà keyCredentials. |
+|publicClient     |  boolean       |      `false`   | Specifica se un'applicazione è un client pubblico, ad esempio un'applicazione installata in esecuzione in un dispositivo mobile. Il valore predefinito è false. |
+|supportsConvergence     |  boolean       |   `false`      | Questa proprietà non deve essere modificata. Accettare il valore predefinito. |
 |replyUrls     |  Matrice di stringhe       |   `http://localhost`     |  Questa proprietà multivalore contiene l'elenco dei valori redirect_uri registrati che Azure AD accetta come destinazioni in fase di restituzione dei token. |
 |requiredResourceAccess     |     Tipo di matrice    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}]</code>    |   Specifica le risorse a cui questa applicazione deve accedere e il set di ambiti di autorizzazioni OAuth e ruoli applicazione necessari per ogni risorsa. Questa preconfigurazione dell'accesso alle risorse necessarie definisce l'esperienza di consenso.|
-|resourceAppId     |    Stringa dell'identificatore     |  ""      |   Identificatore univoco per la risorsa a cui l'applicazione richiede l'accesso. Questo valore deve essere uguale all'appId dichiarato nell'applicazione della risorsa di destinazione.     |
-|resourceAccess     |  Tipo di matrice       | Vedere il valore di esempio della proprietà requiredResourceAccess.        |   Elenco dei ruoli delle app e degli ambiti delle autorizzazioni OAuth 2.0 che l'applicazione richiede dalla risorsa specificata (contiene i valori di tipo e ID delle risorse specificate)        |
+|resourceAppId     |    Stringa dell'identificatore     |  ""      |   Identificatore univoco per la risorsa a cui l'applicazione richiede l'accesso. Questo valore deve essere uguale all'appId dichiarato nell'applicazione della risorsa di destinazione. |
+|resourceAccess     |  Tipo di matrice       | Vedere il valore di esempio della proprietà requiredResourceAccess. |   Elenco dei ruoli delle app e degli ambiti delle autorizzazioni OAuth 2.0 che l'applicazione richiede dalla risorsa specificata (contiene i valori di tipo e ID delle risorse specificate)        |
 |samlMetadataUrl    |stringa| `http://MyRegisteredAppSAMLMetadata` |URL dei metadati SAML per l'applicazione.| 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,111 +1,127 @@
 ---
-title: Accesso con privilegi elevati per l'amministratore tenat - Azure AD | Microsoft Docs
-description: Questo argomento descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo.
+title: Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory | Microsoft Docs
+description: Questo articolo descrive come eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory usando il portale di Azure o l'API REST.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: rqureshi
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
+ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 7b4625bff277851fb9002e54b26485b948981252
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077208"
 ---
-# <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>Accesso con privilegi elevati come amministratore tenant con il Controllo degli accessi in base al ruolo
+# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory
 
-Il Controllo degli accessi in base al ruolo consente agli amministratori tenant di ottenere i privilegi elevati temporanei per l'accesso in modo da poter concedere autorizzazioni superiori rispetto al normale. Gli amministratori tenant possono elevarsi al ruolo di Amministratore Accesso utenti, quando necessario. Questo ruolo offre agli amministratori tenant le autorizzazioni per concedere a se stessi o ad altri i ruoli nell'ambito "/".
+In alcune occasioni un [amministratore globale](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD) potrebbe avere bisogno di eseguire le operazioni seguenti:
 
-Questa funzionalità è importante perché consente all'amministratore tenant di visualizzare tutte le sottoscrizioni presenti in un'organizzazione. Consente inoltre alle app di automazione, ad esempio la fatturazione e il controllo, di accedere a tutte le sottoscrizioni e offrire una visualizzazione accurata dello stato dell'organizzazione per la gestione della fatturazione o degli asset.  
+- Ottenere nuovamente l'accesso a una sottoscrizione di Azure quando un utente ha perso l'accesso
+- Concedere a un altro utente o a se stesso l'accesso a una sottoscrizione di Azure
+- Visualizzare tutte le sottoscrizioni di Azure in un'organizzazione
+- Concedere a un'app di automazione (come un'app di fatturazione o di controllo) l'accesso a tutte le sottoscrizioni di Azure
 
-## <a name="use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>Usare elevateAccess per l'accesso ai tenant con l'interfaccia di amministrazione di Azure AD
+Per impostazione predefinita, i ruoli di amministratore di Azure AD e i ruoli di controllo degli accessi in base al ruolo di Azure non si estendono ad Azure AD e Azure. Tuttavia, un amministratore globale di Azure AD può eseguire l'accesso con privilegi elevati per gestire le sottoscrizioni di Azure e i gruppi di gestione. Quando si esegue l'accesso con privilegi elevati, verrà concesso il ruolo [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) (un ruolo di controllo degli accessi in base al ruolo di Azure) in tutte le sottoscrizioni per un determinato tenant. Il ruolo Amministratore Accesso utenti consente di concedere ad altri utenti l'accesso alle risorse di Azure all'ambito radice (`/`).
 
-1. Passare all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) e accedere con le proprie credenziali.
+Questa elevazione dei privilegi dovrebbe essere temporanea ed eseguita solo quando necessario.
 
-2. Scegliere **Proprietà** dal menu di sinistra di Azure AD.
+## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale tramite il portale di Azure
 
-3. Cercare **Gli amministratori globali possono gestire le sottoscrizioni di Azure**, scegliere **Sì** e quindi **Salva**.
-    > [!IMPORTANT] 
-    > Se si sceglie **Sì**, si assegna il ruolo **Amministratore Accesso utenti** a livello di radice "/" (ambito radice) all'utente con cui è stata effettuata la connessione al portale. **Ciò consente all'utente di visualizzare tutte le altre sottoscrizioni di Azure.**
-    
-    > [!NOTE] 
-    > Se si sceglie **No**, si rimuove il ruolo **Amministratore Accesso utente** a livello di radice "/" (ambito radice) dall'utente con cui è stata effettuata la connessione al portale.
+1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com).
 
-> [!TIP] 
-> Questa funzionalità può dare l'impressione di essere una proprietà globale per Azure Active Directory, ma in realtà funziona per utente con riferimento all'utente connesso in quel momento. Gli utenti con diritti di amministratore globale in Azure Active Directory possono chiamare la funzionalità elevateAccess per l'utente con cui è stata effettuata la connessione all'interfaccia di amministrazione di Azure Active Directory.
+1. Nell'elenco di navigazione fare clic su **Azure Active Directory** e quindi su **Proprietà**.
 
-![Screenshot dell'interfaccia di amministrazione di Azure AD - Proprietà - Gli amministratori globali possono gestire le sottoscrizioni di Azure](./media/elevate-access-global-admin/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+   ![Proprietà di Azure AD - Screenshot](./media/elevate-access-global-admin/aad-properties.png)
 
-## <a name="view-role-assignments-at-the--scope-using-powershell"></a>Visualizzare le assegnazioni di ruolo nell'ambito "/" tramite PowerShell
-Per visualizzare l'assegnazione **Amministratore Accesso utenti** nell'ambito **/**, usare il cmdlet PowerShell `Get-AzureRmRoleAssignment`.
-    
-```powershell
-Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" -and $_.SignInName -eq "<username@somedomain.com>" -and $_.Scope -eq "/"}
+1. In **Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione** impostare l'opzione su **Sì**.
+
+   ![Gli amministratori globali possono gestire le sottoscrizioni di Azure e i gruppi di gestione - Screenshot](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+
+   Quando si imposta l'opzione su **Sì**, l'account di amministratore globale (utente attualmente connesso) viene aggiunto al ruolo Amministratore Accesso utenti nel Controllo degli accessi in base al ruolo di Azure all'ambito radice (`/`), concedendo all'utente l'accesso per visualizzare e creare report per tutte le sottoscrizioni di Azure associate al tenant di Azure AD.
+
+   Quando si imposta l'opzione su **No**, l'account di amministratore globale (utente attualmente connesso) viene rimosso dal ruolo Amministratore Accesso utenti nel Controllo degli accessi in base al ruolo di Azure. Non è possibile visualizzare tutte le sottoscrizioni di Azure associate al tenant di Azure AD ed è possibile visualizzare e gestire solo le sottoscrizioni di Azure a cui è stato concesso l'accesso.
+
+1. Fare clic su **Salva** per salvare l'impostazione.
+
+   Questa impostazione non è una proprietà globale e si applica solo all'utente attualmente connesso.
+
+1. Eseguire le attività necessarie per cui sono richiesti privilegi elevati. Al termine, impostare nuovamente l'opzione su **No**.
+
+## <a name="list-role-assignment-at-the-root-scope--using-powershell"></a>Elencare l'assegnazione di ruolo all'ambito radice (/) tramite PowerShell
+
+Per elencare l'assegnazione di ruolo Amministratore Accesso utenti per un utente all'ambito radice (`/`), usare il comando [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+
+```azurepowershell
+Get-AzureRmRoleAssignment | where {$_.RoleDefinitionName -eq "User Access Administrator" `
+  -and $_.SignInName -eq "<username@example.com>" -and $_.Scope -eq "/"}
 ```
 
-**Output di esempio**:
-```
-RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0    
-Scope              : /    
-DisplayName        : username    
-SignInName         : username@somedomain.com    
-RoleDefinitionName : User Access Administrator    
-RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9    
-ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc    
-ObjectType         : User    
-```
-
-## <a name="delete-the-role-assignment-at--scope-using-powershell"></a>Eliminare l'assegnazione di ruolo nell'ambito "/" tramite PowerShell:
-È possibile eliminare l'assegnazione tramite il cmdlet PowerShell seguente:
-
-```powershell
-Remove-AzureRmRoleAssignment -SignInName <username@somedomain.com> -RoleDefinitionName "User Access Administrator" -Scope "/" 
+```Example
+RoleAssignmentId   : /providers/Microsoft.Authorization/roleAssignments/098d572e-c1e5-43ee-84ce-8dc459c7e1f0
+Scope              : /
+DisplayName        : username
+SignInName         : username@example.com
+RoleDefinitionName : User Access Administrator
+RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
+ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
+ObjectType         : User
 ```
 
-## <a name="use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>Usare elevateAccess per concedere l'accesso ai tenant con l'API REST
+## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>Eliminare un'assegnazione di ruolo all'ambito radice (/) tramite PowerShell
 
-Il processo di base funziona con i passaggi seguenti:
+Per eliminare un'assegnazione di ruolo Amministratore Accesso utenti per un utente all'ambito radice (`/`), usare il comando [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment).
 
-1. Usando REST, chiamare *elevateAccess*, che concede all'utente il ruolo di Amministratore Accesso utenti nell'ambito "/".
+```azurepowershell
+Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+  -RoleDefinitionName "User Access Administrator" -Scope "/"
+```
 
-    ```
-    POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
-    ```
+## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale tramite l'API REST
 
-2. Creare un'[assegnazione di ruolo](/rest/api/authorization/roleassignments) per assegnare un ruolo in qualsiasi ambito. Nell'esempio seguente vengono illustrate le proprietà per l'assegnazione del ruolo di lettore nell'ambito "/":
+Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso per l'amministratore globale tramite l'API REST.
 
-    ```json
-    { 
-      "properties": {
-        "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
-        "principalId": "{objectID}",
-        "scope": "/"
-      },
-      "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
-    }
-    ```
+1. Usando REST, chiamare `elevateAccess`, che concede all'utente il ruolo Amministratore Accesso utenti all'ambito radice (`/`).
 
-3. Come Amministratore Accesso utenti, è possibile inoltre eliminare le assegnazioni di ruolo nell'ambito "/".
+   ```http
+   POST https://management.azure.com/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01
+   ```
 
-4. Revocare i privilegi di Amministratore Accesso utenti fino a quando non saranno di nuovo necessari.
+1. Creare un'[assegnazione di ruolo](/rest/api/authorization/roleassignments) per assegnare un ruolo in qualsiasi ambito. Nell'esempio seguente vengono illustrate le proprietà per l'assegnazione del ruolo {roleDefinitionID} all'ambito radice (`/`):
+
+   ```json
+   { 
+     "properties": {
+       "roleDefinitionId": "providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionID}",
+       "principalId": "{objectID}",
+       "scope": "/"
+     },
+     "id": "providers/Microsoft.Authorization/roleAssignments/64736CA0-56D7-4A94-A551-973C2FE7888B",
+     "type": "Microsoft.Authorization/roleAssignments",
+     "name": "64736CA0-56D7-4A94-A551-973C2FE7888B"
+   }
+   ```
+
+1. Come Amministratore Accesso utenti, è inoltre possibile eliminare le assegnazioni di ruolo all'ambito radice (`/`).
+
+1. Revocare i privilegi di Amministratore Accesso utenti fino a quando non saranno di nuovo necessari.
 
 
 ## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>Come annullare l'azione elevateAccess con l'API REST
 
-Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi in modo da revocare i privilegi necessari per eliminare l'assegnazione.
+Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi in modo da revocare i privilegi necessari per eliminare l'assegnazione.
 
-1.  Chiamare GET roleDefinitions con roleName = User Access Administrator per determinare il nome GUID del ruolo Amministratore accessi utente.
-    ```
+1. Chiamare [GET roleDefinitions](/rest/api/authorization/roledefinitions/get) con `roleName` uguale a User Access Administrator per determinare l'ID del nome del ruolo Amministratore Accesso utenti.
+
+    ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=roleName+eq+'User Access Administrator'
     ```
 
@@ -144,19 +160,18 @@ Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi 
     }
     ```
 
-    Salvare il GUID dal parametro *nome*, in questo caso **18d7d88d-d35e-4fb5-a5c3-7773c20a72d9**.
+    Salvare l'ID dal parametro `name`, in questo caso `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. È inoltre necessario elencare l'assegnazione di ruolo per l'amministratore del tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per PrincipalId di TenantAdmin che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro ObjectID.
+2. È inoltre necessario elencare l'assegnazione di ruolo per l'amministratore del tenant nell'ambito del tenant. Elencare tutte le assegnazioni nell'ambito del tenant per `principalId` dell'amministratore del tenant che ha effettuato la chiamata per l'accesso con privilegi elevati. Sono incluse tutte le assegnazioni nel tenant per il parametro objectId.
 
-    ```
+    ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Un amministratore tenant non dovrebbe avere molte assegnazioni. Se la query precedente restituisce troppe assegnazioni, è anche possibile eseguire una query per ottenere tutte le assegnazioni solo a livello di ambito del tenant e quindi filtrare i risultati: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
-    
+    >Un amministratore del tenant non dovrebbe avere molte assegnazioni. Se la query precedente restituisce troppe assegnazioni, è anche possibile eseguire una query per ottenere tutte le assegnazioni solo a livello di ambito del tenant e quindi filtrare i risultati: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e RoleDefinitionId termina con il GUID del nome del ruolo presente nel passaggio 1 e PrincipalId corrisponde a ObjectId dell'amministratore del tenant. 
+    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è "/" e `roleDefinitionId` termina con l'ID del nome del ruolo presente nel passaggio 1 e `principalId` corrisponde a objectId dell'amministratore del tenant. 
     
     Esempio di assegnazione di ruolo:
 
@@ -182,16 +197,15 @@ Quando si chiama *elevateAccess* si crea un'assegnazione di ruolo per se stessi 
         }
         ```
         
-    Di nuovo, salvare il GUID dal parametro *nome*, in questo caso **e7dd75bc-06f6-4e71-9014-ee96a929d099**.
+    Di nuovo, salvare l'ID dal parametro `name`, in questo caso e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Usare quindi l'**ID RoleAssignment** evidenziato per eliminare l'assegnazione aggiunta da elevateAccess:
+    3. Usare quindi l'ID di assegnazione di ruolo per eliminare l'assegnazione aggiunta da `elevateAccess`:
 
-    ```
+    ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Maggiori informazioni sulla [gestione del controllo degli accessi in base al ruolo con REST](role-assignments-rest.md)
-
-- [Gestire le assegnazioni di accesso](role-assignments-users.md) nel Portale di Azure
+- [Controllo degli accessi in base al ruolo con REST](role-assignments-rest.md)
+- [Gestire le assegnazioni di accesso](role-assignments-users.md)
