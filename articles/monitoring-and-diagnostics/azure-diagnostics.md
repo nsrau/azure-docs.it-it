@@ -4,8 +4,8 @@ description: Usare Diagnostica di Azure per debug, valutazione delle prestazioni
 services: multiple
 documentationcenter: .net
 author: rboucher
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
 ms.service: multiple
 ms.workload: na
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.openlocfilehash: fbeacd2acfd2fba9d26e7cbc94d8660d15c75642
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0231a6c1d78818b948bb24d0c406fb2f2da17a0f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169136"
 ---
 # <a name="what-is-azure-diagnostics"></a>Informazioni sulla diagnostica di Azure
-Diagnostica di Azure è la funzionalità all'interno di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati i ruoli Web e di lavoro dei servizi cloud di Azure e le macchine virtuali di Azure che eseguono Microsoft Windows e Service Fabric. Altri servizi di Azure dispongono di propri strumenti di diagnostica separati.
+Diagnostica di Azure è la funzionalità all'interno di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati ruoli Web e di lavoro (classici) del servizio cloud di Azure, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric. Altri servizi di Azure hanno altri metodi di diagnostica. Vedere la [panoramica sul monitoraggio in Azure](monitoring-overview.md). 
 
 ## <a name="data-you-can-collect"></a>Dati che è possibile raccogliere
 Diagnostica di Azure consente di raccogliere i tipi di dati seguenti:
@@ -38,16 +39,13 @@ Diagnostica di Azure consente di raccogliere i tipi di dati seguenti:
 | Log degli errori personalizzati |Log creati dall'applicazione o dal servizio. |
 | Log dell'infrastruttura diagnostica di Azure |Informazioni su Diagnostica |
 
-L'estensione di diagnostica di Azure consente di trasferire i dati in un account di archiviazione di Azure o di inviarli a servizi come [Application Insights](../application-insights/app-insights-cloudservices.md). È possibile usare i dati per il debug, la risoluzione dei problemi, la valutazione delle prestazioni, il monitoraggio dell'utilizzo delle risorse, l'analisi del traffico, la pianificazione della capacità e il controllo.
+L'estensione di diagnostica di Azure consente di trasferire i dati in un account di archiviazione di Azure o di inviarli ad [Application Insights](../application-insights/app-insights-cloudservices.md). È anche possibile trasmetterli a [hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md) che consente di inviarli ai servizi di monitoraggio non di Azure. È possibile usare i dati per il debug, la risoluzione dei problemi, la valutazione delle prestazioni, il monitoraggio dell'utilizzo delle risorse, l'analisi del traffico, la pianificazione della capacità e il controllo.
 
 ## <a name="versioning"></a>Controllo delle versioni
 Vedere [Cronologia delle versioni di Diagnostica di Azure](azure-diagnostics-versioning-history.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Scegliere il servizio su cui si desidera raccogliere dati di diagnostica e usare i seguenti articoli per iniziare. Usare i collegamenti di diagnostica di Azure generali per riferimento per attività specifiche.
-
-## <a name="web-apps"></a>App Web
-Si noti che le app Web non usano Diagnostica di Azure. Trovare le informazioni equivalenti in [App Web](../app-service/web-sites-enable-diagnostic-log.md)
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>Servizi cloud con Diagnostica di Azure
 * Se si usa Visual Studio, per iniziare vedere l'articolo su come [usare Visual Studio per tracciare un'applicazione di Servizi cloud](../vs-azure-tools-debug-cloud-services-virtual-machines.md). In alternativa, vedere

@@ -9,18 +9,19 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: 829cedea9752fe41ad24427339d3f13c2f3e371a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ffae541020a2672affab774ee6da2a8c707745f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195533"
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
 
 Il database SQL offre tre tipi di database:
 
-- Un database singolo creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
-- Un database creato nell'ambito di un [pool di database](sql-database-elastic-pool.md) all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di [risorse di calcolo e archiviazione per carichi di lavoro diversi](sql-database-service-tiers.md) che vengono condivise tra tutti i database del pool. Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+- Un database singolo creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione](sql-database-service-tiers-vcore.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+- Un database creato nell'ambito di un [pool di database](sql-database-elastic-pool.md) all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione basate su DTU](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione (basate su vCore)](sql-database-service-tiers-vcore.md)che vengono condivise tra tutti i database del pool. Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
 - Un'[istanza di un server SQL](sql-database-managed-instance.md) (un'istanza gestita) creata all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di risorse di calcolo e archiviazione per tutti i database presenti nell'istanza. Un'istanza gestita contiene database utente e di sistema. Istanza gestita è stato progettato per consentire il trasferimento di database in modalità lift-and-shift a una soluzione PaaS completamente gestita senza la necessità di riprogettare l'applicazione. Istanza gestita offre compatibilità elevata con il modello di programmazione di SQL Server locale e supporta la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati.  
 
 Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream) e consente solo connessioni TCP/IP crittografate.
@@ -52,7 +53,7 @@ Un server logico del database di Azure:
 - Fornisce un endpoint di connessione per l'accesso ai database (<serverName>.database.windows.net)
 - Fornisce accesso ai metadati riguardanti le risorse contenute tramite DMV, connettendosi a un database master 
 - Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via 
-- È limitato da una quota nella sottoscrizione padre: venti server per sottoscrizione per impostazione predefinita - [vedere i limiti relativi alle sottoscrizioni qui](../azure-subscription-service-limits.md)
+- È limitato da una quota nella sottoscrizione padre: sei server per sottoscrizione per impostazione predefinita - [vedere i limiti relativi alle sottoscrizioni qui](../azure-subscription-service-limits.md)
 - Fornisce l'ambito per la quota database e la quota DTU o vCore per le risorse in esso contenute, ad esempio 45.000 DTU
 - Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute 
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
@@ -65,11 +66,11 @@ Per proteggere i dati, un [firewall del database SQL](sql-database-firewall-conf
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Gestire server, database e firewall SQL di Azure con il portale di Azure
 
-È possibile creare il gruppo di risorse del database SQL di Azure in anticipo oppure durante la creazione del server stesso. 
+È possibile creare il gruppo di risorse del database SQL di Azure in anticipo oppure durante la creazione del server stesso. Esistono diversi metodi per accedere al modulo per la creazione di un nuovo server SQL Server, creando un nuovo server SQL Server o nell'ambito della procedura per creare un nuovo database. 
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Creare un server SQL Server vuoto (server logico)
 
-Per creare un server di database SQL di Azure (senza un database) tramite il [portale di Azure](https://portal.azure.com), passare al modulo per un server SQL vuoto (server logico).  
+Per creare un server di database SQL di Azure (senza un database) tramite il [portale di Azure](https://portal.azure.com), passare al modulo per un server SQL Server vuoto (server logico).  
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Creare un database SQL vuoto o di esempio
 
@@ -78,7 +79,7 @@ Per creare un database SQL di Azure tramite il [portale di Azure](https://portal
   ![Creare il database 1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Per informazioni sulla selezione del piano tariffario per il database, vedere [Livelli di servizio](sql-database-service-tiers.md).
+> Per informazioni sulla selezione del piano tariffario per il database, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
 
 Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) (Creare un'istanza di Istanza gestita).
 
@@ -91,7 +92,7 @@ Per gestire un database esistente, passare alla pagina **Database SQL** e fare c
    ![Regola del firewall del server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
 
 > [!IMPORTANT]
-> Per configurare le proprietà delle prestazioni per un database, vedere [Livelli di servizio](sql-database-service-tiers.md).
+> Per configurare le proprietà delle prestazioni di un database, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
 >
 
 > [!TIP]

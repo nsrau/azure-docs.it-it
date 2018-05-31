@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: sujayt
-ms.openlocfilehash: f318f98479caed8efb4a3705939cb9ac0dd5b237
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e3acedf4135166f5239b95eb21eb5dfd66d6100f
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312628"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
@@ -58,11 +59,11 @@ login.microsoftonline.com | Richiesto per l'autorizzazione e l'autenticazione ne
 Se si usa un proxy firewall basato su IP o regole NSG per controllare la connettività in uscita, è necessario consentire i seguenti intervalli IP.
 
 - Tutti gli intervalli di indirizzi IP che corrispondono agli account di archiviazione nell'area di origine
-    - È necessario creare un [tag di servizio per Archiviazione](../virtual-network/security-overview.md#service-tags) basato sulla regola del gruppo di sicurezza di rete per l'area di origine.
-    - Questi indirizzi devono essere consentiti in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
+    - Creare una regola NSG basata su [tag del servizio di archiviazione](../virtual-network/security-overview.md#service-tags) per l'area di origine.
+    - Consentire questi indirizzi in modo che i dati possano essere scritti nell'account di archiviazione della cache dalla macchina virtuale.
 - Tutti gli intervalli di indirizzi IP che corrispondono agli [endpoint di autenticazione e identità IP V4](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity) di Office 365.
     - Se in futuro vengono aggiunti nuovi indirizzi agli intervalli di Office 365, è necessario creare nuove regole NSG.
-- Indirizzi IP dell'endpoint di servizio di Site Recovery. Questi sono disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e variano a seconda del percorso di destinazione.
+- Indirizzi IP dell'endpoint di servizio di Site Recovery, disponibili in un [file XML](https://aka.ms/site-recovery-public-ips) e che variano a seconda della posizione di destinazione.
 -  Per creare automaticamente le regole richieste nel gruppo di sicurezza di rete, è possibile [scaricare e usare questo script](https://aka.ms/nsg-rule-script).
 - Prima di creare le regole in un gruppo di sicurezza di rete di produzione, è consigliabile creare le regole del gruppo di sicurezza di rete necessarie in un NSG di test e verificare che non siano presenti problemi.
 
@@ -98,8 +99,8 @@ Gli intervalli di indirizzi IP di Site Recovery sono i seguenti:
    Regno Unito settentrionale | 51.142.209.167 | 13.87.102.68
    Corea centrale | 52.231.28.253 | 52.231.32.85
    Corea meridionale | 52.231.298.185 | 52.231.200.144
-
-
+   Francia centrale | 52.143.138.106 | 52.143.136.55
+   Francia meridionale | 52.136.139.227 |52.136.136.62
 
 
 ## <a name="example-nsg-configuration"></a>Esempio di configurazione del gruppo di sicurezza di rete
@@ -138,7 +139,7 @@ Queste regole sono necessarie in modo che la replica possa essere abilitata dall
 
 ## <a name="network-virtual-appliance-configuration"></a>Configurazione di appliance virtuali di rete
 
-Se si usano appliance virtuali di rete per controllare il traffico di rete in uscita dalle VM, l'appliance potrebbe essere soggetta a limitazioni se tutto il traffico di replica passa attraverso l'appliance virtuale di rete. È consigliabile creare un endpoint servizio di rete nella rete virtuale per "Storage" in modo che il traffico di replica non venga indirizzato all'appliance virtuale di rete.
+Se si usano appliance virtuali di rete per controllare il traffico di rete in uscita dalle VM, l'appliance potrebbe essere soggetta a limitazioni se tutto il traffico di replica passa attraverso l'appliance virtuale di rete. È consigliabile creare un endpoint del servizio di rete nella rete virtuale per "Archiviazione" in modo che il traffico di replica non venga indirizzato all'appliance virtuale di rete.
 
 ### <a name="create-network-service-endpoint-for-storage"></a>Creare un endpoint servizio di rete per Storage
 È possibile creare un endpoint servizio di rete nella rete virtuale per "Storage" in modo che il traffico di replica non lasci il limite di Azure.
@@ -153,42 +154,11 @@ Se si usano appliance virtuali di rete per controllare il traffico di rete in us
 >[!NOTE]
 >Non limitare agli account di archiviazione usati per ASR l'accesso alla rete virtuale. È consigliabile consentire l'accesso da "Tutte le reti"
 
-## <a name="expressroutevpn"></a>ExpressRoute/VPN
-
-Se si dispone di una connessione VPN o ExpressRoute tra la posizione locale e quella di Azure, seguire le linee guida in questa sezione.
-
 ### <a name="forced-tunneling"></a>Tunneling forzato
 
-In genere si stabilisce una route predefinita (0.0.0.0/0) che forza il flusso del traffico Internet in uscita attraverso il percorso locale. Ciò non è consigliabile. Il traffico di replica non deve lasciare il limite di Azure.
-
-È possibile [creare un endpoint servizio di rete](#create-network-service-endpoint-for-storage) nella rete virtuale per "Storage" in modo che il traffico di replica non lasci il limite di Azure.
-
-
-### <a name="connectivity"></a>Connettività
-
-Seguire queste linee guida per le connessioni tra la posizione di destinazione e la posizione locale:
-- Se l'applicazione deve connettersi alle macchine locali o se sono presenti client che si connettono all'applicazione dal locale tramite VPN/ExpressRoute, verificare di disporre di almeno una [connessione da sito a sito](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) tra l'area di Azure di destinazione e il data center locale.
-
-- Se si prevede molto traffico tra l'area di Azure di destinazione e il data center locale, è necessario creare un'altra [connessione ExpressRoute](../expressroute/expressroute-introduction.md) tra l'area di Azure di destinazione e il data center locale.
-
-- Se si desidera mantenere gli IP per le macchine virtuali dopo il failover, mantenere la connessione da sito a sito/ExpressRoute dell'area di destinazione in uno stato di disconnessione. Ciò garantisce che non si generi conflitto di intervalli tra gli intervalli IP dell'area di origine e gli intervalli IP dell'area di destinazione.
-
-### <a name="expressroute-configuration"></a>Configurazione di ExpressRoute
-Seguire queste procedure consigliate per la configurazione di ExpressRoute:
-
-- Creare un circuito ExpressRoute in entrambe le aree di origine e di destinazione. È quindi necessario creare una connessione tra:
-    - La rete virtuale di origine e la rete locale, tramite il circuito ExpressRoute nell'area di origine.
-    - La rete virtuale di destinazione e la rete locale, tramite il circuito ExpressRoute nell'area di destinazione.
-
-
-- Come parte dello standard ExpressRoute, è possibile creare circuiti nella stessa area geopolitica. Per creare i circuiti ExpressRoute in diverse aree geopolitiche, è necessaria la presenza di Azure ExpressRoute Premium, il che comporta un costo incrementale (se si sta già usando ExpressRoute Premium, non sono previsti costi aggiuntivi). Per altre informazioni, vedere il [documento sulle posizioni di ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
-
-- È consigliabile usare diversi intervalli IP nelle aree di origine e di destinazione. Il circuito ExpressRoute non sarà in grado di connettersi a due reti virtuali di Azure degli stessi intervalli IP nello stesso momento.
-
-- È possibile creare reti virtuali con gli stessi intervalli IP in entrambe le aree e quindi creare circuiti ExpressRoute in entrambe le aree. Nel caso di un evento di failover, disconnettere il circuito dalla rete virtuale di origine e connettersi al circuito nella rete virtuale di destinazione.
-
- >[!IMPORTANT]
- > Se l'area primaria è completamente inattiva, l'operazione di disconnessione può avere esito negativo. Ciò impedirà alla rete virtuale di destinazione di ottenere la connettività di ExpressRoute.
+È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso dell'indirizzo 0.0.0.0/0 con una [route personalizzata](../virtual-network/virtual-networks-udr-overview.md#custom-routes) e deviare il traffico delle macchine virtuali a un'appliance virtuale di rete locale (NVA), ma questa configurazione non è consigliata per la replica Site Recovery. Se si usano route personalizzate, [creare un endpoint del servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Iniziare a proteggere i carichi di lavoro [replicando le macchine virtuali di Azure](site-recovery-azure-to-azure.md).
+- Iniziare a proteggere i carichi di lavoro [eseguendo la replica di macchine virtuali di Azure](site-recovery-azure-to-azure.md).
+- Altre informazioni sul [Mantenimento degli indirizzi IP](site-recovery-retain-ip-azure-vm-failover.md) per il failover delle macchine virtuali di Azure.
+- Altre informazioni sul ripristino di emergenza delle [macchine virtuali di Azure con ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).

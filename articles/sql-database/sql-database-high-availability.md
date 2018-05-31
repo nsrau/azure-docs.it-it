@@ -1,19 +1,20 @@
 ---
-title: Disponibilità elevata - Servizio del database SQL di Azure | Documentazione Microsoft
+title: Disponibilità elevata - Servizio del database SQL di Azure | Microsoft Docs
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e85db04206927eaf17cf52c11b536c75a47a088e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777018"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 Dall'inizio dell'offerta PaaS del database SQL di Azure, Microsoft ha promesso ai clienti l'integrazione della disponibilità elevata nel servizio evitando ai clienti di dover gestire, aggiungere una logica specifica o prendere decisioni in merito alla disponibilità elevata. Microsoft mantiene il controllo completo sulla configurazione e il funzionamento del sistema di disponibilità elevata offrendo ai clienti un contratto di servizio. Il contratto di servizio di disponibilità elevata si applica a un database SQL in un'area e non assicura protezione in caso di errore nell'intera area dovuto a fattori al di fuori del ragionevole controllo di Microsoft (ad esempio calamità naturali, guerra, atti di terrorismo, sommosse, azioni governative o un errore della rete o del dispositivo esterno al data center Microsoft, inclusi problemi presso la sede del cliente o tra questa e il data center Microsoft).
@@ -30,7 +31,7 @@ I clienti sono più interessati alla resilienza dei propri database e meno a que
 
 Per i dati, il servizio di database SQL utilizza sia l'archiviazione locale (LS, local storage) basata su dischi rigidi virtuali/dischi collegati diretti sia l'archiviazione remota (RS, remote storage) basata sui BLOB di pagine di Archiviazione Premium di Azure. 
 - L'archiviazione locale viene usata nei database e nei pool elastici Premium o Business Critical (anteprima), progettati per le applicazioni OLTP strategiche con requisiti elevati di operazioni di I/O al secondo. 
-- L'archiviazione remota viene usata per i livelli di servizio Basic e Standard, progettati per carichi di lavoro aziendali orientati al budget che richiedono scalabilità indipendente di potenza di calcolo e archiviazione. Utilizzano un unico BLOB di pagine per file di log e database e meccanismi predefiniti di replica e failover di archiviazione.
+- L'archiviazione remota viene usata per i livelli di servizio Basic, Standard e Utilizzo generico progettati per carichi di lavoro aziendali orientati al budget che richiedono scalabilità indipendente di potenza di calcolo e archiviazione. Utilizzano un unico BLOB di pagine per file di log e database e meccanismi predefiniti di replica e failover di archiviazione.
 
 In entrambi i casi, i meccanismi di replica, rilevamento degli errori e failover del servizio di database SQL sono completamente automatizzati e funzionano senza intervento umano. Questa architettura è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi e che la durabilità dei dati abbia la precedenza su tutto il resto.
 
@@ -56,7 +57,7 @@ Il sistema di failover di [Service Fabric](../service-fabric/service-fabric-over
 
 ## <a name="remote-storage-configuration"></a>Configurazione dell'archiviazione remota
 
-Per le configurazioni di archiviazione remota (livelli Basic e Standard), viene mantenuta esattamente una copia nell'archiviazione BLOB remota, usando le funzionalità dei sistemi di archiviazione per durabilità, ridondanza e rilevamento di bit rot. 
+Per le configurazioni di archiviazione remota (livelli Basic, Standard o Utilizzo generale), viene mantenuta esattamente una copia nell'archiviazione BLOB remota, usando le funzionalità dei sistemi di archiviazione per durabilità, ridondanza e rilevamento di bit rot. 
 
 L'architettura a disponibilità elevata è illustrata nel diagramma seguente:
  
@@ -87,9 +88,14 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 ## <a name="read-scale-out"></a>Scalabilità in lettura
 Come descritto, i livelli di servizio Premium e Business Critical (anteprima) sfruttano i set di quorum e la tecnologia AlwaysON per la disponibilità elevata nelle configurazioni a singola zona e con ridondanza della zona. Uno dei vantaggi della tecnologia AlwaysOn è che le repliche sono sempre in uno stato coerente a livello di transazione. Le repliche hanno lo stesso livello di prestazioni della replica primaria, pertanto l'applicazione può sfruttare tale capacità aggiuntiva per la manutenzione dei carichi di lavoro di sola lettura senza costi aggiuntivi (scalabilità in lettura). In questo modo le query di sola lettura verranno isolate dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità di scalabilità in lettura è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, e quindi potrebbero sfruttare tale capacità senza connettersi alla replica primaria. 
 
-Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario abilitarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate).
+Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario attivarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate).
 
-Dopo che la scalabilità in lettura è stata abilitata per un database, le applicazioni che si connettono a tale database verranno indirizzate alla replica di lettura/scrittura o a una replica di sola lettura di tale database a seconda della proprietà `ApplicationIntent` configurata nella stringa di connessione dell'applicazione. Per informazioni sulla proprietà `ApplicationIntent`, vedere [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Descrizione delle finalità dell'applicazione). 
+Dopo che la scalabilità in lettura è stata abilitata per un database, le applicazioni che si connettono a tale database verranno indirizzate alla replica di lettura/scrittura o a una replica di sola lettura di tale database a seconda della proprietà `ApplicationIntent` configurata nella stringa di connessione dell'applicazione. Per informazioni sulla proprietà `ApplicationIntent`, vedere [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) (Specifica della finalità dell'applicazione). 
+
+Se la scalabilità in lettura è disabilitata o è stata impostata la proprietà ReadScale in un livello di servizio non supportato, tutte le connessioni vengono indirizzate alla replica in lettura-scrittura, indipendentemente dalla proprietà `ApplicationIntent`.  
+
+> [!NOTE]
+> È possibile attivare la scalabilità in lettura su un database Standard o di Utilizzo generale, anche se non comporterà il routing della sessione prevista di sola lettura in una replica separata. Questa operazione viene eseguita per supportare le applicazioni esistenti con scalabilità verticale tra i livelli Standard/Utilizzo generale e Premium/Business critical.  
 
 La funzionalità di scalabilità in lettura supporta la coerenza a livello di sessione. Se la sessione di sola lettura si riconnette dopo un errore di connessione causato dalla mancata disponibilità della replica, può essere reindirizzata a una replica diversa. Sebbene sia poco probabile, ciò può comportare l'elaborazione del set di dati non aggiornato. Analogamente, se un'applicazione scrive i dati usando una sessione di lettura/scrittura e li legge immediatamente usando la sessione di sola lettura, è possibile che i nuovi dati non siano immediatamente visibili.
 
