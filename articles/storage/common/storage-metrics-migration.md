@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c4dc9b231668315af16c625314c737fee99d672d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: da8eb0b9e2e5aba60b61a36d83f525c7ce4a7958
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776262"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrazione delle metriche di Archiviazione di Azure
 
@@ -79,7 +80,7 @@ L'elenco seguente include le nuove metriche non supportate in precedenza:
 | AnonymousSuccess | Transactions con dimensione ResponseType uguale a Success |
 | AnonymousThrottlingError | Transactions con dimensione ResponseType uguale a ClientThrottlingError o ServerBusyError |
 | AuthorizationError | Transactions con dimensione ResponseType uguale a AuthorizationError |
-| Availability | Availability |
+| Disponibilità | Disponibilità |
 | AverageE2ELatency | SuccessE2ELatency |
 | AverageServerLatency | SuccessServerLatency |
 | ClientOtherError | Transactions con dimensione ResponseType uguale a ClientOtherError |
@@ -104,10 +105,10 @@ L'elenco seguente include le nuove metriche non supportate in precedenza:
 | ServerTimeoutError | Transactions con dimensione ResponseType uguale a ServerTimeoutError |
 | Success | Transactions con dimensione ResponseType uguale a Success |
 | ThrottlingError | Transactions con dimensione ResponseType uguale a ClientThrottlingError o ServerBusyError |
-| TotalBillableRequests | Transactions |
+| TotalBillableRequests | Transazioni |
 | TotalEgress | Egress |
 | TotalIngress | Dati in ingresso |
-| TotalRequests | Transactions |
+| TotalRequests | Transazioni |
 
 ## <a name="faq"></a>Domande frequenti
 
@@ -117,7 +118,7 @@ R: Se sono state create regole di avviso classiche in base a metriche di archivi
 
 * I dati delle nuove metriche vengono archiviati nello stesso account di archiviazione per impostazione predefinita?
 
-R: No. Se è necessario archiviare i dati delle metriche nell'account di archiviazione è possibile usare [Impostazioni di diagnostica in Monitoraggio di Azure](https://azure.microsoft.com/blog/azure-monitor-multiple-diagnostic-settings/).
+R: No. Se è necessario archiviare i dati delle metriche nell'account di archiviazione è possibile usare l'[API delle impostazioni di diagnostica in Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

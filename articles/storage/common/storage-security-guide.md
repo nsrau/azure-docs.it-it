@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768014"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -294,7 +295,7 @@ Anche se è possibile usare la crittografia lato client per crittografare i dati
 
 La crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione e non può essere disabilitata. La crittografia del servizio di archiviazione crittografa automaticamente i dati quando vengono scritti in Archiviazione di Azure. Quando i dati vengono letti da Archiviazione di Azure, vengono decrittografati dal servizio di archiviazione prima di essere restituiti. La crittografia del servizio di archiviazione consente di proteggere i dati senza dover modificare o aggiungere codice alle applicazioni.
 
-Le chiavi usate per la crittografia del servizio di archiviazione vengono gestite da Microsoft. Microsoft genera le chiavi in origine e ne gestisce l'archiviazione protetta, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. Le chiavi gestite dal cliente risulteranno infine disponibili, insieme a un percorso di migrazione dalle chiavi gestite da Microsoft alle chiavi gestite dal cliente.
+È possibile usare chiavi gestite da Microsoft o chiavi personalizzate. Microsoft genera chiavi gestite e ne gestisce l'archiviazione protetta, nonché la rotazione regolare secondo quanto definito dai criteri interni di Microsoft. Per altre informazioni sull'uso delle chiavi personalizzate, vedere [Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 La crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di Archiviazione di Azure (BLOB, code, tabelle e file). 
 

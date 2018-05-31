@@ -11,14 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 94b3c1e812bdf3345d5fb1f7308fb7a55be8f922
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 860a09d004c16de992093e79c0dbda4c469bb775
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771365"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell
 > [!div class="op_single_selector"]
@@ -28,11 +29,13 @@ ms.lasthandoff: 03/29/2018
 > [!NOTE]
 > Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni su come [monitorare e gestire le pipeline di Data Factory nella versione 2](../monitor-visually.md).
 
+Questo articolo descrive come monitorare e gestire le pipeline ed eseguirne il debug tramite il Portale di Azure e PowerShell.
+
 > [!IMPORTANT]
 > L'applicazione di monitoraggio e gestione offre un supporto migliore per il monitoraggio e la gestione delle pipeline di dati, nonché per la risoluzione di eventuali problemi. Per dettagli sull'uso dell'applicazione, vedere [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
-
-Questo articolo descrive come monitorare e gestire le pipeline ed eseguirne il debug tramite il Portale di Azure e PowerShell.
+> [!IMPORTANT]
+> Azure Data Factory versione 1 usa ora la nuova [infrastruttura di avvisi di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). L'infrastruttura di avvisi precedente è stata deprecata. Di conseguenza, gli avvisi esistenti configurati per la versione 1 delle data factory non funzionano più. Gli avvisi esistenti per le data factory versione 1 non vengono migrati automaticamente. È necessario ricreare questi avvisi per la nuova infrastruttura di avvisi. Accedere al portale di Azure e selezionare **Monitoraggio** per creare nuovi avvisi sulle metriche (ad esempio esecuzioni non riuscite o con esito positivo) per la versione 1 delle data factory.
 
 ## <a name="understand-pipelines-and-activity-states"></a>Informazioni sulle pipeline e sugli stati delle attività
 L'uso del portale di Azure consente di:
@@ -196,7 +199,8 @@ Resume-AzureRmDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName produc
 ## <a name="debug-pipelines"></a>Eseguire il debug delle pipeline
 Azure Data Factory offre funzionalità avanzate per il debug e la risoluzione dei problemi relativi alle pipeline tramite il portale di Azure e Azure PowerShell.
 
-> [!NOTA} È molto più semplice risolvere gli errori tramite l'app di monitoraggio e gestione. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
+> [!NOTE] 
+> È molto più semplice risolvere gli errori tramite l'app di monitoraggio e gestione. Per dettagli sull'uso dell'applicazione, vedere l'articolo [Monitorare e gestire le pipeline di Azure Data Factory con l'app di monitoraggio e gestione](data-factory-monitor-manage-app.md). 
 
 ### <a name="find-errors-in-a-pipeline"></a>Trovare gli errori in una pipeline
 Se l'esecuzione di un'attività in una pipeline non riesce, il set di dati generato dalla pipeline è in uno stato di errore. È possibile eseguire il debug e risolvere i problemi relativi agli errori in Azure Data Factory usando i metodi seguenti.
@@ -296,6 +300,35 @@ L'esempio seguente mostra come impostare lo stato di tutte le sezioni per la tab
 ```powershell
 Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 ```
+## <a name="create-alerts-in-the-azure-portal"></a>Creare gli avvisi nel portale di Azure
+
+1.  Accedere al portale di Azure e selezionare **Monitoraggio -> Avvisi** per aprire la pagina degli avvisi.
+
+    ![Aprire la pagina degli avvisi.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+
+2.  Selezionare **+ Nuova regola di avviso** per creare un nuovo avviso.
+
+    ![Creare un nuovo avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+
+3.  Definire la **condizione di avviso**. Assicurarsi di selezionare **Data factory** nel campo **Filter by resource type** (Filtra per tipo di risorsa). È inoltre possibile specificare valori per **Dimensioni**.
+
+    ![Definire la condizione dell'avviso: selezionare la destinazione](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+
+    ![Definire la condizione dell'avviso: aggiungere i criteri di avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+
+    ![Definire la condizione dell'avviso: aggiungere la logica di avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+
+4.  Definire i **dettagli dell'avviso**.
+
+    ![Definire i dettagli dell'avviso](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+
+5.  Definire il **gruppo di azioni**.
+
+    ![Definire il gruppo di azioni: creare un nuovo gruppo di azioni](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+
+    ![Definire il gruppo di azioni: impostare le proprietà](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+
+    ![Definire il gruppo di azioni: creato un nuovo gruppo di azioni](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
 
 ## <a name="move-a-data-factory-to-a-different-resource-group-or-subscription"></a>Spostare una data factory in un gruppo di risorse diverso o una sottoscrizione diversa
 È possibile spostare una data factory in un gruppo di risorse diverso o in una sottoscrizione diversa usando il pulsante **Sposta** della barra dei comandi nella home page della data factory.

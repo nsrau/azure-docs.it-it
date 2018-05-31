@@ -9,11 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: dc504ee9def6b500eee640521b57dc48dac9cca4
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 17ff3ece76f854cd539172019f8d154742873bb4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187307"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
 
@@ -116,9 +117,9 @@ Configurazione consigliata della VM: 8 vCPU, 16 GB di RAM, 300 GB di HDD.
 3.  Estrarre la cartella ZIP.
 La cartella contiene più file e sottocartelle. Il file eseguibile è ASRDeploymentPlanner.exe e si trova nella cartella padre.
 
-Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo. E:\ASR Deployment Planner_v2.1.zip
+Esempio: copiare il file ZIP nell'unità E:\ ed estrarlo. E:\ASR Deployment Planner_v2.2.zip
 
-E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.2\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Aggiornamento alla versione più recente di Deployment Planner
 Se si ha una versione precedente di Deployment Planner, eseguire una di queste operazioni:
@@ -133,7 +134,7 @@ Se si ha una versione precedente di Deployment Planner, eseguire una di queste o
   >Ogni nuova utilità di pianificazione delle distribuzioni è un aggiornamento cumulativo del file ZIP. Non è necessario copiare i file più recenti nella cartella precedente. È possibile creare e usare una nuova cartella.
 
 ## <a name="version-history"></a>Cronologia delle versioni
-La versione più recente di Azure Site Recovery Deployment Planner è la 2.1.
+La versione più recente di Azure Site Recovery Deployment Planner è la 2.2.
 Per le correzioni aggiunte in ogni aggiornamento, vedere la pagina [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) (Cronologia delle versioni di Azure Site Recovery Deployment Planner).
 
 

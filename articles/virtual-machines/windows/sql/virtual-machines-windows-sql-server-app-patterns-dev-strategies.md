@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 9a306dc5676bb98baf0c9aa000c4c518279bd932
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: eaeff1e57042b2e6a98559c19dc1dabebbf92ed4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195108"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -57,7 +58,7 @@ Questo articolo descrive diversi modelli di applicazione che possono essere idon
 * È necessario disporre di una piena compatibilità con SQL Server installato in locale e si desidera spostare le applicazioni esistenti in Azure senza doverle convertire.
 * Si desidera sfruttare le funzionalità dell'ambiente Azure, ma il database SQL di Azure non supporta tutte le funzionalità richieste dall'applicazione. Queste funzionalità possono includere gli elementi seguenti:
   
-  * **Dimensioni del database**: alla data di aggiornamento del presente articolo, il database SQL supporta un database con dimensioni massime pari a 1 TB di dati. Se l'applicazione in uso richiede oltre 1 TB di dati e non si desidera implementare soluzioni di partizionamento orizzontale personalizzate, si consiglia di usare SQL Server in una macchina virtuale di Azure. Per informazioni aggiornate, vedere [Scalabilità orizzontale di database SQL di Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx) e [Livelli di servizio e livelli di prestazioni del database SQL di Azure](../../../sql-database/sql-database-service-tiers.md).
+  * **Dimensioni del database**: alla data di aggiornamento del presente articolo, il database SQL supporta un database con dimensioni massime pari a 1 TB di dati. Se l'applicazione in uso richiede oltre 1 TB di dati e non si desidera implementare soluzioni di partizionamento orizzontale personalizzate, si consiglia di usare SQL Server in una macchina virtuale di Azure. Per le informazioni più aggiornate, vedere [Scalabilità orizzontale dei database SQL di Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx), il [modello di acquisto basato su DTU](../../../sql-database/sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](../../../sql-database/sql-database-service-tiers-vcore.md).
   * **Conformità HIPAA**: si consiglia ai clienti che operano nel settore sanitario e ai fornitori di software indipendenti (ISV) di scegliere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md) invece del [database SQL di Azure](../../../sql-database/sql-database-technical-overview.md) in quanto SQL Server in una macchina virtuale di Azure è protetto dal Contratto di società in affari HIPAA (BAA). Per informazioni sulla conformità, vedere [Centro protezione di Microsoft Azure: conformità](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Funzionalità a livello di istanza**: al momento il database SQL non supporta funzionalità esterne al database, ad esempio i server collegati, i processi di SQL Agent, FileStream, Service Broker e così via. Per altre informazioni, vedere [Linee guida e limitazioni per il database SQL di Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

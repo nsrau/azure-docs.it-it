@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: f58fb5090aba3c5052d1bbdec76225d0ae50e8f2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32777078"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -57,10 +58,11 @@ In caso di dubbi sulla provenienza del certificato, è possibile provare questa 
 
 Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi precedenti, contattare Microsoft tramite lo strumento di feedback per ricevere assistenza. In alternativa, è possibile scegliere di avviare Storage Explorer dalla riga di comando con il flag `--ignore-certificate-errors`. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato.
 
-## <a name="sign-in-issues"></a>Problemi relativi all'accesso
+## <a name="sign-in-issues"></a>Problemi di accesso
 
 Se non è possibile accedere, provare i metodi di risoluzione dei problemi seguenti:
 
+* Se si sta usando macOS e la finestra di accesso non appare sulla finestra di dialogo "Waiting for authentication..." (In attesa di autenticazione...), provare [questa procedura](#Resetting-the-Mac-Keychain)
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
 * Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer
@@ -96,7 +98,8 @@ Se non si riesce a rimuovere un account o una risorsa di archiviazione collegato
 
 In primo luogo, assicurarsi che le informazioni seguenti immesse siano corrette:
 
-*URL del proxy e numero di porta *Nome utente e password se richiesto dal proxy
+* l'URL del proxy e il numero di porta
+* nome utente e password se richiesto dal proxy
 
 ### <a name="common-solutions"></a>soluzioni comuni
 
@@ -129,7 +132,7 @@ Se le impostazioni del proxy sono corrette, è necessario contattare l'amministr
 
 Se si è connessi ad Azure tramite un proxy, verificare che le impostazioni del proxy siano corrette. Se è stato concesso l'accesso a una risorsa dal proprietario della sottoscrizione o dell'account, verificare di avere letto o elencare le autorizzazioni per tale risorsa.
 
-### <a name="issues-with-sas-url"></a>Problemi relativi all'URL SAS
+## <a name="issues-with-sas-url"></a>Problemi relativi all'URL SAS
 Se ci si connette a un servizio tramite un URL SAS e si verifica questo errore:
 
 * Verificare che l'URL abbia le autorizzazioni necessarie per la lettura o l'elenco delle risorse.
@@ -152,6 +155,19 @@ Per distribuzioni Linux diverse da Ubuntu 16.04, è necessario installare manual
 * GCC aggiornato
 
 A seconda del tipo di distribuzione, potrebbe essere necessario installare altri pacchetti. Le [note sulla versione](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) di Storage Explorer contengono passaggi specifici per alcune distribuzioni.
+
+## <a name="resetting-the-mac-keychain"></a>Reimpostare Mac Keychain
+Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libreria di autenticazione di Storage Explorer. Per togliere il keychain da questo stato provare la procedura seguente:
+1. Chiudere Azure Storage Explorer.
+2. Aprire il keychain (**cmd + barra spaziatrice**, digitare keychain, premere Invio).
+3. Selezionare il keychain "login".
+4. Fare clic sull'icona del lucchetto per bloccare il keychain (al termine il lucchetto assumerà un'animazione in posizione di blocco, cosa che potrebbe richiedere alcuni secondi in base a quali applicazioni sono aperte).
+
+    ![immagine](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Avviare Azure Storage Explorer.
+6. Dovrebbe apparire un messaggio popup simile a " Service hub desidera accedere a keychain". Immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Consenti** se **Consenti sempre** non è disponibile).
+7. Provare a effettuare l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
