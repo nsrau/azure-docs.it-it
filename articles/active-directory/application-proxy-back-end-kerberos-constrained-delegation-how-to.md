@@ -2,10 +2,10 @@
 title: Risolvere i problemi delle configurazioni della delega vincolata Kerberos per il proxy di applicazione | Microsoft Docs
 description: Risolvere i problemi delle configurazioni della delega vincolata Kerberos per il proxy di applicazione.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 02/09/2018
 ms.author: markvi
 ms.reviewer: harshja
-ms.openlocfilehash: a580b0afbd34623986ea8a3f60147a937c423e5e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3ba089123198631c443a759ad62cb0ae5ca40ad3
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068269"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi delle configurazioni della delega vincolata Kerberos per il proxy di applicazione
 
@@ -30,7 +31,7 @@ A tale proposito, questo articolo mira a fornire un singolo punto di riferimento
 
 L'articolo presuppone quanto segue:
 
--   Il proxy di applicazione Azure è stato distribuito in base alla [documentazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) e l'accesso generale alle applicazioni non di delega vincolata Kerberos funziona come previsto.
+-   Il proxy di applicazione Azure è stato distribuito in base alla [documentazione](manage-apps/application-proxy-enable.md) e l'accesso generale alle applicazioni non di delega vincolata Kerberos funziona come previsto.
 
 -   L'applicazione di destinazione pubblicata è basata su IIS e sull'implementazione Microsoft di Kerberos.
 
@@ -42,7 +43,7 @@ L'articolo presuppone quanto segue:
 
 Il proxy di applicazione Azure può essere distribuito in numerosi tipi di infrastrutture o ambienti e indubbiamente le architetture variano in base all'organizzazione. Una delle cause più comuni dei problemi correlati alla delega vincolata Kerberos non è rappresentata dagli ambienti stessi, ma piuttosto da semplici errori di configurazione o disattenzioni.
 
-Per questo motivo, è consigliabile sempre iniziare verificando di aver soddisfatto tutti i prerequisiti elencati nell'articolo [Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) prima di procedere con la risoluzione dei problemi.
+Per questo motivo, è consigliabile sempre iniziare verificando di aver soddisfatto tutti i prerequisiti elencati nell'articolo [Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) prima di procedere con la risoluzione dei problemi.
 
 Si noti in particolare la sezione sulla configurazione della delega vincolata Kerberos in 2012 R2, in quanto adotta un approccio radicalmente diverso alla configurazione della delega vincolata Kerberos nelle versioni precedenti di Windows, ma è opportuno tenere presente anche altre considerazioni:
 
@@ -68,13 +69,13 @@ Questi messaggi segnalano tutti l'impossibilità di eseguire l'accesso SSO e, di
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-La modalità di risoluzione dipende quindi dal problema e dai sintomi osservati. Prima di procedere, è consigliabile visitare i collegamenti seguenti, che contengono informazioni utili probabilmente non ancora esaminate:
+La modalità di risoluzione dipende dal problema e dai sintomi osservati. Prima di procedere, è consigliabile visitare i collegamenti seguenti, che contengono informazioni utili probabilmente non ancora esaminate:
 
--   [Risolvere i problemi e i messaggi di errore del proxy dell'applicazione](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot)
+-   [Risolvere i problemi e i messaggi di errore del proxy dell'applicazione](active-directory-application-proxy-troubleshoot.md)
 
--   [Errori di Kerberos](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#kerberos-errors)
+-   [Errori di Kerberos](active-directory-application-proxy-troubleshoot.md#kerberos-errors)
 
--   [Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd#working-with-sso-when-on-premises-and-cloud-identities-are-not-identical)
+-   [Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)
 
 Se si è giunti a questo punto, è senza dubbio presente un problema importante. Iniziare separando il flusso in tre fasi distinte per le quali è possibile risolvere i problemi.
 
@@ -98,7 +99,7 @@ E le voci corrispondenti visualizzate nel log eventi verrebbero interpretate com
 
 -   Usare un record A nel DNS interno per l'indirizzo dell'applicazione e non un record CNAME
 
--   Verificare nuovamente che all'host del connettore siano stati concessi i diritti di delega al nome dell'entità servizio (SPN) dell'account di destinazione designato e che l'opzione **Usa un qualsiasi protocollo di autenticazione** sia selezionata. Per altre informazioni su questo argomento, vedere l'articolo sulla [configurazione dell'accesso SSO](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)
+-   Verificare nuovamente che all'host del connettore siano stati concessi i diritti di delega al nome dell'entità servizio (SPN) dell'account di destinazione designato e che l'opzione **Usa un qualsiasi protocollo di autenticazione** sia selezionata. Per altre informazioni su questo argomento, vedere l'articolo sulla [configurazione dell'accesso SSO](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 
 -   Verificare che in AD sia presente una sola istanza del nome SPN eseguendo un comando `setspn -x` da un prompt dei comandi in qualsiasi host membro di dominio
 
@@ -179,4 +180,4 @@ Se il problema persiste, il supporto è a disposizione per fornire assistenza e 
 -   Autenticazione a doppio hop: generalmente usata negli scenari con applicazioni a livelli, con un back-end e un front-end che richiedono l'autenticazione, ad esempio SQL Reporting Services.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurare la delega vincolata Kerberos (KCD) in un dominio gestito](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
+[Configurare la delega vincolata Kerberos (KCD) in un dominio gestito](../active-directory-domain-services/active-directory-ds-enable-kcd.md)

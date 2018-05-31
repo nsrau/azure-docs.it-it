@@ -9,11 +9,12 @@ ms.topic: article
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f8c9cb33eb90232f5eb241add284f7ea7b64bc05
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053425"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
@@ -42,7 +43,13 @@ Passare alle altre soluzioni e fare clic su **Abilita**. Le caselle di riepilogo
 
 Ogni soluzione usa una configurazione dell'ambito nell'area di lavoro per definire i computer di destinazione della soluzione. La configurazione dell'ambito è un gruppo di una o più ricerche salvate usate per limitare l'ambito della soluzione a computer specifici. Per accedere alle configurazioni dell'ambito, nell'account di Automazione in **RISORSE CORRELATE** selezionare **Area di lavoro**. In **Origini dati dell'area di lavoro** selezionare **Configurazioni ambito**.
 
-Le due configurazioni dell'ambito create per impostazione predefinita sono **MicrosoftDefaultScopeConfig-ChangeTracking** e **MicrosoftDefaultScopeConfig-Updates**.
+Se l'area di lavoro selezionata non include ancora le soluzioni Gestione aggiornamenti o Rilevamento modifiche, vengono create le configurazioni di ambito seguenti:
+
+* **MicrosoftDefaultScopeConfig-ChangeTracking**
+
+* **MicrosoftDefaultScopeConfig-Updates**
+
+Se l'area di lavoro selezionata include già la soluzione. La soluzione non viene ridistribuita e la configurazione dell'ambito non viene aggiunta.
 
 Fare clic sui puntini di sospensione (...) in una delle configurazioni e selezionare **Modifica**. Nella pagina **Modifica configurazione dell'ambito** selezionare **Selezionare i gruppi di computer** per aprire la pagina **Gruppi di computer**. Questa pagina mostra le ricerche salvate usate per creare la configurazione dell'ambito.
 
