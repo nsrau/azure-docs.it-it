@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale e ripristino di emergenza nelle aree abbinate di Azure | Documentazione Microsoft
+title: Continuità aziendale e ripristino di emergenza nelle aree abbinate di Azure | Microsoft Docs
 description: Informazioni sulle coppie di aree di Azure per assicurare la resilienza delle applicazioni in caso di errori del data center.
 services: site-recovery
 documentationcenter: ''
@@ -7,13 +7,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/09/2018
 ms.author: raynew
-ms.openlocfilehash: 660ced47b48e981b65c6b9390809e345be8eda2d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 754b0bdea4ccb93de16fda4eea5e012e0630daea
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939028"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -25,31 +26,30 @@ Ogni area di Azure è associata a un'altra area con la stessa ubicazione geograf
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 
-Figura 1: Diagramma di una coppia di aree di Azure
+Figura 1: coppie di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
 | Asia |Asia orientale |Asia sudorientale |
 | Australia |Australia orientale |Australia sudorientale |
+| Brasile |Brasile meridionale (2) |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
+| Europa |Europa settentrionale |Europa occidentale |
+| Germania |Germania centrale |Germania nord-orientale |
 | India |India centrale |India meridionale |
 | India |India occidentale (1) |India meridionale |
 | Giappone |Giappone orientale |Giappone occidentale |
 | Corea |Corea centrale |Corea meridionale |
-| America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti orientali |Stati Uniti occidentali |
 | America del Nord |Stati Uniti orientali 2 |Stati Uniti centrali |
-| America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali |
-| Europa |Europa settentrionale |Europa occidentale |
-| Giappone |Giappone orientale |Giappone occidentale |
-| Brasile |Brasile meridionale (2) |Stati Uniti centro-meridionali |
+| America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
+| America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali 
+| Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
+| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
+| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
 | Governo degli Stati Uniti |US Gov Iowa (3) |US Gov Virginia |
 | Governo degli Stati Uniti |US Gov Virginia (4) |Governo degli Stati Uniti - Texas |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
-| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
-| Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
-| Germania |Germania centrale |Germania nord-orientale |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 
