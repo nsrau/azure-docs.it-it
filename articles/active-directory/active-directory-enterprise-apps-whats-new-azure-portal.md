@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 9a8b85539ac26629c31e49097fca5c3ce5c5abc2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053371"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34350866"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novità della gestione delle applicazioni aziendali in Azure Active Directory 
 
@@ -35,7 +35,7 @@ Di seguito sono descritti alcuni dei miglioramenti apportati per Azure AD nel [p
 
 ## <a name="improvements-to-the-azure-active-directory-application-gallery"></a>Miglioramenti alla raccolta di applicazioni di Azure Active Directory
 
-È possibile aggiungere le applicazioni preferite a prescindere che provengano dalla [raccolta di applicazioni](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery), sia applicazioni personalizzate da estendere al cloud o nuove applicazioni in sviluppo.  È possibile iniziare a usare questa nuova esperienza facendo clic su **Aggiungi** in **Applicazioni aziendali** o in **Tutte le applicazioni**.
+È possibile aggiungere le applicazioni preferite a prescindere che provengano dalla [raccolta di applicazioni](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), sia applicazioni personalizzate da estendere al cloud o nuove applicazioni in sviluppo.  È possibile iniziare a usare questa nuova esperienza facendo clic su **Aggiungi** in **Applicazioni aziendali** o in **Tutte le applicazioni**.
  
   ![Aggiunta di un'applicazione](./media/active-directory-enterprise-apps-whats-new-azure-portal/01.png)
 

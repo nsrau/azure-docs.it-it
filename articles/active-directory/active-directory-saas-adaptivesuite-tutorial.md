@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e128ddf53a93fe30350d8e914657f3539701603
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 80067a82744498b273a99caa69e6c12f47100733
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34342341"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-suite"></a>Esercitazione: Integrazione di Azure Active Directory con Adaptive Suite
 
@@ -29,7 +30,7 @@ L'integrazione di Adaptive Suite con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico ad Adaptive Suite (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -114,7 +115,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     >[!NOTE]
     > È possibile ottenere questo valore dalla pagina **SAML SSO Settings** di Adaptive Suite.
-    >  
+    >
+    
+    Selezionare la casella **Mostra impostazioni URL avanzate**. Nella casella di testo **Identificatore (ID entità)** digitare lo stesso URL inserito nella casella di testo **URL di risposta**.
+    
+    >[!NOTE]
+    > L'ID entità per ogni dominio Adaptive Insights è lo stesso del relativo URL di risposta.
+    >
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -264,7 +271,7 @@ Quando si fa clic sul riquadro Adaptive Suite nel pannello di accesso, si dovreb
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 
 
