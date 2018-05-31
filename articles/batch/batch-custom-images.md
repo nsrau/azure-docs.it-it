@@ -1,18 +1,19 @@
 ---
 title: Effettuare il provisioning dei pool di Azure Batch da immagini personalizzate | Microsoft Docs
-description: "È possibile creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch."
+description: È possibile creare un pool di Batch da un'immagine personalizzata per effettuare il provisioning dei nodi di calcolo che contengono il software e i dati necessari per l'applicazione. Le immagini personalizzate sono uno strumento efficace per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di Batch.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 63a567e9fdfef8dfceb275953cc0ac606355ea30
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 78bc50a1189d8f42281f81643a5e907d94480082
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158613"
 ---
 # <a name="use-a-managed-custom-image-to-create-a-pool-of-virtual-machines"></a>Usare un'immagine personalizzata gestita per creare un pool di macchine virtuali 
 
@@ -40,7 +41,7 @@ L'uso di un'immagine personalizzata configurata per uno scenario specifico può 
 
     
 ## <a name="prepare-a-custom-image"></a>Preparare un'immagine personalizzata
-È possibile preparare un'immagine gestita da un disco rigido virtuale, da una macchina virtuale di Azure con dischi gestiti o dallo snapshot di una macchina virtuale. 
+È possibile preparare un'immagine gestita da un disco rigido virtuale, da una macchina virtuale di Azure con dischi gestiti o dallo snapshot di una macchina virtuale. Per Batch è consigliabile creare un'immagine gestita da una macchina virtuale con dischi gestiti o dallo snapshot di una macchina virtuale. L'immagine gestita e la risorsa sottostante sono necessarie per aumentare le prestazioni dei pool e possono essere rimosse dopo che il pool è stato eliminato. 
 
 Durante la preparazione dell'immagine è necessario tenere presente quanto segue:
 

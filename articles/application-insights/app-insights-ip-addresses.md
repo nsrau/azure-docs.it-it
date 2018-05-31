@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: f56810d6520edd19ce757a91712698714902e668
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4ed0c84dfab58f8a92e0f366bb65634b9e3dab82
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33935649"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Indirizzi IP usati da Application Insights e Log Analytics
 Il servizio [Azure Application Insights](app-insights-overview.md) usa diversi indirizzi IP. Potrebbe essere necessario conoscere questi indirizzi se l'app che si sta monitorando è ospitata dietro un firewall.
@@ -49,11 +50,6 @@ Configurazione di Status Monitor: necessaria solo quando si apportano modifiche.
 | Configurazione |`auth.gfx.ms` | |`443` |
 | Configurazione |`login.live.com` | |`443` |
 | Installazione |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (download NuGet) | |`443` |
-
-## <a name="hockeyapp"></a>HockeyApp
-| Scopo | URL | IP | Porte |
-| --- | --- | --- | --- |
-| Dati sugli arresti anomali |gate.hockeyapp.net |104.45.136.42 |80, 443 |
 
 ## <a name="availability-tests"></a>Test della disponibilità
 Questo è l'elenco di indirizzi da cui vengono eseguiti i [test Web della disponibilità](app-insights-monitor-web-app-availability.md) . Se si vogliono eseguire test Web sull'app, ma il server Web è limitato alla fornitura di servizi a client specifici, è necessario consentire il traffico in ingresso dai server di test della disponibilità.
@@ -236,14 +232,17 @@ Nota: il dominio *.loganalytics.io è di proprietà del team di Log Analytics.
 
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71 | 443
+| Agente | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portale | gateway.azureserviceprofiler.net | dinamico | 443
 | Archiviazione | *.core.windows.net | dinamico | 443
 
 ## <a name="snapshot-debugger"></a>Debugger di snapshot
 
+> [!NOTE]
+> Profiler e Snapshot Debugger condividono lo stesso set di indirizzi IP.
+
 | Scopo | URI | IP | Porte |
 | --- | --- | --- | --- |
-| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 23.101.68.84<br/>52.174.44.101<br/>52.250.121.195<br/>51.143.88.187<br/> | 443
+| Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 51.143.96.206<br/>51.143.98.157<br/>52.161.8.88<br/>52.161.29.225<br/>52.178.149.106<br/>52.178.147.66<br/>40.68.32.221<br/>104.40.217.71<br/>52.230.124.46<br/>52.230.122.9 | 443
 | Portale | ppe.gateway.azureserviceprofiler.net | dinamico | 443
 | Archiviazione | *.core.windows.net | dinamico | 443

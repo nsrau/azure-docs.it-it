@@ -1,5 +1,5 @@
 ---
-title: Integrare Key Vault con SQL Server in VM Windows in Azure (Resource Manager) | Microsoft Docs
+title: Integrare il Key Vault con SQL Server in VM Windows in Azure (Resource Manager) | Microsoft Docs
 description: Informazioni su come automatizzare la configurazione della crittografia di SQL Server per l'uso con Azure Key Vault. Questo argomento illustra come usare l'integrazione dell'insieme di credenziali delle chiavi di Azure con le macchine virtuali di SQL Server create con Gestione risorse.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/23/2017
+ms.date: 04/30/2018
 ms.author: jroth
-ms.openlocfilehash: 7df0bc4b74694baa6b1c8a30d0c126b248e51168
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2b398f59aed1610825f495a6089990d393531305
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774727"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (Resource Manager)
+
 > [!div class="op_single_selector"]
 > * [Gestione risorse](virtual-machines-windows-ps-sql-keyvault.md)
 > * [Classico](../sqlclassic/virtual-machines-windows-classic-ps-sql-keyvault.md)
@@ -39,7 +41,7 @@ Quando questa funzionalità è abilitata, installa automaticamente il connettore
 È possibile abilitare l'integrazione di AKV durante il provisioning oppure configurarlo per VM esistenti.
 
 ### <a name="new-vms"></a>Nuove VM
-Se si esegue il provisioning di una nuova macchina virtuale SQL Server con Resource Manager, il portale di Azure offre una procedura per abilitare l'integrazione dell'insieme di credenziali delle chiavi di Azure. La funzionalità dell'insieme di credenziali delle chiavi di Azure è disponibile solo per la Enterprise, la Developer Edition e la copia di valutazione di SQL Server.
+Se si esegue il provisioning di una nuova macchina virtuale SQL Server con Gestione risorse, il portale di Azure offre una procedura per abilitare l'integrazione di Azure Key Vault. La funzionalità Azure Key Vault è disponibile solo per SQL Server Enterprise Edition, Developer Edition e le edizioni di valutazione.
 
 ![Integrazione dell'insieme di credenziali delle chiavi di Azure per SQL](./media/virtual-machines-windows-ps-sql-keyvault/azure-sql-arm-akv.png)
 

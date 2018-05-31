@@ -9,26 +9,27 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: ca9e2935f3d44952235a1669b3f5bebc7708f4bf
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195448"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ottimizzazione delle prestazioni del database SQL di Azure
 
 Il servizio Database SQL di Azure fornisce [suggerimenti](sql-database-advisor.md) per migliorare le prestazioni del database. In alternativa, è possibile lasciare che il database di SQL Azure [si adatti automaticamente all'applicazione](sql-database-automatic-tuning.md) e applichi le modifiche che miglioreranno le prestazioni del carico di lavoro.
 
 Se non sono disponibili suggerimenti applicabili e continuano a verificarsi problemi di prestazioni, è possibile usare i metodi seguenti per migliorarle:
-1. Aumentare i [livelli di servizio](sql-database-service-tiers.md) e fornire altre risorse al database.
-2. Ottimizzare l'applicazione e applicare alcune procedure consigliate che consentono di migliorare le prestazioni. 
-3. Ottimizzare il database modificando gli indici e le query per usare i dati in modo più efficiente.
+- Aumentare i livelli di servizio nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) oppure nel [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md) per fornire altre risorse al database.
+- Ottimizzare l'applicazione e applicare alcune procedure consigliate che consentono di migliorare le prestazioni. 
+- Ottimizzare il database modificando gli indici e le query per usare i dati in modo più efficiente.
 
-Questi sono metodi manuali perché è necessario decidere quali [livelli di servizio](sql-database-service-tiers.md) scegliere o è necessario riscrivere il codice dell'applicazione o del database e distribuire le modifiche.
+Questi sono metodi manuali perché è necessario decidere quali [limiti delle risorse del modello basato su DTU](sql-database-dtu-resource-limits.md) e quali [limiti delle risorse del modello basato su vCore (anteprima)](sql-database-vcore-resource-limits.md) sono adatti alle proprie esigenze. In caso contrario, sarà necessario riscrivere il codice dell'applicazione o del database e distribuire le modifiche.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del livello di prestazioni del database
 
-Il database SQL di Azure offre due modelli di acquisto, ovvero un modello basato su DTU e un modello basato su vCore. Per ogni modello sono disponibili più [livelli di servizio](sql-database-service-tiers.md) tra cui scegliere. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
+Il database SQL di Azure offre due modelli di acquisto: un [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e un [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md) tra cui scegliere. Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure.
 
 > [!NOTE]
 > Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
@@ -48,7 +49,7 @@ Il livello di servizio esatto necessario per il database SQL dipende dai requisi
 
 ### <a name="service-tier-capabilities-and-limits"></a>Limiti e funzionalità dei livelli di servizio
 
-È possibile configurare il livello di prestazioni per ogni livello di servizio. Questa flessibilità consente di pagare solo la capacità necessaria. È possibile [regolare la capacità](sql-database-service-tiers.md), in base alle modifiche del carico di lavoro. Ad esempio, se il carico di lavoro del database è intenso durante il periodo di acquisti per il ritorno a scuola, è possibile aumentare il livello di prestazioni per il database per un periodo specifico, da luglio a settembre. È quindi possibile ridurlo al termine del picco stagionale. È possibile ridurre al minimo i costi del servizio ottimizzando l'ambiente cloud in base alla stagionalità della propria attività. Questo modello è adatto anche per i cicli di rilascio di prodotti software. Un team di test può allocare la capacità durante l'esecuzione di test e quindi rilasciare tale capacità al termine dei test. In un modello basato sulla richiesta di capacità, si paga la capacità necessaria, evitando i costi per risorse dedicate usate raramente.
+È possibile configurare il livello di prestazioni per ogni livello di servizio. Questa flessibilità consente di pagare solo la capacità necessaria. È possibile [regolare la capacità](sql-database-service-tiers-dtu.md), in base alle modifiche del carico di lavoro. Ad esempio, se il carico di lavoro del database è intenso durante il periodo di acquisti per il ritorno a scuola, è possibile aumentare il livello di prestazioni per il database per un periodo specifico, da luglio a settembre. È quindi possibile ridurlo al termine del picco stagionale. È possibile ridurre al minimo i costi del servizio ottimizzando l'ambiente cloud in base alla stagionalità della propria attività. Questo modello è adatto anche per i cicli di rilascio di prodotti software. Un team di test può allocare la capacità durante l'esecuzione di test e quindi rilasciare tale capacità al termine dei test. In un modello basato sulla richiesta di capacità, si paga la capacità necessaria, evitando i costi per risorse dedicate usate raramente.
 
 ### <a name="why-service-tiers"></a>Vantaggi dei livelli di servizio
 Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo dei livelli di servizio è offrire la prevedibilità delle prestazioni a diversi livelli. I clienti con requisiti di risorse di database su larga scala possono operare in un ambiente di calcolo più dedicato.
@@ -270,7 +271,8 @@ Alcune applicazioni comportano un utilizzo elevato di scrittura. È a volte poss
 Alcune applicazioni di database contengono carichi di lavoro con intensa attività di lettura. I livelli di memorizzazione nella cache possono consentire di ridurre il carico nel database e di ridurre il livello di prestazioni necessario per supportare un database usando il database SQL di Azure. La [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), in caso di carico di lavoro con intensa attività di lettura, può consentire di leggere i dati una volta o forse una volta per macchina di livello applicazione, a seconda della relativa configurazione, e di archiviare i dati al di fuori del database SQL. In questo modo è possibile ridurre il carico del database (CPU e I/O letti), ma vi sarà un impatto sulla coerenza transazionale poiché i dati letti dalla cache potrebbero non essere sincronizzati con i dati nel database. Anche se in molte applicazioni è accettabile un livello di incoerenza, ciò non rappresenta una soluzione valida per tutti i carichi di lavoro. È necessario conoscere bene tutti i requisiti delle applicazioni prima di implementare una strategia di caching a livello di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sui livelli di servizio, vedere [Opzioni e prestazioni disponibili in ogni livello di servizio del database SQL](sql-database-service-tiers.md)
+* Per altre informazioni sui livelli di servizio basati su DTU, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [limiti delle risorse del modello basato su DTU](sql-database-dtu-resource-limits.md)
+* Per altre informazioni sui livelli di servizio basati su vCore, vedere [modello di acquisto basato su vCore (Anteprima) ](sql-database-service-tiers-vcore.md) e [limiti delle risorse del modello basato su vCore (Anteprima)](sql-database-vcore-resource-limits.md)
 * Per altre informazioni sui pool elastici, vedere [Informazioni sui pool elastici di Azure](sql-database-elastic-pool.md)
 * Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
 

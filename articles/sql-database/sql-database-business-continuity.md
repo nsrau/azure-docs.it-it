@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale cloud - Ripristino del database - Database SQL | Documentazione Microsoft
+title: Continuità aziendale cloud - Ripristino del database - Database SQL | Microsoft Docs
 description: Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione.
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
@@ -12,11 +12,12 @@ ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46236c11b15f86c26be5e8c1311ba35e8bdd90f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192391"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -37,7 +38,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di ser
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Usare il ripristino temporizzato per recuperare un database
 
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Questi backup vengono archiviati nel servizio di archiviazione RA-GRS per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Nei livelli di servizio Utilizzo generico e Business critical (anteprima) il periodo di conservazione dei backup è configurabile fino a 35 giorni. Per altre informazioni, vedere [livelli di servizio](sql-database-service-tiers.md). Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-service-tiers.md). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Se si usa il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), questi backup vengono archiviati nel servizio di archiviazione RA-GRS per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-service-tiers-dtu.md#choosing-a-service-tier-in-the-dtu-based-purchasing-model). Se si usa il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup è configurabile fino a 35 giorni nei livelli di servizio Utilizzo generico e Business critical (anteprima). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
 
 Se il periodo di conservazione massimo supportato del ripristino temporizzato non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Long-term retention](sql-database-long-term-retention.md) (Conservazione a lungo termine).
 
@@ -97,8 +98,7 @@ Per altre informazioni e per i passaggi dettagliati per il ripristino di un data
 
 > [!IMPORTANT]
 > Se il server logico viene eliminato, non è possibile recuperare un database eliminato.
->
->
+
 
 ### <a name="restore-backups-from-long-term-retention"></a>Ripristinare i backup dalla conservazione a lungo termine
 
@@ -140,7 +140,7 @@ Se si usano backup automatici con la replica dell'archiviazione con ridondanza g
 >
 >
 
-### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al filover/ripristino
+### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al failover/ripristino
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 * Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato
