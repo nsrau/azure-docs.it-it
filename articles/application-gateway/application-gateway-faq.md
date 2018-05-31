@@ -9,11 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/29/2018
 ms.author: victorh
-ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355849"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -53,7 +54,7 @@ I pool back-end possono essere costituiti da schede di interfaccia di rete, set 
 
 **D. In quale aree è disponibile il servizio?**
 
-Il gateway applicazione è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/en-us/overview/clouds/government/)
+Il gateway applicazione è disponibile in tutte le aree di Azure globale. È anche disponibile in [Azure Cina](https://www.azure.cn/) e [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/)
 
 **D. Si tratta di una distribuzione dedicata per la sottoscrizione o è condivisa tra clienti?**
 
@@ -155,7 +156,7 @@ Questo scenario è possibile usando gruppi di sicurezza di rete nella subnet del
 
 * Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per la [comunicazione integrità back-end](application-gateway-diagnostics.md).
 
-* Consentire probe di bilanciamento del carico di Azure in ingresso (tag AzureLoadBalancer) e il traffico di rete virtuale in ingresso (tag VirtualNetwork) nei [gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md).
+* Consentire probe di bilanciamento del carico di Azure in ingresso (tag AzureLoadBalancer) e il traffico di rete virtuale in ingresso (tag VirtualNetwork) nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
 * Bloccare tutto il traffico in ingresso con una regola Nega tutto.
 
@@ -178,6 +179,11 @@ No, ma il gateway applicazione offre una metrica della velocità effettiva che p
 **D. Il ridimensionamento manuale causa tempi di inattività?**
 
 Non si verificano tempi di inattività, le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
+
+**D. Il gateway applicazione supporta l'esaurimento delle connessioni?**
+
+Sì. È possibile configurare l'esaurimento delle connessioni per modificare i membri all'interno di un pool back-end senza interruzioni. In questo modo le connessioni esistenti continuano a essere inviate alla relativa destinazione precedente fino a quando tale connessione viene chiusa o un timeout configurabile scade. L'esaurimento delle connessioni attende solo il completamento delle connessioni correnti in corso. Gateway applicazione non rileva lo stato della sessione applicazione.
+
 
 **D. È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?**
 
@@ -329,4 +335,4 @@ Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul gateway applicazione, vedere la [panoramica del gateway applicazione](application-gateway-introduction.md).
+Per altre informazioni sul gateway applicazione, vedere [Cos'è il gateway applicazione di Azure?](overview.md)
