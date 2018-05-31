@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 77ce133232b63a590c6c7f9361d1ca456f484093
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363295"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>Installare l'agente di macchine virtuali di Azure in modalità offline 
 
@@ -106,12 +107,11 @@ Usare la procedura seguente per installare l'agente di macchine virtuali in moda
 
 13.  Accedere alla macchina virtuale. Si noti che RdAgent è in esecuzione e i log vengono generati.
 
-Se la macchina virtuale è stata creata tramite il modello di distribuzione classica, la procedura è completa.
-
+Se la macchina virtuale è stata creata tramite il modello di distribuzione Azure Resource Manager la procedura è completa.
 
 ### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Usare la proprietà ProvisionGuestAgent per le macchine virtuali create con Azure Resource Manager
 
-Se la macchina virtuale è stata creata con il modello di distribuzione di Resource Manager, usare il modulo di Azure PowerShell per aggiornare la proprietà **ProvisionGuestAgent**. La proprietà informa Azure che nella macchina virtuale è installato l'agente di macchine virtuali.
+Se la macchina virtuale è stata creata con il modello classico, usare il modulo di Azure PowerShell per aggiornare la proprietà **ProvisionGuestAgent**. La proprietà informa Azure che nella macchina virtuale è installato l'agente di macchine virtuali.
 
 Per impostare la proprietà **ProvisionGuestAgent** eseguire i comandi seguenti in Azure PowerShell:
 

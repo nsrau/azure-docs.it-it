@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 042dd4876a63e5881e67456b449570b01cb967a5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011289"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365662"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Procedure consigliate per Protezione DDoS di Azure e architetture di riferimento
 
@@ -87,8 +87,8 @@ Per [Servizio app di Azure](../app-service/app-service-value-prop-what-is.md) se
 
 L'idea che sta dietro alla difesa in profondità consiste nel gestire i rischi con diverse strategie difensive. La disposizione delle difese su più livelli in un'applicazione riduce le probabilità di riuscita degli attacchi. È consigliabile implementare progettazioni sicure per le applicazioni tramite le funzionalità integrate della piattaforma di Azure.
 
-Ad esempio, il rischio di attacco aumenta con le dimensioni o la *superficie di attacco* dell'applicazione. È possibile ridurre la superficie usando l'elenco degli elementi consentiti per chiudere lo spazio indirizzi IP esposto e le porte in ascolto non necessarie sui servizi di bilanciamento del carico ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [gateway applicazione di Azure](../application-gateway/application-gateway-create-probe-portal.md)). I [gruppi di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) rappresentano un altro modo per ridurre la superficie di attacco.
-È possibile usare [tag di servizio](/virtual-network/security-overview.md) e [gruppi di sicurezza dell'applicazione](/virtual-network/security-overview.md) per ridurre la complessità per la creazione della regola di sicurezza e configurare la sicurezza di rete come estensione naturale della struttura di un'applicazione.
+Ad esempio, il rischio di attacco aumenta con le dimensioni o la *superficie di attacco* dell'applicazione. È possibile ridurre la superficie usando l'elenco degli elementi consentiti per chiudere lo spazio indirizzi IP esposto e le porte in ascolto non necessarie sui servizi di bilanciamento del carico ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) e [gateway applicazione di Azure](../application-gateway/application-gateway-create-probe-portal.md)). I [gruppi di sicurezza di rete (NSG)](../virtual-network/security-overview.md) rappresentano un altro modo per ridurre la superficie di attacco.
+È possibile usare [tag di servizio](/virtual-network/security-overview.md#service-tags) e [gruppi di sicurezza dell'applicazione](/virtual-network/security-overview.md#application-security-groups) per ridurre la complessità per la creazione della regola di sicurezza e configurare la sicurezza di rete come estensione naturale della struttura di un'applicazione.
 
 Distribuire i servizi di Azure in una [rete virtuale](../virtual-network/virtual-networks-overview.md), laddove possibile. Ciò consente alle risorse del servizio di comunicare attraverso indirizzi IP privati. Il traffico del servizio di Azure da una rete virtuale usa indirizzi IP pubblici come indirizzi IP di origine per impostazione predefinita. Tramite gli [endpoint di servizio](../virtual-network/virtual-network-service-endpoints-overview.md), il traffico del servizio passerà all'uso di indirizzi privati della rete virtuale come indirizzi IP di origine per l'accesso al servizio di Azure dalla rete virtuale.
 
