@@ -1,5 +1,5 @@
 ---
-title: Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure | Documentazione Microsoft
+title: Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure | Microsoft Docs
 description: Questa pagina fornisce istruzioni sulle modalità di configurazione del controllo di un gruppo di sicurezza di rete
 services: network-watcher
 documentationcenter: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0c9450099ad3561611796a9b45157932f9ac85a9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363377"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure
 
 I clienti devono spesso far fronte alla sfida posta dalla verifica del comportamento di sicurezza della propria infrastruttura. Lo stesso problema si pone per le macchine virtuali in Azure. È importante disporre di un profilo di sicurezza simile in base alle regole del gruppo di sicurezza di rete (NSG) applicate. Usando la visualizzazione del gruppo di sicurezza, è possibile ottenere l'elenco delle regole applicate a una macchina virtuale all'interno di un gruppo di sicurezza di rete. È possibile definire un profilo di sicurezza NSG elevato e avviare la visualizzazione del gruppo di sicurezza con frequenza settimanale, quindi confrontare l'output con il profilo elevato e creare un report. In questo modo è possibile identificare con facilità tutte le macchine virtuali che non sono conformi al profilo di protezione previsto.
 
-Se non si ha familiarità con i gruppi di sicurezza di rete, visitare [Controllare il flusso del traffico di rete con i gruppi di sicurezza di rete](../virtual-network/virtual-networks-nsg.md)
+Se non si ha familiarità con i gruppi di sicurezza di rete, vedere l'argomento relativo alla [sicurezza di rete](../virtual-network/security-overview.md).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

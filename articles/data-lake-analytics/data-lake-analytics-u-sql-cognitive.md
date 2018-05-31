@@ -1,8 +1,8 @@
 ---
-title: "Uso delle funzionalità cognitive U-SQL in Azure Data Lake Analytics | Documentazione Microsoft"
-description: "Informazioni su come usare l'intelligence delle funzionalità cognitive in U-SQL"
+title: Uso delle funzionalità cognitive U-SQL in Azure Data Lake Analytics | Microsoft Docs
+description: Informazioni su come usare l'intelligence delle funzionalità cognitive in U-SQL
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: ec48a07af0aba78f2e508bad232f34102f0c2073
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311115"
 ---
 # <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Esercitazione: Introduzione alle funzionalità cognitive di U-SQL
 
@@ -37,8 +38,8 @@ Sono disponibili le funzionalità cognitive seguenti:
 
 Il processo complessivo è semplice:
 
-* Usare l'istruzione REFERENCE ASSEMBLY per abilitare le funzionalità cognitive per lo script U-SQL
-* Usare PROCESS in un set di righe di input usando un oggetto UDO delle funzionalità cognitive per generare un set di righe di output
+* Usare l'istruzione `REFERENCE ASSEMBLY` per abilitare le funzionalità cognitive per lo script U-SQL
+* Usare `PROCESS` in un set di righe di input usando un oggetto UDO delle funzionalità cognitive per generare un set di righe di output
 
 ### <a name="detecting-objects-in-images"></a>Rilevamento di oggetti nelle immagini
 

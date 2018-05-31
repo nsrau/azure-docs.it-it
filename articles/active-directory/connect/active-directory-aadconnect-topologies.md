@@ -14,11 +14,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: billmath
-ms.openlocfilehash: f47cf18f70572ad93f5075c2f2c883d80af8220e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154291"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -44,7 +45,7 @@ Ecco la legenda delle immagini usate nell'articolo:
 ## <a name="single-forest-single-azure-ad-tenant"></a>Foresta singola, tenant singolo di Azure AD
 ![Topologia per una foresta singola e un tenant singolo](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
-La topologia più comune è costituita da una singola foresta locale, con uno o più domini, e un tenant singolo di Azure AD. Per l'autenticazione di Azure AD viene usata la sincronizzazione delle password. L'installazione rapida di Azure AD Connect supporta unicamente questa topologia.
+La topologia più comune è costituita da una singola foresta locale, con uno o più domini, e un tenant singolo di Azure AD. Per l'autenticazione di Azure AD viene usata la sincronizzazione dell'hash delle password. L'installazione rapida di Azure AD Connect supporta unicamente questa topologia.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>Foresta singola, più server di sincronizzazione a un tenant di Microsoft Azure
 ![Topologia con filtri non supportata per una foresta singola](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
@@ -64,7 +65,7 @@ Le topologie comuni sono illustrate nelle sezioni su [topologie separate](#multi
 
 La configurazione predefinita del servizio di sincronizzazione Azure AD Connect presuppone quanto segue:
 
-* Ogni utente ha solo un account abilitato e la foresta in cui si trova l'account viene usata per l'autenticazione dell'utente. Questo presupposto riguarda sia la sincronizzazione delle password che la federazione. userPrincipalName e sourceAnchor o immutableID provengono da questa foresta.
+* Ogni utente ha solo un account abilitato e la foresta in cui si trova l'account viene usata per l'autenticazione dell'utente. Questo presupposto riguarda la sincronizzazione dell'hash delle password, l'autenticazione pass-through e la federazione. userPrincipalName e sourceAnchor o immutableID provengono da questa foresta.
 * Ogni utente ha solo una cassetta postale.
 * La foresta che ospita la cassetta postale di un utente garantisce la migliore qualità dei dati per gli attributi visibili nell'Elenco indirizzi globale di Exchange. Se non è presente una cassetta postale per l'utente, è possibile usare qualsiasi foresta per recuperare questi valori di attributi.
 * Se è disponibile una cassetta postale collegata, è presente anche un account in una foresta diversa usato per l'accesso.
@@ -157,7 +158,7 @@ Questa topologia presenta le restrizioni seguenti per scenari altrimenti support
 
 * Solo uno dei tenant di Azure AD può abilitare una distribuzione ibrida di Exchange con l'istanza di Active Directory locale.
 * I dispositivi Windows 10 possono essere associati a un solo tenant di Azure AD.
-* L'opzione Single Sign-On (SSO) per la sincronizzazione password e l'autenticazione pass-through può essere usata solo con un tenant di Azure AD.
+* L'opzione Single Sign-On (SSO) per la sincronizzazione dell'hash delle password e l'autenticazione pass-through può essere usata solo con un tenant di Azure AD.
 
 Il requisito relativo a un set di oggetti che si escludono a vicenda si applica anche al writeback. Alcune funzionalità di writeback non sono supportate con questa topologia, perché presuppongono una singola configurazione locale. Queste funzionalità includono:
 

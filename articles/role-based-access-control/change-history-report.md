@@ -1,6 +1,6 @@
 ---
-title: Creazione di report sull'accesso - Controllo degli accessi in base al ruolo di Azure | Documentazione Microsoft
-description: Generare un report che elenca tutte le modifiche nell'accesso alle sottoscrizioni di Azure con il controllo degli accessi in base al ruolo negli ultimi 90 giorni.
+title: Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo in Azure | Microsoft Docs
+description: Visualizzare i log di attività per le modifiche del controllo degli accessi in base al ruolo per gli ultimi 90 giorni.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,55 +11,134 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2017
+ms.date: 04/23/2017
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: deef89e62dcec3141be46549cc0fb34b33a6335a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5e09ccdc4942a39e54b760cb5ad78c035dbc05f8
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312424"
 ---
-# <a name="create-an-access-report-for-role-based-access-control"></a>Creare un report degli accessi per il controllo degli accessi in base al ruolo
-Ogni volta che un utente concede o revoca l'accesso all'interno delle sottoscrizioni, le modifiche vengono registrate negli eventi di Azure. È possibile creare report della cronologia delle modifiche relative all'accesso per visualizzare tutte le modifiche degli ultimi 90 giorni.
+# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Visualizzare i log di attività per le modifiche del controllo degli accessi in base al ruolo
 
-## <a name="create-a-report-with-azure-powershell"></a>Creare un rapporto con Azure PowerShell
-Per creare un report della cronologia delle modifiche relative all'accesso in PowerShell, usare il comando [Get-AzureRMAuthorizationChangeLog](/powershell/module/azurerm.resources/get-azurermauthorizationchangelog).
+Ogni volta che un utente apporta modifiche alle definizioni di ruolo o alle assegnazioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate nella categoria amministrativa del [Log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 
-Quando si chiama questo comando, è possibile specificare la proprietà delle assegnazioni da elencare, ad esempio:
+## <a name="operations-that-are-logged"></a>Operazioni registrate
 
-| Proprietà | DESCRIZIONE |
-| --- | --- |
-| **Azione** |Indica se l'accesso è stato concesso o revocato. |
-| **Chiamante** |Proprietario responsabile della modifica all'accesso. |
-| **PrincipalId** | L'identificatore univoco dell'utente, del gruppo o dell'applicazione che è stato assegnato al ruolo |
-| **PrincipalName** |Nome dell'utente, del gruppo o dell'applicazione. |
-| **PrincipalType** |Indica se l'assegnazione era destinata a un utente, un gruppo o un'applicazione |
-| **RoleDefinitionId** |GUID del ruolo concesso o revocato. |
-| **RoleName** |Ruolo concesso o revocato. |
-| **Ambito** | L'identificatore univoco della sottoscrizione, del gruppo di risorse o della risorsa a cui si applica l'assegnazione | 
-| **ScopeName** |Nome della sottoscrizione, del gruppo di risorse o della risorsa. |
-| **ScopeType** |Indica se l'assegnazione era a livello di ambito della sottoscrizione, del gruppo di risorse e della risorsa. |
-| **Timestamp** |Data e ora in cui l'accesso è stato modificato. |
+Ecco le operazioni correlate al controllo degli accessi in base al ruolo che vengono registrate nel log attività:
 
-Questo comando di esempio elenca tutte le modifiche relative all'accesso nella sottoscrizione per gli ultimi 7 giorni.
+- Crea o aggiorna la definizione del ruolo personalizzata
+- Elimina la definizione del ruolo personalizzata
+- Crea assegnazione ruolo
+- Elimina assegnazione ruolo
+
+## <a name="azure-portal"></a>Portale di Azure
+
+Il modo più semplice per iniziare è visualizzare i log attività con il portale di Azure. Lo screenshot seguente mostra un esempio di log attività filtrato in modo da visualizzare la**categoria amministrativa** insieme alle operazioni di definizione e assegnazione di ruolo. Include inoltre un collegamento per scaricare i log in formato CSV.
+
+![Log attività tramite il portale - screenshot](./media/change-history-report/activity-log-portal.png)
+
+Per altre informazioni, vedere [Visualizzare eventi nel log attività](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+
+## <a name="azure-powershell"></a>Azure PowerShell
+
+Per visualizzare i log attività con Azure PowerShell, usare il comando [Get-AzureRmLog](/powershell/module/azurerm.insights/get-azurermlog).
+
+Questo comando elenca tutte le modifiche relative alle assegnazioni di ruolo in una sottoscrizione per gli ultimi 7 giorni:
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleAssignments/*'}
+```
+
+Questo comando elenca tutte le modifiche relative alle definizioni di ruolo in un gruppo di risorse per gli ultimi 7 giorni:
+
+```azurepowershell
+Get-AzureRmLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+```
+
+Questo comando elenca tutte le modifiche alle assegnazioni di ruolo e alle definizioni di ruolo in una sottoscrizione per gli ultimi 7 giorni e visualizza i risultati in un elenco:
+
+```azurepowershell
+Get-AzureRmLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/role*'} | Format-List Caller,EventTimestamp,{$_.Authorization.Action},Properties
+```
+
+```Example
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:07 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          statusCode     : Created
+                          serviceRequestId: 11111111-1111-1111-1111-111111111111
+
+Caller                  : alain@example.com
+EventTimestamp          : 4/20/2018 9:18:05 PM
+$_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
+Properties              :
+                          requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
 
 ```
-Get-AzureRMAuthorizationChangeLog -StartTime ([DateTime]::Now - [TimeSpan]::FromDays(7)) | FT Caller,Action,RoleName,PrincipalType,PrincipalName,ScopeType,ScopeName
+
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Per visualizzare i log attività usando l'interfaccia della riga di comando di Azure, usare il comando [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list).
+
+Questo comando elenca i log attività in un gruppo di risorse dall'ora di inizio:
+
+```azurecli
+az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
 ```
 
-![PowerShell Get-AzureRMAuthorizationChangeLog - Schermata](./media/change-history-report/access-change-history.png)
+Questo comando elenca i log attività per il provider di risorse di autorizzazione dall'ora di inizio:
 
-## <a name="create-a-report-with-azure-cli"></a>Creare un rapporto con l’interfaccia di riga di comando di Azure
-Per creare un report della cronologia delle modifiche relative all'accesso nell'interfaccia della riga di comando, usare il comando `azure role assignment changelog list` .
+```azurecli
+az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
+```
 
-## <a name="export-to-a-spreadsheet"></a>Esportare in un foglio di calcolo
-Per salvare il report o modificare i dati, esportare le modifiche relative all'accesso in un file CSV. Sarà quindi possibile visualizzare il report in un foglio di calcolo per la revisione.
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-![Log delle modifiche visualizzato come foglio di calcolo - Schermata](./media/change-history-report/change-history-spreadsheet.png)
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md) è un altro strumento che è possibile usare per raccogliere e analizzare le modifiche apportate al controllo degli accessi in base al ruolo per tutte le risorse di Azure. Log Analytics offre i vantaggi seguenti:
+
+- Possibilità di scrivere query e logica complesse
+- Integrazione con avvisi, Power BI e altri strumenti
+- Salvataggio dei dati per periodi di conservazione più estesi
+- Riferimenti incrociati con gli altri log, ad esempio relativi a sicurezza e macchine virtuali o personalizzati
+
+Ecco i passaggi di base per iniziare:
+
+1. [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+
+1. [Configurare la soluzione Analisi log attività](../log-analytics/log-analytics-activity.md#configuration) per la propria area di lavoro.
+
+1. [Visualizzare i log attività](../log-analytics/log-analytics-activity.md#using-the-solution). Per passare rapidamente alla pagina di panoramica di Analisi log attività fare clic sull'opzione **Log Analytics**.
+
+   ![Opzione Log Analytics nel portale](./media/change-history-report/azure-log-analytics-option.png)
+
+1. Facoltativamente è possibile usare la pagina [Ricerca log](../log-analytics/log-analytics-log-search.md) o il [portale Advanced Analytics](https://docs.loganalytics.io/docs/Learn) per eseguire query e visualizzare i log. Per altre informazioni su queste due opzioni, vedere la sezione [sulla pagina di ricerca log o sul portale Advanced Analytics](../log-analytics/log-analytics-log-search-portals.md).
+
+Ecco una query che restituisce le nuove assegnazioni di ruolo organizzate in base al provider di risorse di destinazione:
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments/write" and ActivityStatus == "Succeeded"
+| parse ResourceId with * "/providers/" TargetResourceAuthProvider "/" *
+| summarize count(), makeset(Caller) by TargetResourceAuthProvider
+```
+
+Ecco una query che restituisce le modifiche alle assegnazioni di ruolo visualizzate in un grafico:
+
+```
+AzureActivity
+| where TimeGenerated > ago(60d) and OperationName startswith "Microsoft.Authorization/roleAssignments"
+| summarize count() by bin(TimeGenerated, 1d), OperationName
+| render timechart
+```
+
+![Log attività tramite il portale Advanced Analytics - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Utilizzare i [ruoli personalizzati nel Controllo degli accessi in base al ruolo di Azure](custom-roles.md)
-* Informazioni sono disponibili in [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](role-assignments-powershell.md)
-
+* [Visualizzare eventi nel log attività](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [Monitorare l'attività di sottoscrizione con il log attività di Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

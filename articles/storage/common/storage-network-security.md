@@ -1,8 +1,8 @@
 ---
 title: Configurare i firewall e le reti virtuali di Archiviazione di Azure | Microsoft Docs
-description: "Configurare la sicurezza di rete su più livelli per l'account di archiviazione."
+description: Configurare la sicurezza di rete su più livelli per l'account di archiviazione.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: cbrooksmsft
 manager: cbrooks
 editor: cbrooks
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: fc13b7cc164c948f25a6908bdf71124a5be02fb9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192877"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -37,11 +38,9 @@ Dopo la loro applicazione, le regole di rete sono in vigore per tutte le richies
 
 Le regole di rete **non** influiscono sul traffico del disco della macchina virtuale (incluse le operazioni di mount e unmount e l'I/O del disco).  L'accesso REST ai BLOB di pagine è protetto dalle regole di rete.
 
-> [!NOTE]
-> Il backup e il ripristino di macchine virtuali tramite dischi non gestiti negli account di archiviazione con regole di rete applicate non sono attualmente supportati.  Per altre informazioni, vedere [Limitazioni durante il backup e il ripristino di una VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm).
->
-
 Gli account di archiviazione classici **non** supportano i firewall e le reti virtuali.
+
+Il backup e il ripristino di macchine virtuali con dischi non gestiti negli account di archiviazione con regole di rete applicate sono supportati tramite la creazione di un'eccezione, come documentato nella sezione [Eccezioni](/storage/common/storage-network-security#exceptions) di questo articolo.  Le eccezioni firewall non sono applicabili a dischi gestiti perché sono già gestiti da Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Modificare la regola predefinita di accesso alla rete
 Per impostazione predefinita, gli account di archiviazione accettano connessioni da client di qualsiasi rete.  Per poter limitare l'accesso alle sole reti selezionate è necessario modificare l'azione predefinita.
@@ -291,6 +290,7 @@ Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguen
 
 |Service|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
+|Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|

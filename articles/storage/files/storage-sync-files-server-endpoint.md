@@ -2,7 +2,7 @@
 title: Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure (anteprima) | Microsoft Docs
 description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: 26e4af814bad988da02d4e0cf36f17e1beec872e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187743"
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Aggiungere e rimuovere un endpoint server di Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -49,7 +50,7 @@ Inserire le informazioni seguenti in **Aggiungi endpoint server**:
 Selezionare **Crea** per aggiungere l'endpoint server. I file all'interno di uno spazio dei nomi di un gruppo di sincronizzazione ora rimangono sincronizzati. 
 
 ## <a name="remove-a-server-endpoint"></a>Rimuovere un endpoint server
-Se per un endpoint server è abilitata la suddivisione in livelli cloud, i file verranno *archiviati a livelli* nelle condivisioni file di Azure. Questo consente alle condivisioni di file locali di agire come una cache, anziché una copia completa del set di dati, in modo da ottimizzare l'uso dello spazio nel file server. In caso di rimozione di un endpoint server con file archiviati a livelli ancora presenti in locale nel server, tuttavia, tali file diventeranno inaccessibili. Di conseguenza, per garantire la continuità dell'accesso ai file, è necessario richiamare tutti i file archiviati a livelli da File di Azure prima di procedere con l'annullamento della registrazione. 
+Se per un endpoint server è abilitata la suddivisione in livelli cloud, i file verranno *archiviati a livelli* nelle condivisioni file di Azure. Questo consente alle condivisioni di file locali di agire come una cache, anziché una copia completa del set di dati, in modo da ottimizzare l'uso dello spazio nel file server. Tuttavia, **in caso di rimozione di un endpoint server con file archiviati a livelli ancora presenti in locale nel server, tali file diventeranno inaccessibili**. Di conseguenza, per garantire la continuità dell'accesso ai file nelle condivisioni locali, è necessario richiamare tutti i file archiviati a livelli da File di Azure prima di procedere con l'eliminazione dell'endpoint server. 
 
 Questa operazione può essere eseguita con il cmdlet di PowerShell come illustrato di seguito:
 

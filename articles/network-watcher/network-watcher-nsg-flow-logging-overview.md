@@ -1,11 +1,11 @@
 ---
 title: Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete con Network Watcher | Microsoft Docs
-description: "Questa pagina illustra come usare i log dei flussi dei gruppi di sicurezza di rete, una funzionalità di Azure Network Watcher"
+description: Questo articolo illustra come usare la funzionalità dei log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
 ms.service: network-watcher
 ms.devlang: na
@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4eaffba08ccf601e440709d804891668340a376d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182426"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
-I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
+I log dei flussi del gruppo di sicurezza di rete (NSG) sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita per ogni regola, l'interfaccia di rete (NIC) a cui si applica il flusso, informazioni a 5 tuple relative al flusso (indirizzo IP di origine/destinazione, porta di origine/destinazione e protocollo) e se il traffico è consentito o meno.
 
-![Panoramica dei log dei flussi][1]
+![Panoramica dei log di flusso](./media/network-watcher-nsg-flow-logging-overview/figure1.png)
 
 Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di rete, non vengono visualizzati come gli altri log. I log dei flussi vengono archiviati solo in un account di archiviazione e hanno un percorso di registrazione come quello dell'esempio seguente:
 
@@ -32,15 +33,15 @@ Anche se i log dei flussi specificano come destinazione gruppi di sicurezza di r
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Il criterio di conservazione dei log può essere impostato su un valore compreso tra 1 giorno e 365 giorni. Se non viene impostato alcun criterio di conservazione, i log vengono conservati per sempre.
+Ai log dei flussi si applicano gli stessi criteri di conservazione degli altri log. Per i criteri di conservazione dei log è possibile impostare da 1 a 365 giorni. Se non viene impostato alcun criterio di conservazione, i log vengono conservati per sempre.
 
 ## <a name="log-file"></a>File di log
 
-I log dei flussi hanno più proprietà. L'elenco seguente indica le proprietà restituite nel log del flusso del gruppo di sicurezza di rete:
+I log dei flussi includono le proprietà seguenti:
 
 * **time**: ora in cui l'evento è stato registrato.
 * **systemId**: ID risorsa del gruppo di sicurezza di rete.
-* **category**: categoria dell'evento, che è sempre NetworkSecurityGroupFlowEvent.
+* **category**: categoria dell'evento. La categoria è sempre **NetworkSecurityGroupFlowEvent**
 * **resourceid**: ID risorsa del gruppo di sicurezza di rete.
 * **operationName**: sempre NetworkSecurityGroupFlowEvents.
 * **properties**: raccolta di proprietà del flusso.
@@ -59,15 +60,14 @@ I log dei flussi hanno più proprietà. L'elenco seguente indica le proprietà r
                     * **Traffic Flow**: direzione del flusso del traffico. I valori validi sono **I** per traffico in ingresso e **O** per il traffico in uscita.
                     * **Traffic**: indica se il traffico è stato consentito o negato. I valori validi sono **A** per il traffico consentito e **D** per il traffico negato.
 
-
-Di seguito è riportato un esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente. 
+Di seguito è riportato un testo di esempio di log dei flussi. Come si può osservare, più record seguono l'elenco di proprietà descritto nella sezione precedente.
 
 > [!NOTE]
-> I valori della proprietà flowTuples sono un elenco delimitato da virgole.
+> I valori della proprietà **flowTuples* sono un elenco delimitato da virgole.
  
 ```json
 {
-    "records": 
+    "records":
     [
         
         {
@@ -102,12 +102,6 @@ Di seguito è riportato un esempio di log dei flussi. Come si può osservare, pi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come abilitare i log dei flussi, vedere [Enabling Flow logging](network-watcher-nsg-flow-logging-portal.md) (Abilitazione della registrazione dei flussi).
-
-Per informazioni sulla registrazione dei Gruppi di sicurezza di rete, vedere [Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md).
-
-Per sapere se il traffico è consentito o negato in una VM, vedere [Verify traffic with IP flow verify](network-watcher-check-ip-flow-verify-portal.md) (Controllare il traffico con la verifica del flusso IP)
-
-<!-- Image references -->
-[1]: ./media/network-watcher-nsg-flow-logging-overview/figure1.png
-
+- Per informazioni su come abilitare i log dei flussi, vedere l'argomento relativo all'[abilitazione della registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-portal.md).
+- Per altre informazioni sulla registrazione dei gruppi di sicurezza di rete, vedere [Analisi dei log per i gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Per determinare se il traffico è consentito o negato da o verso una macchina virtuale, vedere l'argomento relativo a [come diagnosticare un problema di filtro del traffico di rete di una macchina virtuale](diagnose-vm-network-traffic-filtering-problem.md)

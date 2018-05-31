@@ -12,11 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: 22774511720173915207da80a6ca33d5dbc83e19
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311132"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limiti di quota di Azure Data Lake Analytics
 
@@ -24,9 +25,13 @@ Informazioni su come modificare e aumentare i limiti di quota nell'account di Az
 
 ## <a name="azure-subscriptions-limits"></a>Limiti delle sottoscrizioni Azure
 
-**Numero massimo di account di ADLA per sottoscrizione:**  5
+**Numero massimo di account di ADLA per sottoscrizione per area:** 5
 
-Questo è il numero massimo di account di Azure Data Lake Analytics che è possibile creare per ogni sottoscrizione, per ogni area. Se si tenta di creare un sesto account di ADLA, si ottiene un messaggio di errore che indica che è stato raggiunto il numero massimo di account di Data Lake Analytics consentiti (5) nell'area sotto il nome della sottoscrizione. In questa situazione è possibile scegliere un'altra area, se appropriato, eliminare gli account ADLA inutilizzati nella stessa area o contattare il supporto di Azure [aprendo un ticket di supporto](#increase-maximum-quota-limits) per richiedere un aumento della quota.
+Se si tenta di creare un sesto account di ADLA, si ottiene un messaggio di errore che indica che è stato raggiunto il numero massimo di account di Data Lake Analytics consentiti (5) nell'area sotto il nome della sottoscrizione. 
+
+Per superare questo limite, è possibile provare queste opzioni:
+* Scegliere un'altra area, se appropriato
+* Contattare il supporto di Azure [aprendo un ticket di supporto](#increase-maximum-quota-limits) per richiedere un aumento della quota.
 
 ## <a name="adla-account-limits"></a>Limiti degli account di ADLA
 
