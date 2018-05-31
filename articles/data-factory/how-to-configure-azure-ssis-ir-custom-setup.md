@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b377b5ca9d46d66fe99a8f60383076920b098a7d
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885439"
+ms.lasthandoff: 05/07/2018
+ms.locfileid: "33769716"
 ---
 # <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Installazione personalizzata per il runtime di integrazione Azure-SSIS
 
@@ -33,10 +33,6 @@ L'installazione personalizzata si configura preparando uno script e i relativi f
 -   Se si desidera usare `gacutil.exe` per installare assembly nella Global Assembly Cache (GAC), è necessario specificarlo durante il programma di installazione personalizzato oppure usare la copia fornita nel contenitore di anteprima pubblica.
 
 -   Se è necessario aggiungere il runtime di integrazione Azure-SSIS con installazione personalizzata a una rete virtuale, tenere presente che sono supportate solo le reti virtuali di Azure Resource Manager. Le reti virtuali classiche non sono supportate.
-
--   La condivisione amministrativa non è attualmente supportata in runtime di integrazione Azure-SSIS.
-
--   Se si desidera eseguire il mapping di una condivisione file in un'unità nella configurazione personalizzata, il comando `net use` non è attualmente supportato. Di conseguenza, è possibile usare un comando simile a `net use d: \\fileshareserver\sharename`. In alternativa, usare il comando `cmdkey`, ad esempio `cmdkey /add:fileshareserver /user:yyy /pass:zzz`, per accedere a `\\fileshareserver\folder` direttamente nei pacchetti.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -140,15 +136,15 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
        4. Una cartella `MSDTC`, che contiene un'installazione personalizzata per modificare le configurazioni di rete e di sicurezza per l'istanza Microsoft Distributed Transaction Coordinator (MSDTC) in ogni nodo del runtime di integrazione Azure-SSIS.
 
-       5. Una cartella `ORACLE ENTERPRISE`, che contiene uno script di installazione personalizzata (`main.cmd`) e un file di configurazione per l'installazione invisibile all'utente (`client.rsp`) del driver OCI di Oracle in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Oracle. Prima di tutto scaricare il client Oracle più recente, ad esempio `winx64_12102_client.zip` da [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e quindi caricarlo insieme a `main.cmd` e `client.rsp` nel contenitore. Se si usa TNS per la connessione a Oracle, è necessario anche scaricare `tnsnames.ora`, modificarlo e caricarlo nel contenitore, in modo che possa essere copiato nella cartella di installazione di Oracle durante l'installazione.
+       5. Una cartella `ORACLE ENTERPRISE`, che contiene un'installazione personalizzata (`main.cmd`) e un file di configurazione per l'installazione invisibile all'utente (`client.rsp`) del driver OCI di Oracle in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition (anteprima privata). Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Oracle. Prima di tutto è necessario scaricare `winx64_12102_client.zip` da [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html) e quindi caricarlo insieme a `main.cmd` e `client.rsp` nel contenitore. Se si usa TNS per la connessione a Oracle, è necessario anche scaricare `tnsnames.ora`, modificarlo e caricarlo nel contenitore, in modo che possa essere copiato nella cartella di installazione di Oracle durante l'installazione.
 
-       6. Una cartella`ORACLE STANDARD`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare il driver ODP.NET di Oracle in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione ADO.NET. Prima di tutto scaricare il driver ODP.NET Oracle più recente, ad esempio `ODP.NET_Managed_ODAC122cR1.zip` da [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html) e quindi caricarlo insieme a `main.cmd` nel contenitore.
+       6. Una cartella`ORACLE STANDARD`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare il driver ODP.NET di Oracle in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione ADO.NET. Prima di tutto, scaricare `ODP.NET_Managed_ODAC122cR1.zip` da [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)e quindi caricarlo insieme a `main.cmd` nel contenitore.
 
-       7. Una cartella `SAP BW`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare l'assembly SAP .NET Connector (`librfc32.dll`) in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione SAP BW. Prima di tutto, caricare nel contenitore la versione a 32 o 64 bit di `librfc32.dll` dalla cartella di installazione di SAP, insieme a `main.cmd`. Lo script copia quindi l'assembly SAP nella cartella `%windir%\SysWow64` o `%windir%\System32` durante l'installazione.
+       7. Una cartella `SAP BW`, che contiene uno script di installazione personalizzato (`main.cmd`) per installare l'assembly SAP .NET Connector (`librfc32.dll`) in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition (anteprima privata). Questa installazione consente di usare la gestione connessione, l'origine e la destinazione SAP BW. Prima di tutto, caricare nel contenitore la versione a 32 o 64 bit di `librfc32.dll` dalla cartella di installazione di SAP, insieme a `main.cmd`. Lo script copia quindi l'assembly SAP nella cartella `%windir%\SysWow64` o `%windir%\System32` durante l'installazione.
 
        8. Una cartella `STORAGE`, che contiene un'installazione personalizzata per installare Azure PowerShell in ogni nodo del runtime di integrazione Azure-SSIS. Questa installazione consente di distribuire ed eseguire pacchetti SSIS che eseguono [script di PowerShell per la gestione dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copiare `main.cmd`, un `AzurePowerShell.msi` di esempio (o installare l'ultima versione) e `storage.ps1` nel contenitore. Usare PowerShell.dtsx come modello per i pacchetti. Il modello di pacchetto combina un'[attività di download di BLOB di Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), che scarica `storage.ps1` come script di PowerShell modificabile, e un'[attività Esegui processo](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/), che esegue lo script in ogni nodo.
 
-       9. Una cartella `TERADATA`, che contiene uno script di installazione personalizzato (`main.cmd)` e il file associato `install.cmd`) e pacchetti di installazione (`.msi`). Questi file installano i connettori Teradata, l'API TPT e il driver ODBC in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition. Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Teradata. Prima di tutto, scaricare il file ZIP Teradata Tools and Utilities (TTU) 15.x (ad esempio `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com) e quindi caricarlo insieme ai file `.cmd` e `.msi` precedenti nel contenitore.
+       9. Una cartella `TERADATA`, che contiene uno script di installazione personalizzato (`main.cmd)` e il file associato `install.cmd`) e pacchetti di installazione (`.msi`). Questi file installano i connettori Teradata, l'API TPT e il driver ODBC in ogni nodo del runtime di integrazione Azure-SSIS Enterprise Edition (anteprima privata). Questa installazione consente di usare la gestione connessione, l'origine e la destinazione Teradata. Prima di tutto, scaricare il file ZIP Teradata Tools and Utilities (TTU) 15.x (ad esempio `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) da [Teradata](http://partnerintelligence.teradata.com) e quindi caricarlo insieme ai file `.cmd` e `.msi` precedenti nel contenitore.
 
     ![Cartelle nella cartella degli scenari utente](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 

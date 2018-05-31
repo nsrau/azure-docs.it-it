@@ -3,20 +3,20 @@ title: Risolvere i problemi relativi a riavvii imprevisti di VM con dischi rigid
 description: Risoluzione dei problemi relativi a riavvii imprevisti di VM di Linux.
 keywords: connessione SSH rifiutata, errore SSH, SSH Azure, connessione SSH non riuscita
 services: virtual-machines-linux
-author: genlin
-manager: cshepard
+author: tamram
+manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: genli
-ms.openlocfilehash: 29aecf748ddda280e6f42be0bb3c986d90a3d7f9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: tamram
+ms.openlocfilehash: 8ccb6b61c8de1599cd3db011d6401c781cefc31a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364421"
+ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779680"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Risolvere i problemi relativi a riavvii imprevisti di VM con dischi rigidi virtuali collegati
 
