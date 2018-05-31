@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34361890"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record dell'accesso ai singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -29,7 +30,7 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 
 - Il log deve avere una sola voce per ogni riga o usare un timestamp che corrisponde a uno dei formati seguenti all'inizio di ogni voce.
 
-    AAAA-MM-GG HH:MM:SS <br>M/G/AAAA HH:MM:SS AM/PM <br>Lun GG,AAAA HH:MM:SS
+    AAAA-MM-GG HH:MM:SS <br>M/G/AAAA HH:MM:SS AM/PM<br>Lun GG,AAAA HH:MM:SS<br />aaMMgg hh: mm:ss<br />ggMMaa HH:mm:ss<br />MMM g hh:mm:ss<br />gg/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-ggTHH:mm:ssK
 
 - Il file di log non deve consentire registrazioni circolari o rotazioni dei log in cui il file viene sovrascritto con le nuove voci.
 - Il file di log deve usare la codifica ASCII o UTF-8.  Non sono supportati altri formati, ad esempio UTF-16.
@@ -70,7 +71,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Descrizione | path |
+| DESCRIZIONE | path |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -118,7 +119,7 @@ L'intero contenuto della voce di log viene scritto in una singola proprietà den
 ## <a name="custom-log-record-properties"></a>Proprietà dei record del log personalizzato
 Il tipo dei record del log personalizzato corrisponde al nome del log specificato e le proprietà sono indicate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
 | TimeGenerated |Data e ora di raccolta del record con Log Analytics.  Se il log usa un delimitatore basato sul tempo, questa proprietà indica la data e l'ora raccolte dalla voce. |
 | SourceSystem |Tipo di agente da cui è stato raccolto il record. <br> OpsManager: agente Windows, con connessione diretta o System Center Operations Manager <br> Linux – Tutti gli agenti Linux |
@@ -130,7 +131,7 @@ I record dei log personalizzati vengono archiviati nell'area di lavoro di Log An
 
 La tabella seguente mostra alcuni esempi di ricerche nei log che recuperano i record dai log personalizzati.
 
-| Query | Descrizione |
+| Query | DESCRIZIONE |
 |:--- |:--- |
 | MyApp_CL |Tutti gli eventi da un log personalizzato denominato MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Tutti gli eventi di un log personalizzato denominato MyApp_CL con un valore di *error* in un campo personalizzato denominato *Severity_CF*. |
