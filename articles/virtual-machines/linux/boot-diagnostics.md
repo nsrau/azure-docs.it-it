@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: delhan
-ms.openlocfilehash: 0183da348a515787d9382df6db3df8524d584d93
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 38cc806cb77af60cda10f3aeac2e5ed13b445b8c
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33941854"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-linux-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi relativi alle macchine virtuali Linux in Azure
 
@@ -44,13 +45,18 @@ Entrambe le funzionalità sono supportate per Macchine virtuali di Azure in tutt
 - [Errori relativi alla tabella del file system](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors)
 
 ## <a name="enable-diagnostics-on-a-new-virtual-machine"></a>Abilitare la diagnostica in una nuova macchina virtuale
-1. Quando si crea una nuova macchina virtuale dal portale di anteprima, selezionare **Azure Resource Manager** dall'elenco a discesa del modello di distribuzione:
+1. Quando si crea una nuova macchina virtuale dal portale di Azure, selezionare **Azure Resource Manager** dall'elenco a discesa del modello di distribuzione:
  
     ![Gestione risorse](./media/boot-diagnostics/screenshot3.jpg)
 
-2. Configurare l'opzione Monitoraggio per selezionare l'account di archiviazione in cui si vogliono inserire questi file di diagnostica.
+2. In **Impostazioni**, abilitare la **diagnostica di avvio**, quindi selezionare un account di archiviazione in cui si desidera posizionare i file di diagnostica.
  
-    ![Creare una macchina virtuale](./media/boot-diagnostics/screenshot4.jpg)
+    ![Creare una macchina virtuale](./media/boot-diagnostics/create-storage-account.png)
+
+    > [!NOTE]
+    > La funzionalità di diagnostica di avvio non supporta gli account di archiviazione premium. Se si usa l'account di archiviazione premium per la diagnostica di avvio, può verificarsi l'errore StorageAccountTypeNotSupported quando si avvia la macchina virtuale. 
+    >
+    > 
 
 3. Se si esegue la distribuzione da un modello di Azure Resource Manager, passare alla risorsa macchina virtuale e aggiungere la sezione del profilo di diagnostica. Si ricordi di usare l'intestazione di versione API "2015-06-15".
 
@@ -74,11 +80,19 @@ Entrambe le funzionalità sono supportate per Macchine virtuali di Azure in tutt
         }
     ```
 
-## <a name="update-an-existing-virtual-machine"></a>Aggiornare una macchina virtuale esistente
+Per distribuire una macchina virtuale di esempio con la diagnostica di avvio abilitata, vedere il repository qui.
 
-Per abilitare la diagnostica dal portale, è anche possibile aggiornare una macchina virtuale esistente dal portale. Selezionare l'opzione Diagnostica di avvio e fare clic su Salva. Riavviare la VM per rendere effettivo l'aggiornamento.
+## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Abilitare la diagnostica di avvio nella macchina virtuale esistente 
 
-![Aggiornare una VM esistente](./media/boot-diagnostics/screenshot5.png)
+Per abilitare la diagnostica di avvio in una macchina virtuale esistente, seguire la procedura seguente:
+
+1. Accedere al [portale di Azure](https://portal.azure.com), quindi selezionare la macchina virtuale.
+2. In **Supporto + risoluzione dei problemi**, selezionare **Diagnostica di avvio** > **Impostazioni**, impostare lo stato su **Acceso** e quindi selezionare un account di archiviazione. 
+4. Assicurarsi che sia selezionata l'opzione di diagnostica di avvio e quindi salvare la modifica.
+
+    ![Aggiornare una VM esistente](./media/boot-diagnostics/enable-for-existing-vm.png)
+
+3. Riavviare la VM per rendere effettivo l'aggiornamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
