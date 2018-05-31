@@ -12,34 +12,80 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: e8e40b763f0c6f1f994535ab2ff335cfcbf02cf7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011391"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
-Questa attività può essere usata per recuperare i metadati di tutti i dati in Azure Data Factory. Questa attività è supportata solo per data factory con la versione 2. Può essere usata negli scenari seguenti:
+Questa attività può essere usata per recuperare i **metadati** di tutti i dati in Azure Data Factory. Questa attività è supportata solo per data factory con la versione 2. Può essere usata negli scenari seguenti:
 
 - Convalidare le informazioni sui metadati di tutti i dati
 - Attivare una pipeline quando i dati sono pronti o disponibili
 
 La funzionalità seguente è disponibile nel flusso di controllo:
+
 - L'output dall'attività GetMetadata può essere usato nelle espressioni condizionali per eseguire la convalida.
 - Una pipeline può essere attivata quando viene soddisfatta una condizione specificata nel ciclo Do-Until
-
-L'attività GetMetadata accetta un set di dati come input obbligatorio e restituisce informazioni sui metadati disponibili come output. Attualmente sono supportati solo i set di dati BLOB di Azure. I campi di metadati supportati sono size, structure e lastModified time.  
 
 > [!NOTE]
 > Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
+## <a name="supported-capabilities"></a>Funzionalità supportate
+
+L'attività GetMetadata accetta un set di dati come input obbligatorio e restituisce informazioni sui metadati disponibili come output dell'attività. Attualmente sono supportati i connettori seguenti, con i corrispondenti metadati recuperabili:
+
+>[!NOTE]
+>Se si esegue l'attività GetMetadata in un runtime di integrazione self-hosted, la funzionalità più recente è supportata a partire dalla versione 3.6. 
+
+### <a name="supported-connectors"></a>Connettori supportati
+
+**Archiviazione file:**
+
+| Connettore/Metadati | itemName<br>(file/cartella) | itemType<br>(file/cartella) | size<br>(file) | created<br>(file/cartella) | LastModified<br>(file/cartella) |childItems<br>(cartella) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/cartella) |
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| BLOB Azure | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Archivio Azure Data Lake | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| Archiviazione file di Azure | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| File system | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+
+**Database relazionale:**
+
+| Connettore/Metadati | structure | columnCount | exists |
+|:--- |:--- |:--- |:--- |
+| database SQL di Azure | √ | √ | √ |
+| Azure SQL Data Warehouse | √ | √ | √ |
+| SQL Server | √ | √ | √ |
+
+### <a name="metadata-options"></a>Opzioni dei metadati
+
+Nell'elenco dei campi attività GetMetadata da recuperare è possono specificare i tipi di metadati seguenti:
+
+| Tipo di metadati | DESCRIZIONE |
+|:--- |:--- |
+| itemName | Nome del file o della cartella. |
+| itemType | Tipo di file o di cartella. Il valore di output è `File` o `Folder`. |
+| size | Dimensioni del file in byte. Applicabile soltanto al file. |
+| created | Data/ora di creazione del file o della cartella. |
+| LastModified | Data/ora dell'ultima modifica del file o della cartella. |
+| childItems | Elenco di sottocartelle e file all'interno della cartella specificata. Applicabile solo alla cartella. Il valore di output è un elenco di nomi e tipo di ogni elemento figlio. |
+| contentMD5 | MD5 del file. Applicabile soltanto al file. |
+| structure | Struttura di dati all'interno del file o della tabella di database relazionale. Il valore di output è un elenco di nomi di colonna e di tipi di colonna. |
+| columnCount | Numero di colonne all'interno del file o della tabella relazionale. |
+| exists| Indica se una file/cartella/tabella esiste o meno. Notare che se exists viene specificato nell'elenco dei campi GetMetadata, l'attività non ha esito negativo anche se l'elemento (file/cartella/tabella) non esiste. Nell'output viene invece restituito il valore `exists: false`. |
+
+>[!TIP]
+>Per convalidare se un file/cartella/tabella esiste o meno, specificare `exists` nell'elenco dei campi attività GetMetadata; a questo punto è possibile controllare il risultato `exists: true/false` dell'output dell'attività. Se `exists` non è configurato nell'elenco dei campi, l'attività GetMetadata avrà esito negativo se l'oggetto non viene trovato.
 
 ## <a name="syntax"></a>Sintassi
 
-### <a name="get-metadata-activity-definition"></a>Definizione dell'attività Get Metadata:
-Nell'esempio seguente, l'attività GetMetadata restituisce i metadati relativi ai dati rappresentati da MyDataset. 
+**Attività GetMetadata:**
 
 ```json
 {
@@ -54,7 +100,8 @@ Nell'esempio seguente, l'attività GetMetadata restituisce i metadati relativi a
     }
 }
 ```
-### <a name="dataset-definition"></a>Definizione del set di dati:
+
+**Set di dati:**
 
 ```json
 {
@@ -67,37 +114,74 @@ Nell'esempio seguente, l'attività GetMetadata restituisce i metadati relativi a
         },
         "typeProperties": {
             "folderPath":"container/folder",
-            "Filename": "file.json",
+            "filename": "file.json",
             "format":{
                 "type":"JsonFormat"
-                "nestedSeperator": ","
             }
         }
     }
 }
 ```
 
-### <a name="output"></a>Output
+## <a name="type-properties"></a>Proprietà del tipo
+
+Attualmente l'attività GetMetadata può recuperare i tipi di informazioni dei metadati seguenti.
+
+Proprietà | DESCRIZIONE | Obbligatoria
+-------- | ----------- | --------
+fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Sì 
+dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Sì
+
+## <a name="sample-output"></a>Output di esempio
+
+Il risultato di GetMetadata è mostrato nell'output dell'attività. Di seguito due esempi con opzioni di metadati complete selezionate nell'elenco dei campi come riferimento. Per usare il risultato in un'attività successiva, usare il criterio di `@{activity('MyGetMetadataActivity').output.itemName}`.
+
+### <a name="get-a-files-metadata"></a>Ottenere i metadati di un file
+
 ```json
 {
-    "size": 1024,
-    "structure": [
-        {
-            "name": "id",
-            "type": "Int64"
-        }, 
-    ],
-    "lastModified": "2016-07-12T00:00:00Z"
+  "exists": true,
+  "itemName": "test.csv",
+  "itemType": "File",
+  "size": 104857600,
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "contentMD5": "cMauY+Kz5zDm3eWa9VpoyQ==",
+  "structure": [
+    {
+        "name": "id",
+        "type": "Int64"
+    },
+    {
+        "name": "name",
+        "type": "String"
+    }
+  ],
+  "columnCount": 2
 }
 ```
 
-## <a name="type-properties"></a>Proprietà del tipo
-Attualmente l'attività GetMetadata può recuperare i tipi di informazioni seguenti dei metadati da un set di dati di archiviazione di Azure.
+### <a name="get-a-folders-metadata"></a>Ottenere i metadati di una cartella
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
--------- | ----------- | -------------- | --------
-fieldList | Elenca i tipi di informazioni dei metadati necessarie.  | <ul><li>size</li><li>structure</li><li>LastModified</li></ul> |    No <br/>Se è vuota, l'attività restituisce tutte e 3 le informazioni dei metadati supportate. 
-dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. <br/><br/>Il tipo di set di dati attualmente supportato è BLOB di Azure. Il set di dati include le due proprietà secondarie seguenti: <ul><li><b>referenceName</b>: riferimento a un set di dati BLOB di Azure esistente</li><li><b>type</b>: poiché si fa riferimento al set di dati, è di tipo "DatasetReference"</li></ul> |    <ul><li>string</li><li>DatasetReference</li></ul> | Sì
+```json
+{
+  "exists": true,
+  "itemName": "testFolder",
+  "itemType": "Folder",
+  "lastModified": "2017-02-23T06:17:09Z",
+  "created": "2017-02-23T06:17:09Z",
+  "childItems": [
+    {
+      "name": "test.avro",
+      "type": "File"
+    },
+    {
+      "name": "folder hello",
+      "type": "Folder"
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere altre attività del flusso di controllo supportate da Data Factory: 

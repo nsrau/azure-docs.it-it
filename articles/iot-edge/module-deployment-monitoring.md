@@ -1,19 +1,20 @@
 ---
 title: Distribuire i moduli per Azure IoT Edge | Microsoft Docs
-description: "Informazioni sulle modalità di distribuzione dei moduli nei dispositivi perimetrali"
+description: Informazioni sulle modalità di distribuzione dei moduli nei dispositivi perimetrali
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34166336"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala - Anteprima
 
@@ -48,8 +49,8 @@ Una distribuzione assegna immagini di moduli IoT Edge per l'esecuzione come ista
 Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
 
 I metadati di configurazione per ogni modulo includono: 
-* Versione 
-* Tipo 
+* Version 
+* type 
 * Stato (ad esempio, in esecuzione o arrestato) 
 * Criteri di riavvio 
 * Repository di immagini e contenitori 
@@ -59,7 +60,7 @@ I metadati di configurazione per ogni modulo includono:
 
 La condizione di destinazione viene costantemente valutata in modo da includere eventuali nuovi dispositivi conformi ai requisiti o rimuovere dispositivi non più conformi nel corso della durata della distribuzione. Se il servizio rileva qualsiasi variazione della condizione di destinazione, la distribuzione viene riattivata. Ad esempio, si dispone di una distribuzione A con una condizione di destinazione tags.environment = 'prod'. Quando viene avviata la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli vengono installati correttamente in questi 10 dispositivi. Lo stato dell'agente IoT Edge riporta 10 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 0 risposte in sospeso. Si aggiungano ora altri 5 dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente IoT Edge riporta 15 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 5 risposte in sospeso quando tenta di distribuire i cinque nuovi dispositivi.
 
-Usare qualsiasi condizione booleana sui tag dei dispositivi gemelli o deviceId per selezionare i dispositivi di destinazione. Se si desidera usare una condizione con tag, è necessario aggiungere la sezione "tags":{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+Usare qualsiasi condizione booleana sui tag dei dispositivi gemelli o deviceId per selezionare i dispositivi di destinazione. Se si intende usare una condizione con tag, è necessario aggiungere la sezione "tags"{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Esempi di condizione di destinazione:
 * deviceId ='linuxprod1'

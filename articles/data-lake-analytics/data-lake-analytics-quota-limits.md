@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: big-data
 ms.date: 03/15/2018
 ms.author: omidm
-ms.openlocfilehash: c6c39fb0810a7ea8b6facec1ca80da25d2253329
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 4334a438f09d7c18912262e9c70bfffbcdeb1d9e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311132"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199025"
 ---
 # <a name="azure-data-lake-analytics-quota-limits"></a>Limiti di quota di Azure Data Lake Analytics
 
@@ -33,29 +33,33 @@ Per superare questo limite, è possibile provare queste opzioni:
 * Scegliere un'altra area, se appropriato
 * Contattare il supporto di Azure [aprendo un ticket di supporto](#increase-maximum-quota-limits) per richiedere un aumento della quota.
 
-## <a name="adla-account-limits"></a>Limiti degli account di ADLA
+## <a name="default-adla-account-limits"></a>Limiti predefiniti degli account di ADLA
 
-**Numero massimo di unità di analisi per account:** 250
+**Numero massimo di unità di analisi per account:** 32
 
 Questo è il numero massimo di unità di analisi che si possono eseguire contemporaneamente nell'account. Se il numero totale di unità di analisi dei processi in esecuzione supera questo limite, i processi più recenti vengono accodati automaticamente. Ad esempio: 
 
-* Se si ha un solo processo in esecuzione con 250 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
-* Se si dispone di cinque processi in esecuzione e ognuno usa 50 Australia, quando si invia un processo sesto necessarie 20 AUs è in attesa nella coda dei processi fino a quando non sono presenti 20 AUs disponibili.
+* Se si ha un solo processo in esecuzione con 32 unità di analisi, quando si invia un secondo processo, esso rimarrà in attesa nella coda finché il primo non viene completato.
+* Se si dispone di quattro processi in esecuzione e ognuno usa 8 unità di analisi, quando si invia un quinto processo che richiede 8 unità di analisi questo attende nella coda dei processi fino a quando non sono presenti 8 unità di analisi disponibili.
+
+**Numero massimo di unità di analisi per processo:** 32
+
+Questo è il numero massimo predefinito di unità di analisi che è possibile assegnare a ogni singolo processo nell'account. I processi assegnati oltre questo limite verranno rifiutati, a meno che l'utente che invia il processo non disponga di un criterio di calcolo impostato (limite di invio processi) che fornisce altre unità di analisi per ciascun processo. Il limite superiore di questo valore è il limite di unità di analisi per l'account.
 
 **Numero massimo di processi simultanei di U-SQL per ogni account:** 20
 
 Questo è il numero massimo di processi che si possono eseguire contemporaneamente nell'account. Al di sopra di questo valore, i processi più recenti vengono accodati automaticamente.
 
-## <a name="adjust-adla-quota-limits-per-account"></a>Modificare i limiti di quota di Azure Data Lake Analytics per ogni account
+## <a name="adjust-adla-account-limits"></a>Regolare i limiti degli account di ADLA
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere un account ADLA esistente.
 3. Fare clic su **Proprietà**.
-4. Adeguare **Parallelismo** e **Processi simultanei** alle proprie esigenze.
-
-    ![Pagina del portale di Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/data-lake-analytics-quota-properties.png)
+4. Modificare i valori per **Numero massimo di AU**, **Maximum number of running jobs** (Numero massimo di processi in esecuzione) e **Limiti di invio del processo** in base alle esigenze.
 
 ## <a name="increase-maximum-quota-limits"></a>Aumentare i limiti massimi di quota
+
+È possibile trovare altre informazioni sui limiti di Azure nella [documentazione sui limiti specifici del servizio di Azure](../azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Aprire una richiesta di supporto nel portale di Azure.
 
