@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192956"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzione Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory)
 Azure Active Directory Terms of Use (Condizioni per l'utilizzo di Azure Active Directory) offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali.  In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità.
@@ -56,7 +57,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 4. Immettere il **Nome visualizzato**.  Questa intestazione è ciò che vedono gli utenti quando effettuano l'accesso.
 5. Fare clic su **Sfoglia** per trovare il pdf delle condizioni per l'utilizzo completate e selezionarlo.  La dimensione consigliata per i caratteri è 24.
 6. **Selezionare** una lingua per le condizioni d'uso.  L'opzione relativa alla lingua consente di caricare più versioni delle condizioni d'uso, ognuna in una lingua diversa.  La versione visualizzata all'utente finale dipenderà dalle preferenze del browser.
-7. Attivare o disattivare l'opzione **Richiedi agli utenti di espandere le Condizioni d'uso**.  Se questa opzione è attivata, agli utenti finali verrà richiesto di visualizzare le condizioni d'uso prima dell'accettazione.
+7. Attivare o disattivare l'opzione **Richiedi agli utenti di espandere le Condizioni d'uso**.  Se questa opzione è attivata, agli utenti finali verrà richiesto di visualizzare le condizioni per l'utilizzo prima dell'accettazione.
 8. In **Accesso condizionale** è possibile **applicare** le condizioni per l'utilizzo caricate selezionando un modello dall'elenco a discesa o criteri di accesso condizionale personalizzati.  I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici.  Per altre informazioni, vedere [configurazione dei criteri di accesso condizionale](active-directory-conditional-access-best-practices.md)
 9. Fare clic su **Crea**.
 10. Se è stato selezionato un modello personalizzato di accesso condizionale, viene visualizzata una nuova schermata che consente di personalizzare il criterio dell'autorità di certificazione.
@@ -120,6 +121,13 @@ Gli utenti possono visualizzare e verificare le condizioni d'uso accettate.  Per
 
 4.  Sarà quindi possibile verificare le condizioni per l'utilizzo accettate. 
 
+## <a name="removing-users-from-an-active-terms-of-use"></a>Rimozione di utenti dalle condizioni per l'utilizzo attive
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Per impostazione predefinita, un utente eliminato rimarrà comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario.  Dopo 30 giorni l'utente verrà eliminato definitivamente.  Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](active-directory-users-restore.md) prima della scadenza di tale periodo.  Dopo l'eliminazione definitiva di un utente, i dati riguardanti tale utente verranno rimossi dalle condizioni per l'utilizzo attive.  Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
+
+
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 Di seguito vengono riportate informazioni che possono risultare utili per l'uso delle condizioni per l'utilizzo.
@@ -138,7 +146,7 @@ Di seguito vengono riportate informazioni che possono risultare utili per l'uso 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **D: come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**</br>
-R: è possibile fare semplicemente clic sul numero sotto accepted (accettato) accanto alle condizioni per l'utilizzo.  Per altre informazioni, vedere [Visualizzare lo stato corrente degli utenti](#viewing-current-user-status).  Gli utenti che accettano le condizioni per l'utilizzo vengono inoltre riportati nel log di controllo. È quindi possibile ottenere le informazioni desiderate cercando nel log di controllo di Azure AD.  
+R: è possibile fare clic sul numero sotto accepted (accettato) accanto alle condizioni per l'utilizzo.  Per altre informazioni, vedere [Visualizzare lo stato corrente degli utenti](#viewing-current-user-status).  Gli utenti che accettano le condizioni per l'utilizzo vengono inoltre riportati nel log di controllo. È quindi possibile ottenere le informazioni desiderate cercando nel log di controllo di Azure AD.  
 
 **D: se i termini delle condizioni per l'utilizzo vengono modificati è necessario che gli utenti le accettino di nuovo?**</br>
 R: sì, un amministratore può modificare le condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione.

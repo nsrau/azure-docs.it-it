@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193952"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Introduzione a Mappe di Azure
-Mappe di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi conformi con Azure OneAPI consente di usare strumenti già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa aggiornati indispensabili per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST accompagnate da un controllo JavaScript basato sul Web, che rende lo sviluppo semplice, flessibile e compatibile con più supporti. 
+Mappe di Azure è un portfolio di servizi geospaziali che include API di servizi per mappe, ricerca, pianificazione del percorso, informazioni sul traffico e fusi orari. Il portfolio di servizi consente di usare strumenti già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa aggiornati indispensabili per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST accompagnate da un controllo JavaScript basato sul Web, che rende lo sviluppo semplice, flessibile e compatibile con più supporti. 
 
 Il video seguente presenta Mappe di Azure:
 
@@ -87,7 +88,7 @@ L'obiettivo di Microsoft è quello di offrire alla community di sviluppatori la 
 | Scenario | Usare Mappe di Azure quando… | Usare Bing Mappe quando… |
 | ------------- | ------------- | ------------- |
 | Ambiente di sviluppo | Si crea una soluzione all'interno di altri servizi di Azure o coordinando tali servizi | Si usa un ambiente cloud di terze parti o un altro ambiente di sviluppo |
-| Fase di sviluppo  | Poiché Mappe di Azure è attualmente disponibile in versione di anteprima pubblica, è ottimizzato per i test iniziali e lo sviluppo di un modello di verifica | È necessario un contratto di servizio di livello aziendale per un ambiente di produzione |
+| Fase di sviluppo  | Mappe di Azure è ottimizzato per i test iniziali e lo sviluppo di un modello di verifica | È necessario un contratto di servizio di livello aziendale per un ambiente di produzione |
 | Opzioni di prezzo | Sono sufficienti opzioni di prezzo preliminari per lo sviluppo | Sono necessari prezzi di livello enterprise personalizzati |
 | Ambiente del caso d'uso | È necessario l'uso nei veicoli | Non è necessario l'uso nei veicoli |
 | Copertura geografica | Non è necessaria la copertura delle mappe di India, Cina, Giappone e Corea del Sud | È necessaria la copertura delle mappe di India, Cina, Giappone e Corea del Sud |
