@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304879"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva - Creare un servizio pubblico di bilanciamento del carico di base con il portale di Azure
 
@@ -165,7 +166,7 @@ Per consentire al servizio di bilanciamento del carico di base di monitorare lo 
 
 ### <a name="create-a-load-balancer-rule"></a>Creare una regola di bilanciamento del carico
 
-Per definire il modo in cui il traffico viene distribuito alle macchine virtuali viene usata una regola di bilanciamento del carico. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP di back-end affinché riceva il traffico, insieme alla porta di origine e di destinazione necessaria. 
+Per definire il modo in cui il traffico viene distribuito alle macchine virtuali viene usata una regola di bilanciamento del carico. Definire la configurazione IP front-end per il traffico in ingresso e il pool IP back-end che riceve il traffico, insieme alle porte di origine e di destinazione necessarie. 
 
 Creare una regola di bilanciamento del carico denominata **myLoadBalancerRuleWeb** per l'ascolto sulla porta 80 nel front-end **LoadBalancerFrontEnd**. La regola consente anche l'invio di traffico di rete con carico bilanciato al pool di indirizzi back-end **myBackEndPool**, usando sempre la porta 80. 
 
@@ -194,4 +195,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di b
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un servizio di bilanciamento del carico. Per altre informazioni sui servizi di bilanciamento del carico e sulle risorse associate, passare agli articoli dell'esercitazione.
+In questa guida introduttiva si è appreso come creare un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un'istanza di Load Balancer Basic. Per altre informazioni su Azure Load Balancer, passare alle esercitazioni su Azure Load Balancer.
+
+> [!div class="nextstepaction"]
+> [Esercitazioni su Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

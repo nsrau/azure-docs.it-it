@@ -7,14 +7,14 @@ ms.component: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/20/2018
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae5d2e38f11abfabda067e9affbf81159002cb99
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054807"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194020"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
