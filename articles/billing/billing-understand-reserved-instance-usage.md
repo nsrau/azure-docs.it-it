@@ -1,6 +1,6 @@
 ---
-title: Informazioni su Utilizzo istanze riservate di Azure per la sottoscrizione con pagamento in base al consumo | Microsoft Docs
-description: Informazioni su come leggere l'utilizzo per comprendere l'applicazione di Istanza riservata per la sottoscrizione con pagamento in base al consumo
+title: Informazioni su Utilizzo istanze riservate di Azure per la sottoscrizione con pagamento in base al consumo - Fatturazione di Azure | Microsoft Docs
+description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata l'istanza di macchina virtuale riservata di Azure per la sottoscrizione con pagamento in base al consumo.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,23 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 142e172b3f4ab4b88bb3733f70d5e0fb252854ca
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7bf4aea86d4d430c15d60a8d73365705ace18b5a
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301853"
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo
 
-Per informazioni sull'utilizzo di Istanza riservata, usare ReservationId della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade ) e il file di utilizzo del [portale Account di Azure](https://account.azure.com).
+Per informazioni sull'utilizzo di un'istanza di macchina virtuale riservata di Azure, usare ReservationId della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file di utilizzo del [portale degli account di Azure](https://account.azure.com).
 
 
 >[!NOTE]
->Questo articolo non si applica ai clienti con Contratto Enterprise. I clienti con Contratto Enterprise possono vedere l'articolo [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md). Questo articolo presuppone anche che la prenotazione venga applicata a una sottoscrizione singola. Se la prenotazione viene applicata a più di una sottoscrizione, il vantaggio della prenotazione può estendersi a più file CSV di utilizzo. 
+>Questo articolo non si applica ai clienti con Contratto Enterprise. I clienti con Contratto Enterprise possono vedere l'articolo [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md). In questo articolo si presuppone anche che l'istanza riservata venga applicata a una sottoscrizione singola. Se l'istanza riservata viene applicata a più di una sottoscrizione, il vantaggio dell'istanza riservata può estendersi a più file CSV di utilizzo. 
 
-Per la sezione seguente, si presupponga di eseguire una VM Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
+Per la sezione seguente, si presupponga di eseguire una macchina virtuale Windows Standard_DS1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
 | Campo | Valore |
 |---| :---: |
@@ -37,36 +38,36 @@ Per la sezione seguente, si presupponga di eseguire una VM Windows Standard_DS1_
 |SKU | Standard_DS1_v2|
 |Region | eastus |
 
-## <a name="reservation-application"></a>Applicazione della prenotazione
+## <a name="reserved-instance-application"></a>Applicazione dell'istanza riservata
 
-La parte hardware della VM è coperta perché la VM distribuita corrisponde agli attributi della prenotazione. Per sapere quale software Windows non è coperto da Istanza riservata, andare a [Costi del software Windows con le istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).
+La parte hardware della macchina virtuale è coperta perché la VM distribuita corrisponde agli attributi dell'istanza riservata. Per sapere quale software Windows non è coperto da Istanza riservata, andare a [Costi del software Windows con le istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).
 
 ### <a name="statement-section-of-csv"></a>Sezione relativa al rendiconto nel CSV
-Questa sezione del file CSV indica l'utilizzo totale della prenotazione. Nel campo Sottocategoria misuratore filtrare le voci contenenti "Istanze riservate di" per ottenere dati simili a quelli dello screenshot seguente: ![Prenotazione rendiconto diretto](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+Questa sezione del file CSV indica l'utilizzo totale per l'istanza riservata. Nel campo Sottocategoria misuratore filtrare le voci contenenti "Istanze riservate di" per ottenere dati simili a quelli nello screenshot seguente: ![Screenshot dei dettagli sull'utilizzo e gli addebiti per l'istanza riservata filtrata](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-La riga Istanze riservate di VM di base indica il numero totale di ore coperte dalla prenotazione. Questa riga contiene il valore $ 0,00 perché è coperta da Istanza riservata. La riga Istanze riservate di Windows Server (1 core) indica il costo del software Windows.
+La riga Istanze riservate di VM di base indica il numero totale di ore coperte dall'istanza riservata. Questa riga contiene il valore $ 0,00 perché è coperta da Istanza riservata. La riga Istanze riservate di Windows Server (1 core) indica il costo del software Windows.
 
 ### <a name="daily-usage-section-of-csv"></a>Sezione Utilizzo giornaliero nel CSV
-Filtrare per informazioni aggiuntive e tipo nell'ID prenotazione. Lo screenshot seguente illustra i campi correlati alla prenotazione. 
+Filtrare per informazioni aggiuntive e tipo nell'**ID prenotazione**. Lo screenshot seguente illustra i campi correlati all'istanza riservata. 
 
-![Addebiti di utilizzo giornaliero](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+![Screenshot dei dettagli di utilizzo giornaliero e degli addebiti](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. ReservationId nel campo Informazioni aggiuntive è la prenotazione usata per applicare il vantaggio alla VM.
+1. **ReservationId** nel campo Informazioni aggiuntive è l'istanza riservata usata per applicare il vantaggio alla macchina virtuale.
 2. ConsumptionMeter è l'ID contatore per la VM.
-3. La riga Istanze riservate di VM di base in Sottocategoria misuratore rappresenta la riga del costo pari a $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa VM è già coperto dalla prenotazione.
-4. Questo è l'ID contatore per la prenotazione. Il costo di questo contatore è pari a $ 0. Le VM qualificate per Istanza riservata hanno questo ID contatore nel CSV per tenere conto del costo. 
+3. La riga Istanze riservate di VM di base in Sottocategoria misuratore rappresenta la riga del costo pari a $ 0 nella sezione del rendiconto. Il costo dell'esecuzione di questa VM è già coperto dall'istanza riservata.
+4. Questo è l'ID contatore per l'istanza riservata. Il costo di questo contatore è pari a $ 0. Le VM qualificate per Istanza riservata hanno questo ID contatore nel CSV per tenere conto del costo. 
 5. Standard_DS1_v2 è una VM con vCPU che viene distribuita senza il vantaggio Azure Hybrid. Questo contatore copre quindi i costi aggiuntivi del software Windows. Vedere [Costi del software Windows per le istanze di macchina virtuale riservata di Azure](billing-reserved-instance-windows-software-costs.md) per trovare il contatore corrispondente alla VM con 1 core serie D. Se si usa il vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+Per altre informazioni sulle istanze riservate, vedere gli articoli seguenti:
 
-- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
-- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](billing-save-compute-costs-reservations.md)
-- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze riservate di Azure](billing-save-compute-costs-reservations.md)
+- [Pagare in anticipo le macchine virtuali tramite le istanze riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze riservate](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze riservate](billing-understand-vm-reservation-charges.md)
 - [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico.
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
-Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.

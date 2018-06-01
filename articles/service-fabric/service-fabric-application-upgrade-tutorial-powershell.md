@@ -5,20 +5,21 @@ services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9bc75748-96b0-49ca-8d8a-41fe08398f25
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0306a219112a14121fd881a7cc52d58597a073a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205485"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Aggiornamento di un'applicazione di Service Fabric mediante PowerShell
 > [!div class="op_single_selector"]
@@ -47,7 +48,7 @@ Compilare e pubblicare l'applicazione facendo clic con il pulsante destro del mo
 
 Dopo aver compilato il progetto in Visual Studio è possibile usare il comando di PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) per copiare il pacchetto dell'applicazione in ImageStore. Se si desidera verificare il pacchetto dell'applicazione in locale, usare il cmdlet [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). Il passaggio successivo consiste nel registrare l'applicazione nel runtime di Service Fabric usando il cmdlet [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). Il passaggio seguente consiste nell'avviare un'istanza dell'applicazione con il cmdlet [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Questi tre passaggi sono analoghi all'uso della voce di menu **Distribuisci** in Visual Studio.  Al termine del provisioning, è consigliabile pulire il pacchetto dell'applicazione copiato dall'archivio immagini per ridurre le risorse utilizzate.  Se un tipo di applicazione non è più necessario, è consigliabile annullarne la registrazione per lo stesso motivo. Per altre informazioni, vedere [Distribuire e rimuovere applicazioni con PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
-È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) sulla barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
+È ora possibile usare [Service Fabric Explorer per visualizzare il cluster e l'applicazione](service-fabric-visualizing-your-cluster.md). L'applicazione dispone di un servizio Web a cui è possibile accedere in Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) nella barra degli indirizzi.  Verranno visualizzati alcuni oggetti visivi mobili sullo schermo.  È anche possibile usare [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) per verificare lo stato dell'applicazione.
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>Passaggio 2: aggiornare l'applicazione Oggetti visivi di esempio
 È possibile osservare che con la versione distribuita al passaggio 1 gli oggetti visivi non ruotano. L'applicazione può essere aggiornata in modo che gli oggetti visivi ruotino.

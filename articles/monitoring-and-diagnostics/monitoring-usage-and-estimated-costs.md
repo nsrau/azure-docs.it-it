@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 08991565d56ffbf7d798944f108a1b86e4463c58
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176287"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34203778"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -93,7 +93,7 @@ Il nuovo modello tariffario semplifica le opzioni dei prezzi di Log Analytics e 
 La stima dei costi mostra gli effetti di queste modifiche.
 
 > [!WARNING]
-> Ecco una nota importante se si usa Azure Resource Manager o PowerShell per distribuire [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) o [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in una sottoscrizione passata a un nuovo modello tariffario. Se si specifica un piano tariffario diverso da "pergb2018" per Log Analytics o "Basic" per Application Insights, anziché generare un errore di distribuzione a causa della specifica di un piano tariffario non valido, l'operazione verrà eseguita con esito positivo **ma usando solo il piano tariffario valido**. 
+> Ecco una nota importante se si usa Azure Resource Manager o PowerShell per distribuire [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) o [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell) in una sottoscrizione passata a un nuovo modello tariffario. Se si specifica un piano tariffario diverso da "pergb2018" per Log Analytics o "Basic" per Application Insights, anziché generare un errore di distribuzione a causa della specifica di un piano tariffario non valido, l'operazione verrà eseguita con esito positivo **ma usando solo il piano tariffario valido**. Ciò non si applica al livello gratuito di Log Analytics dove viene generato un messaggio di piano tariffario non valido.
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>Passaggio al nuovo modello tariffario
