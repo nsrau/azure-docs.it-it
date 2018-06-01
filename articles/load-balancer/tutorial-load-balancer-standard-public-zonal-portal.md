@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304726"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione: bilanciare il carico delle macchine virtuali all'interno di una zona di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -95,7 +96,7 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     - *TCP* come **Protocollo**
     - *Consenti* come **Azione**
     - *100* come **Priorità**
-    - *myHTTPRule* come **Nome**
+    - *myHTTPRule* come **Nome**.
     - *Consenti HTTP* come **Descrizione**
 4. Fare clic su **OK**.
  
@@ -139,7 +140,7 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
 2. Nella pagina **Panoramica** fare clic su **Connetti** per connettersi a RDP nella macchina virtuale.
 3. Accedere alla macchina virtuale con il nome utente e la password specificati durante la creazione della macchina virtuale (potrebbe essere necessario selezionare **Altre opzioni**, quindi **Usa un account diverso** per specificare le credenziali immesse quando è stata creata la macchina virtuale), quindi selezionare **OK**. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Selezionare **Sì** per procedere con la connessione.
 4. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Windows PowerShell**.
-6. Nella finestra di PowerShell eseguire i comandi seguenti per installare il server IIS, rimuovere il file default.htm, aggiungere un nuovo file default.htm che visualizza il nome della macchina virtuale:
+6. Nella finestra di PowerShell eseguire i comandi seguenti per installare il server IIS, rimuovere il file predefinito iisstart.htm e aggiungere un nuovo file iisstart.htm che visualizza il nome della macchina virtuale:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ In questa sezione vengono create regole NSG per consentire le connessioni in ing
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. Chiudere la sessione RDP con *myVM1*
-9. Ripetere i passaggi da 1 a 8 per installare IIS in *myVM2*.
+7. Chiudere la sessione RDP con *myVM1*
+8. Ripetere i passaggi da 1 a 7 per installare IIS in *myVM2*.
 
 ## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
