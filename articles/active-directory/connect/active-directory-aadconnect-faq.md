@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 05/09/2018
 ms.author: billmath
-ms.openlocfilehash: 07b0209ef94f91c00b98b8801323a58cd9d14494
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46a9bf47b4998c4d5be47f67556fbdb3ba7b71db
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054095"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -99,7 +100,69 @@ Attualmente la modifica degli attributi HTML della pagina di accesso non è supp
 **D: Esiste un modo per impedire sessioni simultanee?**</br>
 di serie
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="auto-upgrade"></a>Aggiornamento automatico
+
+**D: Quali sono i vantaggi e le conseguenze derivanti dall'uso dell'aggiornamento automatico?**</br>
+Si consiglia a tutti i clienti di abilitare l'aggiornamento automatico per l'installazione di Azure AD Connect in uso. In questo modo riceveranno sempre le patch più recenti, inclusi gli aggiornamenti di sicurezza per le vulnerabilità rilevate in Azure AD Connect. Il processo di aggiornamento non comporta alcun problema e viene eseguito automaticamente non appena è disponibile una nuova versione. Diverse migliaia di clienti di Azure AD Connect si avvalgono dell'aggiornamento automatico ogni volta che viene rilasciata una nuova versione.
+
+Per prima cosa, il processo di aggiornamento automatico stabilisce sempre se un'installazione è idonea per l'aggiornamento automatico (operazione che include la ricerca di modifiche personalizzate alle regole, specifici fattori ambientali e così via) e, in caso affermativo, l'aggiornamento viene eseguito e testato. Se i test indicano che un aggiornamento non è riuscito, verrà automaticamente ripristinata la versione precedente.
+
+In base alle dimensioni dell'ambiente, il processo può richiedere fino a due ore e, mentre l'aggiornamento è in corso, non viene eseguita alcuna sincronizzazione tra Windows Server Active Directory e Azure AD.
+
+**D: È stato ricevuto un messaggio di posta elettronica in cui si specifica che l'aggiornamento automatico non funziona più ed è necessario installare una nuova versione. Perché è necessario eseguire questa operazione?**</br>
+Lo scorso anno è stata rilasciata una versione di Azure AD Connect che, in determinate circostanze, può aver disattivato la funzionalità di aggiornamento automatico sul server. Questo problema è stato risolto in Azure AD Connect versione 1.1.750.0, rilasciato alla fine del mese scorso. Per risolvere il problema, è necessario che gli utenti interessati eseguano manualmente l'aggiornamento alla versione più recente di Azure AD Connect. Per eseguire l'aggiornamento manuale, è sufficiente scaricare ed eseguire la versione più recente del file AADConnect.msi.
+ 
+-  Se la versione in uso è precedente alla 1.1.750.0, è necessario eseguire l'aggiornamento alla versione più recente, [che può essere scaricata qui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+- Se invece è in uso la versione 1.1.750.0 di Azure AD Connect o una versione successiva, non è necessario eseguire alcuna operazione per risolvere i problemi di aggiornamento automatico, poiché la versione corrente contiene già una correzione per il problema. 
+
+**D: È stato ricevuto un messaggio di posta elettronica in cui si richiede di eseguire l'aggiornamento alla versione più recente per riabilitare l'aggiornamento automatico. È in uso la versione 1.1.654.0: è necessario eseguire l'aggiornamento?** </br>    
+Sì, è necessario eseguire l'aggiornamento alla versione 1.1.750 o successiva per riabilitare l'aggiornamento automatico. Ecco il collegamento che spiega come eseguire l'aggiornamento a una versione più recente
+
+**D: È stato ricevuto un messaggio di posta elettronica in cui si richiede di eseguire l'aggiornamento alla versione più recente per riabilitare l'aggiornamento automatico. È stato usato PowerShell per abilitare l'aggiornamento automatico, è comunque necessario installare la versione più recente?**</br>    
+Sì, è comunque necessario eseguire l'aggiornamento alla versione 1.1.750.0 o successiva. L'abilitazione del servizio di aggiornamento automatico con PowerShell non risolve il problema di aggiornamento automatico rilevato nelle versioni precedenti alla 1.1.750
+
+**D: Si vuole eseguire l'aggiornamento a una versione più recente, ma non si sa chi ha installato Azure AD Connect e non si dispone del relativo nome utente e password.  Queste informazioni sono necessarie?**</br>
+Non è necessario conoscere il nome utente e la password originariamente usati per aggiornare Azure AD Connect: è possibile usare qualsiasi account di Azure AD con ruolo di amministratore globale.
+
+**D: Come è possibile conoscere la versione di Azure AD Connect in uso?**</br>   
+Per sapere quale versione di Azure AD Connect è installata nel server, passare al pannello di controllo e cercare la versione installata di Microsoft Azure AD Connect in "Programmi > Programmi e funzionalità":
+
+![versione](media/active-directory-aadconnect-faq/faq1.png)
+
+**D: Come è possibile eseguire l'aggiornamento alla versione più recente di AADConnect?**</br>    
+Questo [articolo](active-directory-aadconnect-upgrade-previous-version.md) spiega come eseguire l'aggiornamento a una versione più recente. 
+
+**D: L'aggiornamento alla versione più recente di AADConnect è stato già eseguito lo scorso anno, è necessario effettuare nuovamente l'aggiornamento?**</br> I team di Azure AD Connect apportano frequenti aggiornamenti al servizio ed è importante che il server sia aggiornato con la versione più recente in modo da poter trarre vantaggio dalle correzioni di bug, dagli aggiornamenti alla sicurezza e dalle nuove funzionalità. Se si abilita l'aggiornamento automatico, la versione del software verrà aggiornata automaticamente. Per trovare la cronologia delle versioni di Azure AD Connect, seguire questo [collegamento](active-directory-aadconnect-version-history.md).
+
+**D: Quanto tempo sarà necessario per eseguire l'aggiornamento e quale sarà l'impatto sugli utenti?**</br>    
+Il tempo necessario per eseguire l'aggiornamento dipende dalla dimensione del tenant e, per le organizzazioni di grandi dimensioni, è consigliabile effettuare questa operazione la sera o nei fine settimana. Durante l'aggiornamento non viene eseguita alcuna attività di sincronizzazione.
+
+**D: L'aggiornamento ad AADConnect è stato effettuato ma nel portale di Office risulta ancora DirSync.  Perché?**</br>    
+Il team di Office lavora costantemente per mantenere il portale di Office aggiornato con i nomi di prodotto correnti, non con lo strumento di sincronizzazione in uso.
+
+**D: Lo stato dell'aggiornamento automatico è impostato su "sospeso". Perché è sospeso? È necessario abilitarlo?**</br>     
+In una versione precedente è stato introdotto un bug che, in determinate circostanze, lascia lo stato di aggiornamento automatico impostato su "sospeso". L'abilitazione manuale dell'aggiornamento automatico è tecnicamente possibile ma richiede vari passaggi complessi. La soluzione migliore, quindi, è installare la versione più recente di Azure AD Connect.
+
+**D: In azienda sono in vigore rigorosi requisiti di gestione delle modifiche e si vuole controllare quando non vengono rispettati. È possibile sapere quando viene lanciata la procedura di aggiornamento automatico?**</br> No, attualmente questa possibilità non esiste, ma si tratta di una funzionalità di cui si sta valutando l'introduzione in una versione futura.
+
+**D: Si riceve un messaggio di posta elettronica se l'aggiornamento automatico ha esito negativo? Come è possibile sapere se invece ha avuto esito positivo?**</br>     
+Non viene inviata alcuna notifica in merito all'esito dell'aggiornamento, ma si tratta di una funzionalità di cui si sta valutando l'introduzione in una versione futura.
+
+**D: Viene pubblicato un piano di rilascio degli aggiornamenti automatici?**</br>    
+L'aggiornamento automatico è il primo passaggio del processo di rilascio di una nuova versione. Ogni volta che è disponibile una nuova versione, quindi, viene lanciato l'aggiornamento automatico. Le nuove versioni di Azure AD Connect vengono pre-annunciate nella [roadmap di Azure Active Directory](../../active-directory/whats-new.md).
+
+**D: Con l'aggiornamento automatico viene aggiornato anche Azure Active Directory Connect Health?**</br>   Sì, con l'aggiornamento automatico viene aggiornato anche Azure Active Directory Connect Health
+
+**D: Viene eseguito l'aggiornamento automatico anche dei server AAD Connect in modalità di staging?**</br>   
+No, non è possibile eseguire l'aggiornamento automatico di un server Azure AD Connect in modalità di staging.
+
+**D: Se l'aggiornamento automatico non riesce e il server AAD Connect non si avvia, cosa è necessario fare?**</br>   
+In alcuni casi rari, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In questi casi, riavviare il server, operazione che in genere risolve il problema. Se il servizio Azure AD Connect continua a non avviarsi, aprire un ticket di supporto. Ecco un [collegamento](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) che spiega come eseguire questa operazione. 
+
+**D: Quali rischi si corrono quando si esegue l'aggiornamento a una nuova versione di Azure AD Connect? È possibile ricevere assistenza telefonica per eseguire correttamente l'aggiornamento?**</br>
+Se è necessaria assistenza per l'aggiornamento a una nuova versione di Azure AD Connect, aprire un ticket di supporto seguendo questo [collegamento](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) che illustra come eseguire questa operazione.
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)

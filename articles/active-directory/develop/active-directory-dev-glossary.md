@@ -3,23 +3,25 @@ title: Glossario per gli sviluppatori di Azure Active Directory | Microsoft Docs
 description: Elenco di termini relativi ai concetti e alle funzionalità per sviluppatori di uso comune di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: bryanla
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/16/2017
-ms.author: bryanla
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: d32858c89c59ef8240eddca42824374132255fe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158150"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -35,7 +37,7 @@ I token di accesso sono talvolta definiti "utente + app" o "solo app", a seconda
 Per altri dettagli, vedere [Informazioni di riferimento sui token in Azure AD][AAD-Tokens-Claims].
 
 ## <a name="application-id-client-id"></a>ID applicazione (ID client)
-Identificatore univoco generato da Azure AD per la registrazione di un'applicazione che identifica un'applicazione specifica e le configurazioni associate.  L'ID applicazione ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) viene usato per l'esecuzione delle richieste di autenticazione e viene fornito alle librerie di autenticazione durante la fase di sviluppo. L'ID applicazione (ID client) non è un segreto. 
+Identificatore univoco generato da Azure AD per la registrazione di un'applicazione che identifica un'applicazione specifica e le configurazioni associate. L'ID applicazione ([ID client](https://tools.ietf.org/html/rfc6749#page-15)) viene usato per l'esecuzione delle richieste di autenticazione e viene fornito alle librerie di autenticazione durante la fase di sviluppo. L'ID applicazione (ID client) non è un segreto. 
 
 ## <a name="application-manifest"></a>manifesto dell'applicazione
 Funzionalità offerta dal [portale di Azure][AZURE-portal] che genera una rappresentazione JSON della configurazione di identità dell'applicazione e viene usata come meccanismo per aggiornare le entità [Application][AAD-Graph-App-Entity] e [ServicePrincipal][AAD-Graph-Sp-Entity] associate. Per altri dettagli, vedere [Informazioni sul manifesto dell'applicazione in Azure Active Directory][AAD-App-Manifest].
@@ -85,7 +87,7 @@ Un [token di sicurezza](#security-token) contiene attestazioni, che forniscono a
 Per altri dettagli, vedere [Informazioni di riferimento sui token in Azure AD][AAD-Tokens-Claims].
 
 ## <a name="client-application"></a>applicazione client
-In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role-Def], applicazione che effettua richieste di risorse protette per conto del [proprietario delle risorse](#resource-owner). Il termine "client" non implica particolari caratteristiche di implementazione a livello di hardware, ad esempio l'esecuzione dell'applicazione su un server, un PC desktop o altri dispositivi.  
+In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role-Def], applicazione che effettua richieste di risorse protette per conto del [proprietario delle risorse](#resource-owner). Il termine "client" non implica particolari caratteristiche di implementazione a livello di hardware, ad esempio l'esecuzione dell'applicazione su un server, un PC desktop o altri dispositivi. 
 
 Un'applicazione client richiede l'[autorizzazione](#authorization) da un proprietario delle risorse a partecipare a un flusso di [concessione di autorizzazione OAuth2](#authorization-grant) e può accedere alle API e ai dati per conto del proprietario delle risorse. Il framework di autorizzazione di OAuth2 [definisce due tipi di client][OAuth2-Client-Types], "riservato" e "pubblico", in base alla possibilità di mantenere riservate le proprie credenziali. Le applicazioni possono implementare un [client Web (riservato)](#web-client) eseguito in un server Web, un [client nativo (pubblico)](#native-client) installato in un dispositivo o un [client basato su agente utente (pubblico)](#user-agent-based-client) eseguito nel browser di un dispositivo.
 
@@ -121,7 +123,7 @@ In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role
 ## <a name="resource-server"></a>server di risorse
 In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role-Def], server che ospita risorse protette e può accettare e rispondere alle relative richieste effettuate da [applicazioni client](#client-application) che presentano un [token di accesso](#access-token). È detto anche server di risorse protette o applicazione della risorsa.
 
-Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l'API Graph di Azure AD che consente di accedere ai dati dei tenant di Azure AD e le API di Office 365 che consentono di accedere a dati come posta e calendario. Entrambi sono accessibili anche tramite l'[API Graph di Microsoft][Microsoft-Graph].  
+Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l'API Graph di Azure AD che consente di accedere ai dati dei tenant di Azure AD e le API di Office 365 che consentono di accedere a dati come posta e calendario. Entrambi sono accessibili anche tramite l'[API Graph di Microsoft][Microsoft-Graph]. 
 
 Così come per un'applicazione client, la configurazione di identità dell'applicazione della risorsa viene definita tramite la [registrazione](#application-registration) in un tenant di Azure AD, con cui vengono specificati sia l'oggetto applicazione che l'oggetto entità servizio. Alcune API fornite da Microsoft, come l'API Graph di Azure AD, includono entità servizio preregistrate che vengono rese disponibili in tutti i tenant durante il provisioning.
 
@@ -177,7 +179,7 @@ Analogamente a un oggetto entità servizio che viene usato per rappresentare un'
 Tipo di [applicazione client](#client-application) che esegue tutto il codice su un server Web e può funzionare come client "riservato" perché può eseguire l'archiviazione sicura delle credenziali sul server. Per altri dettagli, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Passaggi successivi
-La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] riunisce tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios].  È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] riunisce tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios]. È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire il contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 05/15/2018
 ms.author: pareshmu
-ms.openlocfilehash: f448f1d7d669aa2c006169c53d8a239360fd16b8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d17c8dee89bf0ea2a4683c3b41d2eed50c65e2c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303695"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -79,7 +80,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** |Supportato |Supportato |Amsterdam, RAS di Hong Kong, Londra, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 | **[C3ntro](https://c3ntro.com/)** |Presto disponibile |Presto disponibile |Miami |
 | **CDC** | Supportato | Supportato | Canberra, Canberra2 |
-| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supportato |Supportato |Las Vegas, New York, San Antonio, Tokyo, Toronto |
+| **[CenturyLink Cloud Connect](http://www.centurylink.com/cloudconnect)** |Supportato |Supportato |Las Vegas, New York, San Antonio, Silicon Valley, Tokyo, Toronto |
 | **China Telecom Global** |Supportato |Non supportato |RAS di Hong Kong |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |Supportato |Supportato |Dallas, Montreal, Toronto |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Supportato |Supportato |Amsterdam, Dublino, Londra, Parigi, Tokyo |
@@ -98,7 +99,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Supportato |Supportato |Amsterdam, Dublino, Londra, Parigi |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Supportato |Supportato | Silicon Valley, Toronto |
 | **Jisc** |Supportato |Supportato |Londra |
-| **KINX** |Supportato |Supportato |Seul |
+| **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supportato |Supportato |Seul |
 | **[KPN](http://www.kpn.com/cloudconnect)** | Supportato | Supportato | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Londra, Newport, San Paolo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supportato |Supportato |Busan, Seoul |
@@ -108,12 +109,13 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Dati di nuova generazione](http://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Supportato |Supportato |Newport(Wales) |
 | **NEXTDC** |Supportato |Supportato |Melbourne, Sydney |
 | **[NTT Communications](http://www.ntt.com/en/services/network/virtual-private-network.html)** |Supportato |Supportato |Amsterdam, Hong Kong, Londra, Los Angeles, Osaka, Singapore, Sydney, Tokyo, Washington DC |
+| **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Supportato |Supportato |Tokyo |
 | **[NTT SmartConnect](http://cloud.nttsmc.com/cxc/azure.html)** |Supportato |Supportato |Osaka |
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Supportato |Supportato |Melbourne, Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supportato |Supportato |Amsterdam, RAS di Hong Kong, Londra, Parigi, Silicon Valley, Singapore, Sydney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Supportato |Supportato |Chicago, Silicon Valley |
 | **PCCW Global Limited** |Supportato |Supportato |RAS di Hong Kong |
-| **Sejong Telecom** |Supportato |Supportato |Seul |
+| **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Supportato |Supportato |Seul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supportato |Supportato |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supportato |Supportato |Singapore, Singapore2 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Supportato |Supportato |Osaka, Tokyo |
@@ -123,7 +125,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Supportato |Supportato |Amsterdam, San Paolo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Supportato |Supportato |Londra |
 | **Telenor** |Supportato |Supportato |Amsterdam, Londra |
-| **Telia Carrier** | Supportato | Supportato |Londra, Washington DC |
+| **[Telia Carrier](https://www.teliacarrier.com/our-services/Connectivity/Cloud-Connect.html?title=Cloud%20Connect)** | Supportato | Supportato |Londra, Washington DC |
 | **Telmex Uninet**| Presto disponibile | Presto disponibile | Dallas+ |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Supportato |Supportato |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Supportato |Supportato |Montreal, Toronto |

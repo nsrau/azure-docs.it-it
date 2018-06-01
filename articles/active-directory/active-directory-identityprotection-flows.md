@@ -1,9 +1,9 @@
 ---
 title: Esperienze di accesso con Azure AD Identity Protection | Microsoft Docs
-description: "Presenta una panoramica dell'esperienza utente quando Identity Protection ha mitigato o risolto la situazione di rischio di un utente o quando l'autenticazione a più fattori è richiesta da una policy."
+description: Presenta una panoramica dell'esperienza utente quando Identity Protection ha mitigato o risolto la situazione di rischio di un utente o quando l'autenticazione a più fattori è richiesta da una policy.
 services: active-directory
-keywords: "azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza"
-documentationcenter: 
+keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 558d1e04e352d5f33201bb15cb7a2dd1c18f524f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164204"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Esperienze di accesso con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection è possibile:
@@ -49,10 +50,7 @@ Questo argomento presenta una panoramica dell'esperienza di accesso dell'utente 
 ## <a name="multi-factor-authentication-registration"></a>Registrazione per l'autenticazione a più fattori
 Sia per il ripristino di un account compromesso che per l'accesso rischioso, la migliore esperienza utente si ottiene quando l'utente può eseguire il ripristino automatico. Se gli utenti sono registrati per l’autenticazione a più fattori, hanno già un numero di telefono associato con l’account che può essere usato per trasmettere le richieste di sicurezza. Non è necessario coinvolgere il supporto tecnico o l'amministratore per ripristinare un account compromesso. È quindi consigliabile fare in modo che gli utenti siano registrati per l'autenticazione a più fattori. 
 
-Gli amministratori possono:
-
-* Impostare criteri che richiedono agli utenti di configurare l'account per la verifica di sicurezza aggiuntiva. 
-* Consentire di ignorare la registrazione per l'autenticazione a più fattori per un massimo di 30 giorni, per dare agli utenti un periodo di tolleranza prima della registrazione.
+Gli amministratori possono impostare criteri che richiedono agli utenti di configurare l'account per la verifica di sicurezza aggiuntiva. Questi criteri consentono agli utenti di ignorare la registrazione con autenticazione a più fattori per un massimo di 14 giorni. Il periodo di tolleranza di 14 giorni non è configurabile.
 
 **La registrazione per l’autenticazione a più fattori prevede tre passaggi:**
 
