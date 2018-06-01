@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: 5bc578d617edd093a3b7eec7903209bfdb9ebfce
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1965438e64af84d0c808b0684f9e81c797193bff
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266862"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Disponibilità elevata di SAP HANA in Macchine virtuali di Azure (VM)
 
@@ -228,10 +229,10 @@ Gli elementi seguenti sono preceduti dal prefisso **[A]** - applicabile a tutti 
        sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
        </code></pre>
        
-       Creare i volumi logici
+        Creare i volumi logici. Quando si usa lvcreate senza il parametro -i verrà creato un volume lineare. È consigliabile creare un volume con striping per migliorare le prestazioni di I/O; l'argomento -i deve corrispondere al numero del volume fisico sottostante. In questo documento vengono usati 2 volumi fisici per il volume di dati e quindi l'argomento del parametro -i è 2. Viene usato 1 volume fisico per il volume di log e quindi non viene usato nessun parametro -i in modo esplicito. Usare il parametro -i e sostituire il numero con lo stesso numero di volume fisico sottostante quando si usa più di 1 volume fisico per ogni volume dei dati, dei log e della condivisione.
 
        <pre><code>
-       sudo lvcreate -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
+       sudo lvcreate <b>-i 2</b> -l 100%FREE -n hana_data vg_hana_data_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_log vg_hana_log_<b>HN1</b>
        sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared_<b>HN1</b>
        sudo mkfs.xfs /dev/vg_hana_data_<b>HN1</b>/hana_data

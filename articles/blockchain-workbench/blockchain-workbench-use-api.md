@@ -5,16 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/2/2018
+ms.date: 5/16/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 27ed94b3ce14c57e369b0c80d4c53b72a5ae40a8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 63e87c59a2e560b5a78708482c2ed89f5f8fb127
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257904"
 ---
 # <a name="using-the-azure-blockchain-workbench-rest-api"></a>Uso dell'API REST di Azure Blockchain Workbench 
 
@@ -26,12 +27,14 @@ L'API REST di Azure Blockchain Workbench offre agli sviluppatori e agli informat
 * Elencare le azioni disponibili per un contratto
 * Eseguire un'azione per un contratto
 
+Le applicazioni blockchain di esempio usate negli scenari sono disponibili per il [download in GitHub](https://github.com/Azure-Samples/blockchain). 
+
 ## <a name="list-applications"></a>Elenco applicazioni
 
-Dopo che l'utente ha eseguito l'accesso al client della blockchain, la prima attività consiste nel recuperare tutte le applicazioni della blockchain di Blockchain Workbench per l'utente. In questo scenario l'utente ha accesso a due applicazioni:
+Dopo che l'utente ha eseguito l'accesso al client della blockchain, la prima attività consiste nel recuperare tutte le applicazioni Blockchain Workbench per l'utente. In questo scenario l'utente ha accesso a due applicazioni:
 
-1.  Trasferimento cespite
-2.  Trasporto refrigerato
+1.  [Trasferimento cespite](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer/readme.md)
+2.  [Trasporto refrigerato](https://github.com/Azure-Samples/blockchain/blob/master/blockchain-workbench/application-and-smart-contract-samples/refrigerated-transportation/readme.md)
 
 Usare l'[API GET delle applicazioni](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/applicationsget):
 
@@ -74,7 +77,7 @@ Content-type: application/json
 
 ## <a name="list-workflows-for-an-application"></a>Elencare i flussi di lavoro per un'applicazione
 
-Dopo che l'utente ha selezionato l'applicazione della blockchain applicabile, in questo caso Trasferimento cespiti, il client della blockchain recupera tutti i flussi di lavoro dell'applicazione specifica della blockchain. Gli utenti possono quindi selezionare il flusso di lavoro applicabile prima che vengano visualizzate tutte le istanze del contratto smart per il flusso di lavoro. Ogni applicazione della blockchain dispone di uno o più flussi di lavoro e ciascun flusso di lavoro non dispone di istanze oppure dispone delle istanze del contratto smart. Quando si compilano le applicazioni client della blockchain, è consigliabile ignorare il flusso dell'esperienza dell'utente consentendo agli utenti di selezionare il flusso di lavoro appropriato quando è presente un solo flusso di lavoro per l'applicazione della blockchain. In questo caso Trasferimento cespiti ha un solo flusso di lavoro, denominato anch'esso Trasferimento cespiti.
+Dopo che l'utente ha selezionato l'applicazione della blockchain applicabile, in questo caso **Trasferimento cespite**, il client della blockchain recupera tutti i flussi di lavoro dell'applicazione specifica della blockchain. Gli utenti possono quindi selezionare il flusso di lavoro applicabile prima che vengano visualizzate tutte le istanze del contratto smart per il flusso di lavoro. Ogni applicazione della blockchain dispone di uno o più flussi di lavoro e ciascun flusso di lavoro non dispone di istanze oppure dispone delle istanze del contratto smart. Quando si compilano le applicazioni client della blockchain, è consigliabile ignorare il flusso dell'esperienza dell'utente consentendo agli utenti di selezionare il flusso di lavoro appropriato quando è presente un solo flusso di lavoro per l'applicazione della blockchain. In questo caso **Trasferimento cespiti** ha un solo flusso di lavoro, denominato anch'esso **Trasferimento cespite**.
 
 Usare l'[API GET del flusso di lavoro delle applicazioni](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/applications/workflowsget):
 
@@ -106,7 +109,7 @@ Content-type: application/json
 
 ## <a name="list-smart-contract-instances-for-a-workflow"></a>Elencare le istanze del contratto smart per un flusso di lavoro
 
-Dopo che un utente ha selezionato il flusso di lavoro applicabile, in questo caso Trasferimenti cespiti, il client della blockchain recupererà tutte le istanze del contratto smart per il flusso di lavoro specificato. È possibile usare queste informazioni per visualizzare tutte le istanze del contratto smart per il flusso di lavoro e consentire agli utenti di approfondire una qualsiasi delle istanze del contratto smart visualizzato. In questo esempio si supponga che un utente voglia interagire con una delle istanze del contratto smart per intervenire.
+Dopo che un utente ha selezionato il flusso di lavoro applicabile, in questo caso **Trasferimenti cespite**, il client della blockchain recupererà tutte le istanze del contratto smart per il flusso di lavoro specificato. È possibile usare queste informazioni per visualizzare tutte le istanze del contratto smart per il flusso di lavoro e consentire agli utenti di approfondire una qualsiasi delle istanze del contratto smart visualizzato. In questo esempio si supponga che un utente voglia interagire con una delle istanze del contratto smart per intervenire.
 
 Usare l'[API GET dei contratti](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
 
@@ -306,4 +309,5 @@ Content-type: application/json
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Riferimenti all'API REST di Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
+> [!div class="nextstepaction"]
+> [Riferimenti all'API REST di Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

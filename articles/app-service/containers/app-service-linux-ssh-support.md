@@ -15,41 +15,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: cf27e852f5ec9b7e12b0c678e9940596bc57b385
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301076"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Supporto SSH per il Servizio app di Azure in Linux
 
-[Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) è un protocollo di rete di crittografia per l'uso di servizi di rete in modo sicuro. Più comunemente viene usato per accedere in modo sicuro a un sistema da una riga di comando ed eseguire comandi amministrativi in remoto.
-
-Il Servizio app in Linux offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app Web.
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) viene usato comunemente per eseguire comandi amministrativi in remoto da un terminale della riga di comando. Il Servizio app in Linux offre il supporto SSH nel contenitore di app con ognuna delle immagini Docker predefinite usate per lo stack di runtime di nuove app Web. 
 
 ![Stack di runtime](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
-È anche possibile usare SSH con le immagini Docker personalizzate includendo il server SSH come parte dell'immagine e configurandolo come descritto in questo articolo.
+Per le immagini Docker personalizzate tramite la configurazione del server SSH in un'immagine personalizzata.
 
-> [!NOTE] 
-> È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Debug remoto e SHH nel servizio app in Linux).
->
+È anche possibile connettersi al contenitore direttamente dal computer di sviluppo locale tramite SSH e SFTP.
 
-## <a name="making-a-client-connection"></a>Creare una connessione client
+## <a name="open-ssh-session-in-browser"></a>Aprire una sessione SSH nel browser
 
-Per creare una connessione client SSH, è necessario avviare il sito principale.
+Per stabilire una connessione client SSH con il contenitore, l'app deve essere in esecuzione.
 
-Incollare l'endpoint di Gestione controllo codice sorgente, SCM, per l'app Web nel browser tramite il modulo seguente:
+Incollare l'URL seguente nel browser e sostituire \<nome_app > con il nome dell'app:
 
-```bash
-https://<your sitename>.scm.azurewebsites.net/webssh/host
+```
+https://<app_name>.scm.azurewebsites.net/webssh/host
 ```
 
-Se non lo si è già fatto, è necessario eseguire l'autenticazione con la sottoscrizione di Azure per la connessione.
+Se non lo si è già fatto, è necessario eseguire l'autenticazione con la sottoscrizione di Azure per la connessione. Al termine dell'autenticazione viene visualizzata una shell nel browser, in cui è possibile eseguire i comandi all'interno del contenitore.
 
 ![Connessione SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
-## <a name="ssh-support-with-custom-docker-images"></a>Supporto SSH con immagini Docker personalizzate
+## <a name="use-ssh-support-with-custom-docker-images"></a>Usare il supporto SSH con le immagini Docker personalizzate
 
 Affinché un'immagine Docker personalizzata supporti la comunicazione SSH tra il contenitore e il client nel portale di Azure, eseguire la procedura seguente per l'immagine Docker.
 
@@ -103,12 +100,105 @@ Dockerfile usa l'[istruzione `ENTRYPOINT`](https://docs.docker.com/engine/refere
     ENTRYPOINT ["/opt/startup/init_container.sh"]
     ```
 
+## <a name="open-ssh-session-from-remote-shell"></a>Aprire una sessione SSH dalla shell remota
+
+> [!NOTE]
+> Questa funzionalità è attualmente disponibile in anteprima.
+>
+
+Con il tunneling TCP è possibile creare una connessione di rete tra il computer di sviluppo e l'app Web per contenitori mediante una connessione WebSocket autenticata. Consente di aprire una sessione SSH con il contenitore in esecuzione nel servizio app dal client scelto.
+
+Per iniziare, è necessario installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Per esaminare il funzionamento senza installare l'interfaccia della riga di comando di Azure, aprire [Azure Cloud Shell](../../cloud-shell/overview.md). 
+
+Aggiungere l'estensione del servizio app più recente eseguendo [az extension add](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
+
+```azurecli-interactive
+az extension add -–name webapp
+```
+
+Se è già stato eseguito il comando `az extension add` in precedenza, eseguire invece [az extension update](/cli/azure/extension?view=azure-cli-latest#az-extension-update):
+
+```azurecli-interactive
+az extension update -–name webapp
+```
+
+Aprire una connessione remota all'app usando il comando [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create). Specificare _\<nome\_gruppo> >_ e \_<nome\_app>_ per l'app e sostituire \<porta> con un numero di porta locale.
+
+```azurecli-interactive
+az webapp remote-connection create --resource-group <group_name> -n <app_name> -p <port> &
+```
+
+> [!TIP]
+> Il carattere `&` alla fine del comando serve solo per comodità, se si usa Cloud Shell. Esegue il processo in background in modo che sia possibile eseguire il comando successivo nella stessa shell.
+
+L'output del comando include le informazioni necessarie per aprire una sessione SSH.
+
+```
+Port 21382 is open
+SSH is available { username: root, password: Docker! }
+Start your favorite client and connect to port 21382
+```
+
+Aprire una sessione SSH con il contenitore tramite il client scelto usando la porta locale. Nell'esempio seguente si usa il comando [ssh](https://ss64.com/bash/ssh.html) predefinito:
+
+```azurecli-interactive
+ssh root@127.0.0.1 -p <port>
+```
+
+Quando viene richiesto, digitare `yes` per continuare con la connessione. Verrà richiesto di specificare la password. Usare il valore `Docker!` che è stato illustrato in precedenza.
+
+```
+Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
+root@127.0.0.1's password:
+```
+
+Al termine dell'autenticazione verrà visualizzata la schermata iniziale della sessione.
+
+```
+  _____
+  /  _  \ __________ _________   ____
+ /  /_\  \___   /  |  \_  __ \_/ __ \
+/    |    \/    /|  |  /|  | \/\  ___/
+\____|__  /_____ \____/ |__|    \___  >
+        \/      \/                  \/
+A P P   S E R V I C E   O N   L I N U X
+
+0e690efa93e2:~#
+```
+
+A questo punto si è connessi al connettore. 
+
+Provare a eseguire il comando [top](https://ss64.com/bash/top.html). Dovrebbe essere visibile il processo dell'app nell'elenco di processi. Nell'esempio seguente è quello con `PID 263`.
+
+```
+Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
+CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
+Load average: 0.07 0.04 0.08 4/765 45738
+  PID  PPID USER     STAT   VSZ %VSZ CPU %CPU COMMAND
+    1     0 root     S     1528   0%   0   0% /sbin/init
+  235     1 root     S     632m  38%   0   0% PM2 v2.10.3: God Daemon (/root/.pm2)
+  263   235 root     S     630m  38%   0   0% node /home/site/wwwroot/app.js
+  482   291 root     S     7368   0%   0   0% sshd: root@pts/0
+45513   291 root     S     7356   0%   0   0% sshd: root@pts/1
+  291     1 root     S     7324   0%   0   0% /usr/sbin/sshd
+  490   482 root     S     1540   0%   0   0% -ash
+45539 45513 root     S     1540   0%   0   0% -ash
+45678 45539 root     R     1536   0%   0   0% top
+45733     1 root     Z        0   0%   0   0% [init]
+45734     1 root     Z        0   0%   0   0% [init]
+45735     1 root     Z        0   0%   0   0% [init]
+45736     1 root     Z        0   0%   0   0% [init]
+45737     1 root     Z        0   0%   0   0% [init]
+45738     1 root     Z        0   0%   0   0% [init]
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile pubblicare eventuali domande e dubbi nel [forum di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
 Per altre informazioni sull'app Web per contenitori, vedere:
 
+* [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) (Introduzione al debug remoto delle app Node.js nel Servizio app di Azure da Visual Studio Code)
 * [Come usare un'immagine Docker personalizzata per l'app Web per contenitori](quickstart-docker-go.md)
 * [Uso di .NET Core nel Servizio app di Azure in Linux](quickstart-dotnetcore.md)
 * [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)

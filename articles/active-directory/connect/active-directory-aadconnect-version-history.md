@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2018
+ms.date: 05/07/2018
 ms.author: billmath
-ms.openlocfilehash: de6c56df201e5f22c5c5884d0d8fffc1f07ec625
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4d5bd28f6e2831ef7bcecc6e5cb80cb28736ec27
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165486"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -34,6 +35,63 @@ Passaggi da eseguire per l'aggiornamento da Azure AD Connect | Metodi per [esegu
 Autorizzazioni necessarie | Per le autorizzazioni necessarie per applicare un aggiornamento, vedere [account e autorizzazioni](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Download| [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118190"></a>1.1.819.0
+
+4/5/2018: rilascio per l'aggiornamento automatico, a breve sarà disponibile per il download.
+
+
+
+### <a name="new-features-and-improvements"></a>Miglioramenti e nuove funzionalità
+
+Miglioramenti e nuove funzionalità
+
+
+- Questa versione include l'anteprima pubblica dell'integrazione di PingFederate in Azure AD Connect. Con questa versione i clienti possono configurare in modo facile e affidabile l'ambiente di Azure Active Directory per sfruttare PingFederate come provider federativo. Per altre informazioni su come usare questa nuova funzionalità, vedere la [documentazione online](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
+- È stata aggiornata l'utilità di risoluzione dei problemi della procedura guidata di Azure AD Connect, in cui vengono ora analizzati più scenari di errore, ad esempio cassette postali collegate e gruppi dinamici di AD. Per altre informazioni sull'utilità di risoluzione dei problemi, vedere [qui](active-directory-aadconnect-troubleshoot-objectsync.md).
+- La configurazione del writeback dispositivi viene ora gestita esclusivamente nella procedura guidata di Azure AD Connect.
+- Sono stati aggiunti un nuovo modulo di PowerShell, denominato ADSyncTools.psm1, che può essere usato per risolvere i problemi di connettività di SQL, e diverse altre utilità di risoluzione dei problemi. Per altre informazioni sul modulo ADSyncTools, vedere [qui](active-directory-aadconnect-tshoot-sql-connectivity.md). 
+- È stata aggiunta una nuova attività "Configura le opzioni del dispositivo". È possibile usare l'attività per configurare le due operazioni seguenti: 
+    -   **Aggiunta ad Azure AD ibrido**: se l'ambiente ha un footprint AD locale e si vogliono anche sfruttare le funzionalità offerte da Azure Active Directory, è possibile implementare dispositivi aggiunti all'identità ibrida di Azure AD. Questi dispositivi vengono aggiunti sia ad Active Directory locale che ad Azure Active Directory.
+    -   **Writeback dispositivi**: il writeback dispositivi viene usato per abilitare l'accesso condizionale basato su dispositivi ai dispositivi protetti AD FS (2012 R2 o versione successiva)
+
+   >[!NOTE] 
+   > - L'opzione per abilitare il writeback dispositivi da Personalizzazione delle opzioni di sincronizzazione verrà disabilitata. 
+   > -  Il modulo PowerShell per ADPrep è deprecato in questa versione.
+
+
+
+### <a name="fixed-issues"></a>Problemi risolti 
+
+
+- Elaborazione delle regole di sincronizzazione: l'applicazione delle regole di sincronizzazione di unione in uscita senza condizioni di join dovrebbe risultare annullata se la regola di sincronizzazione padre non è più applicabile
+- Procedura guidata di Azure AD Connect: errore durante la creazione dell'account AD Connector quando AD Azure Connect è in un gruppo di lavoro
+- Procedura guidata di Azure AD Connect: nella pagina di accesso di Azure AD visualizzare la casella di controllo di verifica in caso di mancata corrispondenza tra domini di AD e domini verificati di Azure AD
+- Correzione in PowerShell dell'aggiornamento automatico per impostare correttamente lo stato di aggiornamento automatico in alcuni casi, dopo il tentativo di aggiornamento automatico.
+- Procedura guidata di Azure AD Connect: aggiornamento dei dati di telemetria per acquisire informazioni mancanti in precedenza
+- Procedura guidata di Azure AD Connect: installare l'agente di autenticazione pass-through prima di convertire un dominio in dominio gestito
+- Procedura guidata di Azure AD Connect: non convertire gli utenti in utenti gestiti (convertire solo il dominio) per l'autenticazione pass-through
+- Procedura guidata di Azure AD Connect: regex a dominio multiplo di AD FS non è corretta quando il nome dell'entità utente contiene il carattere speciale '. L'aggiornamento di regex consente di supportare i caratteri speciali
+- Procedura guidata di Azure AD Connect: rimuovere il messaggio non corretto "Configure source anchor attribute" (Configurare l'attributo dell'ancoraggio di origine) se non vengono apportate modifiche 
+- Procedura guidata di Azure AD Connect: supporto di AD FS per lo scenario di doppia federazione
+- Procedura guidata di Azure AD Connect: le attestazioni di AD FS non vengono aggiornate per il dominio aggiunto quando si converte un dominio gestito in federato
+- Procedura guidata di Azure AD Connect: durante il rilevamento dei pacchetti installati, vengono trovati prodotti correlati a Dirsync/Azure AD Sync/Azure AD Connect non aggiornati. Si proverà ora a disinstallare i prodotti non aggiornati.
+- Procedura guidata di Azure AD Connect: correggere il mapping del messaggio di errore quando l'installazione dell'agente di autenticazione pass-through ha esito negativo
+- Procedura guidata di Azure AD Connect: è stato rimosso il contenitore "Configurazione" dalla pagina Filtro di domini e unità organizzative
+- Installazione del motore di sincronizzazione: rimuovere la logica legacy non necessaria, che a volte ha esito negativo, dal file MSI di installazione del motore di sincronizzazione
+- Procedura guidata di Azure AD Connect: correggere il testo della Guida popup nella pagina Funzionalità facoltative per Sincronizzazione hash password
+- Runtime del motore di sincronizzazione: correggere lo scenario in cui un oggetto CS contiene un'eliminazione importata e le regole di sincronizzazione provano a effettuare di nuovo il provisioning dell'oggetto.
+- Runtime del motore di sincronizzazione: aggiungere il collegamento della Guida alla risoluzione dei problemi di connettività online al log eventi per un errore di importazione
+- Runtime del motore di sincronizzazione: utilizzo ridotto della memoria nell'utilità di pianificazione della sincronizzazione quando si enumerano i connettori
+- Procedura guidata di Azure AD Connect: correggere un problema risolvendo un account del servizio di sincronizzazione personalizzato senza privilegi di lettura di AD
+- Procedura guidata di Azure AD Connect: migliorare la registrazione delle selezioni di Filtro di domini e unità organizzative
+- Procedura guidata di Azure AD Connect: in AD FS sono state aggiunte attestazioni predefinite al trust di federazione creato per lo scenario MFA
+- Procedura guidata di Azure AD Connect: distribuzione di WAP in AD FS: l'aggiunta del server non consente di usare il nuovo certificato
+- Procedura guidata di Azure AD Connect: eccezione DSSO quando le credenziali onPremCredentials non sono inizializzate per un dominio 
+- È preferibile propagare l'attributo distinguishedName di AD da Active User Object.
+- È stato risolto un bug estetico a causa del quale la precedenza della prima regola di sincronizzazione di OOB era impostata su 99 invece che su 100
+
+
 
 ## <a name="117510"></a>1.1.751.0
 Stato del 12/04/2018: rilasciato solo per il download

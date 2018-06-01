@@ -5,20 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 05/16/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fa9c27457b1da4d233aaea2a6621af9f5d01149d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 55ac7e055c972a9b18ef374ac8498b418c5d56af
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34307584"
 ---
 |  | **Da punto a sito** | **Da sito a sito** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Servizi supportati di Azure** |Servizi cloud e Macchine virtuali |Servizi cloud e Macchine virtuali |[Elenco dei servizi](../articles/expressroute/expressroute-faqs.md#supported-services) |
-| **Larghezze di banda tipiche** |Aggregazione tipica < 100 Mbps |Aggregazione tipica < 1 Gbps |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
-| **Protocolli supportati** |Secure Socket Tunneling Protocol (SSTP) |IPsec |Connessione diretta su VLAN, tecnologie VPN del provider (MPLS, VPLS, ecc.) |
+| **Larghezze di banda tipiche** |Basate sullo SKU del gateway |Aggregazione tipica < 1 Gbps |50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 2 Gbps, 5 Gbps, 10 Gbps |
+| **Protocolli supportati** |SSTP (Secure Sockets Tunneling Protocol) e IPsec |IPsec |Connessione diretta su VLAN, tecnologie VPN del provider (MPLS, VPLS e così via) |
 | **Routing** |RouteBased (dinamico) |Sono supportati il routing PolicyBased (routing statico) e il routing RouteBased (VPN routing dinamico) |BGP |
 | **Resilienza della connessione** |attiva-passiva |attiva-passiva o attiva-attiva |attiva-attiva |
 | **Caso d'uso tipico** |Creazione di prototipi, scenari di sviluppo/test /laboratorio per servizi cloud e macchine virtuali |Scenari di sviluppo/test/laboratorio e carichi di lavoro di produzione su scala ridotta per servizi cloud e macchine virtuali |Accesso a tutti i servizi di Azure (elenco convalidato), carichi di lavoro aziendali e di importanza strategica, backup, Big Data, Azure come sito di ripristino di emergenza |

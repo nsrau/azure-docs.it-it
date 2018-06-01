@@ -216,4 +216,4 @@ Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazi
 * Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 * La documentazione di riferimento del modello per le risorse macchina virtuale è disponibile alla pagina [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines).
 * La documentazione di riferimento del modello per le risorse disco è disponibile alla pagina [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks).
- 
+* Per informazioni sull'utilizzo di dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, leggere il documento [Usare dischi di dati con set di scalabilità](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md).

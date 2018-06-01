@@ -2,25 +2,20 @@
 title: Requisiti dei dati di Azure AD SSPR | Documentazione Microsoft
 description: Requisiti dei dati per la Reimpostazione self-service delle password e informazioni su come soddisfarli
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: ''
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro
-ms.openlocfilehash: 790ca2ccb2d365876e15ca57e1aa199ac519fd73
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257589"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -39,16 +34,27 @@ Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel
 
 Se si usano le impostazioni predefinite in Azure AD Connect, vengono eseguiti i mapping seguenti:
 
-| Active Directory locale | Azure AD | Informazioni di contatto per l'autenticazione di Azure AD |
-| --- | --- | --- |
-| telephoneNumber | Telefono ufficio | Telefono alternativo |
-| mobile | Cellulare | Telefono |
+| Active Directory locale | Azure AD |
+| --- | --- |
+| telephoneNumber | Telefono ufficio |
+| mobile | Cellulare |
 
-Questi campi possono apparire vuoti fino alla conferma dei dati di autenticazione da parte dell'utente.
+Quando l'utente verifica il numero di cellulare, anche il campo Telefono in Informazioni di contatto per l'autenticazione in Azure AD viene popolato con il numero.
 
-Un amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione per l'utente come illustrato nello screenshot seguente.
+## <a name="authentication-contact-info"></a>Informazioni di contatto per l'autenticazione
+
+L'amministratore globale può impostare manualmente le informazioni di contatto per l'autenticazione per l'utente come illustrato nello screenshot seguente.
 
 ![Contatto][Contact]
+
+Se il campo Telefono è popolato e l'opzione Cellulare è abilitata nei criteri SSPR, il numero verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password. 
+
+Il campo Telefono alternativo non è usato per la reimpostazione della password.
+
+Se il campo Posta elettronica è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
+
+Se il campo Indirizzo di posta elettronica alternativo è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica **non** verrà visualizzato nella pagina di registrazione per la reimpostazione della password ma verrà visualizzato durante il flusso di lavoro di reimpostazione della password. 
+
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
