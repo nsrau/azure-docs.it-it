@@ -4,14 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/03/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 869d426bc76d725cead9bedc73800a20531bb9ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202848"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -78,7 +79,7 @@ La tabella offre un riepilogo delle porte necessarie per le comunicazioni di Azu
 |Componente          |Comunicazione con     |Porta necessaria  |Motivo   |
 |-------------------|------------------------|---------------|---------|
 |Agente di raccolta          |Servizio Azure Migrate   |TCP 443        |L'agente di raccolta si connette al servizio sulla porta SSL 443.|
-|Agente di raccolta          |Server vCenter          |9443 (impostazione predefinita)   | Per impostazione predefinita, l'agente di raccolta si connette al server vCenter sulla porta 9443. Se il server è in ascolto su una porta diversa, la porta deve essere configurata come porta in uscita nella macchina virtuale dell'agente di raccolta. |
+|Agente di raccolta          |Server vCenter          |Porta predefinita 443   | Per impostazione predefinita, l'agente di raccolta si connette al server vCenter sulla porta 443. Se il server è in ascolto su una porta diversa, la porta deve essere configurata come porta in uscita nella macchina virtuale dell'agente di raccolta. |
 |VM locale     | Area di lavoro di Log Analytics          |[TCP 443](../log-analytics/log-analytics-windows-agent.md) |L'agente MMA usa la porta TCP 443 per la connessione a Log Analytics. Questa porta è necessaria solo se si usa la funzionalità di visualizzazione delle dipendenze e si installa Microsoft Monitoring Agent (MMA). |
 
 
