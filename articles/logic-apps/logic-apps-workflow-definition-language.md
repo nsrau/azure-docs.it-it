@@ -3,7 +3,7 @@ title: Schema del linguaggio di definizione del flusso di lavoro - App per la lo
 description: Scrivere definizioni del flusso di lavoro personalizzate per App per la logica di Azure con il linguaggio di definizione del flusso di lavoro
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: cfowler
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 14b273841d1fc15df635eb3b41b02ad77cbef90d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775282"
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886807"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definizioni del flusso di lavoro di App per la logica di Azure con lo schema del linguaggio di definizione del flusso di lavoro
 
@@ -220,7 +220,8 @@ Nelle [espressioni](#expressions) e nelle [funzioni](#functions), gli operatori 
 
 ## <a name="functions"></a>Funzioni
 
-Alcune espressioni ottengono i rispettivi valori da azioni di runtime che potrebbero non esistere all'inizio dell'esecuzione di un'app per la logica. Per usare questi valori o farvi riferimento nelle espressioni, è possibile usare le *funzioni*. È ad esempio possibile usare le funzioni matematiche per i calcoli, ad esempio la funzione [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) che restituisce la somma di numeri interi o float. 
+Alcune espressioni ottengono i rispettivi valori da azioni di runtime che potrebbero non esistere all'inizio dell'esecuzione di un'app per la logica. Per usare questi valori o farvi riferimento nelle espressioni, è possibile usare le [*funzioni*](../logic-apps/workflow-definition-language-functions-reference.md). È ad esempio possibile usare le funzioni matematiche per i calcoli, ad esempio la funzione [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) che restituisce la somma di numeri interi o float. Per informazioni dettagliate su ogni funzione, vedere l'[articolo di riferimento in ordine alfabetico](../logic-apps/workflow-definition-language-functions-reference.md).
+In alternativa, vedere altre informazioni sulle funzioni e il loro utilizzo generico.
 
 Ecco un paio esempi di attività che possono essere eseguite con le funzioni: 
 
