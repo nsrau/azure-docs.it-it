@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010925"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213266"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -155,7 +155,7 @@ Se la sincronizzazione ha esito negativo in un server:
     2. Verificare che il servizio Sincronizzazione file di Azure sia in esecuzione nel server. Aprire a tal fine lo snap-in di MMC di Servizi e verificare se l'agente di sincronizzazione archiviazione (FileSyncSvc) è in esecuzione.
 
 <a id="replica-not-ready"></a>**La sincronizzazione ha esito negativo e viene restituito il messaggio di errore: "0x80c8300f - La replica non è pronta per eseguire l'operazione richiesta"**  
-Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Al termine del processo di rilevamento modifiche in esecuzione in una condivisione file di Azure (potrebbe richiedere fino a 24 ore), la sincronizzazione dovrebbe iniziare a funzionare correttamente.
+Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Il processo di rilevamento di modifiche che esegue l'analisi delle modifiche nella Condivisione di file di Azure è pianificato una volta ogni 24 ore.  Il tempo necessario per il complemento dipende dalle dimensioni dello spazio dei nomi nella Condivisione di file di Azure.  Questo errore dovrebbe risolversi al termine del processo.
 
 
     > [!NOTE]
