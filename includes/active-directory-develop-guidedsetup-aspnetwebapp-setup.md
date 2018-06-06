@@ -2,24 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: active-directory
-documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
-editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.devlang: na
 ms.topic: include
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/08/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: abb118610afa55834a3a6792c0a5503a1abfd09e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5d3af1800e18e3686e69d4a25131c68d3bdc805b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33949448"
 ---
 ## <a name="set-up-your-project"></a>Configurare il progetto
 
@@ -29,7 +23,7 @@ Questa sezione illustra la procedura per l'installazione e la configurazione del
 
 ### <a name="create-your-aspnet-project"></a>Creare un progetto ASP.NET
 
-1. In Visual Studio: `File` > `New` > `Project`<br/>
+1. In Visual Studio: `File` > `New` > `Project`
 2. In *Visual C#\Web* selezionare `ASP.NET Web Application (.NET Framework)`
 3. Assegnare un nome all'applicazione e fare clic su *OK*
 4. Selezionare `Empty` e quindi selezionare la casella di controllo per aggiungere i riferimenti `MVC`
@@ -44,7 +38,7 @@ Questa sezione illustra la procedura per l'installazione e la configurazione del
     Install-Package Microsoft.Owin.Security.Cookies
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
-    
+
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Informazioni sulle librerie
 >Le librerie precedenti abilitano l'accesso Single Sign-On (SSO) usando OpenID Connect tramite l'autenticazione basata su cookie. Al termine dell'autenticazione e dopo l'invio del token che rappresenta l'utente all'applicazione, il middleware OWIN crea un cookie di sessione. Il browser usa quindi questo cookie nelle richieste successive, in modo che l'utente non debba digitare di nuovo la password e non siano necessarie operazioni di verifica aggiuntive.
@@ -54,9 +48,9 @@ Questa sezione illustra la procedura per l'installazione e la configurazione del
 La procedura seguente consente di creare una classe di avvio del middleware OWIN per configurare l'autenticazione OpenID Connect. Questa classe verrà eseguita automaticamente all'avvio del processo di IIS.
 
 > [!TIP]
-> Se il progetto non include alcun file `Startup.cs` nella cartella radice:<br/>
-> 1. Fare clic con il pulsante destro del mouse sulla cartella radice del progetto: >    `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Assegnare il nome `Startup.cs`<br/>
+> Se il progetto non include alcun file `Startup.cs` nella cartella radice:
+> 1. Fare clic con il pulsante destro del mouse sulla cartella radice del progetto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Assegnare il nome `Startup.cs`
 >
 >> Assicurarsi che la classe selezionata sia una classe di avvio di OWIN e non una classe C# standard. Per confermarlo, verificare se `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` viene visualizzato sopra lo spazio dei nomi.
 
@@ -65,7 +59,8 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
     ```csharp
     using Microsoft.Owin;
     using Owin;
-    using Microsoft.IdentityModel.Protocols;
+    using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+    using Microsoft.IdentityModel.Tokens;
     using Microsoft.Owin.Security;
     using Microsoft.Owin.Security.Cookies;
     using Microsoft.Owin.Security.OpenIdConnect;
@@ -76,19 +71,19 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
 
     ```csharp
     public class Startup
-    {        
+    {
         // The Client ID is used by the application to uniquely identify itself to Azure AD.
         string clientId = System.Configuration.ConfigurationManager.AppSettings["ClientId"];
-    
+
         // RedirectUri is the URL where the user will be redirected to after they sign in.
         string redirectUri = System.Configuration.ConfigurationManager.AppSettings["RedirectUri"];
-    
+
         // Tenant is the tenant ID (e.g. contoso.onmicrosoft.com, or 'common' for multi-tenant)
         static string tenant = System.Configuration.ConfigurationManager.AppSettings["Tenant"];
-    
+
         // Authority is the URL for authority, composed by Azure Active Directory v2 endpoint and the tenant name (e.g. https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0)
         string authority = String.Format(System.Globalization.CultureInfo.InvariantCulture, System.Configuration.ConfigurationManager.AppSettings["Authority"], tenant);
-    
+
         /// <summary>
         /// Configure OWIN to use OpenIdConnect 
         /// </summary>
@@ -96,9 +91,9 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
         public void Configuration(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-    
+
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
-                app.UseOpenIdConnectAuthentication(
+            app.UseOpenIdConnectAuthentication(
                 new OpenIdConnectAuthenticationOptions
                 {
                     // Sets the ClientId, authority, RedirectUri as obtained from web.config
@@ -107,13 +102,16 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
                     RedirectUri = redirectUri,
                     // PostLogoutRedirectUri is the page that users will be redirected to after sign-out. In this case, it is using the home page
                     PostLogoutRedirectUri = redirectUri,
-                    Scope = OpenIdConnectScopes.OpenIdProfile,
+                    Scope = OpenIdConnectScope.OpenIdProfile,
                     // ResponseType is set to request the id_token - which contains basic information about the signed-in user
-                    ResponseType = OpenIdConnectResponseTypes.IdToken,
+                    ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
                     // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
-                    TokenValidationParameters = new System.IdentityModel.Tokens.TokenValidationParameters() { ValidateIssuer = false },
+                    TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateIssuer = false
+                    },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
@@ -122,7 +120,7 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
                 }
             );
         }
-    
+
         /// <summary>
         /// Handle failed authentication requests by redirecting the user to the home page with an error in the query string
         /// </summary>
@@ -135,9 +133,7 @@ La procedura seguente consente di creare una classe di avvio del middleware OWIN
             return Task.FromResult(0);
         }
     }
-    
     ```
-
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Altre informazioni
