@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 43c0b7c87f9ee1cd33da3d617747c11dc120e51a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823623"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Distribuire un cluster Kubernetes allo Stack di Azure
 
@@ -31,7 +32,7 @@ Il seguente articolo vengono esaminati utilizzando un modello di soluzione di ge
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes e contenitori
 
-È possibile installare Kubernetes del contenitore Servizi di Azure (ACS) nello Stack di Azure. [Kubernetes](https://kubernetes.io) è un sistema open source per automatizzare la distribuzione, la scalabilità e la gestione delle applicazioni nei contenitori. Un [contenitore](https://www.docker.com/what-container) è contenuto in un'immagine, simile a una macchina virtuale. A differenza di una macchina virtuale è solo l'immagine contenitore include le risorse che necessarie per eseguire un'applicazione, ad esempio il codice, runtime per eseguire il codice, librerie specifiche e le impostazioni.
+È possibile installare Kubernetes utilizzando i modelli di gestione risorse di Azure generati dal motore del contenitore Servizi di Azure (ACS) nello Stack di Azure. [Kubernetes](https://kubernetes.io) è un sistema open source per automatizzare la distribuzione, la scalabilità e la gestione delle applicazioni nei contenitori. Un [contenitore](https://www.docker.com/what-container) è contenuto in un'immagine, simile a una macchina virtuale. A differenza di una macchina virtuale, l'immagine contenitore include solo le risorse che necessarie per eseguire un'applicazione, ad esempio il codice, runtime per eseguire il codice, librerie specifiche e le impostazioni.
 
 È possibile utilizzare Kubernetes per:
 
@@ -53,21 +54,23 @@ Per iniziare, verificare che si dispone delle autorizzazioni appropriate e che l
 
 3. Verificare che il portale tenant di Azure Stack si ha una sottoscrizione valida e di avere sufficiente IP pubblico indirizzi disponibili per l'aggiunta di nuove applicazioni.
 
+    Il cluster non può essere distribuito a uno Stack di Azure **amministratore** sottoscrizione. È necessario utilizzare una sottoscrizione utente * *. 
+
 ## <a name="create-a-service-principal-in-azure-ad"></a>Creare un'entità servizio in Azure AD
 
-1. Accedi a globale [portale di Azure](http://www.poartal.azure.com).
-2. Verificare di aver effettuato usando il tenant di Azure AD associato con lo Stack di Azure.
+1. Accedi a globale [portale di Azure](http://portal.azure.com).
+2. Verificare di aver effettuato usando il tenant di Azure AD associato all'istanza dello Stack di Azure.
 3. Creare un'applicazione Azure AD.
 
     a. Selezionare **Azure Active Directory** > **+ App registrazioni** > **nuova registrazione applicazione**.
 
     b. Immettere un **nome** dell'applicazione.
 
-    c. Selezionare **app Web / API**
+    c. Selezionare **app Web / API**.
 
     d. Immettere `http://localhost` per il **Sign-on URL**.
 
-    c. Fare clic su **Crea**
+    c. Fare clic su **Crea**.
 
 4. Annotare il **ID applicazione**. Quando si crea il cluster, sarà necessario l'ID. L'ID viene fatto riferimento come **Client ID dell'entità servizio**.
 
@@ -77,7 +80,7 @@ Per iniziare, verificare che si dispone delle autorizzazioni appropriate e che l
 
     b. Selezionare **non scade mai** per **Expires**.
 
-    c. Selezionare **Salva**. Prendere nota di stringa della chiave. La stringa chiave sarà necessario quando si crea il cluster. La chiave è references come le **privata del Client dell'entità servizio**.
+    c. Selezionare **Salva**. Prendere nota di stringa della chiave. La stringa chiave sarà necessario quando si crea il cluster. La chiave viene fatto riferimento come il **privata del Client dell'entità servizio**.
 
 
 
@@ -103,52 +106,52 @@ Dare l'accesso dell'entità servizio per la sottoscrizione in modo che l'entità
 
 1. Aprire la [portale Azure Stack](https://portal.local.azurestack.external).
 
-2. Selezionare **+ nuova** > **calcolo** > **Kubernetes Cluster**.
+2. Selezionare **+ nuova** > **calcolo** > **Kubernetes Cluster**. Fare clic su **Crea**.
 
-    ![Distribuisci modello di soluzione](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template.png)
+    ![Distribuisci modello di soluzione](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. Selezionare **parametri** in di distribuire il modello di soluzione.
+3. Selezionare **nozioni di base** nella creazione di Cluster Kubernetes.
 
-    ![Distribuisci modello di soluzione](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template-parameters.png)
+    ![Distribuisci modello di soluzione](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Immettere il **nome utente amministrativo Linux**. Nome utente per le macchine virtuali Linux che fanno parte del cluster Kubernetes e DVM.
+2. Immettere il **nome utente amministratore VM Linux**. Nome utente per le macchine virtuali Linux che fanno parte del cluster Kubernetes e DVM.
 
-3. Immettere il **la chiave pubblica SSH** utilizzato per l'autorizzazione a tutti i computer Linux creato come parte del cluster Kubernetes e DVM.
+3. Immettere il **chiave pubblica SSH** utilizzato per l'autorizzazione a tutti i computer Linux creato come parte del cluster Kubernetes e DVM.
 
-4. Immettere il **tenant endpoint**. Si tratta dell'endpoint di gestione risorse di Azure per la connessione per creare il gruppo di risorse per il cluster Kubernetes. È necessario ottenere l'endpoint dall'operatore di Stack di Azure per un sistema integrato. Per il Azure Stack Development Kit (ASDK), è possibile utilizzare `https://management.local.azurestack.external`.
-
-5. Immettere il **ID tenant** per il tenant. Se è necessario trovare questo valore, vedere [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
-
-6. Immettere il **prefisso DNS profilo master** che è univoco per l'area. Deve essere un nome univoco con area geografica, ad esempio `k8s-12345`. Provare a scelto uguale al gruppo di risorse denominare le procedure consigliate.
+4. Immettere il **prefisso DNS profilo Master** che è univoco per l'area. Deve essere un nome univoco con area geografica, ad esempio `k8s-12345`. Provare a scelto uguale al gruppo di risorse denominare le procedure consigliate.
 
     > [!Note]  
     > Per ogni cluster, usare un prefisso DNS nuovi ed esclusivi profilo master.
 
-7. Immettere il numero di agenti nel cluster. Questo valore è noto come il **numero profilo del Pool di agenti**. Può esistere compreso tra 1 e 32
+5. Immettere il **numero profilo del Pool di agenti**. Il conteggio contiene il numero di agenti nel cluster. È possibile da 1 a 4.
 
-8. Immettere il **ID applicazione dell'entità servizio** viene utilizzato dal provider di cloud di Kubernetes Azure.
+6. Immettere il **ClientId dell'entità servizio** viene utilizzato dal provider di cloud di Kubernetes Azure.
 
-9. Immettere il **privata del client dell'entità servizio** creato al momento della creazione dell'applicazione dell'entità servizio.
+7. Immettere il **privata del Client dell'entità servizio** creato al momento della creazione dell'applicazione dell'entità servizio.
 
-10. Immettere il **versione del Provider Cloud Azure Kubernetes**. Si tratta della versione per il provider di Kubernetes Azure. Stack Azure rilascia una compilazione Kubernetes personalizzata per ogni versione di Azure Stack.
+8. Immettere il **versione del Provider Cloud Azure Kubernetes**. Si tratta della versione per il provider di Kubernetes Azure. Stack Azure rilascia una compilazione Kubernetes personalizzata per ogni versione di Azure Stack.
 
-12. Selezionare **OK**.
+9. Selezionare i **sottoscrizione** ID.
 
-### <a name="specify-the-solution-values"></a>Specificare i valori della soluzione
+10. Immettere il nome del nuovo gruppo di risorse o selezionare un gruppo di risorse esistente. Il nome della risorsa deve essere alfanumerico e lettere minuscole.
 
-1. Selezionare il **sottoscrizione**.
+11. Selezionare il **posizione** del gruppo di risorse. Questo è l'area che scelto per l'installazione dello Stack di Azure.
 
-2. Immettere il nome del nuovo gruppo di risorse o selezionare un gruppo di risorse esistente. Il nome della risorsa deve essere alfanumerico e lettere minuscole.
+### <a name="specify-the-azure-stack-settings"></a>Specificare le impostazioni di Azure Stack
 
-3. Immettere il percorso del gruppo di risorse, ad esempio **locale**.
+1. Selezionare il **Azure Stack timbro impostazioni**.
 
-4. Selezionare **creare.**
+    ![Distribuisci modello di soluzione](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+
+2. Immettere il **Tenant Arm Endpoint**. Si tratta dell'endpoint di gestione risorse di Azure per la connessione per creare il gruppo di risorse per il cluster Kubernetes. È necessario ottenere l'endpoint dall'operatore di Stack di Azure per un sistema integrato. Per il Azure Stack Development Kit (ASDK), è possibile utilizzare `https://management.local.azurestack.external`.
+
+3. Immettere il **ID Tenant** per il tenant. Se è necessario trovare questo valore, vedere [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Connetti al cluster
 
-A questo punto si è pronti per la connessione al cluster. È necessario il **kubectl**, il client della riga di comando Kubernetes. È possibile trovare istruzioni su come connettersi e gestire il cluster nella documentazione di servizi di contenitore di Azure.   
+A questo punto si è pronti per la connessione al cluster. Il master è reperibile nel gruppo di risorse cluster ed è denominato `k8s-master-<sequence-of-numbers>`. Utilizzare un client SSH per la connessione al database master. Nello schema, è possibile utilizzare **kubectl**, il client della riga di comando Kubernetes per gestire il cluster. Per istruzioni, vedere [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 
-Per istruzioni, vedere [Connetti al cluster](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough#connect-to-the-cluster).
+È inoltre possibile trovare il **Helm** utili per l'installazione e distribuzione di App per il cluster di gestione pacchetti. Per istruzioni sull'installazione e utilizzo Helm con il cluster, vedere [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

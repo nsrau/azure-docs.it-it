@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/11/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 8e91b4d83aa90a7e744fb8e73cda788dbf8c58ec
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807432"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Eseguire il provisioning di archiviazione su disco di macchina virtuale in Azure Stack
 
@@ -61,7 +62,7 @@ Dopo aver creato una macchina virtuale, è possibile usare il portale per:
 Ogni disco non gestito che si aggiungono deve essere inserita in un contenitore separato.
 
 >[!NOTE]
->I dischi creati e gestiti da Azure sono denominati [dischi gestiti](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview).
+>I dischi creati e gestiti da Azure sono denominati [dischi gestiti](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Usare il portale per creare e collegare un nuovo disco dati
 

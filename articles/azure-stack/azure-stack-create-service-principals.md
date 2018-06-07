@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824571"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Fornire alle applicazioni di accedere allo Stack di Azure
+# <a name="provide-applications-access-to-azure-stack"></a>Fornisci alle applicazioni l'accesso ad Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
@@ -50,7 +51,7 @@ In questa sezione si crea un'applicazione (entità servizio) in Azure AD che rap
 
 È stato creato un'entità servizio per l'applicazione.
 
-### <a name="get-credentials"></a>Ottenere le credenziali
+### <a name="get-credentials"></a>Ottieni credenziali
 Durante l'accesso a livello di codice, utilizzare l'ID per l'applicazione e per un'app Web / API, una chiave di autenticazione. Per ottenere questi valori eseguire la procedura seguente:
 
 1. Da **Registrazioni dell'app** in Active Directory selezionare l'applicazione.

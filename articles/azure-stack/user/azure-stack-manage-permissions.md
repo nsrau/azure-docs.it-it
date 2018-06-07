@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808146"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gestire l'accesso alle risorse con il controllo di accesso Azure Stack Role-Based
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di Azure supporta il controllo di accesso basate sui ruoli (RBAC), lo stesso [modello di sicurezza per la gestione accessi](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) che usa Microsoft Azure. È possibile utilizzare RBAC per gestire utenti, gruppo o l'accesso dell'applicazione per le sottoscrizioni, le risorse e i servizi.
+Stack di Azure supporta il controllo di accesso basate sui ruoli (RBAC), lo stesso [modello di sicurezza per la gestione accessi](https://docs.microsoft.com/azure/role-based-access-control/overview) che usa Microsoft Azure. È possibile utilizzare RBAC per gestire utenti, gruppo o l'accesso dell'applicazione per le sottoscrizioni, le risorse e i servizi.
 
 ## <a name="basics-of-access-management"></a>Nozioni fondamentali sulla gestione dell'accesso
 
-Controllo degli accessi basata su ruoli fornisce controllo di accesso con granularità fine che è possibile utilizzare per proteggere l'ambiente. È concedere agli utenti le autorizzazioni esatte che necessarie tramite l'assegnazione di un ruolo RBAC a un determinato ambito. L'ambito dell'assegnazione del ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa. Lettura di [basata sui ruoli di controllo di accesso nel portale di Azure](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) articolo per ottenere informazioni più dettagliate sulla gestione degli accessi.
+Controllo degli accessi basata su ruoli fornisce controllo di accesso con granularità fine che è possibile utilizzare per proteggere l'ambiente. È concedere agli utenti le autorizzazioni esatte che necessarie tramite l'assegnazione di un ruolo RBAC a un determinato ambito. L'ambito dell'assegnazione del ruolo può essere una sottoscrizione, un gruppo di risorse o una singola risorsa. Lettura di [basata sui ruoli di controllo di accesso nel portale di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview) articolo per ottenere informazioni più dettagliate sulla gestione degli accessi.
 
 ### <a name="built-in-roles"></a>Ruoli predefiniti
 
@@ -59,7 +60,7 @@ Accesso concessa a un ambito padre verrà ereditata in ambiti figlio. Ad esempio
 * Si assegna ruolo TestUser-A il lettore a sottoscrizione-1.
 * Si assegna il ruolo di proprietario di TestUser-A a TestVM-1.
 
-Azure [assegnazioni di ruolo](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) articolo vengono fornite informazioni dettagliate su come visualizzare, assegnare e l'eliminazione di ruoli.
+Azure [assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) articolo vengono fornite informazioni dettagliate su come visualizzare, assegnare e l'eliminazione di ruoli.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>L'ereditarietà e gerarchia di risorse
 
@@ -81,7 +82,7 @@ Accesso concessa a un ambito padre verrà ereditata in ambiti figlio. Ad esempio
 * Si assegna ruolo TestUser-A il lettore a sottoscrizione-1.
 * Si assegna il ruolo di proprietario di TestUser-A a TestVM-1.
 
-Azure [assegnazioni di ruolo](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) articolo vengono fornite informazioni dettagliate su come visualizzare, assegnare e l'eliminazione di ruoli.
+Azure [assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) articolo vengono fornite informazioni dettagliate su come visualizzare, assegnare e l'eliminazione di ruoli.
 
 ## <a name="set-access-permissions-for-a-user"></a>Impostare le autorizzazioni di accesso per un utente
 
