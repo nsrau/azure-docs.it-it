@@ -35,9 +35,9 @@
       href: azure-stack-rest-api-use.md
     - name: Sicurezza e conformità
       items:
-        - name: Gestire il controllo degli accessi in base al ruolo
+        - name: Usare il controllo degli accessi in base al ruolo
           href: azure-stack-manage-permissions.md
-        - name: Creare entità servizio
+        - name: Utilizzare le entità servizio
           href: Azure-stack-create-service-principals.md
     - name: Usare i servizi
       items:
@@ -55,6 +55,8 @@
               href: azure-stack-manage-vm-disks.md
             - name: Proteggere le macchine virtuali
               href: azure-stack-manage-vm-protect.md
+            - name: Considerazioni sulla macchina virtuale SQL Server
+              href: azure-stack-sql-server-vm-considerations.md
         - name: Archiviazione
           items:
             - name: Panoramica
@@ -104,8 +106,8 @@
         - name: Configurare l'ambiente di sviluppo
           items:
             - name: Installare PowerShell per Azure Stack
-              href: azure-stack-powershell-install.md
-            - name: Scaricare gli strumenti
+              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
+            - name: Scaricare strumenti di Azure Stack
               href: azure-stack-powershell-download.md
             - name: Configurare PowerShell - Utente
               href: azure-stack-powershell-configure-user.md
@@ -126,13 +128,13 @@
                   href: azure-stack-version-profiles-python.md
                 - name: Provider di risorse API supportate dai profili
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Usare il modulo criteri
+        - name: Usare il modulo criteri di Azure Stack
           href: azure-stack-policy-module.md
         - name: Usare modelli
           items:
             - name: Panoramica dei modelli
               href: azure-stack-arm-templates.md
-            - name: Sviluppare modelli
+            - name: Considerazioni sui modelli
               href: azure-stack-develop-templates.md
             - name: Controllare modelli
               href: azure-stack-validate-templates.md

@@ -6,19 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724259"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introduzione a nomi IDN per Azure Stack
 
@@ -30,9 +31,9 @@ i nomi IDN è una funzionalità di rete dello Stack di Azure che consente di ris
 
 Con nomi IDN nello Stack di Azure, sono disponibili le seguenti funzionalità, senza dover specificare voci dei server DNS personalizzate:
 
-* Condiviso di servizi di risoluzione DNS per i carichi di lavoro tenant.
-* Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nella rete virtuale del tenant.
-* Servizio Recursive DNS per la risoluzione dei nomi Internet da macchine virtuali tenant. I tenant non è più necessario specificare le voci DNS personalizzate per risolvere i nomi Internet (ad esempio, www.bing.com.)
+- Condiviso di servizi di risoluzione DNS per i carichi di lavoro tenant.
+- Servizio DNS autorevole per la risoluzione dei nomi e la registrazione DNS nella rete virtuale del tenant.
+- Servizio Recursive DNS per la risoluzione dei nomi Internet da macchine virtuali tenant. I tenant non è più necessario specificare le voci DNS personalizzate per risolvere i nomi Internet (ad esempio, www.bing.com.)
 
 È comunque possibile portare il propria DNS e utilizzare i server DNS personalizzati. Tuttavia, tramite nomi IDN, è possibile risolvere i nomi DNS Internet e connettersi ad altre macchine virtuali nella stessa rete virtuale, non è necessario creare voci DNS personalizzate.
 
@@ -48,10 +49,10 @@ Come mostra l'immagine precedente, Azure creerà un record "A" in DNS per l'etic
 
 Stack di Azure supporta solo i nomi IDN per la registrazione del nome interno, pertanto non è possibile eseguire le operazioni seguenti:
 
-* Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external.)
-* Creare una zona DNS (ad esempio, Contoso.com).
-* Creare un record nella zona DNS personalizzato.
-* Supporta l'acquisto di nomi di dominio.
+- Creare un record DNS in una zona DNS ospitato esistente (ad esempio, local.azurestack.external.)
+- Creare una zona DNS (ad esempio, Contoso.com).
+- Creare un record nella zona DNS personalizzato.
+- Supporta l'acquisto di nomi di dominio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
