@@ -7,9 +7,9 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: Linux con DC/OS
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: Controller di dominio/sistema operativo
       href: container-service-dcos-quickstart.md
 - name: Esercitazioni
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: Guide alle procedure
   items:
-    - name: Creare un cluster del servizio contenitore di Azure
-      href: container-service-create-acs-cluster-cli.md
-    - name: Connettersi con un cluster del servizio contenitore di Azure
-      href: container-service-connect.md
     - name: Ridimensionare un cluster del servizio contenitore di Azure
       href: container-service-scale.md
     - name: Controller di dominio/sistema operativo
@@ -69,7 +65,7 @@
           href: container-service-docker-swarm-setup-ci-cd.md
         - name: Integrazione continua e distribuzione continua con Docker Swarm (motore del servizio contenitore di Azure) e VSTS
           href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acs

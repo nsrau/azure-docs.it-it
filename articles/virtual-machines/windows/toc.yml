@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: High Performance Computing (HPC)
           href: sizes-hpc.md
+        - name: Generazioni precedenti
+          href: sizes-previous-gen.md
         - name: Unità di calcolo di Azure
           href: acu.md
         - name: Punteggi di benchmark
@@ -190,7 +192,12 @@
         - name: Assegnare un tag a una VM
           href: tag.md
         - name: Eseguire script in una macchina virtuale
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Estensione di script personalizzati
+              href: ../extensions/custom-script-windows.md
+            - name: Eseguire un comando
+              href: run-command.md
         - name: Modificare la lettera dell'unità temporanea
           href: change-drive-letter.md
         - name: Modificare il set di disponibilità
@@ -329,41 +336,7 @@
         - name: Risoluzione DNS
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Usare le estensioni di VM
-      items:
-        - name: Panoramica delle estensioni di VM
-          href: extensions-features.md
-        - name: Estensione di script personalizzati
-          href: extensions-customscript.md
-        - name: Estensione agente OMS
-          href: extensions-oms.md
-        - name: Estensione DSC di PowerShell
-          href: extensions-dsc-overview.md
-          items:
-            - name: Gestione delle credenziali dell'estensione DSC di PowerShell
-              href: extensions-dsc-credentials.md
-            - name: DSC e set di scalabilità di macchine virtuali con modelli
-              href: extensions-dsc-template.md
-        - name: Estensione Agente di raccolta log di Azure
-          href: log-collector-extension.md
-        - name: Estensione Diagnostica di Azure
-          href: extensions-diagnostics.md
-          items:
-            - name: Schema dell'estensione
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: Abilitare con PowerShell
-              href: ps-extensions-diagnostics.md
-            - name: Abilitare con modelli
-              href: extensions-diagnostics-template.md
-            - name: risoluzione dei problemi
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: Esportazione delle estensioni di VM
-          href: extensions-export-templates.md
-        - name: Risoluzione dei problemi relativi alle estensioni
-          href: extensions-troubleshoot.md
-        - name: Agente Network Watcher
-          href: extensions-nwa.md
-        - name: Limitare l'installazione dell'estensione
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: Eseguire la migrazione di VM
       items:
         - name: Eseguire la migrazione di AWS e macchine virtuali locali

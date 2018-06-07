@@ -52,7 +52,7 @@
     - name: Associare un certificato SSL
       href: app-service-web-tutorial-custom-ssl.md
     - name: Aggiungere una rete CDN
-      href: ../cdn/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json
+      href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Autenticare gli utenti
       href: app-service-web-tutorial-auth-aad.md
     - name: Distribuire le app nel servizio app di Azure con Visual Studio Team Services e l'integrazione continua/distribuzione continua
@@ -73,10 +73,15 @@
       href: azure-web-sites-web-hosting-plans-in-depth-overview.md
     - name: Funzionalità del sistema operativo
       href: web-sites-available-operating-system-functionality.md
+    - name: Sicurezza
+      href: app-service-security.md
+      items:
+        - name: Autenticazione e autorizzazione
+          href: app-service-authentication-overview.md
+        - name: Applicazione di patch a sistema operativo e runtime
+          href: app-service-patch-os-runtime.md
     - name: IP in ingresso e in uscita
       href: app-service-ip-addresses.md
-    - name: Autenticazione e autorizzazione
-      href: app-service-authentication-overview.md
     - name: Connessioni ibride
       href: app-service-hybrid-connections.md
     - name: Integrazione di Gestione traffico
@@ -85,8 +90,6 @@
       href: app-service-local-cache-overview.md
     - name: Diagnostica
       href: app-service-diagnostics.md
-    - name: Applicazione di patch a sistema operativo e runtime
-      href: app-service-patch-os-runtime.md
 - name: Guide alle procedure
   items:
     - name: Configurare un'app
