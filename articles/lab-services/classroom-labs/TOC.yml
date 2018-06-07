@@ -1,0 +1,50 @@
+- name: Documentazione di Lab Services
+  href: /azure/lab-services
+- name: Panoramica
+  items:
+    - name: Informazioni sui lab per le classi
+      href: classroom-labs-overview.md
+    - name: Confrontare i tipi di lab
+      href: ../compare-lab-types.md
+- name: Esercitazioni
+  items:
+    - name: 1. Configurare un account Lab
+      href: tutorial-setup-lab-account.md
+    - name: 2. Configurare un lab per le classi
+      href: tutorial-setup-classroom-lab.md
+    - name: 3. Accedere a un lab per le classi
+      href: tutorial-connect-virtual-machine-classroom-lab.md
+- name: Guide alle procedure
+  items:
+    - name: Gestire gli account Lab
+      href: how-to-manage-lab-accounts.md
+    - name: Gestire i lab per le classi
+      href: how-to-manage-classroom-labs.md
+    - name: Accedere ai lab per le classi
+      href: how-to-use-classroom-lab.md
+- name: Riferimenti
+  items:
+    - name: Interfaccia della riga di comando 2.0
+      href: /cli/azure/lab
+    - name: PowerShell
+      href: '/powershell/module/azurerm.devtestlabs/#devtest_labs'
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/dtl/'
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=developer-tools'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=devtest-lab'
+    - name: Forum di MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDevTestLabs'
+    - name: Blog del team
+      href: 'https://blogs.msdn.microsoft.com/devtestlab/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-devtest-labs'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/devtest-lab/'

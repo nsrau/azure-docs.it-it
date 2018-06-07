@@ -3,16 +3,19 @@ title: "Esercitazione: concedere l'accesso a un'API Web ASP.NET Core da un'app W
 description: Esercitazione su come usare Active Directory B2C per proteggere un'API Web NET Core e chiamarla da un'app a singola pagina.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711094"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web ASP.NET Core da un'app Web a singola pagina usando Azure Active Directory B2C
 
@@ -155,13 +158,15 @@ Per consentire all'app a pagina singola di chiamare l'API Web ASP.NET Core, è n
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. Aprire il file **launchSettings.json** in **Proprietà**, individuare l'impostazione *applicationURL* e registrare il valore per usarlo nella sezione successiva.
+
 ### <a name="configure-the-single-page-app"></a>Configurare l'app a pagina singola
 
 L'app a pagina singola usa Azure Active Directory B2C per l'iscrizione e l'accesso degli utenti e chiama l'API Web protetta ASP.NET Core. È necessario aggiornare l'app a pagina singola per la chiamata dell'API Web .NET Core.
 Per modificare le impostazioni dell'app:
 
 1. Aprire il file `index.html` nell'esempio di app a pagina singola Node.js.
-2. Configurare l'esempio con le informazioni di registrazione tenant di Azure Active Directory B2C. Modificare i valori di **b2cScopes** e **webApi** nelle righe di codice seguenti:
+2. Configurare l'esempio con le informazioni di registrazione tenant di Azure Active Directory B2C. Nel codice seguente aggiungere il nome del tenant a **b2cScopes** e modificare il valore di **webApi** usando il valore di *applicationURL* registrato in precedenza:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ Per modificare le impostazioni dell'app:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

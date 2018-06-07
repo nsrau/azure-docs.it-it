@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Concetti
   items:
-    - name: Concetti relativi ad Agente di raccolta
+    - name: Informazioni sull'agente di raccolta
       href: concepts-collector.md
     - name: Calcoli delle valutazioni
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Guide alle procedure
   items:
-    - name: Eseguire la migrazione delle risorse locali in Azure
+    - name: Serie di migrazione Contoso
       items:
-        - name: Panoramica dello scenario - Eseguire la migrazione delle risorse locali in Azure
-          href: migrate-scenarios-overview.md
-        - name: Scenario 1 - Valutare le risorse locali per la migrazione in Azure
+        - name: 1. Panoramica della migrazione Contoso
+          href: contoso-migration-overview.md
+        - name: 2. Contoso - Configurare un'infrastruttura di Azure
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso - Valutare le risorse locali per la migrazione in Azure
           href: migrate-scenarios-assessment.md
-        - name: Scenario 2 - Migrazione in modalità lift-and-shift ad Azure
+        - name: 4. Contoso - Rehosting in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure
           href: migrate-scenarios-lift-and-shift.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md

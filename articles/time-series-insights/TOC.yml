@@ -14,6 +14,8 @@
   items:
     - name: Esplorare la libreria client JavaScript TSI
       href: tutorial-explore-js-client-lib.md
+    - name: Creare un ambiente TSI
+      href: tutorial-create-populate-tsi-environment.md
 - name: Concetti
   items:
     - name: Pianificare l'ambiente
@@ -56,6 +58,8 @@
       href: time-series-insights-how-to-scale-your-environment.md
     - name: Gestire le risorse usando modelli
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+    - name: Determinare la forma JSON per le query
+      href: how-to-shape-query-json.md
 - name: Riferimenti
   items:
     - name: API di query

@@ -4,8 +4,8 @@ description: Informazioni sulla gestione di condivisioni file di Azure con Azure
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: jeconnoc
-editor: ''
+manager: aungoo
+editor: tamram
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: c796ac54eb21af18d21144a00b633c6b6efc28be
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4a7d39910fac6096ef17873a9f81c5e1d1508857
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34757140"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestione di condivisioni file di Azure con Azure PowerShell 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con PowerShell. In questo articolo viene spiegato come:
@@ -165,7 +166,7 @@ Se ora si elencano i file nella nuova condivisione, verrà visualizzato il file 
 Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Anche se il cmdlet `Start-AzureStorageFileCopy` è utile per gli spostamenti di file ad hoc tra condivisioni file di Azure e contenitori di archiviazione BLOB di Azure, è consigliabile usare AzCopy per gli spostamenti più grandi (in termini di numero o di dimensioni dei file da spostare). Sono disponibili altre informazioni su [AzCopy per Windows](../common/storage-use-azcopy.md) e [AzCopy per Linux](../common/storage-use-azcopy-linux.md). AzCopy deve essere installato in locale, non è disponibile in Cloud Shell 
+Anche se il cmdlet `Start-AzureStorageFileCopy` è utile per gli spostamenti di file ad hoc tra condivisioni file di Azure e contenitori di archiviazione BLOB di Azure, è consigliabile usare AzCopy per gli spostamenti più grandi (in termini di numero o di dimensioni dei file da spostare). Sono disponibili altre informazioni su [AzCopy per Windows](../common/storage-use-azcopy.md) e [AzCopy per Linux](../common/storage-use-azcopy-linux.md). AzCopy deve essere installato in locale, non è disponibile in Cloud Shell. 
 
 ## <a name="create-and-modify-share-snapshots"></a>Creare e modificare gli snapshot di condivisione
 Un'altra utile attività da eseguire con una condivisione file di Azure è la creazione degli snapshot di condivisione. Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di condivisione sono simili alle tecnologie del sistema operativo con cui probabilmente si ha già familiarità, ad esempio:

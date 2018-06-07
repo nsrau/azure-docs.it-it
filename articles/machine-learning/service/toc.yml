@@ -155,6 +155,8 @@
               href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
             - name: Compilare e distribuire modelli di classificazione delle immagini
               href: how-to-build-deploy-image-classification-models.md
+            - name: Creare e distribuire modelli di rilevamento oggetti
+              href: how-to-build-deploy-object-detection-models.md
             - name: Accuratezza del modello
               href: how-to-improve-accuracy-for-computer-vision-models.md
         - name: Previsione
@@ -219,6 +221,8 @@
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi e risoluzione
       href: known-issues-and-troubleshooting-guide.md
+    - name: Esportare o eliminare i dati dell'account
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Supporto e training
       href: support-for-aml-services.md
     - name: Roadmap per Azure

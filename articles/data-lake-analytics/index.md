@@ -1,26 +1,24 @@
 ---
-title: Documentazione di Azure Data Lake Analytics - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: Informazioni su come eseguire analisi di Big Data con Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
+title: Documentazione di Azure Data Lake Analytics - Esercitazioni e informazioni di riferimento sulle API
+description: Informazioni su come eseguire analisi di Big Data con Azure Data Lake Analytics. Le esercitazioni illustrano come eseguire analisi batch, in tempo reale e interattive e come scrivere query U-SQL.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624217"
 ---
-# <a name="data-lake-analytics-documentation"></a>Documentazione di Data Lake Analytics
+# <a name="azure-data-lake-analytics-documentation"></a>Documentazione di Azure Data Lake Analytics
 
-Informazioni su come usare Data Lake Analytics per eseguire processi di analisi su Big Data con scalabilità a set di dati di dimensioni molto grandi. Esercitazioni e altri documenti in cui viene illustrato come creare e gestire processi di analisi in tempo reale e interattive e come creare query tramite il linguaggio U-SQL.
+Informazioni su come usare Azure Data Lake Analytics per eseguire processi di analisi su Big Data con scalabilità a set di dati di dimensioni molto grandi. Esercitazioni e altri documenti in cui viene illustrato come creare e gestire processi di analisi in tempo reale e interattive e come creare query tramite il linguaggio U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,13 +96,12 @@ Informazioni su come usare Data Lake Analytics per eseguire processi di analisi 
         <td><a href="data-lake-analytics-manage-use-cli.md">Interfaccia della riga di comando di Azure</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 
 ---
  
-<h2>riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

@@ -141,6 +141,8 @@
           href: functions-run-local.md
         - name: Sviluppo di Visual Studio
           href: functions-develop-vs.md
+        - name: Gestire le connessioni
+          href: manage-connections.md
         - name: Gestione degli errori
           href: functions-bindings-error-pages.md
     - name: Distribuire
@@ -200,7 +202,11 @@
         - name: Archiviazione BLOB
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
+          items:
+            - name: Funzioni 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: Funzioni 2.x
+              href: functions-bindings-cosmosdb-v2.md
         - name: Griglia di eventi
           href: functions-bindings-event-grid.md
         - name: Hub eventi

@@ -26,7 +26,7 @@
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&term=aci'
     - name: Modelli di Gestione risorse
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Containerinstance'
+      href: container-instances-samples-rm.md
 - name: Concetti
   items:
     - name: Quote e limiti a livello di area
@@ -45,14 +45,14 @@
           href: container-instances-using-azure-container-registry.md
         - name: Impostare le variabili di ambiente (env)
           href: container-instances-environment-variables.md
-        - name: Risolvere i problemi delle distribuzioni
-          href: container-instances-troubleshooting.md
     - name: Gestisci
       items:
         - name: Eseguire un comando (exec)
           href: container-instances-exec.md
         - name: Monitorare l'utilizzo di CPU e memoria
           href: container-instances-monitor.md
+        - name: Registrazione con Azure Log Analytics
+          href: container-instances-log-analytics.md
     - name: Eseguire carichi di lavoro
       items:
         - name: Eseguire attività in contenitori
@@ -69,6 +69,12 @@
           href: container-instances-volume-gitrepo.md
         - name: secret
           href: container-instances-volume-secret.md
+    - name: Risolvere problemi
+      items:
+        - name: Ottenere i log contenitore e gli eventi
+          href: container-instances-get-logs.md
+        - name: Risolvere i problemi comuni
+          href: container-instances-troubleshooting.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -78,7 +84,7 @@
     - name: PowerShell
       href: '/powershell/module/azurerm.containerinstance#container_instances'
     - name: .NET
-      href: /dotnet/api/overview/azure/containerinstances
+      href: /dotnet/api/overview/azure/containerinstance
     - name: Python
       href: /python/api/overview/azure/containerinstance
     - name: Java

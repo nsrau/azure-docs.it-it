@@ -50,8 +50,6 @@
   items:
     - name: Gestisci
       items:
-        - name: Aggiornare un processo
-          href: stream-analytics-job-reliability.md
         - name: Aggiornare le credenziali
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurare gli avvisi
@@ -60,6 +58,10 @@
           href: stream-analytics-test-query.md
         - name: Visualizzare i risultati in un dashboard
           href: stream-analytics-power-bi-dashboard.md
+        - name: Pulire il processo
+          href: stream-analytics-clean-up-your-job.md
+        - name: Associare processi per l'affidabilità
+          href: stream-analytics-job-reliability.md
     - name: Creare soluzioni
       items:
         - name: Analisi del sentiment su Twitter

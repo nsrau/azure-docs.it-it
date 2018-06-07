@@ -9,6 +9,7 @@
 ## [Inviare dati di telemetria (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Inviare dati di telemetria (Java)](quickstart-send-telemetry-java.md)
 ## [Inviare dati di telemetria (Python)](quickstart-send-telemetry-python.md)
+## [Inviare dati di telemetria (iOS)](quickstart-send-telemetry-ios.md)
 ## [Controllare un dispositivo (Node.js)](quickstart-control-device-node.md)
 ## [Controllare un dispositivo (.NET)](quickstart-control-device-dotnet.md)
 ## [Controllare un dispositivo (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Routing dei messaggi](tutorial-routing.md)
+## [Configurare i dispositivi](tutorial-device-twins.md)
+## [Eseguire test della connettività dei dispositivi](tutorial-connectivity.md)
 ## Inviare messaggi da cloud a dispositivo
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.JS](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Introduzione ai dispositivi gemelli
-### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
-### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
-### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-getstarted.md)
-### [Back-end Python/Dispositivo Python](iot-hub-python-twin-getstarted.md)
 ## Introduzione alla gestione dei dispositivi
 ### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-device-management-get-started.md)
 ### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-device-management-get-started.md)
 ### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Back-end Java/Dispositivo Java](iot-hub-java-java-device-management-getstarted.md)
 ### [Back-end Python/Dispositivo Python](iot-hub-python-python-device-management-get-started.md)
-## Come usare le proprietà dei dispositivi gemelli
-### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-how-to-configure.md)
-### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-how-to-configure.md)
-### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-how-to-configure.md)
-### [Back-end Python/Dispositivo Python](iot-hub-python-python-twin-how-to-configure.md)
 ## Usare processi del dispositivo per aggiornarne il firmware
 ### [Back-end Node/Dispositivo Node](iot-hub-node-node-firmware-update.md)
 ### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [Quote e limitazione](iot-hub-devguide-quotas-throttling.md)
 ### [Esempi di prezzi](iot-hub-devguide-pricing.md)
 ### [SDK di servizi e dispositivi](iot-hub-devguide-sdks.md)
+### [Sviluppare per dispositivi vincolati](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Sviluppare per dispositivi mobili](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [Supporto di MQTT](iot-hub-mqtt-support.md)
 ### [Glossario](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.JS](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [Usare IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
 ### [Usare IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ### [Usare il serializzatore](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [Usare IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
 #### [Usare IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 #### [Usare il serializzatore](iot-hub-device-sdk-c-serializer.md)
+### [Sviluppare per dispositivi vincolati](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Sviluppare per dispositivi mobili](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Routing dei messaggi
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.JS](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [Eseguire query sui dati di Avro da una route dell'hub](iot-hub-query-avro-data.md)
 ### Inviare messaggi da cloud a dispositivo
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.JS](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Introduzione ai dispositivi gemelli
+#### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-twin-getstarted.md)
+#### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-twin-getstarted.md)
+#### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Back-end Java/Dispositivo Java](iot-hub-java-java-twin-getstarted.md)
+#### [Back-end Python/Dispositivo Python](iot-hub-python-twin-getstarted.md)
 ### Caricare file da dispositivi
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.JS](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## Pianificare e trasmettere processi
-### [Back-end Node.js/Dispositivo Node.js](iot-hub-node-node-schedule-jobs.md)
-### [Back-end .NET/Dispositivo Node.js](iot-hub-csharp-node-schedule-jobs.md)
-### [Back-end .NET/Dispositivo .NET](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Back-end Java/Dispositivo Java](iot-hub-java-java-schedule-jobs.md)
-### [Back-end Python/Dispositivo Python](iot-hub-python-python-schedule-jobs.md)
 
 ## Creare un hub IoT 
 ### [Usare il portale di Azure](iot-hub-create-through-portal.md)

@@ -12,9 +12,15 @@
 - name: Esercitazioni
   items:
     - name: 'Caricare, codificare ed eseguire lo streaming'
-      href: stream-files-tutorial-with-api.md
+      items:
+        - name: Con .NET
+          href: stream-files-tutorial-with-api.md
+        - name: Con REST
+          href: stream-files-tutorial-with-rest.md
     - name: Analizzare i video
-      href: analyze-videos-tutorial-with-api.md
+      items:
+        - name: Con .NET
+          href: analyze-videos-tutorial-with-api.md
 - name: Esempi
   items:
     - name: Esempi di codice per Azure
@@ -25,18 +31,24 @@
   items:
     - name: Asset
       href: assets-concept.md
-    - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
-      href: autogen-bitrate-ladder.md
+    - name: Codifica
+      items:
+        - name: Panoramica
+          href: encoding-concept.md
+        - name: Generare automaticamente una tabella adattiva di coppie bitrate-risoluzione
+          href: autogen-bitrate-ladder.md
     - name: Intelligenza dei contenuti multimediali
       href: intelligence-concept.md
+    - name: Reazione agli eventi
+      href: reacting-to-media-services-events.md
     - name: Account di archiviazione
       href: storage-account-concept.md
     - name: Trasformazioni e processi
       href: transform-concept.md
-    - name: Reazione agli eventi
-      href: reacting-to-media-services-events.md
 - name: Guide alle procedure
   items:
+    - name: Eseguire la migrazione dalla versione 2 alla versione 3
+      href: migrate-from-v2-to-v3.md
     - name: Creare un account - Interfaccia della riga di comando
       href: create-account-cli-how-to.md
     - name: Accedere alle API - Interfaccia della riga di comando
@@ -49,8 +61,14 @@
           href: job-input-from-http-how-to.md
         - name: Da un file locale
           href: job-input-from-local-file-how-to.md
+    - name: Personalizzare i set di impostazioni di trasformazione
+      items:
+        - name: Con .NET Core
+          href: customize-encoder-presets-how-to.md
 - name: Riferimenti
   items:
+    - name: Specifica OpenAPI (Swagger)
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: Interfaccia della riga di comando di Azure 2.0
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
@@ -61,6 +79,8 @@
       href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+    - name: Node .js
+      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: Schemi degli eventi
       href: media-services-event-schemas.md
 - name: Risorse
@@ -77,3 +97,5 @@
       href: release-notes.md
     - name: Quote e limitazioni
       href: limits-quotas-constraints.md
+    - name: Domande frequenti
+      href: frequently-asked-questions.md

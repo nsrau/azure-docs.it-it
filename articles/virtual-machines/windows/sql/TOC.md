@@ -19,7 +19,8 @@
 #### [Configurare l'integrazione dell'insieme di credenziali delle chiavi di Azure](virtual-machines-windows-ps-sql-keyvault.md)
 ## Backup e ripristino
 ### [Backup e ripristino](virtual-machines-windows-sql-backup-recovery.md)
-### [Backup automatico](virtual-machines-windows-sql-automated-backup.md)
+### [Backup automatico per SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Backup automatico per SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Usare Archiviazione di Azure per il backup e il ripristino](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Guide alle procedure

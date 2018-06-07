@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: High Performance Computing (HPC)
           href: sizes-hpc.md
+        - name: Generazioni precedenti
+          href: sizes-previous-gen.md
         - name: Unità di calcolo di Azure
           href: acu.md
         - name: Punteggi di benchmark
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Usare un modello
           href: create-ssh-secured-vm-from-template.md
+        - name: Usare l'API REST
+          href: create-vm-rest-api.md
         - name: Copiare o clonare una macchina virtuale
           href: copy-vm.md
     - name: Proteggere le macchine virtuali
@@ -188,7 +192,12 @@
         - name: Assegnare un tag a una VM
           href: tag.md
         - name: Eseguire script in una macchina virtuale
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Estensione di script personalizzati
+              href: ../extensions/custom-script-linux.md
+            - name: Eseguire un comando
+              href: run-command.md
         - name: Usare Desktop remoto
           href: use-remote-desktop.md
         - name: Aggiungere una macchina virtuale ad Azure Active Directory
@@ -416,21 +425,7 @@
             - name: Usare un DNS interno
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: Usare le estensioni di VM
-      items:
-        - name: Panoramica delle estensioni di VM
-          href: extensions-features.md
-        - name: Estensione di script personalizzati
-          href: extensions-customscript.md
-        - name: Estensione agente OMS
-          href: extensions-oms.md
-        - name: Estensione di diagnostica Linux
-          href: diagnostic-extension.md
-        - name: Agente Network Watcher
-          href: extensions-nwa.md
-        - name: Estensione VMAccess
-          href: using-vmaccess-extension.md
-        - name: Limitare l'installazione dell'estensione
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: Eseguire la migrazione di VM
       items:
         - name: Eseguire la migrazione di AWS e macchine virtuali locali

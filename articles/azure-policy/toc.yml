@@ -17,26 +17,50 @@
   items:
     - name: Creare e gestire i criteri di Azure
       href: create-manage-policy.md
+    - name: Esplorazione di Criteri di Azure (laboratori pratici)
+      href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Esempi
   items:
-    - name: Modelli di criteri
+    - name: Esempi di Criteri di Azure
       href: json-samples.md
 - name: Concetti
   items:
     - name: Struttura delle definizioni di criteri di Azure
       href: policy-definition.md
+    - name: Informazioni sugli effetti di Criteri
+      href: policy-effects.md
 - name: Guide alle procedure
   items:
     - name: Creare criteri a livello di programmazione
       href: policy-insights.md
+    - name: Raccolta dei dati di conformità
+      href: policy-compliance.md
 - name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
+    - name: API REST
+      items:
+        - name: Eventi
+          href: /rest/api/policy-insights/policyevents
+        - name: Stati
+          href: /rest/api/policy-insights/policystates
+        - name: Assegnazioni
+          href: /rest/api/resources/policyassignments
+        - name: Definizioni dei criteri
+          href: /rest/api/resources/policydefinitions
+        - name: Definizioni delle iniziative
+          href: /rest/api/resources/policysetdefinitions
 - name: Risorse
   items:
+    - name: GitHub - Esempi di Criteri di Azure
+      href: 'https://github.com/Azure/azure-policy'
+    - name: Video - Build 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Video - Ignite 2017
+      href: 'https://myignite.microsoft.com/videos/54781'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calcolatore prezzi
