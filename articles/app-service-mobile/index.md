@@ -5,18 +5,19 @@ services: app-service-mobile
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
+ms.date: 05/25/2018
 ms.author: carolz
-ms.openlocfilehash: d602d833286d1906a2e9bd38d3e99d737146310b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 285a6fc588936e22af3ec48929bc765c1018a413
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597536"
 ---
 # <a name="mobile-apps-documentation"></a>Documentazione sulle app per dispositivi mobili
 
@@ -30,7 +31,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/app-service-mobile.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_learn-about.svg" alt="Mobile Apps" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -48,7 +49,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_video.svg" alt="Videos" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -66,7 +67,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_android.svg" alt="Android" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -84,7 +85,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_cordova.svg" alt="Cordova" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -102,7 +103,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_ios.svg" alt="iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -120,7 +121,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_Windows.svg" alt="Windows" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -138,7 +139,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/media/common/i_mobileapp.svg" alt="Xamarin.Android" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -156,7 +157,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_xamarin.svg" alt="Xamarin.Forms" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -174,7 +175,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="https://docs.microsoft.com/en-us/media/common/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -189,7 +190,7 @@ Informazioni su come usare App per dispositivi mobili nel Servizio app di Azure 
 
 ---
 
-<h2>riferimento</h2>
+<h2>Riferimenti</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">

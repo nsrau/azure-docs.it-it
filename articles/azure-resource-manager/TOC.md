@@ -4,7 +4,7 @@
 ## [Informazioni su Resource Manager](resource-group-overview.md)
 ## [Provider e tipi di risorse](resource-manager-supported-services.md)
 ## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
-## [Governance per le sottoscrizioni](resource-manager-subscription-governance.md)
+## [Governance per le sottoscrizioni](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organizzare le risorse con i gruppi di gestione](management-groups-overview.md)
 
 # Attività iniziali
@@ -50,7 +50,6 @@
 ### [Creare una sottoscrizione EA a livello di programmazione](programmatically-create-subscription.md)
 ### [Creare gruppi di gestione](management-groups-create.md)
 ### [Gestire i gruppi di gestione](management-groups-manage.md)
-### [Esempi di governance](resource-manager-subscription-examples.md)
 
 ## Controllare l'accesso
 ### Creare un'entità servizio
