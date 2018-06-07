@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604421"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Utilizzare i database SQL nello Stack di Microsoft Azure
 Utilizzare il provider di risorse di Azure Stack SQL Server per esporre i database SQL come servizio dello Stack di Azure. Il servizio provider di risorse SQL viene eseguito nel provider di risorse macchina virtuale, che è una macchina virtuale di Windows Server core di SQL.
@@ -29,10 +30,14 @@ Esistono diversi prerequisiti che devono essere presenti prima di poter distribu
 - Se non si è già fatto, [Azure lo Stack di registri](.\azure-stack-registration.md) con Azure in modo che è possibile scaricare gli elementi di Azure marketplace.
 - Aggiungere richiesto Windows Server core VM nel Marketplace Stack Azure scaricando il **Server di Windows Server 2016 core** immagine. Se è necessario installare un aggiornamento, è possibile inserire un singolo. Pacchetto MSU nel percorso locale. Se più oggetti. Il file MSU si trova, installazione del provider di risorse SQL avrà esito negativo.
 - Scaricare il provider di risorse SQL binario, quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea. Il provider di risorse dispone di uno Stack di Azure corrispondente minimo di compilazione. Assicurarsi di scaricare il file binario corretto per la versione dello Stack di Azure in esecuzione:
-    - Stack di Azure versione 1802 (1.0.180302.1): [RP SQL versione 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
-    - Stack di Azure versione 1712 (1.0.180102.3, 1.0.180103.2 o 1.0.180106.1 (sistemi integrati)): [RP SQL versione 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
+
+    |Versione di Azure Stack|Versione di SQL RP|
+    |-----|-----|
+    |Versione 1804 (1.0.180513.1)|[SQL RP versione 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
+    |Versione 1802 (1.0.180302.1)|[RP SQL versione 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versione 1712 (1.0.180102.3, 1.0.180103.2 o 1.0.180106.1 (sistemi integrati))|[RP SQL versione 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
 - Sistemi integrati solo per le installazioni, è necessario fornire il certificato PKI PaaS SQL come descritto nella sezione certificati PaaS facoltativa del [requisiti di infrastruttura a chiave pubblica di Azure Stack distribuzione](.\azure-stack-pki-certs.md#optional-paas-certificates), inserendo il file con estensione pfx nel percorso specificato per il **DependencyFilesLocalPath** parametro.
-- Assicurarsi di aver la [versione più recente di Azure PowerShell Stack](.\azure-stack-powershell-install.md) (v1.2.11) installato. 
 
 ## <a name="deploy-the-sql-resource-provider"></a>Distribuire il provider di risorse SQL
 Dopo aver preparato correttamente per installare il provider di risorse SQL da soddisfare tutti i prerequisiti, è ora possibile eseguire la **DeploySqlProvider.ps1** script per distribuire il provider di risorse SQL. Lo script DeploySqlProvider.ps1 verrà estratte come parte del provider di risorse SQL binario che è stato scaricato corrispondente alla versione dello Stack di Azure. 
@@ -81,10 +86,9 @@ Distribuzione di provider di risorse SQL inizia e crea il gruppo di risorse syst
 Per evitare di immettere manualmente le informazioni necessarie quando viene eseguito lo script DeploySqlProvider.ps1, è possibile personalizzare lo script di esempio riportato di seguito modificando le informazioni sull'account predefinito e le password in base alle esigenze:
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -113,12 +117,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verificare la distribuzione tramite il portale di Azure Stack

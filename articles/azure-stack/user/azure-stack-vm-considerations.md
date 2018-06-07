@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605389"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considerazioni sull'utilizzo di macchine virtuali nello Stack di Azure
 
@@ -102,7 +103,7 @@ L'elenco dei tipi di risorse supportati e le versioni dell'API può variare se l
 In base ai diritti di utilizzo del prodotto e condizioni di licenza Microsoft, è necessario utilizzare prodotti Windows. Usa Azure Stack [attivazione automatica della macchina virtuale](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (l'attivazione automatica della) per attivare le macchine virtuali di Windows Server (VM).
 
 - Host di Stack Azure attiva Windows con le chiavi di attivazione automatica per Windows Server 2016. Tutte le macchine virtuali che eseguono Windows Server 2012 o versioni successive vengono attivate automaticamente.
-- Le macchine virtuali che esecuzione Windows Server 2008 R2 non vengono attivati automaticamente e deve essere attivato utilizzando [attivazione MAK](https://technet.microsoft.com/library/ff793438.aspx).
+- Le macchine virtuali che esecuzione Windows Server 2008 R2 non vengono attivati automaticamente e deve essere attivato utilizzando [attivazione MAK](https://technet.microsoft.com/library/ff793438.aspx). Per utilizzare l'attivazione MAK, è necessario fornire la propria chiave del prodotto.
 
 Microsoft Azure utilizza l'attivazione di gestione delle CHIAVI per attivare le macchine virtuali di Windows. Se si sposta una macchina virtuale dallo Stack di Azure in Azure e di reclami attivare problemi, vedere [problemi di attivazione di macchina virtuale Windows Azure di risolvere i problemi](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Informazioni aggiuntive sono reperibile nel [gli errori di attivazione di risoluzione dei problemi di Windows nelle macchine virtuali di Azure](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) post di blog del Team di supporto di Azure.
 

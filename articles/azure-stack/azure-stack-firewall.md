@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604217"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrazione con firewall di Azure Stack
 È consigliabile che per utilizzare un dispositivo firewall sicura dello Stack di Azure. Sebbene i firewall consente ad esempio attacchi distribuiti di tipo denial of service (DDOS), il rilevamento delle intrusioni e l'ispezione del contenuto, possono anche diventare un collo di bottiglia della velocità effettiva per servizi di archiviazione di Azure come BLOB, tabelle e code.
@@ -48,7 +49,7 @@ In una distribuzione di bordo, Stack di Azure viene distribuito direttamente die
 
 In genere, gli indirizzi IP instradabili pubblici sono specificati per il pool di indirizzi VIP pubblico dalla rete esterna in fase di distribuzione. In uno scenario di edge, è consigliabile non utilizzare indirizzi IP instradabile pubblici su rete per motivi di sicurezza. Questo scenario consente a un utente provare l'esperienza del cloud self-controllata completo come in un cloud pubblico come Azure.  
 
-![Esempio di firewall perimetrale Stack Azure](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Esempio di firewall perimetrale Stack Azure](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranet o perimetrale rete firewall scenario aziendale
 In una distribuzione aziendale intranet o perimetrale dello Stack di Azure viene distribuito su un firewall multi-suddiviso in zone o tra il firewall perimetrale e il firewall della rete aziendale interna. Il traffico viene quindi distribuito tra la rete perimetrale, protetta (o DMZ) e le zone non protette come descritto di seguito:

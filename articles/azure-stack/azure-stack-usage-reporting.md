@@ -3,7 +3,7 @@ title: Report di dati di utilizzo dello Stack di Azure in Azure | Documenti Micr
 description: Informazioni su come impostare i dati di utilizzo reporting nello Stack di Azure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603703"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Report di dati di utilizzo dello Stack di Azure in Azure 
 
@@ -42,7 +43,7 @@ Per configurare Segnalazione errori dati di utilizzo, è necessario [registrare 
 - **Quantità** : quantità di utilizzo delle risorse.
 - **Percorso** : percorso in cui è distribuita la risorsa di Azure Stack corrente.
 - **URI di risorsa** – completo URI della risorsa per cui viene segnalato l'utilizzo.
-- **ID sottoscrizione** : ID sottoscrizione dell'utente dello Stack di Azure. Si tratta della sottoscrizione (di Azure Stack) locale.
+- **ID sottoscrizione** : ID sottoscrizione dell'utente Azure Stack, ovvero la sottoscrizione (Stack di Azure) locale.
 - **Tempo** : ora di inizio e fine dei dati di utilizzo. È un ritardo tra il momento quando vengono utilizzate queste risorse nello Stack di Azure e quando i dati di utilizzo viene segnalati per commerce. Report dati di utilizzo di pipeline commerce in Azure e Azure i dati di utilizzo di funzioni di aggregazione dello Stack per ogni 24 ore accetta un'altra alcune ore. In tal caso, l'utilizzo che si verifica poco prima di mezzanotte potrebbero essere visualizzate in Azure il giorno successivo.
 
 ## <a name="generate-usage-data-reporting"></a>Generare report di dati di utilizzo
@@ -68,7 +69,7 @@ Se è stata registrata utilizzando un altro tipo di sottoscrizione, ad esempio, 
 
    ![flusso di fatturazione](media/azure-stack-usage-reporting/pricing-details.png)
 
-Per il Kit di sviluppo dello Stack di Azure, le risorse di Azure Stack non vengono addebitate in modo, il prezzo viene visualizzato come $0,00. Quando a più nodi di Azure Stack diventano disponibili in genere, è possibile visualizzare il costo effettivo per ognuna di queste risorse.
+Per il Kit di sviluppo dello Stack di Azure, le risorse di Azure Stack non vengono addebitate in modo, il prezzo viene visualizzato come $0,00.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Le distribuzioni cui Stack di Azure vengono addebitate?
 
@@ -82,7 +83,7 @@ Gli utenti vengono addebitati solo per le macchine virtuali che vengono eseguiti
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Dispone di una licenza di Windows Server che si desidera utilizzare nello Stack di Azure, come devo fare?
 
-Utilizzo delle licenze esistenti evita la generazione di controlli di utilizzo. Licenze di Windows Server esistente utilizzabile nello Stack di Azure, come descritto nella sezione "Utilizzo di software esistente con lo Stack di Azure" di [Guida di gestione delle licenze di Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). I clienti devono distribuire le macchine virtuali di Windows Server, come descritto nel [vantaggio ibrido di licenza di Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) argomento per usare le licenze esistenti.
+Utilizzo delle licenze esistenti evita la generazione di controlli di utilizzo. Licenze di Windows Server esistente utilizzabile nello Stack di Azure, come descritto nella sezione "Utilizzo di software esistente con lo Stack di Azure" di [Guida di gestione delle licenze di Azure Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). I clienti devono distribuire le macchine virtuali di Windows Server, come descritto nel [vantaggio ibrido di licenza di Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) articolo per poter utilizzare le licenze esistenti.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>La sottoscrizione è previsto un pagamento per le risorse utilizzate?
 La sottoscrizione che viene fornita quando [registrazione dello Stack di Azure con Azure](azure-stack-register.md) viene addebitato.
@@ -101,7 +102,7 @@ Gli utenti possono visualizzare i dati di utilizzo dello Stack di Azure nel file
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Perché l'utilizzo registrata nello Stack di Azure non corrisponda il report generato da centro Account Azure?
 
-È sempre un delaybetween i dati di utilizzo ha segnalati l'utilizzo di Azure Stack API e i dati di utilizzo riportati dal centro Account Azure... Questo ritardo rappresenta il tempo necessario per caricare dati di utilizzo dallo Stack di Azure in Azure commerce. A causa di questo ritardo, utilizzo che si verifica poco prima di mezzanotte potrebbero essere visualizzate in Azure il giorno successivo. Se si utilizza il [Azure Stack utilizzo API](azure-stack-provider-resource-api.md)e confrontare i risultati per l'utilizzo indicato nel portale di fatturazione di Azure, si noterà una differenza.
+Si verifica sempre un ritardo tra i dati di utilizzo segnalati dall'utilizzo di Azure Stack API e i dati di utilizzo segnalati dal centro Account Azure. Questo ritardo rappresenta il tempo necessario per caricare dati di utilizzo dallo Stack di Azure in Azure commerce. A causa di questo ritardo, utilizzo che si verifica poco prima di mezzanotte potrebbero essere visualizzate in Azure il giorno successivo. Se si utilizza il [Azure Stack utilizzo API](azure-stack-provider-resource-api.md)e confrontare i risultati per l'utilizzo indicato nel portale di fatturazione di Azure, si noterà una differenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

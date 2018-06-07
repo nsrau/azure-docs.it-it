@@ -1,30 +1,30 @@
 ---
-title: Strumenti per l'archiviazione di Azure Stack
+title: Strumenti per l'archiviazione di Azure Stack | Documenti Microsoft
 description: Informazioni sui dati di archiviazione di Azure Stack gli strumenti di trasferimento
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3fb18a001c7cfb30b642c8bfaaeef656f96a4900
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604727"
 ---
-# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizzare gli strumenti di trasferimento dei dati dello Stack di archiviazione di Azure
+# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Utilizzare gli strumenti di trasferimento dei dati per l'archiviazione di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di Microsoft Azure fornisce un set di servizi di archiviazione per i dischi, BLOB, tabelle, code e le funzioni di gestione di account. Se si desidera gestire oppure spostare i dati da o verso dello Stack di archiviazione di Azure, è possibile utilizzare un set di strumenti di archiviazione di Azure. In questo articolo viene fornita una panoramica degli strumenti disponibili.
+Stack di Microsoft Azure fornisce un set di servizi di archiviazione per i dischi, BLOB, tabelle, code e le funzioni di gestione di account. Se si desidera gestire oppure spostare i dati in o da archiviazione di Azure Stack, è possibile utilizzare un set di strumenti di archiviazione di Azure. In questo articolo viene fornita una panoramica degli strumenti disponibili.
 
 I requisiti di determinano quale dei seguenti strumenti più adatta:
 
@@ -44,7 +44,7 @@ I requisiti di determinano quale dei seguenti strumenti più adatta:
 
     Un'app autonoma da usare con un'interfaccia utente.
 
-A causa delle differenze servizi di archiviazione tra Azure e Azure Stack, potrebbero essere presenti alcuni requisiti specifici per ogni strumento descritto nelle sezioni seguenti. Per un confronto tra Azure Stack archiviazione e di archiviazione di Azure, vedere [dello Stack di archiviazione di Azure: considerazioni e le differenze](azure-stack-acs-differences.md).
+A causa delle differenze servizi di archiviazione tra Azure e Azure Stack, potrebbero essere presenti alcuni requisiti specifici per ogni strumento descritto nelle sezioni seguenti. Per un confronto tra Azure Stack archiviazione e di archiviazione di Azure, vedere [archiviazione di Azure Stack: considerazioni e le differenze](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -102,9 +102,9 @@ azcopy \
     --dest-key <key>
 ````
 
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Spostare dati tra Azure e Stack di archiviazione di Azure
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Spostare i dati tra l'archiviazione di Azure e Azure Stack
 
-Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È necessario specificare il trasferimento con il **/SyncCopy** oppure **-sync-copia** opzione.
+Trasferimento asincrono dei dati tra archiviazione di Azure e Azure Stack non è supportata. È necessario specificare il trasferimento con il **/SyncCopy** oppure **-sync-copia** opzione.
 
 **Windows**
 
@@ -127,7 +127,7 @@ azcopy \
 ### <a name="azcopy-known-issues"></a>Azcopy problemi noti
 
  - Qualsiasi operazione AzCopy su un archivio di file non è disponibile perché l'archiviazione di file non è ancora disponibile nello Stack di Azure.
- - Trasferimento asincrono dei dati tra l'archiviazione di Azure e Azure Stack non è supportato. È possibile specificare il trasferimento tramite il **/SyncCopy** opzione per copiare i dati.
+ - Trasferimento asincrono dei dati tra archiviazione di Azure e Azure Stack non è supportata. È possibile specificare il trasferimento tramite il **/SyncCopy** opzione per copiare i dati.
  - La versione Linux di Azcopy supporta solo 1802 update o versioni successive. E non supporta il servizio tabelle.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -150,7 +150,7 @@ In questo esempio si supponga di avere completato [installato PowerShell per Azu
    > [!NOTE]
    > Questo script deve essere eseguito nella directory radice **AzureStack_Tools**.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -213,21 +213,21 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>Problemi noti di PowerShell
 
-La versione del modulo Azure PowerShell compatibile corrente per lo Stack di Azure è 1.2.12. È diversa dalla versione più recente di Azure PowerShell. Questa differenza influisce sull'operazione di servizi di archiviazione:
+La versione del modulo Azure PowerShell compatibile corrente per lo Stack di Azure è 1.3.0. È diversa dalla versione più recente di Azure PowerShell. Questa differenza influisce sull'operazione di servizi di archiviazione:
 
-* Il formato del valore restituito del `Get-AzureRmStorageAccountKey` nella versione 1.2.12 ha due proprietà: `Key1` e `Key2`, mentre la versione corrente di Azure restituisce una matrice che contiene tutte le chiavi dell'account.
+* Il formato del valore restituito del `Get-AzureRmStorageAccountKey` nella versione 1.3.0 ha due proprietà: `Key1` e `Key2`, mentre la versione corrente di Azure restituisce una matrice che contiene tutte le chiavi dell'account.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -242,11 +242,11 @@ L'interfaccia CLI di Azure è l'esperienza della riga di comando di Azure per la
 
 CLI di Azure è ottimizzato per gestire e amministrare le risorse di Azure dalla riga di comando e per la creazione di script di automazione che funzionano con Gestione risorse di Azure. Offre inoltre molte delle funzioni disponibili nel portale di Azure Stack, incluso l'accesso a dati complessi.
 
-Stack di Azure richiede Azure CLI versione 2.0. Per ulteriori informazioni sull'installazione e configurazione CLI di Azure con lo Stack di Azure, vedere [installare e configurare Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Per ulteriori informazioni su come usare l'interfaccia CLI di Azure 2.0 per eseguire diverse attività di utilizzo delle risorse nell'account di archiviazione di Azure Stack, vedere [utilizzando CLI2.0 di Azure con l'archiviazione di Azure](../../storage/storage-azure-cli.md)
+Stack di Azure richiede Azure CLI versione 2.0. Per ulteriori informazioni sull'installazione e configurazione CLI di Azure con lo Stack di Azure, vedere [installare e configurare Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). Per ulteriori informazioni su come usare l'interfaccia CLI di Azure 2.0 per eseguire diverse attività di utilizzo delle risorse nell'account di archiviazione Azure Stack, vedere [utilizzando il CLI2.0 Azure con archiviazione di Azure](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Script di esempio CLI Azure per lo Stack di Azure
 
-Dopo aver completato l'installazione di CLI e la configurazione, è possibile provare la procedura seguente per lavorare con uno script di esempio piccola shell per interagire con le risorse di archiviazione di Azure dello Stack. Lo script consente di completare le azioni seguenti:
+Dopo aver completato l'installazione di CLI e la configurazione, è possibile provare la procedura seguente per funzionare con uno script di esempio piccola della shell per interagire con le risorse di archiviazione di Azure Stack. Lo script consente di completare le azioni seguenti:
 
 * Crea un nuovo contenitore nell'account di archiviazione.
 * Carica un file esistente (come un blob) nel contenitore.
@@ -263,7 +263,7 @@ Prima di eseguire questo script, assicurarsi che è possibile correttamente conn
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -292,17 +292,18 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
-## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+## <a name="microsoft-azure-storage-explorer"></a>Esplora archivi Microsoft Azure
 
-Microsoft Azure Storage Explorer è un'app autonoma da Microsoft. È possibile utilizzare facilmente con archiviazione di Azure e Azure Stack archiviazione dati in Windows, macOS e i computer Linux. Se si desidera un modo semplice per gestire i dati dello Stack di archiviazione di Azure, utilizzare Microsoft Azure Storage Explorer.
+Microsoft Azure storage explorer è un'app autonoma da Microsoft. È possibile utilizzare facilmente con l'archiviazione di Azure e Azure Stack l'archiviazione dei dati in Windows, macOS e i computer Linux. Se si desidera un modo semplice per gestire i dati di archiviazione Azure Stack, quindi utilizzare Esplora archivi Microsoft Azure.
 
-* Per ulteriori informazioni sulla configurazione di Azure Storage Explorer per lavorare con lo Stack di Azure, vedere [connettere Esplora archivi a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md).
-* Per altre informazioni su Microsoft Azure Storage Explorer, vedere [iniziare a usare Esplora archivi](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* Per ulteriori informazioni sulla configurazione di soluzioni di archiviazione di Azure per funzionare con lo Stack di Azure, vedere [Esplora archivi Connetti a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md).
+* Per altre informazioni su Esplora archivi Microsoft Azure, vedere [iniziare a usare Esplora archivi](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Esplora archivi di connettersi a una sottoscrizione di Azure Stack](azure-stack-storage-connect-se.md)
 * [Introduzione a Esplora archivi](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Archiviazione di Azure-coerente: considerazioni e le differenze](azure-stack-acs-differences.md)
-* [Introduzione ad Archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduzione all'archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)

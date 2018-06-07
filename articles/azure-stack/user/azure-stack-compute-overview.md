@@ -6,30 +6,34 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604132"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introduzione alle macchine virtuali in Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-## <a name="overview"></a>Panoramica
-Una macchina virtuale di Stack di Azure (VM) è un tipo di una risorsa di calcolo su richiesta e scalabile che offre Azure Stack. In genere, la scelta ricade su una VM se è necessario maggiore controllo dell'ambiente di calcolo rispetto a quanto offerto dalle altre soluzioni. Questo articolo fornisce informazioni sugli aspetti da tenere in considerazione prima di creare una VM e sulla relativa modalità di creazione e gestione.
+Stack di Azure offre le macchine virtuali (VM) come un tipo di una risorsa di calcolo su richiesta e scalabile. È possibile scegliere una macchina virtuale quando è necessario un maggiore controllo sull'ambiente informatico rispetto alle altre opzioni. Questo articolo fornisce informazioni dettagliate prima di creare la macchina virtuale.
 
 Una macchina virtuale dello Stack di Azure offre la flessibilità della virtualizzazione senza la necessità di gestire i cluster o singoli computer. Tuttavia, è ancora necessario mantenere la macchina virtuale eseguendo attività quali la configurazione, l'applicazione di patch e installare il software che viene eseguita su di esso.
 
 È possibile utilizzare le macchine virtuali di Azure Stack in vari modi. Ad esempio: 
 
-* **Sviluppo e test** : le macchine virtuali di Azure Stack offrono una rapida e necessarie per creare un computer con una configurazione specifica di codice e testare un'applicazione.
+- **Sviluppo e test**  
+    Macchine virtuali di Azure Stack offrono un modo rapido e semplice per creare un computer con una configurazione specifica necessaria al codice e testare un'applicazione.
 
-* **Le applicazioni nel cloud** : perché è richiesta per l'applicazione può variare, potrebbe essere utile economico per l'esecuzione in una macchina virtuale nello Stack di Azure. È possibile pagare per VM aggiuntive quando sono necessarie e arrestarle quando non sono richieste.
+- **Applicazioni nel cloud**  
+    Poiché la domanda per l'applicazione può variare, potrebbe essere utile economico per l'esecuzione in una macchina virtuale nello Stack di Azure. È possibile pagare per VM aggiuntive quando sono necessarie e arrestarle quando non sono richieste.
 
-* **Estesi datacenter** – macchine virtuali in una rete virtuale di Azure Stack può facilmente essere connesso alla rete dell'organizzazione o in Azure.
+- **Data Center estesa**  
+    Macchine virtuali in una rete virtuale di Azure Stack facilmente può essere connesso alla rete dell'organizzazione o in Azure.
 
 Le macchine virtuali usate dall'applicazione possono applicare la scalabilità verticale e scalabilità orizzontale al percorso in cui è richiesto in base alle esigenze.
 
@@ -37,12 +41,12 @@ Le macchine virtuali usate dall'applicazione possono applicare la scalabilità v
 
 Sono sempre presenti diverse considerazioni di progettazione quando si compila un'infrastruttura dell'applicazione nello Stack di Azure. Questi aspetti di una macchina virtuale sono importanti da considerare prima di iniziare la creazione dell'infrastruttura:
 
-* I nomi delle risorse dell'applicazione.
-* Le dimensioni della macchina virtuale.
-* Il numero massimo di macchine virtuali che possono essere creati.
-* Il sistema operativo che esegue la macchina virtuale.
-* La configurazione della macchina virtuale dopo l'avvio.
-* Risorse correlate, che la macchina virtuale.
+- I nomi delle risorse dell'applicazione.
+- Le dimensioni della macchina virtuale.
+- Il numero massimo di macchine virtuali che possono essere creati.
+- Il sistema operativo che esegue la macchina virtuale.
+- La configurazione della macchina virtuale dopo l'avvio.
+- Risorse correlate, che la macchina virtuale.
 
 ### <a name="naming"></a>Denominazione
 
@@ -78,9 +82,14 @@ Nella tabella seguente vengono illustrati alcuni metodi che è possibile trovare
 Le estensioni VM offrono le funzionalità aggiuntive di macchina virtuale tramite post-configurazione di distribuzione e attività automatizzate.
 È possibile eseguire le seguenti attività comuni tramite le estensioni:
 
-* Eseguire gli script personalizzati: l'estensione Script personalizzata consente di configurare i carichi di lavoro della macchina virtuale eseguendo lo script quando viene eseguito il provisioning della macchina virtuale.
-* Distribuire e gestire le configurazioni: estensione di PowerShell DSC Desired State Configuration () consente di impostare DSC in una macchina virtuale per gestire le configurazioni e ambienti.
-* I dati di diagnostica raccolta: l'estensione di diagnostica di Azure consentono di configurare la macchina virtuale per raccogliere dati di diagnostica che possono essere utilizzati per monitorare l'integrità dell'applicazione.
+- **Eseguire gli script personalizzati**  
+    L'estensione dello Script personalizzata consente di configurare i carichi di lavoro della macchina virtuale eseguendo lo script quando viene eseguito il provisioning della macchina virtuale.
+
+- **Distribuire e gestire le configurazioni**  
+    L'estensione di PowerShell DSC Desired State Configuration () consente di configurare DSC in una macchina virtuale per gestire le configurazioni e ambienti.
+
+- **Raccogliere dati di diagnostica**  
+    L'estensione di diagnostica Azure consente di configurare la macchina virtuale per raccogliere i dati di diagnostica che possono essere utilizzati per monitorare l'integrità dell'applicazione.
 
 ### <a name="related-resources"></a>Risorse correlate
 
@@ -96,7 +105,7 @@ Le risorse nella tabella seguente vengono utilizzate dalla macchina virtuale e d
 |interfaccia di rete|Sì|La VM richiede l'interfaccia di rete per comunicare in rete.|
 |Dischi dati|No |La VM può includere dischi dati per espandere le funzionalità di archiviazione.|
 
-## <a name="how-do-i-create-my-first-vm"></a>Come creare la prima VM
+## <a name="create-your-first-vm"></a>Creare la prima macchina virtuale
 
 Sono disponibili diverse opzioni per creare una macchina virtuale. La scelta dipende dall'ambiente.
 Nella tabella seguente fornisce informazioni per iniziare a creare la macchina virtuale.
@@ -109,16 +118,16 @@ Nella tabella seguente fornisce informazioni per iniziare a creare la macchina v
 |PowerShell|[Creare una macchina virtuale Windows usando PowerShell nello Stack di Azure](azure-stack-quick-create-vm-windows-powershell.md)<br>[Creare una macchina virtuale Linux usando PowerShell nello Stack di Azure](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Creare una macchina virtuale Windows usando l'interfaccia CLI nello Stack di Azure](azure-stack-quick-create-vm-windows-cli.md)<br>[Creare una macchina virtuale Linux usando l'interfaccia CLI nello Stack di Azure](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Modalità di gestione della VM creata
+## <a name="manage-your-vm"></a>Gestire la macchina virtuale
 
 È possibile gestire le macchine virtuali tramite un portale basato sul browser, gli strumenti da riga di comando con supporto per lo script o direttamente tramite le API. Alcune attività di gestione comuni che è possibile eseguire sono:
 
-* Recupero di informazioni su una macchina virtuale
-* La connessione a una macchina virtuale
-* La gestione della disponibilità
-* La creazione di backup
+- Recupero di informazioni su una macchina virtuale
+- La connessione a una macchina virtuale
+- La gestione della disponibilità
+- La creazione di backup
 
-### <a name="get-information-about-a-vm"></a>Visualizzare informazioni su una macchina virtuale
+### <a name="get-information-about-your-vm"></a>Ottenere informazioni della macchina virtuale
 
 La tabella seguente illustra alcuni modi per ottenere informazioni su una macchina virtuale.
 
@@ -129,10 +138,10 @@ La tabella seguente illustra alcuni modi per ottenere informazioni su una macchi
 |Azure PowerShell|La gestione di macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni sull'utilizzo di PowerShell, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows con il modulo PowerShell di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |Client SDK|Usa c# per gestire le macchine virtuali è simile in Azure e Azure Stack. Per ulteriori informazioni, vedere l'argomento di Azure seguente:<br>[Creare e gestire macchine virtuali di Windows in Azure utilizzando il linguaggio c#](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>Connettersi alla VM
+### <a name="connect-to-your-vm"></a>Connettersi alla macchina virtuale
 
 È possibile utilizzare il **Connetti** pulsante nel portale di Azure Stack per connettersi alla macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md)
+- [Considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md)

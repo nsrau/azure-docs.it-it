@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9154f509f9019c28515970869678aa6633d16163
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603617"
 ---
 # <a name="update-the-sql-resource-provider-adapter"></a>Aggiornare l'adapter di provider di risorse SQL
 Un nuovo adattatore di provider di risorse SQL potrebbe essere rilasciato quando vengono aggiornate le compilazioni di Stack di Azure. Mentre l'adapter esistente continua a funzionare, si consiglia di aggiornare appena possibile per la build più recente. Gli aggiornamenti devono essere installati nell'ordine: non è possibile ignorare le versioni (vedere l'elenco di versioni nel [distribuire i prerequisiti di provider di risorse](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
@@ -37,10 +38,9 @@ Di seguito è riportato un esempio del *UpdateSQLProvider.ps1* script che è pos
 > Il processo di aggiornamento si applica solo ai sistemi integrati.
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

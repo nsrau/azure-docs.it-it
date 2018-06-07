@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604285"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Aggiungere un provider di risorse del servizio App a un ambiente Azure Stack disconnesso protetto da AD FS
 
@@ -81,6 +82,12 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
     1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
         - Specificare l'account amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
     2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
+    
+    > [!NOTE]
+    > Servizio App può essere distribuito solo nel **sottoscrizione Provider predefinito** in questo momento.  In un futuro aggiornamento servizio App verrà distribuito nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
+    >
+    >
+    
     3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
     4. Fare clic su **Avanti**.
 
@@ -96,12 +103,12 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
     ![Programma di installazione del servizio App][5]
 
-9. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo o indirizzo IP del Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+9. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo o indirizzo IP del Server. Ad esempio \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites
 
-> [!NOTE]
-> Il programma di installazione tenta di verificare la connettività per la condivisione file prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi per la condivisione file e viene visualizzato un avviso, in cui viene chiesto se si desidera continuare.  Verificare le informazioni sulla condivisione file e continuare se sono corrette.
->
->
+    > [!NOTE]
+    > Il programma di installazione tenta di verificare la connettività per la condivisione file prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi alla condivisione file e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni sulla condivisione file e continuare se sono corrette.
+    >
+    >
 
    ![Programma di installazione del servizio App][8]
 
@@ -128,10 +135,10 @@ Per distribuire il servizio App in un ambiente disconnesso, è innanzitutto nece
 
 12. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL. Si **necessario** immettere l'indirizzo ip interno o nome di dominio completo per il nome del Server SQL.
 
-> [!NOTE]
-> Il programma di installazione tenta di verificare la connettività a SQl Server prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi a SQL Server e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni di SQL Server e continuare se sono corrette.
->
->
+    > [!NOTE]
+    > Il programma di installazione tenta di verificare la connettività a SQl Server prima di procedere.  Tuttavia, se si sceglie di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi a SQL Server e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni di SQL Server e continuare se sono corrette.
+    >
+    >
    
    ![Programma di installazione del servizio App][12]
 

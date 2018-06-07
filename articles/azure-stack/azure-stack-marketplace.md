@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605570"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>La panoramica di Azure Marketplace di Stack
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 Marketplace è una raccolta di servizi, applicazioni e risorse personalizzate per lo Stack di Azure. Le risorse includono reti, le macchine virtuali, archiviazione e così via. Gli utenti sono qui per creare nuove risorse e distribuire le nuove applicazioni. Può essere considerato come un catalogo di acquisto in cui gli utenti possono individuare e selezionare gli elementi che si desidera utilizzare. Per utilizzare un elemento del Marketplace, gli utenti è necessario sottoscrivere un'offerta che concede l'accesso all'elemento.
 
 Come operatore di Stack di Azure, si decide che gli elementi da aggiungere (pubblica) per il Marketplace. È possibile pubblicare elementi quali database, servizi di App e così via. Pubblicazione li rende visibile a tutti gli utenti. È possibile pubblicare gli elementi personalizzati creati. È anche possibile pubblicare elementi da un aumento delle dimensioni [elenco di elementi di Azure Marketplace](azure-stack-marketplace-azure-items.md). Quando si pubblica un elemento nel Marketplace, gli utenti possono visualizzarlo entro cinque minuti.
+
+> [!Caution]  
+> Tutti gli elementi di elemento della raccolta noti come immagini e i file json sono accessibili senza autenticazione dopo rendendoli disponibili in marketplace dello Stack di Azure. Per altre considerazioni quando si pubblicano elementi del marketplace personalizzati, vedere [creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
 Per aprire il Marketplace, nella console di amministrazione selezionare **New**.
 

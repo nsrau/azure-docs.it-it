@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 095356e76dc72c3e549c23ab3855962e9c2f1d26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603945"
 ---
 # <a name="azure-stack-1803-update"></a>Aggiornamento dello Stack 1803 Azure
 
@@ -56,7 +57,7 @@ In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 - Dopo l'installazione di 1803, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).
 
-  - [KB 4103348 - servizio API di Controller di rete si blocca quando si tenta di installare un aggiornamento dello Stack di Azure](https://support.microsoft.com/en-us/help/4103348)
+  - [KB 4294441 - operazioni rispetto ai tenant le risorse non e condivisioni impreviste vengono create nel tenant stesso o volume dell'infrastruttura](https://support.microsoft.com/en-us/help/4294441)
 
 - Dopo aver installato questo aggiornamento, esaminare la configurazione del firewall per garantire [porte necessarie](azure-stack-integrate-endpoints.md) sono aperte. Ad esempio, questo aggiornamento introduce monitoraggio di Azure che include una modifica dei registri di controllo per i log di attività. Con questa modifica, porta 13012 viene ora usata e deve essere aperta anche.  
 
@@ -110,6 +111,9 @@ Questo aggiornamento include i seguenti miglioramenti e correzioni per lo Stack 
 Di seguito sono i problemi noti di post-installazione per la compilazione **20180323.2**.
 
 #### <a name="portal"></a>Portale
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Soluzione alternativa: Per risolvere questo problema dopo aver installato questo aggiornamento, passaggio 3 da utilizzare il [automazione Trigger per configurare le attestazioni trust del provider in Stack Azure](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure per reimpostare il proprietario della sottoscrizione del provider predefinito.   
+
 - Il possibilità [per aprire una nuova richiesta di supporto nell'elenco a discesa](azure-stack-manage-portals.md#quick-access-to-help-and-support) all'interno di amministratore del portale non è disponibile. In alternativa, usare il collegamento seguente:     
     - Per lo Stack di Azure usare sistemi integrati, https://aka.ms/newsupportrequest.
 
@@ -131,7 +135,23 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
   Questo avviso può essere tranquillamente ignorato. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Avviso #1:
+   - NOME: Ruolo di infrastruttura non integro
+   - GRAVITÀ: avviso
+   - COMPONENTI: Controllo di integrità
+   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò potrebbe influire su rapporti di stato e le metriche.  
+
+  Avviso #2:
+   - NOME: Ruolo di infrastruttura non integro
+   - GRAVITÀ: avviso
+   - COMPONENTI: Controllo di integrità
+   - Descrizione: Il controller di integrità scanner di codici di errore non è disponibile. Ciò potrebbe influire su rapporti di stato e le metriche.
+
+  Entrambi gli avvisi possono essere tranquillamente ignorati. Verrà chiusa automaticamente nel corso del tempo.  
+
 
 #### <a name="marketplace"></a>Marketplace
 - Gli utenti di sfogliare il marketplace completo senza una sottoscrizione e possono vedere gli elementi di amministrazione come piani e le offerte. Questi elementi sono non funzionale agli utenti.
@@ -143,7 +163,7 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 
 - Quando si crea un set di disponibilità in del portale, passare a **New** > **calcolo** > **set di disponibilità**, è possibile creare solo un set di disponibilità con un dominio di errore e dominio di aggiornamento 1. In alternativa, quando si crea una nuova macchina virtuale, creare il set tramite l'interfaccia CLI, PowerShell o dall'interno di disponibilità il portale.
 
-- Quando si creano macchine virtuali nel portale per gli utenti dello Stack di Azure, il portale consente di visualizzare un numero errato di dischi dati che è possibile collegare a una VM di serie DS. Macchine virtuali di serie DS possono contenere tutti i dischi di dati come la configurazione di Azure.
+- Quando si creano macchine virtuali nel portale per gli utenti dello Stack di Azure, il portale consente di visualizzare un numero errato di dischi dati che è possibile collegare a una VM di serie D. Tutte le serie D supportate macchine virtuali possono contenere tutti i dischi di dati come la configurazione di Azure.
 
 - Quando non è stato possibile creare un'immagine di macchina virtuale, un elemento non riuscito che è possibile eliminare potrebbe essere aggiunti al pannello di calcolo di immagini della macchina virtuale.
 
@@ -264,6 +284,8 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Download degli strumenti di Azure Stack da GitHub
 - Quando si utilizza il *invoke-webrequest* da Github degli strumenti cmdlet di PowerShell per scaricare lo Stack di Azure, viene visualizzato un errore:     

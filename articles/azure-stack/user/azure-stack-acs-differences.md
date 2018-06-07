@@ -1,40 +1,41 @@
 ---
-title: 'Stack di archiviazione Azure: Considerazioni e le differenze'
-description: Comprendere le differenze tra lo Stack di archiviazione di Azure e l'archiviazione di Azure, insieme a considerazioni sulla distribuzione di Azure Stack.
+title: Considerazioni e le differenze di archiviazione di Azure stack | Documenti Microsoft
+description: Comprendere le differenze tra l'archiviazione di Azure stack e archiviazione di Azure, insieme alle considerazioni sulla distribuzione di Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604461"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Stack di archiviazione Azure: Considerazioni e le differenze
+# <a name="azure-stack-storage-differences-and-considerations"></a>Archiviazione di Azure dello stack: considerazioni e le differenze
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Stack di archiviazione di Azure è il set di servizi di archiviazione cloud in Microsoft Azure Stack. Stack di archiviazione di Azure fornisce blob, tabelle, code e funzionalità di gestione di account con semantica coerente con Azure.
+Archiviazione di Azure stack è il set di servizi di archiviazione cloud in Microsoft Azure Stack. Archiviazione di Azure stack fornisce blob, tabelle, code e funzionalità di gestione di account con semantica coerente con Azure.
 
-In questo articolo riepiloga le differenze dello Stack di archiviazione di Azure note da servizi di archiviazione di Azure. Elenca inoltre aspetti da considerare quando si distribuisce Azure Stack. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
+In questo articolo riepiloga le differenze dello Stack di archiviazione di Azure note da servizi di archiviazione di Azure. Elenca inoltre aspetti da considerare quando si distribuisce Azure Stack. Per ulteriori informazioni sulle differenze generali tra globale Azure e Stack di Azure, vedere la [chiave considerazioni](azure-stack-considerations.md) argomento.
 
 ## <a name="cheat-sheet-storage-differences"></a>Schede di riferimento rapido: differenze di archiviazione
 
 | Funzionalità | Azure (globale) | Azure Stack |
 | --- | --- | --- |
 |Archiviazione file|Basato su cloud di condivisioni file SMB è supportate|Non è ancora supportato
-|Crittografia del servizio di archiviazione di Azure per dati inattivi|crittografia AES a 256 bit|Crittografia AES a 128 bit BitLocker
-|Tipo di account di archiviazione|Account di archiviazione Blob di Azure e di utilizzo generale|Utilizzo generale solo.
+|Crittografia del servizio di archiviazione di Azure per i dati inattivi|crittografia AES a 256 bit|Crittografia AES a 128 bit BitLocker
+|Tipo di account di archiviazione|Account di archiviazione blob di uso generale e Azure|Utilizzo generale solo.
 |Opzioni di replica|Archiviazione con ridondanza locale, l'archiviazione con ridondanza geografica, l'archiviazione con ridondanza geografica e accesso in lettura e archiviazione con ridondanza della zona|Archiviazione con ridondanza locale.
 |Archiviazione Premium|Supporto completo|Possibile eseguirne il provisioning, ma nessun limite delle prestazioni o garanzia.
 |Dischi gestiti|Premium e standard supportati|Non è ancora supportata.
@@ -80,7 +81,7 @@ Le API di gestione dei servizi di archiviazione Azure:
 
 ## <a name="sdk-versions"></a>Versioni SDK
 
-Stack di archiviazione Azure supporta le librerie client seguenti:
+Archiviazione di Azure Stack supporta le librerie client seguenti:
 
 | Libreria client | Versione supportata di Azure Stack | Collegamento                                                                                                                                                                                                                                                                                                                                     | Specifica dell'endpoint       |
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|

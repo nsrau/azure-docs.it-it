@@ -1,34 +1,35 @@
 ---
-title: Introduzione a strumenti di sviluppo dello Stack di archiviazione di Azure
-description: Linee guida per iniziare a utilizzare gli strumenti di sviluppo dello Stack di archiviazione di Azure
+title: Introduzione a strumenti di sviluppo di archiviazione di Azure Stack | Documenti Microsoft
+description: Materiale sussidiario per iniziare a usare gli strumenti di sviluppo di archiviazione di Azure Stack
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604478"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Introduzione a strumenti di sviluppo dello Stack di archiviazione di Azure
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>Introduzione a strumenti di sviluppo di archiviazione di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
 Stack di Microsoft Azure fornisce un set di servizi di archiviazione che include i blob, tabelle e archiviazione delle code.
 
-Usare questo articolo come guida per iniziare a usare gli strumenti di sviluppo dello Stack di archiviazione di Azure. È possibile trovare ulteriori informazioni e codice di esempio nelle esercitazioni di archiviazione di Azure corrispondente.
+Usare questo articolo come guida per iniziare a usare gli strumenti di sviluppo di archiviazione di Azure Stack. È possibile trovare ulteriori informazioni e codice di esempio nelle esercitazioni di archiviazione di Azure corrispondente.
 
->[!NOTE]
->Sono presenti noti differenze tra Stack di archiviazione di Azure e archiviazione di Azure, inclusi i requisiti specifici per ogni piattaforma. Ad esempio, esistono requisiti per il suffisso dell'endpoint specifico per lo Stack di Azure e librerie client specifico. Per ulteriori informazioni, vedere [dello Stack di archiviazione di Azure: considerazioni e le differenze](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Sono presenti noti differenze tra l'archiviazione di Azure Stack e archiviazione di Azure, inclusi i requisiti specifici per ogni piattaforma. Ad esempio, esistono requisiti per il suffisso dell'endpoint specifico per lo Stack di Azure e librerie client specifico. Per altre informazioni, vedere [archiviazione di Azure Stack: considerazioni e le differenze](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Librerie client di Azure
 
-Le versioni supportate di API REST dello Stack di archiviazione di Azure sono 2017-04-17, 2016-05-31, 11-12-2015, 2015-07-08, 2015-04-05 per l'aggiornamento 1802 o versioni successive e 2015-04-05 per le versioni precedenti. Gli endpoint di Azure Stack non dispone di parità completa con la versione più recente dell'API REST di archiviazione Azure. Per le librerie client di archiviazione, è necessario essere a conoscenza della versione è compatibile con l'API REST.
+Le versioni supportate di API REST per l'archiviazione di Azure Stack sono 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 per l'aggiornamento di 1802 o versioni più recenti e 2015-04-05 per le versioni precedenti. Gli endpoint di Azure Stack non dispone di parità completa con la versione più recente dello spazio di archiviazione Azure API REST. Per le librerie client di archiviazione, è necessario essere a conoscenza della versione è compatibile con l'API REST.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 update o versioni successive
 
@@ -209,4 +210,4 @@ Le esercitazioni di archiviazione tabelle di Azure seguenti sono applicabili all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione ad Archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduzione all'archiviazione di Microsoft Azure](../../storage/common/storage-introduction.md)

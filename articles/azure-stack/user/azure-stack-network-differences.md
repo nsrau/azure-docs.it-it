@@ -1,27 +1,29 @@
 ---
-title: 'Rete di Azure dello Stack: Considerazioni e le differenze'
+title: Azure dello Stack di rete considerazioni e le differenze | Documenti Microsoft
 description: Informazioni sulle considerazioni e le differenze quando si lavora con la rete nello Stack di Azure.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606427"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerazioni per la rete di Azure Stack
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Azure Stack di rete ha molte funzionalità fornite dalla funzionalità di rete di Azure. Tuttavia, esistono alcune differenze fondamentali che è necessario comprendere prima di distribuire una rete di Azure Stack.
+Rete di Azure Stack ha molte funzionalità fornite dalla rete di Azure. Tuttavia, esistono alcune differenze fondamentali che è necessario comprendere prima di distribuire una rete di Azure Stack.
 
-In questo articolo viene fornita una panoramica delle considerazioni univoche per Azure Stack di rete e delle relative funzionalità. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
+In questo articolo viene fornita una panoramica delle considerazioni univoche per la rete di Azure Stack e relative funzionalità. Per ulteriori informazioni sulle differenze generali tra Stack di Azure e Azure, vedere il [considerazioni chiave](azure-stack-considerations.md) argomento.
 
 ## <a name="cheat-sheet-networking-differences"></a>Schede di riferimento rapido: differenze di funzionalità di rete
 

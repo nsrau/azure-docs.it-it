@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 9554309522e4a1e60fd3599b9a19bcf9cf4bbefb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604268"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
 
@@ -66,6 +67,12 @@ Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
         * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password forniti quando è stato distribuito Azure Stack. Fare clic su **Sign In**.
         * Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
     2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
+    
+    > [!NOTE]
+    > Servizio App può essere distribuito solo nel **sottoscrizione Provider predefinito** in questo momento.  In un futuro aggiornamento servizio App verrà distribuito nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
+    >
+    >
+    
     3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
 
     ![Programma di installazione del servizio App][3]
