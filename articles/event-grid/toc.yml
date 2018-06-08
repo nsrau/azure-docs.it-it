@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Inviare eventi all'archiviazione code
       href: custom-event-to-queue-storage.md
+    - name: Inviare eventi a Hub eventi
+      href: custom-event-to-eventhub.md
 - name: Esercitazioni
   items:
     - name: Inviare un messaggio di posta elettronica quando viene modificata una VM
