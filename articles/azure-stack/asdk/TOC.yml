@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Esercitazioni
   items:
-    - name: 1. Distribuire il ASDK
-      items:
-        - name: Distribuire ASDK - programma di installazione
-          href: asdk-deploy.md
-        - name: Distribuire ASDK - PowerShell
-          href: asdk-deploy-powershell.md
-        - name: Ridistribuire la ASDK
-          href: asdk-redeploy.md
-    - name: 2. Aggiungere un elemento del marketplace
-      items:
-        - name: Scaricare da Azure
-          href: asdk-marketplace-item.md
-        - name: Aggiungere da un'origine locale
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Offerta di servizi IaaS
-      href: asdk-offer-services.md
-    - name: 4. Sottoscrivere un'offerta
+    - name: Sottoscrivere un'offerta
       href: asdk-subscribe-services.md
-    - name: 5. Offerte di aggiornamento e i piani
+    - name: Offerte di aggiornamento e i piani
       href: asdk-update-offers.md
-    - name: 6. Creare una macchina virtuale da un modello
+    - name: Creare una macchina virtuale da un modello
       href: asdk-create-vm-template.md
 - name: Concetti
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: Preparare il computer host ASDK
           href: asdk-prepare-host.md
-        - name: Installare il ASDK
+        - name: Distribuire ASDK - programma di installazione
           href: asdk-install.md
+        - name: Distribuire ASDK - PowerShell
+          href: asdk-deploy-powershell.md
         - name: Configurazione post-distribuzione
           href: asdk-post-deploy.md
+        - name: Ridistribuire la ASDK
+          href: asdk-redeploy.md
     - name: Registrare il ASDK
       href: asdk-register.md
     - name: Configurare le impostazioni di telemetria di Azure Stack

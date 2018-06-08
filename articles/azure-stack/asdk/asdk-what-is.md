@@ -1,26 +1,27 @@
 ---
 title: Introduzione a Azure Stack Development Kit (ASDK) | Documenti Microsoft
-description: "Vengono descritte le funzionalità di ASDK e casi d'uso comuni per la valutazione di Microsoft Azure Stack."
+description: Vengono descritte le funzionalità di ASDK e casi d'uso comuni per la valutazione di Microsoft Azure Stack.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850628"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Che cos'è il Kit di sviluppo dello Stack di Azure?
 [Microsoft Azure Stack integrati sistemi](.\.\azure-stack-poc.md) intervallo dimensioni da 12 a 4 nodi e congiuntamente supportati da un partner di hardware e Microsoft. Usare sistemi Azure Stack integrato per abilitare i nuovi scenari per i carichi di lavoro di produzione. Se si ha un operatore di Stack di Azure che gestisce l'infrastruttura di sistemi integrati e offre servizi, vedere il nostro [documentazione operatore](https://docs.microsoft.com/azure/azure-stack).
@@ -61,7 +62,7 @@ Per impostazione predefinita, Azure Stack include i seguenti "fondamentali servi
 - Calcolo
 - Archiviazione
 - Rete
-- Insieme di credenziali di chiave
+- Key Vault
 
 Con questi servizi fondamentali, è possibile offrire Infrastructure-as-a-Service (IaaS) per gli utenti con la configurazione minima.
 
@@ -79,4 +80,4 @@ Stack Azure continuerà aggiungere il supporto per i servizi di Azure aggiuntivi
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare la valutazione dello Stack di Azure, è necessario preparare l'host di kit sviluppo computer server e quindi [installare la ASDK](asdk-deploy.md). Successivamente, è possibile accedere ai portali amministratore e utente per iniziare a usare Azure Stack.
+Per iniziare la valutazione dello Stack di Azure, è necessario preparare l'host di kit sviluppo computer server e quindi [installare la ASDK](asdk-install.md). Successivamente, è possibile accedere ai portali amministratore e utente per iniziare a usare Azure Stack.

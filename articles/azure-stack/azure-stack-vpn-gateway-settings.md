@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849750"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Impostazioni di configurazione di gateway VPN di Azure Stack
 
@@ -157,7 +158,10 @@ A differenza di Azure, che supporta più offerte come un iniziatore e rispondito
 |Versione IKE |IKEv2 |
 |Crittografia e hash algoritmi (crittografia)     | GCMAES256|
 |Crittografia e hash algoritmi (autenticazione) | GCMAES256|
-|Durata dell'associazione di sicurezza (tempo)  | 27.000 secondi |
-|Durata dell'associazione di sicurezza (byte) | 819,200       |
+|Durata dell'associazione di sicurezza (tempo)  | secondi 27.000<sup>vedere la nota 1</sup> |
+|Durata dell'associazione di sicurezza (byte) | 33,553,408<sup>vedere la nota 2</sup>     |
 |Perfect Forward Secrecy (PFS) |PFS2048 |
 |Rilevamento peer inattivo | Supportato|  
+
+*Nota 1:* prima della versione 1803, Stack di Azure viene utilizzato il valore 14400 per la durata di SA (ora). 
+*Nota 2:* prima della versione 1803, Stack di Azure viene utilizzato il valore 819,200 per la durata di SA (byte).
