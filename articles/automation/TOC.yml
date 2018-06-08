@@ -159,14 +159,12 @@
       items:
         - name: raccolta di runbook
           href: automation-runbook-gallery.md
-        - name: Monitorare i runbook con i log attività
-          href: automation-alert-activity-log.md
+        - name: Monitorare i runbook con avvisi delle metriche
+          href: automation-alert-metric.md
         - name: Avviare un runbook da avvisi di Azure
           href: automation-create-alert-triggered-runbook.md
         - name: Creare una VM Amazon Web Services
           href: automation-scenario-aws-deployment.md
-        - name: Correggere gli avvisi delle VM di Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Avviare/arrestare le VM durante gli orari di minore attività
           href: automation-solution-vm-management.md
         - name: Rimuovere un gruppo di risorse
@@ -215,16 +213,12 @@
   items:
     - name: Video introduttivo su Automazione
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
-    - name: Training su Automazione di Azure
-      href: 'https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382'
     - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Percorso di apprendimento
-      href: 'https://azure.microsoft.com/documentation/learning-paths/automation/'
+      href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
     - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)'
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
     - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/automation/)'
+      href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Note sulla versione

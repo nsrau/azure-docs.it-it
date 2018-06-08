@@ -25,9 +25,11 @@
         - name: 2. Contoso - Configurare un'infrastruttura di Azure
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso - Valutare le risorse locali per la migrazione in Azure
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso - Rehosting in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso - Rehosting di un'app in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso - Rehosting di un'app in macchine virtuali di Azure
+          href: contoso-migration-rehost-vm.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md
     - name: Raggruppare i computer
@@ -48,3 +50,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Domande frequenti
+      href: resources-faq.md

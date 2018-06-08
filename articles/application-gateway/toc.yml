@@ -48,24 +48,39 @@
     - name: Supporto per il reindirizzamento
       href: redirect-overview.md
     - name: Supporto multi-tenant
+      href: application-gateway-web-app-overview.md
     - name: Monitoraggio dell’integrità
       href: application-gateway-probe-overview.md
     - name: Supporto per WebSocket
       href: application-gateway-websocket.md
 - name: Guide alle procedure
   items:
-    - name: Creare il gateway applicazione
+    - name: Gestire il traffico Web
       items:
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
         - name: Modello
           href: create-vmss-template.md
-        - name: App Web - PowerShell
-          href: create-web-app.md
-        - name: Configurare un servizio di bilanciamento del carico interno
-          href: application-gateway-ilb.md
-    - name: Configurare la terminazione SSL - Portale
-      href: create-ssl-portal.md
-    - name: Ospitare più siti - Portale
-      href: create-multiple-sites-portal.md
+    - name: Configurare il servizio di bilanciamento del carico interno
+      items:
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: Configurare la terminazione SSL
+      items:
+        - name: Terminazione SSL con il portale di Azure
+          href: create-ssl-portal.md
+        - name: Terminazione SSL con Azure PowerShell
+          href: tutorial-ssl-powershell.md
+        - name: Rinnovare i certificati
+          href: renew-certificates.md
+        - name: Configurare i criteri SSL
+          href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Configurare Web Application Firewall
+      items:
+        - name: Portale di Azure
+          href: application-gateway-web-application-firewall-portal.md
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
     - name: Personalizzare le regole del web application firewall
       items:
         - name: Portale di Azure
@@ -74,40 +89,36 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Interfaccia della riga di comando di Azure
           href: application-gateway-customize-waf-rules-cli.md
-    - name: Reindirizzare il traffico esterno
+    - name: Indirizzare in base all'URL
       items:
+        - name: Portale di Azure
+          href: create-url-route-portal.md
         - name: Azure PowerShell
-          href: redirect-external-site-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: redirect-external-site-cli.md
-    - name: Reindirizzare il traffico HTTP a HTTPS
+          href: tutorial-url-route-powershell.md
+    - name: Ospitare più siti
       items:
+        - name: Portale di Azure
+          href: create-multiple-sites-portal.md
         - name: Azure PowerShell
-          href: redirect-http-to-https-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: redirect-http-to-https-cli.md
-    - name: Reindirizzare il traffico interno
+          href: tutorial-multiple-sites-powershell.md
+    - name: Reindirizzare il traffico
       items:
-        - name: Azure PowerShell
-          href: redirect-internal-site-powershell.md
-        - name: Interfaccia della riga di comando di Azure
-          href: redirect-internal-site-cli.md
-    - name: Limitare il traffico Web - Portale
-      href: create-waf-portal.md
-    - name: Indirizzare in base all'URL - Portale
-      href: create-url-route-portal.md
-    - name: Gestire il traffico Web con Azure PowerShell
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Limitare il traffico Web con Azure PowerShell
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Terminazione SSL con Azure PowerShell
-      href: tutorial-ssl-powershell.md
-    - name: Rinnovare i certificati
-      href: renew-certificates.md
-    - name: Ospitare più siti con Azure PowerShell
-      href: tutorial-multiple-sites-powershell.md
-    - name: Indirizzare il traffico Web con Azure PowerShell
-      href: tutorial-url-route-powershell.md
+        - name: Da HTTP a HTTPS
+          items:
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Interfaccia della riga di comando di Azure
+              href: redirect-http-to-https-cli.md
+        - name: Reindirizzare il traffico interno
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Interfaccia della riga di comando di Azure
+              href: redirect-internal-site-cli.md
+    - name: Supporto multi-tenant
+      items:
+        - name: Configurare il supporto multi-tenat
+          href: create-web-app.md
     - name: Reindirizzare il traffico Web con Azure PowerShell
       href: tutorial-url-redirect-powershell.md
     - name: Creare un gateway applicazione con ridondanza della zona

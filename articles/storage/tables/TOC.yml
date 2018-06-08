@@ -1,0 +1,69 @@
+- name: Documentazione di archiviazione tabelle di Azure
+  items:
+    - name: Panoramica di Archiviazione tabelle di Azure
+      href: table-storage-overview.md
+    - name: Scegliere l'archiviazione tabelle o l'API Tabelle
+      href: /azure/cosmos-db/table-support
+      maintainContext: true
+- name: Guide introduttive
+  items:
+    - name: Creare un account di archiviazione
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
+    - name: Creare una tabella nel portale di Azure
+      href: table-storage-quickstart-portal.md
+- name: Esempi
+  items:
+    - name: .NET
+      href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+      maintainContext: true
+    - name: 'F#'
+      href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
+      maintainContext: true
+    - name: Java
+      href: /azure/cosmos-db/table-storage-how-to-use-java
+      maintainContext: true
+    - name: Node.js
+      href: /azure/cosmos-db/table-storage-how-to-use-nodejs
+      maintainContext: true
+    - name: C++
+      href: /azure/cosmos-db/table-storage-how-to-use-c-plus
+      maintainContext: true
+    - name: PHP
+      href: /azure/cosmos-db/table-storage-how-to-use-php
+      maintainContext: true
+    - name: Python
+      href: /azure/cosmos-db/table-storage-how-to-use-python
+      maintainContext: true
+    - name: Ruby
+      href: /azure/cosmos-db/table-storage-how-to-use-ruby
+      maintainContext: true
+    - name: PowerShell
+      href: /azure/storage/tables/table-storage-how-to-use-powershell
+      maintainContext: true
+- name: Concetti
+  items:
+    - name: Progettare tabelle scalabili ad alte prestazioni
+      href: table-storage-design.md
+    - name: Linee guida per la progettazione di tabelle
+      href: table-storage-design-guidelines.md
+    - name: Progettazione per le query
+      href: table-storage-design-for-query.md
+    - name: Progettazione per la modifica dei dati
+      href: table-storage-design-for-modification.md
+    - name: Crittografia dei dati di tabella
+      href: table-storage-design-encrypt-data.md
+    - name: Modellazione di relazioni
+      href: table-storage-design-modeling.md
+    - name: Modelli di progettazione tabella
+      href: table-storage-design-patterns.md
+- name: Guide alle procedure
+  items:
+    - name: Come usare l'emulatore di archiviazione
+      href: /azure/storage/common/storage-use-emulator
+      maintainContext: true
+- name: Risorse
+  items:
+    - name: API REST dell'archivio tabelle
+      href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
+      maintainContext: true

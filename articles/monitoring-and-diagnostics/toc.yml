@@ -129,6 +129,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Esempi di Azure PowerShell
           href: insights-powershell-samples.md
+        - name: Esempi dell'interfaccia della riga di comando di Azure
+          href: insights-cli-samples.md
     - name: Usare l'estensione di Diagnostica di Azure
       items:
         - name: Inviare ad Archiviazione di Azure
