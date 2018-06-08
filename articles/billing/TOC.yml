@@ -113,6 +113,8 @@
       href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Riferimenti
   items:
+    - name: Scenari di automazione della fatturazione
+      href: billing-cost-management-automation-scenarios.md
     - name: Panoramica dell'API di fatturazione di Azure
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +122,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: Soluzione di un partner - Cloud Cruiser
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: API per l'utilizzo di Azure
+    - name: Panoramica dell'API per l'utilizzo di Azure
+      href: billing-consumption-api-overview.md
       items:
         - name: API REST per l'utilizzo di Azure
           href: 'https://docs.microsoft.com/rest/api/consumption'

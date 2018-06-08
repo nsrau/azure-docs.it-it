@@ -3,7 +3,7 @@
 # Panoramica
 ## [Informazioni su Resource Manager](resource-group-overview.md)
 ## [Provider e tipi di risorse](resource-manager-supported-services.md)
-## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
+## [Resource Manager e distribuzione classica](resource-manager-deployment-model.md)
 ## [Governance per le sottoscrizioni](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Organizzare le risorse con i gruppi di gestione](management-groups-overview.md)
 

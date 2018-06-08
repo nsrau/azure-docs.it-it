@@ -39,7 +39,9 @@
   items:
     - name: Distribuire
       items:
-        - name: Distribuire gruppi di più contenitori
+        - name: Gruppi di più contenitori - YAML
+          href: container-instances-multi-container-yaml.md
+        - name: Gruppi di più contenitori - Resource Manager
           href: container-instances-multi-container-group.md
         - name: Eseguire la distribuzione dal Registro contenitori di Azure
           href: container-instances-using-azure-container-registry.md
