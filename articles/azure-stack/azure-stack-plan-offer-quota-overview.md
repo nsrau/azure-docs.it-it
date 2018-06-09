@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/20/2018
+ms.date: 06/07/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: fcf19f486ebdc739f3d5c7b25215ba8726462a56
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d8aef778807d3a8a61cf9eedaae24abce84a19ab
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248759"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -27,20 +28,21 @@ ms.lasthandoff: 04/23/2018
 
 [Azure Stack](azure-stack-poc.md) consente di fornire un'ampia gamma di servizi, come le macchine virtuali, database di SQL Server, SharePoint, Exchange e anche [gli elementi di Azure Marketplace](azure-stack-marketplace-azure-items.md). Come operatore di Stack di Azure, configurare e offrono servizi nello Stack di Azure tramite i piani, offerte e le quote.
 
-Le offerte contengono uno o più piani e ogni piano include uno o più servizi. Creazione di piani e combinarle in diverse offerte, consente di controllare
-- quali utenti servizi e le risorse possono accedere
-- la quantità di tali risorse che gli utenti potranno utilizzare
-- le aree di accedano accesso alle risorse
+Le offerte contengono uno o più piani e ogni piano include uno o più servizi. Creazione di piani e sulla relativa combinazione in diverse offerte, è possibile gestire:
+
+- Servizi e le risorse di cui gli utenti possono accedere.
+- La quantità di risorse che gli utenti potranno utilizzare.
+- Le aree che hanno accesso alle risorse.
 
 Quando si esegue un servizio, attenersi alla procedura seguente:
 
 1. Aggiungere un servizio che si desidera distribuire agli utenti.
-2. Creare un piano che contiene uno o più servizi. Quando si crea un piano, selezionare o creare le quote che definiscono i limiti delle risorse di ogni servizio nel piano.
-3. Creare un'offerta che contiene uno o più piani (compresi i piani di base e i piani di componente aggiuntivo opzionale).
+2. Creare un piano che dispone di uno o più servizi. Quando si crea un piano, selezionare o creare le quote che definiscono i limiti delle risorse di ogni servizio nel piano.
+3. Creare un'offerta che contiene uno o più piani. L'offerta può includere i piani di base e i piani di componente aggiuntivo opzionale.
 
-Dopo aver creato l'offerta, gli utenti possono sottoscrivere per l'accesso alle risorse che fornisce e i servizi. Gli utenti possano sottoscrivere tante offerte che desiderano. Nel diagramma seguente illustra un semplice esempio di un utente che ha sottoscritto due offerte. Ogni offerta è un piano o due e ogni piano concede l'accesso ai servizi.
+Dopo aver creato l'offerta, gli utenti possono sottoscrivere per accedere ai servizi e risorse che fornisce l'offerta. Gli utenti possano sottoscrivere tante offerte che desiderano. Nel diagramma seguente illustra un semplice esempio di un utente che ha sottoscritto due offerte. Ogni offerta è un piano o due e ogni piano concede l'accesso ai servizi.
 
-![](media/azure-stack-key-features/image4.png)
+![Sottoscrizione con offerte e piani di tenant](media/azure-stack-key-features/image4.png)
 
 ## <a name="plans"></a>Piani
 
@@ -48,35 +50,38 @@ I piani sono raggruppamenti di uno o più servizi. Come operatore di Stack di Az
 
 ### <a name="quotas"></a>Quote
 
-Per gestire la capacità del cloud, si selezionare o creare una quota per ogni servizio in un piano. Le quote definiscono superiore i limiti delle risorse in grado di eseguire il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali. Le quote possono limitare un'ampia gamma di risorse, ad esempio CPU, RAM e le macchine virtuali di limiti.
+Per gestire la capacità del cloud, è possibile utilizzare le quote preconfigurate o creare una nuova quota per ogni servizio in un piano. Le quote definiscono superiore i limiti delle risorse in grado di eseguire il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali (VM). Le macchine virtuali, ad esempio core CPU e RAM, impostare quote aggiuntive.
 
-Quote possono essere configurate per area. Ad esempio, un piano che contiene i servizi di calcolo da un'area potrebbe avere una quota di due macchine virtuali, 4 GB di RAM e 10 core di CPU. In Azure Stack Development Kit, una sola area (denominato *locale*) è disponibile.
+È possibile configurare le quote per area geografica. Ad esempio, un piano che offre servizi di calcolo per l'area A potrebbe avere una quota di due macchine virtuali con 4 GB di RAM e 8 core di CPU.
 
-Altre informazioni, vedere [tipi di quote nello Stack di Azure](azure-stack-quota-types.md). 
+>[!NOTE]
+>In Azure Stack Development Kit, una sola area (denominato *locale*) è disponibile.
+
+Altre informazioni, vedere [tipi di quote nello Stack di Azure](azure-stack-quota-types.md).
 
 ### <a name="base-plan"></a>Piano base
 
-Quando si crea un'offerta, l'amministratore del servizio può includere un piano di base. Questi piani di base sono inclusi per impostazione predefinita, quando un utente sottoscrive l'offerta. Quando un utente esegue la sottoscrizione, hanno accesso a tutti i provider di risorse specificato in questi piani di base (con le quote corrispondenti).
+Quando si crea un'offerta, l'amministratore del servizio può includere un piano di base. Questi piani di base sono inclusi per impostazione predefinita, quando un utente sottoscrive l'offerta. Quando un utente esegue la sottoscrizione, hanno accesso a tutti i provider di risorse specificato in questi piani di base (con le quote corrispondenti.)
 
 ### <a name="add-on-plans"></a>Piani aggiuntivi
 
-I piani di componente aggiuntivo sono piani facoltativi che si aggiunge a un'offerta. I piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Piani di componente aggiuntivo sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire ai clienti che decide di adottare il servizio di un piano di base con risorse limitate per una versione di valutazione e un piano del componente aggiuntivo con un numero più significativo di risorse.
+I piani di componente aggiuntivo sono piani facoltativi che si aggiunge a un'offerta. I piani di componente aggiuntivo non sono inclusi per impostazione predefinita nella sottoscrizione. Piani di componente aggiuntivo sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire ai clienti che decide di adottare il servizio di un piano di base con risorse limitate per una versione di valutazione e un piano del componente aggiuntivo con un numero più significativo di risorse.
 
 ## <a name="offers"></a>Offerte
 
-Offerte sono gruppi di uno o più piani creati in modo che gli utenti possono eseguire la sottoscrizione a essi. Ad esempio, offrire alfa può contenere un piano che contiene un set di servizi di calcolo e pianificare B, che contiene un set di servizi di archiviazione e rete. 
+Offerte sono gruppi di uno o più piani creati in modo che gli utenti possono eseguire la sottoscrizione a essi. Ad esempio, Alpha offrono può contenere un piano, che fornisce un set di servizi di calcolo e pianificare B, che fornisce un set di servizi di archiviazione e rete.
 
 Quando si [creare un'offerta](azure-stack-create-offer.md), è necessario includere almeno un piano di base, ma è anche possibile creare piani di componente aggiuntivo che gli utenti possono aggiungere alla propria sottoscrizione.
 
-
 ## <a name="subscriptions"></a>Sottoscrizioni
 
-Una sottoscrizione è l'accesso le offerte. Se si è un operatore di Stack di Azure in un provider di servizi, gli utenti (tenant) acquistano i servizi sottoscrivendo le offerte. Se si è un operatore di Stack di Azure in un'organizzazione, gli utenti (dipendenti) possono sottoscrivere i servizi che offerti senza sostenere. Ogni combinazione di un utente con un'offerta è una sottoscrizione univoca. Di conseguenza, un utente può disporre di sottoscrizioni per le offerte più, ma ogni sottoscrizione si applica a sola offerta. I piani, offerte e le quote di si applicano solo a ogni sottoscrizione univoco, non possono essere condivisi tra le sottoscrizioni. Ogni risorsa che crea un utente è associata a una sottoscrizione.
+Una sottoscrizione è l'accesso le offerte. Se si è un operatore di Stack di Azure per un provider di servizi, gli utenti (tenant) acquistano i servizi sottoscrivendo le offerte. Se si è un operatore di Stack di Azure in un'organizzazione, gli utenti (dipendenti) possono sottoscrivere i servizi che offerti senza sostenere.
 
+Ogni combinazione di un utente con un'offerta è una sottoscrizione univoca. Un utente può disporre di sottoscrizioni alle offerte più, ma ogni sottoscrizione si applica solo a una sola offerta. I piani, offerte e le quote di si applicano solo a una sottoscrizione univoca: non può essere condivisa tra le sottoscrizioni. Ogni risorsa che crea un utente è associata a una sottoscrizione.
 
 ### <a name="default-provider-subscription"></a>Sottoscrizione di provider predefinito
 
-La sottoscrizione di Provider predefinito viene creata automaticamente quando si distribuisce il Kit di sviluppo dello Stack di Azure. Questa sottoscrizione è utilizzabile per gestire Azure Stack, distribuire ulteriormente i provider di risorse e creare i piani e le offerte per gli utenti. Per motivi di gestione delle licenze e di sicurezza, e non deve essere utilizzato per eseguire applicazioni e i carichi di lavoro di cliente. 
+La sottoscrizione di Provider predefinito viene creata automaticamente quando si distribuisce il Kit di sviluppo dello Stack di Azure. Questa sottoscrizione è utilizzabile per gestire Azure Stack, distribuire i provider di risorse aggiuntive e creare i piani e le offerte per gli utenti. Per motivi di gestione delle licenze e sicurezza, non devono essere usata per eseguire applicazioni e i carichi di lavoro di cliente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

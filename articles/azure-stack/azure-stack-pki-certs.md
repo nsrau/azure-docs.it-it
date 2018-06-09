@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823850"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234842"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -30,7 +30,7 @@ Stack Azure dispone di una rete pubblica infrastruttura utilizzano accessibile d
 - Il processo di richiesta di certificati corrispondenti a tali specifiche
 - Come preparare, convalidare e utilizzare tali certificati durante la distribuzione
 
-> [!NOTE]
+> [!Note]  
 > Durante la distribuzione è necessario copiare i certificati per la cartella di distribuzione che corrisponde al provider di identità che si sta distribuendo contro (Azure Active Directory o AD FS). Se si utilizza un solo certificato per tutti gli endpoint, è necessario copiare il file di certificato in ogni cartella di distribuzione come descritto nelle tabelle seguenti. La struttura di cartelle è incorporata nella distribuzione macchina virtuale ed è disponibile in: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Requisiti dei certificati
@@ -47,12 +47,12 @@ L'elenco seguente descrive i requisiti del certificato che sono necessari per di
 - Il certificato "rilasciato a:" campo non deve essere lo stesso come relativo "rilasciato da:" campo.
 - Le password per tutti i file di certificato pfx devono essere uguale al momento della distribuzione
 - Password per il file di certificato pfx deve essere una password complessa.
-- Assicurarsi che i nomi di soggetto e i nomi di soggetto alternativo di tutti i certificati corrispondano a quanto descritto in questo articolo per evitare distribuzioni non riuscite.
+- Verificare che i nomi di soggetto e nomi alternativi del soggetto nella corrispondenza (x509v3_config) estensione nome alternativo soggetto. Il campo nome alternativo oggetto consente di specificare nomi host aggiuntivi (siti Web, gli indirizzi IP, nomi comuni) per essere protetti da un solo certificato SSL.
 
-> [!NOTE]
+> [!NOTE]  
 > Utente corrente non sono supportati i certificati firmati.
 
-> [!NOTE]
+> [!NOTE]  
 > La presenza di intermediario di autorità di certificazione in catena di relazioni di trust è di un certificato supportata. 
 
 ## <a name="mandatory-certificates"></a>Certificati obbligatori

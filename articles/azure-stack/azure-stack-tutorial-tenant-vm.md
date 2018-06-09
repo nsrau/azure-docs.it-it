@@ -1,6 +1,6 @@
 ---
 title: Rendere disponibili agli utenti di Azure Stack macchine virtuali | Documenti Microsoft
-description: Esercitazione per rendere disponibili le macchine virtuali nello Stack di Azure
+description: Scopri come rendere disponibili le macchine virtuali nello Stack di Azure
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,20 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9329cb0dbfa24cf239b820573ef7f642cdca9103
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248160"
 ---
-# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack macchine virtuali
-Un amministratore di cloud di Azure Stack, è possibile creare offerte che possono sottoscrivere gli utenti (talvolta detto tenant). Con la sottoscrizione, gli utenti potranno quindi utilizzare i servizi di Azure Stack.
+# <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Esercitazione: rendere disponibili le macchine virtuali per gli utenti di Azure Stack
 
-In questo articolo viene illustrato come creare un'offerta e quindi eseguirne il test. Per il test, si verrà Accedi al portale come utente, sottoscrivere l'offerta e quindi creare una macchina virtuale tramite la sottoscrizione.
+Un amministratore di cloud di Azure Stack, è possibile creare offerte che possono sottoscrivere gli utenti (talvolta detto tenant). Tramite la sottoscrizione a un'offerta, gli utenti possono utilizzare i servizi di Azure Stack che fornisce un'offerta.
+
+Questa esercitazione viene illustrato come creare un'offerta per una macchina virtuale e quindi accedere come un utente per testare l'offerta.
 
 Lezioni dell'esercitazione:
 
@@ -34,8 +36,7 @@ Lezioni dell'esercitazione:
 > * Aggiungere un'immagine
 > * Testare l'offerta
 
-
-Nello Stack di Azure, servizi vengono recapitati a utenti che utilizzano i piani, offerte e sottoscrizioni. Gli utenti possano sottoscrivere più offerte. Le offerte possono includere uno o più piani, che a loro volta possono includere uno o più servizi.
+Nello Stack di Azure, servizi vengono recapitati a utenti che utilizzano i piani, offerte e sottoscrizioni. Gli utenti possano sottoscrivere più offerte. Un'offerta può avere uno o più piani e un piano può avere uno o più servizi.
 
 ![I piani, offerte e sottoscrizioni](media/azure-stack-key-features/image4.png)
 
@@ -43,58 +44,55 @@ Per ulteriori informazioni, vedere [chiave concetti nello Stack di Azure e le fu
 
 ## <a name="create-an-offer"></a>Creare un'offerta
 
-Ora è possibile ottenere elementi pronti per gli utenti. Quando si avvia il processo, viene chiesto prima di creare l'offerta, quindi un piano e infine le quote.
+Offerte sono gruppi di uno o più piani che i provider di presentano agli utenti per l'acquisto o sottoscrivere. Il processo di creazione di un'offerta comprende diversi passaggi. Prima di tutto, viene chiesto di creare l'offerta, quindi un piano e, infine, le quote.
 
-3. **Creare un'offerta**
+1. [Accedi](azure-stack-connect-azure-stack.md) per il portale come amministratore del cloud e quindi selezionare **New** > **offre + piani** > **offrono**.
 
-   Offerte sono gruppi di uno o più piani che i provider di presentano agli utenti per l'acquisto o sottoscrivere.
+   ![Nuova offerta](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   a. [Accedi](azure-stack-connect-azure-stack.md) al portale come un amministratore del cloud e quindi fare clic su **New** > **offre + piani** > **offrono**.
-   ![nuova offerta](media/azure-stack-tutorial-tenant-vm/image01.png)
-
-   b. Nel **offrono nuove** sezione, compilare **nome visualizzato** e **nome risorsa**e quindi selezionare una nuova o esistente **gruppo di risorse**. Il nome visualizzato è nome descrittivo dell'offerta. Solo l'operatore cloud è possibile visualizzare il nome della risorsa. È il nome che gli amministratori utilizzano per funzionare con l'offerta come risorsa di gestione risorse di Azure.
+2. In **offrono nuove**, immettere un **nome visualizzato** e **nome risorsa**e quindi selezionare una nuova o esistente **gruppo di risorse**. Il nome visualizzato è nome descrittivo dell'offerta. Solo l'operatore cloud è possibile visualizzare il nome della risorsa. È il nome che gli amministratori utilizzano per funzionare con l'offerta come risorsa di gestione risorse di Azure.
 
    ![Nome visualizzato](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Fare clic su **piani di Base**e il **piano** fare clic su **Aggiungi** per aggiungere un nuovo piano per l'offerta.
+3. Selezionare **piani di Base**e il **piano** sezione, selezionare **Aggiungi** per aggiungere un nuovo piano per l'offerta.
 
    ![Aggiungere un piano](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. Nel **nuovo piano** sezione, compilare **nome visualizzato** e **nome risorsa**. Il nome visualizzato è nome descrittivo del piano visualizzato dagli utenti. Solo l'operatore cloud è possibile visualizzare il nome della risorsa. È il nome che gli operatori di cloud eseguire per utilizzare con il piano come risorsa di gestione risorse di Azure.
+4. Nel **nuovo piano** sezione, compilare **nome visualizzato** e **nome risorsa**. Il nome visualizzato è nome descrittivo del piano visualizzato dagli utenti. Solo l'operatore cloud è possibile visualizzare il nome della risorsa. È il nome che gli operatori di cloud eseguire per utilizzare con il piano come risorsa di gestione risorse di Azure.
 
    ![Nome del piano di visualizzazione](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Fare clic su **servizi**selezionare **Microsoft. COMPUTE**, **Network**, e **Microsoft.Storage**, quindi fare clic su **Selezionare**.
+5. Selezionare **Services**. Dall'elenco dei servizi, selezionare **Microsoft. COMPUTE**, **Microsoft. Network**, e **appartenga**. Scegliere **selezionare** per aggiungere questi servizi al piano.
 
    ![Servizi del piano](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-   f. Fare clic su **quote**, quindi selezionare il primo servizio per il quale si desidera creare una quota. Per una quota di IaaS, seguire questi passaggi per i servizi di calcolo, rete e archiviazione.
+6. Selezionare **quote**, quindi selezionare il primo servizio che si desidera creare una quota per. Per una quota di IaaS, usare l'esempio seguente come guida per la configurazione di quote per i servizi di calcolo, rete e archiviazione.
 
-   In questo esempio, è necessario creare una quota per il servizio di calcolo. Nell'elenco dello spazio dei nomi, selezionare il **Microsoft. COMPUTE** dello spazio dei nomi e quindi fare clic su **Crea nuova quota**.
-   
-   ![Crea nuova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   - Creare innanzitutto una quota per il servizio di calcolo. Nell'elenco dello spazio dei nomi, selezionare **Microsoft. COMPUTE** e quindi selezionare **Crea nuova quota**.
 
-   g. Nel **Crea quota** sezione, digitare un nome per la quota e impostare i parametri desiderati per la quota e fare clic su **OK**.
+     ![Crea nuova quota](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   ![Nome della quota](media/azure-stack-tutorial-tenant-vm/image07.png)
+   - In **Crea quota**, immettere un nome per la quota. È possibile modificare o accettare uno dei valori di quota che vengono visualizzati per la quota che si sta creando. In questo esempio, accettare le impostazioni predefinite e selezionare **OK**.
 
-   h. A questo punto, per **Microsoft. COMPUTE**, selezionare la quota creato.
+     ![Nome della quota](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   ![Selezionare quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+   - Pick **Microsoft. COMPUTE** nell'elenco dello spazio dei nomi, quindi selezionare la quota creato. Questo collega la quota per il servizio di calcolo.
 
-   Ripetere questi passaggi per i servizi di rete e archiviazione e quindi fare clic su **OK** sul **quote** sezione.
+     ![Selezionare quota](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   i. Fare clic su **OK** sul **nuovo piano** sezione.
+      Ripetere questi passaggi per i servizi di rete e archiviazione. Al termine, selezionare **OK** in **quote** per salvare tutte le quote.
 
-   j. Nel **piano** sezione, selezionare il nuovo piano e fare clic su **selezionare**.
+7. In **nuovo piano**, selezionare **OK**.
 
-   k. Nel **nuova offerta** fare clic su **crea**. Viene visualizzata una notifica quando l'offerta è stato creato.
+8. Sotto **piano**, selezionare il nuovo piano e quindi **selezionare**.
 
-   l. Scegliere il menu del dashboard, **offre** e quindi scegliere l'offerta è stato creato.
+9. In **nuova offerta**, selezionare **crea**. Verrà visualizzata una notifica quando viene creato l'offerta.
 
-   m. Fare clic su **modifica dello stato**, quindi fare clic su **pubblica**.
+10. Nel menu del dashboard, selezionare **offre** , quindi selezionare l'offerta è stato creato.
 
-   ![Stato pubblico](media/azure-stack-tutorial-tenant-vm/image09.png)
+11. Selezionare **modifica dello stato**, quindi scegliere **pubblica**.
+
+    ![Stato pubblico](media/azure-stack-tutorial-tenant-vm/image09.png)
 
 ## <a name="add-an-image"></a>Aggiungere un'immagine
 
@@ -106,56 +104,70 @@ Per informazioni sull'aggiunta di diversi elementi nel Marketplace, vedere [The 
 
 ## <a name="test-the-offer"></a>Testare l'offerta
 
-Dopo aver creato un'offerta, è possibile eseguirne il test. Accedere come utente e sottoscrivere l'offerta e quindi aggiungere una macchina virtuale.
+Dopo aver creato un'offerta, è possibile eseguirne il test. Accedere con un nome utente, sottoscrivere l'offerta e vengono quindi aggiunte una macchina virtuale.
 
 1. **Sottoscrivere un'offerta**
 
-   Ora è possibile accedere al portale come utente di sottoscrivere un'offerta.
-
-   a. Accedere al portale per gli utenti come un utente e fare clic su **ottenere una sottoscrizione**.
-   - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *regione*&gt;.&lt; *FQDN*&gt;.
+   a. Accedere al portale per gli utenti con un account utente e selezionare il **ottenere una sottoscrizione** riquadro.
+   - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *area*&gt;.&lt; *FQDN*&gt;.
    - Se si utilizza il Kit di sviluppo dello Stack di Azure, l'indirizzo del portale è https://portal.local.azurestack.external.
 
    ![Ottieni una sottoscrizione](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. Nel **nome visualizzato** campo, digitare un nome per la sottoscrizione, fare clic su **offrono**, fare clic su una delle offerte nel **scegliere un'offerta** sezione e quindi fare clic su  **Creare**.
+   b. In **ottenere una sottoscrizione**, immettere un nome per la sottoscrizione nel **nome visualizzato** campo. Selezionare **offrono**, quindi scegliere una delle offerte nel **scegliere un'offerta** elenco. Selezionare **Create**.
 
    ![Creare un'offerta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Per visualizzare la sottoscrizione è stato creato, fare clic su **più servizi**, fare clic su **sottoscrizioni**, quindi fare clic sulla nuova sottoscrizione.  
+   c. Per visualizzare la sottoscrizione, selezionare **altri servizi**, quindi selezionare **sottoscrizioni**. Selezionare la nuova sottoscrizione per vedere quali servizi sono parte della sottoscrizione.
 
-   Dopo la sottoscrizione a un'offerta, aggiornare il portale di servizi che fanno parte della nuova sottoscrizione.
+   >[!NOTE]
+   >Dopo la sottoscrizione a un'offerta, potrebbe essere necessario aggiornare il portale per vedere quali servizi sono parte della nuova sottoscrizione.
 
 2. **Effettuare il provisioning di una macchina virtuale**
 
-   Ora è possibile accedere al portale come utente di eseguire il provisioning di una macchina virtuale tramite la sottoscrizione. 
+   Dal portale per gli utenti è possibile eseguire il provisioning di una macchina virtuale utilizzando la nuova sottoscrizione.
 
    a. Accedere al portale per gli utenti con un account utente.
-      - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *regione*&gt;.&lt; *FQDN*&gt;.
+      - Per un sistema integrato, l'URL varia in base area e il nome di dominio esterno dell'operatore e sarà nel formato https://portal.&lt; *area*&gt;.&lt; *FQDN*&gt;.
    - Se si utilizza il Kit di sviluppo dello Stack di Azure, l'indirizzo del portale è https://portal.local.azurestack.external.
 
-   b.  Nel dashboard, fare clic su **New** > **calcolo** > **Eval di Data Center di Windows Server 2016**, quindi fare clic su **crea**.
+   b.  Nel dashboard, selezionare **New** > **calcolo** > **Eval di Data Center di Windows Server 2016**, quindi selezionare **crea**.
 
-   c. Nel **nozioni di base** , immettere un **nome**, **nome utente**, e **Password**, scegliere un **sottoscrizione**, creare un **gruppo di risorse** o selezionarne uno esistente, quindi fare clic su **OK**.
+   c. In **nozioni di base**, fornire le informazioni seguenti:
+      - Immettere un **nome**
+      - Immettere un **nome utente**
+      - Immettere un **Password**
+      - Scegliere una **sottoscrizione**
+      - Creare una **gruppo di risorse** (o selezionarne uno esistente.) 
+      - Selezionare **OK** per salvare queste informazioni.
 
-   d. Nel **scegliere una dimensione** fare clic su **A1 Standard**, quindi fare clic su **selezionare**.  
+   d. In **scegliere una dimensione**, selezionare **A1 Standard**, quindi **selezionare**.  
 
-   e. Nel **impostazioni** fare clic su **rete virtuale**. Nel **rete virtuale scegliere** fare clic su **Crea nuovo**. Nel **crea rete virtuale** sezione accettare tutte le impostazioni predefinite e fare clic su **OK**. Nel **impostazioni** fare clic su **OK**.
+   e. In **impostazioni**, selezionare **rete virtuale**.
+
+   f. In **rete virtuale Choose**, selezionare **Crea nuovo**.
+
+   g. In **crea rete virtuale**, accettare tutte le impostazioni predefinite e selezionare **OK**.
+
+   h. Selezionare **OK** in **impostazioni** per salvare la configurazione di rete.
 
    ![Creare una rete virtuale](media/azure-stack-provision-vm/image04.png)
 
-   f. Nel **riepilogo** fare clic su **OK** per creare la macchina virtuale.  
+   i. In **riepilogo**, selezionare **OK** per creare la macchina virtuale.  
 
-   g. Per visualizzare la nuova macchina virtuale, fare clic su **tutte le risorse**, quindi cercare la macchina virtuale e fare clic sul relativo nome.
+   j. Per visualizzare la nuova macchina virtuale, selezionare **tutte le risorse**. Cercare la macchina virtuale, selezionarne il nome dai risultati della ricerca.
 
-    ![Tutte le risorse](media/azure-stack-provision-vm/image06.png)
+   ![Tutte le risorse](media/azure-stack-provision-vm/image06.png)
 
-Le informazioni acquisite in questa esercitazione:
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un'offerta
 > * Aggiungere un'immagine
 > * Testare l'offerta
 
+Per passare alla prossima esercitazione per informazioni su come:
 > [!div class="nextstepaction"]
-> [Rendere disponibili agli utenti di Azure Stack web, dispositivi mobili e App per le API](azure-stack-tutorial-app-service.md)
+> [Rendere disponibili agli utenti dello Stack di Azure SQL database](azure-stack-tutorial-sql-server.md)

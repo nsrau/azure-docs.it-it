@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: Note sulla versione ASDK
       href: asdk-release-notes.md
-- name: Esercitazioni
-  items:
-    - name: Sottoscrivere un'offerta
-      href: asdk-subscribe-services.md
-    - name: Offerte di aggiornamento e i piani
-      href: asdk-update-offers.md
-    - name: Creare una macchina virtuale da un modello
-      href: asdk-create-vm-template.md
 - name: Concetti
   items:
     - name: Considerazioni sulla pianificazione della distribuzione
