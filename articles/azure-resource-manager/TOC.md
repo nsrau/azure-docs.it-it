@@ -47,7 +47,8 @@
 ### [Portale di Azure](resource-group-portal.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
-### [Creare una sottoscrizione EA a livello di programmazione](programmatically-create-subscription.md)
+### [Creare sottoscrizioni EA](programmatically-create-subscription.md)
+### [Concedere l'accesso per la creazione di sottoscrizioni EA](grant-access-to-create-subscription.md)
 ### [Creare gruppi di gestione](management-groups-create.md)
 ### [Gestire i gruppi di gestione](management-groups-manage.md)
 

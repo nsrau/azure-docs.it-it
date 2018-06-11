@@ -47,6 +47,8 @@
           href: container-instances-using-azure-container-registry.md
         - name: Impostare le variabili di ambiente (env)
           href: container-instances-environment-variables.md
+        - name: Configurare probe di attività
+          href: container-instances-liveness-probe.md
     - name: Gestisci
       items:
         - name: Eseguire un comando (exec)
