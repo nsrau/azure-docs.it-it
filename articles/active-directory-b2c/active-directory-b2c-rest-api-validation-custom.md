@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active B2C di Directory: scambi di attestazioni API REST come convalida | Microsoft Docs'
-description: Un argomento sui criteri personalizzati di Azure Active Directory B2C
+title: Scambi di attestazioni API REST come convalida in Azure Active Directory B2C | Microsoft Docs
+description: Argomento sui criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.openlocfilehash: 31ed69b669a92ad38c4ab7b2f54886e4ed6acf42
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 2c8b676ffff0f95a0966bfe18ce171de888265b9
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709173"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procedura dettagliata: Integrare scambi di attestazioni API REST nel percorso utente di Azure AD B2C come convalida dell'input utente
 

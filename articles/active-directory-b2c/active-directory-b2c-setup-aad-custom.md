@@ -1,25 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: aggiungere un provider di Azure AD usando i criteri personalizzati | Microsoft Docs'
-description: Informazioni sui criteri personalizzati di Azure Active Directory B2C
+title: Aggiungere un provider di Azure AD tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+description: Informazioni sui criteri personalizzati di Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 31f0dfe5-1ad0-4a25-a53b-8acc71bcea72
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: parakhj
-ms.openlocfilehash: 40943c135746925929daf7ebae4714ef70eeda51
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 9d010564aadcb6ea33312b7fb40854cfd0a97f1a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140224"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709241"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C: accedere usando account di Azure AD
 

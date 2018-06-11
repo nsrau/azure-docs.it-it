@@ -3,16 +3,17 @@ title: Note sulla versione dell'agente Sincronizzazione file di Azure (anteprima
 description: Note sulla versione dell'agente Sincronizzazione file di Azure (anteprima).
 services: storage
 author: wmgries
-manager: jeconnoc
+manager: aungoo
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735645"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Note sulla versione dell'agente Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -24,18 +25,70 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Status |
 |----|----------------------|--------------|------------------|
-| Aggiornamento cumulativo di marzo | 2.2.0.0 | 12 marzo 2018 | Supportato (versione consigliata) |
+| Aggiornamento 2 | 3.0.12.0 | 22 maggio 2018 | Supportato (versione consigliata) |
+| Aggiornamento cumulativo di aprile | 2.3.0.0 | 8 maggio 2018 | Supportato |
+| Aggiornamento cumulativo di marzo | 2.2.0.0 | 12 marzo 2018 | Supportato |
 | Aggiornamento cumulativo di febbraio | 2.1.0.0 | 28 febbraio 2018 | Supportato |
 | Aggiornamento 1 | 2.0.11.0 | 8 febbraio 2018 | Supportato |
-| Aggiornamento cumulativo di gennaio | 1.4.0.0 | 8 gennaio 2018 | Supportato fino all'8 maggio 2018<sup>1</sup> |
-| Aggiornamento cumulativo di novembre | 1.3.0.0 | 30 novembre 2017 | Supportato fino all'8 maggio 2018<sup>1</sup> |
-| Aggiornamento cumulativo di ottobre | 1.2.0.0 | 31 ottobre 2017 | Supportato fino all'8 maggio 2018<sup>1</sup> |
-| Versione di anteprima iniziale | 1.1.0.0 | 26 settembre 2017 | Supportato fino all'8 maggio 2018<sup>1</sup> |
-
-\[1\]: le versioni dell'agente Sincronizzazione file di Azure durante l'anteprima sono volutamente non conformi ai criteri di aggiornamento. I criteri di aggiornamento verranno applicati a partire dalla prima versione dell'agente dopo la dichiarazione di disponibilità a livello generale di Sincronizzazione file di Azure.
+| Aggiornamento cumulativo di gennaio | 1.4.0.0 | 8 gennaio 2018 | Supportato |
+| Aggiornamento cumulativo di novembre | 1.3.0.0 | 30 novembre 2017 | Supportato |
+| Aggiornamento cumulativo di ottobre | 1.2.0.0 | 31 ottobre 2017 | Supportato |
+| Versione di anteprima iniziale | 1.1.0.0 | 26 settembre 2017 | Supportato |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30120"></a>Agente versione 3.0.12.0
+Le note sulla versione seguenti si riferiscono alla versione 3.0.12.0 dell'agente di Sincronizzazione file di Azure (data di rilascio 22 maggio 2018).
+
+### <a name="agent-installation-and-server-configuration"></a>Installazione dell'agente e configurazione del server
+Per altre informazioni su come installare e configurare l'agente Sincronizzazione file di Azure con Windows Server, vedere [Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md).
+
+- Il pacchetto di installazione dell'agente deve essere installato con autorizzazioni elevate (amministratore).
+- L'agente non è supportato nelle opzioni di distribuzione Windows Server Core o Nano Server.
+- L'agente è supportato solo in Windows Server 2016 e Windows Server 2012 R2.
+- L'agente richiede almeno 2 GB di memoria fisica.
+- Il servizio agente di sincronizzazione archiviazione (FileSyncSvc) non supporta gli endpoint server che si trovano in un volume la cui directory di informazioni sul volume di sistema (SVI) è compressa. Questa configurazione porta a risultati imprevisti.
+
+### <a name="interoperability"></a>Interoperabilità
+- Antivirus, backup e altre applicazioni che accedono a file a livelli possono causare un richiamo indesiderato se non rispettano l'attributo offline e ignorano il contenuto dei file. Per altre informazioni, vedere [Risolvere i problemi di Sincronizzazione file di Azure (anteprima)](storage-sync-files-troubleshoot.md).
+- Non usare Gestione risorse file server o altri screening dei file. Gli screening dei file possono generare errori di sincronizzazione infinita se i file sono bloccati a causa dello screening.
+- L'esecuzione di sysprep in un server in cui è installato l'agente di Sincronizzazione file di Azure non è supportata e può portare a risultati imprevisti. L'installazione dell'agente e la registrazione del server devono avvenire dopo la distribuzione dell'immagine del server e il completamento dell'installazione minima di sysprep.
+- La deduplicazione dei dati e la suddivisione in livelli cloud non sono supportate nello stesso volume.
+
+### <a name="sync-limitations"></a>Limitazioni della sincronizzazione
+Gli elementi seguenti non vengono sincronizzati, ma il resto del sistema continuerà a funzionare normalmente:
+- Percorsi che contengono più di 2.048 caratteri.
+- Parte DACL (elenco di controllo di accesso discrezionale) di un descrittore di sicurezza se superiore a 2 kB. Il problema si verifica solo se sono presenti più di 40 voci di controllo di accesso in un singolo elemento.
+- Parte DACL (elenco di controllo di accesso discrezionale) di un descrittore di sicurezza usato per il controllo.
+- Attributi estesi.
+- Flussi dei dati alternativi.
+- Reparse point.
+- Collegamenti reali.
+- La compressione (se impostata in un file server) non viene mantenuta quando le modifiche vengono sincronizzate con tale file da altri endpoint.
+- File crittografati con EFS (o un'altra crittografia in modalità utente) che impediscono al servizio di leggere i dati. 
+    
+    > [!Note]  
+    > Sincronizzazione file di Azure crittografa sempre i dati in transito e i dati vengono sempre crittografati quando sono inattivi in Azure.
+ 
+### <a name="server-endpoints"></a>Endpoint server
+- Un endpoint server può essere creato solo in un volume NTFS. ReFS, FAT, FAT32 e altri file system non sono attualmente supportati da Sincronizzazione file di Azure.
+- La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
+- Il clustering di failover è supportato solo con i dischi cluster, non con i volumi condivisi cluster.
+- Un endpoint server non può essere annidato, ma può coesistere nello stesso volume parallelamente a un altro.
+- Non archiviare il file di paging di un sistema operativo o di un'applicazione in un endpoint server.
+- I file a più livelli diventano inutilizzabili se non vengono richiamati prima di eliminare l'endpoint server.
+ 
+### <a name="cloud-tiering"></a>Suddivisione in livelli nel cloud
+- Se un file a più livelli viene copiato in un'altra posizione usando Robocopy, il file risultante non è suddiviso in livelli. L'attributo offline potrebbe essere impostato perché Robocopy include erroneamente tale attributo nelle operazioni di copia.
+- Quando si visualizzano le proprietà del file da un client SMB, l'attributo offline può non essere correttamente impostato a causa della memorizzazione nella cache SMB dei metadati del file.
+
+## <a name="agent-version-2300"></a>Agente versione 2.3.0.0
+Le note sulla versione seguenti si riferiscono alla versione 2.3.0.0 dell'agente di Sincronizzazione file di Azure (data di rilascio 8 maggio 2018). Queste note si aggiungono a quelle elencate per la versione 2.0.11.0.
+
+Questa versione include le correzioni seguenti:
+- Gli aggiornamenti dell'agente potrebbero bloccarsi se non viene scaricato il driver del filtro di suddivisione in livelli cloud.
+- Durante la sincronizzazione di un numero elevato di file, le prestazioni della sincronizzazione potrebbero peggiorare.
 
 ## <a name="agent-version-2200"></a>Agente versione 2.2.0.0
 Le note seguenti si riferiscono alla versione 2.2.0.0 dell'agente Sincronizzazione file di Azure resa disponibile il 12 marzo 2018.  Queste note si aggiungono a quelle elencate per le versioni 2.1.0.0 e 2.0.11.0

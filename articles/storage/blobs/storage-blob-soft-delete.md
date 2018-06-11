@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701684"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure (anteprima)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Eliminazione temporanea per i BLOB di Archiviazione di Azure
 
 ## <a name="overview"></a>Panoramica
 
-Archiviazione di Azure offre ora l'eliminazione temporanea (anteprima) per gli oggetti BLOB, grazie alla quale è possibile ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
+Archiviazione di Azure offre ora l'eliminazione temporanea per gli oggetti BLOB, per consentire di ripristinare più facilmente i dati nel caso in cui vengano erroneamente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
@@ -29,10 +30,6 @@ Quando vengono eliminati, i dati passano in uno stato di eliminazione temporanea
 
 L'eliminazione temporanea è compatibile con le versioni precedenti e non è quindi necessario apportare modifiche alle applicazioni per usufruire dei meccanismi di protezione offerti da questa funzionalità. Il [ripristino dei dati](#recovery) introduce tuttavia una nuova API **Undelete Blob**.
 
-> [!NOTE]
-> Durante l'anteprima pubblica, la chiamata Set Blob Tier su un BLOB con snapshot non è consentita.
-L'eliminazione temporanea genera snapshot per proteggere i dati quando vengono sovrascritti. Microsoft sta lavorando attivamente per trovare una soluzione che consenta la suddivisione in livelli dei BLOB con gli snapshot.
-
 ### <a name="configuration-settings"></a>Impostazioni di configurazione
 
 Quando si crea un nuovo account, l'eliminazione temporanea è disabilitata per impostazione predefinita. L'eliminazione temporanea è disabilitata per impostazione predefinita anche per gli account di archiviazione esistenti. È possibile abilitare e disabilitare questa funzionalità in qualsiasi momento durante il ciclo di vita di un account di archiviazione.
@@ -41,7 +38,7 @@ Se la funzionalità viene disabilitata, è comunque possibile accedere e riprist
 
 Il periodo di conservazione indica per quanto tempo i dati eliminati temporaneamente restano memorizzati e disponibili per il ripristino. Per i BLOB e gli snapshot dei BLOB eliminati in modo esplicito, il calcolo del periodo di conservazione inizia nel momento in cui i dati vengono eliminati. Per gli snapshot eliminati temporaneamente generati in caso di sovrascrittura dei dati dalla funzionalità di eliminazione temporanea, il calcolo del tempo inizia nel momento in cui viene generato lo snapshot. Attualmente i dati eliminati temporaneamente possono essere conservati per un periodo compreso tra 1 e 365 giorni.
 
-È possibile modificare il periodo di conservazione dell'eliminazione temporanea in qualsiasi momento. Il periodo di conservazione aggiornato è valido solo per i nuovi dati eliminati. In dati eliminati in precedenza scadono in base al periodo di conservazione che era configurato al momento dell'eliminazione dei dati.
+È possibile modificare il periodo di conservazione dell'eliminazione temporanea in qualsiasi momento. Il periodo di conservazione aggiornato è valido solo per i nuovi dati eliminati. In dati eliminati in precedenza scadono in base al periodo di conservazione che era configurato al momento dell'eliminazione dei dati. Il tentativo di eliminare un oggetto con eliminazione temporanea non influisce sull'ora di scadenza dell'oggetto stesso.
 
 ### <a name="saving-deleted-data"></a>Salvataggio dei dati eliminati
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-Vedere la sezione [Passaggi successivi](#Next steps) per un puntatore all'applicazione che ha generato questo output.
+Vedere la sezione [Passaggi successivi](#next-steps) per un puntatore all'applicazione che ha generato questo output.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure 
+Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+Per verificare se l'eliminazione temporanea è attivata, usare il comando seguente: 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Libreria client Python
 
 Per abilitare l'eliminazione temporanea, aggiornare le proprietà del servizio del client BLOB:
@@ -276,11 +286,15 @@ Attualmente l'eliminazione temporanea è disponibile solo per l'archiviazione BL
 
 **L'eliminazione temporanea è disponibile per tutti i tipi di account di archiviazione?**
 
-Sì, l'eliminazione temporanea è disponibile per gli account di archiviazione BLOB, nonché per i BLOB negli account di archiviazione per utilizzo generico. Questo vale per gli account sia Standard che Premium. L'eliminazione temporanea non è disponibile per i dischi gestiti.
+Sì, l'eliminazione temporanea è disponibile per gli account di archiviazione BLOB, oltre che per i BLOB negli account di archiviazione per utilizzo generico (sia GPv1 che GPv2). Questo vale per gli account sia Standard che Premium. L'eliminazione temporanea non è disponibile per i dischi gestiti.
 
 **L'eliminazione temporanea è disponibile per tutti i livelli di archiviazione?**
 
 Sì, l'eliminazione temporanea è disponibile per tutti i livelli di archiviazione, inclusi quelli ad accesso frequente, ad accesso sporadico e archivio. L'eliminazione temporanea non consente tuttavia la protezione da sovrascrittura per i BLOB nel livello archivio.
+
+**È possibile usare l'API Imposta livello BLOB per impostare il livello dei BLOB con gli snapshot con eliminazione temporanea?**
+
+Sì. Gli snapshot con eliminazione temporanea rimangono nel livello originale, ma il BLOB di base viene spostato nel nuovo livello. 
 
 **Gli account di archiviazione Premium hanno un limite di 100 snapshot per BLOB. Gli snapshot eliminati temporaneamente vengono considerati ai fini questo limite?**
 
