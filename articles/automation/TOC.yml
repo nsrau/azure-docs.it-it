@@ -29,6 +29,8 @@
   items:
     - name: Onboarding
       items:
+        - name: Eseguire l'onboarding di più macchine virtuali dal portale
+          href: automation-onboard-solutions-from-browse.md
         - name: Eseguire l'onboarding da una VM di Azure
           href: automation-onboard-solutions-from-vm.md
         - name: Eseguire l'onboarding dall'account di Automazione
