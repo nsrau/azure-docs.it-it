@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 30847ff20abf6654e58a0e72a12f04dcd88d5871
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f84be4ec4d42b77e93cf0855d7fe4740256ed199
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011112"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34715361"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource
 
@@ -29,7 +29,7 @@ La guida alla pubblicazione per [Azure Marketplace](https://azuremarketplace.mic
 
 Al termine di questa guida, si avranno maggiori nozioni e si saprà dove trovare informazioni più dettagliate sugli argomenti seguenti:
 
-- Quali sono i vantaggi della presenza in una delle vetrine del Marketplace
+- Quali sono i vantaggi della presenza in una delle vetrine del marketplace
 - Come usare le vetrine
 - Quale vetrina è più adatta a determinati servizi e offerte 
 - Quali tipi di offerte di applicazioni e servizi è possibile pubblicare
@@ -37,7 +37,7 @@ Al termine di questa guida, si avranno maggiori nozioni e si saprà dove trovare
 - Come creare un elenco di controllo degli asset preliminare alla pubblicazione
 - Come diventare un editore
 - Dove creare e pubblicare le offerte
-- Come ottimizzare un'inserzione e usare le risorse Go-To-Market per una maggiore visibilità
+- Come ottimizzare un'inserzione e usare le risorse go-to-market per una maggiore visibilità
 - Come ottenere supporto
 
 Per eventuali domande su Azure Marketplace, AppSource o questa guida alla pubblicazione, contattare il team del Marketplace all'indirizzo cloudmarketplace@microsoft.com. 
@@ -46,11 +46,11 @@ Per eventuali domande su Azure Marketplace, AppSource o questa guida alla pubbli
 
 **Vantaggi della partecipazione al Marketplace**
 
-Azure Marketplace e AppSource sono il trampolino di lancio per le attività Go-To-Market in collaborazione con Microsoft e offrono un'interessante opportunità di partnership per il co-selling. Grazie a soluzioni per offerte promozionali di lancio, generazione della domanda e attività di vendita e marketing in collaborazione, le inserzioni nel Marketplace possono diventare il nucleo centrale del motore di espansione di un'azienda nel cloud e un canale di vendita potente per dare un forte impulso alla crescita aziendale. Non sono previste tariffe per la partecipazione al Marketplace. L'obiettivo è quello di consentire ai clienti di conoscere i servizi e le soluzioni migliori offerti dall'ecosistema di partner Microsoft.
+Azure Marketplace e AppSource sono il trampolino di lancio per le attività Go-To-Market in collaborazione con Microsoft e offrono un'interessante opportunità di partnership per il co-selling. Grazie a soluzioni per offerte promozionali di lancio, generazione della domanda e attività di vendita e marketing in collaborazione, le inserzioni nel Marketplace possono diventare il nucleo centrale del motore di espansione di un'azienda nel cloud e un canale di vendita potente per dare un forte impulso alla crescita aziendale. Non sono previste tariffe per la partecipazione al marketplace. L'obiettivo è quello di consentire ai clienti di conoscere i servizi e le soluzioni migliori offerti dall'ecosistema di partner Microsoft.
 
-Nel Marketplace è possibile cogliere notevoli opportunità per promuovere la crescita dell'azienda:
+Nel marketplace è possibile cogliere notevoli opportunità per promuovere la crescita dell'azienda:
 
-- **Generare opportunità di vendita e clienti potenziali**. È possibile accedere a nuovi mercati con un portfolio più ampio di soluzioni sulla piattaforma cloud Microsoft e usufruire delle offerte di upselling e cross-selling del Marketplace. 
+- **Generare opportunità di vendita e clienti potenziali**. È possibile accedere a nuovi mercati con un portfolio più ampio di soluzioni sulla piattaforma cloud Microsoft e usufruire delle offerte di upselling e cross-selling del marketplace. 
 - **Migliorare il valore aziendale e ampliare il volume di affari con clienti nuovi ed esistenti**. È possibile aumentare il volume di affari e risolvere i problemi dei clienti dovuti allo spostamento dei carichi di lavoro nel cloud, nonché ridurre i cicli di vendita e aumentare la redditività offerta dalla vendita di soluzioni complete destinate a carichi di lavoro e scenari di settore specifici.
 - **Ottenere informazioni dettagliate di utilità pratica**. Per Microsoft il successo dei clienti è il proprio successo. Ottenere informazioni dettagliate sulle prestazioni degli elenchi tramite il portale Cloud Partner. È possibile acquisire informazioni sulle operazioni in esecuzione, sui clienti potenziali generati e su come ottimizzare le attività della campagna.
 
@@ -59,7 +59,7 @@ Nel Marketplace è possibile cogliere notevoli opportunità per promuovere la cr
 
 ## <a name="storefronts"></a>Vetrine
 
-Microsoft offre due vetrine di Marketplace distinte che consentono ai partner di pubblicare inserzioni sulle proprie offerte, attivare versioni di valutazione ed effettuare transazioni direttamente con i clienti e l'ecosistema Microsoft: [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). Usando queste vetrine, i clienti possono trovare, provare e acquistare applicazioni e servizi per accelerare la propria trasformazione digitale, mentre gli editori possono espandere la propria attività grazie alla possibilità di accedere agli ecosistemi dei clienti e dei partner Microsoft.
+Microsoft offre due vetrine del marketplace distinte che consentono ai partner di pubblicare inserzioni sulle proprie offerte, attivare versioni di valutazione ed effettuare transazioni direttamente con i clienti e l'ecosistema Microsoft: [Azure Marketplace](https://azuremarketplace.microsoft.com) e [AppSource](https://appsource.microsoft.com). Usando queste vetrine, i clienti possono trovare, provare e acquistare applicazioni e servizi per accelerare la propria trasformazione digitale, mentre gli editori possono espandere la propria attività grazie alla possibilità di accedere agli ecosistemi dei clienti e dei partner Microsoft.
  
 Ogni vetrina offre specifiche opzioni di pubblicazione che consentono agli editori di sfruttare al massimo l'investimento nella pubblicazione, come illustrato in sintesi nella tabella seguente:
 
@@ -69,7 +69,7 @@ Ogni vetrina offre specifiche opzioni di pubblicazione che consentono agli edito
 |Destinatari     |Professionisti IT e sviluppatori (ad esempio, amministratori di database, SecOps, DevOps)    | Decision maker line-of-business (ad esempio, responsabili di approvvigionamento, produzione, contabilità)      |
 |Creata con o per l'estensione     |Azure         | Azure, Dynamics 365, Office 365, Power BI, PowerApps       |
 |Tipi di soluzioni e servizi     |  Soluzioni per infrastrutture, servizi professionali   | Applicazioni cloud line-of-business complete, componenti aggiuntivi Office 365, servizi professionali        |
-|Opzioni di pubblicazione     |  Contatta, offerta di servizi di consulenza, versione di valutazione, macchina virtuale, modello di soluzione, app gestita       |  Versione di valutazione gratuita, Ottieni subito, test drive, Contatta, offerta di servizi di consulenza      |
+|Opzioni di pubblicazione     |  Contattami, offerta di servizi di consulenza, versione di valutazione, macchina virtuale, modello di soluzione, app gestita       |  Versione di valutazione gratuita, Ottieni subito, test drive, Contattami, offerta di servizi di consulenza      |
 |Esperienza in-app per concedere agli utenti l'accesso ad app e servizi nel contesto dell'applicazione  | Portale di Azure e interfaccia della riga di comando di Azure         | Office 365, Dynamics 365, Power BI, app client di Office       |
 
 ## <a name="how-to-publish-on-cloud-marketplace"></a>Come pubblicare nel Marketplace cloud
@@ -96,12 +96,12 @@ Ogni vetrina supporta più opzioni di pubblicazione e tipi di offerta correlati.
 
 Eseguire i passaggi seguenti per registrarsi come editore nel Marketplace cloud. A seconda degli accordi stipulati con Microsoft e del tipo di inserzione selezionato, alcuni passaggi potrebbero non essere necessari: 
 
-|Passaggio per la registrazione al Marketplace  |Tempo  |Descrizione  |
+|Passaggio per la registrazione al Marketplace  |Tempo  |DESCRIZIONE  |
 |---------|---------|---------|
 | 1. Eseguire la registrazione a Microsoft Partner Network | 15 minuti | Aderire a Microsoft Partner Network (MPN) per diventare un partner Microsoft ufficiale e ricevere vantaggi e supporto aggiuntivi per essere un editore di Azure Marketplace. Per eseguire la registrazione a MPN, visitare il sito di Microsoft Partner Network e fare clic sul collegamento per la registrazione. Nel corso della registrazione, sarà possibile usare i dati di appartenenza della propria organizzazione, se applicabili. Al termine, prendere nota dell'ID MPN dell'organizzazione poiché verrà chiesto per attivare il profilo di pubblicazione nel portale Cloud Partner (passaggio 3).      |
 |2. Creare un ID Microsoft     |   15 minuti      |  L'ID Microsoft verrà usato per accedere al portale Cloud Partner. Questo indirizzo di posta elettronica deve essere registrato come ID Microsoft e viene usato sia per il portale Cloud Partner (passaggio 3) sia per Microsoft Developer Center (passaggio 4). L'indirizzo di posta elettronica selezionato deve essere preferibilmente incluso nel dominio aziendale e controllato dal team IT. Per le linee guida da seguire prima di creare un ID, rivedere le sezioni incluse in Linee guida e procedure dettagliate. |
-|3. Inviare il modulo di candidatura al Marketplace     |  1-3 giorni       | Per diventare un editore di Microsoft Cloud Marketplace è necessario specificare i dati della propria organizzazione. Il modulo include le informazioni relative all'organizzazione, la prima offerta di applicazione o servizio da pubblicare e il livello di supporto che si prevede di offrire. <ul><li>[Modulo di candidatura per Azure Marketplace](http://aka.ms/listonazuremarketplace)</li><li>[Modulo di candidatura per AppSource](http://aka.ms/listonappsource)</li></ul> Dopo l'invio del modulo, il team del Marketplace esaminerà l'applicazione e convaliderà la richiesta. Al termine di questa procedura, si riceverà una notifica tramite posta elettronica con i passaggi successivi per diventare un partner approvato e accedere al portale Cloud Partner, in cui sarà possibile completare il prima inserzione e creare altre offerte. Quando la candidatura verrà approvata, si riceverà anche un codice promozionale per evitare di pagare la tariffa di registrazione per Microsoft Development Center (passaggio 4). |
-|4. Eseguire la registrazione in Developer Center     |    5-10 giorni     | Microsoft Developer Center è necessario per la pubblicazione di applicazioni con funzionalità di transazione nel Marketplace, come Macchine virtuali, Modelli di soluzioni e App gestite di Azure. Questo requisito consentirà a Microsoft di convalidare le informazioni sull'azienda dell'editore, come i dati sulla persona giuridica e sul conto bancario e i dati fiscali. La persona che effettua la registrazione deve essere un rappresentante valido dell'organizzazione e deve specificare le informazioni personali per convalidare la propria identità. Deve inoltre usare un ID Microsoft (passaggio 2) condiviso in ambito aziendale e lo stesso account deve essere usato nel portale Cloud Partner. <ul>Si noti che se non si è completato il modulo di candidatura al Marketplace, verrà chiesto di pagare una tariffa di registrazione pari a 99 USD. Per evitare di pagare questa tariffa, completare il modulo di candidatura al Marketplace in modo da ricevere un codice promozionale tramite posta elettronica. Importante: prima di provare a creare un account Microsoft Developer Center, assicurarsi che la propria azienda non ne possieda già uno. Per istruzioni dettagliate su questa procedura, vedere Istruzioni su come eseguire la registrazione in Developer Center.</ul>   |
+|3. Inviare il modulo di candidatura al marketplace     |  1-3 giorni       | Per diventare un editore di Microsoft Cloud Marketplace è necessario specificare i dati della propria organizzazione. Il modulo include le informazioni relative all'organizzazione, la prima offerta di applicazione o servizio da pubblicare e il livello di supporto che si prevede di offrire. <ul><li>[Modulo di candidatura per Azure Marketplace](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[Modulo di candidatura per AppSource](http://aka.ms/listonappsource)</li></ul> Dopo l'invio del modulo, il team del Marketplace esaminerà l'applicazione e convaliderà la richiesta. Al termine di questa procedura, si riceverà una notifica tramite posta elettronica con i passaggi successivi per diventare un partner approvato e accedere al portale Cloud Partner, in cui sarà possibile completare il prima inserzione e creare altre offerte. Quando la candidatura verrà approvata, si riceverà anche un codice promozionale per evitare di pagare la tariffa di registrazione per Microsoft Development Center (passaggio 4). |
+|4. Eseguire la registrazione in Developer Center     |    5-10 giorni     | Microsoft Developer Center è necessario per la pubblicazione di applicazioni con funzionalità di transazione nel Marketplace, come Macchine virtuali, Modelli di soluzioni e App gestite di Azure. Questo requisito consentirà a Microsoft di convalidare le informazioni sull'azienda dell'editore, come i dati sulla persona giuridica e sul conto bancario e i dati fiscali. La persona che effettua la registrazione deve essere un rappresentante valido dell'organizzazione e deve specificare le informazioni personali per convalidare la propria identità. Deve inoltre usare un ID Microsoft (passaggio 2) condiviso in ambito aziendale e lo stesso account deve essere usato nel portale Cloud Partner. <ul>Si noti che se non si è completato il modulo di candidatura al marketplace, verrà chiesto di pagare una tariffa di registrazione pari a 99 USD. Per evitare di pagare questa tariffa, completare il modulo di candidatura al marketplace in modo da ricevere un codice promozionale tramite posta elettronica. Importante: prima di provare a creare un account Microsoft Developer Center, assicurarsi che la propria azienda non ne possieda già uno. Per istruzioni dettagliate su questa procedura, vedere Istruzioni su come eseguire la registrazione in Developer Center.</ul>   |
 |5. Accedere al portale Cloud Partner     |  15 minuti       |  Dopo che la candidatura è stata approvata e si è completata la registrazione in [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) e [Microsoft Developer Center](https://dev.windows.com/), verrà creato un account per l'accesso al [portale Cloud Partner](https://cloudpartner.azure.com/). Nel messaggio di posta elettronica di approvazione della candidatura saranno incluse le credenziali di accesso iniziali. Per informazioni dettagliate su come usare il portale Cloud Partner, andare al menu [Learn](https://cloudpartner.azure.com/#Learn) (Formazione) nel portale ed esaminare la sezione relativa alla documentazione.    |
 
 **3.    Soddisfare i prerequisiti per il tipo di offerta e di inserzione**
@@ -121,13 +121,13 @@ La sezione seguente include l'elenco delle opzioni di supporto per Azure Marketp
 
 **Domande generali su Azure Marketplace**
 
-|Canale di supporto |Descrizione |
+|Canale di supporto |DESCRIZIONE |
 |---------|---------|
 |Posta elettronica: cloudmarketplace@microsoft.com     |  Lista di distribuzione del supporto per l'onboarding. Viene usata per gestire le richieste di onboarding e per organizzare sessioni per l'individuazione di clienti e la progettazione dell'architettura con i partner.        |
 
 **Supporto per la pubblicazione in Azure Marketplace**
 
-|Canale di supporto  |Descrizione  |
+|Canale di supporto  |DESCRIZIONE  |
 |---------|---------|
 |Posta elettronica: azurecertified@microsoft.com |   Supporto ai partner per la pubblicazione di applicazioni in Azure Marketplace. Basato sull'orario di ufficio nel fuso orario del Pacifico.      |
 |Posta elettronica: AzureMarketOnboard@microsoft.com |   Supporto per la procedura di invio del modulo di candidatura ad Azure Marketplace. Basato sull'orario di ufficio nel fuso orario del Pacifico.      |
@@ -135,13 +135,13 @@ La sezione seguente include l'elenco delle opzioni di supporto per Azure Marketp
 
 **Supporto per il portale di Azure Marketplace**
 
-|Canale di supporto  |Descrizione  |
+|Canale di supporto  |DESCRIZIONE  |
 |---------|---------|
 |Posta elettronica: [supporto](https://go.microsoft.com/fwlink/?linkid=844975)    |   Supporto per il portale di pubblicazione in Marketplace. Disponibile a qualsiasi ora, giorno e notte.        |
 
 **Supporto tecnico**
 
-|Canale di supporto  |Descrizione  |
+|Canale di supporto  |DESCRIZIONE  |
 |---------|---------|
 |Forum MSDN: [Marketplace](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Forum di Microsoft Developer Network.         |
 |Stack Overflow: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure e al Marketplace:<ul><li>[Azure Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Macchine virtuali di Azure](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
@@ -149,10 +149,10 @@ La sezione seguente include l'elenco delle opzioni di supporto per Azure Marketp
 
 **Risorse di marketing**
 
-|Canale di supporto  |Descrizione  |
+|Canale di supporto  |DESCRIZIONE  |
 |---------|---------|
 |Posta elettronica: cosell@microsoft.com    |  Supporto per i processi di onboarding e per le domande sul programma di co-selling. Basato sul fuso orario del Pacifico.        |
-|Posta elettronica: gtm@microsoft.com    |  Supporto per informazioni sui vantaggi del programma Go-To-Market. Basato sull'orario di ufficio nel fuso orario del Pacifico.        |
+|Posta elettronica: gtm@microsoft.com    |  Supporto per informazioni sui vantaggi del programma go-to-market. Basato sull'orario di ufficio nel fuso orario del Pacifico.        |
 |Posta elettronica: CEBrand@Microsoft.com     |  Supporto per informazioni sull'utilizzo del marchio e dei logo di Azure.       |
 
 
@@ -166,21 +166,21 @@ Per altre informazioni sui vantaggi Go-To-Market e su come stimolare la crescita
 
 ### <a name="requirements-by-listing-type"></a>Requisiti in base al tipo di inserzione
 
-#### <a name="prerequisites-for-marketplace-publishing"></a>Prerequisiti per la pubblicazione nel Marketplace
+#### <a name="prerequisites-for-marketplace-publishing"></a>Prerequisiti per la pubblicazione in Marketplace
 
 **AppSource: prerequisiti per le opzioni di pubblicazione**
 
 |**Requisito**  |**Dettagli**  |**Obbligatorio o consigliato**  |
 |---------|---------|---------|
-|**Azure Active Directory (AAD)**    |  L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di AAD) con il consenso abilitato. Vedere qui per informazioni su come abilitare l'accesso SSO federato di AAD.     |    Obbligatorio   |
+|**Azure Active Directory (AAD)**    |  L'app deve consentire l'accesso Single Sign-On federato di Azure Active Directory (SSO federato di AAD) con il consenso abilitato. Vedere qui per informazioni su come abilitare l'accesso SSO federato di AAD.     |    Obbligatoria   |
 |**Integrazione con servizi Microsoft Cloud**    |  L'app deve essere integrabile con altri servizi Microsoft Cloud come Microsoft Power BI, Cortana Intelligence o i servizi di Microsoft Azure, ad esempio Internet delle cose.       |    Consigliato    |
-|**Destinatari**    |  Le offerte in AppSource devono essere destinate a utenti line-of-business e a titolari di aziende.     |    Obbligatorio   |
-|**App SaaS (Software as a Service) per aziende**    |  L'app deve essere: <ul><li>SaaS line-of-business</li><li>Focalizzata sui processi aziendali</li><li>Destinata a clienti aziendali</li><li>Consentire agli utenti di accedere con le proprie credenziali di lavoro (nome utente e password)</li></ul>       |    Obbligatorio    |
-|**Periodo di valutazione gratuita ed esperienza di valutazione**    |  Il cliente deve essere in grado di usare l'app gratuitamente per un periodo di tempo limitato. La versione di valutazione gratuita può essere presentata in due modi: <ul><li>Offrire un'opzione di valutazione in modo che i clienti possano iniziare a provarla dall'interno di AppSource</li><li>Offrire ai clienti l'opportunità di richiedere una versione di valutazione dall'interno di AppSource</li></ul> In entrambi i casi, per la valutazione gratuita è necessario concedere al cliente un periodo minimo di tempo per provare l'app senza costi aggiuntivi.      |    Obbligatorio    |
-|**Soluzione chiavi in mano, facilmente configurabile**    |  L'app deve essere semplice e rapida da configurare e installare (senza richiedere personalizzazioni).     |    Obbligatorio   |
-|**Gestione dei clienti potenziali**    |  Per ricevere clienti potenziali dal Marketplace, è necessario configurare il proprio sistema CRM (Marketo, Microsoft Dynamics o Salesforce) in modo da accettare i dati relativi ai clienti potenziali.       |    Obbligatorio    |
-|**Informativa sulla privacy e condizioni per l'utilizzo**    |  L'informativa sulla privacy dell'editore deve essere disponibile tramite un URL pubblico e le condizioni per l'utilizzo devono essere specificate in formato testo al momento della pubblicazione.     |    Obbligatorio   |
-|**Supporto**    |  L'offerta deve includere un URL disponibile pubblicamente in cui i clienti possono ottenere supporto. Per le versioni di valutazione è necessario fornire supporto senza costi aggiuntivi durante il periodo di valutazione.     |    Obbligatorio   |
+|**Destinatari**    |  Le offerte in AppSource devono essere destinate a utenti line-of-business e a titolari di aziende.     |    Obbligatoria   |
+|**App SaaS (Software as a Service) per aziende**    |  L'app deve essere: <ul><li>SaaS line-of-business</li><li>Focalizzata sui processi aziendali</li><li>Destinata a clienti aziendali</li><li>Consentire agli utenti di accedere con le proprie credenziali di lavoro (nome utente e password)</li></ul>       |    Obbligatoria    |
+|**Periodo di valutazione gratuita ed esperienza di valutazione**    |  Il cliente deve essere in grado di usare l'app gratuitamente per un periodo di tempo limitato. La versione di valutazione gratuita può essere presentata in due modi: <ul><li>Offrire un'opzione di valutazione in modo che i clienti possano iniziare a provarla dall'interno di AppSource</li><li>Offrire ai clienti l'opportunità di richiedere una versione di valutazione dall'interno di AppSource</li></ul> In entrambi i casi, per la valutazione gratuita è necessario concedere al cliente un periodo minimo di tempo per provare l'app senza costi aggiuntivi.      |    Obbligatoria    |
+|**Soluzione chiavi in mano, facilmente configurabile**    |  L'app deve essere semplice e rapida da configurare e installare (senza richiedere personalizzazioni).     |    Obbligatoria   |
+|**Gestione dei clienti potenziali**    |  Per ricevere clienti potenziali dal Marketplace, è necessario configurare il proprio sistema CRM (Marketo, Microsoft Dynamics o Salesforce) in modo da accettare i dati relativi ai clienti potenziali.       |    Obbligatoria    |
+|**Informativa sulla privacy e condizioni per l'utilizzo**    |  L'informativa sulla privacy dell'editore deve essere disponibile tramite un URL pubblico e le condizioni per l'utilizzo devono essere specificate in formato testo al momento della pubblicazione.     |    Obbligatoria   |
+|**Supporto**    |  L'offerta deve includere un URL disponibile pubblicamente in cui i clienti possono ottenere supporto. Per le versioni di valutazione è necessario fornire supporto senza costi aggiuntivi durante il periodo di valutazione.     |    Obbligatoria   |
 
 **Azure Marketplace: prerequisiti per le opzioni di pubblicazione**
 
@@ -230,9 +230,9 @@ Per altre informazioni sui vantaggi Go-To-Market e su come stimolare la crescita
 
 |**Requisiti** |**Dettagli**  |**Opzione di pubblicazione**  |
 |---------|---------|---------|
-|**Caratteristiche dell'offerta del servizio**     | Il servizio di consulenza deve essere: <br>- Offerto con un ambito, una durata e un prezzo prestabiliti (o gratuitamente). <br>- Principalmente orientato alla prevendita. <br>- Limitato a un singolo cliente. <br>- Fornito presso la sua sede.        |    Inserzione     |
-|**Requisiti dei partner per i servizi di consulenza**    |   *Solo per AppSource*:  <br>- **Dynamics 365 for Customer Engagement**: competenza Silver o Gold di [Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). <br>- **Dynamics 365 for Finance and Operations, Enterprise Edition**: competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e un fatturato minimo di 25.000 USD in operazioni cloud negli ultimi 12 mesi. <br>- **Dynamics 365 for Finance and Operations, Business Edition**: svolgere la funzione di [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) per almeno un cliente. <br>- **Power BI**: soddisfare i criteri di [Partner di soluzioni](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). <br>- **PowerApps**: avere pubblicato una soluzione in [Showcase dei partner](https://powerapps.microsoft.com/en-us/partner-showcase/). |    Inserzione     |
-|**Requisiti dei partner per i servizi di consulenza**    |  *Solo per Azure Marketplace*: <br>I partner devono anche avere **competenze Silver o Gold** nell'area pertinente al servizio offerto. Di seguito sono elencate le competenze idonee:</br><br><ul><li> **Competenza**: Infrastruttura e piattaforma cloud <br>**Area soluzioni**: piattaforma cloud, data center</li><br><li>**Competenza**: Sviluppatori di applicazioni e ISV <br>**Area soluzioni**: sviluppo di applicazioni, integrazione di applicazioni, DevOps</li><br><li>**Competenza**: Gestione e analisi dei dati <br>**Area soluzioni**: analisi dei dati, piattaforma dati </li></br></ul>Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies).</br><br>Per altre informazioni sulla pubblicazione di inserzioni, vedere [Servizi di consulenza in Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/consulting-services). |    Inserzione     | 
+|**Caratteristiche dell'offerta del servizio**     | Il servizio di consulenza deve essere: <br>- Offerto con un ambito, una durata e un prezzo prestabiliti (o gratuitamente). <br>- Principalmente orientato alla prevendita. <br>- Limitato a un singolo cliente. <br>- Fornito presso la sua sede.        |    Elenco     |
+|**Requisiti dei partner per i servizi di consulenza**    |   *Solo per AppSource*:  <br>- **Dynamics 365 for Customer Engagement**: competenza Silver o Gold di [Cloud Customer Relationship Management](https://partner.microsoft.com/en-us/membership/cloud-customer-relationship-management-competency). <br>- **Dynamics 365 for Finance and Operations, Enterprise Edition**: competenza Silver o Gold di [Enterprise Resource Planning](https://partner.microsoft.com/en-us/membership/enterprise-resource-planning-competency) e un fatturato minimo di 25.000 USD in operazioni cloud negli ultimi 12 mesi. <br>- **Dynamics 365 for Finance and Operations, Business Edition**: svolgere la funzione di [Cloud Services Provider (CSP)](https://partner.microsoft.com/en-us/cloud-solution-provider) o [Digital Partner of Record (DPOR)](https://partner.microsoft.com/en-us/membership/digital-partner-of-record) per almeno un cliente. <br>- **Power BI**: soddisfare i criteri di [Partner di soluzioni](file:///C:/Users/ellacroi/Downloads/BI%20Partner%20Program%20Overview%20&%20Incentives.pdf). <br>- **PowerApps**: avere pubblicato una soluzione in [Showcase dei partner](https://powerapps.microsoft.com/en-us/partner-showcase/). |    Elenco     |
+|**Requisiti dei partner per i servizi di consulenza**    |  *Solo per Azure Marketplace*: <br>I partner devono anche avere **competenze Silver o Gold** nell'area pertinente al servizio offerto. Di seguito sono elencate le competenze idonee:</br><br><ul><li> **Competenza**: Infrastruttura e piattaforma cloud <br>**Area soluzioni**: piattaforma cloud, data center</li><br><li>**Competenza**: Sviluppatori di applicazioni e ISV <br>**Area soluzioni**: sviluppo di applicazioni, integrazione di applicazioni, DevOps</li><br><li>**Competenza**: Gestione e analisi dei dati <br>**Area soluzioni**: analisi dei dati, piattaforma dati </li></br></ul>Per altre informazioni, vedere [Competenze in Microsoft Partner Network](https://partner.microsoft.com/en-US/membership/competencies).</br><br>Per altre informazioni sulla pubblicazione di inserzioni, vedere [Servizi di consulenza in Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/consulting-services). |    Elenco     | 
 
 
 #### <a name="cloud-partner-portal-pre-publishing-checklist-for-the-azure-marketplace"></a>Elenco di controllo preliminare alla pubblicazione nel portale Cloud Partner per Azure Marketplace
@@ -355,12 +355,12 @@ Questa sezione illustra i passaggi per: <ul><li>Diventare un editore in Azure Ma
 
 **Panoramica del processo**
 
-|Passaggio per la registrazione al Marketplace  |Tempo  |Descrizione  |
+|Passaggio per la registrazione al Marketplace  |Tempo  |DESCRIZIONE  |
 |---------|---------|---------|
 | 1. Eseguire la registrazione a Microsoft Partner Network | 15 minuti | Aderire a Microsoft Partner Network (MPN) per diventare un partner Microsoft ufficiale e ricevere vantaggi e supporto aggiuntivi per essere un editore di Azure Marketplace. Per eseguire la registrazione a MPN, visitare il sito di Microsoft Partner Network e fare clic sul collegamento per la registrazione. Nel corso della registrazione, sarà possibile usare i dati di appartenenza della propria organizzazione, se applicabili. Al termine, prendere nota dell'ID MPN dell'organizzazione poiché verrà chiesto per attivare il profilo di pubblicazione nel portale Cloud Partner (passaggio 3).      |
 |2. Creare un ID Microsoft     |   15 minuti      |  L'ID Microsoft verrà usato per accedere al portale Cloud Partner. Questo indirizzo di posta elettronica deve essere registrato come ID Microsoft e viene usato sia per il portale Cloud Partner (passaggio 3) sia per Microsoft Developer Center (passaggio 4). L'indirizzo di posta elettronica selezionato deve essere preferibilmente incluso nel dominio aziendale e controllato dal team IT. Per le linee guida da seguire prima di creare un ID, rivedere le sezioni incluse in Linee guida e procedure dettagliate. |
-|3. Inviare il modulo di candidatura al Marketplace     |  1-3 giorni       | Per diventare un editore di Microsoft Cloud Marketplace è necessario specificare i dati della propria organizzazione. Il modulo include le informazioni relative all'organizzazione, la prima offerta di applicazione o servizio da pubblicare e il livello di supporto che si prevede di offrire. <ul><li>[Modulo di candidatura per Azure Marketplace](http://aka.ms/listonazuremarketplace)</li><li>[Modulo di candidatura per AppSource](http://aka.ms/listonappsource)</li></ul> Dopo l'invio del modulo, il team del Marketplace esaminerà l'applicazione e convaliderà la richiesta. Al termine di questa procedura, si riceverà una notifica tramite posta elettronica con i passaggi successivi per diventare un partner approvato e accedere al portale Cloud Partner, in cui sarà possibile completare il prima inserzione e creare altre offerte. Quando la candidatura verrà approvata, si riceverà anche un codice promozionale per evitare di pagare la tariffa di registrazione per Microsoft Development Center (passaggio 4). |
-|4. Eseguire la registrazione in Developer Center     |    5-10 giorni     | Microsoft Developer Center è necessario per la pubblicazione di applicazioni con funzionalità di transazione nel Marketplace, come Macchine virtuali, Modelli di soluzioni e App gestite di Azure. Questo requisito consentirà a Microsoft di convalidare le informazioni sull'azienda dell'editore, come i dati sulla persona giuridica e sul conto bancario e i dati fiscali. La persona che effettua la registrazione deve essere un rappresentante valido dell'organizzazione e deve specificare le informazioni personali per convalidare la propria identità. Deve inoltre usare un ID Microsoft (passaggio 2) condiviso in ambito aziendale e lo stesso account deve essere usato nel portale Cloud Partner. <ul>Si noti che se non si è completato il modulo di candidatura al Marketplace, verrà chiesto di pagare una tariffa di registrazione pari a 99 USD. Per evitare di pagare questa tariffa, completare il modulo di candidatura al Marketplace in modo da ricevere un codice promozionale tramite posta elettronica. Importante: prima di provare a creare un account Microsoft Developer Center, assicurarsi che la propria azienda non ne possieda già uno. Per istruzioni dettagliate su questa procedura, vedere Istruzioni su come eseguire la registrazione in Developer Center.</ul>   |
+|3. Inviare il modulo di candidatura al marketplace     |  1-3 giorni       | Per diventare un editore di Microsoft Cloud Marketplace è necessario specificare i dati della propria organizzazione. Il modulo include le informazioni relative all'organizzazione, la prima offerta di applicazione o servizio da pubblicare e il livello di supporto che si prevede di offrire. <ul><li>[Modulo di candidatura per Azure Marketplace](https://azuremarketplace.microsoft.com/sell/signup)</li><li>[Modulo di candidatura per AppSource](http://aka.ms/listonappsource)</li></ul> Dopo l'invio del modulo, il team del Marketplace esaminerà l'applicazione e convaliderà la richiesta. Al termine di questa procedura, si riceverà una notifica tramite posta elettronica con i passaggi successivi per diventare un partner approvato e accedere al portale Cloud Partner, in cui sarà possibile completare il prima inserzione e creare altre offerte. Quando la candidatura verrà approvata, si riceverà anche un codice promozionale per evitare di pagare la tariffa di registrazione per Microsoft Development Center (passaggio 4). |
+|4. Eseguire la registrazione in Developer Center     |    5-10 giorni     | Microsoft Developer Center è necessario per la pubblicazione di applicazioni con funzionalità di transazione nel Marketplace, come macchine virtuali, modelli di soluzioni, app gestite di Azure, contenitori e sottoscrizioni SaaS. Questo requisito consentirà a Microsoft di convalidare le informazioni sull'azienda dell'editore, come i dati sulla persona giuridica e sul conto bancario e i dati fiscali. La persona che effettua la registrazione deve essere un rappresentante valido dell'organizzazione e deve specificare le informazioni personali per convalidare la propria identità. Deve inoltre usare un ID Microsoft (passaggio 2) condiviso in ambito aziendale e lo stesso account deve essere usato nel portale Cloud Partner. <ul>Si noti che se non si è completato il modulo di candidatura al marketplace, verrà chiesto di pagare una tariffa di registrazione pari a 99 USD. Per evitare di pagare questa tariffa, completare il modulo di candidatura al marketplace in modo da ricevere un codice promozionale tramite posta elettronica. Importante: prima di provare a creare un account Microsoft Developer Center, assicurarsi che la propria azienda non ne possieda già uno. Per istruzioni dettagliate su questa procedura, vedere Istruzioni su come eseguire la registrazione in Developer Center.</ul>   |
 |5. Accedere al portale Cloud Partner     |  15 minuti       |  Dopo che la candidatura è stata approvata e si è completata la registrazione in [Microsoft Partner Network](https://partner.microsoft.com/en-us/membership/) e [Microsoft Developer Center](https://dev.windows.com/), verrà creato un account per l'accesso al [portale Cloud Partner](https://cloudpartner.azure.com/). Nel messaggio di posta elettronica di approvazione della candidatura saranno incluse le credenziali di accesso iniziali. Per informazioni dettagliate su come usare il portale Cloud Partner, andare al menu [Learn](https://cloudpartner.azure.com/#Learn) (Formazione) nel portale ed esaminare la sezione relativa alla documentazione.    |
 
 
@@ -491,7 +491,7 @@ In caso di problemi con la registrazione in Developer Center, inoltrare un ticke
 
 **Considerazioni di natura commerciale sul Marketplace**
 
-Non sono previste tariffe per la partecipazione al Marketplace. Non viene applicato alcun sistema di ripartizione dei ricavi per la partecipazione al Marketplace quando si pubblicano offerte con le opzioni di inserzione, valutazione e transazione BYOL. Per altre informazioni, vedere [Criteri di partecipazione a Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+Non sono previste tariffe per la partecipazione a Marketplace. Non viene applicato alcun sistema di ripartizione dei ricavi per la partecipazione al Marketplace quando si pubblicano offerte con le opzioni di inserzione, valutazione e transazione BYOL. Per altre informazioni, vedere [Criteri di partecipazione a Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 
 **Opzioni di fatturazione con pagamento in base al consumo e Bring Your Own License**
 
