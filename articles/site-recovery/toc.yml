@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: Gestire il server di configurazione per la replica di server fisici
               href: physical-manage-configuration-server.md
+            - name: Gestire server di elaborazione
+              href: vmware-azure-manage-process-server.md
             - name: Gestire server vCenter
               href: vmware-azure-manage-vcenter.md
             - name: Rimuovere server e disabilitare la protezione

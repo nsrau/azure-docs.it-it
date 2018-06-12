@@ -28,7 +28,11 @@
 - name: Concetti
   items:
     - name: Transizione del portale di OMS
-      href: log-analytics-oms-portal-faq.md
+      items:
+        - name: Panoramica
+          href: log-analytics-oms-portal-transition.md
+        - name: Domande frequenti
+          href: log-analytics-oms-portal-faq.md
     - name: Aggiornamento dell'area di lavoro
       items:
         - name: Panoramica dell'aggiornamento
