@@ -33,6 +33,8 @@
 ### [Creare Hub eventi con supporto per Kafka](event-hubs-create-kafka-enabled.md) 
 ### [Eseguire lo streaming in Hub eventi di Azure per l'ecosistema Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Uso di Kafka MirrorMaker con Hub eventi di Azure per l'ecosistema Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Uso di Apache Flink con Hub eventi per l'ecosistema Kafka](event-hubs-kafka-flink-tutorial.md)
+### [Uso di Akka Streams con Hub eventi per l'ecosistema Kafka](event-hubs-kafka-akka-streams-tutorial.md)
 ## Sviluppo
 ### [Inviare eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
 ### [Ricevere eventi con .NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)

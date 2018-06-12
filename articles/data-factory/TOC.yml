@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Esercitazioni
   items:
-    - name: 1 - Distribuire i pacchetti SSIS in Azure
+    - name: 1 - Creare un runtime di integrazione SSIS di Azure
       items:
         - name: Interfaccia utente
           href: tutorial-deploy-ssis-packages-azure.md
@@ -362,7 +362,7 @@
           href: monitor-integration-runtime.md
         - name: Monitorare il runtime di integrazione SSIS di Azure
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Gestire il runtime di integrazione SSIS di Azure
+        - name: Riconfigurare il runtime di integrazione SSIS di Azure
           href: manage-azure-ssis-integration-runtime.md
     - name: Creare il runtime di integrazione
       items:
@@ -374,7 +374,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
+        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
           href: enable-aad-authentication-azure-ssis-ir.md

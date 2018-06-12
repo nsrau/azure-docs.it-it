@@ -32,6 +32,10 @@
           href: contoso-migration-rehost-vm.md
         - name: 6. Contoso - Rehosting di un'app in macchine virtuali di Azure e in Azure SQL AlwaysOn
           href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso - Rehosting di un'app Linux in VM di Azure
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso - Rehosting di un'app Linux in VM di Azure e Azure MySQL
+          href: contoso-migration-rehost-linux-vm-mysql.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md
     - name: Raggruppare i computer
