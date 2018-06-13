@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433335"
 ---
 Al termine, è possibile eliminare il gruppo di risorse. In questo modo vengono eliminati anche l'account di archiviazione, la condivisione file di Azure ed eventuali altre risorse distribuite nel gruppo di risorse.
 

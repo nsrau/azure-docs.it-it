@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359258"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
 Questo articolo illustra come eseguire una distribuzione condizionale di una risorsa e come eseguire l'iterazione nel modello di Azure Resource Manager per creare più istanze di una risorsa.

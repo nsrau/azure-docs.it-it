@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/19/2018
+  ms.locfileid: "31590786"
 abstract:
   description: Le macchine virtuali di Data Science e Deep Learning sono immagini di macchina virtuale personalizzate in Azure, caricate con strumenti di data science usati per creare applicazioni intelligenti per l'analisi avanzata.
 sections:

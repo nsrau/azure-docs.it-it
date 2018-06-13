@@ -13,6 +13,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30929411"
 ---
 1. Nel lato sinistro del portale fare clic su **+ Crea una risorsa** e digitare "gateway di rete virtuale" nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e fare clic sulla voce. Nella pagina **Gateway di rete virtuale** fare clic su **Crea** nella parte inferiore per aprire la pagina **Crea gateway di rete virtuale**.
 2. Nella pagina **Crea gateway di rete virtuale** inserire i valori per il gateway di rete virtuale.

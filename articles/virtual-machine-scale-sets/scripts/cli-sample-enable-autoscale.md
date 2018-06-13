@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246492"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Scalare automaticamente un set di scalabilità di una macchina virtuale con l'interfaccia della riga di comando di Azure 2.0
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu e usa metriche basate su host per la scalabilità automatica in base alle variazioni del carico CPU.

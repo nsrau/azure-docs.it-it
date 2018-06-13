@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777893"
 ---
 # <a name="token-based-http2-authentication-for-apns"></a>Autenticazione basata su token (HTTP/2) per il servizio APN
 ## <a name="overview"></a>Panoramica

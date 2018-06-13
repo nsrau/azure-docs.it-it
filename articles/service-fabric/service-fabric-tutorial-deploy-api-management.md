@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599255"
 ---
 # <a name="tutorial-deploy-api-management-with-service-fabric"></a>Esercitazione: Distribuire Gestione API con Service Fabric
 Questa è la quarta di una serie di esercitazioni.  La distribuzione di Gestione API di Azure con Service Fabric costituisce uno scenario avanzato.  Gestione API è utile quando occorre pubblicare API con un ampio set di regole di routing per i servizi back-end di Service Fabric. Le applicazioni cloud necessitano in genere di un gateway front-end per garantire un singolo punto di ingresso per utenti, dispositivi o altre applicazioni. In Service Fabric un gateway può essere qualsiasi servizio senza stato progettato per l'ingresso del traffico, come un'applicazione ASP.NET Core, Hub eventi, Hub IoT o Gestione API di Azure. 

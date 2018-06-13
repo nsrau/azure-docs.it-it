@@ -1,6 +1,6 @@
 ---
-title: "Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: ripristino di emergenza | Documentazione Microsoft"
-description: "Questo articolo illustra come configurare un gruppo di disponibilità SQL Server nelle macchine virtuali di Azure con una replica in un'area diversa."
+title: 'Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: ripristino di emergenza | Documentazione Microsoft'
+description: Questo articolo illustra come configurare un gruppo di disponibilità SQL Server nelle macchine virtuali di Azure con una replica in un'area diversa.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852830"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Configurare un gruppo di disponibilità AlwaysOn in macchine virtuali di Azure in aree diverse
 

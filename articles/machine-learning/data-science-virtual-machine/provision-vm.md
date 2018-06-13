@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594050"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale data science Windows di Azure
 La macchina virtuale di Data Science di Microsoft è un'immagine di macchina virtuale (VM) di Windows Azure pre-installata e configurata con diversi strumenti diffusi comunemente usati per l'analisi dei dati e l'apprendimento automatico. Gli strumenti inclusi sono:

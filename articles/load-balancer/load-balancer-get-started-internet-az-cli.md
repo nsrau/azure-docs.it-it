@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30320238"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Creare un servizio di bilanciamento del carico pubblico standard con un front-end con ridondanza della zona usando l'interfaccia della riga di comando di Azure
 

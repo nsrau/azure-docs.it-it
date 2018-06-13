@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326539"
 ---
 Per verificare l'esito positivo della connessione è possibile usare il cmdlet 'Get-AzureRmVirtualNetworkGatewayConnection' con o senza '-Debug'. 
 
