@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402824"
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/iot-dps/quick-enroll-device-x509-java.md)

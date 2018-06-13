@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402654"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-dps/quick-create-simulated-device-x509.md)

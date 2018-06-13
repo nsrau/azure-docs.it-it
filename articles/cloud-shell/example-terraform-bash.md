@@ -2,7 +2,7 @@
 title: Distribuzione con Terraform da Bash in Azure Cloud Shell | Microsoft Docs
 description: Distribuire con Terraform da Bash in Azure Cloud Shell
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386521"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuire con Terraform da Bash in Azure Cloud Shell
 Questo articolo descrive in modo dettagliato come creare un gruppo di risorse con il [provider AzureRM di Terraform](https://www.terraform.io/docs/providers/azurerm/index.html). 

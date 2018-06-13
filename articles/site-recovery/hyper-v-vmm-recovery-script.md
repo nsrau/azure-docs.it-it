@@ -2,10 +2,10 @@
 title: Aggiungere uno script a un piano di ripristino in Azure Site Recovery | Microsoft Docs
 description: Informazioni sui prerequisiti per l'aggiunta di un nuovo script di System Center Virtual Machine Manager (VMM) a un piano di ripristino in Azure.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: shons
-editor: 
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402072"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 

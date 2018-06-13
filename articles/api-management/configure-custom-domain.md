@@ -2,10 +2,10 @@
 title: Configurare un nome di dominio personalizzato per l'istanza di Gestione API di Azure | Microsoft Docs
 description: Questo argomento descrive come configurare un nome di dominio personalizzato per l'istanza di Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29345371"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurare un nome di dominio personalizzato 
 

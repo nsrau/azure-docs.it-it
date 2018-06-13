@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "25958172"
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transizione al nuovo linguaggio di query di Azure Log Analytics
 Log Analytics ha recentemente implementato un nuovo linguaggio di query.  Questo articolo offre informazioni utili per la transizione a questo linguaggio di Log Analytics se si ha già familiarità con il linguaggio legacy ma è comunque necessaria assistenza.
