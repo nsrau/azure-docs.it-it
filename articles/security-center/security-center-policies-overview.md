@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776126"
 ---
 # <a name="security-policies-overview"></a>Panoramica dei criteri di sicurezza
 Questo articolo offre una panoramica dei criteri di sicurezza del Centro sicurezza.

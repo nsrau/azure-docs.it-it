@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937840"
 ---
 # <a name="validate-azure-registration"></a>Convalidare una registrazione di Azure 
 Utilizzare lo strumento di controllo di conformità dello Stack di Azure (AzsReadinessChecker) per convalidare che la sottoscrizione di Azure è pronta all'uso con lo Stack di Azure. Convalidare la registrazione prima di iniziare una distribuzione di Azure Stack. Il controllo di conformità di convalida:

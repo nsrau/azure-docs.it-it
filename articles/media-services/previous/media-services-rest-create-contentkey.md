@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785810"
 ---
 # <a name="create-content-keys-with-rest"></a>Creazione di entità ContentKey mediante REST
 > [!div class="op_single_selector"]

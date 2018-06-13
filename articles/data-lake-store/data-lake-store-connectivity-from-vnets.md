@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198124"
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>Accedere ad Azure Data Lake Store dalle macchine virtuali di una rete virtuale di Azure
 Azure Data Lake Store è un servizio PaaS eseguito su indirizzi IP Internet pubblici. Qualunque server in grado di connettersi alla rete Internet pubblica può in genere connettersi anche agli endpoint di Azure Data Lake Store. Per impostazione predefinita, tutte le macchine virtuali delle reti virtuali di Azure possono accedere a Internet e quindi anche ad Azure Data Lake Store. Tuttavia, è possibile configurare le macchine virtuali di una rete virtuale per l'accesso a Internet. Per queste macchine virtuali, è limitato anche l'accesso ad Azure Data Lake Store. L'accesso a Internet pubblico per le macchine virtuali delle reti virtuali di Azure può essere bloccato tramite uno degli approcci seguenti:

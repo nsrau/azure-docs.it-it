@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529204"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concetti di checkpoint e riproduzione nei processi di Analisi di flusso di Azure
 Questo articolo illustra i concetti di checkpoint interno e riproduzione in Analisi di flusso di Azure e il relativo impatto sul ripristino dei processi. Ogni volta che viene eseguito un processo di Analisi di flusso, le informazioni sullo stato vengono mantenute all'interno del servizio e salvate periodicamente in un checkpoint. In alcuni scenari le informazioni dei checkpoint vengono usate per il ripristino dei processi in caso di errore o di aggiornamento. In altre circostanze il checkpoint non può essere usato per il ripristino ed è necessario procedere alla riproduzione.

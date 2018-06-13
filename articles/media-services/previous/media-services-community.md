@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782700"
 ---
 # <a name="azure-media-services-community"></a>Community di Servizi multimediali di Azure
 La pagina della community di Servizi multimediali di Azure illustra i diversi modi in cui è possibile ottenere aggiornamenti su Servizi multimediali di Azure. È anche possibile vedere nuovi video e podcast, porre domande e inviare commenti e suggerimenti.   

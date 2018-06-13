@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523898"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Funzionalità di rilevamento delle minacce in Azure SQL Data Warehouse
 Configurare la funzionalità di rilevamento delle minacce ed esplorare eventi sospetti in Azure SQL Data Warehouse.

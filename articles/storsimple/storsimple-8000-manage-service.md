@@ -2,23 +2,24 @@
 title: Distribuire il servizio Gestione dispositivi StorSimple in Azure | Microsoft Docs
 description: Descrive le procedure per creare ed eliminare il servizio Gestione dispositivi StorSimple nel portale di Azure e per gestire la chiave di registrazione del servizio.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/04/2017
+ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 96dcda25cde2473387842fd01421b6bb619e4ece
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d6010b7ff03689588251a9649eecb412bf9f3a8d
+ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012744"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -29,7 +30,9 @@ Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure e 
 In questa esercitazione vengono descritti i passaggi necessari per la creazione, l'eliminazione, la migrazione del servizio e la gestione della chiave di registrazione del servizio. Le informazioni contenute in questo articolo si applicano solo ai dispositivi StorSimple serie 8000. Per altre informazioni sugli array virtuali StorSimple, vedere le informazioni su come [distribuire un servizio Gestione dispositivi StorSimple per l'array virtuale StorSimple](storsimple-virtual-array-manage-service.md).
 
 > [!NOTE]
-> Le istanze classiche di Gestione dispositivi StorSimple sono state automaticamente trasferite nel nuovo portale di Azure. Per eventuali domande, vedere [Domande frequenti: spostamento nel portale di Azure](storsimple-8000-move-azure-portal-faq.md). I cmdlet PowerShell di gestione del servizio Azure non sono supportati dopo lo spostamento nel nuovo portale di Azure. Aggiornare gli script per gestire i dispositivi e quindi vedere [Usare script basati su Azure Resource Manager SDK per gestire dispositivi StorSimple](storsimple-8000-automation-azurerm-scripts.md) per altre informazioni. Il nuovo portale di Azure supporta i dispositivi che eseguono l'aggiornamento 5.0 o versione successiva. Se il dispositivo non è aggiornato, installare l'aggiornamento 5 immediatamente. Per altre informazioni, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md). Se si usa un'appliance cloud StorSimple (8010/8020), non è possibile aggiornare un'appliance cloud. Usare la versione più recente del software per creare una nuova appliance cloud con l'aggiornamento 5.0 e quindi effettuare il failover nella nuova appliance cloud creata. Tutti i dispositivi che eseguono l'aggiornamento 4.0 o versioni precedenti saranno caratterizzati da una [funzionalità di gestione ridotta](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
+> -  Il portale di Azure supporta i dispositivi che eseguono l'aggiornamento 5.0 o versione successiva. Se il dispositivo non è aggiornato, installare l'aggiornamento 5 immediatamente. Per altre informazioni, vedere [Installare l'aggiornamento 5](storsimple-8000-install-update-5.md). 
+> - Se si usa un'appliance cloud StorSimple (8010/8020), non è possibile aggiornare un'appliance cloud. Usare la versione più recente del software per creare una nuova appliance cloud con l'aggiornamento 5.0 e quindi effettuare il failover nella nuova appliance cloud creata. 
+> - Tutti i dispositivi che eseguono l'aggiornamento 4.0 o versioni precedenti saranno caratterizzati da una [funzionalità di gestione ridotta](storsimple-8000-manage-service.md#supported-operations-on-devices-running-versions-prior-to-update-5.0). 
 
 ## <a name="create-a-service"></a>Creare un servizio
 Per creare un servizio Gestione dispositivi StorSimple, è necessario disporre di:
@@ -38,11 +41,7 @@ Per creare un servizio Gestione dispositivi StorSimple, è necessario disporre d
 * Un account di archiviazione di Microsoft Azure attivo
 * Le informazioni di fatturazione usate per la gestione degli accessi
 
-Sono consentite solo le sottoscrizioni con un contratto Enterprise Agreement. Le sottoscrizioni Microsoft Sponsorship che erano consentite nel portale di Azure classico non sono supportate nel portale di Azure. Se si usa una sottoscrizione non supportata, verrà visualizzato il messaggio seguente:
-
-![Sottoscrizione non valida](./media/storsimple-8000-manage-service/subscription-not-valid.jpg)
-
-È inoltre possibile scegliere di generare un account di archiviazione predefinito al momento della creazione del servizio.
+Sono consentite solo le sottoscrizioni con un contratto Enterprise Agreement. È inoltre possibile scegliere di generare un account di archiviazione predefinito al momento della creazione del servizio.
 
 Un singolo servizio può gestire più dispositivi, ma un dispositivo non può estendersi a più servizi. Una grande impresa può avere più istanze del servizio per lavorare con diverse sottoscrizioni, organizzazioni o anche percorsi di distribuzione. 
 
@@ -149,8 +148,7 @@ Questo passaggio viene eseguito nell'interfaccia di Windows PowerShell per StorS
 
 > [!NOTE]
 > Non è possibile eseguire operazioni nel portale di Azure del servizio StorSimple Manager fino a quando il rollover della chiave non viene completato.
-> 
-> 
+
 
 Se si usa la console seriale del dispositivo per la connessione all'interfaccia di Windows PowerShell,seguire questa procedura.
 
@@ -196,16 +194,16 @@ Nel portale di Azure sono supportati solo i dispositivi StorSimple che eseguono 
 | Analizzare, scaricare e installare aggiornamenti                                                                                             | Sì            |
 | Disattivare un dispositivo                                                                                                               | Sì            |
 | Eliminare un dispositivo                                                                                                                   | Sì            |
-| Creare, modificare ed eliminare un contenitore di volumi                                                                                   | No             |
-| Creare, modificare ed eliminare un volume                                                                                             | No             |
-| Creare, modificare ed eliminare criteri di backup                                                                                      | No             |
-| Creazione di un backup manuale                                                                                                            | No             |
+| Creare, modificare ed eliminare un contenitore di volumi                                                                                   | No              |
+| Creare, modificare ed eliminare un volume                                                                                             | No              |
+| Creare, modificare ed eliminare criteri di backup                                                                                      | No              |
+| Creazione di un backup manuale                                                                                                            | No              |
 | Eseguire un backup pianificato                                                                                                         | Non applicabile |
-| Eseguire il ripristino da un set di backup                                                                                                        | No             |
+| Eseguire il ripristino da un set di backup                                                                                                        | No              |
 | Eseguire la clonazione in un dispositivo che esegue l'aggiornamento 3.0 e versioni successive <br> Il dispositivo di origine esegue una versione precedente all'aggiornamento 3.0.                                | Sì            |
-| Eseguire la clonazione in un dispositivo che esegue una versione precedente all'aggiornamento 3.0.                                                                          | No             |
+| Eseguire la clonazione in un dispositivo che esegue una versione precedente all'aggiornamento 3.0.                                                                          | No              |
 | Eseguire il failover del dispositivo di origine <br> (da un dispositivo con una versione precedente all'aggiornamento 3.0 a un dispositivo con l'aggiornamento 3.0 e versioni successive)                                                               | Sì            |
-| Eseguire il failover del dispositivo di destinazione <br> (a un dispositivo che esegue una versione software precedente all'aggiornamento 3.0)                                                                                   | No             |
+| Eseguire il failover del dispositivo di destinazione <br> (a un dispositivo che esegue una versione software precedente all'aggiornamento 3.0)                                                                                   | No              |
 | Cancellare un avviso                                                                                                                  | Sì            |
 | Visualizzare criteri di backup, catalogo di backup, volumi, contenitori di volumi, grafici di monitoraggio, processi e avvisi creati nel portale classico | Sì            |
 | Attivare e disattivare i controller dei dispositivi                                                                                              | Sì            |
