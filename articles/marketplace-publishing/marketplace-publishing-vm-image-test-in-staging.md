@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936940"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Testare la propria offerta di VM per Azure Marketplace nella gestione temporanea
 Per gestione temporanea si intende la distribuzione della SKU in un ambiente "sandbox" privato, in cui è possibile testarne e convalidarne le funzionalità prima di distribuirla nel Marketplace. La SKU viene visualizzata nella gestione temporanea esattamente come verrebbe mostrata a un cliente che l'ha distribuita. L'immagine della macchina virtuale deve essere certificata per il push nella gestione temporanea.

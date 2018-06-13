@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33940711"
 abstract:
   description: Informazioni su come eseguire lo streaming di video on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 sections:

@@ -1,25 +1,21 @@
 ---
 title: Risolvere i codici di errore per l'estensione NPS MFA di Azure | Microsoft Docs
-description: Informazioni su come risolvere i problemi con l'estensione NPS per Multi-Factor Authentication di Azure con soluzioni specifiche per messaggi di errore comuni
+description: Informazioni sulla risoluzione dei problemi relativi all'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867666"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -86,7 +82,7 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 | ---------- | ------------- |
 | **InvalidParameter** | Request must not be null (La richiesta non deve essere null) |
 | **InvalidParameter** | ObjectId must not be null or empty for ReplicationScope:{0} (ObjectId non deve essere null o vuoto per ReplicationScope: {0}) |
-| **InvalidParameter** | The length of CompanyName \{0}\ is longer than the maximum allowed length {1} (La lunghezza di CompanyName \{0}\ supera la lunghezza massima consentita {1}) |
+| **InvalidParameter** | The length of CompanyName \{0}\ is longer than the maximum allowed length {1} (La lunghezza di CompanyName \{0}\ supera la lunghezza massima consentita { 1 }) |
 | **InvalidParameter** | UserPrincipalName must not be null or empty (UserPrincipalName non deve essere null o vuoto) |
 | **InvalidParameter** | The provided TenantId is not in correct format (Il TenantId inserito non è nel formato corretto) |
 | **InvalidParameter** | SessionId must not be null or empty (SessionId non deve essere null o vuoto) |
