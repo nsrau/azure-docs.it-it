@@ -1,8 +1,8 @@
 ---
 title: Integrazione con Operations Management Suite (OMS) | Documentazione Microsoft
-description: "Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell'ambiente o un'esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l'integrazione con OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate."
+description: Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell'ambiente o un'esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l'integrazione con OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039466"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Integrazione con Operations Management Suite (OMS)
 Operations Management Suite è la soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud.  Oltre a usare le funzionalità standard di OMS, è possibile integrarlo con altre applicazioni e servizi di gestione per offrire un ambiente di gestione ibrida, scenari di gestione personalizzati specifici dell'ambiente o un'esperienza di gestione personalizzata ai clienti.  Questo articolo offre una panoramica delle diverse opzioni per l'integrazione con i servizi OMS e include collegamenti ad articoli contenenti informazioni tecniche dettagliate. 

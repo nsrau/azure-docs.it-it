@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918116"
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Installare MySQL in una macchina virtuale creata con il modello di distribuzione classica che esegue Windows Server 2016
 [MySQL](https://www.mysql.com) è un database SQL open source molto diffuso. Questa esercitazione illustra come installare ed eseguire la **versione community di MySQL 5.7.18** come MySQL Server in una macchina virtuale che esegue **Windows Server 2016**. Con altre versioni di MySQL o Windows Server, l'esperienza potrebbe essere leggermente diversa.
