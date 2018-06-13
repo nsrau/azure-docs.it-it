@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124889"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Gestire elenchi di controllo di accesso di endpoint con PowerShell nel modello di distribuzione classica
 È possibile creare e gestire gli elenchi di controllo di accesso di rete per gli endpoint tramite Azure PowerShell o nel portale di gestione. Questo argomento illustra le procedure per le attività comuni che è possibile eseguire per tali elenchi usando PowerShell. Per l'elenco dei cmdlet di Azure PowerShell, vedere l'articolo relativo ai [cmdlet di gestione di Azure](http://go.microsoft.com/fwlink/?LinkId=317721). Per altre informazioni sugli elenchi di controllo di accesso, vedere l'articolo relativo alla [definizione di un elenco di controllo di accesso di rete](virtual-networks-acl.md). Se si intende gestire gli elenchi di controllo di accesso tramite il portale di gestione, vedere [Come configurare gli endpoint in una macchina virtuale](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

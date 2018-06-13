@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684586"
 abstract:
   description: Informazioni sul modo in cui Genomica di Microsoft potenzia il sequenziamento del genoma con un'implementazione cloud dell'allineatore di Burrows-Wheeler (Burrows-Wheeler Aligner, BWA) e del toolkit di analisi del genoma (Genome Analysis Toolkit, GATK) per l'analisi secondaria.
 sections:

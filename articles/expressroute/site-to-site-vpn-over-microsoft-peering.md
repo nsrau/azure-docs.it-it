@@ -1,12 +1,12 @@
 ---
 title: Configurare una VPN da sito a sito tramite peering Microsoft per Azure ExpressRoute | Microsoft Docs
-description: "Configurare la connettività IPsec/IKE in Azure tramite un circuito di peering ExpressRoute Microsoft con un gateway VPN da sito a sito."
+description: Configurare la connettività IPsec/IKE in Azure tramite un circuito di peering ExpressRoute Microsoft con un gateway VPN da sito a sito.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357665"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurare una VPN da sito a sito tramite peering ExpressRoute Microsoft
 

@@ -1,6 +1,6 @@
 ---
 title: Panoramica della sicurezza in Azure | Microsoft Docs
-description: "Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure."
+description: Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25542147"
 ---
 # <a name="azure-security-overview"></a>Panoramica della sicurezza in Azure
 Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure. Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).

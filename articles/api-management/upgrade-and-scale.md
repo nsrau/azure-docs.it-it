@@ -2,10 +2,10 @@
 title: Aggiornare e ridimensionare un'istanza di Gestione API di Azure | Microsoft Docs
 description: Questo argomento descrive come aggiornare e ridimensionare un'istanza di Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26738929"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API 
 

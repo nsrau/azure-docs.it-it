@@ -2,11 +2,11 @@
 title: Panoramica del runtime di Funzioni di Azure | Documentazione Microsoft
 description: Panoramica di anteprima del runtime di Funzioni di Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290227"
 ---
 # <a name="azure-functions-runtime-overview"></a>Panoramica di Runtime di Funzioni di Azure
 
