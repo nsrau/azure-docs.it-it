@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358711"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Tenere traccia delle operazioni asincrone
 Alcune operazioni REST in Azure vengono eseguite in modo asincrono perché non è possibile completarle rapidamente. In questo articolo viene descritto come tenere traccia dello stato delle operazioni asincrone tramite i valori restituiti nella risposta.  

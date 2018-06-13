@@ -2,7 +2,7 @@
 title: Configurare l'ambiente di origine (server fisici in Azure) | Documentazione Microsoft
 description: Questo articolo descrive come configurare l'ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811138"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurare l'ambiente di origine (server fisico in Azure)
 
