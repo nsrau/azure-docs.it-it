@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151379"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Panoramica dei principi di sicurezza cloud del National Cyber Security Centre
 

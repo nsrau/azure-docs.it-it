@@ -1,11 +1,11 @@
 ---
-title: "Distribuire un set di scalabilità di macchine virtuali tramite Visual Studio | Microsoft Docs"
-description: "Distribuire set di scalabilità di macchine virtuali tramite Visual Studio e un modello di Resource Manager"
+title: Distribuire un set di scalabilità di macchine virtuali tramite Visual Studio | Microsoft Docs
+description: Distribuire set di scalabilità di macchine virtuali tramite Visual Studio e un modello di Resource Manager
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782147"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Come creare un set di scalabilità di macchine virtuali con Visual Studio
 Questo articolo descrive come distribuire un set di scalabilità della macchina virtuale di Azure usando una distribuzione del gruppo di risorse di Visual Studio.

@@ -1,11 +1,11 @@
 ---
-title: "Come configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure"
-description: "Istruzioni dettagliate per la configurazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure Resource Manager."
+title: Come configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure
+description: Istruzioni dettagliate per la configurazione di un'identità del servizio gestito assegnata dall'utente per una macchina virtuale di Azure tramite un modello di Azure Resource Manager.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984040"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Configurare un'identità del servizio gestito assegnata dall'utente per una macchina virtuale tramite un modello di Azure
 

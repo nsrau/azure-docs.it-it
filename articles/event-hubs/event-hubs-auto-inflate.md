@@ -1,12 +1,12 @@
 ---
-title: "Aumentare automaticamente le unità elaborate di Hub eventi di Azure | Microsoft Docs"
-description: "Abilitare Aumento automatico in uno spazio dei nomi per aumentare le unità elaborate"
+title: Aumentare automaticamente le unità elaborate di Hub eventi di Azure | Microsoft Docs
+description: Abilitare Aumento automatico in uno spazio dei nomi per aumentare le unità elaborate
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018610"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
 

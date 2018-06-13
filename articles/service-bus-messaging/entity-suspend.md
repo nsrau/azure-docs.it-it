@@ -1,11 +1,11 @@
 ---
-title: "Bus di servizio di Azure: sospendere le entità di messaggistica | Microsoft Docs"
-description: "Sospendere e riattivare le entità di messaggistica del bus di servizio di Azure."
+title: 'Bus di servizio di Azure: sospendere le entità di messaggistica | Microsoft Docs'
+description: Sospendere e riattivare le entità di messaggistica del bus di servizio di Azure.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197027"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Sospendere e riattivare le entità di messaggistica (disabilitazione)
 
