@@ -2,10 +2,10 @@
 title: Come configurare la replica geografica per Cache Redis di Azure | Microsoft Docs
 description: Informazioni su come replicare le istanze di Cache Redis di Azure in aree geografiche diverse.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911371"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Come configurare la replica geografica per Cache Redis di Azure
 

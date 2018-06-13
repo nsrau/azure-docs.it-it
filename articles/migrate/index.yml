@@ -18,8 +18,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927119"
 abstract:
-  description: "Azure Migrate consente di individuare e valutare l'idoneità dei computer locali per la migrazione ad Azure e fornisce stime del ridimensionamento e dei costi per l'esecuzione delle VM di Azure."
+  description: Azure Migrate consente di individuare e valutare l'idoneità dei computer locali per la migrazione ad Azure e fornisce stime del ridimensionamento e dei costi per l'esecuzione delle VM di Azure.
 sections:
 - title: Esercitazioni dettagliate
   items:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540976"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Guida pratica alla progettazione di soluzioni sicure per il settore sanitario in Azure
 Le startup, gli integratori di sistemi, i fornitori di software indipendenti (ISV) e le organizzazioni del settore sanitario che intendono passare ad Azure sono alla ricerca di una guida che le aiuti a integrare controlli di sicurezza che consentano di soddisfare gli obblighi di conformità.

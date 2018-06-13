@@ -2,11 +2,11 @@
 title: Associazioni di file esterni per Funzioni di Azure (sperimentale)
 description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27607922"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Associazioni di file esterni in Funzioni di Azure (sperimentale)
 Questo articolo illustra come modificare i file di diversi provider SaaS (ad esempio Dropbox o Google Drive) in Funzioni di Azure. Funzioni di Azure supporta associazioni di input, output e trigger per i file esterni. Queste associazioni creano connessioni API ai provider SaaS o usano le connessioni API esistenti del gruppo di risorse dell'app per le funzioni.

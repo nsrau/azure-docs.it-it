@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione su Log Analytics
 metadata:
   title: Documentazione di Azure Log Analytics - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-  description: "Log Analytics fa parte della soluzione di monitoraggio globale di Microsoft Azure.  Log Analytics monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Permette di ottenere informazioni dettagliate su carichi di lavoro e sistemi per mantenere la disponibilità e le prestazioni. Questo articolo contiene informazioni su come raccogliere, analizzare e usare i dati con guide introduttive, esercitazioni ed esempi."
+  description: Log Analytics fa parte della soluzione di monitoraggio globale di Microsoft Azure.  Log Analytics monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Permette di ottenere informazioni dettagliate su carichi di lavoro e sistemi per mantenere la disponibilità e le prestazioni. Questo articolo contiene informazioni su come raccogliere, analizzare e usare i dati con guide introduttive, esercitazioni ed esempi.
   services: log-analytics
   author: czeumault
   manager: carolz
@@ -18,8 +18,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27786119"
 abstract:
-  description: "Log Analytics fa parte della soluzione di monitoraggio globale di Microsoft Azure. Log Analytics monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Permette di ottenere informazioni dettagliate su carichi di lavoro e sistemi per mantenere la disponibilità e le prestazioni. Questo articolo contiene informazioni su come raccogliere, analizzare e usare i dati con guide introduttive, esercitazioni ed esempi."
+  description: Log Analytics fa parte della soluzione di monitoraggio globale di Microsoft Azure. Log Analytics monitora gli ambienti cloud e locali per mantenerne la disponibilità e le prestazioni. Permette di ottenere informazioni dettagliate su carichi di lavoro e sistemi per mantenere la disponibilità e le prestazioni. Questo articolo contiene informazioni su come raccogliere, analizzare e usare i dati con guide introduttive, esercitazioni ed esempi.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
