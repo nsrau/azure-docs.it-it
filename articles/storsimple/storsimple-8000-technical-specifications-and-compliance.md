@@ -1,12 +1,12 @@
 ---
 title: Specifiche tecniche StorSimple | Documentazione Microsoft
-description: "Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per i componenti hardware di StorSimple."
+description: Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per i componenti hardware di StorSimple.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785527"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 

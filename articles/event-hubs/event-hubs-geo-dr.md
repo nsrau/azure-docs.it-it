@@ -2,10 +2,10 @@
 title: Ripristino di emergenza geografico nel servizio Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza servizio Hub eventi di Azure
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745895"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Ripristino di emergenza geografico nel servizio Hub eventi di Azure
 

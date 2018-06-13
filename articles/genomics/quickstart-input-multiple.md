@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Inviare un flusso di lavoro usando più input | Microsoft Docs"
+title: 'Guida introduttiva: Inviare un flusso di lavoro usando più input | Microsoft Docs'
 titleSuffix: Azure
 description: Nella guida introduttiva si presuppone che il client msgen sia installato e che siano stati eseguiti i dati di esempio tramite il servizio.
 services: microsoft-genomics
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29119996"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Inviare un flusso di lavoro usando più input dallo stesso esempio
 
