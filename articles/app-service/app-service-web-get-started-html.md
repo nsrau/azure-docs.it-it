@@ -2,10 +2,10 @@
 title: Creare un'app Web HTML statica in Azure | Microsoft Docs
 description: Informazioni su come eseguire app Web nel servizio app di Azure mediante la distribuzione di un'app HTML statica di esempio.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28918778"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 

@@ -1,9 +1,9 @@
 ---
-title: "Convertire un modello di set di scalabilità di Azure Resource Manager per usare i dischi gestiti | Documentazione Microsoft"
-description: "Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti."
-keywords: "set di scalabilità di macchine virtuali"
+title: Convertire un modello di set di scalabilità di Azure Resource Manager per usare i dischi gestiti | Documentazione Microsoft
+description: Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti.
+keywords: set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781072"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertire un modello di set di scalabilità in un modello di set di scalabilità per i dischi gestiti
 

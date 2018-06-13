@@ -1,11 +1,11 @@
 ---
-title: "Attività comuni di gestione di servizi cloud | Documentazione Microsoft"
+title: Attività comuni di gestione di servizi cloud | Documentazione Microsoft
 description: Informazioni su come gestire Servizi cloud nel portale di Azure. Questi esempi utilizzano il portale di Azure.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121196"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gestire Servizi cloud nel portale di Azure
 Nell'area **Servizi cloud** del portale di Azure è possibile:

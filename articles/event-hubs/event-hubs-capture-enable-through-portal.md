@@ -1,12 +1,12 @@
 ---
 title: Abilitazione di Acquisizione di Hub eventi di Azure tramite il portale | Microsoft Docs
-description: "Abilitare la funzionalità Acquisizione di Hub eventi usando il portale di Azure."
+description: Abilitare la funzionalità Acquisizione di Hub eventi usando il portale di Azure.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855012"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Abilitare Acquisizione di Hub eventi usando il portale di Azure
 

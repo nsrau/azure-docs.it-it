@@ -1,13 +1,13 @@
 ---
 title: Risolvere i problemi relativi alle configurazioni e alle connessioni di Gateway VPN | Microsoft Docs
-description: "Questo articolo offre collegamenti ad articoli utili per risolvere i problemi relativi alla configurazione e alla connessione di Gateway VPN e per convalidare la velocità effettiva della rete."
+description: Questo articolo offre collegamenti ad articoli utili per risolvere i problemi relativi alla configurazione e alla connessione di Gateway VPN e per convalidare la velocità effettiva della rete.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934653"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Risolvere i problemi relativi a Gateway VPN
 

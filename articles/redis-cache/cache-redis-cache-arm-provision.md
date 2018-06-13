@@ -2,10 +2,10 @@
 title: Effettuare il provisioning di una Cache Redis con Azure Resource Manager | Documentazione Microsoft
 description: Utilizzare il modello di Gestione risorse di Azure per distribuire una Cache Redis di Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910742"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Creare una Cache Redis utilizzando un modello
 Questo argomento illustra come creare un modello di Azure Resource Manager che consente di distribuire un'istanza di Cache Redis di Azure. La cache è utilizzabile con un account di archiviazione esistente per mantenere i dati di diagnostica. Verrà anche illustrato come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze.
