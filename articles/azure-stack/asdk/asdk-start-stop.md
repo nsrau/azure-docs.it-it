@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427334"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Avviare e arrestare il Kit di sviluppo dello Stack di Azure (ASDK)
 Non è consigliabile sufficiente riavviare il computer host ASDK. Seguire invece le procedure descritte in questo articolo per arrestare e riavviare i servizi ASDK correttamente. 
