@@ -75,6 +75,10 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Riavviare una macchina virtuale
               href: devtest-lab-restart-vm.md
+            - name: Ridimensionare una VM
+              href: devtest-lab-resize-vm.md
+            - name: Ridistribuire una VM
+              href: devtest-lab-redeploy-vm.md
         - name: Usare gli ambienti in un lab
           items:
             - name: Creare un ambiente

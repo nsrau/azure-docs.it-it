@@ -205,17 +205,9 @@
     - name: Risolvere problemi
       items:
         - name: Gruppi di sicurezza di rete
-          items:
-            - name: Portale di Azure
-              href: virtual-network-nsg-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-nsg-troubleshoot-powershell.md
+          href: diagnose-network-traffic-filter-problem.md
         - name: Route
-          items:
-            - name: Portale di Azure
-              href: virtual-network-routes-troubleshoot-portal.md
-            - name: Azure PowerShell
-              href: virtual-network-routes-troubleshoot-powershell.md
+          href: diagnose-network-routing-problem.md
         - name: Test della velocità effettiva
           href: virtual-network-bandwidth-testing.md
         - name: Non è possibile eliminare le reti virtuali

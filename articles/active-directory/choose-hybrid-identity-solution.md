@@ -1,23 +1,24 @@
 ---
-title: "Scegliere una soluzione ibrida di gestione delle identità di Azure | Microsoft Docs"
-description: "Informazioni generali sulle soluzioni ibride di gestione delle identità disponibili e le raccomandazioni per migliorare il processo decisionale in termini di identity governance per la propria organizzazione."
-keywords: 
+title: Scegliere una soluzione ibrida di gestione delle identità di Azure | Microsoft Docs
+description: Informazioni generali sulle soluzioni ibride di gestione delle identità disponibili e le raccomandazioni per migliorare il processo decisionale in termini di identity governance per la propria organizzazione.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800738"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluzioni ibride di gestione delle identità
 Le soluzioni ibride di gestione delle identità di [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) consentono di sincronizzare oggetti di directory locali con Azure AD gestendo al contempo gli utenti in locale. La prima decisione da adottare quando si intende sincronizzare Windows Server Active Directory in locale con Azure AD è se usare l'identità sincronizzata o l'identità federata. Le identità sincronizzate e, facoltativamente, gli hash delle password, consentono agli utenti di usare la stessa password per accedere alle risorse aziendali locali e basate su cloud. Per i requisiti di scenari più avanzati, ad esempio Single Sign-On (SSO) o l'autenticazione MFA locale, è necessario distribuire Active Directory Federation Services (ADFS) in identità federate. 

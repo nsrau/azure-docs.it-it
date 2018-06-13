@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Aggiungere utenti](data-lake-analytics-add-users.md)
 ### [Criteri](data-lake-analytics-policies.md)
+### [Proteggere le cartelle processi](data-lake-analytics-secure.md)
 ### [Accedere ai log di diagnostica](data-lake-analytics-diagnostic-logs.md)
 ### [Modificare i limiti di quota](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [Estensioni cognitive](data-lake-analytics-u-sql-cognitive.md)
 #### [Guida alla programmabilità](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK
+#### [Esecuzione e debug locale](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Esecuzione e test](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [Installare](data-lake-analytics-data-lake-tools-install.md)
 #### [Sfogliare e visualizzare processi](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [Dettagli di esecuzione dei vertici](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Esportare un database U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analizzare i log dei siti Web](data-lake-analytics-analyze-weblogs.md)
+#### [Risolvere l'asimmetria dei dati](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Monitorare e risolvere i problemi relativi ai processi](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -64,7 +71,7 @@
 # Risorse
 ## [Blog di Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Richiedere modifiche](https://feedback.azure.com/forums/327234-data-lake)
 ## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

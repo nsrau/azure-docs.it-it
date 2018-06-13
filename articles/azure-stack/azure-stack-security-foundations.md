@@ -2,10 +2,10 @@
 title: Informazioni sui controlli di sicurezza di Azure Stack | Documenti Microsoft
 description: Come amministratore del servizio informazioni relative ai controlli di sicurezza applicati allo Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843698"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Condizioni di sicurezza di Azure Stack infrastruttura
 
