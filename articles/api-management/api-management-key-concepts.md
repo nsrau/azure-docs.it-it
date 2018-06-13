@@ -2,10 +2,10 @@
 title: Panoramica e concetti chiave di Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su API, prodotti, ruoli, gruppi e altri concetti chiave di Gestione API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712373"
 ---
 # <a name="what-is-api-management"></a>Informazioni su Gestione API
 
