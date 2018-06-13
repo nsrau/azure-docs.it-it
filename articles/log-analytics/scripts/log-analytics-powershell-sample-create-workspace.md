@@ -2,12 +2,12 @@
 title: Esempio di script di Azure PowerShell - Creare un'area di lavoro di Log Analytics| Microsoft Docs
 description: Esempio di script di Azure PowerShell - Creare un'area di lavoro di Log Analytics
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: sample
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021336"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>Creare un'area di lavoro di Log Analytics con PowerShell
 

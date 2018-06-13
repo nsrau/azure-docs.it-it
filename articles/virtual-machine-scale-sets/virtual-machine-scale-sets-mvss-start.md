@@ -1,11 +1,11 @@
 ---
-title: "Informazioni sui modelli di set di scalabilità di macchine virtuali | Microsoft Docs"
-description: "Informazioni su come creare un modello di set di scalabilità a validità minima per set di scalabilità di macchine virtuali di Azure"
+title: Informazioni sui modelli di set di scalabilità di macchine virtuali | Microsoft Docs
+description: Informazioni su come creare un modello di set di scalabilità a validità minima per set di scalabilità di macchine virtuali di Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781256"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Informazioni sui modelli di set di scalabilità di macchine virtuali
 I [modelli di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) sono un ottimo modo di distribuire gruppi di risorse correlate. Questa serie di esercitazioni illustra come creare un modello di set di scalabilità a validità minima e come modificarlo per adattarsi a vari scenari. Tutti gli esempi provengono da questo [archivio GitHub](https://github.com/gatneil/mvss). 

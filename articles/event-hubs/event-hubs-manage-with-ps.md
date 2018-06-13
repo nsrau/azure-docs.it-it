@@ -5,8 +5,8 @@ services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782218"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Usare PowerShell per gestire le risorse Hub eventi
 

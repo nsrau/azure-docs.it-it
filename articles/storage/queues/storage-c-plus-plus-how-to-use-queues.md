@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059946"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Come usare l'archiviazione delle code da C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

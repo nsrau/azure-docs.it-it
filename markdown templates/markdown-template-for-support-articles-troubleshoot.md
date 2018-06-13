@@ -1,11 +1,11 @@
 ---
 title: 42 caratteri seguiti da | Microsoft Docs
-description: "Visualizzato nei motori di ricerca sotto il titolo. Qui è disponibile più spazio ed è possibile usare più parole chiave e una spiegazione più descrittiva rispetto al titolo"
+description: Visualizzato nei motori di ricerca sotto il titolo. Qui è disponibile più spazio ed è possibile usare più parole chiave e una spiegazione più descrittiva rispetto al titolo
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: top-support-issue
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "26730550"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titolo (al massimo 120 caratteri, usare la parola chiave primaria)
 *Usare 2-3 parole chiave secondarie nella descrizione.*

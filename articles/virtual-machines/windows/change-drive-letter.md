@@ -1,11 +1,11 @@
 ---
-title: "Usare l'unità D come unità dati in una macchina virtuale Windows | Microsoft Docs"
+title: Usare l'unità D come unità dati in una macchina virtuale Windows | Microsoft Docs
 description: "Descrive come modificare le lettere di unità per una VM Windows, in modo da poter usare l'unità D: come unità dati."
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 0867a931-0055-4e31-8403-9b38a3eeb904
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577446"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Usare l'unità D come unità dati in una macchina virtuale Windows
 Se l'applicazione deve usare l'unità D per archiviare i dati, seguire le istruzioni seguenti per usare una lettera di unità diversa per il disco temporaneo. Non utilizzare mai il disco temporaneo per archiviare i dati da conservare.

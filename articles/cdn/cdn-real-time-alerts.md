@@ -2,10 +2,10 @@
 title: Avvisi in tempo reale nella rete CDN di Azure | Documentazione Microsoft
 description: Avvisi in tempo reale nella rete CDN di Microsoft Azure. Gli avvisi in tempo reale forniscono notifiche sulle prestazioni degli endpoint nel profilo della rete CDN.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998326"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
