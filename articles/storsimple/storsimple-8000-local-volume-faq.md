@@ -5,8 +5,8 @@ services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109469"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>Volumi aggiunti in locale di StorSimple: domande frequenti
 ## <a name="overview"></a>Panoramica
@@ -161,7 +162,7 @@ Sono disponibili altre informazioni su come [convertire un volume a livelli in u
 
 **D.** È possibile modificare il tipo di un volume durante il ripristino?
 
-**R.**No, non è possibile modificare il tipo di volume durante il ripristino.
+**R.** No, non è possibile modificare il tipo di volume durante il ripristino.
 
 * I volumi eliminati vengono ripristinati con il tipo archiviato nello snapshot.
 * I volumi esistenti vengono ripristinati in base al tipo corrente, indipendentemente dal tipo archiviato nello snapshot (vedere le due domande precedenti).

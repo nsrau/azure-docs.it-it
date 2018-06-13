@@ -1,11 +1,11 @@
 ---
 title: Routing asimmetrico | Documentazione Microsoft
-description: "Questo articolo illustra i problemi che un cliente può incontrare con il routing asimmetrico in una rete con più collegamenti a una destinazione."
+description: Questo articolo illustra i problemi che un cliente può incontrare con il routing asimmetrico in una rete con più collegamenti a una destinazione.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710015"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asimmetrico con più percorsi di rete
 Questo articolo illustra il modo in cui il traffico di rete di inoltro e di ritorno può seguire route diverse quando sono disponibili più percorsi tra l'origine e la destinazione di rete.
