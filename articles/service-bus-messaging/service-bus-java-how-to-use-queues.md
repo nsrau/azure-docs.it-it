@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044256"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Come usare le code del bus di servizio con Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

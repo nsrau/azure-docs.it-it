@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301836"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Abilitare multi-tenancy nello Stack di Azure
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209685"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduzione al servizio di analisi degli errori
 Il servizio di analisi degli errori è progettato per testare servizi basati su Microsoft Azure Service Fabric. Con il servizio di analisi degli errori è possibile causare errori significativi ed eseguire scenari di test completi delle applicazioni. Tali errori e scenari verificano e convalidano i numerosi stati e le transizioni sperimentate da un servizio per la relativa durata, il tutto in modo controllato, sicuro e coerente.

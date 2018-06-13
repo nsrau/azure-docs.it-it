@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213147"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Bilanciamento del carico nel cluster di Service Fabric
 Cluster Resource Manager di Service Fabric supporta le modifiche al carico dinamico, reagisce all'aggiunta o alla rimozione di nodi o servizi. Corregge anche automaticamente le violazioni dei vincoli ed esegue in modo proattivo il ribilanciamento del cluster. Ma con quale frequenza vengono eseguite queste azioni, e che cosa le attiva?

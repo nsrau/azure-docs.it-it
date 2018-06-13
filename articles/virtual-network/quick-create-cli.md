@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842289"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Guida introduttiva: Creare una rete virtuale con l'interfaccia della riga di comando di Azure
 
