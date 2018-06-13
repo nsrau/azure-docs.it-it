@@ -1,11 +1,11 @@
 ---
 title: Amministrazione di StorSimple Snapshot Manager | Microsoft Docs
-description: "Viene fornita una panoramica e dei collegamenti a ulteriori informazioni sulle attività di amministrazione della soluzione Snapshot StorSimple Manager e sui flussi di lavoro."
+description: Viene fornita una panoramica e dei collegamenti a ulteriori informazioni sulle attività di amministrazione della soluzione Snapshot StorSimple Manager e sui flussi di lavoro.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109219"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>Usare Gestione Snapshot StorSimple per amministrare la soluzione di StorSimple
 
