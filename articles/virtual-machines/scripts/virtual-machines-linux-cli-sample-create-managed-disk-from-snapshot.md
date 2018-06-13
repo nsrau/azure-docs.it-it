@@ -1,13 +1,13 @@
 ---
-title: 'Esempio di script dell''interfaccia della riga di comando di Azure: creare un disco gestito da uno snapshot | Microsoft Docs'
-description: 'Esempio di script dell''interfaccia della riga di comando di Azure: creare un disco gestito da uno snapshot'
+title: "Esempio di script dell'interfaccia della riga di comando di Azure: creare un disco gestito da uno snapshot | Microsoft Docs"
+description: "Esempio di script dell'interfaccia della riga di comando di Azure: creare un disco gestito da uno snapshot"
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849546"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>Creare un disco gestito da uno snapshot con l'interfaccia della riga di comando
 

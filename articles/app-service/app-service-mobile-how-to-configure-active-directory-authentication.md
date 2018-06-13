@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32155297"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]

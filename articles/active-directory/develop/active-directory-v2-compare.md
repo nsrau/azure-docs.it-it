@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156807"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>Differenze dell'endpoint 2.0.
 Se si ha familiarità con Azure Active Directory o si sono svolte attività di integrazione di app con Azure AD in passato, si noteranno alcune differenze inaspettate nell'endpoint 2.0. Questo documento descrive tali differenze per una maggiore comprensione da parte dell'utente.

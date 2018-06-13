@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158767"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica

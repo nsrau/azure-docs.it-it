@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151128"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure disconnessa pianificazione decisioni per lo Stack di Azure integrato sistemi
 Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.

@@ -1,11 +1,11 @@
 ---
 title: Usare l'archiviazione BLOB per IIS e l'archiviazione tabelle per gli eventi in Log Analytics di Azure| Documentazione Microsoft
-description: "Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB."
+description: Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021346"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Usare l'archiviazione BLOB di Azure per IIS e l'archiviazione tabelle di Azure per gli eventi con Log Analytics
 
