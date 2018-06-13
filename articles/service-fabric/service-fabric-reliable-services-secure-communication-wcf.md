@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205740"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Proteggere le comunicazioni basate su WCF per un servizio
 La sicurezza è uno degli aspetti essenziali delle comunicazioni. Il framework di applicazioni di Reliable Services offre alcuni stack e strumenti predefiniti che è possibile usare per migliorare la sicurezza. Questo articolo illustra come migliorare la sicurezza quando si usa la comunicazione remota per un servizio.

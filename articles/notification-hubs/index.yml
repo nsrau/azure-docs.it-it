@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 05/07/2018
+  ms.locfileid: "33779039"
 abstract:
   description: Informazioni su come usare Hub di notifica, un motore di notifica push multipiattaforma e scalabile, per inviare rapidamente milioni di messaggi ad applicazioni eseguite in diversi tipi di dispositivi, ovvero Android, iOS, Windows, Windows Phone, Baidu, Kindle. <p>Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come impostare e inviare notifiche push da qualsiasi back-end a qualsiasi dispositivo mobile.</p>
   aside:

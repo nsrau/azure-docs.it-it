@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246390"
 ---
 # <a name="azure-cli-20-samples-for-virtual-machine-scale-sets"></a>Esempi dell'interfaccia della riga di comando di Azure 2.0 per set di scalabilità di macchine virtuali
 
