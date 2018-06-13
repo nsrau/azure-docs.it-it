@@ -1,11 +1,11 @@
 ---
-title: "Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Documentazione Microsoft"
+title: Dashboard, Monitoraggio, Scalabilità, Configura e Connessioni ibride in Servizi BizTalk | Documentazione Microsoft
 description: Informazioni su controlli e monitoraggio delle prestazioni dei servizi BizTalk
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103362"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Analizzare le schede Dashboard, Monitor, Scala, Configura e Connessione ibrida
 
