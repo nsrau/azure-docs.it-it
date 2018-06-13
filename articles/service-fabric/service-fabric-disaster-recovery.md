@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206437"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
 Una parte fondamentale della distribuzione a disponibilità elevata consiste nel garantire la resistenza dei servizi a tutti i tipi di errori. Ciò è particolarmente importante per gli errori imprevisti e incontrollabili. Questo articolo descrive alcune modalità di errore comuni che possono generare situazioni di emergenza se non organizzate e gestite correttamente. Illustra anche le mitigazioni e le azioni da intraprendere in presenza di un'emergenza. L'obiettivo consiste nel limitare o eliminare il rischio di tempi di inattività o di perdita di dati quando si verificano errori, pianificati o imprevisti.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31524425"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>Ripristinare un'istanza di Azure SQL Data Warehouse con le API REST
 Ripristinare un'istanza di Azure SQL Data Warehouse mediante le API REST.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33951505"
 ---
 Questi sono i vincoli di utilizzo per il servizio Mappe di Azure. Per informazioni sui costi, vedere i [dettagli dei prezzi per Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/). [Contattare Microsoft](https://azure.microsoft.com/overview/sales-number/) per aumentare la frequenza massima delle richieste per la sottoscrizione.
 

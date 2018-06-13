@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841694"
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Introduzione all'uso di nodi di calcolo Linux in un cluster HPC Pack in Azure
 Configurare un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) in Azure contenente un nodo head che esegue Windows Server e diversi nodi di calcolo che eseguono una distribuzione di Linux supportata. Sono disponibili varie opzioni per spostare dati tra i nodi Linux e il nodo head Windows del cluster. Leggere le informazioni su come inviare processi HPC Linux al cluster.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792260"
 ---
 # <a name="get-help-with-two-step-verification"></a>Informazioni sulla verifica in due passaggi
 Questo articolo contiene le risposte alle domande più comuni degli utenti sulla verifica in due passaggi.

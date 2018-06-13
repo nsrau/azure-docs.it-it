@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782790"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Creare clip con Azure Media Clipper nel portale
 È possibile usare Azure Media Clipper nel portale per creare clip da asset negli account Servizi multimediali. Per iniziare, passare all'account Servizi multimediali nel portale. Selezionare quindi la scheda **Subclip** (Clip secondaria).

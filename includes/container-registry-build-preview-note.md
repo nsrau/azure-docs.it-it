@@ -13,6 +13,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34059879"
 ---
 > [!IMPORTANT]
 > ACR Build è attualmente in anteprima ed è supportato dai registri contenitori di Azure solo nelle aree **Stati Uniti orientali** ed **Europa occidentale**. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.

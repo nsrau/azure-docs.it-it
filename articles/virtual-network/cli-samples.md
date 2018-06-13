@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841361"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>Esempi dell'interfaccia della riga di comando di Azure per una rete virtuale
 

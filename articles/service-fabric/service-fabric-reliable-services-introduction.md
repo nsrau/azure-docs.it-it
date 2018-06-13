@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213181"
 ---
 # <a name="reliable-services-overview"></a>Panoramica di Reliable Services
 Azure Service Fabric semplifica la scrittura e la gestione di Reliable Services con e senza stato. In questo argomento viene trattato quanto segue:

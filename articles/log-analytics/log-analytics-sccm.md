@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30283997"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connettere Configuration Manager a Log Analytics
 È possibile connettere l'ambiente System Center Configuration Manager ad Azure Log Analytics per sincronizzare i dati delle raccolte di dispositivi e fare riferimento a queste raccolte in Log Analytics e Automazione di Azure.  

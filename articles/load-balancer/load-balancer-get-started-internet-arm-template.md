@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262960"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Creazione di un servizio di bilanciamento del carico pubblico con un modello
 

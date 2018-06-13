@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799057"
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>Come gestire le configurazioni e i profili dei servizi
 ## <a name="overview"></a>Panoramica
