@@ -1,11 +1,11 @@
 ---
 title: Aggiornamento di Azure Log Analytics alla nuova ricerca log | Microsoft Docs
-description: "Il nuovo linguaggio di query di Log Analytics è quasi pronto ed è possibile partecipare all'anteprima pubblica.  Questo articolo illustra i vantaggi del nuovo linguaggio e spiega come eseguire la conversione dell'area di lavoro."
+description: Il nuovo linguaggio di query di Log Analytics è quasi pronto ed è possibile partecipare all'anteprima pubblica.  Questo articolo illustra i vantaggi del nuovo linguaggio e spiega come eseguire la conversione dell'area di lavoro.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983989"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Aggiornamento di Azure Log Analytics alla nuova ricerca log
 

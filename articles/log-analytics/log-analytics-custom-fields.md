@@ -1,8 +1,8 @@
 ---
 title: Campi personalizzati in Azure Log Analytics | Microsoft Docs
-description: "La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai record di Log Analytics che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio."
+description: La funzionalità Campi personalizzati di Log Analytics consente di creare campi ricercabili personalizzati dai record di Log Analytics che vengono aggiunti alle proprietà di un record raccolto.  Questo articolo descrive il processo di creazione di un campo personalizzato e illustra una procedura dettagliata con un evento di esempio.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030703"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Campi personalizzati in Log Analytics
 La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti in Log Analytics con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.

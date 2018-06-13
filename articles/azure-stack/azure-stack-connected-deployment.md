@@ -1,12 +1,12 @@
 ---
 title: Le decisioni di distribuzione connessi di Azure per lo Stack di Azure integrati sistemi | Documenti Microsoft
-description: "Determinare le decisioni per le distribuzioni di Azure Stack Azure connesse a più nodi di pianificazione della distribuzione."
+description: Determinare le decisioni per le distribuzioni di Azure Stack Azure connesse a più nodi di pianificazione della distribuzione.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120387"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Distribuzione di Azure connessa pianificazione decisioni per lo Stack di Azure integrati sistemi
 Dopo aver deciso [integrerà come Stack di Azure nell'ambiente cloud ibrido](azure-stack-connection-models.md), quindi è possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.

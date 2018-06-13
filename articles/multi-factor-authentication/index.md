@@ -1,11 +1,11 @@
 ---
 title: Documentazione di Azure Multi-Factor Authentication - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: "Informazioni su come distribuire un'autenticazione a più fattori con una serie di metodi di verifica che fornisce una procedura di accesso semplice. Esercitazioni, un SDK e altro ancora."
+description: Informazioni su come distribuire un'autenticazione a più fattori con una serie di metodi di verifica che fornisce una procedura di accesso semplice. Esercitazioni, un SDK e altro ancora.
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630819"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Documentazione di Multi-Factor Authentication
 

@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684518"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Inviare un flusso di lavoro usando un input di file BAM
 

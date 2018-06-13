@@ -2,10 +2,10 @@
 title: Gestione degli errori nei criteri di Gestione API di Azure | Microsoft Docs
 description: Informazioni su come rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste in Gestione API di Azure.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128227"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
 Gestione API di Azure consente agli autori di rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste al proxy fornendo un oggetto `ProxyError`. È possibile accedere all'oggetto `ProxyError` tramite la proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables). I criteri possono utilizzarlo nella sezione dei criteri `on-error`. In questo argomento vengono indicati dei riferimenti per le funzionalità di gestione degli errori in Gestione API di Azure.  

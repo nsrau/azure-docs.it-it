@@ -3,10 +3,10 @@ title: Integrazione di Automazione di Azure con Griglia di eventi | Microsoft Do
 description: Informazioni su come aggiungere automaticamente un tag quando viene creata una nuova macchina virtuale e inviare una notifica a Microsoft Teams.
 keywords: automazione, runbook, team, griglia di eventi, macchina virtuale, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349070"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
 
