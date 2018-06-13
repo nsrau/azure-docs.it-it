@@ -1,11 +1,11 @@
 ---
 title: Panoramica delle code di messaggi, argomenti e sottoscrizioni del bus di servizio di Azure | Documentazione Microsoft
-description: "Panoramica delle entità di messaggistica del bus di servizio."
+description: Panoramica delle entità di messaggistica del bus di servizio.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24029508"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Code, argomenti e sottoscrizioni del bus di servizio
 

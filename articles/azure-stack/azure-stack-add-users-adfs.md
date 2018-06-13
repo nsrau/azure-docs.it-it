@@ -2,10 +2,10 @@
 title: Aggiungere utenti per ADFS Stack Azure | Documenti Microsoft
 description: Informazioni su come aggiungere utenti per le distribuzioni di ADFS dello Stack di Azure
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554579"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Aggiungere gli utenti nel Kit di sviluppo di Azure Stack
 

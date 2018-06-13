@@ -1,11 +1,11 @@
 ---
-title: "Inoltro automatico di entità di messaggistica del bus di servizio di Azure | Documentazione Microsoft"
+title: Inoltro automatico di entità di messaggistica del bus di servizio di Azure | Documentazione Microsoft
 description: Come concatenare una coda del bus di servizio o una sottoscrizione a un'altra coda o argomento.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558093"
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Concatenamento di entità del bus di servizio con l'inoltro automatico
 
