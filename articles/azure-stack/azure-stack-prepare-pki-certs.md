@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203477"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure dello Stack per la distribuzione
 I file di certificato [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) deve importare ed esportare con proprietà corrispondenti requisiti dei certificati di Azure dello Stack.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33763143"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 681831dcc65fa74d8d2e26f58849140498843c49
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0604007255d829cab0502e93895ca541da3b93a
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931265"
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260510"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Risolvere i problemi di accesso e uso del portale delle app personali
 
@@ -58,10 +58,11 @@ Verificare che vengano soddisfatti i requisiti del browser seguenti:
 - **Firefox 26.0 o versioni successive**: in Windows XP SP2 o versioni successive e in Mac OS X 10.6 o versioni successive.
 - **Internet Explorer 11**: in Windows 7 o versioni successive (supporto limitato).
 
-È anche possibile scaricare l'estensione per Chrome e Microsoft Edge direttamente dai siti seguenti:
+È anche possibile scaricare l'estensione direttamente dai siti seguenti:
 
-- [Estensione per Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Estensione per Edge](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
+- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 Se l'estensione è stata installata e continuano a verificarsi problemi, procedere come segue:
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32768031"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.

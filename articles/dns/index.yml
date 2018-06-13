@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32773020"
 abstract:
   description: Informazioni su come usare DNS di Azure. Guide introduttive, esercitazioni, esempi e altro ancora illustrano come configurare e gestire zone e record DNS per i nomi di dominio.
 sections:

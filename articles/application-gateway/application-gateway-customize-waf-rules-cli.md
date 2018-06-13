@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33204208"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli-20"></a>Personalizzare le regole del web application firewall con l'interfaccia della riga di comando di Azure 2.0
 

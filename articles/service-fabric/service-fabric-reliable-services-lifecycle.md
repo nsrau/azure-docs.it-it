@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206945"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Panoramica del ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]

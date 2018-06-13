@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894399"
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>Requisiti per i firewall per gli ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-1"></a>Requisito 1 di PCI DSS

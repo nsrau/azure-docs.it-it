@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 18f7c0323493b73f4f136228fb9535ed63323c05
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: b3055e6b22e3f391c0bc3f321cd8117d55a95cf5
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271650"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connettere computer senza accesso a Internet usando il gateway OMS
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway OMS quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway OMS, che è un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e Log Analytics per conto dei computer.  
@@ -131,20 +132,18 @@ Per installare un gateway, eseguire questa procedura.  Se è installata una vers
 
 Per informazioni su come progettare e distribuire un cluster di bilanciamento del carico di rete di Windows Server 2016, vedere [Bilanciamento carico di rete](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing).  La procedura seguente illustra come configurare un cluster di bilanciamento del carico di rete Microsoft.  
 
-1.  Accedere al server Windows membro del cluster di bilanciamento del carico di rete con un account amministrativo.  
-2.  Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
+1. Accedere al server Windows membro del cluster di bilanciamento del carico di rete con un account amministrativo.  
+2. Aprire Gestione bilanciamento carico di rete in Server Manager, fare clic su **Strumenti** e quindi su **Gestione bilanciamento carico di rete**.
 3. Per connettere un server gateway OMS all'istanza di Microsoft Monitoring Agent installata, fare clic con il pulsante destro del mouse sull'indirizzo IP del cluster e quindi fare clic su **Aggiungi host al cluster**.<br><br> ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster](./media/log-analytics-oms-gateway/nlb02.png)<br> 
 4. Immettere l'indirizzo IP del server gateway che si vuole connettere.<br><br> ![Gestione del bilanciamento del carico di rete – Aggiungi host al cluster: Connetti](./media/log-analytics-oms-gateway/nlb03.png) 
     
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurare l'agente OMS e il gruppo di gestione di Operations Manager
 La sezione seguente include i passaggi per configurare gli agenti OMS connessi direttamente, un gruppo di gestione di Operations Manager o i ruoli di lavoro ibridi per runbook di Automazione di Azure con il gateway OMS per comunicare con Automazione di Azure o Log Analytics.  
 
-Per conoscere i requisiti e la procedura di installazione dell'agente OMS nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](log-analytics-quick-collect-linux-computer.md).  Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../automation/automation-hybrid-runbook-worker.md).
-
-### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configurazione dell'agente OMS e di Operations Manager per usare il gateway OMS come server proxy
-
 ### <a name="configure-standalone-oms-agent"></a>Configurare un agente OMS autonomo
-Per informazioni sulla configurazione di un agente per l'uso di un server proxy, che in questo caso è il gateway, vedere [Configurare le impostazioni proxy e firewall con Microsoft Monitoring Agent](log-analytics-proxy-firewall.md).  Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente OMS corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete:<br><br> ![Proprietà di Microsoft Monitoring Agent –Impostazioni proxy](./media/log-analytics-oms-gateway/nlb04.png)
+Per conoscere i requisiti e la procedura di installazione dell'agente OMS nei computer Windows che si connettono direttamente a Log Analytics, vedere [Connettere computer Windows a Log Analytics](log-analytics-windows-agents.md) o, per i computer Linux, vedere [Connettere computer Linux a Log Analytics](log-analytics-quick-collect-linux-computer.md). Invece di specificare un server proxy durante la configurazione dell'agente, sostituire tale valore con l'indirizzo IP e il numero di porta del server Gateway OMS.  Se sono stati distribuiti più server gateway dietro un servizio di bilanciamento del carico di rete, la configurazione del proxy dell'agente OMS corrisponde all'indirizzo IP virtuale del servizio di bilanciamento del carico di rete.  
+
+Per informazioni correlate per il ruolo di lavoro ibrido per runbook di Automazione, vedere [Distribuire il ruolo di lavoro ibrido per runbook](../automation/automation-hybrid-runbook-worker.md).
 
 ### <a name="configure-operations-manager---all-agents-use-the-same-proxy-server"></a>Configurare Operations Manager: tutti gli agenti usano lo stesso server proxy
 Configurare Operations Manager per aggiungere il server gateway.  La configurazione del proxy di Operations Manager viene applicata automaticamente a tutti gli agenti che creano report in Operations Manager, anche se l'impostazione è vuota.  

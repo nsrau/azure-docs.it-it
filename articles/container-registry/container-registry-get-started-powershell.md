@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885120"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Guida introduttiva: Creare un Registro contenitori di Azure usando PowerShell
 

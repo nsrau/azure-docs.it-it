@@ -1,27 +1,24 @@
 ---
 title: Informazioni sulla verifica in due passaggi in Azure MFA | Documentazione Microsoft
-description: "Cos'è Azure Multi-Factor Authentication (MFA) e perché usare questo servizio, informazioni sul client Multi-Factor Authentication e sui diversi metodi e versioni disponibili. "
-keywords: Introduzione a MFA, panoramica di mfa, che cos'è mfa
+description: Informazioni su Azure Multi-Factor Authentication (MFA) e sul perché usare questo servizio, oltre che sui diversi metodi e versioni disponibili.
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
-ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: joflore
-ms.openlocfilehash: 74441b5053a9c7c25d94406293828fe92f210bee
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: richagi
+ms.openlocfilehash: 2bf2cbefb2b60ad5278bdee7bd97aff1ed6212a4
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33867159"
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>Informazioni su Azure Multi-Factor Authentication
+
 La verifica in due passaggi è un metodo di autenticazione che richiede più di un metodo di verifica e con il quale viene aggiunto un secondo livello di sicurezza critico agli accessi e alle transazioni degli utenti. In genere richiede due o più dei metodi di verifica seguenti:
 
 * Un'informazione nota (in genere una password)

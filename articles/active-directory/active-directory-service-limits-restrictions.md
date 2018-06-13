@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33759981"
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrizioni e limiti del servizio Azure AD
 Questo articolo descrive i vincoli di utilizzo e altri limiti del servizio per il servizio Azure Active Directory (Azure AD). Se si sta cercando il set completo dei limiti del servizio Microsoft Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).

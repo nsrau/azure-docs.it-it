@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895039"
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>Requisiti di accesso per ambienti conformi a PCI DSS 
 ## <a name="pci-dss-requirement-7"></a>Requisito 7 di PCI DSS

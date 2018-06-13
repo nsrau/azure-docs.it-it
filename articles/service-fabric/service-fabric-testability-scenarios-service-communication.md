@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211226"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>Scenari di Testabilità di Service Fabric: comunicazione tra servizi
 Gli stili dell'architettura orientata ai microservizi e ai servizi vengono visualizzati naturalmente in Azure Service Fabric. In questi tipi di architetture distribuite, le applicazioni di microservizi con componenti sono in genere costituite da più servizi che devono comunicare tra loro. Anche nei casi più semplici, in genere si ha almeno un servizio Web senza stato e un servizio di archiviazione dei dati con stato che devono comunicare.

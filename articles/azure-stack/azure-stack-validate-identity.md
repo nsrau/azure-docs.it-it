@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937829"
 ---
 # <a name="validate-azure-identity"></a>Convalidare l'identità di Azure 
 Utilizzare lo strumento di controllo di conformità dello Stack di Azure (AzsReadinessChecker) per convalidare che Azure Active Directory (Azure AD) è pronta per l'uso con lo Stack di Azure. Convalidare la soluzione di identità Azure prima di iniziare una distribuzione di Azure Stack.  

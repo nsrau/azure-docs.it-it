@@ -11,6 +11,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894331"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architettura della replica da Hyper-V ad Azure
 
