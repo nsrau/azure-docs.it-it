@@ -1,11 +1,11 @@
 ---
 title: Procedura dettagliata per un'infrastruttura di esempio di Azure | Microsoft Docs
 description: Informazioni sulle principali linee guida di progettazione e implementazione per la distribuzione di un'infrastruttura di esempio in Azure.
-documentationcenter: 
+documentationcenter: ''
 services: virtual-machines-linux
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745776"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Linux
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -53,7 +54,7 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
   * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
-* Le reti virtuali usano AZOS-USE-VN**[numero]**
+* Le reti virtuali usano AZOS-USE-VN **[numero]**
 * I set di disponibilità usano azos-use-as-**[ruolo]**
 * I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
 
