@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949804"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Azure Service Fabric locale 
 Questa è la seconda di una serie di esercitazioni. Si apprenderà come collegare un debugger remoto usando Eclipse per l'applicazione Service Fabric. Si apprenderà anche come reindirizzare i log dalle applicazioni in esecuzione a un percorso pratico per lo sviluppatore.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599612"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Panoramica delle configurazioni di dispositivi VPN di partner
 L'articolo offre una panoramica della configurazione di dispositivi VPN locali per la connessione ai gateway VPN di Azure. Viene usata una configurazione di rete virtuale e di gateway VPN di Azure di esempio per mostrare come connettersi a diverse configurazioni di dispositivi VPN locali usando gli stessi parametri.

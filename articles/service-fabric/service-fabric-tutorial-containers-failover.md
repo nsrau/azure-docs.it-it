@@ -1,14 +1,14 @@
 ---
 title: Eseguire il failover e ridimensionare un'app contenitore di Azure Service Fabric | Microsoft Docs
-description: "In questa esercitazione si apprenderà come viene gestito il failover di un'applicazione contenitore di Azure Service Fabric  e come ridimensionare i contenitori e i servizi in esecuzione in un cluster."
+description: In questa esercitazione si apprenderà come viene gestito il failover di un'applicazione contenitore di Azure Service Fabric  e come ridimensionare i contenitori e i servizi in esecuzione in un cluster.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
 keywords: Docker, contenitori, microservizi, Service Fabric, Azure
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555485"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Esercitazione: Illustrare il failover e il ridimensionamento dei servizi contenitore con Service Fabric
 

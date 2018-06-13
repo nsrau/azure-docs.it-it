@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949838"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Esercitazione: Configurare un ambiente Jenkins con Service Fabric
 Questa è la quinta di una serie di esercitazioni. Illustra come usare Jenkins per distribuire gli aggiornamenti nell'applicazione. In questa esercitazione, il plug-in Jenkins per Service Fabric viene usato insieme a un repository Github che ospita l'applicazione Voting per distribuire l'applicazione in un cluster. 

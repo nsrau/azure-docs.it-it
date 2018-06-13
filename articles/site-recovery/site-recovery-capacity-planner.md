@@ -1,11 +1,11 @@
 ---
-title: "Calcolare la capacità di replica in Azure | Documentazione Microsoft"
-description: "Usare questo articolo per calcolare la capacità durante la replica con Azure Site Recovery"
+title: Calcolare la capacità di replica in Azure | Documentazione Microsoft
+description: Usare questo articolo per calcolare la capacità durante la replica con Azure Site Recovery
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rayne-wiselman
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875906"
 ---
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Pianificare la capacità per la protezione di macchine virtuali Hyper-V tramite Site Recovery
 
