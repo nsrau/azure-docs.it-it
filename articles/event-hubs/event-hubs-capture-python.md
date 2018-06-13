@@ -1,11 +1,11 @@
 ---
-title: "Procedura dettagliata sull’acquisizione di Hub eventi di Azure | Documentazione Microsoft"
-description: "Un esempio che usa l'SDK di Azure Python per illustrare l'uso della funzionalità di acquisizione dell'Hub eventi."
+title: Procedura dettagliata sull’acquisizione di Hub eventi di Azure | Documentazione Microsoft
+description: Un esempio che usa l'SDK di Azure Python per illustrare l'uso della funzionalità di acquisizione dell'Hub eventi.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016458"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Procedura dettagliata sull'acquisizione di Hub eventi: Python
 

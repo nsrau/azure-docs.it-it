@@ -1,12 +1,12 @@
 ---
 title: Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000 | Microsoft Docs
-description: "Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 5 per StorSimple serie 8000."
+description: Vengono descritte le nuove funzionalità, i problemi e le soluzioni alternative dell'aggiornamento 5 per StorSimple serie 8000.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518920"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Note sulla versione dell'aggiornamento 5 di StorSimple serie 8000
 

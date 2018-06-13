@@ -1,12 +1,12 @@
 ---
-title: "Considerazioni relative all'integrazione di rete di connettività per i sistemi Azure Stack integrato il bordo | Documenti Microsoft"
-description: "Informazioni sulle operazioni per la pianificazione dei Data Center bordo la connettività di rete con lo Stack di Azure a più nodi."
+title: Considerazioni relative all'integrazione di rete di connettività per i sistemi Azure Stack integrato il bordo | Documenti Microsoft
+description: Informazioni sulle operazioni per la pianificazione dei Data Center bordo la connettività di rete con lo Stack di Azure a più nodi.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919435"
 ---
 # <a name="border-connectivity"></a>Connettività di bordo 
 Pianificazione dell'integrazione di rete è un importante requisito per la distribuzione di sistemi Azure Stack integrato, gestione e operazione ha esito positivo. Pianificazione della connettività bordo inizia scegliendo o meno di utilizzare il routing dinamico con il protocollo border gateway protocol (BGP). Questa operazione richiede l'assegnazione di un numero sistema autonomo BGP 16 bit (pubblico o privato) o con routing statico, in cui una route statica predefinita viene assegnata ai dispositivi di bordo.
