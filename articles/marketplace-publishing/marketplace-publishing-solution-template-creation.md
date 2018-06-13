@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937309"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Guida alla creazione di un modello di soluzione per Azure Marketplace
 Dopo aver completato il passaggio 1, [Creazione e registrazione dell'account][link-acct-creation], sono state fornite indicazioni per la creazione di un modello di soluzione compatibile con Azure in [Prerequisiti tecnici per la creazione di un modello di soluzione](marketplace-publishing-solution-template-creation-prerequisites.md). Ora verranno illustrati i passaggi per la creazione di un modello di soluzione per più macchine virtuali nel [portale di pubblicazione][link-pubportal] per Azure Marketplace.

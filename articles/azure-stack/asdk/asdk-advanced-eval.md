@@ -1,12 +1,12 @@
 ---
-title: "Attività di valutazione di Azure Stack avanzate | Documenti Microsoft"
-description: "In questo articolo descrive le attività di valutazione avanzate dello Stack di Azure."
+title: Attività di valutazione di Azure Stack avanzate | Documenti Microsoft
+description: In questo articolo descrive le attività di valutazione avanzate dello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976350"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Attività di valutazione avanzate Kit di sviluppo di Azure Stack
 Una volta acquisite una certa familiarità con le funzionalità di servizio basic Azure Stack Development Kit (ASDK), è possibile approfondire la comprensione dello Stack Azure ulteriormente da testare gli scenari più avanzati. Queste attività di valutazione più avanzate sono documentate completamente nella documentazione di Azure Stack operatore.

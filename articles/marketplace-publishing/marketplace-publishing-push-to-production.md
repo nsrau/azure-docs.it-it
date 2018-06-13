@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943242"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Distribuire l'offerta in Azure Marketplace
 Quando si è soddisfatti dell'offerta (ad esempio, è stato eseguito il testing degli scenari dei clienti, del contenuto marketing e così via) e si è pronti per il lancio, richiedere **Push in produzione** nella scheda **Pubblica**.  

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione di Gestione dei costi di Azure
 metadata:
   title: Documentazione sulla gestione dei costi - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: "Gestione costi di Azure è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
+  description: Gestione costi di Azure è una soluzione di gestione dei costi multi-cloud che consente di usare Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide.
   services: cost-management
   author: bandersmsft
   manager: carmonm
@@ -18,8 +18,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 03/16/2018
+  ms.locfileid: "29935333"
 abstract:
-  description: "Gestione costi di Azure, concesso in licenza da Cloudyn, una affiliata Microsoft, è una soluzione di gestione dei costi multi-cloud che consente di usare al meglio e di gestire Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide."
+  description: Gestione costi di Azure, concesso in licenza da Cloudyn, una affiliata Microsoft, è una soluzione di gestione dei costi multi-cloud che consente di usare al meglio e di gestire Azure e altre risorse cloud. Informazioni su come esaminare l'uso e i costi, gestire attivamente i costi, prevedere la spesa e ottimizzare i costi con esercitazioni e guide rapide.
 sections:
 - title: Guide introduttive di 5 minuti
   items:

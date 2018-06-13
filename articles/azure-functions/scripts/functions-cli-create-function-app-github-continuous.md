@@ -3,7 +3,7 @@ title: Creare una funzione in Azure distribuita da GitHub | Microsoft Docs
 description: Creare un'app per le funzioni e distribuire il codice di funzione da un repository GitHub usando Funzioni di Azure.
 services: functions
 ms.service: functions
-keywords: 
+keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842729"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Creare un'app per le funzioni in Azure distribuita da GitHub
 
