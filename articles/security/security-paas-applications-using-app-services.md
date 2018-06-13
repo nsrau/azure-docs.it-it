@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31415077"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Protezione delle applicazioni Web e per dispositivi mobili in PaaS mediante Servizio app di Azure
 

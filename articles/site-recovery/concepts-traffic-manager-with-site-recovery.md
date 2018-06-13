@@ -14,6 +14,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071360"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Gestione traffico di Azure con Azure Site Recovery
 

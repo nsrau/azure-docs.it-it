@@ -10,15 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: aa803e823eb3096ea785f1f912293cae82c24b8d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196985"
 ---
 # <a name="tuning-azure-data-lake-store-for-performance"></a>Ottimizzazione delle prestazioni di Azure Data Lake Store
 
@@ -66,7 +65,7 @@ I motori di analisi come HDInsight e Azure Data Lake Analytics in genere gestisc
 
 Per ottenere prestazioni migliori, è in genere opportuno organizzare i dati in file di dimensioni più grandi.  Come regola generale, organizzare i set di dati in file di 256 MB o di dimensione maggiore. In alcuni casi, ad esempio per le immagini e i dati binari, non è possibile eseguire l'elaborazione in parallelo  ed è quindi consigliabile mantenere la dimensione dei singoli file al di sotto di 2 GB.
 
-Le pipeline di dati hanno talvolta un controllo limitato sui dati non elaborati costituiti da molti file di piccole dimensioni.  È pertanto consigliabile prevedere l'esecuzione di un processo che genera file di maggiori dimensioni destinati all'uso da parte delle applicazioni downstream.  
+Le pipeline di dati hanno talvolta un controllo limitato sui dati non elaborati costituiti da molti file di piccole dimensioni.  È pertanto consigliabile prevedere l'esecuzione di un processo che genera file di maggiori dimensioni destinati all'uso da parte delle applicazioni downstream.
 
 ### <a name="organizing-time-series-data-in-folders"></a>Organizzazione dei dati di serie temporali in cartelle
 
@@ -123,7 +122,7 @@ All'interno di un cluster HDInsight sono presenti tre livelli che possono essere
 
 A seconda del carico di lavoro, sarà sempre necessaria una dimensione minima per i contenitori YARN. Se si sceglie un contenitore troppo piccolo, si verificheranno problemi di memoria insufficiente per i processi. In genere, la dimensione dei contenitori YARN non deve essere inferiore a 1 GB. I contenitori YARN hanno spesso una dimensione di 3 GB. Per alcuni carichi di lavoro, possono essere necessari contenitori YARN più grandi.  
 
-**Aumentare il numero di core per contenitore YARN.**  Aumentare il numero di core allocati a ogni contenitore per aumentare il numero di attività parallele eseguite in ogni contenitore.  Questa soluzione è valida per le applicazioni, come Spark, che eseguono più attività per contenitore.  Per le applicazioni, come Hive, che eseguono un singolo thread in ogni contenitore, è preferibile avere più contenitori anziché più core per contenitore.   
+**Aumentare il numero di core per contenitore YARN.**  Aumentare il numero di core allocati a ogni contenitore per aumentare il numero di attività parallele eseguite in ogni contenitore.  Questa soluzione è valida per le applicazioni, come Spark, che eseguono più attività per contenitore.  Per le applicazioni, come Hive, che eseguono un singolo thread in ogni contenitore, è preferibile avere più contenitori anziché più core per contenitore.
 
 ### <a name="workload-layer"></a>Livello del carico di lavoro
 

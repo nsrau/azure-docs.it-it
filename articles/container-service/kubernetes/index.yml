@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394578"
 abstract:
   description: Il servizio contenitore di Azure consente di distribuire rapidamente un cluster Kubernetes pronto per l'ambiente di produzione. Informazioni su come usare il servizio contenitore di Azure insieme a Kubernetes con guide introduttive, esercitazioni ed esempi.
 sections:

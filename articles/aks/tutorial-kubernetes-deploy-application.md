@@ -3,17 +3,18 @@ title: "Esercitazione su Kubernetes in Azure: distribuire un'applicazione"
 description: Esercitazione sul servizio contenitore di Azure - Distribuire un'applicazione
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8649fc12bd36172f3a10e1a2c9da891685c0b821
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e992d7ca455ad4d95d0f10a94c6c9ce8055f8286
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067674"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: eseguire applicazioni in Azure Kubernetes Service (AKS)
 
@@ -72,10 +73,10 @@ Salvare e chiudere il file.
 
 ## <a name="deploy-application"></a>Distribuire un'applicazione
 
-Usare il comando [kubectl create][kubectl-create] per eseguire l'applicazione. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.
+Usare il comando [kubectl apply][kubectl-apply] per eseguire l'applicazione. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.
 
 ```azurecli
-kubectl create -f azure-vote-all-in-one-redis.yaml
+kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
 Output:
@@ -132,6 +133,7 @@ Passare all'esercitazione successiva per informazioni sulla scalabilità sia di 
 > [Scalare l'applicazione e l'infrastruttura Kubernetes][aks-tutorial-scale]
 
 <!-- LINKS - external -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-documentation]: https://kubernetes.io/docs/home/

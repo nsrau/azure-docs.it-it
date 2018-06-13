@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416041"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali a singola zona con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 in una singola zona di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.

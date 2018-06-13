@@ -10,16 +10,14 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 43637ee76c1840d9f4d5fd85aca0050f61523e43
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168912"
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198970"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store
 
@@ -47,9 +45,9 @@ Di seguito vengono elencate le impostazioni più importanti da regolare per otte
 
 **hive.tez.container.size**: la dimensione del contenitore determina la quantità di memoria disponibile per ciascuna attività.  Questo è l'input principale per il controllo di concorrenza in Hive.  
 
-**tez.grouping.min-size**: questo parametro consente di impostare la dimensione minima di ciascun mapper.  Se il numero di mapper scelti da Tez è inferiore al valore di questo parametro, Tez userà il valore impostato qui.  
+**tez.grouping.min-size**: questo parametro consente di impostare la dimensione minima di ciascun mapper.  Se il numero di mapper scelti da Tez è inferiore al valore di questo parametro, Tez userà il valore impostato qui.
 
-**tez.grouping.max-size**: questo parametro consente di impostare la dimensione massima di ciascun mapper.  Se il numero di mapper scelti da Tez è superiore al valore di questo parametro, Tez userà il valore impostato qui.  
+**tez.grouping.max-size**: questo parametro consente di impostare la dimensione massima di ciascun mapper.  Se il numero di mapper scelti da Tez è superiore al valore di questo parametro, Tez userà il valore impostato qui.
 
 **hive.exec.reducer.bytes.per.reducer**: questo parametro consente di impostare la dimensione di ciascun riduttore.  Per impostazione predefinita, ogni riduttore ha una dimensione di 256 MB.  
 
@@ -76,11 +74,12 @@ Si supponga di disporre di un cluster D14 a 8 nodi.
     # of YARN containers = 768GB / 3072MB = 256
 
 ## <a name="limitations"></a>Limitazioni
+
 **Limitazione ADLS** 
 
-Se si raggiungono i limiti di larghezza di banda di ADLS, le attività inizieranno ad avere esiti negativi. Ciò può essere constatato verificando la presenza di errori di limitazione nei log delle attività.  È possibile ridurre il parallelismo aumentando la dimensione del contenitore Tez.  Se occorre maggiore concorrenza per il processo, contattare Microsoft.   
+Se si raggiungono i limiti di larghezza di banda di ADLS, le attività inizieranno ad avere esiti negativi. Ciò può essere constatato verificando la presenza di errori di limitazione nei log delle attività.  È possibile ridurre il parallelismo aumentando la dimensione del contenitore Tez.  Se occorre maggiore concorrenza per il processo, contattare Microsoft.
 
-Per verificare la presenza di limitazioni, è necessario abilitare la registrazione di debug sul lato client. Di seguito viene indicato come procedere:
+Per verificare la presenza di limitazioni, è necessario abilitare la registrazione di debug sul lato client. Ecco come fare:
 
 1. Inserire la seguente proprietà nelle proprietà log4j nella configurazione di Hive. Questa operazione può essere eseguita dalla vista Ambari: log4j.logger.com.microsoft.azure.datalake.store=DEBUG Riavviare tutti i nodi/service per rendere effettiva la nuova configurazione.
 

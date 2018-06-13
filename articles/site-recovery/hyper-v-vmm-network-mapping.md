@@ -13,6 +13,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076367"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Preparare il mapping di rete per la replica di VM Hyper-V in Azure
 

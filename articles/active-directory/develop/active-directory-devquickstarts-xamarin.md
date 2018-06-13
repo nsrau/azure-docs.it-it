@@ -3,23 +3,26 @@ title: Introduzione a Xamarin per Azure AD | Microsoft Docs
 description: Compilare un'applicazione Xamarin che si integra con Azure AD per l'accesso e chiama le API protette da Azure AD usando OAuth.
 services: active-directory
 documentationcenter: xamarin
-author: jmprieur
+author: CelesteDG
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/30/2017
-ms.author: jmprieur
+ms.author: celested
+ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 77ac6a7cfe089fa934592c412c75a9f33efde5e8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ac04cddc00bf76bb366a249a5a2ec4c56d5212c
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156688"
 ---
 # <a name="azure-ad-xamarin-getting-started"></a>Introduzione a Xamarin per Azure AD
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -54,11 +57,10 @@ Per consentire all'app di ottenere i token, sarà prima necessario registrarla n
 4. Fare clic su **Registrazioni per l'app** e scegliere **Aggiungi**.
 5. Seguire le istruzioni e creare una nuova **Applicazione client nativa**.
   * Il **Nome** descrive l'app agli utenti.
-  * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore, ad esempio http://DirectorySearcher.
+  * L'**URI di reindirizzamento** è una combinazione dello schema e della stringa che Azure AD usa per restituire le risposte dei token. Immettere un valore (ad esempio, http://DirectorySearcher).
 6. Dopo aver completato la registrazione, Azure AD assegna all'app un ID applicazione univoco. Copiare il valore dalla scheda **Applicazione**, perché sarà necessario in un secondo momento.
 7. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e selezionare **Aggiungi**.
-8. Selezionare l'API **Microsoft Graph**. In **Autorizzazioni delegate** aggiungere l'autorizzazione **Lettura dati directory**.  
-Ciò consente all'app di eseguire query nell'API Graph per gli utenti.
+8. Selezionare l'API **Microsoft Graph**. In **Autorizzazioni delegate** aggiungere l'autorizzazione **Lettura dati directory**. Ciò consente all'app di eseguire query nell'API Graph per gli utenti.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passaggio 3: Installare e configurare ADAL
 Ora che è disponibile un'app in Azure AD, è possibile installare ADAL e scrivere il codice relativo all'identità. Per abilitare ADAL alla comunicazione con Azure AD, fornire alcune informazioni sulla registrazione dell'app.
@@ -90,8 +92,8 @@ Ora che è disponibile un'app in Azure AD, è possibile installare ADAL e scrive
 3. Sostituire i valori dei membri della classe con i valori immessi nel portale di Azure. Il codice fa riferimento a questi valori ogni volta che usa ADAL.
 
   * Il *tenant* è il dominio del tenant di Azure AD, ad esempio contoso.onmicrosoft.com.
-  * Il *clientId* è l'ID client dell'app che è stato copiato dal portale.
-  * Il *returnUri* è l'URI di reindirizzamento immesso nel portale, ad esempio http://DirectorySearcher.
+  * Il *clientId* è l'ID client dell'app. Lo si copia dal portale.
+  * *returnUri* è l'URI di reindirizzamento immesso nel portale, ad esempio http://DirectorySearcher).
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 4: Usare ADAL per ottenere token da Azure AD
 Quasi tutta la logica di autenticazione dell'app si basa su `DirectorySearcher.SearchByAlias(...)`. Nei progetti specifici delle piattaforme è sufficiente passare un parametro contestuale alla libreria di classi portabile di `DirectorySearcher`.
@@ -103,8 +105,7 @@ Quasi tutta la logica di autenticazione dell'app si basa su `DirectorySearcher.S
     {
     ```
 
-2. Inizializzare `AuthenticationContext`, ovvero la classe primaria di ADAL.  
-Questa azione permette di passare ad ADAL le coordinate necessarie per comunicare con Azure AD.
+2. Inizializzare `AuthenticationContext`, ovvero la classe primaria di ADAL. Questa azione permette di passare ad ADAL le coordinate necessarie per comunicare con Azure AD.
 3. Chiamare `AcquireTokenAsync(...)`, che accetta l'oggetto `IPlatformParameters` e richiama il flusso di autenticazione necessario per restituire un token all'app.
 
     ```csharp

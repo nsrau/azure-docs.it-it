@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156892"
 ---
 # <a name="permissions-in-azure-ad"></a>Autorizzazioni in Azure AD
 Azure Active Directory (Azure AD) fa ampio uso delle autorizzazioni per i flussi OAuth e OpenID Connect (OIDC). Quando l'app riceve un token di accesso da Azure AD, include le attestazioni che descrivono le autorizzazioni (note anche come ambiti) dell'app in relazione a una particolare risorsa. Ciò semplifica l'autorizzazione per la risorsa perché è necessario solo controllare che il token contenga l'autorizzazione appropriata per l'API chiamata. 

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2018
+ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4c61cdc504306d4e28d1d8c03fce4e479a0bfd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160870"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -79,7 +80,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
     * RETE CDN
     * Test del carico di Visual Studio Team Services
     * Multi-Factor Authentication
-    * servizio Gestione traffico
+    * Gestione traffico
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
 
@@ -97,7 +98,7 @@ ExpressRoute supporta [tre domini di routing](expressroute-circuit-peerings.md) 
     * RETE CDN
     * Test del carico di Visual Studio Team Services
     * Multi-Factor Authentication
-    * servizio Gestione traffico
+    * Gestione traffico
 
 ## <a name="data-and-connections"></a>Dati e connessioni
 
@@ -156,7 +157,7 @@ Se il provider di servizi offre ExpressRoute in entrambe le località, è possib
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>È possibile avere più circuiti ExpressRoute nella stessa area metropolitana? È possibile collegarli alla stessa rete virtuale?
 
-Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località di peering per ExpressRoute e i circuiti vengono creati in più località di peering, è possibile collegarli alla stessa rete virtuale. Se invece i circuiti vengono creati nella stessa località di peering, non è possibile collegarli alla stessa rete virtuale.
+Sì. È possibile avere più circuiti ExpressRoute con provider di servizi uguali o diversi. Se nell'area metropolitana sono presenti più località peer per ExpressRoute e i circuiti vengono creati in località peer diverse, è possibile collegarli alla stessa rete virtuale. Se invece i circuiti vengono creati nella stessa località di peering, non è possibile collegarli alla stessa rete virtuale. Ogni nome posizione nel portale di Azure o nell'API di PowerShell/CLI rappresenta un'unica località peer. Ad esempio, è possibile selezionare le località peer "Singapore" e "Singapore2" e connettersi circuiti da ciascuno di essi alla stessa rete virtuale. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Come si connettono le reti virtuali a un circuito ExpressRoute?
 
