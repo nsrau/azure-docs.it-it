@@ -2,10 +2,10 @@
 title: Personalizzare il portale per sviluppatori di Gestione API con i modelli - Azure| Documentazione Microsoft
 description: Informazioni su come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118225"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Come personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli
 
