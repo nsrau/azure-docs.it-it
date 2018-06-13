@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29688123"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL 
 La tabella seguente include collegamenti a esempi di script dell'interfaccia della riga di comando di Azure per il database di Azure per PostgreSQL.

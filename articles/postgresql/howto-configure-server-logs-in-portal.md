@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692165"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 

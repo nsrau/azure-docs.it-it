@@ -1,6 +1,6 @@
 ---
-title: "Creare un listener per i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure | Microsoft Docs"
-description: "Istruzioni dettagliate per creare un listener per un gruppo di disponibilità Always On per SQL Server nelle macchine virtuali di Azure"
+title: Creare un listener per i gruppi di disponibilità di SQL Server nelle macchine virtuali di Azure | Microsoft Docs
+description: Istruzioni dettagliate per creare un listener per un gruppo di disponibilità Always On per SQL Server nelle macchine virtuali di Azure
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400631"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.

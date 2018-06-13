@@ -1,11 +1,11 @@
 ---
 title: Introduzione al Centro sicurezza di Azure | Microsoft Docs
-description: "Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il funzionamento."
+description: Informazioni sul Centro sicurezza di Azure, le funzionalità principali e il funzionamento.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395650"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Con il Centro sicurezza, è possibile applicare i criteri di sicurezza sui carichi di lavoro, limitare l'esposizione alle minacce, rilevare e rispondere agli attacchi.

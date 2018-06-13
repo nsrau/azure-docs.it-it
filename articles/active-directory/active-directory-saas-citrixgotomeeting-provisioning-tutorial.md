@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34348112"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Esercitazione: Configurare GoToMeeting per il provisioning utenti automatico
 

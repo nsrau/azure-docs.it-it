@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30172852"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.

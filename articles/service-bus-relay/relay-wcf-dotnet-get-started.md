@@ -5,7 +5,7 @@ services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856083"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Come usare gli inoltri WCF di Inoltro di Azure con .NET
 Questo articolo descrive come usare il servizio di inoltro di Azure. Negli esempi, scritti in C#, viene usata l'API di Windows Communication Foundation (WCF) con le estensioni contenute nell'assembly del bus di servizio. Per altre informazioni, vedere la [panoramica del servizio di inoltro di Azure](relay-what-is-it.md).

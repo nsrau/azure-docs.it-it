@@ -1,6 +1,6 @@
 ---
 title: Connettersi a Database di Azure per PostgreSQL da Node.js
-description: "Questa guida introduttiva fornisce un esempio di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL."
+description: Questa guida introduttiva fornisce un esempio di codice Node.js che è possibile usare per connettersi ai dati ed eseguire query da Database di Azure per PostgreSQL.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691944"
 ---
 # <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Node.js per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [Node.js](https://nodejs.org/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Node.js, ma non con Database di Azure per PostgreSQL.

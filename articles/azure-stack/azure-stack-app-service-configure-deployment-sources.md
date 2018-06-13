@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359595"
 ---
 # <a name="configure-deployment-sources"></a>Configurare le origini di distribuzione
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*

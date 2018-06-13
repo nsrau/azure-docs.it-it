@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197074"
 ---
 È possibile usare un certificato radice generato tramite una soluzione aziendale (opzione consigliata) oppure generare un certificato autofirmato. Dopo avere creato il certificato radice, esportare i dati del certificato pubblico (non la chiave privata) come file CER X.509 con codifica Base 64 e caricarli in Azure.
 

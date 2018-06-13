@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164968"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Distribuzione di Azure Stack considerazioni sulla pianificazione
 Prima di distribuire il Kit di sviluppo dello Stack di Azure (ASDK), verificare che il computer host di kit sviluppo soddisfi i requisiti descritti in questo articolo.

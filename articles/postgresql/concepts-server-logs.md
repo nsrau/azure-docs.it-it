@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29691094"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registri server nel database di Azure per PostgreSQL 
 Il database di Azure per PostgreSQL genera log di query e registri errori. Tuttavia, l'accesso ai log delle transazioni non è supportato. I log di query e degli errori possono essere usati per individuare e risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Per altre informazioni, vedere [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) (Segnalazione e registrazione degli errori).
