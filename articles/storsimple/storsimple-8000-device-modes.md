@@ -1,12 +1,12 @@
 ---
-title: "Cambiare la modalità del dispositivo StorSimple | Microsoft Docs"
-description: "Vengono descritte le modalità del dispositivo StorSimple e viene illustrato come utilizzare Windows PowerShell per StorSimple per modificare la modalità del dispositivo."
+title: Cambiare la modalità del dispositivo StorSimple | Microsoft Docs
+description: Vengono descritte le modalità del dispositivo StorSimple e viene illustrato come utilizzare Windows PowerShell per StorSimple per modificare la modalità del dispositivo.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108539"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>Cambiare le modalità del dispositivo sul dispositivo StorSimple
 
