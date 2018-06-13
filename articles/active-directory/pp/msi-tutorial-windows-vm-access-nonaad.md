@@ -1,8 +1,8 @@
 ---
-title: "Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault"
-description: "Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault."
+title: Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault
+description: Esercitazione che illustra come usare un'identità  del servizio gestito di una macchina virtuale Windows per accedere ad Azure Key Vault.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383784"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Key Vault 
 

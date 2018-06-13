@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386078"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Panoramica del servizio app in Azure Stack
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*

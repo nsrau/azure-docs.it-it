@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765952"
 ---
 > [!IMPORTANT]
 > Servizi BizTalk di Azure è deprecato nel portale di Azure. Per gestire le istanze del server di Backup di Microsoft Azure, vedere [API REST per la gestione dei servizi BizTalk in Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).

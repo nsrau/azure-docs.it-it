@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817004"
 ---
 Prima di creare elementi, esaminiamo il concetto di ambito. Azure offre quattro livelli di gestione: gruppi di gestione, sottoscrizione, gruppo di risorse e risorsa. I [gruppi di gestione](../articles/billing/billing-enterprise-mgmt-group-overview.md) sono disponibili in versione di anteprima. Nella figura seguente viene illustrato un esempio di questi livelli.
 
