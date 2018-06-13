@@ -2,7 +2,7 @@
 title: Creare la prima funzione in Linux dall'interfaccia della riga di comando di Azure (anteprima) | Microsoft Docs
 description: Informazioni su come creare la prima funzione di Azure eseguita su un'immagine predefinita di Linux tramite l'interfaccia della riga di comando di Azure.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919390"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Creare la prima funzione eseguita in Linux usando l'interfaccia della riga di comando di Azure (anteprima)
 

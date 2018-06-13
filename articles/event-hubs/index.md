@@ -5,7 +5,7 @@ services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25945755"
 ---
 # <a name="event-hubs-documentation"></a>Documentazione di Hub eventi
 

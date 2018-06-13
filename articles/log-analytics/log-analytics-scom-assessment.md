@@ -1,8 +1,8 @@
 ---
 title: Ottimizzare l'ambiente System Center Operations Manager con Azure Log Analytics |Microsoft Docs
-description: "È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari."
+description: È possibile usare la soluzione Controllo integrità System Center Operations Manager per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180037"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 

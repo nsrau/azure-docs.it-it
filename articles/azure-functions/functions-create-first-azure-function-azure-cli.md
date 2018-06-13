@@ -2,7 +2,7 @@
 title: Creare la prima funzione dall'interfaccia della riga di comando di Azure| Microsoft Docs
 description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite l'interfaccia della riga di comando di Azure.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118772"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Creare la prima funzione usando l'interfaccia della riga di comando di Azure
 

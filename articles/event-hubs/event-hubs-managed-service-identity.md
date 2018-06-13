@@ -1,12 +1,12 @@
 ---
-title: "Identità del servizio gestito con Hub eventi di Azure (anteprima) | Microsoft Docs"
-description: "Usare le identità del servizio gestito con Hub eventi di Azure"
+title: Identità del servizio gestito con Hub eventi di Azure (anteprima) | Microsoft Docs
+description: Usare le identità del servizio gestito con Hub eventi di Azure
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783523"
 ---
 # <a name="managed-service-identity-preview"></a>Identità del servizio gestito (anteprima)
 
