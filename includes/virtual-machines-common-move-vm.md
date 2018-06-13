@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29958708"
 ---
 ## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Usare il portale per spostare una macchina virtuale in una sottoscrizione diversa
 È possibile spostare una macchina virtuale e le relative risorse associate in una sottoscrizione diversa usando il portale.

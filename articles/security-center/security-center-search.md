@@ -5,7 +5,7 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040436"
 ---
 # <a name="azure-security-center-search"></a>Ricerca nel Centro sicurezza di Azure
 Centro sicurezza di Azure usa la [Ricerca di Log Analytics](../log-analytics/log-analytics-log-searches.md) per recuperare e analizzare i dati di sicurezza. Log Analytics include un linguaggio di query che permette di recuperare e consolidare rapidamente i dati. Nel Centro sicurezza è possibile sfruttare la Ricerca di Log Analytics per creare le query e analizzare i dati raccolti.

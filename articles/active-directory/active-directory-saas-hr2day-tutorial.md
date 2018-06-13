@@ -137,7 +137,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
       | Nome attributo    |   Valore attributo |  
     | ------------------- | -------------------- |    
-    | ATTR_LOGINCLAIM | join([mail],"102938475Z","@" |
+    | ATTR_LOGINCLAIM | join([mail],"102938475Z"\,\"\@\" |
     
       a. Per aprire la finestra di dialogo **Aggiungi attributo**, selezionare **Aggiungi attributo**.
 

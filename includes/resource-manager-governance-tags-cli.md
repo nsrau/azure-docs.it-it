@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29956189"
 ---
 Per aggiungere due tag a un gruppo di risorse, usare il comando [az group update](/cli/azure/group#az_group_update):
 

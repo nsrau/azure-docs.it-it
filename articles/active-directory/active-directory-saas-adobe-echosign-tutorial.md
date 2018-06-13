@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 71aa0af2b3b47c1d9960e72aa36c2d5aae80f140
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c3b7e7178ef68475f331edf058ca0f23661af3ea
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140377"
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34338874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Sign
 
@@ -30,7 +30,7 @@ L'integrazione di Adobe Sign con Azure AD offre i vantaggi seguenti:
 - È possibile abilitare gli utenti per l'accesso automatico a Adobe Sign (Single Sign-On) con i propri account Azure AD
 - È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -104,7 +104,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Configure Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_samlbase.png)
 
 3. Nella sezione **Adobe Sign Domain and URLs** (URL e dominio Adobe Sign) seguire questa procedura:
@@ -116,8 +116,8 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<companyname>.echosign.com`
 
     > [!NOTE] 
-    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html). 
- 
+    > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html).
+
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
     ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_certificate.png) 
@@ -128,15 +128,34 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Nella sezione **Adobe Sign Configuration** (Configurazione Adobe Sign) fare clic su **Configure Adobe Sign** (Configura Adobe Sign) per aprire la finestra **Configure sign-on** (Configura accesso). Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
 
-    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-adobe-echosign-tutorial/tutorial_adobesign_configure.png)
 
-7. In un'altra finestra del Web browser accedere al sito aziendale di Adobe Sign come amministratore.
+7. Prima della configurazione occorre contattare il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html) per inserire il proprio dominio nell'elenco elementi consentiti di Adobe Sign. Eseguire la procedura seguente per aggiungere il dominio:
 
-8. Scegliere **Account Settings** (Impostazioni account) dal menu SAML e quindi fare clic su **SAML Settings**.
+    a. il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html) invierà un token generato in modo casuale. Il token per il proprio dominio sarà simile al seguente: **adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+
+    b. Sarà necessario pubblicare il token di verifica in un record DNS TEXT e comunicarlo al [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html).
+    
+    > [!NOTE]
+    > Questa operazione può richiedere alcuni giorni o anche più tempo. Eventuali ritardi nella propagazione dei record DNS indicano che un valore pubblicato nel DNS potrebbe non essere visibile per almeno un'ora. Si suppone che l'amministratore IT sappia come pubblicare questo token in un record DNS TEXT.
+    
+    c. Una volta avvisato il [team di supporto clienti di Adobe Sign](https://helpx.adobe.com/in/contact/support.html) tramite il ticket di supporto, dopo la pubblicazione del token, il dominio verrà convalidato e aggiunto al proprio account.
+    
+    d. Procedura generale che è possibile eseguire per pubblicare il token in un record DNS
+
+    * Accedere all'account di dominio.
+    * Trovare la pagina per l'aggiornamento del record DNS. Il nome di questa pagina potrebbe essere 	Gestione DNS, Gestione server dei nomi o Impostazioni avanzate.
+    * Trovare i record TXT relativi al proprio dominio.
+    * Aggiungere un record TXT con il valore completo del token fornito da Adobe.
+    * Salvare le modifiche.
+
+8. In un'altra finestra del Web browser accedere al sito aziendale di Adobe Sign come amministratore.
+
+9. Scegliere **Account Settings** (Impostazioni account) dal menu SAML e quindi fare clic su **SAML Settings**.
    
     ![Account](./media/active-directory-saas-adobe-echosign-tutorial/ic789520.png "Account")
 
-9. Nella sezione **SAML Settings** (Impostazioni SAML), seguire questa procedura:
+10. Nella sezione **SAML Settings** (Impostazioni SAML), seguire questa procedura:
   
     ![Impostazioni SAML](./media/active-directory-saas-adobe-echosign-tutorial/ic789521.png "Impostazioni SAML")
    
@@ -251,7 +270,7 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](active-directory-saas-tutorial-list.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -266,4 +285,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-adobe-echosign-tutorial/tutorial_general_203.png
-

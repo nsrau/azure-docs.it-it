@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842228"
 ---
 # <a name="common-azure-cli-10-commands-on-linux-and-mac"></a>Comandi comuni dell'interfaccia della riga di comando di Azure 1.0 per Linux e Mac
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]

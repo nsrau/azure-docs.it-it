@@ -2,10 +2,10 @@
 title: Correggere gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile"| Documentazione Microsoft
 description: Risoluzione degli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle app Web ospitate in un servizio App di Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
 keywords: 502 - Gateway non valido, 503 - Servizio non disponibile, errore 503, errore 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986256"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nelle App Web di Azure
 Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle applicazioni Web ospitate in un [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.

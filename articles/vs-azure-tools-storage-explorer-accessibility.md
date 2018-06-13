@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525938"
 ---
 # <a name="storage-explorer-accessibility"></a>Accessibilità di Storage Explorer
 ## <a name="screen-readers"></a>Utilità per la lettura dello schermo
