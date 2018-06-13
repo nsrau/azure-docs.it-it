@@ -9,10 +9,11 @@ ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "30196441"
 ---
 Azure esegue periodicamente aggiornamenti per migliorare l'affidabilità, le prestazioni e la sicurezza dell'infrastruttura host per le macchine virtuali. Questi aggiornamenti includono l'applicazione di patch ai componenti software nell'ambiente host (ad esempio, sistema operativo, hypervisor e diversi agenti distribuiti nell'host), l'aggiornamento dei componenti di rete e la rimozione delle autorizzazioni per l'hardware. La maggior parte di questi aggiornamenti viene eseguita senza alcuna conseguenza per le macchine virtuali ospitate. Ci sono casi tuttavia in cui gli aggiornamenti hanno conseguenze:
 

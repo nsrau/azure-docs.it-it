@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30315049"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
 

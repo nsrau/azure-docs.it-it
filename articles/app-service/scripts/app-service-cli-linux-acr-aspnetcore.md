@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30282216"
 ---
 # <a name="create-an-aspnet-core-web-app-in-a-docker-container-from-azure-container-registry"></a>Creare un'App Web ASP.NET Core in un contenitore Docker dal Registro di sistema del contenitore di Azure
 

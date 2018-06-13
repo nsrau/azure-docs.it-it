@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246288"
 ---
 # <a name="create-a-basic-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali di base con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016. Dopo aver eseguito lo script, è possibile accedere alle istanze di macchina virtuale tramite RDP.

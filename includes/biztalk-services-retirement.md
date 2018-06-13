@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765935"
 ---
 > [!IMPORTANT]
 > Servizi BizTalk di Microsoft Azure è in fase di ritiro e verrà sostituito da App per la logica di Azure.

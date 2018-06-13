@@ -4,7 +4,7 @@ description: Impostare l'integrazione continua da GitHub in Servizio app di Azur
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29853000"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurare l'integrazione e la distribuzione continue in Servizio App di Azure con Jenkins
 

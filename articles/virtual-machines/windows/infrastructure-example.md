@@ -21,6 +21,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809870"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>Procedura dettagliata per un'infrastruttura di esempio di Azure per macchine virtuali Windows
 Questo articolo illustra le modalità di compilazione di un'infrastruttura di applicazione di esempio. Sarà trattata la progettazione di un'infrastruttura per un semplice negozio online che riunisce tutte le linee guida e le decisioni sulle convenzioni di denominazione, i set di disponibilità, le reti virtuali e i servizi di bilanciamento del carico e l'effettiva distribuzione delle macchine virtuali.
@@ -53,7 +54,7 @@ Tutti gli elementi devono rispettare le convenzioni di denominazione seguenti:
 
 * Adventure Works Cycles usa come prefisso **[carico di lavoro IT]-[località]-[risorsa di Azure]**
   * In questo esempio, "**azos**" (Azure online Store) è il nome del carico di lavoro IT e "**use**" (Stati Uniti orientali 2) è la località
-* Le reti virtuali usano AZOS-USE-VN**[numero]**
+* Le reti virtuali usano AZOS-USE-VN **[numero]**
 * I set di disponibilità usano azos-use-as-**[ruolo]**
 * I nomi delle macchine virtuali usano azos-use-vm-**[nomevm]**
 
