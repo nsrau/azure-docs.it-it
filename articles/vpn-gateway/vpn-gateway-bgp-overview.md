@@ -5,8 +5,8 @@ services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23123799"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Panoramica di BGP con i gateway VPN di Azure
 Questo articolo fornisce una panoramica di BGP (Border Gateway Protocol) nei gateway VPN di Azure.

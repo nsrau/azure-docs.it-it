@@ -1,12 +1,12 @@
 ---
 title: Monitorare il dispositivo StorSimple serie 8000 | Microsoft Docs
-description: "Viene descritto come usare il servizio Gestione dispositivi di StorSimple per monitorare uso, prestazioni I/O e uso della capacità."
+description: Viene descritto come usare il servizio Gestione dispositivi di StorSimple per monitorare uso, prestazioni I/O e uso della capacità.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23479267"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usare il servizio Gestione dispositivi di StorSimple per monitorare il dispositivo StorSimple
 

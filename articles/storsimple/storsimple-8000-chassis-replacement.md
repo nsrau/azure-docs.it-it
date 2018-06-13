@@ -2,11 +2,11 @@
 title: Sostituire lo chassis in un dispositivo StorSimple serie 8000| Microsoft Docs
 description: Descrive come rimuovere e sostituire lo chassis per l'alloggiamento principale o EBOD di StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108159"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Sostituire lo chassis sul dispositivo StorSimple
 ## <a name="overview"></a>Panoramica

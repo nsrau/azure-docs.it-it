@@ -1,11 +1,11 @@
 ---
-title: "Configurare un metodo di routing del traffico Priorità con Gestione traffico di Azure | Microsoft Docs"
-description: "In questo articolo viene descritto come configurare il metodo di routing del traffico Priorità tramite Gestione traffico di Azure"
+title: Configurare un metodo di routing del traffico Priorità con Gestione traffico di Azure | Microsoft Docs
+description: In questo articolo viene descritto come configurare il metodo di routing del traffico Priorità tramite Gestione traffico di Azure
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111139"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Configurare il metodo di routing del traffico Priorità di Gestione traffico
 
