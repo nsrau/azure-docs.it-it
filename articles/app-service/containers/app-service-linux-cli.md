@@ -3,11 +3,11 @@ title: Gestire l'app Web per i contenitori tramite l'interfaccia della riga di c
 description: Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure.
 keywords: servizio app di Azure, app Web, interfaccia della riga di comando, domande frequenti, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24105390"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gestire l'app Web per i contenitori tramite l'interfaccia della riga di comando di Azure
 

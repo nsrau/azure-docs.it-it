@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541571"
 ---
 # <a name="microsoft-trust-center"></a>Centro protezione di Microsoft
 Il sito sulle informazioni di sicurezza di Azure su Azure.com fornisce le informazioni necessarie per pianificare, progettare, distribuire, configurare e gestire in modo sicuro le soluzioni cloud. Microsoft Trust Center fornisce anche le informazioni necessarie per assicurarsi che la piattaforma Azure in cui vengono eseguiti i servizi sia sicura.

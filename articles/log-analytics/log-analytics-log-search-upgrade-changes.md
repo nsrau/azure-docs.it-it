@@ -1,11 +1,11 @@
 ---
-title: "Novità di Azure Log Analytics | Microsoft Docs"
-description: "Questo articolo riporta le domande più frequenti riguardanti l'aggiornamento di Log Analytics al nuovo linguaggio di query."
+title: Novità di Azure Log Analytics | Microsoft Docs
+description: Questo articolo riporta le domande più frequenti riguardanti l'aggiornamento di Log Analytics al nuovo linguaggio di query.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039860"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Novità di Azure Log Analytics
 Oltre al linguaggio di query stesso, sono stati introdotti vari miglioramenti e modifiche di cui è necessario essere a conoscenza quando l'area di lavoro di Log Analytics viene [aggiornata al nuovo linguaggio di query](log-analytics-log-search-new.md).  Questo articolo descrive brevemente i cambiamenti tra l'area di lavoro precedente e quella aggiornata, con collegamenti ai contenuti dettagliati per ciascuna. 

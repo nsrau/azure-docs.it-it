@@ -1,11 +1,11 @@
 ---
 title: Documentazione di Servizi cloud di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: "Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità."
+description: Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come usare Servizi cloud per ospitare ed eseguire API e applicazioni cloud a elevata disponibilità e scalabilità.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101883"
 ---
 # <a name="cloud-services-documentation"></a>Documentazione di Servizi cloud
 

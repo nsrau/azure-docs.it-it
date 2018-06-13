@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23643865"
 ---
 # <a name="virtual-appliance-scenario"></a>Scenario dell'appliance virtuale
 Uno scenario comune tra i clienti di Azure di grandi dimensioni è la necessità di offrire un'applicazione a due livelli esposta a Internet, consentendo l'accesso al livello back-end da un data center locale. Questo documento illustra uno scenario che prevede route definite dall'utente (UDR), un gateway VPN e appliance di rete virtuali per distribuire un ambiente a due livelli che soddisfi i requisiti seguenti:

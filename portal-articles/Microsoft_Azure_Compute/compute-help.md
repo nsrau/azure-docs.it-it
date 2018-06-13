@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057672"
 ---
 # <a name="virtual-machines-documentation"></a>Documentazione delle macchine virtuali
 Macchine virtuali di Azure offre un'infrastruttura virtualizzata, sicura, a scalabilità elevata e su richiesta. È possibile creare macchine virtuali Windows o macchine virtuali Linux che eseguono Red Hat, Ubuntu o la distribuzione Linux preferita. Per scoprire come fare, vedere:

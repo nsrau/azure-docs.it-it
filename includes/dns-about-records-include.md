@@ -2,7 +2,7 @@
 
 Nel servizio DNS di Azure i record vengono specificati usando nomi relativi. Un nome di dominio *completo* (FQDN) include il nome della zona, mentre un nome *relativo* no. Ad esempio, il nome di record relativo "www" nella zona "contoso.com" genera il nome di record completo "www.contoso.com".
 
-Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella zona DNS "contoso.com", anche un record vertice ha il nome completo "contoso.com", chiamato a volte dominio di tipo *naked*.  Per convenzione, per rappresentare record vertice viene usato il nome relativo \'\@\'.
+Un record *vertice* è un record DNS alla radice (o *vertice*) di una zona DNS. Ad esempio, nella zona DNS "contoso.com", anche un record vertice ha il nome completo "contoso.com", chiamato a volte dominio di tipo *naked*.  Per convenzione, per rappresentare record vertice viene usato il nome relativo '@'.
 
 ### <a name="record-types"></a>Tipi di record
 

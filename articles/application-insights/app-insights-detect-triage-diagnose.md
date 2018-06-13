@@ -3,7 +3,7 @@ title: Panoramica di Azure Application Insights per DevOps| Microsoft Docs
 description: Imparare a usare Application Insights in un ambiente di sviluppo Ops.
 author: mrbullwinkle
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 manager: carmonm
 ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23660596"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 

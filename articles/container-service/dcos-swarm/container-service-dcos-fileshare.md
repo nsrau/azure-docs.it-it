@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331203"
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Creare e montare una condivisione di file per un cluster DC/OS
 

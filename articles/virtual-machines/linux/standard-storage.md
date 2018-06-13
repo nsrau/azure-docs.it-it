@@ -2,7 +2,7 @@
 title: Archiviazione standard per i dischi VM di Linux in Azure | Microsoft Docs
 description: Discussioni sul servizio conveniente di Archiviazione Standard e sui dischi gestiti e non gestiti delle VM di Linux.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23666873"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

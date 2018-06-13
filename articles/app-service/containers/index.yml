@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentazione sul servizio app in Linux
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: 'Documentazione dell''app Web di Azure per i contenitori: esercitazioni e informazioni di riferimento sulle API'
+  title: "Documentazione dell'app Web di Azure per i contenitori: esercitazioni e informazioni di riferimento sulle API"
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956447"
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -72,7 +73,7 @@ sections:
 - title: Esempi
   items:
   - type: paragraph
-    text: "Trovare script per gestire le attività comuni."
+    text: Trovare script per gestire le attività comuni.
   - type: list
     style: unordered
     className: spaced noBullet
