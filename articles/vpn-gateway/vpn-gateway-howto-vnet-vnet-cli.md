@@ -1,11 +1,11 @@
 ---
-title: 'Connettere una rete virtuale a un''altra rete virtuale con una connessione da rete virtuale a rete virtuale: interfaccia della riga di comando di Azure | Microsoft Docs'
+title: "Connettere una rete virtuale a un'altra rete virtuale con una connessione da rete virtuale a rete virtuale: interfaccia della riga di comando di Azure | Microsoft Docs"
 description: Connettere reti virtuali tra loro tramite una connessione da rete virtuale a rete virtuale e l'interfaccia della riga di comando di Azure.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400318"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurare una connessione gateway VPN tra reti virtuali usando l'interfaccia della riga di comando di Azure
 

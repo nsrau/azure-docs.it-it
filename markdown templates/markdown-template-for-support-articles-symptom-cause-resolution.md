@@ -1,11 +1,11 @@
 ---
 title: Titolo della pagina visualizzato nella scheda del browser e nei risultati della ricerca
-description: "Descrizione dell'articolo che verrà visualizzata nelle pagine di destinazione e nella maggior parte dei risultati della ricerca"
+description: Descrizione dell'articolo che verrà visualizzata nelle pagine di destinazione e nella maggior parte dei risultati della ricerca
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: comma-separates-additional-tags-if-required
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "26730553"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Titolo (al massimo 120 caratteri, usare la parola chiave primaria)
 *Usare 2-3 parole chiave secondarie nella descrizione.*

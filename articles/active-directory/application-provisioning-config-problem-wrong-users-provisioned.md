@@ -1,11 +1,11 @@
 ---
-title: "È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD | Microsoft Docs"
-description: "Informazioni su come individuare i motivi per cui è in corso il provisioning di un set di utenti per un'applicazione diverso da quello previsto"
+title: È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD | Microsoft Docs
+description: Informazioni su come individuare i motivi per cui è in corso il provisioning di un set di utenti per un'applicazione diverso da quello previsto
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383138"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>È in corso il provisioning di un set errato di utenti per un'applicazione della raccolta di Azure AD
 

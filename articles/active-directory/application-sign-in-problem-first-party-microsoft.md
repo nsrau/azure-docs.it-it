@@ -2,10 +2,10 @@
 title: Problemi di accesso a un'applicazione Microsoft | Microsoft Docs
 description: Risoluzione di problemi comuni relativi all'accesso ad applicazioni prodotte direttamente da Microsoft usando Azure AD (ad esempio Office 365)
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384225"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 

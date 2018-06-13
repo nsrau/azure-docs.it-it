@@ -1,11 +1,11 @@
 ---
-title: "Configurare gruppi di disponibilità Always On in macchine virtuali di Azure con PowerShell | Microsoft Docs"
-description: "Questa esercitazione usa risorse che sono state create con il modello di distribuzione classico. Usare PowerShell per creare un gruppo di disponibilità Always On in Azure."
+title: Configurare gruppi di disponibilità Always On in macchine virtuali di Azure con PowerShell | Microsoft Docs
+description: Questa esercitazione usa risorse che sono state create con il modello di distribuzione classico. Usare PowerShell per creare un gruppo di disponibilità Always On in Azure.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401291"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurare gruppi di disponibilità Always On in macchine virtuali di Azure con PowerShell
 > [!div class="op_single_selector"]
