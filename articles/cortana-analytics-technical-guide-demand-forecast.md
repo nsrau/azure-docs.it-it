@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27600147"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
 ## <a name="overview"></a>**Panoramica**
@@ -205,7 +206,7 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
    * Verificare che sia installata la versione più recente di [Power BI Desktop](https://powerbi.microsoft.com/desktop).
    * Nella cartella **"DemandForecastingDataGeneratorv1.0"** scaricata fare doppio clic sul file **"Power BI Template\DemandForecastPowerBI.pbix"**. Le visualizzazioni iniziali sono basate su dati fittizi. **Nota:** se viene visualizzato un messaggio di errore, verificare che sia installata la versione più recente di Power BI Desktop.
 
-     Dopo averlo aperto, fare clic su **'Modifica query'**nella parte superiore del file. Nella finestra popup fare doppio clic su **'Origine'** nel pannello di destra.
+     Dopo averlo aperto, fare clic su **'Modifica query'** nella parte superiore del file. Nella finestra popup fare doppio clic su **'Origine'** nel pannello di destra.
      ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic1.png)
    * Nella finestra popup sostituire **"Server"** e **"Database"** con i nomi del server e del database usati e quindi fare clic su **"OK"**. Per il nome del server, assicurarsi di specificare la porta 1433:**NomeSoluzione.database.windows.net, 1433**. Ignorare i messaggi di avviso visualizzati sullo schermo.
    * Nella finestra popup successiva sono disponibili due opzioni nel pannello di sinistra, **Windows** e **Database**. Fare clic su **"Database"** e inserire il proprio **"nome utente"** e **"password"**, ovvero il nome utente e la password immessi al momento della prima distribuzione della soluzione e della creazione del database SQL di Azure. In ***Selezionare il livello a cui applicare queste impostazioni*** selezionare l'opzione relativa al livello di database. Fare quindi clic su **"Connetti"**.
