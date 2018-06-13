@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32311261"
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi Hub eventi con hub eventi e gruppo di consumer usando il modello di Azure Resource Manager
 

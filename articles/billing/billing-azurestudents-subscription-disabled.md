@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203596"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>Perché la sottoscrizione di Azure per studenti è disabilitata e cosa occorre fare per riattivarla?
 

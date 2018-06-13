@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777689"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 * [Preparare una macchina virtuale CentOS 6.x per Azure](#centos-6x)

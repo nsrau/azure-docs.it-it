@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783820"
 ---
 # <a name="input-metadata"></a>Metadati di input
 Un processo di codifica è associato uno (o più) asset di input in cui si desidera eseguire alcune attività di codifica.  Al termine di un'attività, viene generato un asset di output.  L'asset di output contiene video, audio, anteprime, manifest e così via. L'asset di output include anche un file contenente i metadati dell'asset di input. Il nome del file XML dei metadati ha il seguente formato: &lt;asset_id&gt;_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), dove &lt;asset_id&gt; è il valore AssetId dell'asset di input.  

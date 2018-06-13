@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32187855"
 abstract:
   description: Informazioni su come usare Rete virtuale di Azure. Le guide introduttive, le esercitazioni, gli esempi e altro ancora illustrano come distribuire una rete virtuale, controllare i filtri e il routing del traffico e connettere una rete virtuale ad altre reti virtuali.
 sections:

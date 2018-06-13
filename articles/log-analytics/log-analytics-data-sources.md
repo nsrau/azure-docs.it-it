@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792549"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.

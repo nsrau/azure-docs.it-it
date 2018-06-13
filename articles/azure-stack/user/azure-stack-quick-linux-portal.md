@@ -16,6 +16,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32152221"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Guida introduttiva: creare una macchina virtuale di server Linux con il portale di Azure Stack
 

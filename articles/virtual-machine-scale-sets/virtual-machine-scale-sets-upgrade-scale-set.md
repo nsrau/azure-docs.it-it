@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194047"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.

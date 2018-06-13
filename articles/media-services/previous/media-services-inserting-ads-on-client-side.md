@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783860"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.

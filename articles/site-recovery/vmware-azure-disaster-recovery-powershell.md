@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32193088"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Eseguire la replica e il failover di macchine virtuali VMware in Azure con PowerShell
 

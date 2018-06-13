@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32310313"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Stato dell'orchestrazione personalizzato in Funzioni permanenti (Funzioni di Azure)
 

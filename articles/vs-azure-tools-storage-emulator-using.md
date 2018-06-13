@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792243"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurazione e uso dell'emulatore di archiviazione con Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

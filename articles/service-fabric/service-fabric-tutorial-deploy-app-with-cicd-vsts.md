@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31798710"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Esercitazione: Distribuire un'applicazione con integrazione continua/distribuzione continua in un cluster di Service Fabric
 Questa esercitazione è la quarta parte di una serie e illustra come configurare l'integrazione continua e la distribuzione continua per un'applicazione di Azure Service Fabric usando Visual Studio Team Services.  È necessaria un'applicazione di Service Fabric esistente. Viene usata come esempio l'applicazione creata in [Compilare un'applicazione .NET](service-fabric-tutorial-create-dotnet-app.md).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31789208"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Se non si ha familiarità con le reti virtuali di Azure, si tratta di una funzionalità che consente di posizionare molte delle risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure][VNETOverview]. 

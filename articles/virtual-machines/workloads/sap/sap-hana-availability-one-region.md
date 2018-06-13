@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192799"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilità di SAP HANA in un'area di Azure
 Questo articolo descrive diversi scenari di disponibilità in un'area di Azure. Azure ha molte aree, distribuite in tutto il mondo. Per l'elenco delle aree di Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/). Per la distribuzione di SAP HANA in macchine virtuali in un'area di Azure, Microsoft offre la possibilità di distribuire una singola macchina virtuale con un'istanza di HANA. Per una maggiore disponibilità, è possibile distribuire due macchine virtuali con due istanze di HANA in un [set di disponibilità di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) che usa la replica di sistema HANA per la disponibilità. 

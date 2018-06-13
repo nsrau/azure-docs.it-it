@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31587946"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>Assegnare a un'Identità del servizio gestito, ovvero MSI, l'accesso a una risorsa tramite PowerShell
 

@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312196"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Esercitazione: Diagnosticare un problema di routing di rete di una macchina virtuale tramite il portale di Azure
 

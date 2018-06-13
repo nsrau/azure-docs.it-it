@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178756"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:

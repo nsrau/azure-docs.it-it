@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188827"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Trasferire oggetti da e verso un archivio BLOB di Azure con PHP
 Questa guida introduttiva illustra come usare PHP per caricare, scaricare ed elencare BLOB in blocchi in un contenitore in un archivio BLOB di Azure. 

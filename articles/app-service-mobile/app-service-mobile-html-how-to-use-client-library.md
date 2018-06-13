@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32151077"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Come usare la libreria client JavaScript per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

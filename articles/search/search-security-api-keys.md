@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185944"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Creare e gestire chiavi API per un servizio di ricerca di Azure
 

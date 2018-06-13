@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794525"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Indicazione delle impostazioni DNS in un file di configurazione di rete virtuale
 Un file di configurazione di rete dispone di due elementi che è possibile usare per specificare le impostazioni Domain Name System (DNS): **DnsServers** e **DnsServerRef**. È possibile aggiungere un elenco dei server DNS specificando gli indirizzi IP e nomi di riferimento all’elemento **DnsServers** . È quindi possibile utilizzare un elemento **DnsServerRef** per specificare le voci del server DNS che vengono utilizzate per siti di rete diversi all'interno della rete virtuale.

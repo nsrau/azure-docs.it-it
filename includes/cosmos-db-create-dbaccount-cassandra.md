@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32198499"
 ---
 1. In una nuova finestra del browser accedere al [portale di Azure](https://portal.azure.com/).
 2. Fare clic su **Crea una risorsa** > **Database** > **Azure Cosmos DB**.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159619"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti nell'utilizzo di Azure Stack API
 Questo articolo risponde ad alcune domande frequenti sull'API di utilizzo dello Stack di Azure.

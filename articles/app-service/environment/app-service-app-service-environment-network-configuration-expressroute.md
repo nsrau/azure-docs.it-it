@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153219"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Dettagli della configurazione di rete per gli ambienti del servizio app con ExpressRoute
 ## <a name="overview"></a>Panoramica

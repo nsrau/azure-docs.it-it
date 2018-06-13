@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186879"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Come impaginare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come utilizzare l'API REST del servizio Ricerca di Azure per implementare elementi standard di una pagina di risultati di ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e la navigazione.

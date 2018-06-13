@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781750"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Creare e gestire macchine virtuali richiedibili in Azure DevTest Labs
 Per aggiungere una macchina virtuale a disposizione degli utenti a un lab è necessario seguire una procedura simile all'[aggiunta di una macchina virtuale standard](devtest-lab-add-vm.md), partendo da una *base* che può essere un'[immagine personalizzata](devtest-lab-create-template.md), una [formula](devtest-lab-manage-formulas.md) o un'[immagine del Marketplace](devtest-lab-configure-marketplace-images.md). In questa esercitazione viene descritto come usare il portale di Azure per aggiungere una macchina virtuale richiedibile a un lab in DevTest Labs e viene illustrato il processo che un utente deve seguire per richiedere e annullare la richiesta della macchina virtuale.
