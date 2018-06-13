@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068373"
 abstract:
   description: Il servizio contenitore di Azure consente di distribuire rapidamente un cluster Docker Swarm, DC/OS o Kubernetes pronto per la produzione. Informazioni su come usare il servizio contenitore di Azure grazie a guide introduttive, esercitazioni ed esempi.
 sections:

@@ -1,6 +1,6 @@
 ---
-title: "Migrazione con tempo di inattività minimo a Database di Azure per PostgreSQL"
-description: "Questo articolo descrive come eseguire una migrazione con tempo di inattività minimo estraendo un database PostgreSQL in un file dump, ripristinando il database PostgreSQL da un file di archivio creato da pg_dump in Database di Azure per PostgreSQL e configurando il carico iniziale e la continua sincronizzazione dei dati dal database di origine al database di destinazione tramite Attunity Replicate for Microsoft Migrations."
+title: Migrazione con tempo di inattività minimo a Database di Azure per PostgreSQL
+description: Questo articolo descrive come eseguire una migrazione con tempo di inattività minimo estraendo un database PostgreSQL in un file dump, ripristinando il database PostgreSQL da un file di archivio creato da pg_dump in Database di Azure per PostgreSQL e configurando il carico iniziale e la continua sincronizzazione dei dati dal database di origine al database di destinazione tramite Attunity Replicate for Microsoft Migrations.
 services: postgresql
 author: HJToland3
 ms.author: jtoland
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692090"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migrazione con tempo di inattività minimo a Database di Azure per PostgreSQL
 È possibile eseguire la migrazione di un database PostgreSQL esistente in Database di Azure per PostgreSQL tramite Attunity Replicate for Microsoft Migrations. Attunity Replicate è un'offerta congiunta proposta da Attunity e Microsoft. Viene fornito ai clienti Microsoft senza costi aggiuntivi insieme al servizio Migrazione del database di Azure. 

@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23070736"
 abstract:
   description: Monitoraggio di Azure fa parte della soluzione di monitoraggio globale di Microsoft Azure. Monitoraggio di Azure consente di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze. Informazioni su come controllare, creare avvisi e archiviare i dati con le esercitazioni e le guide rapide.
 sections:
@@ -39,11 +40,11 @@ sections:
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: "Informazioni sulla scalabilità automatica e l'archiviazione dei dati di monitoraggio."
+    text: Informazioni sulla scalabilità automatica e l'archiviazione dei dati di monitoraggio.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"monitor-tutorial-autoscale-performance-schedule\">Scalabilità automatica in base alle prestazioni di pianificazione o dell'applicazione</a>"
+    - html: <a href="monitor-tutorial-autoscale-performance-schedule">Scalabilità automatica in base alle prestazioni di pianificazione o dell'applicazione</a>
     - html: <a href="monitor-tutorial-archive-monitoring-data">Archiviare i dati di monitoraggio</a>
 - title: Video di formazione gratuiti su PluralSight
   items:
@@ -72,6 +73,6 @@ sections:
     - title: REST
       html: <p><a href="/rest/api/monitor/">REST</a></p>
     - title: Monitoraggio
-      html: "<p><a href=\"monitoring-supported-metrics\">Metriche supportate</a></p><p><a href=\"monitoring-diagnostic-logs-schema\">Servizi, categorie e schemi dei log di diagnostica</a></p><p><a href=\"monitoring-activity-log-schema\">Schema degli eventi del log attività</a></p>"
+      html: <p><a href="monitoring-supported-metrics">Metriche supportate</a></p><p><a href="monitoring-diagnostic-logs-schema">Servizi, categorie e schemi dei log di diagnostica</a></p><p><a href="monitoring-activity-log-schema">Schema degli eventi del log attività</a></p>
     - title: Diagnostica
       html: <p><a href="azure-diagnostics-schema">Schema delle estensioni di Diagnostica di Azure</a></p>

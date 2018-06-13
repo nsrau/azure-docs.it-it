@@ -1,13 +1,13 @@
 ---
-title: 'Esempio di script dell''interfaccia della riga di comando di Azure: crittografare una VM Linux | Microsoft Docs'
-description: 'Esempio di script dell''interfaccia della riga di comando di Azure: crittografare una VM Linux'
+title: "Esempio di script dell'interfaccia della riga di comando di Azure: crittografare una VM Linux | Microsoft Docs"
+description: "Esempio di script dell'interfaccia della riga di comando di Azure: crittografare una VM Linux"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849080"
 ---
 # <a name="encrypt-a-linux-virtual-machine-in-azure"></a>Crittografare una macchina virtuale Linux in Azure
 

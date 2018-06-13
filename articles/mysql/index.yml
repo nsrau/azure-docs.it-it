@@ -4,7 +4,7 @@ title: Documentazione del database di Azure per MySQL
 metadata:
   document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
   title: 'Documentazione di Azure MySQL: esercitazioni e informazioni di riferimento sulle API | Microsoft Docs'
-  description: "Il database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sul motore di database MySQL open source."
+  description: Il database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud creato per gli sviluppatori e basato sul motore di database MySQL open source.
   services: mysql
   author: czeumault
   manager: carolz
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23070804"
 abstract:
-  description: "Il database di Azure per MySQL è un servizio di database relazionale basato sul motore del server MySQL open source.  Si tratta di un database distribuito come servizio completamente gestito capace di gestire un carico di lavoro mission-critical con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con il database di Azure per MySQL sfruttando la piattaforma e gli strumenti open source preferiti. Informazioni su come usare il database di Azure per MySQL con le guide rapide, le esercitazioni e gli esempi."
+  description: Il database di Azure per MySQL è un servizio di database relazionale basato sul motore del server MySQL open source.  Si tratta di un database distribuito come servizio completamente gestito capace di gestire un carico di lavoro mission-critical con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con il database di Azure per MySQL sfruttando la piattaforma e gli strumenti open source preferiti. Informazioni su come usare il database di Azure per MySQL con le guide rapide, le esercitazioni e gli esempi.
 sections:
 - title: Guide introduttive di 5 minuti
   items:

@@ -1,11 +1,11 @@
 ---
-title: "In che modo può essere utile il servizio app per gli utenti di Servizi mobili?"
-description: "Informazioni sui vantaggi che il servizio app può portare ai progetti di Servizi mobili esistenti."
+title: In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
+description: Informazioni sui vantaggi che il servizio app può portare ai progetti di Servizi mobili esistenti.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 26b68a11-8352-4f78-acd2-e4e0ec177781
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460413"
 ---
 # <a name="getting-started"> </a>In che modo può essere utile il servizio app per gli utenti di Servizi mobili?
 ## <a name="overview"></a>Panoramica

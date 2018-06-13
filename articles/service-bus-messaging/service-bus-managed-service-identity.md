@@ -1,12 +1,12 @@
 ---
-title: "Identità del servizio gestito con il bus di servizio di Azure (anteprima) | Microsoft Docs"
-description: "Usare le identità del servizio gestito con il bus di servizio di Azure"
+title: Identità del servizio gestito con il bus di servizio di Azure (anteprima) | Microsoft Docs
+description: Usare le identità del servizio gestito con il bus di servizio di Azure
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874653"
 ---
 # <a name="managed-service-identity-preview"></a>Identità del servizio gestito (anteprima)
 
