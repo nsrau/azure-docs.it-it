@@ -1,11 +1,11 @@
 ---
 title: Introduzione all'ambiente del servizio app (versione 1)
-description: "Informazioni sull'ambiente del servizio app (versione 1), che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app."
+description: Informazioni sull'ambiente del servizio app (versione 1), che offre unità di scala dedicate, aggiunte alla rete virtuale e sicure per l'esecuzione di tutte le app.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986696"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Introduzione all'ambiente del servizio app (versione 1)
 

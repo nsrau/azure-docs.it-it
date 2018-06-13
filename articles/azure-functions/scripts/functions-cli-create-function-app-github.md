@@ -2,7 +2,7 @@
 title: Creare un'app per le funzioni e distribuire codice di funzione da GitHub | Documentazione Microsoft
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app per le funzioni e distribuire codice di funzione da GitHub
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842661"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>Creare un'app per le funzioni e distribuire codice di funzione da GitHub
 

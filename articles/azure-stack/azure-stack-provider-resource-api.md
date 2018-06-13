@@ -2,10 +2,10 @@
 title: Utilizzo del provider di risorse API | Documenti Microsoft
 description: Riferimento per l'utilizzo delle risorse API, che recupera informazioni sull'utilizzo di Azure Stack
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877280"
 ---
 # <a name="provider-resource-usage-api"></a>API di utilizzo delle risorse dei provider
 Il termine *provider* si applica all'amministratore del servizio e a qualsiasi provider di delegati. Provider delegati e gli operatori di Azure Stack consente l'utilizzo del provider di API per visualizzare l'utilizzo dei propri tenant diretto. Utilizzo diretto del P2 e P1 possono chiamare per informazioni sull'utilizzo P3 e P4, ad esempio, come illustrato nel diagramma, P0 può chiamare l'API per ottenere informazioni sul P1 utilizzo del provider.

@@ -1,30 +1,27 @@
 ---
-title: Autenticazione basata su certificati di Azure Active Directory - Introduzione | Microsoft Docs
+title: Introduzione all'autenticazione basata su certificati di Azure Active Directory
 description: Informazioni su come configurare l'autenticazione basata su certificati nel proprio ambiente
-author: MarkusVi
-documentationcenter: na
-manager: mtillman
-ms.assetid: c6ad7640-8172-4541-9255-770f39ecce0e
+services: active-directory
 ms.service: active-directory
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
 ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: 5c96f33b8f678155dc4b7a84718e5eadc541f441
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: annaba
+ms.openlocfilehash: db2c19bdc303f6f7773772dd7873878ceb892cc3
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882852"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 
 L'autenticazione basata su certificati consente di essere autenticati da Azure Active Directory con un certificato client su un dispositivo Windows, Android o iOS quando si connette il proprio account Exchange online a:
 
-- Applicazioni per dispositivi mobili Microsoft, come Microsoft Outlook e Microsoft Word   
-
+- Applicazioni per dispositivi mobili Microsoft, come Microsoft Outlook e Microsoft Word
 - Client Exchange ActiveSync (EAS)
 
 La configurazione di questa funzionalità elimina la necessità di immettere una combinazione di nome utente e password in determinate applicazioni di posta e applicazioni Microsoft Office sul dispositivo mobile.
@@ -32,43 +29,31 @@ La configurazione di questa funzionalità elimina la necessità di immettere una
 In questo argomento:
 
 - Viene descritto come configurare e usare l'autenticazione basata su certificati per gli utenti dei tenant nei piani Office 365 Enterprise, Business, Education e US Government. Questa funzionalità è disponibile in anteprima nei piani Office 365 China, US Government Defense e US Government Federal.
-
-- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [AD FS](connect/active-directory-aadconnectfed-whatis.md).    
-
+- Si presuppone che siano già configurati un'[infrastruttura a chiave pubblica (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) e [AD FS](connect/active-directory-aadconnectfed-whatis.md).
 
 ## <a name="requirements"></a>Requisiti
 
-Per configurare l'autenticazione basata su certificati, devono essere soddisfatti i requisiti seguenti:  
+Per configurare l'autenticazione basata su certificati, devono essere soddisfatte le istruzioni seguenti:
 
-- L'autenticazione basata sui certificati è supportata solo per ambienti federati per applicazioni browser o client nativi che usano l'autenticazione moderna (ADAL). L'unica eccezione è Exchange Active Sync per EXO che può essere usato sia per gli account federati che per quelli gestiti.
-
-- L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.  
-
-- Ogni autorità di certificazione deve avere un elenco di revoche di certificati (Certificate Revocation List o CRL) a cui si possa fare riferimento tramite un URL Internet.  
-
-- È necessario che in Azure Active Directory sia configurata almeno un'autorità di certificazione. I passaggi correlati sono descritti nella sezione [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) (Configurare le autorità di certificazione).  
-
-- Per i client Exchange ActiveSync, il certificato client deve contenere l'indirizzo email instradabile dell'utente in Exchange online, nel nome dell'entità o nel nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.  
-
-- Il dispositivo client deve avere accesso ad almeno un'autorità di certificazione che emetta i certificati client.  
-
-- È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.  
-
-
-
+- L'autenticazione basata sui certificati è supportata solo per ambienti federati per applicazioni browser o client nativi che usano l'autenticazione moderna (ADAL). L'unica eccezione è Exchange Active Sync per Exchange Online (EXO) che può essere usato per gli account federati e per quelli gestiti.
+- L'autorità di certificazione radice e tutte le autorità di certificazione intermedie devono essere configurate in Azure Active Directory.
+- Ogni autorità di certificazione deve avere un elenco di revoche di certificati (Certificate Revocation List o CRL) a cui si possa fare riferimento tramite un URL Internet.
+- È necessario che in Azure Active Directory sia configurata almeno un'autorità di certificazione. I passaggi correlati sono descritti nella sezione [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) (Configurare le autorità di certificazione).
+- Per i client Exchange ActiveSync, il certificato client deve contenere l'indirizzo email instradabile dell'utente in Exchange online, nel nome dell'entità o nel nome RFC822 del campo Nome alternativo soggetto. Azure Active Directory esegue il mapping del valore RFC822 all'attributo dell'indirizzo Proxy nella directory.
+- Il dispositivo client deve avere accesso ad almeno un'autorità di certificazione che emetta i certificati client.
+- È necessario che al client sia stato rilasciato un certificato client per l'autenticazione.
 
 ## <a name="step-1-select-your-device-platform"></a>Passaggio 1: Selezionare la piattaforma del dispositivo
 
 Il primo passaggio per quanto riguarda la piattaforma del dispositivo è verificare i punti seguenti:
 
 - Supporto delle applicazioni Office per dispositivi mobili
-- Requisiti specifici di implementazione  
+- Requisiti specifici di implementazione
 
 Le informazioni correlate sono disponibili per le piattaforme dei dispositivi seguenti:
 
 - [Android](active-directory-certificate-based-authentication-android.md)
 - [iOS](active-directory-certificate-based-authentication-ios.md)
-
 
 ## <a name="step-2-configure-the-certificate-authorities"></a>Passaggio 2: Configurare le autorità di certificazione
 
@@ -81,7 +66,7 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
 
     class TrustedCAsForPasswordlessAuth
     {
-       CertificateAuthorityInformation[] certificateAuthorities;    
+       CertificateAuthorityInformation[] certificateAuthorities;
     }
 
     class CertificateAuthorityInformation
@@ -93,7 +78,7 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
         string deltaCrlDistributionPoint;
         string trustedIssuer;
         string trustedIssuerSKI;
-    }                
+    }
 
     enum CertAuthorityType
     {
@@ -101,14 +86,14 @@ Lo schema per un'autorità di certificazione ha un aspetto simile al seguente:
         IntermediateAuthority = 1
     }
 
-Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/install-adv2?view=azureadps-2.0):  
+Per la configurazione, è possibile usare [Azure Active Directory PowerShell versione 2](/powershell/azure/install-adv2?view=azureadps-2.0):
 
 1. Avviare Windows PowerShell con privilegi amministrativi.
-2. Installare il modulo Azure AD. È necessario installare la versione [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o una versione successiva.  
+2. Installare il modulo Azure AD [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o versione successiva.
 
         Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
 
-Il primo passaggio di configurazione consiste nello stabilire una connessione con il tenant. Una volta stabilita la connessione al tenant è possibile rivedere, aggiungere, eliminare e modificare le autorità di certificazione attendibili definite nella directory.
+Il primo passaggio di configurazione consiste nello stabilire una connessione con il tenant. Non appena viene stabilita la connessione al tenant è possibile rivedere, aggiungere, eliminare e modificare le autorità di certificazione attendibili definite nella directory.
 
 ### <a name="connect"></a>Connettere
 
@@ -116,13 +101,11 @@ Per stabilire una connessione con il tenant, usare il cmdlet [Connect-AzureAD](/
 
     Connect-AzureAD
 
-
 ### <a name="retrieve"></a>Recupero
 
 Per recuperare le autorità di certificazione attendibili definite nella directory, usare il cmdlet [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0).
 
     Get-AzureADTrustedCertificateAuthority
-
 
 ### <a name="add"></a>Add
 
@@ -135,7 +118,6 @@ Per creare un'autorità di certificazione attendibile, usare il cmdlet [New-Azur
     $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
-
 ### <a name="remove"></a>Rimuovere
 
 Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0):
@@ -143,15 +125,13 @@ Per rimuovere un'autorità di certificazione attendibile, usare il cmdlet [Remov
     $c=Get-AzureADTrustedCertificateAuthority
     Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
-
-### <a name="modfiy"></a>Modificare
+### <a name="modify"></a>Modifica
 
 Per modificare un'autorità di certificazione attendibile, usare il cmdlet [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0):
 
     $c=Get-AzureADTrustedCertificateAuthority
     $c[0].AuthorityType=1
     Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
-
 
 ## <a name="step-3-configure-revocation"></a>Passaggio 3: Configurare la revoca
 
@@ -181,7 +161,6 @@ I passaggi seguenti illustrano il processo per aggiornare e annullare il token d
 
 La data impostata deve essere futura. Se la data non è futura, la proprietà **StsRefreshTokensValidFrom** non viene impostata. Se la data è futura, la proprietà **StsRefreshTokensValidFrom** viene impostata sull'ora corrente, non sulla data indicata dal comando Set-MsolUser.
 
-
 ## <a name="step-4-test-your-configuration"></a>Passaggio 4: Testare la configurazione
 
 ### <a name="testing-your-certificate"></a>Test del certificato
@@ -191,14 +170,13 @@ Come primo test di configurazione è consigliabile accedere a [Outlook Web Acces
 Se l'accesso ha esito positivo significa che:
 
 - È stato eseguito il provisioning del certificato utente al dispositivo di test
-- AD FS è configurato correttamente  
-
+- AD FS è configurato correttamente
 
 ### <a name="testing-office-mobile-applications"></a>Test delle applicazioni Office per dispositivi mobili
 
 **Per testare l'autenticazione basata su certificati sulla propria applicazione Office per dispositivi mobili:**
 
-1. Nel dispositivo di test installare un'applicazione Office per dispositivi mobili (ad esempio OneDrive).
+1. Nel dispositivo di test installare un'applicazione Office per dispositivi mobili (ad esempio, OneDrive).
 3. Avviare l'applicazione.
 4. Immettere il nome utente, quindi selezionare il certificato utente da usare.
 
@@ -214,11 +192,17 @@ Il profilo EAS deve contenere le informazioni seguenti:
 
 - L'endpoint EAS (ad esempio outlook.office365.com)
 
-Un profilo EAS può essere configurato e aggiunto al dispositivo tramite l'uso di software MDM, come Intune, o inserendo manualmente il certificato nel profilo EAS sul dispositivo.  
+Un profilo EAS può essere configurato e aggiunto al dispositivo tramite l'uso di software MDM, come Intune, o inserendo manualmente il certificato nel profilo EAS sul dispositivo.
 
 ### <a name="testing-eas-client-applications-on-android"></a>Test delle applicazioni client EAS in Android
 
-**Per testare l'autenticazione basata su certificati:**  
+**Per testare l'autenticazione basata su certificati:**
 
-1. Configurare un profilo EAS nell'applicazione che soddisfi i requisiti riportati sopra.  
+1. Configurare un profilo EAS nell'applicazione che soddisfi i requisiti riportati nella sezione precedente.
 2. Aprire l'applicazione e verificare che venga eseguita la sincronizzazione dell'email.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Altre informazioni sull'autenticazione basata su certificati nei dispositivi Android.](active-directory-certificate-based-authentication-android.md)
+
+[Altre informazioni sull'autenticazione basata su certificati nei dispositivi iOS.](active-directory-certificate-based-authentication-ios.md)

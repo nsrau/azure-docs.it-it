@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817003"
 ---
 Durante la distribuzione delle risorse in Azure, è possibile avere una notevole flessibilità al momento di decidere quali tipi di risorse distribuire, dove posizionarle e come configurarle. Tuttavia, tale flessibilità potrebbe rendere disponibili più opzioni rispetto a quelle che devono essere consentite nell'organizzazione. Quando si valuta la distribuzione delle risorse in Azure, ci si potrebbe chiedere:
 

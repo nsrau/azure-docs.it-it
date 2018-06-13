@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809421"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS
 

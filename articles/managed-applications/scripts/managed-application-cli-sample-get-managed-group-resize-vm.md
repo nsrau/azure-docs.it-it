@@ -1,6 +1,6 @@
 ---
-title: 'Esempi di script dell''interfaccia della riga di comando di Azure: ottenere un gruppo di risorse gestite e ridimensionare le macchine virtuali | Microsoft Docs'
-description: 'Esempi di script dell''interfaccia della riga di comando di Azure: ottenere un gruppo di risorse gestite e ridimensionare le macchine virtuali'
+title: "Esempi di script dell'interfaccia della riga di comando di Azure: ottenere un gruppo di risorse gestite e ridimensionare le macchine virtuali | Microsoft Docs"
+description: "Esempi di script dell'interfaccia della riga di comando di Azure: ottenere un gruppo di risorse gestite e ridimensionare le macchine virtuali"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847200"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Ottenere risorse in un gruppo di risorse gestite e ridimensionare le macchine virtuali con l'interfaccia della riga di comando di Azure
 

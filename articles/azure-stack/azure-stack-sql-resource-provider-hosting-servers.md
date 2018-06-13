@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359425"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse SQL
 È possibile utilizzare le istanze di SQL in macchine virtuali all'interno del [Azure Stack](azure-stack-poc.md), o un'istanza all'esterno dell'ambiente dello Stack di Azure, fornito al provider di risorse può connettersi ad essa. I requisiti generali sono:
