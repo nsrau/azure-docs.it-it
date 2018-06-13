@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598745"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Assegnazioni di variabili in Azure SQL Data Warehouse
 Suggerimenti per l'assegnazione di variabili T-SQL in Azure SQL Data Warehouse per lo sviluppo di soluzioni.

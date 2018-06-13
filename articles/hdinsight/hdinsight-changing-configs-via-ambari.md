@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406184"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Ambari per ottimizzare le configurazioni cluster HDInsight
 

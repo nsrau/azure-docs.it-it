@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433250"
 ---
 Si vuole che gli utenti dell'organizzazione dispongano del giusto livello di accesso a queste risorse. Non si vuole concedere un accesso illimitato agli utenti, ma si vuole comunque avere la certezza che tutti possano svolgere il proprio lavoro. Il controllo degli accessi in base al ruolo consente di stabilire quali utenti sono autorizzati a completare specifiche azioni in un determinato ambito. Un ruolo definisce un set di azioni consentite. Si assegna il ruolo a un ambito e quindi si specifica quali utenti appartengono a tale ruolo per l'ambito.
 

@@ -3,17 +3,18 @@ title: "Esercitazione su Kubernetes in Azure: aggiornare un'applicazione"
 description: "Esercitazione sul servizio contenitore di Azure: aggiornare un'applicazione"
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934057"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Esercitazione: aggiornare un'applicazione in Azure Kubernetes Service (AKS)
 
@@ -164,10 +165,10 @@ In questa esercitazione è stata aggiornata un'applicazione e l'aggiornamento è
 > * Push dell'immagine del contenitore in Registro contenitori di Azure
 > * Distribuzione dell'applicazione aggiornata
 
-Passare alla prossima esercitazione per apprendere come monitorare Kubernetes con Log Analytics.
+Passare all'esercitazione successiva per apprendere come aggiornare Kubernetes a una nuova versione.
 
 > [!div class="nextstepaction"]
-> [Monitorare Kubernetes con Log Analytics][aks-tutorial-monitor]
+> [Aggiornare Kubernetes][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +179,5 @@ Passare alla prossima esercitazione per apprendere come monitorare Kubernetes co
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

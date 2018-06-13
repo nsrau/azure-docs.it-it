@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 0fe4816dbafc28974796c7d9cd307b04fdb9d6d4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a6a44e30fe58617b43c5491a72fc882015bc9591
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886064"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modelli di integrazione dei contratti intelligenti
 
@@ -213,7 +214,7 @@ L'integrazione dei dati è ben nota:
 
 ## <a name="storage-integration"></a>Integrazione dell'archiviazione
 
-Molti scenari possono richiedere la necessità di incorporare file attestabili. Per diversi motivi, potrebbe non essere appropriato inserire file in una blockchain. Al contrario, un approccio comune è quello di eseguire un hash unidirezionale su un file e condividere tale hash in un libro mastro distribuito. L'esecuzione dell'hash in un secondo momento deve restituire lo stesso risultato. Se il file viene modificato, anche solo con la modifica di un pixel in un'immagine, l'hash restituirà un valore diverso.
+Molti scenari possono richiedere la necessità di incorporare file attestabili. Per diversi motivi, potrebbe non essere appropriato inserire file in una blockchain. Al contrario, un approccio comune è quello di eseguire un hash crittografico (ad esempio SHA-256) su un file e condividere tale hash in un libro mastro distribuito. L'esecuzione dell'hash in un secondo momento deve restituire lo stesso risultato. Se il file viene modificato, anche solo con la modifica di un pixel in un'immagine, l'hash restituirà un valore diverso.
 
 ![Integrazione dell'archiviazione](media/blockchain-workbench-integration-patterns/storage-integration.png)
 

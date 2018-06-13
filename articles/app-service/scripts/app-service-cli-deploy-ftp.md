@@ -20,6 +20,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30281699"
 ---
 # <a name="create-a-web-app-and-deploy-files-with-ftp"></a>Creare un'app Web e distribuire i file con FTP
 

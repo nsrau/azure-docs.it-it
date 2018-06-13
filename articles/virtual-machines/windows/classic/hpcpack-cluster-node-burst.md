@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915108"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure, è possibile aumentarne o ridurne la capacità senza mantenere un set di VM preconfigurate del nodo di calcolo. In questo articolo viene illustrato come aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro in esecuzione in un servizio cloud) come risorse di calcolo in un nodo head in Azure. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905334"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Espandere il disco del sistema operativo in una macchina virtuale Linux con l'interfaccia della riga di comando 1.0 di Azure
 Le dimensioni predefinite del disco rigido virtuale per il sistema operativo sono in genere di 30 GB in una VM Linux in Azure. È possibile [aggiungere dischi dati](add-disk.md) per aumentare lo spazio di archiviazione, ma è anche possibile espandere il disco del sistema operativo. Questo articolo illustra come espandere il disco del sistema operativo di una macchina virtuale Linux usando i dischi non gestiti con l'interfaccia della riga di comando 1.0 di Azure.

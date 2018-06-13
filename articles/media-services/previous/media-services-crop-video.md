@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782950"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Ritagliare video con Media Encoder Standard
 È possibile usare Media Encoder Standard (MES) per ritagliare l'input video. Il ritaglio è il processo di selezione di una finestra rettangolare all'interno del fotogramma video per codificare solo i pixel all'interno di quella finestra. Il diagramma seguente illustra il processo.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163847"
 ---
 # <a name="azure-portal-documentation"></a>Documentazione sul portale di Azure
 Informazioni sulle funzionalità disponibili per distribuire le risorse nel portale di Azure. Esercitazioni, informazioni di riferimento sulle API e altri documenti illustrano come distribuire, gestire e monitorare le risorse di Azure.

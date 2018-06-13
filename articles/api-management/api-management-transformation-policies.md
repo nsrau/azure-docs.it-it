@@ -18,6 +18,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233786"
 ---
 # <a name="api-management-transformation-policies"></a>Criteri di trasformazione di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).
@@ -163,7 +164,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
--   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error
+-   **Sezioni del criterio:** in ingresso, in uscita, back-end, on-error
 
 -   **Ambiti del criterio:** globale, prodotto, API, operazione
 
@@ -497,7 +498,7 @@ OriginalUrl.
 ### <a name="usage"></a>Uso
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.
 
--   **Sezioni del criterio:**in ingresso, in uscita, back-end, on-error
+-   **Sezioni del criterio:** in ingresso, in uscita, back-end, on-error
 
 -   **Ambiti del criterio:** globale, prodotto, API, operazione
 
