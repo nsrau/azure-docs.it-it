@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31394391"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Eseguire un test di convalida per lo Stack di Azure
 

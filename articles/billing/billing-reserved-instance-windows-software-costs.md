@@ -1,6 +1,6 @@
 ---
-title: Costi del software Windows per le istanze di macchina virtuale riservate di Azure | Microsoft Docs
-description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata.
+title: Costi del software Windows per le istanze riservate di Azure - Fatturazione di Azure | Microsoft Docs
+description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 20fd3c6c118b33ca91d717d30d77bb9c7843f4e6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303352"
 ---
-# <a name="windows-software-costs-not-included-with-reserved-instances"></a>Costi del software Windows non inclusi nelle istanze riservate
+# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>I costi del software Windows non sono inclusi nelle istanze riservate di Azure
 
 Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
 
@@ -52,11 +53,18 @@ Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchin
 È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle istanze di macchine virtuali riservate, vedere gli articoli seguenti.
+Per altre informazioni sulle istanze riservate di Azure, vedere gli articoli seguenti:
 
-- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze di macchina virtuale riservate](billing-manage-reserved-vm-instance.md)
-- [Risparmiare sui costi delle macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](billing-save-compute-costs-reservations.md)
-- [Informazioni su come viene applicato lo sconto relativo alle istanze di macchine virtuali riservate](billing-understand-vm-reservation-charges.md)
+- [Risparmiare sui costi delle macchine virtuali tramite le istanze riservate di Azure](billing-save-compute-costs-reservations.md)
+- [Pagare in anticipo le macchine virtuali tramite le istanze riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze riservate](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto relativo alle istanze riservate](billing-understand-vm-reservation-charges.md)
 - [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+
+Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+
+
+

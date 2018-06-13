@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171197"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installare il Kit di sviluppo di Azure Stack (ASDK)
 Dopo aver [la preparazione del computer host ASDK](asdk-prepare-host.md), il ASDK può essere distribuito nell'immagine CloudBuilder.vhdx usando la procedura seguente in questo articolo.

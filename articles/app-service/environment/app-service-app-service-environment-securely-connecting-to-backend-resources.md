@@ -2,10 +2,10 @@
 title: Connessione sicura alle risorse back-end da un ambiente del servizio app
 description: Informazioni su come connettersi in modo sicuro alle risorse back-end da un ambiente del servizio app.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986266"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Connessione sicura alle risorse back-end da un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
