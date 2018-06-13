@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32196560"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Recuperare il nome dell'host, le porte e le chiavi di accesso usando il portale di Azure
 

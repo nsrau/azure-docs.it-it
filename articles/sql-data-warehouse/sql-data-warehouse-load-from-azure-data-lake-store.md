@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188379"
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Caricare dati da Azure Data Lake Store ad SQL Data Warehouse
 Usare tabelle PolyBase esterne per caricare dati da Azure Data Lake Store ad Azure SQL Data Warehouse. Sebbene sia possibile eseguire query ad hoc sui dati archiviati in ADLS, è consigliabile importare i dati in SQL Data Warehouse per prestazioni ottimali.
