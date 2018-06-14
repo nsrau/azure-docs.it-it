@@ -5,6 +5,16 @@
 - name: Controllo degli accessi in base al ruolo
   href: overview.md
   items:
+    - name: Guide introduttive
+      items:
+        - name: Concedere l'accesso per un utente - Portale
+          href: quickstart-assign-role-user-portal.md
+    - name: Esercitazioni
+      items:
+        - name: Concedere l'accesso per un utente - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Concedere l'accesso per un gruppo - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Gestire le assegnazioni di ruoli
       items:
         - name: Utente
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Informazioni sulle definizioni del ruolo
+      href: role-definitions.md
     - name: Ruoli predefiniti
       href: built-in-roles.md
     - name: Ruoli personalizzati
       href: custom-roles.md
-    - name: Assegnare ruoli personalizzati per utenti interni ed esterni
+    - name: Gestire le assegnazioni di ruolo per utenti esterni
       href: role-assignments-external-users.md
     - name: Log attività
       href: change-history-report.md

@@ -41,6 +41,12 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Gestire le istanze riservate
           href: billing-manage-reserved-vm-instance.md
+    - name: Esempi REST
+      items:
+        - name: Esaminare i costi Enterprise
+          href: billing-review-enterprise-billing.md
+        - name: Esaminare l'uso della sottoscrizione
+          href: billing-review-subscription-billing.md
 - name: Gestire l'account
   items:
     - name: Account gratuito
