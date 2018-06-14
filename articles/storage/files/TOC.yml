@@ -16,7 +16,7 @@
       href: storage-how-to-use-files-windows.md
     - name: Eseguire il montaggio in Linux
       href: storage-how-to-use-files-linux.md
-    - name: Eseguire il montaggio in Mac
+    - name: Eseguire il montaggio in macOS
       href: storage-how-to-use-files-mac.md
     - name: Gestire con il portale di Azure
       href: storage-how-to-use-files-portal.md
