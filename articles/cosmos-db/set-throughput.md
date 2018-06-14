@@ -4,24 +4,107 @@ description: Informazioni su come configurare la velocità effettiva di provisio
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: bede91ed3ffc456740a0eb63ed7a15278e99ebe2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614078"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers"></a>Impostare e ottenere la velocità effettiva per i contenitori di Azure Cosmos DB
+# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Impostare e ottenere la velocità effettiva per i contenitori e il database Azure Cosmos DB
 
-È possibile impostare la velocità effettiva per i contenitori o un set di contenitori di Azure Cosmos DB nel portale di Azure o usando gli SDK client. 
+È possibile impostare la velocità effettiva per un contenitore o un set di contenitori di Azure Cosmos DB usando il portale di Azure o gli SDK client. Quando si effettua il provisioning della velocità effettiva per un set di contenitori, tutti questi contenitori condividono la velocità effettiva di cui è stato effettuato il provisioning. Il provisioning della velocità effettiva per i singoli contenitori assicurerà la prenotazione della velocità effettiva per il contenitore specifico. Il provisioning della velocità effettiva per un set di contenitori permette d'altra parte di condividere la velocità effettiva tra i contenitori che appartengono a tale database. Nel database Azure Cosmos DB è possibile avere un set di contenitori che condividono la velocità effettiva e contenitori con una velocità effettiva dedicata. 
+
+In base alla velocità effettiva con provisioning, Azure Cosmos DB allocherà partizioni fisiche per ospitare il contenitore e suddividerà/ribilancerà la crescita dei dati nelle partizioni.
+
+Quando si assegnano UR/sec a livello di singolo contenitore, i contenitori possono essere creati come *fissi* oppure *senza limiti*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore senza limiti, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di contenitori/tabelle/grafi e richieste in Azure Cosmos DB. 
+
+Quando si assegnano UR/sec in un set di contenitori, i contenitori che appartengono a questo set sono considerati *senza limiti* ed è necessario specificare una chiave di partizione.
+
+![Provisioning di unità richiesta per singoli contenitori e set di contenitori](./media/request-units/provisioning_set_containers.png)
+
+Questo articolo illustra in dettaglio i passaggi necessari per configurare la velocità effettiva a livelli diversi di un account Azure Cosmos DB. 
+
+## <a name="provision-throughput-by-using-azure-portal"></a>Effettuare il provisioning della velocità effettiva usando il portale di Azure
+
+### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>Effettuare il provisioning della velocità effettiva per un contenitore (raccolta/grafo/tabella)
+
+1. Accedere al [portale di Azure](https://portal.azure.com).  
+2. Dal menu di spostamento a sinistra selezionare **Tutte le risorse** e individuare l'account Azure Cosmos DB.  
+3. È possibile configurare la velocità effettiva durante la creazione di un contenitore (raccolta, grafo, tabella) o aggiornare la velocità effettiva per un contenitore esistente.  
+4. Per assegnare la velocità effettiva durante la creazione di un contenitore, aprire il pannello **Esplora dati** e selezionare **Nuova raccolta** (Nuovo grafo, Nuova tabella per le altre API)  
+5. Compilare il modulo nel pannello **Aggiungi raccolta**. I campi in questo pannello vengono descritti nella tabella seguente:  
+
+   |**Impostazione**  |**Descrizione**  |
+   |---------|---------|
+   |ID database  |  Specificare un nome univoco per identificare il database. Un database è un contenitore logico di una o più raccolte. I nomi dei database devono avere una lunghezza compresa tra 1 e 255 caratteri e non possono contenere /, \\, #, ? o spazi finali. |
+   |ID raccolta  | Specificare un nome univoco per identificare la raccolta. Gli ID delle raccolte prevedono gli stessi requisiti relativi ai caratteri dei nomi di database. |
+   |Capacità di archiviazione   | Questo valore rappresenta la capacità di archiviazione del database. Quando si effettua il provisioning della velocità effettiva per una singola raccolta, la capacità di archiviazione può essere **fissa (10 GB)** oppure **illimitata**. La capacità di archiviazione illimitata richiede che venga impostata una chiave di partizione per i dati.  |
+   |Velocità effettiva   | Ogni raccolta e database può avere una velocità effettiva espressa in unità richiesta al secondo.  Per la capacità di archiviazione fissa, la velocità effettiva minima è 400 unità richiesta al secondo (UR/s); per la capacità di archiviazione illimitata, la velocità effettiva minima è impostata su 1000 UR/s.|
+
+6. Dopo avere immesso i valori per questi campi, selezionare **OK** per salvare le impostazioni.  
+
+   ![Impostare la velocità effettiva per una raccolta](./media/set-throughput/set-throughput-for-container.png)
+
+7. Per aggiornare la velocità effettiva per un contenitore esistente, espandere il database e il contenitore e quindi fare clic su **Impostazioni**. Nella nuova finestra digitare il nuovo valore per la velocità effettiva e quindi selezionare **Salva**.  
+
+   ![Aggiornare la velocità effettiva per una raccolta](./media/set-throughput/update-throughput-for-container.png)
+
+### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>Effettuare il provisioning della velocità effettiva per un set di contenitori o a livello di database
+
+1. Accedere al [portale di Azure](https://portal.azure.com).  
+2. Dal menu di spostamento a sinistra selezionare **Tutte le risorse** e individuare l'account Azure Cosmos DB.  
+3. È possibile configurare la velocità effettiva durante la creazione di un database o aggiornare la velocità effettiva per un database esistente.  
+4. Per assegnare la velocità effettiva durante la creazione di un database, aprire il pannello **Esplora dati** e selezionare **Nuovo database**  
+5. Compilare il valore **ID database**, selezionare l'opzione **Provisioning velocità effettiva** e configurare il valore della velocità effettiva. È possibile eseguire il provisioning di un database con un valore di velocità effettiva minima di 50.000 UR/s.  
+
+   ![Impostare la velocità effettiva con l'opzione di nuovo database](./media/set-throughput/set-throughput-with-new-database-option.png)
+
+6. Per aggiornare la velocità effettiva per un database esistente, espandere il database e il contenitore e quindi fare clic su **Ridimensiona**. Nella nuova finestra digitare il nuovo valore per la velocità effettiva e quindi selezionare **Salva**.  
+
+   ![Aggiornare la velocità effettiva per un database](./media/set-throughput/update-throughput-for-database.png)
+
+### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>Effettuare il provisioning della velocità effettiva per un set di contenitori così come per un singolo contenitore in un database
+
+1. Accedere al [portale di Azure](https://portal.azure.com).  
+2. Dal menu di spostamento a sinistra selezionare **Tutte le risorse** e individuare l'account Azure Cosmos DB.  
+3. Creare un database e assegnargli la velocità effettiva. Aprire il pannello **Esplora dati** e selezionare **Nuovo database**  
+4. Compilare il valore **ID database**, selezionare l'opzione **Provisioning velocità effettiva** e configurare il valore della velocità effettiva. È possibile eseguire il provisioning di un database con un valore di velocità effettiva minima di 50.000 UR/s.  
+
+   ![Impostare la velocità effettiva con l'opzione di nuovo database](./media/set-throughput/set-throughput-with-new-database-option.png)
+
+5. Successivamente creare una raccolta all'interno del database creato nel passaggio precedente. Per creare una raccolta, fare clic con il pulsante destro del mouse sul database e scegliere **Nuova raccolta**.  
+
+6. Nel pannello **Aggiungi raccolta** immettere un nome per la raccolta e la chiave di partizione. Facoltativamente, è possibile effettuare il provisioning della velocità effettiva per tale contenitore specifico, se si sceglie di non assegnare un valore di velocità effettiva, la velocità effettiva assegnata al database viene condivisa con la raccolta.  
+
+   ![Facoltativamente impostare la velocità effettiva per il contenitore](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+
+## <a name="considerations-when-provisioning-throughput"></a>Considerazioni durante il provisioning della velocità effettiva
+
+Di seguito sono riportate alcune considerazioni utili per decidere una strategia di prenotazione della velocità effettiva.
+
+Si prenda in considerazione il provisioning della velocità effettiva a livello di database, ovvero per i set di contenitori, nei casi seguenti:
+
+* Se è disponibile almeno una decina di contenitori che possono condividere la velocità effettiva tra alcuni o tutti i contenitori.  
+
+* Quando si esegue la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB e sono presenti molti contenitori.  
+
+* Se si vuole tenere in considerazione i picchi imprevisti nei carichi di lavoro usando la velocità effettiva in pool a livello di database.  
+
+* Anziché impostare la velocità effettiva per un singolo contenitore, si è interessati a ottenere la velocità effettiva aggregata in un set di contenitori all'interno del database.
+
+Tenere in considerazione il provisioning della velocità effettiva in un singolo contenitore nei seguenti casi:
+
+* Se si dispone di un numero inferiore di contenitori Azure Cosmos DB.  
+
+* Se si vuole ottenere la velocità effettiva garantita per un determinato contenitore con contratto di servizio.
+
+## <a name="throughput-ranges"></a>Intervalli di velocità effettiva
 
 La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
 
@@ -48,35 +131,70 @@ La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
     </tbody>
 </table>
 
-## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Per impostare la velocità effettiva tramite il Portale di Azure
-
-1. In una nuova finestra accedere al [Portale di Azure](https://portal.azure.com).
-2. Fare clic su **Azure Cosmos DB** nella barra di sinistra oppure fare clic su **Tutti i servizi** nella parte inferiore, scorrere fino a **Database** e quindi fare clic su **Azure Cosmos DB**.
-3. Selezionare l'account Cosmos DB.
-4. Nella nuova finestra fare clic su **Esplora dati** dal menu di spostamento.
-5. Nella nuova finestra espandere il database e il contenitore e quindi fare clic su **Scale & Settings** (Scalabilità e impostazioni).
-6. Nella nuova finestra digitare il nuovo valore per la velocità effettiva nella casella **Velocità effettiva** e quindi fare clic su **Salva**.
-
 <a id="set-throughput-sdk"></a>
 
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-net"></a>Per impostare la velocità effettiva usando l'API SQL per .NET
+## <a name="set-throughput-by-using-sql-api-for-net"></a>Impostare la velocità effettiva usando l'API SQL per .NET
 
-Il frammento di codice seguente recupera la velocità effettiva corrente e la cambia in 500 UR/s. Per il codice di esempio completo, vedere il progetto [CollectionManagement](https://github.com/Azure/azure-documentdb-dotnet/blob/95521ff51ade486bb899d6913880995beaff58ce/samples/code-samples/CollectionManagement/Program.cs#L188-L216) su GitHub.
+Ecco un frammento di codice per la creazione di un contenitore con 3000 unità richiesta al secondo per singolo contenitore .NET SDK dell'API SQL:
 
 ```csharp
-// Fetch the offer of the collection whose throughput needs to be updated
-// To change the throughput for a set of containers, use the database's selflink instead of the collection's selflink
+DocumentCollection myCollection = new DocumentCollection();
+myCollection.Id = "coll";
+myCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(
+    UriFactory.CreateDatabaseUri("db"),
+    myCollection,
+    new RequestOptions { OfferThroughput = 3000 });
+```
+
+Ecco un frammento di codice per il provisioning di 100.000 unità richiesta al secondo per un set di contenitori usando .NET SDK dell'API SQL:
+
+```csharp
+// Provision 100,000 RU/sec at the database level. 
+// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
+// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
+Database database = client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 }).Result;
+
+DocumentCollection sharedCollection1 = new DocumentCollection();
+sharedCollection1.Id = "sharedCollection1";
+sharedCollection1.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
+
+DocumentCollection sharedCollection2 = new DocumentCollection();
+sharedCollection2.Id = "sharedCollection2";
+sharedCollection2.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
+
+DocumentCollection dedicatedCollection = new DocumentCollection();
+dedicatedCollection.Id = "dedicatedCollection";
+dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
+
+await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
+```
+
+Azure Cosmos DB usa un modello di prenotazione per la velocità effettiva, ovvero viene fatturata la quantità di velocità effettiva *riservata*, indipendentemente dalla quantità di tale velocità effettiva *usata* attivamente. A mano a mano che i modelli di carico, dati e utilizzo dell'applicazione cambiano, è possibile aumentare e ridurre facilmente il numero di unità riservate usando gli SDK o il [portale di Azure](https://portal.azure.com).
+
+Viene eseguito il mapping di ogni contenitore o set di contenitori a una risorsa `Offer` in Azure Cosmos DB, che include metadati sulla velocità effettiva di cui è stato effettuato il provisioning. È possibile modificare la velocità effettiva allocata esaminando l'offerta corrispondente relativa alla risorsa per un contenitore, quindi aggiornarla con il nuovo valore per la velocità effettiva. Ecco un frammento di codice per la modifica della velocità effettiva di un contenitore fino a 5000 unità richiesta al secondo usando .NET SDK:
+
+```csharp
+// Fetch the resource to be updated
+// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
 Offer offer = client.CreateOfferQuery()
-    .Where(r => r.ResourceLink == collection.SelfLink)    
-    .AsEnumerable()
-    .SingleOrDefault();
+                .Where(r => r.ResourceLink == collection.SelfLink)    
+                .AsEnumerable()
+                .SingleOrDefault();
 
-// Set the throughput to the new value, for example 500 request units per second
-offer = new OfferV2(offer, 500);
+// Set the throughput to 5000 request units per second
+offer = new OfferV2(offer, 5000);
 
-// Now persist these changes to the collection by replacing the original offer resource
+// Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
+
+La modifica della velocità effettiva non influisce sulla disponibilità del contenitore o del set di contenitori. La nuova velocità effettiva riservata viene in genere applicata entro pochi secondi, in corrispondenza dell'applicazione della nuova velocità effettiva.
 
 <a id="set-throughput-java"></a>
 
@@ -105,7 +223,7 @@ client.replaceOffer(offer);
 
 L'API MongoDB supporta un comando personalizzato, *getLastRequestStatistics*, per il recupero degli addebiti per le richieste per un'operazione specificata.
 
-Ad esempio, in Mongo Shell eseguire l'operazione di cui si vuole verificare l'addebito per le richieste.
+Ad esempio, nella shell Mongo eseguire l'operazione di cui si vuole verificare l'addebito per le richieste.
 ```
 > db.sample.find()
 ```
@@ -122,7 +240,7 @@ Eseguire quindi il comando *getLastRequestStatistics*.
 }
 ```
 
-Con questa premessa, un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo.
+Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo.
 
 > [!NOTE]
 > Se sono presenti tipi di elementi che variano notevolmente in termini di dimensioni e numero di proprietà indicizzate, registrare l'addebito delle unità richiesta per le operazioni applicabili associato a ogni *tipo* di elemento tipico.
@@ -136,7 +254,7 @@ Il modo più semplice per ottenere una stima valida degli addebiti per le unità
 ![Metriche del portale dell'API MongoDB][1]
 
 ### <a id="RequestRateTooLargeAPIforMongoDB"></a> Superamento dei limiti della velocità effettiva riservata nell'API MongoDB
-Le applicazioni che superano la velocità effettiva con provisioning per un contenitore o un set di contenitori vengono limitate nella velocità fino a quando il tasso di utilizzo non scende sotto la velocità effettiva con provisioning. In caso di limitazione della velocità, il back-end terminerà preventivamente la richiesta con un codice errore `16500`, ovvero `Too Many Requests`. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore `Too Many Requests`. Se si riceve un numero eccessivo di codici errore `Too Many Requests`, è possibile prendere in considerazione l'aggiunta di una logica di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva con provisioning per il contenitore](set-throughput.md).
+Le applicazioni che superano la velocità effettiva con provisioning per un contenitore o un set di contenitori vengono limitate nella velocità fino a quando il tasso di utilizzo non scende sotto la velocità effettiva con provisioning. In caso di limitazione della velocità, il back-end terminerà la richiesta con un codice errore `16500`, ovvero `Too Many Requests`. Per impostazione predefinita, l'API MongoDB ripeterà automaticamente i tentativi fino a 10 volte prima di restituire un codice errore `Too Many Requests`. Se si riceve un numero eccessivo di codici errore `Too Many Requests`, è possibile prendere in considerazione l'aggiunta di una logica di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione oppure l'[aumento della velocità effettiva con provisioning per il contenitore](set-throughput.md).
 
 ## <a name="throughput-faq"></a>Domande frequenti sulla velocità effettiva
 
@@ -150,6 +268,8 @@ Non è disponibile alcuna estensione dell'API MongoDB per la configurazione dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul provisioning e sulla diffusione su scala globale di Cosmos DB, vedere [Partizionamento e scalabilità con Cosmos DB](partition-data.md).
+* Per altre informazioni sulla stima della velocità effettiva e delle unità richiesta, vedere [Unità richiesta in Azure Cosmos DB](request-units.md)
+
+* Per altre informazioni sul provisioning e sulla diffusione su scala globale di Cosmos DB, vedere [Partizionamento e scalabilità con Cosmos DB](partition-data.md).
 
 [1]: ./media/set-throughput/api-for-mongodb-metrics.png

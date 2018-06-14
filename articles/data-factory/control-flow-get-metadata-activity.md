@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011391"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617981"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
 Questa attività può essere usata per recuperare i **metadati** di tutti i dati in Azure Data Factory. Questa attività è supportata solo per data factory con la versione 2. Può essere usata negli scenari seguenti:
