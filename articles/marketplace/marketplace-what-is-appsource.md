@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
 ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32178237"
 ---
 # <a name="what-is-appsource"></a>Informazioni su AppSource
 AppSource consente ai partner Microsoft di aumentare la visibilità della tecnologia e dei servizi offerti attraverso una vetrina online supportata da Microsoft. Attraverso la pubblicazione in AppSource, è possibile coinvolgere gli utenti aziendali in AppSource per trovare, provare e acquisire applicazioni SaaS line-of-business e servizi di implementazione per favorire la crescita dei risultati aziendali e ridurre il time-to-value: 
