@@ -6,16 +6,17 @@ author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265106"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Python per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per MySQL. Usa istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database dalle piattaforme Mac OS, Ubuntu Linux e Windows. Questo argomento presuppone che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per MySQL.

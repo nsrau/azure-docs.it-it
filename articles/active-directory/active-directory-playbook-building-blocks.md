@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293110"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -140,7 +141,7 @@ Tempo previsto per il completamento: 60 minuti
 | --- | --- |
 | Ambiente di test dell'applicazione SaaS disponibile. In questa guida viene usato ServiceNow come esempio.<br/>Si consiglia di usare un'istanza di test per ridurre al minimo i possibili problemi quando si esamina la qualità e i mapping dei dati esistenti. | Passare a https://developer.servicenow.com/app.do#!/home per avviare il processo di acquisizione di un'istanza di test |
 | Accesso amministrativo alla console di gestione ServiceNow | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Passaggi
 
@@ -148,13 +149,13 @@ Tempo previsto per il completamento: 60 minuti
 | --- | --- |
 | Condividere l'esercitazione con tutti gli attori dalla documentazione Microsoft  | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
 | Impostare una riunione di lavoro e seguire i passaggi dell'esercitazione con ogni attore. | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Assegnare l'app al gruppo identificato nei prerequisiti. Se il modello di verifica usa l'accesso condizionale nell'ambito, è possibile rivederlo in un secondo momento e aggiungere l'autenticazione a più fattori e altro ancora. <br/>Tenere presente che in questo modo si avvia il processo di provisioning (se configurato) |  [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Assegnare l'app al gruppo identificato nei prerequisiti. Se il modello di verifica usa l'accesso condizionale nell'ambito, è possibile rivederlo in un secondo momento e aggiungere l'autenticazione a più fattori e altro ancora. <br/>Tenere presente che in questo modo si avvia il processo di provisioning (se configurato) |  [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
 | Usare il portale di gestione di Azure AD per aggiungere l'applicazione ServiceNow dalla raccolta| [Portale di gestione di Azure AD: applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novità della gestione delle applicazioni aziendali in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Nel pannello "Single sign-on" dell'app ServiceNow abilitare "SAML-based Sign-on" (Accesso basato su SAML) |  |
 | Compilare i campi "URL di accesso" e "Identificatore" con l'URL di ServiceNow<br/>Selezionare l'opzione che consente di rendere attivo il nuovo certificato<br/>e salvare le impostazioni |  |
 | Aprire il pannello "Configura ServiceNow" nella parte inferiore del riquadro per visualizzare le istruzioni per la configurazione di ServiceNow |  |
 | Seguire le istruzioni per configurare ServiceNow |  |
-| Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Attendere alcuni minuti il completamento del provisioning.  Nel frattempo, è possibile verificare i report di provisioning |  |
 | Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 | Fare clic sul riquadro per l'applicazione appena creata. Confermare l'accesso |  |
@@ -162,7 +163,7 @@ Tempo previsto per il completamento: 60 minuti
 
 ### <a name="considerations"></a>Considerazioni
 
-1. L'[esercitazione](active-directory-saas-servicenow-tutorial.md) di cui sopra fa riferimento all'esperienza di gestione precedente di Azure AD. Ma il modulo di verifica si basa sull'esperienza di [Avvio rapido](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away).
+1. L'[esercitazione](active-directory-saas-servicenow-tutorial.md) di cui sopra fa riferimento all'esperienza di gestione precedente di Azure AD. Ma il modello di verifica (PoC) si basa sull'esperienza di [avvio rapido](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Se l'applicazione di destinazione non è presente nella raccolta, è possibile usare "Bring your own app". Altre informazioni: [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Aggiungere applicazioni personalizzate da un'unica posizione](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS: configurazione SSO con password
@@ -175,7 +176,7 @@ Tempo previsto per il completamento: 15 minuti
 | --- | --- |
 | Ambiente di test per le applicazioni SaaS. Esempi di SSO con password sono HipChat e Twitter. Per qualsiasi altra applicazione, è necessario l'URL esatto della pagina con modulo di accesso html. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testare gli account per le applicazioni. | [Iscrizione a Twitter](https://twitter.com/signup?lang=en)<br/>[Iscrizione gratuita: HipChat](https://www.hipchat.com/sign_up) |
-| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza che contiene gli utenti. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza che contiene gli utenti. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passaggi
@@ -184,8 +185,8 @@ Tempo previsto per il completamento: 15 minuti
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso |  |
 | Fare clic sul riquadro per l'applicazione appena creata. | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Indicare le credenziali dell'applicazione | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Tempo previsto per il completamento: 30 minuti
 | --- | --- |
 | L'elenco di applicazioni di destinazione e gli URL di accesso esatti in anticipo. Ad esempio, è possibile usare Twitter. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Iscrizione a Twitter](https://twitter.com/signup?lang=en) |
 | Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn ora in anteprima - Blog su Enterprise Mobility e Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passaggi
@@ -219,8 +220,8 @@ Tempo previsto per il completamento: 30 minuti
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: Accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Assegnare l'app al gruppo identificato nei prerequisiti quando si assegnano le credenziali | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: Accesso basato su password](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Assegnare l'app al gruppo identificato nei prerequisiti quando si assegnano le credenziali | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accedere come utenti diversi che accedono all'app come **stesso account condiviso.**  |  |
 | Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -241,27 +242,27 @@ Tempo previsto per il completamento: 20 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Una sottoscrizione di Microsoft Azure AD Basic o Premium e una directory di Azure AD di cui si è un amministratore globale | [Edizioni di Azure Active Directory](active-directory-editions.md) |
+| Una sottoscrizione di Microsoft Azure AD Basic o Premium e una directory di Azure AD di cui si è un amministratore globale | [Edizioni di Azure Active Directory](active-directory-whatis.md) |
 | Un'applicazione Web ospitata in locale che si vuole configurare per l'accesso remoto |  |
-| Un server che esegue Windows Server 2012 R2 oppure Windows 8.1 o versioni successive in cui poter installare il connettore del proxy dell'applicazione | [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md) |
-| Se nel percorso è presente un firewall, verificare che sia aperto in modo che il connettore possa inviare richieste HTTPS (TCP) al proxy dell'applicazione | [Attività iniziali del proxy di applicazione e installazione del connettore: Prerequisiti del proxy dell'applicazione](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post del blog relativo all'uso di server proxy locali esistenti per informazioni dettagliate sulla configurazione | [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md) |
+| Un server che esegue Windows Server 2012 R2 oppure Windows 8.1 o versioni successive in cui poter installare il connettore del proxy dell'applicazione | [Comprendere i connettori del proxy applicazione Azure AD](manage-apps/application-proxy-connectors.md) |
+| Se nel percorso è presente un firewall, verificare che sia aperto in modo che il connettore possa inviare richieste HTTPS (TCP) al proxy dell'applicazione | [Attività iniziali del proxy di applicazione e installazione del connettore: Prerequisiti del proxy dell'applicazione](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post del blog relativo all'uso di server proxy locali esistenti per informazioni dettagliate sulla configurazione | [Usare server proxy locali esistenti](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
-| Installare un connettore sul server | [Attività iniziali del proxy di applicazione e installazione del connettore: Installare e registrare un connettore](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Pubblicare l'applicazione locale in Azure AD come applicazione proxy dell'applicazione | [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md) |
-| Assegnare gli utenti test | [Pubblicare applicazioni mediante il proxy dell'applicazione AD Azure: Aggiungere un utente di test](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Facoltativamente, configurare un'esperienza Single Sign-On per gli utenti | [Fornire accesso Single Sign-On mediante il proxy dell'applicazione Azure AD](application-proxy-sso-azure-portal.md) |
+| Installare un connettore sul server | [Attività iniziali del proxy di applicazione e installazione del connettore: Installare e registrare un connettore](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Pubblicare l'applicazione locale in Azure AD come applicazione proxy dell'applicazione | [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](manage-apps/application-proxy-publish-azure-portal.md) |
+| Assegnare gli utenti test | [Pubblicare applicazioni mediante il proxy dell'applicazione AD Azure: Aggiungere un utente di test](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Facoltativamente, configurare un'esperienza Single Sign-On per gli utenti | [Fornire accesso Single Sign-On mediante il proxy dell'applicazione Azure AD](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Testare l'app effettuando l'accesso al portale di MyApps come utente assegnato | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerazioni
 
-1. Benché sia consigliabile inserire il connettore nella rete aziendale, esistono casi in cui le prestazioni risultano migliori se viene posizionato nel cloud. Altre informazioni: [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](application-proxy-network-topology-considerations.md)
-2. Per informazioni dettagliate sulla sicurezza e su come garantire una soluzione di accesso remoto particolarmente protetta gestendo solo le connessioni in uscita, vedere: [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](application-proxy-security-considerations.md)
+1. Benché sia consigliabile inserire il connettore nella rete aziendale, esistono casi in cui le prestazioni risultano migliori se viene posizionato nel cloud. Altre informazioni: [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](manage-apps/application-proxy-network-topology.md)
+2. Per informazioni dettagliate sulla sicurezza e su come garantire una soluzione di accesso remoto particolarmente protetta gestendo solo le connessioni in uscita, vedere: [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Configurazione del connettore LDAP generico
 

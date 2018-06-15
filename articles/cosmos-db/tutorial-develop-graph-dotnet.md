@@ -1,25 +1,23 @@
 ---
-title: "Azure Cosmos DB: Sviluppare con l'API Graph in .NET | Microsoft Docs"
+title: "Azure Cosmos DB: Sviluppare con l'API Graph in .NET | Documentazione Microsoft"
 description: Informazioni su come sviluppare con l'API SQL di Azure Cosmos DB usando .NET
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: ''
-ms.assetid: cc8df0be-672b-493e-95a4-26dd52632261
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 3391213600300067ad1685e4f8cccacbf52de86e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6026e4d27a341a7354ca3fe9fb92f7671b02eb66
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798679"
 ---
 # <a name="azure-cosmos-db-develop-with-the-graph-api-in-net"></a>Azure Cosmos DB: Sviluppare con l'API Graph in .NET
 Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile creare ed eseguire rapidamente query su database di documenti, coppie chiave-valore e grafi, sfruttando in ognuno dei casi i vantaggi offerti dalle funzionalità di scalabilità orizzontale e distribuzione globale alla base di Azure Cosmos DB. 
@@ -110,7 +108,7 @@ Creare quindi un contenitore di grafi usando il metodo [CreateDocumentCollection
 DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync( 
     UriFactory.CreateDatabaseUri("graphdb"), 
     new DocumentCollection { Id = "graphcollz" }, 
-    new RequestOptions { OfferThroughput = 1000 }); 
+    new RequestOptions { OfferThroughput = 400 }); 
 ``` 
 
 ## <a id="serializing"></a>Serializzare vertici e archi negli oggetti .NET
@@ -168,13 +166,13 @@ foreach (KeyValuePair<string, string> gremlinQuery in gremlinQueries)
 
 ## <a name="add-vertices-and-edges"></a>Aggiungere vertici e archi
 
-Verranno esaminati in maggiore dettaglio i comandi Gremlin illustrati nella sezione precedente. Prima si aggiungono vertici usando il metodo `addV` Gremlin. Ad esempio, il frammento seguente crea un vertice "Thomas Andersen" di tipo "Person", con proprietà per il nome, il cognome e l'età.
+Verranno esaminati in maggiore dettaglio i comandi Gremlin illustrati nella sezione precedente. Prima si aggiungono vertici usando il metodo `addV` Gremlin. Ad esempio, il frammento seguente crea un vertice "Thomas Andersen" di tipo "person", con proprietà per il nome e l'età.
 
 ```cs
 // Create a vertex
 IDocumentQuery<Vertex> createVertexQuery = client.CreateGremlinQuery<Vertex>(
     graphCollection, 
-    "g.addV('person').property('firstName', 'Thomas')");
+    "g.addV('person').property('firstName', 'Thomas').property('age', 44)");
 
 while (createVertexQuery.HasMoreResults)
 {

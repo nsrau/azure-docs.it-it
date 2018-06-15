@@ -4,7 +4,7 @@ description: Distribuire e chiamare API Web e API REST per flussi di lavoro di i
 keywords: API Web, API REST, connettori, flussi di lavoro, integrazioni di sistema, autenticazione
 services: logic-apps
 author: stepsic-microsoft-com
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: LADocs; stepsic
-ms.openlocfilehash: c7a240bf5b7ed5e7780b90f438d2e336ee79f0b3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299008"
 ---
 # <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Distribuire e chiamare API personalizzate da flussi di lavoro di app per la logica
 

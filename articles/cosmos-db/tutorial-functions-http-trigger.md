@@ -2,29 +2,26 @@
 title: Creare un trigger HTTP con un'associazione di input di Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come usare Funzioni di Azure con i trigger HTTP per eseguire query su Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818900"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB
 
 Azure Cosmos DB è un database multimodello Microsoft distribuito a livello globale, senza schema e senza server. Funzioni di Azure è un servizio di calcolo senza server che consente di eseguire codice su richiesta. Se si uniscono questi due servizi di Azure, si dispone della base per un'architettura senza server che consente di concentrarsi sulla compilazione di app eccezionali senza doversi preoccupare di eseguire il provisioning e mantenere i server necessari per le proprie esigenze di calcolo e database.
 
-Questa esercitazione si basa sul codice creato nella [Guida introduttiva all'API Graph per .NET](create-graph-dotnet.md). Questa esercitazione aggiunge una funzione di Azure che contiene un [trigger HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). Il trigger HTTP usa un'[associazione di input](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) con un database Azure Cosmos DB per recuperare i dati dal database a grafi creato nella guida introduttiva. Questo particolare trigger HTTP esegue una query su Cosmos Azure DB per recuperare dati, ma le associazioni di input da Azure Cosmos DB possono essere usate per recuperare i valori di input dei dati per qualsiasi cosa la funzione richieda.
+Questa esercitazione si basa sul codice creato nella [Guida introduttiva all'API Graph per .NET](create-graph-dotnet.md). Questa esercitazione aggiunge una funzione di Azure che contiene un [trigger HTTP](../azure-functions/functions-bindings-http-webhook.md). Il trigger HTTP usa un'[associazione di input](../azure-functions/functions-triggers-bindings.md) con un database Azure Cosmos DB per recuperare i dati dal database a grafi creato nella guida introduttiva. Questo particolare trigger HTTP esegue una query su Cosmos Azure DB per recuperare dati, ma le associazioni di input da Azure Cosmos DB possono essere usate per recuperare i valori di input dei dati per qualsiasi cosa la funzione richieda.
 
 Questa esercitazione illustra le attività seguenti:
 
