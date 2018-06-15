@@ -3,16 +3,17 @@ title: Gestire ruoli del database e utenti in Azure Analysis Services | Microsof
 description: Informazioni su come gestire ruoli del database e utenti in un server Analysis Services in Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3c35fb1ee70544b8b01bbadaf72ee38145179b27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a2338045c43f9eb240ce55fd1ec31a4db40fd4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598352"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 

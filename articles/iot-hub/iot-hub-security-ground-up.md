@@ -1,24 +1,19 @@
 ---
 title: Proteggere la soluzione Azure IoT sin dall'inizio | Documentazione Microsoft
-description: "Come usare le funzionalità di sicurezza integrate nell'hub IoT di Microsoft Azure e in Microsoft Azure IoT Suite."
-services: iot-hub
-documentationcenter: 
+description: Come usare le funzionalità di sicurezza integrate nell'hub IoT di Microsoft Azure e in Microsoft Azure IoT Suite.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: ea9baf61b1335a6240c13c841e41bd7e4346fa6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 2cd5de7d7fcd257ec624af573d7d85049790471e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635237"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

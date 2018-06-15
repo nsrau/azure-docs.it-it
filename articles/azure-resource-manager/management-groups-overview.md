@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604744"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizzare le risorse con i gruppi di gestione di Azure 
 
@@ -69,7 +70,7 @@ A ogni directory viene assegnato un gruppo di gestione principale denominato gru
 
 I gruppi di gestione di Azure supportano il [Controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md) per tutte le definizioni di ruolo e gli accessi alle risorse. Queste autorizzazioni vengono ereditate dalle risorse figlio presenti nella gerarchia.   
 
-Anche se è possibile assegnare qualsiasi [ruolo Controllo degli accessi in base al ruolo predefinito](../role-based-access-control/overview.md#built-in-roles) a un gruppo di gestione, sono disponibili quattro ruoli di uso comune: 
+Anche se è possibile assegnare qualsiasi [ruolo Controllo degli accessi in base al ruolo predefinito](../role-based-access-control/built-in-roles.md) a un gruppo di gestione, sono disponibili quattro ruoli di uso comune: 
 - **Proprietario** ha accesso completo a tutte le risorse, compreso il diritto di delegare l'accesso ad altri utenti. 
 - **Collaboratore** può creare e gestire tutti i tipi di risorse di Azure, ma non può concedere l'accesso ad altri.
 - **Collaboratore ai criteri delle risorse** può creare e gestire i criteri nella directory sulle risorse.     

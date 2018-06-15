@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cb7cd84e68420006e7c598c224580c9150ab1c7
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34070499"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -34,6 +35,7 @@ Questo articolo include le domande frequenti relative ai problemi di configurazi
 - [Come è possibile generare una richiesta di firma del certificato senza usare RPD per l'istanza?](#how-can-i-generate-a-certificate-signing-request-csr-without-rdp-ing-in-to-the-instance)
 - [Qual è la procedura per rinnovare il certificato di gestione del servizio cloud in scadenza?](#my-cloud-service-management-certificate-is-expiring-how-to-renew-it)
 - [Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?](#how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b)
+- [Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?](#what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate)
 
 **Monitoraggio e registrazione**
 
@@ -103,6 +105,10 @@ La richiesta di firma del certificato è semplicemente un file di testo. Non è 
 ### <a name="how-to-automate-the-installation-of-main-ssl-certificatepfx-and-intermediate-certificatep7b"></a>Come è possibile automatizzare l'installazione del certificato SSL principale (con estensione pfx) e del certificato intermedio (con estensione p7b)?
 
 È possibile automatizzare questa attività usando uno script di avvio (batch/cmd/PowerShell) e registrare lo script di avvio nel file di definizione del servizio. Aggiungere sia lo script di avvio sia il certificato (file con estensione p7b) nella cartella del progetto nella stessa directory dello script di avvio.
+
+### <a name="what-is-the-purpose-of-the-microsoft-azure-service-management-for-machinekey-certificate"></a>Qual è lo scopo del certificato "Microsoft Azure Service Management for MachineKey"?
+
+Questo certificato viene usato per crittografare le chiavi computer nei ruoli Web di Azure. Per altre informazioni, consultare questo advisory [https://docs.microsoft.com/security-updates/securityadvisories/2018/4092731].
 
 Per altre informazioni, vedere gli articoli seguenti:
 - [Come configurare ed eseguire attività di avvio per un servizio cloud](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)
@@ -315,7 +321,7 @@ Come descritto [qui](https://technet.microsoft.com/library/ee790567.aspx), $sslF
                     serverManager.CommitChanges(); 
     //</code snip> 
     
-Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (\*.PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
+Usando uno qualsiasi degli approcci descritti in precedenza, è necessario che i rispettivi certificati (PFX) per nomi host specifici vengano installati prima nelle istanze dei ruoli usando un'attività di avvio o tramite il codice perché l'associazione SNI diventi efficace.
 
 ### <a name="how-can-i-add-tags-to-my-azure-cloud-service"></a>Come è possibile aggiungere tag al servizio cloud di Azure? 
 
