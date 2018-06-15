@@ -1,24 +1,19 @@
 ---
 title: Distribuire il gateway di connected factory - Azure | Microsoft Docs
 description: Come distribuire un gateway in Windows o Linux per abilitare la connettività all'acceleratore di soluzioni di connected factory.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626905"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Distribuire un gateway perimetrale per l'acceleratore di soluzioni di connected factory in Windows o Linux
 
@@ -170,6 +165,6 @@ Per aggiungere i server OPC UA personali all'acceleratore di soluzioni di connec
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'acceleratore di soluzioni di connected factory, vedere [Procedura dettagliata dell'acceleratore di soluzioni di connected factory](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Per altre informazioni sull'acceleratore di soluzioni di connected factory, vedere [Procedura dettagliata dell'acceleratore di soluzioni di connected factory](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Informazioni sull'[implementazione di riferimento del modulo di pubblicazione OPC](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).
