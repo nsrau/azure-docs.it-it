@@ -7,20 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363809"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646780"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Individuazione dati e classificazione nel database SQL di Azure
 Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette** e la  & **protezione** dei dati sensibili presenti nel database.
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
-* Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati, come GDPR.
+* Contribuire a soddisfare gli standard e i requisiti di conformità alle normative sulla privacy dei dati.
 * Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 * Controllare l'accesso ai database che contengono dati riservati e rafforzare la sicurezza di questi.
 

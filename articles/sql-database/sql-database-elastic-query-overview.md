@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 6367418fb07b2ab5b425609540c653678a207ebc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 43a25d30fbec9327e24230165abd73260397ff14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646474"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 La funzionalità delle query elastiche, in anteprima, consente di eseguire una query Transact-SQL che si estende su più database nel database SQL di Azure. Consente di eseguire query tra database per accedere a tabelle remote e di connettere strumenti Microsoft e di terze parti (Excel, PowerBI, Tableau e così via) a query tra livelli di dati con più database. Utilizzando questa funzionalità, è possibile scalare query ai livelli di dati di grandi dimensioni nel Database SQL e visualizzare i risultati nei report di business intelligence (BI).

@@ -6,21 +6,18 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: asgang
-ms.openlocfilehash: 5e1361e681c17d4106b9c79fee56efa06be2a745
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 175b71488b429b3fd69d23db6cc9318d8db20568
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209458"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715973"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
 
->[!NOTE]
->
-> La replica di Site Recovery per le macchine virtuali di Azure è attualmente in anteprima.
 
 In questo articolo viene descritto come abilitare la replica di macchine virtuali di Azure da un'area di Azure a un'altra.
 

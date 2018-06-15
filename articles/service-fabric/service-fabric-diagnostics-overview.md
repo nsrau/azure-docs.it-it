@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643176"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -46,9 +47,6 @@ Service Fabric offre un set completo di eventi immediatamente disponibili. Tali 
 Si consiglia di usare EventStore per un'analisi veloce e per ottenere un'idea di snapshot del modo in cui il cluster sta funzionando e se le operazioni vengono eseguite come previsto. Per raccogliere i log e gli eventi che vengono generati dal cluster, è in genere consigliabile usare l'[estensione Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md), che si integra bene con Analisi Service Fabric, la soluzione specifica per Service Fabric di OMS Log Analytics, che fornisce un dashboard personalizzato per il monitoraggio dei cluster di Service Fabric e consente di eseguire query sugli eventi del cluster e di impostare avvisi. Per altre informazioni, vedere [Analisi di eventi con OMS](service-fabric-diagnostics-event-analysis-oms.md). 
 
  È possibile leggere altre informazioni sul monitoraggio del cluster nell'articolo [Generazione di eventi e log a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![Soluzione OMS SF](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Monitoraggio delle prestazioni
 Il monitoraggio dell'infrastruttura sottostante è un fattore essenziale per conoscere lo stato del cluster e le modalità di utilizzo delle risorse. La misurazione delle prestazioni di sistema dipende da diversi fattori, ognuno dei quali viene misurato in genere tramite un indicatore di prestazioni chiave (KPI). Gli indicatori KPI relativi a Service Fabric, in particolare, possono essere mappati alle metriche che è possibile raccogliere dai nodi del cluster come contatori delle prestazioni.

@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647419"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 Se lo sviluppatore di un'app SaaS (Software as a Service) registra un incremento importante della richiesta dell'app, dovrà far fronte alla domanda. A tale scopo aggiungerà altri database (partizioni). Come ridistribuire i dati nei nuovi database senza comprometterne l'integrità? Per spostare dati dai database vincolati ai nuovi database, usare lo **strumento di suddivisione-unione** .  

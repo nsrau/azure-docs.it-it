@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715823"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Selezionare un gruppo di sicurezza di rete 
 
-Prima di abilitare la registrazione dei flussi per i gruppi di sicurezza di rete, è necessario avere un gruppo di sicurezza di rete per cui registrare i flussi. Se non è disponibile un gruppo di sicurezza di rete, vedere [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) per crearne uno.
+Prima di abilitare la registrazione dei flussi per i gruppi di sicurezza di rete, è necessario avere un gruppo di sicurezza di rete per cui registrare i flussi. Se non è disponibile un gruppo di sicurezza di rete, vedere [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md#create-a-network-security-group) per crearne uno.
 
 Sul lato sinistro del portale di Azure selezionare **Monitoraggio**, quindi **Network Watcher** e infine selezionare **Log del flusso del NSG**. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare un log del flusso del gruppo di sicurezza di rete, come illustrato nell'immagine seguente:
 

@@ -12,15 +12,15 @@ ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: ''
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: anjangsh
-ms.openlocfilehash: dd51480f30187456104a0f9d72ec17082dc1e39e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33208057"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644002"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Esplorare l'analisi basata su SaaS con il database SQL di Azure, SQL Data Warehouse, Data Factory e Power BI
 
@@ -68,7 +68,7 @@ Questa esercitazione offre esempi di base delle informazioni dettagliate che è 
 
 ## <a name="setup"></a>Configurazione
 
-### <a name="prerequisites"></a>Prerequisiti
+### <a name="prerequisites"></a>prerequisiti
 
 > [!NOTE]
 > Questa esercitazione usa funzionalità di Azure Data Factory, per la parametrizzazione dei servizi collegati, che sono attualmente disponibili in anteprima limitata. Per eseguire questa esercitazione, specificare l'ID della sottoscrizione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Si riceverà una conferma non appena la sottoscrizione verrà abilitata.

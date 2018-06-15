@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757196"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure Security and Compliance Blueprint - Automazione di applicazioni Web su tre livelli UK-OFFICIAL
 
@@ -109,7 +110,7 @@ SET DI DISPONIBILITÀ
 - (1) Set di VM di livello aziendale - 2 VM
 - (1) Set di VM di livello dati - 2 VM
 
-Bilanciamento del carico
+Load Balancer
 - (1) Servizio di bilanciamento del carico di livello Web
 - (1) Servizio di bilanciamento del carico di livello aziendale
 - (1) Servizio di bilanciamento del carico di livello dati
@@ -148,7 +149,7 @@ Archiviazione
 
 **Gateway Internet e indirizzo IP pubblico**: il gateway Internet espone i servizi dell'applicazione agli utenti tramite Internet. Il traffico che accede a tali servizi viene protetto tramite un [gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) che offre funzionalità di routing di livello 7 e di bilanciamento del carico con la protezione del web application firewall.
 
-**Rete virtuale di gestione**: questa [rete virtuale](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) contiene risorse che implementano funzionalità di gestione e monitoraggio per i carichi di lavoro in esecuzione nella rete virtuale di produzione.
+**Rete virtuale di gestione**: questa [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) contiene risorse che implementano funzionalità di gestione e monitoraggio per i carichi di lavoro in esecuzione nella rete virtuale di produzione.
 
 **Jumpbox**: definito anche [bastion host](https://en.wikipedia.org/wiki/Bastion_host), è una VM protetta in rete usata dagli amministratori per connettersi a macchine virtuali nella rete virtuale di produzione. Il jumpbox ha un gruppo di sicurezza di rete (NSG) che consente il traffico remoto solo da Indirizzi IP pubblici inclusi in un elenco di indirizzi attendibili. Per consentire il traffico di desktop remoto, l'origine del traffico deve essere definita nel gruppo di sicurezza di rete. La gestione delle risorse di produzione viene eseguita tramite RDP con una VM jumpbox protetta.
 

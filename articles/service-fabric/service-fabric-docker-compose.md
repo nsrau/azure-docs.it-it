@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 318898598617ba54b3f8f777bfeca0223d0d296c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641782"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Supporto della distribuzione Docker Compose in Azure Service Fabric (anteprima)
 
@@ -66,7 +67,7 @@ Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Co
 Dopo l'accettazione dell'aggiornamento, è possibile tenere traccia del relativo stato di avanzamento con il comando seguente:
 
 ```powershell
-Get-ServiceFabricComposeDeploymentUpgrade -Deployment TestContainerApp
+Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
 ```
 
 ### <a name="use-azure-service-fabric-cli-sfctl"></a>Usare l'interfaccia della riga di comando di Azure Service Fabric (sfctl)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894247"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658673"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -66,7 +66,7 @@ Nella casella di ricerca nella parte superiore del portale immettere *Gruppi di 
 ### <a name="view-details-of-a-network-security-group"></a>Visualizzare i dettagli di un gruppo di sicurezza di rete
 
 1. Nella casella di ricerca nella parte superiore del portale immettere *Gruppi di sicurezza di rete*. Selezionare la voce **Gruppi di sicurezza di rete** quando viene visualizzata nei risultati della ricerca.
-2. Selezionare nell'elenco il gruppo di sicurezza di rete di cui si vogliono visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Regole di sicurezza in ingresso** e le **Regole di sicurezza in uscita**, le **Interfacce di rete** e le **Subnet** a cui è associato il gruppo di sicurezza di rete. È anche possibile abilitare o disabilitare i **Log di diagnostica** e visualizzare le **Regole di sicurezza effettive**. Per altre informazioni, vedere [Log di diagnostica](virtual-network-nsg-manage-log.md) e [Visualizzare le regole di sicurezza effettive](virtual-network-nsg-troubleshoot-portal.md).
+2. Selezionare nell'elenco il gruppo di sicurezza di rete di cui si vogliono visualizzare i dettagli. In **IMPOSTAZIONI** è possibile visualizzare le **Regole di sicurezza in ingresso** e le **Regole di sicurezza in uscita**, le **Interfacce di rete** e le **Subnet** a cui è associato il gruppo di sicurezza di rete. È anche possibile abilitare o disabilitare i **Log di diagnostica** e visualizzare le **Regole di sicurezza effettive**. Per altre informazioni, vedere [Log di diagnostica](virtual-network-nsg-manage-log.md) e [Visualizzare le regole di sicurezza effettive](diagnose-network-traffic-filter-problem.md).
 3. Per altre informazioni sulle impostazioni comuni di Azure elencate, vedere gli articoli seguenti:
     *   [Log attività](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Controllo di accesso (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

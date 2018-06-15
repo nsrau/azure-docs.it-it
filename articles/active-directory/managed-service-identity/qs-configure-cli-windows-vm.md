@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 44d1dabdb6a9e5f4b405b876f37daa9097c6e7f8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 09ee4dfc403bf570631f64b0b13d1592a03eed17
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33931861"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698969"
 ---
 # <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Configurare l'identità del servizio gestita in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -31,7 +31,7 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità del s
 - Abilitare e disabilitare l'identità assegnata dal sistema in una macchina virtuale di Azure
 - Aggiungere e rimuovere un'identità assegnata dall'utente in una macchina virtuale di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
@@ -117,37 +117,36 @@ Questa sezione descrive come creare una macchina virtuale con l'assegnazione di 
 
 2. Creare un'identità assegnata dall'utente mediante [az identity create](/cli/azure/identity#az_identity_create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità assegnata dall'utente, mentre il parametro `-n` ne specifica il nome.    
     
-    > [!IMPORTANT]
-    > Per creare identità assegnate dall'utente occorre usare nomi composti solo da caratteri alfanumerici e trattino (da 0 a 9, da "a" a "z", da "A" a "Z" e "-"). Inoltre, il nome può avere al massimo 24 caratteri perché l'assegnazione alla VM/VMSS funzioni correttamente. Ricontrollare in seguito per aggiornamenti. Per altre informazioni, vedere [Domande frequenti e problemi noti](known-issues.md).
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
-    ```azurecli-interactive
-    az identity create -g myResourceGroup -n myUserAssignedIdentity
-    ```
+```azurecli-interactive
+az identity create -g myResourceGroup -n myUserAssignedIdentity
+```
 La risposta contiene i dettagli relativi all'identità assegnata dall'utente creata ed è simile all'esempio seguente. Il valore dell'ID della risorsa assegnato all'identità assegnata dall'utente viene usato nel passaggio seguente.
 
-   ```json
-   {
-        "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
-        "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
-        "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
-        "location": "westcentralus",
-        "name": "<MSI NAME>",
-        "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
-        "resourceGroup": "<RESOURCE GROUP>",
-        "tags": {},
-        "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
-        "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
-   }
-   ```
+```json
+{
+    "clientId": "73444643-8088-4d70-9532-c3a0fdc190fz",
+    "clientSecretUrl": "https://control-westcentralus.identity.azure.net/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>/credentials?tid=5678&oid=9012&aid=73444643-8088-4d70-9532-c3a0fdc190fz",
+    "id": "/subscriptions/<SUBSCRIPTON ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>",
+    "location": "westcentralus",
+    "name": "<MSI NAME>",
+    "principalId": "e5fdfdc1-ed84-4d48-8551-fe9fb9dedfll",
+    "resourceGroup": "<RESOURCE GROUP>",
+    "tags": {},
+    "tenantId": "733a8f0e-ec41-4e69-8ad8-971fc4b533bl",
+    "type": "Microsoft.ManagedIdentity/userAssignedIdentities"    
+}
+```
 
 3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az_vm_create). L'esempio seguente crea una macchina virtuale associata alla nuova identità assegnata dall'utente, come specificato dal parametro `--assign-identity`. Sostituire i valori dei parametri `<RESOURCE GROUP>`, `<VM NAME>`, `<USER NAME>`, `<PASSWORD>` e `<MSI ID>` con valori personalizzati. Per `<MSI ID>` usare la proprietà `id` della risorsa dell'identità assegnata dall'utente creata nel passaggio precedente: 
 
-   ```azurecli-interactive 
-   az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
-   ```
+```azurecli-interactive 
+az vm create --resource-group <RESOURCE GROUP> --name <VM NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <MSI ID>
+```
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Assegnare un'identità assegnata dall'utente a una macchina virtuale di Azure esistente
+### <a name="assign-a-user-assigned-identity-to-an-existing-azure-vm"></a>Assegnare un'identità assegnata dall'utente a una VM di Azure esistente
 
 1. Creare un'identità assegnata dall'utente mediante [az identity create](/cli/azure/identity#az-identity-create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità assegnata dall'utente, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<MSI NAME>` con valori personalizzati:
 

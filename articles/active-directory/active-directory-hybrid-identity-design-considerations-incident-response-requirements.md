@@ -1,11 +1,11 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: requisiti di risposta a eventi imprevisti in Azure | Microsoft Docs"
-description: "Determinare le funzionalità di monitoraggio e reporting della soluzione di identità ibrida di cui può avvalersi il personale IT per identificare e contrastare potenziali minacce."
-documentationcenter: 
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: requisiti di risposta a eventi imprevisti in Azure | Microsoft Docs'
+description: Determinare le funzionalità di monitoraggio e reporting della soluzione di identità ibrida di cui può avvalersi il personale IT per identificare e contrastare potenziali minacce.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801059"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di risposta agli eventi imprevisti per una soluzione di identità ibrida
 La maggior parte delle aziende di medie o grandi dimensioni dovrà definire una [risposta ad eventi imprevisti](https://technet.microsoft.com/library/cc700825.aspx) in materia di sicurezza per consentire al personale IT di prendere le azioni appropriate in base al livello di gravità. Il sistema di gestione delle identità è una componente importante del processo di risposta agli eventi imprevisti, poiché consente di identificare l'utente che ha eseguito una determinata azione nel perseguimento dell'obiettivo. La soluzione di identità ibrida, inoltre, deve essere in grado di fornire funzionalità di monitoraggio e reporting di cui può avvalersi il personale IT per intraprendere le azioni necessarie per identificare e contrastare una potenziale minaccia. In un piano di risposta agli eventi imprevisti, sono generalmente contenute le fasi seguenti:

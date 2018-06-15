@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cfb1e6810285886da13aa0bf69faee9c65e2b222
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738228"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.

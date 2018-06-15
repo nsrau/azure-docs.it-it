@@ -1,12 +1,12 @@
 ---
 title: Domande frequenti su Azure IoT Suite | Microsoft Docs
 description: Domande frequenti su IoT Suite
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
 ms.service: iot-suite
 ms.devlang: na
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: 77b9fab68b66fe8998733a8f890acb9dd6b97899
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702303"
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Domande frequenti su IoT Suite
 
-Vedere anche le [domande frequenti](iot-suite-faq-cf.md) specifiche della factory connessa.
+Vedere anche le [domande frequenti](../iot-accelerators/iot-accelerators-faq-cf.md) specifiche della factory connessa.
 
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>Dove è possibile visualizzare il codice sorgente per la soluzione preconfigurata?
 
@@ -104,11 +105,11 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 È anche possibile esplorare alcune altre funzionalità delle soluzioni preconfigurate di IoT Suite:
 
 * [Panoramica della soluzione preconfigurata di manutenzione predittiva][lnk-predictive-overview]
-* [Panoramica della soluzione preconfigurata di connected factory](iot-suite-connected-factory-overview.md)
+* [Panoramica della soluzione preconfigurata di connected factory](../iot-accelerators/iot-accelerators-connected-factory-overview.md)
 * [Sicurezza IoT sin dall'inizio][lnk-security-groundup]
 
-[lnk-predictive-overview]: iot-suite-predictive-overview.md
-[lnk-security-groundup]: securing-iot-ground-up.md
+[lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
+[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
 
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
 [link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits

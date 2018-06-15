@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: SaaS
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646154"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 
@@ -87,7 +88,7 @@ Al completamento dello script il catalogo sarà disponibile e saranno stati regi
 A questo punto esaminare le risorse appena create.
 
 1. Aprire il [portale di Azure](https://portal.azure.com/) ed esplorare i gruppi di risorse.  Aprire il gruppo di risorse **wingtip-sa-catalog-\<utente\>**  e prendere nota del server e del database del catalogo.
-1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando Accesso e quindi immettere la password =  **P@ssword1** .
+1. Aprire il database nel portale e scegliere *Esplora dati* nel menu a sinistra.  Fare clic sul comando Accesso e quindi immettere la password = **P@ssword1**.
 
 
 1. Esplorare lo schema del database *tenantcatalog*.  

@@ -2,23 +2,18 @@
 title: Uso delle firme di accesso condiviso in Archiviazione di Azure | Documentazione Microsoft
 description: Informazioni su come usare le firme di accesso condiviso per delegare l'accesso alle risorse di Archiviazione di Azure, tra cui BLOB, code, tabelle e file.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
 manager: jeconnoc
-editor: tysonn
-ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4f20e79ea6cb2d9d403f4451f595516d5c2e9373
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650741"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 

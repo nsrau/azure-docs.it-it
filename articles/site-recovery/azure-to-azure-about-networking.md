@@ -6,19 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: sujayt
-ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211022"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715939"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informazioni sulle reti per la replica da Azure ad Azure
 
->[!NOTE]
-> La replica di Site Recovery per le macchine virtuali di Azure è attualmente in anteprima.
+
 
 In questo articolo viene illustrato in dettaglio il materiale sussidiario del servizio di rete quando si esegue la replica e il ripristino di macchine virtuali di Azure da un'area ad un'altra tramite [Azure Site Recovery](site-recovery-overview.md).
 

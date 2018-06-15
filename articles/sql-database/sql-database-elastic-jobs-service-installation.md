@@ -6,14 +6,15 @@ manager: craigg
 author: ddove
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4aeb18a4cdd0fc115c0d604797cf60c867455337
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645613"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 I [**processi di database elastico**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso per creare e gestire i processi tramite l'API di PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
