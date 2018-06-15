@@ -1,35 +1,31 @@
 ---
 title: Messaggi da cloud a dispositivo con l'hub IoT di Azure (Python) | Microsoft Docs
 description: Come inviare messaggi da cloud a dispositivo da un hub IoT di Azure usando Azure IoT SDK per Python. Modificare un'app per dispositivo simulato per ricevere messaggi da cloud a dispositivo e modificare un'app back-end per inviare i messaggi da cloud a dispositivo.
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
-ms.devlang: javascript
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: 236758f1ff83ec37c39a44068879bea80f2ffdb0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: kgremban
+ms.openlocfilehash: ac57af167948ad0ca2a658953ba39fc188e2e800
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635390"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>Introduzione
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. L'esercitazione [Introduzione all'hub IoT di Azure] illustra come creare un hub IoT, effettuare il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. L'esercitazione [Introduzione all'hub IoT] illustra come creare un hub IoT, effettuare il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Questa esercitazione si basa su [Introduzione all'hub IoT di Azure]. Illustra le operazioni seguenti:
+Questa esercitazione si basa su [Introduzione all'hub IoT]. Illustra le operazioni seguenti:
 
 * Dal back-end della soluzione inviare messaggi da cloud a dispositivo a un singolo dispositivo tramite l'hub IoT.
 * Ricevere messaggi da cloud a dispositivo in un dispositivo.
@@ -39,11 +35,11 @@ Per altre informazioni sui messaggi da cloud a dispositivo, vedere la[Guida per 
 
 Al termine di questa esercitazione, verranno eseguite due app console Python:
 
-* **SimulatedDevice.py**, una versione modificata dell'app creata in [Introduzione all'hub IoT di Azure], che si connette all'hub IoT e riceve i messaggi da cloud a dispositivo.
+* **SimulatedDevice.py**, una versione modificata dell'app creata in [Introduzione all'hub IoT], che si connette all'hub IoT e riceve i messaggi da cloud a dispositivo.
 * **SendCloudToDeviceMessage.py**, che invia un messaggio da cloud a dispositivo all'app di dispositivo simulato attraverso l'hub IoT e quindi riceve l'acknowledgement di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
+> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori di IoT di Azure].
 > 
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
@@ -77,7 +73,7 @@ In questa sezione si crea un'app console Python per simulare il dispositivo e si
     RECEIVE_CALLBACKS = 0
     ```
 
-1. Aggiungere il codice seguente al file **SimulatedDevice.py**. Sostituire il valore del segnaposto "{deviceConnectionString}" con la stringa di connessione per il dispositivo creato durante l'esercitazione [Introduzione all'hub IoT di Azure]:
+1. Aggiungere il codice seguente al file **SimulatedDevice.py**. Sostituire il valore del segnaposto "{deviceConnectionString}" con la stringa di connessione per il dispositivo creato durante l'esercitazione [Introduzione all'hub IoT]:
    
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -169,7 +165,7 @@ In questa sezione si crea un'app console Python per simulare il dispositivo e si
 
 
 ## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
-In questa sezione si crea un'app console Python che invia messaggi da cloud a dispositivo all'app di dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure] . È necessaria anche la stringa di connessione per l'hub IoT, disponibile nel [portale di Azure].
+In questa sezione si crea un'app console Python che invia messaggi da cloud a dispositivo all'app di dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT] . È necessaria anche la stringa di connessione per l'hub IoT, disponibile nel [Portale di Azure].
 
 1. Usando un editor di testo, creare un file **SendCloudToDeviceMessage.py**.
 
@@ -188,7 +184,7 @@ In questa sezione si crea un'app console Python che invia messaggi da cloud a di
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. Aggiungere il codice seguente al file **SendCloudToDeviceMessage.py**. Sostituire il valore del segnaposto "{IoTHubConnectionString}" con la stringa di connessione dell'hub IoT per l'hub creato durante l'esercitazione [Introduzione all'hub IoT di Azure]. Sostituire il segnaposto "{deviceId}" con l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT di Azure]:
+1. Aggiungere il codice seguente al file **SendCloudToDeviceMessage.py**. Sostituire il valore del segnaposto "{IoTHubConnectionString}" con la stringa di connessione dell'hub IoT per l'hub creato durante l'esercitazione [Introduzione all'hub IoT]. Sostituire il segnaposto "{deviceId}" con l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT]:
    
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -301,7 +297,7 @@ A questo punto è possibile eseguire le applicazioni.
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
-Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[Acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
@@ -315,12 +311,12 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[Introduzione all'hub IoT di Azure]: iot-hub-node-node-getstarted.md
+[Introduzione all'hub IoT]: iot-hub-node-node-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
+[Centro per sviluppatori di IoT di Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portale di Azure]: https://portal.azure.com
-[acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[Portale di Azure]: https://portal.azure.com
+[Acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
