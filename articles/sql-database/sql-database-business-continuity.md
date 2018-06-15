@@ -1,5 +1,5 @@
 ---
-title: Continuità aziendale cloud - Ripristino del database - Database SQL | Microsoft Docs
+title: Continuità aziendale cloud - Ripristino del database - Database SQL | Documentazione Microsoft
 description: Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione.
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
@@ -7,17 +7,17 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.workload: On Demand
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e5c64ed51fd7c36b1c2cb3b5d98df18b82e08cc3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0399b9037e162aa712b87b498b968750226af23a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192391"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646389"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -140,7 +140,7 @@ Se si usano backup automatici con la replica dell'archiviazione con ridondanza g
 >
 >
 
-### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al failover/ripristino
+### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al filover/ripristino
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:
 
 * Reindirizzare i client e le applicazioni client verso il nuovo server e il database ripristinato

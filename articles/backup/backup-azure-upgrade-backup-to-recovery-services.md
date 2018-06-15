@@ -1,23 +1,19 @@
 ---
-title: Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino | Microsoft Docs
+title: Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 description: Istruzioni e informazioni di supporto per l'aggiornamento di un insieme di credenziali di Backup di Azure a un insieme di credenziali di Servizi di ripristino.
 services: backup
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-ms.assetid: 228fef19-2f6b-4067-acc3-fb6e501afb88
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: sogup;markgal;arunak
-ms.openlocfilehash: 25ad2f6309531678ec98012f540556af581649b2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: sogup
+ms.openlocfilehash: 551bc2aa4ff80feb3f28b5698e25dfd1b03dc870
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607338"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 

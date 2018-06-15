@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 76af1ead671a6d6b279202eaf7886463d4cd8bb7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644437"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
@@ -71,8 +72,8 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | India occidentale | 104.211.160.80 | |
 | Giappone orientale | 191.237.240.43 | 13.78.61.196 |
 | Giappone occidentale | 191.238.68.11 | 104.214.148.156 |
-| Corea centrale | 52.231.32.42 | |
-| Corea meridionale | 52.231.200.86 |  |
+| Corea del Sud centrale | 52.231.32.42 | |
+| Corea del Sud meridionale | 52.231.200.86 |  |
 | Stati Uniti centro-settentrionali | 23.98.55.75 | 23.96.178.199 |
 | Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |

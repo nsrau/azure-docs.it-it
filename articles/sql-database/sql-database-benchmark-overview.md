@@ -2,19 +2,19 @@
 title: Panoramica sul benchmark DTU del database SQL di Azure
 description: Questo argomento illustra il benchmark ASDB (Azure SQL Database Benchmark) usato per la misurazione delle prestazioni del database SQL di Azure.
 services: sql-database
-author: jan-eng
-manager: jhubbard
+author: CarlRabeler
+manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: janeng
-ms.openlocfilehash: dbe991ddaa4d85ee3d117dc3c0c246a642b53f2f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: carlrab
+ms.openlocfilehash: 2efcad27c0a7de2691195c2b3cb2f201fa3bf487
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191408"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644794"
 ---
 # <a name="azure-sql-database-dtu-benchmark-overview"></a>Panoramica sul benchmark DTU del database SQL di Azure
 ## <a name="overview"></a>Panoramica

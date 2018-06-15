@@ -1,19 +1,19 @@
 ---
 title: Gestire un'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni sulla gestione di applicazioni Azure IoT Central destinate agli amministratori
-services: iot-central
-author: TanmayBhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: b60b9e851a3b6612964e67e7764ad8d43d606b4e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199970"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628556"
 ---
 # <a name="how-to-administer-your-application"></a>Come gestire l'applicazione
 

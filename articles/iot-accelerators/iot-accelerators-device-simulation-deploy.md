@@ -1,22 +1,19 @@
 ---
 title: Distribuire la soluzione Simulazione dispositivi - Azure | Microsoft Docs
 description: Questa esercitazione mostra come effettuare il provisioning della soluzione Simulazione dispositivi da azureiotsuite.com.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 4d468c527c658707da2b5f35f43676626baf5ca2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e96c0f16ca4b69d103674b7f895c52d197280ca5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627007"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Distribuire la soluzione Simulazione dispositivi di Azure IoT
 
@@ -39,7 +36,7 @@ Se non si dispone di un account, è possibile creare un account di valutazione g
 
 Prima di distribuire la soluzione nella sottoscrizione di Azure, è necessario scegliere alcune opzioni di configurazione:
 
-1. Accedere ad [azureiotsuite.com](https://www.azureiotsuite.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una nuova soluzione:
+1. Accedere ad [azureiotsuite.com](https://www.azureiotsolutions.com) usando le credenziali dell'account Azure e quindi fare clic su **+** per creare una nuova soluzione:
 
     ![Creare una nuova soluzione](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 
