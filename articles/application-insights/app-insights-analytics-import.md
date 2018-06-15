@@ -3,21 +3,22 @@ title: Importare i dati in Analytics in Azure Application Insights | Microsoft D
 description: Importare i dati statici per creare un join con la telemetria dell'app o importare un flusso di dati separato per eseguire query con Analytics.
 services: application-insights
 keywords: schema aperto, importazione dei dati
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293622"
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
 

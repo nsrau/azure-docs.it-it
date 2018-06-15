@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624662"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Usare Azure Data Lake Store per acquisire dati da Hub eventi
 
@@ -56,12 +57,12 @@ In questa sezione si crea una cartella nell'account in cui si vuole acquisire i 
 
     c. In **Assegna autorizzazioni** fare clic su **Selezionare le autorizzazioni**. Impostare **Autorizzazioni** su **Esegui**. Impostare **Aggiungi a** su **Questa cartella e tutti gli elementi figlio**. Impostare **Aggiungi come** su **Una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**.
 
-> [!IMPORTANT]
-> Questo è un modo semplice per garantire l'accesso alla cartella di destinazione quando si crea una nuova gerarchia di cartelle per l'acquisizione dei dati ricevuti da Hub eventi di Azure.  Tuttavia, l'aggiunta delle autorizzazioni a tutti gli elementi figlio di una cartella di livello principale con molti file e cartelle figlio può richiedere molto tempo.  Se la cartella radice contiene un numero elevato di file e cartelle, potrebbe essere più veloce aggiungere le autorizzazioni di **esecuzione** per `Microsoft.EventHubs` singolarmente a ogni cartella nel percorso della cartella di destinazione finale. 
+    > [!IMPORTANT]
+    > Questo è un modo semplice per garantire l'accesso alla cartella di destinazione quando si crea una nuova gerarchia di cartelle per l'acquisizione dei dati ricevuti da Hub eventi di Azure.  Tuttavia, l'aggiunta delle autorizzazioni a tutti gli elementi figlio di una cartella di livello principale con molti file e cartelle figlio può richiedere molto tempo.  Se la cartella radice contiene un numero elevato di file e cartelle, potrebbe essere più veloce aggiungere le autorizzazioni di **esecuzione** per `Microsoft.EventHubs` singolarmente a ogni cartella nel percorso della cartella di destinazione finale. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Assegnare le autorizzazioni per la radice di Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assegnare le autorizzazioni per la radice di Data Lake Store")
 
-    Click **OK**.
+    Fare clic su **OK**.
 
 4. Assegnare le autorizzazioni per la cartella nell'account Data Lake Store in cui si vuole acquisire i dati.
 

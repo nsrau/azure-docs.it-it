@@ -1,19 +1,19 @@
 ---
 title: Sicurezza in Azure IoT Edge | Microsoft Docs
 description: Sicurezza, autenticazione e autorizzazione dei dispositivi IoT Edge
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631429"
 ---
 # <a name="securing-azure-iot-edge---preview"></a>Sicurezza in Azure IoT Edge - anteprima
 

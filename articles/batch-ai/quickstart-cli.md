@@ -15,12 +15,12 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 10/06/2017
 ms.author: Alexander.Yukhanov
-ms.openlocfilehash: 3601ea412790c991892a0c05210d2551810287b8
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8d2381f710e87751bd6547c7f435080f185020d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869020"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608546"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-cli"></a>Eseguire un processo di training di CNTK usando l'interfaccia della riga di comando di Azure
 
@@ -45,7 +45,7 @@ L'esempio ufficiale di CNTK è stato modificato in modo da accettare il percorso
 * Al completamento del processo, esaminarne l'output e i modelli generati.
 * Al termine eliminare tutte le risorse allocate.
 
-# <a name="prerequisites"></a>Prerequisiti
+# <a name="prerequisites"></a>prerequisiti
 
 * Sottoscrizione di Azure - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 * Accesso all'interfaccia della riga di comando di Azure 2.0 versione 2.0.31 o successiva. È possibile usare l'interfaccia della riga di comando di Azure 2.0 disponibile in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) o installarla in locale seguendo [queste istruzioni](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -446,5 +446,5 @@ Output di esempio:
 Per eliminare il gruppo di risorse e tutte le risorse allocate, usare il comando seguente:
 
 ```azurecli
-az batchai group delete -n batchai.quickstart -y
+az group delete -n batchai.quickstart -y
 ```

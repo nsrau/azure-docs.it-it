@@ -2,11 +2,11 @@
 title: Creare flussi di lavoro di approvazione per elaborare richieste di sottoscrizione di una lista di distribuzione - App per la logica di Azure | Microsoft Docs
 description: Questa esercitazione mostra come creare flussi di lavoro di approvazione automatici per l'elaborazione di sottoscrizioni di una lista di distribuzione con App per la logica di Azure
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300675"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gestire le richieste di sottoscrizione di una lista di distribuzione con un'app per la logica
 

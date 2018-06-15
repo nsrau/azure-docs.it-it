@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140083"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588863"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Durata dei token configurabili in Azure Active Directory (anteprima pubblica)
 È possibile specificare la durata di un token rilasciato da Azure Active Directory (Azure AD). La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione.
@@ -279,7 +279,7 @@ In questo esempio vengono creati i criteri in base ai quali viene richiesto agli
 
 2.  Assegnare i criteri all'entità servizio. È necessario ottenere anche l'**ObjectId** dell'entità servizio. 
 
-    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.cloudapp.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
+    1.  Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). È anche possibile testare questa funzione in [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/)e [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) usando l'account di Azure AD.
 
     2.  Dopo aver ottenuto l'**ObjectId** dell'entità servizio, eseguire questo comando:
 
