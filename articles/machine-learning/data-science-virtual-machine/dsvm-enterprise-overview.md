@@ -8,18 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361376"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830538"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente di intelligenza artificiale e analisi in team basato sulle macchine virtuali di data science 
 La [macchina virtuale di data science](overview.md) fornisce un ambiente avanzato nel cloud di Azure con software precompilato per l'intelligenza artificiale e l'analisi dei dati. La macchina virtuale di data science viene usata tradizionalmente come desktop di analisi individuale e i data scientist incrementano la produttività con queste nozioni condivise dell'ambiente di analisi precompilato. Quando team di analisi di grandi dimensioni pianificano i propri ambienti di analisi per i data scientist e gli sviluppatori di intelligenza artificiale, uno dei temi ricorrenti riguarda una infrastruttura condivisa di sviluppo e sperimentazione analitica gestita in linea con i criteri IT aziendali e che agevoli anche la collaborazione e la coerenza nell'intero team di analisi/data science. Un'infrastruttura condivisa consente anche all'IT di usare meglio l'ambiente di analisi. L'infrastruttura di analisi e data science basata sulla collaborazione in team è anche definita da alcune organizzazioni "Sandbox di analisi", che consente ai data scientist di comprendere rapidamente i dati, eseguire esperimenti, convalidare ipotesi, creare modelli predittivi in modo sicuro senza influire sull'ambiente di produzione e avendo accesso a varie risorse di dati. 

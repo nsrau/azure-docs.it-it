@@ -1,6 +1,6 @@
 | Risorsa | Destinazione |
 |----------|---------------|
-| Dimensione massima del singolo contenitore BLOB | 500 TiB |
+| Dimensione massima del singolo contenitore BLOB | Uguale alla capacità massima dell'account di archiviazione |
 | Numero massimo di blocchi in un BLOB in blocchi o in un BLOB in coda | 50.000 blocchi |
 | Dimensione massima di un blocco di un BLOB in blocchi | 100 MiB |
 | Dimensione massima di un BLOB in blocchi | 50.000 x 100 MiB (circa 4,75 TiB) |

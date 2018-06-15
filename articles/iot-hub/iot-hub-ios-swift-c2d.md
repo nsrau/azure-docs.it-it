@@ -1,30 +1,25 @@
 ---
 title: Messaggi da cloud a dispositivo con l'hub IoT di Azure (iOS) | Documentazione Microsoft
 description: Come inviare messaggi da cloud a dispositivo a un dispositivo da un hub IoT di Azure usando gli SDK di Azure IoT per iOS.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634280"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
-L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. L'articolo [Inviare dati di telemetria da un dispositivo a un hub IoT] (Inviare dati di telemetria da un dispositivo a un hub IoT) mostra come creare un hub IoT, eseguire il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
+L'hub IoT di Azure è un servizio completamente gestito che consente di abilitare comunicazioni bidirezionali affidabili e sicure tra milioni di dispositivi e un back-end della soluzione. L'articolo [Send telemetry from a device to an IoT hub] (Inviare dati di telemetria da un dispositivo a un hub IoT) mostra come creare un hub IoT, eseguire il provisioning dell'identità di un dispositivo al suo interno e creare il codice di un'app per dispositivo simulato che invia messaggi da dispositivo a cloud.
 
 Questo articolo illustra come:
 
@@ -36,11 +31,11 @@ Per altre informazioni sui messaggi da cloud a dispositivo, vedere la[Guida per 
 
 Alla fine di questo articolo, vengono eseguiti due progetti Swift iOS:
 
-* **sample-device**, la stessa app creata in [Inviare dati di telemetria da un dispositivo a un hub IoT] (Inviare dati di telemetria da un dispositivo a un hub IoT), che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
+* **sample-device**, la stessa app creata in [Send telemetry from a device to an IoT hub] (Inviare dati di telemetria da un dispositivo a un hub IoT), che si connette all'hub IoT e riceve messaggi da cloud a dispositivo.
 * **sample-service**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub IoT e quindi riceve la conferma di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT].
+> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori di IoT di Azure].
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -54,7 +49,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 ## <a name="simulate-an-iot-device"></a>Simulare un dispositivo IoT
 In questa sezione viene simulato un dispositivo iOS che esegue un'applicazione Swift per ricevere messaggi da cloud a dispositivo dall'hub IoT. 
 
-Questo è il dispositivo di esempio creato nell'articolo [Inviare dati di telemetria da un dispositivo a un hub IoT]. Se è già in esecuzione, è possibile ignorare questa sezione.
+Questo è il dispositivo di esempio creato nell'articolo [Send telemetry from a device to an IoT hub]. Se è già in esecuzione, è possibile ignorare questa sezione.
 
 ### <a name="install-cocoapods"></a>Installare CocoaPods
 
@@ -166,7 +161,7 @@ L'output dovrebbe essere simile all'esempio seguente:
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stato descritto come inviare e ricevere messaggi da cloud a dispositivo. 
 
-Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
+Per avere degli esempi di soluzioni complete che usano l'hub IoT, vedere l'[Acceleratore di soluzioni di monitoraggio remoto di Azure IoT].
 
 Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [Guida per sviluppatori dell'hub IoT].
 
@@ -176,11 +171,11 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[Inviare dati di telemetria da un dispositivo a un hub IoT]: quickstart-send-telemetry-ios.md (Inviare dati di telemetria da un dispositivo a un hub IoT)
+[Send telemetry from a device to an IoT hub]: quickstart-send-telemetry-ios.md (Inviare dati di telemetria da un dispositivo a un hub IoT)
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
-[Centro per sviluppatori Azure IoT]: http://www.azure.com/develop/iot
+[Centro per sviluppatori di IoT di Azure]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

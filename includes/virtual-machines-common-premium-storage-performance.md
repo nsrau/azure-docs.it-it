@@ -1,5 +1,5 @@
 # <a name="azure-premium-storage-design-for-high-performance"></a>Archiviazione Premium di Azure: progettata per prestazioni elevate
-## <a name="overview"></a>Panoramica
+
 Questo articolo fornisce indicazioni per lo sviluppo di applicazioni a prestazioni elevate mediante l'Archiviazione Premium di Azure. È possibile usare le istruzioni disponibili in questo documento insieme alle procedure consigliate per le prestazioni applicabili alle tecnologie usate dall'applicazione. Per illustrare le indicazioni, è stato usato SQL Server in esecuzione nell'Archiviazione Premium come esempio nell'intero documento.
 
 In questo articolo vengono trattati scenari relativi alle prestazioni per il livello dell'archiviazione, ma sarà necessario ottimizzare il livello dell'applicazione. Ad esempio, se si ospita una farm SharePoint nell'Archiviazione Premium di Azure, è possibile usare gli esempi relativi a SQL Server di questo articolo per ottimizzare il server di database. È anche possibile ottimizzare il server Web e il server applicazioni della farm SharePoint per ottenere prestazioni migliori.
@@ -102,15 +102,18 @@ I fattori principali che influenzano le prestazioni di un'applicazione in esecuz
 In questa sezione è consigliabile vedere l'elenco di controllo creato relativo ai requisiti dell'applicazione per identificare le esigenze di ottimizzazione per le prestazioni dell'applicazione. L'elenco di controllo consentirà di determinare i fattori da perfezionare tra quelli illustrati in questa sezione. Per verificare gli effetti di ogni fattore sulle prestazioni dell'applicazione, eseguire gli strumenti di benchmarking sulla configurazione dell'applicazione. Per informazioni sui passaggi necessari per eseguire gli strumenti di benchmarking comuni in VM Windows e Linux, vedere la sezione [Benchmarking](#Benchmarking) alla fine dell'articolo.
 
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>Breve panoramica sull'ottimizzazione di IOPS, velocità effettiva e latenza
-Questa tabella riepiloga tutti i fattori relativi alle prestazioni e i passaggi necessari per ottimizzare IOPS, velocità effettiva e latenza. Le sezioni successive al riepilogo illustreranno ogni fattore in modo più dettagliato.
+
+Questa tabella riepiloga i fattori relativi alle prestazioni e i passaggi necessari per ottimizzare operazioni di I/O al secondo, velocità effettiva e latenza. Le sezioni successive al riepilogo illustreranno ogni fattore in modo più dettagliato.
+
+Per altre informazioni sulle dimensioni delle macchine virtuali e le operazioni di I/O al secondo, la velocità effettiva e la latenza disponibili per ogni tipo di VM, vedere [Dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md) o [Dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md).
 
 | &nbsp; | **IOPS** | **Velocità effettiva** | **Latency** |
 | --- | --- | --- | --- |
 | **Scenario di esempio** |Applicazione OLTP aziendale che richiede una frequenza molto elevata di transazioni al secondo. |Applicazione aziendale di tipo data warehouse che elabora quantità elevate di dati. |Applicazioni quasi in tempo reale che necessitano di risposte immediate alle richieste degli utenti, ad esempio i giochi online. |
 | Fattori relativi alle prestazioni | &nbsp; | &nbsp; | &nbsp; |
 | **Dimensioni I/O** |Dimensioni I/O ridotte producono valori superiori per IOPS. |Dimensioni I/O maggiori producono una velocità effettiva superiore. | &nbsp;|
-| **Dimensioni macchina virtuale** |Usare una dimensione di VM che offre IOPS superiori ai requisiti dell'applicazione. Per informazioni sulle dimensioni delle VM e i relativi limiti di IOPS, vedere qui. |Usare una dimensione di VM con un limite di velocità effettiva superiore ai requisiti dell'applicazione. Per informazioni sulle dimensioni delle VM e i relativi limiti di velocità effettiva, vedere qui. |Usare una dimensione di VM che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. Per informazioni sulle dimensioni delle VM e i relativi limiti, vedere qui. |
-| **Dimensioni disco** |Usare una dimensione di disco che offre IOPS superiori ai requisiti dell'applicazione. Per informazioni sulle dimensioni dei dischi e i relativi limiti di IOPS, vedere qui. |Usare una dimensione di disco con un limite di velocità effettiva superiore ai requisiti dell'applicazione. Per informazioni sulle dimensioni dei dischi e i relativi limiti di velocità effettiva, vedere qui. |Usare una dimensione di disco che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. Per informazioni sulle dimensioni dei dischi e i relativi limiti, vedere qui. |
+| **Dimensioni macchina virtuale** |Usare una dimensione di VM che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di VM con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di VM che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |
+| **Dimensioni disco** |Usare una dimensione di disco che offre IOPS superiori ai requisiti dell'applicazione. |Usare una dimensione di disco con un limite di velocità effettiva superiore ai requisiti dell'applicazione. |Usare una dimensione di disco che offre limiti di ridimensionamento superiori ai requisiti dell'applicazione. |
 | **Limiti relativi al ridimensionamento di VM e dischi** |Il limite di IOPS della dimensione di VM scelta deve essere superiore al totale di IOPS basato sul disco di Archiviazione Premium collegato alla VM. |Il limite di velocità effettiva della dimensione di VM scelta deve essere superiore al totale di velocità effettiva basato sul disco di Archiviazione Premium collegato alla VM. |I limiti di ridimensionamento della dimensione di VM scelta devono essere superiori al totale dei limiti di ridimensionamento dei dischi di Archiviazione Premium collegati. |
 | **Memorizzazione nella cache del disco** |Abilitare la cache ReadOnly nei dischi di Archiviazione Premium con operazioni con numero elevato di letture per ottenere un valore di IOPS di lettura più elevato. | &nbsp; |Abilitare la cache ReadOnly nei dischi di Archiviazione Premium con operazioni con numero elevato di letture per ottenere un valore molto basso per le latenze di lettura. |
 | **Striping del disco** |Usare più dischi ed eseguirne lo striping per ottenere un limite combinato più elevato per IOPS e velocità effettiva. Si noti che il limite combinato per ogni VM deve essere superiore ai limiti combinati dei dischi Premium collegati. | &nbsp; | &nbsp; |
@@ -236,7 +239,7 @@ Per altre informazioni sul funzionamento di BlobCache, vedere il post di blog re
 | **Tipo di disco** | **Impostazione predefinita per la cache** |
 | --- | --- |
 | Disco del sistema operativo |ReadWrite |
-| Disco dati |Nessuna |
+| Disco dati |ReadOnly |
 
 Ecco le impostazioni consigliate per la cache su disco per i dischi dati:
 

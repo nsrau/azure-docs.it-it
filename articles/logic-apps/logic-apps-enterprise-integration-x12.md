@@ -1,11 +1,11 @@
 ---
-title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Microsoft Docs
+title: Messaggi X12 per l'integrazione aziendale B2B - App per la logica di Azure | Documentazione Microsoft
 description: Scambiare messaggi X12 in formato EDI per l'integrazione aziendale B2B con App per la logica di Azure
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299080"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Scambiare messaggi X12 per l'integrazione aziendale con le app per la logica
 
@@ -46,7 +47,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
    ![Trovare l'account di integrazione](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
    > [!TIP]
-   > Se **Tutti i servizi** non viene visualizzato, può essere necessario espandere il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
+   > Se **Tutti i servizi** non viene visualizzato, può essere necessario espandere prima il menu. Nella parte superiore del menu compresso, selezionare **Visualizza menu**.
 
 3. In **Account di integrazione** selezionare l'account di integrazione nel quale aggiungere il contratto.
 

@@ -6,19 +6,24 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0154ec9f08f81d2aa47c607c05f09309f7c23c7e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647188"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Eseguire configurazione e ripristino dalla conservazione dei backup a lungo termine del database SQL di Azure tramite un insieme di credenziali di Servizi di ripristino di Microsoft Azure
 
 È possibile configurare l'insieme di credenziali di Servizi di ripristino di Azure per archiviare i backup del database SQL di Azure e quindi ripristinare un database tramite backup conservati nell'insieme di credenziali usando il portale di Azure o PowerShell.
+
+> [!NOTE]
+> Nell'ambito del rilascio iniziale dell'anteprima della conservazione dei backup a lungo termine a ottobre 2016, i backup sono stati archiviati nell'insieme di credenziali di Servizi di ripristino di Azure. Questo aggiornamento rimuove tale dipendenza, ma per la compatibilità con le versioni precedenti l'API originale è supportata fino al 31 maggio 2018. Se è necessario interagire con i backup dell'insieme di credenziali di ripristino dei servizi di Azure, vedere [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md) (Conservazione a lungo termine dei backup con l'insieme di credenziali di Servizi di ripristino dei servizi di Azure). 
+
 
 ## <a name="azure-portal"></a>Portale di Azure
 

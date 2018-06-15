@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670167"
+---
 ## <a name="provision-the-solution"></a>Effettuare il provisioning della soluzione
 
 Se nel proprio account non è già stato effettuato il provisioning della soluzione preconfigurata per il monitoraggio remoto:
@@ -21,7 +38,7 @@ Se nel proprio account non è già stato effettuato il provisioning della soluzi
 
 Se ci sono dettagli importanti non elencati per la soluzione, è possibile inviare suggerimenti sulle funzionalità usando i [suggerimenti degli utenti](https://feedback.azure.com/forums/321918-azure-iot).
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md
