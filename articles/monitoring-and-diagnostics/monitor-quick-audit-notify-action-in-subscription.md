@@ -1,20 +1,20 @@
 ---
-title: Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure | Microsoft Docs
+title: Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure
 description: Comprendere la cronologia di gestione delle risorse, dell'integrità del servizio e altre attività nel log attività della sottoscrizione, quindi usare un avviso del log attività per ricevere una notifica tramite posta elettronica quando nella sottoscrizione viene eseguita un'operazione con privilegi elevati.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 5a6f4d7ab978543a6871eb0ac3926fa25fb65ad2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263331"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Controllare e ricevere notifiche sulle azioni importanti nella sottoscrizione di Azure
 

@@ -1,21 +1,22 @@
 ---
 title: Connettersi a Database di Azure per MySQL con Java
-description: "Questa guida introduttiva fornisce un esempio di codice Java che è possibile usare per connettersi ai dati ed eseguire query da un database di Azure per MySQL."
+description: Questa guida introduttiva fornisce un esempio di codice Java che è possibile usare per connettersi ai dati ed eseguire query da un database di Azure per MySQL.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: efc1fd07f09bd0bae3c21b9d63c04020abc7832e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265038"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Java per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione Java e il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Java, ma non con Database di Azure per MySQL.

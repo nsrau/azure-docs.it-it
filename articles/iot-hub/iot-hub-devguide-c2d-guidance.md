@@ -1,24 +1,19 @@
 ---
 title: Opzioni da cloud a dispositivo dell'hub IoT di Azure | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: indicazioni su quando usare i metodi diretti, le proprietà desiderate del dispositivo gemello o i messaggi da cloud a dispositivo per le comunicazioni da cloud a dispositivo.'
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634438"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Indicazioni sulle comunicazioni da cloud a dispositivo
 L'hub IoT fornisce tre opzioni per le app per dispositivo che consentono di esporre le funzionalità a un'app back-end:
@@ -37,7 +32,7 @@ Ecco un confronto dettagliato delle diverse opzioni di comunicazione da cloud a 
 | Flusso di dati | Bidirezionale. L'app per dispositivo può rispondere immediatamente al metodo. Il back-end della soluzione riceve il risultato insieme alla richiesta. | Unidirezionale. L'app per dispositivo riceve una notifica quando la proprietà viene modificata. | Unidirezionale. L'app per dispositivo riceve il messaggio.
 | Durabilità | I dispositivi disconnessi non vengono contattati. Il back-end della soluzione riceve una notifica che indica che il dispositivo non è connesso. | I valori delle proprietà vengono conservati nel dispositivo gemello. Il dispositivo li leggerà alla riconnessione successiva. I valori delle proprietà possono essere recuperati con il [linguaggio di query dell'hub IoT][lnk-query]. | I messaggi possono essere conservati dall'hub IoT per un massimo di 48 ore. |
 | Destinazioni | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo che usa **deviceId** o più dispositivi che usano [processi][lnk-jobs]. | Singolo dispositivo in base a **deviceId**. |
-| Dimensione | Fino a 8 KB per le richieste e 8 KB per le risposte. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Fino a 64 KB per i messaggi. |
+| Dimensione | La dimensione massima del payload del metodo diretto è 128 KB. | Le dimensioni massime per le proprietà desiderate sono 8 KB. | Fino a 64 KB per i messaggi. |
 | Frequenza | Elevata. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Media. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. | Bassa. Per altre informazioni, vedere i [limiti dell'hub IoT][lnk-quotas]. |
 | Protocollo | Disponibile tramite MQTT o AMQP. | Disponibile tramite MQTT o AMQP. | Disponibile in tutti i protocolli. Il dispositivo deve eseguire il polling quando usa HTTPS. |
 

@@ -1,23 +1,23 @@
 ---
 title: Creare e gestire regole di telemetria nell'applicazione Azure IoT Central | Microsoft Docs
 description: Le regole di telemetria di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni come l'invio di un messaggio di posta elettronica quando la regola viene attivata.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 47497fbda90ecb6ebe5b5a8675069a7fb262a3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: caca4e9db898b3766995fde8c5eebd4767abd85b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201724"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629814"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e impostare notifiche nell'applicazione Azure IoT Central
 
-È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni come l'invio di un messaggio di posta elettronica quando la regola viene attivata. Con pochi clic è possibile definire la condizione per il monitoraggio dei dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio una regola di telemetria.
+È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva. Con pochi clic è possibile definire la condizione per il monitoraggio dei dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio una regola di telemetria.
 
 Azure IoT Central usa [misurazioni di telemetria](howto-set-up-template.md) per acquisire dati dei dispositivi. Ogni tipo di misura include attributi chiave che definiscono la misura stessa. È possibile creare regole per monitorare ogni tipo di misura del dispositivo e generare avvisi quando la regola viene attivata. Una regola di telemetria viene attivata quando la telemetria del dispositivo selezionato supera una soglia specificata.
 
@@ -31,7 +31,7 @@ Questa sezione illustra come creare una regola di telemetria. L'esempio usa un c
 
     ![Nessuna regola](media\howto-create-telemetry-rules\image1.png)
 
-1. Nella scheda **Rules** (Regole) scegliere **+ New Rule** (+ Nuova regola) per visualizzare i tipi di regola che è possibile creare.
+1. Nella scheda **Rules** (Regole) scegliere **+ New Rule** (+ Nuova regola) per visualizzare i tipi di regole che è possibile creare.
 
     ![Tipi di regola](media\howto-create-telemetry-rules\image2.png)
 
@@ -41,7 +41,7 @@ Questa sezione illustra come creare una regola di telemetria. L'esempio usa un c
 
 1. Scegliere un nome che consente di identificare la regola in questo modello di dispositivo.
 
-1. Per attivare immediatamente la regola per tutti i dispositivi creati da questo modello, attivare **Enable rule** (Abilita regola).
+1. Per attivare immediatamente la regola per tutti i dispositivi creati da questo modello, attivare o disattivare **Enable rule** (Abilita regola).
 
 ### <a name="configure-the-rule-condition"></a>Configurare la condizione della regola
 
@@ -58,16 +58,16 @@ Questa sezione illustra come aggiungere una condizione per monitorare la telemet
 
 ### <a name="configure-the-action"></a>Configurare l'azione
 
-Questa sezione illustra come impostare il comportamento della regola quando la condizione raggiunge la soglia prevista, mediante l'aggiunta di un'azione.
+Questa sezione descrive come specificare il comportamento della regola mediante l'aggiunta di un'azione quando la condizione raggiunge la soglia prevista.
 
-1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili. Durante l'anteprima pubblica, l'unica azione supportata è **Email** (Posta elettronica).
+1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili. L'unica azione supportata per l'anteprima pubblica è **Email** (E-mail).
 
     ![Aggiungere un'azione](media\howto-create-telemetry-rules\image5.png)
 
-1. Scegliere l'azione **Email** (Posta elettronica), immettere un indirizzo di posta elettronica valido nel campo **To** (A) e specificare una nota che viene visualizzata nel corpo del messaggio di posta elettronica quando la regola viene attivata.
+1. Scegliere l'azione **Email** (E-mail), immettere un indirizzo di posta elettronica valido nel campo **To** (A) e specificare una nota che viene visualizzata nel corpo del messaggio di posta elettronica quando la regola si attiva.
 
     > [!NOTE]
-    > I messaggi di posta elettronica vengono inviati solo agli utenti che sono stati aggiunti all'applicazione e hanno eseguito l'accesso almeno una volta. Altre informazioni sulla [gestione degli utenti](howto-administer.md) sono disponibili in Azure IoT Central.
+    > I messaggi di posta elettronica vengono inviati solo agli utenti che sono stati aggiunti all'applicazione e hanno eseguito l'accesso almeno una volta. Altre informazioni sulla [gestione degli utenti](howto-administer.md) in Azure IoT Central.
 
    ![Configurare l'azione](media\howto-create-telemetry-rules\image6.png)
 
@@ -79,11 +79,11 @@ Le regole possono derivare determinati valori da **Device Properties** (Propriet
 
 L'uso dei parametri è un metodo efficace per ridurre il numero di regole da gestire per ogni modello di dispositivo.
 
-Le azioni possono essere configurate anche usando **Device Property** (Proprietà dispositivo) come parametro. Se un indirizzo di posta elettronica viene archiviato come proprietà del dispositivo, può essere usato quando si definisce l'indirizzo **To** (A).
+Le azioni possono essere configurate anche usando **Device Property** (Proprietà dispositivo) come parametro. Se un indirizzo di posta elettronica viene archiviato come una proprietà dispositivo, può essere usato quando si definisce l'indirizzo **To** (A).
 
 ## <a name="delete-a-rule"></a>Eliminare una regola
 
-Se una regola non è più necessaria è possibile eliminarla aprendola e scegliendo **Delete** (Elimina). La regola eliminata viene rimossa dal modello del dispositivo e da tutti i dispositivi associati.
+Quando una regola non è più necessaria, eliminarla aprendo la regola e scegliendo **Delete** (Elimina). Eliminando la regola, la si rimuove dal modello di dispositivo e da tutti i dispositivi associati.
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Abilitare o disabilitare una regola per un modello di dispositivo
 

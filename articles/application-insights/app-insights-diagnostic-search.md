@@ -1,8 +1,8 @@
 ---
-title: "Utilizzo della funzionalità Ricerca in Azure Application Insights | Microsoft Docs"
+title: Utilizzo della funzionalità Ricerca in Azure Application Insights | Microsoft Docs
 description: Ricercare e filtrare elementi di telemetria non elaborata inviata da App Web.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294385"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 Ricerca è una funzionalità di [Application Insights](app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
