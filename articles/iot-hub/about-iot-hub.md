@@ -1,22 +1,20 @@
 ---
 title: Introduzione a hub IoT di Azure | Microsoft Docs
 description: Informazioni sull'hub IoT di Azure Questo servizio IoT è stato compilato per l'inserimento di dati scalabili, per la gestione dei dispositivi e per la sicurezza.
-services: iot-hub
-keywords: ''
 author: nberdy
 ms.author: nberdy
 ms.date: 04/27/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.openlocfilehash: 7ba74834e1c3aad5915959e0457b6e034e4a49ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: iot-hub
+manager: briz
+ms.openlocfilehash: 1d3df8f1f65d02502c11c6d6ef431292efea64e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632357"
 ---
 # <a name="what-is-azure-iot-hub"></a>Che cos'è l'hub IoT di Azure?
 
