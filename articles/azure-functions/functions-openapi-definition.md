@@ -4,7 +4,7 @@ description: Creare una definizione OpenAPI che consente ad altri servizi e app 
 services: functions
 keywords: OpenAPI, Swagger, app cloud, servizi cloud
 documentationcenter: ''
-author: mgblythe
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/15/2017
-ms.author: mblythe; glenga
+ms.author: glenga
+ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8caea30196a7ecdd4226b18963cd8b2040dc7e35
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234190"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Creare una definizione OpenAPI per una funzione
 Le API REST vengono spesso descritte usando una definizione OpenAPI (detta in precedenza file [Swagger](http://swagger.io/)). Questa definizione contiene informazioni sulle operazioni disponibili in un'API e su come devono essere strutturati i dati della richiesta e della risposta per l'API.

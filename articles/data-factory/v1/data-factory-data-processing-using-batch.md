@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621939"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -78,7 +79,7 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 
 * **Data Factory esegue l'attività personalizzata usando il pool allocato da Batch.** Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nella risorsa di archiviazione.
 
-* **Data Factory sposta i risultati finali in un terzo percorso,**per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
+* **Data Factory sposta i risultati finali in un terzo percorso,** per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
 
 ## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
 La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.

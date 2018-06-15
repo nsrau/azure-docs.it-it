@@ -1,24 +1,19 @@
 ---
-title: Configurare Diagnostica di Azure per l'invio di dati ad Application Insights | Documentazione Microsoft
+title: Configurare Diagnostica di Azure per inviare dati ad Application Insights
 description: Aggiornare la configurazione pubblica di Diagnostica di Azure per inviare dati ad Application Insights
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: f9e12c3e-c307-435e-a149-ef0fef20513a
-ms.service: monitoring-and-diagnostics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.openlocfilehash: b4f1f8900637f23220f9a89adbb321707c49e2d3
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: diagnostic-extension
+ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262138"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Inviare i dati di diagnostica del servizio Cloud, della macchina virtuale o di Service Fabric ad Application Insights
 I servizi cloud, le macchine virtuali, il set di scalabilità di macchine virtuali e Service Fabric usano l'estensione Diagnostica di Azure per raccogliere i dati.  La diagnostica di Azure invia i dati alle tabelle di Archiviazione di Azure.  Tuttavia, è possibile anche inviare pipe o un subset di dati ad altri percorsi con l'estensione Diagnostica di Azure 1.5 o versione successiva.

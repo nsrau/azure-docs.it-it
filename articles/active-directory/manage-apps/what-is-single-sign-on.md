@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354535"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292892"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
@@ -59,7 +59,7 @@ In questo scenario, quando è già stato effettuato l’accesso ad Azure AD e si
 
 Azure AD supporta il Single Sign-On federato con applicazioni che supportano i protocolli SAML 2.0, WS-Federation oppure OpenID Connect.
 
-Vedere anche: [Gestione dei certificati per Single Sign-On federato](../active-directory-sso-certs.md)
+Vedere anche: [Gestione dei certificati per Single Sign-On federato](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Single Sign-On basato su password
 La configurazione di Single Sign-On basato su password consente agli utenti dell'organizzazione di accedere automaticamente a un'applicazione SaaS di terze parti tramite Azure AD utilizzando le informazioni dell’account utente dall’applicazione SaaS di terze parti. Quando si abilita questa funzionalità, Azure AD raccoglie e archivia in modo sicuro le informazioni sull'account utente e la relativa password.
@@ -194,7 +194,7 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell’accesso
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../active-directory-saas-tutorial-list.md)
 * [Ricerca di applicazioni cloud non autorizzate con Cloud App Discovery](cloud-app-discovery.md)
-* [Introduzione alla gestione dell'accesso alle app](../active-directory-managing-access-to-apps.md)
+* [Introduzione alla gestione dell'accesso alle app](what-is-access-management.md)
 * [Confronto tra le funzionalità per la gestione di identità esterne con Azure AD](../active-directory-b2b-compare-b2c.md)
 
 

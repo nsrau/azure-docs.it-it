@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: v-ant-msft
-ms.openlocfilehash: 0f1cadfb7c78c32071083d5e2efa3299ba08fb3a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52fe23f5353a68e3afbac6a91955a61c7b8fb44c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161384"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292671"
 ---
 # <a name="tutorial-configure-xmatters-ondemand-for-automatic-user-provisioning"></a>Esercitazione: Configurare xMatters OnDemand per il provisioning utenti automatico
 
@@ -73,7 +73,7 @@ Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate,
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono accedere a xMatters OnDemand. Dopo aver stabilito questo, è possibile assegnare tali utenti e/o gruppi a xMatters OnDemand seguendo le istruzioni riportate nell'articolo seguente:
 
-*   [Assegnare un utente o gruppo a un'app aziendale](active-directory-coreapps-assign-user-azure-portal.md)
+*   [Assegnare un utente o gruppo a un'app aziendale](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-xmatters-ondemand"></a>Suggerimenti importanti per l'assegnazione di utenti a xMatters OnDemand
 
@@ -159,8 +159,8 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](active-directory-appssoaccess-whatis.md)
+* [Gestione del provisioning degli account utente per app aziendali](manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

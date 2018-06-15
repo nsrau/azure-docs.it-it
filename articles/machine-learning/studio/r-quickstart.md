@@ -1,5 +1,5 @@
 ---
-title: Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Microsoft Docs
+title: Esercitazione con guida rapida per il linguaggio R per Azure Machine Learning | Documentazione Microsoft
 description: Usare questa esercitazione sulla programmazione R per iniziare a usare rapidamente il linguaggio R con Azure Machine Learning Studio per creare una soluzione di previsione.
 keywords: guida introduttiva, linguaggio r, linguaggio di programmazione r, esercitazione di programmazione r
 services: machine-learning
@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836376"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
 

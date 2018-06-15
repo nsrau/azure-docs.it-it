@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: 2ac28c278b9ac832f05cdb19a48ea576526104b3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.component: compliance-reports
+ms.date: 05/16/2018
+ms.author: rolyon
+ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235006"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -33,7 +35,8 @@ Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la colla
 
 ## <a name="prerequisites"></a>prerequisiti 
 
-Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-whatis.md). Ogni utente che interagisce con questa funzionalità per accedere a una verifica oppure crearne o applicarne una necessita di una licenza.
+
+Le verifiche di accesso sono disponibili con Azure AD edizione Premium P2, incluso in Microsoft Enterprise Mobility + Security E5. Per altre informazioni, vedere [Edizioni di Azure Active Directory](active-directory-editions.md). Ogni utente che interagisce con questa funzionalità, ad esempio per creare una verifica, compilarla oppure verificare il proprio accesso, necessita di una licenza. 
 
 Se si prevede di chiedere agli utenti guest di verificare il proprio accesso, leggere le informazioni sulle licenze per gli utenti guest. Per altre informazioni, vedere [Licenze di collaborazione B2B di Azure AD](active-directory-b2b-licensing.md).
 

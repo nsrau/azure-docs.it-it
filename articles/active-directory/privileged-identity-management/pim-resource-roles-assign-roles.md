@@ -3,22 +3,23 @@ title: Assegnare ruoli per le risorse di Azure usando Privileged Identity Manage
 description: Descrive come assegnare i ruoli in Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 501f063992d2f5c7769a5c9059b346aa2b5c2bb4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 246467d5eeebd43b8d89d98a30fdfc1c5ca0909a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149373"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233656"
 ---
 # <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Assegnare ruoli per le risorse di Azure usando Privileged Identity Management
 

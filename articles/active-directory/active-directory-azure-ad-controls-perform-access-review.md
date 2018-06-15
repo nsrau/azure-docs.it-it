@@ -4,19 +4,21 @@ description: Informazioni su come verificare l'accesso usando le verifiche di ac
 services: active-directory
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: 98658a2b9fdd0ede98b3f6c10a19af527a8677cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.openlocfilehash: dbc06f7978b5669e67f1e4161ebcd0bbeb3dec41
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233496"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Verificare l'accesso con le verifiche di accesso di Azure AD
 

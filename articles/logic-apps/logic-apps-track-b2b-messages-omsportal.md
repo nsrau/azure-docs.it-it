@@ -2,7 +2,7 @@
 title: Tracciare i messaggi B2B con Azure Log Analytics - App per la logica di Azure | Microsoft Docs
 description: Tenere traccia delle comunicazioni B2B per l'account di integrazione e le app per la logica con Azure Log Analytics
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299978"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Tenere traccia delle comunicazioni B2B con Azure Log Analytics
 

@@ -8,14 +8,15 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 06/07/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c6f397c2cfcfd9fbd4a5cc8f70a99f4abc86ba21
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34850679"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Ripristinare un backup di database in un'istanza gestita di database SQL di Azure
 
@@ -26,7 +27,7 @@ Questa esercitazione illustra come ripristinare un backup di un database archivi
 > * Creare un account di archiviazione di Azure e caricare il file di backup
 > * Ripristinare il database Wide World Importers da un file di backup
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 In questa esercitazione vengono usate come punto di partenza le risorse create nell'esercitazione [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-create-tutorial-portal.md).
 

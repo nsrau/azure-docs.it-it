@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d0e390cb76888960dbc52c1c5015d1cb9a6c169c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 77f3660eef182afe43ec626d71d606ee10037cad
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34345776"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292338"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Esercitazione: Configurare LinkedIn Elevate per il provisioning utenti automatico
 
@@ -43,7 +43,7 @@ Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate,
 
 Prima di configurare e abilitare il servizio di provisioning, è necessario stabilire quali utenti e/o gruppi in Azure AD rappresentano gli utenti che devono accedere a LinkedIn Elevate. Dopo avere deciso gli utenti, è possibile assegnarli a LinkedIn Elevate seguendo le istruzioni riportate qui:
 
-[Assegnare un utente o gruppo a un'app aziendale](active-directory-coreapps-assign-user-azure-portal.md)
+[Assegnare un utente o gruppo a un'app aziendale](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Suggerimenti importanti per l'assegnazione di utenti a LinkedIn Elevate
 
@@ -124,5 +124,5 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](active-directory-enterprise-apps-manage-provisioning.md)
+* [Gestione del provisioning degli account utente per app aziendali](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](manage-apps/what-is-single-sign-on.md)

@@ -3,23 +3,24 @@ title: Eseguire una verifica di accesso in Privileged Identity Management per le
 description: Questo documento descrive come eseguire una verifica di accesso in PIM per risorse di Azure in base al ruolo delle risorse.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 47d981ce8034d725fe2b119392334a156852698d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 10da40cf83dd39251033403a6a6913eb2e3b8b1d
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201590"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260852"
 ---
 # <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Eseguire una verifica di accesso in PIM, in base al ruolo delle risorse
 Privileged Identity Management (PIM) per le risorse di Azure semplifica per le aziende la gestione dell'accesso con privilegi alle risorse in Azure. 

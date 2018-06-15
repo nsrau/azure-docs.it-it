@@ -1,25 +1,19 @@
 ---
-title: Monitoraggio di applicazioni e risorse di Azure | Microsoft Docs
+title: Monitoraggio di applicazioni e risorse di Azure
 description: Panoramica dei servizi e delle funzionalità Microsoft che contribuiscono a una strategia di monitoraggio completa per i servizi e le applicazioni di Azure.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777553"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265133"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Monitoraggio di applicazioni e risorse di Azure
 
@@ -118,9 +112,9 @@ Sono disponibili diversi strumenti che interagiscono per monitorare vari aspetti
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) consente il monitoraggio basato sugli scenari e la diagnostica per diversi scenari di rete in Azure. Archivia i dati in metriche e diagnostica di Azure per l'ulteriore analisi. Si integra con le soluzioni seguenti per il monitoraggio di diversi aspetti della rete.
 
-[Monitoraggio prestazioni rete](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/): soluzione di monitoraggio di rete basata sul cloud che monitora la connettività tra cloud pubblici, data center e ambienti locali.
+[Monitoraggio prestazioni rete](../log-analytics/log-analytics-network-performance-monitor.md): soluzione di monitoraggio di rete basata sul cloud che monitora la connettività tra cloud pubblici, data center e ambienti locali.
 
-[Monitoraggio ExpressRoute](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/): funzionalità di Monitoraggio prestazioni rete che monitora le prestazioni e la connettività end-to-end nei circuiti ExpressRoute di Azure.
+[Monitoraggio ExpressRoute](../expressroute/how-to-npm.md): funzionalità di Monitoraggio prestazioni rete che monitora le prestazioni e la connettività end-to-end nei circuiti ExpressRoute di Azure.
 
 [Analisi DNS](../log-analytics/log-analytics-dns.md): soluzione che fornisce informazioni dettagliate relative a operazioni, prestazioni e sicurezza, basate sui server DNS.
 

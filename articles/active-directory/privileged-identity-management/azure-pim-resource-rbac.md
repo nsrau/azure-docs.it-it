@@ -3,7 +3,7 @@ title: Panoramica del Controllo degli accessi in base al ruolo per le risorse di
 description: Panoramica della funzionalità Controllo degli accessi in base al ruolo in PIM, incluse la terminologia e le notifiche
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261033"
 ---
 # <a name="pim-for-azure-resources"></a>PIM per risorse di Azure
 

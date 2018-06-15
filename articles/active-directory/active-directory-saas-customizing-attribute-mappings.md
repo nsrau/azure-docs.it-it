@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295626"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning degli utenti per le applicazioni SaaS in Azure Active Directory
 Microsoft Azure AD fornisce supporto per il provisioning degli utenti in applicazioni SaaS di terze parti, ad esempio Salesforce, Google Apps e altre. Se il provisioning degli utenti è abilitato per un'applicazione SaaS di terze parti, il portale di Azure ne controlla i valori degli attributi tramite una configurazione denominata "mapping degli attributi".
@@ -83,7 +84,7 @@ Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato
 Gli attributi di cui viene effettuato il provisioning come parte di oggetti gruppo possono essere personalizzati allo stesso modo degli oggetti utente, descritto in precedenza. 
 
 >[!TIP]
->Il provisioning di oggetti gruppo (proprietà e membri) è un concetto distinto dall'[assegnazione di gruppi](active-directory-coreapps-assign-user-azure-portal.md) a un'applicazione. Benché sia possibile assegnare un gruppo a un'applicazione, è possibile effettuare il provisioning solo degli oggetti utente contenuti nel gruppo. Il provisioning di oggetti gruppo completi non è necessario per usare i gruppi nelle assegnazioni.
+>Il provisioning di oggetti gruppo (proprietà e membri) è un concetto distinto dall'[assegnazione di gruppi](manage-apps/assign-user-or-group-access-portal.md) a un'applicazione. Benché sia possibile assegnare un gruppo a un'applicazione, è possibile effettuare il provisioning solo degli oggetti utente contenuti nel gruppo. Il provisioning di oggetti gruppo completi non è necessario per usare i gruppi nelle assegnazioni.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Modifica dell'elenco degli attributi supportati
@@ -117,7 +118,7 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
    * *Riferimento*: l'attributo contiene un ID che fa riferimento a un valore archiviato in un'altra tabella nell'applicazione di destinazione.
    * *String*: l'attributo contiene una stringa di testo. 
 * **Chiave primaria?**: specifica se l'attributo è o meno definito come campo di chiave primaria nello schema dell'oggetto di destinazione.
-* **Obbligatorio?**: specifica se l'attributo deve o meno essere immesso nell'applicazione o nel sistema di destinazione.
+* **Obbligatorio?** specifica se l'attributo deve o meno essere immesso nell'applicazione o nel sistema di destinazione.
 * **Multivalore?**: specifica se l'attributo supporta o meno più valori.
 * **Maiuscole/minuscole esatte?**: specifica se i valori degli attributi vengono o meno valutati facendo distinzione tra maiuscole e minuscole.
 * **API Expression** (Espressione API): non usare questa opzione a meno che non sia specificato nella documentazione per un determinato connettore di provisioning, ad esempio Workday.
@@ -149,7 +150,7 @@ La selezione di questa opzione forza una nuova sincronizzazione di tutti gli ute
 * [Automatizzare il provisioning e il deprovisioning utenti in app SaaS](active-directory-saas-app-provisioning.md)
 * [Scrittura di espressioni per i mapping degli attributi](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Ambito dei filtri per il Provisioning utente](active-directory-saas-scoping-filters.md)
-* [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](active-directory-scim-provisioning.md)
+* [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->

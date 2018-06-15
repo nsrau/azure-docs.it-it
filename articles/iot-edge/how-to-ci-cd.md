@@ -1,20 +1,19 @@
 ---
 title: Integrazione e distribuzione continue di Azure IoT Edge | Microsoft Docs
 description: Panoramica sull'integrazione e sulla distribuzione continue di Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
-ms.date: 4/30/2018
-ms.topic: article
+ms.date: 04/30/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f635a4c02dd8fd2b58598e53662d1a4d82ea611
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+services: iot-edge
+ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311741"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631021"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Integrazione e distribuzione continue in Azure IoT Edge: anteprima
 Questa esercitazione descrive come usare le funzionalità di integrazione continua e di distribuzione continua di Visual Studio Team Services (VSTS) e Microsoft Team Foundation Server (TFS) per compilare, testare e distribuire applicazioni in Azure IoT Edge in modo rapido ed efficiente. 

@@ -1,19 +1,19 @@
 ---
 title: Informazioni di riferimento su EdgeAgent ed EdgeHub per Azure IoT | Microsoft Docs
 description: Esaminare le proprietà specifiche e i rispettivi valori per i moduli gemelli edgeAgent ed edgeHub
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632908"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Proprietà dei moduli gemelli "agente di Edge" e "hub di Edge"
 

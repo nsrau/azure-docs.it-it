@@ -7,14 +7,16 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 93df053bf62b5a69f74d816fc05520d040d73bd7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831990"
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
 Dopo aver distribuito un modello come un servizio Web in tempo reale è possibile inviare dati e ottenere stime da un'ampia gamma di piattaforme e applicazioni. Il servizio Web in tempo reale espone un'API REST per l'ottenimento delle stime. È possibile inviare dati al servizio Web nel formato di riga singola o multipla per ottenere una o più stime contemporaneamente.

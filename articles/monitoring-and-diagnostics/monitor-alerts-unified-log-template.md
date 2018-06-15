@@ -1,25 +1,19 @@
 ---
-title: Creare un avviso del log con un modello di Resource Manager | Microsoft Docs
+title: Creare un avviso del log con un modello di Resource Manager
 description: Informazioni su come creare un avviso del log usando un modello di Azure Resource Manager e un'API.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 14a2560d91fd0f8dcc729b32c7155c4b74aa8aa1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204159"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263202"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Creare un avviso del log con un modello di Resource Manager
 Questo articolo illustra come poter gestire in Azure gli [avvisi del log](monitor-alerts-unified-log.md) su larga scala a livello di codice usando un [modello di Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) tramite [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). Al momento, Avvisi di Azure supporta gli avvisi del log per le query di [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).

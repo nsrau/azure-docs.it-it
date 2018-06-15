@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 1a174913446c0a1d5e3e3b01123db8b40bfd172c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f89ff3a030f1da75bca538eefaf2496e9be8e97b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233820"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Come configurare l'applicazione del servizio app per usare l'account di accesso di Google
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,11 +33,11 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 2. Passare al sito Web delle [API di Google](http://go.microsoft.com/fwlink/p/?LinkId=268303)accedere con le credenziali dell'account Google, fare clic su **Crea progetto**, specificare un valore in **Nome progetto**, quindi fare clic su **Crea**.
 3. Una volta creato il progetto, selezionarlo. Dal dashboard del progetto, fare clic su **Go to APIs overview** (panoramica Vai a API).
 4. Selezionare **Abilita API e servizi** (Abilita API e servizi). Cercare **Google + API**e selezionarlo. Fare quindi clic su **Attiva**.
-6. Nel riquadro di spostamento a sinistra scegliere **Credenziali** > **Schermata consenso OAuth**, quindi selezionare il proprio **Indirizzo email**, immettere un **Nome del prodotto** e fare clic su **Salva**.
-7. Nella scheda **Credenziali** fare clic su **Crea credenziali** > **ID client OAuth**. Fare clic su **Configure consent screen** (Configura schermata di consenso) e assegnare un **Nome prodotto**. Fare quindi clic su **Salva**
-8. Nella schermata "Create client ID" (Crea ID Cliente), selezionare **Applicazione Web**.
-9. Incollare l'**URL** del servizio app copiato in precedenza in **Origini JavaScript autorizzate** e quindi incollare l'URI di reindirizzamento in **URI di reindirizzamento autorizzati**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/google/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
-10. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
+5. Nel riquadro di spostamento a sinistra scegliere **Credenziali** > **Schermata consenso OAuth**, quindi selezionare il proprio **Indirizzo email**, immettere un **Nome del prodotto** e fare clic su **Salva**.
+6. Nella scheda **Credenziali** fare clic su **Crea credenziali** > **ID client OAuth**.
+7. Nella schermata "Create client ID" (Crea ID Cliente), selezionare **Applicazione Web**.
+8. Incollare l'**URL** del servizio app copiato in precedenza in **Origini JavaScript autorizzate** e quindi incollare l'URI di reindirizzamento in **URI di reindirizzamento autorizzati**. L'URI di reindirizzamento corrisponde all'URL dell'applicazione con l'aggiunta del percorso */.auth/login/google/callback*. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/google/callback`. Assicurarsi che sia in uso lo schema HTTPS. Fare quindi clic su **Crea**.
+9. Fare clic sulla schermata successiva e annotare i valori di ID client e Segreto client.
 
     > [!IMPORTANT]
     > Il segreto client è un'importante credenziale di sicurezza. Non condividere questo valore con altri e non distribuirlo all'interno di un'applicazione client.
@@ -69,5 +70,5 @@ Per completare la procedura descritta in questo argomento, è necessario avere u
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 

@@ -11,18 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: cdd07fd837863d9a5abced0db8cacaded6288a41
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192225"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233115"
 ---
 # <a name="retrieve-access-review-results"></a>Recuperare i risultati della verifica di accesso
 
 Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione.  Un utente che dispone del ruolo **Amministratore globale**, **Amministratore della sicurezza** o **Ruolo con autorizzazioni di lettura per la sicurezza** può anche leggere i risultati di una verifica di accesso.  Al fine di assegnare utenti a uno di questi ruoli, un Amministratore dei ruoli con privilegi può usare Azure AD PIM per rendere idoneo un utente ad attivare il ruolo oppure un Amministratore globale può [assegnare un utente al ruolo](active-directory-users-assign-role-azure-portal.md) definitivamente.
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>Individuazione di una verifica di accesso
 
@@ -42,8 +45,6 @@ Per visualizzare i risultati di un'istanza completata di una verifica di accesso
 
 
 ## <a name="removing-users-from-an-access-review"></a>Rimozione di utenti da una verifica di accesso
-
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
 
 Per impostazione predefinita, un utente eliminato rimarrà comunque in Azure AD per 30 giorni, periodo durante il quale un amministratore potrà eseguirne il ripristino se necessario.  Dopo 30 giorni l'utente verrà eliminato definitivamente.  Inoltre, tramite il portale di Azure Active Directory, un Amministratore globale può in modo esplicito [eliminare definitivamente un utente eliminato di recente](active-directory-users-restore.md) prima della scadenza di tale periodo.  Dopo l'eliminazione definitiva di un utente, i dati riguardanti tale utente verranno rimossi dalle verifiche di accesso attive.  Le informazioni di controllo sugli utenti eliminati restano nel log di controllo.
 

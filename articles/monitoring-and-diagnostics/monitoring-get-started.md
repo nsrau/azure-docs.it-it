@@ -1,24 +1,19 @@
 ---
-title: Introduzione a Monitoraggio di Azure | Documentazione Microsoft
+title: Introduzione al monitoraggio di Azure
 description: Introduzione all'uso del monitoraggio di Azure per comprendere appieno il funzionamento delle risorse ed eseguire operazioni in base ai dati.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 70807db256f72b77bb29db3f6f59474a892f2939
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263362"
 ---
 # <a name="get-started-with-azure-monitor"></a>Introduzione al monitoraggio di Azure
 Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'unica origine per il monitoraggio delle risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, fare query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure. È possibile usare questi dati tramite il portale di Azure, i [cmdlet PowerShell di Monitoraggio di Azure](insights-powershell-samples.md), l'[interfaccia della riga di comando multipiattaforma](insights-cli-samples.md) o le [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/dn931943.aspx). Questo articolo illustra alcuni componenti principali di Monitoraggio di Azure, usando il portale a scopo dimostrativo.
