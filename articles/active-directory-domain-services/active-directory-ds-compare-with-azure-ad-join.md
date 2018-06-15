@@ -2,23 +2,25 @@
 title: Confrontare l'aggiunta ad Azure AD e Azure Active Directory Domain Services | Microsoft Docs
 description: Scelta tra l'aggiunta ad Azure AD e Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587859"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Scegliere tra l'aggiunta ad Azure Active Directory e Azure Active Directory Domain Services
 Questo articolo descrive le differenze tra l'aggiunta ad Azure Active Directory (AD) e Azure AD Domain Services e facilita la scelta in base ai casi d'uso.

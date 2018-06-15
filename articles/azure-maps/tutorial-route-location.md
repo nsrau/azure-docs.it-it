@@ -1,22 +1,20 @@
 ---
 title: Trovare un percorso con Mappe di Azure | Microsoft Docs
 description: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 73ca61140f05a65ca75cd703ed226773b9a43dfa
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601344"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -74,7 +72,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
 
     </html>
     ```
-    Nell'intestazione HTML sono incorporate le posizioni delle risorse per i file CSS e JavaScript relative alla libreria di Mappe di Azure. Il segmento *script* nel corpo del file HTML deve contenere il codice JavaScript inline per l'accesso alle API di Mappe di Azure.
+    L'intestazione HTML incorpora le posizioni delle risorse per i file CSS e JavaScript relative alla libreria di Mappe di Azure. Il segmento *script* nel corpo del file HTML deve contenere il codice JavaScript inline per l'accesso alle API di Mappe di Azure.
 
 3. Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Sostituire la stringa **\<your account key\>** con la chiave primaria copiata dall'account Mappe.
 
@@ -87,7 +85,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
     ```
     **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
 
-4. Salvare il file e aprirlo nel browser. A questo punto, si ha una mappa di base che è possibile sviluppare ulteriormente. 
+4. Salvare il file e aprirlo nel browser. A questo punto si ha una mappa di base che è possibile sviluppare ulteriormente. 
 
    ![Visualizzare la mappa di base](./media/tutorial-route-location/basic-map.png)
 

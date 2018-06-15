@@ -2,10 +2,10 @@
 title: Come rimuovere l'accesso di un utente a un'applicazione | Microsoft Docs
 description: Comprendere come rimuovere l'accesso di un utente a un'applicazione
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3731049d2bc42c7fac492f7609f54b5d4a1443b6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292321"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Come rimuovere l'accesso di un utente a un'applicazione
 
@@ -71,4 +72,4 @@ Per **disabilitare tutte le future operazioni di consenso utente nell'intera dir
 
 
 # <a name="next-steps"></a>Passaggi successivi
-[Gestione dell'accesso alle app](active-directory-managing-access-to-apps.md)
+[Gestione dell'accesso alle app](manage-apps/what-is-access-management.md)

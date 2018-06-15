@@ -1,24 +1,19 @@
 ---
-title: Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure | Microsoft Docs
+title: Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 description: Informazioni su come usare le autorizzazioni e i ruoli predefiniti di monitoraggio di Azure per limitare l'accesso alle risorse di monitoraggio.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2686e53b-72f0-4312-bcd3-3dc1b4a9b912
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: ''
+ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264603"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introduzione a ruoli, autorizzazioni e sicurezza con il monitoraggio di Azure
 Molti team hanno bisogno di regolare rigorosamente l'accesso ai dati e alle impostazioni di monitoraggio. Ad esempio, se si dispone di membri del team che lavorano esclusivamente sul monitoraggio (tecnici del supporto, tecnici DevOps) o si usa un provider di servizi gestiti, si consiglia di concedere loro l'accesso ai dati di monitoraggio solo limitandone la possibilità di creare, modificare o eliminare le risorse. In questo articolo viene illustrato come applicare rapidamente un ruolo di monitoraggio predefinito nel Controllo degli accessi in base al ruolo a un utente in Azure o creare il proprio ruolo personalizzato per un utente che ha bisogno di autorizzazioni di monitoraggio limitate. Vengono poi esposte alcune considerazioni sulla sicurezza per le risorse legate al monitoraggio di Azure e viene illustrato come è possibile limitare l'accesso ai dati che contengono.
@@ -125,7 +120,7 @@ Tutti e tre questi tipi di dati possono essere archiviati in un account di archi
 
 * Usare un account di archiviazione singolo e dedicato per il monitoraggio dei dati. Se è necessario separare i dati di monitoraggio in più account di archiviazione, non condividere mai l'uso di un account di archiviazione tra dati relativi al monitoraggio e non relativi al monitoraggio, perché in questo modo si potrebbe inavvertitamente fornire l'accesso ai dati non relativi al monitoraggio a chi ha bisogno solo dei dati di monitoraggio (ad esempio SIEM di terze parti).
 * Usare un singolo bus di servizio o spazio dei nomi dell'hub eventi dedicato in tutte le impostazioni di diagnostica per lo stesso motivo specificato sopra.
-* Limitare l'accesso agli hub eventi o agli account di archiviazione relativi al monitoraggio tenendoli in un gruppo di risorse separato e [usare l'ambito](../role-based-access-control/overview.md#basics-of-access-management-in-azure) nei ruoli di monitoraggio per limitare l'accesso solo a tale gruppo di risorse.
+* Limitare l'accesso agli hub eventi o agli account di archiviazione relativi al monitoraggio tenendoli in un gruppo di risorse separato e [usare l'ambito](../role-based-access-control/overview.md#scope) nei ruoli di monitoraggio per limitare l'accesso solo a tale gruppo di risorse.
 * Non concedere mai l'autorizzazione ListKeys ad account di archiviazione o hub eventi nell'ambito della sottoscrizione quando un utente ha bisogno solo dell'accesso ai dati di monitoraggio. Piuttosto, assegnare queste autorizzazioni all'utente nell'ambito di una risorsa o di un gruppo di risorse (se si dispone di un gruppo di risorse di monitoraggio dedicato).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Limitare l'accesso agli account di archiviazione relativi al monitoraggio
