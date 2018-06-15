@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 68d4c54b2648dc3b40e69dcde9828d18de318796
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894459"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702075"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -52,7 +52,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 
     Per rimuovere un endpoint di servizio, deselezionare il servizio per cui si vuole rimuovere l'endpoint di servizio. Per altre informazioni sugli endpoint di servizio e sui servizi per cui possono essere abilitati, vedere [Panoramica sugli endpoint di servizio della rete virtuale](virtual-network-service-endpoints-overview.md). Dopo aver abilitato un endpoint di servizio per un servizio, è necessario abilitare anche l'accesso alla rete per la subnet per una risorsa creata con il servizio. Ad esempio, se si abilita l'endpoint di servizio per *Microsoft.Storage*, è necessario abilitare anche l'accesso alla rete per tutti gli account di Archiviazione di Azure a cui si vuole concedere l'accesso alla rete. Per informazioni dettagliate su come abilitare l'accesso alla rete a subnet con un endpoint di servizio abilitato, vedere la documentazione per il singolo servizio per cui è stato abilitato l'endpoint di servizio.
 
-    Per controllare che un endpoint di servizio sia attivato per una subnet, visualizzare le [route valide](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-virtual-machine) per qualsiasi interfaccia di rete nella subnet. Quando un endpoint è configurato, verrà visualizzata una route *predefinita* con i prefissi degli indirizzi del servizio e un nextHopType di **VirtualNetworkServiceEndpoint**. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
+    Per controllare che un endpoint di servizio sia attivato per una subnet, visualizzare le [route valide](diagnose-network-routing-problem.md) per qualsiasi interfaccia di rete nella subnet. Quando un endpoint è configurato, verrà visualizzata una route *predefinita* con i prefissi degli indirizzi del servizio e un nextHopType di **VirtualNetworkServiceEndpoint**. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
 6. Per aggiungere la subnet alla rete virtuale selezionata, selezionare **OK**.
 
 **Comandi**
