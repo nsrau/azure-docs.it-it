@@ -469,6 +469,9 @@
     - name: Resilienza
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Controllo degli accessi in base al ruolo
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Integrità del servizio
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

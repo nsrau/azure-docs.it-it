@@ -14,10 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: danis;cynthn
 ms.openlocfilehash: 8e65b82730884947633688db9ed50080b96e0b8e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33944883"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Usare Criteri di Azure per limitare l'installazione di estensioni in macchine virtuali Linux
 
@@ -66,9 +67,9 @@ Copiare e incollare il codice JSON seguente nel file.
 Al termine, premere **ESC** e quindi digitare **:wq** per salvare e chiudere il file.
 
 
-## <a name="create-a-parameters-file"></a>Creare un file dei parametri
+## <a name="create-a-parameters-file"></a>Creare un file di parametri
 
-È anche necessario un file dei [parametri](/azure/azure-policy/policy-definition#parameters) per la creazione di una struttura da usare per passare un elenco delle estensioni da bloccare. 
+È anche necessario un file di [parametri](/azure/azure-policy/policy-definition#parameters) per la creazione di una struttura da usare per passare un elenco delle estensioni da bloccare. 
 
 Questo esempio mostra come creare un file dei parametri per macchine virtuali Linux in Cloud Shell, ma se si usa l'interfaccia della riga di comando in locale è anche possibile creare un file locale e sostituire il percorso (~/clouddrive) con quello del file locale nel computer in uso.
 
@@ -97,7 +98,7 @@ Al termine, premere **ESC** e quindi digitare **:wq** per salvare e chiudere il 
 
 ## <a name="create-the-policy"></a>Creare i criteri
 
-Una definizione dei criteri è un oggetto usato per archiviare la configurazione che si vuole usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+Una definizione di criteri è un oggetto usato per archiviare la configurazione che si desidera usare. La definizione dei criteri usa i file delle regole e dei parametri per definire i criteri. Creare la definizione dei criteri usando [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
 
 In questo esempio le regole e i parametri sono i file creati e archiviati come file JSON in Cloud Shell.
 
