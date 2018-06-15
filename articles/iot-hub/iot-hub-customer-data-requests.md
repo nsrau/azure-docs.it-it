@@ -1,18 +1,21 @@
 ---
 title: Funzionalità di richiesta dati dei clienti
+description: Riepilogo delle funzionalità di richiesta dei dati dei clienti
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: 3af76fe22e93b6c5d502733196994bda61b9a93e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-hub
+ms.openlocfilehash: 73da48d449a7cc5cdca598c8aef176952909ed85
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361516"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634924"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
+# <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dei dati dei clienti
 
 L'Hub IoT di Azure è un servizio cloud basato su REST API destinato ai clienti aziendali che consente comunicazioni protette e bidirezionali tra milioni di dispositivi e un servizio di Azure partizionato.
 

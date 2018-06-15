@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605169"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -52,8 +52,8 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 - Giappone occidentale (JPW)
 -   India centrale (INC) 
 - India meridionale (INS)
-- Corea centrale (KRC)
-- Corea meridionale (KRS)
+- Corea del Sud centrale (KRC)
+- Corea del Sud meridionale (KRS)
 -   Stati Uniti centro-settentrionali (NCUS) 
 -   Europa settentrionale (NE) 
 -   Stati Uniti a centro-meridionali (SCUS) 
