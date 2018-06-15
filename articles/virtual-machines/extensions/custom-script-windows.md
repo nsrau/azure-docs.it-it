@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: danis
-ms.openlocfilehash: 34c16b686a50994862bef14cefec1a4799a343c4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 80f9ecd40c5b9504a6554b95bf374046d8253933
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944943"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809778"
 ---
 # <a name="custom-script-extension-for-windows"></a>Estensione Script personalizzato per Windows
 
@@ -37,24 +37,24 @@ Questo documento descrive come usare l'estensione di script personalizzata con i
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione script personalizzata per Linux verrà eseguita sui sistemi operativi supportati dall'estensione. Per altre informazioni, vedere questo [articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L'estensione per script personalizzati di Linux verrà eseguita sui sistemi operativi supportati dall'estensione. Per altre informazioni, vedere questo [articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
 
 ### <a name="script-location"></a>Percorso dello script
 
-È possibile servirsi dell'estensione per usare le credenziali di Archiviazione BLOB di Azure, in modo da accedere all'archivio BLOB di Azure. In alternativa, lo script può trovarsi in qualsiasi posizione, purché la macchina virtuale possa eseguire il routing a tale endpoint, ad esempio GitHub, il file server interno e così via.
+È possibile servirsi dell'estensione per usare le credenziali di Archiviazione BLOB di Azure, in modo da accedere alle risorse di archiviazione BLOB di Azure. In alternativa, lo script può trovarsi in qualsiasi posizione, purché la macchina virtuale possa eseguire il routing a tale endpoint, ad esempio GitHub, il file server interno e così via.
 
 
 ### <a name="internet-connectivity"></a>Connettività Internet
-Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire ulteriori porte del firewall/gruppo di sicurezza di rete. Ad esempio se lo script si trova in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Se è necessario scaricare uno script esternamente, ad esempio da GitHub o Archiviazione di Azure, è necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete. Se lo script si trova ad esempio in Archiviazione di Azure, è possibile consentire l'accesso usando i tag di servizio del gruppo di sicurezza di rete di Azure per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Se lo script è in un server locale, può essere necessario aprire ulteriori porte del firewall/gruppo di sicurezza di rete.
+Se lo script è in un server locale, può essere necessario aprire porte aggiuntive per il firewall o il gruppo di sicurezza di rete.
 
 ### <a name="tips-and-tricks"></a>Suggerimenti e consigli
 * La percentuale di errori più elevata per questa estensione è dovuta a errori di sintassi nello script. Verificare che lo script venga eseguito senza errori e inserire nello script altre opzioni di registrazione, per trovare più facilmente i punti che causano errori.
-* Scrivere script idempotenti, in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
+* Scrivere script idempotenti in modo che, se per errore vengono eseguiti più di una volta, non siano apportate modifiche al sistema.
 * Verificare che gli script non richiedano l'input dell'utente durante l'esecuzione.
 * Il tempo massimo consentito per l'esecuzione dello script è pari a 90 minuti. Tempi superiori comportano un errore di provisioning dell'estensione.
-* Non inserire riavvii all'interno dello script o si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
+* Non inserire riavvii all'interno dello script, altrimenti si verificheranno problemi con le altre estensioni in fase di installazione e, dopo il riavvio, l'estensione non riprenderà a funzionare. 
 * Se si ha uno script che causerà un riavvio, installare le applicazioni e poi eseguire gli script e così via. È consigliabile pianificare il riavvio del computer usando un'attività pianificata di Windows oppure strumenti come le estensioni DSC, Chef o Puppet.
 * L'estensione eseguirà lo script una sola volta. Se si vuole eseguire uno script a ogni avvio, è necessario usare l'estensione per creare un'attività pianificata di Windows.
 * Se vuole pianificare il momento di esecuzione di uno script, usare l'estensione per creare un'attività pianificata di Windows. 
@@ -129,9 +129,9 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette. L'estensione rifiuterà qualsiasi configurazione in cui i valori riportati di seguito sono specificati sia nelle impostazioni pubbliche che in quelle protette.
 * `commandToExecute`
 
-Usare impostazioni pubbliche può essere utile per il debug, ma è consigliabile usare impostazioni protette.
+Le impostazioni pubbliche possono essere utili per il debug, ma è consigliabile usare impostazioni protette.
 
-Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchina virtuale in cui verrà eseguito lo script.  Le impostazioni protette vengono crittografate usando una chiave nota solo alla macchina virtuale e ad Azure. Le impostazioni vengono salvate nella macchina virtuale così come sono state inviate, ad esempio se erano crittografate vengono salvate in formato crittografato nella macchina virtuale. Il certificato usato per decrittografare i valori crittografati è archiviato nella macchina virtuale e viene usato per decrittografare le impostazioni (se necessario) in fase di esecuzione.
+Le impostazioni pubbliche vengono inviate in testo non crittografato alla macchina virtuale in cui verrà eseguito lo script.  Le impostazioni protette vengono crittografate usando una chiave nota solo alla macchina virtuale e ad Azure. Le impostazioni vengono salvate nella macchina virtuale così come sono state inviate. Se ad esempio erano crittografate, vengono salvate in formato crittografato nella macchina virtuale. Il certificato usato per decrittografare i valori crittografati è archiviato nella macchina virtuale e viene usato per decrittografare le impostazioni (se necessario) in fase di esecuzione.
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 

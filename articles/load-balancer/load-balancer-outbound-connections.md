@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361948"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825000"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -141,7 +141,7 @@ Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e ut
 >[!IMPORTANT]
 >La programmazione SNAT per SKU Standard è basata sul protocollo di trasporto IP e viene derivata dalla regola di bilanciamento del carico.  Se esiste una sola regola di bilanciamento del carico TCP, SNAT è disponibile solo per TCP. Se è presente solo una regola di bilanciamento del carico TCP ed è necessaria una connessione SNAT in uscita per UDP, creare una regola di bilanciamento del carico UDP dallo stesso front-end allo stesso pool back-end.  In questo modo, verrà attivata la programmazione SNAT per UDP.  Non è necessario un probe di integrità o una regola di lavoro.  La programmazione SNAT per SKU Basic programma sempre SNAT per il protocollo di trasporto IP, indipendentemente dal protocollo di trasporto specificato nella regole di bilanciamento del carico.
 
-Azure prealloca le porte SNAT alla configurazione IP della scheda di interfaccia di rete di ogni macchina virtuale. Quando una configurazione IP viene aggiunta al pool, le porte SNAT vengono preallocate per questa configurazione IP in base alla dimensione del pool back-end. Quando vengono creati i flussi in uscita, [PAT](#pat) usa (fino al limite preallocato) e rilascia in modo dinamico tali porte alla chiusura del flusso o quando si verifica un [timeout per inattività](#ideltimeout).
+Azure prealloca le porte SNAT alla configurazione IP della scheda di interfaccia di rete di ogni macchina virtuale. Quando una configurazione IP viene aggiunta al pool, le porte SNAT vengono preallocate per questa configurazione IP in base alla dimensione del pool back-end. Quando vengono creati i flussi in uscita, [PAT](#pat) usa (fino al limite preallocato) e rilascia in modo dinamico tali porte alla chiusura del flusso o quando si verifica un [timeout per inattività](#idletimeout).
 
 Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i livelli di dimensioni del pool back-end:
 

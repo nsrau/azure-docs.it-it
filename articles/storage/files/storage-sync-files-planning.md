@@ -4,8 +4,8 @@ description: Informazioni sugli aspetti da considerare quando si pianifica una d
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738335"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -46,7 +47,14 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
     - C:\Programmi\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Endpoint server
-Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Non è attualmente possibile creare un endpoint server per la radice di un volume, ad esempio `F:\` o `C:\myvolume`, se il volume è montato come punto di montaggio.
+Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. 
+
+È possibile creare un endpoint server tramite un punto di montaggio. Si noti che i punti di montaggio all'interno dell'endpoint server vengono ignorati.  
+
+È possibile creare un endpoint server nel volume di sistema ma esistono due limitazioni per questa operazione:
+* La suddivisione in livelli nel cloud non può essere abilitata.
+* Non viene eseguito il ripristino rapido dello spazio dei nomi (in cui il sistema riduce l'intero spazio dei nomi e quindi avvia il richiamo di contenuto).
+
 
 > [!Note]  
 > Sono supportati solo i volumi non rimovibili.  Le unità di cui è stato eseguito il mapping da una condivisione remota non sono supportate per un percorso dell'endpoint server.  Inoltre, un endpoint server può essere posizionato nel volume di sistema Windows anche se la suddivisione in livelli cloud non è supportata nel volume di sistema.
@@ -105,7 +113,7 @@ Le versioni future di Windows Server verranno aggiunte non appena verranno rilas
 | ~$\*.\* | File temporaneo di Office |
 | \*.tmp | File temporaneo |
 | \*.laccdb | File di blocco dei database di Access|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | File di sincronizzazione interno|
 | \\System Volume Information | Cartella specifica del volume |
 | $RECYCLE.BIN| Cartella |
 | \\SyncShareState | Cartella per la sincronizzazione |
@@ -175,7 +183,7 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
 | Stati Uniti centrali | Iowa |
-| Asia orientale | Hong Kong - R.A.S. |
+| Asia orientale | RAS di Hong Kong |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Europa settentrionale | Irlanda |

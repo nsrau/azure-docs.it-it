@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763596"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
 Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics.  Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
@@ -77,7 +78,9 @@ Eseguire questa serie di passaggi per configurare il gruppo di gestione di Opera
 Se questa è la prima volta che il gruppo di gestione di Operations Manager si registra in un'area di lavoro di Log Analytics ed è necessario che i server di gestione comunichino con il servizio tramite un server proxy o un server del Gateway OMS, l'opzione per specificare la configurazione del proxy per il gruppo di gestione non è disponibile nella Console operatore.  Il gruppo di gestione deve essere registrato correttamente con il servizio prima che questa opzione sia disponibile.  È necessario aggiornare la configurazione del proxy di sistema tramite Netsh nel sistema da cui si esegue la console operatore per configurare l'integrazione e tutti i server di gestione nel gruppo di gestione.  
 
 1. Aprire un prompt dei comandi con privilegi elevati.
-1. Immettere il comando seguente e premere **INVIO**:
+   a. Passare a **Start** e digitare **cmd**.
+   b. Fare clic con il pulsante destro del mouse su **Prompt dei comandi** e selezionare Esegui come amministratore**.
+2. Immettere il comando seguente e premere **INVIO**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-1. Aprire il menu **Impostazioni avanzate** per l'area di lavoro di Log Analytics nel portale di Azure.
-1. Selezionare **Origini connesse** e quindi **System Center**.
-1. Si vedrà il nome del gruppo di gestione che si vuole rimuovere dall'area di lavoro.  Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
+7. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
+8. Selezionare **Origini connesse**.
+9. Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro.  Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
    
     > [!NOTE]
     > Il collegamento **Rimuovi** non sarà disponibile finché non saranno trascorsi 14 giorni senza alcuna attività rilevata dal gruppo di gestione connesso.  
@@ -210,7 +213,7 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
 Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e Advisor Connector, salvare lo script di PowerShell riportato di seguito nel computer ed eseguirlo usando gli esempi seguenti:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

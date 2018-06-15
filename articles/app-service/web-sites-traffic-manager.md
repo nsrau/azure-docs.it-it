@@ -2,7 +2,7 @@
 title: Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 description: Questo articolo fornisce informazioni di riepilogo per Gestione traffico di Azure in relazione al servizio app di Azure.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824041"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Controllo del traffico del servizio app di Azure con Gestione traffico di Azure
 > [!NOTE]
@@ -33,10 +34,10 @@ ms.lasthandoff: 11/29/2017
 ## <a name="routing-methods"></a>Metodi di routing
 Gestione traffico di Azure usa quattro metodi di routing diversi. Questi metodi vengono descritti nell'elenco seguente, in quanto pertinenti al servizio app di Azure.
 
-* **[Priorità](#priority):** per usare un'app principale per tutto il traffico e fornire dei backup se l'app principale o quelle di backup non sono disponibili.
-* **[Ponderato](#weighted):** per distribuire il traffico in un set di app in modo uniforme o in base alle ponderazioni definite.
-* **[Prestazioni](#performance):** quando si dispone di app in posizioni geografiche diverse, usare l'app "più vicina" in termini di latenza di rete più bassa.
-* **[Geografico](#geographic):** per indirizzare gli utenti ad app specifiche in base alla posizione geografica da cui ha origine la query DNS. 
+* **[Priorità](../traffic-manager/traffic-manager-routing-methods.md#priority):** per usare un'app principale per tutto il traffico e fornire dei backup se l'app principale o quelle di backup non sono disponibili.
+* **[Ponderato](../traffic-manager/traffic-manager-routing-methods.md#weighted):** per distribuire il traffico in un set di app in modo uniforme o in base alle ponderazioni definite.
+* **[Prestazioni](../traffic-manager/traffic-manager-routing-methods.md#performance):** quando si dispone di app in posizioni geografiche diverse, usare l'app "più vicina" in termini di latenza di rete più bassa.
+* **[Geografico](../traffic-manager/traffic-manager-routing-methods.md#geographic):** per indirizzare gli utenti ad app specifiche in base alla posizione geografica da cui ha origine la query DNS. 
 
 Per altre informazioni, vedere [Metodi di routing di Gestione traffico](../traffic-manager/traffic-manager-routing-methods.md).
 

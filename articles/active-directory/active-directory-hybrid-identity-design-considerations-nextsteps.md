@@ -1,11 +1,11 @@
 ---
-title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: passaggi successivi | Documentazione Microsoft"
-description: "Riepilogo e passaggi successivi dopo la lettura della guida sulla progettazione dell'identità ibrida"
-documentationcenter: 
+title: 'Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: passaggi successivi | Documentazione Microsoft'
+description: Riepilogo e passaggi successivi dopo la lettura della guida sulla progettazione dell'identità ibrida
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801491"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
 Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
