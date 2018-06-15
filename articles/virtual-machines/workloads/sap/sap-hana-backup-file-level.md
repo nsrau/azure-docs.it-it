@@ -4,7 +4,7 @@ description: Esistono due opzioni principali per il backup di SAP HANA su macchi
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,11 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1c0222bffe6ccf2ca35e5ca5874f91a490ab352d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656993"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Backup di SAP HANA di Azure a livello di file
 
