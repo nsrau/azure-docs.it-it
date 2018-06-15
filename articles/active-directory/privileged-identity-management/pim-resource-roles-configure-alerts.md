@@ -3,22 +3,23 @@ title: Gestire gli avvisi di sicurezza per le risorse di Azure con Privileged Id
 description: Descrive gli avvisi di sicurezza di PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: c6c057541b3e3067de6331bab6ca9cccfa092710
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5d65201c8940e63e3ba514ae0a2dc8a247d7b859
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149186"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233513"
 ---
 # <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Gestire gli avvisi di sicurezza per le risorse di Azure con Privileged Identity Management
 Azure Privileged Identity Management (PIM) per le risorse di Azure genera avvisi nel caso di attività sospette o non sicure nell'ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 

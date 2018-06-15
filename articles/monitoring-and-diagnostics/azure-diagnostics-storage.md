@@ -1,24 +1,19 @@
 ---
-title: Archiviare e visualizzare dati di diagnostica in Archiviazione di Azure | Documentazione Microsoft
+title: Archiviare e visualizzare i dati di diagnostica in Archiviazione di Azure
 description: Trasferire i dati di diagnostica di Azure in un account di archiviazione di Azure e visualizzarli
-services: cloud-services
-documentationcenter: .net
+services: azure-monitor
 author: thraka
-manager: timlt
-editor: tysonn
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: adegeo
-ms.openlocfilehash: 248e1c87ec244649a296233bf2aaa323d3475a79
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267663"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Archiviare e visualizzare i dati di diagnostica nell'account di archiviazione Azure
 I dati di diagnostica non vengono archiviati definitivamente a meno che non vengano trasferiti nell'Emulatore di archiviazione di Microsoft Azure o nell'account di archiviazione di Azure. Una volta trasferiti nella risorsa di archiviazione, sono disponibili diversi strumenti per visualizzarli.

@@ -6,14 +6,15 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: c3cba00077fd65239382d6fdd98e73a55f926b3b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: af90fb4c89cf552d4c5637db08ef0acd9984b31b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264698"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione per il carico di lavoro. Database di Azure per MySQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento delle risorse che supportano il server MySQL. 
