@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Ridistribuire una VM
               href: devtest-lab-redeploy-vm.md
+            - name: Importare una VM
+              href: devtest-lab-import-vm.md
         - name: Usare gli ambienti in un lab
           items:
             - name: Creare un ambiente

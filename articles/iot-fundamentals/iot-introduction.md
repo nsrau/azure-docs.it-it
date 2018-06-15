@@ -1,24 +1,19 @@
 ---
 title: Introduzione ad Azure IoT (Internet delle cose)
 description: Panoramica di Azure IoT e delle tecnologie e dei servizi correlati.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-layout: LandingPage
-ms.openlocfilehash: 183925324c404b412b5d12c3a9bff93ccd842535
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: 685de6a3cfe0e3f5a2ea82da831247d7b4144fea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636206"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Introduzione ad Azure e Internet delle cose
 
@@ -83,17 +78,6 @@ In uno scenario di manutenzione predittiva, ad esempio, il back-end cloud archiv
 
 Il livello di connettività aziendale e di presentazione consente agli utenti finali di interagire con la soluzione IoT e i dispositivi. Consente anche agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o report di BI che possono mostrare sia i dati cronologici sia i dati quasi in tempo reale. Ad esempio, un operatore può controllare lo stato di determinate stazioni di pompaggio e vedere gli avvisi generati dal sistema. Questo livello consente anche l'integrazione della soluzione back-end IoT con le applicazioni line-of-business esistenti che possono legarsi ai processi o ai flussi di lavoro aziendali. Una soluzione di manutenzione predittiva, ad esempio, può essere integrata con un sistema di pianificazione per prenotare un tecnico per visitare una stazione di pompaggio quando identifica una pompa che richiede manutenzione.
 
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
-
-[lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
-[lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf
-
-
 ## <a name="why-azure-iot"></a>Perché scegliere Azure IoT?
 
 Azure IoT semplifica la complessità dei progetti IoT e gestisce aspetti complicati come sicurezza, incompatibilità delle infrastrutture e scalabilità della soluzione IoT. Ecco come:
@@ -141,7 +125,7 @@ Esplorare le aree di tecnologie e le soluzioni seguenti oppure vedere il sommari
                 <div class="card">
                     <div class="cardText">
                         <h3>Soluzioni</h3>
-                        <a href="/azure/iot-suite">IoT Suite</a><br/>
+                        <a href="/azure/iot-suite">Acceleratori di soluzioni IoT</a><br/>
                         <a href="/azure/iot-central">IoT Central</a>
                     </div>
                 </div>
@@ -179,14 +163,22 @@ Esplorare le aree di tecnologie e le soluzioni seguenti oppure vedere il sommari
 </ul>
 
 [img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
+[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
+[img-dashboard]: ./media/iot-introduction/iot-suite.png
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
 [lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
 [lnk-iot-dps-land]: /azure/iot-dps/index.yml
 [lnk-iot-edge-land]: /azure/iot-edge/index.yml
 [lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/azure-maps/index.yml
-[lnk-iot-suite-land]: /azure/iot-suite/index.md
+[lnk-iot-maps-land]: /azure/maps/index.yml
+[lnk-iot-sa-land]: ../iot-accelerators/index.md
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+
+[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
+[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
+[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
+[lnk-refarch]: https://aka.ms/iotrefarchitecture
 
 

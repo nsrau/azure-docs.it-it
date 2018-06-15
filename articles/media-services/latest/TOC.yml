@@ -59,16 +59,16 @@
       href: create-account-cli-how-to.md
     - name: Accedere alle API - Interfaccia della riga di comando
       href: access-api-cli-how-to.md
-    - name: Eventi di stato dei processi - Interfaccia della riga di comando
+    - name: Monitorare gli eventi di stato dei processi - Interfaccia della riga di comando
       href: job-state-events-cli-how-to.md
+    - name: Personalizzare i set di impostazioni di trasformazione - .NET Core
+      href: customize-encoder-presets-how-to.md
     - name: Caricare contenuti
       items:
         - name: Da HTTP(S) - .NET
           href: job-input-from-http-how-to.md
         - name: Da un file locale - .NET
           href: job-input-from-local-file-how-to.md
-    - name: Personalizzare i set di impostazioni di trasformazione - .NET Core
-      href: customize-encoder-presets-how-to.md
 - name: Riferimenti
   items:
     - name: Specifica OpenAPI (Swagger)

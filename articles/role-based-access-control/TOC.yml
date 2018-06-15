@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: Concedere l'accesso per un gruppo - PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: Creare un ruolo personalizzato - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Creare un ruolo personalizzato - Interfaccia della riga di comando
+          href: tutorial-custom-role-cli.md
     - name: Gestire le assegnazioni di ruoli
       items:
-        - name: Utente
-          href: role-assignments-users.md
-        - name: Risorsa
+        - name: Portale
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Interfaccia della riga di comando di Azure
           href: role-assignments-cli.md

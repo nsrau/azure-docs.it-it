@@ -1,22 +1,19 @@
 ---
 title: Confrontare Griglia di eventi di Azure e il routing per l'hub IoT | Microsoft Docs
-description: "L'hub IoT offre il proprio servizio di routing dei messaggi, ma si integra anche con Griglia di eventi per la pubblicazione di eventi. Confrontare le due funzionalità."
-services: iot-hub
-documentationcenter: 
+description: L'hub IoT offre il proprio servizio di routing dei messaggi, ma si integra anche con Griglia di eventi per la pubblicazione di eventi. Confrontare le due funzionalità.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 5a0a97ccf033b2981ba13be455482146ba212228
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636172"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
 

@@ -1,23 +1,19 @@
 ---
 title: Aggiornare l'hub IoT di Azure | Microsoft Docs
 description: Modificare il piano tariffario e il livello di scalabilità dell'hub IoT per ottenere funzionalità aggiuntive di gestione del dispositivo e di messaggistica.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d383d26b406c012b6b76225faf89f4b5dbd6bb9c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637277"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Come aggiornare l'hub IoT
 
@@ -40,11 +36,11 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare all'hub IoT. 
 2. Selezionare **Piano tariffario e scalabilità**. 
 
-   ![Piano tariffario e scalabilità](./media/iot-hub-upgrade/pricing-scale.png)
+   ![Prezzi e scalabilità](./media/iot-hub-upgrade/pricing-scale.png)
 
 3. Per modificare il livello dell'hub, selezionare **Piano tariffario e livello di scalabilità**. Scegliere il nuovo livello e quindi fare clic su **Seleziona**.
 
-   ![Piano tariffario e scalabilità](./media/iot-hub-upgrade/select-tier.png)
+   ![Prezzi e scalabilità](./media/iot-hub-upgrade/select-tier.png)
 
 4. Per modificare il numero di unità nell'hub, immettere un nuovo valore in **Unità di hub IoT**. 
 5. Fare clic su **Salva** per salvare le modifiche. 

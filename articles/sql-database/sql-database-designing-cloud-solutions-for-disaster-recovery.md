@@ -1,5 +1,5 @@
 ---
-title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Microsoft Docs
+title: Progettare un servizio a disponibilità elevata con database SQL di Azure | Documentazione Microsoft
 description: Informazioni sulla progettazione di applicazioni per servizi a disponibilità elevata con database SQL di Azure.
 keywords: ripristino di emergenza cloud, soluzioni di ripristino di emergenza, backup dei dati delle app, replica geografica, pianificazione della continuità aziendale
 services: sql-database
@@ -7,15 +7,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebe6d2b4d3210ad7c02ec2d26a311645660aeab8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647069"
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Progettazione di servizi a disponibilità elevata con database SQL di Azure
 

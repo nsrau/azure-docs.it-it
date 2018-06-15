@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940138"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617893"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copiare dati da Netezza usando Azure Data Factory (beta)
 
@@ -57,7 +57,7 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. ad esempio `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- Solo non protetto (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente non protetto (preferredUnSecured) (impostazione predefinita)**: se il server fornisce una scelta, il driver non usa SSL. <br/>- **Preferibilmente protetto (preferredSecured)**: se il server fornisce una scelta, il driver usa SSL. <br/>- **Solo protetto (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL | No  |
-| CaCertFile | Il percorso completo per il certificato SSL usato dal server. ad esempio `UseSystemTrustStore=<cert path>;`| Sì, se SSL è abilitato |
+| CaCertFile | Il percorso completo per il certificato SSL usato dal server. ad esempio `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
 
 **Esempio:**
 
