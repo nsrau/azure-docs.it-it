@@ -16,6 +16,8 @@
       href: tutorial-explore-js-client-lib.md
     - name: Creare un ambiente TSI
       href: tutorial-create-populate-tsi-environment.md
+    - name: Creare un'app Web a singola pagina TSI
+      href: tutorial-create-tsi-sample-spa.md
 - name: Concetti
   items:
     - name: Pianificare l'ambiente
