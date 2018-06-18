@@ -49,8 +49,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Backup e ripristino
           href: backup-and-restore.md
-        - name: Controllo
-          href: sql-data-warehouse-auditing-overview.md
         - name: Limiti di capacità
           href: sql-data-warehouse-service-capacity-limits.md
         - name: 'Manutenzione '
@@ -61,8 +59,22 @@
       items:
         - name: Panoramica
           href: sql-data-warehouse-overview-manage-security.md
+        - name: Controllo di accesso
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Regole del firewall
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Regole della rete virtuale del firewall
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Authentication
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Azure AD
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Account di accesso e utenti
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Autenticazione a più fattori
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Controllo
+          href: sql-data-warehouse-auditing-overview.md
         - name: Sicurezza a livello di colonna
           href: column-level-security.md
     - name: Eseguire la migrazione a SQL Data Warehouse
@@ -181,6 +193,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Sicurezza
       items:
+        - name: Configurare l'autorizzazione di Azure AD
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Accesso condizionale
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Regole di rete virtuale di PowerShell
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Abilitare la crittografia - Portale
           href: sql-data-warehouse-encryption-tde.md
         - name: Abilitare la crittografia - T-SQL

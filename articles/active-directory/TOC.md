@@ -13,7 +13,7 @@
 
 # Attività iniziali
 ## [Inizia a usare Azure AD](fundamentals/get-started-azure-ad.md)
-## [Iscriversi ad Azure AD Premium](active-directory-get-started-premium.md)
+## [Iscriversi ad Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Aggiungere un nome di dominio personalizzato](fundamentals/add-custom-domain.md)
 ## [Configurare la personalizzazione aziendale](fundamentals/customize-branding.md)
 ## [Aggiungere utenti ad Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Gestire i gruppi e i membri](fundamentals/active-directory-manage-groups.md)
 ### Gestire i gruppi
-#### [Portale di Azure](active-directory-groups-create-azure-portal.md)
+#### [Portale di Azure](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Gestire i membri dei gruppi](active-directory-groups-members-azure-portal.md)
+### [Gestire i membri dei gruppi](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Gestire i proprietari dei gruppi](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Gestire l'appartenenza ai gruppi](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Assegnazione di licenze mediante i gruppi](fundamentals/active-directory-licensing-whatis-azure-portal.md)
@@ -320,7 +320,7 @@
 
 ## Proteggere le identità
 ### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
-#### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Attività iniziali](active-directory-conditional-access-azure-portal-get-started.md)
 #### Guide introduttive
 ##### [Configurare l'autenticazione a più fattori per singole app cloud](active-directory-conditional-access-app-based-mfa.md)
 ##### [Richiedere l'accettazione delle condizioni per l'utilizzo](active-directory-conditional-access-tou.md)
