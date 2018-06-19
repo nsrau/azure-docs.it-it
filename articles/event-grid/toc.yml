@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
+    - name: Gestire il recapito di eventi
+      href: manage-event-delivery.md
     - name: Monitorare il recapito di eventi
       href: monitor-event-delivery.md
     - name: Eseguire query su sottoscrizioni di eventi

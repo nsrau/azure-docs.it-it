@@ -184,7 +184,19 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: Video
-      href: videos.md
+      items:
+        - name: Video sui prodotti
+          href: videos.md
+        - name: Serie di video sulle procedure
+          items:
+            - name: Informazioni sulle funzionalità e sui vantaggi dei prodotti
+              href: 'https://aka.ms/mysql-intro-vid'
+            - name: Eseguire la migrazione dell'app MySQL in Azure
+              href: 'https://aka.ms/mysql-migrate-vid'
+            - name: Creare e distribuire app Web
+              href: 'https://aka.ms/mysql-webapps-vid'
+            - name: Connettere contenitori con OSBA
+              href: 'https://aka.ms/mysql-osba-vid'
     - name: Richiedere una funzionalità
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
     - name: Aree di disponibilità
