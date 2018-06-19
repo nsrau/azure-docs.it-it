@@ -5,20 +5,18 @@ services: cosmos-db
 author: SnehaGunda
 manager: kfile
 tags: azure-service-management
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: database
 ms.date: 11/29/2017
 ms.author: sngun
-ms.openlocfilehash: 38b211ec17a2bbe70f2975bd6c8f668c3c30a036
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c83d8ad5b424be1a9a695f3b9a466d45ddf8f0b4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700282"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Esempi dell'interfaccia della riga di comando di Azure Cosmos DB
 
@@ -29,6 +27,7 @@ La tabella seguente include collegamenti a esempi di script di interfaccia della
 |**Creare account di database e contenitori di Azure Cosmos DB**||
 |[Creare un account API SQL](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Crea un account, un database e un contenitore dell'API Azure Cosmos DB da usare con l'API SQL. |
 | [Creare un account di API MongoDB](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un singolo account di API MongoDB, database e raccolta di Azure Cosmos DB. |
+| [Creare un account API Gremlin](scripts/create-graph-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un singolo account di API Gremlin, database e raccolta di Azure Cosmos DB. |
 |**Scalare Azure Cosmos DB**||
 | [Scalare la velocità effettiva del contenitore](scripts/scale-collection-throughput-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Modifica la velocità effettiva con provisioning in un contenitore.|
 |[Replicare l'account di database di Azure Cosmos DB in più aree e configurare le priorità di failover](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Replica a livello globale i dati dell'account in più aree con una priorità di failover specificata.|

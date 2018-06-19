@@ -3,22 +3,20 @@ title: Esercitazione sullo sviluppo di un'applicazione Java tramite Azure Cosmos
 description: Questa esercitazione sull'applicazione Web Java spiega come usare Azure Cosmos DB e l'API di SQL per archiviare e accedere ai dati da un'applicazione Java ospitata nei siti Web di Azure.
 keywords: Sviluppo di applicazioni, esercitazione sul database, applicazione Java, esercitazione sull'applicazione Web Java, Azure, Microsoft Azure
 services: cosmos-db
-documentationcenter: java
 author: dennyglee
 manager: kfile
-ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4e3fd2fc31bda1dd8172c574fe087d9fcc6068db
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796826"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Creare un'applicazione Web Java con Azure Cosmos DB e l'API di SQL
 > [!div class="op_single_selector"]
@@ -29,12 +27,12 @@ ms.lasthandoff: 04/06/2018
 > 
 > 
 
-Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) per archiviare i dati e accedervi da un'applicazione Java ospitata in app Web del servizio app di Azure. In questo argomento, si apprenderà:
+Questa esercitazione sull'applicazione Web Java illustra come usare il servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) per archiviare i dati e accedervi da un'applicazione Java ospitata in app Web del servizio app di Azure. Contenuto dell'articolo:
 
 * Come creare un'applicazione JavaServer Pages (JSP) di base in Eclipse.
 * Come usare il servizio Azure Cosmos DB tramite [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
 
-Questa esercitazione illustra come creare un'applicazione di gestione delle attività basata su Web che consente di creare, recuperare e contrassegnare le attività come completate, come illustrato nella figura seguente. Tutte le attività nell'elenco attività vengono memorizzate come documenti JSON in Azure Cosmos DB.
+Questa esercitazione illustra come creare un'applicazione di gestione delle attività basata su Web che consente di creare, recuperare e contrassegnare le attività come completate, come illustrato nella figura seguente. Tutte le attività nell'elenco attività vengono archiviate come documenti JSON in Azure Cosmos DB.
 
 ![Applicazione Java My ToDo List](./media/sql-api-java-application/image1.png)
 
@@ -75,7 +73,7 @@ Per creare l'applicazione JSP:
    
     ![Esercitazione sull’applicazione web Java - Creare un nuovo File JSP](./media/sql-api-java-application/image11.png)
 5. Per le finalità di questa esercitazione, nella finestra di dialogo **Select JSP Template** (Seleziona modello JSP) selezionare **New JSP File (html)** (Nuovo file JSP - html), quindi fare clic su **Finish** (Fine).
-6. Quando in Eclipse viene aperto il file index.jsp, aggiungere il testo in modo da visualizzare **Hello World!** all'interno dell'elemento <body> esistente. Il contenuto <body> aggiornato dovrebbe avere un aspetto analogo al seguente:
+6. Quando in Eclipse viene aperto il file index.jsp, aggiungere il testo in modo da visualizzare **Hello World!** all'interno dell'elemento <body> esistente. Il contenuto <body> aggiornato dovrebbe avere un aspetto analogo al codice seguente:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -736,13 +734,13 @@ Tutti gli esempi in questa esercitazione sono inclusi nel progetto [todo](https:
 3. In Eclipse scegliere **Import** (Importa) dal menu **File**.
 4. Nella finestra **Import** (Importa) fare clic su **Git**, su **Projects from Git** (Progetti da Git) e quindi su **Next** (Avanti).
 5. Nella schermata **Select Repository Source** (Seleziona origine repository) fare clic su **Clone URI** (Clona URI).
-6. Nella schermata **Source Git Repository** (Repository Git di origine), nella casella **URI**, immettere https://github.com/Azure-Samples/java-todo-app.git e quindi fare clic su **Next** (Avanti).
+6. Nella schermata **Source Git Repository** (Repository Git di origine), nella casella **URI**, immettere https://github.com/Azure-Samples/documentdb-java-todo-app.git e quindi fare clic su **Next** (Avanti).
 7. Nella schermata **Branch Selection** (Selezione ramo) assicurarsi che sia selezionata l'opzione **master** e quindi fare clic su **Next** (Avanti).
 8. Nella schermata **Local Destination** (Destinazione locale) fare clic su **Browse** (Sfoglia) per selezionare una cartella in cui sia possibile copiare il repository e quindi fare clic su **Next** (Avanti).
 9. Nella schermata **Select a wizard to use for importing projects** (Selezionare una procedura guidata per l'importazione di progetti) assicurarsi che l'opzione **Import existing projects** (Importa progetti esistenti) sia selezionata e quindi fare clic su **Next** (Avanti).
 10. Nella schermata **Import Projects** (Importa progetti) deselezionare il progetto **DocumentDB** e quindi fare clic su **Finish** (Fine). Il progetto DocumentDB contiene Azure Cosmos DB Java SDK, che verrà aggiunto invece come dipendenza.
 11. In **Esplora progetti** passare ad azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java e sostituire i valori HOST e MASTER_KEY con i valori URI e PRIMARY KEY dell'account Azure Cosmos DB, quindi salvare il file. Per altre informazioni, vedere [Passaggio 1. Creare un account di database Azure Cosmos DB](#CreateDB).
-12. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **azure-documentdb-java-sample**, fare clic su **Build Path** (Percorso compilazione) e quindi su **Configure Build Path** (Configura percorso compilazione).
+12. In **Project Explorer** (Esplora progetti) fare clic con il pulsante destro del mouse su **azure-documentdb-java-sample**, scegliere **Build Path** (Percorso compilazione) e quindi fare clic su **Configure Build Path** (Configura percorso compilazione).
 13. Nella schermata **Java Build Path** (Percorso compilazione Java), nel riquadro a destra selezionare la scheda **Libraries** (Librerie) e quindi fare clic su **Add External JARs** (Aggiungi JAR esterni). Passare al percorso del file lombok.jar e fare clic su **Open** (Apri) e quindi su **OK**.
 14. Vedere il passaggio 12 per aprire nuovamente la finestra **Properties** (Proprietà) e quindi nel riquadro a sinistra fare clic su **Targeted Runtimes** (Runtime di destinazione).
 15. Nella schermata **Targeted Runtimes** (Runtime di destinazione) fare clic su **New** (Nuovo), selezionare **Apache Tomcat v7.0** e quindi fare clic su **OK**.

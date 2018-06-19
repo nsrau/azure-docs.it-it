@@ -3,7 +3,7 @@ title: Impostare i criteri di sicurezza nel Centro sicurezza di Azure | Document
 description: Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364387"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756992"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Impostare i criteri di sicurezza nel Centro sicurezza di Azure
 Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza.
@@ -28,7 +28,7 @@ Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicu
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. Nel Centro sicurezza è possibile modificare i criteri e monitorarne la conformità.
 
 > [!NOTE]
-> I criteri del Centro sicurezza possono ora essere estesi usando Criteri di Azure, disponibile in anteprima limitata. Per partecipare all'anteprima, passare a [Sign up for Azure Policy](https://aka.ms/getpolicy) (Iscrizione a Criteri di Azure). Per altre informazioni, vedere [Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure](security-center-azure-policy.md).
+> È ora possibile estendere i criteri del Centro sicurezza usando [Criteri di Azure](../azure-policy/azure-policy-introduction.md). Per altre informazioni, vedere [Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure](security-center-azure-policy.md).
 
 I requisiti di sicurezza per le risorse usate per lo sviluppo o i test possono variare rispetto ai requisiti per le risorse usate per le applicazioni di produzione. Le applicazioni che usano dati regolamentati, come le informazioni personali, possono richiedere un livello di sicurezza superiore. I criteri di protezione abilitati nel Centro sicurezza di Azure determinano i suggerimenti per la sicurezza e il monitoraggio per identificare le potenziali vulnerabilità e attenuare le minacce. Per altre informazioni su come determinare l'opzione più appropriata, vedere [Guida alla pianificazione e alla gestione del Centro sicurezza di Azure](security-center-planning-and-operations-guide.md).
 
@@ -75,3 +75,5 @@ In questo articolo si è appreso come configurare i criteri di sicurezza nel Cen
 * [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+
+Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).

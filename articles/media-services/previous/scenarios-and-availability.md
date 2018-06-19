@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809280"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
 Servizi multimediali di Microsoft Azure (AMS) consente di caricare, archiviare e codificare contenuti video o audio in modo sicuro, nonché creare pacchetti di tali contenuti per la distribuzione in streaming live e on demand a vari client (ad esempio, TV, PC e dispositivi mobili).
 
-AMS è disponibile in più data center in tutto il mondo. Questi data center sono raggruppati in aree geografiche, in modo da lasciare l'utente libero di scegliere dove creare le proprie applicazioni. Per conoscerle, è possibile consultare l' [elenco delle aree e le relative posizioni](https://azure.microsoft.com/regions/). 
+Servizi multimediali di Azure è compatibile con svariati data center in tutto il mondo. Questi datacenter sono raggruppati in aree geografiche, per lasciare l'utente libero di scegliere dove creare le applicazioni. Per conoscerle, è possibile consultare l' [elenco delle aree e le relative posizioni](https://azure.microsoft.com/regions/). 
 
 Questo argomento illustra scenari comuni per la distribuzione di contenuti [live](#live_scenarios) o [on demand](#vod_scenarios) e include anche informazioni dettagliate sulla disponibilità delle funzionalità e dei servizi multimediali nei data center.
 

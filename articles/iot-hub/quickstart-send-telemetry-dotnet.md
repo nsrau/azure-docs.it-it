@@ -1,23 +1,21 @@
 ---
 title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (C#) | Microsoft Docs
 description: In questa guida introduttiva si eseguono due applicazioni C# di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 9feade4407f800312556a1db39ce6c315c9330c2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636852"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati di telemetria dall'hub con un'applicazione di back-end (C#)
 
@@ -86,7 +84,7 @@ Scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-io
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
 
-1. In una finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **Quickstarts\simulated-device**.
+1. In una finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 
 1. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
@@ -112,7 +110,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio dell'hub IoT. L'applicazione riceve i messaggi da dispositivo a cloud inviati dal dispositivo simulato. In genere, un'applicazione di back-end di hub IoT viene eseguita nel cloud per ricevere ed elaborare i messaggi da dispositivo a cloud.
 
-1. In un'altra finestra del terminale passare alla cartella radice del progetto C# di esempio. Quindi passare alla cartella **Quickstarts\read-d2c-messaggi**.
+1. In un'altra finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages**.
 
 1. Aprire il file **ReadDeviceToCloudMessages.cs** in un editor di testo di propria scelta.
 

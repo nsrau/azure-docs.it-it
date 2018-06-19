@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 860d28cb6726a86194460977b822197a37ab7279
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365407"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642870"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Guida introduttiva: Distribuire un'applicazione Spring Boot Java in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
 
-Questa guida introduttiva illustra come distribuire un'applicazione Spring Boot in Service Fabric con un computer di sviluppo Mac o Linux usando il progetto di esempio [Introduzione](https://spring.io/guides/gs/spring-boot/) disponibile nel sito Web di Spring. Usando i comuni strumenti da riga di comando, questa guida introduttiva fornisce le istruzioni per distribuire l'applicazione Spring Boot di esempio come applicazione di Service Fabric. Al termine del processo, il progetto di esempio Introduzione a Spring Boot sarà in esecuzione in Service Fabric. 
+Usando strumenti da riga di comando familiari, questa guida introduttiva illustra come distribuire un'applicazione Spring Boot in Service Fabric in un computer per sviluppatori Mac o Linux usando l'esempio [Getting Started](https://spring.io/guides/gs/spring-boot/) (Introduzione) dal sito Web di Spring.
 
 ![Screenshot dell'applicazione](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -37,7 +37,7 @@ In questa guida introduttiva si apprende come:
 * Scalare orizzontalmente l'applicazione in più nodi
 * Eseguire il failover del servizio senza compromettere la disponibilità
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Per completare questa guida introduttiva:
 1. Installare Service Fabric SDK e l'interfaccia della riga di comando di Service Fabric
 
@@ -246,7 +246,7 @@ Per ridimensionare il servizio front-end Web, seguire questa procedura:
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. Fare clic sul nodo **fabric:/SpringServiceFabric/SpringGettingStarted** nella visualizzazione struttura ad albero ed espandere il nodo della partizione (rappresentato da un GUID).

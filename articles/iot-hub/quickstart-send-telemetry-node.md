@@ -1,23 +1,21 @@
 ---
 title: Guida introduttiva sull'invio di dati di telemetria all'hub IoT di Azure (Node.js) | Microsoft Docs
 description: In questa guida introduttiva si eseguono due applicazioni Node.js di esempio per inviare dati di telemetria simulati a un hub IoT e leggere i dati di telemetria dall'hub IoT per l'elaborazione nel cloud.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 0be67b936780d68198a00cb99529643d453621e3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 572ecbfee6a3c361a2940d74b560910fd85b344b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635866"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati di telemetria dall'hub con un'applicazione di back-end (Node.js)
 
@@ -82,7 +80,7 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
 
-1. In una finestra del terminale passare alla cartella radice del progetto Node.js di esempio. Passare quindi alla cartella **Quickstarts\simulated-device**.
+1. In una finestra del terminale passare alla cartella radice del progetto Node.js di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 
 1. Aprire il file **SimulatedDevice.js** in un editor di testo di propria scelta.
 
@@ -105,9 +103,9 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
 
 1. In un'altra finestra del terminale passare alla cartella radice del progetto Node.js di esempio. Quindi passare alla cartella **read-d2c-messaggi**.
 
-1. Aprire il file **Quickstarts\ReadDeviceToCloudMessages.js** in un editor di testo di propria scelta.
+1. Aprire il file **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `connectionString` con la stringa di connessione al servizio annotata in precedenza. Quindi salvare le modifiche nel file **ReadDeviceToCloudMessages.js**.
+    Sostituire il valore della variabile `connectionString` con la stringa di connessione del servizio annotata in precedenza. Quindi salvare le modifiche nel file **ReadDeviceToCloudMessages.js**.
 
 1. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie ed eseguire l'applicazione back-end:
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7a860742192227e92a14d9bb5622dc9b61f6cb99
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716024"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introduzione a Microsoft Power BI Embedded
 
@@ -33,7 +34,7 @@ Gli sviluppatori possono concentrarsi sulla creazione delle competenze principal
 
 ## <a name="register-an-application-within-azure-active-directory"></a>Registrare un'applicazione in Azure Active Directory
 
-Per l'incorporamento di un'applicazione personalizzata è necessaria un'applicazione registrata in Azure Active Directory (AAD). L'applicazione registrata richiede che il tenant sia un tenant di Power BI, ovvero è necessario che almeno un utente dell'organizzazione si sia iscritto a Power BI. L'iscrizione di un utente a Power BI consentirà la visualizzazione delle API di Power BI entro l'applicazione registrata.
+Per incorporare un'applicazione personalizzata, è necessaria un'applicazione registrata in Azure Active Directory (AAD). L'applicazione registrata richiede che il tenant sia un tenant di Power BI, ovvero è necessario che almeno un utente dell'organizzazione si sia iscritto a Power BI. L'iscrizione di un utente a Power BI consente la visualizzazione delle API di Power BI all'interno dell'applicazione registrata.
 
 Per altre informazioni su come registrare un'applicazione in AAD, vedere [Registrare un'app di Azure AD per incorporare il contenuto di Power BI](https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/).
 
@@ -48,9 +49,9 @@ Sono disponibili esempi introduttivi. Per una procedura dettagliata relativa all
 Creare capacità di Power BI Embedded in Microsoft Azure per spostare l'applicazione in produzione. Per informazioni su come creare capacità, vedere [Create Power BI Embedded capacity in the Azure portal](create-capacity.md) (Creare capacità di Power BI Embedded nel portale di Azure).
 
 > [!IMPORTANT]
-> Poiché i token di incorporamento sono destinati solo ai test di sviluppo, il numero di questi token che può essere generato da un account proprietario di Power BI è limitato. Per gli scenari di incorporamento di produzione, [è necessario acquistare capacità](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Dopo aver acquistato la capacità necessaria, la generazione di token di incorporamento è illimitata. Passare a [Ottenere funzioni disponibili](https://msdn.microsoft.com/en-us/library/mt846473.aspx) per controllare l'uso incorporato corrente in percentuale.
+> Poiché i token di incorporamento sono destinati solo ai test di sviluppo, il numero di questi token che può essere generato da un account proprietario di Power BI è limitato. Per gli scenari di incorporamento di produzione, [è necessario acquistare capacità](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Dopo aver acquistato la capacità dedicata, la generazione di token di incorporamento è illimitata. Passare a [Ottenere funzioni disponibili](https://msdn.microsoft.com/en-us/library/mt846473.aspx) per controllare l'uso incorporato corrente in percentuale.
 
-Gestire la capacità nel portale di amministrazione di Power BI. Assegnare un assegnatore di area di lavoro per assistenza con le aree di lavoro delle app. Per altre informazioni, vedere [Gestire capacità all'interno di Power BI Premium e Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
+Gestire la capacità nel portale di amministrazione di Power BI. Assegnare un amministratore di area di lavoro per assistenza con le aree di lavoro delle app. Per altre informazioni, vedere [Gestire capacità all'interno di Power BI Premium e Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

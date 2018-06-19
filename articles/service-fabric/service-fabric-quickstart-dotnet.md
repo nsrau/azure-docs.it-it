@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: e6e6464bd8c8174978eded1ed626ca32029b7fbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643152"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Guida introduttiva: Creare un'applicazione .NET Service Fabric in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili. 
@@ -109,6 +110,7 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
     - Infine, restituire la risposta dal servizio back-end al client **(3)**.
 
 4. Premere **F5** per continuare.
+    - Se richiesto dal browser, assegnare al gruppo ServiceFabricAllowedUsers le autorizzazioni di lettura ed esecuzione per Modalità di debug.
     - Ora ci troviamo al punto di interruzione nel servizio back-end.
     
     ![Aggiungere il servizio back-end di voto](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -173,15 +175,17 @@ Ora che l'applicazione è pronta, è possibile distribuirla in un cluster dirett
     ![Front-end dell'applicazione](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Ridimensionare applicazioni e servizi in un cluster
-I servizi di Service Fabric possono essere facilmente ridimensionati in un cluster per supportare le modifiche del carico sui servizi. È possibile ridimensionare un servizio modificando il numero di istanze in esecuzione nel cluster. Sono disponibili diversi sistemi per garantire la scalabilità dei servizi: è possibile usare gli script o i comandi di PowerShell oppure l'interfaccia della riga di comando di Service Fabric (sfctl). In questo esempio usare Service Fabric Explorer.
+I servizi di Service Fabric possono essere facilmente ridimensionati in un cluster per supportare le modifiche del carico sui servizi. È possibile ridimensionare un servizio modificando il numero di istanze in esecuzione nel cluster. Sono disponibili diversi sistemi per garantire la scalabilità dei servizi: è possibile usare gli script o i comandi di PowerShell oppure l'interfaccia della riga di comando di Service Fabric (sfctl). Questo esempio usa Service Fabric Explorer.
 
-Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser, passando alla porta di gestione HTTP (19080) del cluster, ad esempio `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+Service Fabric Explorer è in esecuzione in tutti i cluster di Service Fabric ed è accessibile da un browser, passando alla porta di gestione HTTP (19080) del cluster, ad esempio `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 
-Il browser può visualizzare un avviso che indica che il percorso non è attendibile, dato che il certificato è autofirmato. È possibile scegliere di ignorare l'avviso e continuare. Quando richiesto dal browser, selezionare il certificato installato per la connessione. 
+Il browser può visualizzare un avviso che indica che il percorso non è attendibile, dato che il certificato è autofirmato. È possibile scegliere di ignorare l'avviso e continuare.
+1. Quando richiesto dal browser, selezionare il certificato installato per la connessione. Il certificato del cluster di entità selezionato dall'elenco deve corrispondere al cluster di entità cui si sta provando ad accedere, ad esempio win243uja6w62r.westus.cloudapp.azure.com.
+2. Se richiesto dal browser, concedere l'accesso alla chiave privata CryptoAPI per questa sessione.
 
 Per scalare il servizio front-end Web, seguire questa procedura:
 
-1. Aprire Service Fabric Explorer nel cluster, ad esempio `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Aprire Service Fabric Explorer nel cluster, ad esempio `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. Nella visualizzazione struttura ad albero espandere **Applicazioni**->**VotingType**->**fabric:/Voting**. Fare clic sui puntini di sospensione accanto al nodo **fabric:/Voting/VotingWeb** nella visualizzazione ad albero e scegliere **Scale Service** (Ridimensiona servizio).
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)
