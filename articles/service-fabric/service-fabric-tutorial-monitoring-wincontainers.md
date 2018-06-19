@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248242"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Esercitazione: Monitorare i contenitori di Windows in Service Fabric usando Log Analytics
 
@@ -212,18 +213,14 @@ Se si fa clic in uno qualsiasi di questi pannelli, viene visualizzata la query d
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>Configurare l'agente di OMS per prelevare i contatori delle prestazioni
 
-Un altro vantaggio derivante dall'utilizzo dell'agente di OMS è la possibilità di modificare i contatori delle prestazioni che si desidera prelevare attraverso l'interfaccia utente di OMS, anziché dover configurare l'agente di diagnostica di Azure ed eseguire ogni volta un aggiornamento basato sul modello di Resource Manager. A tale scopo, fare clic sul **portale di OMS** nella pagina di destinazione della Soluzione Monitoraggio contenitori (o Service Fabric).
+Un altro vantaggio derivante dall'utilizzo dell'agente di OMS è la possibilità di modificare i contatori delle prestazioni che si desidera prelevare attraverso l'interfaccia utente di OMS, anziché dover configurare l'agente di diagnostica di Azure ed eseguire ogni volta un aggiornamento basato sul modello di Resource Manager. A tale scopo, fare clic sull'**area di lavoro di OMS** nella pagina di destinazione della Soluzione Monitoraggio contenitori (o Service Fabric).
 
-![Portale OMS](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Verrà aperta l'area di lavoro nel portale di OMS, in cui è possibile visualizzare le proprie soluzioni, creare dashboard personalizzati, nonché configurare l'agente di OMS. 
-* Fare clic sull'icona a forma di **ruota dentata** nell'angolo superiore destro della schermata per aprire il menu *Impostazioni*.
+Verrà aperta l'area di lavoro di OMS, in cui è possibile visualizzare le proprie soluzioni, creare dashboard personalizzati, nonché configurare l'agente di OMS. 
+* Per aprire il menu Impostazioni avanzate, fare clic su **Impostazioni avanzate**.
 * Fare clic su **Origini connesse** > **Server Windows** e verificare che siano presenti *5 computer Windows connessi*.
-* Fare clic su **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati da Log Analytics da cui è possibile raccogliere dati. È anche possibile cercare altri contatori. Fare clic su **Aggiungi i contatori delle prestazioni selezionati** per avviare la raccolta delle metriche consigliate.
+* Fare clic su **Dati** > **Contatori delle prestazioni di Windows** per cercare e aggiungere nuovi contatori delle prestazioni. Qui viene visualizzato un elenco di contatori delle prestazioni consigliati da Log Analytics da cui è possibile raccogliere dati. È anche possibile cercare altri contatori. Verificare che i contatori **Processor(_Total)\% Processor Time** e **Memory(*)\Available MBytes** vengano raccolti.
 
-    ![Perf counters](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Nel portale di Azure **aggiornare** la Soluzione Monitoraggio contenitori e in pochi minuti si dovrebbero iniziare a vedere i dati relativi alle *Prestazioni computer*. Questi dati consentono di capire come vengono usate le risorse. È possibile usare queste metriche anche per prendere decisioni appropriate sul ridimensionamento del cluster o per verificare se il bilanciamento del carico in un cluster avviene come previsto.
+**Aggiornare** la soluzione Monitoraggio contenitori e in pochi minuti si dovrebbero iniziare a vedere i dati relativi alle *prestazioni del computer*. Questi dati consentono di capire come vengono usate le risorse. È possibile usare queste metriche anche per prendere decisioni appropriate sul ridimensionamento del cluster o per verificare se il bilanciamento del carico in un cluster avviene come previsto.
 
 *Nota: assicurarsi di impostare i filtri relativi al tempo nel modo appropriato per usare queste metriche.* 
 

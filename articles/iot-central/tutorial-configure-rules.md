@@ -1,21 +1,22 @@
 ---
 title: Configurare regole e azioni in Azure IoT Central | Microsoft Docs
 description: Questa esercitazione illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202238"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236332"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 - Configurare regole e azioni per il dispositivo in Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central
 
 Questa esercitazione illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Microsoft Azure IoT Central.
 
@@ -39,17 +40,17 @@ Prima di iniziare, si consiglia di completare l'esercitazione [Definire un nuovo
 
     Vengono visualizzati il modello di dispositivo **Condizionatore connesso (1.0.0)** e il dispositivo **Condizionatore connesso 1** creati nell'esercitazione precedente.
 
-1. Per iniziare a personalizzare il condizionatore connesso, scegliere il dispositivo creato nell'esercitazione precedente:
+2. Per iniziare a personalizzare il condizionatore connesso, scegliere il dispositivo creato nell'esercitazione precedente:
 
     ![Pagina del condizionatore connesso](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. Per iniziare ad aggiungere una regola nella visualizzazione **Regole**, scegliere **Regole**:
+3. Per iniziare ad aggiungere una regola nella visualizzazione **Regole**, scegliere **Regole**:
 
     ![Visualizzazione Regole](media/tutorial-configure-rules/builderrulesview.png)
 
-1. In questa esercitazione si aggiungerà una regola di telemetria basata su una soglia. Per iniziare a creare la regola basata su una soglia, scegliere **Nuova regola**, quindi **Telemetria**.
+4. Per iniziare a creare la regola di telemetria basata su una soglia, scegliere **Nuova regola** e quindi **Telemetria**.
 
-1. Usare le informazioni nella tabella seguente per definire la regola:
+5. Usare le informazioni nella tabella seguente per definire la regola:
 
     | Impostazione     | Valore                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ Quando si definisce una regola è anche possibile definire un'azione da eseguire
 
     ![Azione della regola di temperatura](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Usare le informazioni nella tabella seguente per definire l'azione:
+2. Usare le informazioni nella tabella seguente per definire l'azione:
 
     | Impostazione   | Valore                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ Quando si definisce una regola è anche possibile definire un'azione da eseguire
 
     ![Azione di temperatura in Application Builder (Generatore applicazioni)](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. Scegliere **Salva**. La regola è elencata nella pagina **Regole**:
+3. Scegliere **Salva**. La regola è elencata nella pagina **Regole**:
 
     ![Regole di Application Builder (Generatore applicazioni)](media/tutorial-configure-rules/builderrules.png)
 

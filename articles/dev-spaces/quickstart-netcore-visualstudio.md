@@ -1,56 +1,59 @@
 ---
-title: Creare un ambiente di sviluppo Kubernetes nel cloud | Microsoft Docs
+title: Creare uno spazio di sviluppo Kubernetes nel cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 9bee5677aecb235872f50eea75ddc98bc453f426
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 16ec493708f85e9b3819943e131b9f9c3649f27e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361716"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824639"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare un ambiente di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
 
 In questa guida si apprenderà come:
 
-- Creare un ambiente basato su Kubernetes ottimizzato per lo sviluppo in Azure.
+- Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
 - Sviluppare codice in modo iterativo nei contenitori con Visual Studio.
+- Eseguire il debug del codice in esecuzione nel cluster.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-netcore-visualstudio.md) più dettagliata.
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="get-the-visual-studio-tools"></a>Ottenere gli strumenti di Visual Studio 
-1. Installare l'ultima versione di [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. Nel programma di installazione di Visual Studio assicurarsi che sia selezionato il carico di lavoro seguente:
-    * Sviluppo Web e ASP.NET
-1. Installare l'[estensione di Visual Studio per Azure Dev Spaces](https://aka.ms/get-azds-visualstudio)
+- Un cluster Kubernetes che esegue Kubernetes 1.9.6 nell'area EastUS, WestEurope o CanadaEast con il routing HTTP dell'applicazione abilitato.
 
-È ora possibile creare un'app Web ASP.NET con Visual Studio.
+  ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
+- Visual Studio 2017 con il carico di lavoro Sviluppo Web installato. Se non è installato, scaricarlo da [qui](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
-In Visual Studio 2017 creare un nuovo progetto. Attualmente deve trattarsi di un progetto **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome "**webfrontend**".
+## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
+Installare l'[estensione di Visual Studio per Azure Dev Spaces](https://aka.ms/get-azds-visualstudio).
 
-Selezionare il modello **Applicazione Web (MVC)** e assicurarsi che nei due elenchi a discesa nella parte superiore della finestra di dialogo siano selezionati **.NET Core** e **ASP.NET Core 2.0**. Fare clic su **OK** per creare il progetto.
+## <a name="connect-to-a-cluster"></a>Connettersi a un cluster
 
-![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
+A questo punto, creare e configurare un progetto per Azure Dev Spaces.
 
+### <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
-## <a name="create-a-dev-environment-in-azure"></a>Creare un ambiente di sviluppo in Azure
+In Visual Studio 2017 creare un nuovo progetto. Attualmente deve trattarsi di un progetto **Applicazione Web ASP.NET Core**. Assegnare al progetto il nome **webfrontend**.
 
-Con Azure Dev Spaces è possibile creare ambienti di sviluppo basati su Kubernetes completamente gestiti da Azure e ottimizzati per lo sviluppo. Con il progetto appena creato aperto, selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come illustrato di seguito.
+Selezionare il modello **Applicazione Web (MVC)** e assicurarsi che siano selezionati **.NET Core** e **ASP.NET Core 2.0**.
+
+### <a name="create-a-dev-space-in-azure"></a>Creare uno spazio di sviluppo in Azure
+
+Con il progetto appena creato aperto, selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come illustrato di seguito.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -58,7 +61,7 @@ Nella finestra di dialogo che viene quindi visualizzata verificare di aver effet
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Per il momento, nell'elenco a discesa **Spazio** lasciare l'impostazione predefinita `default`. Questa opzione verrà approfondita in seguito. Selezionare la casella di controllo **Publicly Accessible** (Accessibile pubblicamente) affinché l'app Web sia accessibile tramite un endpoint pubblico. Questa impostazione non è obbligatoria, ma sarà utile per illustrare alcuni concetti più avanti in questa procedura dettagliata. In ogni caso sarà comunque possibile eseguire il debug del sito Web con Visual Studio.
+Per il momento, lasciare l'elenco a discesa **Spazio** impostato su `default`. Selezionare la casella di controllo **Publicly Accessible** (Accessibile pubblicamente) affinché l'app Web sia accessibile tramite un endpoint pubblico.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
@@ -70,28 +73,19 @@ Se si sceglie un cluster che non è stato configurato per l'uso di Azure Dev Spa
 
 Scegliere **OK**. 
 
-Verrà avviata un'attività in background a tale scopo. Il completamento dell'attività richiederà alcuni minuti. Per verificare se è ancora in corso la creazione, passare il puntatore sull'icona **Attività in background** nell'angolo inferiore sinistro della barra di stato, come illustrato nell'immagine seguente.
+### <a name="look-at-the-files-added-to-project"></a>Esaminare i file aggiunti al progetto
+Mentre si attende che venga creato lo spazio di sviluppo, esaminare i file che sono stati aggiunti al progetto quando si è scelto di usare Azure Dev Spaces.
 
-![](media/get-started-netcore-visualstudio/BackgroundTasks.png)
-
-> [!Note]
-Finché non viene completata la creazione dell'ambiente di sviluppo, non è possibile eseguire il debug dell'applicazione.
-
-## <a name="look-at-the-files-added-to-project"></a>Esaminare i file aggiunti al progetto
-Mentre si attende che venga creato l'ambiente di sviluppo, esaminare i file che sono stati aggiunti al progetto quando si è scelto di usare un ambiente di sviluppo.
-
-Per prima cosa, è possibile osservare che è stata aggiunta una cartella denominata `charts` e che in tale cartella è stato eseguito lo scaffolding di un [chart Helm](https://docs.helm.sh) per l'applicazione. Questi file vengono usati per distribuire l'applicazione nell'ambiente di sviluppo.
-
-Si noterà che è stato aggiunto un file denominato `Dockerfile`, che contiene le informazioni necessarie per creare un pacchetto dell'applicazione nel formato Docker standard. Viene creato anche un file `HeaderPropagation.cs`, che verrà illustrato più avanti nella procedura dettagliata. 
-
-Si noterà infine un file denominato `azds.yaml`, che contiene le informazioni di configurazione necessarie all'ambiente di sviluppo, ad esempio per determinare se l'applicazione dovrà essere accessibile tramite un endpoint pubblico.
+- È stata aggiunta una cartella denominata `charts` e in tale cartella è stato eseguito lo scaffolding di un [chart Helm](https://docs.helm.sh) per l'applicazione. Questi file vengono usati per distribuire l'applicazione nello spazio di sviluppo.
+- `Dockerfile` contiene le informazioni necessarie per creare un pacchetto dell'applicazione nel formato Docker standard.
+- `azds.yaml` contiene le informazioni di configurazione necessarie allo spazio di sviluppo, ad esempio per determinare se l'applicazione dovrà essere accessibile tramite un endpoint pubblico.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Eseguire il debug di un contenitore in Kubernetes
-Al termine della creazione dell'ambiente di sviluppo, è possibile eseguire il debug dell'applicazione. Impostare un punto di interruzione nel codice, ad esempio alla riga 20 del file `HomeController.cs` in cui viene impostata la variabile `Message`. Premere **F5** per avviare il debug. 
+Al termine della creazione dello spazio di sviluppo, è possibile eseguire il debug dell'applicazione. Impostare un punto di interruzione nel codice, ad esempio alla riga 20 del file `HomeController.cs` in cui viene impostata la variabile `Message`. Premere **F5** per avviare il debug. 
 
-Visual Studio comunicherà con l'ambiente di sviluppo per compilare e distribuire l'applicazione e quindi aprire un browser con l'app Web in esecuzione. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nell'ambiente di sviluppo in Azure. L'indirizzo localhost viene usato perché Azure Dev Spaces crea un tunnel SSH temporaneo per il contenitore eseguito in Azure.
+Visual Studio comunicherà con lo spazio di sviluppo per compilare e distribuire l'applicazione e quindi aprire un browser con l'app Web in esecuzione. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure. L'indirizzo localhost viene usato perché Azure Dev Spaces crea un tunnel SSH temporaneo per il contenitore eseguito in Azure.
 
 Fare clic sul collegamento **About** nella parte superiore della pagina per attivare il punto di interruzione. Le informazioni di debug, come stack di chiamate, variabili locali, informazioni sulle eccezioni e così via, sono completamente accessibili come in caso di esecuzione del codice in locale.
 

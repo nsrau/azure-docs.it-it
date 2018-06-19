@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850611"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Creare un'istanza gestita di database SQL di Azure nel portale di Azure
 
@@ -161,16 +162,16 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
 
    ![Creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Selezionare la sottoscrizione e verificare che le condizioni per l'anteprima risultino **Accettate**.
+4. Selezionare la sottoscrizione e verificare che le condizioni per l'anteprima risultino **Accettate**.
 
    ![Anteprima di Istanza gestita accettata](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Compilare il modulo relativo all'istanza gestita con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
+5. Compilare il modulo relativo all'istanza gestita con le informazioni richieste, usando le informazioni riportate nella tabella seguente:
 
    | Impostazione| Valore consigliato | DESCRIZIONE |
    | ------ | --------------- | ----------- |
    |**Nome istanza gestita**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Account di accesso amministratore istanza gestita**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Account di accesso amministratore istanza gestita**|Qualsiasi nome utente valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Non usare "serveradmin" perché è un ruolo a livello di server riservato.| 
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 16 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Gruppo di risorse**|Gruppo di risorse creato in precedenza||
    |**Posizione**|Località selezionata in precedenza|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ La procedura seguente illustra come creare un'istanza gestita dopo che l'antepri
 
    ![Modulo per la creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. Fare clic su **Piano tariffario** per definire le dimensioni delle risorse di calcolo e di archiviazione ed esaminare le opzioni del piano tariffario. Per impostazione predefinita, all'istanza vengono assegnati gratuitamente 32 GB di spazio di archiviazione, che potrebbero non essere sufficienti per le proprie applicazioni.
-6. Usare i dispositivi di scorrimento o le caselle di testo per specificare la quantità di spazio di archiviazione e il numero di core virtuali. 
-   ![Modulo per la creazione dell'istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. Fare clic su **Piano tariffario** per definire le dimensioni delle risorse di calcolo e di archiviazione ed esaminare le opzioni del piano tariffario. Per impostazione predefinita, all'istanza vengono assegnati gratuitamente 32 GB di spazio di archiviazione, che potrebbero non essere sufficienti per le proprie applicazioni.
+7. Usare i dispositivi di scorrimento o le caselle di testo per specificare la quantità di spazio di archiviazione e il numero di core virtuali. 
+   ![piano tariffario istanza gestita](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Al termine, fare clic su **Applica** per salvare le impostazioni selezionate.  
-8. Fare clic su **Crea** per distribuire l'istanza gestita.
-9. Fare clic sull'icona **Notifiche** per visualizzare lo stato della distribuzione.
+8. Al termine, fare clic su **Applica** per salvare le impostazioni selezionate.  
+9. Fare clic su **Crea** per distribuire l'istanza gestita.
+10. Fare clic sull'icona **Notifiche** per visualizzare lo stato della distribuzione.
  
    ![Stato di avanzamento della distribuzione](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Fare clic su **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione.
+11. Fare clic su **Distribuzione in corso** per aprire la finestra dell'istanza gestita e monitorare ulteriormente lo stato di avanzamento della distribuzione.
  
    ![Stato di avanzamento della distribuzione 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ La procedura seguente illustra come creare una macchina virtuale nella stessa re
 
    ![Modulo per la creazione della macchina virtuale](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. Fare clic su **OK**.
-4. Selezionare una dimensione per la VM. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Per questa esercitazione è sufficiente una macchina virtuale di piccole dimensioni.
+4. Fare clic su **OK**.
+5. Selezionare una dimensione per la VM. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Per questa esercitazione è sufficiente una macchina virtuale di piccole dimensioni.
 
     ![Dimensioni delle macchine virtuali](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. Fare clic su **Seleziona**.
-6. Nel modulo **Impostazioni** fare clic su **Subnet** e quindi selezionare **vm_subnet**. Non scegliere la subnet in cui viene effettuato il provisioning dell'istanza gestita, ma un'altra subnet nella stessa rete virtuale.
+6. Fare clic su **Seleziona**.
+7. Nel modulo **Impostazioni** fare clic su **Subnet** e quindi selezionare **vm_subnet**. Non scegliere la subnet in cui viene effettuato il provisioning dell'istanza gestita, ma un'altra subnet nella stessa rete virtuale.
 
     ![Impostazioni della VM](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. Fare clic su **OK**.
-8. Nella pagina di riepilogo esaminare i dettagli dell'offerta e quindi fare clic su **Crea** per avviare la distribuzione della macchina virtuale.
+8. Fare clic su **OK**.
+9. Nella pagina di riepilogo esaminare i dettagli dell'offerta e quindi fare clic su **Crea** per avviare la distribuzione della macchina virtuale.
  
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 

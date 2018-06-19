@@ -1,31 +1,28 @@
 ---
-title: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: "Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account Data Lake Analytics, definire un processo di Data Lake Analytics con U-SQL e inviare il processo. "
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account Azure Data Lake Analytics e inviare un processo U-SQL.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625102"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Analytics con l'interfaccia della riga di comando di Azure 2.0
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-In questa esercitazione verrà sviluppato un processo che legge un file con valori delimitati da tabulazioni (TSV) e lo converte in un file con valori delimitati da virgole (CSV). Per eseguire la stessa esercitazione usando altri strumenti supportati, usare l'elenco a discesa disponibile nella parte superiore di questa sezione.
+Questo articolo descrive come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account di Azure Data Lake Analytics, inviare un processo U-SQL e recuperare i risultati. Il processo legge un file con valori delimitati da tabulazioni (TSV) e lo converte in un file con valori delimitati da virgole (CSV). 
 
 ## <a name="prerequisites"></a>prerequisiti
-Prima di iniziare questa esercitazione sono necessari gli elementi seguenti:
+Prima di iniziare, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Interfaccia della riga di comando di Azure 2.0**. Vedere [Installare e configurare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).

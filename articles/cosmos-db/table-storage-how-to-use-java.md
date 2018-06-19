@@ -1,27 +1,25 @@
 ---
 title: Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java | Microsoft Docs
-description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: Java
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 4ac25fd9e1d7233546b34da89eb1bcaf37f6f38b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797897"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Panoramica
 Questo articolo illustra come eseguire scenari comuni usando il servizio di archiviazione tabelle di Azure e Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
@@ -36,13 +34,13 @@ Questo articolo illustra come eseguire scenari comuni usando il servizio di arch
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Creare un account per l'API di tabella di Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-account"></a>Creare un account Azure Cosmos DB
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Creare un'applicazione Java
 In questa guida si utilizzeranno le funzionalità di archiviazione che possono essere eseguite in un'applicazione Java in locale o nel codice in esecuzione in un ruolo Web o in un ruolo di lavoro in Azure.
 
-Per usare gli esempio in questo articolo, installare Java Development Kit (JDK) e creare un account di archiviazione di Azure nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di Archiviazione di Azure per Java nel sistema dal repository indicato. Dopo avere completato queste attività, sarà possibile creare un'applicazione Java che usa gli esempi illustrati in questo articolo.
+Per usare gli esempi in questo articolo, installare Java Development Kit (JDK) e creare un account di archiviazione di Azure o un account di Azure Cosmos DB nella sottoscrizione di Azure. Dopo avere eseguito questa operazione, verificare che il sistema di sviluppo in uso soddisfi i requisiti minimi e le dipendenze elencate nel repository [Azure Storage SDK per Java][Azure Storage SDK for Java] su GitHub. Se il sistema soddisfa i requisiti, è possibile seguire le istruzioni per scaricare e installare le librerie di Archiviazione di Azure per Java nel sistema dal repository indicato. Dopo avere completato queste attività, è possibile creare un'applicazione Java che usa gli esempi in questo articolo.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configurare l'applicazione per l'accesso all'archiviazione tabelle
 Aggiungere le istruzioni import seguenti all'inizio del file Java in cui si desidera usare le API di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB per accedere alle tabelle:
@@ -67,7 +65,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## <a name="add-an-azure-cosmos-db-connection-string"></a>Aggiungere una stringa di connessione di Azure Cosmos DB
+## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Aggiungere una stringa di connessione dell'API Tabelle di Azure Cosmos DB
 Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori *AccountName* e *AccountKey*. 
 
 Questo esempio illustra come dichiarare un campo statico per memorizzare la stringa di connessione di Azure Cosmos DB:
@@ -608,7 +606,7 @@ Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure p
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Riferimento all'SDK del client di Archiviazione di Azure]: http://azure.github.io/azure-storage-java/
+[Riferimento all'SDK del client di archiviazione di Azure]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

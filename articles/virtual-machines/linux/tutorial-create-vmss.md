@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 06/01/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 741cabd37a5a508257f0307dfec25b5bb2d25153
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 305c8b46f82409257061e1cb0ab79b3bf958384d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839606"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux con l'interfaccia della riga di comando di Azure 2.0
 
@@ -49,7 +50,7 @@ I set di scalabilità supportano fino a 1000 macchine virtuali quando si usa un'
 ## <a name="create-an-app-to-scale"></a>Creare un'app per la scalabilità
 Per l'uso in ambiente di produzione, è opportuno [creare un'immagine di macchina virtuale personalizzata](tutorial-custom-images.md) che includa l'applicazione installata e configurata. Per questa esercitazione si esegue la personalizzazione delle macchine virtuali al primo avvio per verificare rapidamente il funzionamento di un set di scalabilità.
 
-In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. È possibile usare lo stesso file di configurazione cloud-init per installare NGINX ed eseguire una semplice app Node.js "Hello World". 
+In un'esercitazione precedente, [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), è stato descritto come personalizzare una macchina virtuale al primo avvio con cloud-init. È possibile usare lo stesso file di configurazione cloud-init per installare NGINX ed eseguire una semplice app Node.js "Hello World".
 
 Nella shell corrente creare un file denominato *cloud-init.txt* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. Immettere `sensible-editor cloud-init.txt` per creare il file e visualizzare un elenco degli editor disponibili. Assicurarsi che l'intero file cloud-init venga copiato correttamente, in particolare la prima riga:
 
@@ -97,15 +98,15 @@ runcmd:
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az_group_create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupScaleSet* nella posizione *eastus*:
+Per poter creare un set di scalabilità, è prima necessario creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroupScaleSet* nella posizione *eastus*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupScaleSet --location eastus
 ```
 
-Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az_vmss_create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet*, viene usato il file cloud-int per personalizzare la VM e vengono generate le chiavi SSH, se non sono presenti:
+Si può ora creare un set di scalabilità di macchine virtuali con il comando [az vmss create](/cli/azure/vmss#az-vmss-create). Nell'esempio seguente viene creato un set di scalabilità denominato *myScaleSet*, viene usato il file cloud-int per personalizzare la VM e vengono generate le chiavi SSH, se non sono presenti:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -122,9 +123,9 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 ## <a name="allow-web-traffic"></a>Consentire il traffico Web
 Un bilanciamento del carico è stato creato automaticamente come parte del set di scalabilità di macchine virtuali. Il bilanciamento del carico distribuisce il traffico ad un set di macchine virtuali definite usando le proprie regole. Altre informazioni sui concetti di bilanciamento del carico e sulla configurazione saranno illustrate nella prossima esercitazione, [Come bilanciare il carico di macchine virtuali in Azure](tutorial-load-balancer.md).
 
-Per consentire al traffico di raggiungere l'app Web, creare una regola con il comando [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
+Per consentire al traffico di raggiungere l'app Web, creare una regola con il comando [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network lb rule create \
   --resource-group myResourceGroupScaleSet \
   --name myLoadBalancerRuleWeb \
@@ -137,9 +138,9 @@ az network lb rule create \
 ```
 
 ## <a name="test-your-app"></a>Test dell'app
-Per visualizzare l'app Node.js sul Web, ottenere l'indirizzo IP pubblico del bilanciamento del carico con il comando [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
+Per visualizzare l'app Node.js sul Web, ottenere l'indirizzo IP pubblico del bilanciamento del carico con il comando [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Nell'esempio seguente si ottiene l'indirizzo IP per *myScaleSetLBPublicIP* creato come parte del set di scalabilità:
 
-```azurecli-interactive 
+```azurecli-interactive
 az network public-ip show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetLBPublicIP \
@@ -158,9 +159,9 @@ Per verificare il funzionamento del set di scalabilità, è possibile imporre l'
 Nel ciclo di vita del set di scalabilità, potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. L'interfaccia della riga di comando di Azure 2.0 offre un modo rapido per eseguire tali operazioni. Di seguito vengono illustrate alcune attività comuni.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
-Per visualizzare un elenco di macchine virtuali in esecuzione nel set di scalabilità, usare il comando [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) come indicato di seguito:
+Per visualizzare un elenco di macchine virtuali in esecuzione nel set di scalabilità, usare il comando [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) come indicato di seguito:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instances \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
@@ -169,7 +170,7 @@ az vmss list-instances \
 
 L'output è simile all'esempio seguente:
 
-```azurecli-interactive 
+```bash
   InstanceId  LatestModelApplied    Location    Name          ProvisioningState    ResourceGroup            VmId
 ------------  --------------------  ----------  ------------  -------------------  -----------------------  ------------------------------------
            1  True                  eastus      myScaleSet_1  Succeeded            MYRESOURCEGROUPSCALESET  c72ddc34-6c41-4a53-b89e-dd24f27b30ab
@@ -177,10 +178,10 @@ L'output è simile all'esempio seguente:
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Aumentare o diminuire le istanze delle macchine virtuali
-Per visualizzare il numero di istanze attualmente presenti in un set di scalabilità, usare il comando [az vmss show](/cli/azure/vmss#az_vmss_show) ed eseguire una query su *sku.capacity*:
+### <a name="manually-increase-or-decrease-vm-instances"></a>Aumentare o diminuire manualmente le istanze delle macchine virtuali
+Per visualizzare il numero di istanze attualmente presenti in un set di scalabilità, usare il comando [az vmss show](/cli/azure/vmss#az-vmss-show) ed eseguire una query su *sku.capacity*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss show \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -188,93 +189,19 @@ az vmss show \
     --output table
 ```
 
-È possibile aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con il comando [az vmss scale](/cli/azure/vmss#az_vmss_scale). L'esempio seguente imposta il numero di macchine virtuali del set di scalabilità su *3*:
+È possibile aumentare o ridurre manualmente il numero di macchine virtuali nel set di scalabilità con il comando [az vmss scale](/cli/azure/vmss#az-vmss-scale). L'esempio seguente imposta il numero di macchine virtuali del set di scalabilità su *3*:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss scale \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
     --new-capacity 3
 ```
 
-
-### <a name="configure-autoscale-rules"></a>Configurare le regole di scalabilità automatica
-Invece di ridimensionare manualmente il numero di istanze del set di scalabilità, è possibile definire regole di scalabilità automatica. Queste regole monitorano le istanze nel set di scalabilità e rispondono di conseguenza in base alle metriche e alle soglie definite. L'esempio seguente aumenta il numero di istanze di uno quando il carico della CPU medio è maggiore del 60% per un periodo di 5 minuti. Se il carico della CPU medio scende poi sotto il 30% per un periodo di 5 minuti, le istanze vengono ridotte di una. L'ID della sottoscrizione viene usato per creare gli URI delle risorse per i diversi componenti del set di scalabilità. Per creare queste regole con [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#az_monitor_autoscale_settings_create), copiare e incollare il profilo del comando di scalabilità automatica seguente:
-
-```azurecli-interactive 
-sub=$(az account show --query id -o tsv)
-
-az monitor autoscale-settings create \
-    --resource-group myResourceGroupScaleSet \
-    --name autoscale \
-    --parameters '{"autoscale_setting_resource_name": "autoscale",
-      "enabled": true,
-      "location": "East US",
-      "notifications": [],
-      "profiles": [
-        {
-          "name": "Auto created scale condition",
-          "capacity": {
-            "minimum": "2",
-            "maximum": "10",
-            "default": "2"
-          },
-          "rules": [
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "GreaterThan",
-                "threshold": 70
-              },
-              "scaleAction": {
-                "direction": "Increase",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            },
-            {
-              "metricTrigger": {
-                "metricName": "Percentage CPU",
-                "metricNamespace": "",
-                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
-                "metricResourceLocation": "eastus",
-                "timeGrain": "PT1M",
-                "statistic": "Average",
-                "timeWindow": "PT5M",
-                "timeAggregation": "Average",
-                "operator": "LessThan",
-                "threshold": 30
-              },
-              "scaleAction": {
-                "direction": "Decrease",
-                "type": "ChangeCount",
-                "value": "1",
-                "cooldown": "PT5M"
-              }
-            }
-          ]
-        }
-      ],
-      "tags": {},
-      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
-    }'
-```
-
-Per usare di nuovo il profilo di scalabilità automatica, è possibile creare un file JSON (JavaScript Object Notation) e passarlo al comando `az monitor autoscale-settings create` con il parametro `--parameters @autoscale.json`. Per altre informazioni di progettazione sull'uso della scalabilità automatica, vedere [Procedure consigliate per la scalabilità automatica](/azure/architecture/best-practices/auto-scaling).
-
-
 ### <a name="get-connection-info"></a>Ottenere informazioni sulla connessione
-Per ottenere informazioni sulla connessione delle macchine virtuali nel set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info). Questo comando restituisce l'indirizzo IP pubblico e la porta per ogni macchina virtuale che consente la connessione con SSH:
+Per ottenere informazioni sulla connessione delle macchine virtuali nel set di scalabilità, usare [az vmss list-instance-connection-info](/cli/azure/vmss#az-vmss-list-instance-connection-info). Questo comando restituisce l'indirizzo IP pubblico e la porta per ogni macchina virtuale che consente la connessione con SSH:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss list-instance-connection-info \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet
@@ -285,9 +212,9 @@ az vmss list-instance-connection-info \
 È possibile creare e usare dischi di dati con set di scalabilità. Nell'esercitazione precedente si è appreso come [gestire i dischi di Azure](tutorial-manage-disks.md), con le procedure consigliate e i miglioramenti delle prestazioni per la creazione di applicazioni su dischi di dati piuttosto che sul disco del sistema operativo.
 
 ### <a name="create-scale-set-with-data-disks"></a>Creare un set di scalabilità con dischi di dati
-Per creare un set di scalabilità e collegare dischi di dati, aggiungere il parametro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#az_vmss_create). Nell'esempio seguente viene creato un set di scalabilità con dischi di dati da *50* Gb collegati a ogni istanza:
+Per creare un set di scalabilità e collegare dischi di dati, aggiungere il parametro `--data-disk-sizes-gb` al comando [az vmss create](/cli/azure/vmss#az-vmss-create). Nell'esempio seguente viene creato un set di scalabilità con dischi di dati da *50* Gb collegati a ogni istanza:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss create \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSetDisks \
@@ -302,9 +229,9 @@ az vmss create \
 Quando le istanze vengono rimosse da un set di scalabilità, vengono rimossi anche tutti i dischi di dati collegati.
 
 ### <a name="add-data-disks"></a>Aggiungere dischi di dati
-Per aggiungere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). Nell'esempio seguente viene aggiunto un disco di dati da *50* Gb a ogni istanza:
+Per aggiungere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk attach](/cli/azure/vmss/disk#az-vmss-disk-attach). Nell'esempio seguente viene aggiunto un disco di dati da *50* Gb a ogni istanza:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk attach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \
@@ -313,9 +240,9 @@ az vmss disk attach \
 ```
 
 ### <a name="detach-data-disks"></a>Scollegare dischi di dati
-Per rimuovere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach). Nell'esempio seguente viene rimosso il disco di dati del LUN *2* da ogni istanza:
+Per rimuovere un disco di dati per le istanze nel set di scalabilità, usare [az vmss disk detach](/cli/azure/vmss/disk#az-vmss-disk-detach). Nell'esempio seguente viene rimosso il disco di dati del LUN *2* da ogni istanza:
 
-```azurecli-interactive 
+```azurecli-interactive
 az vmss disk detach \
     --resource-group myResourceGroupScaleSet \
     --name myScaleSet \

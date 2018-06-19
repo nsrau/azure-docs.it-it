@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597757"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -104,7 +105,7 @@ Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mos
 }
 ```
 
-Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+Passare all'app Web appena creata. Sostituire _&lt;app name>_ con il nome app univoco creato nel passaggio precedente.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -186,7 +187,7 @@ Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile esegu
 
 ![Pagina del servizio app nel portale di Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
+Il menu a sinistra fornisce varie opzioni per la configurazione dell'app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

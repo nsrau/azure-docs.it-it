@@ -5,20 +5,21 @@ services: cdn
 author: SyntaxC4
 ms.service: cdn
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: 0db5f571324694f0518ffc4e92af985e5125d755
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34665291"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Creare un nuovo profilo di rete CDN
 
 Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica un piano tariffario.
 
-1. In alto a sinistra nel portale di Azure selezionare **Crea una risorsa**.
+1. In alto a sinistra nel portale di Azure selezionare **Crea una risorsa**. 
     
     Viene visualizzato il riquadro **Nuovo**.
    
@@ -28,20 +29,22 @@ Un profilo di rete CDN è un contenitore per endpoint della rete CDN e specifica
 
     Viene visualizzato il riquadro **Profilo rete CDN**.
 
-    Usare le impostazioni specificate nella tabella disponibile sotto l'immagine.
+3. Per le impostazioni del profilo della rete CDN, usare i valori specificati nella tabella seguente:
    
-    ![Nuovo profilo di rete CDN](./media/cdn-create-profile/cdn-new-profile.png)
-
     | Impostazione  | Valore |
     | -------- | ----- |
     | **Nome** | Immettere *my-cdn-profile-123* per il nome del profilo. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. |
-    | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa.|
-    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso. | 
+    | **Sottoscrizione** | Selezionare una sottoscrizione di Azure dall'elenco a discesa. |
+    | **Gruppo di risorse** | Selezionare **Crea nuovo** e immettere *my-resource-group-123* per il nome del gruppo di risorse. Il nome deve essere univoco a livello globale. Se è già in uso, è possibile immettere un nome diverso o è possibile selezionare **Usa esistente** e selezionare **my-resource-group-123** nell'elenco a discesa. | 
     | **Località del gruppo di risorse** | Selezionare **Stati Uniti centrali** dall'elenco a discesa. |
     | **Piano tariffario** | Selezionare **Verizon standard** dall'elenco a discesa. |
     | **Crea un nuovo endpoint rete CDN ora** | Non selezionare alcun elemento. |  
    
-3. Selezionare **Aggiungi al dashboard** per salvare il profilo nel dashboard dopo la creazione.
+    ![Nuovo profilo di rete CDN](./media/cdn-create-profile/cdn-new-profile.png)
+
+4. Selezionare **Aggiungi al dashboard** per salvare il profilo nel dashboard dopo la creazione.
     
-4. Selezionare **Crea** per creare il profilo. 
+5. Selezionare **Crea** per creare il profilo. 
+
+    Solo per i profili di **rete CDN Standard di Azure con tecnologia Microsoft**, il completamento del profilo richiede in genere due ore. 
 

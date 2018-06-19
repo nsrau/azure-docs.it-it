@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 3157f5db58be5735fa7b194393b0ab6d0e143a91
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9ecb07a2cb278f6cde4ffdc3b252cb9e816d08da
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33830479"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414638"
 ---
 ## <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
 
-È prima necessario creare un account di Servizi multimediali. In questa sezione sono illustrati i requisiti per la creazione dell'account con l'interfaccia della riga di comando 2.0.
+È prima necessario creare un account di Servizi multimediali. Questa sezione illustra i requisiti per la creazione dell'account con l'interfaccia della riga di comando di Azure.
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

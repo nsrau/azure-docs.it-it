@@ -1,6 +1,6 @@
 ---
-title: Esempi di interfaccia della riga di comando di Azure Service Fabric
-description: Esempi di interfaccia della riga di comando di Azure Service Fabric
+title: Esempi per l'interfaccia della riga di comando di Azure (az) e l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
+description: Esempi per l'interfaccia della riga di comando di Azure (az) e l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -16,23 +16,24 @@ ms.workload: service-fabric
 ms.date: 04/09/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: c7f6ce7cea62bd4bf9baca6119f204fc43cf4d45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e37bbd5e12608c5acbd19d5c57667d9e34c74b3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641850"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Esempi di interfaccia della riga di comando di Azure Service Fabric
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Esempi per l'interfaccia della riga di comando di Azure (az) e l'interfaccia della riga di comando di Azure Service Fabric (sfctl)
 
-La tabella seguente include collegamenti a esempi di script dell'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md) che gestiscono servizi, applicazioni e cluster di Service Fabric.
+La tabella seguente include collegamenti a esempi su come gestire servizi, applicazioni e cluster di Service Fabric.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **Creare cluster** ||
-| [Creare un cluster Linux protetto (Azure)](./scripts/cli-create-cluster.md)| Crea un cluster di Azure Service Fabric. |
-| **Gestire le applicazioni** ||
+| **Creare cluster** (con l'interfaccia della riga di comando di Azure)||
+| [Creare un cluster Linux protetto](./scripts/cli-create-cluster.md)| Crea un cluster di Azure Service Fabric. |
+| **Gestire le applicazioni** (con l'interfaccia della riga di comando di Service Fabric)||
 | [Elenco applicazioni](./scripts/sfctl-list-applications.md)| Elencare le applicazioni di cui è stato eseguito il provisioning in un cluster.|
 | [Distribuire un'applicazione](./scripts/cli-deploy-application.md)| Distribuire un'applicazione in un cluster.|
 | [Rimuovere un'applicazione](./scripts/cli-remove-application.md)| Rimuovere un'applicazione da un cluster.|

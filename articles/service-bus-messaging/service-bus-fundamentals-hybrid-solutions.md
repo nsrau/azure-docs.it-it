@@ -5,20 +5,16 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 12654cdd-82ab-4b95-b56f-08a5a8bbc6f9
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/31/2018
+ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: fab765480a2f480e8c54035d903d24843490ee38
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641323"
 ---
 # <a name="azure-service-bus"></a>Bus di servizio di Azure
 
@@ -37,14 +33,14 @@ Il bus di servizio è un servizio cloud multi-tenant, il che significa che il se
 All'interno di uno spazio dei nomi è possibile utilizzare una o più istanze di tre meccanismi di comunicazione diversi, ognuno dei quali consente di connettere le applicazioni in modo diverso. Le opzioni disponibili sono:
 
 * *Code*: consentono la comunicazione unidirezionale. Ogni coda funge da intermediario (talvolta è infatti denominata *broker*) che archivia i messaggi inviati fino a quando non vengono ricevuti. Ogni messaggio viene ricevuto da un singolo destinatario.
-* *Argomenti*: garantiscono la comunicazione unidirezionale mediante *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
+* *Argomenti*: forniscono la comunicazione unidirezionale tramite le *sottoscrizioni*. Un singolo argomento può avere più sottoscrizioni. Come la coda, un argomento funge da broker ma ogni sottoscrizione può facoltativamente usare un filtro per ricevere solo messaggi corrispondenti a criteri specifici.
 * *Inoltri*: forniscono funzionalità di comunicazione bidirezionale. Diversamente da code e argomenti, un inoltro non archivia i messaggi in elaborazione, perché non si tratta di un broker. Al contrario, li passa semplicemente all'applicazione di destinazione.
 
 Quando si crea una coda, un argomento o un inoltro, occorre assegnargli un nome. Questo nome, associato a quello assegnato allo spazio dei nomi, costituisce un identificatore univoco per l'oggetto. Le applicazioni possono fornire questo nome al bus di servizio e quindi usare tale coda, argomento o inoltro per comunicare tra loro. 
 
 In uno scenario di inoltro le applicazioni Windows possono usare questi oggetti tramite Windows Communication Foundation (WCF). Questo servizio è noto come [inoltro WCF](../service-bus-relay/relay-what-is-it.md). Per le code e gli argomenti, le applicazioni Windows possono usare API del sistema di messaggistica definite dal bus di servizio. Per rendere questi oggetti più semplici da usare da applicazioni non Windows, Microsoft fornisce SDK per Java, Node.js e altri linguaggi. È anche possibile accedere a code e argomenti tramite le [API REST](/rest/api/servicebus/) su HTTP. 
 
-È importante comprendere che, sebbene il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È inoltre possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. È addirittura possibile connettere elettrodomestici, sensori e altri dispositivi a un'applicazione centrale oppure connettere tra loro tali dispositivi. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
+È importante comprendere che, nonostante il bus di servizio stesso sia in esecuzione nel cloud, ovvero nei data center di Microsoft Azure, le applicazioni che lo usano possono essere eseguite ovunque. È possibile usare il bus di servizio per connettere applicazioni in esecuzione in Azure o all'interno del proprio data center. È anche possibile usarlo per connettere un'applicazione in esecuzione in Azure o in un'altra piattaforma cloud a un'applicazione locale o a tablet e telefoni. Il bus di servizio è un meccanismo di comunicazione nel cloud accessibile praticamente ovunque. Il modo in cui lo si usa dipende dalle operazioni che le applicazioni devono eseguire.
 
 ## <a name="queues"></a>Queues
 
@@ -54,9 +50,9 @@ Si supponga di dover connettere due applicazioni usando una coda del bus di serv
 
 **Figura 2: le code del bus di servizio forniscono un servizio di accodamento asincrono unidirezionale.**
 
-Un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo preleva un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
+Un mittente invia un messaggio a una coda del bus di servizio e un ricevitore lo utilizza in un momento successivo. Una coda può avere un singolo ricevitore, come illustrato nella Figura 2, oppure più applicazioni possono leggere dalla stessa coda. In quest'ultimo caso, ogni messaggio viene letto da un solo ricevitore. Per un servizio multicast è invece consigliabile usare un argomento.
 
-Ogni messaggio è costituito da due parti: un set di proprietà, ognuno costituito da una coppia chiave-valore, e un payload dei messaggi. Il payload può essere di tipo binario, testo o anche XML. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà **Seller="Ava"** e **Amount=10000**. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato oppure, se questo non è disponibile, rimanere vuoto.
+Ogni messaggio è costituito da due parti: un set di proprietà, una coppia chiave-valore e un payload dei messaggi. Il payload può essere di tipo binario, testo o anche XML. Il modo in cui vengono usati dipende dall'operazione che l'applicazione sta tentando di eseguire. Ad esempio, un'applicazione che invia un messaggio relativo a una vendita recente, potrebbe includere le proprietà **Seller="Ava"** e **Amount=10000**. Il corpo del messaggio potrebbe contenere un'immagine digitalizzata del contratto di vendita firmato oppure, se questo non è disponibile, rimanere vuoto.
 
 Un ricevitore può leggere un messaggio da una coda del bus di servizio in due modi. La prima opzione, denominata *[ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)*, riceve un messaggio dalla coda e lo elimina immediatamente. Questa opzione è semplice, ma se il ricevitore si arresta in modo anomalo prima di aver terminato l'elaborazione del messaggio, il messaggio andrà perso. Poiché è stato rimosso dalla coda, nessun altro ricevitore potrà accedervi. 
 
@@ -68,7 +64,7 @@ La seconda opzione, *[PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemo
 
 Possibili risultati: lo stesso messaggio potrebbe essere recapitato due volte, anche a due ricevitori diversi. Le applicazioni che usano le code del bus di servizio devono prevedere questa eventualità. Per semplificare il rilevamento dei duplicati, ogni messaggio ha una proprietà [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) univoca che per impostazione predefinita rimane invariata indipendentemente dal numero di letture del messaggio da una coda. 
 
-Le code risultano utili in un numero limitato di situazioni. Permettono alle applicazioni di comunicare anche se non sono in esecuzione contemporaneamente, sono quindi ideali per l'uso con applicazioni batch e mobili. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
+Le code risultano utili in un numero limitato di situazioni. Permettono alle applicazioni di comunicare anche se entrambe le app non sono in esecuzione contemporaneamente e sono quindi ideali per l'uso con applicazioni per dispositivi mobili e batch. Una coda con più ricevitori garantisce inoltre il bilanciamento del carico automatico, in quanto i messaggi vengono distribuiti tra i vari ricevitori.
 
 ## <a name="topics"></a>Argomenti
 
@@ -78,11 +74,11 @@ Sebbene siano utili, non sempre le code rappresentano la soluzione più appropri
 
 **Figura 3: in base al filtro specificato dall'applicazione di sottoscrizione, è possibile che vengano ricevuti alcuni o tutti i messaggi inviati a un argomento del bus di servizio.**
 
-Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza sta nel fatto che gli argomenti permettono a ogni applicazione ricevente di creare la propria *sottoscrizione* e definire facoltativamente un *filtro*. Un sottoscrittore può quindi visualizzare solo i messaggi corrispondenti al filtro definito. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
+Un *argomento* e una coda presentano caratteristiche simili. I mittenti inviano messaggi a un argomento nello stesso modo in cui li inviano a una coda e tali messaggi hanno lo stesso aspetto di quelli nelle code. La differenza sta nel fatto che gli argomenti permettono a ogni applicazione ricevente di creare la propria *sottoscrizione* e definire facoltativamente un *filtro*. Un sottoscrittore riceve una copia di ogni messaggio nell'argomento, ma usando un filtro. Può quindi ricevere solo i messaggi che corrispondono a tale filtro. Nella figura 3, ad esempio, sono mostrati un mittente e un argomento con tre sottoscrittori, ognuno con il relativo filtro:
 
-* Il sottoscrittore 1 riceve solo i messaggi che contengono la proprietà *Venditore="Ava"*.
-* Il sottoscrittore 2 riceve i messaggi che contengono la proprietà *Seller="Ruby"* e/o che contengono una proprietà *Amount* il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
-* Il sottoscrittore 3 presenta un filtro impostato su *True*e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail, pertanto è necessario che possa visualizzare tutti i messaggi.
+* Il sottoscrittore 1 riceve solo i messaggi che contengono la proprietà **Venditore="Ava"**.
+* Il sottoscrittore 2 riceve i messaggi che contengono la proprietà **Seller="Ruby"** e/o che contengono una proprietà **Amount** il cui valore è maggiore di 100.000. Ruby potrebbe essere una responsabile vendite che vuole visualizzare sia le proprie vendite che le vendite di importo elevato, indipendentemente da chi le abbia concluse.
+* Il sottoscrittore 3 presenta un filtro impostato su **True**e pertanto riceve tutti i messaggi. Questa applicazione potrebbe ad esempio essere responsabile del mantenimento di un audit trail. È quindi necessario che possa visualizzare tutti i messaggi.
 
 Come con le code, i sottoscrittori di un argomento possono leggere i messaggi usando la modalità di ricezione [ReceiveAndDelete o PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode). A differenza delle code, tuttavia, un singolo messaggio inviato a un argomento può essere ricevuto da più sottoscrizioni. Questo approccio, comunemente denominato di *pubblicazione e sottoscrizione* o *pub/sub*, risulta utile qualora più applicazioni siano interessate agli stessi messaggi. Con la definizione del filtro corretto, ogni sottoscrittore può accedere solo alla parte del flusso dei messaggi che gli interessa.
 

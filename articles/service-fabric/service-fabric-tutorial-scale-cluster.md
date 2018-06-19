@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642700"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Esercitazione: Ridimensionare un cluster di Service Fabric
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Dopo avere stabilito la connessione, è possibile usare un comando per ottenere lo stato di ogni nodo nel cluster. Per PowerShell usare il comando `Get-ServiceFabricClusterHealth` e per **sfctl** usare il comando `sfctl cluster select`.
+Dopo avere stabilito la connessione, è possibile usare un comando per ottenere lo stato di ogni nodo nel cluster. Per **PowerShell** usare il comando `Get-ServiceFabricClusterHealth` e per **sfctl** usare il comando `sfctl cluster select`.
 
 ## <a name="scale-out"></a>Scalabilità orizzontale
 
@@ -131,15 +132,15 @@ Il cluster di Service Fabric deve determinare che questo nodo verrà rimosso. È
 
 1. Disabilitare il nodo in modo che non sia più una replica per i dati.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Arrestare il nodo in modo che il runtime di Service Fabric venga arrestato normalmente e l'app riceva una richiesta di interruzione.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Rimuovere il nodo dal cluster.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 Dopo avere applicato questi tre passaggi al nodo, è possibile rimuoverlo dal set di scalabilità. Se si usa un livello di durabilità superiore a [Bronze][durability], questi passaggi vengono eseguiti automaticamente quando viene rimossa l'istanza del set di scalabilità.
 

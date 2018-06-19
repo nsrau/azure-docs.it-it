@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303978"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725242"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Introduzione a Griglia di eventi di Azure
 
@@ -71,8 +71,6 @@ Attualmente i servizi di Azure seguenti supportano la gestione degli eventi da G
 * Archiviazione code
 * Webhook
 
-Quando si usa Funzioni di Azure come gestore, l'uso del trigger della Griglia di eventi è consigliato rispetto ai trigger HTTP generici. Griglia di eventi convalida automaticamente i trigger di funzioni della Griglia di eventi. Con i trigger HTTP generici è necessario implementare la [risposta di convalida](security-authentication.md#webhook-event-delivery).
-
 Per i collegamenti agli articoli che illustrano come usare ogni origine evento, vedere [Event sources in Azure Event Grid](event-handlers.md) (Origini eventi nella Griglia di eventi di Azure).
 
 ## <a name="concepts"></a>Concetti
@@ -80,7 +78,7 @@ Per i collegamenti agli articoli che illustrano come usare ogni origine evento, 
 Per iniziare, è opportuno tenere presenti cinque concetti relativi a Griglia di eventi di Azure:
 
 * **Eventi**: ciò che successo.
-* **Origini/Autori di eventi**: dove si è verificato l'evento.
+* **Origini di eventi**: dove si è verificato l'evento.
 * **Argomenti**: l'endpoint a cui gli autori inviano gli eventi.
 * **Sottoscrizioni agli eventi**: l'endpoint o il meccanismo predefinito per instradare gli eventi, a volte a più gestori. Le sottoscrizioni vengono usate dai gestori anche per filtrare in modo intelligente gli eventi in ingresso.
 * **Gestori di eventi**: l'app o il servizio che reagisce all'evento.
@@ -126,7 +124,7 @@ Griglia di eventi connette l'app con altri servizi. Creare, ad esempio, un argom
 
 ## <a name="how-much-does-event-grid-cost"></a>Costi di Griglia di eventi
 
-Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pagamento per evento, quindi si paga solo per le risorse usate. Le prime 100.000 operazioni al mese sono gratuite. Le operazioni vengono definite come inserimento di eventi, corrispondenza avanzata, tentativo di recapito e chiamate di gestione. Per informazioni dettagliate, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/event-grid/).
+Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pagamento per evento, quindi si paga solo per le risorse usate. Le prime 100.000 operazioni al mese sono gratuite. Le operazioni sono definite come eventi in ingresso, tentativi di recapito sottoscrizione, chiamate di gestione e filtro in base a suffisso soggetto. Per informazioni dettagliate, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

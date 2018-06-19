@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361473"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823912"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Guida introduttiva ad Azure Dev Spaces con Node.js
 
@@ -32,7 +32,7 @@ ms.locfileid: "34361473"
 Azure Dev Spaces richiede un'installazione minima nel computer locale. La maggior parte della configurazione dell'ambiente di sviluppo viene archiviata nel cloud ed è condivisibile con altri utenti. Per iniziare, scaricare ed eseguire l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 > [!IMPORTANT]
-> Se l'interfaccia della riga di comando di Azure è già installata, assicurarsi di usare la versione 2.0.32 o una successiva.
+> Se l'interfaccia della riga di comando di Azure è già installata, assicurarsi di usare la versione 2.0.33 o una successiva.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -161,7 +161,7 @@ In questa configurazione, il contenitore è configurato per avviare *nodemon*. Q
 1. Modificare di nuovo il messaggio Hello in `server.js` e salvare il file.
 1. Aggiornare il browser oppure fare clic sul pulsante *Say It Again* (Ripeti) per visualizzare l'applicazione delle modifiche.
 
-**È ora possibile usare questo metodo per eseguire rapidamente l'iterazione e il debug di codice direttamente in Kubernetes.** Più avanti si apprenderà come creare e chiamare un secondo contenitore.
+**È ora possibile usare questo metodo per eseguire rapidamente l'iterazione e il debug di codice direttamente in Kubernetes.** Successivamente, si vedrà come è possibile creare e chiamare un secondo contenitore.
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>Chiamare un servizio in esecuzione in un contenitore separato
 
@@ -175,7 +175,7 @@ Il codice di esempio `mywebapi` per questa guida dovrebbe già essere disponibil
 ### <a name="run-mywebapi"></a>Eseguire *mywebapi*
 1. Aprire la cartella `mywebapi` in una *finestra di VS Code separata*.
 1. Premere F5 e attendere la compilazione e la distribuzione del servizio. Il servizio è pronto quando viene visualizzata la barra di debug di VS Code.
-1. Prendere nota dell'URL dell'endpoint che sarà simile a http://localhost:\<portnumber\>. **Suggerimento: la barra di stato di VS Code visualizza un URL selezionabile.** Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nell'ambiente di sviluppo in Azure. Il motivo dell'indirizzo localhost è che `mywebapi` non ha definito alcun endpoint pubblico ed è accessibile solo dall'interno dell'istanza di Kubernetes. Per praticità e per semplificare l'interazione con il servizio privato dal computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure.
+1. Prendere nota dell'URL dell'endpoint che sarà simile a http://localhost:\<portnumber\>. **Suggerimento: la barra di stato di VS Code visualizza un URL selezionabile.** Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nell'ambiente di sviluppo in Azure. Il motivo dell'indirizzo localhost è che `mywebapi` non ha definito alcun endpoint pubblico ed è accessibile solo dall'interno dell'istanza di Kubernetes. Per praticità e per agevolare l'interazione con il servizio privato nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure.
 1. Quando `mywebapi` è pronto, aprire il browser all'indirizzo localhost. Dovrebbe venire visualizzata una risposta dal servizio `mywebapi` ("Salve da mywebapi").
 
 
@@ -185,28 +185,28 @@ Ora scriviamo il codice in `webfrontend` che crea una richiesta a `mywebapi`.
 1. Aggiungere queste righe di codice nella parte superiore di `server.js`:
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. *Sostituire* il codice per il gestore GET `/api`. Quando si gestisce una richiesta, questa a sua volta effettua una chiamata a `mywebapi`, quindi restituisce i risultati da entrambi i servizi.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Si noti come l'individuazione del servizio DNS di Kubernetes venga utilizzata per fare riferimento al servizio come `http://mywebapi`. **Il codice nell'ambiente di sviluppo viene eseguito come in produzione**.
-
-L'esempio di codice precedente utilizza un modulo helper denominato `propagateHeaders`. Questo modulo helper è stato aggiunto alla cartella del codice quando si è eseguito `azds prep`. La funzione `propagateHeaders.from()` propaga intestazioni specifiche da un oggetto http.IncomingMessage in un oggetto di intestazioni per una richiesta in uscita. Più avanti si apprenderà come ciò aiuti i team nello sviluppo collaborativo.
+L'esempio di codice precedente inoltra l'intestazione `azds-route-as` dalla richiesta in ingresso alla richiesta in uscita. Più avanti si apprenderà come ciò aiuti i team nello sviluppo collaborativo.
 
 ### <a name="debug-across-multiple-services"></a>Eseguire il debug tra più servizi
-1. A questo punto, `mywebapi` dovrebbe essere ancora in esecuzione con il debugger collegato. In caso contrario, premere F5 nel progetto `mywebapi`.
+1. A questo punto `mywebapi` dovrebbe ancora essere in esecuzione con il debugger collegato. In caso contrario, premere F5 nel progetto `mywebapi`.
 1. Impostare un punto di interruzione nel gestore GET `/` predefinito.
 1. Nel progetto `webfrontend`, impostare un punto di interruzione prima che venga inviata una richiesta GET a `http://mywebapi`.
 1. Premere F5 nel progetto `webfrontend`.

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639344"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
@@ -48,11 +49,11 @@ Man mano che vengono aggiunte risorse a una rete virtuale, può diventare diffic
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Diagnosticare i problemi di filtro del traffico di rete da o verso una macchina virtuale
 
-Quando si distribuisce una macchina virtuale, Azure applica diverse regole di sicurezza predefinite per la macchina virtuale che consentono o bloccano il traffico da o verso la macchina virtuale. È possibile eseguire l'override delle regole predefinite di Azure o creare regole aggiuntive. A un certo punto, una macchina virtuale potrebbe non essere più in grado di comunicare con altre risorse, a causa di una regola di sicurezza. La funzionalità di *verifica flusso IP* consente di specificare un indirizzo IPv4 di origine e di destinazione, una porta, un protocollo (TCP o UDP) e la direzione del traffico (in ingresso o in uscita). La verifica flusso IP testa quindi la comunicazione e informa l'utente se la connessione ha esito positivo o negativo. In caso di esito negativo, la funzionalità di verifica flusso IP indica quale regola di sicurezza ha consentito o bloccato la comunicazione, per permettere di risolvere il problema. Leggere altre informazioni sulla funzionalità di [verifica flusso IP](network-watcher-ip-flow-verify-overview.md).
+Quando si distribuisce una macchina virtuale, Azure applica diverse regole di sicurezza predefinite per la macchina virtuale che consentono o bloccano il traffico da o verso la macchina virtuale. È possibile eseguire l'override delle regole predefinite di Azure o creare regole aggiuntive. A un certo punto, una macchina virtuale potrebbe non essere più in grado di comunicare con altre risorse, a causa di una regola di sicurezza. La funzionalità di *verifica flusso IP* consente di specificare un indirizzo IPv4 di origine e di destinazione, una porta, un protocollo (TCP o UDP) e la direzione del traffico (in ingresso o in uscita). La verifica flusso IP testa quindi la comunicazione e informa l'utente se la connessione ha esito positivo o negativo. In caso di esito negativo, la funzionalità di verifica flusso IP indica quale regola di sicurezza ha consentito o bloccato la comunicazione, per permettere di risolvere il problema. Per scoprire di più sulla funzionalità di verifica flusso IP, completare l'esercitazione [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) (Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale).
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Diagnosticare i problemi di routing di rete da una macchina virtuale
 
-Quando si crea una rete virtuale, Azure crea diverse route predefinite in uscita per il traffico di rete. Il traffico in uscita da tutte le risorse, ad esempio le macchine virtuali, distribuite in una rete virtuale, viene instradato in base alle route predefinite di Azure. È possibile eseguire l'override delle route predefinite di Azure o creare route aggiuntive. È possibile che una macchina virtuale non riesca più a comunicare con altre risorse a causa di una route specifica. La funzionalità di *hop successivo* consente di specificare un indirizzo IPv4 di origine e di destinazione. L'hop successivo testa quindi la comunicazione e indica all'utente il tipo di hop successivo usato per instradare il traffico. È quindi possibile rimuovere, modificare o aggiungere una route, per risolvere un problema di routing. Leggere altre informazioni sulla funzionalità di [hop successivo](network-watcher-next-hop-overview.md?).
+Quando si crea una rete virtuale, Azure crea diverse route predefinite in uscita per il traffico di rete. Il traffico in uscita da tutte le risorse, ad esempio le macchine virtuali, distribuite in una rete virtuale, viene instradato in base alle route predefinite di Azure. È possibile eseguire l'override delle route predefinite di Azure o creare route aggiuntive. È possibile che una macchina virtuale non riesca più a comunicare con altre risorse a causa di una route specifica. La funzionalità di *hop successivo* consente di specificare un indirizzo IPv4 di origine e di destinazione. L'hop successivo testa quindi la comunicazione e indica all'utente il tipo di hop successivo usato per instradare il traffico. È quindi possibile rimuovere, modificare o aggiungere una route, per risolvere un problema di routing. Leggere altre informazioni sulla funzionalità di [hop successivo](diagnose-vm-network-routing-problem.md).
 
 ### <a name="connection-troubleshoot"></a>Diagnosticare i problemi delle connessioni in uscita da una macchina virtuale
 
@@ -64,7 +65,7 @@ Opzioni di filtro avanzate e controlli ottimizzati, ad esempio la possibilità d
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Diagnosticare i problemi relativi a un gateway di rete virtuale e alle connessioni di Azure
 
-I gateway di rete virtuale forniscono la connettività tra le risorse locali e le reti virtuali di Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. La funzionalità di *diagnostica VPN* consente di diagnosticare i problemi relativi a gateway e connessioni. La diagnostica VPN consente di diagnosticare l'integrità del gateway, o della connessione gateway, e informa l'utente se sono disponibili un gateway e connessioni gateway. Se il gateway o la connessione non è disponibile, la diagnostica VPN indica il motivo, per consentire di risolvere il problema. Leggere altre informazioni sulla [diagnostica VPN](network-watcher-troubleshoot-overview.md).
+I gateway di rete virtuale forniscono la connettività tra le risorse locali e le reti virtuali di Azure. Il monitoraggio di questi gateway e delle rispettive connessioni è essenziale per assicurare che le comunicazioni non siano interrotte. La funzionalità di *diagnostica VPN* consente di diagnosticare i problemi relativi a gateway e connessioni. La diagnostica VPN consente di diagnosticare l'integrità del gateway, o della connessione gateway, e informa l'utente se sono disponibili un gateway e connessioni gateway. Se il gateway o la connessione non è disponibile, la diagnostica VPN indica il motivo, per consentire di risolvere il problema. Per scoprire di più sulla diagnostica VPN, è possibile completare l'esercitazione [Diagnosticare un problema di comunicazione tra le reti](diagnose-communication-problem-between-networks.md).
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Determinare le latenze relative tra aree di Azure e provider di servizi Internet
 
@@ -90,7 +91,7 @@ I gruppi di sicurezza di rete (NSG) consentono o bloccano il traffico in ingress
 
 ![Analisi del traffico](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-Leggere altre informazioni su [log del flusso del NSG](network-watcher-nsg-flow-logging-overview.md) e [analisi del traffico](traffic-analytics.md).
+Ottenere altre informazioni sui log di flusso NSG completando l'esercitazione [Registrare il traffico di rete da e verso una macchina virtuale](network-watcher-nsg-flow-logging-portal.md) e scoprire le procedure per implementare l'[analisi del traffico](traffic-analytics.md).
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Visualizzare i log di diagnostica per le risorse di rete
 

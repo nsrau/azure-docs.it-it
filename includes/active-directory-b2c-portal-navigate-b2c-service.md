@@ -1,3 +1,1 @@
-Selezionare **Azure AD B2C** dall'elenco di servizi nel portale di Azure.
-
-![Selezionare il servizio B2C](media/active-directory-b2c-find-service-settings/select-b2c-service.png)
+Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo. A questo punto, dovrebbe essere in uso il tenant creato nell'esercitazione precedente.

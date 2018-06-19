@@ -1,5 +1,5 @@
 ---
-title: Risolvere i problemi del backup di file di Azure
+title: Risolvere i problemi del backup delle condivisioni file di Azure
 description: Questo articolo contiene informazioni per la risoluzione dei problemi che si verificano quando si proteggono le condivisioni file di Azure.
 services: backup
 ms.service: backup
@@ -7,22 +7,26 @@ author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 225d11c8609c81ed7877283e8dc0fd920b14d838
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807415"
 ---
-# <a name="troubleshoot-problems-backing-up-azure-files"></a>Risolvere i problemi del backup di file di Azure
-È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di file di Azure con le informazioni elencate nelle tabelle seguenti.
+# <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Risolvere i problemi del backup di condivisioni file di Azure
+È possibile risolvere i problemi e gli errori rilevati durante l'uso del backup di condivisioni file di Azure con le informazioni elencate nelle tabelle seguenti.
 
 ## <a name="preview-boundaries"></a>Limiti dell'anteprima
-Il backup di file di Azure è disponibile in anteprima. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
-- Protezione di condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) o [archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
-- Protezione delle condivisioni file di Azure negli account di archiviazione con reti virtuali abilitate.
+Il backup per le condivisioni file di Azure è disponibile in anteprima. Gli scenari di backup seguenti non sono supportati nelle condivisioni file di Azure:
+- Protezione di condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza geografica e accesso in lettura](../storage/common/storage-redundancy-grs.md) (RA-GRS)*.
+- Protezione delle condivisioni file di Azure negli account di archiviazione con reti virtuali o firewall abilitati.
 - Backup delle condivisioni file di Azure con PowerShell o con l'interfaccia della riga di comando.
+
+Le \*condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy-grs.md) funzionano come GRS e vengono fatturate con i prezzi GRS
+
+Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS) e Stati Uniti orientali 2 (EUS2)
 
 ### <a name="limitations"></a>Limitazioni
 - Il numero massimo di backup pianificati al giorno è 1.
@@ -40,7 +44,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 | La convalida o la registrazione dell'account di archiviazione selezionato non è riuscita.| Ripetere l'operazione. Se il problema persiste, contattare il supporto tecnico.|
 | Impossibile elencare o trovare condivisioni file nell'account di archiviazione selezionato. | <ul><li> Verificare che l'account di archiviazione sia presente nel gruppo di risorse e che non sia stato eliminato o spostato dopo l'ultima convalida/registrazione nell'insieme di credenziali.<li>Verificare che la condivisione file da proteggere non sia stata eliminata. <li>Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file.<li>Verificare se la condivisione file è già protetta nello stesso insieme di credenziali di Servizi di ripristino.|
 | La configurazione del backup della condivisione file (o la configurazione dei criteri di protezione) mostra errori. | <ul><li>Ripetere l'operazione per verificare se il problema persiste. <li> Verificare che la condivisione file da proteggere non sia stata eliminata. <li> Se si sta provando a proteggere più condivisioni file contemporaneamente e alcune condivisioni file mostrano errori, configurare di nuovo il backup per le condivisioni file con errori. |
-| Impossibile eliminare l'insieme di credenziali di Servizi di ripristino dopo aver rimosso la protezione di una condivisione file. | Nel portale di Azure aprire **Infrastruttura di backup** > **Account di archiviazione** e fare clic su **Annulla registrazione** per rimuovere l'account di archiviazione dall'insieme di credenziali di Servizi di ripristino.|
+| Impossibile eliminare l'insieme di credenziali di Servizi di ripristino dopo aver rimosso la protezione di una condivisione file. | Nel portale di Azure aprire l'insieme di credenziali > **Infrastruttura di backup** > **Account di archiviazione** e fare clic su **Annulla registrazione** per rimuovere l'account di archiviazione dall'insieme di credenziali di Servizi di ripristino.|
 
 
 ## <a name="error-messages-for-backup-or-restore-job-failures"></a>Messaggi di errore dei processi di backup o ripristino
@@ -52,7 +56,7 @@ La configurazione del backup è illustrata nella tabella seguente:
 | È stato raggiunto il limite massimo di snapshot per questa condivisione file. Sarà possibile creare altri snapshot alla scadenza di quelli meno recenti. | <ul><li> Questo errore può verificarsi quando si creano più backup su richiesta per un file. <li> È previsto un limite di 200 snapshot per ogni condivisione file, inclusi quelli creati da Backup di Azure. I backup (o gli snapshot) pianificati meno recenti vengono cancellati automaticamente. I backup (o gli snapshot) su richiesta devono essere eliminati se viene raggiunto il limite massimo.<li> Eliminare i backup su richiesta (snapshot di condivisione file di Azure) dal portale di File di Azure. **Nota**: eliminando gli snapshot creati da Azure Backup si perderanno i punti di ripristino. |
 | Il backup o il ripristino della condivisione file non è riuscito a causa della limitazione del servizio di archiviazione. Questo problema potrebbe dipendere dal fatto che il servizio di archiviazione sta già elaborando altre richieste per l'account di archiviazione specificato.| Ripetere l'operazione dopo alcuni minuti. |
 | Ripristino non riuscito con condivisione file di destinazione non trovata. | <ul><li>Assicurarsi che l'account di archiviazione selezionato esista e che la condivisione file di destinazione non sia stata eliminata. <li> Accertarsi che l'account di archiviazione sia supportato per il backup di condivisioni file. |
-| Backup di Azure non è attualmente supportato per i file di Azure negli account di archiviazione con reti virtuali abilitate. | Disabilitare le reti virtuali nell'account di archiviazione per consentire le operazioni di backup o ripristino. |
+| Backup di Azure non è attualmente supportato per le condivisioni file di Azure negli account di archiviazione con reti virtuali abilitate. | Disabilitare le reti virtuali nell'account di archiviazione per consentire le operazioni di backup o ripristino. |
 | Il backup o il ripristino non è riuscito perché l'account di archiviazione è in stato bloccato. | Rimuovere il blocco nell'account di archiviazione oppure usare il blocco di eliminazione al posto del blocco di lettura e ripetere l'operazione. |
 | Il ripristino non è riuscito perché il numero di file con errori è superiore alla soglia. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere l'operazione di ripristino solo per i file con errori. <li> Cause comuni degli errori di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |
 | Il ripristino non è riuscito perché non è stato possibile ripristinare alcun file. | <ul><li> Le cause dell'errore di ripristino sono elencate in un file il cui percorso è indicato nei dettagli del processo. Risolvere gli errori e ripetere le operazioni di ripristino solo per i file con errori. <li> Cause comuni dell'errore di ripristino file: <br/> - verificare che i file con errori non siano in uso, <br/> - nella directory padre è presente una directory con lo stesso nome del file con errori. |

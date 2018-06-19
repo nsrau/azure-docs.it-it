@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643584"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -40,19 +41,31 @@ Prima di iniziare, è utile [esaminare l'architettura](concepts-hyper-v-to-azure
 2. In **Attività iniziali** fare clic su **Site Recovery** e quindi su **Preparare l'infrastruttura**.
 3. In **Obiettivo di protezione** > **Dove si trovano le macchine virtuali** selezionare **Locale**.
 4. Nella casella **In quale destinazione si vuole eseguire la replica dei computer** selezionare **In Azure**.
-5. In **I computer sono virtualizzati?** selezionare **No**. Fare quindi clic su **OK**.
+5. In **Are you using System Center VMM to manage your Hyper-V hosts** (Si usa System Center VMM per gestire gli host Hyper-V), selezionare **No**. Fare quindi clic su **OK**.
 
     ![Obiettivo di replica](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Confermare la pianificazione della distribuzione
+
+Quando si pianifica una distribuzione di grandi dimensioni, è consigliabile assicurarsi di completare la [pianificazione della distribuzione per la replica Hyper-V](hyper-v-deployment-planner-overview.md). Ai fini di questa esercitazione, in **È stata completata la pianificazione della distribuzione?** selezionare **Operazione da completare in seguito** nell'elenco a discesa.
+
+![Pianificazione della distribuzione](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-Per configurare l'ambiente di origine, aggiungere gli host Hyper-V a un sito Hyper-V, scaricare e installare il provider di Azure Site Recovery e l'agente di Servizi di ripristino di Azure, quindi registrare il sito Hyper-V nell'insieme di credenziali. 
+Per configurare l'ambiente di origine, creare un sito Hyper-V e aggiungere gli host Hyper-V al sito. Scaricare e installare quindi il provider di Azure Site Recovery e l'agente di Servizi di ripristino di Azure in ogni host e registrare il sito Hyper-V nell'insieme di credenziali. 
 
 1. In **Preparare l'infrastruttura** fare clic su **Origine**.
 2. Fare clic su **+ Sito Hyper-V** e specificare il nome del sito **ContosoHyperVSite**, creato nell'esercitazione precedente.
-3. Fare clic su **+ Server Hyper-V**.
+
+    ![Sito di Hyper-V](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. Dopo la creazione del sito, fare clic su **+Server Hyper-V**.
+
+    ![Server Hyper-V](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Scaricare il file di installazione del provider.
-5. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria durante la configurazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
+6. Scaricare la chiave di registrazione dell'insieme di credenziali, che sarà necessaria durante la configurazione del provider. La chiave è valida per cinque giorni dal momento in cui viene generata.
 
     ![Scaricare il provider](./media/hyper-v-azure-tutorial/download.png)
     
@@ -108,7 +121,7 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
 4. Selezionare l'account di archiviazione **contosovmsacct1910171607** creato nell'esercitazione precedente per i dati replicati e la rete **ContosoASRnet** in cui si troveranno le macchine virtuali di Azure dopo il failover.
 5. In **Macchine virtuali** > **Seleziona** selezionare la macchina virtuale da replicare. Fare quindi clic su **OK**.
 
- È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Processi di Site Recovery**. Dopo il completamento del processo **Finalizza protezione**, la replica iniziale è completata e la macchina virtuale è pronta per il failover.
+ È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo il completamento del processo **Finalizza protezione**, la replica iniziale è completata e la macchina virtuale è pronta per il failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)

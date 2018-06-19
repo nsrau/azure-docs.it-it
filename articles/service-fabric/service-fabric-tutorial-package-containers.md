@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365384"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642795"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Esercitazione: Creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric
 
@@ -237,7 +237,7 @@ Per informazioni sulla creazione di un cluster, vedere l'articolo su come [crear
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Compilare e distribuire l'applicazione nel cluster
 È possibile distribuire l'applicazione nel cluster di Azure usando l'interfaccia della riga di comando di Service Fabric. Se l'interfaccia della riga di comando di Service Fabric non è installata nel computer, seguire le istruzioni indicate [qui](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) per installarla. 
 
-Connettersi al cluster di Service Fabric in Azure. Sostituire l'endpoint segnaposto con quello proprio. L'endpoint deve essere un URL completo, simile al seguente.
+Connettersi al cluster di Service Fabric in Azure. Sostituire l'endpoint di esempio con il proprio. L'endpoint deve essere un URL completo, simile al seguente.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

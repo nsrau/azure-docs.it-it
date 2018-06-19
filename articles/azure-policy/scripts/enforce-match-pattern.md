@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 11/13/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 1b8955cfd0df134d572a41fe1d4dfd857c5beb19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5682701a3184de5402dc5e9164210ee05e404bb8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602948"
 ---
 # <a name="enforce-match-pattern-for-naming-conventions"></a>Applicare il modello di corrispondenza per le convenzioni di denominazione
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- I modelli di Criteri di Azure di esempio aggiuntivi sono disponibili nella pagina [Templates for Azure Policy](../json-samples.md) (Modelli per Criteri di Azure).
+- Vedere altri esempi in [Esempi di Criteri di Azure](../json-samples.md).

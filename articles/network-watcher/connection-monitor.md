@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639028"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -77,7 +78,7 @@ Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-f
 | 3 | Gruppo di risorse                    | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
 | 6 | Estensioni                        | **Agente di rete per Linux**                                             |
 
-La distribuzione della VM richiede alcuni minuti. Attendere che la VM completi la distribuzione prima di continuare con i passaggi rimanenti.
+La distribuzione della VM richiede alcuni minuti. Attendere che la macchina virtuale completi la distribuzione prima di continuare con i passaggi rimanenti.
 
 ## <a name="create-a-connection-monitor"></a>Creare un monitoraggio della connessione
 
@@ -141,7 +142,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
 
 5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)**. I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault .png)
+    ![Dettagli del monitoraggio con errore](./media/connection-monitor/vm-monitor-fault.png)
 
     È possibile notare che esiste un'icona punto esclamativo di colore rosso nella colonna stato per l'interfaccia di rete **myvm2529**.
 

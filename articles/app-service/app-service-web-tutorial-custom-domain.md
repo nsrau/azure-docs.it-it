@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714516"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure
 
@@ -81,19 +82,19 @@ Nel riquadro di spostamento a sinistra della pagina dell'app scorrere fino alla 
 
 ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **Gratuito**. Il DNS personalizzato non è supportato nel livello **Gratuito**. 
+Il livello corrente dell'app è evidenziato da un bordo blu. Verificare che l'app non sia inclusa nel livello **F1**. Il DNS personalizzato non è supportato nel livello **F1**. 
 
 ![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-Se il piano del servizio app non è **Gratuito**, chiudere la pagina **Scegli il piano tariffario** e passare a [Esecuzione del mapping di un record CNAME](#cname).
+Se il piano di servizio app non è **F1**, chiudere la pagina **Aumenta** e passare a [Esecuzione del mapping di un record CNAME](#cname).
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Passare a un piano di servizio app di livello superiore
 
-Selezionare uno dei livelli non gratuiti (**Condiviso**, **Base**, **Standard** o **Premium**). 
+Selezionare uno dei livelli non gratuiti (**D1**, **B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-Fare clic su **Seleziona**.
+Fare clic su **Apply**.
 
 ![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

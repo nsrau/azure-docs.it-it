@@ -1,44 +1,42 @@
 ---
-title: Introduzione all'archiviazione tabelle di Azure con Python | Microsoft Docs
-description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+title: Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python | Microsoft Docs
+description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: python
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: b4370f63c2e5ccf466de7cb680377b12940a6efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 42e7ef8699ee5f481c6a1c45832dfa3428e3baa8
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798203"
 ---
-# <a name="get-started-with-azure-table-storage-using-python"></a>Introduzione all'archiviazione tabelle di Azure con Python
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con Python
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema. Poiché l'archiviazione tabelle è senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati dell'archiviazione tabelle è rapido ed economico per molti tipi di applicazioni e presenta costi generalmente più bassi rispetto alle soluzioni SQL tradizionali per volumi di dati simili.
+L'archiviazione tabelle di Azure e Azure Cosmos DB sono servizi che archiviano dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema. Poiché l'archiviazione tabelle e Azure Cosmos DB sono senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati dell'archiviazione tabelle e dell'API Tabelle è rapido ed economico per molti tipi di applicazioni e presenta costi generalmente più bassi rispetto alle soluzioni SQL tradizionali per volumi di dati simili.
 
-È possibile usare l'archiviazione tabelle per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
+È possibile usare l'archiviazione tabelle o Azure Cosmos DB per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
 
-### <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
-Questa esercitazione illustra come usare [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) all'interno di scenari comuni di archiviazione tabelle di Azure. Il nome dell'SDK indica che è destinato all'uso con Azure Cosmos DB. L'SDK funziona tuttavia sia con Azure Cosmos DB sia con l'archiviazione tabelle di Azure, ma ogni servizio ha un endpoint univoco. Questi scenari vengono esaminati tramite esempi Python che illustrano come:
+### <a name="about-this-sample"></a>Informazioni sull'esempio
+Questo esempio illustra come usare [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) all'interno di scenari comuni di archiviazione tabelle di Azure. Il nome dell'SDK indica che è destinato all'uso con Azure Cosmos DB. L'SDK funziona tuttavia sia con Azure Cosmos DB sia con l'archiviazione tabelle di Azure, ma ogni servizio ha un endpoint univoco. Questi scenari vengono esaminati tramite esempi Python che illustrano come:
 * Creare ed eliminare tabelle
 * Inserire ed eseguire query sulle entità
 * Modificare entità
 
-Mentre si lavora agli scenari di questa esercitazione, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://azure.github.io/azure-cosmosdb-python/).
+Mentre si lavora agli scenari di questo esempio, è possibile vedere le [informazioni di riferimento sull'API Azure Cosmos DB SDK per Python](https://azure.github.io/azure-cosmosdb-python/).
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per completare l'esercitazione sono necessari gli elementi seguenti:
+Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
 - [Python](https://www.python.org/downloads/) 2.7, 3.3, 3.4, 3.5 o 3.6
 - [Azure Cosmos DB Table SDK per Python](https://pypi.python.org/pypi/azure-cosmosdb-table/) Questo SDK si connette sia all'archiviazione tabelle di Azure sia all'API Tabelle di Azure Cosmos DB.

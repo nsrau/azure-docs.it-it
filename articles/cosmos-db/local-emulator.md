@@ -2,24 +2,21 @@
 title: Eseguire lo sviluppo in locale con l'emulatore di Azure Cosmos DB | Microsoft Docs
 description: Usare l'emulatore di Azure Cosmos DB, è possibile sviluppare e testare gratuitamente l'applicazione in locale, senza creare una sottoscrizione di Azure.
 services: cosmos-db
-documentationcenter: ''
 keywords: Emulatore di Azure Cosmos DB
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824095"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -55,7 +52,7 @@ Questo articolo illustra le attività seguenti:
 > * Raccolta dei file di traccia
 > * risoluzione dei problemi
 
-È consigliabile guardare prima di tutto il video seguente, in cui Kirill Gavrylyuk illustra come iniziare a usare l'emulatore di Azure Cosmos DB. Si noti che il video fa riferimento all'emulatore come emulatore di DocumentDB, ma lo strumento stesso è stato rinominato Emulatore Azure Cosmos DB dopo la registrazione del video. Tutte le informazioni del video sono ancora corrette per l'emulatore Azure Cosmos DB. 
+È consigliabile guardare prima di tutto il video seguente, in cui Kirill Gavrylyuk illustra come iniziare a usare l'emulatore di Azure Cosmos DB. Il video fa riferimento all'emulatore come emulatore di DocumentDB, ma lo strumento stesso è stato rinominato Emulatore Azure Cosmos DB dopo la registrazione del video. Tutte le informazioni del video sono ancora corrette per l'emulatore Azure Cosmos DB. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
@@ -69,11 +66,12 @@ Anche se è stata creata un'emulazione locale estremamente fedele del servizio A
 ## <a name="differences-between-the-emulator-and-the-service"></a>Differenze tra l'emulatore e il servizio 
 Poiché l'emulatore di Azure Cosmos DB fornisce un ambiente emulato eseguito in una workstation di sviluppo locale, esistono alcune differenze a livello di funzionalità tra l'emulatore e un account Azure Cosmos DB nel cloud:
 
+* Attualmente Esplora dati nell'emulatore supporta solo le raccolte di API SQL e le raccolte di MongoDB. Le API di tabella, Graph e Cassandra non sono ancora supportate.  
 * L'emulatore di Azure Cosmos DB supporta solo un singolo account fisso e una chiave master nota.  La rigenerazione della chiave non è possibile nell'emulatore di Azure Cosmos DB.
 * L'emulatore di Azure Cosmos DB non è un servizio scalabile e non supporta un numero elevato di raccolte.
 * L'emulatore di Azure Cosmos DB non simula [livelli di coerenza di Azure Cosmos DB](consistency-levels.md) diversi.
 * L'emulatore di Azure Cosmos DB non simula la [replica tra più aree](distribute-data-globally.md).
-* L'emulatore di Azure Cosmos DB non supporta gli override della quota del servizio disponibili nel servizio Azure Cosmos DB, ad esempio i limiti di dimensioni dei documenti e lo spazio di archiviazione per le raccolte aumentato.
+* L'emulatore di Azure Cosmos DB non supporta gli override della quota del servizio disponibili nel servizio Azure Cosmos DB, ad esempio i limiti di dimensioni dei documenti e lo spazio di archiviazione per le raccolte partizionate aumentato.
 * Poiché la copia dell'emulatore di Azure Cosmos DB potrebbe non essere aggiornata con le modifiche più recenti del servizio Azure Cosmos DB, vedere [Capacity Planner di Azure Cosmos DB](https://www.documentdb.com/capacityplanner) per stimare con precisione le esigenze di produttività (UR) dell'applicazione.
 
 ## <a name="system-requirements"></a>Requisiti di sistema
@@ -82,8 +80,8 @@ L'emulatore di Azure Cosmos DB presenta i requisiti hardware e software seguenti
 * Requisiti software
   * Windows Server 2012 R2, Windows Server 2016 o Windows Server 10
 *   Requisiti hardware minimi
-  * 2 GB di RAM
-  * 10 GB di spazio su disco disponibile
+  * 2 GB DI RAM
+  * 10 GB di spazio disponibile su disco rigido
 
 ## <a name="installation"></a>Installazione
 È possibile scaricare e installare l'emulatore di Azure Cosmos DB dall'[Area download Microsoft](https://aka.ms/cosmosdb-emulator) o eseguirlo in Docker per Windows. Per istruzioni sull'uso dell'emulatore in Docker per Windows, vedere [Esecuzione in Docker](#running-on-docker). 
@@ -368,7 +366,7 @@ Avvia l'emulatore. Per impostazione predefinita, il comando attende fino a quand
 
 #### <a name="remarks"></a>Osservazioni
 
-Attesta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
+Arresta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
 
 ### `Uninstall-CosmosDbEmulator`
 
@@ -509,7 +507,7 @@ Questa versione include una nuova funzionalità e due correzioni di bug. Si ring
 
    Questo problema è stato risolto tramite l'aggiunta di un override della configurazione nell'emulatore. Viene ora applicato un multiplo di 1. Il numero di attività allocate per l'esecuzione di diversi servizi equivale al numero di core su un host.
 
-   Questo è uno dei problemi più importanti risolti dalla versione. Molti ambienti di sviluppo o test che ospitano l'emulatore hanno 1 o 2 core.
+   Questo è uno dei problemi più importanti risolti in questa versione. Molti ambienti di sviluppo o test che ospitano l'emulatore hanno 1 o 2 core.
 
 2. L'emulatore non richiede più l'installazione di Microsoft Visual C++ 2015 Redistributable.
 

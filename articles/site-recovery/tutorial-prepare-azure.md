@@ -5,27 +5,31 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212790"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737205"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
  [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
-Questa esercitazione spiega come preparare i componenti di Azure quando si vuole eseguire la replica di macchine virtuali locali (Hyper-V o VMware) o server fisici Windows/Linux in Azure. In questa esercitazione si apprenderà come:
+Questo articolo è la prima esercitazione di una serie che illustra come configurare il ripristino di emergenza per macchine virtuali locali. È utile se si vogliono proteggere VM VMware locali, VM Hyper-V o server fisici.
+
+Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. 
+
+Questo articolo spiega come preparare i componenti di Azure quando si vuole eseguire la replica di macchine virtuali locali (Hyper-V o VMware) o server fisici Windows/Linux in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Verificare che l'account Azure abbia le autorizzazioni di replica.
-> * Creare un account di archiviazione di Azure I dati replicati vengono archiviati in tale account.
-> * Creare un insieme di credenziali dei servizi di ripristino.
-> * Impostare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
+> * Creare un account di archiviazione di Azure Le immagini delle macchine replicate sono archiviate al suo interno.
+> * Creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali contiene i metadati e le informazioni di configurazione per le macchine virtuali e altri componenti di replica.
+> * Configurare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
@@ -45,27 +49,27 @@ Per completare queste attività, è necessario che all'account sia assegnato il 
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure.
+Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. In questa esercitazione si usa l'area Europa occidentale.
 
-1. Nel menu [Portale di Azure](https://portal.azure.com) selezionare **Nuovo** > **Risorsa di archiviazione** > **Account di archiviazione**.
+1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione**  > **Account di archiviazione: BLOB, File, Tabelle, Code**.
 2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni viene usato **contosovmsacct1910171607**. Il nome selezionato deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
-4. In **Tipologia account** selezionare **Utilizzo generico**. In **Prestazioni** selezionare **Standard**. Non selezionare l'archivio BLOB.
-5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione.
-6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
-7. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni usare il nome **ContosoRG**.
-8. In **Località** selezionare la posizione geografica dell'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. Per queste esercitazioni usare l'area **Europa occidentale**.
+4. In **Tipologia account** selezionare **Archiviazione (Utilizzo generico v1)**. Non selezionare l'archivio BLOB. In **Prestazioni** selezionare **Standard**. 
+5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. È in corso lasciando **trasferimento necessario protetto** come **disabilitato**.
+6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione. 
+2. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato **ContosoRG**.
+3. In **Località** selezionare la posizione geografica dell'account di archiviazione. 
 
    ![Creare un account di archiviazione](media/tutorial-prepare-azure/create-storageacct.png)
 
 9. Selezionare **Crea** per creare l'account di archiviazione.
 
-## <a name="create-a-vault"></a>Creare un insieme di credenziali
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Monitoraggio e gestione** > **Backup e Site Recovery**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Archiviazione** > **Backup e Site Recovery (OMS)**.
 2. In **Nome**immettere un nome descrittivo per identificare l'insieme di credenziali. Per questo set di esercitazioni viene usato **ContosoVMVault**.
-3. In **Gruppo di risorse** selezionare il gruppo di risorse esistente denominato **contosoRG**.
-4. In **Località** specificare l'area di Azure **Europa Occidentale** che viene usata in questo set di esercitazioni.
+3. In **Gruppo di risorse** viene usato **contosoRG**.
+4. In **Località**. Viene usato **Europa occidentale**.
 5. Per accedere rapidamente all'insieme di credenziali dal dashboard, selezionare **Aggiungi al dashboard** > **Crea**.
 
    ![Creare un nuovo insieme di credenziali](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -77,25 +81,26 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono aggiunte a questa rete.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**.
-2. Lasciare selezionato **Resource Manager** come modello di distribuzione. Resource Manager è il modello di distribuzione consigliato. Eseguire quindi la procedura seguente:
-
-   a. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. Usare il nome **ContosoASRnet**.
-
-   b. In **Gruppo di risorse** usare il gruppo di risorse esistente **contosoRG**.
-
-   c. In **Intervallo di indirizzi** specificare l'intervallo di indirizzi di rete**10.0.0.0/24**.
-
-   d. Per questa esercitazione non è necessaria alcuna subnet.
-
-   e. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
-
-   f. In **Posizione** selezionare **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
-
-3. Selezionare **Create**.
+2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
+3. In **Nome** immettere un nome di rete. Il nome deve essere univoco all'interno del gruppo di risorse di Azure. In questa esercitazione viene usato **ContosoASRnet**.
+4. Specificare il gruppo di risorse in cui verrà creata la rete. Usare il gruppo di risorse esistente **contosoRG**.
+5. In **Intervallo di indirizzi** specificare l'intervallo **10.0.0.0/24**. In questa rete non viene usata una subnet.
+6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare la rete.
+7. In **Posizione** selezionare **Europa occidentale**. La rete deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
+8. Lasciare le opzioni predefinite per la protezione di base DDoS, senza endpoint di servizio nella rete.
+9. Fare clic su **Crea**.
 
    ![Crea rete virtuale](media/tutorial-prepare-azure/create-network.png)
 
    La creazione della rete virtuale richiede qualche secondo. La rete creata viene visualizzata nel dashboard del portale di Azure.
+
+## <a name="useful-links"></a>Collegamenti utili
+
+- [Informazioni](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sulle reti di Azure.
+- [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sui tipi di archiviazione di Azure.
+- - [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sulla ridondanza dell'archiviazione e il [trasferimento sicuro](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) per l'archiviazione.
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

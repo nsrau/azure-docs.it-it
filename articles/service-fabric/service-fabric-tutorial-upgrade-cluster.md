@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642836"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric
 
@@ -97,7 +98,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > L'aggiornamento del runtime di un cluster può richiedere molto tempo. Durante l'esecuzione dell'aggiornamento PowerShell è bloccato. Per controllare lo stato dell'aggiornamento, è possibile usare un'altra sessione di PowerShell.
 
-È possibile effettuare il monitoraggio dello stato dell'aggiornamento con PowerShell o con l'interfaccia della riga di comando `sfctl`.
+È possibile effettuare il monitoraggio dello stato dell'aggiornamento con PowerShell o con l'interfaccia della riga di comando di Azure Service Fabric (sfctl).
 
 Prima connettersi al cluster con il certificato SSL creato nella prima parte dell'esercitazione. Usare il cmdlet `Connect-ServiceFabricCluster` o `sfctl cluster upgrade-status`.
 

@@ -4,14 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 268ec150dbd4b15ad00a56b62b84e268c4469ebd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236145"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -85,6 +86,14 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Il valore hash generato deve corrispondere a queste impostazioni.
 
+  Per OVA versione 1.0.9.8
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
     Per OVA versione 1.0.9.7
 
     **Algoritmo** | **Valore hash**
@@ -109,29 +118,6 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    Per OVA versione 1.0.8.59
-
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    Per OVA versione 1.0.8.49:
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    Per OVA versione 1.0.8.40:
-
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Creare la macchina virtuale dell'agente di raccolta
 
 Importare il file scaricato nel server vCenter.
@@ -153,7 +139,8 @@ Importare il file scaricato nel server vCenter.
 1. Nella console di vSphere Client fare clic con il pulsante destro del mouse su VM > **Open Console** (Apri console).
 2. Specificare le preferenze relative alla lingua, al fuso orario e alla password per l'appliance.
 3. Sul desktop fare clic sul collegamento **Run collector** (Esegui agente di raccolta).
-4. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
+4. Fare clic su **Check for updates** (Controlla aggiornamenti) nella barra superiore dell'interfaccia utente dell'agente di raccolta e verificare che sia in esecuzione la versione più recente dell'agente di raccolta. In caso contrario, è possibile scegliere di scaricare il pacchetto di aggiornamento più recente dal collegamento e aggiornare l'agente di raccolta.
+5. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
     - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
     - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) sui requisiti di connettività Internet e l'elenco di URL ai quali accede l'agente di raccolta.
@@ -164,13 +151,13 @@ Importare il file scaricato nel server vCenter.
     - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
     - Scaricare e installare VMware PowerCLI.
 
-5. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
+6. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
     - Specificare il nome completo o l'indirizzo IP del server vCenter.
     - In **User name** (Nome utente) e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. [Altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente più grande.
 
-6. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
-7. In **View collection progress** (Visualizza stato raccolta) monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo. [Altre informazioni](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
+7. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
+8. In **View collection progress** (Visualizza stato raccolta) monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo. [Altre informazioni](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
 
 > [!NOTE]
 > Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti). Sarà presto disponibile il supporto per altre lingue.
@@ -210,7 +197,7 @@ La visualizzazione Idoneità per Azure nella valutazione mostra lo stato di idon
 - Non idonea per Azure
 - Idoneità sconosciuta
 
-Per le macchine virtuali idonee, Azure Migrate offre un consiglio riguardo alle dimensioni delle macchine in Azure. L'indicazione relativa alle dimensioni fornita da Azure Migrate dipende dal criterio di ridimensionamento specificato nelle proprietà della valutazione. Se il criterio è il ridimensionamento in base alle prestazioni, l'indicazione relativa alle dimensioni prende in considerazione la cronologia delle prestazioni delle macchine virtuali. Se il criterio è il ridimensionamento come in locale, l'indicazione per le dimensioni delle VM in Azure prende in considerazione la dimensione della macchina virtuale in locale (ridimensionamento così com'è). I dati di utilizzo della CPU e della memoria della macchina virtuale non vengono presi in considerazione per il ridimensionamento della macchina virtuale. Tuttavia, in caso di ridimensionamento in locale, i dischi vengono ridimensionati esaminando i dati sulle prestazioni.  [Altre informazioni](concepts-assessment-calculation.md) su come viene eseguito il ridimensionamento in Azure Migrate.
+Per le macchine virtuali idonee, Azure Migrate offre un consiglio riguardo alle dimensioni delle macchine in Azure. L'indicazione relativa alle dimensioni fornita da Azure Migrate dipende dal criterio di ridimensionamento specificato nelle proprietà della valutazione. Se il criterio è il ridimensionamento in base alle prestazioni, l'indicazione relativa alle dimensioni prende in considerazione la cronologia delle prestazioni delle macchine virtuali (CPU e memoria) e dei dischi (operazioni di I/O al secondo e velocità effettiva). Se il criterio è il ridimensionamento come in locale, Azure Migrate non prende in considerazione i dati sulle prestazioni per la macchina virtuale e i dischi. L'indicazione per le dimensioni delle VM in Azure prende in considerazione le dimensioni della macchina virtuale in locale e il ridimensionamento dei dischi viene eseguito in base al tipo di archiviazione specificato nelle proprietà di valutazione (il valore predefinito è dischi Premium). [Altre informazioni](concepts-assessment-calculation.md) su come viene eseguito il ridimensionamento in Azure Migrate.
 
 Per le macchine virtuali non idonee o idonee con condizioni, Azure Migrate descrive il problema correlato e indica i passaggi correttivi da eseguire.
 
@@ -235,7 +222,7 @@ I costi mensili stimati per il calcolo e l'archiviazione vengono aggregati per t
 
 Ogni valutazione in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate.
 
-Per un ridimensionamento della macchina virtuale in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria. Per il ridimensionamento di ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo in lettura/scrittura e alla velocità effettiva. Analogamente, per ogni scheda di rete collegata alla VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione della dimensione in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
+La classificazione di attendibilità di una valutazione è più utile per le valutazioni in cui il criterio di ridimensionamento corrisponde alle dimensioni in base alle prestazioni. Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria della macchina virtuale. Per ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco. Analogamente, per ogni scheda di rete collegata a una VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione delle dimensioni in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
 
    **Disponibilità dei punti dati** | **Classificazione di attendibilità**
    --- | ---
@@ -246,7 +233,7 @@ Per un ridimensionamento della macchina virtuale in base alle prestazioni, Azure
    81%-100% | 5 stelle
 
 Una valutazione può non avere a disposizione tutti i punti dati a causa di uno dei motivi seguenti:
-- L'impostazione delle statistiche nel Server vCenter non è impostata al livello 3. Se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti da vCenter Server. In questo caso, l'indicazione fornita da Azure Migrate per i dischi e la rete non è basata sull'uso. Senza tenere conto delle operazioni di I/O al secondo e della velocità effettiva del disco, Azure Migrate non è in grado di identificare se per il disco sia necessario un disco Premium in Azure, di conseguenza, in questo caso per l'archiviazione Azure Migrate consiglia dischi standard.
+- L'impostazione delle statistiche nel server vCenter non è impostata al livello 3. Se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti da vCenter Server. In questo caso, l'indicazione fornita da Azure Migrate per i dischi e la rete non è basata sull'uso. Senza tenere conto delle operazioni di I/O al secondo e della velocità effettiva del disco, Azure Migrate non è in grado di identificare se per il disco sia necessario un disco Premium in Azure. In questo caso Azure Migrate indica pertanto di usare dischi Standard per tutti i dischi.
 - L'impostazione delle statistiche nel server vCenter è stata configurata sul livello 3 per un periodo di tempo minore, prima di avviare il processo di individuazione. Si consideri ad esempio uno scenario in cui si cambia l'impostazione delle statistiche al livello 3 oggi e si avvia l'individuazione usando l'appliance dell'agente di raccolta domani (24 ore dopo). Se si crea una valutazione per un giorno, saranno disponibili tutti i punti dati e la classificazione di attendibilità della valutazione sarà 5 stelle. Se invece si modifica a un mese il periodo di tempo delle prestazioni nelle proprietà della valutazione, la classificazione di attendibilità diminuisce, perché i dati sulle prestazioni di dischi e rete per l'ultimo mese non sono disponibili. Per tenere conto dei dati sulle prestazioni dell'ultimo mese, è consigliabile mantenere l'impostazione delle statistiche del server vCenter sul livello 3 per un mese prima di avviare il processo di individuazione.
 - Durante il periodo per cui viene calcolata la valutazione sono state arrestate alcune VM. Se una o più VM sono state spente per un certo periodo di tempo, il server vCenter non avrà i dati sulle prestazioni per questo periodo.
 - All'interno del periodo per cui viene calcolata la valutazione sono state create alcune VM. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questi casi, la cronologia delle prestazioni delle nuove VM non sarà disponibile per l'intero periodo.
@@ -260,3 +247,4 @@ Una valutazione può non avere a disposizione tutti i punti dati a causa di uno 
 - Informazioni su come creare gruppi di valutazione con affidabilità elevata usando il [mapping delle dipendenze delle macchine virtuali](how-to-create-group-machine-dependencies.md)
 - [Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.
 - [Informazioni](how-to-scale-assessment.md) su come individuare e valutare un ambiente VMware di grandi dimensioni.
+- [Altre informazioni](resources-faq.md) sulle domande frequenti su Azure Migrate

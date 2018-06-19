@@ -1,21 +1,22 @@
 ---
 title: Monitorare i dispositivi in Azure IoT Central | Microsoft Docs
 description: Un operatore può usare l'applicazione Azure IoT Central per monitorare i dispositivi.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201388"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235482"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Usare Azure IoT Central per monitorare i dispositivi
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Esercitazione: Usare Azure IoT Central per monitorare i dispositivi
 
 Questa esercitazione illustra come un operatore può usare l'applicazione Microsoft Azure IoT Central per monitorare i dispositivi e modificare le impostazioni.
 
@@ -50,11 +51,11 @@ Nel browser viene visualizzata la pagina **Dispositivo** relativa al dispositivo
 
 Un operatore può visualizzare le informazioni sul dispositivo nelle pagine **Misurazioni**, **Impostazioni**, **Proprietà**, **Regole** e **Dashboard**. Il generatore ha personalizzato il **Dashboard** in modo da informazioni importanti relative a un dispositivo condizionatore d'aria connesso.
 
-* Scegliere la visualizzazione **Dashboard** per vedere le informazioni sul dispositivo:
+Scegliere la visualizzazione **Dashboard** per vedere le informazioni sul dispositivo.
 
-    ![Pagina dashboard](media/tutorial-monitor-devices/initial_screen.png)
+![Pagina dashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-    Il grafico del dashboard mostra il tracciato della temperatura del dispositivo. È inoltre possibile visualizzare la temperatura target corrente impostata per il dispositivo nel riquadro **Set target temperature** (Temperatura target impostata). Si decide che la temperatura target è troppo alta.
+Il grafico del dashboard mostra il tracciato della temperatura del dispositivo. È inoltre possibile visualizzare la temperatura target corrente impostata per il dispositivo nel riquadro **Set target temperature** (Temperatura target impostata). Si decide che la temperatura target è troppo alta.
 
 ## <a name="remediate-an-issue"></a>Correggere un problema
 
@@ -64,7 +65,7 @@ Per modificare la temperatura target del dispositivo, usare la pagina **Impostaz
 
     ![Aggiornamento delle impostazioni](media/tutorial-monitor-devices/change_settings.png)
 
-1. Scegliere **Dashboard** e verificare il nuovo valore dell'impostazione:
+2. Scegliere **Dashboard** e verificare il nuovo valore dell'impostazione:
 
     ![Dashboard del dispositivo aggiornato](media/tutorial-monitor-devices/new_settings.png)
 
@@ -77,4 +78,4 @@ Questa esercitazione illustra come:
 > * Ricercare la causa di un problema
 > * Correggere un problema
 
-Dopo aver monitorato il dispositivo, come passaggio successivo si consiglia di [aggiungere un dispositivo](tutorial-add-device.md).
+Ora che si sa come monitorare il dispositivo, come passaggio successivo si consiglia di [aggiungere un dispositivo](tutorial-add-device.md).

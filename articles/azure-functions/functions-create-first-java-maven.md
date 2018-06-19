@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600596"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creare la prima funzione con Java e Maven (anteprima)
 
@@ -43,23 +44,9 @@ Per sviluppare app per le funzioni con Java, è necessario che siano installati 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Installare gli strumenti di base per Funzioni di Azure
 
-Gli [strumenti di base di Funzioni di Azure 2.0](https://www.npmjs.com/package/azure-functions-core-tools) offrono un ambiente di sviluppo locale per la scrittura, l'esecuzione e il debug di Funzioni di Azure. 
+Gli strumenti di base di Funzioni di Azure offrono un ambiente di sviluppo locale per la scrittura, l'esecuzione e il debug di Funzioni di Azure dal terminale o dal prompt dei comandi. 
 
-Per eseguire l'installazione, vedere la sezione [Installing](https://github.com/azure/azure-functions-core-tools#installing) (Installazione) del progetto Azure Functions Core Tools per trovare le istruzioni specifiche per il sistema operativo usato.
-
-È anche possibile eseguire l'installazione manualmente con [npm](https://www.npmjs.com/), incluso con [Node.js](https://nodejs.org/), dopo aver installato i requisiti seguenti:
-
--  [.NET Core](https://www.microsoft.com/net/core), versione più recente.
--  [Node.js](https://nodejs.org/download/), versione 8.6 o successiva.
-
-Per procedere con un'installazione basata su npm, eseguire:
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Se si verificano problemi durante l'installazione degli strumenti di base di Funzioni di Azure versione 2.0, vedere [Version di runtime 2.x](/azure/azure-functions/functions-run-local#version-2x-runtime).
+Installare la [versione 2 degli strumenti principali](functions-run-local.md#v2) nel computer locale prima di continuare.
 
 ## <a name="generate-a-new-functions-project"></a>Generare un nuovo progetto di Funzioni
 
@@ -194,7 +181,7 @@ Hello AzureFunctions!
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere creato un'app per le funzioni Java con un trigger HTTP semplice trigger e averla distribuita in Funzioni di Azure, eseguire le operazioni seguenti.
+È stata creata un'app per le funzioni Java con un trigger HTTP semplice ed è stata distribuita in Funzioni di Azure.
 
 - Vedere il [manuale dello sviluppatore di funzioni Java](functions-reference-java.md) per altre informazioni sullo sviluppo di funzioni Java.
 - Al progetto aggiungere altre funzioni con trigger diversi usando la destinazione Maven `azure-functions:add`.

@@ -1,6 +1,6 @@
 ---
-title: Creare un lab personalizzato in Azure DevTest Labs | Microsoft Docs
-description: Questa guida introduttiva descrive come creare un lab personalizzato tramite Azure DevTest Labs.
+title: Creare un lab usando Azure DevTest Labs | Microsoft Docs
+description: Questa guida introduttiva descrive come creare un lab tramite Azure DevTest Labs.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362244"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636988"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab personalizzato usando Azure DevTest Labs
-Questa esercitazione descrive come creare un lab personalizzato usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab usando Azure DevTest Labs
+Questa esercitazione descrive come creare un lab usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 
 
 In questa esercitazione vengono completate le azioni seguenti:
 
 > [!div class="checklist"]
-> * Creare un lab personalizzato
+> * Creare un lab
 > * Aggiungere le macchine virtuali (VM) al lab
 > * Aggiungere un utente al ruolo di utente di lab
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="create-a-custom-lab"></a>Creare un lab personalizzato
+## <a name="create-a-lab"></a>Creare un lab
 La procedura seguente illustra come usare il portale di Azure per creare un lab in Azure DevTest Labs. 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -97,8 +97,8 @@ La prossima esercitazione descrive come un utente di lab può richiedere e conne
 4. Ripetere questi passaggi per eliminare il gruppo di risorse aggiuntive creato con il nome `<your resource group name><random numbers>`. Ad esempio: `splab3988722144001`. Le VM vengono create in questo gruppo di risorse anziché nel gruppo di risorse in cui si trova il lab. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come creare un lab personalizzato con una VM e come assegnare a un utente l'accesso al lab. Per informazioni su come accedere al lab come utente di lab, passare alla prossima esercitazione:
+Questa esercitazione ha illustrato come creare un lab con una VM e come assegnare a un utente l'accesso al lab. Per informazioni su come accedere al lab come utente di lab, passare alla prossima esercitazione:
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Accesso al lab personalizzato](tutorial-use-custom-lab.md)
+> [Esercitazione: Accedere al lab](tutorial-use-custom-lab.md)
 

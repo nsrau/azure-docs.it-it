@@ -1,5 +1,5 @@
 ---
-title: Accedere a un lab personalizzato in Azure DevTest Labs | Microsoft Docs
+title: Accedere a un lab in Azure DevTest Labs | Microsoft Docs
 description: Questa esercitazione descrive come accedere al lab creato usando Azure DevTest Labs, richiedere una macchina virtuale, usarla e quindi annullare la richiesta.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361839"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638025"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Esercitazione: Accedere a un lab personalizzato in Azure DevTest Labs
-Questa esercitazione descrive come usare il lab personalizzato creato in [Esercitazione: Creare un lab personalizzato](tutorial-create-custom-lab.md).
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Accedere a un lab in Azure DevTest Labs
+Questa esercitazione descrive come usare il lab creato in [Esercitazione: Creare un lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 In questa esercitazione vengono completate le azioni seguenti:
 
 > [!div class="checklist"]
-> * Richiedere una macchina virtuale (VM) nel lab personalizzato
+> * Richiedere una macchina virtuale (VM) nel lab
 > * Connettersi alla VM
 > * Annullare la richiesta della VM
 
@@ -70,8 +70,8 @@ Dopo aver terminato di usare la VM, annullarne la richiesta seguendo questa proc
 1. Al termine dell'operazione di annullamento della richiesta, la VM viene visualizzata nell'elenco delle **Macchine virtuali richiedibili** nella parte inferiore. 
     
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione ha illustrato come accedere a un lab personalizzato creato tramite Azure DevTest Labs e come usarlo. Per altre informazioni sull'accesso e sull'uso delle macchine virtuali in un lab personalizzato, vedere 
+Questa esercitazione ha illustrato come accedere a un lab creato tramite Azure DevTest Labs e come usarlo. Per altre informazioni sull'accesso e sull'uso delle macchine virtuali in un lab, vedere 
 
 > [!div class="nextstepaction"]
-> [Procedura: Usare VM in un lab personalizzato](devtest-lab-add-vm.md)
+> [Procedura: Usare le VM in un lab](devtest-lab-add-vm.md)
 

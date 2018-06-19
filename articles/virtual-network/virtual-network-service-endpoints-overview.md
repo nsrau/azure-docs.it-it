@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824687"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -31,6 +32,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 - **Database SQL di Azure**: disponibile a livello generale in tutte le aree di Azure
 - **Azure Cosmos DB**: disponibile a livello generale in tutte le aree di del cloud pubblico di Azure 
 - **Azure SQL Data Warehouse**: anteprima in tutte le aree di cloud pubblico di Azure
+- **Servizi di database di Azure per PostgreSQL e MySQL**: anteprima in aree di Azure in cui il è disponibile servizio di database.
 
 Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -98,7 +100,7 @@ Dopo aver configurato gli endpoint di servizio per un servizio specifico, verifi
   - Indica che è applicata una connessione più diretta al servizio, rispetto alle route di tunneling forzato
 
 >[!NOTE]
-> La route dell'endpoint di servizio sostituisce qualsiasi route BGP o UDR per la corrispondenza dei prefissi di indirizzo di un servizio di Azure. Per altre informazioni, vedere [Uso di regole efficaci per risolvere i problemi](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)
+> La route dell'endpoint di servizio sostituisce qualsiasi route BGP o UDR per la corrispondenza dei prefissi di indirizzo di un servizio di Azure. Per altre informazioni, vedere [Uso di regole efficaci per risolvere i problemi](diagnose-network-routing-problem.md)
 
 ## <a name="provisioning"></a>Provisioning
 

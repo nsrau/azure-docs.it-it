@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627417"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Esercitazione: Creare un'applicazione di Scala Maven per Spark in HDInsight usando IntelliJ
 
@@ -46,6 +47,41 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 * Un cluster Apache Spark in HDInsight. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit. Per installarlo, fare clic [qui](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Ambiente IDE Java. Questo articolo usa IntelliJ IDEA 18.1.1. Per installarlo, fare clic [qui](https://www.jetbrains.com/idea/download/).
+
+## <a name="use-intellij-to-create-application"></a>Usare IntelliJ per creare un'applicazione
+
+1. Avviare IntelliJ IDEA e creare un progetto. Nella finestra di dialogo **New Project** (Nuovo progetto) seguire questa procedura: 
+
+   a. Selezionare **HDInsight** > **Spark on HDInsight (Scala)** (Spark in HDInsight - Scala).
+
+   b. Nell'elenco **Build tool** (Strumento di compilazione) selezionare uno degli strumenti seguenti, in base alla necessità:
+
+      * **Maven**, per ottenere supporto per la creazione guidata di un progetto Scala
+      * **SBT**, per la gestione delle dipendenze e la compilazione per il progetto Scala
+
+   ![Finestra di dialogo del nuovo progetto](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. Selezionare **Avanti**.
+
+3. La creazione guidata del progetto Scala rileva automaticamente se è installato il plug-in Scala. Selezionare **Installa**.
+
+   ![Verifica del plug-in Scala](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. Per scaricare il plug-in Scala, selezionare **OK**. Seguire le istruzioni per riavviare IntelliJ. 
+
+   ![Finestra di dialogo di installazione del plug-in Scala](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. Nella finestra **New Project** (Nuovo progetto) seguire questa procedura:  
+
+    ![Selezione di Spark SDK](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. Immettere un nome e un percorso per il progetto.
+
+   b. Nell'elenco a discesa **Project SDK** (SDK progetto) selezionare **Java 1.8** per il cluster Spark 2.x oppure **Java 1.7** per il cluster Spark 1.x.
+
+   c. Nell'elenco a discesa **Spark version** (Versione di Spark) la creazione guidata del progetto Scala inserisce la versione corretta per Spark SDK e Scala SDK. Se la versione del cluster Spark è precedente alla 2.0, selezionare **Spark 1.x**. In caso contrario, selezionare **Spark 2.x**. In questo esempio viene usata la versione **Spark 2.0.2 (Scala 2.11.8)**.
+
+6. Selezionare **Fine**.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installare il plug-in Scala per IntelliJ IDEA
 Per installare il plug-in di Scala, procedere come segue:

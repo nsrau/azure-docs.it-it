@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202848"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236366"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -47,9 +47,9 @@ Una valutazione consente di identificare l'idoneità di Azure per le macchine vi
 
 **Proprietà** | **Dettagli**
 --- | ---
-**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/>Azure Migrate supporta attualmente 30 aree, tra cui Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Cina orientale, Cina settentrionale, Corea centrale, Corea meridionale, Europa occidentale, Europa settentrionale, Germania centrale, Germania nordorientale, Giappone occidentale, Giappone orientale, India centrale, India meridionale, India occidentale, Regno Unito meridionale, Regno Unito occidentale, Governo degli Stati Uniti Arizona, Governo degli Stati Uniti Texas, Governo degli Stati Uniti Virginia, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali e Stati Uniti occidentali 2. La località predefinita è Stati Uniti occidentali 2.
-**Ridondanza dell'archiviazione** | Tipo di [ridondanza dell'archiviazione](https://docs.microsoft.com/azure/storage/common/storage-redundancy) che le VM di Azure useranno dopo la migrazione. Per impostazione predefinita viene usata l'archiviazione con ridondanza locale. Si noti che Azure Migrate supporta solo valutazioni basate su Managed Disks e il servizio Managed Disks supporta solo l'archiviazione con ridondanza locale, per questo motivo la proprietà attualmente prevede solo l'opzione di archiviazione con ridondanza locale.
-**Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per dimensionare correttamente le VM per Azure. È possibile definire il dimensionamento in base alla *cronologia delle prestazioni* delle VM locali o definire le dimensioni delle VM *come in locale* per Azure, senza considerare la cronologia delle prestazioni. Per impostazione predefinita viene usato il dimensionamento in base alle prestazioni.
+**Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/>Azure Migrate supporta attualmente 30 aree, tra cui Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Cina orientale, Cina settentrionale, Corea del Sud centrale, Corea del Sud meridionale, Europa occidentale, Europa settentrionale, Germania centrale, Germania nordorientale, Giappone occidentale, Giappone orientale, India centrale, India meridionale, India occidentale, Regno Unito meridionale, Regno Unito occidentale, Governo degli Stati Uniti Arizona, Governo degli Stati Uniti Texas, Governo degli Stati Uniti Virginia, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali e Stati Uniti occidentali 2. La località predefinita è Stati Uniti occidentali 2.
+**Tipo di archiviazione** | È possibile specificare il tipo di dischi da allocare in Azure. Questa proprietà è applicabile quando il criterio di ridimensionamento è Determinazione della dimensione come in locale. È possibile specificare il tipo di disco di destinazione come dischi gestiti Premium o dischi gestiti Standard. Il valore predefinito è dischi gestiti Premium. Per il ridimensionamento in base alle prestazioni, la raccomandazione per i dischi avviene automaticamente in base ai dati delle prestazioni delle macchine virtuali. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
+**Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per dimensionare correttamente le VM per Azure. È possibile definire il dimensionamento in base alla *cronologia delle prestazioni* delle VM locali o definire le dimensioni delle VM *come in locale* per Azure, senza considerare la cronologia delle prestazioni. Il valore predefinito è Determinazione della dimensione come in locale.
 **Piani dei prezzi** | Per il calcolo dei costi, la valutazione considera l'eventuale iscrizione a Software Assurance e l'idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Vengono considerate anche le [offerte di Azure](https://azure.microsoft.com/support/legal/offer-details/) eventualmente sottoscritte ed è possibile specificare gli sconti specifici della sottoscrizione (%) di cui si può usufruire con l'offerta.
 **Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le macchine virtuali di Azure di destinazione. Se, ad esempio, si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard, che offre macchine virtuali con bassa latenza, anche se a un costo superiore. D'altra parte, se si ha un ambiente di sviluppo e test, può essere preferibile il livello Basic, che ha macchine virtuali con latenza maggiore e costi minori. Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
 **Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni dell'ultimo giorno, con un valore percentile del 95%. È possibile modificare questi valori nelle proprietà della valutazione.
@@ -100,4 +100,6 @@ Dopo aver valutato i computer locali per la migrazione con il servizio Azure Mig
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Completare un'esercitazione](tutorial-assessment-vmware.md) per creare una valutazione per una VM VMware locale.
+
+- [Completare un'esercitazione](tutorial-assessment-vmware.md) per creare una valutazione per una VM VMware locale.
+- [Altre informazioni](resources-faq.md) sulle domande frequenti su Azure Migrate
