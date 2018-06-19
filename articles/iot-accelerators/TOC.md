@@ -1,4 +1,4 @@
-# [Nozioni fondamentali su Azure IoT](../iot-fundamentals/index.yml)
+# [Nozioni fondamentali su Azure IoT](/azure/iot-fundamentals)
 # [Documentazione degli acceleratori di soluzioni IoT](index.md)
 
 # Panoramica
@@ -94,10 +94,10 @@
 # Riferimenti
 ## [Guida di riferimento per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Guida per la risoluzione dei problemi per gli sviluppatori](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Architettura di sicurezza](iot-security-architecture.md)
-## [Procedure di sicurezza consigliate](iot-security-best-practices.md)
-## [Proteggere la distribuzione di IoT](iot-accelerators-security-deployment.md)
-## [Sicurezza sin dall'inizio](securing-iot-ground-up.md)
+## [Sicurezza sin dall'inizio](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [Procedure di sicurezza consigliate](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [Architettura di sicurezza](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [Proteggere la distribuzione di IoT](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # Risorse correlate
 ## Soluzioni 

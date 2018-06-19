@@ -73,7 +73,7 @@
   items:
     - name: Specifica OpenAPI (Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
-    - name: Interfaccia della riga di comando di Azure 2.0
+    - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
     - name: REST
       href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
