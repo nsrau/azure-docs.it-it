@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03-20-2018
   ms.author: juliako
-  ms.openlocfilehash: 2aa16fb222c6a58d8e98a7399d1e3fd3cd9044f6
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: 7e250b59ae9ea370b2c019c012d1e2a0e6be3cb4
+  ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/10/2018
-  ms.locfileid: "33940711"
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36217613"
 abstract:
   description: Informazioni su come eseguire lo streaming di video on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 sections:
@@ -31,25 +31,39 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/media-services.svg
+        src: media/index/AMSIcons-encoding.svg
       text: Eseguire lo streaming di file video
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
-    text: Informazioni su come eseguire lo streaming di file e analizzare i video con Servizi multimediali.
+    text: "Informazioni su come eseguire lo streaming di file on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali:"
   - type: list
-    style: ordered
+    style: icon48
     items:
-    - html: <a href="/azure/media-services/latest/stream-files-tutorial-with-api">Caricare, codificare ed eseguire lo streaming dei video</a>
-    - html: <a href="/azure/media-services/latest/analyze-videos-tutorial-with-api">Analizzare i video</a>
+    - image:
+        src: media/index/AMSIcons-encoding.svg
+      text: Caricare, codificare ed eseguire lo streaming dei video
+      href: /azure/media-services/latest/stream-files-tutorial-with-api
+    - image:
+        src: media/index/AMSIcons-live.svg
+      text: Broadcast live
+      href: /azure/media-services/latest/stream-live-tutorial-with-api
+    - image:
+        src: media/index/AMSIcons-media_analytics.svg
+      text: Analizzare i video
+      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
 - title: Riferimenti
   items:
+  - type: paragraph
+    text: ''
   - type: list
-    style: cards
-    className: cardsD
+    style: unordered
     items:
-    - title: Riga di comando
-      html: <p><a href="https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>
-    - title: REST
-      html: <p><a href="https://go.microsoft.com/fwlink/p/?linkid=873030">API REST</a></p>
+    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">Specifica OpenAPI (Swagger)</a>
+    - html: <a href="https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a>
+    - html: <a href="https://go.microsoft.com/fwlink/p/?linkid=873030">REST</a>
+    - html: <a href="https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet">.NET</a>
+    - html: <a href="https://docs.microsoft.com/java/api/overview/azure/mediaservices">Java</a>
+    - html: <a href="https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python">Python</a>
+    - html: <a href="https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest">Node.js</a>
