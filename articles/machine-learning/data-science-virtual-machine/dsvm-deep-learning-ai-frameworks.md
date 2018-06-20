@@ -122,7 +122,7 @@ La versione installata di Caffe richiede Python 2.7 e non funziona con Python 3.
 | Collegamenti agli esempi      | In Jupyter sono inclusi i blocchi appunti di esempio. |
 | Strumenti correlati nella macchina virtuale per data science      | Caffe      |
 | Come usarla o eseguirla?  | * Nel terminale: attivare l'ambiente [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition), eseguire _python_, quindi importare Chainer. <br/>
-* * In JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi passare alla directory di Chainer per trovare i blocchi appunti di esempio.
+* In JupyterHub: [connettersi a JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi passare alla directory di Chainer per trovare i blocchi appunti di esempio.
 
 
 ## <a name="deep-water"></a>Deep Water
@@ -227,7 +227,7 @@ _esportare MKL_THREADING_LAYER=GNU_
 | Strumenti correlati nella macchina virtuale per data science      | Torch      |
 | Come usarla o eseguirla? | 
 * In un terminale: attivare l'ambiente corretto, quindi eseguire Python. <br/>
- * * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
+ * In Jupyter: connettersi a [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), quindi aprire la directory di PyTorch per gli esempi.  |
 
 ## <a name="mxnet-model-server"></a>MXNet Model Server
 
