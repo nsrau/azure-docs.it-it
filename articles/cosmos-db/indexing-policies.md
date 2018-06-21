@@ -3,22 +3,19 @@ title: Criteri di indicizzazione di Azure Cosmos DB | Microsoft Docs
 description: Informazioni sull'indicizzazione in Azure Cosmos DB. Informazioni su come configurare e modificare i criteri di indicizzazione per l'indicizzazione automatica e per ottenere prestazioni migliori.
 keywords: funzionamento dell'indicizzazione, indicizzazione automatica, indicizzazione del database
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298298"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB supporta tre modalità di indicizzazione che è possibile config
 
 L'indicizzazione coerente supporta query coerenti al costo di una possibile riduzione della velocità effettiva di scrittura. Questa riduzione è una funzione dei percorsi univoci che devono essere indicizzati e del "livello di coerenza". La modalità di indicizzazione coerente è progettata per carichi di lavoro "scrivi rapidamente, esegui query immediatamente".
 
-**Differita**: l'indice viene aggiornato in modo asincrono quando una raccolta di Azure Cosmos DB è inattiva, ovvero quando la capacità di velocità effettiva della raccolta non viene usata completamente per gestire le richieste utente. La modalità di indicizzazione differita può essere adatta per carichi di lavoro con inserimento immediato ed esecuzione di query successiva che richiedono l'inserimento del documento. Si potrebbero ottenere risultati incoerenti perché i dati vengono inseriti e indicizzati lentamente. Questo significa che le query COUNT o i risultati di query specifici possono non essere coerenti o ripetibili in determinati momenti. 
+**Differita**: l'indice viene aggiornato in modo asincrono quando una raccolta di Azure Cosmos DB è inattiva, ovvero quando la capacità di velocità effettiva della raccolta non viene usata completamente per gestire le richieste utente.  Si potrebbero ottenere risultati incoerenti perché i dati vengono inseriti e indicizzati lentamente. Questo significa che le query COUNT o i risultati di query specifici possono non essere coerenti o ripetibili in un determinato momento. 
 
-L'indice è in genere in modalità di recupero con dati inseriti. Con l'indicizzazione differita, le modifiche di durata (TTL) comportano l'eliminazione e la nuova creazione dell'indice. Questo comportamento rende incoerenti la query COUNT e i risultati delle query per un periodo di tempo. Per questo motivo, la maggior parte degli account Azure Cosmos DB deve usare la modalità di indicizzazione coerente.
+L'indice è in genere in modalità di recupero con dati inseriti. Con l'indicizzazione differita, le modifiche di durata (TTL) comportano l'eliminazione e la nuova creazione dell'indice. Questo comportamento rende incoerenti la query COUNT e i risultati delle query per un periodo di tempo. La maggior parte degli account Azure Cosmos DB deve usare la modalità di indicizzazione coerente.
 
 **Nessuna indicizzazione**: a una raccolta con modalità nessuna indicizzazione non è associato alcun indice. Questa modalità viene usata in genere se Azure Cosmos DB funge da archivio di coppie chiave/valore e l'accesso ai documenti avviene solo tramite il rispettivo ID proprietà. 
 
@@ -229,11 +226,11 @@ L'esempio seguente mostra come aumentare la precisione per gli indici di interva
 
 Analogamente, è possibile escludere completamente i percorsi dall'indicizzazione. L'esempio seguente mostra come escludere un'intera sezione dei documenti (*sottoalbero*) dall'indicizzazione usando il carattere jolly \* come operatore.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

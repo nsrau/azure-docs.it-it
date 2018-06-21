@@ -1,24 +1,19 @@
 ---
-title: Creare avvisi per i servizi di Azure - Portale di Azure | Documentazione Microsoft
+title: Creare avvisi classici per i servizi di Azure - portale di Azure
 description: Attivare messaggi di posta elettronica o notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni specificate.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: d2ae4d9e1d0ef89fad4098a926fc689b84d1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262182"
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Creare avvisi sulle metriche classici in Monitoraggio di Azure per i servizi di Azure: portale di Azure
 > [!div class="op_single_selector"]
@@ -31,7 +26,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="overview"></a>Panoramica
 
 > [!NOTE]
-> Questo articolo descrive come creare versioni meno recenti degli avvisi classici delle metriche. Monitoraggio di Azure supporta ora i [nuovi avvisi delle metriche](monitoring-near-real-time-metric-alerts.md). 
+> Questo articolo descrive come creare avvisi delle metriche classici di tipo precedente. Monitoraggio di Azure supporta ora i [nuovi avvisi delle metriche](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 

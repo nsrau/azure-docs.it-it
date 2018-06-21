@@ -1,22 +1,39 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806299"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
-Archiviazione Standard di Azure offre un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Supporta anche BLOB, tabelle, code e file. Con Archiviazione Standard, i dati vengono archiviati in unità disco rigido. Per le VM, è possibile usare dischi di Archiviazione Standard per scenari di sviluppo/test e carichi di lavoro meno critici e dischi di Archiviazione Premium per applicazioni di produzione cruciali. Archiviazione Standard è disponibile in tutte le aree di Azure. 
+Archiviazione Standard di Azure offre un supporto dei dischi affidabile e a basso costo per le VM che eseguono carichi di lavoro non sensibili alla latenza. Supporta anche BLOB, tabelle, code e file. Con Archiviazione Standard, i dati vengono archiviati in unità disco rigido. Per le macchine virtuali è possibile usare dischi SSD e HDD Standard per scenari di sviluppo/test e carichi di lavoro meno critici e dischi SSD Premium per applicazioni di produzione cruciali. Archiviazione Standard è disponibile in tutte le aree di Azure. 
 
-Questo articolo è incentrato sull'uso di archiviazione Standard per i dischi delle macchine virtuali. Per altre informazioni sull'uso dell'archiviazione con BLOB, tabelle, code e file, vedere [Introduzione ad Archiviazione](../articles/storage/common/storage-introduction.md).
+Questo articolo è incentrato sull'uso di dischi SSD e HDD standard. Per altre informazioni sull'uso dell'archiviazione con BLOB, tabelle, code e file, vedere [Introduzione ad Archiviazione](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Tipi di disco
 
 È possibile creare dischi Standard per le VM di Azure in due modi.
 
-**Dischi non gestiti**: si tratta del metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le VM di Azure supportano il collegamento di diversi dischi Standard, fino a un massimo di 256 TB di spazio di archiviazione per VM.
+**Dischi non gestiti**: questo tipo di disco rappresenta il metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le VM di Azure supportano il collegamento di diversi dischi Standard, fino a un massimo di 256 TB di spazio di archiviazione per VM.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): questa funzionalità gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificando il tipo, Premium o Standard, e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco. Azure gestisce anche l'inserimento dei dischi in più account di archiviazione per rimanere entro i limiti di scalabilità degli account di archiviazione.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): questa funzionalità gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificando il tipo (SSD Premium, SSD Standard o HDD Standard) e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco. Azure gestisce anche l'inserimento dei dischi in più account di archiviazione per rimanere entro i limiti di scalabilità degli account di archiviazione.
 
 Anche se entrambi i tipi di disco sono disponibili, è consigliabile usare Managed Disks per sfruttarne appieno le varie funzionalità.
 
 Per iniziare a usare gratuitamente Archiviazione Standard di Azure, visitare [questa pagina](https://azure.microsoft.com/pricing/free-trial/). 
 
-Per informazioni su come creare una VM con Managed Disks, vedere uno degli articoli seguenti.
+Per informazioni su come creare una macchina virtuale con Managed Disks, vedere uno degli articoli seguenti.
 
 * [Creare una VM con Resource Manager e PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Creare una VM Linux usando l'interfaccia della riga di comando di Azure 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -27,7 +44,9 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Standard.
 
 **Archiviazione Standard**: Archiviazione Standard di Azure supporta dischi, BLOB, file, tabelle e code di Azure. Per usare i servizi Archiviazione Standard, per prima cosa [creare un account di archiviazione di Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Dischi di Archiviazione Standard**: i dischi di Archiviazione Standard possono essere collegati a tutte le VM di Azure, incluse le VM di serie di dimensioni usate con Archiviazione Premium come DSv2 e GS. Un disco di Archiviazione Standard può essere collegato a una sola VM. È tuttavia possibile collegare a una VM uno o più dischi di questo tipo, fino al numero massimo di dischi definito per la specifica dimensione di VM. Nella sezione seguente sugli obiettivi di scalabilità e prestazioni di archiviazione Standard verranno descritte in dettaglio le specifiche. 
+**Dischi SSD Standard:** i dischi SSD Standard offrono prestazioni più affidabili rispetto ai dischi HDD Standard e sono attualmente disponibili in anteprima. Per altre informazioni sulla disponibilità dei dischi SSD Standard nelle varie aree, vedere la [disponibilità a livello di area dei dischi SSD Standard (anteprima)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Dischi HDD Standard**: i dischi HDD Standard possono essere collegati a tutte le macchine virtuali di Azure, incluse le macchine virtuali di serie di dimensioni usate con Archiviazione Premium come DSv2 e GS. Un disco HDD Standard può essere collegato a una sola VM. È tuttavia possibile collegare a una VM uno o più dischi di questo tipo, fino al numero massimo di dischi definito per la specifica dimensione di VM. Nella sezione seguente sugli obiettivi di scalabilità e prestazioni di archiviazione Standard verranno descritte in dettaglio le specifiche.
 
 **BLOB di pagine Standard**: i BLOB di pagine Standard vengono usati per contenere dischi persistenti per le VM e sono anche accessibili direttamente tramite REST come altri tipi di BLOB di Azure. I [BLOB di pagine](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sono una raccolta di pagine di 512 byte ottimizzata per operazioni di lettura e scrittura casuali. 
 

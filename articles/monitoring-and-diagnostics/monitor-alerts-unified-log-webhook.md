@@ -1,24 +1,19 @@
 ---
-title: Azioni webhook per gli avvisi di log in Avvisi di Azure | Microsoft Docs
+title: Azioni webhook per gli avvisi di log in Avvisi di Azure
 description: Questo articolo descrive come una regola di avviso relativa ai log di Log Analytics o Application Insights esegue il push dei dati come webhook HTTP e illustra le diverse personalizzazioni possibili.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264256"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso in Avvisi di Azure](monitor-alerts-unified-usage.md), è possibile scegliere di [configurarlo con gruppi di azioni](monitoring-action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -47,11 +42,11 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | Gravità |#severity |Livello di gravità impostato per l'avviso di log attivato. |
 | AlertThresholdOperator |#thresholdoperator |Operatore di soglia per la regola di avviso.  *Maggiore di* o *Minore di*. |
 | AlertThresholdValue |#thresholdvalue |Valore di soglia per la regola di avviso. |
-| LinkToSearchResults |#linktosearchresults |Collegamento alla ricerca nei log di Log Analytics che restituisce i record della query che ha creato l'avviso. |
+| LinkToSearchResults |#linktosearchresults |Collegamento al portale di Analytics che restituisce i record della query che ha creato l'avviso. |
 | ResultCount |#searchresultcount |Numero di record nei risultati della ricerca. |
-| Ora di fine dell'intervallo di ricerca |#searchintervalendtimeutc |Ora di fine per la query in formato UTC. |
-| Intervallo di ricerca |#searchinterval |Intervallo di tempo per la regola di avviso. |
-| Ora di inizio dell'intervallo di ricerca |#searchintervalstarttimeutc |Ora di inizio per la query in formato UTC. 
+| Ora di fine dell'intervallo di ricerca |#searchintervalendtimeutc |Ora di fine per la query in UTC, formato mm/gg/aaaa HH:mm:ss AM/PM. |
+| Intervallo di ricerca |#searchinterval |Intervallo di tempo per la regola di avviso, formato HH:mm:ss. |
+| Ora di inizio dell'intervallo di ricerca |#searchintervalstarttimeutc |Ora di inizio per la query in UTC, formato mm/gg/aaaa HH:mm:ss AM/PM. 
 | SearchQuery |#searchquery |Query di ricerca nei log usata dalla regola di avviso. |
 | SearchResults |"IncludeSearchResults": true|Record restituiti dalla query come tabella JSON, limitati ai primi 1000 record, se il codice "IncludeSearchResults": true viene aggiunto nella definizione personalizzata del webhook JSON come proprietà di primo livello. |
 | WorkspaceID |#workspaceid |ID dell'area di lavoro di Log Analytics. |
@@ -74,6 +69,7 @@ Il payload di esempio viene risolto in una stringa di simile alla seguente quand
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+Poiché tutte le variabili in un webhook personalizzato devono essere specificate all'interno dell'enclosure JSON, ad esempio "#searchinterval", il webhook risultante avrà anche i dati delle variabili all'interno dell'enclosure, ad esempio "00:05:00".
 
 Per includere i risultati della ricerca in un payload personalizzato, verificare che **IncudeSearchResults** sia impostata come proprietà di primo livello nel payload JSON. 
 

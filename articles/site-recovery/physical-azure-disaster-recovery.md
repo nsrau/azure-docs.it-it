@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643312"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -27,18 +28,25 @@ In questa esercitazione viene illustrato come configurare il ripristino di emerg
 > * Creare un criterio di replica
 > * Abilitare la replica per un server
 
+[esaminare l'architettura](concepts-hyper-v-to-azure-architecture.md) di questo scenario di ripristino di emergenza.
+
 ## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa esercitazione:
 
-- Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](physical-azure-architecture.md).
-- Esaminare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
+- Assicurarsi di aver compreso [l'architettura e i componenti](physical-azure-architecture.md) di questo scenario.
+- Verificare i [requisiti di supporto](vmware-physical-secondary-support-matrix.md) per tutti i componenti.
 - Assicurarsi che i server da replicare siano conformi ai [requisiti di Azure per le macchine virtuali](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Preparare Azure. Sono necessari una sottoscrizione di Azure, una rete virtuale di Azure e un account di archiviazione di Azure.
 - Preparare un account per l'installazione automatica del servizio Mobility su ogni server da replicare.
 
-> [!NOTE]
-> Prima di iniziare, si noti che dopo il failover in Azure, non è possibile eseguire il failback dei server fisici in computer fisici locali. È possibile eseguire il failback solo in macchine virtuali VMware. 
+Prima di iniziare, si noti che:
+
+- dopo il failover in Azure, non è possibile eseguire il failback dei server fisici in computer fisici locali. È possibile eseguire il failback solo in macchine virtuali VMware. 
+- Questa esercitazione consente di configurare il ripristino di emergenza di server fisici in Azure con le impostazioni più semplici. Se si vogliono ottenere informazioni su altre opzioni, leggere le guide Procedura:
+    - Configurare l'[origine della replica](physical-azure-set-up-source.md), incluso il server di configurazione di Site Recovery.
+    - Configurare la [destinazione della replica](physical-azure-set-up-target.md).
+    - Configurare i [criteri di replica](vmware-azure-set-up-replication.md) e [abilitare la replica](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Configurare un account Azure

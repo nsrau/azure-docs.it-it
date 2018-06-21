@@ -2,18 +2,18 @@
 title: Distribuire il server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188481"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267510"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -21,11 +21,19 @@ Si distribuisce un server di configurazione locale quando si usa [Azure Site Rec
 
 ## <a name="prerequisites"></a>prerequisiti
 
-È consigliabile distribuire il server di configurazione come una macchina virtuale VMware a disponibilità elevata. I requisiti hardware minimi sono riepilogati nella tabella seguente.
+È consigliabile distribuire il server di configurazione come una macchina virtuale VMware a disponibilità elevata. I requisiti del server di configurazione sono riepilogati nella tabella seguente.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>Preparare l'installazione di MySQL
+
+MySQL deve essere installato nel server di configurazione. A questo scopo, è possibile usando uno dei metodi seguenti:
+
+- Consentire a Site Recovery di scaricarlo e installarlo quando viene eseguita la configurazione guidata di gestione Server. Non è necessario intraprendere alcuna azione specifica.
+- Manualmente scaricare MySQL e inserirlo nella cartella C:\Temp\ASRSetup. Quindi eseguire l'installazione. Site Recovery riconoscerà che è installata quando viene eseguita la procedura guidata.
+- Manualmente scaricare MySQL e inserirlo nella cartella C:\Temp\ASRSetup. Quando viene eseguita la procedura guidata trova il file di installazione e lo installa da questa posizione. 
 
 
 ## <a name="capacity-planning"></a>Pianificazione della capacità
@@ -101,7 +109,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività**. Selezionare la scheda NIC per ricevere il traffico di replica e quindi selezionare **Salva**. Questa impostazione non può essere modificata dopo che è stata configurata.
 2. In **Seleziona l'insieme di credenziali di Servizi di ripristino** selezionare la sottoscrizione di Azure e quindi il gruppo di risorse e l'insieme di credenziali pertinenti.
-3. In **Installa software di terze parti** accettare il contratto di licenza. Selezionare **Scarica e installa** per installare Server MySQL.
+3. In **Installa software di terze parti** accettare il contratto di licenza. Installare MySQL in conformità con il [metodo che si usa per installare MySQL](#prepare-for-mysql-installation).
 4. Selezionare **Installa VMware PowerCLI**. Prima di eseguire questo passaggio, assicurarsi che tutte le finestre del browser siano chiuse. Selezionare quindi **Continua**.
 5. In **Convalida la configurazione dell'appliance** i prerequisiti vengono verificati prima di continuare.
 6. In **Configura vCenter Server/vSphere ESXi** immettere il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le macchine virtuali da replicare. Immettere la porta su cui il server è in ascolto e un nome descrittivo per il server VMware nell'insieme di credenziali.

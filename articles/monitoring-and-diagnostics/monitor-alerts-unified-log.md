@@ -1,25 +1,19 @@
 ---
-title: Avvisi di log in Monitoraggio di Azure - Avvisi | Microsoft Docs
+title: Avvisi del log in Monitoraggio di Azure
 description: Attivare messaggi di posta elettronica e notifiche, chiamare URL di siti Web (webhook) o usare l'automazione quando vengono soddisfatte le condizioni di query di analisi specificate per Avvisi di Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057322"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264375"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Avvisi del log nel Monitoraggio di Azure - Avvisi 
 Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](monitoring-overview-unified-alerts.md), che permette agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
@@ -36,10 +30,10 @@ Le regole di ricerca log sono definite dai dettagli seguenti:
 - **Query di log**.  La query eseguita ogni volta che viene attivata la regola di avviso.  I record restituiti da questa query vengono usati per determinare se viene creato un avviso. Una query di *Azure Application Insights* può anche includere [chiamate tra applicazioni](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), purché l'utente abbia diritti di accesso alle applicazioni esterne. 
 
     > [!IMPORTANT]
-    > Il supporto della [query tra applicazioni per Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) è disponibile in anteprima. La funzionalità e l'esperienza utente sono soggette a modifiche. L'utilizzo di [query tra aree di lavoro](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [query tra risorse per Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) attualmente **non è supportato** in Avvisi di Azure.
+    > Il supporto delle [query tra applicazioni per Application Insights](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) è disponibile in anteprima. La funzionalità limitata all'uso con 2 o più app e l'esperienza utente sono soggette a modifiche. L'utilizzo di [query tra aree di lavoro](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) e [query tra risorse per Log Analytics](../log-analytics/log-analytics-cross-workspace-search.md) attualmente **non è supportato** in Avvisi di Azure.
 
 - **Periodo di tempo**.  Specifica l'intervallo di tempo per la query. La query restituisce solo i record creati in questo intervallo dell'ora corrente. Il periodo di tempo limita i dati recuperati per la query di log in modo da impedirne l'uso improprio e ignora qualsiasi comando di tempo (come ago) usato nella query di log. <br>*Ad esempio, se il periodo di tempo è impostato su 60 minuti e la query viene eseguita alle 13.15, vengono restituiti solo i record creati tra le 12.15 e le 13.15 per l'esecuzione della query di log. Se la query di log usa un comando di tempo come ago (7d), la query viene eseguita solo per i dati creati tra le 12.15 e le 13.15, ovvero solo per i dati che esistono dagli ultimi 60 minuti e non per i sette giorni di dati specificati nella query di log.*
-- **Frequenza**.  Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore del periodo di tempo.  Se il valore è maggiore del periodo di tempo, il record rischia di essere omesso.<br>*Ad esempio, considerando un periodo di tempo di 30 minuti e una frequenza di 60 minuti,  una query eseguita alle 13.00 restituirà i record compresi tra le 12.30 e le 13.00.  La volta successiva, la query verrà eseguita alle 14:00 e restituirà i record compresi tra le 13:30 e le 14:00.  Qualsiasi record creato tra le 13.00 e le 13.30 non verrà mai valutato.*
+- **Frequenza**.  Specifica la frequenza con cui deve essere eseguita la query. Può essere un valore qualsiasi compreso tra 5 minuti e 24 ore. Deve essere uguale o minore del periodo di tempo.  Se il valore è maggiore del periodo di tempo, il record rischia di essere omesso.<br>*Ad esempio, considerando un periodo di tempo di 30 minuti e una frequenza di 60 minuti,  Una query eseguita alle 13:00 restituirà i record compresi tra le 12:30 e le 13:00.  La volta successiva, la query verrà eseguita alle 14:00 e restituirà i record compresi tra le 13:30 e le 14:00.  Qualsiasi record creato tra le 13.00 e le 13.30 non verrà mai valutato.*
 - **Soglia**.  Per determinare se è necessario creare un avviso, vengono valutati i risultati della ricerca log.  La soglia è diversa per tipi diversi di regole di avviso di ricerca log.
 
 Le regole di ricerca log, sia per [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) sia per [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), possono essere di due tipi diversi. Ognuno di questi tipi viene descritto in dettaglio nelle sezioni seguenti.
@@ -126,7 +120,7 @@ Le API fornite per gli avvisi di log sono RESTful ed è possibile accedervi tram
 
 Per informazioni dettagliate e alcuni esempi di uso dell'API REST, vedere le risorse seguenti:
 - [API REST per gli avvisi in Log Analytics](../log-analytics/log-analytics-api-alerts.md) per informazioni su come creare e gestire le regole di avviso di ricerca log per Azure Log Analytics
-- [API REST per le regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) per informazioni su come creare e gestire regole di avviso di ricerca log per Azure Application Insights
+- [API REST per le regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) per informazioni su come creare e gestire regole di avviso di ricerca log per Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 Gli utenti possono anche sfruttare la flessibilità offerta da [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la creazione e l'aggiornamento di risorse per creare o aggiornare gli avvisi di log.

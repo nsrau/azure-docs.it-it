@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Esercitazioni
   items:
-    - name: 1 - Registrare le applicazioni
-      href: tutorial-register-applications.md
+    - name: 1 - Creare un tenant B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Eseguire l'autenticazione degli account
       items:
         - name: ASP.NET

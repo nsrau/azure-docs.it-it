@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725344"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -45,38 +46,39 @@ Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambien
 
 ## <a name="register-binding-extensions"></a>Registrare le estensioni delle associazioni
 
-Nella versione 2.x del runtime di Funzioni di Azure è necessario registrare in modo esplicito le [estensioni delle associazioni](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usate nell'app per le funzioni. 
+Nella versione 2.x del runtime di Funzioni di Azure è necessario registrare in modo esplicito le estensioni delle associazioni(tipi di associazioni) usate nell'app per le funzioni. 
 
-Le estensioni vengono distribuite come pacchetti NuGet il cui nome inizia in genere con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La modalità di installazione e registrazione delle estensioni delle associazioni dipende da come si sviluppano le funzioni: 
+La versione 2.x del runtime di Funzioni è attualmente in anteprima. Per informazioni su come impostare un'app per le funzioni per l'uso della versione 2.x del runtime di Funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
+
+Nella versione 2.x è presente un set di associazioni di base che vengono registrate automaticamente e che quindi non è necessario registrare in modo esplicito: HTTP, timer e Archiviazione di Azure (BLOB, code e tabelle). 
+
+Le estensioni vengono distribuite come pacchetti NuGet il cui nome inizia in genere con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La modalità di registrazione delle estensioni delle associazioni dipende da come si sviluppano le funzioni: 
 
 + [A livello locale in C# con Visual Studio o VSCode](#local-c-development-using-visual-studio-or-vs-code)
 + [A livello locale con gli strumenti di base di Funzioni di Azure](#local-development-azure-functions-core-tools)
 + [Nel portale di Azure](#azure-portal-development) 
 
-Nella versione 2.x è presente un set di associazioni di base che non vengono fornite come estensioni. Non è necessario registrare le estensioni dei trigger e delle associazioni seguenti: HTTP, timer e Archiviazione di Azure. 
-
-Per informazioni su come impostare un'app per le funzioni per l'uso della versione 2.x del runtime di Funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md). La versione 2.x del runtime di Funzioni è attualmente in anteprima. 
-
 Le versioni dei pacchetti illustrate in questa sezione sono fornite solo a scopo esemplificativo. Controllare il [sito NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) per stabilire quale versione di una determinata estensione è necessaria per le altre dipendenze dell'app per le funzioni.    
 
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Sviluppo in C# a livello locale con Visual Studio o VSCode 
+### <a name="local-csharp"></a>Sviluppo in C# a livello locale con Visual Studio o VS Code
 
-Quando si usa Visual Studio o Visual Studio Code per sviluppare funzioni in C# a livello locale, è sufficiente aggiungere il pacchetto NuGet dell'estensione. 
+Quando si usa Visual Studio o Visual Studio Code per sviluppare funzioni in C# a livello locale, installare il pacchetto NuGet dell'estensione. 
 
 + **Visual Studio**: usare gli strumenti di Gestione pacchetti NuGet. Il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) seguente consente di installare l'estensione di Azure Cosmos DB dalla Console di Gestione pacchetti:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: è possibile installare i pacchetti dal prompt dei comandi usando il comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nell'interfaccia della riga di comando di .NET, come indicato di seguito:
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>Sviluppo a livello locale con gli strumenti di base di Funzioni di Azure
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Sviluppo con il portale di Azure
 

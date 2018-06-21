@@ -1,26 +1,21 @@
 ---
-title: Configurare webhook negli avvisi relativi alle metriche di Azure | Microsoft Docs
-description: Informazioni su come reindirizzare gli avvisi di Azure ad altri sistemi non Azure.
+title: Impostare un avviso di metrica classico per l'invio di una notifica a un sistema non Azure tramite un webhook
+description: Informazioni su come reindirizzare gli avvisi delle metriche di Azure ad altri sistemi non Azure.
 author: johnkemnetz
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262352"
 ---
-# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurare un webhook per un avviso della metrica di Azure
+# <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Configurare un webhook in un avviso relativo alle metriche di Azure
 È possibile usare i webhook per instradare le notifiche di avviso di Azure ad altri sistemi per la post-elaborazione o le azioni personalizzate. È possibile usare un webhook in un avviso per instradarlo a servizi che inviano SMS, registrano bug, inviano notifiche a un team tramite chat o servizi di messaggistica oppure per varie altre azioni. 
 
 Questo articolo descrive come impostare un webhook per un avviso di metrica di Azure. L'articolo illustra anche le caratteristiche del payload per un'operazione HTTP POST a un webhook. Per informazioni sulla configurazione e lo schema per un avviso del log attività di Azure (avviso per eventi), vedere [Chiamare un webhook negli avvisi dei log attività di Azure](insights-auditlog-to-webhook-email.md).
@@ -77,7 +72,7 @@ L'operazione POST contiene il payload e lo schema JSON seguenti per tutti gli av
 ```
 
 
-| Campo | Obbligatorio | Set di valori fisso | Note |
+| Campo | Mandatory | Set di valori fisso | Note |
 |:--- |:--- |:--- |:--- |
 | status |S |Activated, Resolved |Stato dell'avviso in base alle condizioni impostate. |
 | context |S | |Contesto dell'avviso. |

@@ -1,39 +1,25 @@
 ---
-title: Panoramica delle metriche in Microsoft Azure | Microsoft Docs
+title: Panoramica delle metriche in Microsoft Azure
 description: Panoramica delle metriche e dei casi d'uso in Microsoft Azure
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264222"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Panoramica delle metriche in Microsoft Azure
 In questo articolo sono descritte le metriche disponibili in Microsoft Azure, i loro vantaggi e come iniziare a usarle.  
 
 ## <a name="what-are-metrics"></a>Cosa sono le metriche?
 Il monitoraggio di Azure consente di usare la telemetria per ottenere visibilità sulle prestazioni e sull'integrità dei carichi di lavoro in Azure. Il tipo di dati di telemetria Azure più importante è rappresentato dalle metriche (altrimenti dette contatori delle prestazioni) generate dalla maggior parte delle risorse di Azure. Il monitoraggio di Azure offre alcuni modi per configurare e usare queste metriche per il monitoraggio e la risoluzione dei problemi.
-
-## <a name="what-can-you-do-with-metrics"></a>A cosa servono le metriche?
-Le metriche sono un'importante fonte di dati di telemetria e consentono di eseguire le attività seguenti:
-
-* **Tenere traccia delle prestazioni** della risorsa (ad esempio, una VM, un sito Web o un'app per la logica) tracciandone le metriche in un grafico del portale da aggiungere a un dashboard.
-* **Ricevere la notifica di un problema** che influisce sulle prestazioni della risorsa quando una metrica supera una determinata soglia.
-* **Configurare le azioni automatiche**, ad esempio la scalabilità automatica di una risorsa o la generazione di un runbook quando una metrica supera una determinata soglia.
-* **Eseguire analisi avanzate** o creare report relativi alle tendenze delle prestazioni o di uso della risorsa.
-* **Archiviare** la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di **conformità/verifica**.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Quali sono le caratteristiche delle metriche?
 Le metriche presentano le caratteristiche seguenti:
@@ -43,19 +29,17 @@ Le metriche presentano le caratteristiche seguenti:
 * Per ogni metrica è possibile accedere alla **cronologia degli ultimi 93 giorni**. È possibile vedere rapidamente le tendenze recenti e mensili riguardo alle prestazioni o all'integrità della risorsa.
 * Alcune metriche possono avere attributi di coppia nome-valore denominati **dimensioni**. Queste consentono di segmentare ulteriormente ed esplorare una metrica in modo più significativo.
 
-È anche possibile:
+## <a name="what-can-you-do-with-metrics"></a>A cosa servono le metriche?
+Le metriche consentono di eseguire le attività seguenti:
 
-* Configurare una **regola di avviso per la metrica che invia una notifica o esegue un'azione automatica** quando la metrica supera la soglia definita. Il ridimensionamento automatico è un'azione speciale automatica che consente di aumentare le istanze di una risorsa per soddisfare le richieste in entrata o i carichi sul sito Web o sulle risorse di calcolo. È possibile configurare una regola di impostazione del ridimensionamento automatico per aumentare o ridurre le istanze in base a una metrica che supera una soglia.
 
-* **Reindirizzare** tutte le metriche a Application Insights o a Log Analytics per abilitare le analisi istantanee, la funzione di ricerca e gli avvisi personalizzati sui dati delle metriche provenienti dalle risorse. È inoltre possibile trasmettere le metriche a un hub eventi, per poi avere la possibilità di reindirizzarle all'analisi di flusso di Azure o alle app personalizzate per effettuare un'analisi quasi in tempo reale. Impostare il flusso di Hub eventi usando le impostazioni di diagnostica.
-
-* **Archiviare le metriche da conservare** per un lungo periodo o usarle per creare report offline. È possibile reindirizzare le metriche all'archiviazione BLOB di Azure quando si configurano le impostazioni di diagnostica per la risorsa.
-
-* Rilevare, accedere e **visualizzare facilmente tutte le metriche** tramite il Portale di Azure quando si seleziona una risorsa e si tracciano le metriche in un grafico.
-
-* **Usare** le metriche mediante le nuove API REST del Monitoraggio di Azure.
-
-* **Eseguire query** sulle metriche usando i cmdlet di PowerShell o l'API REST multi-piattaforma.
+- Configurare una **regola di avviso per la metrica che invia una notifica o esegue un'azione automatica** quando la metrica supera la soglia definita. Le azioni vengono controllate attraverso i [gruppi di azioni](monitoring-action-groups.md). Le azioni di esempio includono posta elettronica, telefono e notifiche SMS, chiamata a un webhook, avvio di un runbook e altro ancora. La **scalabilità automatica** è un'azione speciale automatizzata che consente di aumentare e ridurre le prestazioni di una risorsa in modo da gestire il carico e al contempo mantenere i costi a livelli inferiori in condizioni non di carico. È possibile configurare una regola di impostazione della scalabilità automatica per aumentare o ridurre le prestazioni in base a una metrica che supera una soglia.
+- **Reindirizzare** tutte le metriche a *Application Insights* o a *Log Analytics* per abilitare le analisi istantanee, la funzione di ricerca e gli avvisi personalizzati sui dati delle metriche provenienti dalle risorse. È anche possibile trasmettere le metriche a un *hub eventi*, per poi avere la possibilità di reindirizzarle all'analisi di flusso di Azure o alle app personalizzate per effettuare un'analisi quasi in tempo reale. Impostare il flusso di Hub eventi usando le impostazioni di diagnostica.
+- **Archiviare** la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline.  È possibile reindirizzare le metriche all'archiviazione BLOB di Azure quando si configurano le impostazioni di diagnostica per la risorsa.
+- Accedere al **portale di Azure** per rilevare, accedere e visualizzare tutte le metriche quando si seleziona una risorsa e si tracciano le metriche in un grafico. È possibile monitorare le prestazioni della risorsa (ad esempio, una macchina virtuale, un sito Web o un'app per la logica) aggiungendo il grafico al proprio dashboard.  
+- **Eseguire analisi avanzate** o creare report relativi alle tendenze delle prestazioni o di uso della risorsa.
+- **Eseguire query** sulle metriche usando i cmdlet di PowerShell o l'API REST multi-piattaforma.
+- **Usare** le metriche mediante le nuove API REST del Monitoraggio di Azure.
 
   ![Reindirizzamento delle metriche nel monitoraggio di Azure](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 

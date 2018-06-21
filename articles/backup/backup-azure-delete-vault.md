@@ -1,24 +1,19 @@
 ---
-title: " Eliminare un insieme di credenziali dei servizi di ripristino in Azure | Microsoft Docs "
+title: Eliminare un insieme di credenziali di Servizi di ripristino in Azure
 description: Questo articolo descrive come eliminare un insieme di credenziali dei servizi di ripristino. L'articolo include procedure per la risoluzione dei problemi quando si tenta di eliminare un insieme di credenziali senza riuscirci.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605341"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 Questo articolo descrive come eliminare un insieme di credenziali dei servizi di ripristino nel portale di Azure. Se erano presenti insiemi di credenziali di backup, sono stati convertiti in insiemi di credenziali dei servizi di ripristino.   

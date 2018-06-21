@@ -2,13 +2,12 @@
 title: Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Azure | Microsoft Docs
 description: Viene descritto come è possibile impostare gli avvisi di fatturazione di Azure per evitare sorprese fatturazione.
 keywords: avviso di credito, avviso di fatturazione
-services: ''
+services: billing
 documentationcenter: ''
 author: adpick
 manager: adpick
 editor: ''
 tags: billing
-ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,20 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/9/2017
 ms.author: adpick
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa7d1853226647917925e8c75e01a1c83d84daeb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 981cb1153e0268e6572207f8d2401edb23485863
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359051"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607804"
 ---
 # <a name="set-up-billing-or-credit-alerts-for-your-microsoft-azure-subscriptions"></a>Impostare avvisi di fatturazione o di credito per le sottoscrizioni di Microsoft Azure
 Se si amministrano gli account per una sottoscrizione di Azure, è possibile usare Azure Billing Alert Service per creare avvisi di fatturazione personalizzati che consentono di monitorare e gestire l'attività di fatturazione per gli account Azure.
 
 Questo servizio è in anteprima, pertanto è necessario abilitarlo nella pagina relativa alle funzionalità di anteprima.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="set-the-alert-threshold-and-email-recipients"></a>Impostare la soglia di avviso e i destinatari di posta elettronica
 1. Visitare la [pagina relativa alle funzionalità di anteprima](https://account.windowsazure.com/PreviewFeatures) e abilitare **Billing Alert Service**.
@@ -51,6 +49,11 @@ Azure supporta qualsiasi indirizzo di posta elettronica ma non ne verifica il co
 ## <a name="check-on-your-alerts"></a>Controllare gli avvisi
 Dopo aver impostato gli avvisi, nel centro account viene visualizzato un elenco degli avvisi già impostati ed è indicato il numero di avvisi aggiuntivi che è possibile ancora impostare. Per ogni avviso è possibile visualizzare la data e l'ora di invio, il tipo di avviso (per totale fattura o credito monetario) e il limite impostato. Il formato dell'ora è 24 ore UTC (Universal Time Coordinate) e il formato della data è aaaa-mm-gg. Fare clic sul segno più per modificare un avviso nell'elenco o sul simbolo del cestino per eliminarlo.
 
+## <a name="delete-alerts-or-email-addresses-from-the-azure-billing-alert-service"></a>Eliminare avvisi o indirizzi di posta elettronica dal servizio di avviso di fatturazione di Azure
+Se fosse necessario rimuovere informazioni dal servizio, aggiornare l'indirizzo di posta elettronica nel file o eliminare completamente l'avviso.
+
+   ![Schermata di visualizzazione dell'eliminazione dell'avviso, in cui è possibile rimuovere informazioni personali][Image4]
+
 ## <a name="billing-alerts-for-enterprise-agreement-ea-customers"></a>Avvisi di fatturazione per i clienti con contratto Enterprise (EA, Enterprise Agreement)
 Le sottoscrizioni EA non sono supportate da questo servizio, tuttavia, nell'ambito di una registrazione i clienti EA possono usufruire di avvisi per ogni reparto, impostando le quote di spesa. Per iniziare, vedere [Department Spending Quotas](https://ea.azure.com/helpdocs/departmentSpendingQuotas) (Quote di spesa per reparto) nel portale EA.
 
@@ -64,3 +67,4 @@ Per altre informazioni, vedere [Introduzione alla gestione dei costi e alla fatt
 [Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png 
 [Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
 [Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png 
+[Image4]: ./media/azure-billing-set-up-alerts/AlertsDeleteScreen1.PNG

@@ -4,22 +4,22 @@ description: Panoramica dell'architettura della distribuzione di SAP HANA in Azu
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/02/2018
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e3342f3057917202d81359a27accf47ba288b128
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077624"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763783"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Panoramica e architettura di SAP HANA (istanze Large) in Azure
 
@@ -68,8 +68,8 @@ Nella guida all'architettura e alla distribuzione vengono comunemente usati alcu
    Gli utenti del dominio locale possono accedere ai server ed eseguire servizi in queste VM, ad esempio i servizi DBMS. La comunicazione e la risoluzione dei nomi tra le VM distribuite in locale e quelle distribuite in Azure sono possibili. Questo è lo scenario tipico in cui viene distribuita la maggior parte degli asset SAP. Per altre informazioni, vedere [Pianificazione e progettazione per il gateway VPN](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) e [Creare una connessione da sito a sito nel portale di Azure](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 - **Tenant**: un cliente distribuito nel modulo per istanze Large di HANA viene isolato in un *tenant*. Un tenant è isolato a livello di rete, archiviazione e calcolo dagli altri tenant, Le unità di archiviazione e calcolo assegnate ai diversi tenant non possono vedersi o comunicare tra loro a livello del modulo per istanze Large di HANA. Un cliente può scegliere di avere distribuzioni in tenant diversi. Neppure in questo caso i tenant possono comunicare tra di essi a livello di stamp di istanze Large di HANA.
 - **Categoria SKU**: per le istanze Large di HANA sono disponibili le due categorie di SKU seguenti:
-    - **Classe di tipo I**: S72, S72m, S144, S144m, S192 e S192m
-    - **Classe di tipo II**: S384, S384m, S384xm, S576m, S768m e S960m
+    - **Classe di tipo I**: S72, S72m, S144, S144m, S192, S192m e S192xm
+    - **Classe di tipo II**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m
 
 
 In merito alla distribuzione di un carico di lavoro SAP nel cloud è disponibile un'ampia gamma di risorse aggiuntive. Se si pianifica una distribuzione di SAP HANA in Azure è necessario essere utenti esperti e conoscere i principi dell'infrastruttura IaaS di Azure e la distribuzione dei carichi di lavoro SAP in tale infrastruttura. Prima di continuare, vedere [Uso di soluzioni SAP nelle macchine virtuali di Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) per altre informazioni. 
@@ -148,7 +148,10 @@ A partire da luglio 2017, SAP HANA in Azure (istanze Large) è disponibile in di
 |---| SAP HANA in Azure S576m<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  12 TB |  28 TB | Disponibile |
 |---| SAP HANA in Azure S768m<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  16 TB |  36 TB | Disponibile |
 |---| SAP HANA in Azure S960m<br /> – 20 x processore Intel® Xeon® E7-8890 v4<br /> 480 core CPU e 960 thread CPU |  20 TB |  46 TB | Disponibile |
-
+| Ottimizzata per OLTP **TDIv5**: SAP Business Suite<br /> in SAP HANA o S/4HANA (OLTP),<br /> OLTP generico | SAP HANA in Azure S192xm<br /> – 4 x processore Intel® Xeon® E7-8890 v4<br /> 96 core CPU e 192 thread CPU |  6 TB |  16 TB | Disponibile |
+|---| SAP HANA in Azure S384xxm<br /> – 8 x processore Intel® Xeon® E7-8890 v4<br /> 192 core CPU e 384 thread CPU |  12 TB |  28 TB | Disponibile |
+|---| SAP HANA in Azure S576xm<br /> – 12 x processore Intel® Xeon® E7-8890 v4<br /> 288 core CPU e 576 thread CPU |  18,0 TB |  41 TB | Disponibile |
+|---| SAP HANA in Azure S768xm<br /> – 16 x processore Intel® Xeon® E7-8890 v4<br /> 384 core CPU e 768 thread CPU |  24,0 TB |  56 TB | Disponibile |
 - Core CPU: somma di core CPU senza hyperthreading nella somma dei processori dell'unità server.
 - Thread CPU: somma di thread di calcolo forniti da core CPU con hyperthreading nella somma dei processori dell'unità server. Per impostazione predefinita, tutte le unità sono configurate per l'uso di Hyper-Threading Technology.
 
@@ -157,8 +160,8 @@ Le configurazioni specifiche scelte dipendono dal carico di lavoro, dalle risors
 
 La base hardware per tutte le offerte è dotata di certificazione SAP HANA TDI. Gli SKU sono suddivisi in due diverse classi di hardware:
 
-- La "classe di tipo I" include gli SKU S72, S72m, S144, S144m, S192 e S192m.
-- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576m, S768m e S960m.
+- La "classe di tipo I" di SKU include S72, S72m, S144, S144m, S192, S192m e S192xm.
+- La "classe di tipo II" di SKU include S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m.
 
 Un intero modulo per istanze Large di HANA non viene allocato esclusivamente per l'uso di un singolo cliente. Ciò vale anche per i rack delle risorse di calcolo e archiviazione connesse tramite un'infrastruttura di rete distribuita in Azure. Analogamente ad Azure, l'infrastruttura di istanze Large di HANA distribuisce diversi &quot;tenant&quot; dei clienti, isolati l'uno dall'altro, nei tre livelli seguenti:
 
@@ -338,17 +341,21 @@ Nelle unità di istanze Large di HANA della classe di tipo I è disponibile un v
 
 Per l'allocazione dello spazio di archiviazione, vedere la tabella seguente, che elenca la capacità approssimativa dei diversi volumi disponibili nelle diverse unità di istanze Large di HANA.
 
-| SKU delle istanze Large di HANA | hana/data | hana/log | hana/shared | HANA/log/backup |
+| SKU delle istanze Large di HANA | hana/data | hana/log | hana/shared | hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3328 GB | 768 GB |1280 GB | 768 GB |
 | S192 | 4608 GB | 1024 GB | 1536 GB | 1024 GB |
 | S192m | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
+| S192xm |  12.000 GB |  2050 GB |  2050 GB |  2,040 GB |
 | S384 | 11.520 GB | 1536 GB | 1792 GB | 1536 GB |
 | S384m | 12.000 GB | 2050 GB | 2050 GB | 2040 GB |
 | S384xm | 16.000 GB | 2050 GB | 2050 GB | 2040 GB |
+| S384xxm |  20.000 GB | 3100 GB | 2050 GB | 3100 GB |
 | S576m | 20.000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S576xm | 31.744 GB | 4.096 GB | 2.048 GB | 4.096 GB |
 | S768m | 28.000 GB | 3100 GB | 2050 GB | 3100 GB |
+| S768xm | 40.960 GB | 6.144 GB | 4.096 GB | 6.144 GB |
 | S960m | 36.000 GB | 4100 GB | 2050 GB | 4100 GB |
 
 

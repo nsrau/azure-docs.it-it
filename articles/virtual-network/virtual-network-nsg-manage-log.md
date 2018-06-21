@@ -1,11 +1,11 @@
 ---
-title: Monitorare operazioni, eventi e contatori per i gruppi di sicurezza di rete | Microsoft Docs
-description: Informazioni su come abilitare la registrazione di contatori, eventi e operazioni per i gruppi di sicurezza di rete
+title: Log di diagnostica di Azure per gli eventi e il contatore regole dei gruppi di sicurezza di rete | Microsoft Docs
+description: Informazioni su come abilitare i log di diagnostica per eventi e contatore regole per un gruppo di sicurezza di rete di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2e699078-043f-48bd-8aa8-b011a32d98ca
 ms.service: virtual-network
@@ -13,81 +13,119 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2017
+ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 6beb9ae1b64e27df0a4eefefd592c7850efc7d2d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757060"
 ---
-# <a name="log-analytics-for-network-security-groups-nsgs"></a>Analisi dei log per i gruppi di sicurezza di rete
+# <a name="diagnostic-logging-for-a-network-security-group"></a>Registrazione diagnostica per un gruppo di sicurezza di rete
 
-È possibile abilitare le seguenti categorie di log di diagnostica per i gruppi di sicurezza di rete:
+Un gruppo di sicurezza di rete (NSG) include regole che consentono o negano il traffico verso una subnet della rete virtuale, un'interfaccia di rete o entrambe. Quando si abilita la registrazione diagnostica per un gruppo di sicurezza di rete, è possibile registrare le categorie di informazioni seguenti:
 
-* **Evento:** contiene voci per cui le regole dei gruppi di sicurezza di rete sono applicate alle macchine virtuali e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
+* **Evento:** vengono registrate voci relative alle regole dei gruppi di sicurezza di rete applicate alle macchine virtuali in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
 * **Contenitore di regole:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico.
 
-> [!NOTE]
-> I log di diagnostica sono disponibili solo per i gruppi di sicurezza di rete distribuiti nel modello di distribuzione di Azure Resource Manager. Non è possibile abilitare la registrazione diagnostica per i gruppi di sicurezza di rete distribuiti tramite il modello di distribuzione classico. Per altre informazioni sui due modelli, vedere l'articolo [Comprendere i modelli di distribuzione di Azure](../resource-manager-deployment-model.md).
+I log di diagnostica sono disponibili solo per i gruppi di sicurezza di rete distribuiti nel modello di distribuzione di Azure Resource Manager. Non è possibile abilitare la registrazione diagnostica per i gruppi di sicurezza di rete distribuiti tramite il modello di distribuzione classico. Per altre informazioni sui due modelli, vedere le [informazioni sui modelli di distribuzione di Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-La registrazione delle attività (precedentemente nota come controllo o registri operativi) è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsivoglia modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti: 
+La registrazione diagnostica viene abilitata separatamente per *ogni* gruppo di sicurezza di rete per cui si vogliono raccogliere dati di diagnostica. Se è interessati invece ai log operativi, o log attività, vedere le informazioni sulla [registrazione delle attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-- Microsoft.ClassicNetwork/networkSecurityGroups 
-- Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
-- Microsoft.Network/networkSecurityGroups
-- Microsoft.Network/networkSecurityGroups/securityRules 
+## <a name="enable-logging"></a>Abilitazione della registrazione
 
-Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) per ulteriori informazioni sui log attività. 
-
-## <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
-
-Deve essere abilitata la registrazione diagnostica per *ogni* gruppo di sicurezza di rete da cui si vogliono raccogliere dati. L'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) spiega dove è possibile inviare i log di diagnostica. Se non si dispone di un gruppo di sicurezza di rete esistente, completare i passaggi descritti nell'articolo [Creare un gruppo di sicurezza di rete](virtual-networks-create-nsg-arm-pportal.md) per crearne uno. È possibile abilitare la registrazione diagnostica nei gruppi di sicurezza direte usando uno dei metodi seguenti:
+È possibile usare il [portale di Azure](#azure-portal) o [PowerShell](#powershell) per abilitare la registrazione diagnostica.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare li portale per abilitare la registrazione, accedere al [portale](https://portal.azure.com). Fare clic su **Tutti i servizi**, quindi digitare *gruppi di sicurezza di rete*. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso. Seguire le istruzioni per le risorse non di calcolo nell'articolo [Abilitare i log di diagnostica nel portale](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Selezionare **NetworkSecurityGroupEvent**, **NetworkSecurityGroupRuleCounter** o entrambe le categorie di log.
+1. Accedere al [portale](https://portal.azure.com).
+2. Selezionare **Tutti i servizi** e quindi digitare *gruppi di sicurezza di rete*. Selezionare la voce **Gruppi di sicurezza di rete** quando viene visualizzata nei risultati della ricerca.
+3. Selezionare il gruppo di sicurezza di rete per cui si vuole abilitare l'accesso.
+4. In **Monitoraggio** selezionare **Log di diagnostica** e quindi selezionare **Abilita diagnostica**, come illustrato nell'immagine seguente:
+ 
+    ![Attivare la diagnostica](./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png)
+
+5. In **Impostazioni di diagnostica** immettere o selezionare le informazioni seguenti e quindi selezionare **Salva**:
+
+    | Impostazione                                                                                     | Valore                                                          |
+    | ---------                                                                                   |---------                                                       |
+    | NOME                                                                                        | Un nome di propria scelta.  Ad esempio: *DiagnosticaGsr*      |
+    | **Archivia in un account di archiviazione**, **Streaming in un hub eventi** e **Invia a Log Analytics** | È possibile selezionare tutte le destinazioni desiderate. Per altre informazioni su ognuna, vedere [Destinazioni dei log](#log-destinations).                                                                                                                                           |
+    | LOG                                                                                         | Selezionare una o entrambe le categorie di log. Per altre informazioni su dati registrati per ogni categoria, vedere [Categorie di log](#log-categories).                                                                                                                                             |
+6. Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
 
 ### <a name="powershell"></a>PowerShell
 
-Per abilitare la registrazione con PowerShell, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/powershell) oppure eseguendo PowerShell dal computer. Azure Cloud Shell è una shell interattiva gratuita. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account. Se si esegue PowerShell dal computer, è necessario il modulo *AzureRM* di PowerShell versione 6.1.1 o successiva. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM` nel computer. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è necessario eseguire anche `Login-AzureRmAccount` per accedere ad Azure con un account con le [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
-- È possibile determinare il valore da usare per il parametro `-ResourceId` sostituendo in base alle necessità il [testo] seguente e quindi immettendo il comando `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. L'output dell'ID dal comando è simile a */subscriptions/[ID sottoscrizione]/resourceGroups/[Gruppo di risorse]/providers/Microsoft.Network/networkSecurityGroups/[Nome gruppo di sicurezza di rete]*.
-- Se si desidera solamente raccogliere i dati dalla categoria di log, aggiungere `-Categories [category]` alla fine del comando nell'articolo, dove la categoria è *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se non si usa il parametro `-Categories`, la raccolta dei dati viene abilitata per entrambe le categorie di log.
+Per abilitare la registrazione diagnostica, è necessario l'ID di un gruppo di sicurezza di rete esistente. Se non è disponibile un gruppo di sicurezza di rete esistente, è possibile crearne uno con [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup).
 
-### <a name="azure-command-line-interface-cli"></a>interfaccia della riga di comando di Azure (CLI)
+Recuperare il gruppo di sicurezza di rete per cui si vuole abilitare la registrazione diagnostica con [Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup). Ad esempio, per recuperare un gruppo di sicurezza di rete denominato *myNsg* esistente in un gruppo di risorse denominato *myResourceGroup*, immettere il comando seguente:
 
-Per abilitare la registrazione con l'interfaccia della riga di comando, seguire le istruzioni nell'articolo [Abilitare i log di diagnostica tramite l'interfaccia della riga di comando](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs). Valutare le seguenti informazioni prima di immettere un comando dall'articolo:
+```azurepowershell-interactive
+$Nsg=Get-AzureRmNetworkSecurityGroup `
+  -Name myNsg `
+  -ResourceGroupName myResourceGroup
+```
 
-- È possibile determinare il valore da usare per il parametro `-ResourceId` sostituendo in base alle necessità il [testo] seguente e quindi immettendo il comando `azure network nsg show [resource-group-name] [nsg-name]`. L'output dell'ID dal comando è simile a */subscriptions/[ID sottoscrizione]/resourceGroups/[Gruppo di risorse]/providers/Microsoft.Network/networkSecurityGroups/[Nome gruppo di sicurezza di rete]*.
-- Se si desidera solamente raccogliere i dati dalla categoria di log, aggiungere `-Categories [category]` alla fine del comando nell'articolo, dove la categoria è *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se non si usa il parametro `-Categories`, la raccolta dei dati viene abilitata per entrambe le categorie di log.
+È possibile scrivere i log di diagnostica in tre tipi di destinazione. Per altre informazioni, vedere [Destinazioni dei log](#log-destinations). In questo articolo, i log vengono inviati alla destinazione *Log Analytics*, a titolo di esempio. Recuperare un'area di lavoro di Log Analytics esistente con [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace). Ad esempio, per recuperare un'area di lavoro esistente denominata *myLaWorkspace* in un gruppo di risorse denominato *LaWorkspaces*, immettere il comando seguente:
 
-## <a name="logged-data"></a>Dati registrati
+```azurepowershell-interactive
+$Oms=Get-AzureRmOperationalInsightsWorkspace `
+  -ResourceGroupName LaWorkspaces `
+  -Name myLaWorkspace
+```
 
-Vengono scritti dati in formato JSON per entrambi i log. I dati specifici scritti per ciascun tipo di log sono elencati nelle sezioni seguenti:
+Se non è disponibile un'area di lavoro esistente, è possibile crearne una con [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace).
 
-### <a name="event-log"></a>Registro eventi
-Questo registro contiene informazioni su quali regole del gruppo di sicurezza di rete vengono applicate alle macchine virtuali e alle istanze del ruolo del servizio cloud, in base all'indirizzo MAC. I dati nell'esempio seguente vengono registrati per ogni evento:
+Esistono due categorie di registrazione per cui è possibile abilitare i log. Per altre informazioni, vedere [Categorie di log](#log-categories). Abilitare la registrazione diagnostica per il gruppo di sicurezza di rete con [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting). L'esempio seguente registra sia i dati della categoria evento che quelli della categoria contatore nell'area di lavoro per un gruppo sicurezza di rete, usando gli ID per il gruppo sicurezza di rete e l'area di lavoro recuperati in precedenza:
+
+```azurepowershell-interactive
+Set-AzureRmDiagnosticSetting `
+  -ResourceId $Nsg.Id `
+  -WorkspaceId $Oms.ResourceId `
+  -Enabled $true
+```
+
+Se si vogliono registrare i dati solo per una categoria o l'altra, anziché entrambe, aggiungere l'opzione `-Categories` al comando precedente, seguita da *NetworkSecurityGroupEvent* o *NetworkSecurityGroupRuleCounter*. Se si vuole accedere a una [destinazione](#log-destinations) diversa rispetto a un'area di lavoro di Log Analytics, usare i parametri appropriati per un [account di archiviazione](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure oppure per [Hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+
+Visualizzare e analizzare i log. Per altre informazioni, vedere [Visualizzare e analizzare i log](#view-and-analyze-logs).
+
+## <a name="log-destinations"></a>Destinazioni dei log
+
+I dati di diagnostica possono essere:
+- [Scritti in un account di archiviazione di Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione (in giorni) tramite le impostazioni di diagnostica delle risorse.
+- [Trasmessi in streaming a un hub eventi](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per l'inserimento da parte di un servizio di terze parti o di una soluzione di analisi personalizzata come Power BI.
+- [Scritti in Azure Log Analytics](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-diagnostics-direct-to-log-analytics).
+
+## <a name="log-categories"></a>Categorie di log
+
+Per le categorie di log seguenti vengono scritti dati in formato JSON:
+
+### <a name="event"></a>Event
+
+Il registro eventi contiene informazioni su quali regole del gruppo di sicurezza di rete vengono applicate alle macchine virtuali, in base all'indirizzo MAC. I dati nell'esempio seguente vengono registrati per ogni evento:
 
 ```json
 {
     "time": "[DATE-TIME]",
-    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "systemId": "[ID]",
     "category": "NetworkSecurityGroupEvent",
     "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION-ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
     "operationName": "NetworkSecurityGroupEvents",
     "properties": {
-        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-B791E1DBC2F4}",
+        "vnetResourceGuid":"[ID]",
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"UserRule_default-allow-rdp",
+        "ruleName":"[SECURITY RULE NAME]",
         "direction":"In",
         "priority":1000,
         "type":"allow",
         "conditions":{
             "protocols":"6",
-            "destinationPortRange":"3389-3389",
+            "destinationPortRange":"[PORT RANGE]",
             "sourcePortRange":"0-65535",
             "sourceIP":"0.0.0.0/0",
             "destinationIP":"0.0.0.0/0"
@@ -96,23 +134,23 @@ Questo registro contiene informazioni su quali regole del gruppo di sicurezza di
 }
 ```
 
-### <a name="rule-counter-log"></a>Log contatore regole
+### <a name="rule-counter"></a>Contatore regole
 
-Questo log contiene informazioni su ogni regola applicata alle risorse. I dati nell'esempio seguente vengono registrati ogni volta che viene applicata una regola:
+Il log contatore regole contiene informazioni su ogni regola applicata alle risorse. I dati nell'esempio seguente vengono registrati ogni volta che viene applicata una regola:
 
 ```json
 {
     "time": "[DATE-TIME]",
-    "systemId": "007d0441-5d6b-41f6-8bfd-930db640ec03",
+    "systemId": "[ID]",
     "category": "NetworkSecurityGroupRuleCounter",
-    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]TESTRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
+    "resourceId": "/SUBSCRIPTIONS/[SUBSCRIPTION ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG-NAME]",
     "operationName": "NetworkSecurityGroupCounters",
     "properties": {
-        "vnetResourceGuid":"{5E8AEC16-C728-441F-B0CA-791E1DBC2F4}",
+        "vnetResourceGuid":"[ID]",
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"UserRule_default-allow-rdp",
+        "ruleName":"[SECURITY RULE NAME]",
         "direction":"In",
         "type":"allow",
         "matchedConnections":125
@@ -120,6 +158,23 @@ Questo log contiene informazioni su ogni regola applicata alle risorse. I dati n
 }
 ```
 
+> [!NOTE]
+> L'indirizzo IP di origine per la comunicazione non viene registrato. È comunque possibile abilitare la [registrazione dei flussi per i gruppi di sicurezza di rete](../network-watcher/network-watcher-nsg-flow-logging-portal.md) per un gruppo di sicurezza di rete, che registra tutte le informazioni sul contatore regole, oltre all'indirizzo IP di origine che ha avviato la comunicazione. I dati del log del flusso di NSG vengono scritti in un account di archiviazione di Azure. È possibile analizzare i dati con la funzionalità di [analisi del traffico](../network-watcher/traffic-analytics.md) di Azure Network Watcher.
+
 ## <a name="view-and-analyze-logs"></a>Visualizzare e analizzare i log
 
-Leggere l'articolo [Panoramica del log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati del log attività. Leggere l'articolo [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) per ulteriori informazioni su come visualizzare i dati dei log di diagnostica. Se si inviano dati di diagnostica a Log Analytics, è possibile usare la soluzione di gestione [Analisi di gruppo di sicurezza di rete di Azure](../log-analytics/log-analytics-azure-networking-analytics.md) (anteprima) per approfondimenti avanzati. 
+Per informazioni su come visualizzare i dati dei log di diagnostica, vedere [Panoramica dei log di diagnostica di Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se si inviano i dati di diagnostica a:
+- **Log Analytics**: è possibile usare la soluzione di [analisi del gruppo di sicurezza di rete](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-log-analytics
+) per ottenere ulteriori informazioni dettagliate. La soluzione offre visualizzazioni per le regole dei gruppi di sicurezza di rete che consentono o negano il traffico, in base all'indirizzo MAC, dell'interfaccia di rete in una macchina virtuale.
+- **Account di archiviazione Azure**: i dati vengono scritti in un file PT1H.json. È possibile trovare il:
+    - Registro eventi nel percorso seguente: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+    - Log contatore regole nel percorso seguente: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- Scoprire di più sulla [registrazione delle attività](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), precedentemente nota come log di controllo o operativi. La registrazione delle attività è abilitata per impostazione predefinita per i gruppi di sicurezza di rete creati tramite qualsiasi modello di distribuzione di Azure. Per determinare quali operazioni sono state completate nei NGS nel log attività, cercare le voci che contengono i tipi di risorsa seguenti:
+    - Microsoft.ClassicNetwork/networkSecurityGroups
+    - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
+    - Microsoft.Network/networkSecurityGroups
+    - Microsoft.Network/networkSecurityGroups/securityRules
+- Per informazioni su come registrare le informazioni di diagnostica, per includere l'indirizzo IP di origine per ogni flusso, vedere [NSG flow logging](../network-watcher/network-watcher-nsg-flow-logging-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Registrazione dei flussi per il gruppo di sicurezza di rete).

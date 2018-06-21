@@ -1,5 +1,5 @@
 ---
-title: Estensione macchina virtuale di Azure OMS per Linux | Microsoft Docs
+title: Estensione macchina virtuale di Azure OMS per Linux | Documentazione Microsoft
 description: Distribuire l'agente OMS in una macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 05/21/2018
 ms.author: danis
-ms.openlocfilehash: 5c292bf0f92423826d58fb0e9175f51d0599bf44
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f0d8224e5578a5ae46245e6c70792e962a44c933
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944853"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652856"
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale OMS per Linux
 
@@ -36,19 +36,19 @@ L'estensione agente OMS può essere eseguita in queste distribuzioni di Linux.
 
 | Distribuzione | Version |
 |---|---|
-| CentOS Linux | 5, 6 e 7 |
-| Oracle Linux | 5, 6 e 7 |
-| Red Hat Enterprise Linux Server | 5, 6 e 7 |
-| Debian GNU/Linux | 6, 7 e 8 |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04, 15.10, 16.04 LTS |
-| SUSE Linux Enterprise Server | 11 e 12 |
+| CentOS Linux | 5, 6 e 7 (x86/x64) |
+| Oracle Linux | 5, 6 e 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 5, 6 e 7 (x86/x64) |
+| Debian GNU/Linux | 6, 7, 8 e 9 (x86/x64) |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 11 e 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
 La tabella seguente illustra il mapping della versione delle estensioni macchina virtuale OMS e dei bundle agenti OMS per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti OMS. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
 
 | Versione delle estensioni di macchina virtuale Linux OMS | Versione bundle agenti OMS | 
 |--------------------------------|--------------------------|
-| 1.6.42.0 | [1.6.42.0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
+| 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
 | 1.4.58.7 | [14.2-125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
@@ -84,7 +84,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,7 +102,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.4 |
+| typeHandlerVersion | 1.6 |
 | workspaceId (esempio) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (esempio) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -127,7 +127,7 @@ L'esempio seguente presuppone che l'estensione macchina virtuale sia annidata al
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +152,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.4",
+    "typeHandlerVersion": "1.6",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +173,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.4 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 

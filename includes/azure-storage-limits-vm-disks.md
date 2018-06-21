@@ -3,9 +3,17 @@ Una macchina virtuale di Azure supporta il collegamento di un numero di dischi d
 > [!IMPORTANT]
 > Per prestazioni ottimali, limitare il numero di dischi a elevato uso collegati alla macchina virtuale per evitare una possibile limitazione. Se l'uso di tutti i dischi collegati non è elevato nello stesso momento, la macchina virtuale può supportare un numero maggiore di dischi.
 
-* **Per Azure Managed Disks:** il limite per i dischi gestiti è in base all'area e al tipo di disco. Il limite massimo e il limite predefinito sono 10.000 dischi gestiti per area e per tipo di disco per una sottoscrizione. In un'area, ad esempio, è possibile creare fino a 10.000 dischi gestiti Standard e 10.000 dischi gestiti Premium per sottoscrizione.
+* **Per Azure Managed Disks:** 
 
-    Gli snapshot gestiti e le immagini sono inclusi nel calcolo del limite di dischi gestiti.
+> | Risorsa | Limite predefinito | Limite massimo |
+> | --- | --- | --- |
+> | Managed Disks Standard | 10.000 | 50.000 |
+> | Managed Disks - SSD Standard | 10.000 | 50.000 |
+> | Managed Disks Premium | 10.000 | 50.000 |
+> | Snapshot Standard_LRS | 10.000 | 50.000 |
+> | Snapshot Standard_ZRS | 10.000 | 50.000 |
+> | Snapshot Premium_LRS | 10.000 | 50.000 |
+> | Immagine gestita | 10.000 | 50.000 |
 
 * **Per gli account di archiviazione standard:** un account di archiviazione standard con una frequenza totale massima di richieste di 20.000 IOPS. Il numero totale di IOPS in tutti i dischi della macchina virtuale in un account di archiviazione standard non deve superare questo limite.
   

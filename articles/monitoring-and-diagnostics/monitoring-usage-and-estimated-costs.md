@@ -1,24 +1,20 @@
 ---
-title: Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure | Microsoft Docs
+title: Monitoraggio dell'utilizzo e dei costi stimati in Monitoraggio di Azure
 description: Panoramica dell'uso della pagina Utilizzo e costi stimati di Monitoraggio di Azure
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/09/2018
-ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/31/2018
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ''
+ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203778"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264283"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitoraggio dell'utilizzo e dei costi stimati
 
@@ -107,3 +103,146 @@ Verrà aperta la pagina **Selezione modello di prezzi**, che elenca ognuna delle
 ![Schermata Selezione modello di prezzi](./media/monitoring-usage-and-estimated-costs/007.png)
 
 Per spostare una sottoscrizione nel nuovo modello tariffario, è sufficiente selezionare la casella e quindi selezionare **Salva**. È possibile tornare al modello tariffario precedente nello stesso modo. Tenere presente che sono richieste autorizzazioni di proprietario della sottoscrizione o di collaboratore per modificare il modello tariffario.
+
+## <a name="automate-moving-to-the-new-pricing-model"></a>Automatizzare il passaggio al nuovo modello di prezzi
+
+Gli script riportati richiedono il modulo Azure PowerShell. Per verificare se si ha la versione più recente, vedere l'articolo su come [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+
+Quando si dispone della versione più recente di Azure PowerShell, è innanzitutto necessario eseguire ``Connect-AzureRmAccount``.
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Il risultato True in isGrandFatherableSubscription indica che questo modello di prezzi della sottoscrizione può essere cambiato in un altro modello di prezzi. La mancanza di un valore in optedInDate significa che la sottoscrizione è attualmente impostata sul modello di prezzi precedente.
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+Per attivare il nuovo modello di prezzi per la sottoscrizione, eseguire:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+Per verificare che la modifica sia stata completata, eseguire di nuovo:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Se la modifica riesce, il risultato dovrebbe essere simile al seguente:
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+optInDate contiene ora un timestamp di quando la sottoscrizione è passata al nuovo modello di prezzi.
+
+Se è necessario tornare al vecchio modello di prezzi, sarà necessario eseguire:
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+Se poi si esegue nuovamente lo script precedente con ``-Action listmigrationdate``, dovrebbe comparire un valore optedInDate vuoto che indica che la sottoscrizione è tornata al vecchio modello di prezzi.
+
+Se si hanno più sottoscrizioni da modificare che sono ospitate nello stesso tenant, è possibile creare una propria variante usando parti degli script seguenti:
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+Per verificare se tutte le sottoscrizioni del tenant sono idonee per il nuovo modello di prezzi, è possibile eseguire:
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+Lo script potrebbe essere perfezionato creandone uno che genera tre matrici. Una matrice sarà costituita da tutti gli ID sottoscrizione che hanno ```isGrandFatherableSubscription``` impostato su True e optedInDate attualmente senza un valore. Una seconda matrice con le sottoscrizioni che attualmente hanno il nuovo modello di prezzi. E una terza matrice popolata solo con gli ID delle sottoscrizioni del tenant che non sono idonee per il nuovo modello di prezzi:
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> A seconda del numero di sottoscrizioni, l'esecuzione dello script precedente potrebbe impiegare un po' di tempo. A causa dell'uso del metodo .add(), la finestra di PowerShell eseguirà l'eco dei valori incrementati quando saranno aggiunti elementi a ogni matrice.
+
+Ora che le sottoscrizioni sono suddivise in tre matrici, è necessario verificare attentamente i risultati. È possibile creare una copia di backup del contenuto delle matrici, in modo da poter ripristinare facilmente le modifiche in futuro in caso di necessità. Se si è deciso di convertire al nuovo modello di prezzi tutte le sottoscrizioni idonee che attualmente hanno il modello di prezzi precedente, questa attività può ora essere eseguita con:
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

@@ -2,8 +2,8 @@
 title: Soluzioni Oracle in Microsoft Azure | Microsoft Docs
 description: Informazioni sulle configurazioni supportate e sulle limitazioni delle soluzioni Oracle in Microsoft Azure.
 services: virtual-machines-linux
-documentationcenter: 
-manager: timlt
+documentationcenter: ''
+manager: jeconnoc
 author: rickstercdn
 tags: azure-resource-management
 ms.assetid: 5d71886b-463a-43ae-b61f-35c6fc9bae25
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/28/2017
 ms.author: rclaus
-ms.openlocfilehash: 1bc03d15096e7f1d4538d6642a61aaee9bb572f7
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: daed709b4b4be87ba75f5539bd31c666b3a37414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656347"
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluzioni Oracle e rispettiva distribuzione in Microsoft Azure
 Questo articolo fornisce le informazioni necessarie per una distribuzione corretta delle diverse soluzioni Oracle in Microsoft Azure. Queste soluzioni sono basate su immagini di macchine virtuali pubblicate da Oracle in Azure Marketplace. Per ottenere un elenco delle immagini attualmente disponibili, eseguire il comando seguente:
@@ -89,7 +90,7 @@ Anche se in Azure è disponibile una soluzione a disponibilità elevata e con ri
 
          -Dweblogic.rjvm.enableprotocolswitch=true
 
-Per informazioni correlate, vedere l'articolo KB **860340.1** all’indirizzo <http://support.oracle.com>.
+Per informazioni correlate, vedere l'articolo della KB **860340.1** all'indirizzo <http://support.oracle.com>.
 
 * **Limitazioni del clustering dinamico e del bilanciamento del carico.** Si supponga che si desidera utilizzare un cluster dinamico in WebLogic Server ed esporlo tramite un unico endpoint pubblico con carico bilanciato in Azure. Questa operazione può essere eseguita se si utilizza un numero di porta fisso per ciascuno dei server gestiti (non assegnato in modo dinamico da un intervallo) e non si avviano più server gestiti rispetto alle macchine rilevate dall'amministratore (vale a dire non più di un server gestito per ciascuna macchina virtuale). Se la configurazione comporta l'avvio di più server WebLogic rispetto alle macchine virtuali (vale a dire più istanze WebLogic Server condivideranno la stessa macchina virtuale), solo una di queste istanze di server WebLogic potrà eseguire l'associazione a un determinato numero di porta. Gli altri server su tale macchina virtuale avranno esito negativo.
 

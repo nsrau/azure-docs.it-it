@@ -1,0 +1,84 @@
+---
+title: Eseguire gli script della shell in una VM Linux in Azure
+description: In questo argomento viene descritto come eseguire gli script all'interno di una macchina virtuale Linux di Azure tramite Esegui comando
+services: automation
+ms.service: automation
+author: georgewallace
+ms.author: gwallace
+ms.date: 06/06/2018
+ms.topic: article
+manager: carmonm
+ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267459"
+---
+# <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
+
+Esegui comando usa l'agente di macchine Virtuali per eseguire gli script della shell all'interno di una macchina virtuale Linux di Azure. Questi script possono essere usati per il computer generale o per la gestione delle applicazioni e può essere usato per diagnosticare e correggere i problemi di accesso e di rete della macchina virtuale e ottenere che la macchina virtuale torni a uno stato valido rapidamente.
+
+## <a name="benefits"></a>Vantaggi
+
+Sono disponibili più opzioni che possono essere usate per accedere alle macchine virtuali. Esegui comando può eseguire gli script nelle macchine virtuali in remoto tramite l'agente VM. Esegui comando può essere usato con il portale di Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+
+Questa funzionalità è utile in tutti gli scenari in cui si desidera eseguire un script all' interno di una macchina virtuale e fa parte dell'unico modo per risolvere i problemi e correggere una macchina virtuale che non dispone della porta aperta RDP o SSH a causa della rete impropria o della configurazione amministrativa dell'utente.
+
+## <a name="restrictions"></a>Restrizioni
+
+Di seguito c'è un elenco di restrizioni che sono presenti quando si usa l'esecuzione del comando.
+
+* L'output verrà limitato all'ultimo pari a 4.096 byte
+* Il tempo minimo per eseguire uno script è di circa 20 secondi
+* Script eseguiti per impostazione predefinita come utente con privilegi elevati in Linux
+* Può essere eseguito uno script in un momento
+* Non è possibile annullare l'esecuzione di uno script
+* Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
+
+## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
+Ecco un esempio usando il comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Linux di Azure.
+
+```azurecli-interactive
+az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
+
+> [!NOTE]
+> Per eseguire i comandi come utente diverso, è possibile usare `sudo -u`specificare un account utente da usare.
+
+## <a name="azure-portal"></a>Portale di Azure
+
+Passare a una macchina virtuale in [Azure](https://portal.azure.com) e selezionare **Esegui comando** in **OPERAZIONI**. Viene visualizzato un elenco di comandi disponibili per l'esecuzione nella macchina virtuale.
+
+![Eseguire l'elenco comandi](./media/run-command/run-command-list.png)
+
+Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di input obbligatori o facoltativi. Per tali comandi vengono presentati i parametri come campi di testo di fornire i valori di input. Per ogni comando è possibile visualizzare lo script che viene eseguito espandendo **Visualizza script**. **RunShellScript** è diverso da altri comandi, in quanto consente di fornire script personalizzati. 
+
+> [!NOTE]
+> I comandi incorporati non sono modificabili.
+
+Una volta scelto il comando, fare clic su **Esegui** per eseguire lo script. Lo script viene eseguito e,m al termine, restituisce l'output e gli eventuali errori nella finestra di output. Lo screenshot seguente illustra un esempio di output dall'esecuzione del comando **ifconfig**.
+
+![Eseguire l'output dello script di comando ](./media/run-command/run-command-script-output.png)
+
+## <a name="available-commands"></a>Comandi disponibili
+
+Questa tabella mostra l'elenco di comandi disponibili per le macchine virtuali Linux. Il comando **RunShellScript** può essere usato per eseguire qualsiasi script personalizzato desiderato.
+
+|**Nome**|**Descrizione**|
+|---|---|
+|**RunShellScript**|Esegue uno script della shell di Linux.|
+|**ifconfig**| Visualizza la configurazione IP di tutte le interfacce di rete|
+
+## <a name="limiting-access-to-run-command"></a>Limitare l'accesso a Esegui comando
+
+Elencare i comandi di esecuzione o mostrare i dettagli di un comando richiede l'`Microsoft.Compute/locations/runCommands/read` autorizzazione che il ruolo dell'elemento predefinito [Lettore](../../role-based-access-control/built-in-roles.md#reader) e versioni successive hanno.
+
+L'esecuzione di un comando richiede l'`Microsoft.Compute/virtualMachines/runCommand/action` autorizzazione, che il ruolo [Collaboratore](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ha e versioni successive.
+
+È possibile usare uno dei ruoli [incorporati](../../role-based-access-control/built-in-roles.md) o creare un ruolo [personalizzato](../../role-based-access-control/custom-roles.md) per usare Esegui del comando.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Vedere, [Eseguire gli script in VM Linux](run-scripts-in-vm.md) per altre informazioni su altri modi per eseguire comandi e script in remoto nella macchina virtuale.

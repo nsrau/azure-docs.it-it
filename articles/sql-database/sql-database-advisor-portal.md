@@ -6,15 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364353"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644196"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -102,8 +102,10 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
     ![Indici consigliati](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Si noti che l'opzione **DROP_INDEX** al momento non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere attivata in questi casi.
+> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi.
 >
+
+Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>Eseguire manualmente lo script T-SQL consigliato
 Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.

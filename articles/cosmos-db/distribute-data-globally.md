@@ -2,22 +2,19 @@
 title: Distribuire i dati a livello globale con Azure Cosmos DB | Microsoft Docs
 description: Informazioni sulla replica geografica a livello globale, sul failover e sul ripristino dei dati usando i database globali di Azure Cosmos DB, un servizio database multimodello distribuito a livello globale.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 967e7458d43dccd4601440138b7445eb876b9f01
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611450"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Come distribuire i dati a livello globale con Azure Cosmos DB
 Azure è ovunque, offre una copertura globale in oltre 50 aree geografiche ed è in continua espansione. Ciò consente ad Azure di offrire in esclusiva agli sviluppatori la possibilità di creare, distribuire e gestire applicazioni distribuite a livello globale con la massima semplicità. 
@@ -87,7 +84,7 @@ Il vantaggio principale di un database distribuito a livello globale è l'access
 Azure Cosmos DB consente di attivare il failover di un account del database per convalidare le proprietà di disponibilità *end-to-end* dell'intera applicazione, oltre il database. Poiché sia le proprietà di sicurezza e di attività del rilevamento di errori e dell'algoritmo di elezione sono garantite, Azure Cosmos DB garantisce una *perdita di dati pari a zero* per un'operazione di failover avviata manualmente dal tenant.
 
 ### <a id="AutomaticFailover"></a>Failover automatico
-Azure Cosmos DB supporta il failover automatico in caso di una o più interruzioni di servizio a livello di area. Durante un failover a livello di area, Azure Cosmos DB mantiene i contratti di servizio per latenza di lettura, disponibilità di tempo di attività, coerenza e velocità effettiva. Azure Cosmos DB prevede un limite superiore per la durata del completamento di un'operazione di failover automatico. Si tratta dell'intervallo di tempo della potenziale perdita di dati durante un'interruzione di servizio a livello di area.
+Azure Cosmos DB supporta il failover automatico nel corso di una o più interruzioni di servizio a livello di area. Durante un failover a livello di area, Azure Cosmos DB mantiene i contratti di servizio per latenza di lettura, disponibilità di tempo di attività, coerenza e velocità effettiva. Azure Cosmos DB prevede un limite superiore per la durata del completamento di un'operazione di failover automatico. Si tratta dell'intervallo di tempo della potenziale perdita di dati durante un'interruzione di servizio a livello di area.
 
 ### <a id="GranularFailover"></a>Progettato per varie granularità di failover
 Attualmente le funzionalità di failover automatico e manuale sono esposte al livello di granularità dell'account del database. Si noti che internamente Azure Cosmos DB è progettato per offrire funzionalità di failover *automatico* a granularità più fini di un database, di un contenitore o persino di una partizione (di un contenitore proprietario di un intervallo di chiavi). 
@@ -100,7 +97,7 @@ Informazioni su come configurare le preferenze di lettura per le [API SQL](../co
 ### <a id="TransparentSchemaMigration"></a>Migrazione di indici e di schemi del database trasparente e coerente 
 Azure Cosmos DB è completamente [indipendente dallo schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). La struttura esclusiva del motore di database consente ad Azure Cosmos DB di indicizzare automaticamente e in modo sincrono tutti i dati in fase di inserimento senza richiedere all'utente schemi o indici secondari. In questo modo è possibile iterare rapidamente l'applicazione distribuita a livello globale senza preoccuparsi della migrazione dell'indice o dello schema del database o del coordinamento di implementazioni di modifiche dello schema dell'applicazione in più fasi. Azure Cosmos DB garantisce che qualsiasi modifica ai criteri di indicizzazione eseguita dall'utente non comporti un calo significativo di prestazioni o disponibilità.  
 
-### <a id="ComprehensiveSLAs"></a>Contratti di servizio completi (oltre la sola disponibilità elevata)
+### <a id="ComprehensiveSLAs"></a>Contratti di servizio completi (oltre la disponibilità elevata)
 In quanto servizio di database distribuito a livello globale, Azure Cosmos DB offre contratti di servizio ben definiti e completi per **disponibilità**, **latenza**, **velocità effettiva** e **coerenza** per il database in esecuzione su scala globale, indipendentemente dal numero di aree associate al database.  
 
 ## <a id="LatencyGuarantees"></a>Garanzie di latenza
@@ -196,7 +193,7 @@ Azure Cosmos DB consente di ridimensionare la velocità effettiva e lo spazio di
 
 Un contenitore di Azure Cosmos DB viene distribuito in due dimensioni (i) all'interno di un'area e (ii) in più aree. Ecco come: 
 
-* **Distribuzione locale**: all'interno di una singola area, la scalabilità orizzontale di un contenitore di Azure Cosmos DB viene garantita tramite l'aumento di *partizioni di risorse*. Ogni partizione di risorsa gestisce un set di chiavi e offre coerenza assoluta e disponibilità elevata essendo rappresentata fisicamente da quattro repliche chiamate anche *set di repliche* e dalla replica della macchina a stati tra tali repliche. Azure Cosmos DB è un sistema completamente gestito da risorse, in cui una partizione di risorsa è responsabile della distribuzione della propria quota di velocità effettiva per il budget di risorse di sistema allocate. Il ridimensionamento di un contenitore di Azure Cosmos DB è completamente trasparente agli utenti. Azure Cosmos DB gestisce le partizioni di risorse, dividendole e unendole in base alle esigenze di pari passo con l'evoluzione dei requisiti di archiviazione e di velocità effettiva. 
+* **Distribuzione locale**: all'interno di una singola area, la scalabilità orizzontale di un contenitore di Azure Cosmos DB viene garantita tramite l'aumento di *partizioni di risorse*. Ogni partizione di risorsa gestisce un set di chiavi e offre coerenza assoluta e disponibilità elevata essendo rappresentata fisicamente da quattro repliche chiamate anche *set di repliche* e dalla replica della macchina a stati tra tali repliche. Azure Cosmos DB è un sistema completamente gestito da risorse, in cui una partizione di risorsa è responsabile della distribuzione della propria quota di velocità effettiva per il budget di risorse di sistema allocate. Il ridimensionamento di un contenitore di Azure Cosmos DB è trasparente agli utenti. Azure Cosmos DB gestisce le partizioni di risorse, dividendole e unendole in base alle esigenze di pari passo con l'evoluzione dei requisiti di archiviazione e di velocità effettiva. 
 * **Distribuzione globale**: se si tratta di un database con più aree, ogni partizione di risorsa viene quindi distribuita in tali aree. Le partizioni di risorse proprietarie dello stesso set di chiavi in più aree formano un *set di partizioni* (vedere la [figura precedente](#ThroughputGuarantees)).  Le partizioni di risorse in un set di partizioni sono coordinate tramite la replica della macchina a stati tra le aree associate al database. A seconda del livello di coerenza configurato, le partizioni di risorse in un set di partizioni sono configurate in modo dinamico con topologie diverse, ad esempio a stella, con collegamento in cascata, ad albero e così via. 
 
 Grazie a funzionalità di gestione delle partizioni a velocità di risposta elevata, bilanciamento del carico e governance delle risorse rigida, Azure Cosmos DB consente di ridimensionare in modo elastico la velocità effettiva in più aree di Azure associate a un contenitore o a un database di Azure Cosmos DB. La modifica della velocità effettiva di cui è stato effettuato il provisioning è un'operazione di runtime in Azure Cosmos DB. Come per qualsiasi altra operazione su database, Azure Cosmos DB garantisce il limite superiore assoluto della latenza durante l'operazione di modifica della velocità effettiva di cui è stato effettuato il provisioning. Ad esempio, la figura seguente mostra il contenitore di un cliente per il quale il provisioning della velocità effettiva (compresa tra 1 milione e 10 milioni di richieste al secondo in due aree) viene eseguito in modo elastico in base alla domanda.

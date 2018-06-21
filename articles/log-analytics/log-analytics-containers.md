@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638348"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -528,7 +529,7 @@ Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Micr
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
+Dal portale di OMS, passare alla *Raccolta soluzioni* e aggiungere la **soluzione Monitoraggio contenitori**. Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 - *ContainerManagement.xxx* installato in C:\Programmi\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -563,6 +564,7 @@ Le etichette aggiunte ai tipi di dati *PodLabel* sono etichette personalizzate. 
 
 ## <a name="monitor-containers"></a>Monitorare i contenitori
 Dopo avere abilitato la soluzione nel portale di Log Analytics, il riquadro **Contenitori** mostra le informazioni di riepilogo sugli host di contenitori e i contenitori in esecuzione negli host.
+
 
 ![Riquadro Containers (Contenitori)](./media/log-analytics-containers/containers-title.png)
 

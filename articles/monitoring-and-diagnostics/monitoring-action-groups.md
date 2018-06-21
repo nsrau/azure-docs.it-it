@@ -1,31 +1,25 @@
 ---
-title: Creare e gestire gruppi di azione nel portale di Azure | Microsoft Docs
+title: Creare e gestire gruppi di azione nel portale di Azure
 description: Informazioni su come creare e gestire gruppi di azione nel portale di Azure.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170377"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263066"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 ## <a name="overview"></a>Panoramica ##
-Questo articolo illustra come creare e gestire gruppi di azione nel portale di Azure.
+Un gruppo di azioni è una raccolta delle preferenze di notifica definite dall'utente. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi sono configurati per l'uso di un gruppo di azioni specifico quando viene generato l'avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente.
 
-I gruppi di azione consentono di configurare un elenco di azioni. Questi gruppi possono quindi essere usati da ogni avviso che viene definito, assicurandosi che vengono eseguite le stesse azioni ogni volta che viene generato un avviso.
+Questo articolo illustra come creare e gestire gruppi di azione nel portale di Azure.
 
 Ogni azione è composta dalle seguenti proprietà:
 
@@ -69,17 +63,22 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
 <dd>Un gruppo di azioni può contenere un massimo di 10 azioni dell'app Azure.</dd>
 <dd>In questo momento l'azione dell'app Azure supporta solo gli avvisi ServiceHealth. Qualsiasi altro tipo di avviso verrà ignorato. Fare riferimento alle informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica di integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
-<dt>
-Messaggio di posta elettronica</dt>
-<dd>Un gruppo di azioni può contenere un massimo di 50 azioni di tipo Massaggio di posta elettronica.</dd>
+<dt>Posta elettronica</dt>
+<dd>I messaggi di posta elettronica verranno inviati dagli indirizzi di posta elettronica seguenti. Verificare che il filtro della posta elettronica sia configurato correttamente
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>Un gruppo di azioni può contenere al massimo 1000 azioni di posta elettronica</dd>
 <dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
 
 <dt>ITSM</dt>
 <dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo ITSM.</dd>
 <dd>L'azione ITSM richiede una connessione ITSM. Informazioni su come creare una [connessione ITSM](../log-analytics/log-analytics-itsmc-overview.md).</dd>
 
-<dt>
-App per la logica</dt>
+<dt>App per la logica</dt>
 <dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo App per la logica.</dd>
 
 <dt>Runbook</dt>
@@ -90,8 +89,7 @@ App per la logica</dt>
 <dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
 <dd>Vedere l'articolo relativo al [comportamento degli avvisi SMS](monitoring-sms-alert-behavior.md).</dd>
 
-<dt>
-Voce</dt>
+<dt>Voce</dt>
 <dd>Un gruppo di azioni può contenere un massimo di 10 azioni di tipo Voce.</dd>
 <dd>Vedere l'articolo relativo alle [informazioni sulla limitazione della frequenza](./monitoring-alerts-rate-limiting.md).</dd>
 

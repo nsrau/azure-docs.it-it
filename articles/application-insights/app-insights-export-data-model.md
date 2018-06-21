@@ -1,8 +1,8 @@
 ---
 title: Modello di dati di Azure Application Insights | Microsoft Docs
-description: "Descrive le proprietà esportate da esportazione continua in JSON e usate come filtri."
+description: Descrive le proprietà esportate da esportazione continua in JSON e usate come filtri.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294895"
 ---
 # <a name="application-insights-export-data-model"></a>Modello di dati di esportazione di Application Insights
 Questa tabella elenca le proprietà di telemetria inviate al portale dagli SDK di [Application Insights](app-insights-overview.md) .
@@ -151,7 +152,7 @@ Tutti i tipi di telemetria sono accompagnati da una sezione di contesto. Non tut
 | context.user.authAcquisitionDate |stringa |[Utente autenticato](app-insights-api-custom-events-metrics.md#authenticated-users) |
 | context.user.isAuthenticated |boolean | |
 | internal.data.documentVersion |stringa | |
-| internal.data.id |stringa | |
+| internal.data.id |stringa | Id univoco che viene assegnato quando viene acquisito un elemento in Application Insights |
 
 ## <a name="events"></a>Eventi
 Eventi personalizzati generati da [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent).

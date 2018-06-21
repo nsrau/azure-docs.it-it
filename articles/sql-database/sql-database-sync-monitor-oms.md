@@ -3,17 +3,18 @@ title: Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Anal
 description: Informazioni su come monitorare la sincronizzazione dati SQL di Azure (anteprima) usando Log Analytics
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650248"
 ---
 # <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL (anteprima) con Log Analytics 
 
@@ -161,7 +162,7 @@ Per configurare la vista di OMS, eseguire le operazioni seguenti:
 
 3.  La vista di esempio è relativa alla gestione di due gruppi di sincronizzazione. Modificare questa vista per adattarla allo scenario. Fare clic su **modifica** e apportare le modifiche seguenti:
 
-    1.  Creare nuovi oggetti "	Grafico ad anello ed elenco" dalla raccolta in base alle esigenze.
+    1.  Creare nuovi oggetti "Donut & List" dalla raccolta in base alle esigenze.
 
     2.  In ogni riquadro aggiornare le query con le informazioni necessarie.
 

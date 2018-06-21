@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735671"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse
 
@@ -128,11 +129,11 @@ Se si imposta `resourceGroup` sul nome di un gruppo di risorse che non esiste, l
 
 Per distribuire il modello di esempio, usare Azure PowerShell 4.0.0 o versione successiva o l'interfaccia della riga di comando di Azure 2.0.0 o versione successiva.
 
-## <a name="use-the-resourcegroup-function"></a>Usare la funzione resourceGroup()
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>Usare le funzioni resourceGroup() e subscription()
 
-Per le distribuzioni tra gruppi di risorse, la [funzione resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) viene risolta in modo diverso in base al modo in cui si specifica il modello annidato. 
+Per le distribuzioni tra gruppi di risorse, le funzioni [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) e [subscription()](resource-group-template-functions-resource.md#subscription) vengono risolte in modo diverso in base al modo in cui si specifica il modello annidato. 
 
-Se si incorpora un modello in un altro modello, la funzione resourceGroup() nel modello nidificato si risolve nel gruppo di risorse padre. Un modello incorporato usa il formato seguente:
+Se si incorpora un modello in un altro modello, le funzioni nel modello annidato si risolvono nel gruppo di risorse e nella sottoscrizione padre. Un modello incorporato usa il formato seguente:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ Se si incorpora un modello in un altro modello, la funzione resourceGroup() nel 
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-Se si crea un collegamento a un modello separato, la funzione resourceGroup() nel modello collegato si risolve nel gruppo di risorse annidato. Un modello collegato usa il formato seguente:
+Se si crea un collegamento a un modello separato, le funzioni nel modello collegato si risolvono nel gruppo di risorse e nella sottoscrizione annidati. Un modello collegato usa il formato seguente:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ Se si crea un collegamento a un modello separato, la funzione resourceGroup() ne
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

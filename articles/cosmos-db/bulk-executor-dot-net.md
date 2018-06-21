@@ -6,19 +6,20 @@ services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611161"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzo della libreria .NET BulkExecutor per eseguire operazioni in blocco in Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nelle raccolte di Azure Cosmos DB usando la libreria .NET BulkExecutor di Azure Cosmos DB. Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in una raccolta di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nelle raccolte di Azure Cosmos DB usando la libreria .NET BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria BulkExecutor e su come consente di sfruttare la velocità effettiva estremamente elevata e l'archiviazione, vedere l'articolo [Panoramica della libreria BulkExecutor](bulk-executor-overview.md). Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in una raccolta di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -167,11 +168,11 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
 
 Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere presente quanto segue:
 
-* Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trova nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
+* Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trovi nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 
-* È consigliabile creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a una specifica raccolta di Cosmos DB.  
+* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a una specifica raccolta di Cosmos DB.  
 
-* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se la chiamata API di una singola operazione in blocco in esecuzione in una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intera raccolta (se la velocità effettiva della raccolta > 1 milione di UR/sec), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazioni in blocco.  
+* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intera raccolta (se la velocità effettiva della raccolta > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.  
 
 * Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni della raccolta di Cosmos DB di destinazione.  
 

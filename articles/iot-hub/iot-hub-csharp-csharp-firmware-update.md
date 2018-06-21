@@ -1,24 +1,20 @@
 ---
 title: Aggiornamento firmware del dispositivo con l'hub IoT di Azure (.NET/.NET) | Microsoft Docs
 description: Come usare la gestione dei dispositivi nell'hub IoT di Azure per avviare un aggiornamento del firmware del dispositivo. Usare Azure IoT SDK per dispositivi per .NET per implementare un'app dispositivo simulato e Azure IoT SDK per servizi per .NET per implementare un'app di servizio che attiva l'aggiornamento del firmware.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736756"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Usare la gestione dei dispositivi per avviare un aggiornamento del firmware del dispositivo (.NET/.NET)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ In questa sezione verrà illustrato come:
 > [!NOTE]
 > Questo metodo avvia l'aggiornamento simulato per l'esecuzione come **Task** e quindi risponde immediatamente alla chiamata del metodo, informando il servizio che l'aggiornamento del firmware è stato avviato. Lo stato dell'aggiornamento e il completamento vengono inviati al servizio mediante le proprietà reported del dispositivo gemello. La risposta alla chiamata del metodo viene effettuata all'avvio dell'aggiornamento anziché dopo il suo completamento, per le ragioni seguenti:
 > * In genere un processo di aggiornamento reale richiede un tempo superiore al timeout di chiamata del metodo.
-> * È molto probabile che un processo di aggiornamento richieda un riavvio, con conseguente riavvio dell'app e non disponibilità dell'oggetto **MethodRequest**. L'aggiornamento delle proprietà reported è invece possibile anche dopo il riavvio. 
+> * È molto probabile che un processo di aggiornamento reale richieda un riavvio, con conseguente riavvio dell'app e non disponibilità dell'oggetto **MethodRequest**. L'aggiornamento delle proprietà reported è invece possibile anche dopo il riavvio. 
 
 14. Infine aggiungere il codice seguente al metodo **Main** per aprire la connessione all'hub IoT e inizializzare il listener del metodo:
    

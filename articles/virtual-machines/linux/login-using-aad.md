@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 652f9867b7423ce4307dba1c77e8f38fcd596c67
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943994"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652873"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Linux in Azure usando l'autenticazione di Azure Active Directory (anteprima)
 
@@ -35,6 +35,7 @@ L'uso dell'autenticazione di Azure AD per accedere alle macchine virtuali Linux 
   - Riducendo la dipendenza dagli account amministratore locali, non è necessario preoccuparsi della perdita o del furto delle credenziali, degli utenti che configurano credenziali vulnerabili e così via.
   - I criteri di durata e la complessità della password configurati per la directory di Azure AD contribuiscono a proteggere le macchine virtuali Linux.
   - Per aumentare la sicurezza dell'accesso alle macchine virtuali Azure, è possibile configurare l'autenticazione a più fattori.
+  - Possono accedere alle macchine virtuali Linux con Azure Active Directory anche gli utenti che usano [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
 
 - **Collaborazione semplificata:** con il controllo degli accessi in base al ruolo è possibile specificare chi può accedere a una determinata macchina virtuale come utente normale o con privilegi di amministratore. Quando gli utenti si uniscono o abbandonano il team, è possibile aggiornare i criteri del controllo degli accessi in base al ruolo per la macchina virtuale per concedere l'accesso in base alle esigenze. Questa esperienza è molto più semplice rispetto alla necessità di eseguire lo scrubbing delle macchine virtuali per rimuovere le chiavi pubbliche SSH non necessarie. Quando i dipendenti lasciano l'organizzazione e l'account utente viene disabilitato o rimosso da Azure AD, non hanno più accesso alle risorse.
 
@@ -50,7 +51,7 @@ Durante l'anteprima di questa funzionalità sono attualmente supportate le distr
 
 Durante l'anteprima di questa funzionalità sono attualmente supportate le aree di Azure seguenti:
 
-- Tutte le aree di Azure pubbliche
+- Tutte le aree di Azure globali
 
 >[!IMPORTANT]
 > Per usare questa funzionalità in anteprima, basta distribuire una distribuzione Linux supportata in un'area di Azure supportata. La funzionalità non è supportata in Azure per enti pubblici o nei cloud sovrani.
@@ -112,6 +113,9 @@ az role assignment create \
     --scope $vm
 ```
 
+> [!NOTE]
+> Se il dominio di Azure Active Directory e il dominio del nome utente di accesso non corrispondono, è necessario specificare l'ID oggetto dell'account utente con *--id-oggetto-assegnatario* e non solo il nome utente per *--assegnatario*. È possibile ottenere l'ID oggetto per l'account utente con [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere come usare l'[interfaccia della riga di comando di Azure 2.0](../../role-based-access-control/role-assignments-cli.md), il [portale di Azure](../../role-based-access-control/role-assignments-portal.md) o [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 È anche possibile configurare Azure AD per richiedere l'autenticazione a più fattori per un utente specifico per eseguire l'accesso alla macchina virtuale Linux. Per altre informazioni, vedere [Introduzione ad Azure Multi-Factor Authentication nel cloud](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
@@ -167,6 +171,10 @@ Dopo aver completato correttamente il passaggio di autenticazione in un Web brow
 - Verificare che il nome di accesso specificato nel prompt SSH sia corretto. Un errore di battitura nel nome di accesso potrebbe causare una mancata corrispondenza tra il nome di accesso specificato nel prompt di SSH e l'account con cui è stato effettuato l'accesso ad Azure AD. Ad esempio, l'utente ha digitato *azuresuer@contoso.onmicrosoft.com* anziché *azureuser@contoso.onmicrosoft.com*.
 - Se si dispone di più account utente, assicurarsi che non si indichi un account utente diverso nella finestra del browser quando si accede ad Azure AD.
 - Linux è un sistema operativo che distingue tra maiuscole e minuscole. Quindi "Azureuser@contoso.onmicrosoft.com" e "azureuser@contoso.onmicrosoft.com" sono diversi e questo può causare una mancata corrispondenza. Assicurarsi di specificare l'UPN usando correttamente le maiuscole e le minuscole nel prompt SSH.
+
+## <a name="preview-feedback"></a>Feedback sull'anteprima
+
+Condividere il proprio feedback su questa funzionalità di anteprima o segnalare eventuali problemi riscontrati durante l'utilizzo nel [forum di commenti e suggerimenti su Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

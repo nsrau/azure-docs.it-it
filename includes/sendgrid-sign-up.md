@@ -61,9 +61,9 @@ I clienti di Azure possono sbloccare 25.000 messaggi di posta elettronica gratui
 
 Per gestire le impostazioni di recapito della posta, fare clic sul **pulsante Gestisci**. Si verrà reindirizzati al dashboard di SendGrid.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+Per altre informazioni sull'invio di posta elettronica tramite SendGrid, vedere la [panoramica dell'API Email][Email API Overview].
 
 <!--images-->
 

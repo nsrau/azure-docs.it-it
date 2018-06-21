@@ -2,22 +2,20 @@
 title: Risorse, SDK e API del processore dei feed delle modifiche .NET per Azure Cosmos DB | Microsoft Docs
 description: Tutte le informazioni sull'SDK e sull'API del processore dei feed delle modifiche, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le versioni dell'SDK del processore dei feed delle modifiche .NET.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 6ae2ae9cdf018652b5ca81efc014c0c6ccb2e813
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798864"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -45,11 +43,16 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="stable-builds"></a>Build stabili
 
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Aggiunta di maggiore registrazione.
+* Correzione di un problema DocumentClient quando si chiama più volte la stima del lavoro in sospeso.
+
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Correzioni per la stima del lavoro in sospeso.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * Miglioramenti della stabilità.
+  * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
 * Supporto per la creazione di checkpoint manuale.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
 
@@ -72,7 +75,14 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="pre-release-builds"></a>Build preliminari
 
+### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
+* Modifiche API secondarie:
+  * Rimozione di ChangeFeedProcessorOptions.IsAutoCheckpointEnabled, contrassegnato come obsoleto.
+
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
+* Miglioramenti della stabilità:
+  * Gestione migliorata dell'inizializzazione dell'archivio dei lease. Quando l'archivio dei lease è vuoto, solo un'istanza del processore può inizializzarlo, mentre le altre rimarranno in attesa.
+  * Rilascio/rinnovo di un lease più stabile/efficiente. Il rinnovo e il rilascio di un lease con una partizione è indipendente dal rinnovo degli altri. Nella versione v1 questa operazione veniva eseguita in sequenza per tutte le partizioni.
 * Nuova API v2:
   * Modello di generatore per la costruzione flessibile del processore: classe ChangeFeedProcessorBuilder.
     * Può accettare qualsiasi combinazione di parametri.
@@ -85,6 +95,7 @@ ms.lasthandoff: 05/07/2018
     * IPartitionProcessor: per modifiche di elaborazione personalizzate in una partizione.
 * Registrazione: usa la libreria [LibLog](https://github.com/damianh/LibLog).
 * 100% compatibile con l'API v1.
+* Nuova codebase.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 e versioni successive.
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
@@ -98,6 +109,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |8 maggio 2018 |--- |
 | [1.3.2](#1.3.2) |18 aprile 2018 |--- |
 | [1.3.1](#1.3.1) |13 marzo 2018 |--- |
 | [1.2.0](#1.2.0) |31 ottobre 2017 |--- |

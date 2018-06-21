@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323800"
+---
 ## <a name="overview"></a>Panoramica
 Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribuendo un'immagine da [Azure Marketplace](https://azure.microsoft.com/marketplace/), l'unità del sistema operativo predefinita è spesso di 127 GB. Per impostazione predefinita. alcune immagini hanno dimensioni minori per il disco del sistema operativo. Anche se è possibile aggiungere dischi dati alla VM (il numero dipende dalla SKU scelta) ed è consigliabile installare applicazioni e carichi di lavoro con uso intensivo della CPU su tali dischi aggiuntivi, spesso i clienti devono espandere l'unità del sistema operativo per supportare determinati scenari, come i seguenti:
 
@@ -134,8 +151,8 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
-Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo gestito/non gestito della VM, lo script sviluppato potrebbe essere usato anche per l'espansione dei dischi dati collegati alla VM. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto ```OSDisk``` di ```StorageProfile``` con la matrice ```DataDisks``` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
+## <a name="for-resizing-data-disks"></a>Per il ridimensionamento dei dischi dati
+Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo gestito/non gestito della macchina virtuale, lo script sviluppato potrebbe essere usato anche per l'espansione dei dischi dati collegati alla macchina virtuale. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto ```OSDisk``` di ```StorageProfile``` con la matrice ```DataDisks``` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
 
 Disco non gestito:
 ```Powershell

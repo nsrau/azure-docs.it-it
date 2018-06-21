@@ -2,28 +2,24 @@
 title: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'autenticazione | Microsoft Docs
 description: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclusa l'autenticazione
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
+author: tamram
+manager: twooley
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
-ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 05/22/2018
+ms.author: tamram
+ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650452"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
 Questo articolo illustra come usare le API REST del servizio di archiviazione BLOB e come autenticare la chiamata al servizio. L'articolo è stato scritto tenendo conto del punto di vista di uno sviluppatore che non conosce REST e non ha idea di come eseguire una chiamata REST. Non sempre è facile comprendere come trasformare i dati della documentazione di riferimento in un'effettiva chiamata REST, specificando i campi nel modo corretto. Dopo aver appreso come configurare una chiamata REST, sarà possibile sfruttare queste informazioni anche per usare le altre API REST dei servizi di archiviazione.
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>prerequisiti 
 
 L'applicazione restituisce l'elenco dei contenitori nella risorsa di archiviazione BLOB per un account di archiviazione. Per provare il codice di questo articolo, è necessario quanto segue: 
 
@@ -48,19 +44,17 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 Questo comando consente di duplicare il repository nella cartella locale git. Per aprire la soluzione di Visual Studio, cercare la cartella storage-dotnet-rest-api-with-auth, aprirla e fare doppio clic su StorageRestApiAuth.sln. 
 
-## <a name="why-do-i-need-to-know-rest"></a>Perché è necessario conoscere REST?
-
-La conoscenza dell'uso di REST è una competenza utile. Il team di Azure rilascia spesso nuove funzionalità. In molti casi, queste funzionalità sono accessibili tramite l'interfaccia REST, ma non sono ancora visibili tramite **tutte** le librerie client di archiviazione o l'interfaccia utente, ad esempio il portale di Azure. Per avere sempre a disposizione le funzionalità più recenti e potenti, la conoscenza di REST è un requisito fondamentale. L'API REST è inoltre utile quando si vuole creare una libreria personalizzata per interagire con Archiviazione di Azure o si vuole accedere ad Archiviazione di Azure con un linguaggio di programmazione che non ha un SDK o una libreria client di archiviazione.
-
 ## <a name="what-is-rest"></a>Che cos'è REST?
 
 REST è l'acronimo di *representational state transfer*, ovvero trasferimento di stato rappresentativo. Per una definizione dettagliata, consultare [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
 In pratica, REST è un'architettura che è possibile usare quando si eseguono chiamate alle API o si rendono disponibili le API per le chiamate. Questa architettura è indipendente da ciò che avviene su entrambi i lati della comunicazione e dal software usato per inviare o ricevere le chiamate REST. È possibile scrivere un'applicazione da eseguire su un computer Mac, Windows o Linux, un tablet o un telefono Android, un iPhone, un iPod o un sito Web e usare la stessa API REST per tutte le piattaforme. Quando viene chiamata l'API REST, i dati possono essere passati verso l'interno e/o l'esterno. Per l'API REST non è rilevante la piattaforma che esegue la chiamata, ma sono soprattutto importanti le informazioni passate nella richiesta e i dati forniti nella risposta.
 
-## <a name="heres-the-plan"></a>In cosa consiste il piano
+La conoscenza dell'uso di REST è una competenza utile. Il team di Azure rilascia spesso nuove funzionalità. In molti casi, queste funzionalità sono accessibili tramite l'interfaccia REST, ma non sono ancora visibili tramite **tutte** le librerie client di archiviazione o l'interfaccia utente, ad esempio il portale di Azure. Per avere sempre a disposizione le funzionalità più recenti e potenti, la conoscenza di REST è un requisito fondamentale. L'API REST è inoltre utile quando si vuole creare una libreria personalizzata per interagire con Archiviazione di Azure o si vuole accedere ad Archiviazione di Azure con un linguaggio di programmazione che non ha un SDK o una libreria client di archiviazione.
 
-Il progetto di esempio elenca i contenitori in un account di archiviazione. Dopo aver appreso come mettere in relazione le informazioni presenti nella documentazione dell'API REST con il codice effettivo, sarà più facile capire come configurare le altre chiamate REST. 
+## <a name="about-the-sample-application"></a>Informazioni sull'applicazione di esempio
+
+L'applicazione di esempio restituisce l'elenco dei contenitori in un account di archiviazione. Dopo aver appreso come mettere in relazione le informazioni presenti nella documentazione dell'API REST con il codice effettivo, sarà più facile capire come configurare le altre chiamate REST. 
 
 Consultando l'articolo [Blob Service REST API](/rest/api/storageservices/fileservices/Blob-Service-REST-API) (API REST del servizio BLOB) è possibile esaminare l'elenco di tutte le operazioni che possono essere eseguite sulle risorse di archiviazione BLOB. Le librerie client di archiviazione sono wrapper per le API REST, ovvero consentono di accedere più facilmente alle risorse di archiviazione senza usare direttamente le API REST. Tuttavia, come indicato in precedenza, talvolta può essere necessario usare l'API REST in sostituzione di una libreria client di archiviazione.
 
@@ -70,7 +64,7 @@ Esaminando la pagina relativa all'operazione [ListContainers](/rest/api/storages
 
 **Metodo della richiesta**: GET. Questo verbo è il metodo HTTP che si specifica come proprietà dell'oggetto della richiesta. Come altri valori per il verbo è possibile usare HEAD, PUT e DELETE, a seconda dell'API che si intende chiamare.
 
-**URI della richiesta**: https://myaccount.blob.core.windows.net/?comp=list  Questo URI viene creato in base all'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e alla stringa di risorsa `/?comp=list`.
+**URI della richiesta**: https://myaccount.blob.core.windows.net/?comp=list Viene creato dall'endpoint dell'account di archiviazione BLOB `http://myaccount.blob.core.windows.net` e dalla stringa della risorsa `/?comp=list`.
 
 [Parametri dell'URI](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): quando si chiama ListContainers è possibile usare parametri di query aggiuntivi, ad esempio *timeout* per definire il timeout della chiamata (in secondi) e *prefix* per applicare un filtro.
 
@@ -141,7 +135,7 @@ Aggiungere le intestazioni x-ms-date e x-ms-version della richiesta. In questo p
     // Add the request headers for x-ms-date and x-ms-version.
     DateTime now = DateTime.UtcNow;
     httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-04-17");
+    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
     // If you need any additional headers, add them here before creating
     //   the authorization header. 
 ```
@@ -205,7 +199,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 3e889876-001e-0039-6a3a-5f4396000000
-x-ms-version: 04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
@@ -271,6 +265,9 @@ Ora che si è appreso come creare la richiesta, chiamare il servizio e analizzar
 
 ## <a name="creating-the-authorization-header"></a>Creazione dell'intestazione dell'autorizzazione
 
+> [!TIP]
+> Archiviazione di Azure supporta ora l'integrazione di Azure Active Directory (Azure AD) per i servizi BLOB e di accodamento (anteprima). Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) (Eseguire l'autenticazione con Azure Active Directory - anteprima). Per una panoramica dell'integrazione di Azure AD con Archiviazione di Azure, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
+
 I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
 ma ai fini pratici è possibile concentrarsi sulle nozioni fondamentali ed esaminare in dettaglio il codice.
 
@@ -312,7 +309,7 @@ Si esamineranno ora i due campi in forma canonica che sono necessari per creare 
 Per creare questo valore, recuperare le intestazioni che iniziano con "x-ms-", ordinarle e quindi formattarle in una singola stringa di istanze `[key:value\n]` concatenate. Per questo esempio, le intestazioni in forma canonica hanno l'aspetto seguente: 
 
 ```
-x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 Ecco il codice usato per creare tale output:
@@ -417,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 Quando si esegue questo codice, il valore risultante di MessageSignature avrà l'aspetto seguente:
 
 ```
-GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list
+GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
 Ecco infine il valore per l'intestazione dell'autorizzazione:
@@ -463,7 +460,7 @@ Quando si esegue questo esempio, si ottengono risultati simili ai seguenti:
 **CanonicalizedHeaders:**
 
 ```
-x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 **CanonicalizedResource:**
@@ -476,7 +473,7 @@ x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
-  \nx-ms-version:2017-04-17\n/contosorest/container-1\ncomp:list\nrestype:container
+  \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
 **Intestazione dell'autorizzazione:**
@@ -497,7 +494,7 @@ GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Authorization: SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
@@ -510,7 +507,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 7e9316da-001e-0037-4063-5faf9d000000
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
@@ -562,7 +559,7 @@ Content-Length: 1135
 </EnumerationResults>
 ```
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si è appreso come creare una richiesta da inviare all'API REST del servizio di archiviazione BLOB per recuperare un elenco di contenitori o un elenco di BLOB all'interno di un contenitore. Si è inoltre appreso come creare la firma di autorizzazione per la chiamata all'API REST, come usarla nella richiesta REST e come esaminare la risposta.
 

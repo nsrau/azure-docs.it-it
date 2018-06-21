@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895487"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301372"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
 
@@ -44,7 +44,7 @@ L'architettura di base è costituita dai componenti seguenti:
 - **Modelli di distribuzione**. In questa distribuzione vengono usati [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) per distribuire automaticamente i componenti dell'architettura in Microsoft Azure specificando i parametri di configurazione durante l'installazione.
 - **Script di distribuzione automatizzata**. Questi script agevolano la distribuzione della soluzione end-to-end. Gli script sono costituiti da:
     - Uno script di installazione dei moduli e degli [amministratori globali](/azure/active-directory/active-directory-assign-admin-roles-azure-portal), usato per installare i moduli PowerShell e verificare che questi ultimi e i ruoli di amministratore globale siano configurati correttamente.
-    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto del [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample) . Il codice sorgente per questa soluzione è disponibile per la revisione nel [repository del codice del progetto][repository del codice]. 
+    - Uno script PowerShell di installazione viene usato per distribuire la soluzione end-to-end, fornita tramite un file con estensione zip e un file con estensione bacpac contenenti un'applicazione Web demo precompilata con il contenuto di un [database SQL di esempio](https://github.com/Microsoft/azure-sql-security-sample). Il codice sorgente di questa soluzione è disponibile su [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## <a name="architectural-diagram"></a>Diagramma dell'architettura
 
@@ -169,8 +169,6 @@ Ogni livello di rete ha un gruppo di sicurezza di rete (NSG) dedicato:
 - Un gruppo di sicurezza di rete perimetrale per firewall e WAF di gateway applicazione
 - Un gruppo di sicurezza di rete per la gestione del jumpbox (bastion host)
 - Un gruppo di sicurezza di rete per l'ambiente del servizio app
-
-Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per altre informazioni, vedere [PCI Guidance - Network Security Groups](#network-security-groups) (Linee guida per PCI - Gruppi di sicurezza di rete).
 
 Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
 - I [log e gli eventi di diagnostica](/azure/virtual-network/virtual-network-nsg-manage-log) abilitati vengono archiviati nell'account di archiviazione 

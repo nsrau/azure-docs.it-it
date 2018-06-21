@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637770"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente OMS per Linux 
 [Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
@@ -56,7 +57,7 @@ Per raccogliere avvisi, seguire questa procedura nel server Nagios.
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Configurazione della raccolta di avvisi Zabbix
-Per raccogliere avvisi da un server Zabbix, è necessario specificare un utente e una password come *testo non crittografato*.  Sebbene non sia la condizione ideale, è consigliabile creare l'utente e assegnargli solo le autorizzazioni per il monitoraggio.
+Per raccogliere avvisi da un server Zabbix, è necessario specificare un utente e una password come *testo non crittografato*.  Sebbene non sia la condizione ideale, è consigliabile creare un utente Zabbix con autorizzazioni di sola lettura per rilevare gli avvisi pertinenti.
 
 Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
@@ -73,7 +74,7 @@ Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
 2. Riavviare il daemon omsagent
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Record di avvisi

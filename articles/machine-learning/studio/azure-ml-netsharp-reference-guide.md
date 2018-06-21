@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 599dc158cde0508aa0836c7028a87ed708ba1d86
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833914"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guida al linguaggio di specifica Net# delle reti neurali per Azure Machine Learning
 
@@ -261,7 +263,7 @@ Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 
 ## <a name="response-normalization-bundles"></a>Aggregazioni di normalizzazione delle risposte
 
-La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri esperti nell'articolo [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali avanzate). 
+La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton, et al, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde). 
 
 La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Ciò avviene tramite tre parametri (`α`, `β` e `k`) e una struttura convoluzionale (o forma di vicinato). Ogni neurone nel livello di destinazione **y** corrisponde a un neurone **x** nel livello di origine. Il livello di attivazione di **y** è dato dalla formula seguente, dove `f` corrisponde al livello di attivazione di un neurone e `Nx` è il kernel o l'insieme contenente i neuroni nel vicinato di **x**, come definito dalla struttura convoluzionale seguente:  
 

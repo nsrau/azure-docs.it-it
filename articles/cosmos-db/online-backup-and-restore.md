@@ -3,22 +3,19 @@ title: Backup online e ripristino con Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come eseguire il backup automatico e il ripristino in un database Azure Cosmos DB.
 keywords: backup e ripristino, backup online
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615037"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
 Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli regolari. I backup automatici vengono eseguiti senza impatto sulle prestazioni o sulla disponibilità delle operazioni del database. Tutti i backup vengono archiviati separatamente in un altro servizio di archiviazione, oltre a essere replicati a livello globale per garantire la resilienza in caso di emergenze locali. I backup automatici sono destinati agli scenari in cui si elimina involontariamente il contenitore Cosmos DB e in un secondo momento è necessario il ripristino dei dati o una soluzione di ripristino di emergenza.  
@@ -37,7 +34,7 @@ L'immagine seguente illustra l'elevato grado di ridondanza con Cosmos DB.
 ![Elevato grado di ridondanza con Cosmos DB](./media/online-backup-and-restore/global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>Backup online, completi, automatici
-È possibile che il contenitore o il database venga eliminato. Con Cosmos DB, non solo i dati ma anche i relativi backup vengono resi altamente ridondanti e resilienti in caso di emergenze locali. I backup automatici vengono attualmente eseguiti ogni quattro ore circa; ogni volta vengono archiviati i due backup più recenti. Se i dati vengono involontariamente eliminati o danneggiati, [contattare il supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro otto ore. 
+È possibile che il contenitore o il database venga eliminato. Con Cosmos DB, non solo i dati ma anche i relativi backup vengono resi altamente ridondanti e resilienti in caso di emergenze locali. I backup automatici vengono attualmente eseguiti ogni quattro ore circa; ogni volta vengono archiviati i due backup più recenti. Se i dati vengono involontariamente eliminati o danneggiati, contattare il [supporto tecnico di Azure](https://azure.microsoft.com/support/options/) entro otto ore. 
 
 I backup vengono eseguiti senza influenzare le prestazioni o la disponibilità delle operazioni del database. Cosmos DB esegue il backup in background senza utilizzare le UR di cui è stato effettuato il provisioning o influenzare le prestazioni e senza influire sulla disponibilità del database. 
 
@@ -57,7 +54,7 @@ Per l'API SQL, se si vuole mantenere gli snapshot, è possibile usare l'opzione 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Ripristino di un database da un backup online
-Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, inclusa l'eliminazione di documenti contenuti in una raccolta, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati sovrascrivano i backup esistenti. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
+Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Il supporto di Azure è disponibile solo per piani selezionati, ad esempio Standard e Developer. Il supporto non è disponibile per il piano Basic. Per altre informazioni su piani di supporto diversi, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/en-us/support/plans/). Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, inclusa l'eliminazione di documenti contenuti in una raccolta, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati sovrascrivano i backup esistenti. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
 
 ## <a name="handling-data-corruption"></a>Gestione del danneggiamento dei dati
 Azure Cosmos DB conserva gli ultimi due backup di ogni partizione nell'account del database. Questo modello è ideale quando un contenitore (raccolta di documenti, grafo, tabella) o un database viene eliminato involontariamente perché consente di ripristinare una delle versioni più recenti. Se tuttavia gli utenti causano un problema di danneggiamento dei dati, Azure Cosmos DB potrebbe non rilevare il danneggiamento dei dati, che potrebbero quindi aver sovrascritto i dati nei backup esistenti. Non appena il danneggiamento viene rilevato, l'utente deve eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati.

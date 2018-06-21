@@ -2,23 +2,20 @@
 title: Uso dei dati geospaziali in Azure Cosmos DB | Microsoft Docs
 description: Informazioni su come creare, indicizzare e sottoporre a query oggetti spaziali con Azure Cosmos DB e l'API SQL.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611368"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Uso dei dati geospaziali e dei dati località GeoJSON in Azure Cosmos DB
 Questo articolo offre un'introduzione alla funzionalità geospaziale in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -98,7 +95,7 @@ Oltre ai punti, GeoJSON supporta oggetti linestring e poligoni. **LineStrings** 
 Oltre a punto, LineString e poligono, GeoJSON specifica anche la rappresentazione della modalità di raggruppamento di più posizioni geospaziali, nonché come associare proprietà arbitrarie alla georilevazione come **caratteristiche**. Trattandosi di oggetti JSON validi, essi possono essere archiviati ed elaborati tutti in Azure Cosmos DB. Azure Cosmos DB supporta tuttavia solo l'indicizzazione automatica dei punti.
 
 ### <a name="coordinate-reference-systems"></a>Sistemi di riferimento delle coordinate
-Poiché la forma della terra è irregolare, le coordinate dei dati geospaziali sono rappresentate in molti sistemi di coordinate di riferimento (CRS), ognuno con la propria struttura di riferimento e le proprie unità di misura. Ad esempio, il "National Grid of Britain" è un sistema di riferimento molto accurato per il Regno Unito, ma non al suo esterno. 
+Poiché la forma della terra è irregolare, le coordinate dei dati geospaziali sono rappresentate in molti sistemi di coordinate di riferimento (CRS), ognuno con la propria struttura di riferimento e le proprie unità di misura. Ad esempio, il "National Grid of Britain" è un sistema di riferimento accurato per il Regno Unito, ma non al di fuori di questo. 
 
 Il più diffuso CRS attualmente in uso è il World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivi GPS e molti servizi di mapping, tra cui Google Maps e le API di Bing Maps, utilizzano WGS-84. Azure Cosmos DB supporta l'indicizzazione e l'esecuzione di query di dati geospaziali usando solo il CRS WGS-84. 
 
@@ -223,7 +220,7 @@ Gli argomenti Polygon in ST_WITHIN possono contenere solo un anello singolo, in 
 > 
 > 
 
-Azure Cosmos DB supporta anche l'esecuzione di query inverse. In altre parole, è possibile indicizzare poligoni o linee in Azure Cosmos DB e quindi eseguire una query per le aree che contengono un punto specificato. Questo modello viene comunemente usato nella logistica per identificare, ad esempio, quando un furgone entra o esce da un'area designata. 
+Azure Cosmos DB supporta anche l'esecuzione di query inverse. In altre parole, è possibile indicizzare poligoni o linee in Azure Cosmos DB e quindi eseguire una query per le aree che contengono un punto specificato. Questo modello viene comunemente usato nella logistica per identificare, ad esempio, quando un autocarro entra o esce da un'area designata. 
 
 **Query**
 
@@ -272,7 +269,7 @@ Queste funzioni possono essere usate anche per convalidare i poligoni. Ad esempi
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>Query di LINQ in .NET SDK
-SQL .NET SDK è anche dotato di metodi stub `Distance()` e `Within()` per l'uso all'interno di espressioni LINQ. Il provider LINQ SQL converte le chiamate di questi metodi nelle chiamate delle funzioni SQL predefinite equivalenti (ST_DISTANCE e ST_WITHIN rispettivamente). 
+SQL .NET SDK è anche dotato di metodi stub `Distance()` e `Within()` per l'uso all'interno di espressioni LINQ. Il provider LINQ SQL converte le chiamate di questo metodo nelle chiamate delle funzioni SQL predefinite equivalenti (ST_DISTANCE e ST_WITHIN rispettivamente). 
 
 Di seguito è riportato un esempio di query LINQ che consente di trovare tutti i documenti nella raccolta di Azure Cosmos DB il cui valore "location" è entro un raggio di 30 km dal punto specificato con LINQ.
 
@@ -391,7 +388,7 @@ Di seguito viene descritto come modificare una raccolta esistente per sfruttare 
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Ora che si è appreso come iniziare a usare il supporto geospaziale in Azure Cosmos DB, è possibile:
+Ora che si è appreso come iniziare a usare il supporto geospaziale in Azure Cosmos DB, ecco le attività successive possibili:
 
 * Iniziare a codificare con gli [esempi di codice .NET geospaziale in GitHub](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Usare le query geospaziali in [Query Playground di Azure Cosmos DB](http://www.documentdb.com/sql/demo#geospatial)

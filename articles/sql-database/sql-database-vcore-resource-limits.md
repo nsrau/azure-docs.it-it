@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: carlrab
-ms.openlocfilehash: d225af55a705d56a94bb0e8dcfcc938b64f3633a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 324f9f35de37c717d57e46413cd881dce785f4fd
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210801"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737664"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-preview"></a>Limiti del modello di acquisto in base ai vCore per il database SQL di Azure (anteprima)
 
@@ -50,11 +50,11 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |||
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Livello di prestazioni|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48| GP_Gen5_80|
+|Livello di prestazioni|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
-|vCore|2|4|8|16|24|32|48|80|
-|Memoria (GB)|11|22|44|88|132|176|264|440|
+|vCore|2|4|8|16|24|32|40|80|
+|Memoria (GB)|11|22|44|88|132|176|220|440|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
@@ -63,7 +63,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Dimensioni massime dei log|307|307|461|614|1229|1229|1229|1229|
 |Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4800|8000|
+|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|1|1|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -90,28 +90,28 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|3|3|3|3|3|3|
-|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Livello di prestazioni|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Livello di prestazioni|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|
-|vCore|2|4|8|16|24|32|48|80|
-|Memoria (GB)|11|22|44|88|132|176|264|440|
+|vCore|2|4|8|16|24|32|40|80|
+|Memoria (GB)|11|22|44|88|132|176|220|440|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Dimensioni massime dei log|307|307|307|307|614|1229|1229|1229|
 |Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
-|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
-|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4800|8000|
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
+|Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
-|Numero di repliche|1|1|1|1|1|1|1|1|
+|Numero di repliche|3|3|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
@@ -175,11 +175,11 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |||
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Livello di prestazioni|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_48|GP_Gen5_80|
+|Livello di prestazioni|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|
-|vCore|2|4|8|16|24|32|48|80|
-|Memoria (GB)|11|22|44|88|132|176|264|440|
+|vCore|2|4|8|16|24|32|40|80|
+|Memoria (GB)|11|22|44|88|132|176|220|440|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
@@ -188,10 +188,10 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
-|Numero massimo di ruoli di lavoro simultanei (richieste)|210|420|840|1680|2520|3360|5040|8400
+|Numero massimo di ruoli di lavoro simultanei (richieste)|210|420|840|1680|2520|3360|4200|8400
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
 |Massima densità dei pool|100|200|500|500|500|500|500|500|
-|Numero minimo/massimo di arresti del pool elastico|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
+|Numero minimo/massimo di arresti del pool elastico|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Numero di repliche|1|1|1|1|1|1|1|1|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -218,30 +218,32 @@ Per i pool elastici del database SQL le tabelle seguenti illustrano le risorse d
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Massima densità dei pool|N/D|50|100|100|100|100|
 |Numero minimo/massimo di arresti del pool elastico|N/D|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
-|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
+|Numero di repliche|3|3|3|3|3|3|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
 #### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Livello di prestazioni|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_48|BC_Gen5_80|
+|Livello di prestazioni|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|
-|vCore|2|4|8|16|24|32|48|80|
-|Memoria (GB)|11|22|44|88|132|176|264|440|
+|vCore|2|4|8|16|24|32|40|80|
+|Memoria (GB)|11|22|44|88|132|176|220|440|
 |Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|68.104|131.64|
+|Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Dimensioni massime dei log|307|307|307|307|614|1229|1229|1229|
 |Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
-|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|120000|200000
+|Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Numero massimo di ruoli di lavoro simultanei (richieste)|210|420|840|1680|2520|3360|5040|8400|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
 |Massima densità dei pool|N/D|50|100|100|100|100|100|100|
-|Numero minimo/massimo di arresti del pool elastico|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 48, 80|
-|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
+|Numero minimo/massimo di arresti del pool elastico|N/D|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Numero di repliche|3|3|3|3|3|3|3|3|
+|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||

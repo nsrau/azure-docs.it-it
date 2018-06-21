@@ -1,25 +1,19 @@
 ---
-title: 'Metriche di Monitoraggio di Azure: metriche supportate per tipo di risorsa | Microsoft Docs'
+title: Metriche supportate dal Monitoraggio di Azure per tipo di risorsa
 description: Elenco delle metriche disponibili per ogni tipo di risorsa con il monitoraggio di Azure.
 author: anirudhcavale
-manager: ashwink
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: metrics
+ms.openlocfilehash: d7d51a7c037e109c730dd79005a2c75eeb0697c0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779091"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266893"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Metriche supportate con il monitoraggio di Azure
 Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra cui la creazione di grafici nel portale, l'accesso tramite l'API REST o l'esecuzione di query tramite PowerShell o l'interfaccia della riga di comando. Di seguito è riportato un elenco completo di tutte le metriche attualmente disponibili con la pipeline delle metriche di monitoraggio di Azure. Altre metriche potrebbero essere disponibili nel portale o tramite le API legacy. L'elenco riportato di seguito include solo le metriche disponibili tramite la pipeline delle metriche di Monitoraggio di Azure consolidata. Per cercare metriche e per accedervi, usare la [versione API 2018-01-01](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -431,11 +425,11 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 
 |Metrica|Nome visualizzato per la metrica|Unità|Tipo di aggregazione|DESCRIZIONE|Dimensioni|
 |---|---|---|---|---|---|
-|kube_node_status_allocatable_cpu_cores|Total number of available cpu cores in a managed cluster (Numero totale di core CPU disponibili in un cluster gestito)|Conteggio|Totale|Numero totale di core CPU disponibili in un cluster gestito|Nessuna dimensione|
-|kube_node_status_allocatable_memory_bytes|Total amount of available memory in a managed cluster (Numero totale di memoria disponibile in un cluster gestito)|Byte|Totale|Numero totale di memoria disponibile in un cluster gestito|Nessuna dimensione|
-|kube_pod_status_ready|Number of pods in Ready state (Numero di pod in stato Pronto)|Conteggio|Totale|Numero di pod in stato Pronto|spazio dei nomi, pod|
-|kube_node_status_condition|Statuses for various node conditions (Stati per diverse condizioni dei nodi)|Conteggio|Totale|Stati per diverse condizioni dei nodi|condizione, stato, nodo|
-|kube_pod_status_phase|Number of pods by phase (Numero di pod per fase)|Conteggio|Totale|Numero di pod per fase|fase, spazio dei nomi, pod|
+|kube_node_status_allocatable_cpu_cores|Numero totale di core CPU disponibili in un cluster gestito|Conteggio|Totale|Numero totale di core CPU disponibili in un cluster gestito|Nessuna dimensione|
+|kube_node_status_allocatable_memory_bytes|Numero totale di memoria disponibile in un cluster gestito|Byte|Totale|Numero totale di memoria disponibile in un cluster gestito|Nessuna dimensione|
+|kube_pod_status_ready|Numero di pod in stato Pronto|Conteggio|Totale|Numero di pod in stato Pronto|spazio dei nomi, pod|
+|kube_node_status_condition|Stati per diverse condizioni dei nodi|Conteggio|Totale|Stati per diverse condizioni dei nodi|condizione, stato, nodo|
+|kube_pod_status_phase|Numero di pod per fase|Conteggio|Totale|Numero di pod per fase|fase, spazio dei nomi, pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
 
@@ -520,12 +514,12 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
 |memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|serverlog_storage_percent|Server Log storage percent (Percentuale archiviazione log server)|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
-|serverlog_storage_usage|Server Log storage used (Archiviazione log server usata)|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
-|serverlog_storage_limit|Server Log storage limit (Limite archiviazione log server)|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
+|serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Media|Numero totale di connessioni attive|Nessuna dimensione|
 |connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Totale|Numero totale di connessioni non riuscite|Nessuna dimensione|
 
@@ -536,12 +530,12 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |cpu_percent|Percentuale CPU|Percentuale|Media|Percentuale CPU|Nessuna dimensione|
 |memory_percent|Percentuale memoria|Percentuale|Media|Percentuale memoria|Nessuna dimensione|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Media|IO percent (Percentuale IO)|Nessuna dimensione|
-|storage_percent|Percentuale archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
+|storage_percent|Percentuale di archiviazione|Percentuale|Media|Percentuale di archiviazione|Nessuna dimensione|
 |storage_used|Uso archiviazione|Byte|Media|Uso archiviazione|Nessuna dimensione|
 |storage_limit|Limite archiviazione|Byte|Media|Limite archiviazione|Nessuna dimensione|
-|serverlog_storage_percent|Server Log storage percent (Percentuale archiviazione log server)|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
-|serverlog_storage_usage|Server Log storage used (Archiviazione log server usata)|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
-|serverlog_storage_limit|Server Log storage limit (Limite archiviazione log server)|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_percent|Percentuale di archiviazione dei log del server|Percentuale|Media|Percentuale di archiviazione dei log del server|Nessuna dimensione|
+|serverlog_storage_usage|Archiviazione dei log del server usata|Byte|Media|Archiviazione dei log del server usata|Nessuna dimensione|
+|serverlog_storage_limit|Limite di archiviazione dei log del server|Byte|Media|Limite di archiviazione dei log del server|Nessuna dimensione|
 |active_connections|Total active connections (Numero totale di connessioni attive)|Conteggio|Totale|Numero totale di connessioni attive|Nessuna dimensione|
 |connections_failed|Total failed connections (Numero totale di connessioni non riuscite)|Conteggio|Totale|Numero totale di connessioni non riuscite|Nessuna dimensione|
 
@@ -1236,13 +1230,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
 |IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
 |IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|RequestsInApplicationQueue|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
 |CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
-|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
+|TotalAppDomains|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (funzioni)
 
@@ -1261,13 +1255,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
 |IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
 |IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|RequestsInApplicationQueue|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
 |CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
-|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
+|TotalAppDomains|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1300,13 +1294,13 @@ Il monitoraggio di Azure offre diversi modi per interagire con le metriche, tra 
 |IoReadOperationsPerSecond|I/O - Operazioni di lettura al secondo|Byte al secondo|Totale|I/O - Operazioni di lettura al secondo|Istanza|
 |IoWriteOperationsPerSecond|I/O - Operazioni di scrittura al secondo|Byte al secondo|Totale|I/O - Operazioni di scrittura al secondo|Istanza|
 |IoOtherOperationsPerSecond|I/O - Altre operazioni al secondo|Byte al secondo|Totale|I/O - Altre operazioni al secondo|Istanza|
-|RequestsInApplicationQueue|Requests In Application Queue (Richieste nella coda dell'applicazione)|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
+|RequestsInApplicationQueue|Richieste nella coda dell'applicazione|Conteggio|Media|Richieste nella coda dell'applicazione|Istanza|
 |CurrentAssemblies|Assembly attuali|Conteggio|Media|Assembly attuali|Istanza|
-|TotalAppDomains|Totale domini app|Conteggio|Media|Totale di domini app|Istanza|
-|TotalAppDomainsUnloaded|Totale domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
-|Gen0Collections|Gen 0 Garbage Collections (Garbage Collection di generazione 0)|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
-|Gen1Collections|Gen 1 Garbage Collections (Garbage Collection di generazione 1)|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
-|Gen2Collections|Gen 2 Garbage Collections (Garbage Collection di generazione 2)|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
+|TotalAppDomains|Totale di domini app|Conteggio|Media|Totale di domini app|Istanza|
+|TotalAppDomainsUnloaded|Totale di domini app scaricati|Conteggio|Media|Totale di domini app scaricati|Istanza|
+|Gen0Collections|Garbage Collection di generazione 0|Conteggio|Totale|Garbage Collection di generazione 0|Istanza|
+|Gen1Collections|Garbage Collection di generazione 1|Conteggio|Totale|Garbage Collection di generazione 1|Istanza|
+|Gen2Collections|Garbage Collection di generazione 2|Conteggio|Totale|Garbage Collection di generazione 2|Istanza|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

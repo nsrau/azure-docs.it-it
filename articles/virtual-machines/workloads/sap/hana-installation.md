@@ -1,32 +1,32 @@
 ---
-title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs
+title: Installare SAP HANA su SAP HANA in Azure (istanze di grandi dimensioni) | Documentazione Microsoft
 description: Come installare SAP HANA in SAP HANA in Azure (istanza di grandi dimensioni).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778597"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763451"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze di grandi dimensioni) in Azure
 
 Di seguito sono disponibili alcune definizioni importanti, che è necessario conoscere prima di leggere questa guida. In [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) vengono illustrate le due classi diverse di istanze Large di Hana con:
 
-- S72, S72m, S144, S144m, S192 e S192m, definiti SKU di "Classe di tipo I".
-- La "classe di tipo II" include gli SKU S384, S384m, S384xm, S576m, S768m e S960m.
+- S72, S72m, S144, S144m, S192, S192m e S192xm, definiti SKU di "Classe di tipo I".
+- La "classe di tipo II" di SKU include S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm e S960m.
 
 L'identificatore di classe verrà usato in tutta la documentazione relativa alle istanze Large di HANA, per fare riferimento a diverse funzionalità e requisiti in base agli SKU di istanze Large di HANA.
 

@@ -4,46 +4,44 @@ description: Informazioni su come comprendere, specificare e stimare i requisiti
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 0aa87aeaf852d7309c29c1298e326c101a944904
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823724"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. È possibile accedere ai dati usando le API preferite, ad esempio l'[API SQL](documentdb-introduction.md), l'[API MongoDB](mongodb-introduction.md), l'[API Table](table-introduction.md) e Graph tramite l'[API Gremlin](graph-introduction.md). Tutte queste API sono supportate a livello nativo. 
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. È possibile accedere ai dati tramite le API di propria scelta, come le API [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md) e [tabella](table-introduction.md) e il grafo tramite l'[API Gremlin](graph-introduction.md). Tutte le API sono supportate in modo nativo. 
 
-La valuta di Azure Cosmos DB è costituita dalle **unità richiesta (UR)**. Con le unità richiesta, non è necessario riservare capacità di lettura/scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo. Azure Cosmos DB supporta una serie di API con operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di **unità richiesta** in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico ed è possibile tenere traccia del numero di unità richiesta utilizzate da qualsiasi operazione in Azure Cosmos DB tramite un'intestazione della risposta. 
+La valuta di Azure Cosmos DB è costituita dall'*unità richiesta (UR)*. Con le unità richiesta, non è necessario riservare capacità di lettura/scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo. Azure Cosmos DB supporta varie API che dispongono di operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di unità richiesta in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico. È possibile tenere traccia del numero di unità richiesta usate da qualsiasi operazione nel database di Azure Cosmos tramite un'intestazione di risposta. 
 
-Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. È possibile [eseguire una stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs) usando il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB.
+Per prestazioni prevedibili, riservare una velocità effettiva in unità di 100 UR/secondo. È possibile [eseguire una stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs) usando il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB.
 
 ![Calcolatore della velocità effettiva][5]
 
-Alla fine della lettura, si avranno le risposte alle domande seguenti:  
+Alla fine della lettura, si avranno le risposte alle domande seguenti:
 
 * Cosa sono le unità richiesta e gli addebiti richiesta in Azure Cosmos DB?
 * Come è possibile specificare la capacità delle unità richiesta per un contenitore o un set di contenitori in Azure Cosmos DB?
 * Come si possono stimare le esigenze relative alle unità richiesta per l'applicazione?
 * Cosa succede se si supera la capacità delle unità richiesta per un contenitore o un set di contenitori in Azure Cosmos DB?
 
-Dal momento che Azure Cosmos DB è un database multimodello, è importante tenere presente che questo articolo è applicabile a tutti i modelli di dati e le API in Azure Cosmos DB. Questo articolo usa termini generici, come *contenitore* ed *elemento*, per fare riferimento in modo generico a una raccolta, un grafo o una tabella e un documento, un nodo o un'entità, rispettivamente.
+Poiché Azure Cosmos DB è un database multimodello, è importante tenere presente che questo articolo è applicabile a tutti i modelli di dati e alle API di Azure Cosmos DB. Questo articolo usa termini generici quali *contenitore* per fare riferimento in modo generico a una raccolta o un grafico e *elemento* per fare riferimento in modo generico a una tabella, documento, nodo o entità.
 
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
-Azure Cosmos DB offre prestazioni veloci e prevedibili, *riservando* risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione.  Poiché i modelli di carico e accesso dell'applicazione cambiano nel tempo, Azure Cosmos DB consente di aumentare o diminuire facilmente la quantità di velocità effettiva riservata disponibile per l'applicazione.
 
-Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborate al secondo. Si possono considerare le unità richiesta come una specie di valuta della velocità effettiva, secondo cui si *riserva* una quantità garantita di unità richiesta disponibili al secondo per l'applicazione.  Ogni operazione in Azure Cosmos DB, ovvero scrittura di un documento, esecuzione di una query, aggiornamento di un documento, utilizza CPU, memoria e operazioni di I/O al secondo.  In altre parole, ogni operazione comporta un *addebito richiesta* espresso in *unità richiesta*.  La conoscenza dei fattori che influiscono sugli addebiti delle unità richiesta, insieme ai requisiti di velocità effettiva dell'applicazione, consente di eseguire l'applicazione nel modo più economicamente conveniente possibile. Anche Esplora dati nel portale di Azure è un ottimo strumento per testare gli elementi di base di una query.
+Azure Cosmos DB offre prestazioni veloci e prevedibili, riservando risorse per soddisfare le esigenze a livello di velocità effettiva dell'applicazione. Il carico dell'applicazione e i modelli di accesso cambiano nel tempo. Azure Cosmos DB consente di aumentare o diminuire agevolmente la quantità di velocità effettiva disponibile per l'applicazione.
 
-È consigliabile guardare prima di tutto il video seguente, in cui Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta.
+Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborata al secondo. Le unità richiesta possono essere considerate come valuta effettiva. Si riservano diverse unità richiesta garantite perché siano disponibili al secondo per l'applicazione. Ogni operazione in Azure Cosmos DB, tra cui scrittura di un documento, esecuzione di una query e aggiornamento di un documento, usa CPU, memoria e operazioni di I/O al secondo. In altre parole, ogni operazione comporta un addebito richiesta espresso in unità richiesta. Quando si riconoscono i fattori che influiscono sugli addebiti delle unità richiesta e i requisiti di velocità effettiva dell'applicazione, è possibile eseguire l'applicazione nel modo più economicamente conveniente possibile. 
+
+Per aiutare gli utenti a iniziare, Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta nel video seguente: <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -51,7 +49,7 @@ Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento della velocità effettiva nei database distribuiti a livello globale
 
-In caso di replica del database in più di un'area, Azure Cosmos DB implementa l'isolamento della velocità effettiva per assicurare che l'uso delle unità richiesta in un'area non abbia ripercussioni negative sull'uso delle unità richiesta in un'altra area. Ad esempio, se si eseguono un'operazione di scrittura di dati in un'area e un'operazione di lettura di dati in un'altra area, le unità richiesta usate per eseguire l'operazione di scrittura nell'area *A* non vengono detratte dalle unità richiesta usate per l'operazione di lettura eseguita nell'area *B*. Le unità richiesta non vengono suddivise tra le aree in cui è stata eseguita la distribuzione. Ogni area in cui il database viene replicato dispone di tutte le unità richiesta per le quali è stato eseguito il provisioning. Per altre informazioni sulla replica globale, vedere [Come distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md).
+Se si replica il database in più di un'area, Azure Cosmos DB implementa l'isolamento della velocità effettiva per assicurare che l'uso delle unità richiesta in un'area non abbia ripercussioni sull'uso delle unità richiesta in un'altra area. Ad esempio, se si eseguono un'operazione di scrittura di dati in un'area e un'operazione di lettura di dati in un'altra area, le unità richiesta usate per eseguire l'operazione di scrittura nell'area A non vengono detratte dalle unità richiesta usate per l'operazione di lettura eseguita nell'area B. Le unità richiesta non vengono suddivise tra le aree in cui è stata eseguita la distribuzione del database. Ogni area in cui il database viene replicato dispone di tutte le unità richiesta per le quali è stato eseguito il provisioning. Per altre informazioni sulla replica globale, vedere [Come distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md).
 
 ## <a name="request-unit-considerations"></a>Considerazioni sulle unità richiesta
 Quando si stima il numero di unità richiesta di cui eseguire il provisioning, è importante considerare le variabili seguenti:
@@ -61,68 +59,31 @@ Quando si stima il numero di unità richiesta di cui eseguire il provisioning, �
 * **Coerenza dei dati**. Se si usano modelli di coerenza dei dati come Assoluta o Decadimento ristretto, verranno usate unità richiesta aggiuntive per leggere gli elementi.
 * **Proprietà indicizzate**. I criteri di indicizzazione in ogni contenitore determinano le proprietà che vengono indicizzate per impostazione predefinita. È possibile ridurre l'utilizzo di unità richiesta per operazioni di scrittura limitando il numero di proprietà indicizzate o abilitando l'indicizzazione differita.
 * **Indicizzazione del documento**. Per impostazione predefinita, ogni elemento viene automaticamente indicizzato. Se si sceglie di non indicizzare alcuni elementi, è possibile usare un numero inferiore di unità richiesta.
-* **Modelli di query**. La complessità di una query influisce sulla quantità di unità richiesta usate per un'operazione. Il numero di risultati di query, il numero di predicati, la natura dei predicati, le proiezioni, il numero di funzioni definite dall'utente e le dimensioni dei dati di origine sono tutti fattori che incidono sul costo delle operazioni di query.
-* **Utilizzo di script**.  Come le query, le stored procedure e i trigger utilizzano le unità richiesta in base alla complessità delle operazioni da eseguire. Quando si sviluppa l'applicazione, controllare l'intestazione per l'addebito delle richieste per comprendere meglio il modo in cui ciascuna operazione usa la capacità delle unità di richiesta.
+* **Modelli di query**. La complessità di una query influisce sulla quantità di unità richiesta usate per un'operazione. Il numero di risultati di query, il numero di predicati, la natura dei predicati, il numero di funzioni definite dall'utente, le dimensioni dei dati di origine e le proiezioni sono tutti fattori che incidono sul costo delle operazioni di query.
+* **Utilizzo di script**. Come le query, le stored procedure e i trigger utilizzano le unità richiesta in base alla complessità delle operazioni da eseguire. Quando si sviluppa l'applicazione, controllare l'intestazione per l'addebito delle richieste per comprendere meglio il modo in cui ciascuna operazione usa la capacità delle unità di richiesta.
 
 ## <a name="estimating-throughput-needs"></a>Stima delle esigenze di velocità effettiva
-Un'unità di richiesta è una misura normalizzata del costo di elaborazione della richiesta. Una singola unità richiesta rappresenta la capacità di elaborazione necessaria per leggere, tramite collegamento automatico o ID, un singolo elemento da 1 KB costituito da 10 valori di proprietà univoci, escluse le proprietà di sistema. Una richiesta di creazione (inserimento), sostituzione o eliminazione dello stesso elemento utilizzerà più capacità di elaborazione del servizio e quindi più unità richiesta.   
+Un'unità di richiesta è una misura normalizzata del costo di elaborazione della richiesta. Una singola unità richiesta rappresenta la capacità di elaborazione necessaria per leggere, tramite collegamento automatico o ID, un singolo elemento da 1 KB costituito da 10 valori di proprietà univoci, escluse le proprietà di sistema. Una richiesta di creazione (inserimento), sostituzione o eliminazione dello stesso elemento userà più capacità di elaborazione del servizio e quindi richiederà più unità richiesta. 
 
 > [!NOTE]
 > La base di 1 unità richiesta per un elemento da 1 KB corrisponde a una semplice operazione GET tramite collegamento automatico o ID dell'elemento.
 > 
 > 
 
-La tabella riportata di seguito mostra il numero di unità richiesta di cui effettuare il provisioning per elementi con tre dimensioni diverse, ovvero 1 KB, 4 KB e 64 KB, e due livelli di prestazioni diversi, ovvero 500 letture al secondo + 100 scritture al secondo e 500 letture al secondo + 500 scritture al secondo. La coerenza dei dati è stata configurata come *Sessione* e i criteri di indicizzazione sono stati impostati su *Nessuno*.
+La tabella riportata di seguito mostra il numero di unità richiesta di cui effettuare il provisioning per elementi con tre dimensioni diverse, ovvero 1 KB, 4 KB e 64 KB, e due livelli di prestazioni diversi, ovvero 500 letture al secondo + 100 scritture al secondo e 500 letture al secondo + 500 scritture al secondo. In questo esempio, la coerenza dei dati è impostata come **Sessione** e i criteri di indicizzazione sono impostati su **Nessuno**.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p><strong>Dimensioni dell'elemento</strong></p></td>
-            <td valign="top"><p><strong>Letture al secondo</strong></p></td>
-            <td valign="top"><p><strong>Scritture al secondo</strong></p></td>
-            <td valign="top"><p><strong>Unità richiesta</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>1 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1) + (100 * 5) = 1.000 UR/sec</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>1 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1) + (500 * 5) = 3.000 UR/sec</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>4 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 1,3) + (100 * 7) = 1.350 UR/sec</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>4 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 1,3) + (500 * 7) = 4.150 UR/sec</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>64 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>100</p></td>
-            <td valign="top"><p>(500 * 10) + (100 * 48) = 9.800 UR/sec</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>64 KB</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>500</p></td>
-            <td valign="top"><p>(500 * 10) + (500 * 48) = 29.000 UR/sec</p></td>
-        </tr>
-    </tbody>
-</table>
+| Dimensioni dell'elemento | Letture al secondo | Scritture al secondo | Unità richiesta
+| --- | --- | --- | --- |
+| 1 KB | 500 | 100 | (500 * 1) + (100 * 5) = 1.000 UR/sec
+| 1 KB | 500 | 500 | (500 * 1) + (500 * 5) = 3.000 UR/sec
+| 4 KB | 500 | 100 | (500 * 1,3) + (100 * 7) = 1.350 UR/sec
+| 4 KB | 500 | 500 | (500 * 1,3) + (500 * 7) = 4.150 UR/sec
+| 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9.800 UR/sec
+| 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29.000 UR/sec
+
 
 ### <a name="use-the-request-unit-calculator"></a>Usare il calcolatore di unità richiesta
-Per semplificare l'ottimizzazione delle stime di velocità effettiva da parte dei clienti, è disponibile un [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) basato sul Web, che consente di stimare i requisiti relativi alle unità richiesta per operazioni tipiche, incluse le seguenti:
+Per ottimizzare le stime della velocità effettiva, è possibile usare una [calcolatrice di unità richiesta](https://www.documentdb.com/capacityplanner) basata sul web. La calcolatrice può aiutare a stimare i requisiti dell'unità richiesta per operazioni tipiche, tra cui:
 
 * Creazione di elementi (scrittura)
 * Lettura di elementi
@@ -131,16 +92,16 @@ Per semplificare l'ottimizzazione delle stime di velocità effettiva da parte de
 
 Lo strumento include anche il supporto per la stima delle esigenze di archiviazione dei dati in base agli elementi di esempio specificati.
 
-L'uso dello strumento è molto semplice:
+Per usare lo strumento:
 
 1. Caricare uno o più elementi rappresentativi, ad esempio un documento JSON.
    
     ![Caricare elementi nel calcolatore di unità richiesta][2]
 2. Per stimare i requisiti di archiviazione, immettere il numero totale di elementi (ad esempio, documenti, righe o vertici) che si prevede di archiviare.
-3. Immettere il numero di operazioni di creazione, lettura, aggiornamento ed eliminazione necessarie (al secondo). Per stimare gli addebiti delle unità richiesta per le operazioni di aggiornamento di elementi, caricare una copia dell'elemento di esempio usato nel passaggio 1 precedente che include aggiornamenti di campi tipici.  Ad esempio, se gli aggiornamenti di elementi modificano in genere due proprietà denominate *lastLogin* e *userVisits*, copiare un elemento di esempio, aggiornare i valori per queste due proprietà e caricare l'elemento copiato.
+3. Immettere il numero di operazioni di creazione, lettura, aggiornamento ed eliminazione necessarie (al secondo). Per stimare gli addebiti delle unità richiesta per le operazioni di aggiornamento di elementi, caricare una copia dell'elemento di esempio usato nel passaggio 1 che include aggiornamenti di campi tipici. Ad esempio, se gli aggiornamenti di elementi modificano in genere due proprietà denominate *lastLogin* e *userVisits*, copiare un elemento di esempio, aggiornare i valori per queste due proprietà e successivamente caricare l'elemento copiato.
    
     ![Immettere i requisiti relativi alla velocità effettiva nel calcolatore di unità richiesta][3]
-4. Fare clic su Calcola ed esaminare i risultati.
+4. Selezionare **Calcola**, quindi esaminare i risultati.
    
     ![Risultati del calcolatore di unità richiesta][4]
 
@@ -150,26 +111,26 @@ L'uso dello strumento è molto semplice:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di Azure Cosmos DB
-Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta usate per una determinata richiesta. Questa intestazione è accessibile anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, `RequestCharge` è una proprietà dell'oggetto `ResourceResponse`.  Per quanto riguarda le query, Esplora dati di Azure Cosmos DB disponibile nel portale di Azure offre informazioni sugli addebiti per le richieste relative alle query eseguite.
+Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta usate per una determinata richiesta. È possibile accedere a questa intestazione anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, **RequestCharge** è una proprietà dell'oggetto **ResourceResponse**. Per quanto riguarda le query, Esplora dati di Azure Cosmos DB disponibile nel portale di Azure offre informazioni sugli addebiti per le richieste relative alle query eseguite.
 
-Con questa premessa, un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione e quindi nello stimare il numero di operazioni che si prevede di eseguire al secondo.  Assicurarsi di misurare e includere anche le query tipiche e l'utilizzo di script di Azure Cosmos DB.
+Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione. Quindi, stimare il numero di operazioni che si prevede di eseguire ogni secondo. Assicurarsi di misurare e includere anche le query tipiche e l'utilizzo di script di Azure Cosmos DB.
 
 > [!NOTE]
 > Se sono presenti tipi di elementi che variano notevolmente in termini di dimensioni e numero di proprietà indicizzate, registrare l'addebito delle unità richiesta per le operazioni applicabili associato a ogni *tipo* di elemento tipico.
 > 
 > 
 
-Ad esempio: 
+Ad esempio, di seguito vengono riportate le operazioni che è possibile eseguire:
 
 1. Registrare l'addebito delle unità richiesta di creazione (inserimento) di un elemento tipico. 
 2. Registrare l'addebito delle unità richiesta di lettura di un elemento tipico.
 3. Registrare l'addebito delle unità richiesta di aggiornamento di un elemento tipico.
 4. Registrare l'addebito delle unità richiesta di query tipiche su elementi comuni.
-5. Registrare l'addebito delle unità richiesta di tutti gli script personalizzati (stored procedure, trigger, funzioni definite dall'utente) utilizzati dall'applicazione.
+5. Registrare l'addebito delle unità richiesta di tutti gli script personalizzati (stored procedure, trigger, funzioni definite dall'utente) usati dall'applicazione.
 6. Calcolare le unità richiesta necessarie in base al numero stimato di operazioni che si prevede di eseguire al secondo.
 
 ## <a name="a-request-unit-estimate-example"></a>Esempio di stima delle unità richiesta
-Considerare questo documento da circa 1 KB:
+Si consideri il seguente documento, delle dimensioni approssimative di 1 kB:
 
 ```json
 {
@@ -222,11 +183,11 @@ Considerare questo documento da circa 1 KB:
 ```
 
 > [!NOTE]
-> I documenti sono minimizzati in Azure Cosmos DB, quindi le dimensioni del documento precedente calcolate dal sistema sono leggermente inferiori a 1 KB.
+> I documenti sono minimizzati in Azure Cosmos DB, quindi le dimensioni del documento precedente calcolate dal sistema sono leggermente inferiori a 1 kB.
 > 
 > 
 
-La tabella seguente mostra gli addebiti delle unità richiesta approssimativi per le operazioni tipiche su questo elemento. L'addebito delle unità richiesta approssimativo presuppone che il livello di coerenza dell'account sia impostato su *Sessione* e che tutti gli elementi siano indicizzati automaticamente:
+La tabella seguente mostra gli addebiti dell'unità richiesta approssimativi per le operazioni tipiche su questo elemento. (L'addebito di unità richiesta approssimativo presuppone che il livello di coerenza account sia impostato su **Sessione** e che tutti gli elementi siano indicizzati automaticamente.)
 
 | Operazione | Addebito delle unità richiesta |
 | --- | --- |
@@ -234,7 +195,7 @@ La tabella seguente mostra gli addebiti delle unità richiesta approssimativi pe
 | Leggere l'elemento |~1 unità richiesta |
 | Eseguire query sull'elemento in base all'ID |~2,5 unità richiesta |
 
-Questa tabella mostra anche gli addebiti approssimativi delle unità richiesta per le query tipiche usate nell'applicazione:
+La tabella seguente mostra gli addebiti approssimativi delle unità richiesta per le query tipiche usate nell'applicazione:
 
 | Query | Addebito delle unità richiesta | Numero di elementi restituiti |
 | --- | --- | --- |
@@ -250,7 +211,7 @@ Questa tabella mostra anche gli addebiti approssimativi delle unità richiesta p
 
 Con queste informazioni è possibile stimare i requisiti relativi alle unità richiesta per questa applicazione, dato il numero di operazioni e query previste al secondo:
 
-| Operazione/query | Numero stimato al secondo | Unità richiesta necessarie |
+| Operazione/query | Numero stimato al secondo | Unità richiesta desiderate |
 | --- | --- | --- |
 | Creare elemento |10 |150 |
 | Leggere l'elemento |100 |100 |
@@ -258,33 +219,25 @@ Con queste informazioni è possibile stimare i requisiti relativi alle unità ri
 | Selezionare per gruppo di alimenti |10 |700 |
 | Selezionare i primi 10 |15 |Totale 150 |
 
-Si prevede in questo caso un requisito di velocità effettiva medio di 1.275 unità richiesta al secondo.  Arrotondando a 100 unità più vicine, si dovrà effettuare il provisioning di 1300 unità richiesta al secondo per il contenitore dell'applicazione o per un set di contenitori.
+Si prevede in questo caso un requisito di velocità effettiva medio di 1.275 unità richiesta al secondo. Arrotondando a 100 unità più vicine, si dovrà effettuare il provisioning di 1300 unità richiesta al secondo per il contenitore dell'applicazione o per un set di contenitori.
 
 ## <a id="RequestRateTooLarge"></a> Superamento dei limiti della velocità effettiva riservata in Azure Cosmos DB
-Tenere presente che il consumo delle unità richiesta è valutato in base a una frequenza al secondo. Per le applicazioni che superano la frequenza di unità richiesta con provisioning, la frequenza delle richieste verrà limitata fino al ritorno della frequenza sotto il livello di velocità effettiva con provisioning. Quando la frequenza di una richiesta viene limitata, il server termina preventivamente la richiesta con `RequestRateTooLargeException` (codice di stato HTTP 429) e restituisce l'intestazione `x-ms-retry-after-ms`, che indica la quantità di tempo, in millisecondi, che l'utente deve attendere prima di eseguire di nuovo la richiesta.
+L'utilizzo di unità richiesta viene valutato con una tariffa al secondo. Per le applicazioni che superano la frequenza di unità richiesta con provisioning, la frequenza delle richieste viene limitata fino al ritorno della frequenza sotto il livello di velocità effettiva con provisioning. Quando la frequenza di una richiesta è limitata, il server la chiude in modo preventivo con `RequestRateTooLargeException` (codice di stato HTTP 429) e restituisce l'`x-ms-retry-after-ms` intestazione. L'intestazione indica il tempo, in millisecondi, che l'utente deve attendere prima di riprovare la richiesta.
 
     HTTP Status 429
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
 
-Se si usano le query LINQ e .NET SDK per client, non è quasi mai necessario gestire questa eccezione, perché la versione corrente di .NET SDK per client rileva la risposta in modo implicito, rispetta l'intestazione retry-after specificata dal server e ripete automaticamente la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo riuscirà.
+Se si usano le query .NET Client SDK e LINQ, la maggior parte delle volte non è necessario gestire questa eccezione. La versione corrente del Software Development Kit .NET Client cattura implicitamente questa risposta, rispetta l'intestazione retry-after specificata dal server e riprova automaticamente la richiesta. A meno che all'account non accedano contemporaneamente più client, il tentativo successivo riuscirà.
 
-Se più client operano collettivamente al di sopra della frequenza delle richieste, il comportamento di ripetizione dei tentativi predefinito potrebbe non essere sufficiente e il client genererà una `DocumentClientException` con codice di stato 429 per l'applicazione. In casi come questo, si può valutare la possibilità di gestire la logica e il comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione o di aumentare la velocità effettiva di cui è stato eseguito il provisioning per il contenitore o per il set di contenitori.
+Se più client operano collettivamente al di sopra della frequenza delle richieste, il comportamento di ripetizione dei tentativi predefinito potrebbe essere insufficiente e il client genererà una `DocumentClientException` con codice di stato 429 per l'applicazione. In casi come questo, si può valutare la possibilità di gestire la logica e il comportamento di ripetizione dei tentativi nelle routine di gestione degli errori dell'applicazione o di aumentare la velocità effettiva di cui è stato eseguito il provisioning per il contenitore o per il set di contenitori.
 
 ## <a name="next-steps"></a>Passaggi successivi
  
-Per informazioni su come impostare e ottenere la velocità effettiva tramite il portale di Azure e gli SDK vedere:
-
-* [Impostare e ottenere la velocità effettiva per i contenitori di Azure Cosmos DB](set-throughput.md)
-
-Per altre informazioni sulla velocità effettiva riservata con i database Azure Cosmos DB, vedere queste risorse:
-
-* [Prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/)
-* [Partizionamento dei dati in Azure Cosmos DB](partition-data.md)
-
-Per altre informazioni su Azure Cosmos DB, vedere la relativa [documentazione](https://azure.microsoft.com/documentation/services/cosmos-db/). 
-
-Per iniziare a testare la scalabilità e le prestazioni con Azure Cosmos DB, vedere [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
+- Informazioni su come [impostare e ottenere velocità effettiva in Azure Cosmos DB](set-throughput.md) tramite il portale di Azure e gli SDK.
+- Informazioni su [Test delle prestazioni e della scalabilità con Azure Cosmos DB](performance-testing.md).
+- Per altre informazioni sulla velocità effettiva riservata con i database Azure Cosmos DB, vedere [Prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) e [Partizionamento dei dati in Azure Cosmos DB](partition-data.md).
+- Per altre informazioni su Azure Cosmos DB, vedere la relativa [documentazione](https://azure.microsoft.com/documentation/services/cosmos-db/). 
 
 [2]: ./media/request-units/RUEstimatorUpload.png
 [3]: ./media/request-units/RUEstimatorDocuments.png

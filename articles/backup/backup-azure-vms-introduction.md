@@ -1,25 +1,20 @@
 ---
-title: Pianificare l'infrastruttura di backup delle VM in Azure | Documentazione Microsoft
+title: Pianificazione dell'infrastruttura di backup delle macchine virtuali in Azure
 description: Considerazioni importanti sulla pianificazione del backup di macchine virtuali in Azure
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: backup di vm, backup di macchine virtuali
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606087"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Pianificare l'infrastruttura di backup delle VM in Azure
 Questo articolo fornisce suggerimenti relativi alle prestazioni e alle risorse per semplificare la pianificazione dell'infrastruttura di backup delle macchine virtuali. Definisce anche gli elementi fondamentali del servizio Backup. Questi aspetti possono essere essenziali per determinare l'architettura, la pianificazione della capacità e la pianificazione generale. Se è stato [preparato l'ambiente](backup-azure-arm-vms-prepare.md), la pianificazione è il passaggio successivo prima di iniziare a [eseguire il backup delle VM](backup-azure-arm-vms.md). Per altre informazioni sulle macchine virtuali di Azure, vedere [Macchine virtuali - Documentazione](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -119,7 +114,7 @@ Un'operazione di ripristino è costituita da due sottoattività principali: la c
 * Pianificare i backup di macchine Virtuali durante le ore non di punta. In questo modo il servizio Backup usa le IOPS per il trasferimento dei dati dall'account di archiviazione del cliente all'insieme di credenziali.
 * Assicurarsi che un criterio faccia riferimento a VM in più account di archiviazione. È consigliabile non proteggere con la stessa pianificazione di backup più di 20 dischi in totale da un singolo account di archiviazione. Se un account di archiviazione include più di 20 dischi, suddividere le VM tra più criteri per ottenere i valori di IOPS necessari durante la fase di trasferimento del processo di backup.
 * Non ripristinare una macchina virtuale in esecuzione nell'Archiviazione Premium nello stesso account di archiviazione. Se il processo dell'operazione di ripristino coincide con l'operazione di backup, il valore di IOPS disponibile per il backup sarà ridotto.
-* Per il backup di VM Premium, verificare che l'account di archiviazione che ospita i dischi premium abbia almeno il 50% di spazio disponibile per la gestione temporanea degli snapshot perché il backup sia completato correttamente. 
+* Per il backup di macchine virtuali Premium nello stack di backup V1, è consigliabile allocare solo il 50% dello spazio totale dell'account di archiviazione, in modo che il servizio Backup di Azure possa copiare lo snapshot nell'account di archiviazione e trasferire i dati da tale posizione, copiata nell'account di archiviazione, all'insieme di credenziali.
 * Verificare che la versione di python nelle macchine virtuali Linux abilitate per il backup sia la 2.7
 
 ## <a name="data-encryption"></a>Crittografia dei dati

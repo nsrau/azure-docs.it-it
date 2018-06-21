@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012625"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726221"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione, stessa sottoscrizione
 
@@ -90,7 +90,7 @@ Per creare un peering di rete virtuale, è possibile usare il [portale di Azure]
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. Creare un gruppo di risorse e una rete virtuale con Resource Manager. È possibile usare l'interfaccia della riga di comando 1.0 o 2.0 ([installare](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In questa esercitazione, l'interfaccia della riga di comando 2.0 viene usata per creare la rete virtuale con Resource Manager, poiché è necessaria per creare il peering. Eseguire lo script dell'interfaccia della riga di comando bash seguente dal computer locale con l'interfaccia della riga di comando 2.0.4 o una versione successiva installata. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando bash nel client Windows, vedere [Esecuzione dell'interfaccia della riga di comando di Azure in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). È anche possibile eseguire lo script con Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare una Cloud Shell con cui è possibile accedere all'account Azure personale. Per eseguire lo script, fare clic sul pulsante **Copia** e incollarne il contenuto nella Cloud Shell, quindi premere `Enter`.
+5. Creare un gruppo di risorse e una rete virtuale con Resource Manager. È possibile usare l'interfaccia della riga di comando 1.0 o 2.0 ([installare](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). In questa esercitazione, l'interfaccia della riga di comando 2.0 viene usata per creare la rete virtuale con Resource Manager, poiché è necessaria per creare il peering. Eseguire lo script dell'interfaccia della riga di comando bash seguente dal computer locale con l'interfaccia della riga di comando 2.0.4 o una versione successiva installata. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando bash nel client Windows, vedere [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows). È anche possibile eseguire lo script con Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per richiamare una Cloud Shell con cui è possibile accedere all'account Azure personale. Per eseguire lo script, fare clic sul pulsante **Copia** e incollarne il contenuto nella Cloud Shell, quindi premere `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash

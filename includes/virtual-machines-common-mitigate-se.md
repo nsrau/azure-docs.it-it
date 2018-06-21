@@ -5,16 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34677360"
 ---
-**Ultimo aggiornamento del documento**: 3 aprile, 15.00 PST.
+**Ultimo aggiornamento del documento**: 21 maggio 2018 15.00 PST.
 
 La divulgazione recente di una [nuova classe di vulnerabilità della CPU](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), definita attacchi del canale laterale per l'esecuzione speculativa, ha suscitato molte domande e richieste di chiarimenti da parte dei clienti.  
 
@@ -23,6 +24,8 @@ Microsoft ha distribuito soluzioni di mitigazione dei rischi in tutti i servizi 
 Azure sta incrementando l'uso della [manutenzione con mantenimento della memoria](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) quando possibile, sospendendo la VM per un massimo di 30 secondi durante l'aggiornamento dell'host o spostandola in un host già aggiornato.  La manutenzione con mantenimento della memoria riduce ulteriormente l'effetto sugli utenti ed elimina la necessità di un riavvio.  Azure userà questi metodi durante l'esecuzione di aggiornamenti dell'intero sistema nell'host.
 
 > [!NOTE] 
+Il 21 maggio 2018, Google Project Zero e Microsoft hanno annunciato una nuova sottoclasse di vulnerabilità del canale laterale di esecuzione speculativa, nota come Speculative Store Bypass. Sono state distribuite misure di mitigazione capillari per maggiore difesa in tutta l'infrastruttura cloud Microsoft, progettate appositamente per risolvere le vulnerabilità di esecuzione speculativa. Altre informazioni sono disponibili qui: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
+>
 > A fine febbraio 2018 Intel Corporation ha pubblicato la versione aggiornata del documento [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) sullo stato delle versioni del microcodice, che migliorano la stabilità e riducono le vulnerabilità rilevate dal team [Project Zero di Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). I metodi di attenuazione dei rischi implementati da Azure il [3 gennaio 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) non sono interessati dall'aggiornamento del microcodice Intel. Microsoft ha già implementato soluzioni complesse di mitigazione dei rischi per proteggere i clienti di Azure dalle altre macchine virtuali di Azure.  
 >
 > Il microcodice Intel è in grado di gestire la variante 2 della vulnerabilità Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) o inserimento destinazione diramazione) per proteggere i sistemi da attacchi efficaci solo in caso di esecuzione di carichi di lavoro condivisi o non attendibili all'interno di macchine virtuali in Azure. I tecnici stanno testando la stabilità per ridurre al minimo l'impatto sulle prestazioni del microcodice prima di renderlo disponibile ai clienti di Azure.  Dal momento che pochissimi clienti eseguono carichi di lavoro non affidabili nelle rispettive macchine virtuali, la maggior parte dei clienti non dovrà abilitare questa funzionalità dopo il relativo rilascio. 

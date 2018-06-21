@@ -3,17 +3,18 @@ title: Risolvere i problemi di sincronizzazione dati SQL (anteprima) | Microsoft
 description: Informazioni su come risolvere i problemi comuni di sincronizzazione dati SQL di Azure (anteprima).
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757537"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Risolvere i problemi della sincronizzazione dati SQL (anteprima)
 
@@ -240,9 +241,8 @@ Prima di procedere, verificare le condizioni seguenti:
 
 -   Il servizio di Windows di sincronizzazione dati SQL (anteprima) è in esecuzione.  
 -   L'account del servizio per il servizio di Windows di anteprima di sincronizzazione dati SQL (anteprima) ha accesso alla rete.    
--   L'agente client può contattare il servizio localizzatore. Verificare che il valore della chiave del Registro di sistema seguente sia https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   In un computer x86: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   In un computer x64: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   La porta in uscita 1433 nella regola del firewall locale è aperta.
+-   L'indirizzo IP locale viene aggiunto alla regola del firewall del server o del database per il database dei metadati di sincronizzazione.
 
 #### <a name="cause"></a>Causa
 

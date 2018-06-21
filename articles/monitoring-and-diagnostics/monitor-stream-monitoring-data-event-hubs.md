@@ -1,23 +1,19 @@
 ---
-title: Trasmettere i dati di monitoraggio di Azure a Hub eventi | Microsoft Docs
+title: Trasmettere i dati di monitoraggio di Azure a Hub eventi
 description: Informazioni su come trasmettere tutti i dati di monitoraggio di Azure a un hub eventi per inserire i dati in uno strumento di analisi o nelle informazioni di sicurezza e gestione degli eventi di partner.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263464"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -97,7 +93,7 @@ I dati di monitoraggio dell'applicazione richiedono che il codice sia instrument
 
 1. [Impostare l'esportazione continua](../application-insights/app-insights-export-telemetry.md) dei dati di Application Insights in un account di archiviazione.
 
-2. Configurare un'app per la logica attivata da un timer che [esegua il pull dei dati dall'archiviazione BLOB](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) e [il push come messaggio nell'hub eventi](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Configurare un'app per la logica attivata da un timer che [esegua il pull dei dati dall'archiviazione BLOB](../connectors/connectors-create-api-azureblobstorage.md#add-action) e [il push come messaggio nell'hub eventi](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?
 
