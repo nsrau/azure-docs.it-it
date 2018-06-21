@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/24/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 5702c6e9c9d75c6cccb82f1c57684ef7b9898c34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666010"
+---
 ## <a name="view-device-telemetry"></a>Visualizzare la telemetria dei dispositivi
 
 È possibile visualizzare i dati di telemetria inviati dal dispositivo nella pagina **Dispositivi** della soluzione.
@@ -16,7 +33,7 @@
 
 ## <a name="act-on-your-device"></a>Agire sul dispositivo
 
-Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della soluzione per il monitoraggio remoto. Nella soluzione per il monitoraggio remoto, i dispositivi **Chiller** implementano ad esempio un metodo **FirmwareUpdate**.
+Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** nella soluzione Monitoraggio remoto. Nella soluzione Monitoraggio remoto, i dispositivi **Chiller** implementano ad esempio un metodo **FirmwareUpdate**.
 
 1. Scegliere **Dispositivi** per passare alla pagina **Dispositivi** della soluzione.
 
@@ -24,7 +41,7 @@ Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della s
 
     ![Selezionare il dispositivo fisico](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Per visualizzare un elenco dei metodi che è possibile chiamare in un dispositivo, scegliere **Pianificazione**. Per pianificare un metodo per l'esecuzione in più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Pianificazione** mostra i tipi di metodi comuni a tutti i dispositivi selezionati.
+1. Per visualizzare un elenco dei metodi che è possibile chiamare per un dispositivo, scegliere **Jobs** (Processi), quindi **Run method** (Esegui metodo). Per pianificare un processo in modo che venga eseguito su più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Jobs** (Processi) visualizza i tipi di metodi comuni a tutti i dispositivi selezionati.
 
 1. Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdatePhysicalChiller**. Impostare **Firmware Version** (Versione firmware) su **2.0.0**, quindi impostare **Firmware URI** (URI firmware) su **http://contoso.com/updates/firmware.bin** e infine scegliere **Apply** (Applica):
 
@@ -41,4 +58,4 @@ Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** della s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'articolo [Personalizzare la soluzione preconfigurata di monitoraggio remoto](../articles/iot-suite/iot-suite-remote-monitoring-customize.md) descrive alcuni modi per personalizzare la soluzione preconfigurata.
+L'articolo [Personalizzare l'acceleratore di soluzioni Monitoraggio remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-customize.md) descrive alcuni modi per personalizzare l'acceleratore di soluzioni.

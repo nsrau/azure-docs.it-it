@@ -1,24 +1,19 @@
 ---
-title: Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure | Microsoft Docs
-description: La nuova esperienza unificata degli avvisi di Azure consente di creare, visualizzare e gestire la metrica e le regole di avviso del log da un'unica posizione.
+title: Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure
+description: La nuova esperienza unificata gli avvisi di Azure consente di creare, visualizzare e gestire la metrica e le regole di avviso del log da un'unica posizione.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264341"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure  
 
@@ -50,7 +45,7 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure.
 
     ![Creare una regola](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Definire la condizione dell'avviso tramite il collegamento **Seleziona risorsa** e specificare la destinazione selezionando una risorsa. Filtrare scegliendo la *Sottoscrizione*, il *Tipo di risorsa* e infine la *Risorsa* necessaria.
+4.  Definire la condizione dell'avviso tramite il collegamento **Seleziona risorsa** e specificare la destinazione selezionando una risorsa. Filtrare scegliendo la *Sottoscrizione*, il *Tipo di risorsa e infine la *Risorsa* necessaria.
 
     >[!NOTE]
 
@@ -67,7 +62,7 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure.
 
     > Sono supportati anche gli avvisi del log attività, ma sono in versione di anteprima. [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Avvisi delle metriche*: verificare che **Tipo di risorsa** sia selezionato con tipo di segnale **Metrica**, quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Operazione completata* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
+5. *Avvisi delle metriche: verificare che **Tipo di risorsa** sia selezionato con tipo di segnale **Metrica** e quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Operazione completata* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
 
     ![Selezionare una risorsa](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
@@ -83,7 +78,7 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure.
 
     a. Scegliere una durata dall'elenco a discesa **Mostra cronologia** per visualizzare un periodo temporale diverso. È possibile selezionare le dimensioni per la metrica supportata per filtrare in base a una serie temporale. La scelta delle dimensioni è facoltativa e possono essere usate fino a cinque dimensioni. 
 
-    b. È possibile selezionare **Logica avvisi** dalle opzioni visualizzate: *Condizione*, *Aggregazione* e *Soglia*. Come anteprima della logica impostata, nella visualizzazione vengono mostrate la condizione e la cronologia del segnale, per indicare quando l'avviso sarebbe stato attivato in passato. 
+    b. È possibile selezionare **Logica avvisi** dalle opzioni visualizzate: *Condizione*, *Aggregazione e *Soglia*. Come anteprima della logica impostata, nella visualizzazione vengono mostrate la condizione e la cronologia del segnale, per indicare quando l'avviso sarebbe stato attivato in passato. 
 
     c. Per specificare la durata, scegliere **Periodo** insieme alla frequenza di esecuzione dell'avviso selezionando **Frequenza**.
 
@@ -125,14 +120,20 @@ Gli **avvisi del log** possono basarsi su:
 
         ![Elimina avvisi per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Specificare un valore di eliminazione dell'avviso maggiore della frequenza di avviso per garantire che le notifiche vengano arrestate senza sovrapposizione
+
 12. Come terzo e ultimo passaggio, specificare se un **gruppo di azioni** deve essere attivato per la regola di avviso quando viene soddisfatta la condizione dell'avviso. È possibile scegliere qualsiasi gruppo di azioni esistente con un avviso o creare un nuovo gruppo di azioni. In base al gruppo di azioni selezionato, quando viene attivato l'avviso, Azure eseguirà queste operazioni: invio di messaggi di posta elettronica, invio di SMS, chiamata di webhook, correzione dell'uso di runbook di Azure, invio di notifiche push allo strumento Gestione dei servizi IT e così via. Altre informazioni sui [gruppi di azioni](monitoring-action-groups.md).
 
     Per gli **avvisi del log** sono disponibili alcune funzionalità aggiuntive per eseguire l'override di quelle predefinite:
 
-    - **Notifica di posta elettronica**: esegue l'override dell'*oggetto di posta elettronica* nel messaggio di posta elettronica inviato tramite il gruppo di azione, se esistono una o più azioni di posta elettronica nel gruppo di azione. Non è possibile modificare il corpo del messaggio e questo campo **non** è destinato agli indirizzi di posta elettronica.
-    - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni, se nel gruppo di azione è presente una o più azioni webhook. Un utente può specificare il formato JSON da usare per tutti i webhook configurati nel gruppo di azione associato. Per altre informazioni sui formati webhook, vedere [Azioni webhook per gli avvisi relativi ai log](monitor-alerts-unified-log-webhook.md). L'opzione Test del webhook viene fornita per controllare il formato e l'elaborazione in base alla destinazione usando il file JSON di esempio e ha unicamente scopo di **test**.
+    - **Notifica di posta elettronica**: esegue l'override dell'*oggetto di posta elettronica* nel messaggio di posta elettronica inviato tramite il gruppo di azioni, se esistono una o più azioni di posta elettronica nel gruppo di azioni. Non è possibile modificare il corpo del messaggio e questo campo **non** è destinato agli indirizzi di posta elettronica.
+    - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni, se nel gruppo di azioni sono presenti una o più azioni webhook. Un utente può specificare il formato JSON da usare per tutti i webhook configurati nel gruppo di azioni associato. Per altre informazioni sui formati webhook, vedere [Azioni webhook per le regole di avviso relative ai log](monitor-alerts-unified-log-webhook.md). L'opzione Test del webhook viene offerta per controllare il formato e l'elaborazione in base alla destinazione usando il file JSON di esempio e ha unicamente scopo di **test**.
 
         ![Override dell'azione per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > Per il funzionamento dell'opzione**Test del webhook**, l'endpoint deve supportare il servizio [Cross Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/) e l'utente può usare il proxy CORS per evitare problemi dell'intestazione Access-Control-Allow-Origin
 
 13. Se tutti i campi sono validi e hanno un segno di spunta verde, il pulsante **Crea regola di avviso** può essere selezionato e viene creato un avviso in Monitoraggio di Azure - Avvisi. Tutti gli avvisi possono essere visualizzati nella dashboard di Avvisi.
 

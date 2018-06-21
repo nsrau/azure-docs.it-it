@@ -1,24 +1,25 @@
 ---
 title: Distribuzione push con file ZIP per Funzioni di Azure | Documentazione Microsoft
-description: "Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione con file ZIP del servizio di distribuzione Kudu."
+description: Per pubblicare Funzioni di Azure, usare le funzionalità di distribuzione con file ZIP del servizio di distribuzione Kudu.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: faddb73522200f60f18294dc43e8d235943f8bbb
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699955"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Distribuzione push con file ZIP per Funzioni di Azure 
 Questo articolo descrive come distribuire i file di progetto dell'app per le funzioni in Azure da un file ZIP (compresso). Vengono fornite informazioni su come eseguire una distribuzione push sia utilizzando l'interfaccia della riga di comando di Azure sia le API REST. 
@@ -40,23 +41,33 @@ Il file ZIP utilizzato per la distribuzione push deve contenere tutti i file di 
 >[!IMPORTANT]
 > Quando si utilizza la distribuzione push con file ZIP, vengono eliminati dall'app per le funzioni i file della distribuzione esistente che non sono presenti nel file ZIP.  
 
-### <a name="function-app-folder-structure"></a>Struttura di cartelle dell'app per le funzioni
-
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-### <a name="download-your-function-app-project"></a>Scaricare il progetto dell'app per le funzioni
+Un'app per le funzioni include tutti i file e le cartelle nella directory `wwwroot`. Una distribuzione di file ZIP include il contenuto della directory `wwwroot`, ma non la directory stessa.  
+
+## <a name="download-your-function-app-files"></a>Scaricare i file dell'app per le funzioni
 
 Quando lo sviluppo avviene in un computer locale, è facile creare un file ZIP della cartella del progetto dell'app per le funzioni nel computer di sviluppo. 
 
-È possibile, tuttavia, che le funzioni siano state create tramite l'editor nel portale di Azure. Per scaricare il progetto dell'app per le funzioni dal portale: 
+È possibile, tuttavia, che le funzioni siano state create tramite l'editor nel portale di Azure. È possibile scaricare un progetto di app per le funzioni esistente in uno dei modi seguenti: 
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'app per le funzioni.
++ **Dal portale di Azure:** 
 
-2. Nella scheda **Panoramica** selezionare **Scarica contenuto dell'app**. Selezionare le opzioni di download, quindi **Scarica**.     
+    1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'app per le funzioni.
 
-    ![Scaricare il progetto dell'app per le funzioni](./media/deployment-zip-push/download-project.png)
+    2. Nella scheda **Panoramica** selezionare **Scarica contenuto dell'app**. Selezionare le opzioni di download, quindi **Scarica**.     
 
-Il file ZIP scaricato è nel formato corretto per essere ripubblicato nell'app per le funzioni utilizzando la distribuzione push con file ZIP.
+        ![Scaricare il progetto dell'app per le funzioni](./media/deployment-zip-push/download-project.png)
+
+    Il file ZIP scaricato è nel formato corretto per essere ripubblicato nell'app per le funzioni utilizzando la distribuzione push con file ZIP. Il download dal portale consente anche di aggiungere i file necessari per aprire l'app per le funzioni direttamente in Visual Studio.
+
++ **Tramite API REST:** 
+
+    Usare l'API GET di distribuzione seguente per scaricare i file dal progetto `<function_app>`: 
+
+        https://<function_app>.scm.azurewebsites.net/api/zip/site/wwwroot/
+
+    Includendo `/site/wwwroot/` ci si assicura che il file ZIP contenga solo i file di progetto dell'app per le funzioni e non l'intero sito. Se l'accesso ad Azure non è ancora stato eseguito, verrà richiesto di farlo. Si noti che l'invio di una richiesta POST all'API `api/zip/` è sconsigliato rispetto all'uso del metodo di distribuzione ZIP descritto in questo argomento. 
 
 È anche possibile scaricare un file ZIP da un repository GitHub. Tenere presente che quando si scarica un repository GitHub come file ZIP, GitHub aggiunge un livello di cartelle aggiuntivo per il ramo. Questo livello di cartelle aggiuntivo implica che non è possibile distribuire direttamente il file ZIP così come è stato scaricato da GitHub. Se si usa un repository GitHub per mantenere l'app per le funzioni, è necessario utilizzare l'[integrazione continua](functions-continuous-deployment.md) per distribuire l'app.  
 

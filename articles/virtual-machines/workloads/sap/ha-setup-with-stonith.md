@@ -1,11 +1,11 @@
 ---
-title: "Configurazione della disponibilità elevata con STONITH per SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs"
-description: "Stabilire la disponibilità elevata per SAP HANA in Azure (istanze Large) in SUSE con STONITH"
+title: Configurazione della disponibilità elevata con STONITH per SAP HANA in Azure (istanze di grandi dimensioni) | Microsoft Docs
+description: Stabilire la disponibilità elevata per SAP HANA in Azure (istanze Large) in SUSE con STONITH
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656364"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configurazione della disponibilità elevata in SUSE con STONITH
 Questo documento contiene le istruzioni dettagliate per configurare la disponibilità elevata nel sistema operativo SUSE usando il dispositivo STONITH.
 
-**Dichiarazione di non responsabilità:** *questa guida è stata realizzata testando la configurazione dell'ambiente delle istanze di grandi dimensioni di HANA per Microsoft, che ha avuto esito positivo. Poiché il team di gestione dei servizi Microsoft per le istanze Large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per ulteriori procedure di risoluzione dei problemi o chiarimenti in merito al sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e offre assistenza completa, anche per la risoluzione dei problemi relativi al dispositivo STONITH.*
+**Dichiarazione di non responsabilità:** *questa guida è stata realizzata testando con esito positivo la configurazione dell'ambiente delle istanze Large di HANA per Microsoft. Poiché il team di gestione dei servizi Microsoft per le istanze Large di HANA non supporta il sistema operativo, potrebbe essere necessario contattare SUSE per ulteriori procedure di risoluzione dei problemi o chiarimenti in merito al sistema operativo. Il team di gestione dei servizi Microsoft configura il dispositivo STONITH e offre assistenza completa, anche per la risoluzione dei problemi relativi al dispositivo STONITH.*
 ## <a name="overview"></a>Panoramica
 Per configurare la disponibilità elevata usando il clustering SUSE, è necessario soddisfare i prerequisiti seguenti.
 ### <a name="pre-requisites"></a>Prerequisiti
@@ -34,8 +35,8 @@ Per configurare la disponibilità elevata usando il clustering SUSE, è necessar
 - NTP (server di riferimento ora) configurato
 - Conoscenza e comprensione della versione più recente della documentazione di SUSE sulla configurazione della disponibilità elevata
 
-### <a name="set-up-details"></a>Dettagli di configurazione
-- In questa guida è stata usata la configurazione seguente:
+### <a name="setup-details"></a>Dettagli di configurazione
+Questa guida usa la configurazione seguente:
 - Sistema operativo: SLES 12 SP1 per SAP
 - Istanze di grandi dimensioni di HANA: 2xS192 (4 socket, 2 TB)
 - Versione di HANA: HANA 2.0 SP1
@@ -134,12 +135,12 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 Configurazione del cluster
-3.2.1 È possibile usare il comando *ha-cluster-init* o la procedura guidata yast2 per configurare il cluster. In questo caso, è stata usata la procedura guidata yast2. Questo passaggio si esegue **solo sul nodo primario**.
+3.2.1 È possibile usare il comando *ha-cluster-init* o la procedura guidata yast2 per configurare il cluster. In questo caso, viene usata la procedura guidata yast2. Questo passaggio si esegue **solo sul nodo primario**.
 
 Seguire yast2> High Availability (Disponibilità elevata) > Cluster ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Fare clic su **cancel** (Annulla) perché il pacchetto halk2 è già installato.
+Fare clic su **cancel** (Annulla), perché il pacchetto halk2 è già installato.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -163,7 +164,7 @@ L'autenticazione viene eseguita usando gli indirizzi IP e le chiavi precondivise
 Fare clic su **Next** (Avanti)
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile scegliere in base ai requisiti di configurazione.
+L'impostazione predefinita di Booting (Avvio) è "Off" (No). Impostarlo su "On" (Sì) per avviare Pacemaker durante il bootstrap. È possibile effettuare la scelta in base ai requisiti di configurazione.
 Fare clic su **Next** (Avanti) per completare la configurazione del cluster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configurazione del watchdog softdog
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Configurare le proprietà e le risorse del cluster 
 Questa sezione descrive i passaggi per configurare le risorse del cluster.
-In questo esempio è stata configurata la risorsa seguente. Per configurare le altre, se necessario, vedere la guida alla disponibilità elevata di SUSE. È necessario eseguire questa configurazione solo su **uno dei nodi**. Eseguire l'operazione nel nodo primario.
+In questo esempio, configurare la risorsa seguente. Per configurare le altre, se necessario, vedere la guida alla disponibilità elevata di SUSE. È necessario eseguire questa configurazione solo su **uno dei nodi**. Eseguire l'operazione nel nodo primario.
 
 - Bootstrap del cluster
 - Dispositivo STONITH
@@ -342,7 +343,7 @@ Arrestare ora il servizio Pacemaker in **node2**. È stato effettuato il failove
 
 
 ## <a name="9-troubleshooting"></a>9. risoluzione dei problemi
-Questa sezione descrive alcuni scenari di errore che possono verificarsi durante la configurazione. anche se non necessariamente.
+Questa sezione descrive alcuni scenari di errore, che possono verificarsi durante la configurazione, anche se non necessariamente.
 
 ### <a name="scenario-1-cluster-node-not-online"></a>Scenario 1: Nodo del cluster non online
 Se uno dei nodi non risulta online in Cluster Manager, seguire questa procedura per portarlo online.
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Scenario 2: yast2 non mostra la visualizzazione grafica
-In questo documento è stata usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
+In questo documento viene usata la schermata grafica di yast2 per configurare il cluster a disponibilità elevata. Se yast2 non si apre con la finestra grafica illustrata e genera l'errore Qt, seguire questa procedura. Se si apre con la finestra grafica, è possibile ignorare la procedura.
 
 **Error (Errore) (Error (Errore)e)**
 

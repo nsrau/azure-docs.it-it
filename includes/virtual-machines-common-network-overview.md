@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568110"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -170,4 +171,4 @@ Sono anche disponibili esercitazioni sul bilanciamento del carico delle VM e la 
 
 - Informazioni sulla configurazione di [route definite dall'utente e inoltro IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Informazioni sulla configurazione di [connessioni tra reti virtuali](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Informazioni sulla [risoluzione dei problemi relativi alle route](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Informazioni sulla [risoluzione dei problemi relativi alle route](../articles/virtual-network/diagnose-network-routing-problem.md).

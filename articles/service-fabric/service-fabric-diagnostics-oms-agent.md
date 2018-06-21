@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809574"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitoraggio delle prestazioni con Log Analytics
 
@@ -73,19 +74,27 @@ Il modo migliore per aggiungere l'agente di OMS al cluster è tramite le API del
 
 Dopo aver aggiunto l'agente OMS, passare al portale di Log Analytics per scegliere i contatori delle prestazioni da raccogliere. 
 
-1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfOMSWorkspace\>** e andare alla relativa pagina di panoramica. Nella parte superiore fare clic sul collegamento per passare al portale di OMS.
+1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nomeareadilavoroOMS\>**.
 
-2. Nel portale sarà possibile osservare un riquadro sotto forma di grafo per ognuna delle soluzioni abilitate, tra cui uno per Service Fabric. Fare clic su questo riquadro per passare alla soluzione Analisi Service Fabric. 
+2. Fare clic su **Area di lavoro OMS**.
 
-3. Saranno visualizzati alcuni riquadri con grafi sugli eventi del canale operativo e di Reliable Services. Fare clic sull'icona a forma di ingranaggio sulla destra per passare alla pagina delle impostazioni.
+3. Fare clic su **Impostazioni avanzate**.
 
-    ![Impostazioni di OMS](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Fare clic su **Dati**, quindi fare clic su **Contatori delle prestazioni di Linux o di Windows**. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. Nella pagina delle impostazioni fare clic su Dati e scegliere Contatori delle prestazioni di Windows o Contatori delle prestazioni di Linux. È disponibile un elenco di contatori predefiniti che è possibile scegliere di abilitare ed è anche possibile impostare l'intervallo per la raccolta. È anche possibile aggiungere [altri contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) da raccogliere. Il formato corretto è descritto in questo [articolo](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Fare clic su **Salva**, quindi su **OK**.
 
-Dopo avere configurato i contatori, tornando alla pagina delle soluzioni sarà possibile osservare il flusso dei dati, visualizzati nei grafi in **Metriche del nodo**. È anche possibile eseguire query sui dati dei contatori delle prestazioni in modo analogo agli eventi cluster e applicare filtri sui nodi, sul nome del contatore delle prestazioni e sui valori usando il linguaggio di query Kusto. 
+6. Chiudere il pannello Impostazioni avanzate.
 
-![Query sui contatori delle prestazioni OMS](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Sotto l'intestazione Generale fare clic su **Panoramica**.
+
+8. Saranno visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
+
+9. Saranno visualizzati alcuni riquadri con grafi sugli eventi del canale operativo e di Reliable Services. La rappresentazione grafica dei dati trasmessi ai contatori selezionati sarà visualizzata sotto Metriche del nodo. 
+
+10. Fare clic su un grafico Metriche del contenitore per visualizzare dettagli aggiuntivi. È anche possibile eseguire query sui dati dei contatori delle prestazioni in modo analogo agli eventi cluster e applicare filtri sui nodi, sul nome del contatore delle prestazioni e sui valori usando il linguaggio di query Kusto.
+
+![Query sui contatori delle prestazioni OMS](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

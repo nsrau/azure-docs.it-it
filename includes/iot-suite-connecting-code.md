@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a2405eb9698b326693b873edf1cc1396eecadafa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666003"
 ---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>Specificare il comportamento del dispositivo IoT
 
 La libreria client serializzatrice di hub IoT usa un modello per specificare il formato dei messaggi che il dispositivo scambia con hub IoT.
 
-1. Aggiungere le seguenti dichiarazioni di variabili dopo le istruzioni `#include` . Sostituire i valori segnaposto `[Device Id]` e `[Device connection string]` con i valori annotati per il dispositivo fisico aggiunto alla soluzione di monitoraggio remoto:
+1. Aggiungere le seguenti dichiarazioni di variabili dopo le istruzioni `#include` . Sostituire i valori segnaposto `[Device Id]` e `[Device connection string]` con i valori annotati per il dispositivo fisico aggiunto alla soluzione Monitoraggio remoto:
 
     ```c
     static const char* deviceId = "[Device Id]";
