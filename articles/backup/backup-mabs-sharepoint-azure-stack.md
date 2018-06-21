@@ -1,6 +1,6 @@
 ---
-title: Usare il server di Backup di Azure per eseguire il backup di una farm di SharePoint in Azure
-description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
+title: Eseguire il backup in Azure di una farm di SharePoint con Azure Stack
+description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint in Azure Stack. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 services: backup
 author: pvrk
 manager: shivamg
@@ -8,15 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 4dff27d8ef7357e5af3635cc39fb52963689e7bb
+ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
 ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247966"
+ms.locfileid: "35248985"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure"></a>Eseguire il backup di una farm di SharePoint in Azure
-Il backup di una farm di SharePoint in Azure si esegue tramite il server di Backup di Microsoft Azure (MABS) in modo analogo al backup delle altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. Offre inoltre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
+# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Eseguire il backup in Azure di una farm di SharePoint con Azure Stack
+Per eseguire il backup di una farm di SharePoint in Azure con Azure Stack usare il server di Backup di Microsoft Azure (MABS) come per eseguire il backup di altre origini dati. Backup di Azure offre flessibilità nella pianificazione di backup per creare punti di backup quotidiani, settimanali, mensili o annuali e offre diverse opzioni in termini di criteri di conservazione per i vari intervalli di backup. Offre inoltre la possibilità di archiviare copie dei dischi locali per obiettivi di tempi di ripristino (RTO) rapidi e di archiviare copie in Azure per una conservazione economicamente conveniente e a lungo termine.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versioni supportate di SharePoint e relativi scenari di protezione
 Backup di Azure per DPM supporta gli scenari seguenti:
@@ -29,7 +29,7 @@ Backup di Azure per DPM supporta gli scenari seguenti:
 È necessario verificare alcuni aspetti prima di eseguire il backup di una farm di SharePoint in Azure.
 
 ### <a name="prerequisites"></a>prerequisiti
-Prima di procedere, assicurarsi di avere [installato e preparato il server di Backup di Azure](backup-azure-microsoft-azure-backup.md) per proteggere i carichi di lavoro.
+Prima di procedere, assicurarsi di avere [installato e preparato il server di Backup di Azure](backup-mabs-install-azure-stack.md) per proteggere i carichi di lavoro.
 
 ### <a name="protection-agent"></a>Agente protezione
 L'agente di Backup di Azure deve essere installato nel server che esegue SharePoint, nei server che eseguono SQL Server e in tutti gli altri server che fanno parte della farm di SharePoint. Per altre informazioni sull'installazione dell'agente di protezione, vedere l'articolo relativo alla [configurazione dell'agente di protezione](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  L'unica eccezione è che l'agente viene installato in un server Web front-end (WFE) solo. Il server di Backup di Azure richiede che l'agente sia installato in un solo server WFE e agisca come punto di ingresso per la protezione.
@@ -233,5 +233,5 @@ R: poiché i database di SharePoint sono configurati con SQL AlwaysOn, non posso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere l'articolo [Eseguire il backup di un server Exchange](backup-azure-exchange-mabs.md).
-Vedere l'articolo [Eseguire il backup di SQL Server](backup-azure-sql-mabs.md).
+Vedere l'articolo [Eseguire il backup di file e applicazioni in Azure Stack](backup-mabs-files-applications-azure-stack.md).
+Vedere l'articolo [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) (Eseguire il backup di SQL Server in Azure Stack).

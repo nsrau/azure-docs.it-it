@@ -1,5 +1,5 @@
 ---
-title: Come usare WebJobs SDK per l'elaborazione in background guidata dagli eventi - Azure
+title: Come usare Azure WebJobs SDK
 description: Altre informazioni su come scrivere codice per WebJobs SDK. Creare processi di elaborazione in background guidata dagli eventi che accedono ai dati nei servizi di Azure e di terze parti.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234651"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>Come usare WebJobs SDK per l'elaborazione in background guidata dagli eventi
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Come usare Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
-Questo articolo offre indicazioni su come scrivere codice per [WebJobs SDK](webjobs-sdk-get-started.md). La documentazione si applica alle versioni 2.x e 3.x, salvo dove specificato diversamente. La principale modifica introdotta dalla versione 3.x è l'uso di .NET Core invece di .NET Framework.
+Questo articolo offre materiale sussidiario su come scrivere codice per [Azure WebJobs SDK](webjobs-sdk-get-started.md). La documentazione si applica alle versioni 2.x e 3.x, salvo dove specificato diversamente. La principale modifica introdotta dalla versione 3.x è l'uso di .NET Core invece di .NET Framework.
 
 >[!NOTE]
-> [Funzioni di Azure](../azure-functions/functions-overview.md) si basa su WebJobs SDK e questo articolo include collegamenti alla documentazione su Funzioni di Azure per alcuni argomenti. Si notino le differenze seguenti tra Funzioni e WebJobs SDK:
+> [Funzioni di Azure](../azure-functions/functions-overview.md) si basa su WebJobs SDK e per alcuni argomenti questo articolo include collegamenti alla documentazione su Funzioni di Azure. Si notino le differenze seguenti tra Funzioni e WebJobs SDK:
 > * La versione 1.x di Funzioni di Azure corrisponde alla versione 2.x di WebJobs SDK, mentre la versione 2.x di Funzioni di Azure corrisponde alla versione 3.x di WebJobs SDK. I repository di codice sorgente seguono la numerazione di WebJobs SDK e molti di loro hanno avere rami della versione 2. x, mentre il ramo principale ha attualmente il codice 3.x.
 > * Il codice di esempio per le librerie di classe C# di Funzioni di Azure è simile al codice di WebJobs SDK, con la differenza che in un progetto WebJobs SDK non è necessario un attributo `FunctionName`.
 > * Alcuni tipi di associazione sono supportati solo in Funzioni, ad esempio HTTP, webhook e Griglia di eventi (basata su HTTP). 
@@ -322,7 +323,7 @@ Per altre informazioni, vedere [Associazione in fase di esecuzione](../azure-fun
 
 Le informazioni di riferimento su ogni tipo di associazione sono descritte nella documentazione di Funzioni di Azure. Prendendo come esempio la coda Archiviazione, in ogni articolo di riferimento sull'associazione sono disponibili le informazioni seguenti:
 
-* [Pacchetti](../azure-functions/functions-bindings-storage-queue.md#packages) - Il pacchetto da installare per includere il supporto per l'associazione in un progetto WebJobs SDK.
+* [Pacchetti](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) - Il pacchetto da installare per includere il supporto per l'associazione in un progetto WebJobs SDK.
 * [Esempi](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - L'esempio di libreria di classe C# si applica a WebJobs SDK; basta omettere l'attributo `FunctionName`.
 * [Attributi](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) - Gli attributi da usare per il tipo di associazione.
 * [Configurazione](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) - Le spiegazioni delle proprietà di attributo e dei parametri del costruttore.
@@ -390,6 +391,26 @@ Alcuni trigger dispongono del supporto integrato per la gestione della concorren
 * **FileTrigger** - Impostare `FileProcessor.MaxDegreeOfParallelism` su 1.
 
 È possibile usare queste impostazioni per assicurarsi che la funzione viene eseguita come singleton in una singola istanza. Per garantire che una sola istanza della funzione sia in esecuzione quando l'app Web aumenta il numero di istanze, applicare un blocco Singleton a livello di listener nella funzione (`[Singleton(Mode = SingletonMode.Listener)]`). All'avvio di JobHost vengono acquisiti blocchi di listener. Se tutte e tre le istanze aumentate vengono avviate nello stesso momento, una sola istanza acquisisce il blocco e viene avviato un solo listener.
+
+### <a name="scope-values"></a>Valori di ambito
+
+È possibile specificare **un'espressione o un valore di ambito** nel singleton che garantisca che tutte le esecuzioni della funzione in quell'ambito vengano serializzate. Un'implementazione più granulare del blocco con questo metodo può consentire un certo livello di parallelismo per la funzione, consentendo allo stesso tempo la serializzazione altre chiamate in base alle esigenze. Nell'esempio seguente, ad esempio, l'espressione di ambito è associata al valore `Region` del messaggio in arrivo. Se la coda contiene 3 messaggi rispettivamente nelle Region "East", "East" e "West", i messaggi nella Region "East" vengono eseguiti in modo sequenziale, mentre il messaggio nella Region "West" viene eseguito in parallelo a questi.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

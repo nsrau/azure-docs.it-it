@@ -12,19 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193764"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592314"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Risolvere i problemi di sincronizzazione degli oggetti con la sincronizzazione di Azure AD Connect
-Questo documento include la procedura per la risoluzione dei problemi relativi alla sincronizzazione degli oggetti tramite l'attività di risoluzione dei problemi.
+Questo articolo include la procedura per la risoluzione dei problemi relativi alla sincronizzazione degli oggetti tramite l'attività di risoluzione dei problemi. Per informazioni sulla risoluzione dei problemi in Connect di Azure Active Directory (Azure AD), guardare [questo breve video](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Attività di risoluzione dei problemi
-Per la distribuzione di Azure Active Directory (AAD) Connect versione 1.1.749.0 o successiva, usare l'attività specifica nella procedura guidata per la risoluzione dei problemi di sincronizzazione degli oggetti. Per le versioni precedenti, eseguire manualmente la risoluzione dei problemi come illustrato [qui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Per la distribuzione di Azure AD Connect versione 1.1.749.0 o successiva, usare l'attività specifica nella procedura guidata per la risoluzione dei problemi di sincronizzazione degli oggetti. Per le versioni precedenti, eseguire manualmente la risoluzione dei problemi come illustrato [qui](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Eseguire l'attività di risoluzione dei problemi nella procedura guidata
 Per eseguire l'attività di risoluzione dei problemi nella procedura guidata, seguire questa procedura:

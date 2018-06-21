@@ -2,48 +2,72 @@
 title: Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
 description: Informazioni su come distribuire l'app nel servizio app di Azure tramite la sincronizzazione dei contenuti da una cartella nel cloud.
 services: app-service
-documentationcenter: 
-author: dariagrigoriu
-manager: erikre
-editor: mollybos
+documentationcenter: ''
+author: cephalin
+manager: cfowler
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 8e132e4d4a65588d57e3cfb969e785f5a164206c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 06/05/2018
+ms.author: cephalin;dariagrigoriu
+ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233588"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizzare i contenuti da una cartella nel cloud per il servizio app di Azure
-Questa esercitazione illustra come sincronizzare i contenuti dei servizi di archiviazione cloud più diffusi, ad esempio Dropbox e OneDrive, con il [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Questo articolo illustra come eseguire la sincronizzazione del contenuto in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) da Dropbox e OneDrive. 
 
-## <a name="overview"></a>Panoramica della distribuzione per la sincronizzazione dei contenuti
-La distribuzione per la sincronizzazione dei contenuti on demand si basa sul [motore di distribuzione Kudu](https://github.com/projectkudu/kudu/wiki) integrato con il servizio app. Nel [portale di Azure](https://portal.azure.com) è possibile designare una cartella del servizio di archiviazione cloud, usare il codice e il contenuto dell'app nella cartella e procedere alla sincronizzazione con il servizio app facendo semplicemente clic su un pulsante. La sincronizzazione usa il processo Kudu per la compilazione e la distribuzione. 
+La distribuzione per la sincronizzazione del contenuto on demand si basa sul [motore di distribuzione Kudu](https://github.com/projectkudu/kudu/wiki) del servizio app. È possibile usare il codice e il contenuto dell'app in una cartella cloud designata e quindi eseguire la sincronizzazione al servizio app con un semplice clic del mouse. La sincronizzazione del contenuto usa il server di compilazione Kudu. 
 
-## <a name="contentsync"></a>Come abilitare la distribuzione per la sincronizzazione dei contenuti
-Per abilitare la sincronizzazione dei contenuti nel [portale di Azure](https://portal.azure.com), seguire questa procedura:
+## <a name="enable-content-sync-deployment"></a>Abilitare la distribuzione per la sincronizzazione del contenuto
 
-1. Nella pagina dell'app nel portale di Azure fare clic su **Impostazioni** > **Origine distribuzione**. Fare clic su **Scegliere l'origine** e quindi selezionare **OneDrive** o **Dropbox** come origine per la distribuzione. 
+Per abilitare la sincronizzazione del contenuto, passare alla pagina del servizio app nel [portale di Azure](https://portal.azure.com).
+
+Nel menu a sinistra fare clic su **Centro distribuzione** > **OneDrive** o **Dropbox** > **Autorizza**. Seguire le istruzioni di autorizzazione. 
+
+![](media/app-service-deploy-content-sync/choose-source.png)
+
+È sufficiente concedere l'autorizzazione a OneDrive o Dropbox una sola volta. Se si ha già l'autorizzazione, fare semplicemente clic su **Continua**. È possibile modificare l'account OneDrive o Dropbox autorizzato facendo clic su **Cambia account**.
+
+![](media/app-service-deploy-content-sync/continue.png)
+
+Nella pagina **Configura** selezionare la cartella da sincronizzare. La cartella viene creata nel percorso del contenuto designato seguente in OneDrive o Dropbox. 
    
-    ![Sincronizzazione dei contenuti](./media/app-service-deploy-content-sync/deployment_source.png)
+* **OneDrive**: `Apps\Azure Web Apps`
+* **Dropbox**: `Apps\Azure`
+
+Al termine dell'operazione, fare clic su **Continua**.
+
+Nella pagina **Riepilogo** verificare le opzioni e fare clic su **Fine**.
+
+## <a name="synchronize-content"></a>Sincronizzare il contenuto
+
+Quando si vuole sincronizzare il contenuto nella cartella cloud con il servizio app, tornare alla pagina **Centro distribuzione** e fare clic su **Sincronizzazione**.
+
+![](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
    > A causa delle differenze sottostanti nelle API, **OneDrive for Business** non è attualmente supportato. 
    > 
    > 
-2. Completare il flusso di lavoro di autorizzazione per consentire al servizio app di accedere a uno specifico percorso designato predefinito per OneDrive o Dropbox in cui sono archiviati tutti i contenuti del servizio app. Dopo l'autorizzazione, la piattaforma del servizio app consente di creare una cartella nel percorso dei contenuti designato oppure di selezionare una cartella esistente in questo stesso percorso. I percorsi dei contenuti designati negli account di archiviazione cloud usati per la sincronizzazione del servizio app sono i seguenti:  
-   
-   * **OneDrive**: `Apps\Azure Web Apps` 
-   * **Dropbox**: `Dropbox\Apps\Azure`
-3. Dopo la sincronizzazione iniziale dei contenuti, la sincronizzazione può essere avviata on demand dal portale di Azure. La cronologia delle distribuzioni è disponibile nella pagina **Distribuzioni**.
-   
-    ![Cronologia di distribuzione](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
-Altre informazioni per la distribuzione di Dropbox sono disponibili in [Deploy from Dropbox] (Distribuire da Dropbox) (https://azure.microsoft.com/en-in/blog/new-deploy-to-windows-azure-web-sites-from-dropbox/).
+## <a name="disable-content-sync-deployment"></a>Disabilitare la distribuzione per la sincronizzazione dei contenuti
 
+Per disabilitare la sincronizzazione del contenuto, passare alla pagina del servizio app nel [portale di Azure](https://portal.azure.com).
+
+Nel menu a sinistra fare clic su **Centro distribuzione** > **OneDrive** o **Dropbox** > **Disconnetti**.
+
+![](media/app-service-deploy-content-sync/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Distribuire dall'archivio Git locale](app-service-deploy-local-git.md)

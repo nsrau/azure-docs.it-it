@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354453"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594087"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -34,20 +35,19 @@ Azure Active Directory (Azure AD) è un servizio per la gestione delle identità
 
 *  Esperienza Single Sign-On ottimale per i clienti.
 
-*  Configurazione minima e semplice dell'applicazione. 
+*  Configurazione minima e semplice dell'applicazione.
 
 *  Ricerca rapida per l'individuazione dell'applicazione nella raccolta.
 
-*  Uso di questa integrazione per tutti i clienti con account Free, Basic e Premium di Azure AD. 
+*  Uso di questa integrazione per tutti i clienti con account Free, Basic e Premium di Azure AD.
 
-*  Esercitazione dettagliata per la configurazione per i clienti reciproci. 
+*  Esercitazione dettagliata per la configurazione per i clienti reciproci.
 
 *  Provisioning per la stessa app per i clienti che usano SCIM.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Prerequisiti: implementare il protocollo di federazione
 
-Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto necessario implementare uno dei protocolli di federazione seguenti supportati da Azure AD. Leggere le condizioni della raccolta di applicazioni Azure AD. 
+Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto necessario implementare uno dei protocolli di federazione seguenti supportati da Azure AD e accettare i termini e condizioni della raccolta di applicazioni di Azure AD. Leggere [qui](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/) le condizioni della raccolta di applicazioni di Azure AD.
 
 *   **OpenID Connect**: creare l'applicazione multi-tenant in Azure AD e implementare il [framework di consenso di Azure AD](active-directory-integrating-applications.md#overview-of-the-consent-framework) per l'applicazione. Inviare la richiesta di accesso all'endpoint comune, in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token. Per integrare l'applicazione con Azure AD, seguire le [istruzioni per gli sviluppatori](active-directory-authentication-scenarios.md).
 

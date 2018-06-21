@@ -1,20 +1,20 @@
 ---
-title: Disponibilità elevata - Servizio del database SQL di Azure | Microsoft Docs
+title: Disponibilità elevata - Servizio del database SQL di Azure | Documentazione Microsoft
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777018"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839810"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
 Dall'inizio dell'offerta PaaS del database SQL di Azure, Microsoft ha promesso ai clienti l'integrazione della disponibilità elevata nel servizio evitando ai clienti di dover gestire, aggiungere una logica specifica o prendere decisioni in merito alla disponibilità elevata. Microsoft mantiene il controllo completo sulla configurazione e il funzionamento del sistema di disponibilità elevata offrendo ai clienti un contratto di servizio. Il contratto di servizio di disponibilità elevata si applica a un database SQL in un'area e non assicura protezione in caso di errore nell'intera area dovuto a fattori al di fuori del ragionevole controllo di Microsoft (ad esempio calamità naturali, guerra, atti di terrorismo, sommosse, azioni governative o un errore della rete o del dispositivo esterno al data center Microsoft, inclusi problemi presso la sede del cliente o tra questa e il data center Microsoft).
@@ -79,7 +79,7 @@ Per impostazione predefinita, le repliche di set di quorum per le configurazioni
 Poiché il set di quorum con ridondanza della zona dispone di repliche in diversi data center distanti tra loro, la maggiore latenza di rete può aumentare il tempo di commit e pertanto compromettere le prestazioni di alcuni carichi di lavoro OLTP. È sempre possibile tornare alla configurazione a singola zona disabilitando l'impostazione di ridondanza della zona. Questo processo è un'operazione di dimensionamento dei dati ed è simile al normale aggiornamento dell'obiettivo del livello di servizio. Al termine del processo, viene eseguita la migrazione del database o del pool da un anello con ridondanza della zona a un anello a singola zona o viceversa.
 
 > [!IMPORTANT]
-> I pool elastici e i database con ridondanza della zona sono supportati solo nei livelli di servizio Premium e Business Critical (anteprima). Durante l'anteprima pubblica, i backup e i record di controllo vengono archiviati nell'archiviazione con ridondanza geografica e accesso in lettura. È quindi possibile che non siano disponibili automaticamente in caso di un'interruzione a livello di zona. 
+> I pool elastici e i database con ridondanza della zona sono attualmente supportati solo per il livello di servizio Premium. Durante l'anteprima pubblica, i backup e i record di controllo vengono archiviati nell'archiviazione con ridondanza geografica e accesso in lettura. È quindi possibile che non siano disponibili automaticamente in caso di un'interruzione a livello di zona. 
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata è illustrata nel diagramma seguente:
  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: a5bc23ee6f986da80630371bafcd8ec80dde3577
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: f4c4d907fe76c5e6ee5893b5b4dd1b2d766877a7
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258879"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287258"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Scaricare strumenti di Azure Stack da GitHub
 
@@ -40,6 +40,7 @@ Per ottenere questi strumenti, clonare il repository GitHub AzureStack-Tools o s
 cd \
 
 # Download the tools archive
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip

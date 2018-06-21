@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648126"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215525"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -39,7 +39,7 @@ La tabella seguente riassume le differenze principali e gli scenari di utilizzo 
 
 | | Scenario di utilizzo | 
 | --- | --- | 
-|Istanza gestita di database SQL |Per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o fornito da un ISV, con il minor numero di operazioni di migrazione possibile, proporre Istanza gestita. Tramite il [Servizio Migrazione del database (DMS)](/sql/dma/dma-overview) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance, è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita di database SQL tramite l'[offerta per uso ibrido di Azure per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Istanza gestita di database SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata. |
+|Istanza gestita di database SQL |Per i clienti che desiderano eseguire la migrazione di un numero maggiore di app da un ambiente locale o IaaS, creato personalmente o fornito da un ISV, con il minor numero di operazioni di migrazione possibile, proporre Istanza gestita. Tramite il [Servizio Migrazione del database (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) completamente automatico di Azure, i clienti possono trasferire il proprio server SQL locale in un'istanza gestita che garantisce la compatibilità con SQL Server in locale e il completo isolamento delle istanze del cliente con il supporto delle reti virtuali native.  Con Software Assurance, è possibile scambiare le licenze esistenti con tariffe scontate per un'istanza gestita di database SQL tramite l'[offerta per uso ibrido di Azure per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Istanza gestita di database SQL è la destinazione di migrazione migliore nel cloud per le istanze di SQL Server che richiedono un livello di sicurezza elevato e una superficie di programmazione avanzata. |
 |Database SQL di Azure (singolo o pool) |**Pool elastici**: per i clienti che sviluppano nuove applicazioni SaaS multi-tenant o che intendono trasformare le proprie app locali esistenti in app SaaS multi-tenant, è possibile proporre i pool elastici. I vantaggi di questo modello sono i seguenti: <br><ul><li>Conversione del modello aziendale dalla vendita di licenze alla vendita di abbonamenti a un servizio (per gli ISV)</li></ul><ul><li>Isolamento dei tenant semplice e valido</li></ul><ul><li>Modello di programmazione incentrato sul database semplificato</li></ul><ul><li>Possibilità di scalare orizzontalmente senza raggiungere un limite rigido</li></ul>**Database singoli**: per i clienti che sviluppano nuove app diverse da servizi SaaS multi-tenant, il cui carico di lavoro è stabile e prevedibile, è possibile proporre i database singoli. I vantaggi di questo modello sono i seguenti:<ul><li>Modello di programmazione incentrato sul database semplificato</li></ul>  <ul><li>Prestazioni prevedibili per ogni database</li></ul>|
 |Macchina virtuale IaaS SQL|Per i clienti che necessitano di personalizzare il sistema operativo o il server di database, nonché per i clienti con requisiti specifici in termini di esecuzione di app di terze parti insieme a SQL Server (nella stessa macchina virtuale), è possibile proporre macchine virtuali SQL/IaaS come soluzione ottimale|
 |||
@@ -186,11 +186,10 @@ Il Servizio Migrazione del database di Azure è un servizio completamente gestit
 
 L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione di BLOB di Azure. I backup archiviati in BLOB di archiviazione di Azure possono essere ripristinati direttamente in Istanza gestita. Per ripristinare un database SQL esistente in un'istanza gestita, è possibile:
 
-- Usare [Servizio Migrazione del database](/sql/dma/dma-overview). Per un'esercitazione, vedere [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure](../dms/tutorial-sql-server-to-managed-instance.md) per ripristinare il database da un file di backup.
+- Usare [Servizio Migrazione del database](../dms/dms-overview.md). Per un'esercitazione, vedere [Eseguire la migrazione di SQL Server all'istanza gestita di database SQL di Azure](../dms/tutorial-sql-server-to-managed-instance.md) per ripristinare il database da un file di backup.
 - Usare il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Per un'esercitazione su come ripristinare il file di backup di database Wide World Importers - Standard, vedere [Restore a backup file to a Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) (Ripristinare un file di backup in un'istanza gestita). Questa esercitazione illustra come caricare un file di backup in una risorsa di archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso.
   - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Importare da un file BACPAC](sql-database-import.md).
 
 ## <a name="sql-features-supported"></a>Funzionalità di SQL supportate 
 

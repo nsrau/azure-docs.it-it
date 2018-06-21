@@ -1,5 +1,5 @@
 ---
-title: Distribuire l'app nel servizio app di Azure usando FTP/S | Microsoft Docs
+title: Distribuire l'app nel servizio app di Azure usando FTP/S | Documentazione Microsoft
 description: Informazioni su come distribuire l'app nel servizio app di Azure usando FTP o FTPS.
 services: app-service
 documentationcenter: ''
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2ec08b45fab9987e9271c1ff3101eaf321dc84be
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234224"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Distribuire l'app nel servizio app di Azure usando FTP/S
 
@@ -26,29 +27,23 @@ Questo articolo illustra come usare FTP o FTPS per distribuire l'app Web, il bac
 
 L'endpoint FTP/S per l'app è già attivo. Non è necessaria alcuna configurazione per abilitare la distribuzione FTP/S.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>Passaggio 1: Impostare le credenziali per la distribuzione
+## <a name="open-ftp-dashboard"></a>Aprire un dashboard FTP
 
-Per accedere al server FTP per l'app, prima sono necessarie le credenziali per la distribuzione. 
+Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
 
-Per impostare o reimpostare le credenziali per la distribuzione, vedere [Credenziali per la distribuzione del Servizio app di Azure](app-service-deployment-credentials.md). Questa esercitazione illustra l'uso di credenziali a livello di utente.
+Per aprire il dashboard FTP, fare clic su **Recapito continuo (anteprima)** > **FTP** > **Dashboard**.
 
-## <a name="step-2-get-ftp-connection-information"></a>Passaggio 2: Ottenere informazioni di connessione a FTP
+![Aprire un dashboard FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire la [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
-2. Selezionare **Panoramica** nel riquadro di spostamento a sinistra, quindi prendere nota dei valori per **Utente FTP/distribuzione**, **Nome host FTP** e **Nome host FTPS**. 
+## <a name="get-ftp-connection-information"></a>Ottenere informazioni di connessione a FTP
 
-    ![Informazioni di connessione a FTP](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+Nel dashboard FTP fare clic su **Copia** per copiare le credenziali FTPS di endpoint e app.
 
-    > [!NOTE]
-    > Per rendere disponibile un contesto appropriato al server FTP, il valore di **Utente FTP/distribuzione** visualizzato nel portale di Azure include il nome dell'app.
-    > È possibile trovare le stesse informazioni selezionando **Proprietà** nel riquadro di spostamento. 
-    >
-    > La password per la distribuzione inoltre non viene mai visualizzata. Se si dimentica la password per la distribuzione, tornare al [passaggio 1](#step1) e reimpostarla.
-    >
-    >
+![Copiare le informazioni FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>Passaggio 3: Distribuire file in Azure
+È consigliabile usare **Credenziali dell'app** per distribuire l'app perché si tratta di informazioni univoche per ogni app. Tuttavia, se si fa clic su **Credenziali utente**, è possibile impostare le credenziali a livello di utente da usare per l'accesso FTP/S a tutte le app del servizio app della sottoscrizione.
+
+## <a name="deploy-files-to-azure"></a>Distribuire file in Azure
 
 1. Nel client FTP, ad esempio [Visual Studio](https://www.visualstudio.com/vs/community/) o [FileZilla](https://filezilla-project.org/download.php?type=client), usare le specifiche informazioni raccolte per connettersi all'app.
 3. Copiare i file e la struttura di directory corrispondente nella directory [**/site/wwwroot** ](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure o nella directory **/site/wwwroot/App_Data/Jobs/** per i processi Web.
@@ -75,6 +70,14 @@ Per disabilitare il protocollo FTP non crittografato, selezionare **Solo FTPS**.
 
 ![Disabilitare FTP/FTPS](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Automatizzazione con gli script
+
+Per la distribuzione FTP tramite l'[interfaccia della riga di comando di Azure](/cli/azure), vedere [Creare un'app Web e distribuire i file con FTP](./scripts/app-service-cli-deploy-ftp.md).
+
+Per la distribuzione FTP tramite [Azure PowerShell](/cli/azure), vedere [Caricare i file in un'app Web tramite FTP](./scripts/app-service-powershell-deploy-ftp.md).
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## <a name="troubleshoot-ftp-deployment"></a>Risolvere i problemi di distribuzione FTP
 
 - [Come è possibile risolvere i problemi di distribuzione FTP?](#how-can-i-troubleshoot-ftp-deployment)
@@ -87,11 +90,10 @@ Il primo passo per la risoluzione dei problemi di distribuzione FTP consiste nel
 
 Un problema di distribuzione comporta in genere che non venga distribuito alcun file o che vengano distribuiti file non corretti all'app. È possibile risolverlo analizzando la distribuzione FTP o selezionando un percorso di distribuzione alternativo (ad esempio il controllo del codice sorgente).
 
-Un problema di runtime dell'applicazione determina in genere la distribuzione del set corretto di file all'app, ma un comportamento dell'app non corretto. È possibile risolverlo esaminando il comportamento di runtime del codice e analizzando percorsi di errore specifici.
+Un problema di runtime dell'applicazione determina in genere la distribuzione del set corretto di file all'app, ma un comportamento dell'app non corretto. È possibile risolverlo esaminando il comportamento di runtime del codice e analizzando i percorsi di errore specifici.
 
 Per determinare se un problema è di distribuzione o di runtime, vedere [Deployment vs. runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues) (Problemi di distribuzione e di runtime).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Non sono in grado di eseguire il protocollo FTP e di pubblicare il codice. Come è possibile risolvere il problema?
 Verificare di avere immesso il nome host e le [credenziali](#step-1--set-deployment-credentials) corretti. Verificare anche che le porte FTP seguenti nel computer non siano bloccate da un firewall:
 

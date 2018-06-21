@@ -1,5 +1,5 @@
 ---
-title: Introduzione a WebJobs SDK - Azure
+title: Introduzione ad Azure WebJobs SDK
 description: Introduzione a WebJobs SDK per l'elaborazione in background guidata dagli eventi. Informazioni su come accedere ai dati nei servizi di Azure e di terze parti.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234520"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>Introduzione a WebJobs SDK
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
-Questo articolo illustra come creare, eseguire in locale e distribuire in Azure un progetto WebJobs SDK.
+Questo articolo illustra come creare, eseguire in locale e distribuire nel Servizio app di Azure un progetto Azure WebJobs SDK.
 
 Le istruzioni riguardano [Visual Studio 2017](https://www.visualstudio.com/vs/), ma le stesse attività possono essere eseguite con altri strumenti, ad esempio [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>Informazioni su WebJobs SDK
+## <a name="what-is-the-azure-webjobs-sdk"></a>Cos'è Azure WebJobs SDK
 
 Azure WebJobs SDK è un framework che semplifica l'attività di scrittura del codice di elaborazione in background che accede ai dati nei servizi di Azure. L'SDK usa una sintassi dichiarativa per specificare gli eventi che attiveranno una funzione, ad esempio l'aggiunta di un nuovo messaggio a una coda. Una sintassi dichiarativa simile controlla la lettura e la scrittura di dati dopo l'attivazione di una funzione. Questo sistema di trigger e associazioni gestisce la maggior parte delle attività di scrittura di codice di basso livello associate all'accesso ai servizi di Azure e di terze parti.
 
@@ -45,13 +46,13 @@ public static void Run(
 
 ### <a name="versions-2x-and-3x"></a>Versioni 2.x e 3.x
 
-Le istruzioni illustrano come creare un progetto WebJobs SDK versione 2.x, con indicazioni sulle differenze in 3.x (in anteprima). Il principale cambiamento introdotto dalla versione 3.x è l'uso di .NET Core al posto di .NET Framework.
+Le istruzioni illustrano come creare un progetto WebJobs SDK versione 2.x, con indicazioni sulle differenze in 3.x (in anteprima). La principale modifica introdotta dalla versione 3.x è l'uso di .NET Core invece di .NET Framework.
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
 Il servizio [Funzioni di Azure](../azure-functions/functions-overview.md) è basato su WebJobs SDK ed è un'opzione valida quando non è necessario usare direttamente WebJobs SDK. Funzioni di Azure 1.x usa WebJobs SDK 2.x. Per altre informazioni, vedere il [confronto tra Funzioni di Azure e WebJobs SDK](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo presuppone che l'utente abbia un [account Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ed esperienza con le [app nel servizio app di Azure](app-service-web-overview.md). Per seguire la procedura descritta in questo articolo:
 

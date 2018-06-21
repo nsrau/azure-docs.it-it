@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234523"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -67,6 +68,8 @@ Questa sezione riporta le coppie nome/valore caricate all'avvio dell'app.
 * Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
 * Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING_. Entrambe contengono lo stesso valore.
 
+Le impostazioni dell'app vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
+
 ### <a name="connection-strings"></a>Stringhe di connessione
 Stringhe di connessione per le risorse collegate. 
 
@@ -80,6 +83,8 @@ Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponi
 * Personalizzato: `CUSTOMCONNSTR_`
 
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
+
+Le stringhe di connessione vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
 
 ### <a name="default-documents"></a>Documenti predefiniti
 Il documento predefinito è rappresentato dalla pagina Web visualizzata nell'URL radice di un sito Web.  Viene utilizzato il primo file corrispondente dell'elenco. 
@@ -163,7 +168,7 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
 [Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md

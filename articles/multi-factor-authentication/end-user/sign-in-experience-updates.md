@@ -1,5 +1,5 @@
 ---
-title: Aggiornamento dell'esperienza di accesso di Microsoft
+title: Aggiornamenti dell'esperienza di accesso di Microsoft
 description: Informazioni sui nuovi aggiornamenti dell'esperienza di accesso di Microsoft
 services: multi-factor-authentication
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: end-user
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 571fa77a22effacbeb495a4c05089c515be9d3d4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 97dec128c162cd2793227adc9cb321564382743a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367983"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824813"
 ---
 # <a name="updates-to-the-sign-in-experience-for-online-services"></a>Aggiornamenti all'esperienza di accesso per i servizi online
 

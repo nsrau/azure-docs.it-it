@@ -3,21 +3,22 @@ title: Eseguire pacchetti SSIS tramite attività Esecuzione del pacchetto SSIS -
 description: Questo articolo descrive come eseguire un pacchetto di SQL Server Integration Services (SSIS) da una pipeline di Azure Data Factory usando l'attività di esecuzione del pacchetto SSIS.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.author: douglasl
-ms.openlocfilehash: ce041813d52e645c336869ef04c9522962c80cf5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: ffe65260e73aa2daa4ab63840a00076000f8e6a8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297156"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264906"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività di esecuzione del pacchetto SSIS in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azure Data Factory usando un'attività di esecuzione del pacchetto SSIS. 

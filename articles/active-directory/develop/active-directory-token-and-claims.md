@@ -2,41 +2,44 @@
 title: Informazioni sui diversi tipi di token e di attestazione supportati da Azure AD | Documentazione Microsoft
 description: Una guida alla comprensione e alla valutazione delle attestazioni nei token SAML 2.0 e JSON Web Tokens (JWT) emessi da Azure Active Directory (AAD)
 documentationcenter: na
-author: hpsin
+author: CelesteDG
 services: active-directory
 manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
+ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
-ms.author: hirsin
+ms.date: 05/22/2018
+ms.author: celested
+ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3d8a4ddd98086252f36eeb7034248e909fec1ac0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801865"
 ---
 # <a name="azure-ad-token-reference"></a>Riferimento al token di Azure AD
-Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
+Azure Active Directory (Azure AD) rilascia tipi diversi di token di sicurezza durante l'elaborazione di ogni flusso di autenticazione. Questo documento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token. 
 
 ## <a name="types-of-tokens"></a>Tipi di token
-Azure AD supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-protocols-oauth-code.md), che usa sia token di accesso che token di aggiornamento.  L'endpoint supporta inoltre l'autenticazione e l'accesso tramite [OpenID Connect](active-directory-protocols-openid-connect-code.md), che introduce un terzo tipo di token: il token ID.  Ognuno di questi token viene rappresentato come "token di connessione".
+Azure AD supporta il [protocollo di autorizzazione OAuth 2.0](active-directory-protocols-oauth-code.md), che usa sia token di accesso che token di aggiornamento. L'endpoint supporta inoltre l'autenticazione e l'accesso tramite [OpenID Connect](active-directory-protocols-openid-connect-code.md), che introduce un terzo tipo di token: il token ID. Ognuno di questi token viene rappresentato come "token di connessione".
 
 Un token di connessione è un token di sicurezza leggero che consente al "portatore" di accedere a una risorsa protetta. In questo senso, per "portatore" si intende qualsiasi parte che sia in grado di presentare il token. Per ricevere un token di connessione è richiesta l'autenticazione con Azure AD ed è necessario seguire una procedura per proteggere il token onde evitare l'intercettazione da parte di soggetti non autorizzati. Dal momento che i token di connessione non hanno meccanismi integrati per prevenire l'uso non autorizzato, devono essere trasportati su un canale protetto, ad esempio Transport Layer Security (HTTPS). Se un token di connessione viene trasmesso senza essere protetto, un utente malintenzionato potrebbe usare un attacco "man in the middle" per acquisire il token e ottenere accesso non autorizzato a una risorsa protetta. Gli stessi principi di sicurezza si applicano quando un token di connessione viene archiviato o memorizzato nella cache per un uso futuro. Assicurarsi sempre che l'app trasmetta e archivi i token di connessione in modo sicuro. Per altre considerazioni sulla sicurezza dei token di connessione, vedere la [sezione 5 della specifica RFC 6750](http://tools.ietf.org/html/rfc6750).
 
-Molti dei token rilasciati da Azure AD vengono implementati come token JSON Web o JWT.  Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti.  Le informazioni contenute nei token JWT sono note come "attestazioni" o asserzioni di informazioni sulla connessione e sull'oggetto del token.  Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione.  Dato che i token JWT rilasciati da Azure AD sono firmati, ma non crittografati, è possibile esaminarne facilmente i contenuti per il debug.  Sono disponibili diversi strumenti per questa operazione, ad esempio [jwt.ms](https://jwt.ms/). Per altre informazioni sui token JWT, fare riferimento alla [specifica di JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
+Molti dei token rilasciati da Azure AD vengono implementati come token JSON Web o JWT. Un token JWT è un modo compatto e indipendente dall'URL di trasferimento delle informazioni tra due parti. Le informazioni contenute nei token JWT sono note come "attestazioni" o asserzioni di informazioni sulla connessione e sull'oggetto del token. Le attestazioni nei token JWT sono oggetti JSON codificati e serializzati per la trasmissione. Dato che i token JWT rilasciati da Azure AD sono firmati, ma non crittografati, è possibile esaminarne facilmente i contenuti per il debug. Sono disponibili diversi strumenti per questa operazione, ad esempio [jwt.ms](https://jwt.ms/). Per altre informazioni sui token JWT, fare riferimento alla [specifica di JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ## <a name="idtokens"></a>Token ID
-I token ID sono un tipo di token di sicurezza di accesso che l'app riceve quando esegue l'autenticazione usando [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Vengono rappresentati come [JWT](#types-of-tokens) e contengono attestazioni che è possibile usare per l'accesso dell'utente all'app.  È possibile usare le attestazioni in un token ID in base alle proprie esigenze. In genere, vengono usate per la visualizzazione di informazioni sull'account o per prendere decisioni relative al controllo di accesso in un'app.
+I token ID sono un tipo di token di sicurezza di accesso che l'app riceve quando esegue l'autenticazione usando [OpenID Connect](active-directory-protocols-openid-connect-code.md). Vengono rappresentati come [JWT](#types-of-tokens) e contengono attestazioni che è possibile usare per l'accesso dell'utente all'app. È possibile usare le attestazioni in un token ID in base alle proprie esigenze. In genere, vengono usate per la visualizzazione di informazioni sull'account o per prendere decisioni relative al controllo di accesso in un'app.
 
-Attualmente i token ID sono firmati, ma non crittografati.  Quando l'app riceve un token ID, deve [convalidare la firma](#validating-tokens) per dimostrare l'autenticità del token e convalidare alcune attestazioni nel token per dimostrarne la validità.  Le attestazioni convalidate da un'app variano a seconda dei requisiti dello scenario, ma esistono alcune [convalide di attestazione comuni](#validating-tokens) che l'app deve eseguire in ogni scenario.
+Attualmente i token ID sono firmati, ma non crittografati. Quando l'app riceve un token ID, deve [convalidare la firma](#validating-tokens) per dimostrare l'autenticità del token e convalidare alcune attestazioni nel token per dimostrarne la validità. Le attestazioni convalidate da un'app variano a seconda dei requisiti dello scenario, ma esistono alcune [convalide di attestazione comuni](#validating-tokens) che l'app deve eseguire in ogni scenario.
 
-Vedere la sezione seguente per informazioni su attestazioni ed esempio di token ID.  Si noti che le attestazioni nei token ID non vengono restituite in un ordine particolare.  Inoltre, nei token ID è possibile introdurre nuove attestazioni in qualsiasi momento. L'app non deve interrompersi quando vengono introdotte nuove attestazioni.  L'elenco seguente include le attestazioni che l'app può interpretare in modo affidabile al momento della stesura di questo articolo.  Se necessario, sono presenti informazioni più dettagliate nella [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
+Vedere la sezione seguente per informazioni su attestazioni ed esempio di token ID. Si noti che le attestazioni nei token ID non vengono restituite in un ordine particolare. Inoltre, nei token ID è possibile introdurre nuove attestazioni in qualsiasi momento. L'app non deve interrompersi quando vengono introdotte nuove attestazioni. L'elenco seguente include le attestazioni che l'app può interpretare in modo affidabile al momento della stesura di questo articolo. Se necessario, sono presenti informazioni più dettagliate nella [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-idtoken"></a>Token ID di esempio
 ```
@@ -52,16 +55,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > [!div class="mx-codeBreakAll"]
 | Attestazione JWT | NOME | DESCRIZIONE |
 | --- | --- | --- |
-| `appid` |ID applicazione |Identifica l'applicazione che usa il token per l'accesso a una risorsa. L'applicazione può fungere per conto proprio o per conto dell'utente. L'ID dell'applicazione in genere rappresenta un oggetto applicazione, ma può anche rappresentare un oggetto di entità servizio in Azure AD. <br><br> **Valore token JWT di esempio**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
 | `aud` |Audience |Destinatario previsto per il token. L'applicazione che riceve il token deve verificare che il valore del gruppo di destinatari sia corretto e rifiuta tutti i token destinati a un gruppo di destinatari diverso. <br><br> **Valore SAML di esempio**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Valore token JWT di esempio**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Riferimento alla classe contesto di autenticazione applicazione |Indica la modalità di autenticazione del client. Per un client pubblico, il valore è 0. Se vengono usati l'ID client e il segreto client, il valore è 1. <br><br> **Valore token JWT di esempio**: <br> `"appidacr": "0"` |
+| `appidacr` |Riferimento alla classe contesto di autenticazione applicazione |Indica la modalità di autenticazione del client. Per un client pubblico, il valore è 0. Se vengono usati l'ID client e il segreto client, il valore è 1. Se venisse usato un certificato client per l'autenticazione, il valore sarebbe pari a 2. <br><br> **Valore token JWT di esempio**: <br> `"appidacr": "0"` |
 | `acr` |Riferimento alla classe contesto di autenticazione |Indica la modalità di autenticazione del soggetto, invece del client, nell'attestazione di riferimento alla classe contesto di autenticazione dell'applicazione. Il valore "0" indica che l'autenticazione dell'utente finale non soddisfa i requisiti ISO/IEC 29115. <br><br> **Valore token JWT di esempio**: <br> `"acr": "0"` |
 | Istante di autenticazione |Registra la data e l'ora in cui è avvenuta l'autenticazione. <br><br> **Valore SAML di esempio**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Metodo di autenticazione |Identifica la modalità di autenticazione dell'oggetto del token. <br><br> **Valore SAML di esempio**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Valore token JWT di esempio**: `“amr”: ["pwd"]` |
 | `given_name` |Nome |Fornisce il nome o il nome "specificato" dell'utente, come impostato nell'oggetto utente di Azure AD. <br><br> **Valore SAML di esempio**: <br> `<Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>`<br>`<AttributeValue>Frank<AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `"given_name": "Frank"` |
-| `groups` |Gruppi |Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nella relativa attestazione sono configurati in base all'applicazione, tramite la proprietà "groupMembershipClaims" del manifesto dell'applicazione. Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br> **Note**: <br> Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita.  <br> Per gli altri flussi, se il numero di gruppi in cui è presente l'utente è superiore al limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione in eccedenza alle origini di attestazioni che puntano all'endpoint Graph che contiene l'elenco dei gruppi per l'utente. (in . <br><br> **Valore SAML di esempio**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
-|`hasgroups` | Indicatore di eccedenza dei gruppi del flusso implicito dei token JWT| Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo.  Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi).  Indica che il client deve usare Graph per determinare i gruppi dell'utente (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Indicatore di eccedenza dei gruppi | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente.  Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br> **Valore SAML di esempio**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
+| `groups` |Gruppi |Fornisce gli ID oggetto che rappresentano le appartenenze ai gruppi del soggetto. Questi valori sono univoci (vedere ID oggetto) e possono essere usati in modo sicuro per la gestione dell'accesso, ad esempio l'attivazione dell'autorizzazione per accedere a una risorsa. I gruppi inclusi nella relativa attestazione sono configurati in base all'applicazione, tramite la proprietà "groupMembershipClaims" del manifesto dell'applicazione. Un valore null escluderà tutti i gruppi, un valore "SecurityGroup" includerà solo le appartenenze al gruppo di sicurezza di Active Directory e un valore "All" includerà sia i gruppi di sicurezza che le liste di distribuzione di Office 365. <br><br> **Note**: <br> Vedere di seguito l'attestazione `hasgroups` per informazioni dettagliate sull'uso dell'attestazione `groups` con la concessione implicita. <br> Per gli altri flussi, se il numero di gruppi in cui è presente l'utente è superiore al limite (150 per SAML, 200 per JWT), verrà aggiunta un'attestazione in eccedenza alle origini di attestazioni che puntano all'endpoint Graph che contiene l'elenco dei gruppi per l'utente. (in . <br><br> **Valore SAML di esempio**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `“groups”: ["0e129f5b-6b0a-4944-982d-f776045632af", … ]` |
+|`hasgroups` | Indicatore di eccedenza dei gruppi del flusso implicito dei token JWT| Se presente, sempre `true`, per indicare che l'utente è presente in almeno un gruppo. Usato invece dell'attestazione `groups` per i token JWT nei flussi di concessione implicita se l'attestazione completa dei gruppi estenderebbe il frammento dell'URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare Graph per determinare i gruppi dell'utente (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `groups:src1` <br> `http://schemas.microsoft.com/claims/groups.link` | Indicatore di eccedenza dei gruppi | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br> **Valore SAML di esempio**: <br> `<Attribute Name=” http://schemas.microsoft.com/claims/groups.link”>`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `"groups":"src1` <br> `_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }`|
 | `idp` |Provider di identità |Registra il provider di identità che ha autenticato l'oggetto del token. Questo valore è identico al valore dell'attestazione Autorità di certificazione, a meno che l'account utente non sia in un tenant diverso rispetto all'autorità di certificazione. <br><br> **Valore SAML di esempio**: <br> `<Attribute Name=” http://schemas.microsoft.com/identity/claims/identityprovider”>`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` <br><br> **Valore token JWT di esempio**: <br> `"idp":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
 | `iat` |IssuedAt |Archivia l'ora in cui è stato rilasciato il token. Viene spesso usata per misurare la validità del token. <br><br> **Valore SAML di esempio**: <br> `<Assertion ID="_d5ec7a9b-8d8f-4b44-8c94-9812612142be" IssueInstant="2014-01-06T20:20:23.085Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">` <br><br> **Valore token JWT di esempio**: <br> `"iat": 1390234181` |
 | `iss` |Issuer |Identifica il servizio token di sicurezza (STS) che costruisce e restituisce il token. Nel token restituito da Azure AD l'autorità di certificazione è sts.windows.net. Il GUID del valore di attestazione dell'autorità di certificazione è l'ID tenant della directory di Azure AD. L'ID tenant è un identificatore non modificabile e affidabile della directory. <br><br> **Valore SAML di esempio**: <br> `<Issuer>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/</Issuer>` <br><br> **Valore token JWT di esempio**: <br>  `"iss":”https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/”` |
@@ -81,30 +83,29 @@ Al termine dell'autenticazione, Azure AD restituisce un token di accesso, che pu
 
 Se l'app *usa* i token di accesso solo per ottenere l'accesso alle API, è possibile (e consigliabile) trattare i token di accesso come se fossero completamente opachi, dal momento che sono semplicemente stringhe che l'app può trasmettere alle risorse nelle richieste HTTP.
 
-Quando si richiede un token di accesso, Azure AD restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app.  Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per i quali è valido.  In questo modo l'app può eseguire operazioni di memorizzazione intelligente dei token di accesso senza la necessità di analizzare il token di accesso stesso.
+Quando si richiede un token di accesso, Azure AD restituisce anche alcuni metadati relativi al token di accesso per l'utilizzo dell'app. Queste informazioni includono l'ora di scadenza del token di accesso e gli ambiti per i quali è valido. In questo modo l'app può eseguire operazioni di memorizzazione intelligente dei token di accesso senza la necessità di analizzare il token di accesso stesso.
 
-Se l'app è un'API protetta con Azure AD che prevede token di accesso nelle richieste HTTP, è necessario eseguire la convalida e l'ispezione dei token ricevuti. L'applicazione deve eseguire la convalida del token di accesso prima di usarlo per accedere alle risorse. Per altre informazioni sulla convalida, vedere [Convalida dei token](#validating-tokens).  
-Per informazioni dettagliate su come eseguire questa operazione con .NET, vedere [Proteggere un'API Web usando token di connessione di Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+Se l'app è un'API protetta con Azure AD che prevede token di accesso nelle richieste HTTP, è necessario eseguire la convalida e l'ispezione dei token ricevuti. L'applicazione deve eseguire la convalida del token di accesso prima di usarlo per accedere alle risorse. Per altre informazioni sulla convalida, vedere [Convalida dei token](#validating-tokens). Per informazioni dettagliate su come eseguire questa operazione con .NET, vedere [Proteggere un'API Web usando token di connessione di Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
 
 ## <a name="refresh-tokens"></a>Token di aggiornamento
 
-I token di aggiornamento sono token di sicurezza che l'app può usare per acquisire nuovi token di accesso in un flusso di OAuth 2.0.  Consentono all'app di ottenere l'accesso a lungo termine alle risorse per conto dell'utente senza l'interazione dell'utente.
+I token di aggiornamento sono token di sicurezza che l'app può usare per acquisire nuovi token di accesso in un flusso di OAuth 2.0. Consentono all'app di ottenere l'accesso a lungo termine alle risorse per conto dell'utente senza l'interazione dell'utente.
 
-Si tratta di token a più risorse,  ossia un token di aggiornamento ricevuto durante una richiesta di token per una risorsa può essere riscattato per i token di accesso che fanno riferimento a una risorsa completamente diversa. A tale scopo, impostare il parametro `resource` nella richiesta sulla risorsa di destinazione.
+Si tratta di token a più risorse, ossia un token di aggiornamento ricevuto durante una richiesta di token per una risorsa può essere riscattato per i token di accesso che fanno riferimento a una risorsa completamente diversa. A tale scopo, impostare il parametro `resource` nella richiesta sulla risorsa di destinazione.
 
-I token di aggiornamento sono completamente opachi per l'app. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito.  I token di aggiornamento possono essere invalidati in qualsiasi momento per svariati motivi. Per informazioni su questi motivi, vedere [Revoca dei token](#token-revocation).  L'unico modo per l'app di sapere se un token di aggiornamento è valido è provare a riscattarlo inviando una richiesta di token all'endpoint di token di Azure AD.
+I token di aggiornamento sono completamente opachi per l'app. Hanno una durata elevata, ma l'app non deve essere scritta aspettandosi che un token di aggiornamento duri per un periodo indefinito. I token di aggiornamento possono essere invalidati in qualsiasi momento per svariati motivi. Per informazioni su questi motivi, vedere [Revoca dei token](#token-revocation). L'unico modo per l'app di sapere se un token di aggiornamento è valido è provare a riscattarlo inviando una richiesta di token all'endpoint di token di Azure AD.
 
-Quando si riscattano i token di aggiornamento per un nuovo token di accesso, viene visualizzato un nuovo token di aggiornamento nella risposta del token.  È consigliabile salvare il token di aggiornamento appena generato sostituendo quello usato nella richiesta.  In questo modo, il token di aggiornamento rimarrà valido più a lungo possibile.
+Quando si riscattano i token di aggiornamento per un nuovo token di accesso, viene visualizzato un nuovo token di aggiornamento nella risposta del token. È consigliabile salvare il token di aggiornamento appena generato sostituendo quello usato nella richiesta. In questo modo, il token di aggiornamento rimarrà valido più a lungo possibile.
 
 ## <a name="validating-tokens"></a>Convalida dei token
 
-Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Per convalidare un id_token o un access_token, l'app deve convalidarne la firma e le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). Il middleware di Azure AD dispone di funzionalità incorporate per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne uno nel linguaggio di interesse. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida JWT manuale](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
-Sono disponibili librerie ed esempi di codice che illustrano come gestire facilmente la convalida dei token. Le informazioni seguenti vengono fornite a titolo esemplificativo per chi vuole comprenderne il processo sottostante.  Sono disponibili anche numerose librerie open source di terze parti per la convalida dei token JWT. Esiste almeno un'opzione per ogni piattaforma e linguaggio disponibili. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md).
+Sono disponibili librerie ed esempi di codice che illustrano come gestire facilmente la convalida dei token. Le informazioni seguenti vengono fornite a titolo esemplificativo per chi vuole comprenderne il processo sottostante. Sono disponibili anche numerose librerie open source di terze parti per la convalida dei token JWT. Esiste almeno un'opzione per ogni piattaforma e linguaggio disponibili. Per altre informazioni sulle librerie di autenticazione di Azure AD e per ottenere esempi di codice, vedere [Azure Active Directory Authentication Library](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Convalida della firma
 
-Un token JWT contiene tre segmenti separati dal carattere `.` .  Il primo segmento è noto come **intestazione**, il secondo come **corpo** e il terzo come **firma**.  Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
+Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come **intestazione**, il secondo come **corpo** e il terzo come **firma**. Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
 
 I token emessi da Azure AD vengono firmati usando algoritmi di crittografia asimmetrica standard del settore, come RSA 256. L'intestazione del token JWT contiene informazioni sulla chiave e sul metodo di crittografia usati per firmare il token:
 
@@ -118,7 +119,7 @@ I token emessi da Azure AD vengono firmati usando algoritmi di crittografia asim
 
 L'attestazione `alg` indica l'algoritmo usato per firmare il token, mentre l'attestazione `x5t` indica la chiave pubblica specifica usata per firmare il token.
 
-In qualsiasi momento, Azure AD può firmare un token ID usando un determinato set di coppie di chiavi pubbliche/private. Azure AD ruota il set di chiavi su base periodica, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi.  Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate da Azure AD è di circa 24 ore.
+In qualsiasi momento, Azure AD può firmare un token ID usando un determinato set di coppie di chiavi pubbliche/private. Azure AD ruota il set di chiavi su base periodica, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate da Azure AD è di circa 24 ore.
 
 È possibile acquisire i dati della chiave per la firma necessari per convalidare la firma usando il documento dei metadati OpenID Connect disponibile all'indirizzo:
 
@@ -131,15 +132,15 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > 
 > 
 
-Il documento dei metadati è un oggetto JSON contenente diverse informazioni utili, ad esempio la posizione dei vari endpoint necessari per eseguire l'autenticazione di OpenID Connect.  
+Il documento dei metadati è un oggetto JSON contenente diverse informazioni utili, ad esempio la posizione dei vari endpoint necessari per eseguire l'autenticazione di OpenID Connect. 
 
-Include inoltre un oggetto `jwks_uri`che fornisce la posizione del set di chiavi pubbliche usate per firmare i token.  Il documento JSON disponibile in `jwks_uri` contiene tutte le informazioni sulla chiave pubblica usata in un determinato momento.  L'app può usare l'attestazione `kid` nell'intestazione JWT per selezionare quale chiave pubblica è stata usata in questo documento per firmare un determinato token.  Può quindi eseguire la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
+Include inoltre un oggetto `jwks_uri`che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Il documento JSON disponibile in `jwks_uri` contiene tutte le informazioni sulla chiave pubblica usata in un determinato momento. L'app può usare l'attestazione `kid` nell'intestazione JWT per selezionare quale chiave pubblica è stata usata in questo documento per firmare un determinato token. Può quindi eseguire la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
 
 L'esecuzione della convalida della firma non rientra nell'ambito di questo documento, sono tuttavia disponibili numerose librerie open source che contengono informazioni per eseguire questa operazione.
 
 #### <a name="validating-the-claims"></a>Convalida delle attestazioni
 
-Quando l'applicazione riceve un token (id_token all'accesso dell'utente o un token di accesso come token di connessione nella richiesta HTTP) è necessario eseguire anche alcuni controlli nelle attestazioni nel token.  Sono incluse, ad esempio:
+Quando l'applicazione riceve un token (id_token all'accesso dell'utente o un token di accesso come token di connessione nella richiesta HTTP) è necessario eseguire anche alcuni controlli nelle attestazioni nel token. Sono incluse, ad esempio:
 
 * Attestazione **Audience**: per verificare che il token fosse destinato all'app.
 * Attestazioni **Not Before** e **Expiration Time**: per verificare che il token non sia scaduto.
@@ -151,21 +152,32 @@ Per un elenco completo delle convalide di attestazione che l'app deve eseguire p
 
 ## <a name="token-revocation"></a>Revoca dei token
 
-I token di aggiornamento possono essere invalidati in qualsiasi momento per vari motivi.  Questi motivi appartengono a due categorie: timeout e revoca. 
-* Timeout dei token
-  * MaxInactiveTime: se il token di aggiornamento non è stato usato entro il tempo specificato da MaxInactiveTime, non è più valido. 
-  * MaxSessionAge: se il parametro MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor è stato impostato su un valore diverso da quello predefinito (Until-revoked), sarà necessaria una nuova autenticazione allo scadere del tempo impostato in MaxAgeSession*.  
-  * Esempi:
-    * Il tenant ha un parametro MaxInactiveTime impostato su cinque giorni, ma l'utente è andato in vacanza per una settimana e di conseguenza AAD non ha riscontrato una nuova richiesta di token da parte dell'utente per sette giorni.  Alla successiva richiesta di un token, l'utente noterà che il token di aggiornamento è stato revocato e dovrà immettere di nuovo le credenziali. 
-    * Nel caso di un'applicazione riservata, MaxAgeSessionSingleFactor è impostato su un giorno.  Se un utente accede il lunedì, il martedì successivo (dopo che sono trascorse 25 ore) dovrà autenticarsi di nuovo.  
-* Revoca
-  * Modifica volontaria della password: se un utente modifica la propria password, potrebbe doversi autenticare di nuovo in alcune delle applicazioni, a seconda del modo in cui è stato ottenuto il token.  Vedere le note riportate di seguito per informazioni sulle eccezioni. 
-  * Modifica involontaria della password: se un amministratore impone a un utente di modificare la password o la reimposta, i token dell'utente vengono invalidati se sono stati ottenuti tramite la password.  Vedere le note riportate di seguito per informazioni sulle eccezioni. 
-  * Violazione della sicurezza: in caso di una violazione della sicurezza, ad esempio la violazione dell'archivio locale delle password, l'amministratore può revocare tutti i token di aggiornamento attualmente rilasciati.  Questa operazione obbliga gli utenti ad autenticarsi di nuovo. 
+I token di aggiornamento possono essere invalidati in qualsiasi momento per vari motivi. Questi motivi appartengono a due categorie: timeout e revoca. 
 
-Note: 
+**Timeout dei token**
 
-Se per ottenere il token è stato usato un metodo di autenticazione diverso dalle password, ad esempio Windows Hello, l'app Authenticator o dati biometrici come il viso o le impronte digitali, la modifica della password dell'utente non obbliga l'utente ad autenticarsi di nuovo, ma l'app Authenticator dell'utente deve invece eseguire una nuova autenticazione.  Il motivo è che l'input di autenticazione scelto per l'utente, ad esempio il viso, non è stato modificato e di conseguenza può essere usato di nuovo per l'autenticazione.
+* MaxInactiveTime: se il token di aggiornamento non è stato usato entro il tempo specificato da MaxInactiveTime, non è più valido. 
+* MaxSessionAge: se il parametro MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor è stato impostato su un valore diverso da quello predefinito (Until-revoked), sarà necessaria una nuova autenticazione allo scadere del tempo impostato in MaxAgeSession*. 
+* Esempi:
+  * Il tenant ha un parametro MaxInactiveTime impostato su cinque giorni, ma l'utente è andato in vacanza per una settimana e di conseguenza AAD non ha riscontrato una nuova richiesta di token da parte dell'utente per sette giorni. Alla successiva richiesta di un token, l'utente noterà che il token di aggiornamento è stato revocato e dovrà immettere di nuovo le credenziali. 
+  * Nel caso di un'applicazione riservata, MaxAgeSessionSingleFactor è impostato su un giorno. Se un utente accede il lunedì, il martedì successivo (dopo che sono trascorse 25 ore) dovrà autenticarsi di nuovo. 
+
+**Revoca**
+
+|   | Cookie basato su password | Token basato su password | Cookie non basato su password | Token non basato su password | Token client riservato| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Password scade| Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|
+|Password cambiata dall'utente| Revocato | Revocato | Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|
+|Utente esegue SSPR|Revocato | Revocato | Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|
+|Amministratore reimposta password|Revocato | Revocato | Rimarrà attivo|Rimarrà attivo|Rimarrà attivo|
+|Utente revoca token di aggiornamento [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato |Revocato | Revocato |
+|Amministrazione revoca tutti i token di aggiornamento per il tenant [tramite PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | Revocato | Revocato |Revocato | Revocato |Revocato | Revocato |
+|[Single Sign-Out](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) sul Web | Revocato | Rimarrà attivo |Revocato | Rimarrà attivo |Rimarrà attivo |Rimarrà attivo |
+
+> [!NOTE]
+> Un accesso "Non basato su password" si ha quando l'utente non digita alcuna password per accedere.  Ad esempio, con il riconoscimento facciale di Windows Hello, una chiave FIDO o un PIN. 
+>
+> Vi è un problema noto con il token di aggiornamento primario di Windows.  Se quest'ultimo viene ottenuto tramite una password e quindi l'utente esegue l'accesso tramite Hello, non si modifica l'origine del token di aggiornamento primario e questo verrà revocato se l'utente modifica la password. 
 
 ## <a name="sample-tokens"></a>Token di esempio
 

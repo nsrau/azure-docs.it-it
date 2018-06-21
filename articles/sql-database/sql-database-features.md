@@ -1,35 +1,35 @@
 ---
 title: Confronto tra le funzionalità del database SQL di Azure | Microsoft Docs
-description: Questo articolo mette a confronto le funzionalità del database SQL di Azure e di Istanza gestita, tra loro e con SQL Server.
+description: Questo articolo mette a confronto le funzionalità di SQL Server disponibili nei diversi tipi del database SQL di Azure.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210056"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248810"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto tra le funzionalità: database SQL di Azure e SQL Server 
 
-Il database SQL di Azure ha una base di codice in comune con SQL Server. Le funzionalità di SQL Server supportate dal database SQL di Azure dipendono dal tipo di database creato. Con il database SQL di Azure, è possibile creare un database come parte di un'[istanza gestita](sql-database-managed-instance.md) (attualmente in anteprima pubblica) oppure creare un database singolo o incluso in un pool elastico. 
+Il database SQL di Azure ha una base di codice in comune con SQL Server. Le funzionalità di SQL Server supportate dal database SQL di Azure dipendono dal tipo di database creato. Con il database SQL di Azure, è possibile creare un database come parte di un'[istanza gestita](sql-database-managed-instance.md) (attualmente in anteprima pubblica) oppure creare un database che faccia parte di un server logico e, facoltativamente, sia inserito in un pool elastico. 
 
 Microsoft introduce costantemente nuove funzionalità per il database SQL di Azure. Visitare la pagina Web Aggiornamenti di Azure per ottenere informazioni sugli aggiornamenti più recenti usando questi filtri:
 
 * Filtrato per [servizio Database SQL](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtrato per Disponibilità generale [annunci](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) per le funzionalità del database SQL.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>Supporto delle funzionalità di SQL Server e del database SQL
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Supporto delle funzionalità di SQL Server nel database SQL di Azure
 
 La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni funzionalità viene specificato se questa è parzialmente o completamente supportata e viene riportato un collegamento ad altre informazioni. 
 
-| **Funzionalità di SQL** | **Supportata nel database SQL di Azure** | **Istanza gestita (anteprima)** |
+| **Funzionalità di SQL** | **Supportata nel database SQL di Azure/server logico** | **Supportata nel database SQL di Azure/istanza gestita (anteprima)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) | Sì. Vedere [Archivio certificati](sql-database-always-encrypted.md) e [Insieme di credenziali delle chiavi](sql-database-always-encrypted-azure-key-vault.md) |
 | [Gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Ottimizzazione automatica (uso forzato del piano)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sì](sql-database-automatic-tuning.md)| [Sì](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Ottimizzazione automatica (indici)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Sì](sql-database-automatic-tuning.md)| No  |
 | [File BACPAC (esportazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sì. Vedere [Esportazione di un database SQL](sql-database-export.md) | Sì |
-| [File BACPAC (importazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](sql-database-import.md) | Sì |
+| [File BACPAC (importazione)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sì. Vedere [Importazione di un database SQL](sql-database-import.md) | No  |
 | [Comando BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | No, solo backup automatici avviati dal sistema, vedere [Backup automatici](sql-database-automated-backups.md) | Backup automatici avviati dal sistema e backup di sola copia avviati dall'utente, vedere le [differenze relative al backup](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Funzioni predefinite](https://docs.microsoft.com/sql/t-sql/functions/functions) | Supportate per la maggior parte. Vedere le singole funzioni | Sì, vedere le [differenze relative a stored procedure, funzioni e trigger](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | No  | Sì |
@@ -137,7 +137,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 |Introduzione al rilevamento delle minacce|  [Sì](sql-database-threat-detection.md)|[Sì](sql-database-managed-instance-threat-detection.md)|
 | [Flag di traccia](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | No  | No  |
 | [Variabili](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Sì | Sì |
-| [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sì | No, non in anteprima pubblica |
+| [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Sì | Parziale, solo con crittografia gestita dal servizio |
 [Rete virtuale](../virtual-network/virtual-networks-overview.md) | Parziale, vedere [Endpoint della rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md) | Sì, solo modello Resource Manager |
 | [Windows Server Failover Clustering](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) | La [disponibilità elevata](sql-database-high-availability.md) è inclusa in ogni database. Il ripristino di emergenza è trattato in [Panoramica della continuità aziendale del database SQL di Azure](sql-database-business-continuity.md) |
 | [Indici XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Sì | Sì |

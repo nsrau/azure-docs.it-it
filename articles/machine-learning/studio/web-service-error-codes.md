@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836090"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Codici errore dell'API REST di Azure Machine Learning
  
@@ -39,7 +41,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
 | BatchJobInputsNotSpecified | Gli input obbligatori seguenti non sono stati specificati nella richiesta: {0}. Assicurarsi che tutti i dati di input siano specificati e riprovare. |
 | BatchJobInputsTooManySpecified | La richiesta ha specificato un numero di input superiore a quello definito nel servizio. Elenco di input accettati: {0}. Assicurarsi che tutti i dati di input siano specificati correttamente e riprovare. |
 | BlobNameTooLong | Il percorso dell'archivio BLOB di Azure specificato per l'output di diagnostica è troppo lungo: {0}. Abbreviare il percorso e riprovare. |
-| BlobNotFound | Non è possibile accedere al BLOB di Azure specificato {0}.  Messaggio di errore di Azure: {1}. |
+| BlobNotFound | Non è possibile accedere al BLOB di Azure specificato: {0}.  Messaggio di errore di Azure: {1}. |
 | ContainerIsEmpty | Non sono stati specificati nomi di contenitori di archiviazione di Azure. Specificare un nome di contenitore valido e riprovare. |
 | ContainerSegmentInvalid | Il nome del contenitore non è valido. Specificare un nome di contenitore valido e riprovare. |
 | ContainerValidationFailed | La convalida del contenitore BLOB ha avuto esito negativo con questo errore: {0}. |
@@ -76,7 +78,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
 | WebServiceConcurrentRequestRequirementInvalid | Non è possibile modificare i requisiti delle richieste simultanee per il servizio Web {0}. |
 | WebServiceIdInvalid | L'ID del servizio Web specificato non è valido. L'ID del servizio Web deve essere un GUID valido. |
 | WebServiceTooManyConcurrentRequestRequirement | Non è possibile impostare il requisito per le richieste simultanee su un valore maggiore di {0}. |
-| WebServiceTypeInvalid | Il tipo del servizio Web specificato non è valido. Verificare che il tipo del servizio Web sia corretto e riprovare. Tipo di servizio Web validi: {0}. |
+| WebServiceTypeInvalid | Il tipo del servizio Web specificato non è valido. Verificare che il tipo del servizio Web sia corretto e riprovare. Tipi di servizio Web validi: {0}. |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (codice di stato HTTP 400)
  
@@ -85,7 +87,7 @@ Questa classe di errori indica che un argomento specificato nel codice non è va
 | Codice di errore | Messaggio utente |
 | ---------- |--------------|
 | InputMismatchError | I dati di input non corrispondono allo schema di porte di input. |
-| InputParseError | L'analisi dei vettori di input non è riuscita.  Assicurarsi che il vettore di input abbia il numero corretto di colonne e di tipi di dati.  Dettagli aggiuntivi: {0}. |
+| InputParseError | L'analisi dei vettori di input non è riuscita.  Assicurarsi che il vettore di input abbia il numero corretto di colonne e di tipi di dati.  Informazioni aggiuntive: {0}. |
 | MissingRequiredGlobalParameters | I parametri previsti dal servizio Web non sono presenti. Assicurarsi che tutti i parametri obbligatori previsti dal servizio Web siano corretti e riprovare. |
 | UnexpectedParameter | Assicurarsi che vengano passati solo i parametri previsti dal servizio Web e riprovare. |
 | UserParameterInvalid | {0} |
