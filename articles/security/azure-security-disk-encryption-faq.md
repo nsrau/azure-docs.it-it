@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187692"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266883"
 ---
 # <a name="azure-disk-encryption-faq"></a>Domande frequenti su Crittografia dischi di Azure
 
@@ -49,11 +49,13 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5-DAILY-LTS | Disco del sistema operativo e dati |
+| RHEL | 7.5 | Disco dati* |
 | RHEL | 7.4 | Disco dati* |
 | RHEL | 7.3 | Disco dati* |
 | RHEL | 7,2 | Disco dati* |
 | RHEL | 6.8 | Disco dati* |
 | RHEL | 6.7 | Disco dati* |
+| CentOS | 7.4 | Disco del sistema operativo e dati |
 | CentOS | 7.3 | Disco del sistema operativo e dati |
 | CentOS | 7.2n | Disco del sistema operativo e dati |
 | CentOS | 6.8 | Disco del sistema operativo e dati |
