@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: 0352a64597442d0d4fe53b2d2d5adec5c25d47e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ed225206e512ff64835d4d90b35bd44800e0a559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595377"
 ---
-# <a name="use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -209,4 +210,9 @@ Questo comando dell'interfaccia della riga di comando restituisce i dettagli sul
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](overview.md).
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita di Windows per accedere a Cosmos DB.  Per altre informazioni su Cosmos DB, consultare:
+
+> [!div class="nextstepaction"]
+>[Panoramica di Azure Cosmos DB](/azure/cosmos-db/introduction)
+
+

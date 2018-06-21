@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c4570e43c23ff7a23b5d6a97ebd6da0244ed6fb2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300727"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594935"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Esercitazione: usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -139,8 +139,9 @@ In primo luogo, si userà l'Identità del servizio gestito della macchina virtua
     
 Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è possibile usarlo per eseguire l'autenticazione a un servizio che richiede un nome e una password. 
 
-## <a name="related-content"></a>Contenuti correlati
+## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](overview.md).
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita per accedere a Azure Key Vault.  Per altre informazioni su Azure Key Vault, consultare:
 
-Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
+> [!div class="nextstepaction"]
+>[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-whatis)
