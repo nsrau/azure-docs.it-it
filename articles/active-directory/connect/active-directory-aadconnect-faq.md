@@ -11,26 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46a9bf47b4998c4d5be47f67556fbdb3ba7b71db
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 2e5a7cab5c9db0c13ca0c0986c18c86adf675562
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054095"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850287"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Domande frequenti su Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Installazione generale
 **D: L'installazione verrà eseguita correttamente se per l'amministratore globale di Active Directory Azure è abilitata l'autenticazione a due fattori?**  
-Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
+Questo scenario è supportato nelle build rilasciate a partire da febbraio 2016.
 
 **D: Esiste un modo per eseguire l'installazione automatica di Azure AD Connect?**  
 È supportata solo l'installazione di Azure AD Connect tramite l'installazione guidata. L'installazione automatica e invisibile all'utente non è supportata.
 
 **D: Ho una foresta in cui un dominio non può essere contattato. Come installare Azure AD Connect?**  
-Questa opzione è supportata nelle build rilasciate a partire da febbraio 2016.
+Questo scenario è supportato nelle build rilasciate a partire da febbraio 2016.
 
 **D: L'agente di integrità di AD DS funziona su Server Core?**  
 Sì. Dopo aver installato l'agente, è possibile completare il processo di registrazione con il cmdlet di PowerShell seguente: 
@@ -38,13 +39,23 @@ Sì. Dopo aver installato l'agente, è possibile completare il processo di regis
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
 **D: AADConnect supporta la sincronizzazione da due domini in Azure AD?**</br>
-Sì, questa operazione è supportata. Fare riferimento all'argomento relativo al [supporto di più domini](active-directory-aadconnect-multiple-domains.md)
+Sì, questo scenario è supportato. Fare riferimento all'argomento relativo al [supporto di più domini](active-directory-aadconnect-multiple-domains.md)
  
-**D: La presenza di più connettori per lo stesso dominio di Active Directory è supportata in Azure AD Connect?**</br> No, questa operazione non è supportata 
+**D: La presenza di più connettori per lo stesso dominio di Active Directory è supportata in Azure AD Connect?**</br> No, la presenza di più connettori per lo stesso dominio di AD non è supportata. 
+
+**D: È possibile spostare il database di Azure AD Connect da un database a un'istanza remota di SQL Server?**</br> Sì, i seguenti passaggi forniscono materiale sussidiario su come eseguire questa operazione.  Attualmente stiamo lavorando su un documento più dettagliato che sarà presto disponibile.
+
+
+   1. Backup del Database "ADSync" Local DB Il modo più semplice per eseguire questa operazione consiste nell'usare SQL Server Management Studio installato sullo stesso computer in cui è installato Azure AD Connect. Connettersi a "(localdb)\.\ADSync", quindi eseguire il backup del database Ad Sync
+   2. Ripristinare il database "ADSync" nell'istanza remota di SQL
+   3. Installare Azure AD Connect con l'esistente [database SQL remoto](active-directory-aadconnect-existing-database.md) Il collegamento ipertestuale illustra i passaggi necessari per la migrazione per l'uso di un database SQL locale. Se si esegue la migrazione per l'uso di un database SQL remoto, nel passaggio 5 di questo processo è anche necessario immettere un account di servizio esistente per il quale verrà eseguito il servizio di sincronizzazione di Windows. Il processo di sincronizzazione di questo account del servizio viene descritto di seguito:</br></br>
+   **Usare un account di servizio esistente** Per impostazione predefinita, Azure AD Connect usa un account di servizio virtuale per i servizi di sincronizzazione. Se si usa un server SQL remoto o un proxy che richiede l'autenticazione, è necessario usare un account del servizio gestito o un account di servizio nel dominio e conoscere la password. In questi casi, immettere l'account da usare. Assicurarsi che l'utente che esegue l'installazione sia un'associazione di sicurezza in SQL, in modo che sia possibile creare un accesso per l'account del servizio. Vedere [Account e autorizzazioni di Azure AD Connect](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account).</br></br> Con la build più recente, l'amministratore SQL può ora effettuare il provisioning del database fuori banda e quindi l'amministratore di Azure AD Connect può eseguire l'installazione con diritti di proprietario del database. Per altre informazioni, vedere [Installare Azure AD Connect usando le autorizzazioni di amministratore con delega SQL](active-directory-aadconnect-sql-delegation.md).
+
+Per semplificare le operazioni, è consigliabile che l'utente che installa Azure AD Connect sia un'associazione di sicurezza in SQL. (Con le build recenti, tuttavia, è ora possibile usare un admin SQL delegato come descritto [qui](active-directory-aadconnect-sql-delegation.md).
 
 ## <a name="network"></a>Rete
-**D: Ho un firewall, un dispositivo di rete o qualcos'altro che limita il tempo massimo in cui le connessioni possono rimanere aperte sulla mia rete. Quanto deve durare la soglia di timeout lato client quando si utilizza Connetti AD Azure?**  
-Tutti i software di rete, i dispositivi fisici o qualsiasi altra cosa che limiti il tempo massimo delle connessioni possono rimanere aperti qualora si utilizzi una soglia di almeno 5 minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect e la Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione Microsoft Identity rilasciati in precedenza.
+**D: Ho un firewall, un dispositivo di rete o qualcos'altro che limita il tempo massimo in cui le connessioni possono rimanere aperte sulla mia rete. Quanto deve durare la soglia di timeout lato client quando si utilizza Azure AD Connect?**  
+Tutti i software di rete, i dispositivi fisici o qualsiasi altra cosa che limiti il tempo massimo delle connessioni possono rimanere aperti qualora si utilizzi una soglia di almeno 5 minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect e la Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione delle identità di Microsoft rilasciati in precedenza.
 
 **D: I domini SDL sono supportati?**  
 No, Azure AD Connect non supporta foreste/domini in locale mediante i domini SLD.
@@ -60,7 +71,7 @@ No, Azure AD Connect non supporta l'ambiente IPv6 puro.
 
 ## <a name="federation"></a>Federazione
 **D: Cosa occorre fare se si riceve un messaggio di posta elettronica che richiede il rinnovo del certificato di Office 365?**  
-Usare le indicazioni specifiche disponibili nell'argomento che spiega come [rinnovare i certificati](active-directory-aadconnect-o365-certs.md) .
+Usare il materiale sussidiario disponibile nel documento che spiega come [rinnovare i certificati](active-directory-aadconnect-o365-certs.md).
 
 **D: L'opzione di aggiornamento automatico della relying party è impostata per la relying party Office 365. È necessario eseguire un'azione quando il certificato per la firma di token esegue automaticamente il rollover?**  
 Usare le linee guida descritte nell'articolo relativo al [rinnovare i certificati](active-directory-aadconnect-o365-certs.md).
@@ -79,10 +90,10 @@ Vedere i seguenti articoli:
 È anche possibile configurare Azure AD per consentire al motore di sincronizzazione di aggiornare userPrincipalName come descritto in [Funzionalità del servizio di sincronizzazione di Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
 **D: È supportata la corrispondenza flessibile degli oggetti contatto/gruppo AD locali con gli oggetti contatto/gruppo Azure AD esistenti?**  
-Sì, si baserà su proxyAddress.  La corrispondenza flessibile non è supportata per i gruppi non abilitati alla posta elettronica.
+Sì, la corrispondenza si baserà su proxyAddress.  La corrispondenza flessibile non è supportata per i gruppi non abilitati alla posta elettronica.
 
 **D: È supportata l'impostazione manualmente dell'attributo ImmutableId su oggetti contatto/gruppo Azure AD esistenti per farlo corrispondere a livello rigido a oggetti contatto/gruppo AD locali?**  
-No, attualmente non è supportata.
+No, l'impostazione manuale dell'attributo ImmutableId su oggetti contatto/gruppo Azure AD esistenti non è attualmente non supportata.
 
 ## <a name="custom-configuration"></a>Configurazione personalizzata
 **D: Dove sono documentati i cmdlet PowerShell per Azure AD Connect?**  
@@ -92,10 +103,10 @@ Fatta eccezione per i cmdlet documentati in questo sito, gli altri cmdlet di Pow
 di serie Questa opzione non recupererà tutte le impostazioni di configurazione e non deve essere utilizzata. Si dovrebbe invece utilizzare la procedura guidata per creare la configurazione di base sul secondo server e usare l'editor delle regole di sincronizzazione per generare script di PowerShell per spostare qualsiasi regola personalizzata tra i server. Vedere [Migrazione swing](active-directory-aadconnect-upgrade-previous-version.md#swing-migration).
 
 **D: Le password per la pagina di accesso di Azure possono essere memorizzate nella cache; è possibile evitare questa condizione poiché contiene un elemento di input della password impostando l'attributo della funzionalità di completamento automatico = "false"?**</br>
-Attualmente la modifica degli attributi HTML del campo di input della password non è supportata, incluso il tag di completamento automatico. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password. Dovrebbe essere disponibile più avanti nel 2017.
+Attualmente la modifica degli attributi HTML del campo di input della password non è supportata, incluso il tag di completamento automatico. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password.
 
 **D: Nella pagina di accesso di Azure vengono visualizzati i nomi utente per gli utenti che hanno già eseguito l'accesso correttamente.  Questo comportamento può essere disattivato?**</br>
-Attualmente la modifica degli attributi HTML della pagina di accesso non è supportata. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password. Dovrebbe essere disponibile più avanti nel 2017.
+Attualmente la modifica degli attributi HTML del campo di input della password non è supportata, incluso il tag di completamento automatico. Attualmente è in fase di elaborazione una funzionalità che consente un JavaScript personalizzato con cui è possibile aggiungere qualsiasi attributo al campo della password.
 
 **D: Esiste un modo per impedire sessioni simultanee?**</br>
 di serie
@@ -110,7 +121,11 @@ Per prima cosa, il processo di aggiornamento automatico stabilisce sempre se un'
 In base alle dimensioni dell'ambiente, il processo può richiedere fino a due ore e, mentre l'aggiornamento è in corso, non viene eseguita alcuna sincronizzazione tra Windows Server Active Directory e Azure AD.
 
 **D: È stato ricevuto un messaggio di posta elettronica in cui si specifica che l'aggiornamento automatico non funziona più ed è necessario installare una nuova versione. Perché è necessario eseguire questa operazione?**</br>
-Lo scorso anno è stata rilasciata una versione di Azure AD Connect che, in determinate circostanze, può aver disattivato la funzionalità di aggiornamento automatico sul server. Questo problema è stato risolto in Azure AD Connect versione 1.1.750.0, rilasciato alla fine del mese scorso. Per risolvere il problema, è necessario che gli utenti interessati eseguano manualmente l'aggiornamento alla versione più recente di Azure AD Connect. Per eseguire l'aggiornamento manuale, è sufficiente scaricare ed eseguire la versione più recente del file AADConnect.msi.
+Lo scorso anno è stata rilasciata una versione di Azure AD Connect che, in determinate circostanze, può aver disattivato la funzionalità di aggiornamento automatico sul server. Questo problema è stato risolto nella versione 1.1.750.0 di Azure AD Connect. Per risolvere il problema, è necessario che gli utenti interessati eseguano uno script di PowerShell o procedano manualmente all'aggiornamento alla versione più recente di Azure AD Connect. 
+
+Per eseguire lo script di PowerShell, scaricare lo script da [qui](https://aka.ms/repairaadconnect) ed eseguire lo script nel server AADConnect in una finestra amministrativa PowerShell. [Questo è un breve video](https://aka.ms/repairaadcau) che illustra in dettaglio come eseguire questa operazione.
+
+Per eseguire l'aggiornamento manuale, è sufficiente scaricare ed eseguire la versione più recente del file AADConnect.msi.
  
 -  Se la versione in uso è precedente alla 1.1.750.0, è necessario eseguire l'aggiornamento alla versione più recente, [che può essere scaricata qui](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 - Se invece è in uso la versione 1.1.750.0 di Azure AD Connect o una versione successiva, non è necessario eseguire alcuna operazione per risolvere i problemi di aggiornamento automatico, poiché la versione corrente contiene già una correzione per il problema. 
@@ -127,7 +142,7 @@ Non è necessario conoscere il nome utente e la password originariamente usati p
 **D: Come è possibile conoscere la versione di Azure AD Connect in uso?**</br>   
 Per sapere quale versione di Azure AD Connect è installata nel server, passare al pannello di controllo e cercare la versione installata di Microsoft Azure AD Connect in "Programmi > Programmi e funzionalità":
 
-![versione](media/active-directory-aadconnect-faq/faq1.png)
+![version](media/active-directory-aadconnect-faq/faq1.png)
 
 **D: Come è possibile eseguire l'aggiornamento alla versione più recente di AADConnect?**</br>    
 Questo [articolo](active-directory-aadconnect-upgrade-previous-version.md) spiega come eseguire l'aggiornamento a una versione più recente. 
@@ -154,7 +169,7 @@ L'aggiornamento automatico è il primo passaggio del processo di rilascio di una
 **D: Con l'aggiornamento automatico viene aggiornato anche Azure Active Directory Connect Health?**</br>   Sì, con l'aggiornamento automatico viene aggiornato anche Azure Active Directory Connect Health
 
 **D: Viene eseguito l'aggiornamento automatico anche dei server AAD Connect in modalità di staging?**</br>   
-No, non è possibile eseguire l'aggiornamento automatico di un server Azure AD Connect in modalità di staging.
+Sì, è possibile eseguire l'aggiornamento automatico di un server Azure AD Connect in modalità di staging.
 
 **D: Se l'aggiornamento automatico non riesce e il server AAD Connect non si avvia, cosa è necessario fare?**</br>   
 In alcuni casi rari, il servizio Azure AD Connect non si avvia dopo l'aggiornamento. In questi casi, riavviare il server, operazione che in genere risolve il problema. Se il servizio Azure AD Connect continua a non avviarsi, aprire un ticket di supporto. Ecco un [collegamento](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) che spiega come eseguire questa operazione. 
@@ -162,7 +177,7 @@ In alcuni casi rari, il servizio Azure AD Connect non si avvia dopo l'aggiorname
 **D: Quali rischi si corrono quando si esegue l'aggiornamento a una nuova versione di Azure AD Connect? È possibile ricevere assistenza telefonica per eseguire correttamente l'aggiornamento?**</br>
 Se è necessaria assistenza per l'aggiornamento a una nuova versione di Azure AD Connect, aprire un ticket di supporto seguendo questo [collegamento](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) che illustra come eseguire questa operazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 **D: Come è possibile ottenere informazioni su Azure AD Connect?**
 
 [Ricercare nella Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
@@ -175,5 +190,5 @@ Se è necessaria assistenza per l'aggiornamento a una nuova versione di Azure AD
 
 [Come ottenere supporto per Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
 
-* Usare questo collegamento per ottenere assistenza tramite il portale di Azure.
+
 

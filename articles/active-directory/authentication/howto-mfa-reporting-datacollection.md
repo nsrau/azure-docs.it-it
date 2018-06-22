@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608269"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264369"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Raccolta dati utente in Microsoft Azure Multi-Factor Authentication
 
@@ -151,39 +151,39 @@ Dalla riga di comando del server MFA, eseguire il seguente comando di modifica d
 
 ## <a name="gather-data-from-nps-extension"></a>Raccogliere i dati dall'estensione del Server di criteri di rete
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta di esportazione.
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta di esportazione.
 
 - Le informazioni di autenticazione a più fattori sono incluse nell'esportazione, che potrebbe richiedere ore o giorni per il completamento.
 - Le occorrenze del nome utente nei log eventi AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh e AzureMfa/AuthZ/AuthZOptCh sono considerate operative e duplicate delle informazioni fornite nell'esportazione.
 
 ## <a name="delete-data-from-nps-extension"></a>Eliminare i dati dall'estensione del Server di criteri di rete
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
 
 - La rimozione completa dei dati potrebbe richiedere fino a 30 giorni.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Raccogliere i dati dall’adattatore MFA AD FS di Windows Server 2016
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta di esportazione. 
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta di esportazione. 
 
 - Le informazioni di autenticazione a più fattori sono incluse nell'esportazione, che potrebbe richiedere ore o giorni per il completamento.
 - Le occorrenze del nome utente nei log eventi di traccia/debug di AD FS (se abilitati) vengono considerate operativo e duplicate delle informazioni fornite nell'esportazione.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Eliminare i dati dall’adattatore MFA AD FS di Windows Server 2016
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
 
 - La rimozione completa dei dati potrebbe richiedere fino a 30 giorni.
 
 ## <a name="gather-data-for-azure-mfa"></a>Raccogliere i dati per Azure MFA
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta di esportazione.
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta di esportazione.
 
 - Le informazioni di autenticazione a più fattori sono incluse nell'esportazione, che potrebbe richiedere ore o giorni per il completamento.
 
 ## <a name="delete-data-for-azure-mfa"></a>Eliminare i dati per Azure MFA
 
-Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
+Usare il [portale sulla Privacy di Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) per effettuare una richiesta a Chiudi Account per eliminare tutte le informazioni del servizio cloud MFA raccolte per un determinato utente.
 
 - La rimozione completa dei dati potrebbe richiedere fino a 30 giorni.
 
