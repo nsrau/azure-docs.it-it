@@ -1,29 +1,23 @@
 ---
 title: Domande frequenti sugli acceleratori di soluzioni Azure IoT | Microsoft Docs
 description: Domande frequenti sugli acceleratori di soluzioni IoT
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627160"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Domande frequenti sugli acceleratori di soluzioni IoT
 
-Vedere anche le[Domande frequenti specifiche per Connected Factory](iot-accelerators-faq-cf.md) e le [Domande frequenti specifiche per il monitoraggio remoto](iot-accelerators-faq-rm-v2.md).
+Vedere anche le [Domande frequenti specifiche per Connected Factory](iot-accelerators-faq-cf.md) e le [Domande frequenti specifiche per il monitoraggio remoto](iot-accelerators-faq-rm-v2.md).
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Dove è possibile visualizzare il codice sorgente degli acceleratori di soluzioni?
 
@@ -54,7 +48,7 @@ Sì, la nuova soluzione di monitoraggio remoto è disponibile nelle stesse aree 
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Che differenza c'è tra eliminare un gruppo di risorse nel portale di Azure e fare clic per eliminare un acceleratore di soluzioni in azureiotsuite.com?
 
-* Se si elimina l'acceleratore di soluzioni in [azureiotsuite.com](https://www.azureiotsuite.com/), si eliminano anche tutte le risorse di cui è stato effettuato il provisioning al momento dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
+* Se si elimina l'acceleratore di soluzioni in [azureiotsuite.com](https://www.azureiotsolutions.com/), si eliminano anche tutte le risorse di cui è stato effettuato il provisioning al momento dell'acceleratore di soluzioni. Se sono state aggiunte altre risorse al gruppo, anche queste ultime vengono eliminate.
 * Se si elimina il gruppo di risorse nel [portale di Azure](https://portal.azure.com), si eliminano solo le risorse presenti in tale gruppo. È anche necessario eliminare l'applicazione Azure Active Directory associata all'acceleratore di soluzioni.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>È possibile continuare a sfruttare gli investimenti negli acceleratori di soluzioni Azure IoT?
@@ -71,7 +65,7 @@ Cinquanta. Anche se è possibile creare un [ticket di supporto di Azure](https:/
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Di quante API di Bing Maps gratuite è possibile eseguire il provisioning in una sottoscrizione?
 
-Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per Bing Maps per i piani aziendali in una sottoscrizione di Azure. Per impostazione predefinita, il provisioning della soluzione per il monitoraggio remoto viene effettuato con il piano Transazioni sito Web interno - Livello 1. Di conseguenza, è possibile eseguire il provisioning di un massimo di due soluzioni per il monitoraggio remoto in una sottoscrizione senza modifiche.
+Due. È possibile creare solo due Transazioni sito Web interno - Livello 1 per Bing Maps per i piani aziendali in una sottoscrizione di Azure. Per impostazione predefinita, il provisioning della soluzione per il monitoraggio remoto viene effettuato con il piano Transazioni interne di livello 1. Di conseguenza, è possibile eseguire il provisioning di un massimo di due soluzioni per il monitoraggio remoto in una sottoscrizione senza modifiche.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>È possibile creare un acceleratore di soluzioni se è disponibile Microsoft Azure per DreamSpark?
 
@@ -93,6 +87,6 @@ Vedere il post del blog di Eric Golpe relativo alla [procedura dettagliata di el
 È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
 * [Esplorare le funzionalità dell'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-explore.md)
-* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Panoramica dell'acceleratore di soluzioni di connected factory](iot-accelerators-connected-factory-overview.md)
-* [Sicurezza IoT sin dall'inizio](../iot-suite/securing-iot-ground-up.md)
+* [Sicurezza IoT sin dall'inizio](securing-iot-ground-up.md)

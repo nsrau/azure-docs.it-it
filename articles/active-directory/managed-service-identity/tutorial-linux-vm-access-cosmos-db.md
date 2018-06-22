@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304131"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594432"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Cosmos DB 
 
@@ -255,5 +255,8 @@ Questo comando dell'interfaccia della riga di comando restituisce i dettagli sul
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dell'identità del servizio gestito, vedere [Identità del servizio gestito per le risorse di Azure](overview.md).
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere a Cosmos DB.  Per altre informazioni su Cosmos DB, vedere:
+
+> [!div class="nextstepaction"]
+>[Panoramica di Azure Cosmos DB](/azure/cosmos-db/introduction)
 

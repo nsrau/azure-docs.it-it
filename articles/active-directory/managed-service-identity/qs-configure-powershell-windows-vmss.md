@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930130"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700009"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configurare un'identità del servizio gestita di un set di scalabilità di macchine virtuali (VMSS) tramite PowerShell
 
@@ -27,11 +27,11 @@ ms.locfileid: "33930130"
 
 Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo descrive come eseguire le seguenti operazioni di identità del servizio gestita in un set di scalabilità di macchine virtuali (VMSS) mediante PowerShell:
+Questo articolo descrive come eseguire le operazioni di identità del servizio gestita in un set di scalabilità di macchine virtuali (VMSS) mediante PowerShell:
 - Abilitare e disabilitare l'identità assegnata dal sistema in un VMSS di Azure
 - Aggiungere e rimuovere un'identità assegnata dall'utente in un VMSS di Azure
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
@@ -122,8 +122,7 @@ Per assegnare un'identità assegnata dall'utente a un VMSS di Azure esistente:
 
 2. Recuperare innanzitutto le proprietà della macchina virtuale usando il cmdlet `Get-AzureRmVM`. Quindi per assegnare un'identità assegnata dall'utente al VMSS di Azure, usare le opzioni `-IdentityType` e `-IdentityID` nel cmdlet [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm). Sostituire `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` con valori personalizzati.
 
-   > [!IMPORTANT]
-   > Per creare identità assegnate dall'utente occorre usare nomi composti solo da caratteri alfanumerici e trattino (da 0 a 9, da "a" a "z", da "A" a "Z" e "-"). Inoltre, il nome può avere al massimo 24 caratteri perché l'assegnazione alla VM/VMSS funzioni correttamente. Ricontrollare in seguito per aggiornamenti. Per altre informazioni, vedere [Domande frequenti e problemi noti](known-issues.md).
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

@@ -1,25 +1,21 @@
 ---
-title: Gestire processi in Azure Data Lake Analytics con il portale di Azure | Microsoft Docs
-description: 'Informazioni su come usare il portale di Azure per risolvere i problemi relativi ai processi di Analisi Data Lake. '
+title: Monitorare i processi in Azure Data Lake Analytics con il portale di Azure
+description: Questo articolo descrive come usare il portale di Azure per risolvere i problemi relativi ai processi di Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
-ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 14b1f4ec9dff78e4b5d2480755a4b1f2579ec135
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+manager: kfile
+editor: jasonwhowell
+ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 8c61b8736dfb13f0c2c2520f22979ac51646e05f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33884780"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623656"
 ---
 # <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire processi in Azure Data Lake Analytics con il portale di Azure
 

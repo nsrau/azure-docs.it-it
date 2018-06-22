@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939961"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700193"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -74,6 +74,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identità gestita](#managed-identity-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)
@@ -83,6 +84,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Network Watcher](#network-watcher-limits)
 * [Servizio di Hub di notifica](#notification-hub-service-limits)
 * [Gruppo di risorse](#resource-group-limits)
+* [Controllo degli accessi in base al ruolo](#role-based-access-control-limits)
 * [Utilità di pianificazione](#scheduler-limits)
 * [Search](#search-limits)
 * [Bus di servizio](#service-bus-limits)
@@ -315,6 +317,12 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 
 ### <a name="automation-limits"></a>Limiti di automazione
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Limiti relativi all'identità gestita
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Limiti relativi al controllo degli accessi in base al ruolo
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>Limiti relativi a database SQL
 Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).

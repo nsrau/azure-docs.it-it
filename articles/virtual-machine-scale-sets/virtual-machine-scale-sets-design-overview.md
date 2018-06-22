@@ -1,9 +1,9 @@
 ---
-title: "Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs"
-description: "Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure"
-keywords: "macchina virtuale linux,set di scalabilità macchine virtuali"
+title: Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure | Microsoft Docs
+description: Considerazioni sulla progettazione per i set di scalabilità di macchine virtuali di Azure
+keywords: macchina virtuale linux,set di scalabilità macchine virtuali
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652400"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considerazioni sulla progettazione per i set di scalabilità
 Questo articolo contiene una serie di considerazioni sulla progettazione per i set di scalabilità di macchine virtuali. Per sapere che cosa sono i set di scalabilità di macchine virtuali, vedere [Panoramica dei set di scalabilità di macchine virtuali](virtual-machine-scale-sets-overview.md).
@@ -30,22 +31,19 @@ I set di scalabilità sono in genere utili per distribuire un'infrastruttura a d
 
 ### <a name="scale-set-specific-features"></a>Funzionalità specifiche dei set di scalabilità
 
-- Dopo aver specificato la configurazione del set di scalabilità, è possibile aggiornare la proprietà "capacity" per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
+- Dopo aver specificato la configurazione del set di scalabilità, è possibile aggiornare la proprietà *capacity* per distribuire in parallelo altre macchine virtuali. Si tratta di una procedura molto più semplice rispetto alla scrittura di uno script per orchestrare la distribuzione in parallelo di molte macchine virtuali singole.
 - È possibile [usare il ridimensionamento automatico di Azure per la scalabilità automatica di un set di scalabilità](./virtual-machine-scale-sets-autoscale-overview.md) ma non di singole macchine virtuali.
 - È possibile [ricreare l'immagine delle macchine virtuali del set di scalabilità](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ma [non delle singole macchine virtuali](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- È possibile [eseguire il provisioning eccessivo](./virtual-machine-scale-sets-design-overview.md) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. Ciò non è possibile con le singole macchine virtuali, a meno che non si scriva un apposito codice personalizzato.
+- È possibile [eseguire il provisioning eccessivo](./virtual-machine-scale-sets-design-overview.md) delle macchine virtuali del set di scalabilità per una maggiore affidabilità e tempi di distribuzione più rapidi. È possibile eseguire il provisioning eccessivo di singole macchine virtuali solo se si scrive un codice personalizzato per eseguire questa azione.
 - È possibile specificare [criteri di aggiornamento](./virtual-machine-scale-sets-upgrade-scale-set.md) per semplificare l'implementazione degli aggiornamenti nelle macchine virtuali del set di scalabilità. Con le singole macchine virtuali, è necessario orchestrare gli aggiornamenti manualmente.
 
 ### <a name="vm-specific-features"></a>Funzionalità specifiche delle macchine virtuali
 
 Alcune funzionalità sono attualmente disponibili solo nelle macchine virtuali:
 
-- È possibile collegare dischi dati a singole macchine virtuali specifiche, mentre in un set di scalabilità i dischi dati collegati vengono configurati per tutte le macchine virtuali.
-- È possibile collegare dischi dati non vuoti alle singole macchine virtuali, ma non alle macchine virtuali in un set di scalabilità.
-- È possibile acquisire uno snapshot di una singola macchina virtuale, ma non di una macchina virtuale in un set di scalabilità.
 - È possibile acquisire un'immagine da una singola macchina virtuale, ma non da una macchina virtuale in un set di scalabilità.
-- È possibile eseguire la migrazione di una singola macchina virtuale da dischi nativi a dischi gestiti, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità.
-- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per le macchine virtuali in un set di scalabilità. È possibile assegnare indirizzi IP pubblici IPv6 ai servizi di bilanciamento del carico che si trovano davanti a singole macchine virtuali o a macchine virtuali di un set di scalabilità.
+- È possibile eseguire la migrazione di una singola macchina virtuale da dischi nativi a dischi gestiti, ma non è possibile eseguire la migrazione di istanze di macchina virtuale in un set di scalabilità.
+- È possibile assegnare indirizzi IP pubblici IPv6 alle schede di interfaccia di rete di singole macchine virtuali, ma la stessa operazione non può essere eseguita per istanze di macchina virtuale in un set di scalabilità. È possibile assegnare indirizzi IP pubblici IPv6 ai servizi di bilanciamento del carico che si trovano davanti a singole macchine virtuali o a macchine virtuali di un set di scalabilità.
 
 ## <a name="storage"></a>Archiviazione
 

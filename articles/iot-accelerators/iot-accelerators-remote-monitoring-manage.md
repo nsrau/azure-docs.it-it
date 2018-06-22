@@ -1,22 +1,19 @@
 ---
 title: Gestione dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione mostra come gestire i dispositivi connessi alla soluzione di monitoraggio remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627280"
 ---
 # <a name="manage-and-configure-your-devices"></a>Gestire e configurare i dispositivi
 
@@ -24,7 +21,7 @@ Questa esercitazione mostra le funzionalità di gestione dei dispositivi della s
 
 Contoso ha ordinato nuovi macchinari per espandere una delle strutture e aumentare la produzione. Mentre si attende la consegna dei nuovi macchinari, si vuole eseguire una simulazione per verificare il comportamento della soluzione. Un operatore vuole gestire e configurare i dispositivi nella soluzione di monitoraggio remoto.
 
-Per fornire una modalità estendibile di gestione e configurazione dei dispositivi, la soluzione di monitoraggio remoto usa funzionalità dell'hub IoT come i [processi](../iot-hub/iot-hub-devguide-jobs.md) e i [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md). Per informazioni su come uno sviluppatore di dispositivi implementa i metodi in un dispositivo fisico, vedere [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-customize.md).
+Per fornire una modalità estendibile di gestione e configurazione dei dispositivi, la soluzione di monitoraggio remoto usa le funzionalità dell'hub IoT come i [processi](../iot-hub/iot-hub-devguide-jobs.md) e i [metodi diretti](../iot-hub/iot-hub-devguide-direct-methods.md). Per informazioni su come uno sviluppatore di dispositivi implementa i metodi in un dispositivo fisico, vedere [Personalizzare l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-customize.md).
 
 In questa esercitazione si apprenderà come:
 
@@ -113,6 +110,6 @@ Ora che si è appreso come gestire i dispositivi, i passaggi successivi consigli
 
 * [Risolvere e correggere i problemi dei dispositivi](iot-accelerators-remote-monitoring-maintain.md).
 * [Testare la soluzione con dispositivi simulati](iot-accelerators-remote-monitoring-test.md).
-* [Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto (Linux)](iot-accelerators-connecting-devices-node.md).
+* [Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

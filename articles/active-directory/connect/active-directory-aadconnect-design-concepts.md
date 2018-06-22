@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801933"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
-L'obiettivo di questo argomento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri argomenti.
+L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 L'attributo sourceAnchor viene definito come *un attributo immutabile durante il ciclo di vita di un oggetto*. Identifica in modo univoco un oggetto come corrispondente all'oggetto locale in Azure AD. L'attributo viene definito anche **immutableId** e i due nomi sono usati in modo intercambiabile.
 
-Il termine immutabile, ovvero "non modificabile", è importante in questo argomento. Poiché il valore di questo attributo non può essere modificato dopo la configurazione, è essenziale scegliere una progettazione in grado di supportare lo scenario specifico.
+Il termine immutabile, ovvero "non modificabile", è importante in questo documento. Poiché il valore di questo attributo non può essere modificato dopo la configurazione, è essenziale scegliere una progettazione in grado di supportare lo scenario specifico.
 
 L'attributo viene usato per gli scenari seguenti:
 

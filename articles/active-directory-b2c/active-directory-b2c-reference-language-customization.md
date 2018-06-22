@@ -1,22 +1,21 @@
 ---
-title: Personalizzazione della lingua in Azure AD B2C | Microsoft Docs
+title: Personalizzazione della lingua in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sulla personalizzazione dell'esperienza per la lingua.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200553"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711937"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalizzazione della lingua in Azure AD B2C
 
@@ -203,13 +202,13 @@ Chrome e Firefox richiedono entrambi la relativa lingua preimpostata. Se è supp
 | Malayalam             | ml            |
 | Marathi               | mr            |
 | Malese                 | ms            |
-| Norvegese bokmål      | nb            |
+| Norvegese Bokmål      | nb            |
 | Olandese                 | nl            |
 | Punjabi               | pa            |
 | Polacco                | pl            |
 | Portoghese (Brasile)   | pt-br         |
 | Portoghese (Portogallo) | pt-pt         |
-| Romeno              | ro            |
+| Rumeno              | ro            |
 | Russo               | ru            |
 | Slovacco                | sk            |
 | Svedese               | sv            |

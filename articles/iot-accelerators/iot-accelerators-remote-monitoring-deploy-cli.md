@@ -1,30 +1,27 @@
 ---
 title: Distribuire la soluzione di monitoraggio remoto Java - Azure | Microsoft Docs
-description: Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni per il monitoraggio remoto tramite l'interfaccia della riga di comando.
-services: iot-suite
-suite: iot-suite
+description: Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628124"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni per il monitoraggio remoto tramite l'interfaccia della riga di comando
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
 Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È anche possibile distribuire la soluzione usando l'interfaccia utente basata sul Web disponibile all'indirizzo azureiotsuite.com. Per informazioni su questa opzione, vedere [Distribuire l'acceleratore di soluzioni per il monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per distribuire l'acceleratore di soluzioni per il monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
+Per distribuire l'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
 Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -57,7 +54,7 @@ Quando si distribuisce l'acceleratore di soluzioni, sono disponibili diverse opz
 | SKU    | `basic`, `standard`, `local` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi in più macchine virtuali. Una distribuzione _local_ configura un contenitore Docker per l'esecuzione dei microservizi nel computer locale e usa servizi di Azure, ad esempio l'archiviazione e Cosmos DB, nel cloud. |
 | Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
 
-Per altre informazioni su come usare la distribuzione local, vedere [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) (Esecuzione della soluzione di monitoraggio remota in locale).
+Per altre informazioni su come usare la distribuzione locale, vedere [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) (Esecuzione della soluzione di monitoraggio remota in locale).
 
 ## <a name="basic-vs-standard-deployments"></a>Distribuzioni di base e distribuzioni standard
 
@@ -138,6 +135,6 @@ Questa esercitazione illustra come:
 > * Distribuire l'acceleratore di soluzioni
 > * Accedere all'acceleratore di soluzioni
 
-Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione](./iot-accelerators-remote-monitoring-deploy.md).
+Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità della dashboard della soluzione](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

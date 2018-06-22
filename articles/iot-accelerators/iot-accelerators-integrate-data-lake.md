@@ -1,19 +1,19 @@
 ---
 title: Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store | Microsoft Docs
 description: Informazioni su come integrare la soluzione di monitoraggio remoto con Azure Data Lake Store usando un processo di Analisi di flusso di Azure.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-ms.openlocfilehash: 426ded8079ba5d6de4c186a8d18dd284082b0c1c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.openlocfilehash: 3bd29e348fd067c12def8ca36fbdc1d7e35b2874
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627587"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -25,7 +25,7 @@ In questa procedura si userà un processo di Analisi di flusso di Azure per eseg
 
 Per completare questa procedura, è necessario quanto segue:
 
-* [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
+* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
   * La soluzione implementerà l'hub IoT e il processo di Analisi di flusso di Azure usati in questo articolo nella sottoscrizione Azure.
 * [Distribuire un'istanza di Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
   * L'istanza di Data Lake Store deve essere distribuita nella stessa area della soluzione di monitoraggio remoto.

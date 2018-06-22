@@ -2,10 +2,10 @@
 title: 'Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni | Documentazione Microsoft'
 description: Riferimento delle espressioni di provisioning dichiarativo nel servizio di sincronizzazione Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595156"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -1108,7 +1110,7 @@ Il formato è {source1}:{target1},{source2}:{target2},{sourceN},{targetN} dove s
 * La funzione accetta ogni occorrenza delle origini definite e le sostituisce con le destinazioni.
 * Source deve corrispondere esattamente a un carattere (Unicode).
 * Source non può essere una stringa vuota e non può essere più lunga di un carattere (errore di analisi).
-* Il target può contenere più caratteri, ad esempio ö:oe, β:ss.
+* Il target può avere molteplici caratteri, come ad esempio ö:oe, β:ss.
 * Target può essere una stringa vuota, per indicare che il carattere deve essere rimosso.
 * Source fa distinzione tra maiuscole e minuscole e deve essere una corrispondenza esatta.
 * I caratteri , (virgola) e : (due punti) sono riservati e non possono essere sostituiti usando questa funzione.

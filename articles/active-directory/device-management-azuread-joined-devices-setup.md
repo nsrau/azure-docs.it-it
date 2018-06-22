@@ -2,12 +2,13 @@
 title: Configurare dispositivi aggiunti ad Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare dispositivi aggiunti ad Azure Active Directory.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260930"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurare dispositivi aggiunti ad Azure Active Directory
 
@@ -47,10 +49,14 @@ Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositi
 
 - Nel caso di un utente federato, è necessario accedere usando le credenziali.
 
+- Se l'utente è federato, il provider di identità DEVE supportare l'endpoint con nome utente/password WS-Trust e WS-Fed. La versione può essere 1.3 o 2005. Il supporto di questo protocollo è necessario per aggiungere il dispositivo ad Azure AD e accedere al dispositivo con una password. 
+
+
+
 
 ## <a name="joining-a-device"></a>Aggiunta di un dispositivo
 
-Questa sezione illustra i passaggi necessari per aggiungere il dispositivo Windows 10 ad Azure AD. Se il dispositivo è stato aggiunto correttamente ad Azure AD, la finestra di dialogo **Accedi all'azienda o all'istituto di istruzione** include l'indicazione **Connesso a \<Azure AD\>**.
+Questa sezione illustra i passaggi necessari per aggiungere il dispositivo Windows 10 ad Azure AD. Se il dispositivo è stato aggiunto correttamente viene indicato come **Connesso ad \<Azure AD\>**.
 
 ![Connesso](./media/device-management-azuread-joined-devices-setup/13.png)
 

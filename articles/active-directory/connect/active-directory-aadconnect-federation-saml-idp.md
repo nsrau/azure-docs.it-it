@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Usare un provider di identità SAML 2.0 per l'accesso Single Sign On | Microsoft Docs"
-description: Questo argomento descrive l'uso di un IdP conforme a SAML 2.0 per l'accesso Single Sign-On.
+description: Questo documento descrive l'uso di un IdP conforme a SAML 2.0 per l'accesso Single Sign-On.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801780"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
-Questo argomento contiene informazioni sull'uso di un provider di identità basato sul profilo SP-Lite conforme a SAML 2.0 come servizio token di sicurezza/provider di identità preferito. Si tratta di un'opzione utile quando si hanno già una directory di utenti e un archivio di password locali a cui è possibile accedere con SAML 2.0. La directory di utenti esistente può essere usata per l'accesso a Office 365 e ad altre risorse protette da Azure AD. Il profilo SP-Lite SAML 2.0 si basa sul diffuso standard di identità federate Security Assertion Markup Language (SAML) per fornire un framework di accesso e scambio degli attributi.
+Questo documento contiene informazioni sull'uso di un provider di identità basato sul profilo SP-Lite conforme a SAML 2.0 come servizio token di sicurezza/provider di identità preferito. Si tratta di uno scenario utile quando si hanno già una directory di utenti e un archivio di password locali a cui è possibile accedere con SAML 2.0. La directory di utenti esistente può essere usata per l'accesso a Office 365 e ad altre risorse protette da Azure AD. Il profilo SP-Lite SAML 2.0 si basa sul diffuso standard di identità federate Security Assertion Markup Language (SAML) per fornire un framework di accesso e scambio degli attributi.
 
 >[!NOTE]
 >Per un elenco di IdP di terze parti testati per l'uso con Azure AD, vedere l'[elenco di compatibilità di federazione di Azure AD](active-directory-aadconnect-federation-compatibility.md)
@@ -41,7 +43,7 @@ Microsoft supporta questa esperienza di accesso come integrazione di un servizio
 Tutti gli altri client non sono disponibili in questo scenario di accesso con il provider di identità SAML 2.0. Il client desktop Lync 2010 non può ad esempio accedere al servizio con il provider di identità SAML 2.0 configurato per l'accesso Single Sign-On.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Requisiti del protocollo SAML 2.0 in Azure AD
-Questo argomento contiene informazioni dettagliate sui requisiti relativi al protocollo e alla formattazione dei messaggi che il provider di identità SAML 2.0 deve implementare per configurare la federazione con Azure AD e consentire l'accesso a uno o più servizi cloud Microsoft (ad esempio Office 365). La relying party SAML 2.0 (SP-STS) per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
+Questo documento contiene informazioni dettagliate sui requisiti relativi al protocollo e alla formattazione dei messaggi che il provider di identità SAML 2.0 deve implementare per configurare la federazione con Azure AD e consentire l'accesso a uno o più servizi cloud Microsoft (ad esempio Office 365). La relying party SAML 2.0 (SP-STS) per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
 
 È consigliabile verificare che i messaggi di output del provider di identità SAML 2.0 siano il più simili possibile alle tracce di esempio fornite. Usare inoltre valori di attributo specifici dei metadati di Azure AD forniti, dove possibile. Una volta ottenuti i messaggi di output desiderati, è possibile testarli con Microsoft Connectivity Analyzer, come descritto di seguito.
 
@@ -54,7 +56,7 @@ Questa sezione illustra in modo dettagliato come vengono combinate le coppie di 
 È possibile configurare Azure AD per il funzionamento con i provider di identità che usano il profilo SP-Lite SAML 2.0 con alcuni requisiti specifici, come indicato di seguito. Usando i messaggi di richiesta e di risposta SAML di esempio insieme ai test automatizzati e manuali, è possibile ottenere l'interoperabilità con Azure AD.
 
 ## <a name="signature-block-requirements"></a>Requisiti del blocco di firma
-Nel messaggio di risposta SAML il nodo Signature contiene informazioni sulla firma digitale del messaggio stesso. Il blocco di firma ha i requisiti seguenti:
+Nel messaggio di risposta SAML, il nodo Signature contiene informazioni sulla firma digitale del messaggio stesso. Il blocco di firma ha i requisiti seguenti:
 
 1. Il nodo di asserzione deve essere firmato
 2.  È necessario usare l'algoritmo RSA-sha1 come DigestMethod. Altri algoritmi di firma digitale non sono accettati.
@@ -146,12 +148,15 @@ Di seguito è illustrato un messaggio di risposta di esempio inviato dal provide
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>Configurare il provider di identità conforme a SAML 2.0
-Questo argomento illustra le linee guida su come configurare il provider di identità SAML 2.0 per la federazione con Azure AD, per consentire l'accesso Single Sign-On a uno o più servizi cloud Microsoft (ad esempio Office 365) con il protocollo SAML 2.0. La relying party SAML 2.0 per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
+Questa sezione illustra le linee guida su come configurare il provider di identità SAML 2.0 per la federazione con Azure AD, per consentire l'accesso Single Sign-On a uno o più servizi cloud Microsoft (ad esempio Office 365) con il protocollo SAML 2.0. La relying party SAML 2.0 per un servizio cloud Microsoft in uso in questo scenario è Azure AD.
 
 ## <a name="add-azure-ad-metadata"></a>Aggiungere i metadati di Azure AD
 Il provider di identità SAML 2.0 deve essere conforme alle informazioni sulla relying party di Azure AD. Azure AD pubblica i metadati all'indirizzo https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
-È consigliabile importare sempre i metadati di Azure AD più recenti quando si configura il provider di identità SAML 2.0. Si noti che Azure AD non legge i metadati dal provider di identità.
+È consigliabile importare sempre i metadati di Azure AD più recenti quando si configura il provider di identità SAML 2.0.
+
+>[!NOTE]
+>Azure AD non legge i metadati dal provider di identità.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Aggiungere Azure AD come relying party
 È necessario abilitare la comunicazione tra il provider di identità SAML 2.0 e Azure AD. Questa configurazione dipende dal provider di identità specifico. Vedere la documentazione pertinente. È in genere necessario impostare l'ID della relying party sullo stesso valore di entityID dei metadati di Azure AD.
@@ -170,7 +175,10 @@ Si eseguirà una serie di cmdlet nell'interfaccia della riga di comando di Windo
 
 Ogni dominio di Azure Active Directory per il quale si vuole configurare la federazione usando il provider di identità SAML 2.0 deve essere aggiunto come dominio Single Sign-On o convertito da dominio standard a dominio Single Sign-On. Aggiungendo o convertendo un dominio si imposta una relazione di trust tra il provider di identità SAML 2.0 e Azure AD.
 
-La procedura seguente illustra i passaggi per la conversione di un dominio standard esistente in un dominio federato con SP-Lite SAML 2.0. Si noti che dopo l'esecuzione di questo passaggio, potrebbe verificarsi un'interruzione del dominio che potrebbe influire sugli utenti per un periodo di massimo 2 ore.
+La procedura seguente illustra i passaggi per la conversione di un dominio standard esistente in un dominio federato con SP-Lite SAML 2.0. 
+
+>[!NOTE]
+>Dopo l'esecuzione di questo passaggio, potrebbe verificarsi un'interruzione del dominio che potrebbe influire sugli utenti per un periodo di massimo 2 ore.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Configurazione di un dominio nella directory di Azure AD per la federazione
 
@@ -247,7 +255,7 @@ Microsoft offre uno strumento che è possibile usare per testare il provider di 
 3.  Selezionare "I can't set up federation with Office 365, Azure, or other services that use Azure Active Directory" (Impossibile configurare la federazione con Office 365, Azure o altri servizi che usano Azure Active Directory).
 4.  Una volta scaricato ed eseguito lo strumento, verrà visualizzata la finestra di diagnostica della connettività. Lo strumento fornisce informazioni dettagliate per testare la connessione della federazione.
 5.  Connectivity Analyzer apre l'IdP SAML 2.0 per consentire di eseguire l'accesso. Immettere le credenziali per l'entità utente che si sta testando: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
-6.  Nella finestra di accesso per il test della federazione immettere un nome account e una password per il tenant di Azure AD configurato per la federazione con il provider di identità SAML 2.0. Lo strumento tenterà di accedere usando queste credenziali e fornirà come output informazioni dettagliate sui risultati dei test eseguiti durante il tentativo di accesso.
+6.  Nella finestra di accesso per il test della federazione, immettere un nome account e una password per il tenant di Azure AD configurato per la federazione con il provider di identità SAML 2.0. Lo strumento tenterà di accedere usando queste credenziali e fornirà come output informazioni dettagliate sui risultati dei test eseguiti durante il tentativo di accesso.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
 7. Questa finestra mostra il risultato di un test non riuscito. Facendo clic sul collegamento per la visualizzazione dei risultati dettagliati verranno visualizzate le informazioni relative ai risultati di ogni test eseguito. È anche possibile salvare i risultati su disco per condividerli.
  
@@ -260,8 +268,8 @@ Per verificare che l'accesso Single Sign-On sia stato configurato correttamente,
 
 
 1. In un computer aggiunto al dominio, accedere al servizio cloud usando lo stesso nome di accesso usato per le credenziali aziendali.
-2.  Fare clic all'interno della casella della password. Se l'accesso Single Sign-On è configurato, la casella della password sarà ombreggiata e verrà visualizzato un messaggio che richiede di accedere a <your company>.
-3.  Fare clic sul collegamento per l'accesso a <your company>. Se è possibile eseguire l'accesso, la configurazione di Single Sign-On è corretta.
+2.  Fare clic all'interno della casella della password. Se l'accesso Single Sign-On è configurato, la casella della password sarà ombreggiata e verrà visualizzato un messaggio che richiede di accedere all'&lt;azienda&gt;.
+3.  Fare clic su Accedi nel collegamento dell'&lt;azienda&gt;. Se è possibile eseguire l'accesso, la configurazione di Single Sign-On è corretta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

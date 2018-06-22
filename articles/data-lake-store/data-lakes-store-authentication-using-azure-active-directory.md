@@ -9,17 +9,18 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 061a44540cb618074764ae02fecb3f43d47fe5dd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625288"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticazione con Data Lake Store usando Azure Active Directory
 
-Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funzioni con Azure Data Lake Store, è necessario stabilire come autenticare l'applicazione con Azure Active Directory (Azure AD). 
+Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di creare un'applicazione che funzioni con Azure Data Lake Store, è necessario stabilire come autenticare l'applicazione con Azure Active Directory (Azure AD).
 
 ## <a name="authentication-options"></a>Opzioni di autenticazione
 
@@ -29,19 +30,19 @@ Azure Data Lake Store usa Azure Active Directory per l'autenticazione. Prima di 
 
 La tabella seguente illustra come vengono supportati i meccanismi di autenticazione dell'utente finale e da servizio a servizio per Data Lake Store. Di seguito sono riportate alcune indicazioni per interpretare correttamente la tabella.
 
-* Il simbolo ✔* indica che l'opzione di autenticazione è supportata e contiene il collegamento a un articolo che illustra come usare l'opzione di autenticazione. 
+* Il simbolo ✔* indica che l'opzione di autenticazione è supportata e si collega a un articolo che illustra come usare l'opzione di autenticazione. 
 * Il simbolo ✔ indica che l'opzione di autenticazione è supportata. 
 * Le celle vuote indicano che l'opzione di autenticazione non è supportata.
 
 
 |Usare questa opzione di autenticazione con...                   |.NET         |Java     |PowerShell |Interfaccia della riga di comando 2.0 | Python   |REST     |
 |:---------------------------------------------|:------------|:--------|:----------|:-------------|:---------|:--------|
-|Utente finale (senza autenticazione a più fattori**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)**(deprecata)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
+|Utente finale (senza autenticazione a più fattori**)                        |   ✔ |    ✔    |    ✔      |       ✔      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-without-multi-factor-authentication)** (deprecato)     |    **[✔*](data-lake-store-end-user-authenticate-rest-api.md)**    |
 |Utente finale (con autenticazione a più fattori**)                           |    **[✔*](data-lake-store-end-user-authenticate-net-sdk.md)**        |    **[✔*](data-lake-store-end-user-authenticate-java-sdk.md)**     |    ✔      |       **[✔*](data-lake-store-get-started-cli-2.0.md)**      |    **[✔*](data-lake-store-end-user-authenticate-python.md#end-user-authentication-with-multi-factor-authentication)**     |    ✔    |
 |Da servizio a servizio (usando la chiave client)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Da servizio a servizio (usando il certificato client) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Fare clic sul simbolo <b>✔\* </b>. È un collegamento.</i><br>
+<i>* Fare clic sul simbolo <b>✔\*</b>. È un collegamento.</i><br>
 <i>** MFA sta per autenticazione a più fattori</i>
 
 Per altre informazioni su come usare Azure Active Directory per l'autenticazione, vedere [Scenari di autenticazione per Azure AD](../active-directory/develop/active-directory-authentication-scenarios.md).

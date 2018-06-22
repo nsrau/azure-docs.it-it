@@ -2,27 +2,28 @@
 title: Analisi di flusso di Azure in IoT Edge (anteprima)
 description: Creare processi Edge in Analisi di flusso di Azure e distribuirli in dispositivi che eseguono Azure IoT Edge.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 9a9608825cf041007c000729becb34e9a3063f92
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802528"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Analisi di flusso di Azure in IoT Edge (anteprima)
 
 > [!IMPORTANT]
-> Questa funzionalità è in anteprima. Non è consigliabile usarla nell'ambiente di produzione.
+> Questa funzionalità è disponibile in anteprima e non è consigliabile usarla nell'ambiente di produzione.
  
-Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Progettato per bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità, consente alle organizzazioni di distribuire una logica di controllo prossima alle operazioni industriali e di integrare l'analisi di Big Data eseguita nel cloud.  
-L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framework di [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Dopo che il processo viene creato in ASA, distribuire e gestire i processi di ASA tramite hub IoT.
-Questa funzionalità è in anteprima. In caso di domande o suggerimenti, è possibile usare [questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) per contattare il team del prodotto. 
+Analisi di flusso di Azure in IoT Edge permette agli sviluppatori di distribuire funzionalità di intelligence di analisi quasi in tempo reale più vicino ai dispositivi IoT, in modo da ottenere il massimo valore dai dati generati dai dispositivi. Analisi di flusso di Azure è progettato per offrire bassa latenza, resilienza, uso efficiente della larghezza di banda e conformità. Le organizzazioni possono ora distribuire una logica di controllo prossima alle operazioni industriali e integrare l'analisi di Big Data eseguita nel cloud.  
+
+L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framework di [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). Dopo la creazione del processo in ASA, è possibile distribuire e gestire i processi di ASA tramite hub IoT. Questa funzionalità è in anteprima. In caso di domande o suggerimenti, è possibile usare [questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) per contattare il team del prodotto. 
 
 ## <a name="scenarios"></a>Scenari
 ![Diagramma di alto livello](media/stream-analytics-edge/ASAedge_highlevel.png)
@@ -48,8 +49,8 @@ Analisi di flusso di Azure usa un hub IoT per distribuire i processi Edge ai dis
 Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono disponibili nelle sezioni successive.
 |      |Passaggio   | Posizione     | Note   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Creare un processo Edge di Analisi di flusso di Azure**   | Portale di Azure      |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
-| 2   | **Creare un contenitore di archiviazione**   | Portale di Azure       | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente.     |
+| 1   | **Creare un contenitore di archiviazione**   | Portale di Azure       | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente.     |
+| 2   | **Creare un processo Edge di Analisi di flusso di Azure**   | Portale di Azure      |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
 | 3   | **Configurare l'ambiente IoT Edge nei dispositivi**   | Dispositivo/i      | Istruzioni per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Distribuire Analisi di flusso di Azure nei dispositivi IoT Edge**   | Portale di Azure      |  La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza.       |
 È possibile seguire [questa esercitazione dettagliata](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) per distribuire il primo processo di Analisi di flusso di Azure in IoT Edge. Il video seguente fornisce informazioni sull'esecuzione di un processo di Analisi di flusso in un dispositivo IoT Edge:  
@@ -57,7 +58,12 @@ Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-
+#### <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
+Per esportare la query compilata e la configurazione del processo di Analisi di flusso di Azure, è necessario un contenitore di archiviazione, che viene usato per configurare l'immagine Docker di Analisi di flusso di Azure con la query specifica. 
+1. Seguire [queste istruzioni](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione dal portale di Azure. È possibile mantenere tutte le opzioni predefinite per usare questo account con Analisi di flusso di Azure.
+2. Nell'account di archiviazione appena creato creare un contenitore di archiviazione BLOB:
+    1. Fare clic su **BLOB** e quindi su **+ Contenitore**. 
+    2. Immettere un nome e mantenere il contenitore **Privato**.
 
 #### <a name="create-an-asa-edge-job"></a>Creare un processo Edge di Analisi di flusso di Azure
 > [!Note]
@@ -71,17 +77,11 @@ Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono
     2. Define Reference data (Definisci dati di riferimento) (facoltativo).
     3. **Define Output Stream(s)** (Definisci flussi di output). Definire uno o più flussi di ouput per il processo. 
     4. **Definisci query**. Definire la query di Analisi di flusso di Azure nel cloud tramite l'editor inline. Il compilatore verifica automaticamente la sintassi abilitata per i dispositivi Edge di Analisi di flusso di Azure. È anche possibile testare la query caricando dati di esempio. 
-4. Configurare le impostazioni facoltative
+4. Impostare le informazioni sul contenitore di archiviazione nel menu **Impostazioni di IoT Edge**.
+5. Configurare le impostazioni facoltative
     1. **Ordinamento eventi**. È possibile configurare criteri non ordinati nel portale. La documentazione è disponibile [qui](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Impostazioni locali**. Impostare il formato di internalizzazione.
 
-
-#### <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
-Per esportare la query compilata e la configurazione del processo di Analisi di flusso di Azure, è necessario un contenitore di archiviazione, che viene usato per configurare l'immagine Docker di Analisi di flusso di Azure con la query specifica. 
-1. Seguire [queste istruzioni](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione dal portale di Azure. È possibile mantenere tutte le opzioni predefinite per usare questo account con Analisi di flusso di Azure.
-2. Nell'account di archiviazione appena creato creare un contenitore di archiviazione BLOB:
-    1. Fare clic su "BLOB" e quindi su "+ Contenitore". 
-    2. Immettere un nome e mantenere il contenitore "Privato".
 
 
 > [!Note]
@@ -92,22 +92,22 @@ Per esportare la query compilata e la configurazione del processo di Analisi di 
 I processi Edge possono essere distribuiti nei dispositivi che eseguono Azure IoT Edge.
 A tale scopo, è necessario seguire questa procedura:
 - Creare un hub IoT.
-- Installare Docker e il runtime di IoT Edge nei dispositivi Edge.
-- Configurare i dispositivi come "Dispositivi IoT Edge" nell'hub IoT.
+- Installare Docker e il runtime IoT Edge nei dispositivi Edge.
+- Configurare i dispositivi come **Dispositivi IoT Edge** nell'hub IoT.
 
 Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Distribuzione di Analisi di flusso di Azure nei dispositivi IoT Edge
 ##### <a name="add-asa-to-your-deployment"></a>Aggiungere Analisi di flusso di Azure alla distribuzione
-- Nel portale di Azure aprire l'hub IoT, passare a IoT Edge Explorer e aprire il pannello del dispositivo.
-- Selezionare **Set modules** (Imposta moduli) e quindi selezionare **Import Azure Service IoT Edge Module** (Importa modulo IoT Edge del servizio di Azure).
-- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Selezionare quindi l'account di archiviazione. Fare clic su Save.
+- Nel portale di Azure aprire l'hub IoT, passare a **IoT Edge** e fare clic sul dispositivo da usare come destinazione per questa distribuzione.
+- Selezionare **Imposta moduli**, quindi selezionare **+ Aggiungi** e scegliere il **modulo di Analisi di flusso di Azure**.
+- Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fare clic su Save.
 ![Aggiungere un modulo di Analisi di flusso di Azure nella distribuzione](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Durante questo passaggio, Analisi di flusso di Azure richiede l'accesso al contenitore di archiviazione selezionato e quindi crea una cartella denominata "EdgeJobs". Per ogni distribuzione, viene creata una nuova sottocartella nella cartella "EdgeJobs".
+> Durante questo passaggio Analisi di flusso di Azure crea una cartella denominata "EdgeJobs" nel contenitore di archiviazione (se non esiste già). Per ogni distribuzione, viene creata una nuova sottocartella nella cartella "EdgeJobs".
 > Per distribuire il processo ai dispositivi Edge, Analisi di flusso di Azure crea una firma di accesso condiviso per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione.
 
 
@@ -165,7 +165,7 @@ Per eseguire Analisi di flusso di Azure in IoT Edge, è necessario disporre di d
 
 Analisi di flusso di Azure e Azure IoT Edge usano contenitori **Docker** per fornire una soluzione portatile che viene eseguita in più sistemi operativi host (Windows, Linux).
 
-Analisi di flusso di Azure in IoT Edge è reso disponibile come immagini Windows e Linux, in esecuzione in architetture ARM o x86-64. 
+Analisi di flusso di Azure in IoT Edge è reso disponibile come immagini Windows e Linux, in esecuzione in architetture di Azure Resource Manager o x86-64. 
 
 
 ### <a name="input-and-output"></a>Input e output
@@ -176,12 +176,14 @@ Per input e output sono supportati i formati CSV e JSON.
 
 Per ogni flusso di input e di output creato nel processo di Analisi di flusso di Azure, viene creato un endpoint corrispondente nel modulo distribuito. Questi endpoint possono essere usati nelle route della distribuzione.
 
+Al momento, gli unici tipi supportati di input e output del flusso sono rappresentati dall'hub Edge. L'input di riferimento supporta il tipo di file di riferimento. Altri output possono essere ottenuti tramite un downstream del processo cloud. Ad esempio, un processo di Analisi di flusso ospitato in Edge invia l'output all'hub Edge, che può quindi inviare l'output all'hub IoT. È possibile usare un secondo processo di Analisi di flusso di Azure ospitato sul cloud con l'input dall'hub IoT e l'output in Power BI o un altro tipo di output.
+
 
 
 ##### <a name="reference-data"></a>Dati di riferimento
 I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://msdn.microsoft.com/library/azure/dn949258.aspx) nella query. Per altre informazioni, vedere la [documentazione di Analisi di flusso di Azure relativa ai dati di riferimento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-Per usare i dati di riferimento per Analisi di flusso di Azure in IoT Edge, è necessario seguire questa procedura: 
+Per usare i dati di riferimento per Analisi di flusso di Azure in IoT Edge, seguire questa procedura: 
 1. Creare un nuovo input per il processo.
 2. Scegliere **Dati di riferimento** come **Tipo di origine**.
 3. Impostare il percorso del file, che deve essere un percorso di file **assoluto** nel dispositivo. ![Creazione di dati di riferimento](media/stream-analytics-edge/ReferenceData.png)

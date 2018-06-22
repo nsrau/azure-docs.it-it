@@ -1,22 +1,19 @@
 ---
 title: Servizio Device Provisioning in hub IoT - Concetti relativi al provisioning automatico
 description: Questo articolo offre una panoramica delle fasi in cui si articola il provisioning automatico dei dispositivi tramite il servizio Device Provisioning in hub IoT, l'hub IoT e SDK client.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736407"
 ---
 # <a name="auto-provisioning-concepts"></a>Concetti relativi al provisioning automatico
 
@@ -33,7 +30,7 @@ Il provisioning automatico di Azure IoT può essere suddiviso in tre fasi:
 
 2. **Registrazione del dispositivo**: processo di creazione di un'istanza del servizio Device Provisioning in grado di riconoscere i dispositivi che tenteranno di registrarsi in futuro. La [registrazione](concepts-service.md#enrollment) viene eseguita configurando informazioni sull'identità dei dispositivi nel servizio di provisioning e specificando "registrazione singola" per un singolo dispositivo o "registrazione di gruppo" per più dispositivi. L'identità è basata sul [meccanismo di attestazione](concepts-security.md#attestation-mechanism) per cui è progettato il dispositivo, che consente al servizio di provisioning di attestare l'autenticità del dispositivo durante la registrazione:
 
-   - **TPM**: configurata come "registrazione singola", l'identità del dispositivo è basata sull'ID di registrazione del TPM e sulla chiave pubblica di verifica dell'autenticità. Poiché il TPM è una [specifica]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), il servizio è configurato per eseguire l'attestazione solo in base alla specifica, indipendentemente dall'implementazione del TPM (hardware o software). Per informazioni dettagliate sull'attestazione basata sul TPM, vedere [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) (Provisioning dei dispositivi: attestazione dell'identità con il TPM). 
+   - **TPM**: configurata come "registrazione singola", l'identità del dispositivo è basata sull'ID di registrazione del TPM e sulla chiave pubblica di verifica dell'autenticità. Poiché il TPM è una [specifica](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), il servizio è configurato per eseguire l'attestazione solo in base alla specifica, indipendentemente dall'implementazione del TPM (hardware o software). Per informazioni dettagliate sull'attestazione basata sul TPM, vedere [Device provisioning: Identity attestation with TPM](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) (Provisioning dei dispositivi: attestazione dell'identità con il TPM). 
 
    - **X509**: configurata come "registrazione singola" o "registrazione di gruppo", l'identità del dispositivo è basata su un certificato digitale X.509 caricato durante la registrazione come file con estensione CER o PEM.
 
@@ -62,7 +59,7 @@ Nel sommario a sinistra è disponibile una serie di guide introduttive che conse
 
 Nel diagramma seguente vengono riepilogati i ruoli e la sequenza di operazioni eseguite durante il provisioning automatico dei dispositivi:
 <br><br>
-![Sequenza di provisioning automatico per un dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Sequenza di provisioning automatico per un dispositivo](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > Facoltativamente, il produttore può anche eseguire l'operazione "Registrazione dell'identità del dispositivo" usando le API del servizio Device Provisioning, anziché tramite il ruolo Operatore. Per un'analisi approfondita di questa sequenza e altre informazioni, vedere il video [Zero touch device registration with Azure IoT](https://myignite.microsoft.com/sessions/55087) (Registrazione automatica dei dispositivi con Azure IoT), a partire dal minuto 41:00.
@@ -82,7 +79,7 @@ Continuare con la guida introduttiva "Effettuare il provisioning automatico di u
 |  | Meccanismo di attestazione del dispositivo simulato | Linguaggio/SDK della guida rapida |  |
 |--|--|--|--|
 |  | TPM (Trusted Platform Module) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | Certificato X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+|  | Certificato X.509 | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.JS](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
 
 
 

@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839516"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -39,6 +40,7 @@ L'estensione script personalizzata scarica ed esegue gli script sulle macchine v
 
 - [Interfaccia della riga di comando di Azure 2.0](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Modello di Azure Resource Manager](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installare un'app su una macchina virtuale Windows con PowerShell DSC
@@ -112,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Installare le applicazioni con gli aggiornamenti del sistema operativo
 Quando sono disponibili nuove versioni del sistema operativo, è possibile usare o creare una nuova immagine personalizzata e [distribuire gli aggiornamenti del sistema operativo](virtual-machine-scale-sets-upgrade-scale-set.md) a un set di scalabilità. Ogni istanza di macchina virtuale viene aggiornata all'immagine più recente specificata. È possibile usare un'immagine personalizzata con l'applicazione preinstallata, l'estensione dello script personalizzata o PowerShell DSC per rendere l'applicazione automaticamente disponibile quando si esegue l'aggiornamento. Potrebbe essere necessario pianificare la manutenzione dell'applicazione durante l'esecuzione di questo processo per verificare che non si siano verificati problemi di compatibilità delle versioni.
 
-Se si usa un'immagine di macchina virtuale personalizzata con l'applicazione preinstallata, è possibile integrare gli aggiornamenti dell'applicazione con una pipeline di distribuzione per creare nuove immagini e distribuire gli aggiornamenti del sistema operativo nel set di scalabilità. Questo approccio consente alla pipeline di prelevare le compilazioni più recenti dell'applicazione, creare e convalidare un'immagine di macchina virtuale, quindi aggiornare le istanze di macchine virtuali nel set di scalabilità. Per eseguire una pipeline di distribuzione che crea e distribuisce gli aggiornamenti dell'applicazione tra le immagini di macchine virtuali personalizzate, è possibile usare [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
+Se si usa un'immagine di macchina virtuale personalizzata con l'applicazione preinstallata, è possibile integrare gli aggiornamenti dell'applicazione con una pipeline di distribuzione per creare nuove immagini e distribuire gli aggiornamenti del sistema operativo nel set di scalabilità. Questo approccio consente alla pipeline di prelevare le compilazioni più recenti dell'applicazione, creare e convalidare un'immagine di macchina virtuale, quindi aggiornare le istanze di macchine virtuali nel set di scalabilità. Per eseguire una pipeline di distribuzione che crea e distribuisce gli aggiornamenti dell'applicazione tra le immagini di macchine virtuali personalizzate, è possibile [creare un'immagine Packer e distribuirla con Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset) oppure usare un'altra piattaforma come [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

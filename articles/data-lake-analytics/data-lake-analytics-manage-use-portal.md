@@ -1,30 +1,27 @@
 ---
-title: Gestire Azure Data Lake Analytics tramite il portale di Azure | Microsoft Docs
-description: Informazioni su come gestire account, origini dati, utenti e processi di Data Lake Analytics.
+title: Gestire Azure Data Lake Analytics tramite il portale di Azure
+description: Questo articolo descrive come usare il portale di Azure per gestire utenti, processi, origini dati e account di Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771382"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623707"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informazioni su come gestire gli account, le origini dati degli account, gli utenti e i processi di Azure Data Lake Analytics usando il portale di Azure. Per visualizzare gli argomenti di gestione sull'uso di altri strumenti, fare clic su una scheda nella parte superiore della pagina.
+Questo articolo descrive come gestire utenti, processi, origini dati e account Azure Data Lake Analytics tramite il portale di Azure.
+
 
 <!-- ################################ -->
 <!-- ################################ -->

@@ -2,28 +2,30 @@
 title: 'Azure Active Directory Domain Services: sincronizzazione nei domini gestiti | Documentazione Microsoft'
 description: Informazioni sulla sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 5c324ea5e268d97134202eff6e96764bedc6ca75
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2449c8178f726eacad089debeae6cf1db56cc67a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698442"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Sincronizzazione in un dominio gestito di Azure Active Directory Domain Services
 Il diagramma seguente illustra il funzionamento della sincronizzazione nei domini gestiti di Azure Active Directory Domain Services.
 
-![Topologia della sincronizzazione in Azure Active Directory Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
+![Sincronizzazione in Azure AD Domain Services](./media/active-directory-domain-services-design-guide/sync-topology.png)
 
 ## <a name="synchronization-from-your-on-premises-directory-to-your-azure-ad-tenant"></a>Sincronizzazione dalla directory locale al tenant di Azure AD
 Il servizio di sincronizzazione Azure AD Connect viene usato per sincronizzare account utente, appartenenza a gruppi e hash delle credenziali nel tenant di Azure AD. Vengono sincronizzati gli attributi degli account utente, come l'UPN e l'ID di sicurezza (SID). Se si usa Azure Active Directory Domain Services, anche gli hash delle credenziali legacy richiesti per l'autenticazione NTLM e Kerberos vengono sincronizzati nel tenant di Azure AD.
@@ -36,14 +38,14 @@ Se si configura il writeback, le modifiche apportate alla directory di Azure AD 
 >
 
 ## <a name="synchronization-from-your-azure-ad-tenant-to-your-managed-domain"></a>Sincronizzazione dal tenant di Azure AD al dominio gestito
-Account utente, appartenenza a gruppi e hash delle credenziali vengono sincronizzati dal tenant di Azure AD al dominio gestito di Azure Active Directory Domain Services. Questo processo di sincronizzazione è automatico, non è quindi necessario configurarlo, monitorarlo o gestirlo. Dopo che la sincronizzazione iniziale occasionale della directory è stata completata, occorrono in genere circa 20 minuti perché le modifiche apportate in Azure AD diventino visibili nel dominio gestito. Questo intervallo di sincronizzazione si applica a modifiche della password o a modifiche agli attributi apportati in Azure AD.
+Account utente, appartenenza a gruppi e hash delle credenziali vengono sincronizzati dal tenant di Azure AD al dominio gestito di Azure Active Directory Domain Services. Questo processo di sincronizzazione è automatico, non è quindi necessario configurarlo, monitorarlo o gestirlo. La sincronizzazione iniziale può richiedere da alcune ore a un paio di giorni a seconda del numero di oggetti presenti nella directory di Azure AD. Dopo che la sincronizzazione iniziale è stata completata, occorrono circa 20-30 minuti perché le modifiche apportate in Azure AD siano aggiornate nel dominio gestito. Questo intervallo di sincronizzazione si applica a modifiche della password o a modifiche agli attributi apportati in Azure AD.
 
 Il processo di sincronizzazione è anche di natura unidirezionale. Il dominio gestito è in gran parte di sola lettura, ad eccezione delle eventuali unità organizzative personalizzate create. Non è quindi possibile apportare modifiche agli attributi utente, alle password utente o all'appartenenza a gruppi all'interno del dominio gestito. Di conseguenza, non viene eseguita alcuna sincronizzazione inversa delle modifiche dal dominio gestito al tenant di Azure AD.
 
 ## <a name="synchronization-from-a-multi-forest-on-premises-environment"></a>Sincronizzazione da un ambiente locale a più foreste
 Molte organizzazioni hanno un'infrastruttura di identità locale piuttosto complessa composta da più foreste account. Azure AD Connect supporta la sincronizzazione di utenti, gruppi e hash delle credenziali da ambienti a più foreste nel tenant di Azure AD.
 
-Il tenant di Azure AD è invece uno spazio dei nomi piatto molto più semplice. Per consentire agli utenti di accedere in modo affidabile ad applicazioni protette da Azure AD, risolvere i conflitti UPN tra gli account utente nelle varie foreste. Il dominio gestito di Azure Active Directory Domain Services somiglia molto al tenant di Azure AD. Nel dominio gestito viene perciò visualizzata una struttura di unità organizzative piatta. Tutti gli utenti e i gruppi vengono archiviati nel contenitore "AADDC Users", indipendentemente dal dominio locale o dalla foresta da cui sono stati sincronizzati. Anche se in locale è stata configurata una struttura gerarchica di unità organizzative, il dominio gestito presenta comunque una semplice struttura di unità organizzative piatta.
+Il tenant di Azure AD è invece uno spazio dei nomi piatto molto più semplice. Per consentire agli utenti di accedere in modo affidabile ad applicazioni protette da Azure AD, risolvere i conflitti UPN tra gli account utente nelle varie foreste. Il dominio gestito di Azure Active Directory Domain Services somiglia molto al tenant di Azure AD. Nel dominio gestito viene visualizzata una struttura di unità organizzative piatta. Tutti i gruppi e account utente vengono archiviati all'interno del contenitore "AADDC Users", nonostante la sincronizzazione da foreste o domini locali diversi. Anche se in locale è stata configurata una struttura gerarchica di unità organizzative, il dominio gestito presenta comunque una semplice struttura di unità organizzative piatta.
 
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Esclusioni: cosa non viene sincronizzato nel dominio gestito
 Gli oggetti o attributi indicati di seguito non vengono sincronizzati nel tenant di Azure AD o nel dominio gestito:
@@ -112,6 +114,15 @@ La tabella seguente mostra come vengono sincronizzati attributi specifici per gl
 | objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
+
+## <a name="password-hash-synchronization-and-security-considerations"></a>Considerazioni sulla sicurezza e la sincronizzazione dell'hash delle password
+Quando si abilita Azure AD Domain Services, la directory di Azure AD genera e archivia gli hash delle password in formati compatibili con NTLM e Kerberos. 
+
+Per gli account utente del cloud esistenti, poiché Azure AD non archivia mai password non crittografate, questi hash non possono essere generati automaticamente. Pertanto, Microsoft richiede che [gli utenti del cloud reimpostino o modifichino le proprie password](active-directory-ds-getting-started-password-sync.md) affinché gli hash delle password siano generati e archiviati in Azure AD. Per qualsiasi account utente del cloud creato in Azure AD dopo l'abilitazione di Azure AD Domain Services, gli hash delle password sono generati e archiviati in formati compatibili con NTLM e Kerberos. 
+
+Per gli account utente sincronizzati da AD locale mediante la sincronizzazione di Azure AD Connect, è necessario [configurare Azure AD Connect per la sincronizzazione degli hash delle password in formati compatibili con NTLM e Kerberos](active-directory-ds-getting-started-password-sync-synced-tenant.md).
+
+Gli hash delle password compatibili con NTLM e Kerberos sono sempre archiviati in modo crittografato in Azure AD. Questi hash sono crittografati in maniera tale che solo Azure AD Domain Services possa accedere alle chiavi di decrittografia. Nessun altro servizio o componente in Azure AD ha accesso alle chiavi di decrittografia. Le chiavi di crittografia sono univoche a livello di tenant di Azure AD. Azure AD Domain Services sincronizza gli hash delle password nei controller di dominio per il dominio gestito. Questi hash delle password sono archiviati e protetti in questi controller di dominio analogamente a come le password sono archiviate e protette nei controller di dominio di AD in Windows Server. I dischi per questi controller di dominio gestiti sono crittografati a dati inattivi.
 
 ## <a name="objects-that-are-not-synchronized-to-your-azure-ad-tenant-from-your-managed-domain"></a>Oggetti che non vengono sincronizzati nel tenant di Azure AD dal dominio gestito
 Come descritto in una sezione precedente di questo articolo, non viene eseguita alcuna sincronizzazione dal dominio gestito al tenant di Azure AD. È tuttavia possibile scegliere di [creare un'unità organizzativa personalizzata](active-directory-ds-admin-guide-create-ou.md) nel dominio gestito. All'interno delle queste unità organizzative personalizzate è possibile creare anche altre unità organizzative, utenti, gruppi o account di servizio. Gli oggetti creati all'interno di unità organizzative personalizzate non vengono sincronizzati nel tenant di Azure AD, ma sono disponibili per l'uso unicamente all'interno del dominio gestito. Tali oggetti non sono quindi visibili tramite i cmdlet di PowerShell per Azure AD, l'API Graph di Azure AD o l'interfaccia utente di gestione di Azure AD.

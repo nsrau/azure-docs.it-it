@@ -14,17 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2878fb737f5daa875b91aefc77c6b8bc495f917e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657571"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
 Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.0.0, nonché sulle versioni precedenti.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
+
+## <a name="version-110"></a>Versione 1.1.0
+05/09/2018
+
+### <a name="download-azure-storage-explorer-110"></a>Scaricare Azure Storage Explorer 1.1.0
+- [Azure Storage Explorer 1.1.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.1.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.1.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+* Storage Explorer supporta ora l'uso di Azurite. Nota: la connessione ad Azurite è hardcoded per gli endpoint di sviluppo predefiniti.
+* Storage Explorer supporta ora i livelli di accesso solo per BLOB e gli account di archiviazione per utilizzo generico v2. Per altre informazioni sui livelli di accesso, vedere [qui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* L'ora di inizio non è più necessaria per la generazione di una firma di accesso condiviso.
+
+### <a name="fixes"></a>Correzioni
+* Il recupero delle sottoscrizioni per gli account US Government viene interrotto. Questo problema è stato risolto. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* La scadenza per i criteri di accesso non viene salvata correttamente. Questo problema è stato risolto. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* Quando si genera un URL di firma di accesso condiviso per un elemento in un contenitore, il nome dell'elemento non viene aggiunto all'URL. Questo problema è stato risolto. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* Quando si crea una firma di accesso condiviso, viene usato come valore predefinito una scadenza già trascorsa. Questo problema era dovuto al fatto che Storage Explorer usava come valori predefiniti l'ultima ora di inizio e l'ultima scadenza usate. Ogni volta che si apre la finestra di dialogo di firma di accesso condiviso, viene generato ora un nuovo set di valori predefiniti. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* Quando si eseguono copie tra gli account di archiviazione, viene generata una firma di accesso condiviso di 24 ore. Se dura più di 24 ore la copia non riuscirà. La durata della firma di accesso condiviso è stata aumentata a una settimana per ridurre le probabilità che una copia non riesca a causa della scadenza di una firma di accesso condiviso. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* Per alcune attività non sempre funziona fare clic su "Annulla". Questo problema è stato risolto. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* Per alcune attività la velocità di trasferimento è errata. Questo problema è stato risolto. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* L'ortografia di "Indietro" nel menu Visualizza è errata. L'ortografia è stata ora corretta. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Nella pagina finale di Windows Installer è presente il pulsante "Avanti". È stato modificato con il pulsante "Fine". [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* Lo stato attivo delle schede non è visibile per i pulsanti nelle finestre di dialogo quando si usa il tema Nero a contrasto elevato. È ora visibile.[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* L'utilizzo di maiuscole e minuscole di "Risoluzione automatica" per le azioni nel log attività non è corretto. È ora corretto. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* Quando si elimina un'entità da una tabella, nella finestra di dialogo in cui viene richiesto di confermare l'operazione viene visualizzata un'icona di errore. Nella finestra di dialogo viene visualizzata ora un'icona di avviso. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>Problemi noti
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317). 
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 1.0.0](#version-100)
+* [Versione 0.9.6](#version-096)
+* [Versione 0.9.5](#version-095)
+* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-100"></a>Versione 1.0.0
 04/16/2018
@@ -95,31 +181,6 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.0.0,
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 0.9.6](#version-096)
-* [Versione 0.9.5](#version-095)
-* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versione 0.9.2](#version-092)
-* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-096"></a>Versione 0.9.6
 28/02/2018

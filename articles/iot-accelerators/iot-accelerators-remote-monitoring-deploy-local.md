@@ -1,22 +1,19 @@
 ---
 title: Distribuire la soluzione di monitoraggio remoto in locale - Azure | Microsoft Docs
 description: Questa esercitazione illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627232"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente
 
@@ -52,7 +49,7 @@ Per altre informazioni sull'interfaccia della riga di comando, vedere [How to us
 
 ### <a name="download-the-source-code"></a>Scaricare il codice sorgente
 
- Il repository di codice sorgente per il monitoraggio remoto include i file di configurazione di Docker necessari per scaricare, configurare ed eseguire le immagini Docker contenenti i microservizi. Per clonare e creare una versione locale del repository, passare a una cartella adatta nel computer locale usando la riga di comando o il terminale preferito ed eseguire uno dei comandi seguenti:
+ Il repository del codice sorgente per il monitoraggio remoto include i file di configurazione di Docker necessari per scaricare, configurare ed eseguire le immagini Docker contenenti i microservizi. Per clonare e creare una versione locale del repository, passare a una cartella adatta nel computer locale usando la riga di comando o il terminale preferito ed eseguire uno dei comandi seguenti:
 
 Per installare le implementazioni Java dei microservizi, eseguire:
 
@@ -119,7 +116,7 @@ Alla prima esecuzione di questo comando, Docker scarica le immagini dei microser
 
 È possibile usare una shell separata per visualizzare i log del contenitore. Per prima cosa trovare l'ID contenitore con il comando `docker ps -a`. Usare quindi `docker logs {container-id} --tail 1000` per visualizzare le ultime 1000 voci di log per il contenitore specificato.
 
-Per accedere al dashboard della soluzione di monitoraggio remoto, passare a [http://localhost:8080](http://localhost:8080) nel browser.
+Per accedere alla dashboard della soluzione di monitoraggio remoto, passare a [http://localhost:8080](http://localhost:8080) nel browser.
 
 ## <a name="clean-up"></a>Eseguire la pulizia
 
@@ -137,6 +134,6 @@ Questa esercitazione illustra come:
 > * Distribuire l'acceleratore di soluzioni
 > * Accedere all'acceleratore di soluzioni
 
-Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione](iot-accelerators-remote-monitoring-deploy.md).
+Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità della dashboard della soluzione](iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

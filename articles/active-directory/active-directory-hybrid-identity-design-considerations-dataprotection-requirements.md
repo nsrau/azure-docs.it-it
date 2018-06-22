@@ -1,34 +1,36 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: requisiti di protezione dei dati in Azure | Microsoft Docs"
-description: "Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario identificare i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare adeguatamente tali requisiti."
-documentationcenter: 
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: requisiti di protezione dei dati in Azure | Microsoft Docs'
+description: Quando si pianifica una soluzione ibrida di gestione delle identità, identificare i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare al meglio questi requisiti.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1a2feca8d24fabda4c191b5a181ab6606c912657
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 423624e999e4170ceddf097125e4fb3e9a40384b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800922"
 ---
-# <a name="plan-for-enhancing-data-security-through-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso soluzioni d’identità avanzate
-La prima azione da compiere per garantire la protezione dei dati è identificare gli utenti che possono accedere ad essi. Nell'ambito di questo processo, è necessario disporre di una soluzione di gestione delle identità in grado di integrarsi con l'infrastruttura aziendale per poter fornire funzionalità di autenticazione e autorizzazione. L'autenticazione e l'autorizzazione vengono spesso confuse e i rispettivi ruoli fraintesi. Come illustrato nella figura seguente, rappresentano in realtà due concetti piuttosto diversi:
+# <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Pianificare il potenziamento della sicurezza dei dati attraverso una soluzione d'identità avanzata
+La prima azione da compiere per garantire la protezione dei dati è identificare gli utenti che possono accedere ad essi. Nell'ambito di questo processo, è necessario anche disporre di una soluzione di gestione delle identità in grado di integrarsi con l'infrastruttura aziendale per fornire funzionalità di autenticazione e autorizzazione. L'autenticazione e l'autorizzazione vengono spesso confuse e i rispettivi ruoli fraintesi. Come illustrato nella figura seguente, sono in realtà due concetti diversi:
 
 ![](./media/hybrid-id-design-considerations/mobile-devicemgt-lifecycle.png)
 
 **Fasi del ciclo di vita di gestione dei dispositivi mobili**
 
-Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario comprendere i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare adeguatamente tali requisiti.
+Quando si pianifica una soluzione ibrida di gestione delle identità, è necessario comprendere i requisiti aziendali di protezione dei dati e conoscere le opzioni disponibili per soddisfare al meglio tali requisiti.
 
 > [!NOTE]
 > Dopo aver completato la pianificazione relativa alla sicurezza dei dati, leggere l'articolo [Determinare i requisiti dell'autenticazione a più fattori](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md) per verificare che le selezioni effettuate in merito ai requisiti di autenticazione a più fattori non siano interessate dalle scelte compiute in questa sezione.
@@ -36,9 +38,9 @@ Quando si pianifica una soluzione ibrida di gestione delle identità, è necessa
 > 
 
 ## <a name="determine-data-protection-requirements"></a>Determinare i requisiti di protezione dei dati
-Nell'era della mobilità, la maggior parte delle aziende ha un obiettivo comune: consentire agli utenti di essere produttivi con i dispositivi mobili personali, in locale o in remoto, favorendo così la produttività. Se da un lato cercano di perseguire questo obiettivo, dall'altro le aziende devono anche contrastare un numero crescente di minacce esterne, in modo da garantire la sicurezza dei dati e la privacy degli utenti. In questo ambito è possibile che ogni azienda disponga di requisiti differenti. Diverse regole di conformità, che variano in base al settore operativo, possono condurre a decisioni di progettazione diverse. 
+Nell'era della mobilità, la maggior parte delle aziende ha un obiettivo comune: consentire agli utenti di essere produttivi con i dispositivi mobili personali, in locale o in remoto, favorendo così la produttività. Le aziende con questi requisiti devono anche contrastare un numero crescente di minacce esterne, in modo da garantire la sicurezza dei dati e la privacy degli utenti. In questo ambito è possibile che ogni azienda disponga di requisiti differenti. Diverse regole di conformità, che variano in base al settore operativo, possono condurre a decisioni di progettazione diverse. 
 
-Esistono tuttavia alcuni aspetti di sicurezza di cui è importante tenere sempre conto, indipendentemente dal settore operativo, illustrati nella sezione seguente.
+Esistono tuttavia alcuni aspetti di sicurezza di cui è importante tenere sempre conto, indipendentemente dal settore operativo.
 
 ## <a name="data-protection-paths"></a>Percorsi di protezione dei dati
 ![](./media/hybrid-id-design-considerations/data-protection-paths.png)
@@ -52,7 +54,7 @@ Nel diagramma precedente, il componente di identità è il primo a essere verifi
 3. Protezione dei dati quando sono inattivi in locale.
 4. Protezione dei dati quando sono inattivi nel cloud.
 
-Sebbene i controlli tecnici che consentono la protezione dei dati in ognuna di queste fasi non siano direttamente forniti dalla soluzione ibrida di gestione delle identità, è necessario che questa sia in grado di usare le risorse di gestione delle identità, in locale o nel cloud, per identificare l'utente prima di concedergli l'accesso ai dati. Quando si pianifica una soluzione ibrida di gestione delle identità, assicurarsi che venga fornita una risposta alle domande seguenti, in base ai requisiti aziendali:
+È necessario che questa soluzione ibrida di gestione delle identità sia in grado di usare le risorse di gestione delle identità, in locale o nel cloud, per identificare l'utente prima di concedergli l'accesso ai dati. Quando si pianifica una soluzione ibrida di gestione delle identità, assicurarsi che venga fornita una risposta alle domande seguenti, in base ai requisiti aziendali:
 
 ## <a name="data-protection-at-rest"></a>Protezione dei dati inattivi
 Indipendentemente dalla posizione dei dati inattivi (sul dispositivo, nel cloud o in locale), è importante eseguire una valutazione per comprendere le esigenze dell'azienda in questo ambito. Assicurarsi che venga fornita una risposta alle domande seguenti:
@@ -70,10 +72,11 @@ I dati in transito tra il dispositivo e il data center o tra il dispositivo e il
 * Il sistema di gestione delle identità nel cloud mantiene firmato il traffico all'interno e verso l'archivio di directory (all'interno e tra i data center)?
 
 ## <a name="compliance"></a>Conformità
-Le regole, le norme e i requisiti di conformità alle normative variano in base al settore di appartenenza dell'azienda. Le aziende che operano in settori altamente regolamentati devono tener conto di aspetti di gestione delle identità correlati a problemi di conformità. Normative quali Sarbanes-Oxley (SOX), Health Insurance Portability and Accountability Act (HIPAA), Gramm-Leach-Bliley Act (GLBA) e Payment Card Industry Data Security Standard (PCI DSS), infatti, sono molto rigorose in merito alle procedure di identità e accesso. Le caratteristiche di base della soluzione ibrida di gestione delle identità adottata dall'azienda dovranno quindi soddisfare i requisiti previsti da una o più di queste normative. Assicurarsi che venga fornita una risposta alle domande seguenti:
+I requisiti di conformità alle normative, le disposizioni e le regolamentazioni variano in base al settore di appartenenza dell'azienda. Le aziende che operano in settori altamente regolamentati devono tener conto di aspetti di gestione delle identità correlati a problemi di conformità. Le disposizioni come Sarbanes-Oxley (SOX), Health Insurance Portability and Accountability Act (HIPAA), Gramm-Leach-Bliley Act (GLBA) e Payment Card Industry Data Security Standard (PCI DSS), infatti, sono rigorose in merito alle procedure di identità e accesso. Le caratteristiche di base della soluzione ibrida di gestione delle identità adottata dall'azienda dovranno quindi soddisfare i requisiti previsti da una o più di queste normative. Assicurarsi che venga fornita una risposta alle domande seguenti:
 
 * La soluzione ibrida di gestione delle identità è conforme ai requisiti normativi a cui deve attenersi l'azienda?
-* La soluzione ibrida di gestione delle identità offre le funzionalità necessarie per consentire all'azienda di adeguarsi ai requisiti normativi? 
+* La soluzione ibrida di gestione delle identità offre 
+* le funzionalità necessarie per consentire all'azienda di adeguarsi ai requisiti normativi? 
 
 > [!NOTE]
 > Accertarsi di prendere nota di ogni risposta e comprendere la logica che ne sta alla base. [definizione della strategia di protezione dei dati](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md) esamina le opzioni disponibili con i relativi vantaggi e svantaggi.  Una volta fornite le risposte a queste domande, sarà possibile selezionare l'opzione più adatta in base alle esigenze aziendali.

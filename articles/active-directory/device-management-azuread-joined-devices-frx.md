@@ -2,12 +2,13 @@
 title: Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione | Microsoft Docs
 description: Questo argomento spiega in che modo gli utenti possono configurare un'aggiunta ad Azure AD in fase di completamento dell'installazione.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757393"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Aggiungere un nuovo dispositivo Windows 10 con Azure AD in fase di completamento dell'installazione
 
@@ -37,6 +39,8 @@ Nell'*esperienza di Configurazione guidata* di Windows, l'aggiunta di un dominio
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Per aggiungere un dispositivo Windows 10, il servizio di registrazione dispositivo deve essere configurato per consentire la registrazione dei dispositivi. Oltre ad avere l'autorizzazione per l'aggiunta di dispositivi nel tenant di Azure AD, è necessario che i dispositivi registrati siano meno del numero massimo configurato. Per altri dettagli, vedere [Configurare le impostazioni dei dispositivi](device-management-azure-portal.md#configure-device-settings).
+
+Inoltre, se il tenant è federato, il provider di identità DEVE supportare l'endpoint con nome utente/password WS-Trust e WS-Fed. La versione può essere 1.3 o 2005. Il supporto di questo protocollo è necessario per aggiungere il dispositivo ad Azure AD e accedere al dispositivo con una password.
 
 ## <a name="joining-a-device"></a>Aggiunta di un dispositivo
 

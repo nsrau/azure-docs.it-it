@@ -1,25 +1,19 @@
 ---
 title: Domande frequenti sulla soluzione Connected Factory - Azure | Microsoft Docs
 description: Domande frequenti sull'acceleratore di soluzioni di connected factory
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627502"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
 
@@ -67,7 +61,7 @@ Sono disponibili due opzioni per rimuovere l'indirizzo IP:
 
 L'accesso alla VM di simulazione è supportato solo se la soluzione è stata distribuita usando lo script di PowerShell `build.ps1` nel [repository](https://github.com/Azure/azure-iot-connected-factory).
 
-Se la soluzione è stata distribuita da www.azureiotsuite.com, non è possibile accedere alla VM perché la password viene generata in modo casuale e non è possibile reimpostarla.
+Se la soluzione è stata distribuita da www.azureiotsuite.com, non è possibile accedere alla macchina virtuale. perché la password viene generata in modo casuale e non è possibile reimpostarla.
 
 1. Aggiungere un indirizzo IP pubblico alla VM. Vedere [Come è possibile aggiungere un indirizzo IP pubblico alla macchina virtuale di simulazione?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. Creare una sessione SSH per la macchina virtuale usando l'indirizzo IP della macchina virtuale.
@@ -148,11 +142,11 @@ Se non vengono visualizzati dati inviati all'hub IoT, si è verificato un proble
 
 Per abilitare una mappa interattiva nella soluzione Connected Factory, è necessario avere un piano API di Bing Maps per aziende esistente.
 
-Durante la distribuzione da [www.azureiotsuite.com](http://www.azureiotsuite.com), il processo verifica che la sottoscrizione includa un piano API di Bing Maps per aziende abilitato e distribuisce automaticamente una mappa interattiva nella soluzione Connected Factory. In caso contrario, è possibile comunque abilitare una mappa interattiva nella distribuzione seguendo questa procedura:
+Durante la distribuzione da [www.azureiotsolutions.com](http://www.azureiotsolutions.com), il processo verifica che la sottoscrizione disponga di un piano API di Bing Maps per aziende abilitato e distribuisce automaticamente una mappa interattiva nella soluzione Connected Factory. In caso contrario, è possibile comunque abilitare una mappa interattiva nella distribuzione seguendo questa procedura:
 
 Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel repository GitHub della soluzione Connected Factory e si dispone di un piano API di Bing Maps per aziende, impostare la variabile di ambiente `$env:MapApiQueryKey` nella finestra di compilazione sulla chiave di query del piano. La mappa interattiva viene quindi abilitata automaticamente.
 
-Se non si dispone di un piano API di Bing Maps per aziende, distribuire la soluzione Connected Factory da [www.azureiotsuite.com](http://www.azureiotsuite.com) o usando lo script `build.ps1`. Aggiungere quindi un piano API di Bing Maps per aziende alla sottoscrizione, come illustrato nella sezione [Come è possibile creare un account API di Bing Maps per aziende?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Cercare la chiave di query di questo account come illustrato nella sezione [Come è possibile ottenere la chiave di query dell'API di Bing Maps per aziende?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salvarla. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni app**. Impostare **MapApiQueryKey** sulla chiave di query ottenuta. Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
+Se non si dispone di un piano API di Bing Maps per aziende, distribuire la soluzione Connected Factory da [www.azureiotsolutions.com](http://www.azureiotsolutions.com) o usando lo script `build.ps1`. Aggiungere quindi un piano API di Bing Maps per aziende alla sottoscrizione, come illustrato nella sezione [Come è possibile creare un account API di Bing Maps per aziende?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Cercare la chiave di query di questo account come illustrato nella sezione [Come è possibile ottenere la chiave di query dell'API di Bing Maps per aziende?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salvarla. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni app**. Impostare **MapApiQueryKey** sulla chiave di query ottenuta. Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Come è possibile creare un account API di Bing Maps per aziende?
 
@@ -212,6 +206,6 @@ Per inviare dati di telemetria da dispositivi non OPC UA alla soluzione Connecte
 
 È anche possibile esplorare alcune altre funzionalità degli acceleratori di soluzioni IoT:
 
-* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Panoramica dell'acceleratore di soluzioni di connected factory](iot-accelerators-connected-factory-overview.md)
-* [Sicurezza IoT sin dall'inizio](../iot-suite/securing-iot-ground-up.md)
+* [Sicurezza IoT sin dall'inizio](securing-iot-ground-up.md)

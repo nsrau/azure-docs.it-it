@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650938"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -204,6 +205,18 @@ StorSimple usa i seguenti algoritmi di crittografia per proteggere i dati archiv
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Gestione delle informazioni personali
+
+Il servizio Gestione dispositivi StorSimple per la serie di dispositivi fisici e virtuali raccoglie le informazioni personali nei seguenti casi in particolare:
+
+- Impostazioni dell'utente relative agli avvisi in cui viene configurato l'indirizzo di posta elettronica degli utenti. Queste informazioni possono essere visualizzate e cancellate dell'amministratore. Questo vale sia per i dispositivi della serie StorSimple 8000 sia per gli array virtuali di StorSimple.
+ * Per visualizzare e cancellare le impostazioni di StorSimple serie 8000, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Per visualizzare e cancellare le impostazioni dell'array virtuale di StorSimple, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Utenti che possono accedere ai dati presenti nelle condivisioni. Viene mostrato e può essere visualizzato un elenco di utenti che possono accedere ai dati della condivisione. Questo elenco viene eliminato quando vengono eliminate le condivisioni. Questa condizione si applica solo agli array virtuali di StorSimple.
+ * Per visualizzare l'elenco di utenti che possono accedere o per eliminare una condivisione, seguire la procedura in [Gestire le condivisioni nell'array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
+
+Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
 Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a Microsoft Azure StorSimple.
@@ -268,19 +281,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** Poiché tutti i dati sono crittografati nel servizio e la chiave privata è archiviata con il dispositivo, l'ente pubblico deve richiedere i dati al cliente.
 
-## <a name="gdpr-compliance"></a>Conformità al Regolamento generale sulla protezione dei dati (RGPD)
 
-Il [Regolamento generale sulla protezione dei dati (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) è una legge sulla privacy e sulla protezione dei dati dell'Unione europea (UE). L'RGPD contiene molti requisiti su come raccogliere, conservare e usare le informazioni personali. Le regole dell'RGPD vengono imposte alle aziende, agli enti pubblici e ad altre organizzazioni che operano nell'UE e raccolgono e analizzano i dati dei cittadini europei. 
-
-Lo strumento Gestione dispositivi StorSimple per la serie di server fisici e virtuali è conforme all'RGPD. Le informazioni personali vengono raccolte e visualizzate nel servizio in due casi in particolare:
-
-- Impostazioni dell'utente relative agli avvisi in cui viene configurato l'indirizzo di posta elettronica degli utenti. Queste informazioni possono essere visualizzate e cancellate dell'amministratore. Questo vale sia per i dispositivi della serie StorSimple 8000 sia per gli array virtuali di StorSimple.
- * Per visualizzare e cancellare le impostazioni di StorSimple serie 8000, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Per visualizzare e cancellare le impostazioni dell'array virtuale di StorSimple, seguire la procedura in [Visualizzare e gestire gli avvisi di StorSimple](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Utenti che possono accedere ai dati presenti nelle condivisioni. Viene mostrato e può essere visualizzato un elenco di utenti che possono accedere ai dati della condivisione. Questo elenco viene eliminato quando vengono eliminate le condivisioni. Questa condizione si applica solo agli array virtuali di StorSimple.
- * Per visualizzare l'elenco di utenti che possono accedere o per eliminare una condivisione, seguire la procedura in [Gestire le condivisioni nell'array virtuale StorSimple](storsimple-virtual-array-manage-shares.md)
-
-Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

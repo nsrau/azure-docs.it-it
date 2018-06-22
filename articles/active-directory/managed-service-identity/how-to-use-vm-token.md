@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165452"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796304"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Come usare un'identità del servizio gestito di una macchina virtuale di Azure per l'acquisizione di token 
 
@@ -313,6 +313,8 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 | 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere i log in *\<percorso del file\>* | Verificare che l'identità del servizio gestito sia stata abilitata nella macchina virtuale. Vedere [Configurare un'identità del servizio gestito della macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md) per informazioni sulla configurazione della macchina virtuale.<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella [sezione REST precedente](#rest) per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
 
 ## <a name="retry-guidance"></a>Materiale sussidiario sulla ripetizione di tentativi 
+
+Si consiglia di riprovare in caso si riceva un codice di errore 404, 429 o 5xx (consultare [Gestione errori](#error-handling) in alto).
 
 I limiti delle richieste si applicano al numero di chiamate effettuate all'endpoint IMDS. Al superamento della soglia di limitazione delle richieste, l'endpoint IMDS limiterà eventuali altre richieste mentre la limitazione è attiva. Durante questo intervallo l'endpoint IMDS restituirà il codice di stato HTTP 429 ("Numero eccessivo di richieste") e si verificherà un errore delle richieste. 
 

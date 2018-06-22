@@ -1,25 +1,20 @@
 ---
 title: Informazioni su Azure IoT Edge | Microsoft Docs
 description: Panoramica del servizio Azure IoT Edge
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630698"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Informazioni su Azure IoT Edge - anteprima
 
@@ -69,7 +64,7 @@ Il runtime di Azure IoT Edge viene eseguito in un set completo di dispositivi Io
 
 Gestire il ciclo di vita del software per i dispositivi aziendali è complesso. Gestire il ciclo di vita del software per milioni di dispositivi IoT diversi è ancora più difficile. È necessario creare e configurare carichi di lavoro per un particolare tipo di dispositivo, distribuirli su vasta scala in milioni di dispositivi della soluzione e monitorarli per individuare eventuali dispositivi non correttamente funzionanti. Queste attività non possono essere eseguite per ogni singolo dispositivo, ma devono essere eseguite su vasta scala.
 
-Azure IoT Edge si integra facilmente con Azure IoT Suite offrendo un piano di controllo per le esigenze della soluzione. I servizi cloud consentono agli utenti di:
+Azure IoT Edge si integra facilmente con gli acceleratori di soluzioni di Azure IoT offrendo un piano di controllo per le esigenze della soluzione. I servizi cloud consentono agli utenti di:
 
 * Creare e configurare un carico di lavoro da eseguire in un tipo specifico di dispositivo.
 * Inviare un carico di lavoro a un set di dispositivi.

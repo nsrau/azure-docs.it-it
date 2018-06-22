@@ -5,24 +5,25 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: aba53fcadb9cefa70afc175dd02e4723eb6e5f5d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802545"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedure consigliate per il miglioramento delle prestazioni tramite la messaggistica del bus di servizio
 
-Questo articolo descrive come usare il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte dell'articolo descrive i diversi meccanismi disponibili per migliorare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
+Questo articolo descrive come usare il bus di servizio di Azure per ottimizzare le prestazioni durante lo scambio di messaggi negoziati. La prima parte dell'articolo descrive i diversi meccanismi disponibili per migliorare le prestazioni. La seconda parte fornisce invece indicazioni su come usare il bus di servizio per garantire le prestazioni ottimali in uno scenario specifico.
 
 In questo argomento il termine "client" fa riferimento a qualsiasi entità che accede al bus di servizio. Un client può assumere il ruolo di mittente o di ricevitore. Il termine "mittente" viene usato per un client di coda o argomento del bus di servizio che invia messaggi a una sottoscrizione di una coda o un argomento del bus di servizio. Il termine "ricevitore" fa riferimento a un client di coda o sottoscrizione del bus di servizio che riceve messaggi da una coda o da una sottoscrizione del bus di servizio.
 
@@ -40,13 +41,13 @@ AMQP e SBMP sono più efficienti, poiché mantengono la connessione al bus di se
 
 ## <a name="reusing-factories-and-clients"></a>Riutilizzo di factory e client
 
-Gli oggetti client del bus di servizio, ad esempio [QueueClient][QueueClient] o [MessageSender][MessageSender], vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] che offre anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio e crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare l'oggetto [QueueClient][QueueClient] per inviare messaggi da più thread e operazioni asincrone simultanee. 
+Gli oggetti client del bus di servizio, ad esempio [QueueClient][QueueClient] o [MessageSender][MessageSender], vengono creati tramite un oggetto [MessagingFactory][MessagingFactory] che offre anche la gestione interna delle connessioni. È consigliabile non chiudere le factory di messaggistica o i client di coda, argomento e sottoscrizione dopo aver inviato un messaggio per crearli di nuovo per l'invio del messaggio successivo. Quando si chiude una factory di messaggistica viene eliminata la connessione al servizio Bus di servizio e viene stabilita una nuova connessione quando si crea di nuovo la factory. Stabilire una nuova connessione è un'operazione costosa che si può evitare riutilizzando la stessa factory e gli stessi oggetti client per più operazioni. È possibile usare l'oggetto [QueueClient][QueueClient] per inviare messaggi da più thread e operazioni asincrone simultanee. 
 
 ## <a name="concurrent-operations"></a>Operazioni simultanee
 
-L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richiede tempo. Questa volta include l'elaborazione dell'operazione dal servizio Bus di servizio oltre alla latenza della richiesta e risposta. Per aumentare il numero di operazioni per volta, è necessario eseguire le operazioni contemporaneamente. È possibile farlo in diversi modi:
+L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richiede tempo. Questa volta include l'elaborazione dell'operazione dal servizio Bus di servizio oltre alla latenza della richiesta e risposta. Per aumentare il numero di operazioni per volta, è necessario eseguire le operazioni contemporaneamente. È possibile ottenere questa simultaneità in diversi modi:
 
-* **Operazioni asincrone**: il client pianifica le operazioni eseguendo operazioni asincrone. La richiesta successiva viene avviata prima del completamento della richiesta precedente. Ecco un esempio di operazione di invio in modalità asincrona:
+* **Operazioni asincrone**: il client pianifica le operazioni eseguendo operazioni asincrone. La richiesta successiva viene avviata prima del completamento della richiesta precedente. Il frammento di codice seguente è un esempio di operazione di invio in modalità asincrona:
   
  ```csharp
   BrokeredMessage m1 = new BrokeredMessage(body);
@@ -64,7 +65,7 @@ L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richi
   Console.WriteLine("All messages sent");
   ```
   
-  Ecco un esempio di operazione di ricezione in modalità asincrona:
+  Il frammento di codice seguente è un esempio di operazione di ricezione in modalità asincrona:
   
   ```csharp
   Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
@@ -82,13 +83,13 @@ L'esecuzione di un'operazione (invio, ricezione, eliminazione e così via) richi
   }
   ```
 
-* **Più factory**: tutti i client, mittenti e ricevitori, creati dalla stessa factory condividono la stessa connessione TCP. La velocità effettiva massima dei messaggi è limitata dal numero di operazioni che possono usare questa connessione TCP. La velocità effettiva che si può ottenere con una singola factory varia in modo significativo a seconda dei tempi di round trip TCP e delle dimensioni dei messaggi. Per ottenere una velocità effettiva più elevata, è consigliare usare più factory di messaggistica.
+* **Più factory**: tutti i client, mittenti e ricevitori, creati dalle stesse factory condividono la connessione TCP. La velocità effettiva massima dei messaggi è limitata dal numero di operazioni che possono usare questa connessione TCP. La velocità effettiva che si può ottenere con una singola factory varia in modo significativo a seconda dei tempi di round trip TCP e delle dimensioni dei messaggi. Per ottenere una velocità effettiva più elevata, usare più factory di messaggistica.
 
 ## <a name="receive-mode"></a>Modalità di ricezione
 
 Quando si crea un client di coda o sottoscrizione, è possibile specificare una modalità di ricezione: *PeekLock* o *ReceiveAndDelete*. La modalità di ricezione predefinita è [PeekLock][PeekLock]. Quando si opera in questa modalità, il client invia una richiesta per la ricezione di un messaggio dal bus di servizio. Una volta che il client ha ricevuto il messaggio, invia una richiesta per il completamento del messaggio.
 
-Quando la modalità di ricezione è impostata su [ReceiveAndDelete][ReceiveAndDelete], entrambi i passaggi vengono combinati in una singola richiesta. Questo permette di ridurre il numero complessivo di operazioni e di migliorare la velocità effettiva dei messaggi. Questo miglioramento delle prestazioni tuttavia comporta il rischio di perdere alcuni messaggi.
+Quando la modalità di ricezione è impostata su [ReceiveAndDelete][ReceiveAndDelete], entrambi i passaggi vengono combinati in una singola richiesta. Questi passaggi consentono di ridurre il numero complessivo di operazioni e di migliorare la velocità effettiva dei messaggi. Questo miglioramento delle prestazioni tuttavia comporta il rischio di perdere alcuni messaggi.
 
 Il bus di servizio non supporta le transazioni per le operazioni receive-and-delete. La semantica peek-lock (blocco di visualizzazione) è anche necessaria per qualsiasi scenario in cui il client vuole posticipare l'invio di un messaggio o inserirlo nella [coda dei messaggi non recapitabili](service-bus-dead-letter-queues.md).
 
@@ -132,7 +133,7 @@ L'accesso in batch all'archivio non influisce sul numero di operazioni di messag
 
 La [prelettura](service-bus-prefetch.md) consente al client di coda o sottoscrizione di caricare messaggi aggiuntivi dal servizio durante l'esecuzione di un'operazione di ricezione. Il client archivia i messaggi in una cache locale. Le dimensioni della cache sono determinate dalle proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] o [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount]. Ogni client che abilita la prelettura mantiene la propria cache. La cache non è condivisa tra i client. Se il client avvia un'operazione di ricezione e la relativa cache è vuota, il servizio trasmette un batch di messaggi. Le dimensioni del batch corrispondono alle dimensioni della cache o a 256 KB, a seconda del valore minore. Se il client avvia un'operazione di ricezione e la cache contiene un messaggio, il messaggio viene recuperato dalla cache.
 
-Quando un messaggio viene sottoposto a prelettura, il servizio lo blocca. In questo modo, il messaggio non potrà essere ricevuto da un ricevitore diverso. Se il ricevitore non può completare il messaggio prima della scadenza del blocco, il messaggio diventa disponibile per altri ricevitori. La copia del messaggio sottoposta a prelettura resta nella cache. Il ricevitore che usa la copia scaduta memorizzata nella cache riceve un'eccezione quando prova a completare il messaggio. Per impostazione predefinita, il blocco del messaggio scade dopo 60 secondi. Questo valore può essere esteso a 5 minuti. Per evitare che vengano usati messaggi scaduti, la dimensione della cache dovrebbe essere sempre inferiore al numero di messaggi che possono essere usati da un client nell'intervallo di timeout del blocco.
+Quando un messaggio viene sottoposto a prelettura, il servizio lo blocca. Con il blocco, il messaggio non potrà essere ricevuto da un ricevitore diverso. Se il ricevitore non può completare il messaggio prima della scadenza del blocco, il messaggio diventa disponibile per altri ricevitori. La copia del messaggio sottoposta a prelettura resta nella cache. Il ricevitore che usa la copia scaduta memorizzata nella cache riceve un'eccezione quando prova a completare il messaggio. Per impostazione predefinita, il blocco del messaggio scade dopo 60 secondi. Questo valore può essere esteso a 5 minuti. Per evitare che vengano usati messaggi scaduti, la dimensione della cache dovrebbe essere sempre inferiore al numero di messaggi che possono essere usati da un client nell'intervallo di timeout del blocco.
 
 Se si usa l'impostazione predefinita di 60 secondi per la scadenza del blocco, è consigliabile impostare [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] su un valore pari a 20 volte la velocità massima di elaborazione di tutti i ricevitori della factory. Ad esempio, una factory crea tre ricevitori e ogni ricevitore può elaborare al massimo 10 messaggi al secondo. Il conteggio prelettura non deve superare 20 X 3 X 10 = 600. Per impostazione predefinita, la proprietà [QueueClient.PrefetchCount][QueueClient.PrefetchCount] è impostata su 0, a indicare che non vengono recuperati altri messaggi dal servizio.
 
@@ -161,6 +162,9 @@ Se un messaggio contenente informazioni critiche che non devono andare perdute v
 
 Internamente, il bus di servizio usa lo stesso nodo e lo stesso archivio di messaggistica per elaborare e archiviare tutti i messaggi per un'entità di messaggistica (coda o argomento). Una [coda o un argomento partizionato](service-bus-partitioning.md), al contrario, viene distribuito tra più nodi e archivi di messaggistica. Le code e gli argomenti partizionati non solo registrano una velocità effettiva superiore rispetto a quella delle code e degli argomenti normali, ma presentano anche una maggiore disponibilità. Per creare un'entità partizionata, impostare la proprietà [EnablePartitioning][EnablePartitioning] su **true**, come illustrato nell'esempio seguente. Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
+> [!NOTE]
+> Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
+
 ```csharp
 // Create partitioned queue.
 QueueDescription qd = new QueueDescription(QueueName);
@@ -174,7 +178,7 @@ Se non è possibile usare una coda o un argomento partizionato o se il carico pr
 
 ## <a name="development-and-testing-features"></a>Funzionalità di sviluppo e test
 
-Il bus di servizio presenta una funzionalità che viene usata in particolare per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
+Il bus di servizio presenta una funzionalità usata in particolare per lo sviluppo e che **non deve mai essere usata nelle configurazioni di produzione**: [TopicDescription.EnableFilteringMessagesBeforePublishing][].
 
 Quando vengono aggiunti nuovi filtri o nuove regole all'argomento, è possibile usare [TopicDescription.EnableFilteringMessagesBeforePublishing][] per verificare che la nuova espressione di filtro funzioni come previsto.
 
@@ -186,13 +190,13 @@ Le sezioni seguenti descrivono scenari di messaggistica tipici e indicano le imp
 
 Obiettivo: aumentare la velocità effettiva di una singola coda. Il numero di mittenti e ricevitori è limitato.
 
-* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 * Per aumentare la velocità di invio globale nella coda, usare più factory di messaggistica per la creazione di mittenti. Per ogni mittente usare operazioni asincrone o più thread.
 * Per aumentare la velocità di ricezione globale dalla coda, usare più factory di messaggistica per la creazione di ricevitori.
 * Usare operazioni asincrone per sfruttare i vantaggi dell'invio in batch sul lato client.
 * Impostare l'intervallo di invio in batch su 50 ms per ridurre il numero di trasmissioni tramite il protocollo client del bus di servizio. Se vengono usati più mittenti, aumentare l'intervallo di invio in batch impostandolo su 100 ms.
-* Lasciare abilitato l'accesso in batch all'archivio. In questo modo si aumenta la velocità complessiva per la scrittura dei messaggi nella coda.
-* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo valore riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Lasciare abilitato l'accesso in batch all'archivio. Questo accesso aumenta la velocità complessiva per la scrittura dei messaggi nella coda.
+* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo conteggio riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 
 ### <a name="multiple-high-throughput-queues"></a>Code multiple ad alta velocità effettiva
 
@@ -204,40 +208,40 @@ Per ottenere la velocità effettiva massima su più code, usare le impostazioni 
 
 Obiettivo: ridurre la latenza end-to-end di una coda o di un argomento. Il numero di mittenti e ricevitori è limitato. La velocità effettiva della coda è ridotta o moderata.
 
-* Usare una coda partizionata migliorare la disponibilità.
 * Disabilitare l'invio in batch sul lato client. Il client invia immediatamente un messaggio.
 * Disabilitare l'accesso in batch all'archivio. Il servizio scrive immediatamente il messaggio nell'archivio.
 * Se si usa un singolo client, impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione del ricevitore. Se più messaggi arrivano nella coda allo stesso tempo, il protocollo client del bus di servizio li trasmette tutti contemporaneamente. Quando il client riceve il messaggio successivo, questo è già presente nella cache locale. La cache deve essere di dimensioni ridotte.
-* Se si usano più client, impostare il conteggio prelettura su 0. In questo modo, il secondo client può ricevere il secondo messaggio mentre il primo client sta ancora elaborando il primo messaggio.
+* Se si usano più client, impostare il conteggio prelettura su 0. Impostando il conteggio, il secondo client può ricevere il secondo messaggio mentre il primo client sta ancora elaborando il primo.
+* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>Coda con un numero elevato di mittenti
 
 Obiettivo: aumentare la velocità effettiva di una coda o di un argomento con un numero elevato di mittenti. Ogni mittente invia messaggi con una velocità moderata. Il numero di ricevitori è limitato.
 
-Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità di messaggistica (o 5000 con AMQP). Questo limite viene applicato a livello di spazio dei nomi e le code, le sottoscrizioni o gli argomenti sono limitati in base al numero massimo di connessioni simultanee per spazio dei nomi. Per le code, questo numero è condiviso tra mittenti e ricevitori. Se sono necessarie tutte e 1000 le connessioni per i mittenti, è consigliabile sostituire la coda con un argomento e una singola sottoscrizione. Un argomento accetta fino a 1000 connessioni simultanee dai mittenti, mentre la sottoscrizione accetta altre 1000 connessioni simultanee dai ricevitori. Se sono necessari più di 1000 mittenti simultanei, i mittenti devono inviare i messaggi al protocollo del bus di servizio tramite HTTP.
+Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità di messaggistica (o 5000 con AMQP). Questo limite viene applicato a livello di spazio dei nomi e le code, le sottoscrizioni o gli argomenti sono limitati in base al numero massimo di connessioni simultanee per spazio dei nomi. Per le code, questo numero è condiviso tra mittenti e ricevitori. Se sono necessarie tutte e 1000 le connessioni per i mittenti, sostituire la coda con un argomento e una singola sottoscrizione. Un argomento accetta fino a 1000 connessioni simultanee dai mittenti, mentre la sottoscrizione accetta altre 1000 connessioni simultanee dai ricevitori. Se sono necessari più di 1000 mittenti simultanei, i mittenti devono inviare i messaggi al protocollo del bus di servizio tramite HTTP.
 
-Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
+Per ottimizzare la velocità effettiva, seguire questa procedura:
 
-* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 * Se ogni mittente si trova in un processo diverso, usare solo una singola factory per processo.
 * Usare operazioni asincrone per sfruttare i vantaggi dell'invio in batch sul lato client.
 * Usare l'intervallo di invio in batch predefinito di 20 ms per ridurre il numero di trasmissioni tramite il protocollo client del bus di servizio.
-* Lasciare abilitato l'accesso in batch all'archivio. In questo modo si aumenta la velocità complessiva per la scrittura dei messaggi nella coda o nell'argomento.
-* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo valore riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Lasciare abilitato l'accesso in batch all'archivio. Questo accesso aumenta la velocità complessiva per la scrittura dei messaggi nella coda o nell'argomento.
+* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo conteggio riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>Coda con un numero elevato di ricevitori
 
 Obiettivo: aumentare la velocità di ricezione di una coda o di una sottoscrizione con un numero elevato di ricevitori. Ogni ricevitore riceve messaggi a una velocità moderata. Il numero di mittenti è limitato.
 
-Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità. Se una coda richiede più di 1000 ricevitori, è consigliabile sostituirla con un argomento e più sottoscrizioni. Ogni sottoscrizione può supportare fino a 1000 connessioni simultanee. In alternativa, i ricevitori possono accedere alla coda tramite il protocollo HTTP.
+Il bus di servizio consente un massimo di 1000 connessioni simultanee a un'entità. Se una coda richiede più di 1000 ricevitori, sostituirla con un argomento e più sottoscrizioni. Ogni sottoscrizione può supportare fino a 1000 connessioni simultanee. In alternativa, i ricevitori possono accedere alla coda tramite il protocollo HTTP.
 
 Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
 
-* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 * Se ogni ricevitore si trova in un processo diverso, usare solo una singola factory per processo.
 * I ricevitori possono usare operazioni sincrone o asincrone. Considerata la velocità di ricezione moderata di un singolo ricevitore, l'invio in batch sul lato client di una richiesta Complete non influisce sulla velocità effettiva del ricevitore.
-* Lasciare abilitato l'accesso in batch all'archivio. In questo modo si riduce il carico complessivo dell'entità. Si riduce anche la velocità globale per la scrittura dei messaggi nella coda o nell'argomento.
-* Impostare il conteggio prelettura su un valore ridotto, ad esempio PrefetchCount = 10. In questo modo si evita che i ricevitori rimangano inattivi mentre per altri è presente un numero elevato di messaggi memorizzati nella cache.
+* Lasciare abilitato l'accesso in batch all'archivio. Questo accesso riduce il carico complessivo dell'entità. Si riduce anche la velocità globale per la scrittura dei messaggi nella coda o nell'argomento.
+* Impostare il conteggio prelettura su un valore ridotto, ad esempio PrefetchCount = 10. Questo conteggio evita che i ricevitori rimangano inattivi mentre per altri è presente un numero elevato di messaggi memorizzati nella cache.
+* Usare una coda partizionata per migliorare prestazioni e disponibilità.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Argomento con un numero limitato di sottoscrizioni
 
@@ -245,27 +249,27 @@ Obiettivo: aumentare la velocità effettiva di un argomento con un numero limita
 
 Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
 
-* Usare un argomento partizionato per migliorare prestazioni e disponibilità.
 * Per aumentare la velocità di invio globale nell'argomento, usare più factory di messaggistica per la creazione di mittenti. Per ogni mittente usare operazioni asincrone o più thread.
 * Per aumentare la velocità di ricezione globale di una sottoscrizione, usare più factory di messaggistica per la creazione di ricevitori. Per ogni ricevitore usare operazioni asincrone o più thread.
 * Usare operazioni asincrone per sfruttare i vantaggi dell'invio in batch sul lato client.
 * Usare l'intervallo di invio in batch predefinito di 20 ms per ridurre il numero di trasmissioni tramite il protocollo client del bus di servizio.
-* Lasciare abilitato l'accesso in batch all'archivio. In questo modo si aumenta la velocità globale per la scrittura dei messaggi nell'argomento.
-* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo valore riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Lasciare abilitato l'accesso in batch all'archivio. Questo accesso aumenta la velocità complessiva per la scrittura dei messaggi nell'argomento.
+* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di elaborazione massima di tutti i ricevitori di una factory. Questo conteggio riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Usare un argomento partizionato per migliorare prestazioni e disponibilità.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Argomento con un numero elevato di sottoscrizioni
 
 Obiettivo: aumentare la velocità effettiva di un argomento con un numero elevato di sottoscrizioni. Poiché un messaggio viene ricevuto da molte sottoscrizioni, la velocità di ricezione combinata su tutte le sottoscrizioni è superiore rispetto alla velocità di invio. Il numero di mittenti è limitato. Il numero di ricevitori per sottoscrizione è limitato.
 
-Gli argomenti con un numero elevato di sottoscrizioni in genere espongono una velocità effettiva globale ridotta se tutti i messaggi vengono instradati a tutte le sottoscrizioni. Questo dipende dal fatto che ogni messaggio viene ricevuto più volte e che tutti i messaggi contenuti in un argomento e tutte le relative sottoscrizioni vengono salvati nello stesso archivio. Si presuppone che il numero di mittenti e il numero di ricevitori per sottoscrizione sia ridotto. Il bus di servizio supporta fino a 2.000 sottoscrizioni per argomento.
+Gli argomenti con un numero elevato di sottoscrizioni in genere espongono una velocità effettiva globale ridotta se tutti i messaggi vengono instradati a tutte le sottoscrizioni. Questa velocità effettiva ridotta dipende dal fatto che ogni messaggio viene ricevuto più volte e che tutti i messaggi contenuti in un argomento e tutte le relative sottoscrizioni vengono salvati nello stesso archivio. Si presuppone che il numero di mittenti e il numero di ricevitori per sottoscrizione sia ridotto. Il bus di servizio supporta fino a 2.000 sottoscrizioni per argomento.
 
-Per ottimizzare la velocità effettiva, eseguire le operazioni seguenti:
+Per ottimizzare la velocità effettiva, procedere come segue:
 
-* Usare un argomento partizionato per migliorare prestazioni e disponibilità.
 * Usare operazioni asincrone per sfruttare i vantaggi dell'invio in batch sul lato client.
 * Usare l'intervallo di invio in batch predefinito di 20 ms per ridurre il numero di trasmissioni tramite il protocollo client del bus di servizio.
-* Lasciare abilitato l'accesso in batch all'archivio. In questo modo si aumenta la velocità globale per la scrittura dei messaggi nell'argomento.
-* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di ricezione prevista in secondi. Questo valore riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Lasciare abilitato l'accesso in batch all'archivio. Questo accesso aumenta la velocità complessiva per la scrittura dei messaggi nell'argomento.
+* Impostare il conteggio prelettura su un valore pari a 20 volte la velocità di ricezione prevista in secondi. Questo conteggio riduce il numero di trasmissioni tramite il protocollo client del bus di servizio.
+* Usare un argomento partizionato per migliorare prestazioni e disponibilità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

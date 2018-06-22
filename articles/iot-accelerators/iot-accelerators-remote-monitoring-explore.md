@@ -1,28 +1,25 @@
 ---
 title: Introduzione alla soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione usa scenari simulati per introdurre l'acceleratore di soluzioni di monitoraggio remoto. Questi scenari vengono creati quando si distribuisce l'acceleratore di soluzioni di monitoraggio remoto per la prima volta.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627808"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>Esplorare le funzionalità dell'acceleratore di soluzioni di monitoraggio remoto
 
 Questa esercitazione mostra le principali funzionalità della soluzione di monitoraggio remoto. Per presentare queste funzionalità, l'esercitazione mostra alcuni scenari di clienti comuni usando un'applicazione IoT simulata per una società denominata Contoso.
 
-L'esercitazione aiuta a identificare i tipici scenario IoT predefiniti forniti dalla soluzione di monitoraggio remoto.
+L'esercitazione aiuta a identificare i tipici scenari IoT predefiniti offerti dalla soluzione di monitoraggio remoto.
 
 In questa esercitazione si apprenderà come:
 
@@ -33,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Organizzare gli asset
 > * Arrestare e avviare dispositivi simulati
 
-Il video seguente illustra in dettaglio la soluzione di monitoraggio remoto:
+Il video seguente illustra una procedura dettagliata della soluzione di monitoraggio remoto:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
@@ -45,12 +42,12 @@ Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completa
 
 ## <a name="the-contoso-sample-iot-deployment"></a>Distribuzione IoT di esempio Contoso
 
-È possibile usare la distribuzione IoT di esempio Contoso per comprendere gli scenari di base predefiniti forniti dalla soluzione di monitoraggio remoto. Questi scenari sono basati su distribuzioni IoT reali. Molto presumibilmente, si sceglierà di personalizzare la soluzione di monitoraggio remoto in base a requisiti specifici, ma l'esempio Contoso consente di apprendere le nozioni di base.
+È possibile usare la distribuzione IoT di esempio Contoso per comprendere gli scenari di base predefiniti offerti dalla soluzione di monitoraggio remoto. Questi scenari sono basati su distribuzioni IoT reali. Molto presumibilmente, si sceglierà di personalizzare la soluzione di monitoraggio remoto in base a requisiti specifici, ma l'esempio Contoso consente di apprendere le nozioni di base.
 
 > [!NOTE]
 > Se l'acceleratore di soluzioni è stato distribuito tramite l'interfaccia della riga di comando, il file `deployment-{your deployment name}-output.json` contiene informazioni sulla distribuzione, tra cui l'URL per accedere all'esempio distribuito.
 
-L'esempio Contoso effettua il provisioning di un set di dispositivi simulati e le regole per gestirli. Una volta compresi gli scenari di base, è possibile continuare a esplorare altre funzionalità della soluzione in [Eseguire il monitoraggio avanzato dei dispositivi tramite la soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-monitor.md).
+L'esempio Contoso effettua il provisioning di un set di dispositivi simulati e le regole per gestirli. Dopo aver compreso gli scenari di base, è possibile continuare a esplorare altre funzionalità della soluzione in [Eseguire il monitoraggio avanzato tramite la soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-monitor.md).
 
 Contoso è una società che gestisce un'ampia gamma di asset in ambienti diversi. Contoso prevede di sfruttare tutta la potenza delle applicazioni IoT basate sul cloud per monitorare e gestire in remoto più asset da un'applicazione centralizzata. Le sezioni seguenti offrono un riepilogo della configurazione iniziale dell'esempio Contoso:
 

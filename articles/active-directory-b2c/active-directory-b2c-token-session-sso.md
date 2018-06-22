@@ -1,21 +1,21 @@
 ---
-title: 'Configurazione di token, sessione e accesso Single Sign-On: Azure AD B2C | Microsoft Docs'
-description: Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C
+title: Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C | Microsoft Docs
+description: Configurazione di token, sessione e accesso Single Sign-On in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 0ee39f4b6f80d13cc0f71c77ae87b2a4ee74e390
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710635"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configurazione di token, sessione e accesso Single Sign-On
 

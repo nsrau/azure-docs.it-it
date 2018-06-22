@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595581"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Dashboard di Kubernetes con Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apr
 
 ## <a name="run-an-application"></a>Eseguire un'applicazione
 
-Nel dashboard di Kubernetes fare clic sul pulsante **Create** (Crea) nella finestra in alto a destra. Assegnare il nome `nginx` alla distribuzione e immettere `nginx:latest` per il nome delle immagini. In **Service** (Servizio) selezionare **External** (External) e immettere `80` sia per la porta che per la porta di destinazione.
+Nel dashboard di Kubernetes fare clic sul pulsante **Create** (Crea) nella finestra in alto a destra. Assegnare il nome `nginx` alla distribuzione e immettere `nginx:latest` per il nome dell'immagine contenitore. In **Service** (Servizio) selezionare **External** (External) e immettere `80` sia per la porta che per la porta di destinazione.
 
 Quando si è pronti, fare clic su **Deploy** (Distribuisci) per creare la distribuzione.
 

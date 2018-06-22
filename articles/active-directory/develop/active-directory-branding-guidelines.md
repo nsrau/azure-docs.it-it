@@ -1,5 +1,5 @@
 ---
-title: Linee guida sulla personalizzazione delle applicazioni | Documentazione Microsoft
+title: Linee guida sulla personalizzazione delle applicazioni | Microsoft Docs
 description: Guida completa alle risorse rivolte agli sviluppatori per Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,42 +15,49 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: celested
-ms.reviewer: skwan
+ms.reviewer: arielgo; skwan
 ms.custom: aaddev
-ms.openlocfilehash: 7794388a067cb8fb876d70b7186bc555e6ff2975
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 22d10dfc87777746182068ce9a8162420c0c95d4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713314"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
+
 Questo articolo descrive le linee guida sulla personalizzazione da seguire per lo sviluppo di applicazioni con Azure Active Directory (Azure AD). Queste linee guida consentiranno agli sviluppatori di fornire ai clienti le indicazioni più appropriate quando questi intendono usare l'account aziendale o dell'istituto di istruzione, gestito in Azure AD, o l'account personale per iscriversi e accedere all'applicazione.
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Confronto tra account Microsoft personali e aziendali o dell'istituto di istruzione
+
 Microsoft gestisce due tipi di account utente:
 
 * **Account personali** (noti in precedenza come Windows Live ID). Rappresentano la relazione tra utenti *individuali* e Microsoft e vengono usati per accedere a dispositivi di consumo e servizi forniti da Microsoft. Questi account sono concepiti per un uso personale.
 * **Account aziendali o dell'istituto di istruzione.** Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
 
-Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account vengono gestiti direttamente nel cloud, nella piattaforma Azure AD o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
+Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account vengono gestiti direttamente nel cloud, nella piattaforma Azure AD, o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Riferimento agli account Azure AD nella propria applicazione
+
 Microsoft non mostra agli utenti finali il nome del marchio Azure o Active Directory, né dovrebbero farlo gli sviluppatori.
 
-* Dopo che gli utenti hanno eseguito l'accesso, è invece consigliabile visualizzare il nome e il logo dell'organizzazione il più estesamente possibile. Questa soluzione è preferibile rispetto all'uso di termini generici come "organizzazione".
+* Dopo che gli utenti hanno eseguito l'accesso, è consigliabile visualizzare il nome e il logo dell'organizzazione il più estesamente possibile. Questa soluzione è preferibile rispetto all'uso di termini generici come "organizzazione".
 * Quando gli utenti non hanno eseguito l'accesso, è consigliabile fare riferimento ai loro account come "Account aziendali o dell'istituto di istruzione" e usare il logo Microsoft per indicare che sono account gestiti da Microsoft. Non usare termini quali "account dell'azienda", "account dell'impresa" o "account della società", perché potrebbero creare confusione nell'utente.
 
 ## <a name="user-account-pictogram"></a>Pittogramma dell'account utente
+
 In una versione precedente di queste linee guida si è consigliato di usare un pittogramma di "badge blu". In base ai commenti e suggerimenti degli utenti e degli sviluppatori, ora si consiglia invece di usare il logo Microsoft. In questo modo sarà più facile per gli utenti comprendere che possono riutilizzare l'account che usano con Office 365 o altri servizi commerciali Microsoft per accedere all'app.
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Iscrizione e accesso con Azure AD
+
 Le app degli sviluppatori possono presentare percorsi separati per l'iscrizione e l'accesso. Nelle sezioni seguenti vengono fornite indicazioni visive per entrambi gli scenari.
 
 **Se l'app supporta l'iscrizione da parte dell'utente, ad esempio, per una versione di valutazione gratuita o per il modello freemium**: è possibile visualizzare un pulsante di **accesso** per consentire agli utenti di accedere all'app con l'account aziendale o personale. La prima volta che l'utente accede all'app, Azure AD visualizzerà una richiesta di consenso.
 
-**Se l'app richiede autorizzazioni che solo gli amministratori possono concedere oppure se l'app richiede una licenza dell'organizzazione**: è consigliabile separare l'acquisizione amministrativa dall'accesso utente. Il **pulsante per "ottenere l'app"** reindirizzerà gli amministratori alla pagina di accesso, quindi verrà richiesto di concedere il consenso per conto degli utenti dell'organizzazione. Questo approccio offre il vantaggio di eliminare le richieste di consenso agli utenti finali per l'accesso all'app.
+**Se l'app richiede autorizzazioni che solo gli amministratori possono concedere oppure se l'app richiede una licenza dell'organizzazione**: separare l'acquisizione amministrativa dall'accesso utente. Il **pulsante per "ottenere l'app"** reindirizzerà gli amministratori alla pagina di accesso, quindi verrà richiesto di concedere il consenso per conto degli utenti dell'organizzazione, che il vantaggio aggiunto di sopprimere i messaggi di richiesta di consenso dell'utente finale all'app.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Indicazioni visive per l'acquisizione di app
+
 Il collegamento per "ottenere l'app" deve reindirizzare l'utente alla pagina di Azure AD per concedere (autorizzare) l'accesso, in modo che l'amministratore di un'organizzazione possa autorizzare l'app perché possa accedere ai dati dell'organizzazione ospitati da Microsoft. Verranno fornite informazioni dettagliate su come richiedere l'accesso nell’articolo [Integrazione di applicazioni con Azure Active Directory](active-directory-integrating-applications.md) .
 
 Dopo avere concesso il consenso all'app, gli amministratori possono scegliere di aggiungerla all'esperienza di avvio delle app di Office 365 dei propri utenti (accessibile dall'icona di avvio delle app e da [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se si vuole annunciare questa funzionalità, è possibile usare termini come "Aggiungere questa app alla propria organizzazione" e visualizzare un pulsante simile al seguente:
@@ -60,28 +67,37 @@ Dopo avere concesso il consenso all'app, gli amministratori possono scegliere di
 È tuttavia consigliabile scrivere un testo descrittivo, invece di fare affidamento sui pulsanti. Ad esempio: 
 
 > *Se si usa già Office 365 o un altro servizio aziendale di Microsoft, è possibile concedere a <nome_app> l'accesso ai dati dell'organizzazione. In questo modo gli utenti potranno accedere a <nome_app> con gli account aziendali esistenti.*
-> 
-> 
+
+Per scaricare il logo ufficiale di Microsoft per l'uso nell'app, fare clic con il pulsante destro del mouse su quello che si vuole usare e salvarlo sul computer.
+
+| Asset                                | Formato PNG | Formato SVG |
+| ------------------------------------ | ---------- | ---------- |
+| Logo Microsoft  | ![Logo Microsoft PNG](./media/active-directory-branding-guidelines/MS-SymbolLockup_MSSymbol_19.png) | ![Logo Microsoft SVG](./media/active-directory-branding-guidelines/MS-SymbolLockup_MSSymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Indicazioni visive per l'accesso
+
 Nell'app dovrà essere visualizzato un pulsante di accesso che reindirizza gli utenti all'endpoint di accesso corrispondente al protocollo usato per l'integrazione con Azure AD. La sezione seguente illustra in dettaglio come dovrebbe apparire questo pulsante.
 
 ### <a name="pictogram-and-sign-in-with-microsoft"></a>Pittogramma e "Accedi con Microsoft"
-È l'associazione del logo Microsoft e dei termini "Accedi con Microsoft" che distingue in modo univoco Azure AD dagli altri provider di identità eventualmente supportati dall'app. Se non è disponibile spazio sufficiente per "Accedi con Microsoft" è possibile usare la dicitura abbreviata "Accedi".
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-with-microsoft-light.png)
+È l'associazione del logo Microsoft e dei termini "Accedi con Microsoft" che distingue in modo univoco Azure AD dagli altri provider di identità eventualmente supportati dall'app. Se non è disponibile spazio sufficiente per "Accedi con Microsoft" è possibile usare la dicitura abbreviata "Accedi". È anche possibile usare una combinazione di colori chiara per i pulsanti.
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-light.png)
+Il diagramma seguente mostra le annotazioni consigliate da Microsoft quando si usano gli asset con l'app. Le annotazioni si applicano ad "Accedi con Microsoft" o alla versione più breve "Accedi".
 
-È anche possibile usare una combinazione di colori scura per i pulsanti.
+![Annotazioni Accedi con Microsoft](./media/active-directory-branding-guidelines/Sign-in-with-Microsoft-redlines.png)
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-with-microsoft-dark.png)
+Per scaricare le immagini ufficiali per l'uso nell'app, fare clic con il pulsante destro del mouse su quelle che si vuole usare e salvarle sul computer.
 
-![Scenari e tipi di applicazione](./media/active-directory-branding-guidelines/sign-in-dark.png)
+| Asset                                | Formato PNG | Formato SVG |
+| ------------------------------------ | ---------- | ---------- |
+| Accedi con Microsoft (tema scuro)  | ![Pulsante Accedi a tema scuro PNG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_dark.png) | ![Pulsante Accedi con Microsoft a tema scuro SVG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_dark.svg) |
+| Accedi con Microsoft (tema chiaro) | ![Pulsante Accedi a tema chiaro PNG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_light.png) | ![Pulsante Accedi con Microsoft a tema chiaro SVG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_light.svg) |
+| Accedi (tema scuro)                 | ![Pulsante versione breve Accedi a tema scuro PNG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_dark_short.png) | ![Pulsante versione breve Accedi a tema scuro SVG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_dark_short.svg) |
+| Accedi (tema chiaro)                | ![Pulsante versione breve Accedi a tema chiaro PNG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_light_short.png) | ![Pulsante versione breve Accedi a tema chiaro SVG](./media/active-directory-branding-guidelines/MS-SymbolLockup_SignIn_light_short.svg) |
 
-Per scaricare queste immagini per l'uso nell'app, fare clic con il pulsante destro del mouse su quella che si vuole usare e salvarla nel computer. 
 
 ## <a name="branding-dos-and-donts"></a>Azioni consentite e non consentite per la personalizzazione
+
 **USARE** "account aziendale o dell'istituto di istruzione" insieme al pulsante "Accedi con Microsoft" per fornire altre spiegazioni che consentano agli utenti finali di comprendere se possono usare l'account. **NON** usare termini quali "account dell'azienda", "account dell'impresa" o "account della società".
 
 **NON USARE** "ID di Office 365" o "ID di Azure". Office 365 è anche il nome di un'offerta Microsoft per i consumatori che non prevede l'uso di Azure AD per l'autenticazione.
@@ -91,5 +107,5 @@ Per scaricare queste immagini per l'uso nell'app, fare clic con il pulsante dest
 **NON ESPORRE** le personalizzazioni di Azure o Active Directory agli utenti finali. È tuttavia accettabile usare questi termini con sviluppatori, professionisti IT e amministratori.
 
 ## <a name="navigation-dos-and-donts"></a>Azioni consentite e non consentite per la navigazione
-**FORNIRE** agli utenti un modo per disconnettersi e passare a un altro account utente. Quasi tutte le persone hanno in genere un singolo account per Microsoft, Facebook, Google e Twitter, ma sono spesso associate a più organizzazioni. Il supporto per l'accesso di più utenti sarà presto disponibile.
 
+**FORNIRE** agli utenti un modo per disconnettersi e passare a un altro account utente. Quasi tutte le persone hanno in genere un singolo account per Microsoft, Facebook, Google e Twitter, ma sono spesso associate a più organizzazioni. Il supporto per l'accesso di più utenti sarà presto disponibile.

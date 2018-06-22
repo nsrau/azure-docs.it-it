@@ -1,26 +1,23 @@
 ---
 title: Monitoraggio avanzato nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione mostra come monitorare i dispositivi con il dashboard della soluzione di monitoraggio remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627400"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Eseguire il monitoraggio avanzato tramite la soluzione di monitoraggio remoto
 
-Questa esercitazione mostra le principali funzionalità del dashboard di monitoraggio remoto. Per presentare queste funzionalità, l'esercitazione usa uno scenario nell'applicazione IoT Contoso.
+Questa esercitazione mostra le funzionalità della dashboard di monitoraggio remoto. Per presentare queste funzionalità, l'esercitazione usa uno scenario nell'applicazione IoT Contoso.
 
 In questa esercitazione si usano due dispositivi veicolo Contoso simulati per capire come monitorare i dispositivi dal dashboard degli acceleratori di soluzioni. Un operatore di Contoso deve monitorare la posizione e il comportamento dei veicoli sul campo.
 

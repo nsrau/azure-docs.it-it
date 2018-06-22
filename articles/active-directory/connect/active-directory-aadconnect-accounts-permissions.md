@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158993"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824269"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: account e autorizzazioni
 L'installazione guidata di Azure AD Connect offre due percorsi diversi:
@@ -186,9 +187,9 @@ L'account concede inoltre le autorizzazioni a file, chiavi del Registro di siste
 ### <a name="azure-ad-service-account"></a>Account del servizio Azure AD
 In Azure AD viene creato un account per l'uso con il servizio di sincronizzazione. Questo account può essere identificato in base al relativo nome visualizzato.
 
-![Account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![Account AD](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è FABRIKAMCON. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account.
+Il nome del server in cui viene usato l'account può essere identificato nella seconda parte del nome utente. Nell'immagine, il nome del server è DC1. Se si dispone di server di gestione temporanea, ogni server avrà il proprio account.
 
 L'account del servizio viene creato con una password lunga e complessa priva di scadenza. Viene concesso un ruolo speciale per gli **account di sincronizzazione della directory** che dispone solo delle autorizzazioni per eseguire attività di sincronizzazione della directory. Questo ruolo predefinito speciale non può essere concesso al di fuori della procedura guidata di Azure AD Connect. Il portale di Azure mostra questo account con il ruolo **Utente**.
 

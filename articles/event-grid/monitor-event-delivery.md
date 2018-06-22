@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626990"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorare il recapito dei messaggio di Griglia di eventi 
 
@@ -41,9 +42,15 @@ Per le sottoscrizioni le metriche sono:
 
 ## <a name="event-subscription-status"></a>Stato della sottoscrizione di eventi
 
-Per visualizzare le metriche per una sottoscrizione di eventi, cercare **Sottoscrizioni Griglia di eventi** nei servizi disponibili e selezionarla.
+Per visualizzare le metriche per una sottoscrizione dell'evento, è possibile eseguire una ricerca per tipo di sottoscrizione o per sottoscrizioni per una risorsa specifica.
 
-![Cercare sottoscrizioni di eventi](./media/monitor-event-delivery/select-event-subscriptions.png)
+Per eseguire una ricerca per tipo di sottoscrizione dell'evento, selezionare **Tutti i servizi**.
+
+![Selezionare Tutti i servizi](./media/monitor-event-delivery/all-services.png)
+
+Cercare la **griglia di eventi** e selezionare **Sottoscrizioni di Griglia di eventi** tra le opzioni disponibili.
+
+![Cercare sottoscrizioni di eventi](./media/monitor-event-delivery/search-and-select.png)
 
 Filtrare in base al tipo di evento, alla sottoscrizione e alla località. Selezionare **Metrica** per la sottoscrizione da visualizzare.
 
@@ -53,9 +60,15 @@ Visualizzare le metriche per l'argomento e la sottoscrizione di eventi.
 
 ![Visualizzare le metriche degli eventi](./media/monitor-event-delivery/subscription-metrics.png)
 
+Per trovare le metriche per una risorsa specifica, selezionare la risorsa. Selezionare quindi **Eventi**.
+
+![Selezionare gli eventi per una risorsa](./media/monitor-event-delivery/select-events.png)
+
+Vengono visualizzate le metriche per le sottoscrizioni per tale risorsa.
+
 ## <a name="custom-event-status"></a>Stato dell'evento personalizzato
 
-Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le relative metriche. Selezionare il gruppo di risorse contenente l'argomento e selezionare l'argomento.
+Se è stato pubblicato un argomento personalizzato, è possibile visualizzare le relative metriche. Selezionare il gruppo di risorse per l'argomento e selezionare l'argomento.
 
 ![Selezionare l'argomento personalizzato](./media/monitor-event-delivery/select-custom-topic.png)
 
