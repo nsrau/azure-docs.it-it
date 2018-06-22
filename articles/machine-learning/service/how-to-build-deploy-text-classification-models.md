@@ -91,7 +91,7 @@ pip.main(["show", "azureml-tatk"])
 ```
 
 ### <a name="set-the-location-of-the-data"></a>Impostare il percorso dei dati
-Impostare il percorso in cui sono stati scaricati i dati nel parametro data dir. È anche possibile usare i propri dati. Il set di dati di input deve essere nel formato file TSV.
+Impostare il percorso in cui sono stati scaricati i dati nel parametro data dir. È anche possibile usare i propri dati. Il set di dati di input deve essere nel formato file \*.TSV.
 
 ```python
 import os
