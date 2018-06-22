@@ -417,6 +417,7 @@
 #### Esercitazioni
 ##### [Eseguire la migrazione di criteri di MFA classici](active-directory-conditional-access-migration-mfa.md)
 #### Concetti
+##### [Protezione di base](active-directory-conditional-access-baseline-protection.md)
 ##### [Condizioni](active-directory-conditional-access-conditions.md)
 ##### [Condizioni delle posizioni](active-directory-conditional-access-locations.md)
 ##### [Controlli](active-directory-conditional-access-controls.md)
