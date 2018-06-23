@@ -2,23 +2,18 @@
 title: Isolamento delle applicazioni del bus di servizio di Azure da interruzioni ed emergenze del servizio | Documentazione Microsoft
 description: Tecniche per proteggere le applicazioni da potenziali interruzioni del bus di servizio.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802307"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
@@ -34,7 +29,9 @@ Il bus di servizio usa più archivi di messaggistica per memorizzare messaggi in
 Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi di servizio che è affiliato a un data center. Il bus di servizio supporta il [*ripristino di emergenza geografico* e la *replica geografica*](service-bus-geo-dr.md) a livello di spazio dei nomi.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protezione di code e argomenti da errori degli archivi di messaggistica
-Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Code e argomenti partizionati][Partitioned messaging entities].
+Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
+
+Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protezione da interruzioni o emergenze dei data center
 Per consentire un failover tra due data center, è possibile creare uno spazio dei nomi servizio del bus di servizio in ogni data center. Ad esempio, lo spazio dei nomi servizio del bus di servizio **contosoPrimary.servicebus.windows.net** potrebbe trovarsi nell'area centro-settentrionale degli Stati Uniti, mentre **contosoSecondary.servicebus.windows.net** potrebbe trovarsi in quella centro-meridionale. Se un'entità di messaggistica del bus di servizio deve rimanere accessibile in caso di interruzione del data center, è possibile creare l'entità in entrambi gli spazi dei nomi.

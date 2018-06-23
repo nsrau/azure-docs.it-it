@@ -1,6 +1,6 @@
 ---
 title: Creare un'entità servizio per lo Stack di Azure | Documenti Microsoft
-description: Viene descritto come creare una nuova entità servizio che può essere utilizzata con il controllo di accesso basato sui ruoli in Gestione risorse di Azure per gestire l'accesso alle risorse.
+description: Viene descritto come creare una nuova entità servizio che può essere utilizzata con il controllo di accesso basata su ruoli in Gestione risorse di Azure per gestire l'accesso alle risorse.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b505e0fa215b04a5b05ca1b4c3fa9548d8deb71f
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824571"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321272"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornisci alle applicazioni l'accesso ad Azure Stack
 
@@ -26,26 +26,26 @@ ms.locfileid: "34824571"
 
 Quando un'applicazione richiede l'accesso per distribuire o configurare le risorse tramite Gestione risorse di Azure nello Stack di Azure, si crea un servizio principale, ovvero una credenziale per l'applicazione.  È quindi possibile delegare solo le autorizzazioni necessarie a tale entità servizio.  
 
-Ad esempio, potrebbe essere uno strumento di configurazione di gestione che usa Azure Resource Manager per creare un inventario delle risorse di Azure.  In questo scenario, è possibile creare un'entità servizio, concedere il ruolo di lettore a tale entità servizio e limitare lo strumento di Gestione configurazione per l'accesso in sola lettura. 
+Ad esempio, potrebbe essere necessario uno strumento di gestione di configurazione che usa Azure Resource Manager per creare un inventario delle risorse di Azure.  In questo scenario, è possibile creare un'entità servizio, concedere al ruolo lettore a tale entità servizio e limitare lo strumento di Gestione configurazione per l'accesso di sola lettura. 
 
-Le entità servizio sono preferibili per l'esecuzione dell'applicazione con le proprie credenziali perché:
+Le entità servizio sono preferibili per l'esecuzione dell'app con le proprie credenziali perché:
 
-* È possibile assegnare autorizzazioni per l'entità che sono diverse dalle proprie autorizzazioni dell'account servizio. Tali autorizzazioni sono in genere limitate alle specifiche operazioni che devono essere eseguite dall'app.
+* È possibile assegnare autorizzazioni per l'entità che sono diverse dalle proprie autorizzazioni account di servizio. Tali autorizzazioni sono in genere limitate alle specifiche operazioni che devono essere eseguite dall'app.
 * Non è necessario modificare le credenziali dell'app in caso di cambiamento delle responsabilità dell'utente.
 * È possibile usare un certificato per automatizzare l'autenticazione in caso di esecuzione di uno script automatico.  
 
 ## <a name="getting-started"></a>Introduzione
 
-A seconda di come sono stati distribuiti dello Stack di Azure, è innanzitutto necessario creare un servizio principale.  Questo documento viene descritta la creazione di un'entità servizio per entrambi [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Dopo aver creato l'entità servizio, un set di passi comuni sia ADFS e Azure Active Directory vengono utilizzati per [delegare le autorizzazioni](azure-stack-create-service-principals.md#assign-role-to-service-principal) al ruolo.     
+A seconda del modo in cui è stata distribuita dello Stack di Azure, è innanzitutto necessario creare un servizio principale.  Questo documento viene descritta la creazione di un'entità servizio per entrambi [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) e [Active Directory Federation Services(AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).  Dopo aver creato l'entità servizio, vengono utilizzati per un set di passi comuni sia ADFS e Azure Active Directory [delegare le autorizzazioni](azure-stack-create-service-principals.md#assign-role-to-service-principal) al ruolo.     
 
 ## <a name="create-service-principal-for-azure-ad"></a>Creare l'entità servizio per Azure AD
 
-Se è già distribuito Azure Stack mediante Azure AD come archivio di identità, è possibile creare le entità servizio, come se si trattasse di Azure.  In questa sezione viene illustrato come eseguire la procedura tramite il portale.  Verificare di disporre di [necessarie autorizzazioni di Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) prima di iniziare.
+Se è già distribuito dello Stack di Azure mediante Azure AD come archivio identità, è possibile creare le entità di servizio come se si trattasse di Azure.  In questa sezione viene illustrato come eseguire la procedura tramite il portale.  Verificare di disporre il [Azure AD le autorizzazioni necessarie](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) prima dell'inizio.
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
-In questa sezione si crea un'applicazione (entità servizio) in Azure AD che rappresenta l'applicazione.
+In questa sezione, si crea un'applicazione (entità servizio) in Azure Active Directory che rappresenta l'applicazione.
 
-1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
+1. Accedere al proprio Account Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **registrazioni di App** > **Aggiungi**   
 3. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** o **Nativa** come tipo di applicazione da creare. Dopo aver impostato i valori selezionare **Crea**.
 
@@ -63,12 +63,12 @@ Durante l'accesso a livello di codice, utilizzare l'ID per l'applicazione e per 
 
 4. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
 
-Dopo aver salvato la chiave viene visualizzato il valore della chiave. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Fornire il valore di chiave con l'ID applicazione di accedere come l'applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
+Dopo aver salvato la chiave viene visualizzato il valore della chiave. Copiare il valore in quanto non sarà possibile recuperare la chiave in seguito. Fornire il valore della chiave con l'ID applicazione di accedere come l'applicazione. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
 ![chiave salvata](./media/azure-stack-create-service-principal/image15.png)
 
 
-Al termine del processo, passare alla [l'assegnazione di un ruolo applicazione](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+Al termine del processo, passare alla [assegnazione di un ruolo applicazione](azure-stack-create-service-principals.md#assign-role-to-service-principal).
 
 ## <a name="create-service-principal-for-ad-fs"></a>Creare l'entità servizio per ADFS
 Se è stato distribuito Azure Stack con AD FS, è possibile utilizzare PowerShell per creare un'entità servizio, assegnare un ruolo per l'accesso e accesso da PowerShell mediante tale identità.
@@ -86,7 +86,7 @@ Sono necessarie le seguenti informazioni come input per i parametri di automazio
 
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
-|NOME|Nome dell'account del nome SPN|MyAPP|
+|NOME|Nome per l'account del nome SPN|MyAPP|
 |ClientCertificates|Matrice di oggetti certificato|X509 certificato|
 |ClientRedirectUris<br>Facoltativa|URI di reindirizzamento dell'applicazione|         |
 
@@ -95,7 +95,7 @@ Sono necessarie le seguenti informazioni come input per i parametri di automazio
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i comandi seguenti:
 
    > [!NOTE]
-   > Questo esempio crea un certificato autofirmato. Quando si eseguono questi comandi in una distribuzione di produzione, è possibile utilizzare Get-Certificate per recuperare l'oggetto certificato per il certificato che si desidera utilizzare.
+   > Questo esempio viene creato un certificato autofirmato. Quando si eseguono questi comandi in una distribuzione di produzione, utilizzare Get-Certificate per recuperare l'oggetto certificato per il certificato da usare.
 
    ```
    $creds = Get-Credential
@@ -132,7 +132,7 @@ Una volta assegnato un ruolo, è possibile accedere allo Stack di Azure usando l
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 
@@ -159,9 +159,9 @@ Per accedere alle risorse della propria sottoscrizione è necessario assegnare l
 
 7. Selezionare **OK** per completare l'assegnazione del ruolo. L'applicazione ora compare nell'elenco degli utenti assegnati a un ruolo per quell'ambito.
 
-Ora che hai creato un'entità servizio ed assegnato un ruolo, è possibile iniziare usando questa all'interno dell'applicazione di accedere alle risorse di Azure Stack.  
+Ora che hai creato un'entità servizio ed assegnato un ruolo, è possibile iniziare a utilizzare questo all'interno dell'applicazione per accedere alle risorse di Azure Stack.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Aggiungere utenti per ADFS](azure-stack-add-users-adfs.md)
+[Aggiungere utenti per ad FS](azure-stack-add-users-adfs.md)
 [gestire le autorizzazioni utente](azure-stack-manage-permissions.md)

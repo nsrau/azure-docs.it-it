@@ -8,12 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.openlocfilehash: 030af72951e226d3484706e627bc8b74d5469670
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.date: 05/14/2018
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701718"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati. 
@@ -27,6 +28,8 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 
 ## <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
 Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Archivio Data Lake consente di archiviare dati di qualsiasi dimensione, tipo e velocità di inserimento per le analisi esplorative e operative. Analisi di flusso deve essere autorizzato ad accedere a Data Lake Store.
+
+L'output di Azure Data Lake Store da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina (21Vianet) e Germania (T-Systems International).
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Autorizzare un account Azure Data Lake Store
 
@@ -44,7 +47,7 @@ Analisi di flusso supporta [Archivio Data Lake di Azure](https://azure.microsoft
 | --- | --- |
 | Alias di output | Nome descrittivo usato nelle query per indirizzare l'output delle query a questo Data Lake Store. | 
 | Nome account | Nome dell'account di archiviazione Data Lake a cui si sta inviando l'output. Viene visualizzato un elenco a discesa degli account di Data Lake Store disponibili nella sottoscrizione. |
-| Schema prefisso percorso | Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. È possibile specificare una o più istanze delle variabili {date} e {time}.</br><ul><li>Esempio 1: folder1/logs/{date}/{time}</li><li>Esempio 2: folder1/logs/{date}</li></ul>Se il modello di percorso del file non contiene un "/" finale, l'ultimo modello nel percorso del file viene considerato come prefisso del nome file. </br></br>Vengono creati nuovi file nei casi seguenti:<ul><li>Modifica dello schema di output</li><li>Riavvio interno o esterno di un processo.</li></ul> |
+| Schema prefisso percorso | Percorso del file usato per scrivere i file nell'account di Archivio Data Lake specificato. È possibile specificare una o più istanze delle variabili {date} e {time}.</br><ul><li>Esempio 1: folder1/logs/{date}/{time}</li><li>Esempio 2: folder1/logs/{date}</li></ul><br>Il timestamp della struttura di cartelle creata segue l'ora UTC e non l'ora locale.</br><br>Se il modello di percorso del file non contiene un "/" finale, l'ultimo modello nel percorso del file viene considerato come prefisso del nome file. </br></br>Vengono creati nuovi file nei casi seguenti:<ul><li>Modifica dello schema di output</li><li>Riavvio interno o esterno di un processo.</li></ul> |
 | Formato data | facoltativo. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
 |Formato ora | facoltativo. Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro.| 
@@ -86,7 +89,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Account di archiviazione | Nome dell'account di archiviazione a cui si sta inviando l'output. |
 | Chiave dell'account di archiviazione | Chiave privata associata all'account di archiviazione. |
 | Contenitore di archiviazione | I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio BLOB, è necessario specificare un contenitore per il BLOB. |
-| Modello di percorso | facoltativo. Il modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. </br></br> Nel modello del percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: </br> {date}, {time} </br> </br>È anche possibile specificare un nome {field} personalizzato dai dati dell'evento in base al quale eseguire il partizionamento dei BLOB, dove il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Mancata distinzione tra maiuscole e minuscole (impossibilità di distinguere tra "ID" e "id" colonna)</li><li>I campi annidati non sono consentiti. Usare in alternativa un alias della query di processo per rendere flat il campo.</li><li>Le espressioni non possono essere usate come nome di campo</li></ul>Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3: cluster1/{client_id}/{date}/{time}</li><li>Esempio 4: cluster1/{myField} dove la query è: SELECT data.myField AS myField FROM Input;</li></ul><BR> La denominazione dei file segue questa convenzione: </br> {Schema prefisso percorso}/schemaHashcode_Guid_Number.extension </br></br> File di output di esempio: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| Modello di percorso | facoltativo. Il modello di percorso del file usato per scrivere i BLOB nel contenitore specificato. </br></br> Nel modello del percorso è possibile scegliere di usare una o più istanze delle variabili di data e ora per specificare la frequenza di scrittura dei BLOB: </br> {date}, {time} </br> </br>Se si è già registrati per l'[anteprima](https://aka.ms/ASAPreview), è anche possibile specificare un nome {field} personalizzato dai dati dell'evento in base al quale eseguire il partizionamento dei BLOB, dove il nome del campo è un valore alfanumerico e può includere spazi, trattini e caratteri di sottolineatura. Le restrizioni sui campi personalizzati includono le seguenti: <ul><li>Nessuna distinzione tra maiuscole e minuscole (impossibilità di distinguere tra le colonne "ID" e "id")</li><li>I campi annidati non sono consentiti. Usare in alternativa un alias della query di processo per rendere flat il campo.</li><li>Le espressioni non possono essere usate come nome di campo</li></ul>Esempi: <ul><li>Esempio 1: cluster1/logs/{date}/{time}</li><li>Esempio 2: cluster1/logs/{date}</li><li>Esempio 3 (anteprima): cluster1/{client_id}/{date}/{time}</li><li>Esempio 4 (anteprima): cluster1/{myField} dove la query è: SELECT data.myField AS myField FROM Input;</li></ul><br>Il timestamp della struttura di cartelle creata segue l'ora UTC e non l'ora locale.</br><BR> La denominazione dei file segue questa convenzione: </br> {Schema prefisso percorso}/schemaHashcode_Guid_Number.extension </br></br> File di output di esempio: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | Formato data | facoltativo. Se nel percorso di prefisso viene usato il token di data, è possibile selezionare il formato della data in cui sono organizzati i file. Esempio: AAAA/MM/GG |
 | Formato ora | facoltativo. Se nel percorso di prefisso viene usato il token dell'ora, specificare il formato dell'ora in cui sono organizzati i file. Al momento, l'unico valore supportato è HH. |
 | Formato di serializzazione eventi | Formato di serializzazione per i dati di output.  Sono supportati i formati JSON, CSV e Avro.
@@ -103,7 +106,7 @@ Quando si usa come output l'archiviazione BLOB, viene creato un nuovo file nel B
 * Se un file o un contenitore dell'account di archiviazione viene eliminato dall'utente.  
 * Se l'output è partizionato in base al tempo usando lo schema prefisso percorso, quando la query passa all'ora successiva viene usato un nuovo BLOB.
 * Se l'output è partizionato da un campo personalizzato, viene creato un nuovo BLOB per ogni chiave di partizione, se inesistente.
-*   Se l'output è partizionato da un campo personalizzato in cui la cardinalità della chiave di partizione supera 8000, può essere creato un nuovo BLOB per ogni chiave di partizione.
+* Se l'output è partizionato da un campo personalizzato in cui la cardinalità della chiave di partizione supera 8000, può essere creato un nuovo BLOB per ogni chiave di partizione.
 
 ## <a name="event-hub"></a>Hub eventi
 Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) è un inseritore eventi di pubblicazione-sottoscrizione altamente scalabile. Può raccogliere milioni di eventi al secondo. Un uso di un hub eventi come output si verifica quando l'output di un processo di Analisi di flusso di Azure diventa l'input di un altro processo di streaming.
@@ -125,6 +128,8 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
+
+L'output di Power BI da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina (21Vianet) e Germania (T-Systems International).
 
 ### <a name="authorize-a-power-bi-account"></a>Autorizzare un account Power BI
 1. Se nel portale di Azure è selezionato Power BI come output, viene richiesto di autorizzare un utente Power BI esistente oppure di creare un nuovo account Power BI.  
@@ -247,6 +252,8 @@ Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servi
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) è un servizio di database multimodello distribuito a livello globale che offre scalabilità elastica illimitata in tutto il mondo, query avanzate e indicizzazione automatica su modelli di dati indipendenti dallo schema, è garantito a bassa latenza ed è leader del settore per i contratti di servizio completi. Per informazioni sulle opzioni di raccolta di Cosmos DB per Analisi di flusso, consultare l'articolo [Analisi di flusso con Cosmos DB come output](stream-analytics-documentdb-output.md).
 
+L'output di Azure Cosmos DB da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina (21Vianet) e Germania (T-Systems International).
+
 > [!Note]
 > Ad oggi, Analisi di flusso di Azure supporta la connessione a CosmosDB solo tramite l'**API SQL**.
 > Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso di Azure punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente. 
@@ -266,6 +273,8 @@ Nella tabella seguente sono descritte le proprietà per la creazione di un outpu
 
 ## <a name="azure-functions"></a>Funzioni di Azure
 Funzioni di Azure è un servizio di calcolo senza server che consente di eseguire codice su richiesta senza dover gestire l'infrastruttura o effettuare il provisioning in modo esplicito. Consente di implementare il codice attivato da eventi generati nei servizi di Azure o in servizi di terze parti.  La possibilità offerta da Funzioni di Azure di rispondere ai trigger la rende l'output naturale per Analisi di flusso di Azure. Questo adattatore di output consente agli utenti di collegare Analisi di flusso a Funzioni di Azure ed eseguire uno script o una porzione di codice in risposta a diversi eventi.
+
+L'output di Funzioni di Azure da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina (21Vianet) e Germania (T-Systems International).
 
 Analisi di flusso di Azure richiama Funzioni di Azure tramite trigger HTTP. Il nuovo adattatore di input di Funzioni di Azure è disponibile con le seguenti proprietà configurabili:
 
@@ -289,7 +298,7 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | --- | --- | --- | --- |
 | Archivio Azure Data Lake | Sì | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | database SQL di Azure | No  | Nessuna | Non applicabile | 
-| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} o un singolo {fieldname} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
+| Archivio BLOB di Azure | Sì | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. Nell'ambito dell'[anteprima](https://aka.ms/ASAPreview), l'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 
 | Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.</br> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. </br> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile | 
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). | 

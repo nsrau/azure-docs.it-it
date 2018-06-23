@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321268"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Consentono alle applicazioni di accedere a risorse di Azure Stack creando le entità servizio
 
@@ -27,7 +29,7 @@ ms.lasthandoff: 05/10/2018
 
 Come procedura consigliata, è necessario utilizzare le entità servizio per le applicazioni. Le entità servizio sono preferibili per l'esecuzione di un'applicazione utilizzando le proprie credenziali per i motivi seguenti:
 
-* È possibile assegnare autorizzazioni per l'entità che sono diverse dalle proprie autorizzazioni dell'account servizio. In genere, le autorizzazioni all'entità servizio sono limitate ai esattamente ciò che l'app deve eseguire.
+* È possibile assegnare autorizzazioni per l'entità che sono diverse dalle proprie autorizzazioni account di servizio. In genere, le autorizzazioni all'entità servizio sono limitate ai esattamente ciò che l'app deve eseguire.
 * Non è necessario modificare le credenziali dell'applicazione se il ruolo o la responsabilità di modifica.
 * È possibile utilizzare un certificato per automatizzare l'autenticazione quando si esegue uno script automatico.
 
@@ -61,7 +63,7 @@ Verificare di avere il [Azure AD le autorizzazioni necessarie](../../azure-resou
 
 Per creare un'entità servizio per l'applicazione:
 
-1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
+1. Accedere al proprio Account Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **registrazioni di App** > **Aggiungi**.
 3. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** o **Nativa** come tipo di applicazione da creare. Dopo aver impostato i valori selezionare **Crea**.
 
@@ -93,54 +95,7 @@ Se è stato distribuito Azure Stack utilizza AD FS come archivio di identità, �
 * Assegnare un'entità servizio a un ruolo.
 * Accedere utilizzando l'identità dell'entità servizio.
 
-### <a name="before-you-begin"></a>Prima di iniziare
-
-[Scaricare gli strumenti di Azure Stack richiesti nel computer locale.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Importare il modulo PowerShell di identità
-
-Passare alla cartella di download per gli strumenti di Azure Stack e importare il modulo PowerShell di identità usando il comando seguente:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Quando si importa il modulo di identità, è possibile che venga visualizzato questo messaggio di errore: "AzureStack.Connect.psm1 non è firmato digitalmente. Lo script non verrà eseguita nel sistema".
-
-Per risolvere questo problema, è necessario configurare i criteri di esecuzione per consentire l'esecuzione dello script. Per impostare i criteri di esecuzione, eseguire il comando seguente in una sessione di PowerShell con privilegi elevata:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Creare l'entità servizio
-
-È possibile creare un'entità servizio eseguendo il comando seguente, assicurandosi di aggiornare il **DisplayName** parametro:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Assegnare un ruolo
-
-Dopo aver creato l'entità servizio, è necessario [assegnarlo a un ruolo](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>Accedi con PowerShell
-
-È possibile accedere allo Stack di Azure eseguendo il comando seguente, assicurandosi di aggiornare il **EnvironmentName** parametro con il nome dell'app:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Per informazioni dettagliate su come creare l'entità servizio, vedere [creare l'entità servizio per AD FS](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Assegnare l'entità servizio a un ruolo
 

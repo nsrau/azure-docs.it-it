@@ -1,22 +1,20 @@
 ---
 title: Aggiungere una forma con Mappe di Azure | Microsoft Docs
 description: Come aggiungere una forma a una mappa JavaScript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599372"
 ---
 # <a name="add-a-shape-to-a-map"></a>Aggiungere una forma a una mappa
 
@@ -59,3 +57,10 @@ Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per
 Nel secondo blocco di codice viene creato un poligono. Un poligono è un [Feature](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) di [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) con [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) come proprietà Feature. Usare `new atlas.data.Feature(new atlas.data.Polygon())` per creare un poligono e definirne le proprietà. Fornire coordinate ordinate del percorso del poligono nel costruttore poligono.
 
 Un livello poligono è una matrice di poligoni. L'ultimo blocco di codice usa la funzione [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) della classe map per aggiungere il livello poligono alla mappa e definire le proprietà del livello. Vedere le proprietà di un livello poligono in [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
+* [Aggiungere codice HTML personalizzato](./map-add-custom-html.md)
+* [Visualizzare i risultati della ricerca](./map-search-location.md)
+
+
