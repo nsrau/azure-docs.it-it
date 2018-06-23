@@ -27,8 +27,6 @@
       href: role-definitions.md
     - name: Ruoli predefiniti
       href: built-in-roles.md
-    - name: Ruoli personalizzati
-      href: custom-roles.md
     - name: Operazioni del provider di risorse
       href: resource-provider-operations.md
     - name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
@@ -42,13 +40,22 @@
       items:
         - name: Portale
           href: role-assignments-portal.md
-        - name: Interfaccia della riga di comando di Azure
-          href: role-assignments-cli.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: REST
+        - name: Interfaccia della riga di comando di Azure
+          href: role-assignments-cli.md
+        - name: API REST
           href: role-assignments-rest.md
-    - name: Log attività
+    - name: Ruoli personalizzati
+      href: custom-roles.md
+      items:
+        - name: PowerShell
+          href: custom-roles-powershell.md
+        - name: Interfaccia della riga di comando di Azure
+          href: custom-roles-cli.md
+        - name: API REST
+          href: custom-roles-rest.md
+    - name: Visualizzare log di attività
       href: change-history-report.md
     - name: Eseguire con privilegi elevati l'accesso per l'amministratore globale
       href: elevate-access-global-admin.md

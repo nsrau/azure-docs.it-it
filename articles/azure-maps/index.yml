@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/07/2018
   ms.author: philmea
-  ms.openlocfilehash: 2d7820649a4b1123a78d70a720ae58a0e1898407
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 9e9f0020ce52a5bd75e15ab333ed367244016e11
+  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34600103"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36317521"
 abstract:
   description: Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa aggiornati necessari per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Questo servizio è un set di API REST conforme con Azure OneAPI, accompagnato da un controllo JavaScript basato sul Web, che rende lo sviluppo semplice, flessibile e compatibile con più supporti.
 sections:
@@ -51,4 +51,4 @@ sections:
     - title: JavaScript
       html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controllo mappa</a></p>
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/renderservice">Servizio di rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/routeservice">Servizio di pianificazione percorso</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/searchservice">Servizio di ricerca</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezoneservice">Servizio fuso orario</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/trafficservice">Servizio informazioni sul traffico</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gestione dell'account Mappe</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/maps/render">Servizio di rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Servizio di pianificazione percorso</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Servizio di ricerca</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Servizio fuso orario</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Servizio informazioni sul traffico</a></p><p><a href="https://docs.microsoft.com/rest/api/maps-management/">Gestione dell'account Mappe</a></p>
