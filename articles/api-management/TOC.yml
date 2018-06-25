@@ -177,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Registrare eventi in Hub eventi di Azure
           href: api-management-howto-log-event-hubs.md
+        - name: Registrare le richieste con Azure Application Insights
+          href: api-management-howto-app-insights.md
         - name: Configurare il ripristino di emergenza con backup/ripristino
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Gestire gli account utente
