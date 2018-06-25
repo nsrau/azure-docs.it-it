@@ -4,7 +4,7 @@ description: Il motore regole consente di personalizzare la modalità con cui ve
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261050"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Eseguire l'override del comportamento HTTP con il motore regole della rete CDN di Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -46,9 +47,10 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
 ## <a name="tutorial"></a>Esercitazione
 1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.
    
-    ![Pulsante di gestione del profilo della rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Pulsante Manage (Gestisci) del profilo di rete CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
+
 2. Fare clic sulla scheda **HTTP Large** (HTTP esteso) e quindi su **Motore regole**.
    
     Vengono visualizzate le opzioni per una nuova regola.
@@ -58,7 +60,9 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
    > [!IMPORTANT]
    > L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Una regola successiva potrebbe seguire l’override delle azioni specificate da una regola precedente.
    > 
+
 3. Inserire un nome per la casella di testo **Nome / Descrizione** .
+
 4. Identificare il tipo di richieste a cui verrà applicata la regola. Usare la condizione di corrispondenza predefinita, **Sempre**. 
    
    ![Condizione di corrispondenza regola della rete CDN](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
    > Per un elenco dettagliato delle condizioni di corrispondenza, vedere [Condizioni di corrispondenza del motore regole](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Per aggiungere una nuova funzionalità, fare clic sul pulsante **+** accanto a **Funzionalità**.  Nell'elenco a discesa a sinistra, selezionare **Forza interna Max-Age**.  Nella casella di testo che viene visualizzata, inserire **300**. Non modificare i valori predefiniti restanti.
+
+5. Per aggiungere una nuova funzionalità, fare clic sul pulsante **+** accanto a **Funzionalità**.  Nell'elenco a discesa a sinistra, selezionare **Forza interna Max-Age**.  Nella casella di testo che viene visualizzata, inserire **300**. Non modificare i valori predefiniti restanti.
    
    ![Funzionalità della regola CDN](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,10 +88,11 @@ Per accedere al motore regole è necessario prima di tutto selezionare **Gestisc
    > Per un elenco dettagliato delle funzionalità, vedere [Funzionalità del motore regole](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Fare clic sul pulsante **Aggiungi** per salvare la nuova regola.  La nuova regola ora è in attesa di approvazione. Dopo l'approvazione, lo stato viene modificato da **Pending XML** (XML in sospeso) a **Active XML** (XML attivo).
+
+6. Selezionare **Aggiungi** per salvare la nuova regola.  La nuova regola ora è in attesa di approvazione. Dopo l'approvazione, lo stato viene modificato da **Pending XML** (XML in sospeso) a **Active XML** (XML attivo).
    
    > [!IMPORTANT]
-   > La propagazione delle modifiche delle regole in tutta la rete CDN può durare fino a 90 minuti.
+   > La propagazione delle modifiche alle regole in tutta la rete CDN di Azure può richiedere fino a 10 minuti.
    > 
    > 
 

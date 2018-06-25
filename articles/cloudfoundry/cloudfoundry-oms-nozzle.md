@@ -4,7 +4,7 @@ description: Istruzioni dettagliate per la distribuzione del nozzle loggregator 
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609002"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Distribuire il nozzle di Azure Log Analytics per il monitoraggio del sistema Cloud Foundry
 
@@ -55,9 +56,9 @@ Verificare che sia installato Rubygems prima di configurare il client della riga
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Creare un'area di lavoro di Log Analytics in Azure
 
-È possibile creare l'area di lavoro di Log Analytics manualmente o tramite un modello. Caricare le visualizzazioni e gli avvisi OMS preconfigurati al termine della distribuzione del nozzle.
+È possibile creare l'area di lavoro di Log Analytics manualmente o tramite un modello. Il modello distribuirà un'installazione delle viste e degli avvisi degli indicatori KPI OMS configurati in precedenza per la console OMS. 
 
-Per creare manualmente l'area lavoro OMS:
+#### <a name="to-create-the-workspace-manually"></a>Per creare manualmente l'area lavoro OMS:
 
 1. Nel portale di Azure cercare l'elenco di servizi in Marketplace e quindi selezionare Log Analytics.
 2. Selezionare **Crea** e quindi scegliere le opzioni per gli elementi seguenti:
@@ -70,7 +71,22 @@ Per creare manualmente l'area lavoro OMS:
 
 Per altre informazioni, vedere [Introduzione a Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-In alternativa, è possibile creare l'area di lavoro di Log Analytics tramite il modello OMS. Con questo metodo, il modello carica automaticamente le visualizzazioni e gli avvisi OMS preconfigurati. Per altre informazioni, vedere l'articolo sulla [soluzione Azure Log Analytics per Cloud Foundry](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Per creare l'area di lavoro OMS tramite il modello di monitoraggio OMS da Azure Marketplace:
+
+1. Aprire il portale di Azure.
+2. Fare clic sul segno "+" o su "Crea una risorsa" in alto a sinistra.
+3. Digitare "Cloud Foundry" nella finestra di ricerca e selezionare "OMS Cloud Foundry Monitoring Solution".
+4. Verrà caricata la prima pagina del modello della soluzione di monitoraggio OMS Cloud Foundry. Fare clic su "Crea" per avviare il pannello del modello.
+5. Immettere i parametri richiesti:
+    * **Sottoscrizione**: selezionare una sottoscrizione di Azure per l'area di lavoro OMS, in genere la stessa della distribuzione di Cloud Foundry.
+    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente o crearne uno nuovo per l'area di lavoro OMS.
+    * **Località del gruppo di risorse**: selezionare la località del gruppo di risorse.
+    * **OMS_Workspace_Name**: immettere un nome dell'area di lavoro. Se l'area di lavoro non esiste, il modello ne creerà una nuova.
+    * **OMS_Workspace_Region**: selezionare la località per l'area di lavoro.
+    * **OMS_Workspace_Pricing_Tier**: selezionare lo SKU per l'area di lavoro OMS. Vedere le [indicazioni sui prezzi](https://azure.microsoft.com/pricing/details/log-analytics/) per riferimento.
+    * **Note legali**: fare clic su Note legali e quindi fare clic su "Crea" per accettare i termini legali.
+- Dopo aver specificato tutti i parametri, fare clic su "Crea" per distribuire il modello. Quando viene completata la distribuzione, lo stato verrà visualizzato nella scheda delle notifiche.
+
 
 ## <a name="deploy-the-nozzle"></a>Distribuire il nozzle
 
@@ -78,9 +94,9 @@ In alternativa, è possibile creare l'area di lavoro di Log Analytics tramite il
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Distribuire il nozzle come parte di Ops manager di Pivotal Cloud Foundry
 
-Se Pivotal Cloud Foundry è stato distribuito tramite Ops Manager, attenersi alla procedura indicata per [installare e configurare il nozzle per Pivotal Cloud Foundry](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Il nozzle viene installato come riquadro in Ops Manager.
+Seguire la procedura per [installare e configurare il nozzle di Azure Log Analytics per Pivotal Cloud Foundry](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Questo è l'approccio semplificato. Il riquadro Ops manager di Pivotal Cloud Foundry configurerà ed eseguirà il push del nozzle automaticamente. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Distribuire il nozzle come un'applicazione Cloud Foundry
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Distribuire il nozzle manualmente come un'applicazione Cloud Foundry
 
 Se non si usa Ops Manager di Pivotal Cloud Foundry, distribuire il nozzle come applicazione. Le sezioni seguenti descrivono il processo.
 
@@ -163,6 +179,10 @@ Verificare che l'applicazione nozzle di OMS sia in esecuzione.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>Visualizzare i dati nel portale OMS
 
+Se è stata distribuita la soluzione di monitoraggio OMS tramite il modello del Marketplace, passare al portale di Azure e individuare la soluzione OMS. È possibile trovare la soluzione nel gruppo di risorse specificato nel modello. Fare clic sulla soluzione e passare a "Console OMS". Vengono elencate le viste preconfigurate, con gli indicatori KPI di sistema principali di Cloud Foundry, i dati dell'applicazione, gli avvisi e le metriche sull'integrità delle macchine virtuali. 
+
+Se l'area di lavoro OMS è stata creata manualmente, seguire questa procedura per creare le viste e gli avvisi:
+
 ### <a name="1-import-the-oms-view"></a>1. Importare la visualizzazione OMS
 
 Dal portale di OMS, passare a **Visualizza finestra di progettazione** > **Importa** > **Sfoglia**e selezionare uno dei file omsview. Selezionare ad esempio *Foundry.omsview Cloud*e salvare la vista. A questo punto viene visualizzato un riquadro nella pagina **Panoramica**. Selezionare per visualizzare le metriche visualizzate.
@@ -226,6 +246,6 @@ Il nozzle di Log Analytics di Azure è open source. Inviare eventuali domande e 
 
 ## <a name="next-step"></a>Passaggio successivo
 
-Oltre alle metriche Cloud Foundry analizzate nel nozzle, è possibile usare l'agente OMS per ottenere informazioni dettagliate sui dati operativi a livello di macchina virtuale (syslog, prestazioni, avvisi e inventario); l'agente OMS viene installato come componente aggiuntivo Bosh nelle macchine virtuali di Cloud Foundry.
+Da PCF 2.0, le metriche delle prestazioni delle macchine virtuali vengono trasferite al nozzle di Azure Log Analytics da System Metrics Forwarder e integrate nell'area di lavoro OMS. Non è più necessario l'agente OMS per le metriche delle prestazioni delle macchine virtuali. Tuttavia è ancora possibile usare l'agente OMS per raccogliere informazioni Syslog. l'agente OMS viene installato come componente aggiuntivo Bosh nelle macchine virtuali di Cloud Foundry. 
 
 Per informazioni dettagliate, vedere [Deploy OMS agent to your Cloud Foundry deployment](https://github.com/Azure/oms-agent-for-linux-boshrelease) (Distribuire l'agente OMS nella distribuzione Cloud Foundry).

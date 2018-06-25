@@ -2,7 +2,7 @@
 title: Connettersi ad Azure Databricks da Excel, Python o R | Microsoft Docs
 description: Informazioni su come usare il driver Simba per connettere Azure Databricks a Excel, Python o R.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598879"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Connettersi ad Azure Databricks da Excel, Python o R
 
@@ -77,7 +78,7 @@ Il DSN è stato configurato. Nelle sezioni successive questo DSN viene usato per
 
 ## <a name="connect-from-microsoft-excel"></a>Connettersi da Microsoft Excel
 
-In questa sezione si esegue il pull dei dati da Azure Databricks in Microsoft Excel usando il DSN creato in precedenza. Prima di iniziare, verificare che Microsoft Excel sia installato nel computer in uso. È possibile usare una versione di valutazione di Excel da [collegamento alla versione di valutazione di Microsoft Excel](https://products.office.com/excel).
+In questa sezione si esegue il pull dei dati da Azure Databricks in Microsoft Excel usando il DSN creato in precedenza. Prima di iniziare, verificare che Microsoft Excel sia installato nel computer in uso. È possibile usare una versione di valutazione di Excel dal [collegamento alla versione di valutazione di Microsoft Excel](https://products.office.com/excel).
 
 1. Aprire una cartella di lavoro vuota in Microsoft Excel. Nella barra multifunzione **Dati** fare clic su **Recupera dati**. Fare clic su **Da altre origini** e quindi su **Da ODBC**.
 
@@ -130,7 +131,7 @@ Il frammento di codice seguente esegue queste attività:
 
 ## <a name="connect-from-python"></a>Connettersi da Python
 
-In questa sezione si usa un IDE Python (ad esempio IDLE) fare riferimento a dati disponibili in Azure Databricks. Prima di iniziare, completare i prerequisiti seguenti:
+In questa sezione si usa un IDE Python (ad esempio IDLE) per fare riferimento a dati disponibili in Azure Databricks. Prima di iniziare, completare i prerequisiti seguenti:
 
 * Installare Python da [qui](https://www.python.org/downloads/). Installando Python da questo collegamento viene installato anche IDLE.
 

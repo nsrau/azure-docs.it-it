@@ -4,7 +4,7 @@ description: La funzionalità di memorizzazione nella cache con stringhe di quer
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260835"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Controllare il comportamento di memorizzazione nella cache con stringhe di query della rete CDN di Azure: livello Premium
 > [!div class="op_single_selector"]
 > * [Livello Standard](cdn-query-string.md)
 > * [Livello Premium](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>Panoramica
@@ -63,6 +63,6 @@ Sono disponibili tre modalità di stringa di query:
 3. Selezionare una modalità della stringa di query e quindi fare clic su **Aggiorna**.
 
 > [!IMPORTANT]
-> Le modifiche delle impostazioni di memorizzazione nella cache delle stringhe non sono immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione dei profili della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti.
+> Le modifiche delle impostazioni di memorizzazione nella cache delle stringhe non sono immediatamente visibili perché la propagazione della registrazione nella rete CDN richiede tempo. La propagazione viene in genere completata in 10 minuti.
  
 

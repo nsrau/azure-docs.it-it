@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194020"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833720"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -35,31 +35,16 @@ Per usare Gestione aggiornamenti è necessario:
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-La gestione degli aggiornamenti è supportato nei sistemi operativi seguenti.
+La gestione degli aggiornamenti è supportata nei sistemi operativi seguenti:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 e versioni successive e distribuzioni di aggiornamenti in Windows Server 2008 R2 SP1 e versioni successive. Nano Server non è supportato.
-
-  Il supporto per la distribuzione di aggiornamenti in Windows Server 2008 R2 SP1 richiede .NET Framework 4.5 e Windows Management Framework 5.0 o versioni successive.
-
-- I sistemi operativi client di Windows non sono supportati.
-
-Gli agenti Windows devono essere configurati per comunicare con un server Windows Server Update Services (WSUS) o avere accesso a Microsoft Update.
-
-> [!NOTE]
-> L'agente Windows non può essere gestito contemporaneamente da System Center Configuration Manager.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) e 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) e 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)
-
-- Ubuntu 12.04 LTS e versioni più recenti (x86/x64)
+|Sistema operativo  |Note  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Supporta solo le valutazioni degli aggiornamenti         |
+|Windows Server 2008 R2 SP1 e versioni successive     |Windows PowerShell 4.0 o versione successiva è obbligatorio ([scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) è consigliato per la sua maggiore affidabilità.         |
+|CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 > [!NOTE]
 > Per evitare che gli aggiornamenti vengano applicati al di fuori di una finestra di manutenzione in Ubuntu, riconfigurare il pacchetto Unattended-Upgrade per disabilitare gli aggiornamenti automatici. Per altre informazioni, vedere l'[argomento Aggiornamenti automatici nella Guida a Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -152,6 +137,9 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Aggiornamenti della definizione
   - Strumenti
   - Aggiornamenti
+
+- **Aggiornamenti da escludere**: apre la pagina **Escludi**. Immettere le KB o i nomi dei pacchetti da escludere.
+
 - **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, oppure specificare un momento diverso.
    Si può anche specificare se la distribuzione deve essere eseguita una sola volta o in base a una pianificazione ricorrente. Per configurare una pianificazione ricorrente, selezionare l'opzione **Ricorrente** sotto **Ricorrenza**.
 

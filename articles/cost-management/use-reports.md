@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297516"
 ---
 # <a name="use-cost-management-reports"></a>Usare i report di Gestione costi
 
@@ -23,6 +24,8 @@ Questo articolo descrive come usare i diversi report di Gestione costi nel porta
 ## <a name="cost-analysis-reports"></a>Report di analisi dei costi
 
 I report di analisi dei costi visualizzano i dati di fatturazione dei provider di servizi cloud. Con i report è possibile raggruppare e analizzare in dettaglio diversi segmenti di dati riportati nel file di fatturazione. I report consentono di spostarsi a livello molto dettagliato da una voce di costi all'altra nei dati di fatturazione non elaborati dei fornitori di servizi cloud.
+
+Se visualizzati come grafico, i report di analisi hanno un asse Y per il *costo* e un asse X per una *categoria o tag* scelto. Anche se nel grafico è impostato un intervallo, ad esempio gli ultimi 30 giorni, l'intervallo viene usato come filtro. I report di analisi sono ideali confrontare le categorie. Ad esempio, il costo di ogni sottoscrizione negli ultimi 30 giorni o il costo di servizi, come quello di archiviazione o di calcolo, in un determinato periodo.
 
 I report di analisi dei costi non raggruppano i costi per tag. La creazione di report basati su tag è disponibile solo nei report di allocazione costi impostati dopo la creazione di un modello costo con Cost Allocation 360.
 
@@ -50,6 +53,8 @@ Eseguire almeno i passaggi seguenti. È anche possibile usare altre opzioni e al
 ### <a name="actual-cost-over-time"></a>Costi effettivi nel tempo
 
 Il report dei costi effettivi nel tempo è un report di analisi dei costi standard che distribuisce i costi su una risoluzione di tempo definita. Il report visualizza la spesa nel tempo per consentire l'osservazione delle tendenze e il rilevamento di eventuali irregolarità di spesa. Questo report illustra le voci che contribuiscono in maggior misura ai costi, incluse le spese correnti e i corrispettivi una tantum di istanze riservate corrisposti in un periodo di tempo selezionato.
+
+Se visualizzati come grafico, i report relativi al costo nel tempo hanno un asse Y per il *costo* e un asse X per il *periodo di tempo*. Questi report visualizzano l'evoluzione del costo in un periodo di tempo.
 
 Usare il report dei costi effettivi nel tempo per:
 

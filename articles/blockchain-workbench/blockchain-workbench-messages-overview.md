@@ -1,5 +1,5 @@
 ---
-title: Panoramica dei messaggi di Azure Blockchain Workbench
+title: Panoramica dell'integrazione dei messaggi di Azure Blockchain Workbench
 description: Panoramica dell'uso dei messaggi in Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
@@ -10,22 +10,22 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 9fa0d74b2c07d3e460abc54ea6ef9733f07a64d1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f45396c3af285026e16ce641bd37bf0eadcee56d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607601"
 ---
-# <a name="azure-blockchain-workbench-messages-overview"></a>Panoramica dei messaggi di Azure Blockchain Workbench
+# <a name="azure-blockchain-workbench-messaging-integration"></a>Integrazione della messaggistica di Azure Blockchain Workbench
 
 Oltre a fornire un'API REST, Azure Blockchain Workbench offre anche un'integrazione basata sulla messaggistica. Workbench pubblica eventi basati sul libro mastro tramite Griglia di eventi di Azure, consentendo ai consumer downstream di inserire dati o eseguire azioni in base a tali eventi. Per i client che richiedono una messaggistica affidabile, Azure Blockchain Workbench recapita anche i messaggi a un endpoint del bus di servizio di Azure.
 
 Gli sviluppatori hanno inoltre espresso interesse per la possibilità di consentire a sistemi esterni di comunicare e avviare transazioni per creare utenti, creare contratti e aggiornare i contratti in un libro mastro. Sebbene questa funzionalità non sia attualmente esposta nell'anteprima pubblica, un esempio che offre tale capacità è disponibile in [http://aka.ms/blockchain-workbench-integration-sample](http://aka.ms/blockchain-workbench-integration-sample).
 
-
 ## <a name="event-notifications"></a>Notifiche degli eventi
 
-Le notifiche degli eventi possono essere usate per informare utenti e sistemi downstream degli eventi che si verificano in Workbench e nella rete blockchain a cui è connesso. Le notifiche degli eventi possono essere usate direttamente nel codice o con strumenti come le app per la logica e Flow per attivare il flusso di dati per i sistemi downstream.
+Le notifiche degli eventi possono essere usate per informare utenti e sistemi downstream degli eventi che si verificano in Blockchain Workbench e nella rete blockchain a cui è connesso. Le notifiche degli eventi possono essere usate direttamente nel codice o con strumenti come le app per la logica e Flow per attivare il flusso di dati per i sistemi downstream.
 
 Per informazioni dettagliate sui vari messaggi che possono essere ricevuti, vedere [Informazioni di riferimento sui messaggi di notifica](#notification-message-reference).
 
@@ -60,14 +60,14 @@ Gli argomenti del bus di servizio possono essere usati per notificare agli utent
 ### <a name="consuming-service-bus-messages-with-logic-apps"></a>Uso dei messaggi del bus di servizio con le app per la logica
 
 1. Creare una nuova **app per la logica di Azure** nel portale di Azure.
-2.  Quando si apre l'app per la logica di Azure nel portale, viene richiesto di selezionare un trigger. Digitare **Bus di servizio** nella casella di ricerca e selezionare il trigger appropriato per il tipo di interazione da impostare per il bus di servizio. Ad esempio, **Bus di servizio -- Quando un messaggio è ricevuto nella sottoscrizione dell'argomento (compl. aut.)**.
+2. Quando si apre l'app per la logica di Azure nel portale, viene richiesto di selezionare un trigger. Digitare **Bus di servizio** nella casella di ricerca e selezionare il trigger appropriato per il tipo di interazione da impostare per il bus di servizio. Ad esempio, **Bus di servizio -- Quando un messaggio è ricevuto nella sottoscrizione dell'argomento (compl. aut.)**.
 3. Quando viene visualizzata la finestra di progettazione del flusso di lavoro, specificare le informazioni di connessione per il bus di servizio.
 4. Selezionare la sottoscrizione e specificare l'argomento **workbench-external**.
 5. Sviluppare la logica per l'applicazione che usa il messaggio dal trigger.
 
 ## <a name="notification-message-reference"></a>Informazioni di riferimento sui messaggi di notifica
 
-A seconda di OperationName, i messaggi di notifica hanno uno dei seguenti tipi di messaggi.
+A seconda di **OperationName**, i messaggi di notifica hanno uno dei tipi di messaggio seguenti.
 
 ### <a name="accountcreated"></a>AccountCreated
 
@@ -75,8 +75,8 @@ Indica che è stato richiesto un nuovo account da aggiungere alla catena specifi
 
 | NOME    | DESCRIZIONE  |
 |----------|--------------|
-| UserId  | ID dell'utente che è stato creato |
-| ChainIdentifier | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum, è l'indirizzo dell'utente "nella catena". |
+| UserId  | ID dell'utente che è stato creato. |
+| ChainIdentifier | Indirizzo dell'utente che è stato creato nella rete blockchain. In Ethereum è l'indirizzo dell'utente **nella catena**. |
 
 ``` csharp
 public class NewAccountRequest : MessageModelBase
@@ -93,15 +93,15 @@ Indica che è stata effettuata una richiesta per l'inserimento o l'aggiornamento
 | NOME | DESCRIZIONE |
 |-----|--------------|
 | ChainID | Identificatore univoco della catena associata alla richiesta.|
-  BlockId | Identificatore univoco di un blocco nel libro mastro.|
-  ContractId | Identificatore univoco del contratto.|
-  ContractAddress |       Indirizzo del contratto nel libro mastro.|
-  TransactionHash  |     Hash della transazione nel libro mastro.|
-  OriginatingAddress |   Indirizzo dell'iniziatore della transazione.|
-  ActionName       |     Nome dell'azione.|
-  IsUpdate        |      Specifica se si tratta di un aggiornamento.|
-  Parametri       |     Elenco di oggetti che identificano il nome, il valore e il tipo di dati dei parametri inviati a un'azione.|
-  TopLevelInputParams |  Negli scenari in cui un contratto è connesso a uno o più altri contratti, questi sono i parametri del contratto di primo livello. |
+| BlockId | Identificatore univoco di un blocco nel libro mastro.|
+| ContractId | Identificatore univoco del contratto.|
+| ContractAddress |       Indirizzo del contratto nel libro mastro.|
+| TransactionHash  |     Hash della transazione nel libro mastro.|
+| OriginatingAddress |   Indirizzo dell'iniziatore della transazione.|
+| ActionName       |     Nome dell'azione.|
+| IsUpdate        |      Specifica se si tratta di un aggiornamento.|
+| Parametri       |     Elenco di oggetti che identificano il nome, il valore e il tipo di dati dei parametri inviati a un'azione.|
+| TopLevelInputParams |  Negli scenari in cui un contratto è connesso a uno o più altri contratti, questi sono i parametri del contratto di primo livello. |
 
 ``` csharp
 public class ContractInsertOrUpdateRequest : MessageModelBase
@@ -244,6 +244,66 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 }
 ```
 
+## <a name="classes-used-by-message-types"></a>Classi usate dai tipi di messaggio
+
+### <a name="messagemodelbase"></a>MessageModelBase
+
+Modello di base per tutti i messaggi.
+
+| NOME          | DESCRIZIONE                          |
+|---------------|--------------------------------------|
+| OperationName | Nome dell'operazione.           |
+| RequestId     | Identificatore univoco per la richiesta. |
+
+``` csharp
+public class MessageModelBase
+{
+    public string OperationName { get; set; }
+    public string RequestId { get; set; }
+}
+```
+
+### <a name="contractinputparameter"></a>ContractInputParameter
+
+Contiene il nome, il valore e il tipo di un parametro.
+
+| NOME  | DESCRIZIONE                 |
+|-------|-----------------------------|
+| NOME  | Nome del parametro.  |
+| Valore | Valore del parametro. |
+| type  | Il tipo del parametro.  |
+
+``` csharp
+public class ContractInputParameter
+{
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string Type { get; set; }
+}
+```
+
+#### <a name="contractproperty"></a>ContractProperty
+
+Contiene l'ID, il nome, il valore e il tipo di una proprietà.
+
+| NOME  | DESCRIZIONE                |
+|-------|----------------------------|
+| ID    | ID della proprietà.    |
+| NOME  | Nome della proprietà.  |
+| Valore | Valore della proprietà. |
+| type  | Tipo della proprietà.  |
+
+``` csharp
+public class ContractProperty
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Value { get; set; }
+    public string DataType { get; set; }
+}
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Architettura di Azure Blockchain Workbench](blockchain-workbench-architecture.md)
+> [!div class="nextstepaction"]
+> [Modelli di integrazione dei contratti intelligenti](blockchain-workbench-integration-patterns.md)

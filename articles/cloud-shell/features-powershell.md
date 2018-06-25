@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: cd1582697307219bf3710139c6b44b5957b176e4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f099c2dd9b5ab82852f86eb82fb4060321a3d419
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608798"
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Funzionalità e strumenti per PowerShell in Azure Cloud Shell (anteprima)
 
@@ -90,7 +91,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Strumenti di Azure     |[Azure PowerShell (5.7.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Interfaccia della riga di comando di Azure (2.0.31)](https://docs.microsoft.com/cli/azure)|
+|Strumenti di Azure     |[Azure PowerShell (6.1.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Interfaccia della riga di comando di Azure (2.0.33)](https://docs.microsoft.com/cli/azure)|
 |Editor di testo    |vim<br> nano                             |
 |Gestione pacchetti |PowerShellGet<br> Modulo PackageManagement<br> npm<br> pip |
 |Controllo del codice sorgente  |git                                      |
@@ -103,7 +104,7 @@ Questi comandi si basano sulla comunicazione remota di PowerShell e richiedono l
 |------------|-----------|
 |.NET        |4.6        |
 |Node.js     |8.9.4       |
-|PowerShell  |5.1 e [6.1.0-preview.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell  |5.1 e [6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python      |2.7        |
 
 ## <a name="next-steps"></a>Passaggi successivi

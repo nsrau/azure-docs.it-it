@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850203"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Funzionalità e strumenti per Bash in Azure Cloud Shell
 
@@ -48,22 +49,22 @@ I file all'esterno di `$Home` e lo stato della macchina non sono persistenti tra
 
 [Altre informazioni sulla persistenza dei file in Bash all’interno di Cloud Shell.](persisting-shell-storage.md)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Stretta integrazione con strumenti open source
+### <a name="integration-with-open-source-tooling"></a>Integrazione con strumenti open source
 
-Bash in Cloud Shell include l'autenticazione preconfigurata per strumenti open source, ad esempio Terraform e Ansible. È possibile provarlo nelle procedure dettagliate di esempio.
+Bash in Cloud Shell include l'autenticazione preconfigurata per strumenti open source, ad esempio Terraform, Ansible e Chef InSpec. È possibile provarlo nelle procedure dettagliate di esempio.
 
 ## <a name="tools"></a>Strumenti
 
 |Categoria   |NOME   |
 |---|---|
 |Strumenti di Linux            |bash<br> sh<br> tmux<br> dig<br>               |
-|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
+|Strumenti di Azure            |[Interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-cli) e [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Interfaccia della riga di comando di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Editor di testo           |vim<br> nano<br> emacs       |
 |Controllo del codice sorgente         |git                    |
 |Strumenti di compilazione            |make<br> maven<br> npm<br> pip         |
 |Contenitori             |[Interfaccia della riga di comando Docker](https://github.com/docker/cli)/[Computer Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [Interfaccia della riga di comando DC/OS](https://github.com/dcos/dcos-cli)         |
 |Database              |Client MySQL<br> Client PostgreSql<br> [Utilità sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Altri                  |Client iPython<br> [Interfaccia della riga di comando Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Supporto per le lingue
 
@@ -73,7 +74,7 @@ Bash in Cloud Shell include l'autenticazione preconfigurata per strumenti open s
 |Go         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi

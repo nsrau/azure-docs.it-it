@@ -4,7 +4,7 @@ description: La rete CDN di Azure supporta l'uso della firma di accesso condivis
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261169"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
 
@@ -70,7 +71,7 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
  
 Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure fornita da Verizon**. Con questa opzione, è possibile proteggere l'archivio BLOB nel server di origine. È consigliabile usarla se non sono necessarie restrizioni di accesso specifiche per il file, ma si desidera impedire agli utenti di accedere all'origine di archiviazione in maniera diretta per migliorare i tempi di offload della rete CDN di Azure. Il token di firma di accesso condiviso, che non è noto all'utente, è necessario per chiunque acceda ai file nel contenitore specificato del server di origine. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL.
  
-1. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura URL. La propagazione delle nuove regole richiede circa 90 minuti.
+1. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura URL. La propagazione delle nuove regole richiede circa 10 minuti.
 
    ![Pulsante Gestisci della rete CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
        
    Le opzioni dei parametri per l'autenticazione tramite token di sicurezza sono diverse rispetto a quelle per un token di firma di accesso condiviso. Se si sceglie di usare una scadenza quando si crea un token di sicurezza, è consigliabile impostarla sullo stesso valore di scadenza del token di firma di accesso condiviso, in modo da garantire che sia stimabile. 
  
-2. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura dell'URL per abilitare l'accesso tramite token di firma di accesso condiviso a tutti i BLOB presenti nel contenitore. La propagazione delle nuove regole richiede circa 90 minuti.
+2. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura dell'URL per abilitare l'accesso tramite token di firma di accesso condiviso a tutti i BLOB presenti nel contenitore. La propagazione delle nuove regole richiede circa 10 minuti.
 
    La regola di riscrittura dell'URL di esempio seguente usa un modello di espressione regolare con un gruppo di acquisizione e un endpoint denominato *storagedemo*:
    

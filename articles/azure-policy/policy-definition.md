@@ -2,19 +2,18 @@
 title: Struttura delle definizioni di criteri di Azure
 description: Descrizione di come la definizione dei criteri delle risorse viene usata da Criteri di Azure per stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e dell'azione da eseguire.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
-ms.topic: article
+ms.date: 05/24/2018
+ms.topic: conceptual
 ms.service: azure-policy
-ms.custom: ''
-ms.openlocfilehash: a56fa61c6d77ab50dc1342c5a7feeaf1c579697d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+manager: carmonm
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057251"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260482"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -65,7 +64,7 @@ Ad esempio, la notazione JSON seguente illustra un criterio che limita i punti i
 }
 ```
 
-Tutti i modelli di Criteri di Azure di esempio sono disponibili nella pagina [Modelli per Criteri di Azure](json-samples.md).
+Tutti gli esempi di Criteri di Azure sono disponibili in [Esempi di criteri](json-samples.md).
 
 ## <a name="mode"></a>Mode
 
@@ -193,7 +192,7 @@ Una condizione valuta se un **campo** soddisfa determinati criteri. Le condizion
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly (*) nel valore.
+Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly (*) nel valore. Il valore non deve contenere più di 1 carattere jolly (*).
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Ad esempio, vedere [Consentire modelli nome multipli](scripts/allow-multiple-name-patterns.md).
 
@@ -205,7 +204,7 @@ Sono supportati i seguenti campi:
 
 - `name`
 - `fullName`
-  - Restituisce il nome completo della risorsa, inclusi tutti gli elementi padre (ad esempio, "myServer/myDatabase")
+  - Restituisce il nome completo della risorsa. Il nome completo di una risorsa è il nome della risorsa con anteposti gli eventuali nomi delle risorse padre (ad esempio "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -252,6 +251,8 @@ Il valore può essere una stringa o un oggetto formato JSON.
 
 Con **AuditIfNotExists** e **DeployIfNotExists** è possibile valutare l'esistenza di una risorsa correlata e applicare una regola e un effetto corrispondente quando tale risorsa non esiste. È possibile ad esempio richiedere che venga distribuito un Network Watcher per tutte le reti virtuali.
 Per un esempio di controllo quando non è stata distribuita un'estensione della macchina virtuale, vedere [Audit if extension does not exist](scripts/audit-ext-not-exist.md) (Controllare se l'estensione esiste).
+
+Per informazioni dettagliate su ogni effetto, ordine di valutazione, proprietà ed esempi, vedere [Informazioni sugli effetti di Criteri](policy-effects.md).
 
 ## <a name="aliases"></a>Alias
 
@@ -393,4 +394,4 @@ L'esempio seguente illustra come creare un'iniziativa per la gestione di due tag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere tutti i modelli di Criteri di Azure di esempio disponibili nella pagina [Modelli per Criteri di Azure](json-samples.md).
+- Vedere altri esempi in [Esempi di Criteri di Azure](json-samples.md).

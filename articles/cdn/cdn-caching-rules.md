@@ -4,20 +4,21 @@ description: È possibile usare le regole di memorizzazione nella cache della re
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: 09705893c50e56cce5d888db097d7b810624b5d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260007"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache
 
@@ -105,7 +106,12 @@ Le regole di memorizzazione nella cache globali e personalizzate vengono elabora
 Se sono impostate queste regole, una richiesta per _&lt;nome host endpoint&gt;_.azureedge.net/home/index.html attiva la regola di memorizzazione nella cache personalizzata n. 2, che è impostata su **Imposta se mancante** e 3 giorni. Di conseguenza, se il file *index.html* include intestazioni HTTP `Cache-Control` o `Expires`, queste vengono rispettate. In caso contrario, se le intestazioni non sono impostate, il file viene memorizzato nella cache per 3 giorni.
 
 > [!NOTE] 
-> I file memorizzati nella cache prima della modifica di una regola mantengono l'impostazione di durata della cache di origine. Per reimpostare le durate della cache, è necessario [ripulire il file](cdn-purge-endpoint.md). Per gli endpoint della **rete CDN di Azure con tecnologia Verizon**, prima che le nuove regole di memorizzazione nella cache diventino effettive possono trascorrere fino a 90 minuti.
+> I file memorizzati nella cache prima della modifica di una regola mantengono l'impostazione di durata della cache di origine. Per reimpostare le durate della cache, è necessario [ripulire il file](cdn-purge-endpoint.md). 
+>
+> La propagazione delle modifiche alla configurazione della rete CDN di Azure può richiedere tempo: 
+> - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
+> - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Verizon** viene in genere completata entro 10 minuti.  
+>
 
 ## <a name="see-also"></a>Vedere anche 
 

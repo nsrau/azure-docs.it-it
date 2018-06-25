@@ -1,32 +1,35 @@
 ---
 title: Impostare le variabili di ambiente in Istanze di contenitore di Azure
-description: Informazioni su come impostare le variabili di ambiente in Istanze di contenitore di Azure
+description: Informazioni su come impostare le variabili di ambiente nei contenitori eseguiti in Istanze di contenitore di Azure
 services: container-instances
-author: david-stanford
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/13/2018
-ms.author: dastanfo
-ms.openlocfilehash: 37fde41b6dc2ea0a4d3b4b38a0e3df81a297c125
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/07/2018
+ms.author: marsma
+ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830463"
 ---
 # <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
-L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore.
+L'impostazione delle variabili di ambiente nelle istanze di contenitore consente di offrire la configurazione dinamica dell'applicazione o dello script eseguiti dal contenitore. Per impostare le variabili di ambiente in un contenitore, specificarle quando si crea un'istanza del contenitore. È possibile impostare le variabili di ambiente quando si avvia un contenitore con l'[interfaccia della riga di comando di Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) e il [portale di Azure](#azure-portal-example).
 
-È attualmente possibile impostare le variabili di ambiente dall'interfaccia della riga di comando e da PowerShell. In entrambi i casi, si userà un flag nei comandi per impostare le variabili di ambiente. L'impostazione delle variabili di ambiente in Istanze di contenitore di Azure è simile all'argomento della riga di comando `--env` per `docker run`. Se ad esempio si usa l'immagine del contenitore microsoft/aci-wordcount, è possibile modificare il comportamento specificando le variabili di ambiente seguenti:
+Se ad esempio si esegue l'immagine del contenitore [microsoft/aci-wordcount][aci-wordcount], è possibile modificarne il comportamento specificando le variabili di ambiente seguenti:
 
 *NumWords*: il numero di parole inviate a STDOUT.
 
 *MinLength*: il numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
 
+Se è necessario passare segreti come variabili di ambiente, Istanze di contenitore di Azure supporta [valori sicuri](#secure-values) sia per i contenitori Windows che Linux.
+
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
-Per visualizzare l'output predefinito del contenitore, eseguire il comando seguente:
+Per visualizzare l'output predefinito del contenitore [microsoft/aci-wordcount][aci-wordcount], eseguirlo prima con questo comando [az container create][az-container-create] (nessuna variabile di ambiente specificata):
 
 ```azurecli-interactive
 az container create \
@@ -36,7 +39,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Specificando `NumWords=5` e `MinLength=8` per le variabili di ambiente del contenitore, i log contenitori devono mostrare un output diverso.
+Per modificare l'output, avviare un secondo contenitore con l'argomento `--environment-variables` aggiunto, specificando i valori per le variabili *NumWords* e *MinLength*:
 
 ```azurecli-interactive
 az container create \
@@ -47,47 +50,17 @@ az container create \
     --environment-variables NumWords=5 MinLength=8
 ```
 
-Quando lo stato del contenitore viene mostrato come *Terminated* (usare [az container show][az-container-show] per controllarne lo stato), vengono visualizzati i log per verificare l'output.  Per visualizzare l'output del contenitore senza variabili di ambiente, impostare --name come mycontainer1 invece che come mycontainer2.
+Dopo che lo stato di entrambi i contenitori risulta *terminato* (usare [az container show][az-container-show] per controllare lo stato), visualizzarne i log con [az container logs][az-container-logs] per verificare l'output.
 
 ```azurecli-interactive
+az container logs --resource-group myResourceGroup --name mycontainer1
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-## <a name="azure-powershell-example"></a>Esempio di Azure PowerShell
+L'output dei contenitori mostra come si è modificato il comportamento di script del secondo contenitore impostando le variabili di ambiente.
 
-Per visualizzare l'output predefinito del contenitore, eseguire il comando seguente:
-
-```azurecli-interactive
-az container create \
-    --resource-group myResourceGroup \
-    --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
-    --restart-policy OnFailure
-```
-
-Specificando `NumWords=5` e `MinLength=8` per le variabili di ambiente del contenitore, i log contenitori devono mostrare un output diverso.
-
-```azurepowershell-interactive
-$envVars = @{NumWord=5;MinLength=8}
-New-AzureRmContainerGroup `
-    -ResourceGroupName myResourceGroup `
-    -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
-    -RestartPolicy OnFailure `
-    -EnvironmentVariable $envVars
-```
-
-Quando lo stato del contenitore è *Terminated* (usare [Get-AzureRmContainerInstanceLog][azure-instance-log] per controllarne lo stato), vengono visualizzati i log per verificare l'output. Per visualizzare i log del contenitore senza variabili di ambiente, impostare ContainerGroupName come mycontainer1 invece che come mycontainer2.
-
-```azurepowershell-interactive
-Get-AzureRmContainerInstanceLog `
-    -ResourceGroupName myResourceGroup `
-    -ContainerGroupName mycontainer2
-```
-
-## <a name="example-output-without-environment-variables"></a>Output di esempio senza variabili di ambiente
-
-```bash
+```console
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -98,11 +71,8 @@ Get-AzureRmContainerInstanceLog `
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
-```
 
-## <a name="example-output-with-environment-variables"></a>Output di esempio con variabili di ambiente
-
-```bash
+azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),
@@ -110,15 +80,173 @@ Get-AzureRmContainerInstanceLog `
  ('GUILDENSTERN', 54)]
 ```
 
+## <a name="azure-powershell-example"></a>Esempio di Azure PowerShell
+
+L'impostazione delle variabili di ambiente in PowerShell è simile all'interfaccia della riga di comando, ma usa l'argomento della riga di comando `-EnvironmentVariable`.
+
+Avviare prima il contenitore [microsoft/aci-wordcount][aci-wordcount] nella configurazione predefinita con questo comando [New-AzureRmContainerGroup][new-azurermcontainergroup]:
+
+```azurepowershell-interactive
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer1 `
+    -Image microsoft/aci-wordcount:latest
+```
+
+Eseguire ora il comando [New-AzureRmContainerGroup][new-azurermcontainergroup] seguente, che specifica le variabili di ambiente *NumWords* e *MinLength* dopo avere popolato un variabile di matrice, `envVars`:
+
+```azurepowershell-interactive
+$envVars = @{NumWords=5;MinLength=8}
+New-AzureRmContainerGroup `
+    -ResourceGroupName myResourceGroup `
+    -Name mycontainer2 `
+    -Image microsoft/aci-wordcount:latest `
+    -RestartPolicy OnFailure `
+    -EnvironmentVariable $envVars
+```
+
+Dopo che lo stato di entrambi i contenitori risulta *terminato* (usare [Get-AzureRmContainerInstanceLog][azure-instance-log] per controllare lo stato), eseguire il pull dei log con il comando [Get-AzureRmContainerInstanceLog][azure-instance-log].
+
+```azurepowershell-interactive
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+```
+
+L'output di ogni contenitore mostra come si è modificato lo script eseguito dal contenitore impostando le variabili di ambiente.
+
+```console
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer1
+[('the', 990),
+ ('and', 702),
+ ('of', 628),
+ ('to', 610),
+ ('I', 544),
+ ('you', 495),
+ ('a', 453),
+ ('my', 441),
+ ('in', 399),
+ ('HAMLET', 386)]
+
+Azure:\
+PS Azure:\> Get-AzureRmContainerInstanceLog -ResourceGroupName myResourceGroup -ContainerGroupName mycontainer2
+[('CLAUDIUS', 120),
+ ('POLONIUS', 113),
+ ('GERTRUDE', 82),
+ ('ROSENCRANTZ', 69),
+ ('GUILDENSTERN', 54)]
+
+Azure:\
+```
+
+## <a name="azure-portal-example"></a>Esempio del portale di Azure
+
+Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarle nella pagina **Configurazione** quando si crea il contenitore.
+
+Quando si esegue la distribuzione con il portale, il limite corrente è di tre variabili ed è necessario immetterle in questo formato: `"variableName":"value"`
+
+Per visualizzare un esempio, avviare il contenitore [microsoft/aci-wordcount][aci-wordcount] con le variabili *NumWords* e *MinLength*.
+
+1. In **Configurazione** impostare **Criteri di riavvio** su *In caso di errore*
+2. Immettere `"NumWords":"5"` come prima variabile, selezionare **Sì** in **Add additional environment variables** (Aggiungi altre variabili di ambiente) e immettere `"MinLength":"8"` come seconda variabile. Selezionare **OK** per verificare e quindi distribuire il contenitore.
+
+![Pagina del portale che mostra il pulsante di abilitazione e le caselle di testo delle variabili di ambiente][portal-env-vars-01]
+
+Per visualizzare i log del contenitore, in **IMPOSTAZIONI** selezionare **Contenitori** e quindi **Log**. Analogamente all'output illustrato nelle sezioni precedenti sull'interfaccia della riga di comando e PowerShell, è possibile visualizzare come il comportamento dello script è stato modificato dalle variabili di ambiente. Vengono visualizzate solo cinque parole, ognuna con una lunghezza minima di otto caratteri.
+
+![Portale che visualizza l'output del log del contenitore][portal-env-vars-02]
+
+## <a name="secure-values"></a>Valori sicuri
+Gli oggetti con valori sicuri sono progettati per contenere informazioni riservate, ad esempio le password o le chiavi per le applicazioni. L'uso di valori sicuri per le variabili di ambiente è sia più sicuro che più flessibile rispetto all'inclusione nell'immagine del contenitore. Un'altra opzione consiste nell'usare volumi segreti, come descritto in [Montare un volume segreto in Istanze di contenitore di Azure](container-instances-volume-secret.md).
+
+Le variabili di ambiente sicure con valori sicuri non rivelano il valore sicuro nelle proprietà del contenitore, quindi il valore è accessibile solo dall'interno del contenitore. Ad esempio, le proprietà del contenitore visualizzate nel portale di Azure o nell'interfaccia della riga di comando di Azure non visualizzeranno una variabile di ambiente con un valore sicuro.
+
+Impostare una variabile di ambiente sicura, specificando la proprietà `secureValue` anziché il normale `value` per il tipo di variabile. Le due variabili definite nel file YAML seguente illustrano i due tipi di variabili.
+
+### <a name="yaml-deployment"></a>Distribuzione con file YAML
+
+Creare un file `secure-env.yaml` con il frammento seguente.
+
+```yaml
+apiVersion: 2018-06-01
+location: westus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
+        - "name": "NOTSECRET"
+          "value": "my-exposed-value"
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Eseguire il comando seguente per distribuire il gruppo di contenitori con YAML.
+
+```azurecli-interactive
+az container create --resource-group myRG --name securetest -f secure-env.yaml
+```
+
+### <a name="verify-environment-variables"></a>Verificare le variabili di ambiente
+
+Eseguire il comando seguente per recuperare tramite query per le variabili di ambiente del contenitore.
+
+```azurecli-interactive
+az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+```
+
+La risposta JSON con i dettagli per questo contenitore visualizzerà solo la variabile di ambiente non sicura e la chiave della variabile di ambiente sicura.
+
+```json
+  "environmentVariables": [
+    {
+      "name": "NOTSECRET",
+      "value": "my-exposed-value"
+    },
+    {
+      "name": "SECRET"
+    }
+```
+
+È possibile verificare l'impostazione della variabile di ambiente sicura con il comando `exec`, che consente l'esecuzione di un comando da un contenitore in esecuzione. 
+
+Eseguire il comando seguente per avviare una sessione bash interattiva con il contenitore.
+```azurecli-interactive
+az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+```
+
+Dal contenitore, stampare la variabile di ambiente con il comando bash seguente.
+```bash
+echo $SECRET
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso come personalizzare l'input per il contenitore, è possibile salvare in modo permanente l'output dei contenitori eseguiti fino al completamento.
-> [!div class="nextstepaction"]
-> [Montaggio di una condivisione file di Azure con Istanze di contenitore di Azure](container-instances-mounting-azure-files-volume.md)
+Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di dati di grandi dimensioni con diversi contenitori, possono trarre vantaggio dalle variabili di ambiente personalizzate in fase di esecuzione. Per altre informazioni sull'esecuzione di contenitori basati su attività, vedere [Eseguire attività in contenitori in Istanze di contenitore di Azure](container-instances-restart-policy.md).
+
+<!-- IMAGES -->
+[portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png
+[portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
+
+<!-- LINKS - External -->
+[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS Internal -->
-[azure-cloud-shell]: ../cloud-shell/overview.md
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
+[portal]: https://portal.azure.com

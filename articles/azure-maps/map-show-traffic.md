@@ -1,22 +1,20 @@
 ---
 title: Mostrare il traffico con Mappe di Azure | Microsoft Docs
 description: Come visualizzare i dati relativi al traffico su una mappa di Javascript
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a90304de1fbdb4550d0789aa71b66eebece8a02e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600120"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
@@ -36,3 +34,9 @@ Il secondo blocco di codice usa la funzione [setTraffic](https://docs.microsoft.
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere: 
 * [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+
+Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti: 
+* [Interazione con la mappa - eventi del mouse](./map-events.md)
+* [Compilazione di una mappa accessibile](./map-accessibility.md)
+
+Per altri scenari di mapping, vedere la [pagina dell'esempio di codice](http://aka.ms/AzureMapsSamples).

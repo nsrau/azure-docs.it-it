@@ -1,25 +1,22 @@
 ---
-title: Aggiungere il connettore Oracle Database in App per la logica di Azure | Microsoft Docs
-description: Usare il connettore Oracle Database in un'app per la logica
-services: ''
-documentationcenter: ''
+title: Connettersi a Oracle Database - App per la logica di Azure | Microsoft Docs
+description: Inserire e gestire i record con le API REST di Oracle Database e App per la logica di Azure
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: ''
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeconnoc
+ms.author: estfan
 ms.date: 03/29/2017
-ms.author: estfan; ladocs
-ms.openlocfilehash: 57931b6c2f96debeb9ab7f1a3b6700f23e7d2a7e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296020"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Introduzione al connettore Oracle Database
 

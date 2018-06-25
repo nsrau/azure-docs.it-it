@@ -1,11 +1,11 @@
 ---
 title: Guida al supporto e ai criteri di ritiro per il sistema operativo guest di Azure | Documentazione Microsoft
-description: "Fornisce informazioni sul supporto che verrà fornito da Microsoft riguardo al sistema operativo guest di Azure usato da Servizi cloud."
+description: Fornisce informazioni sul supporto che verrà fornito da Microsoft riguardo al sistema operativo guest di Azure usato da Servizi cloud.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608563"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
 Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
@@ -33,9 +34,7 @@ I criteri sono i seguenti:
 
 Talvolta è possibile che siano supportati più di due rilasci o famiglie. Le informazioni di supporto ufficiale del sistema operativo guest saranno visualizzate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>Ritiro di una famiglia o una versione del sistema operativo guest
-Una nuova **famiglia** di sistemi operativi guest viene introdotta a un certo punto dopo il rilascio di una nuova versione ufficiale del sistema operativo Windows Server. Ogni volta che viene introdotta una nuova famiglia di sistemi operativi guest, Microsoft ritirerà la famiglia precedente.
-
+## <a name="when-a-guest-os-version-is-retired"></a>Ritiro di una versione del sistema operativo guest
 Nuove **versioni** del sistema operativo guest vengono rilasciate quasi ogni mese per incorporare gli ultimi aggiornamenti di MSRC. Come conseguenza dei regolari aggiornamenti, una versione del sistema operativo guest viene in genere disabilitata 60 giorni dopo il relativo rilascio. In questo modo sono disponibili per l'uso almeno due versioni del sistema operativo guest per ogni famiglia.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Procedura di ritiro della famiglia di sistemi operativi guest

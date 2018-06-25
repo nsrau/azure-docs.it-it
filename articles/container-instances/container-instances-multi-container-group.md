@@ -6,31 +6,39 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850570"
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 
 Istanze di contenitore di Azure supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
-Questo documento descrive come eseguire una configurazione multicontenitore con contenitore collaterale tramite la distribuzione di un modello di Azure Resource Manager.
+Esistono due metodi per la distribuzione di gruppi di contenitori con più contenitori usando l'interfaccia della riga di comando di Azure:
+
+* Distribuzione del modello di Resource Manager (questo articolo)
+* [Distribuzione con un file YAML](container-instances-multi-container-yaml.md)
+
+La distribuzione con un modello di Resource Manager è consigliata quando è necessario distribuire risorse del servizio di Azure aggiuntive (ad esempio, una condivisione di File di Azure) al momento della distribuzione di istanze di contenitore. A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è consigliata quando la distribuzione include *solo* istanze di contenitore.
 
 > [!NOTE]
 > I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di contenitore di Azure).
 
 ## <a name="configure-the-template"></a>Configurare il modello
 
-Creare un file denominato `azuredeploy.json` e copiare il codice JSON seguente al suo interno.
+Le sezioni in questo articolo descrivono come eseguire una semplice configurazione multicontenitore con contenitore collaterale tramite la distribuzione di un modello di Azure Resource Manager.
 
-In questo esempio viene definito un gruppo di contenitori con due contenitori, un indirizzo IP pubblico e due porte esposte. Il primo contenitore del gruppo esegue un'applicazione con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo.
+Per iniziare, creare un file denominato `azuredeploy.json` e quindi copiarvi il codice JSON seguente.
 
-```json
+Il modello di Resource Manager definisce un gruppo di contenitori con due contenitori, un indirizzo IP pubblico e due porte esposte. Il primo contenitore del gruppo esegue un'applicazione con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ In questo esempio viene definito un gruppo di contenitori con due contenitori, u
 
 Per usare un registro di immagini del contenitore privato, aggiungere un oggetto al documento JSON con il formato seguente. Per un esempio di implementazione di questa configurazione, vedere la documentazione con le [informazioni di riferimento del modello di Resource Manager in Istanze di contenitore di Azure][template-reference].
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure.
 
 ## <a name="view-deployment-state"></a>Visualizzare lo stato della distribuzione
 
-Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show]. Il comando restituisce l'indirizzo IP pubblico con provisioning eseguito con cui è possibile accedere all'applicazione.
+Per visualizzare lo stato della distribuzione, usare il comando [az container show][az-container-show] seguente:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Output:
+Se si desidera visualizzare l'applicazione in esecuzione, passare al relativo indirizzo IP nel browser. Ad esempio, l'indirizzo IP è `52.168.26.124` in questo output di esempio:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

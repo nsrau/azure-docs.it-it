@@ -4,21 +4,21 @@ description: Informazioni su come eseguire l'onboarding in una macchina virtuale
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
-ms.topic: article
+ms.date: 06/06/2018
+ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 39febc947f4ab6dc406290273e5e1fc1c58a59e2
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053425"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830562"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
-Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Ci sono diversi modi per eseguire l'onboarding, ad esempio da una macchina virtuale, [dall'account di automazione](automation-onboard-solutions-from-automation-account.md) o da un [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni da una macchina virtuale di Azure.
+Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding di computer. Ad esempio, è possibile eseguire l'onboarding della soluzione da una macchina virtuale, [dall'account di Automazione](automation-onboard-solutions-from-automation-account.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md) o tramite [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni da una macchina virtuale di Azure.
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -28,13 +28,13 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Passare a una macchina virtuale esistente e selezionare **Gestione aggiornamenti**, **Inventario** o **Rilevamento modifiche** in **OPERAZIONI**.
 
+Per abilitare la soluzione solo per la VM, assicurarsi che il pulsante di opzione **Enable for this VM** (Abilita per questa VM) sia selezionato. Per caricare più computer nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le VM in questa sottoscrizione) e fare clic su **Click to select machines to enable** (Fare clic per selezionare i computer da abilitare). Per visualizzare i passaggi per caricare più computer in una volta, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
+
 Scegliere l'area di lavoro di Log Analytics e l'account di Automazione da usare e fare clic su **Abilita** per abilitare la soluzione. Per l'abilitazione della soluzione sono necessari fino a 15 minuti.
 
 ![Caricare la soluzione per gli aggiornamenti](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 Passare alle altre soluzioni e fare clic su **Abilita**. Le caselle di riepilogo a discesa relative a Log Analytics e all'account di Automazione sono disabilitate perché vengono usati la stessa area di lavoro e lo stesso account di automazione della soluzione abilitata in precedenza.
-
-![Caricare la soluzione per gli aggiornamenti](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > Per **Rilevamento modifiche** e **Inventario** viene usata la stessa soluzione. Quando un servizio è abilitato, viene abilitato anche l'altro.
