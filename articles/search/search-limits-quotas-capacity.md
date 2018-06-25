@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: 9fd046efd01281de6d5b46cca37d22a48671b1b2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072590"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641170"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
@@ -45,10 +45,13 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |
 | Numero massimo di campi per indice |1000 |100 |1000 |1000 |1000 |1000 |
-| Numero massimo di profili di punteggio per indice |100 |100 |100 |100 |100 |100 |
+| Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |
+| Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
+
+<a name="document-limits"></a>
 
 ## <a name="document-limits"></a>Limiti per i documenti 
 
@@ -90,13 +93,16 @@ Per limitare la dimensione del documento, è necessario escludere dalla richiest
 
 Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati, set di competenze e indicizzatori è stato aumentato a 15.
 
+Le operazioni a elevato utilizzo di risorse, ad esempio l'analisi delle immagini nell'indicizzazione BLOB di Azure o l'elaborazione del linguaggio naturale nella ricerca cognitiva, hanno tempi di esecuzione massimi più brevi. Ciò consente di inserire altri processi di indicizzazione. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
+
 | Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |
 | Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |
-| Numero massimo set di competenze |3 |5 o 15 |50 |200 |200 |N/D |
+| Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |
 | Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |
-| Tempo massimo di esecuzione | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |
+| Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |
+| Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |
 | Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |
 | Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 milioni |4 milioni |4 milioni |N/D |
 
@@ -105,6 +111,10 @@ Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini da
 <sup>2</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5.
 
 <sup>3</sup> I servizi del livello S3 HD non includono il supporto per l'indicizzatore.
+
+<sup>4</sup> Numero massimo di 30 competenze per set di competenze.
+
+<sup>5</sup> I carichi di lavoro di ricerca cognitiva e l'analisi delle immagini nell'indicizzazione BLOB di Azure presentano tempi di esecuzione più brevi rispetto all'indicizzazione di testo normale. L'analisi delle immagini e l'elaborazione del linguaggio naturale sono attività complesse e utilizzano una quantità estremamente elevata di potenza di elaborazione disponibile. Il tempo di esecuzione è stato ridotto per offrire la possibilità di eseguire altri processi nella coda.  
 
 ## <a name="queries-per-second-qps"></a>Query al secondo
 
@@ -119,7 +129,7 @@ Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su 
 * 32 campi al massimo nella clausola $orderby
 * 32.766 byte (32 KB meno 2 byte) di testo con codifica UTF-8 per la dimensione massima del termine di ricerca
 
-<sup>1</sup> In Ricerca di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Supported data types](https://msdn.microsoft.com/library/azure/dn798938.aspx) (Tipi di dati supportati).
+<sup>1</sup> In Ricerca di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) (Tipi di dati supportati).
 
 ## <a name="api-response-limits"></a>Limiti delle risposte API
 * 1000 documenti al massimo restituiti per pagina di risultati della ricerca

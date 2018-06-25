@@ -1,92 +1,203 @@
 ---
-title: Connessione a un sistema SAP locale nelle App per la logica di Azure | Microsoft Docs
-description: Connessione a un sistema SAP locale nel flusso di lavoro delle app per la logica attraverso il gateway dati locale
-services: logic-apps
-author: padmavc
-manager: anneta
-documentationcenter: 
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
+title: Connettersi a sistemi SAP con le App per la logica di Azure | Microsoft Docs
+description: Come accedere e gestire le risorse SAP grazie all'automazione dei flussi di lavoro con le App per la logica di Azure
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
+ms.date: 05/31/2018
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/01/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, divswa, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: a9346092e0a24709a9888937effdf802bf1b09fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300216"
 ---
-# <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>Connessione a un sistema SAP locale dalle app per la logica con il connettore SAP 
+# <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
-Il gateway dati locale consente di gestire i dati e accedere in modo sicuro alle risorse presenti in locale. Questo argomento illustra come collegare le app per la logica a un sistema SAP locale. In questo esempio, l'app per la logica richiede un IDOC su HTTP e invia la risposta.    
+Questo articolo illustra come è possibile accedere alle risorse SAP all'interno di un'app per la logica mediante i connettori del server applicazioni SAP e del server di messaggistica SAP. In questo modo, è possibile automatizzare le attività, i processi e i flussi di lavoro che gestiscono i dati e le risorse SAP mediante la creazione di app per la logica.
 
-> [!NOTE]
-> Limitazioni correnti: 
-> - L'app per la logica va in timeout se tutti i passaggi necessari per la risposta non terminano entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md). In questo scenario, è possibile che le richieste vengano bloccate. 
-> - Il selettore file non consente di visualizzare tutti i campi disponibili. In questo scenario, è possibile aggiungere manualmente i percorsi.
+In questo esempio viene usata un'app per la logica che è possibile attivare con una richiesta HTTP. L'app per la logica invia un documento intermedio (IDoc) a un server SAP e restituisce una risposta al richiedente che ha chiamato l'app per la logica.
+I connettori SAP correnti presentano azioni, ma non trigger, pertanto in questo esempio viene usato il [trigger richiesta HTTP](../connectors/connectors-native-reqres.md) come primo passaggio nel flusso di lavoro dell'app per la logica. Per informazioni tecniche specifiche del connettore SAP, vedere gli articoli di riferimento: 
+
+* <a href="https://docs.microsoft.com/connectors/sapapplicationserver/" target="blank">Connettore del server applicazioni SAP</a>
+* <a href="https://docs.microsoft.com/connectors/sapmessageserver/" target="blank">Connettore del server di messaggistica SAP</a>
+
+Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-- Installare e configurare il [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127) più recente, versione 1.15.6150.1 o superiore. L'articolo sulla [connessione al gateway dati locale in un'app per la logica](http://aka.ms/logicapps-gateway) elenca i passaggi da seguire. Prima di procedere, è necessario installare il gateway in un computer locale.
+Per proseguire con questo articolo, sono necessari questi elementi:
 
-- Scaricare e installare la libreria client SAP più recente nello stesso computer in cui è stato installato il gateway dati. È possibile usare una delle versioni SAP seguenti: 
-    - Server SAP
-        - Qualsiasi Server SAP che supporti il connettore .NET (NCo) 3.0
- 
-    - Client SAP
-        - SAP Connettore .NET (NCo) 3.0
+* l'app per la logica da cui si desidera accedere al sistema SAP e un trigger che avvia il flusso di lavoro dell'app per la logica. I connettori SAP attualmente consentono solo di eseguire azioni. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="add-triggers-and-actions-for-connecting-to-your-sap-system"></a>Aggiungere trigger e azioni per la connessione al sistema SAP
+* Il <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">server applicazioni SAP</a> o il <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">server di messaggistica SAP</a>
 
-Il connettore SAP ha azioni, ma non trigger. Di conseguenza, è necessario usare un altro trigger all'inizio del flusso di lavoro. 
+* Scaricare e installare la versione più recente del [gateway dati locale](https://www.microsoft.com/download/details.aspx?id=53127) in qualsiasi computer locale. Prima di proseguire, assicurarsi di configurare il gateway nel portale di Azure. Il gateway consente di accedere in modo sicuro ai dati e alle risorse locali. Per altre informazioni, vedere [Installare il gateway dati locale per le App per la logica di Azure](../logic-apps/logic-apps-gateway-install.md).
 
-1. Aggiungere il trigger di richiesta/risposta e quindi selezionare **Nuovo passaggio**.
+* Scaricare e installare la libreria client SAP più recente, che è attualmente <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">Connettore SAP (NCo) 3.0.20.0 per Microsoft .NET Framework 4.0 e Windows a 64 bit (x64)</a>, nello stesso computer del gateway dati locale. Installare questa versione o versioni successive per i motivi seguenti:
 
-2. Selezionare **Aggiungi un'azione**, quindi selezionare il connettore SAP digitando `SAP` nel campo di ricerca:    
+  * Le versioni precedenti di NCo SAP possono diventare deadlock quando vengono inviati più messaggi IDoc contemporaneamente. 
+  Questa condizione blocca tutti i messaggi successivi che vengono inviati alla destinazione SAP, causando il timeout dei messaggi.
 
-     ![Selezionare il server applicazioni o il server di messaggistica SAP](media/logic-apps-using-sap-connector/sap-action.png)
+  * Il gateway dati locale viene eseguito solo su sistemi a 64 bit. 
+  In caso contrario, viene visualizzato l'errore "immagine non valida" perché il servizio host del gateway dati non supporta gli assembly a 32 bit.
 
-3. Selezionare il [**server applicazioni SAP**](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) o il [**server di messaggistica SAP**](http://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm), in base alla configurazione SAP. Se non è già disponibile una connessione, verrà richiesto di crearne una.
+  * Il servizio host del gateway dati e l'adattatore SAP Microsoft usano .NET Framework 4.5. SAP NCo per .NET Framework 4.0 funziona con processi che usano runtime .NET dalla versione 4.0 alla 4.7.1. 
+  NCo SAP per .NET Framework 2.0 funziona con processi che usano il runtime .NET da 2.0 a 3.5 e non funziona più con il gateway dati locale più recente.
 
-   1. Selezionare **Connect via on-premises data gateway** (Connessione tramite gateway dati locale) e immettere i dettagli del sistema SAP:   
+* Contenuto del messaggio che è possibile inviare al server SAP, ad esempio un file di esempio IDoc. Il contenuto deve essere in formato XML e includere lo spazio dei nomi per l'azione SAP che si desidera usare.
 
-       ![Aggiungere la stringa di connessione a SAP](media/logic-apps-using-sap-connector/picture2.png)  
+<a name="add-trigger"></a>
 
-   2. In **Gateway**, selezionare un gateway esistente o per installare un nuovo gateway, selezionare **Installa Gateway**.
+## <a name="add-http-request-trigger"></a>Aggiungere un trigger della richiesta HTTP
 
-        ![Installare un nuovo gateway](media/logic-apps-using-sap-connector/install-gateway.png)
-  
-   3. Dopo aver inserito tutti i dettagli, selezionare **Crea**. 
-   Le app per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
+In App per la logica di Azure, ogni app per la logica deve essere avviata con un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica e avvia l'esecuzione del flusso di lavoro dell'app.
 
-4. Inserire un nome per la connessione SAP.
+In questo esempio, viene creata un'app per la logica con un endpoint in Azure in modo che sia possibile inviare *richieste HTTP POST* all'app per la logica. Quando l'app per la logica riceve le richieste HTTP, il trigger viene attivato ed esegue il passaggio successivo nel flusso di lavoro.
 
-5. Sono ora disponibili le diverse opzioni SAP. Per trovare la categoria IDOC, selezionarla dall'elenco. oppure digitare manualmente il percorso e selezionare la risposta HTTP nel campo **corpo**:
+1. Nel portale di Azure creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
 
-     ![Azione SAP](media/logic-apps-using-sap-connector/picture3.png)
+2. Nella casella di ricerca, digitare "richiesta http" come filtro. Nell'elenco di trigger, selezionare il trigger: **Richiesta - Alla ricezione di una richiesta HTTP**
 
-6. Aggiungere l'azione per la creazione di una **risposta HTTP**. Il messaggio di risposta deve derivare dall'output SAP.
+   ![Aggiungere un trigger della richiesta HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-7. Salvare l'app per la logica. Testarla inviando un IDOC tramite l'URL del trigger HTTP. Dopo l'invio dell'IDOC, attendere la risposta dall'app per la logica:   
+3. Salvare l'app per la logica per poter generare un URL endpoint per l'app per la logica.
+Nella barra degli strumenti della finestra di progettazione scegliere **Salva**. 
 
-     > [!TIP]
-     > Scoprire come [monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   L'URL endpoint verrà visualizzato nel trigger, ad esempio:
 
-Ora che il connettore SAP è stato aggiunto all'app per la logica, iniziare a esplorare altre funzionalità:
+   ![Generare l'URL per l'endpoint](./media/logic-apps-using-sap-connector/generate-http-endpoint-url.png)
 
-- BAPI
-- RFC
+<a name="add-action"></a>
 
-## <a name="get-help"></a>Ottenere aiuto
+## <a name="add-sap-action"></a>Aggiungere l'azione SAP
 
-Per porre domande, fornire risposte e ottenere informazioni sulle attività degli altri utenti di App per la logica di Azure, vedere il [forum su App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#logic-app-concepts) è un passaggio del flusso di lavoro che segue un trigger o un'altra azione. Se non è ancora stato aggiunto un trigger all'app per la logica e si desidera seguire questo esempio, [aggiungere il trigger descritto in questa sezione](#add-trigger).
 
-Per contribuire al miglioramento delle App per la logica di Azure e dei connettori, votare o inviare idee al [sito dei commenti e suggerimenti degli utenti di App per la logica di Azure](http://aka.ms/logicapps-wish).
+1. In Progettazione app per la logica, sotto il trigger, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+
+   ![Aggiungere un'azione](./media/logic-apps-using-sap-connector/add-action.png) 
+
+2. Nella casella di ricerca immettere "server sap" come filtro. Nell'elenco delle azioni scegliere l'azione per il server SAP: 
+
+   * **Server applicazioni SAP - Send to SAP**(Invia a SAP)
+   * **Server di messaggistica SAP - Send to SAP**(Invia a SAP)
+
+   In questo esempio viene usata questa azione: **Server applicazioni SAP - trasmissione a SAP**
+
+   ![Selezionare il "Server applicazioni SAP" o "Server di messaggistica SAP"](media/logic-apps-using-sap-connector/select-sap-action.png)
+
+3. Se vengono richiesti i dettagli della connessione, creare ora la connessione SAP. In caso contrario, se la connessione esiste già, continuare con il passaggio successivo per impostare l'azione SAP. 
+
+   **Creare una connessione SAP locale**
+
+   1. Per **Gateway**, selezionare **Connetti tramite gateway dati locale** in modo da visualizzare le proprietà di connessione locale.
+
+   2. Specificare le informazioni di connessione per il server SAP. 
+   Per la proprietà **gateway**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway, ad esempio:
+
+      **Server applicazioni SAP**
+
+      ![Creare una connessione al server applicazioni SAP](./media/logic-apps-using-sap-connector/create-SAP-app-server-connection.png)  
+
+      **Server di messaggistica SAP**
+
+      ![Creare una connessione al server di messaggistica SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
+
+   2. Al termine dell'operazione, scegliere **Crea**.
+
+      Le App per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente.
+
+4. Ora individuare e selezionare un'azione dal server SAP. 
+
+   1. Nella casella **Azione SAP**, scegliere l'icona cartella. 
+   Dall'elenco delle cartelle, individuare e selezionare l'azione che si desidera usare. 
+
+      In q esempio viene selezionata la categoria **IDOC** per l'azione IDoc. 
+
+      ![Trovare e selezionare l'azione IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
+
+      Se non è possibile trovare l'azione desiderata, è possibile immettere manualmente un percorso, ad esempio:
+
+      ![Specificare manualmente il percorso all'azione IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-manually-enter-action.png)
+
+      Per altre informazioni sulle operazioni IDoc, vedere [Schemi di messaggi per operazioni IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations)
+
+   2. Fare clic all'interno della casella **Messaggio di input** in modo che venga visualizzato l'elenco di contenuti dinamici. 
+   In tale elenco, sotto **When a HTTP request is received** (Alla ricezione di una richiesta HTTP), selezionare il campo **Corpo**. 
+
+      Questo passaggio include il contenuto del corpo del trigger della richiesta HTTP e invia questo output al server SAP.
+
+      ![Selezionare il campo "Corpo"](./media/logic-apps-using-sap-connector/SAP-app-server-action-select-body.png)
+
+      Al termine, l'azione SAP avrà un aspetto simile a quello in questo esempio:
+
+      ![Completare l'operazione SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
+
+6. Salvare l'app per la logica. Nella barra degli strumenti della finestra di progettazione scegliere **Salva**.
+
+<a name="add-response"></a>
+
+## <a name="add-http-response-action"></a>Aggiungere l'azione di risposta HTTP
+
+Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e includere l'output dall'azione SAP. In questo modo, l'app per la logica restituisce i risultati dal server SAP per il richiedente originale. 
+
+1. In Progettazione app per la logica, sotto l'azione SAP, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+
+2. Nella casella di ricerca digitare "risposta" come filtro. Nell'elenco di azioni, selezionare l'azione: **Richiesta - Risposta**
+
+3. Fare clic all'interno della casella **Corpo** casella in modo che venga visualizzato l'elenco di contenuto dinamico. In tale elenco, sotto **Send to SAP** (Invia a SAP), selezionare il campo **Corpo**. 
+
+   ![Completare l'operazione SAP](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
+
+4. Salvare l'app per la logica. 
+
+## <a name="test-your-logic-app"></a>Testare l'app per la logica
+
+1. Se l'app per la logica non è ancora abilitata, scegliere **Panoramica** nel menu dell'app per la logica. Nella barra degli strumenti scegliere **Abilita**. 
+
+2. Nella barra degli strumenti di Progettazione app per la logica selezionare **Esegui**. Questo passaggio avvia manualmente l'app per la logica.
+
+3. Attivare l'app per la logica inviando una richiesta HTTP POST all'URL nel trigger della richiesta HTTP e includere il contenuto del messaggio nella richiesta. Per inviare la richiesta, è possibile usare uno strumento, ad esempio [Postman](https://www.getpostman.com/apps). 
+
+   In questo articolo, la richiesta invia un file IDoc, che deve essere in formato XML e includere lo spazio dei nomi per l'azione SAP che si sta usando, ad esempio: 
+
+   ``` xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <Send xmlns="http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//620/Send">
+      <idocData>
+         <...>
+      </idocData>
+   </Send>
+   ```
+
+4. Dopo aver inviato la richiesta HTTP, attendere la risposta dall'app per la logica.
+
+> [!NOTE]
+> L'app per la logica può andare in timeout se tutti i passaggi necessari per la risposta non terminano entro il [limite di timeout della richiesta](./logic-apps-limits-and-config.md). Se si verifica questa condizione, le richieste potrebbero venire bloccate. Per diagnosticare i problemi, vedere le informazioni su come [controllare e monitorare le app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+
+Complimenti, è stata creata un'app per la logica che può comunicare con il server SAP. Dopo aver impostato una connessione a SAP per l'app per la logica, è possibile esplorare altre azioni SAP disponibili, ad esempio BAPI e RFC.
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche dettagliate sul connettore, come descritto dai file Swagger dei connettori, vedere gli articoli di riferimento: 
+
+* [Server applicazioni SAP](/connectors/sapapplicationserver/)
+* [Server di messaggistica SAP](/connectors/sapmessageserver/)
+
+## <a name="get-support"></a>Supporto
+
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come convalidare, trasformare e altre funzioni simili a BizTalk di [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md). 
-- [Connettersi ai dati locali](../logic-apps/logic-apps-gateway-connection.md) dalle app per la logica
+* [Connettersi ai sistemi locali](../logic-apps/logic-apps-gateway-connection.md) dalle app per la logica
+* Informazioni su come convalidare, trasformare e altre operazioni messaggi con [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

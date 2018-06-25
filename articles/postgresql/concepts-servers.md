@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640014"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Server di Database di Azure per PostgreSQL
 Questo articolo presenta alcune considerazioni e diverse linee guida per l'uso di server di Database di Azure per PostgreSQL.
@@ -45,13 +46,22 @@ Gli elementi seguenti contribuiscono a garantire un accesso sicuro al database:
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, una regola del firewall impedisce qualsiasi accesso al server e ai relativi database finché non si specificano i computer autorizzati. Vedere [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md) (Database di Azure per le regole firewall del server PostgreSQL). |
 
-## <a name="how-do-i-manage-a-server"></a>Gestione di un server
+## <a name="managing-your-server"></a>Gestione del server
 È possibile gestire i server di Database di Azure per PostgreSQL mediante il [portale di Azure](https://portal.azure.com) o l'[interfaccia della riga di comando di Azure](/cli/azure/postgres).
+
+Durante la creazione di un server, impostare le credenziali per l'utente amministratore. L'utente amministratore è l'utente con privilegi più elevati presente nel server. Fa parte del ruolo azure_pg_admin. Questo ruolo non dispone delle autorizzazioni utente con privilegi avanzati complete. 
+
+L'attributo utente con privilegi avanzati PostgreSQL viene assegnato ad azure_superuser, che appartiene al servizio gestito. Non si dispone dell'accesso a questo ruolo.
+
+Un server di Database di Azure per PostgreSQL dispone di due database predefiniti: 
+- **postgres**: database predefinito a cui è possibile connettersi dopo aver creato il server.
+- **azure_maintenance**: database usato per separare i processi che offrono il servizio gestito dalle azioni degli utenti. Non si dispone dell'accesso a questo database.
+
 
 ## <a name="server-parameters"></a>Parametri del server
 I parametri del server PostgreSQL determinano la configurazione del server. In Database di Azure per PostgreSQL l'elenco dei parametri può essere visualizzato e modificato tramite il portale o l'interfaccia della riga di comando di Azure. 
 
-Come servizio gestito per Postgres i parametri configurabili in Database di Azure per PostgreSQL sono un subset di parametri nell'istanza di Postgres locale. Per altre informazioni sui parametri per Postgres, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html). Il server di Database di Azure per PostgreSQL è abilitato con i valori predefiniti per ogni parametro al momento della sua creazione. I parametri che richiedono il riavvio del server o l'accesso con diritti superuser per l'implementazione delle modifiche non possono essere configurati dall'utente.
+Come servizio gestito per Postgres i parametri configurabili in Database di Azure per PostgreSQL sono un subset di parametri nell'istanza di Postgres locale. Per altre informazioni sui parametri per Postgres, vedere la [documentazione di PostgreSQL](https://www.postgresql.org/docs/9.6/static/runtime-config.html). Il server di Database di Azure per PostgreSQL è abilitato con i valori predefiniti per ogni parametro al momento della sua creazione. Alcuni parametri che richiedono il riavvio del server o l'accesso con diritti utente con privilegi avanzati per l'implementazione delle modifiche non possono essere configurati dall'utente.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
