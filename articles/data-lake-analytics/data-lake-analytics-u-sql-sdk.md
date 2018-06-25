@@ -1,28 +1,24 @@
 ---
-title: Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake | Microsoft Docs
-description: Informazioni su come usare l'SDK U-SQL di Azure Data Lake per ridimensionare l'esecuzione e il test locali di processi U-SQL con le interfacce di programmazione e della riga di comando nella workstation locale.
+title: Esecuzione e test di processi di U-SQL locali con Azure Data Lake U-SQL SDK
+description: Informazioni su come eseguire e testare i processi di U-SQL locali con la riga di comando e le interfacce di programmazione nella workstation locale.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737072"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Ridimensionare esecuzione e test locali di U-SQL con l'SDK U-SQL di Azure Data Lake
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
-Durante lo sviluppo di script U-SQL, è comune eseguire e testare a livello locale gli script U-SQL prima di inviarli al cloud. Per questo scenario, Azure Data Lake offre un pacchetto NuGet, denominato SDK U-SQL di Azure Data Lake, tramite cui è possibile ridimensionare facilmente l'esecuzione e il test locali di U-SQL. È inoltre possibile integrare questo test di U-SQL con il sistema CI (Continuous Integration, integrazione continua) per automatizzare la compilazione e il test.
+Durante lo sviluppo di script U-SQL, è comune eseguire e testare a livello locale gli script U-SQL prima di inviarli al cloud. Per questo scenario, Azure Data Lake offre un pacchetto NuGet, denominato SDK U-SQL di Azure Data Lake, tramite cui è possibile ridimensionare facilmente l'esecuzione e il test di U-SQL. È inoltre possibile integrare questo test di U-SQL con il sistema CI (Continuous Integration, integrazione continua) per automatizzare la compilazione e il test.
 
 Per capire come eseguire in locale manualmente ed eseguire il debug di uno script U-SQL con gli strumenti della GUI, è possibile usare gli Strumenti Azure Data Lake per Visual Studio. Altre informazioni sono disponibili [qui](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -109,7 +105,7 @@ Nelle informazioni di aiuto:
 
 ### <a name="return-value-and-logging"></a>Valore restituito e registrazione
 
-L'applicazione helper restituisce **0** in caso di successo e **-1** in caso di errore. Per impostazione predefinita, l'helper invia tutti i messaggi alla console corrente. Tuttavia, la maggior parte dei comandi supporta l'argomento facoltativo**-MessageOut path_to_log_file** che reindirizza gli output in un file di log.
+L'applicazione helper restituisce **0** in caso di successo e **-1** in caso di errore. Per impostazione predefinita, l'helper invia tutti i messaggi alla console corrente. Tuttavia, la maggior parte dei comandi supporta l'argomento facoltativo **-MessageOut path_to_log_file** che reindirizza gli output in un file di log.
 
 ### <a name="environment-variable-configuring"></a>Configurazione della variabile di ambiente
 
@@ -212,12 +208,12 @@ Il comando **execute** viene usato per eseguire i risultati compilati.
 
 Di seguito sono indicati gli argomenti facoltativi per il comando **execute**:
 
-|Argomento|DESCRIZIONE|
-|--------|-----------|
-|-DataRoot [valore predefinito '']|Radice dei dati per l'esecuzione dei metadati. Il valore predefinito è la variabile di ambiente **LOCALRUN_DATAROOT**.|
-|-MessageOut [valore predefinito '']|Esecuzione del dump dei messaggi della console in un file.|
-|-Parallel [valore predefinito '1']|Indica di eseguire i passaggi di esecuzione locale generati con il livello di parallelismo specificato.|
-|-Verbose [valore predefinito 'False']|Indica di visualizzare output dettagliati dal runtime.|
+|Argomento|Valore predefinito|DESCRIZIONE|
+|--------|-------------|-----------|
+|-DataRoot | '' |Radice dei dati per l'esecuzione dei metadati. Il valore predefinito è la variabile di ambiente **LOCALRUN_DATAROOT**.|
+|-MessageOut | '' |Esecuzione del dump dei messaggi della console in un file.|
+|-Parallel | '1' |Indica di eseguire i passaggi di esecuzione locale generati con il livello di parallelismo specificato.|
+|-Verbose | 'False' |Indica di visualizzare output dettagliati dal runtime.|
 
 Ecco un esempio d'uso:
 

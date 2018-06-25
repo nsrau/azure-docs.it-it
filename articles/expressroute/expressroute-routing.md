@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178756"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295427"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -67,6 +67,7 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Indirizzi IP usati per il peering Microsoft
 Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di proprietà. Microsoft deve essere in grado di verificare la proprietà degli indirizzi IP tramite il Routing Internet Registry e l'Internet Routing Registry.
 
+* Gli indirizzi IP elencati nel portale per i prefissi pubblici annunciati per il peering Microsoft creeranno elenchi di controllo di accesso per i router core Microsoft per consentire il traffico in ingresso da questi indirizzi IP. 
 * È necessario usare una subnet /29 (IPv4) o /125 (IPv6) univoca o due subnet /30 (IPv4) o /126 (IPv6) per configurare il peering BGP per ogni peering per circuito ExpressRoute (se è presente più di un circuito).
 * Se viene usata una subnet /29, questa viene divisa in due subnet /30.
 * La prima subnet /30 viene usata per il collegamento primario e la seconda per il collegamento secondario.
@@ -193,9 +194,10 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | India meridionale | 12076:51019 |
 | India occidentale | 12076:51018 |
 | India centrale | 12076:51017 |
-| **Corea** | |
-| Corea meridionale | 12076:51028 |
-| Corea centrale | 12076:51029 |
+| 
+  **Corea del Sud** | |
+| Corea del Sud meridionale | 12076:51028 |
+| Corea del Sud centrale | 12076:51029 |
 
 
 Tutte le route annunciate da Microsoft verranno contrassegnate con il valore della community appropriato. 

@@ -1,25 +1,19 @@
 ---
 title: Effettuare il provisioning di un dispositivo Raspberry Pi nella soluzione di monitoraggio remoto con C - Azure | Microsoft Docs
 description: Descrive come connettere un dispositivo Raspberry Pi all'acceleratore di soluzioni di monitoraggio remoto con un'applicazione scritta in C.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 9de7616ec7174f6c55888a659e9a12bca1e07f94
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735495"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Connettere il dispositivo Raspberry Pi all'acceleratore di soluzioni di monitoraggio remoto (C)
 
@@ -62,7 +56,6 @@ I passaggi seguenti mostrano come preparare il dispositivo Raspberry Pi per comp
 1. Usare il comando seguente per aggiungere le librerie e gli strumenti di sviluppo necessari al dispositivo Raspberry Pi:
 
     ```sh
-    sudo apt-get purge libssl-dev
     sudo apt-get install g++ make cmake gcc git libssl1.0-dev build-essential curl libcurl4-openssl-dev uuid-dev
     ```
 
@@ -71,9 +64,9 @@ I passaggi seguenti mostrano come preparare il dispositivo Raspberry Pi per comp
     ```sh
     cd ~
     git clone --recursive https://github.com/azure/azure-iot-sdk-c.git
-    cd azure-iot-sdk-c/build_all/linux
-    ./build.sh --no-make
-    cd ../../cmake/iotsdk_linux
+    mkdir cmake
+    cd cmake
+    cmake ..
     make
     sudo make install
     ```

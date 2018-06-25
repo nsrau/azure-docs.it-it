@@ -6,14 +6,15 @@ author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 490b162bcab0656388ef0b211ea693809d446346
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 05/18/2018
+ms.openlocfilehash: bbd38380370821c749a70d59a819a84ed06458a7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264800"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -23,7 +24,7 @@ ms.lasthandoff: 05/01/2018
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memoria per vCore | Di base | 2x Basic | 2x Utilizzo generico |
+| Memoria per vCore | 2 GB | 5 GB | 10 GB |
 | Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 2 TB | Da 5 GB a 2 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
@@ -38,7 +39,7 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 
 Dopo aver creato un server, il numero di vCore può essere aumentato o ridotto (all'interno dello stesso piano tariffario) in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il piano tariffario o il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse](#scale-resources).
 
-## <a name="compute-generations-vcores-and-memory"></a>Generazioni di calcolo, vCore e memoria
+## <a name="compute-generations-and-vcores"></a>Generazioni di calcolo e vCore
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità). 
 
@@ -62,14 +63,12 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Asia sudorientale | X | X |
 | Australia orientale |  | X |
 | Australia sudorientale |  | X |
-| India centrale | X |  |
-| India occidentale | X |  |
+| India centrale | X | X |
+| India occidentale | X | X |
 | India meridionale |  | X |
 | Giappone orientale | X | X |
 | Giappone occidentale | X | X |
-| Corea meridionale |  | X |
-
-A seconda del piano tariffario, il provisioning di ogni vCore viene effettuato con una quantità di memoria specifica. Quando si aumenta o diminuisce il numero di vCore per il server, la memoria aumenta o diminuisce proporzionalmente. Il piano Utilizzo generico fornisce il doppio della memoria per ogni vCore rispetto al piano Basic. Il piano Con ottimizzazione per la memoria fornisce il doppio della memoria rispetto al piano Utilizzo generico.
+| Corea del Sud meridionale |  | X |
 
 ## <a name="storage"></a>Archiviazione
 
@@ -85,6 +84,12 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 
 È possibile monitorare il consumo di I/O nel portale di Azure oppure usando i comandi dell'interfaccia della riga di comando di Azure. Le metriche pertinenti al monitoraggio sono il [limite di archiviazione, la percentuale di archiviazione, lo spazio di archiviazione usato e la percentuale di I/O](concepts-monitoring.md).
+
+### <a name="reaching-the-storage-limit"></a>Raggiungimento del limite di archiviazione
+
+Il server viene contrassegnato di sola lettura quando lo spazio di archiviazione disponibile diventa inferiore a 5 GB o al 5% dello spazio di archiviazione sottoposto a provisioning, a seconda di quale dei due valori sia inferiore. Ad esempio, se è stato eseguito il provisioning di 100 GB di spazio di archiviazione e l'utilizzo effettivo supera 95 GB, il server viene contrassegnato come di sola lettura. In alternativa, se è stato eseguito il provisioning di 5 GB di spazio di archiviazione, il server viene contrassegnato come sola lettura quando la risorsa di archiviazione disponibile diventa inferiore a 250 MB.  
+
+Mentre il servizio tenta di impostare il server come sola lettura, tutte le nuove richieste di transazione di scrittura vengono bloccate e le transazioni attive esistenti continueranno a essere eseguite. Quando il server è impostato su sola lettura, tutte le operazioni di scrittura e i commit delle transazioni successivi avranno esito negativo. Le query in lettura continueranno a funzionare senza interruzioni. Dopo avere aumentato lo spazio di archiviazione sottoposto a provisioning, il server sarà pronto per accettare nuovamente le transazioni in scrittura.
 
 ## <a name="backup"></a>Backup
 

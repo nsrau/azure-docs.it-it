@@ -1,19 +1,19 @@
 ---
 title: Configurare un modello di dispositivo nell'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni su come configurare un modello di dispositivo con misure, impostazioni, proprietà, regole e dashboard.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201510"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261985"
 ---
 # <a name="set-up-a-device-template"></a>Configurare un modello di dispositivo
 
@@ -161,6 +161,59 @@ Dopo aver scelto **Save** (Salva), device location (posizione dispositivo) viene
 > [!NOTE]
 > Dopo aver creato un nuovo riquadro, è possibile modificare il valore della proprietà. In primo luogo, disattivare la modalità progettazione nella parte superiore destra della schermata.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Creare una proprietà Location con tecnologia Mappe di Azure
+È possibile fornire un contesto geografico per i dati di posizione in Azure IoT Central e mappare qualsiasi coordinata di latitudine e di longitudine di un indirizzo stradale o mappare semplicemente le coordinate di latitudine e longitudine. Questa funzionalità in Azure IoT Central usa le Mappe di Azure.
+
+Esistono due tipi di proprietà Location che è possibile aggiungere:
+- **Location as an Application property** (Posizione come proprietà dell'applicazione) che verrà archiviata esclusivamente nell'applicazione. Il dispositivo non ha alcuna conoscenza delle proprietà dell'applicazione.
+- **Location as a Device property** (Posizione come proprietà del dispositivo) che verrà segnalata dal dispositivo.
+
+####<a name="adding-location-as-an-application-property"></a>Aggiunta di Location come proprietà dell'applicazione 
+È possibile creare una proprietà Location come proprietà dell'applicazione usando Mappe di Azure nell'applicazione Azure IoT Central. Ad esempio, è possibile aggiungere l'indirizzo di installazione del dispositivo. 
+
+1. Passare alla scheda Device Property (Proprietà dispositivo); verificare che sia abilitata Modalità progettazione.
+
+![Proprietà Location](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Nella scheda Property (Proprietà), fare clic su Location.
+3. Configurare Nome visualizzato, Nome campo e facoltativamente il valore iniziale di Location. 
+
+![Formato della proprietà Location](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Esistono due formati supportati per aggiungere una posizione:
+- **Location come indirizzo**
+- **Location come coordinate** 
+
+4. Fare clic su Save. 
+
+![Campo Proprietà location](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Un operatore può aggiornare il valore della posizione nel formato del campo della posizione. 
+
+####<a name="adding-location-as-a-device-property"></a>Aggiunta di Location come una proprietà del dispositivo 
+
+È possibile creare una proprietà Location come una proprietà del dispositivo che viene segnalata dal dispositivo.
+Ad esempio, se si desidera tenere traccia il percorso del dispositivo.
+
+1.  Passare alla scheda Device Property (Proprietà dispositivo); verificare che sia abilitata Modalità progettazione.
+2.  Fare clic su Device Property (Proprietà dispositivo) dalla libreria.
+
+![Campo Proprietà Location](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Configurare il nome visualizzato, il nome del campo e scegliere "location" come tipo di dati. 
+
+> [!NOTE]
+Il nome del campo deve corrispondere esattamente al nome della proprietà fornito dal dispositivo. 
+
+![Campo Proprietà Location](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Vista operatore della proprietà Location](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Ora che è stata configurata la proprietà Location, sarà possibile aggiungere una mappa per visualizzare la posizione nel Dashboard del dispositivo. Vedere come [aggiungere un percorso a Mappe di Azure nel Dashboard](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Regole
 
 Le regole consentono agli operatori di monitorare i dispositivi quasi in tempo reale. Le regole richiamano automaticamente **azioni**, ad esempio l'invio di un messaggio di posta elettronica quando la regola viene attivata. Vi è un tipo di regola disponibile al momento:
@@ -178,6 +231,31 @@ Ad esempio, è possibile aggiungere un riquadro **Settings and Properties** (Imp
 Quando un operatore visualizza il dashboard, ora potrà vedere questo riquadro con le proprietà e le impostazioni del dispositivo:
 
 ![Riquadro Dashboard](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Aggiungere un percorso a Mappe di Azure nel Dashboard
+
+Se è stata configurata una proprietà Location come illustrato nei passaggi [Creare una proprietà Location con tecnologia Mappe di Azure]((howto-set-up-template.md), sarà possibile visualizzare la posizione usando una mappa direttamente nel dashboard del dispositivo.
+
+1.  Passare alla scheda Device Dashboard (Dashboard dispositivo); verificare che sia abilitata Modalità progettazione.
+2.  Su Device Dashboard (Dashboard dispositivo), selezionare Mappa dalla libreria. 
+
+![Selezione percorso dashboard di Mappe di Azure](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Assegnare un titolo e scegliere la proprietà Location configurata in precedenza come parte della proprietà del dispositivo.
+
+![Configurazione percorso dashboard di Mappe di Azure](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Salvare e nel riquadro della mappa verrà visualizzata la posizione selezionata. 
+
+![Visualizzazione percorso dashboard di Mappe di Azure](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+Sarà possibile ridimensionare la mappa alle dimensioni desiderate.
+
+Ora quando un operatore visualizza il dashboard, è possibile visualizzare tutti i riquadri del Dashboard che sono stati configurati includendo una mappa della posizione.
+
+![Dashboard percorso dashboard di Mappe di Azure](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

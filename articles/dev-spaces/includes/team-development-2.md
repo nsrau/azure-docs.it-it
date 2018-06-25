@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 01b830f8a5e6e5f957b36bc2d6ef035754c06157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 78dca327a470394d19e6befc6578abf2d499850c
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367373"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247586"
 ---
 ### <a name="run-the-service"></a>Eseguire il servizio
 
 1. Premere F5 (o digitare `azds up` nella finestra del terminale) per eseguire il servizio. Il servizio verrà automaticamente eseguito nello spazio appena selezionato `scott`. 
-1. È possibile confermare che il servizio è in esecuzione nel proprio spazio eseguendo nuovamente `azds resource list`. In primo luogo, si noterà che è in esecuzione un'istanza di `mywebapi` nello spazio `scott` (la versione in esecuzione in `default` è ancora in esecuzione ma non è elencata). In secondo luogo, l'URL del punto di accesso `webfrontend` è preceduto dal prefisso *scott.s.*. Questo URL è univoco per lo spazio `scott` e indica che le richieste inviate a "URL scott" tenteranno prima di instradarsi ai servizi nello spazio `scott` e verrà eseguito il fallback ai servizi nello spazio `default`.
+1. È possibile confermare che il servizio è in esecuzione nel proprio spazio eseguendo nuovamente `azds space list`. In primo luogo, si noterà che è in esecuzione un'istanza di `mywebapi` nello spazio `scott` (la versione in esecuzione in `default` è ancora in esecuzione ma non è elencata). In secondo luogo, l'URL del punto di accesso `webfrontend` è preceduto dal prefisso "scott.s". Questo URL è univoco per lo spazio `scott`. Questo URL speciale indica che le richieste inviate a "URL scott" tenteranno prima di instradarsi ai servizi nello spazio `scott` ma, in caso di esito negativo, verrà eseguito il fallback ai servizi nello spazio `default`.
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
@@ -31,9 +31,9 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webf
 
 ![](../media/common/space-routing.png)
 
-Questa funzionalità incorporata di Azure Dev Spaces consente di testare codice end-to-end in un ambiente condiviso senza richiedere a ogni sviluppatore ricreare lo stack completo dei servizi nel proprio spazio. Questo routing richiede al codice dell'app di inoltrare le intestazioni di propagazione, come illustrato nel passaggio precedente di questa Guida.
+Questa funzionalità incorporata di Azure Dev Spaces consente di testare codice in uno spazio condiviso senza richiedere a ogni sviluppatore ricreare lo stack completo dei servizi nel proprio spazio. Questo routing richiede al codice dell'app di inoltrare le intestazioni di propagazione, come illustrato nel passaggio precedente di questa Guida.
 
-## <a name="test-code-in-a-space"></a>Test del codice in uno spazio
-Per testare la nuova versione di `mywebapi` in combinazione con `webfrontend`, aprire il browser all'URL del punto di accesso pubblico per WebFrontEnd e passare alla pagina delle informazioni. Dovrebbe essere visualizzato il nuovo messaggio.
+### <a name="test-code-in-a-space"></a>Test del codice in uno spazio
+Per testare la nuova versione di `mywebapi` con `webfrontend`, aprire il browser all'URL di punto di accesso pubblico per `webfrontend` e passare alla pagina delle informazioni. Dovrebbe essere visualizzato il nuovo messaggio.
 
-A questo punto, rimuovere parte dell'URL "scott.s." e aggiornare il browser. Verrà visualizzato il comportamento precedente mostrato dalla versione di `mywebapi` in esecuzione in `default`
+A questo punto, rimuovere parte dell'URL "scott.s." e aggiornare il browser. Verrà visualizzato il comportamento precedente con la versione di `mywebapi` in esecuzione in `default`

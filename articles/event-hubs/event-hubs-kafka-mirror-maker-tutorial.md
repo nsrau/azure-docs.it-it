@@ -10,12 +10,12 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 819071321d5609728e7c62abb5b25bf354107850
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0693fc2fff5735fb2b3c0a9b8f1d3d256746f40d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941239"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298322"
 ---
 # <a name="using-kafka-mirrormaker-with-event-hubs-for-kafka-ecosystems"></a>Uso di Kafka MirrorMaker con Hub eventi per gli ecosistemi Kafka
 
@@ -116,3 +116,4 @@ Con MirrorMaker in esecuzione, qualsiasi evento inviato al cluster Kafka di orig
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
 * [Leggere le informazioni su Hub eventi per l'ecosistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Leggere le informazioni su [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per trasmettere in streaming eventi dall'istanza di Kafka locale all'istanza di Hub eventi con supporto per Kafka nel cloud.
+* Informazioni su come eseguire lo streaming negli Hub eventi abilitati per Kafka usando le [applicazioni native Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).

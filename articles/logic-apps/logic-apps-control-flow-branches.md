@@ -1,29 +1,25 @@
 ---
-title: Rami paralleli - App per la logica di Azure | Microsoft Docs
-description: Creare rami paralleli o crearne un join nelle app per la logica
+title: Creare o aggiungere rami paralleli - App per la logica di Azure | Microsoft Docs
+description: Come creare o aggiungere rami paralleli per i flussi di lavoro nelle App per la logica di Azure
 services: logic-apps
-keywords: rami, elaborazione parallela
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298856"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>Creare rami paralleli o crearne un join nell'app per la logica
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Creare o aggiungere rami paralleli per le azioni del flusso di lavoro nelle App per la logica di Azure
 
-Per impostazione predefinita, le azioni in un'app per la logica vengono eseguite in sequenza. Per eseguire simultaneamente azioni indipendenti, è possibile creare [rami paralleli](#parallel-branches) e quindi [creare un join di tali rami](#join-branches) più avanti nel flusso. 
+Per impostazione predefinita, le azioni nei flussi di lavoro dell'app per la logica vengono eseguite in sequenza. Per eseguire simultaneamente azioni indipendenti, è possibile creare [rami paralleli](#parallel-branches) e quindi [creare un join di tali rami](#join-branches) più avanti nel flusso. 
 
 > [!TIP] 
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).

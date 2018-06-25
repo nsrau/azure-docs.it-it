@@ -1,29 +1,25 @@
 ---
-title: Istruzioni switch - Eseguire i passaggi in base a valori specifici - App per la logica di Azure | Microsoft Docs
-description: Eseguire passaggi diversi a seconda dei valori di oggetti, espressioni o token nelle app per la logica
+title: Aggiungere la istruzioni switch ai flussi di lavoro - App per la logica di Azure | Microsoft Docs
+description: Come creare istruzioni switch che controllano le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 services: logic-apps
-keywords: Istruzione switch
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299617"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Istruzioni switch: eseguire passaggi diversi a seconda dei valori specifici nelle app per la logica
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
-Per eseguire i passaggi diversi a seconda dei valori di un oggetto, un'espressione o un token, usare un'istruzione *switch*. Questa struttura valuta l'oggetto, l'espressione o il token, sceglie il case corrispondente al risultato, ed esegue i passaggi solo per tale case. Quando viene eseguita l'istruzione switch, un solo caso deve corrispondere al risultato.
+Per eseguire azioni specifiche in base ai valori di oggetti, espressioni o token, aggiungere un'istruzione *switch*. Questa struttura valuta l'oggetto, l'espressione o il token, sceglie il case corrispondente al risultato, ed esegue azioni specifiche solo per tale case. Quando viene eseguita l'istruzione switch, un solo caso deve corrispondere al risultato.
 
 Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue passaggi diversi in base a un'opzione selezionata nel messaggio di posta elettronica. In questo esempio l'app per la logica verifica la presenza di nuovo contenuto nel feed RSS di un sito Web. Quando un nuovo elemento viene visualizzato nel feed RSS, l'app per la logica invia il messaggio di posta elettronica a un responsabile approvazione. A seconda che il responsabile approvazione selezioni "Approve" o "Reject", l'app per la logica segue passaggi diversi.
 

@@ -1,29 +1,25 @@
 ---
-title: Cicli - Elaborare le matrici o ripetere le azioni - App per la logica di Azure | Microsoft Docs
-description: Elaborare le matrici con i cicli "for each" o ripetere le azioni finché non vengono soddisfatte condizioni specifiche nelle app per la logica
+title: Aggiungere cicli che ripetono le azioni o elaborano le matrici- App per la logica di Azure | Microsoft Docs
+description: Come creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 services: logic-apps
-keywords: cicli for each
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298186"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Cicli: elaborare le matrici o ripetere le azioni finché non viene soddisfatta una condizione
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
-Per eseguire l'iterazione delle matrici nell'app per la logica, è possibile usare un [ciclo "Foreach"](#foreach-loop) o un [ciclo "Foreach" sequenziale](#sequential-foreach-loop). Nella versione standard di "Foreach" i cicli sono eseguiti in parallelo, mentre nella versione sequenziale sono eseguiti uno alla volta. Per il numero massimo di elementi di una matrice che i cicli "Foreach" possono elaborare in una singola esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per eseguire l'iterazione delle matrici nell'app per la logica, è possibile usare un [ciclo "Foreach"](#foreach-loop) o un [ciclo "Foreach" sequenziale](#sequential-foreach-loop). Le iterazioni per un ciclo nella versione standard di "Foreach" sono eseguite in parallelo, mentre per un ciclo nella versione sequenziale sono eseguite una alla volta. Per il numero massimo di elementi di una matrice che i cicli "Foreach" possono elaborare in una singola esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 

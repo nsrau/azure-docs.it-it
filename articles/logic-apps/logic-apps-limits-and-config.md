@@ -2,24 +2,20 @@
 title: Limiti e configurazione - App per la logica di Azure | Microsoft Docs
 description: Limiti di servizio e valori di configurazione per App per la logica di Azure
 services: logic-apps
-documentationcenter: ''
 author: ecfan
-manager: cfowler
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/14/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2534210c903e77462ece91c577d731d9c8e3726f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166302"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299716"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -84,7 +80,7 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | ---- | ----- | ----- | 
 | Iterazioni Until | 5.000 | | 
 | Elementi ForEach | 100.000 | È possibile usare l'[azione di query](../connectors/connectors-native-query.md) per filtrare matrici di dimensioni maggiori in base alle esigenze. | 
-| Parallelismo ForEach | 50 | Il valore predefinito è 20. <p>Per impostare un livello specifico di parallelismo in un ciclo ForEach, impostare la proprietà `runtimeConfiguration` nell'azione `foreach`. <p>Per eseguire in modo sequenziale un ciclo ForEach, impostare la proprietà `operationOptions` su "Sequential" nell'azione `foreach`. | 
+| Parallelismo ForEach | 50 | Il valore predefinito è 20. <p>Per modificare il livello predefinito in un ciclo ForEach, impostare la proprietà `runtimeConfiguration` nell'azione `foreach`. <p>Per eseguire in modo sequenziale un ciclo ForEach, impostare la proprietà `operationOptions` su "Sequential" nell'azione `foreach`. | 
 | Elementi SplitOn | 100.000 | | 
 |||| 
 
@@ -99,8 +95,8 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Esecuzioni di azioni per 5 minuti | 100.000 | Per aumentare il limite a 300.000, è possibile eseguire un'app per la logica in modalità `High Throughput`. Per configurare la modalità di velocità effettiva elevata, in `runtimeConfiguration` della risorsa flusso di lavoro impostare la proprietà `operationOptions` su `OptimizedForHighThroughput`. <p>**Nota**: la modalità di velocità effettiva elevata è in anteprima. È anche possibile distribuire un carico di lavoro tra più app, se necessario. | 
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 |È possibile distribuire il carico di lavoro tra più app nel modo necessario. | 
+| Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire un carico di lavoro tra più app, se necessario. | 
+| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 | È possibile distribuire un carico di lavoro tra più app, se necessario. | 
 |||| 
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
@@ -126,7 +122,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 | NOME | Limite | Note | 
 | ---- | ----- | ----- | 
 | Dimensioni dei messaggi | 100 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
-| Dimensione dei messaggi con la divisione in blocchi | 1 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o per cui può essere abilitato il supporto della divisione in blocchi nella configurazione di runtime. Per altre informazioni, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Dimensione dei messaggi con la divisione in blocchi | 1 GB | Questo limite si applica alle azioni che supportano in modo nativo la divisione in blocchi o che consentono di abilitare la divisione in blocchi nella configurazione di runtime. Per altre informazioni, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). | 
 | Limite per la valutazione delle espressioni | 131.072 caratteri | Le espressioni `@concat()`, `@base64()` e `@string()` non possono superare questo limite. | 
 |||| 
 
@@ -159,9 +155,11 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 
 ### <a name="artifact-limits-per-integration-account"></a>Limite di elementi per account di integrazione
 
-Limiti per il numero di elementi per ogni account di integrazione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/).
+Limiti per il numero di elementi per ogni account di integrazione. Per altre informazioni, vedere [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Livello gratuito*
+
+Usare il livello gratuito solo per scenari esplorativi, non per scenari di produzione. Questo livello limita la velocità effettiva e l'utilizzo e non dispone di alcun contratto di servizio (SLA).
 
 | Elemento | Limite | Note | 
 |----------|-------|-------| 
@@ -208,9 +206,9 @@ Limiti per il numero di elementi per ogni account di integrazione. Per altre inf
 | ---- | ----- | ----- | 
 | SCHEMA | 8 MB | Per caricare file di dimensioni maggiori di 2 MB, usare l'[URI del BLOB](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Mappa (file XSLT) | 2 MB | | 
-| Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più account in base alle esigenze. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più account in base alle esigenze. | 
-| Endpoint di runtime: verifica delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più account in base alle esigenze. | 
+| Endpoint di runtime: lettura delle chiamate per 5 minuti | 60.000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| Endpoint di runtime: richiamata delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
+| Endpoint di runtime: verifica delle chiamate per 5 minuti | 45,000 | È possibile distribuire il carico di lavoro tra più di un account in base alle esigenze. | 
 | Endpoint di runtime: blocco delle chiamate simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 ||||  
 
@@ -233,8 +231,7 @@ Ecco i limiti che si applicano ai protocolli B2B:
 
 ### <a name="azure-logic-apps-service"></a>Servizio App per la logica
 
-Tutte le app per la logica in un'area usano lo stesso intervallo di indirizzi IP.
-Le chiamate effettuate direttamente dalle app per la logica tramite [HTTP](../connectors/connectors-native-http.md) o [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) o altre richieste HTTP provengono dagli indirizzi IP inclusi in questo elenco. 
+Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi IP. Per supportare le chiamate che le app per la logica effettuano direttamente con [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) e altre richieste HTTP, impostare le configurazioni del firewall in modo da includere questi indirizzi IP in entrata e in uscita in base a dove sono presenti le app per la logica:
 
 | Area di App per la logica | IP in uscita |
 |-------------------|-------------|
@@ -265,7 +262,7 @@ Le chiamate effettuate direttamente dalle app per la logica tramite [HTTP](../co
 | | |
 
 | Area di App per la logica | IP In ingresso |
-|-------------------|-------------|
+|-------------------|------------|
 | Australia orientale | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Australia sudorientale | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Brasile meridionale | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -294,37 +291,41 @@ Le chiamate effettuate direttamente dalle app per la logica tramite [HTTP](../co
 
 ### <a name="connectors"></a>Connettori
 
-Le chiamate effettuate dai [connettori](../connectors/apis-list.md) provengono dagli indirizzi IP inclusi in questo elenco.
+Per supportare le chiamate effettuate dai [connettori](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano questi indirizzi IP in uscita, in base alle aree in cui sono presenti le app per la logica.
 
-| Area di App per la logica | IP in uscita |
-|-------------------|-------------|
-| Australia orientale | 40.126.251.213 |
-| Australia sudorientale | 40.127.80.34 |
-| Brasile meridionale | 191.232.38.129 |
-| Canada centrale | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Canada orientale | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| India centrale | 104.211.98.164 |
-| Stati Uniti centrali | 40.122.49.51 |
-| Asia orientale | 23.99.116.181 |
-| Stati Uniti orientali | 191.237.41.52 |
-| Stati Uniti orientali 2 | 104.208.233.100 |
-| Giappone orientale | 40.115.186.96 |
-| Giappone occidentale | 40.74.130.77 |
-| Stati Uniti centro-settentrionali | 65.52.218.230 |
-| Europa settentrionale | 104.45.93.9 |
-| Stati Uniti centro-meridionali | 104.214.70.191 |
-| India meridionale | 104.211.227.225 |
-| Asia sudorientale | 13.76.231.68 |
-| Europa occidentale | 40.115.50.13 |
-| India occidentale | 104.211.161.203 |
-| Stati Uniti occidentali | 104.40.51.248 |
-| Regno Unito meridionale | 51.140.80.51 |
-| Regno Unito occidentale | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> Se si dispone di configurazioni esistenti, aggiornarle **il possibile prima del 1 settembre 2018** in modo che includano e mettano in corrispondenza gli indirizzi IP in questo elenco per le aree in cui sono presenti le app per la logica. 
+
+| Area di App per la logica | IP in uscita | 
+|-------------------|-------------|  
+| Australia orientale | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Australia sudorientale | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Brasile meridionale | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Canada centrale | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Canada orientale | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| India centrale | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Stati Uniti centrali | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| Asia orientale | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| Stati Uniti orientali | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| Stati Uniti orientali 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Giappone orientale | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Giappone occidentale | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Stati Uniti centro-settentrionali | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| Europa settentrionale | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| Stati Uniti centro-meridionali | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| India meridionale | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Asia sudorientale | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| Stati Uniti centro-occidentali | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Europa occidentale | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| India occidentale | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| Stati Uniti occidentali | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| Stati Uniti occidentali 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| Regno Unito meridionale | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| Regno Unito occidentale | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-* [Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Common examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md) (Esempi e scenari comuni)
-* [Video: Automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (Automatizzare processi aziendali con App per la logica) 
-* [Video: Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (Integrare i sistemi con App per la logica di Azure)
+* Informazioni su come [creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Informazioni su [esempi e scenari comuni](../logic-apps/logic-apps-examples-and-scenarios.md)

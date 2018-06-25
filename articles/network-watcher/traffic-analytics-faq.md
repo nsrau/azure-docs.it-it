@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236400"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - Log dei flussi dei gruppi di sicurezza di rete abilitati per i gruppi di sicurezza di rete da monitorare
     - Un account di archiviazione di Azure per archiviare i log dei flussi non elaborati
     - Un'area di lavoro Log Analytics (OMS) con accesso in lettura e scrittura
-    - All'account devono essere assegnate le azioni seguenti nel provider di Microsoft. Network:
+    - All'utente deve essere assegnato uno dei ruoli seguenti a livello di sottoscrizione:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    In alternativa, all'utente devono essere assegnati tutti i ruoli seguenti a livello di sottoscrizione: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Per verificare i ruoli assegnati a un utente per una sottoscrizione, seguire questa procedura:
+
+Accedere ad Azure usando Login-AzureRmAccount 
+
+Selezionare la sottoscrizione richiesta usando Select-AzureRmSubscription 
+
+A questo punto, per elencare tutti i ruoli assegnati a un utente specifico, usare Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 
+
+Se non viene visualizzato alcun output dopo l'esecuzione dei comandi, contattare l'amministratore della sottoscrizione per ottenere l'accesso per l'esecuzione dei comandi.  
+
+Per altre informazioni, vedere [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+
 
 2.  In quali aree è disponibile Analisi del traffico?
 
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un modello di Azure Resource Manager?
 
-    No, la funzionalità Analisi del traffico può essere configurata solo tramite il portale di Azure.
+Sì, la configurazione della funzionalità Analisi del traffico tramite Windows PowerShell è supportata a partire dalla versione 6.2.1. Non è tuttavia al momento disponibile il supporto per i modelli di Azure Resource Manager. Per altre informazioni su come è possibile usare PowerShell per configurare l'analisi del traffico, vedere la [documentazione](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0) seguente. 
 
 15.  Come viene determinato il prezzo di Analisi del traffico?
 
-        Analisi del traffico è a consumo per il miglioramento della riduzione log e l'archiviazione dei registri avanzati in un'area di lavoro Log Analytics. Mentre in anteprima, Analisi del traffico non viene fatturato per migliorare i registri ridotti, tuttavia la conservazione dei dati in un'area di lavoro è soggetta a fatturazione in base alle tariffe pubblicate. Questa risposta verrà aggiornata una volta disponibili i prezzi per Analisi del traffico.
+Il prezzo di Analisi del traffico viene calcolato in base ai dati dei log di flusso elaborati dal servizio, archiviando i log avanzati risultanti in un'area di lavoro di Log Analytics. Per altre informazioni sul piano tariffario, [fare clic qui](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
 
 16.  Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 

@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161057"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266595"
 ---
 # <a name="create-custom-roles-in-azure"></a>Creare ruoli personalizzati in Azure
 
-Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le proprie esigenze di accesso specifiche, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare i ruoli personalizzati a utenti, gruppi ed entità servizio nell'ambito della sottoscrizione, del gruppo di risorse e della risorsa. I ruoli personalizzati vengono archiviati in un tenant di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. È possibile creare ruoli personalizzati usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST. Questo articolo descrive un esempio di come iniziare a creare ruoli personalizzati mediante PowerShell e l'interfaccia della riga di comando di Azure.
+Se i [ruoli predefiniti](built-in-roles.md) non soddisfano le proprie esigenze di accesso specifiche, è possibile creare ruoli personalizzati. Analogamente ai ruoli predefiniti, è possibile assegnare i ruoli personalizzati a utenti, gruppi ed entità servizio nell'ambito della sottoscrizione, del gruppo di risorse e della risorsa. I ruoli personalizzati vengono archiviati in un tenant di Azure Active Directory (Azure AD) e possono essere condivisi tra le sottoscrizioni. Ogni tenant può avere al massimo 2000 ruoli personalizzati. È possibile creare ruoli personalizzati usando Azure PowerShell, l'interfaccia della riga di comando di Azure o l'API REST.
+
+Questo articolo descrive un esempio di come iniziare a creare ruoli personalizzati mediante PowerShell e l'interfaccia della riga di comando di Azure.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>Creare un ruolo personalizzato per aprire richieste di supporto mediante PowerShell
 

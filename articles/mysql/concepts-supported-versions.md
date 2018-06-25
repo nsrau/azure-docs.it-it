@@ -6,23 +6,24 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/22/2018
-ms.openlocfilehash: 53c8d51ddf9b7465a99b8b0685d7f6ce177fc526
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 05/23/2018
+ms.openlocfilehash: c9a533ed9b9eb9ac53a02439b98a78954c7aaa11
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265249"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/) tramite il motore InnoDB.  Al momento il Database di Azure per MySQL supporta le versioni indicate di seguito:
 
-## <a name="mysql-version-5638"></a>MySQL versione 5.6.38
-Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.38, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-38.html) di MySQL.
+## <a name="mysql-version-5639"></a>MySQL versione 5.6.39
+Per altre informazioni sui miglioramenti e sulle correzioni in MySQL 5.6.39, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) di MySQL.
 
-## <a name="mysql-version-5720"></a>MySQL versione 5.7.20
-Per informazioni sui miglioramenti e sulle correzioni in MySQL 5.7.20, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-20.html) di MySQL.
+## <a name="mysql-version-5721"></a>MySQL versione 5.7.21
+Per informazioni sui miglioramenti e sulle correzioni in MySQL 5.7.21, vedere la [documentazione](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) di MySQL.
 
 > [!NOTE]
 > Nel servizio viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL. 

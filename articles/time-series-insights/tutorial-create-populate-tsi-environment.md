@@ -2,17 +2,17 @@
 title: Creare un ambiente Azure Time Series Insights
 description: Informazioni su come creare un ambiente Time Series Insights, popolato con i dati provenienti dai dispositivi simulati.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301355"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295848"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights
 
@@ -230,9 +230,9 @@ Questa esercitazione illustra come:
 > * Eseguire una simulazione di dispositivi per trasmettere dati nell'ambiente TSI
 > * Verificare i dati di telemetria simulati
 
-Ora che si è appreso come creare un ambiente TSI, leggere altre informazioni sul processo di pianificazione passando all'articolo seguente:
+Ora che si è appreso come creare l'ambiente TSI, vedere come creare un'applicazione Web che utilizza dati di un ambiente TSI:
 
 > [!div class="nextstepaction"]
-> [Pianificare l'ambiente Azure Time Series Insights](time-series-insights-environment-planning.md)
+> [Creare un'app Web a singola pagina Azure Time Series Insights](tutorial-create-tsi-sample-spa.md)
 
 

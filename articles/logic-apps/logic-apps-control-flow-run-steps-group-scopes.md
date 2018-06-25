@@ -1,29 +1,25 @@
 ---
-title: Eseguire i passaggi in base allo stato delle azioni raggruppate - App per la logica di Azure | Microsoft Docs
-description: Raggruppare le azioni in ambiti ed eseguire i passaggi in base allo stato del gruppo
+title: Aggiungere ambiti che eseguono azioni in base allo stato del gruppo - App per la logica di Azure | Microsoft Docs
+description: Come creare ambiti che eseguono azioni del flusso di lavoro in base allo stato dell'azione del gruppo nelle App per la logica di Azure
 services: logic-apps
-keywords: rami, elaborazione parallela
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298815"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Ambiti: eseguire i passaggi in base allo stato del gruppo nelle app per la logica
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Creare ambiti che eseguono azioni del flusso di lavoro in base allo stato del gruppo nelle App per la logica di Azure
 
-Per eseguire i passaggi solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, inserire tale gruppo in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Per eseguire azioni solo dopo che un altro gruppo di azioni ha avuto esito positivo o negativo, raggruppare tali azioni in un *ambito*. Questa struttura è utile quando si vuole organizzare le azioni come gruppo logico, valutare lo stato del gruppo ed eseguire le azioni in base allo stato dell'ambito. Al termine dell'esecuzione di tutte le azioni in un ambito, l'ambito ottiene anche il proprio stato. È ad esempio possibile usare gli ambiti quando si vuole implementare la [gestione degli errori e delle eccezioni](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Per controllare lo stato di un ambito, è possibile usare lo gli stessi criteri usati per determinare lo stato di esecuzione di un'app per la logica, ad esempio "Succeeded", "Failed", "Cancelled" e così via. Per impostazione predefinita, quando tutte le azioni dell'ambito hanno esito positivo lo stato dell'ambito viene contrassegnato come "Succeeded", ma, quando un'azione nell'ambito ha esito negativo o viene annullata, lo stato dell'ambito viene contrassegnato come "Failed". Per i limiti degli ambiti, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
 

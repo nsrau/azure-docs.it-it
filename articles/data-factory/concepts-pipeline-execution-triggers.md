@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715038"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293480"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ I trigger rappresentano una modalità alternativa per attivare una esecuzione di
 
 - Trigger di finestra a cascata: un trigger che viene attivato a intervalli periodici, mantenendo al tempo stesso lo stato. Azure Data Factory attualmente non supporta i trigger basati su eventi, ad esempio il trigger per un'esecuzione di pipeline che risponde a un evento di ricezione di un file non è supportato.
 
+- Trigger basato su eventi: un trigger che risponde a un evento.
+
 Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avviare una singola pipeline e un singolo trigger può avviare più pipeline. Nella definizione di trigger seguente la proprietà **pipelines** fa riferimento a un elenco di pipeline attivate dal trigger specifico. La definizione della proprietà include i valori dei parametri della pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definizione del trigger di base
@@ -175,11 +177,6 @@ Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono avvia
 Un trigger di pianificazione esegue le pipeline con una pianificazione basata sul tempo reale. Questo trigger supporta opzioni di calendario periodiche e avanzate. Il trigger supporta, ad esempio, intervalli come "settimanale" o "Lunedì alle 17:00 e giovedì alle 21:00". Il trigger di pianificazione è flessibile perché il criterio del set di dati è indipendente e il trigger non distingue tra dati di serie temporali e non temporali.
 
 Per altre informazioni ed esempi sui trigger di pianificazione, vedere [Creare un trigger di pianificazione](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Trigger di finestra a cascata
-I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti.
-
-Per altre informazioni ed esempi sui trigger di finestra a cascata, vedere [Creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Definizione del trigger di pianificazione
 Quando si crea un trigger di pianificazione, si specificano la pianificazione e la ricorrenza usando una definizione JSON. 
@@ -322,6 +319,17 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 | **weekDays** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- Matrice di valori relativi ai giorni (la dimensione massima della matrice è 7)<br /><br />I valori dei giorni non fanno distinzione tra maiuscole e minuscole|
 | **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Matrice di oggetti **monthlyOccurence**: `{ "day": day,  "occurrence": occurence }`<br />- L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.<br />- L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.|
 | **monthDays** | Giorno del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. |- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31<br />- Matrice di valori|
+
+## <a name="tumbling-window-trigger"></a>Trigger di finestra a cascata
+I trigger di finestra a cascata vengono attivati in base a un intervallo di tempo periodico a partire da un'ora di inizio specificata, mantenendo al tempo stesso lo stato. Le finestre a cascata sono costituite da una serie di intervalli temporali di dimensioni fisse, contigui e non sovrapposti.
+
+Per altre informazioni ed esempi sui trigger di finestra a cascata, vedere [Creare un trigger di finestra a cascata](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Trigger basato su eventi
+
+Un trigger basato su eventi esegue le pipeline in risposta a un evento, ad esempio l'arrivo di un file o l'eliminazione di un file in Archiviazione BLOB di Azure.
+
+Per altre informazioni sui trigger basati su eventi, vedere [Create a trigger that runs a pipeline in response to an event](how-to-create-event-trigger.md) (Creare un trigger che esegue una pipeline in risposta a un evento).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Esempi di pianificazioni di ricorrenza del trigger
 Questa sezione fornisce esempi di pianificazioni di ricorrenza. È incentrata sull'oggetto **schedule** e sui rispettivi elementi.

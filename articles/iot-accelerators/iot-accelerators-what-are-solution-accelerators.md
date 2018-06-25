@@ -1,26 +1,19 @@
 ---
 title: Panoramica sugli acceleratori di soluzioni Azure IoT | Microsoft Docs
 description: Descrizione degli acceleratori di soluzione di Azure IoT e della relativa architettura con collegamenti a risorse aggiuntive.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362125"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808554"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>Informazioni sugli acceleratori di soluzioni IoT
 
@@ -54,7 +47,7 @@ Ogni acceleratore di soluzione è un'implementazione end-to-end completa che pu�
 Attualmente sono disponibili tre soluzioni di acceleratori:
 
 * [Monitoraggio remoto](iot-accelerators-remote-monitoring-explore.md)
-* [Manutenzione predittiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Connected factory](iot-accelerators-connected-factory-overview.md)
 
 La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili per le soluzioni:
@@ -62,7 +55,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 | Soluzione | Inserimento di dati | Identità del dispositivo | Gestione dei dispositivi | Elaborazione perimetrale | Comando e controllo | Regole e azioni | Analisi predittiva |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Monitoraggio remoto](iot-accelerators-remote-monitoring-explore.md)  |Sì |Sì |Sì |-   |Sì |Sì |-   |
-| [Manutenzione predittiva](../iot-suite/iot-suite-predictive-overview.md)   |Sì |Sì |-   |-   |Sì |Sì |Sì |
+| [Manutenzione predittiva](iot-accelerators-predictive-overview.md)   |Sì |Sì |-   |-   |Sì |Sì |Sì |
 | [Connected factory](iot-accelerators-connected-factory-overview.md) |Sì |- |- |Sì |Sì |Sì |-   |
 
 * *Inserimento di dati*: inserimento di dati su vasta scala nel cloud.
@@ -73,7 +66,7 @@ La tabella seguente mostra quali funzionalità IoT specifiche sono disponibili p
 * *Analisi predittiva*: il back-end della soluzione analizza i dati da dispositivo a cloud per determinare quando eseguire specifiche azioni. Ad esempio, usa l'analisi di dati di telemetria per il motore di un aereo per determinare eseguire la manutenzione.
 
 > [!NOTE]
-> Per distribuire un acceleratore di soluzione e saperne di più sulla relativa personalizzazione, visitare [Acceleratori di soluzione Microsoft Azure IoT](https://www.azureiotsuite.com/).
+> Per distribuire un acceleratore di soluzione e saperne di più sulla relativa personalizzazione, visitare [Acceleratori di soluzione Microsoft Azure IoT](https://www.azureiotsolutions.com/).
 
 ## <a name="azure-services"></a>Servizi di Azure
 
@@ -85,20 +78,20 @@ Quando si distribuisce un acceleratore di soluzione, il processo di provisioning
 | Hub eventi           |                    | Sì                    |                   |
 | Time Series Insights |                    |                        | Sì               |
 | Servizi contenitore   | Sì                |                        |                   |
-| Analisi di flusso     |                    | Sì                    |                   |
+| Analisi di flusso     | Sì                | Sì                    |                   |
 | App Web             | Sì                | Sì                    | Sì               |
 | Cosmos DB            | Sì                | Sì                    |                    |
 | Archiviazione di Azure         |                    | Sì                    | Sì               |
 
 > [!NOTE]
-> Per altre informazioni sulle risorse distribuite nell'acceleratore di soluzione per il monitoraggio remoto, vedere questo [articolo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) in GitHub.
+> Per altre informazioni sulle risorse distribuite nell'acceleratore di soluzione per il monitoraggio remoto, vedere [Opzioni di architettura per il monitoraggio remoto](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Hub IoT di Azure](../iot-hub/index.yml). Questo servizio fornisce funzionalità di messaggistica da dispositivo a cloud e da cloud a dispositivo e funge da gateway per il cloud e gli altri servizi chiave degli acceleratori di soluzione. Il servizio consente di ricevere messaggi dai dispositivi su vasta scala e inviare i comandi ai dispositivi. Il servizio consente anche di [gestire i dispositivi](../iot-hub/iot-hub-device-management-overview.md). È possibile, ad esempio, configurare, riavviare o eseguire un ripristino delle impostazioni predefinite per uno o più dispositivi connessi all'hub.
-* [Hub eventi di Azure](../active-directory-domain-services/index.md). Questo servizio supporta l'inserimento di volumi elevati di eventi nel cloud. Vedere [Confronto tra l'hub IoT e Hub eventi di Azure](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Hub eventi di Azure](../active-directory-domain-services/index.yml). Questo servizio supporta l'inserimento di volumi elevati di eventi nel cloud. Vedere [Confronto tra l'hub IoT e Hub eventi di Azure](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.yml). Gli acceleratori di soluzione usano questo servizio per analizzare e visualizzare i dati di telemetria provenienti dai dispositivi.
 * [Servizio contenitore di Azure](../container-service/index.yml). Questo servizio ospita e gestisce i microservizi negli acceleratori di soluzioni.
 * [Azure Cosmos DB](../cosmos-db/index.yml) e [Archiviazione di Azure](../storage/index.yml), per l'archiviazione dei dati.
-* [Analisi di flusso di Azure](../stream-analytics/index.yml). La soluzione preconfigurata di manutenzione predittiva usa questo servizio per elaborare i dati di telemetria in ingresso, eseguire operazioni di aggregazione e rilevare gli eventi. Questa soluzione preconfigurata usa l'analisi di flusso anche per elaborare i messaggi informativi contenenti dati come i metadati o le risposte ai comandi dai dispositivi.
+* [Analisi di flusso di Azure](../stream-analytics/index.yml). L'acceleratore di soluzione di manutenzione predittiva usa questo servizio per elaborare i dati di telemetria in ingresso, eseguire operazioni di aggregazione e rilevare gli eventi. Questa soluzione preconfigurata usa l'analisi di flusso anche per elaborare i messaggi informativi contenenti dati come i metadati o le risposte ai comandi dai dispositivi.
 * [App Web di Azure](../app-service/index.yml), per ospitare il codice di applicazioni personalizzate nelle soluzioni preconfigurate.
 
 Per una panoramica dell'architettura di una tipica soluzione IoT, vedere [Microsoft Azure e Internet delle cose (IoT)](iot-accelerators-what-is-azure-iot.md).
@@ -127,9 +120,9 @@ Questa architettura di microservizi è un modello collaudato per soluzioni cloud
 * Possibilità di scambio di singoli servizi per diverse alternative
 
 > [!TIP]
-> Per altre informazioni sulle architetture di microservizi, vedere [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architettura delle applicazioni .NET) e [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
+> Per altre informazioni sulle architetture dei microservizi, vedere [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (Architettura delle applicazioni .NET) e [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservizi: una rivoluzione delle applicazioni basata sul cloud).
 
-Quando si distribuisce la nuova versione del monitoraggio remoto, è necessario selezionare una delle opzioni di distribuzione seguenti.
+Quando si distribuisce la nuova versione del monitoraggio remoto, è necessario selezionare una delle opzioni di distribuzione seguenti:
 
 * **Basic:** versione a costo ridotto a scopo di dimostrazione o per testare una distribuzione. Tutti i microservizi vengono distribuiti in un'unica macchina virtuale di Azure.
 * **Standard:** distribuzione di infrastruttura estesa per lo sviluppo di una distribuzione di produzione. Il servizio contenitore di Azure distribuisce i microservizi in più macchine virtuali di Azure. Kubernetes orchestra i contenitori Docker che ospitano i singoli microservizi.
@@ -152,7 +145,7 @@ L'interfaccia utente è basata sulla libreria JavaScript [React](https://faceboo
 Dopo questa panoramica degli acceleratori di soluzioni di IoT, i passaggi successivi consigliati per ognuna delle soluzioni preconfigurate sono i seguenti:
 
 * [Esplorare le funzionalità della soluzione preconfigurata di monitoraggio remoto](iot-accelerators-remote-monitoring-explore.md).
-* [Panoramica della soluzione preconfigurata di manutenzione predittiva](../iot-suite/iot-suite-predictive-overview.md)
+* [Panoramica della soluzione preconfigurata di manutenzione predittiva](iot-accelerators-predictive-overview.md)
 * [Introduzione alla soluzione preconfigurata di connected factory](iot-accelerators-connected-factory-overview.md).
 
-Per altre informazioni sulle architetture delle soluzioni IoT, vedere il documento relativo all'[architettura di riferimento dei servizi Microsoft Azure IoT](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf).
+Per altre informazioni sulle architetture delle soluzioni IoT, vedere il documento relativo all'[architettura di riferimento dei servizi Microsoft Azure IoT](https://aka.ms/iotrefarchitecture).

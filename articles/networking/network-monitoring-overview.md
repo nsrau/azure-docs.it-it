@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850138"
 ---
 # <a name="network-monitoring-solutions"></a>Soluzioni di monitoraggio della rete 
 
@@ -56,12 +57,13 @@ Per altre informazioni, vedere gli articoli seguenti:
 
 ## <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
-Monitoraggio prestazioni rete per ExpressRoute offre una soluzione di monitoraggio di ExpressRoute completa per connessioni peering private. È possibile monitorare la connettività e le prestazioni end-to-end tra succursali e Azure tramite ExpressRoute. Le funzionalità principali sono elencate di seguito:
+Monitoraggio prestazioni rete per ExpressRoute offre una soluzione di monitoraggio di ExpressRoute completa per connessioni basate su Peering privato di Azure e Peering Microsoft. È possibile monitorare la connettività e le prestazioni end-to-end tra succursali e Azure tramite ExpressRoute. Le funzionalità principali sono elencate di seguito:
 
 * Rilevamento automatico dei circuiti ExpressRoute associati alla sottoscrizione
 * Rilevamento della topologia di rete da applicazioni locali ad applicazioni cloud
-* Pianificazione della capacità, analisi dell'uso, uso della larghezza di banda per ogni rete virtuale
+* Pianificazione della capacità, analisi dell'utilizzo della larghezza di banda
 * Monitoraggio e avviso per percorsi primari e secondari
+* Monitoraggio della connettività a servizi di Azure, come Office 365, Dynamics 365 e così via tramite ExpressRoute
 * Rilevamento della riduzione delle prestazioni della connettività delle reti virtuali
 
 ![Mappa geografica che mostra il traffico tra le varie aree geografiche](./media/network-monitoring-overview/expressroute-topology-map.png) 

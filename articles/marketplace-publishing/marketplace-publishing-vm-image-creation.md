@@ -1,5 +1,5 @@
 ---
-title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Documentazione Microsoft
+title: Creazione di un'immagine di macchina virtuale per Azure Marketplace | Microsoft Docs
 description: Istruzioni dettagliate su come creare un'immagine di macchina virtuale per Azure Marketplace acquistabile dagli utenti.
 services: Azure Marketplace
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808741"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guida alla creazione di un'immagine di macchina virtuale per Azure Marketplace
 Questo articolo, **Passaggio 2**, illustra la preparazione di dischi rigidi virtuali (VHD) da distribuire in Azure Marketplace. I dischi rigidi virtuali costituiscono la base dello SKU. Il processo varia a seconda che si stia offrendo uno SKU basato su Linux o su Windows. In questo articolo vengono descritti entrambi gli scenari. Questo processo può essere eseguito parallelamente alla [creazione e registrazione dell'account][link-acct-creation].
@@ -294,7 +295,7 @@ L'URI di firma di accesso condiviso deve soddisfare i requisiti seguenti:
 
 Nota: le istruzioni seguenti sono applicabili solo ai dischi non gestiti che sono l'unico tipo supportato.
 
-* Per la generazione degli URI di firma di accesso condiviso per i VHD, sono sufficienti le autorizzazioni List e Read­. Evitare di fornire accesso con autorizzazioni di scrittura o eliminazione.
+* Per la generazione degli URI di firma di accesso condiviso per i VHD, sono sufficienti le autorizzazioni Elenco e Lettura. Evitare di fornire accesso con autorizzazioni di scrittura o eliminazione.
 * La durata dell'accesso deve essere di un minimo di tre (3) settimane dalla creazione dell'URI di firma di accesso condiviso.
 * Per tenere conto dell'ora UTC, selezionare il giorno prima della data corrente. Ad esempio, se la data corrente è il 6 ottobre 2014 selezionare 5/10/2014.
 
@@ -452,7 +453,7 @@ Di seguito viene descritta la procedura per generare l'URL SAS tramite l'interfa
 
     Di seguito viene riportato il codice di esempio dopo aver aggiornato i parametri appropriati
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 

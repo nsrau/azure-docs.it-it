@@ -6,45 +6,37 @@ author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/04/2018
+ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264885"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
-## <a name="service-tier-maximums"></a>Valori massimi del livello di servizio
-Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Numero massimo di connessioni
+Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
 
-Esiste un numero massimo di connessioni, unità di calcolo e spazio di archiviazione in ogni livello di servizio, come indicato di seguito: 
+|**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Utilizzo generico| 2| 300|
+|Utilizzo generico| 4| 625|
+|Utilizzo generico| 8| 1250|
+|Utilizzo generico| 16| 2500|
+|Utilizzo generico| 32| 5000|
+|Con ottimizzazione per la memoria| 2| 600|
+|Con ottimizzazione per la memoria| 4| 1250|
+|Con ottimizzazione per la memoria| 8| 2500|
+|Con ottimizzazione per la memoria| 16| 5000|
 
-|**Piano tariffario**| **Generazione di calcolo**|**vCore**| **Numero massimo di connessioni**|
-|---|---|---|---|
-|Basic| Generazione 4| 1| 50|
-|Basic| Generazione 4| 2| 100|
-|Basic| Generazione 5| 1| 50|
-|Basic| Generazione 5| 2| 100|
-|Utilizzo generico| Generazione 4| 2| 300|
-|Utilizzo generico| Generazione 4| 4| 625|
-|Utilizzo generico| Generazione 4| 8| 1250|
-|Utilizzo generico| Generazione 4| 16| 2500|
-|Utilizzo generico| Generazione 4| 32| 5000|
-|Utilizzo generico| Generazione 5| 2| 300|
-|Utilizzo generico| Generazione 5| 4| 625|
-|Utilizzo generico| Generazione 5| 8| 1250|
-|Utilizzo generico| Generazione 5| 16| 2500|
-|Utilizzo generico| Generazione 5| 32| 5000|
-|Con ottimizzazione per la memoria| Generazione 5| 2| 600|
-|Con ottimizzazione per la memoria| Generazione 5| 4| 1250|
-|Con ottimizzazione per la memoria| Generazione 5| 8| 2500|
-|Con ottimizzazione per la memoria| Generazione 5| 16| 5000|
-
-Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
+Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
@@ -85,8 +77,6 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 - Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
 - Il ripristino di un server eliminato non è supportato.
-
-## <a name="functional-limitations"></a>Limitazioni funzionali
 
 ### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.

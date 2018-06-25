@@ -1,5 +1,5 @@
 ---
-title: Eseguire la migrazione di un database tramite importazione ed esportazione nel Database di Azure per PostgreSQL
+title: Eseguire la migrazione di un database tramite importazione ed esportazione in Database di Azure per PostgreSQL
 description: In questo articolo viene descritto come estrarre un database PostgreSQL in un file di script da cui importare i dati nel database di destinazione.
 services: postgresql
 author: rachel-msft
@@ -8,17 +8,18 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 06/01/2018
+ms.openlocfilehash: 5250b10c2d9645e25c5b6f6f0f34daa50608e51b
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736645"
 ---
-# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrare il database PostgreSQL usando le funzionalità di esportazione e importazione
+# <a name="migrate-your-postgresql-database-using-export-and-import"></a>Eseguire la migrazione del database PostgreSQL usando le funzionalità di esportazione e importazione
 È possibile usare [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) per estrarre un database PostgreSQL in un file di script e [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) importare i dati nel database di destinazione da quel file.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
 - Un [Database di Azure per il server PostgreSQL](quickstart-create-server-database-portal.md) con le regole firewall per consentire l'accesso e il database sottostante.
 - Utilità della riga di comando [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) installata
@@ -47,4 +48,5 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Per eseguire la migrazione di un database PostgreSQL tramite dump e ripristino, vedere [Migrare il database PostgreSQL tramite dump e restore](howto-migrate-using-dump-and-restore.md)
+- Per eseguire la migrazione di un database PostgreSQL tramite dump e ripristino, vedere [Eseguire la migrazione del database PostgreSQL usando dump e ripristino](howto-migrate-using-dump-and-restore.md).
+- Per altre informazioni sulla migrazione dei database in Database di Azure per PostgreSQL, vedere [Database Migration Guide](http://aka.ms/datamigration) (Guida alla migrazione di database). 

@@ -1,29 +1,28 @@
 ---
-title: Gestire Azure Data Lake Analytics con Python | Microsoft Docs
-description: 'Informazioni su come usare Python per creare un account di Data Lake Store e inviare i processi. '
+title: Gestire Azure Data Lake Analytics con Python
+description: Questo articolo descrive come usare Python per gestire utenti, processi, origini dati e account di Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: matt1883
 ms.author: saveenr
-ms.custom: devcenter
-ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
+ms.topic: conceptual
+ms.date: 06/08/2018
+ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261461"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gestire Azure Data Lake Analytics con Python
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-## <a name="python-versions"></a>Versioni di Python
+Questo articolo descrive come gestire utenti, processi, origini dati e account Azure Data Lake Analytics tramite Python.
+
+## <a name="supported-python-versions"></a>Versioni di Python supportate
 
 * Usare una versione a 64 bit di Python.
 * È possibile usare la distribuzione di Python standard disponibile in **[Python.org downloads](https://www.python.org/downloads/)**. 
@@ -35,9 +34,9 @@ ms.lasthandoff: 04/05/2018
 Installare i moduli seguenti:
 
 * Il modulo **azure-mgmt-resource** include altri moduli di Azure per Active Directory e così via.
-* Il modulo **azure-mgmt-datalake-store** include le operazioni di gestione account di Azure Data Lake Store.
 * Il modulo **azure-datalake-store** include le operazioni di file system di Azure Data Lake Store. 
-* Il modulo **azure-datalake-analytics** include le operazioni di Azure Data Lake Analytics. 
+* Il modulo **azure-mgmt-datalake-store** include le operazioni di gestione account di Azure Data Lake Store.
+* Il modulo **azure-mgmt-datalake-analytics** include le operazioni di Azure Data Lake Analytics. 
 
 Assicurarsi prima di tutto di avere la versione più recente di `pip` usando il comando seguente:
 

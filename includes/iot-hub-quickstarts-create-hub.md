@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666967"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288050"
 ---
 Il primo passaggio consiste nell'usare il portale di Azure per creare un hub IoT nella propria sottoscrizione. L'hub IoT consente di acquisire volumi elevati di dati di telemetria nel cloud da molti dispositivi. L'hub abilita quindi la lettura ed elaborazione di tali dati da parte di uno o più servizi back-end in esecuzione nel cloud.
 
@@ -27,7 +27,7 @@ Il primo passaggio consiste nell'usare il portale di Azure per creare un hub IoT
 
    * **Sottoscrizione**: scegliere la sottoscrizione da usare per creare questo hub IoT.
 
-   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare l'hub IoT o usarne uno esistente. Per altre informazioni, vedere l'articolo su come [usare i gruppi di risorse per gestire le risorse di Azure][lnk-resource-groups].
+   * **Gruppo di risorse**: creare un gruppo di risorse per ospitare l'hub IoT o usarne uno esistente. Inserendo tutte le risorse correlate in un gruppo è possibile gestirle insieme. Ad esempio, con l'eliminazione del gruppo di risorse vengono eliminate tutte le risorse contenute in quel gruppo. Per altre informazioni, vedere l'articolo su come [usare i gruppi di risorse per gestire le risorse di Azure][lnk-resource-groups].
 
    * **Area**: selezionare la località più vicina.
 

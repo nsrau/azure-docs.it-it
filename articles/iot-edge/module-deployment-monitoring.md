@@ -1,20 +1,19 @@
 ---
 title: Distribuire i moduli per Azure IoT Edge | Microsoft Docs
 description: Informazioni sulle modalità di distribuzione dei moduli nei dispositivi perimetrali
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166336"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725327"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala - Anteprima
 
@@ -26,7 +25,7 @@ I dispositivi Azure IoT Edge seguono un [ciclo di vita del dispositivo][lnk-life
 
 Azure IoT Edge offre due modi per configurare i moduli da eseguire su dispositivi IoT Edge: uno per lo sviluppo e le iterazioni veloce in un singolo dispositivo (quello usato nelle esercitazioni per Azure IoT Edge) e uno per la gestione di grandi quantità di dispositivi IoT Edge. Entrambi gli approcci sono disponibili nel portale di Azure e a livello di codice.
 
-Questo articolo è incentrato sulle fasi di configurazione e monitoraggio per grandi quantità di dispositivi, collettivamente indicate come distribuzioni IoT Edge. I passaggi per la distribuzione nel suo complesso sono i seguenti:   
+Questo articolo è incentrato sulle fasi di configurazione e monitoraggio per grandi quantità di dispositivi, collettivamente indicate come distribuzioni automatiche IoT Edge. I passaggi per la distribuzione nel suo complesso sono i seguenti:   
 
 1. Un operatore definisce una distribuzione che descrive un set di moduli, nonché i dispositivi di destinazione. Per ogni distribuzione esiste un manifesto della distribuzione che riporta queste informazioni. 
 1. Il servizio Hub IoT comunica con tutti i dispositivi di destinazione per configurarli con i moduli desiderati. 
@@ -37,7 +36,7 @@ Questo articolo descrive ogni componente coinvolto nella configurazione e nel mo
 
 ## <a name="deployment"></a>Distribuzione
 
-Una distribuzione assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti. Una distribuzione può essere assegnata a un singolo dispositivo (in genere in base all'ID del dispositivo) o a un gruppo di dispositivi (in base a tag). Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dei moduli dai repository corrispondenti, quindi li configura come specificato. Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.   
+Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti. Una distribuzione può essere assegnata a un singolo dispositivo (in genere in base all'ID del dispositivo) o a un gruppo di dispositivi (in base a tag). Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dei moduli dai repository corrispondenti, quindi li configura come specificato. Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.   
 
 È necessario eseguire il provisioning dei dispositivi come dispositivi IoT Edge perché sia possibile configurarli con una distribuzione. Di seguito sono riportati i prerequisiti, non inclusi nella distribuzione:
 * Sistema operativo di base
