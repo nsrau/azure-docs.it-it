@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4148370828f4ac2b7e75b49ed13cf1d1dafb8844
+ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196560"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35719444"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Recuperare il nome dell'host, le porte e le chiavi di accesso usando il portale di Azure
+### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Recuperare il nome dell'host, le porte e le chiavi di accesso usando il portale di Azure
 
 Per connettersi a un'istanza Cache Redis di Azure, è necessario specificare il nome host, le porte e le chiavi della cache. Alcuni client possono fare riferimento a questi elementi usando nomi leggermente diversi. Queste informazioni possono essere recuperate nel portale di Azure.
 
-Per recuperare le chiavi di accesso tramite il [portale di Azure](https://portal.azure.com), individuare la cache e fare clic su **Chiavi di accesso**. 
+#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Per recuperare le chiavi di accesso e il nome host
 
-![Chiavi cache Redis](media/redis-cache-access-keys/redis-cache-keys.png)
+1. Per recuperare le chiavi di accesso tramite il [portale di Azure](https://portal.azure.com), individuare la cache e selezionare **Chiavi di accesso**. 
 
-Per recuperare il nome host e le porte, fare clic su **Proprietà**.
+    ![Chiavi di Cache Redis di Azure](media/redis-cache-access-keys/redis-cache-keys.png)
 
-![Proprietà della Cache Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+2. Per recuperare il nome host e le porte, selezionare **Proprietà**.
+
+    ![Proprietà di Cache Redis di Azure](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

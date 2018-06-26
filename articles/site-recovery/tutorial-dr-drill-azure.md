@@ -5,38 +5,39 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737107"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286580"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
+In questo articolo viene illustrato come eseguire un'analisi del ripristino di emergenza per un computer locale in Azure tramite un failover di test. Un'analisi convalida la strategia di replica senza perdita di dati.
 
-- Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali. Si presuppone che siano state completate le prime due esercitazioni:
+Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali.
+
+Per questa esercitazione si presuppone che siano state completate le prime tre esercitazioni: 
     - Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati configurati i componenti di Azure necessari per il ripristino di emergenza di VMware.
     - Nella [seconda esercitazione](vmware-azure-tutorial-prepare-on-premises.md) sono stati preparati i componenti locali per il ripristino di emergenza e sono stati esaminati i prerequisiti.
     - Nella [terza esercitazione](vmware-azure-tutorial.md) è stata configurata e abilitata la replica per la macchina virtuale VMware locale.
-- Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. 
+- Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Tutte le esercitazioni configurano Site Recovery con le impostazioni più semplici, usando le impostazioni predefinite, dove appropriato. Per informazioni più dettagliate sui passaggi del failover di test, leggere la [guida alle procedure](site-recovery-test-failover-to-azure.md).
 
-
-In questo articolo viene illustrato come eseguire un'analisi del ripristino di emergenza per un computer locale in Azure tramite un failover di test. Un'analisi convalida la strategia di replica senza perdita di dati. È possibile passare agli argomenti seguenti:
+In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Configurare una rete isolata per il failover di test
 > * Preparare la connessione alla macchina virtuale di Azure dopo il failover
 > * Eseguire un failover di test per un singolo computer
 
-Questa esercitazione consente di configurare il ripristino di emergenza di VMware in Azure con le impostazioni più semplici. Per informazioni più dettagliate sui passaggi del failover di test, leggere la [guida alle procedure](site-recovery-test-failover-to-azure.md).
+Questa esercitazione
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
-Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale VMware e assicurarsi che la macchina virtuale Hyper-V [hyper-v-azure-support-matrix.md#replicated-vms], la [macchina virtuale VMware o il server fisico](vmware-physical-azure-support-matrix.md#replicated-machines) sia conforme ai requisiti di Azure.
+Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale VMware e assicurarsi che la [macchina virtuale Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms), la [macchina virtuale VMware o il server fisico](vmware-physical-azure-support-matrix.md#replicated-machines) sia conforme ai requisiti di Azure.
 
 1. In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale.
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.

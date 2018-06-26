@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312696"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267575"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 Questa è la prima di una serie di esercitazioni.  Illustra come creare un'applicazione di Azure Service Fabric con un front-end API Web ASP.NET Core e un servizio back-end con stato per archiviare i dati. Al termine, sarà disponibile un'applicazione di voto con un front-end Web ASP.NET Core che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) per l'applicazione completata e passare direttamente alla [Descrizione dettagliata dell'applicazione di voto di esempio](#walkthrough_anchor).  Se si preferisce, è anche possibile guardare una [procedura dettagliata video](https://channel9.msdn.com/Events/Connect/2017/E100) di questa esercitazione.
@@ -74,9 +74,21 @@ Per prima cosa, creare il front-end Web dell'applicazione di voto usando ASP.NET
    ![Esplora soluzioni dopo la creazione dell'applicazione con il servizio API Web ASP.NET Core]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>Aggiungere AngularJS al servizio VotingWeb
-Aggiungere [AngularJS](http://angularjs.org/) al servizio usando il [supporto per Bower](/aspnet/core/client-side/bower). Per prima cosa, aggiungere un file di configurazione Bower al progetto.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **VotingWeb** e scegliere **Aggiungi->Nuovo elemento**. Selezionare **Web** e quindi **File di configurazione Bower**.  Verrà creato il file *bower.json*.
+Aggiungere [AngularJS](http://angularjs.org/) al servizio usando il [supporto per Bower](/aspnet/core/client-side/bower). Per prima cosa, aggiungere un file di impostazioni *.bowerrc* al progetto.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **VotingWeb** e scegliere **Aggiungi->Nuovo elemento**. Selezionare **C#** e quindi **File JSON**.  Immettere **.bowerrc** nel campo *Nome* e fare clic su **Aggiungi**.
 
-Aprire *bower.json* e aggiungere le voci appropriate per Angular e Angular-Bootstrap e quindi salvare le modifiche.
+Aprire *.bowerrc* e sostituire il contenuto con quanto segue, per indicare che Bower installerà gli asset dei pacchetti nella directory *wwwroot/lib*.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Salvare le modifiche al file *.bowerrc*.  Verrà creato un file *.bowerrc* nel progetto.  
+
+Aggiungere quindi un file di configurazione Bower al progetto.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **VotingWeb** e scegliere **Aggiungi->Nuovo elemento**. Selezionare **C#** e quindi **File JSON**.  Immettere **bower.json** nel campo *Nome* e fare clic su **Aggiungi**.
+
+Aprire *bower.json*, sostituire il contenuto con le voci seguenti per Angular e Angular-Bootstrap e quindi salvare le modifiche.
 
 ```json
 {
@@ -92,7 +104,8 @@ Aprire *bower.json* e aggiungere le voci appropriate per Angular e Angular-Boots
   }
 }
 ```
-Durante il salvataggio del file *bower.json*, Angular viene installato nella cartella *wwwroot/lib* del progetto. Viene anche elencato nella cartella *Dependencies/Bower*.
+
+Durante il salvataggio del file *bower.json*, grazie al supporto di Visual Studio per Bower, Angular viene installato nella cartella *wwwroot/lib* del progetto. Viene anche elencato nella cartella *Dependencies/Bower*.
 
 ### <a name="update-the-sitejs-file"></a>Aggiornare il file site.js
 Aprire il file *wwwroot/js/site.js*.  Sostituirne il contenuto con il codice JavaScript usato dalle visualizzazioni Home:

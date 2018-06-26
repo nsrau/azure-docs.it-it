@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 02/01/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: ea70d6053f12c33d9c3ff4c69f22a41130c783e4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69c0661f515f062a6a99b0692130d52eb23d20d6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171078"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285900"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creare una data factory usando l'interfaccia utente di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -70,7 +70,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
    
    ![Home page della data factory, con il riquadro "Crea e monitora"](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
-10. Nella pagina **Attività iniziali** passare alla scheda **Modifica** nel pannello a sinistra. 
+10. Nella pagina **Attività iniziali** passare alla scheda **Autore** nel pannello sinistro. 
 
     ![Pagina "Attività iniziali"](./media/quickstart-create-data-factory-portal/get-started-page.png)
 
@@ -82,7 +82,7 @@ In questa procedura viene creato un servizio collegato per collegare l'account d
    ![Pulsanti per la creazione di una nuova connessione](./media/quickstart-create-data-factory-portal/new-connection-button.png)    
 2. Nella pagina **New Linked Service** (Nuovo servizio collegato) selezionare **Archiviazione BLOB di Azure** e quindi **Continua**. 
 
-   ![Selezione del riquadro "Archiviazione BLOB di Azure"](./media/quickstart-create-data-factory-portal/select-azure-storage.png)
+   ![Selezione del riquadro "Archiviazione BLOB di Azure"](./media/quickstart-create-data-factory-portal/select-azure-blob-linked-service.png)
 3. Completare questi passaggi: 
 
    a. Per **Nome** immettere **AzureStorageLinkedService**.
@@ -94,9 +94,6 @@ In questa procedura viene creato un servizio collegato per collegare l'account d
    d. Selezionare **Salva** per salvare il servizio collegato. 
 
    ![Impostazioni del servizio collegato Archiviazione di Azure](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
-4. Assicurarsi che **AzureStorageLinkedService** sia visualizzato nell'elenco di servizi collegati. 
-
-   ![Servizio collegato di archiviazione di Azure nell'elenco](./media/quickstart-create-data-factory-portal/azure-storage-linked-service-in-list.png)
 
 ## <a name="create-datasets"></a>Creare set di dati
 In questa procedura vengono creati due set di dati, **InputDataset** e **OutputDataset**. I set di dati sono di tipo **AzureBlob**. Fanno riferimento al servizio collegato Archiviazione di Azure creato nella sezione precedente. 
@@ -112,19 +109,18 @@ Nelle impostazioni del servizio collegato è stato specificato l'account di arch
    ![Menu per la creazione di un set di dati](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
 2. Nella pagina **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e quindi selezionare **Fine**. 
 
-   ![Selezione di "Archiviazione BLOB di Azure"](./media/quickstart-create-data-factory-portal/select-azure-blob-storage.png)
-3. Nella finestra **Proprietà** per il set di dati immettere **InputDataset** per **Nome**. 
+   ![Selezione di "Archiviazione BLOB di Azure"](./media/quickstart-create-data-factory-portal/select-azure-blob-dataset.png)
+3. Nella scheda **Generale** per il set di dati immettere **InputDataset** per **Nome**. 
 
-   ![Impostazioni generali del set di dati](./media/quickstart-create-data-factory-portal/dataset-general-page.png)
 4. Passare alla scheda **Connessione** e completare questa procedura: 
 
-   a. Per **Servizio collegato** selezionare **AzureStorageLinkedService**.
+    a. Per **Servizio collegato** selezionare **AzureStorageLinkedService**.
 
-   b. Per **Percorso file** selezionare il pulsante **Sfoglia**.
+    b. Per **Percorso file** selezionare il pulsante **Sfoglia**.
 
-      ![Scheda "Connessione" e pulsante "Sfoglia"](./media/quickstart-create-data-factory-portal/file-path-browse-button.png) c. Nella finestra **Choose a file or folder** (Scegliere un file o una cartella) passare alla cartella di **input** nel contenitore **adftutorial**, selezionare il file **emp.txt** e quindi selezionare **Fine**.
+    ![Scheda "Connessione" e pulsante "Sfoglia"](./media/quickstart-create-data-factory-portal/file-path-browse-button.png) c. Nella finestra **Choose a file or folder** (Scegliere un file o una cartella) passare alla cartella di **input** nel contenitore **adftutorial**, selezionare il file **emp.txt** e quindi selezionare **Fine**.
 
-      ![Sfogliare per selezionare il file di input](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
+    ![Sfogliare per selezionare il file di input](./media/quickstart-create-data-factory-portal/choose-file-folder.png)
     
    d. (Facoltativo) Selezionare **Anteprima dati** per visualizzare l'anteprima dei dati nel file emp.txt.     
 5. Ripetere la procedura per creare il set di dati di output:  
@@ -133,15 +129,9 @@ Nelle impostazioni del servizio collegato è stato specificato l'account di arch
 
    b. Nella pagina **Nuovo set di dati** selezionare **Archiviazione BLOB di Azure** e quindi selezionare **Fine**.
 
-   c. Specificare **OutputDataset** per il nome.
+   c. Nella tabella **Generale** specificare **OutputDataset** per il nome.
 
-   d. Immettere **adftutorial/output** per la cartella. Se la cartella **output** non esiste, l'attività di copia la crea in fase di esecuzione.
-
-   e. Immettere `@CONCAT(pipeline().RunId, '.txt')` per il nome del file. 
-   
-      Ogni volta che si esegue una pipeline, l'esecuzione della pipeline è associata a un ID univoco. L'espressione concatena l'ID di esecuzione della pipeline con l'estensione **.txt** per valutare il nome del file di output. Per l'elenco delle variabili di sistema e delle espressioni supportate, vedere [Variabili di sistema](control-flow-system-variables.md) e [Linguaggio delle espressioni](control-flow-expression-language-functions.md).
-
-   ![Impostazioni del set di dati di output](./media/quickstart-create-data-factory-portal/output-dataset-settings.png)
+   d. In **Connessione** selezionare **AzureStorageLinkedService** come servizio collegato, quindi immettere **adftutorial/output** per la cartella. Se la cartella **output** non esiste, l'attività di copia la crea in fase di esecuzione.
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline 
 In questa procedura viene creata e convalidata una pipeline con un'attività di copia che usa i set di dati di input e di output. Con l'attività di copia i dati vengono copiati dal file specificato nelle impostazioni del set di dati di input al file specificato nelle impostazioni del set di dati di output. Se il set di dati di input specifica solo una cartella, non il nome file, con l'attività di copia tutti i file della cartella di origine vengono copiati nella destinazione. 
@@ -149,45 +139,33 @@ In questa procedura viene creata e convalidata una pipeline con un'attività di 
 1. Selezionare il pulsante **+** (segno più) e quindi selezionare **Pipeline**. 
 
    ![Menu per la creazione di una nuova pipeline](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
-2. Nella finestra **Proprietà** specificare **CopyPipeline** per **Nome**. 
+2. Nella scheda **Generale** specificare **CopyPipeline** per **Nome**. 
 
-   ![Impostazioni generali della pipeline](./media/quickstart-create-data-factory-portal/pipeline-general-settings.png)
 3. Nella casella degli strumenti **Attività** espandere **Flusso di dati**. Trascinare l'attività **Copia** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. È anche possibile eseguire una ricerca di attività nella casella degli strumenti **Attività**. Specificare **CopyFromBlobToBlob** per **Nome**.
 
    ![Impostazioni generali dell'attività Copia](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 4. Passare alla scheda **Origine** nelle impostazioni dell'attività Copia e selezionare **InputDataset** per **Source Dataset** (Set di dati di origine).
 
-   ![Impostazioni dell'origine dell'attività Copia](./media/quickstart-create-data-factory-portal/copy-activity-source-settings.png)    
 5. Passare alla scheda **Sink** nelle impostazioni dell'attività Copia e selezionare **OutputDataset** per **Sink Dataset** (Set di dati sink).
 
-   ![Impostazioni del sink dell'attività Copia](./media/quickstart-create-data-factory-portal/copy-activity-sink-settings.png)    
-7. Selezionare **Convalida** per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output della convalida, selezionare il pulsante **>>** (freccia destra). 
+6. Fare clic su **Convalida** sulla barra degli strumenti della pipeline sopra l'area di disegno per convalidare le impostazioni della pipeline. Assicurarsi che la pipeline sia stata convalidata correttamente. Per chiudere l'output della convalida, selezionare il pulsante **>>** (freccia destra). 
 
-   ![Convalidare la pipeline](./media/quickstart-create-data-factory-portal/pipeline-validate-button.png)
+## <a name="debug-the-pipeline"></a>Eseguire il debug della pipeline
+In questo passaggio viene eseguito il debug della pipeline prima della distribuzione in Data Factory. 
 
-## <a name="test-run-the-pipeline"></a>Eseguire test della pipeline
-In questo passaggio vengono eseguiti test della pipeline prima della distribuzione in Data Factory. 
-
-1. Sulla barra degli strumenti per la pipeline selezionare **Esecuzione dei test**. 
+1. Nella barra degli strumenti della pipeline sopra l'area di disegno fare clic su **Debug** per attivare un'esecuzione dei test. 
     
-   ![Esecuzioni dei test della pipeline](./media/quickstart-create-data-factory-portal/pipeline-test-run.png)
-2. Assicurarsi che sia visualizzato lo stato dell'esecuzione della pipeline nella scheda **Output** delle impostazioni della pipeline. 
+2. Assicurarsi che sia visualizzato lo stato dell'esecuzione della pipeline nella scheda **Output** delle impostazioni della pipeline nella parte inferiore. 
 
-   ![Output dell'esecuzione dei test](./media/quickstart-create-data-factory-portal/test-run-output.png)    
 3. Assicurarsi che venga visualizzato un file di output nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
-    
-   ![Verificare l'output](./media/quickstart-create-data-factory-portal/verify-output.png)
-
 
 ## <a name="trigger-the-pipeline-manually"></a>Attivare manualmente la pipeline
 In questa procedura vengono distribuite entità (servizi collegati, set di dati, pipeline) in Azure Data Factory. Viene quindi attivata manualmente un'esecuzione della pipeline. È anche possibile pubblicare entità nel proprio repository Git per Visual Studio Team Services. Questa procedura è illustrata in un'[altra esercitazione](tutorial-copy-data-portal.md?#configure-code-repository).
 
-1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica tutti** nel riquadro a sinistra. 
+1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica tutti** nella parte superiore. 
 
    ![Pulsante Publish](./media/quickstart-create-data-factory-portal/publish-button.png)
-2. Per attivare manualmente la pipeline, selezionare **Trigger** sulla barra degli strumenti e quindi selezionare **Trigger Now** (Attiva adesso). 
-    
-   ![Comando "Trigger Now" (Attiva adesso)](./media/quickstart-create-data-factory-portal/pipeline-trigger-now.png)
+2. Per attivare manualmente la pipeline, selezionare **Trigger** sulla barra degli strumenti della pipeline e quindi selezionare **Trigger Now** (Attiva adesso). 
 
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 
@@ -206,15 +184,12 @@ In questa procedura vengono distribuite entità (servizi collegati, set di dati,
 ## <a name="trigger-the-pipeline-on-a-schedule"></a>Attivare la pipeline in base a una pianificazione
 La procedura è facoltativa in questa esercitazione. È possibile creare un *trigger di pianificazione* per pianificare l'esecuzione periodica (ogni ora, ogni giorno e così via) della pipeline. In questa procedura viene creato un trigger per l'esecuzione ogni minuto fino alla data e ora di fine specificate. 
 
-1. Passare alla scheda **Modifica**. 
+1. Passare alla scheda **Autore**. 
 
-   ![Pulsante Modifica](./media/quickstart-create-data-factory-portal/switch-edit-tab.png)
-1. Scegliere **Trigger** dal menu e quindi selezionare **New/Edit** (Nuovo/Modifica). 
+2. Passare alla pipeline, selezionare **Trigger** sulla barra degli strumenti della pipeline e quindi selezionare **New/Edit** (Nuovo/Modifica). 
 
-   ![Menu per il nuovo trigger](./media/quickstart-create-data-factory-portal/new-trigger-menu.png)
 2. Nella pagina **Add Triggers** (Aggiungi trigger) selezionare **Choose trigger** (Scegli trigger) e quindi selezionare **Nuovo**. 
 
-   ![Selezioni per l'aggiunta di un nuovo trigger](./media/quickstart-create-data-factory-portal/add-trigger-new-button.png)
 3. Nella pagina **Nuovo trigger** in **Fine** selezionare **On Date** (In data), specificare un'ora di fine successiva di qualche minuto all'ora corrente e quindi selezionare **Applica**. 
 
    Per ogni esecuzione della pipeline sono previsti costi, quindi specificare un'ora di fine successiva di qualche minuto all'ora di inizio. Assicurarsi che si tratti dello stesso giorno. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente. 
@@ -228,7 +203,6 @@ La procedura è facoltativa in questa esercitazione. È possibile creare un *tri
    ![Avviso e pulsante "Fine"](./media/quickstart-create-data-factory-portal/new-trigger-finish.png)
 6. Selezionare **Pubblica tutti** per pubblicare le modifiche in Data Factory. 
 
-   ![Pulsante Publish](./media/quickstart-create-data-factory-portal/publish-button.png)
 8. Passare alla scheda **Monitoraggio** a sinistra. Selezionare **Aggiorna** per aggiornare l'elenco. La pipeline viene eseguita una volta al minuto a partire dall'ora di pubblicazione fino all'ora di fine. 
 
    Notare i valori della colonna **Attivato da**. L'esecuzione manuale del trigger è stata generata dal passaggio precedente, ovvero **Trigger Now** (Attiva adesso). 
