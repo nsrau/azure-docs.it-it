@@ -1,0 +1,98 @@
+- name: Documentazione di Ricerca Web Bing
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Ricerca Web Bing
+      href: overview.md
+- name: Guide introduttive per l'API REST
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Go
+      href: quickstarts/go.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Guide introduttive per SDK
+  items:
+    - name: Panoramica degli esempi di SDK
+      href: sdk.md
+    - name: 'Guida introduttiva per Web Search SDK in C#'
+      href: web-search-sdk-quickstart.md
+    - name: Guida introduttiva per Web Search SDK in Node.js
+      href: web-search-sdk-node-quickstart.md
+    - name: Guida introduttiva per Web Search SDK in Python
+      href: web-sdk-python-quickstart.md
+    - name: Guida introduttiva per Web Search SDK in Java
+      href: web-sdk-java-quickstart.md
+- name: Esercitazioni
+  items:
+    - name: App Web a singola pagina
+      href: tutorial-bing-web-search-single-page-app.md
+    - name: App Web a singola pagina (codice sorgente)
+      href: tutorial-bing-web-search-single-page-app-source.md
+    - name: App per dispositivi mobili di Ricerca visiva
+      href: computer-vision-web-search-tutorial.md
+    - name: App per dispositivi mobili di Ricerca visiva (soluzione di Visual Studio)
+      href: 'https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/'
+      maintainContext: true
+- name: Esempi
+  items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search'
+- name: Guide alle procedure
+  items:
+    - name: Usare e visualizzare i risultati
+      href: UseAndDisplayRequirements.md
+    - name: Filtrare le risposte
+      href: filter-answers.md
+    - name: Classificare i risultati
+      href: rank-results.md
+    - name: Gestire l'evidenziazione dei risultati
+      href: hit-highlighting.md
+    - name: Sfogliare i risultati
+      href: paging-webpages.md
+    - name: Ridimensionare e ritagliare le anteprime
+      href: resize-and-crop-thumbnails.md
+    - name: Aggiornamento da v5 a v7
+      href: bing-web-upgrade-guide-v5-to-v7.md
+- name: Riferimenti
+  items:
+    - name: API Ricerca Web Bing v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
+    - name: API Ricerca Web Bing v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: bing-web-search-resource-faq.md
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+web+search'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: Ottenere una chiave API
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+    - name: Prova
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/'
+    - name: Endpoint di Ricerca Web Bing
+      href: web-search-endpoints.md
+    - name: Paesi e mercati supportati
+      href: supported-countries-markets.md
+    - name: Analisi per l'API Ricerca Web Bing
+      href: bing-web-stats.md

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: a38729c266a4dd214c3de97c6b9d92df6ed2dd96
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735120"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260455"
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
 
@@ -89,9 +89,7 @@ Per altre informazioni, vedere [Progetto di libreria di classi per Funzioni](fun
 
 ## <a name="configure-the-project-for-local-development"></a>Configurare il progetto per lo sviluppo locale
 
-Il runtime di Funzioni usa un account di archiviazione di Azure internamente. Per tutti i tipi di trigger diversi da HTTP e dai webhook, è necessario impostare la chiave **Values.AzureWebJobsStorage** su una stringa di connessione di account di archiviazione di Azure valida. 
-
-[!INCLUDE [Note on local storage](../../includes/functions-local-settings-note.md)]
+Il runtime di Funzioni usa un account di archiviazione di Azure internamente. Per tutti i tipi di trigger diversi da HTTP e dai webhook, è necessario impostare la chiave **Values.AzureWebJobsStorage** su una stringa di connessione di account di archiviazione di Azure valida. L'app per le funzioni può usare anche l'[Emulatore di archiviazione di Azure](../storage/common/storage-use-emulator.md) per le impostazioni di connessione **AzureWebJobsStorage** necessarie per il progetto. Per usare l'emulatore, impostare il valore **AzureWebJobsStorage** su `UseDevelopmentStorage=true`. È necessario modificare questa impostazione per una connessione di archiviazione effettiva prima della distribuzione.
 
 Per impostare la stringa di connessione dell'account di archiviazione:
 
@@ -99,7 +97,7 @@ Per impostare la stringa di connessione dell'account di archiviazione:
 
 2. Nel progetto aprire il file local.settings.json e impostare il valore della chiave **AzureWebJobsStorage** sulla stringa di connessione copiata.
 
-3. Ripetere il passaggio precedente per aggiungere chiavi univoche alla matrice **Values** per tutte le altre connessioni richieste dalle funzioni.
+3. Ripetere il passaggio precedente per aggiungere chiavi univoche alla matrice di **Valori** per tutte le altre connessioni richieste dalle funzioni.
 
 ## <a name="create-a-function"></a>Creare una funzione
 
@@ -111,7 +109,7 @@ Nelle funzioni precompilate le associazioni usate dalla funzione sono definite t
 
     ![Creare una funzione attivata da una coda](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    Questo esempio di trigger usa una stringa di connessione con una chiave denominata **QueueStorage**. Questa impostazione della stringa di connessione deve essere definita nel file local.settings.json.
+    Questo esempio di trigger usa una stringa di connessione con una chiave denominata **QueueStorage**. Questa impostazione della stringa di connessione deve essere definita nel file [local.settings.json](functions-run-local.md#local-settings-file).
 
 3. Si esamini la classe appena aggiunta. Si vede un metodo **Run** statico a cui è associato l'attributo **FunctionName**. Questo attributo indica che il metodo è il punto di ingresso per la funzione.
 

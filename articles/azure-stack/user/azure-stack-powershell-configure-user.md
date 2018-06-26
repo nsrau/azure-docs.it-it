@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/15/2018
 ms.author: mabrigg
 ms.reviewer: Balsu.G
-ms.openlocfilehash: 2655b682d35dd1879c649ed58d524ecd80808896
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bcd1c53221028a852550fa429abcb9f8e9523ed4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258023"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752422"
 ---
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurare l'ambiente di PowerShell dell'utente Azure Stack
 
@@ -36,7 +36,7 @@ Dopo aver configurato l'ambiente, è possibile utilizzare PowerShell per gestire
 
 È possibile configurare questi prerequisiti dal [kit di sviluppo](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o da un client esterno con codifica basata su Windows se sono [connessi tramite VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Installare [moduli di PowerShell Azure compatibile Stack Azure](azure-stack-powershell-install.md).
+* Installare [i moduli di PowerShell Azure compatibile con Stack Azure](azure-stack-powershell-install.md).
 * Scaricare il [gli strumenti necessari per lavorare con Azure Stack](azure-stack-powershell-download.md).
 
 ## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configurare l'ambiente utente e accedere a Azure Stack
@@ -46,7 +46,6 @@ In base al tipo di distribuzione dello Stack di Azure (Azure Active Directory o 
 Assicurarsi di sostituire le seguenti variabili di script con i valori dalla configurazione dello Stack di Azure:
 
 * TenantName AAD
-* Endpoint GraphAudience
 * ArmEndpoint
 
 ### <a name="azure-active-directory-aad-based-deployments"></a>Distribuzioni basate su Azure Active Directory (AAD)
@@ -59,18 +58,10 @@ Assicurarsi di sostituire le seguenti variabili di script con i valori dalla con
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `
@@ -93,19 +84,10 @@ Assicurarsi di sostituire le seguenti variabili di script con i valori dalla con
   # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
-  # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
-  $GraphAudience = "<GraphAudience endpoint for your environment>"
-
   # Register an AzureRM environment that targets your Azure Stack instance
   Add-AzureRMEnvironment `
     -Name "AzureStackUser" `
     -ArmEndpoint $ArmEndpoint
-
-  # Set the GraphEndpointResourceId value
-  Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
 
   # Get the Active Directory tenantId that is used to deploy Azure Stack
   $TenantID = Get-AzsDirectoryTenantId `

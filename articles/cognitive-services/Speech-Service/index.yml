@@ -1,0 +1,189 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione del Servizio di riconoscimento vocale (anteprima)
+metadata:
+  title: 'Documentazione del Servizio di riconoscimento vocale: esercitazioni, guide introduttive, informazioni di riferimento sulle API - Servizi cognitivi | Microsoft Docs'
+  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: speech-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/01/2018
+  ms.author: nolachar
+  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
+  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35357497"
+abstract:
+  description: Il Servizio di riconoscimento vocale Microsoft con il relativo SDK offre agli sviluppatori un modo semplice per creare funzioni vocali avanzate nelle applicazioni, come comandi vocali, trascrizione e dettatura. Cortana, Microsoft Office e altri usano la stessa tecnologia. Un elemento chiave che differenzia il Servizio di riconoscimento vocale Microsoft è la possibilità di personalizzare i modelli acustici e linguistici del <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">riconoscimento vocale</a> per vocabolari specifici, ambienti rumorosi e per i diversi modi di parlare. Sono anche disponibili funzioni personalizzate di <a href="http://aka.ms/customvoice">sintesi vocale</a> e <a href="http://aka.ms/customtranslator">traduzione vocale</a>.<br/><br/>Speech SDK è disponibile per più piattaforme in diversi linguaggi di programmazione, per consentire la gestione live dei microfoni, lo streaming in tempo reale o la comunicazione file basata su batch, a seconda delle esigenze applicative.
+sections:
+- title: Guide introduttive di 10 minuti - Nuovi SDK
+  items:
+  - type: paragraph
+    text: 'Informazioni su come installare e usare Speech SDK con le guide introduttive:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_cplusplus.svg
+    - image:
+        src: media/index/logo_java.jpg
+    rows:
+    - title: Windows
+      values:
+      - href: quickstart-csharp-windows
+      - href: cpp-windows
+      - href: 
+    - title: Linux
+      values:
+      - href: 
+      - href: cpp-linux
+      - href: 
+    - title: Devices SDK (Android)
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+- title: Esempi e informazioni di riferimento
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Esempi
+      html: <ul><li><a href="speech-to-text-sample.md">Riconoscimento vocale</a></li><li><a href="intent.md">Riconoscimento finalità</a></li><li><a href="translation.md">Traduzione</a></li></ul>
+    - title: Informazioni di riferimento sulle API
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C#</a></li><li><a href="https://aka.ms/csspeech/cppref">API C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java (Devices SDK)</a></li></ul>
+- title: Riconoscimento vocale
+  items:
+  - type: paragraph
+    text: Speech SDK supporta il <b>riconoscimento vocale</b>.  Speech SDK trascrive i flussi audio in testo che l'applicazione può accettare come input. L'applicazione può quindi, ad esempio, inserire il testo in un documento o agire su di esso come comando.
+  - type: paragraph
+    text: Di seguito sono riportati casi d'uso comuni per il <b>riconoscimento vocale</b> tramite Speech SDK.
+  - type: list
+    style: unordered
+    items:
+    - text: Riconoscere un'espressione breve, ad esempio un comando, senza risultati temporanei.
+    - text: Trascrivere un'espressione lunga e registrata in precedenza, ad esempio un messaggio vocale.
+    - text: Trascrivere il parlato in tempo reale, con risultati parziali, per la dettatura.
+    - text: Determinare le finalità degli utenti in base a una richiesta in linguaggio naturale vocale.
+  - type: paragraph
+    text: Speech SDK supporta la trascrizione vocale interattiva con risultati in tempo reale continui e temporanei di <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">riconoscimento vocale</a>. Supporta anche il rilevamento della fine del discorso, l'uso automatico opzionale di lettere maiuscole e minuscole e della punteggiatura, il mascheramento di contenuto volgare e la normalizzazione del testo.
+  - type: paragraph
+    text: Un elemento chiave che differenzia il Servizio di riconoscimento vocale Microsoft è la possibilità di personalizzare i modelli acustici e linguistici del <a href="http://aka.ms/customspeech">riconoscimento vocale</a> per vocabolari specifici, ambienti rumorosi e per i diversi modi di parlare.
+- title: Traduzione vocale
+  items:
+  - type: paragraph
+    text: Speech SDK può essere usato anche per la <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">traduzione vocale</a>.  Con la <b>traduzione vocale</b> in streaming tramite Speech SDK, il servizio restituisce risultati temporanei che possono essere visualizzati all'utente per indicare lo stato di avanzamento della traduzione. I risultati possono essere restituiti sia in formato testuale che vocale.
+  - type: paragraph
+    text: "I casi d'uso della <b>traduzione vocale</b> tramite Speech SDK includono:"
+  - type: list
+    style: unordered
+    items:
+    - text: Implementare un'app per dispositivi mobili o un dispositivo di traduzione delle conversazioni per coloro che viaggiano.
+    - text: Fornire traduzioni automatiche per la sottotitolazione di registrazioni audio e video.
+  - type: paragraph
+    text: I modelli di <b>traduzione vocale</b> possono anche essere <a href="http://aka.ms/customtranslator"> personalizzati</a>.
+- title: Sintesi vocale
+  items:
+  - type: paragraph
+    text: La <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">sintesi vocale</a> è attualmente supportata tramite un'API REST che converte testo normale in parlato dal suono naturale che viene trasmesso all'applicazione in un file audio. Sono disponibili più voci, che variano per genere o accento, per molte lingue.
+  - type: paragraph
+    text: Speech SDK consente di accedere alle funzioni di riconoscimento vocale e di traduzione vocale. La sintesi vocale impiega chiamate REST POST su HTTP.
+  - type: paragraph
+    text: L'API REST <b>Sintesi vocale</b> supporta tag <b>Speech-Synthesis-Markup-Language</b> (SSML) che consentono di specificare la pronuncia fonetica esatta per le parole complesse. Il linguaggio SSML può anche indicare le caratteristiche del parlato (tra cui enfasi, velocità, volume, genere e intonazione) direttamente nel testo.
+  - type: paragraph
+    text: Se si vuole usare un dialetto non supportato o una voce particolare per l'applicazione, è possibile creare <a href="http://aka.ms/customvoice">caratteri voce</a> personalizzati dai propri campioni vocali.
+  - type: paragraph
+    text: "Di seguito sono riportati casi d'uso comuni per l'API REST <b>Sintesi vocale</b>:"
+  - type: list
+    style: unordered
+    items:
+    - text: Output vocale come output alternativo della schermata per utenti ipovedenti.
+    - text: Comandi vocali per le applicazioni usate in auto, come i navigatori.
+    - text: Interfacce utente di conversazione che interagiscono con l'API <b>Riconoscimento vocale</b>.
+- title: Speech Devices SDK
+  items:
+  - type: paragraph
+    text: Con l'introduzione del Servizio di riconoscimento vocale unificato, Microsoft e i suoi partner offrono ora una piattaforma hardware/software integrata ottimizzata per lo sviluppo di dispositivi con funzioni vocali, ovvero <b>Speech Devices SDK</b>. Questo SDK è adatto per lo sviluppo di dispositivi vocali intelligenti per tutti i tipi di applicazioni.
+  - type: paragraph
+    text: <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> consente di creare dispositivi per il proprio ambiente con una parola di attivazione personalizzata, esclusiva del proprio marchio, che attiva l'acquisizione audio. Offre inoltre un'eccellente elaborazione dell'audio di sorgenti multicanale per un riconoscimento vocale più accurato, con soppressione del rumore, voci in campo lontano e beamforming.
+- title: SDK meno recenti
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/uwp.jpg
+    - image:
+        src: media/index/logo_java.jpg
+    - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
+    rows:
+    - title: Windows
+      values:
+      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Android
+      values:
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: iOS
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
+- title: SDK in considerazione
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_swift.jpg
+    - image:
+        src: media/index/logo_gopher.svg
+    - image:
+        src: media/index/c.jpg
+    rows:
+    - title: SDK
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 

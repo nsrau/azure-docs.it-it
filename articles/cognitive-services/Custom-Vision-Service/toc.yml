@@ -1,0 +1,67 @@
+- name: Documentazione del Servizio visione artificiale personalizzato
+- name: Panoramica
+  items:
+    - name: Informazioni sul Servizio visione artificiale personalizzato
+      href: home.md
+- name: Guide alle procedure
+  items:
+    - name: Iniziare a usare il Servizio visione artificiale personalizzato
+      items:
+        - name: Creare un classificatore
+          href: getting-started-build-a-classifier.md
+        - name: Testare il modello
+          href: test-your-model.md
+        - name: Migliorare il classificatore
+          href: getting-started-improving-your-classifier.md
+        - name: Usare l'API Prediction
+          href: use-prediction-api.md
+        - name: Esportare il modello in dispositivi mobili
+          href: export-your-model.md
+        - name: Eseguire il modello TensorFlow in Python
+          href: export-model-python.md
+    - name: Compilare applicazioni
+      items:
+        - name: Classificazione immagini
+          items:
+            - name: 'Esercitazione per C#'
+              href: csharp-tutorial.md
+            - name: Esercitazione per Python
+              href: python-tutorial.md
+        - name: Rilevamento di oggetti
+          items:
+            - name: 'Esercitazione per C#'
+              href: csharp-tutorial-od.md
+            - name: Esercitazione per Python
+              href: python-tutorial-od.md
+- name: Riferimenti
+  items:
+    - name: API Training di Custom Vision
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: API Prediction di Custom Vision
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Limiti e quote
+      href: limits-and-quotas.md
+    - name: Glossario
+      href: glossary-of-terms.md
+    - name: SDK
+      items:
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Windows
+          href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
+- name: Risorse
+  items:
+    - name: Esempi
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/'
+    - name: Esportare o eliminare i dati dell'account
+      href: ./export-delete-data.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

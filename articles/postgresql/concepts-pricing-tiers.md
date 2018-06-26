@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272183"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756637"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "34272183"
 |:---|:----------|:--------------------|:---------------------|
 | Generazione di calcolo | Generazione 4, Generazione 5 | Generazione 4, Generazione 5 | Generazione 5 |
 | vCore | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| Memoria per vCore | Di base | 2x Basic | 2x Utilizzo generico |
+| Memoria per vCore | 2 GB | 5 GB | 10 GB |
 | Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 2 TB | Da 5 GB a 2 TB |
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Periodo di conservazione dei backup dei database | Da 7 a 35 giorni | Da 7 a 35 giorni | Da 7 a 35 giorni |
@@ -40,7 +40,7 @@ Per scegliere un piano tariffario, usare la tabella seguente come punto di parte
 Dopo aver creato un server, il numero di vCore può essere aumentato o ridotto (all'interno dello stesso piano tariffario) in pochi secondi. È anche possibile aumentare autonomamente lo spazio di archiviazione e aumentare o ridurre il periodo di conservazione dei backup senza tempi di inattività per le applicazioni. Non è possibile modificare il piano tariffario o il tipo di archiviazione dei backup dopo aver creato il server. Per altre informazioni, vedere la sezione [Ridimensionare le risorse](#scale-resources).
 
 
-## <a name="compute-generations-vcores-and-memory"></a>Generazioni di calcolo, vCore e memoria
+## <a name="compute-generations-and-vcores"></a>Generazioni di calcolo e vCore
 
 Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logica dell'hardware sottostante. Attualmente, è possibile scegliere tra due generazioni di calcolo: Generazione 4 e Generazione 5. Le CPU logiche Generazione 4 si basano sui processori Intel E5-2673 v3 (Haswell) a 2,4 GHz. Le CPU logiche Generazione 5 si basano sui processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. Generazione 4 e Generazione 5 sono disponibili nelle aree seguenti ("X" indica la disponibilità). 
 
@@ -64,14 +64,12 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Asia sudorientale | X | X |
 | Australia orientale |  | X |
 | Australia sudorientale |  | X |
-| India centrale | X |  |
-| India occidentale | X |  |
+| India centrale | X | X |
+| India occidentale | X | X |
 | India meridionale |  | X |
 | Giappone orientale | X | X |
 | Giappone occidentale | X | X |
-| Corea meridionale |  | X |
-
-A seconda del piano tariffario, il provisioning di ogni vCore viene effettuato con una quantità di memoria specifica. Quando si aumenta o diminuisce il numero di vCore per il server, la memoria aumenta o diminuisce proporzionalmente. Il piano Utilizzo generico fornisce il doppio della memoria per ogni vCore rispetto al piano Basic. Il piano Con ottimizzazione per la memoria fornisce il doppio della memoria rispetto al piano Utilizzo generico.
+| Corea del Sud meridionale |  | X |
 
 ## <a name="storage"></a>Archiviazione
 

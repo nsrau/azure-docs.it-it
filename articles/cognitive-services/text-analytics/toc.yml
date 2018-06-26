@@ -1,0 +1,69 @@
+- name: Documentazione del'API Analisi del testo
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sull'API Analisi del testo
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Esercitazioni
+  items:
+    - name: Analisi del testo con Power BI
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Analisi del testo in Power Apps
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
+- name: Guide alle procedure
+  items:
+    - name: Iscrizione
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: Ottenere una chiave di accesso
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: Chiamare l'API Analisi del testo
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: Rileva lingua
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: Analizzare la valutazione
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: Estrarre le frasi chiave
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+    - name: Riconoscere le entità collegate
+      href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Utilizzo di Visual Studio
+      items:
+        - name: Usare il servizio connesso di Analisi del testo
+          href: vs-text-connected-service.md
+- name: Riferimenti
+  items:
+    - name: API Analisi del testo
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: text-analytics-resource-faq.md
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: Lingue supportate
+      href: text-analytics-supported-languages.md
+    - name: Chiave della sottoscrizione
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
+    - name: Contenuto esterno e della community
+      href: text-analytics-resource-external-community.md
+    - name: Prova
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
