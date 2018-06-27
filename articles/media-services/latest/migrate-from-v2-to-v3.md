@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659528"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292046"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Eseguire la migrazione di Servizi multimediali dalla versione 2 alla versione 3
 
@@ -50,6 +50,10 @@ In questo articolo vengono descritte le modifiche introdotte nella versione 3 di
 
 ## <a name="changes-from-v2"></a>Modifiche rispetto a v2
 
+* In Servizi multimediali versione 3, la crittografia di archiviazione (crittografia AES-256) è supportata per la compatibilità con le versioni precedenti solo se gli asset sono stati creati con Servizi multimediali versione 2. In altre parole, la versione 3 funziona con asset con crittografia di archiviazione esistenti, ma non consente la creazione di nuovi asset di questo tipo.
+
+    Per gli asset creati con la versione 3, Servizi multimediali supporta la crittografia di archiviazione lato server di [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+    
 * Gli SDK di Servizi multimediali sono stati separati da Storage SDK, per offrire maggiore controllo sullo Storage SDK in uso ed evitare problemi di controllo delle versioni. 
 * In v3, tutte le velocità in bit di codifica sono in bit al secondo. Questo comportamento è diverso dalle impostazioni predefinite di Media Encoder Standard v2 REST. Ad esempio, una velocità in bit che in v2 viene specificata come 128, nella versione v3 sarà 128000. 
 * Le entità AssetFiles, AccessPolicies e IngestManifests non esistono in v3.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. Creare criteri di chiave simmetrica
 2. Creare asset
 3. Caricare contenuto o usare asset come JobOutput
-4. Creare Locator
+4. Creare un oggetto StreamingLocator
 
 ## <a name="next-steps"></a>Passaggi successivi
 

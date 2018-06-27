@@ -2,7 +2,7 @@
 title: Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Log Analytics - App per la logica di Azure | Microsoft Docs
 description: Monitorare le esecuzioni dell'app per la logica con Log Analytics per ottenere informazioni e dati di debug dettagliati per la risoluzione dei problemi e la diagnostica
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -12,19 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294575"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Log Analytics
 
 Per informazioni di monitoraggio e dati di debug più dettagliati, è possibile attivare Log Analytics nel momento in cui si crea un'app per la logica. Log Analytics offre funzionalità di monitoraggio e di registrazione della diagnostica per le esecuzioni dell'app per la logica tramite il portale di Azure. Quando si aggiunge la soluzione di gestione delle app per la logica, si ottengono lo stato aggregato delle esecuzioni dell'app per la logica e dettagli specifici come lo stato, il tempo di esecuzione, lo stato dei nuovi invii e gli ID di correlazione.
 
-Questo argomento illustra come attivare Log Analytics, in modo da poter visualizzare i dati e gli eventi di runtime per l'esecuzione dell'app per la logica.
+Questo articolo illustra come attivare Log Analytics, in modo da poter visualizzare i dati e gli eventi di runtime per l'esecuzione dell'app per la logica.
 
  > [!TIP]
  > Per monitorare le app per la logica esistenti, seguire questa procedura per [attivare la registrazione della diagnostica e inviare a Log Analytics i dati di runtime dell'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -66,17 +67,17 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
    ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. In **Gestione** scegliere **Portale di OMS**.
+3. In **Gestione** scegliere **Panoramica**.
 
-   ![Scegliere "Portale di OMS"](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   ![Scegliere "Portale di OMS"](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. In **Tutte le soluzioni** trovare e scegliere il riquadro relativo a **Logic Apps Management** (Gestione delle app per la logica).
+4. Nella pagina Panoramica scegliere **Aggiungi** per aprire il riquadro Soluzioni di gestione. 
 
-   ![Scegliere "Logic Apps Management" ("Gestione delle app per la logica")](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![Scegliere "Logic Apps Management" ("Gestione delle app per la logica")](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Per installare la soluzione nell'area di lavoro di Log Analytics, scegliere **Aggiungi**.
+5. Scorrere l'elenco **Soluzioni di gestione**, scegliere la soluzione **Gestione app per la logica** e scegliere **Crea** per installarla nella pagina Panoramica.
 
-   ![Scegliere "Aggiungi" per "Logic Apps Management" ("Gestione delle app per la logica")](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![Scegliere "Aggiungi" per "Logic Apps Management" ("Gestione delle app per la logica")](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

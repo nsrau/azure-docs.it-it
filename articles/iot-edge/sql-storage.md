@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632401"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287208"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>Archiviare dati sul perimetro con database di SQL Server
 
@@ -33,7 +33,7 @@ Gli articoli seguenti non sono necessari per completare questa esercitazione, ma
 * [Usare Visual Studio Code per sviluppare e distribuire Funzioni di Azure con Azure IoT Edge](how-to-vscode-develop-azure-function.md)
 
 Dopo aver completato le esercitazioni, i prerequisiti necessari dovrebbero essere disponibili nel computer in uso: 
-* Un hub IoT di Azure attivo.
+* Un hub IoT di Azure attivo con almeno un dispositivo IoT Edge.
 * Un dispositivo IoT Edge con almeno 2 GB di RAM e un'unità disco da 2 GB.
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
@@ -43,7 +43,6 @@ Dopo aver completato le esercitazioni, i prerequisiti necessari dovrebbero esser
 * [Python 2.7](https://www.python.org/downloads/)
 * [Script di controllo IoT Edge](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * Modello AzureIoTEdgeFunction (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* Un hub IoT attivo con almeno un dispositivo IoT Edge.
 
 Per questa esercitazione sono adatti contenitori sia Windows che Linux su architetture di processore x64. SQL Server non supporta i processori ARM.
 

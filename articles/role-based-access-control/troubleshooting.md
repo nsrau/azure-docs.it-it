@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure (RBAC) | Microsoft Docs
-description: Assistenza per problemi o domande sulle risorse del controllo degli accessi in base al ruolo.
+title: Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure | Microsoft Docs
+description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267171"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295399"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure
 
-Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
+Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
 
 * Proprietario  
 * Collaboratore  
 * Reader  
 
-Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere [Controllo degli accessi in base al ruolo di Azure](role-assignments-portal.md) .
+Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni su come concedere l'accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md).
 
 ## <a name="app-service"></a>Servizio app
 ### <a name="write-access-capabilities"></a>Funzionalità di accesso in scrittura
@@ -97,9 +97,7 @@ Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina vi
 
 Se non è possibile accedere a nessuno di questi riquadri, richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
 
-## <a name="see-more"></a>Altro
-* [Controllo degli accessi in base al ruolo](role-assignments-portal.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
-* [Ruoli predefiniti](built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
-* [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
-* [Creare un report della cronologia delle modifiche relative all'accesso](change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
+## <a name="next-steps"></a>Passaggi successivi
+* [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
+* [Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo](change-history-report.md)
 

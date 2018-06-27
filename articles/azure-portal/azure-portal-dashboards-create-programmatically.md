@@ -3,7 +3,7 @@ title: Creare dashboard di Azure a livello di codice | Microsoft Docs
 description: Questo articolo descrive come creare dashboard di Azure a livello di codice.
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164385"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295512"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -89,11 +89,11 @@ Azure offre la possibilità di orchestrare la distribuzione di più risorse. È 
 Se si intende seguire questo approccio, la parametrizzazione deve essere eseguita usando la sintassi dei parametri del modello.  Sostituire tutte le istanze dell'ID risorsa trovate prima, come mostrato qui.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Proprietà JSON di esempio con ID risorsa hardcoded
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Proprietà JSON di esempio convertita in versione parametrizzata basata sui parametri del modello
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 È anche necessario dichiarare alcuni metadati del modello obbligatori e i parametri nella parte superiore del modello JSON, in questo modo:
 

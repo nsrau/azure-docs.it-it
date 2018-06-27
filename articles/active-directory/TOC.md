@@ -250,7 +250,7 @@
 #### [Firma di certificati avanzata per app SAML](manage-apps/certificate-signing-options.md)
 #### [Nascondere un'applicazione dall'esperienza di un utente](manage-apps/hide-application-from-user-portal.md)
 ### [Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [Eseguire la migrazione di app di AD FS in Azure AD](migrate-adfs-apps-to-azure.md) 
+### [Eseguire la migrazione di app di AD FS in Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Gestire l'accesso alle app](manage-apps/what-is-access-management.md)
 #### [Accesso SSO](manage-apps/what-is-single-sign-on.md)
 #### [Certificati per SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Delegare l'accesso alle risorse
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles-azure-portal.md)
-#### [Assegnare un ruolo di amministratore a un utente](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Confrontare le autorizzazioni dei membri e degli utenti guest](fundamentals/users-default-permissions.md) 
-### [Protezione dell'accesso con privilegi](admin-roles-best-practices.md)  
-### [Creare account amministrativi di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Autorizzazioni utente predefinite](fundamentals/users-default-permissions.md)
+#### [Assegnare un ruolo di amministratore a un utente](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Confrontare le autorizzazioni dei membri e degli utenti guest](fundamentals/users-default-permissions.md)
+### [Protezione dei ruoli di amministratore](admin-roles-best-practices.md)  
+#### [Creare account amministratore di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Unità amministrative](active-directory-administrative-units-management.md)
 ### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
 ### [Protezione dei ruoli con privilegi](admin-roles-best-practices.md)

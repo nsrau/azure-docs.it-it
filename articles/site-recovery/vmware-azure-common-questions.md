@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185221"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285968"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -29,7 +29,7 @@ Durante la replica, i dati vengono replicati in Archiviazione di Azure e non vie
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Cosa si può fare con la replica da VMware ad Azure?
 - **Ripristino di emergenza**: è possibile configurare un ripristino di emergenza completo. In questo scenario viene eseguita la replica di macchine virtuali VMware locali in Archiviazione di Azure. Quindi, se l'infrastruttura locale non è disponibile, è possibile effettuare il failover in Azure. Quando si esegue un failover, vengono create macchine virtuali di Azure con i dati replicati. È possibile accedere ad app e carichi di lavoro nelle macchine virtuali di Azure finché il data center locale non è di nuovo disponibile. Quindi si può eseguire il failback da Azure al proprio sito locale.
-- **Migrazione**: è possibile usare Site Recovery per eseguire la migrazione delle macchine virtuali VMware locali in Azure. In questo scenario viene eseguita la replica di macchine virtuali VMware locali in Archiviazione di Azure. Quindi si esegue il failover dal sito locale in Azure. Dopo il failover, le app e i carichi di lavoro sono disponibili e in esecuzione sulle macchine virtuali di Azure.
+- **Migrazione**: è possibile usare Site Recovery per eseguire la migrazione delle macchine virtuali VMware locali in Azure. In questo scenario viene eseguita la replica di macchine virtuali VMware locali in Archiviazione di Azure. Quindi si esegue il failover dal sito locale in Azure. Dopo il failover, le app e i carichi di lavoro sono disponibili e in esecuzione all'interno di macchine virtuali di Azure.
 
 
 
@@ -41,7 +41,7 @@ Sono necessari una sottoscrizione di Azure, un insieme di credenziali di Servizi
 È necessario un account di archiviazione con ridondanza locale o con ridondanza geografica. È consigliabile usare l'archiviazione con ridondanza geografica per una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile recuperare l'area primaria. L'account di archiviazione Premium è supportato.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>L'account Azure deve avere le autorizzazioni per creare macchine virtuali?
-Se si ha il ruolo di amministratore della sottoscrizione, si hanno le autorizzazioni di replica necessarie. In caso contrario, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura sull'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie. Se non si ha questo ruolo, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura per l'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

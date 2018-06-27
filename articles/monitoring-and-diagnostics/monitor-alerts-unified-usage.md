@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264341"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287838"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure  
 
@@ -148,7 +148,13 @@ Gli **avvisi del log** possono basarsi su:
 2. Viene visualizzata la **dashboard di Avvisi**, in cui sono raccolti tutti gli avvisi di Azure visualizzati in un unico riquadro, ![Alert Dashboard](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png) (Dashboard avvisi)
 3. Nella parte superiore, da sinistra a destra, la dashboard mostra i seguenti elementi su cui è possibile fare clic per visualizzare un elenco dettagliato:
     - *Avvisi attivati*: numero di avvisi che attualmente hanno soddisfatto la logica e sono stati attivati
-    - *Totale regole di avviso*: numero di regole di avviso create nel testo secondario, numero di regole attualmente abilitate
+    - *Totale regole di avviso*: numero di regole di avviso create nel testo secondario, numero di regole attualmente abilitate 
+    
+
+        > [!NOTE]
+        > Per garantire la coerenza del dashboard con i dettagli in tutti gli avvisi attivati inclusi avvisi del log per informazioni dettagliate e analisi del log delle applicazioni, usare [Avvisi unificati avanzati (anteprima)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview)
+  
+  
 4. Viene visualizzato un elenco di tutti gli avvisi attivati su cui l'utente può fare clic per visualizzare i dettagli
 5. Per cercare avvisi specifici, è possibile usare le opzioni dell'elenco a discesa nella parte superiore della pagina per filtrare *sottoscrizioni, gruppi di risorse e/o risorse* specifiche. Inoltre, per eventuali avvisi non risolti, usare l'opzione *Filtra avviso* per cercare la parola chiave fornita in avvisi specifici corrispondenti per *nome, criteri di avviso, gruppo di risorse e risorsa di destinazione*
 

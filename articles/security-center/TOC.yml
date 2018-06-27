@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Criteri di sicurezza con Criteri di Azure
           href: security-center-azure-policy.md
+        - name: Visibilità a livello di tenant
+          href: security-center-management-groups.md
     - name: Implementare le raccomandazioni sulla sicurezza
       href: security-center-recommendations.md
     - name: Monitorare l'integrità della sicurezza

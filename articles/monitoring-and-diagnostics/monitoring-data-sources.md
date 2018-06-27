@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/27/2017
+ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263178"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220085"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -40,7 +40,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Avvisi delle metriche di Monitoraggio di Azure | Notifiche | [Vedere l'elenco di seguito](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [avvisi delle metriche di Azure](insights-webhooks-alerts.md)</li></ul> |
 | Avvisi di Log attività di Monitoraggio di Azure | Notifiche | Tutti i servizi di Azure | <ul><li>**Webhook:** avvisi di Log attività di Azure</li></ul> |
 | Notifiche relative alla scalabilità automatica | Notifiche | [Vedere l'elenco di seguito](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [schema di payload del webhook di notifica di scalabilità automatica](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:**[Avvisi Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:** [Azioni webhook per le regole di avviso relative ai log](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Avvisi relativi alle metriche in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Test Web in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

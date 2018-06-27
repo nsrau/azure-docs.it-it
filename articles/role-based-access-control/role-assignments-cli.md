@@ -1,6 +1,6 @@
 ---
-title: Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure | Documentazione Microsoft
-description: Informazioni su come gestire il controllo degli accessi in base al ruolo (RBAC) con l'interfaccia della riga di comando di Azure, ad esempio ottenere un elenco dei ruoli e delle relative azioni, nonché assegnare i ruoli nell'ambito della sottoscrizione e dell'applicazione.
+title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure. Sono trattati la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266738"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294405"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Gestire il controllo degli accessi in base al ruolo con l'interfaccia della riga di comando di Azure
+# <a name="manage-access-using-rbac-and-azure-cli"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Interfaccia della riga di comando di Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
-
-
-Con la funzionalità di controllo degli accessi in base al ruolo è possibile definire l'accesso per utenti, gruppi ed entità servizio assegnando loro dei ruoli in un determinato ambito. Questo articolo descrive come gestire le assegnazioni di ruolo usando l'interfaccia della riga di comando di Azure.
+[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>prerequisiti
 
 Se si intende usare l'interfaccia della riga di comando di Azure per gestire le assegnazioni di ruolo, sono necessari i prerequisiti seguenti:
 
-* [Interfaccia della riga di comando di Azure 2.0](/cli/azure). È possibile usarla nel browser con [Azure Cloud Shell](../cloud-shell/overview.md) oppure [installarla](/cli/azure/install-azure-cli) in macOS, Linux e Windows ed eseguirla dalla riga di comando.
+* [Interfaccia della riga di comando di Azure](/cli/azure). È possibile usarla nel browser con [Azure Cloud Shell](../cloud-shell/overview.md) oppure [installarla](/cli/azure/install-azure-cli) in macOS, Linux e Windows ed eseguirla dalla riga di comando.
 
-## <a name="list-role-definitions"></a>Elencare le definizioni di ruolo
+## <a name="list-roles"></a>Elenco dei ruoli
 
 Per elencare tutte le definizioni di ruolo disponibili, usare [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Elencare le azioni di una definizione di ruolo
+### <a name="list-actions-of-a-role"></a>Elencare le azioni di un ruolo
 
 Per elencare le azioni di una definizione di ruolo, usare [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Elencare le assegnazioni di ruolo
+## <a name="list-access"></a>Elencare l'accesso
+
+Per visualizzare le informazioni sull'accesso nel controllo degli accessi in base al ruolo, elencare le assegnazioni di ruolo.
 
 ### <a name="list-role-assignments-for-a-user"></a>Elencare i ruoli assegnati a un utente
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Creare assegnazioni di ruolo
+## <a name="grant-access"></a>Concedere l'accesso
+
+Per concedere l'accesso mediante il controllo degli accessi in base al ruolo, si crea un'assegnazione di ruolo.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Creare un'assegnazione di ruolo per un utente
 
@@ -290,9 +288,9 @@ Nell'esempio seguente viene assegnato il ruolo *Collaboratore Macchina virtuale*
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Rimuovere un'assegnazione di ruolo
+## <a name="remove-access"></a>Rimuovere un accesso
 
-Per rimuovere un'assegnazione di ruolo, usare [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
+Per rimuovere l'accesso nel controllo degli accessi in base al ruolo, è possibile rimuovere un'assegnazione di ruolo tramite [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

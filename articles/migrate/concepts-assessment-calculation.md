@@ -4,14 +4,14 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639147"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287889"
 ---
 # <a name="assessment-calculations"></a>Calcoli delle valutazioni
 
@@ -132,7 +132,7 @@ Una valutazione può non avere a disposizione tutti i punti dati a causa di uno 
 
 Dopo aver fornito tutte le indicazioni relative alle dimensioni, Azure Migrate calcola i costi di calcolo e archiviazione post-migrazione.
 
-- **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alla posizione e alla valuta. Per calcolare il costo di calcolo mensile totale vengono aggregati i costi di tutti i computer.
+- **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alle istanze riservate, al tempo di attività della macchina virtuale, alla posizione e alla valuta. Per calcolare il costo di calcolo mensile totale vengono aggregati i costi di tutti i computer.
 - **Costo di archiviazione**: il costo di archiviazione mensile di un computer viene calcolato aggregando il costo mensile di tutti i dischi collegati al computer. Azure Migrate calcola i costi di archiviazione mensili totali aggregando i costi di archiviazione di tutti i computer. Attualmente, il calcolo non prende in considerazione le offerte specificate nelle impostazioni di valutazione.
 
 I costi vengono visualizzati nella valuta specificata nelle impostazioni di valutazione.

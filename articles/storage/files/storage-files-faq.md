@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737810"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294091"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Domande frequenti su File di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il [protocollo SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard di settore. È possibile montare le condivisioni file di Azure simultaneamente da distribuzioni cloud o locali di Windows, Linux e macOS. È anche possibile memorizzare nella cache le condivisioni file di Azure nei computer Windows Server tramite Sincronizzazione file di Azure (anteprima) per l'accesso rapido in prossimità della posizione in cui vengono usati i dati.
@@ -91,7 +91,7 @@ Questo articolo risponde ad alcune domande frequenti sulle caratteristiche e fun
 
 * <a id="afs-region-availability"></a>
 **Quali sono le aree supportate per Sincronizzazione file di Azure (anteprima)?**  
-    Sincronizzazione file di Azure è attualmente disponibile in Australia orientale, Canada centrale, Stati Uniti orientali, Asia sud-orientale, Regno Unito meridionale, Europa occidentale e Stati Uniti occidentali. Verrà aggiunto il supporto per altre aree man mano che si procede verso il rilascio della versione con disponibilità a livello generale. Per altre informazioni, vedere [Disponibilità a livello di area](storage-sync-files-planning.md#region-availability).
+    Sincronizzazione file di Azure è attualmente disponibile in Australia orientale, Australia sudorientale, Canada centrale, Canada orientale, Stati Uniti centrali, Asia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Asia sudorientale, Regno Unito meridionale, Regno Unito occidentale, Europa occidentale e Stati Uniti occidentali. Verrà aggiunto il supporto per altre aree man mano che si procede verso il rilascio della versione con disponibilità a livello generale. Per altre informazioni, vedere [Disponibilità a livello di area](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **È possibile avere server aggiunti a un dominio e server non aggiunti a un dominio nello stesso gruppo di sincronizzazione?**  

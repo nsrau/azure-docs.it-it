@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7e828aa79d3a7fba53c0ef9f683ed16afc9a3e6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267459"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285757"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -33,6 +33,7 @@ Di seguito c'è un elenco di restrizioni che sono presenti quando si usa l'esecu
 * Il tempo minimo per eseguire uno script è di circa 20 secondi
 * Script eseguiti per impostazione predefinita come utente con privilegi elevati in Linux
 * Può essere eseguito uno script in un momento
+* Gli script che richiedono informazioni (modalità interattiva) non sono supportati.
 * Non è possibile annullare l'esecuzione di uno script
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
 

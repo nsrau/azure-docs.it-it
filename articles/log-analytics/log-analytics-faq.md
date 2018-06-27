@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637175"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221544"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -75,18 +75,21 @@ Log Analytics usa l'ora UTC e ogni giorno inizia a mezzanotte UTC. Se l'area di 
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>D: Come inviare una notifica all'utente quando la raccolta dati si interrompe?
 
-R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la procedura descritta in [Creare una regola di avviso](log-analytics-alerts-creating.md#create-an-alert-rule).
+R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 Quando si crea l'avviso per l'interruzione della raccolta dati, applicare le seguenti impostazioni:
-- **Nome** su *Data collection stopped* (Raccolta dati interrotta)
-- **Gravità** su *Avviso*
-- **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Intervallo di tempo** su *30 minuti*.
-- **Frequenza di avviso** ogni *dieci* minuti.
-- **Genera l'avviso in base a** sul *numero di risultati*
-- **Numero di risultati** su *Maggiore di 0*
 
-Questo avviso viene attivato quando la query restituisce risultati solo se manca l'heartbeat per più di 15 minuti.  Seguire la procedura descritta in [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md) per configurare un'azione di posta elettronica, webhook o runbook per la regola di avviso.
+- **Definire la condizione dell'avviso** consente di specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
+- **Criteri di avviso** consente di specificare quanto segue:
+   - **Nome segnale** selezionare **Ricerca log personalizzata**.
+   - **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
+   - **Periodo di tempo** di *30* minuti e **Frequenza di avviso** ogni *10* minuti
+- **Definire i dettagli dell'avviso** consente di specificare quanto segue:
+   - **Nome** su *Data collection stopped* (Raccolta dati interrotta)
+   - **Gravità** su *Avviso*
+
+Specificare un [gruppo di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) esistente o crearne uno nuovo, in modo che se l'avviso del log corrisponde ai criteri e un heartbeat manca per più di 15 minuti si riceve una notifica.
 
 ## <a name="configuration"></a>Configurazione
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>D: È possibile modificare il nome del contenitore di tabelle/BLOB usato per leggere da Diagnostica di Azure?

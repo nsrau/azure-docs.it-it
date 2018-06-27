@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738335"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296908"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -145,6 +145,9 @@ Per il funzionamento side-by-side di Sincronizzazione file di Azure e DFS-R:
 
 Per altre informazioni, vedere la [panoramica di Replica DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Ricerca di Windows
+Se in un endpoint server è abilitata la suddivisione in livelli nel cloud, i file suddivisi in livelli vengono ignorati e non vengono indicizzati dalla ricerca di Windows. I file non suddivisi in livelli vengono indicizzati correttamente.
+
 ### <a name="antivirus-solutions"></a>Soluzioni antivirus
 Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Poiché per i file archiviati a livelli è impostato l'attributo "offline", è consigliabile consultare il fornitore del software per sapere come configurare la soluzione in modo che non legga i file offline. 
 
@@ -158,6 +161,11 @@ Le soluzioni seguenti supportano l'esclusione dei file offline:
 
 ### <a name="backup-solutions"></a>Soluzioni di backup
 Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
+
+Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Durante il ripristino di file all'interno di percorso dell'endpoint, server, usare l'opzione di ripristino a livello di file. I file ripristinati vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.
+
+> [!Note]  
+> Le opzioni di ripristino con riconoscimento dell'applicazione, a livello di volume e bare metal non sono attualmente supportate e possono causare risultati imprevisti. Queste opzioni di ripristino verranno supportate in una versione futura.
 
 ### <a name="encryption-solutions"></a>Soluzioni di crittografia
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:
@@ -180,6 +188,7 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Region | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
+| Australia sudorientale | Victoria |
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
 | Stati Uniti centrali | Iowa |
@@ -189,6 +198,7 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Europa settentrionale | Irlanda |
 | Asia sudorientale | Singapore |
 | Regno Unito meridionale | Londra |
+| Regno Unito occidentale | Cardiff |
 | Europa occidentale | Paesi Bassi |
 | Stati Uniti occidentali | California |
 

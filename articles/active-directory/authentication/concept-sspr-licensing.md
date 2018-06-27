@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864664"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292560"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Requisiti di licenza per la reimpostazione password self-service di Azure AD
 
-Per consentire il funzionamento della reimpostazione password di Azure Active Directory (Azure AD), *è necessario che nell'organizzazione sia presente almeno una licenza assegnata*. La reimpostazione password non prevede l'applicazione delle licenze per utente. Una licenza appropriata è necessaria se un utente sfrutta direttamente o indirettamente i vantaggi di eventuali funzionalità che rientrano in tale licenza.
+Per consentire il funzionamento della reimpostazione password di Azure Active Directory (Azure AD), *è necessario che nell'organizzazione sia presente almeno una licenza assegnata* per l'utente corrispondente. Una licenza appropriata è necessaria se un utente sfrutta direttamente o indirettamente i vantaggi di eventuali funzionalità che rientrano in tale licenza.
 
 * **Utenti solo cloud**: Office 365 e SKU a pagamento o Azure AD Basic
 * **Utenti cloud** o **utenti locali**: Azure AD Premium P1 o P2, Enterprise Mobility + Security (EMS) o Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Licenze richieste per il writeback delle password
+## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
+
+**La reimpostazione, la modifica e lo sblocco self-service della password con writeback locale sono funzionalità Premium di Azure AD**. Per altre informazioni sulle licenze, vedere il sito [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Per usare il writeback delle password, è necessario disporre una delle licenze seguenti assegnate nel tenant:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 o A3
+* Enterprise Mobility + Security E5 o A5
+* Microsoft 365 E3 o A3
+* Microsoft 365 E5 o A5
 * Microsoft 365 F1
 
 > [!WARNING]

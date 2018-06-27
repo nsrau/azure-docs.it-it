@@ -1,6 +1,6 @@
 ---
-title: Controllo degli accessi in base al ruolo con REST - Azure AD | Microsoft Docs
-description: Gestione del controllo degli accessi in base al ruolo con l'API REST
+title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST - Azure | Microsoft Docs
+description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Sono trattati la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267476"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294463"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Gestione del controllo degli accessi in base al ruolo con l'API REST
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Interfaccia della riga di comando di Azure](role-assignments-cli.md)
-> * [API REST](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST
 
-Con la funzionalità Controllo degli accessi in base al ruolo è possibile definire l'accesso per utenti, gruppi ed entità servizio assegnando loro dei ruoli in un determinato ambito. Questo articolo descrive come gestire l'accesso con l'API REST.
+[Il controllo degli accessi in base al ruolo](overview.md) è la modalità di gestione dell'accesso alle risorse in Azure. Questo articolo descrive come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST.
 
 ## <a name="list-all-role-assignments"></a>Elencare tutte le assegnazioni di ruolo
 Elenca tutte le assegnazioni di ruolo all'ambito specificato e agli ambiti secondari.

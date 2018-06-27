@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Concetti
   items:
-    - name: Livelli di servizio e risorse
+    - name: Modelli e risorse di acquisto
       items:
-        - name: Livelli di servizio
+        - name: Modelli di acquisto
           href: sql-database-service-tiers.md
         - name: Modello basato su vCore
           href: sql-database-service-tiers-vcore.md

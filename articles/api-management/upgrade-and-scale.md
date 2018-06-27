@@ -9,58 +9,41 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ae977344101c02222fd9930e26a083bf5e3f800
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: ca32c72b1582b2a09f9f1754ad778cf1b682a1c2
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2017
-ms.locfileid: "26738929"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293313"
 ---
-# <a name="upgrade-and-scale-an-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API 
+# <a name="upgrade-and-scale-an-api-management-instance"></a>Aggiornare e ridimensionare un'istanza di Gestione API  
 
 I clienti possono ridimensionare un'istanza di Gestione API aggiungendo o rimuovendo unità. Un'**unità**, costituita da risorse di Azure dedicate, ha una capacità di carico specifica espressa sotto forma di numero di chiamate API al mese. Questo numero non rappresenta un limite di chiamate, ma piuttosto un valore della velocità effettiva massima per consentire la pianificazione della capacità approssimativa. La velocità e la latenza effettive variano in modo significativo a seconda di fattori quali il numero e la percentuale di connessioni simultanee, la tipologia e il numero di criteri configurati, le dimensioni delle richieste e delle risposte e la latenza del back-end.
 
-La capacità e il prezzo di ogni unità dipende dal **livello** a cui l'unità appartiene. È possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Se è necessario aumentare la capacità di un servizio all'interno di un livello, è consigliabile aggiungere un'unità. Se il livello attualmente selezionato nell'istanza di Gestione API non consente di aggiungere altre unità, è necessario eseguire l'aggiornamento a un livello superiore. 
+La capacità e il prezzo di ogni unità dipende dal **livello** a cui l'unità appartiene. È possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Se è necessario aumentare la capacità di un servizio all'interno di un livello, è consigliabile aggiungere un'unità. Se il livello attualmente selezionato nell'istanza di Gestione API non consente di aggiungere altre unità, è necessario eseguire l'aggiornamento a un livello superiore.
 
 Il prezzo di ogni unità e le funzionalità disponibili (ad esempio, la distribuzione in più aree) dipendono dal livello scelto per l'istanza di Gestione API. L'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) illustra il prezzo unitario per ogni livello e le funzionalità disponibili corrispondenti. 
 
 >[!NOTE]
->I valori relativi alla capacità unitaria per ogni livello indicati nell'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sono approssimativi. Per ottenere valori più precisi, è necessario esaminare uno scenario realistico per le API in uso. Vedere la sezione "Come pianificare la capacità" più avanti.
+>I valori relativi alla capacità unitaria per ogni livello indicati nell'articolo con i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) sono approssimativi. Per ottenere valori più precisi, è necessario esaminare uno scenario realistico per le API in uso. Vedere l'articolo [Capacità di un'istanza di Gestione API di Azure](api-management-capacity.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
+Per eseguire i passaggi in questo articolo è necessario:
 
-+ Una sottoscrizione di Azure attiva.
++ Avere una sottoscrizione di Azure attiva.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
++ Avere un'istanza di Gestione API. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 
-## <a name="how-to-plan-for-capacity"></a>Come pianificare la capacità
++ Comprendere il concetto di [Capacità di un'istanza di Gestione API di Azure] (api-management-capacity.md).
 
-Per capire se il numero di unità in uso è sufficiente per gestire il traffico, eseguire test basati sui carichi di lavoro previsti. 
+## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare  
 
-Come affermato in precedenza, il numero di richieste al secondo che l'unità Gestione API è in grado di gestire dipende da un gran numero di variabili, ad esempio il criterio di connessione, le dimensioni della richiesta e della risposta, i criteri configurati per ogni API e il numero dei client che inviano richieste.
-
-È possibile rilevare la capacita in uso in qualsiasi momento tramite **Metriche**, che usa le funzionalità di Monitoraggio di Azure.
-
-### <a name="use-the-azure-portal-to-examine-metrics"></a>Esaminare le metriche tramite il portale di Azure 
-
-1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
-2. Selezionare **Metriche**.
-3. Selezionare la metrica **Capacità** in **Metriche disponibili**. 
-
-    La metrica Capacità offre un'indicazione di massima della capacità di calcolo disponibile in uso nel tenant. Il valore è derivato dalle risorse di calcolo usate dal tenant, ad esempio memoria, CPU e lunghezza della coda di rete. Non è una misurazione diretta del numero di richieste elaborate. È possibile testare la capacità aumentando il carico delle richieste nel tenant e monitorando il valore della metrica Capacità corrispondente al carico di picco. È anche possibile impostare un avviso collegato alle metriche che si attivi se si verifica qualcosa di imprevisto, ad esempio quando l'istanza di Gestione API supera la relativa capacità di picco per oltre 10 minuti.
-
-    >[!TIP]
-    > È possibile configurare l'avviso in modo da ricevere una notifica quando il servizio sta esaurendo la capacità oppure in modo da attivare un'app per la logica che effettui automaticamente il ridimensionamento aggiungendo un'unità.
-
-## <a name="upgrade-and-scale"></a>Aggiornare e ridimensionare 
-
-Come affermato in precedenza, è possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
+È possibile scegliere tra quattro livelli: **Developer**, **Basic**, **Standard** e **Premium**. Il livello **Developer** deve essere usato per valutare il servizio. Non deve essere usato in produzione. Il livello **Developer** non è accompagnato da un contratto di servizio e non può essere ridimensionato tramite l'aggiunta o la rimozione di unità. 
 
 I livelli **Basic**, **Standard** e **Premium** sono livelli di produzione. Hanno un contratto di servizio e possono essere ridimensionati. Il livello **Basic** è il più conveniente con un contratto di servizio e può essere ridimensionato fino a un massimo di due unità, mentre il livello **Standard** può essere ridimensionato fino a un massimo di quattro unità. Al livello **Premium** è possibile aggiungere un numero qualsiasi di unità.
 
@@ -71,16 +54,17 @@ Il livello **Premium** consente di distribuire un'unica istanza di Gestione API 
 >[!NOTE]
 >Il processo di aggiornamento o ridimensionamento può richiedere da 15 a 45 minuti. Al termine viene inviata una notifica.
 
-### <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
+## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Eseguire l'aggiornamento e il ridimensionamento tramite il portale di Azure
+
+![Ridimensionare Gestione API nel portale di Azure](./media/upgrade-and-scale/portal-scale.png)
 
 1. Nel [portale di Azure](https://portal.azure.com/) passare all'istanza di Gestione API.
-2. Selezionare **Piani e prezzi**.
+2. Selezionare **Piani e prezzi** dal menu.
 3. Selezionare il livello desiderato.
-4. Specificare il numero di **unità** da aggiungere. A tale scopo, è possibile usare il dispositivo di scorrimento o digitare il numero di unità.<br/>
+4. Specificare il numero di **unità** da aggiungere. A tale scopo, è possibile usare il dispositivo di scorrimento o digitare il numero di unità.  
     Se si sceglie il livello **Premium**, è prima necessario selezionare un'area.
 5. Premere **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Come distribuire un'istanza del servizio Gestione API di Azure in più aree di Azure](api-management-howto-deploy-multi-region.md)
-

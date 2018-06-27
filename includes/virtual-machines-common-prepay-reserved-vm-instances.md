@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307567"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683050"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
 
@@ -16,7 +16,14 @@ Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istan
 -   Per le sottoscrizioni Enterprise, gli acquisti di istanze riservate devono essere abilitati nel [portale EA](https://ea.azure.com).
 -   Per il programma Cloud Solution Provider (CSP), solo gli agenti di amministrazione o di vendita possono acquistare istanze riservate.
 
-## <a name="buy-a-reserved-instance"></a>Acquistare un'istanza riservata.
+[!IMPORTANT]
+Per identificare correttamente la dimensione della macchina virtuale per un fornitore di prenotazione, è necessario usare uno dei metodi descritti di seguito.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Determinare la dimensione corretta della macchina virtuale prima dell'acquisto
+1. Fare riferimento al campo AdditionalInfo nel file di dati o nell'API di utilizzo per determinare la dimensione corretta della macchina virtuale per l'acquisto di una prenotazione. Non usare i valori dei campi Sottocategoria misuratore o Prodotto. Questi campi, infatti, non distinguono tra le versioni S e Non-S di una macchina virtuale.
+2. È anche possibile ottenere informazioni accurate sulla dimensione della macchina virtuale tramite PowerShell o Azure Resource Manager, oppure dai dettagli sulla macchina virtuale nel portale di Azure.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Acquistare un'istanza di macchine virtuali riservata
 1. Accedere al [Portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** per acquistare una nuova istanza riservata.

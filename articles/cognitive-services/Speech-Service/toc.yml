@@ -12,31 +12,33 @@
     - name: 'Riconoscimento vocale in C#'
       href: quickstart-csharp-windows.md
     - name: Riconoscimento vocale in C++ per Windows
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Riconoscimento vocale in C++ per Linux
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Introduzione a Speech Devices SDK
       href: speech-devices-sdk-qsg.md
-- name: Guide alle procedure
+- name: Personalizzazione
   items:
-    - name: Riconoscimento vocale
-      href: how-to-speech-to-text.md
     - name: Personalizzare i modelli di riconoscimento vocale
       href: how-to-customize-speech-models.md
-    - name: Sintesi vocale
-      href: how-to-text-to-speech.md
     - name: Personalizzare i carattere voce
       href: how-to-customize-voice-font.md
-    - name: Traduzione vocale
-      href: how-to-translate-speech.md
     - name: Preparare le trascrizioni
       href: prepare-transcription.md
     - name: Usare flussi audio personalizzati
       href: how-to-use-audio-input-streams.md
+    - name: Personalizzare la parola di attivazione del dispositivo (Devices SDK)
+      href: speech-devices-sdk-create-kws.md
+- name: Guide alle procedure
+  items:
+    - name: Riconoscimento vocale
+      href: how-to-speech-to-text.md
+    - name: Sintesi vocale
+      href: how-to-text-to-speech.md
+    - name: Traduzione vocale
+      href: how-to-translate-speech.md
     - name: Ottenere Speech Devices SDK
       href: get-speech-devices-sdk.md
-    - name: Personalizzazione la parola di attivazione del dispositivo
-      href: speech-devices-sdk-create-kws.md
     - name: Trascrizione batch (call center)
       href: batch-transcription.md
 - name: Esempi
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Risorse
   items:
-    - name: Domande frequenti sul riconoscimento vocale
-      href: faq-stt.md
+    - name: Domande frequenti
+      items:
+        - name: Domande frequenti sul riconoscimento vocale
+          href: faq-stt.md
+        - name: Domande frequenti sull'API Sintesi vocale
+          href: faq-text-to-speech.md
+        - name: Domande frequenti su Translator
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

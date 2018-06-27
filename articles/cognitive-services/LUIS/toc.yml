@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Entità gerarchica
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entità elenco
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Entità espressione regolare
           href: luis-quickstart-intents-regex-entity.md
+        - name: Entità elenco
+          href: luis-quickstart-intent-and-list-entity.md
         - name: Entità KeyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
         - name: Analisi del sentiment
@@ -238,7 +238,33 @@
     - name: Confini
       href: luis-boundaries.md
     - name: Informazioni di riferimento sulle entità predefinite
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Entità per impostazioni cultura
+          href: luis-reference-prebuilt-entities.md
+        - name: Entità di età
+          href: luis-reference-prebuilt-age.md
+        - name: Entità di valuta
+          href: luis-reference-prebuilt-currency.md
+        - name: Entità DatetimeV2
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Entità di dimensione
+          href: luis-reference-prebuilt-dimension.md
+        - name: Entità deprecate
+          href: luis-reference-prebuilt-deprecated.md
+        - name: Entità di posta elettronica
+          href: luis-reference-prebuilt-email.md
+        - name: Entità numero
+          href: luis-reference-prebuilt-number.md
+        - name: Entità ordinale
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Entità percentuale
+          href: luis-reference-prebuilt-percentage.md
+        - name: Entità numero di telefono
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Entità di temperatura
+          href: luis-reference-prebuilt-temperature.md
+        - name: Entità URL
+          href: luis-reference-prebuilt-url.md
     - name: Informazioni di riferimento sui domini predefiniti
       href: luis-reference-prebuilt-domains.md
     - name: Informazioni di riferimento sulle app Cortana predefinite

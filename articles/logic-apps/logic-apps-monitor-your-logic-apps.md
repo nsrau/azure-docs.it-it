@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301219"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293524"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -118,19 +118,11 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. In **Gestione** scegliere **Portale di OMS**.
+3. In **Gestione** scegliere **Ricerca log**.
 
-   ![Scegliere "Portale di OMS"](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   ![Scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. Nella home page scegliere **Ricerca log**.
-
-   ![Nella home page scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   -oppure-
-
-   ![Dal menu scegliere "Ricerca log"](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, vengono visualizzate le corrispondenze e le operazioni che è possibile usare. 
+4. Nella casella di ricerca specificare un campo che si vuole trovare e premere **INVIO**. Quando si inizia a digitare, vengono visualizzate le corrispondenze e le operazioni che è possibile usare. 
 
    Per trovare, ad esempio, i primi 10 eventi che si sono verificati, immettere e selezionare questa query di ricerca: **search Category == "WorkflowRuntime" | limit 10**
 
@@ -138,27 +130,27 @@ Per trovare e visualizzare gli eventi nell'app per la logica, ad esempio eventi 
 
    Altre informazioni su [come trovare i dati in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-6. Nella barra a sinistra della pagina dei risultati scegliere l'intervallo di tempo che si vuole visualizzare.
+5. Nella barra a sinistra della pagina dei risultati scegliere l'intervallo di tempo che si vuole visualizzare.
 Per affinare la query aggiungendo un filtro, scegliere **+Aggiungi**.
 
    ![Scegliere l'intervallo di tempo per i risultati della query](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. In **Aggiungi filtri** immettere il nome del filtro per trovare quello desiderato. Selezionare il filtro e scegliere **+Aggiungi**.
+6. In **Aggiungi filtri** immettere il nome del filtro per trovare quello desiderato. Selezionare il filtro e scegliere **+Aggiungi**.
 
    L'esempio usa la parola "status" per trovare gli eventi non riusciti in **AzureDiagnostics**.
    Qui il filtro per **status_s** è già selezionato.
 
    ![Selezionare il filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. Nella barra a sinistra selezionare il valore del filtro che si vuole usare e scegliere **Applica**.
+7. Nella barra a sinistra selezionare il valore del filtro che si vuole usare e scegliere **Applica**.
 
    ![Selezionare il valore del filtro, scegliere "Applica"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Tornare ora alla query che si sta creando. La query viene aggiornata con il filtro e il valore selezionati. Vengono ora filtrati anche i risultati precedenti.
+8. Tornare ora alla query che si sta creando. La query viene aggiornata con il filtro e il valore selezionati. Vengono ora filtrati anche i risultati precedenti.
 
    ![Tornare alla query con i risultati filtrati](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Per salvare la query per un uso futuro, scegliere **Salva**. Informazioni su [come salvare la query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Per salvare la query per un uso futuro, scegliere **Salva**. Informazioni su [come salvare la query](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 

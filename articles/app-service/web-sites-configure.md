@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234523"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293717"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -46,7 +46,7 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzioni di .NET, PHP e Python.
 
 <a name="platform"></a>
-**Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede la modalità Basic o Standard. Le modalità Gratuito e Condiviso vengono eseguite sempre in un ambiente a 32 bit.
+**Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede il livello Basic o Standard. I livelli Gratuito e Condiviso vengono eseguiti sempre in un ambiente a 32 bit.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 **Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
+
+**Versione HTTP**. Impostata su **2.0** per abilitare il supporto per il protocollo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> I browser più recenti supportano il protocollo HTTP/2 solo su TLS, mentre il traffico non crittografato continua a usare il protocollo HTTP/1.1. Per garantire che i browser client si connettano all'app tramite HTTP/2, [acquistare un certificato del servizio app](web-sites-purchase-ssl-web-site.md) per il dominio personalizzato dell'app o [associare un certificato di terze parti](app-service-web-tutorial-custom-ssl.md).
+
+**Affinità ARR**. In un'applicazione scalata orizzontalmente su più istanze di macchina virtuale, i cookie di affinità ARR garantiscono che il client venga instradato verso la stessa istanza per tutta la durata della sessione. Per migliorare le prestazioni delle applicazioni senza stato, impostare questa opzione su **Disattivata**.   
 
 **Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app Web in produzione quando si esegue un aggiornamento di quello slot. Per altre informazioni, vedere [Eseguire la distribuzione negli slot di memorizzazione temporanea per le app Web nel servizio app di Azure](web-sites-staged-publishing.md).
 

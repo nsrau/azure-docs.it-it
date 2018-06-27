@@ -1,5 +1,20 @@
-
-
+---
+title: File di inclusione
+description: File di inclusione
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: eaf490979167ea5cbfe5846e62444526310452f8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269545"
+---
 Alcuni carichi di lavoro di database, ad esempio SQL Server o Oracle, richiedono un utilizzo elevato di memoria, spazio di archiviazione e larghezza di banda di I/O, ma non un numero elevato di core. Molti carichi di lavoro di database non sono a elevato utilizzo di CPU. Azure offre alcune dimensioni di macchina virtuale in cui è possibile limitare il numero di vCPU per ridurre i costi relativi alle licenze software, mantenendo la stessa memoria, archiviazione e larghezza di banda di I/O.
 
 Il numero di vCPU virtuali può essere vincolato a metà o un quarto delle dimensioni originali della macchina virtuale. Queste nuove dimensioni di macchina virtuale hanno un suffisso che specifica il numero di vCPU attive, semplificandone l'identificazione.
@@ -11,6 +26,12 @@ I costi di licenza addebitati per SQL Server o Oracle sono vincolati al nuovo nu
 
 | NOME                | vCPU | Specifiche           |
 |---------------------|------|-----------------|
+| Standard_M8-2ms     | 2    | Come M8ms    |
+| Standard_M8-4ms     | 4    | Come M8ms    |
+| Standard_M16-4ms    | 4    | Come M16ms   |
+| Standard_M16-8ms    | 8    | Come M16ms   |
+| Standard_M32-8ms    | 8    | Come M32ms   |
+| Standard_M32-16ms   | 16   | Come M32ms   |
 | Standard_M64-32ms   | 32   | Come M64ms   |
 | Standard_M64-16ms   | 16   | Come M64ms   |
 | Standard_M128-64ms  | 64   | Come M128ms  |

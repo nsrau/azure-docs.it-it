@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299978"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293205"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Tenere traccia delle comunicazioni B2B con Azure Log Analytics
 
@@ -56,39 +56,31 @@ Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per 
 
    ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. In **Gestione** scegliere **Portale di OMS**.
+3. In **Gestione** scegliere **Panoramica**.
 
-   ![Scegliere Portale di OMS](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Scegliere il portale di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Quando si apre la home page, scegliere **Raccolta soluzioni**.    
+4. Dopo l'apertura della home page, scegliere **Aggiungi** per installare la soluzione App per la logica B2B.    
+   ![Scegliere Raccolta soluzioni](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Scegliere Raccolta soluzioni](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. In **Tutte le soluzioni** trovare e scegliere **App per la logica B2B**.     
-
-   ![Scegliere App per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. In **App per la logica B2B** scegliere **Aggiungi**.
-
-   ![Scegliere Aggiungi](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. In **Soluzioni di gestione** trovare e creare una soluzione **App per la logica B2B**.     
+   ![Scegliere App per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    Nella home page viene ora visualizzato il riquadro **Messaggi per le app per la logica B2B**. 
    Questo riquadro aggiorna il numero di messaggi B2B quando vengono elaborati.
-
-   ![Home page, riquadro Messaggi per le app per la logica B2B](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Tenere traccia dello stato e dei dettagli dei messaggi in Log Analytics
 
-1. Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stato e i dettagli. Nella home page scegliere il riquadro **Messaggi per le app per la logica B2B**.
+1. Dopo che i messaggi B2B sono stati elaborati, è possibile visualizzarne lo stato e i dettagli. Nella pagina Panoramica scegliere il riquadro **Messaggi per le app per la logica B2B**.
 
-   ![Numero di messaggi aggiornato](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Numero di messaggi aggiornato](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Per impostazione predefinita, il riquadro **Messaggi per le app per la logica B2B** visualizza i dati relativi a un solo giorno. Per impostare l'ambito dei dati su un intervallo diverso, scegliere il controllo dell'ambito nella parte superiore della pagina:
    > 
-   > ![Modificare l'ambito dei dati](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Modificare l'ambito dei dati](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. Quando viene aperto il dashboard con lo stato dei messaggi, è possibile visualizzare altri dettagli per un tipo di messaggio specifico, con i dati relativi a un solo giorno. Scegliere il riquadro **AS2**, **X12** o **EDIFACT**.

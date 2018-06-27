@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699904"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295529"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -115,7 +115,7 @@ No, ma è possibile distribuire altri gateway applicazione nella subnet.
 
 I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione con le restrizioni seguenti:
 
-* Le eccezioni devono essere inserite per il traffico in entrata sulle porte 65503-65534 affinché l'integrità del back-end funzioni correttamente.
+* Le eccezioni devono essere inserite per il traffico in entrata sulle porte 65503-65534. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
 * La connettività Internet in uscita non può essere bloccata.
 
@@ -159,13 +159,17 @@ Questo scenario è possibile usando gruppi di sicurezza di rete nella subnet del
 
 * Consentire il traffico in ingresso dall'intervallo di IP/IP di origine.
 
-* Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per la [comunicazione integrità back-end](application-gateway-diagnostics.md).
+* Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per la [comunicazione integrità back-end](application-gateway-diagnostics.md). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
 * Consentire probe di bilanciamento del carico di Azure in ingresso (tag AzureLoadBalancer) e il traffico di rete virtuale in ingresso (tag VirtualNetwork) nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 
 * Bloccare tutto il traffico in ingresso con una regola Nega tutto.
 
 * Consentire il traffico in uscita a Internet per tutte le destinazioni.
+
+**D. La stessa porta può essere usata per i listener pubblici e privati?**
+
+No, questa operazione non è supportata.
 
 ## <a name="performance"></a>Prestazioni
 

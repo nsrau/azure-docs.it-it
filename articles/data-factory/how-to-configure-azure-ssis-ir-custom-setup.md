@@ -1,27 +1,28 @@
 ---
-title: Installazione personalizzata per il runtime di integrazione Azure-SSIS | Microsoft Docs
-description: Questo articolo descrive come usare l'interfaccia di installazione personalizzata per il runtime di integrazione Azure-SSIS
+title: Personalizzare l'installazione per il runtime di integrazione Azure-SSIS | Microsoft Docs
+description: Questo articolo descrive come usare l'interfaccia di installazione personalizzata per il runtime di integrazione Azure-SSIS per installare componenti aggiuntivi o cambiare le impostazioni.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: ff47060ddfee458279c9fed0fd3fcafcf35229d2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885439"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267873"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Installazione personalizzata per il runtime di integrazione Azure-SSIS
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personalizzare l'installazione del runtime di integrazione Azure-SSIS
 
-L'interfaccia di installazione personalizzata per il runtime di integrazione Azure-SSIS consente di modificare la configurazione operativa o l'ambiente predefiniti, ad esempio per avviare servizi di Windows aggiuntivi, oppure di installare componenti aggiuntivi, come assembly, driver o estensioni, in ogni nodo del runtime di integrazione Azure-SSIS. In generale, offre un'interfaccia per l'aggiunta di passaggi di installazione durante il provisioning o la riconfigurazione del runtime di integrazione Azure-SSIS.
+L'interfaccia di installazione personalizzata per il runtime di integrazione Azure-SSIS offre un'interfaccia per l'aggiunta di passaggi di installazione durante il provisioning o la riconfigurazione del runtime di integrazione Azure-SSIS. L'installazione personalizzata consente di modificare la configurazione operativa o l'ambiente predefiniti, ad esempio per avviare servizi di Windows aggiuntivi, oppure di installare componenti aggiuntivi, come assembly, driver o estensioni, in ogni nodo del runtime di integrazione Azure-SSIS.
 
 L'installazione personalizzata si configura preparando uno script e i relativi file associati e caricandoli in un contenitore BLOB nell'account di archiviazione di Azure. Quando si eseguono il provisioning o la riconfigurazione del runtime di integrazione Azure-SSIS è necessario fornire un URI (Uniform Resource Identifier) di firma di accesso condiviso (SAS, Shared Access Signature). Ogni nodo del runtime di integrazione Azure-SSIS scaricherà lo script e i file associati dal contenitore ed eseguirà l'installazione personalizzata con privilegi elevati. Al termine dell'installazione personalizzata, ogni nodo caricherà l'output standard dell'esecuzione e gli altri log nel contenitore.
 
@@ -30,13 +31,13 @@ L'installazione personalizzata si configura preparando uno script e i relativi f
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
--   Se si desidera usare `gacutil.exe` per installare assembly nella Global Assembly Cache (GAC), è necessario specificarlo durante il programma di installazione personalizzato oppure usare la copia fornita nel contenitore di anteprima pubblica.
+-   Se si vuole usare `gacutil.exe` per installare assembly nella Global Assembly Cache, è necessario specificare `gacutil.exe` durante il programma di installazione personalizzato oppure usare la copia fornita nel contenitore di anteprima pubblica.
 
--   Se è necessario aggiungere il runtime di integrazione Azure-SSIS con installazione personalizzata a una rete virtuale, tenere presente che sono supportate solo le reti virtuali di Azure Resource Manager. Le reti virtuali classiche non sono supportate.
+-   Se si vuole fare riferimento a una sottocartella nello script, `msiexec.exe` non supporta la notazione `.\` usata per i riferimenti alla cartella radice. Usare un comando simile a `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` invece di `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+
+-   Se è necessario aggiungere il runtime di integrazione Azure-SSIS con installazione personalizzata a una rete virtuale, tenere presente che sono supportate solo le reti virtuali di Azure Resource Manager. La rete virtuale classica non è supportata.
 
 -   La condivisione amministrativa non è attualmente supportata in runtime di integrazione Azure-SSIS.
-
--   Se si desidera eseguire il mapping di una condivisione file in un'unità nella configurazione personalizzata, il comando `net use` non è attualmente supportato. Di conseguenza, è possibile usare un comando simile a `net use d: \\fileshareserver\sharename`. In alternativa, usare il comando `cmdkey`, ad esempio `cmdkey /add:fileshareserver /user:yyy /pass:zzz`, per accedere a `\\fileshareserver\folder` direttamente nei pacchetti.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -58,8 +59,7 @@ Per personalizzare il runtime di integrazione Azure-SSIS occorre quanto segue:
 
     1.  È necessario disporre di un file di script denominato `main.cmd`, ovvero il punto di ingresso dell'installazione personalizzata.
 
-    2.  Se si vuole che nel contenitore vengano caricati anche i log generati da altri strumenti (ad esempio `msiexec.exe`), specificare negli script la variabile di ambiente predefinita `CUSTOM_SETUP_SCRIPT_LOG_DIR` come cartella dei log (ad esempio `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Se si vuole che nel contenitore vengano caricati anche i log generati da altri strumenti (ad esempio `msiexec.exe`), specificare negli script la variabile di ambiente predefinita `CUSTOM_SETUP_SCRIPT_LOG_DIR` come cartella dei log (ad esempio `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  Scaricare, installare e avviare [Azure Storage Explorer](http://storageexplorer.com/).
 

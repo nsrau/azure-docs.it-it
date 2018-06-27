@@ -1,26 +1,26 @@
 ---
-title: Risolvere i problemi di sincronizzazione dati SQL (anteprima) | Microsoft Docs
-description: Informazioni su come risolvere i problemi comuni di sincronizzazione dati SQL di Azure (anteprima).
+title: Risolvere i problemi di sincronizzazione dati SQL di Azure | Microsoft Docs
+description: Informazioni su come risolvere i problemi comuni di sincronizzazione dati SQL di Azure.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 43d230b013f95c56fb162be3e361a6b68d1b26fe
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757537"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296828"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>Risolvere i problemi della sincronizzazione dati SQL (anteprima)
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 
-Questo articolo descrive come risolvere i problemi noti di sincronizzazione dati SQL di Azure (anteprima). Le possibili risoluzioni a un problema vengono fornite qui.
+Questo articolo descrive come risolvere i problemi noti di sincronizzazione dati SQL di Azure. Le possibili risoluzioni a un problema vengono fornite qui.
 
-Per una panoramica della sincronizzazione dati SQL (anteprima), vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](sql-database-sync-data.md).
+Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 ## <a name="sync-issues"></a>Problemi di sincronizzazione
 
@@ -28,7 +28,7 @@ Per una panoramica della sincronizzazione dati SQL (anteprima), vedere [Sincroni
 
 #### <a name="description-and-symptoms"></a>Descrizione e sintomi
 
-La sincronizzazione non viene eseguita correttamente nell'interfaccia utente del portale di sincronizzazione dati SQL (anteprima) per i database locali associati all'agente. Nel computer locale che esegue l'agente vengono visualizzati errori System.IO.IOException nel log eventi. Gli errori indicano che lo spazio su disco non è sufficiente.
+La sincronizzazione non viene eseguita correttamente nell'interfaccia utente del portale di sincronizzazione dati SQL per i database locali associati all'agente. Nel computer locale che esegue l'agente vengono visualizzati errori System.IO.IOException nel log eventi. Gli errori indicano che lo spazio su disco non è sufficiente.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -38,7 +38,7 @@ Creare più spazio nell'unità in cui si trova la directory %TEMP%.
 
 #### <a name="description-and-symptoms"></a>Descrizione e sintomi
 
-Un gruppo di sincronizzazione in sincronizzazione dati SQL (anteprima) è rimasto nello stato di elaborazione per un lungo periodo. Non risponde al comando di **arresto** e il log non indica voci nuove.
+Un gruppo di sincronizzazione in sincronizzazione dati SQL è rimasto nello stato di elaborazione per un lungo periodo. Non risponde al comando di **arresto** e il log non indica voci nuove.
 
 #### <a name="cause"></a>Causa
 
@@ -48,14 +48,14 @@ Una delle condizioni seguenti può causare il blocco di un gruppo di sincronizza
 
 -   **L'agente client è stato disinstallato o non è presente**. Se l'agente client è disinstallato o comunque mancante:
 
-    1. Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL (anteprima).
+    1. Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL.
     2. Installare l'agente in un computer locale che può essere lo stesso o un altro computer. Inviare quindi la chiave dell'agente generata nel portale per l'agente che viene visualizzato come offline.
 
 -   **Il servizio di sincronizzazione dati SQL è stato arrestato**.
 
     1. Nel menu **Start** cercare **Servizi**.
     2. Nei risultati della ricerca fare clic su **Servizi**.
-    3. Trovare il servizio **SQL Data Sync (Preview)** (Sincronizzazione dati SQL - Anteprima).
+    3. Trovare il servizio di **sincronizzazione dati SQL**.
     4. Se lo stato del servizio è **Arrestato**, fare clic con il pulsante destro del mouse sul nome del servizio e scegliere **Avvia**.
 
 #### <a name="resolution"></a>Risoluzione
@@ -70,7 +70,7 @@ Se in una sincronizzazione vengono incluse tabelle con lo stesso nome, ma che pr
 
 #### <a name="cause"></a>Causa
 
-Il processo di provisioning di sincronizzazione dati SQL (anteprima) usa le stesse tabelle di rilevamento per le tabelle con lo stesso nome, ma in schemi diversi. Per questo motivo, le modifiche in entrambe le tabelle vengono applicate nella stessa tabella di rilevamento. Questa condizione causa errate modifiche ai dati durante la sincronizzazione.
+Il processo di provisioning di sincronizzazione dati SQL usa le stesse tabelle di rilevamento per le tabelle con lo stesso nome, ma in schemi diversi. Per questo motivo, le modifiche in entrambe le tabelle vengono applicate nella stessa tabella di rilevamento. Questa condizione causa errate modifiche ai dati durante la sincronizzazione.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -109,10 +109,10 @@ La correzione migliore è prevenire questa situazione. Verificare che non siano 
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>Viene visualizzato un messaggio di errore: "Impossibile inserire il valore NULL nella colonna \<colonna\>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
 Questo messaggio di errore indica che si è verificato uno dei due problemi seguenti:
 -  Una tabella non dispone di una chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
--  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati (anteprima) non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
+-  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>In che modo la sincronizzazione dati (anteprima) gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?
-La sincronizzazione dati (anteprima) non gestisce i riferimenti circolari. Si consiglia di evitarli. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?
+La sincronizzazione dati non gestisce i riferimenti circolari. Si consiglia di evitarli. 
 
 ## <a name="client-agent-issues"></a>Problemi relativi all'agente client
 
@@ -131,27 +131,6 @@ Per trovare la causa specifica dell'errore, generare ed esaminare i log di Windo
 
 È anche possibile attivare la registrazione per tutte le installazioni eseguite da Windows Installer. L'articolo della Microsoft Knowledge Base [Come abilitare la registrazione di Windows Installer](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) fornisce una soluzione con un clic per attivare la registrazione per Windows Installer e il percorso dei log.
 
-### <a name="my-client-agent-doesnt-work"></a>L'agente client non funziona
-
-#### <a name="description-and-symptoms"></a>Descrizione e sintomi
-
-Vengono visualizzati messaggi analoghi ai seguenti quando si prova a usare l'agente client:
-
-"Sincronizzazione non riuscita con eccezione. Si è verificato un errore durante il tentativo di deserializzare il parametro www.microsoft.com/.../05:GetBatchInfoResult. Per altre informazioni, vedere InnerException."
-
-"Messaggio di eccezione interna: Il tipo 'Microsoft.Synchronization.ChangeBatch' è un tipo di raccolta non valido perché non contiene un costruttore predefinito."
-
-#### <a name="cause"></a>Causa
-
-Si tratta di un problema noto relativo all'installazione di sincronizzazione dati SQL (anteprima). La causa più probabile di questo messaggio è una delle seguenti:
-
--   Si esegue Windows 8 Developer Preview.
--   È installato .NET Framework 4.5.
-
-#### <a name="resolution"></a>Risoluzione
-
-Assicurarsi di installare l'agente client in un computer che non esegue Windows 8 Developer Preview e che .NET Framework 4.5 non sia installato.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>L'agente client non funziona dopo l'annullamento della disinstallazione
 
 #### <a name="description-and-symptoms"></a>Descrizione e sintomi
@@ -160,7 +139,7 @@ L'agente client non funziona, anche dopo che è stata annullata la disinstallazi
 
 #### <a name="cause"></a>Causa
 
-Questo problema si verifica perché l'agente client di sincronizzazione dati SQL (anteprima) non archivia le credenziali.
+Questo problema si verifica perché l'agente client di sincronizzazione dati SQL non archivia le credenziali.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -215,18 +194,18 @@ Una probabile causa di questo errore è che la password nel server locale è sta
 
 Aggiornare la password dell'agente alla password del server corrente:
 
-1. Individuare il servizio di anteprima dell'agente client di sincronizzazione dati SQL (anteprima).  
+1. Individuare il servizio agente client di sincronizzazione dati SQL.  
     a. Selezionare **Avvia**.  
     b. Immettere **services.msc** nella casella di ricerca.  
     c. Nei risultati della ricerca fare clic su **Servizi**.  
-    d. Nella finestra **Servizi** scorrere fino alla voce **SQL Data Sync (Preview) Agent Preview** (Anteprima dell'agente di sincronizzazione dati SQL - Anteprima).  
-2. Fare clic con il pulsante destro del mouse su **SQL Data Sync (Preview) Agent Preview)** (Anteprima dell'agente di sincronizzazione dati SQL - Anteprima), quindi selezionare **Arresta**.
-3. Fare clic con il pulsante destro del mouse su **SQL Data Sync (Preview) Agent Preview** (Anteprima dell'agente di sincronizzazione dati SQL - Anteprima), quindi selezionare **Proprietà**.
-4. In **SQL Data Sync (Preview) Agent Preview Properties** (Proprietà anteprima dell'agente di sincronizzazione dati SQL - Anteprima) selezionare la scheda **Accedi**.
+    d. Nella finestra **Servizi** scorrere fino alla voce **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL).  
+2. Fare clic con il pulsante destro del mouse su **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL), quindi scegliere **Arresta**.
+3. Fare clic con il pulsante destro del mouse su **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL), quindi scegliere **Proprietà**.
+4. In **SQL Data Sync Agent Properties** (Proprietà dell'agente di sincronizzazione dati SQL) selezionare la scheda **Accedi**.
 5. Immettere la password nella casella di testo **Password**.
 6. Reimmettere la password nella casella di testo **Conferma password**.
 7. Selezionare **Apply** (Applica) e quindi **OK**.
-8. Nella finestra **Servizi** fare clic con il pulsante destro del mouse sul servizio di **SQL Data Sync (Preview) Agent Preview** (Anteprima dell'agente di sincronizzazione dati SQL - Anteprima), quindi scegliere **Avvia**.
+8. Nella finestra **Servizi** fare clic con il pulsante destro del mouse sul servizio **SQL Data Sync Agent** (Agente di sincronizzazione dati SQL), quindi scegliere **Avvia**.
 9. Chiudere la finestra **Servizi**.
 
 ### <a name="i-cant-submit-the-agent-key"></a>Non è possibile inviare la chiave dell'agente
@@ -239,8 +218,8 @@ Dopo avere creato o ricreato una chiave per un agente, si prova a inviarla trami
 
 Prima di procedere, verificare le condizioni seguenti:
 
--   Il servizio di Windows di sincronizzazione dati SQL (anteprima) è in esecuzione.  
--   L'account del servizio per il servizio di Windows di anteprima di sincronizzazione dati SQL (anteprima) ha accesso alla rete.    
+-   Il servizio di Windows di sincronizzazione dati SQL è in esecuzione.  
+-   L'account del servizio per il servizio di Windows di sincronizzazione dati SQL ha accesso alla rete.    
 -   La porta in uscita 1433 nella regola del firewall locale è aperta.
 -   L'indirizzo IP locale viene aggiunto alla regola del firewall del server o del database per il database dei metadati di sincronizzazione.
 
@@ -248,7 +227,7 @@ Prima di procedere, verificare le condizioni seguenti:
 
 La chiave dell'agente identifica in modo univoco ogni agente locale. La chiave deve soddisfare due condizioni:
 
--   La chiave dell'agente client nel server di sincronizzazione dati SQL (anteprima) e nel computer locale deve essere identica.
+-   La chiave dell'agente client nel server di sincronizzazione dati SQL e nel computer locale deve essere identica.
 -   La chiave dell'agente client può essere usata una sola volta.
 
 #### <a name="resolution"></a>Risoluzione
@@ -272,7 +251,7 @@ Per applicare la nuova chiave all'agente:
 
 #### <a name="description-and-symptoms"></a>Descrizione e sintomi
 
-Se un endpoint locale, ovvero un database, registrato con un agente client di sincronizzazione dati SQL (anteprima) non è raggiungibile, l'agente client non può essere eliminato.
+Se un endpoint locale, ovvero un database, registrato con un agente client di sincronizzazione dati SQL non è raggiungibile, l'agente client non può essere eliminato.
 
 #### <a name="cause"></a>Causa
 
@@ -295,8 +274,8 @@ Attenersi alla procedura seguente:
 2. Aprire il pannello Servizi componenti.  
     a. Nella casella di ricerca della barra delle applicazioni immettere **services.msc**.  
     b. Fare doppio clic su **Servizi** nei risultati della ricerca.  
-3. Arrestare il servizio **SQL Data Sync (Preview) Preview** (Anteprima di sincronizzazione dati SQL - Anteprima).
-4. Riavviare il servizio **SQL Data Sync (Preview) Preview** (Anteprima di sincronizzazione dati SQL - Anteprima).  
+3. Arrestare il servizio di **sincronizzazione dati SQL**.
+4. Riavviare il servizio di **sincronizzazione dati SQL**.  
 5. Riaprire l'app.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemi relativi all'installazione e alla manutenzione
@@ -335,12 +314,12 @@ Per risolvere l'errore di eliminazione di un gruppo di sincronizzazione:
 
 -   Assicurarsi che l'agente client sia online, quindi riprovare.
 -   Se l'agente client è disinstallato o comunque mancante:  
-    a. Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL (anteprima).  
+    a. Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL.  
     b. Installare l'agente in un computer locale che può essere lo stesso o un altro computer. Inviare quindi la chiave dell'agente generata nel portale per l'agente che viene visualizzato come offline.
--   Assicurarsi che il servizio di sincronizzazione dati SQL (anteprima) sia in esecuzione:  
+-   Assicurarsi che il servizio di sincronizzazione dati SQL sia in esecuzione:  
     a. Nel menu **Start** cercare **Servizi**.  
     b. Nei risultati della ricerca fare clic su **Servizi**.  
-    c. Trovare il servizio **SQL Data Sync (Preview) Preview** (Anteprima di sincronizzazione dati SQL - Anteprima).  
+    c. Trovare il servizio di **sincronizzazione dati SQL**.  
     d. Se lo stato del servizio è **Arrestato**, fare clic con il pulsante destro del mouse sul nome del servizio e scegliere **Avvia**.
 -   Assicurarsi che i database SQL e i database SQL Server siano tutti online.
 -   Attendere il termine del processo di provisioning o di sincronizzazione, quindi riprovare a eliminare il gruppo di sincronizzazione.
@@ -361,7 +340,7 @@ Se questa operazione non riesce a rimuovere il database dal gruppo di sincronizz
     a. Selezionare il menu **Start**.  
     b. Immettere **services.msc** nella casella di ricerca.  
     c. Nella sezione **Programmi** del riquadro dei risultati della ricerca fare doppio clic su **Servizi**.  
-    d. Fare clic con il pulsante destro del mouse sul servizio **SQL Data Sync (Preview)** (Sincronizzazione dati SQL - Anteprima).  
+    d. Fare clic con il pulsante destro del mouse sul servizio di **sincronizzazione dati SQL**.  
     e. Se il servizio è in esecuzione, arrestarlo.  
     f. Fare clic con il pulsante destro del mouse sulservizio e quindi selezionare **Avvia**.  
     g. Controllare se il database è ancora registrato. Se non è più registrato, l'operazione è stata completata. In caso contrario, procedere al passaggio successivo.
@@ -391,7 +370,7 @@ Concedere all'account utente le credenziali di accesso come servizio.
 
 #### <a name="cause"></a>Causa
 
-La sincronizzazione dati SQL (anteprima) rimuove dal servizio i database che sono stati offline per 45 o più giorni, calcolati dal momento in cui il database è stato portato offline. Se un database è offline per 45 o più giorni e quindi torna online, lo stato viene è **Non aggiornato**.
+La sincronizzazione dati SQL rimuove dal servizio i database che sono stati offline per 45 o più giorni, calcolati dal momento in cui il database è stato portato offline. Se un database è offline per 45 o più giorni e quindi torna online, lo stato viene è **Non aggiornato**.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -421,14 +400,14 @@ Se lo stato di un gruppo di sincronizzazione è **Non aggiornato**, è necessari
 
 #### <a name="description-and-symptoms"></a>Descrizione e sintomi
 
-Non è possibile eliminare un gruppo di sincronizzazione entro tre minuti dalla disinstallazione o dall'arresto dell'agente client di sincronizzazione dati SQL (anteprima) associato.
+Non è possibile eliminare un gruppo di sincronizzazione entro tre minuti dalla disinstallazione o dall'arresto dell'agente client di sincronizzazione dati SQL associato.
 
 #### <a name="resolution"></a>Risoluzione
 
 1. Rimuovere un gruppo di sincronizzazione mentre gli agenti di sincronizzazione associati sono online (consigliato).
-2. Se l'agente è offline, ma è installato, portarlo online nel computer locale. Attendere che lo stato dell'agente venga visualizzato come **online** nel portale di sincronizzazione dati SQL (anteprima). Rimuovere quindi il gruppo di sincronizzazione.
+2. Se l'agente è offline, ma è installato, portarlo online nel computer locale. Attendere che lo stato dell'agente venga visualizzato come **online** nel portale di sincronizzazione dati SQL. Rimuovere quindi il gruppo di sincronizzazione.
 3. Se l'agente è offline perché è stato disinstallato:  
-    a.  Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL (anteprima).  
+    a.  Se esiste, rimuovere il file XML dell'agente dalla cartella di installazione della sincronizzazione dati SQL.  
     b.  Installare l'agente in un computer locale che può essere lo stesso o un altro computer. Inviare quindi la chiave dell'agente generata nel portale per l'agente che viene visualizzato come offline.  
     c. Provare a eliminare il gruppo di sincronizzazione.
 
@@ -437,16 +416,16 @@ Non è possibile eliminare un gruppo di sincronizzazione entro tre minuti dalla 
 Se si ripristina un database perso o danneggiato da un backup, potrebbe verificarsi la non convergenza dei dati nei gruppi di sincronizzazione a cui appartiene il database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla sincronizzazione dati SQL (anteprima), vedere:
+Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
--   [Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL di Azure](sql-database-sync-data.md)  
--   [Impostare la sincronizzazione dati SQL di Azure (anteprima)](sql-database-get-started-sql-data-sync.md)  
--   [Procedure consigliate per la sincronizzazione dati SQL di Azure (anteprima)](sql-database-best-practices-data-sync.md)  
--   [Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Analytics](sql-database-sync-monitor-oms.md)  
--   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL (anteprima):  
+-   [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)  
+-   [Configurare la sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)  
+-   [Procedure consigliate per la sincronizzazione dati SQL di Azure](sql-database-best-practices-data-sync.md)  
+-   [Monitorare la sincronizzazione dati SQL con Log Analytics](sql-database-sync-monitor-oms.md)  
+-   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:  
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL (anteprima)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Per altre informazioni sul database SQL, vedere:
 

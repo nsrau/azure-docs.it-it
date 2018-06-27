@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293996"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteggere l'accesso a un account Azure Cosmos DB usando l'endpoint di servizio di Rete virtuale di Azure
 
@@ -48,7 +49,7 @@ Dopo la configurazione dell'account Azure Cosmos DB con un endpoint di servizio 
    ![Selezionare la rete virtuale e la subnet](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Se in precedenza per le reti virtuali e le subnet Azure selezionate non è stato configurato un endpoint di servizio per Azure Cosmos DB, è possibile configurarlo nel corso di questa operazione. L'abilitazione dell'accesso richiede fino a 15 minuti. 
+   > Se in precedenza per le reti virtuali e le subnet Azure selezionate non è stato configurato un endpoint di servizio per Azure Cosmos DB, è possibile configurarlo nel corso di questa operazione. L'abilitazione dell'accesso richiede fino a 15 minuti. È molto importante disabilitare il firewall IP dopo avere preso nota dei contenuti dell'elenco di controllo di accesso del firewall per riabilitarli in seguito. 
 
    ![rete virtuale e subnet configurate correttamente](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Ora l'account Azure Cosmos DB consentirà solo il traffico proveniente da questa
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurare l'endpoint di servizio per una rete virtuale e una subnet Azure nuove
 
 1. Nel pannello **Tutte le risorse** individuare l'account Azure Cosmos DB da proteggere.  
+
+> [!NOTE]
+> Se è stato configurato un firewall IP per l'account Azure Cosmos DB, annotare la configurazione del firewall, rimuovere il firewall IP e quindi abilitare l'endpoint di servizio. Se si abilita l'endpoint di servizio senza disabilitare il firewall, il traffico proveniente da tale intervallo IP perderà l'identità IP virtuale e verrà eliminato con un messaggio di errore relativo al filtro IP. Per evitare questo errore, è quindi consigliabile disabilitare sempre le regole del firewall, copiarle, abilitare l'endpoint di servizio dalla subnet e infine aggiungere l'elenco di controllo di accesso alla subnet da Cosmos DB. Dopo avere configurato l'endpoint di servizio e avere aggiunto l'elenco di controllo di accesso, è possibile riabilitare il firewall IP, se necessario.
 
 2. Prima di abilitare l'endpoint di servizio della rete virtuale, copiare le informazioni sul firewall IP associate all'account Azure Cosmos DB per un utilizzo in futuro. Dopo avere configurato l'endpoint di servizio, è possibile riabilitare il firewall IP.  
 
@@ -76,7 +80,7 @@ Dopo l'abilitazione degli endpoint di servizio di Rete virtuale di Azure per l'a
 
 Se l'account Azure Cosmos DB viene usato da altri servizi Azure come Ricerca di Azure o viene eseguito l'accesso da Analisi di flusso di Azure o Power BI, consentire l'accesso selezionando **Consenti l'accesso a Servizi di Azure**.
 
-Per verificare che si disponga dell'accesso alla metrica di Azure Cosmos DB dal portale, è necessario abilitare le opzioni **Consenti l'accesso al portale di Azure**. Per altre informazioni su queste opzioni, vedere le sezioni [connessioni dal portale di Azure](firewall-support.md#connections-from-the-azure-portal) e [connessioni dai servizi di Azure PaaS](firewall-support.md#connections-from-other-azure-paas-services). Dopo avere selezionato l'accesso, selezionare **Salva** per salvare le impostazioni.
+Per verificare che si disponga dell'accesso alla metrica di Azure Cosmos DB dal portale, è necessario abilitare le opzioni **Consenti l'accesso al portale di Azure**. Per altre informazioni su queste opzioni, vedere le sezioni [connessioni dal portale di Azure](firewall-support.md#connections-from-the-azure-portal) e [connessioni dai servizi di Azure PaaS](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services). Dopo avere selezionato l'accesso, selezionare **Salva** per salvare le impostazioni.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Rimuovere una rete virtuale o una subnet 
 
@@ -95,6 +99,10 @@ Per verificare che si disponga dell'accesso alla metrica di Azure Cosmos DB dal 
 Usare la procedura seguente per configurare l'endpoint di servizio per un account Azure Cosmos DB usando Azure PowerShell:  
 
 1. Installare la versione più aggiornata di [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ed [effettuare l'accesso](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Annotare le impostazioni del firewall IP ed eliminare completamente il firewall IP prima di abilitare l'endpoint di servizio per l'account.
+
+
+> [!NOTE]
+> Se è stato configurato un firewall IP per l'account Azure Cosmos DB, annotare la configurazione del firewall, rimuovere il firewall IP e quindi abilitare l'endpoint di servizio. Se si abilita l'endpoint di servizio senza disabilitare il firewall, il traffico proveniente da tale intervallo IP perderà l'identità IP virtuale e verrà eliminato con un messaggio di errore relativo al filtro IP. Per evitare questo errore, è quindi consigliabile disabilitare sempre le regole del firewall, copiarle, abilitare l'endpoint di servizio dalla subnet e infine aggiungere l'elenco di controllo di accesso alla subnet da Cosmos DB. Dopo avere configurato l'endpoint di servizio e avere aggiunto l'elenco di controllo di accesso, è possibile riabilitare il firewall IP, se necessario.
 
 2. Prima di abilitare l'endpoint di servizio della rete virtuale, copiare le informazioni sul firewall IP associate all'account Azure Cosmos DB per un utilizzo in futuro. Dopo avere configurato l'endpoint di servizio, riabilitare il firewall IP.  
 
@@ -219,9 +227,13 @@ Questa operazione è necessaria solo quando si vuole consentire l'accesso all'ac
 
 Sono consentiti 64 endpoint di servizio di rete virtuale per un account Azure Cosmos DB.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>Qual è la relazione dell'endpoint di servizio con le regole del gruppo di sicurezza di rete (NSG)?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>Qual è la relazione tra l'endpoint di servizio e le regole del gruppo di sicurezza di rete (NSG)?  
 
-La regola Azure Cosmos DB del gruppo di sicurezza di rete consente di limitare l'accesso solo all'intervallo di indirizzi IP di DB Cosmos di Azure.
+Le regole NSG in Azure Cosmos DB consentono di limitare l'accesso a uno specifico intervallo di indirizzi IP di Azure Cosmos DB. Se si vuole consentire l'accesso a un'istanza di Azure Cosmos DB presente in un'[area](https://azure.microsoft.com/global-infrastructure/regions/) specifica, è possibile specificare l'area nel formato seguente: 
+
+    AzureCosmosDB.<region name>
+
+Per altre informazioni sui tag NSG, vedere l'articolo sui [tag di servizio delle reti virtuali](../virtual-network/security-overview.md#service-tags). 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>Qual è la relazione tra un firewall IP e la funzionalità di endpoint di servizio della rete virtuale?  
 

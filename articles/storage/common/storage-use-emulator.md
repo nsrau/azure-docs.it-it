@@ -1,6 +1,6 @@
 ---
 title: Usare l'emulatore di archiviazione di Azure per sviluppo e test | Microsoft Docs
-description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autenticazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando.
+description: L'emulatore di archiviazione di Azure offre un ambiente di sviluppo locale gratuito per sviluppare e testare applicazioni di Archiviazione di Azure. Informazioni sulle modalità di autorizzazione delle richieste, su come connettersi all'emulatore dall'applicazione e su come usare lo strumento da riga di comando.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305107"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291936"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -81,14 +81,14 @@ Per altre informazioni su questi comandi, vedere [Informazioni di riferimento su
 > È possibile usare [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) per gestire le istanze di SQL Server, inclusa l'installazione di LocalDB. Nella finestra di dialogo **Connetti al server** di SMSS specificare `(localdb)\MSSQLLocalDb` nel campo **Nome server** per connettersi all'istanza di LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticazione delle richieste nell'emulatore di archiviazione
-Dopo aver installato e avviato l'emulatore di archiviazione, è possibile testare il codice sull'emulatore. Come per Archiviazione di Azure nel cloud, tutte le richieste effettuate nell'emulatore di archiviazione devono essere autenticate, a meno che non si tratti di richieste anonime. È possibile autenticare le richieste nell'emulatore di archiviazione tramite l'autenticazione con chiave condivisa o con una firma di accesso condiviso.
+Dopo aver installato e avviato l'emulatore di archiviazione, è possibile testare il codice sull'emulatore. Come per Archiviazione di Azure nel cloud, tutte le richieste effettuate nell'emulatore di archiviazione devono essere autorizzate, a meno che non si tratti di richieste anonime. È possibile autorizzare le richieste nell'emulatore di archiviazione tramite l'autenticazione con chiave condivisa o con una firma di accesso condiviso (SAS, Shared Access Signature).
 
-### <a name="authenticate-with-shared-key-credentials"></a>Autenticazione con credenziali con chiave condivisa
+### <a name="authorize-with-shared-key-credentials"></a>Autorizzazione con credenziali con chiave condivisa
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Per altre informazioni sulle stringhe di connessione, vedere [Configurare le stringhe di connessione di Archiviazione di Azure](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>Eseguire l'autenticazione con una firma di accesso condiviso
+### <a name="authorize-with-a-shared-access-signature"></a>Autorizzazione con una firma di accesso condiviso
 Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamarin, supportano solo l'autenticazione con un token di firma di accesso condiviso. È possibile creare il token di firma di accesso condiviso usando uno strumento come [Esplora soluzioni](http://storageexplorer.com/) o un'altra applicazione che supporta l'autenticazione con chiave condivisa.
 
 È anche possibile generare un token di firma di accesso condiviso usando Azure PowerShell. L'esempio seguente genera un token di firma di accesso condiviso con autorizzazioni complete per un contenitore BLOB:
@@ -204,12 +204,23 @@ All'archiviazione tabelle nell'emulatore si applicano le seguenti differenze:
 Non esistono differenze specifiche per l'archiviazione di accodamento nell'emulatore.
 
 ## <a name="storage-emulator-release-notes"></a>Note sulla versione dell'emulatore di archiviazione
+
+### <a name="version-55"></a>Versione 5.5
+* L'emulatore di archiviazione supporta ora la versione 2017-11-09 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.
+* È stato aggiunto il supporto per la proprietà **Created** dei BLOB, che restituisce l'ora di creazione di un BLOB.
+
+### <a name="version-54"></a>Versione 5.4
+Per migliorare la stabilità dell'installazione, l'emulatore non tenta più di riservare le porte in fase di installazione. Se si vogliono prenotare porte, usare l'opzione *- reserveports* del comando **init** per specificarle.
+
+### <a name="version-53"></a>Versione 5.3
+L'emulatore di archiviazione supporta ora la versione 2017-07-29 dei servizi di archiviazione per gli endpoint BLOB, della coda e del servizio tabelle.
+
 ### <a name="version-52"></a>Versione 5.2
 * L'emulatore di archiviazione supporta ora la versione 2017-04-17 dei servizi di archiviazione per gli endpoint dei servizi BLOB, di accodamento e tabelle.
 * È stato risolto un bug per cui i valori delle proprietà di tabella non venivano codificati correttamente.
 
 ### <a name="version-51"></a>Versione 5.1
-* È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
+È stato risolto un bug per cui l'emulatore di archiviazione restituiva l'intestazione `DataServiceVersion` in risposte in cui il servizio non era presente.
 
 ### <a name="version-50"></a>Versione 5.0
 * Il programma di installazione dell'emulatore di archiviazione non verifica l'eventuale presenza di installazioni MSSQL e .NET Framework esistenti.
