@@ -452,7 +452,7 @@ Durante la distribuzione nei dispositivi IoT Edge, esistono quindi tre ambienti 
 Questa esercitazione descrive come usare le funzionalità di integrazione e di distribuzione continue di VSTS o TFS. 
 
 * Per altre informazioni sulla distribuzione IoT Edge, vedere [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md) (Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala)
-* Eseguire le procedure per creare, aggiornare o eliminare una distribuzione in [Distribuire e monitorare i moduli di IoT Edge su larga scala][how-to-deploy-monitor.md].
+* Eseguire le procedure per creare, aggiornare o eliminare una distribuzione in [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor.md).
 
 
 
