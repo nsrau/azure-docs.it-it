@@ -3,30 +3,30 @@ title: Criteri di conservazione dei report di Azure Active Directory | Documenta
 description: Criteri di conservazione dei dati di report in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: ''
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fac160d2d5916097afcbb9825bb82a52789e4a89
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edce7d1a633148cf361deec0c3d09ef4c16ac9b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589196"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225179"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Criteri di conservazione dei report di Azure Active Directory
 
 
-Questo argomento offre le risposte alle domande più comuni sulla conservazione dei dati per i diversi report attività in Azure Active Directory. 
+Questo articolo offre le risposte alle domande più comuni sulla conservazione dei dati per i diversi report attività in Azure Active Directory. 
 
 ### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>D: Come è possibile avviare la raccolta dei dati dell'attività?
 
@@ -34,7 +34,7 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 | Edizione di Azure AD | Avvio della raccolta |
 | :--              | :--   |
-| Azure AD Premium P1 <br /> Azure AD P2 Premium | Quando ci si iscrive a una sottoscrizione |
+| Azure AD Premium P1 <br /> Azure AD Premium P2 | Al momento dell'accesso a una sottoscrizione |
 | Azure AD Free | La prima volta che si apre il [pannello Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o si usano le [API di creazione report](https://aka.ms/aadreports)  |
 
 ---
@@ -42,8 +42,8 @@ Questo argomento offre le risposte alle domande più comuni sulla conservazione 
 
 **R:**
 
-- **Immediatamente**: se si usano già i report nel portale di Azure
-- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure
+- **Immediatamente**: se si usano già i report nel portale di Azure.
+- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
 
 ---
 

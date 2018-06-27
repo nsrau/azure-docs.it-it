@@ -1,5 +1,5 @@
 ---
-title: Migrare i criteri classici nel portale di Azure | Microsoft Docs
+title: Qual è la migrazione di criteri nell'accesso condizionale di Azure Active Directory? | Microsoft Docs
 description: Informazioni che è necessario conoscere per eseguire la migrazione dei criteri classici nel portale di Azure.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723729"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231966"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Migrare i criteri classici nel portale di Azure 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Qual è la migrazione di criteri nell'accesso condizionale di Azure Active Directory? 
 
 
 L'[accesso condizionale](active-directory-conditional-access-azure-portal.md) è una capacità di Azure Active Directory che consente di controllare come gli utenti autorizzati accedono alle app cloud. Anche se la finalità è la stessa, il nuovo portale di Azure ha introdotto miglioramenti significativi nel funzionamento dell'accesso condizionale.
@@ -85,11 +85,11 @@ Con l'accesso condizionale nel portale di Azure è possibile gestire tutti i cri
 
 Vedere:
 
-- [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md) per apprendere i concetti di base e la terminologia.
+- [Qual è l'accesso condizionale in Azure Active Directory?](active-directory-conditional-access-azure-portal.md) per apprendere i concetti di base e la terminologia.
 
 - [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md) per ottenere alcune indicazioni su come distribuire l'accesso condizionale all'interno di un'organizzazione.
 
-- [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) per acquisire familiarità con l'interfaccia utente nel portale di Azure.
+- [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md) per acquisire familiarità con l'interfaccia utente nel portale di Azure.
 
 
  
@@ -170,6 +170,6 @@ In un criterio nuovo è necessario selezionare le [piattaforme di dispositivo](a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare un criterio di accesso condizionale, vedere [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md) (Introduzione all'accesso condizionale in Azure Active Directory).
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 

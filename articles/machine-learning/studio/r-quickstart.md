@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836376"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227241"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Esercitazione con guida rapida per il linguaggio di programmazione R per Azure Machine Learning
 
@@ -41,7 +41,7 @@ I dati delle serie temporali sono dati i cui valori contengono un indice tempora
 
 In questa esercitazione prenderemo in esame la produzione casearia in California, con i relativi dati sui prezzi. Questi dati includono informazioni mensili sulla produzione di diversi prodotti caseari e il prezzo del latte intero, un materia prima di riferimento.
 
-I dati usati nell'articolo, insieme agli script R, possono essere [scaricati qui][download]. Questi dati sono stati originariamente sintetizzati da informazioni pubblicate dalla University of Wisconsin all'indirizzo http://future.aae.wisc.edu/tab/production.html.
+I dati usati nell'articolo, insieme agli script R, possono essere [scaricati qui](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Questi dati sono stati originariamente sintetizzati da informazioni pubblicate dalla University of Wisconsin all'indirizzo https://dairymarkets.com.
 
 ### <a name="organization"></a>Organizzazione
 La procedura sarà formata da diversi passaggi che consentiranno di apprendere come creare, testare ed eseguire il codice R per le analisi e la manipolazione dei dati nell'ambiente di Azure Machine Learning.  
@@ -123,7 +123,7 @@ Azure Machine Learning viene fornito con più di 350 pacchetti di linguaggio R p
 Se al momento non si riesce a comprendere l'ultima riga del codice, continuare a leggere. Nel resto del documento vengono discussi diversi aspetti dell'uso di R nell'ambiente di Azure Machine Learning.
 
 ### <a name="introduction-to-rstudio"></a>Introduzione a RStudio
-RStudio è un ambiente IDE molto usato per R. RStudio verrà usato per la modifica, i test e il debug di alcuni codici R usati in questa guida introduttiva. Dopo il test, quando il codice R è pronto, è sufficiente tagliarlo e incollarlo dall'editor di RStudio a un modulo [Execute R Script][execute-r-script] di Machine Learning Studio.  
+RStudio è un ambiente IDE molto usato per R. RStudio verrà usato per la modifica, i test e il debug di alcuni codici R usati in questa guida introduttiva. Dopo il test, quando il codice R è pronto, è possibile tagliarlo e incollarlo dall'editor di RStudio a un modulo [Execute R Script][execute-r-script] di Machine Learning Studio.  
 
 Se il linguaggio di programmazione R non è installato nel computer desktop, eseguirne ora l'installazione. Download gratuiti del linguaggio di programmazione R open source sono disponibili nel sistema CRAN (Comprehensive R Archive Network) all'indirizzo [http://www.r-project.org/](http://www.r-project.org/). Sono disponibili anche download per Windows, Mac OS e Linux/UNIX. Scegliere un mirror vicino e seguire le istruzioni di download. Il sistema CRAN contiene anche una serie di utili pacchetti di analisi e manipolazione di dati.
 

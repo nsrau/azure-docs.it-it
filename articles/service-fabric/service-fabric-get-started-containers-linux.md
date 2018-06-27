@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642938"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213125"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -171,26 +171,12 @@ Dato che per l'immagine è stato definito un punto di ingresso del carico di lav
 
 Specificare "1" come numero di istanze.
 
+Specificare il mapping della porta nel formato appropriato. Per questo articolo, fornire ```80:4000``` come mapping della porta. Questa configurazione consente di reindirizzare tutte le richieste in ingresso che arrivano alla porta 4000 del computer host alla porta 80 del contenitore.
+
 ![Generatore Yeoman di Service Fabric per i contenitori][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Configurare il mapping delle porte e l'autenticazione per il repository del contenitore
-Il servizio in contenitore richiede un endpoint per la comunicazione. Aggiungere ora il protocollo, la porta e il tipo a un `Endpoint` nel file ServiceManifest.xml sotto il tag 'Resources'. Per questo articolo, il servizio in contenitore è in ascolto sulla porta 4000: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-Se si specifica `UriScheme`, l'endpoint del contenitore viene registrato automaticamente con Service Fabric Naming Service per l'individuazione. Alla fine di questo articolo viene fornito un file di esempio completo di ServiceManifest.xml. 
-
-Configurare il mapping tra la porta del contenitore e la porta dell'host specificando i criteri `PortBinding` in `ContainerHostPolicies` nel file ApplicationManifest.xml. Per questo articolo, il valore di `ContainerPort` è 80, dato che il contenitore espone la porta 80, come specificato nel Dockerfile, e il valore di `EndpointRef` è "myServiceTypeEndpoint", ossia l'endpoint definito nel manifesto del servizio. Per le richieste in ingresso per il servizio sulla porta 4000 viene eseguito il mapping alla porta 80 del contenitore. Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`. Per questo articolo, aggiungere il nome e la password dell'account per il registro contenitori myregistry.azurecr.io. Verificare che il criterio venga aggiunto sotto il tag 'ServiceManifestImport' corrispondente al pacchetto del servizio corretto.
+## <a name="configure-container-repository-authentication"></a>Configurare l'autenticazione del repository di contenitori
+ Se il contenitore deve eseguire l'autenticazione con un repository privato, aggiungere `RepositoryCredentials`. Per questo articolo, aggiungere il nome e la password dell'account per il registro contenitori myregistry.azurecr.io. Verificare che il criterio venga aggiunto sotto il tag 'ServiceManifestImport' corrispondente al pacchetto del servizio corretto.
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +213,6 @@ A partire dalla versione 6.1, Service Fabric integra automaticamente gli eventi 
 Per impostazione predefinita, l'opzione *IncludeDockerHealthStatusInSystemHealthReport* è impostata su **true** e l'opzione *RestartContainerOnUnhealthyDockerHealthStatus* è impostata su **false**. Se l'opzione *RestartContainerOnUnhealthyDockerHealthStatus* è impostata su **true**, un contenitore che segnala ripetutamente uno stato non integro viene riavviato, possibilmente su altri nodi.
 
 Se si vuole disabilitare l'integrazione di **HEALTHCHECK** per l'intero cluster di Service Fabric, sarà necessario impostare [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) su **false**.
-
-## <a name="build-and-package-the-service-fabric-application"></a>Compilare l'applicazione di Service Fabric e creare il pacchetto
-I modelli Yeoman di Service Fabric includono uno script di compilazione per [Gradle](https://gradle.org/), che può essere usato per compilare l'applicazione dal terminale. Per compilare l'applicazione e creare il pacchetto, eseguire questo comando:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>Distribuire l'applicazione
 Dopo aver compilato l'applicazione, è possibile distribuirla nel cluster locale tramite l'interfaccia della riga di comando di Service Fabric.

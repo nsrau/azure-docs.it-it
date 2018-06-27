@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267272"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284965"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
@@ -33,6 +33,7 @@ Le seguenti limitazioni si applicano quando si usa Esegui comando
 * Il tempo minimo per eseguire uno script è di circa 20 secondi
 * Gli script eseguiti come sistema in Windows
 * Può essere eseguito uno script in un momento
+* Gli script che richiedono informazioni (modalità interattiva) non sono supportati.
 * Non è possibile annullare l'esecuzione di uno script
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
 

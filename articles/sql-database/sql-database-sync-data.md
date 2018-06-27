@@ -1,22 +1,23 @@
 ---
-title: Anteprima di sincronizzazione dati SQL di Azure | Microsoft Docs
-description: Questa panoramica è un'introduzione all'anteprima di sincronizzazione dati SQL di Azure.
+title: Sincronizzazione dati SQL di Azure | Microsoft Docs
+description: Questa panoramica è un'introduzione alla sincronizzazione dati SQL di Azure
 services: sql-database
 author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296918"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
 La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che consente di sincronizzare i dati selezionati bidirezionalmente tra più database SQL e istanze di SQL Server.
 
@@ -52,15 +53,15 @@ La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mante
 
 -   **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
-La sincronizzazione dei dati non è appropriata per gli scenari seguenti:
+La sincronizzazione dei dati non è la soluzione ideale per gli scenari seguenti:
 
--   Ripristino di emergenza
-
--   Scalabilità in lettura
-
--   ETL (da OLTP a OLAP)
-
--   Migrazione da SQL Server locale al database SQL di Azure
+| Scenario | Alcune soluzioni raccomandate |
+|----------|----------------------------|
+| Ripristino di emergenza | [Backup con ridondanza geografica di Azure](sql-database-automated-backups.md) |
+| Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](sql-database-read-scale-out.md) |
+| ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Migrazione da SQL Server locale al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Come funziona la sincronizzazione dati? 
 
@@ -81,6 +82,8 @@ Dato che la sincronizzazione dati è basata su trigger, la coerenza delle transa
 
 #### <a name="performance-impact"></a>Impatto sulle prestazioni
 La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazione per il rilevamento delle modifiche e crea tabelle laterali nel database utente per il rilevamento delle modifiche. Queste attività di rilevamento delle modifiche hanno un impatto sul carico di lavoro del database. Valutare il livello di servizio e aggiornare se necessario.
+
+Sulle prestazioni del database possono incidere anche il provisioning e il deprovisioning eseguiti durante la creazione, l'aggiornamento e l'eliminazione dei gruppi di sincronizzazione. 
 
 ### <a name="general-requirements"></a>Requisiti generali
 
@@ -124,13 +127,13 @@ La sincronizzazione dati usa trigger di inserimento, aggiornamento ed eliminazio
 
 ## <a name="faq-about-sql-data-sync"></a>Domande frequenti sulla sincronizzazione dati SQL
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Quanto costa il servizio di anteprima di sincronizzazione dati SQL?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Quanto costa il servizio di sincronizzazione dati SQL?
 
-Durante l'anteprima, non è previsto alcun addebito per l'anteprima di sincronizzazione dati SQL.  Tuttavia, si accumuleranno ancora gli addebiti per il trasferimento dei dati dovuti allo spostamento dei dati da e verso l'istanza di database SQL. Per altre informazioni, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+Non viene applicato alcun addebito per il servizio di sincronizzazione dati SQL di per sé.  Tuttavia, si accumuleranno ancora gli addebiti per il trasferimento dei dati dovuti allo spostamento dei dati da e verso l'istanza di database SQL. Per altre informazioni, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Quali aree supportano la sincronizzazione dati?
 
-L'anteprima di sincronizzazione dati SQL è disponibile in tutte le aree di cloud pubblico.
+La sincronizzazione dati SQL è disponibile in tutte le aree di cloud pubblico.
 
 ### <a name="is-a-sql-database-account-required"></a>È necessario disporre di un account di database SQL? 
 
@@ -149,7 +152,7 @@ Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting da
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>È necessario usare la sincronizzazione dati SQL per eseguire il backup e il ripristino dei database?
 
-Non è consigliabile usare l'anteprima di sincronizzazione dati SQL per creare un backup dei dati. Non è possibile eseguire il backup e il ripristino a una temporizzazione specificata, perché le sincronizzazioni dell'anteprima di sincronizzazione dati SQL sono senza versione. Inoltre, l'anteprima di sincronizzazione dati SQL non esegue il backup di altri oggetti SQL, come ad esempio stored procedure, e non esegue rapidamente l'equivalente di un'operazione di ripristino.
+Non è consigliabile usare la sincronizzazione dati SQL per creare un backup dei dati. Non è possibile eseguire il backup e il ripristino in un punto specifico nel tempo, perché le sincronizzazioni della sincronizzazione dati SQL sono senza versione. Inoltre, la sincronizzazione dati SQL non esegue il backup di altri oggetti SQL, ad esempio le stored procedure, e non esegue rapidamente l'equivalente di un'operazione di ripristino.
 
 Per una tecnica di backup consigliata, vedere [Copiare un database SQL di Azure](sql-database-copy.md).
 
@@ -169,7 +172,7 @@ Sì. La sincronizzazione dati SQL supporta le regole di confronto negli scenari 
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>La federazione è supportata nella sincronizzazione dati SQL?
 
-Il database radice di federazione può essere usato nel servizio di anteprima di sincronizzazione dati SQL senza alcuna limitazione. Non è possibile aggiungere l'endpoint del database federato alla versione corrente dell'anteprima di sincronizzazione dati SQL.
+Il database radice di federazione può essere usato nel servizio di sincronizzazione dati SQL senza alcuna limitazione. Non è possibile aggiungere l'endpoint del database federato alla versione corrente della sincronizzazione dati SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
