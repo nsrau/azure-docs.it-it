@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: e923167ef0b7cdb300fa5ad1421cc18489393ce2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356342"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265179"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -142,8 +142,8 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 1. Fare clic su **Regole** e quindi su **Basata sul percorso**.
 2. Immettere *rule2* come nome.
-3. Immettere *Images* come nome del primo percorso. Immettere */images/** come percorso. Selezionare **imagesBackendPool** come pool back-end.
-4. Immettere *Video* come nome del secondo percorso. Immettere */video/** come percorso. Selezionare **videoBackendPool** come pool back-end.
+3. Immettere *Images* come nome del primo percorso. Immettere */images/*\* come percorso. Selezionare **imagesBackendPool** come pool back-end.
+4. Immettere *Video* come nome del secondo percorso. Immettere */video/*\* come percorso. Selezionare **videoBackendPool** come pool back-end.
 
     ![Creare una regola basata sul percorso](./media/create-url-route-portal/application-gateway-route-rule.png)
 

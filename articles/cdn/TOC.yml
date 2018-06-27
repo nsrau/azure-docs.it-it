@@ -36,6 +36,8 @@
       href: cdn-china-delivery.md
     - name: Supporto HTTP/2
       href: cdn-http2.md
+    - name: Recuperare l'elenco di POP Verizon
+      href: cdn-pop-list-api.md
     - name: Eseguire la migrazione da Standard Verizon a Premium Verizon
       href: cdn-migrate.md
 - name: Guide alle procedure

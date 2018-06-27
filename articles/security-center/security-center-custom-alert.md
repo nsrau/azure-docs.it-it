@@ -3,32 +3,37 @@ title: Regole di avviso personalizzate nel Centro sicurezza di Azure | Microsoft
 description: Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/19/2018
+ms.author: terrylan
+ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775803"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284778"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
 Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Informazioni sulle regole di avviso personalizzate nel Centro sicurezza
 
-Il Centro sicurezza include un set di [avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) predefiniti, che vengono attivati in caso di minaccia o di attività sospetta. In alcuni scenari è consigliabile creare un avviso personalizzato per rispondere a esigenze specifiche dell'ambiente. 
+Il Centro sicurezza include un set di [avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) predefiniti, che vengono attivati in caso di minaccia o di attività sospetta. In alcuni scenari è consigliabile creare un avviso personalizzato per rispondere a esigenze specifiche dell'ambiente.
 
-Le regole di avviso personalizzate nel Centro sicurezza consentono di definire nuovi avvisi di sicurezza in base ai dati già raccolti dall'ambiente. È possibile creare query e usare i risultati di tali query come criteri per la regola personalizzata, che viene eseguita in caso di corrispondenza con i criteri. Per creare le query personalizzate, è possibile usare gli eventi di sicurezza dei computer, i log delle soluzioni di sicurezza dei partner o i dati inseriti tramite API. 
+Le regole di avviso personalizzate nel Centro sicurezza consentono di definire nuovi avvisi di sicurezza in base ai dati già raccolti dall'ambiente. È possibile creare query e usare i risultati di tali query come criteri per la regola personalizzata, che viene eseguita in caso di corrispondenza con i criteri. Per creare le query personalizzate, è possibile usare gli eventi di sicurezza dei computer, i log delle soluzioni di sicurezza dei partner o i dati inseriti tramite API.
+
+> [!NOTE]
+> È necessaria l'autorizzazione di scrittura nell'area di lavoro che si seleziona per archiviare l'avviso personalizzato.
+>
+>
 
 ## <a name="how-to-create-a-custom-alert-rule-in-security-center"></a>Procedura per la creazione di una regola di avviso nel Centro sicurezza
 
@@ -38,16 +43,16 @@ Aprire il dashboard **Centro sicurezza** e seguire questa procedura per creare u
 2.  Nella pagina **Centro sicurezza – Regole di avviso personalizzate (anteprima)** fare clic su **Nuova regola di avviso personalizzata**.
 
     ![Regola personalizzata](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
-    
+
 3.  Viene visualizzata la pagina Crea una regola di avviso personalizzata con le regole seguenti:
-    
+
     ![Create](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.  Digitare il nome per la regola personalizzata nel campo **Nome**.
 5.  Immettere una breve descrizione che rispecchia la finalità della regola nel campo **Descrizione**.
 6.  Selezionare il livello di gravità (Alta, Media, Bassa) in base alle esigenze specifiche nel campo **Gravità**.
 7.  Selezionare la sottoscrizione in cui è applicabile questa regola nel campo **Sottoscrizione**.
-8.  Selezionare l'area di lavoro da monitorare con questa regola nel campo **Area di lavoro** e quindi nel campo **Query di ricerca** selezionare la query da usare per ottenere i risultati. Il risultato della query attiva l'avviso. Si noti che quando si immette una query valida viene visualizzato un segno di spunta verde nell'angolo destro del campo:
+8.  Selezionare l'area di lavoro da monitorare con questa regola nel campo **Area di lavoro** e quindi nel campo **Query di ricerca** selezionare la query che si desidera usare per ottenere i risultati. È necessaria l'autorizzazione di scrittura nell'area di lavoro che si seleziona per archiviare l'avviso personalizzato. Il risultato della query attiva l'avviso. Si noti che quando si immette una query valida viene visualizzato un segno di spunta verde nell'angolo destro del campo:
 
     ![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
@@ -73,7 +78,6 @@ In questo documento è stato descritto come creare una regola di avviso personal
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
-* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza. 
+* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
-

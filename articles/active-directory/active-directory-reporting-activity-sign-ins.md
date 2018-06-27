@@ -3,25 +3,25 @@ title: Report delle attività di accesso nel portale di Azure Active Directory |
 description: Introduzione ai report delle attività di accesso nel portale di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588608"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231990"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -153,7 +153,7 @@ Se occorre usare i dati delle attività di accesso all'esterno del portale di Az
 
 ![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
 
-Facendo clic su **Scarica**, viene creato un file CSV dei 5.000 record più recenti. Se occorre una maggiore flessibilità, è possibile usare la soluzione tramite script. Facendo clic su **Script**, viene creato uno script che include tutti i filtri impostati. Oltre che dall'implementazione tecnica, il numero di record che è possibile scaricare è limitato anche dai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).  
+Facendo clic su **Scarica**, viene creato un file CSV dei 5.000 record più recenti. Se occorre una maggiore flessibilità, è possibile usare la soluzione tramite script. Facendo clic su **Script** si crea uno script di PowerShell che include tutti i filtri impostati. Scaricare ed eseguire lo script in **modalità amministratore** per generare il file CSV. Oltre che dall'implementazione tecnica, il numero di record che è possibile scaricare è limitato anche dai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).  
 
 
 

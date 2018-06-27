@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 398b69769cebb9d54121e357faed06294499bd61
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e666d23cec4ec6d987084bf5dc33bdb7c3db0f66
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723780"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231197"
 ---
 # <a name="set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory 
 

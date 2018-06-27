@@ -3,24 +3,24 @@ title: Domande frequenti sulla creazione di report in Azure Active Directory | D
 description: Domande frequenti sulla creazione di report in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588591"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231996"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
@@ -72,7 +72,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Quanti record è possibile scaricare dal portale di Azure?**
 
-**R:** Dal portale di Azure è possibile scaricare fino a 120 KB di record. I record vengono ordinati in base ai *più recenti* e, per impostazione predefinita, vengono visualizzati 120 KB dei record più recenti. 
+**R:** Dal portale di Azure è possibile scaricare fino a 5.000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5.000 record, ordinati partendo dai record *più recenti*. Per dimensioni di record superiori a 5.000, scegliere le condizioni di filtro, quindi fare clic sul pulsante *Script*  sul portale Azure. Verrà avviato il download di uno script di PowerShell, che è possibile eseguire per generare un file CSV di tutti i record corrispondenti alle condizioni di filtro. È necessario eseguire lo script di PowerShell in *modalità amministratore*. Per altre informazioni, vedere l'articolo [Scaricare le attività di accesso](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Come ottenere una licenza Premium?**
 
-**R:** Per la risposta a questa domanda, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
+**R:** Per la risposta a questa domanda, vedere [Introduzione ad Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md).
 
 ---
 

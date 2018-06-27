@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158150"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267883"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossario per gli sviluppatori di Azure Active Directory
 Questo articolo contiene le definizioni di alcuni dei concetti di base per gli sviluppatori di Azure Active Directory (AD), utili per imparare a sviluppare applicazioni per Azure AD.
@@ -132,7 +132,7 @@ Così come gli [ambiti](#scopes), i ruoli consentono a un [server di risorse](#r
 
 I ruoli sono stringhe definite a livello di risorsa, ad esempio "Expense approver", "Read-only", "Directory.ReadWrite.All", vengono gestiti nel [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest) della risorsa e vengono archiviati nella [proprietà appRoles][AAD-Graph-Sp-Entity] della risorsa. Il portale di Azure viene usato anche per assegnare gli utenti ai ruoli utente e configurare le [autorizzazioni applicazione](#permissions) client per l'accesso a un ruolo applicazione.
 
-Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [Role based access control in cloud applications using Azure AD][Duyshant-Role-Blog] (Controllo degli accessi in base al ruolo nelle applicazioni cloud con Azure AD).
+Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Graph di Azure AD, vedere [Ambiti di autorizzazione | Concetti relativi all'API Graph][AAD-Graph-Perm-Scopes]. Per un esempio di implementazione dettagliata, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>ambiti
 Così come i [ruoli](#roles), gli ambiti consentono a un [server di risorse](#resource-server) di controllare l'accesso alle proprie risorse protette. Gli ambiti vengono usati per implementare il controllo di accesso [in base all'ambito][OAuth2-Access-Token-Scopes] per un'[applicazione client](#client-application) che ha ottenuto l'accesso delegato alla risorsa dal relativo proprietario.
@@ -170,18 +170,18 @@ I tenant di Azure AD vengono creati/associati alle sottoscrizioni di Azure e agl
 Uno degli endpoint implementati dal [server di autorizzazione](#authorization-server) per supportare le [concessioni di autorizzazione](#authorization-grant) OAuth2. A seconda della concessione, può essere usato per acquisire un [token di accesso](#access-token) (e un token di "aggiornamento" correlato) per un [client](#client-application) oppure un [token ID](#ID-token) quando viene usato insieme al protocollo [OpenID Connect][OpenIDConnect].
 
 ## <a name="user-agent-based-client"></a>client basato su agente utente
-Tipo di [applicazione client](#client-application) che scarica il codice da un server Web e viene eseguita all'interno di un agente utente (come un Web browser), ad esempio un'applicazione a singola pagina. Poiché tutto il codice viene eseguito in un dispositivo, il client viene considerato "pubblico" perché non può eseguire l'archiviazione privata/riservata delle credenziali. Per altri dettagli, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
+Tipo di [applicazione client](#client-application) che scarica il codice da un server Web e viene eseguita all'interno di un agente utente (come un Web browser), ad esempio un'applicazione a singola pagina. Poiché tutto il codice viene eseguito in un dispositivo, il client viene considerato "pubblico" perché non può eseguire l'archiviazione privata/riservata delle credenziali. Per altre informazioni, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
 
 ## <a name="user-principal"></a>entità utente
 Analogamente a un oggetto entità servizio che viene usato per rappresentare un'istanza dell'applicazione, un oggetto entità utente è un altro tipo di entità di sicurezza che rappresenta un utente. L'[entità utente][AAD-Graph-User-Entity] di Azure AD Graph definisce lo schema per un oggetto utente, incluse le proprietà relative all'utente come nome e cognome, nome dell'entità utente, appartenenza a un ruolo della directory e così via. La configurazione dell'identità utente per Azure AD può così stabilire un'entità utente in fase di esecuzione. L'entità utente viene usata per rappresentare un utente autenticato per Single Sign-On, durante la registrazione della delega del [consenso](#consent), le decisioni di controllo di accesso e così via.
 
 ## <a name="web-client"></a>client Web
-Tipo di [applicazione client](#client-application) che esegue tutto il codice su un server Web e può funzionare come client "riservato" perché può eseguire l'archiviazione sicura delle credenziali sul server. Per altri dettagli, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
+Tipo di [applicazione client](#client-application) che esegue tutto il codice su un server Web e può funzionare come client "riservato" perché può eseguire l'archiviazione sicura delle credenziali sul server. Per altre informazioni, vedere [i profili e i tipi di client di OAuth2][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Passaggi successivi
 La [Guida per gli sviluppatori di Azure Active Directory][AAD-Dev-Guide] riunisce tutti gli argomenti relativi allo sviluppo per Azure AD, ad esempio per una panoramica dell'[integrazione di applicazioni][AAD-How-To-Integrate] e le nozioni di base sull'[autenticazione in Azure AD e gli scenari di autenticazione supportati][AAD-Auth-Scenarios]. È anche possibile trovare esempi di codice ed esercitazioni su come ottenere rapidamente in [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire il contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
+Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiutarci a perfezionare e a definire questo contenuto del glossario, incluse le richieste di nuove definizioni o l'aggiornamento di quelle esistenti.
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiuta
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Usare la seguente sezione commenti per fornire commenti e suggerimenti per aiuta
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

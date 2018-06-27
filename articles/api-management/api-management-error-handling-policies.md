@@ -12,19 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 06/19/2018
 ms.author: apimpm
-ms.openlocfilehash: 6bc71c0745493d52128553a78a31c45a3bca30f8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 73609e802eceea6aa94d77cef6ca1d654264973d
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26128227"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265008"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Gestione degli errori nei criteri di Gestione API
-Gestione API di Azure consente agli autori di rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste al proxy fornendo un oggetto `ProxyError`. È possibile accedere all'oggetto `ProxyError` tramite la proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables). I criteri possono utilizzarlo nella sezione dei criteri `on-error`. In questo argomento vengono indicati dei riferimenti per le funzionalità di gestione degli errori in Gestione API di Azure.  
+
+Fornendo un oggetto `ProxyError`, gestione API di Azure consente agli autori di rispondere alle condizioni di errore che possono verificarsi durante l'elaborazione delle richieste. È possibile accedere all'oggetto `ProxyError` tramite la proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables). I criteri possono utilizzarlo nella sezione dei criteri `on-error`. In questo articolo vengono indicati dei riferimenti per le funzionalità di gestione degli errori in Gestione API di Azure.  
   
-## <a name="error-handling-in-api-management"></a>Gestione degli errori in Gestione API  
+## <a name="error-handling-in-api-management"></a>Gestione degli errori in Gestione API
+
  I criteri in Gestione API di Azure sono divisi nelle sezioni `inbound`, `backend`, `outbound` e `on-error` come mostrato nell'esempio seguente.  
   
 ```xml  
@@ -46,14 +48,16 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 </policies>  
 ```  
   
- Durante l'elaborazione di una richiesta, i passaggi predefiniti vengono eseguiti insieme a tutti i criteri che rientrano nell'ambito per la richiesta. Se si verifica un errore, l'elaborazione passa immediatamente alla sezione di criteri `on-error`. È possibile usare la sezione di criteri `on-error` in qualsiasi ambito. Gli autori di API possono configurare comportamenti personalizzati come la registrazione degli errori nell'hub eventi o la creazione di una nuova risposta da restituire al chiamante.  
+Durante l'elaborazione di una richiesta, i passaggi predefiniti vengono eseguiti insieme a tutti i criteri che rientrano nell'ambito per la richiesta. Se si verifica un errore, l'elaborazione passa immediatamente alla sezione di criteri `on-error`.  
+La sezione dei criteri `on-error` può essere usata in qualsiasi ambito. Gli autori di API possono configurare comportamenti personalizzati come la registrazione degli errori nell'hub eventi o la creazione di una nuova risposta da restituire al chiamante.  
   
 > [!NOTE]
 >  Per impostazione predefinita, la sezione `on-error` non è presente nei criteri. Per aggiungere la sezione `on-error` a un criterio, selezionare il criterio desiderato nell'editor dei criteri e aggiungerlo. Per ulteriori informazioni sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/).  
 >   
 >  Se la sezione `on-error` non è presente, il chiamante riceverà dei messaggi di risposta 400 o 500 HTTP in caso di una condizione di errore.  
   
-### <a name="policies-allowed-in-on-error"></a>Criteri consentiti in on-error  
+### <a name="policies-allowed-in-on-error"></a>Criteri consentiti in on-error
+
  È possibile usare i seguenti criteri nella sezione di criteri `on-error`.  
   
 -   [choose](api-management-advanced-policies.md#choose)  
@@ -69,53 +73,106 @@ Gestione API di Azure consente agli autori di rispondere alle condizioni di erro
 -   [json-to-xml](api-management-transformation-policies.md#ConvertJSONtoXML)  
 -   [xml-to-json](api-management-transformation-policies.md#ConvertXMLtoJSON)  
   
-## <a name="lasterror"></a>LastError  
- Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error` e dotata delle seguenti proprietà.  
+## <a name="lasterror"></a>LastError
+
+ Quando si verifica un errore e il controllo passa alla sezione di criteri `on-error`, l'errore viene conservato nella proprietà [context.LastError](api-management-policy-expressions.md#ContextVariables), accessibile dai criteri nella sezione `on-error`. LastError ha le seguenti proprietà.  
   
-|NOME|type|DESCRIZIONE|Obbligatoria|  
-|----------|----------|-----------------|--------------|  
-|Sorgente|stringa|Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.|Sì|  
-|Motivo|stringa|Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.|No |  
-|Message|stringa|Descrizione dell'errore leggibile dall'utente.|Sì|  
-|Scope|stringa|Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation"|No |  
-|Sezione|stringa|Nome della sezione in cui si è verificato l'errore. Può essere "inbound", "backend", "outbound" o "on-error".|No |  
-|path|stringa|Specifica i criteri annidati, ad esempio "choose[3]/when[2]".|No |  
-|PolicyId|stringa|Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore|No |  
-  
+| NOME     | type   | DESCRIZIONE                                                                                               | Obbligatoria |
+|----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
+| Sorgente   | stringa | Indica l'elemento in cui si è verificato l'errore. Può trattarsi di un criterio o di un nome di passaggio predefinito nella pipeline.     | Sì      |
+| Motivo   | stringa | Codice errore leggibile tramite computer, da utilizzare se necessario nella gestione degli errori.                                       | No        |
+| Message  | stringa | Descrizione dell'errore leggibile dall'utente.                                                                         | Sì      |
+| Scope    | stringa | Nome dell'ambito in cui si è verificato l'errore. Può essere "global", "product", "api" o "operation" | No        |
+| Sezione  | stringa | Nome della sezione in cui si è verificato l'errore. Valori possibili: "in ingresso", "back-end", "in uscita" o "in on error".       | No        |
+| path     | stringa | Specifica i criteri annidati, ad esempio "choose[3]/when[2]".                                                        | No        |
+| PolicyId | stringa | Valore dell'attributo `id`, se specificato dal cliente, nel criterio in cui si è verificato l'errore             | No        |
+
+> [!TIP]
+> È possibile accedere al codice di stato tramite context.Response.StatusCode.  
+
 > [!NOTE]
->  Tutti i criteri dispongono di un attributo `id` facoltativo che è possibile aggiungere al loro elemento radice. Se questo attributo è presente in un criterio quando si verifica una condizione di errore, il valore dell'attributo può essere recuperato tramite la proprietà `context.LastError.PolicyId`.  
-  
+> Tutti i criteri dispongono di un attributo `id` facoltativo che è possibile aggiungere al loro elemento radice. Se questo attributo è presente in un criterio quando si verifica una condizione di errore, il valore dell'attributo può essere recuperato tramite la proprietà `context.LastError.PolicyId`.
+
 ## <a name="predefined-errors-for-built-in-steps"></a>Errori predefiniti per i passaggi predefiniti  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei passaggi di elaborazione predefiniti.  
   
-|Sorgente|Condizione|Motivo|Message|  
-|------------|---------------|------------|-------------|  
-|configurazione|L'URI non corrisponde a un'API o a un'operazione|OperationNotFound|Impossibile associare la richiesta in ingresso a un'operazione.|  
-|autorizzazione|Chiave di sottoscrizione non fornita|SubscriptionKeyNotFound|Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API.|  
-|autorizzazione|Il valore della chiave di sottoscrizione non è valido|SubscriptionKeyInvalid|Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.|  
+| Sorgente        | Condizione                                 | Motivo                  | Message                                                                                                                |
+|---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
+| configurazione | L'URI non corrisponde a un'API o a un'operazione | OperationNotFound       | Impossibile associare la richiesta in ingresso a un'operazione.                                                                      |
+| autorizzazione | Chiave di sottoscrizione non fornita             | SubscriptionKeyNotFound | Accesso negato, chiave di sottoscrizione mancante. Assicurarsi di includere la chiave di sottoscrizione quando si effettuano richieste a questa API. |
+| autorizzazione | Il valore della chiave di sottoscrizione non è valido         | SubscriptionKeyInvalid  | Accesso negato, la chiave di sottoscrizione non è valida. Assicurarsi di fornire la chiave valida di una sottoscrizione attiva.            |
   
 ## <a name="predefined-errors-for-policies"></a>Errori predefiniti per i criteri  
  Gli errori seguenti sono predefiniti per le condizioni di errore che possono verificarsi durante la valutazione dei criteri.  
   
-|Sorgente|Condizione|Motivo|Message|  
-|------------|---------------|------------|-------------|  
-|rate-limit|Limite di velocità superato|RateLimitExceeded|Il limite di velocità è stato superato|  
-|quota|La quota è stata superata|QuotaExceeded|La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx.|  
-|jsonp|Il valore del parametro callback non è valido (contiene caratteri errati)|CallbackParameterInvalid|Il valore del parametro callback {callback-parameter-name} non è un identificatore JavaScrpit valido.|  
-|ip-filter|Impossibile analizzare l'IP del chiamante dalla richiesta|FailedToParseCallerIP|Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato.|  
-|ip-filter|L'IP del chiamante non è presente nell'elenco degli IP consentiti|CallerIpNotAllowed|L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato.|  
-|ip-filter|L'IP del chiamante è presente nell'elenco degli IP bloccati|CallerIpBlocked|L'indirizzo IP del chiamante è bloccato. Accesso negato.|  
-|check-header|Intestazione richiesta non presentata o valore mancante|HeaderNotFound|Impossibile trovare l'intestazione {header-name} nella richiesta. Accesso negato.|  
-|check-header|Intestazione richiesta non presentata o valore mancante|HeaderValueNotAllowed|Il valore {header-value} dell'intestazione {header-name} non è consentito. Accesso negato.|  
-|validate-jwt|La richiesta non contiene il token JWT|TokenNotFound|JWT non trovato nella richiesta. Accesso negato.|  
-|validate-jwt|Convalida della firma non riuscita|TokenSignatureInvalid|<messaggio dalla libreria JWT\>. Accesso negato.|  
-|validate-jwt|Destinatari non validi|TokenAudienceNotAllowed|<messaggio dalla libreria JWT\>. Accesso negato.|  
-|validate-jwt|Autorità di certificazione non valida|TokenIssuerNotAllowed|<messaggio dalla libreria JWT\>. Accesso negato.|  
-|validate-jwt|Token scaduto|TokenExpired|<messaggio dalla libreria JWT\>. Accesso negato.|  
-|validate-jwt|La chiave della firma non è stata risolta dall'ID|TokenSignatureKeyNotFound|<messaggio dalla libreria JWT\>. Accesso negato.|  
-|validate-jwt|Attestazioni necessarie non presenti nel token|TokenClaimNotFound|Il token JWT non contiene le attestazioni seguenti: <c1\>, <c2\>, … Accesso negato.|  
-|validate-jwt|I valori di attestazione non corrispondono|TokenClaimValueNotAllowed|Il valore {claim-value} dell'attestazione {claim-name} non è consentito. Accesso negato.|  
-|validate-jwt|Altri errori di convalida|JwtInvalid|<messaggio dalla libreria JWT\>|
+| Sorgente       | Condizione                                                       | Motivo                    | Message                                                                                                                              |
+|--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| rate-limit   | Limite di velocità superato                                             | RateLimitExceeded         | Il limite di velocità è stato superato                                                                                                               |
+| quota        | La quota è stata superata                                                  | QuotaExceeded             | La quota del volume di chiamate è esaurita. La quota verrà ripristinata in xx:xx:xx. -oppure- La quota della larghezza di banda è esaurita. La quota verrà ripristinata in xx:xx:xx. |
+| jsonp        | Il valore del parametro callback non è valido (contiene caratteri errati) | CallbackParameterInvalid  | Il valore del parametro callback {callback-parameter-name} non è un identificatore JavaScrpit valido.                                          |
+| ip-filter    | Impossibile analizzare l'IP del chiamante dalla richiesta                          | FailedToParseCallerIP     | Impossibile stabilire l'indirizzo IP per il chiamante. Accesso negato.                                                                        |
+| ip-filter    | L'IP del chiamante non è presente nell'elenco degli IP consentiti                                | CallerIpNotAllowed        | L'indirizzo IP del chiamante {ip-address} non è consentito. Accesso negato.                                                                        |
+| ip-filter    | L'IP del chiamante è presente nell'elenco degli IP bloccati                                    | CallerIpBlocked           | L'indirizzo IP del chiamante è bloccato. Accesso negato.                                                                                         |
+| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderNotFound            | Impossibile trovare l'intestazione {header-name} nella richiesta. Accesso negato.                                                                    |
+| check-header | Intestazione richiesta non presentata o valore mancante               | HeaderValueNotAllowed     | Il valore {header-value} dell'intestazione {header-name} non è consentito. Accesso negato.                                                          |
+| validate-jwt | La richiesta non contiene il token JWT                                 | TokenNotFound             | JWT non trovato nella richiesta. Accesso negato.                                                                                         |
+| validate-jwt | Convalida della firma non riuscita                                     | TokenSignatureInvalid     | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
+| validate-jwt | Destinatari non validi                                                | TokenAudienceNotAllowed   | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
+| validate-jwt | Autorità di certificazione non valida                                                  | TokenIssuerNotAllowed     | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
+| validate-jwt | Token scaduto                                                   | TokenExpired              | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
+| validate-jwt | La chiave della firma non è stata risolta dall'ID                            | TokenSignatureKeyNotFound | <messaggio dalla libreria JWT\>. Accesso negato.                                                                                          |
+| validate-jwt | Attestazioni necessarie non presenti nel token                          | TokenClaimNotFound        | Il token JWT non contiene le attestazioni seguenti: <c1\>, <c2\>, … Accesso negato.                                                            |
+| validate-jwt | I valori di attestazione non corrispondono                                           | TokenClaimValueNotAllowed | Il valore {claim-value} dell'attestazione {claim-name} non è consentito. Accesso negato.                                                             |
+| validate-jwt | Altri errori di convalida                                       | JwtInvalid                | <messaggio dalla libreria JWT\>                                                                                                          |
+
+## <a name="example"></a>Esempio
+
+L'impostazione di un criterio di API in:
+
+```xml
+<policies>
+    <inbound>
+        <base />
+    </inbound>
+    <backend>
+        <base />
+    </backend>
+    <outbound>
+        <base />
+    </outbound>
+    <on-error>
+        <set-header name="ErrorSource" exists-action="override">
+            <value>@(context.LastError.Source)</value>
+        </set-header>
+        <set-header name="ErrorReason" exists-action="override">
+            <value>@(context.LastError.Reason)</value>
+        </set-header>
+        <set-header name="ErrorMessage" exists-action="override">
+            <value>@(context.LastError.Message)</value>
+        </set-header>
+        <set-header name="ErrorScope" exists-action="override">
+            <value>@(context.LastError.Scope)</value>
+        </set-header>
+        <set-header name="ErrorSection" exists-action="override">
+            <value>@(context.LastError.Section)</value>
+        </set-header>
+        <set-header name="ErrorPath" exists-action="override">
+            <value>@(context.LastError.Path)</value>
+        </set-header>
+        <set-header name="ErrorPolicyId" exists-action="override">
+            <value>@(context.LastError.PolicyId)</value>
+        </set-header>
+        <set-header name="ErrorStatusCode" exists-action="override">
+            <value>@(context.Response.StatusCode.ToString())</value>
+        </set-header>
+        <base />
+    </on-error>
+</policies>
+```
+
+e l'invio di una richiesta non autorizzata determineranno la risposta seguente:
+
+![Risposta di errore non autorizzata](media/api-management-error-handling-policies/error-response.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

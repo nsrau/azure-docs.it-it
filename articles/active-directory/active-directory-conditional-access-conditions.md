@@ -1,6 +1,6 @@
 ---
-title: Condizioni nell'accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Informazioni su come vengono usate le assegnazioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
+title: Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? | Microsoft Docs
+description: Informazioni su come vengono usate le condizioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735142"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232174"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Condizioni nell'accesso condizionale di Azure Active Directory 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
 
 Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo"). 
 
@@ -140,7 +140,7 @@ Casi d'uso comuni per questa condizione sono criteri che:
 
 - Bloccano l'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche. 
 
-Per altre informazioni, vedere [Condizioni della posizione nell'accesso condizionale di Azure Active Directory](active-directory-conditional-access-locations.md).
+Per altre informazioni, vedere [Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](active-directory-conditional-access-locations.md).
 
 
 ## <a name="client-apps"></a>App client
@@ -241,7 +241,7 @@ di serie Non è prevista alcuna modifica al comportamento predefinito dei criter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

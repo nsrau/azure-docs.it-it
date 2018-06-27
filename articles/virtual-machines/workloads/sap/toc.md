@@ -1,8 +1,9 @@
 # Panoramica
-## [Attività iniziali](get-started.md)
+## [Introduzione](get-started.md)
 ## [Certificazioni](sap-certifications.md)
 # SAP HANA in Azure (istanze Large)
 ## [Panoramica e architettura](hana-overview-architecture.md)
+### [Scenari HLI supportati](hana-supported-scenario.md)
 ## [Infrastruttura e connettività](hana-overview-infrastructure-connectivity.md)
 ## [Installare SAP HANA](hana-installation.md)
 ## [Disponibilità elevata e ripristino di emergenza](hana-overview-high-availability-disaster-recovery.md)

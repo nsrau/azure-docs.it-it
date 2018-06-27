@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195965"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218956"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Inoltrare i dati dei report di Automation DSC per Azure in Log Analytics
 
@@ -86,14 +86,14 @@ Digitare la query seguente per trovare i log DSC: `Type=AzureDiagnostics Resourc
 
 Uno dei clienti più importanti chiede di poter inviare un messaggio di posta elettronica o un SMS quando si verificano problemi con una configurazione DSC.   
 
-Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per i record del report DSC che dovranno richiamare l'avviso.  Fare clic su pulsante **Avviso** per creare e configurare la regola di avviso.
+Per creare una regola di avviso, è necessario creare prima di tutto una ricerca nei log per i record del report DSC che dovranno richiamare l'avviso.  Fare clic su pulsante **+ Nuova regola di avviso** per creare e configurare la regola di avviso.
 
 1. Dalla pagina della panoramica di Log Analytics fare clic su **Ricerca log**.
 1. Creare una query di ricerca dei log per l'avviso digitando i criteri di ricerca seguenti nel campo query: `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Se sono stati configurati log da più account di Automazione o sottoscrizioni nell'area di lavoro, è possibile raggruppare gli avvisi per sottoscrizione o account di Automazione.  
   Il nome dell'account di Automazione può essere derivato dal campo Risorsa nella ricerca di DscNodeStatusData.  
-1. Per aprire la schermata **Aggiungi regola di avviso** fare clic su **Avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Per aprire la schermata **Crea regola** fare clic su **+ Nuova regola di avviso** nella parte superiore della pagina. Per altre informazioni sulle opzioni per la configurazione dell'avviso, vedere [Creare un avviso](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Trovare le risorse DSC con errori in tutti i nodi
 

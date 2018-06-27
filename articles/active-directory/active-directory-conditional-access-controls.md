@@ -1,5 +1,5 @@
 ---
-title: Controlli di accesso nell'accesso condizionale di Azure Active Directory | Microsoft Docs
+title: Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory? | Microsoft Docs
 description: Informazioni sul funzionamento dei controlli di accesso nell'accesso condizionale di Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 85c91ee7a03df221b2bf591aca6bf937c98313c7
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723644"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232183"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Controlli di accesso nell'accesso condizionale di Azure Active Directory 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory? 
 
 Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo"). 
 
@@ -173,6 +173,6 @@ Per altre informazioni su come richiedere l'accesso limitato con SharePoint, ved
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
