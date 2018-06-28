@@ -67,6 +67,8 @@
   items:
     - name: Lingue supportate
       href: supported-languages.md
+    - name: Regioni
+      href: regions.md
     - name: API REST
       href: rest-apis.md
     - name: API Speech SDK

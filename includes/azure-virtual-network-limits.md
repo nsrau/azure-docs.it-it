@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 326da32f91b263bbd09a4c6f521c9ec72094820c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297967"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066068"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Peering reti virtuali per rete virtuale |10 |50 |
 | Server DNS per rete virtuale |9 |25 |
 | Indirizzi IP privati per rete virtuale |16384** |16384 |
-| Indirizzi IP privati per interfaccia di rete |256 |1024 |
+| Indirizzi IP privati per interfaccia di rete |256 |256 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
 | Interfacce di rete (NIC) |24000** |24000 |
 | Gruppi di sicurezza di rete (NGS) |100 |5000 |

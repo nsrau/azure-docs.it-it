@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: d84e8d41d79d9800c952ba3ef0e89e0cdfbdd8dd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b7f07ec8736086483f91746512f10118ee90762d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850645"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333164"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Come usare Packer per creare immagini di macchine virtuali di Windows in Azure
 Ogni macchina virtuale (VM, Virtual Machine) in Azure viene creata a partire da un'immagine che ne definisce la distribuzione di Windows e la versione del sistema operativo. Le immagini possono includere applicazioni e configurazioni preinstallate. In Microsoft Azure Marketplace sono disponibili molte prime immagini e immagini di terze parti per i sistemi operativi e gli ambienti applicativi più diffusi. In alternativa, è possibile creare immagini personalizzate su misura per le proprie esigenze. Questo articolo illustra in dettaglio come definire e compilare immagini personalizzate in Azure tramite lo strumento open source [Packer](https://www.packer.io/).
@@ -94,8 +94,8 @@ Creare un file con nome *windows.json* e incollare al suo interno il contenuto s
     "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
-    "winrm_use_ssl": "true",
-    "winrm_insecure": "true",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
     "winrm_timeout": "3m",
     "winrm_username": "packer",
 

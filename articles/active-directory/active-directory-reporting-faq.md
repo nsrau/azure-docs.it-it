@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231996"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335058"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
@@ -72,7 +72,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Quanti record è possibile scaricare dal portale di Azure?**
 
-**R:** Dal portale di Azure è possibile scaricare fino a 5.000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5.000 record, ordinati partendo dai record *più recenti*. Per dimensioni di record superiori a 5.000, scegliere le condizioni di filtro, quindi fare clic sul pulsante *Script*  sul portale Azure. Verrà avviato il download di uno script di PowerShell, che è possibile eseguire per generare un file CSV di tutti i record corrispondenti alle condizioni di filtro. È necessario eseguire lo script di PowerShell in *modalità amministratore*. Per altre informazioni, vedere l'articolo [Scaricare le attività di accesso](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**R:** Dal portale di Azure è possibile scaricare fino a 5.000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5.000 record, ordinati partendo dai record *più recenti*.
 
 ---
 

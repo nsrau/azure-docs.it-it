@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 74051ae8ad4ca7065561607feb13a2b98094fffc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801780"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333183"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
@@ -47,7 +47,7 @@ Questo documento contiene informazioni dettagliate sui requisiti relativi al pro
 
 È consigliabile verificare che i messaggi di output del provider di identità SAML 2.0 siano il più simili possibile alle tracce di esempio fornite. Usare inoltre valori di attributo specifici dei metadati di Azure AD forniti, dove possibile. Una volta ottenuti i messaggi di output desiderati, è possibile testarli con Microsoft Connectivity Analyzer, come descritto di seguito.
 
-È possibile scaricare i metadati di Azure AD da questo URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
+È possibile scaricare i metadati di Azure AD da questo URL: [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml).
 Per i clienti in Cina che usano l'istanza di Office 365 specifica per la Cina, è necessario usare l'endpoint di federazione seguente: [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml).
 
 ## <a name="saml-protocol-requirements"></a>Requisiti del protocollo SAML

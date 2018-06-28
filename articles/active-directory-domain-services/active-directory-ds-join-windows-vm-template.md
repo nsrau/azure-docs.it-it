@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: b5d9e724fcbe3f872eee2f64bdec6894ef97e2e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 85dd7e73afe4558e58084cc133e3cfdc93e4088d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587198"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333558"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito usando un modello di Resource Manager
 Questo articolo illustra come aggiungere una macchina virtuale Windows Server a un dominio gestito Azure AD Domain Services, usando i modelli Resource Manager.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:

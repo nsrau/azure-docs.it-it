@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 8eefb66e50b4dfd601428eec90784b0991276b5a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807890"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335476"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -67,7 +67,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
     Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
-1. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
+2. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,17 +91,17 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 1. In una finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
+2. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
 
-1. Nella finestra del terminale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
+3. Nella finestra del terminale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Nella finestra del terminale eseguire il comando seguente per compilare ed eseguire l'applicazione del dispositivo simulato:
+4. Nella finestra del terminale eseguire il comando seguente per compilare ed eseguire l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     dotnet run
@@ -117,17 +117,17 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
 1. In un'altra finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
 
-1. Aprire il file **BackEndApplication.cs** in un editor di testo di propria scelta.
+2. Aprire il file **BackEndApplication.cs** in un editor di testo di propria scelta.
 
-    Sostituire il valore della variabile `connectionString` con la stringa di connessione al servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.cs**.
+    Sostituire il valore della variabile `s_connectionString` con la stringa di connessione al servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.cs**.
 
-1. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
+3. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Nella finestra del terminale eseguire i comandi seguenti per compilare ed eseguire l'applicazione back-end:
+4. Nella finestra del terminale eseguire i comandi seguenti per compilare ed eseguire l'applicazione back-end:
 
     ```cmd/sh
     dotnet run
@@ -143,9 +143,7 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare con le altre esercitazioni, lasciare il gruppo di risorse e l'hub IoT per l'uso successivo.
-
-Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, selezionando il gruppo di risorse che contiene l'hub IoT e facendo clic su **Elimina**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

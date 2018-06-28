@@ -11,12 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26740432"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333258"
 ---
 # <a name="what-is-microsoft-genomics"></a>Cos'è Genomica di Microsoft?
 Genomica di Microsoft offre un'implementazione cloud dell'allineatore di Burrows-Wheeler (BWA, Burrows-Wheeler Aligner) e del toolkit di analisi del genoma (GATK, Genome Analysis Toolkit) per l'analisi secondaria. Il servizio è certificato ISO, è conforme alle normative HIPAA e offre la prevedibilità dei prezzi per specifiche esigenze di sequenziazione del genoma. Per informazioni su come usare il servizio Genomica di Microsoft e integrarlo con l'apposita API è possibile leggere le guide rapide, la documentazione e le esercitazioni disponibili.
@@ -30,7 +30,7 @@ Genomica di Microsoft offre un contratto di servizio che garantisce una disponib
 
 
 ## <a name="secure-your-data"></a>Protezione dei dati
-Il servizio Genomica di Microsoft ha ottenuto le certificazioni ISO 27001, ISO 27018 e ISO 9001 ed è conforme alle normative HIPAA. Visitare il [Centro protezione di Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx) per informazioni sulla sicurezza della piattaforma Azure.
+Il servizio Genomica di Microsoft ha ottenuto le certificazioni ISO 27001, ISO 27018 e ISO 9001 ed è conforme alle normative HIPAA. Visitare il [Centro protezione di Azure](https://www.microsoft.com/en-us/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

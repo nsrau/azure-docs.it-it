@@ -3,22 +3,24 @@ title: Il provisioning utenti per un'applicazione della raccolta di AD Azure ric
 description: Come individuare il motivo per cui il provisioning per l'applicazione in uso può richiedere più tempo del previsto
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: c9ed12569c0adc5ed8625a8d9fc81c9bee874cd4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: dc582ff3dac8f128972f070309d5c8a4ce21fb70
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26734048"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335384"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Il provisioning utenti per un'applicazione della raccolta di AD Azure richiede alcune ore o tempi maggiori
 

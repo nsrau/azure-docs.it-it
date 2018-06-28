@@ -3,28 +3,30 @@ title: Come configurare il provisioning degli utenti in un'applicazione della ra
 description: Come configurare rapidamente il provisioning e il deprovisioning degli account utente per applicazioni già elencate nella raccolta di applicazioni AD Azure
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: da7050edae282c90c4f92c588ce8fe501ccba50d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 79f836b4fc5964ffeb5cd9c1e179c3140395c219
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29464426"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334456"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Come configurare il provisioning degli utenti in un'applicazione della raccolta di Azure AD
 
 Il *provisioning degli account utente* è l'atto di creazione, aggiornamento e/o la disabilitazione di record di account utente nell'archivio di profili utente locale di un'applicazione. La maggior parte delle applicazioni cloud e SaaS archiviano i ruoli e le autorizzazioni utente in un proprio archivio di profili utente locale e la presenza di tali record utente nell'archivio locale è *necessaria* per il funzionamento degli accessi e del Single Sign-on.
 
-Nel portale di Azure, la scheda **Provisioning** nel riquadro di spostamento sinistro di un'applicazione Enterprise mostra le modalità di provisioning supportate per l'applicazione. Può essere uno dei due valori:
+Nel portale di Azure, la scheda **Provisioning** nel riquadro di spostamento a sinistra di un'applicazione Enterprise mostra le modalità di provisioning supportate per l'applicazione. Può essere uno dei due valori:
 
 ## <a name="configuring-an-application-for-manual-provisioning"></a>Configurazione di un'applicazione per il Provisioning manuale
 
