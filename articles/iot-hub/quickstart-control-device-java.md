@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 5da4248f0b0a72c3614b4c3e5ea042c4341f4e03
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808207"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330544"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (Java)
 
@@ -75,7 +75,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
     Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
-1. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
+2. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -99,17 +99,17 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 1. In una finestra del terminale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device-2**.
 
-1. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** in un editor di testo di propria scelta.
+2. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** in un editor di testo di propria scelta.
 
     Sostituire il valore della variabile `connString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.java**.
 
-1. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione del dispositivo simulato:
+3. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
+4. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -125,17 +125,17 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
 1. In un'altra finestra del terminale passare alla cartella radice del progetto Java di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\back-end-application**.
 
-1. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** in un editor di testo di propria scelta.
+2. Aprire il file **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** in un editor di testo di propria scelta.
 
     Sostituire il valore della variabile `iotHubConnectionString` con la stringa di connessione del servizio annotata in precedenza. Salvare quindi le modifiche nel file **BackEndApplication.java**.
 
-1. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione back-end:
+3. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie e compilare l'applicazione back-end:
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione back-end:
+4. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione back-end:
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -151,9 +151,7 @@ L'applicazione back-end si connette a un endpoint sul lato servizio nell'IoT Hub
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si prevede di continuare con le altre esercitazioni, lasciare il gruppo di risorse e l'hub IoT per l'uso successivo.
-
-Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, selezionando il gruppo di risorse che contiene l'hub IoT e facendo clic su **Elimina**.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 4a7d39910fac6096ef17873a9f81c5e1d1508857
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34757140"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030190"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestione di condivisioni file di Azure con Azure PowerShell 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questa guida contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con PowerShell. In questo articolo viene spiegato come:
@@ -170,7 +170,7 @@ Anche se il cmdlet `Start-AzureStorageFileCopy` è utile per gli spostamenti di 
 
 ## <a name="create-and-modify-share-snapshots"></a>Creare e modificare gli snapshot di condivisione
 Un'altra utile attività da eseguire con una condivisione file di Azure è la creazione degli snapshot di condivisione. Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di condivisione sono simili alle tecnologie del sistema operativo con cui probabilmente si ha già familiarità, ad esempio:
-- [Servizio Copia Shadow del volume](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) per i file system Windows come NTFS e ReFS
+- [Servizio Copia Shadow del volume](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows come NTFS e ReFS
 - Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
 - Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS. 
 

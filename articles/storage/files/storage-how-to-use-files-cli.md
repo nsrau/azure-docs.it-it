@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 66373d5a1ddd210d73fa964322862698f208a2f6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737949"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029391"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con l'interfaccia della riga di comando di Azure. È possibile passare agli argomenti seguenti: 
@@ -185,7 +185,7 @@ Nonostante il comando `az storage file copy start` sia pratico per gli spostamen
 Un'altra attività utile che è possibile eseguire con una condivisione file di Azure è la creazione di snapshot di condivisione. Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di condivisione sono simili ad alcune tecnologie del sistema operativo con cui probabilmente si ha già familiarità:
 - Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
 - Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS
-- [Servizio Copia Shadow del volume](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) per i file system Windows, come NTFS e ReFS
+- [Servizio Copia Shadow del volume](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows, come NTFS e ReFS
 
 È possibile creare uno snapshot di condivisione con il comando [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot):
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: f628f393f1ff5922d9d2c82b30d4fdbf4b5caf23
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738174"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029326"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gestire condivisioni file di Azure con Azure Storage Explorer 
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer è un popolare strumento client per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.
@@ -97,7 +97,7 @@ Lo stato di avanzamento del download verrà visualizzato nel riquadro **Attivit�
 
 ## <a name="create-and-modify-share-snapshots"></a>Creare e modificare gli snapshot di condivisione
 Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di una condivisione file sono simili ad altre tecnologie con cui probabilmente si ha già familiarità:
-- [Servizio Copia Shadow del volume](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee923636) per i file system Windows, come NTFS e ReFS
+- [Servizio Copia Shadow del volume](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows, come NTFS e ReFS
 - Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
 - Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS
 

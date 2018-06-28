@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366648"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062162"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -224,8 +224,8 @@ L'uso di una configurazione di workstation con protezione avanzata per l'amminis
 Le risorse seguenti sono disponibili per fornire altre informazioni generali su Azure e sui servizi Microsoft correlati, oltre a elementi specifici a cui si fa riferimento in questo articolo:
 
 * [Protezione dell'accesso con privilegi](https://technet.microsoft.com/library/mt631194.aspx): dettagli tecnici per la progettazione e la creazione di una workstation amministrativa sicura per la gestione di Azure
-* [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Security/AzureSecurity): informazioni sulle funzionalità della piattaforma Azure che proteggono l'infrastruttura e i carichi di lavoro di Azure in esecuzione in Azure
-* [Microsoft Security Response Center](http://www.microsoft.com/security/msrc/default.aspx): consente di segnalare le vulnerabilità della sicurezza di Microsoft, inclusi i problemi relativi ad Azure, tramite posta elettronica all'indirizzo [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure): informazioni sulle funzionalità della piattaforma Azure che proteggono l'infrastruttura e i carichi di lavoro di Azure in esecuzione in Azure
+* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx): consente di segnalare le vulnerabilità della sicurezza di Microsoft, inclusi i problemi relativi ad Azure, tramite posta elettronica all'indirizzo [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni aggiornate sulla sicurezza in Azure
 
 <!--Image references-->

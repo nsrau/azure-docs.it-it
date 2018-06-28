@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024732"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -73,7 +75,7 @@ Il codice di esempio è disponibile nelle posizioni seguenti:
 
 **Quali sono i principali aggiornamenti di Azure Machine Learning?**
 
-Per informazioni sugli aggiornamenti più recenti, vedere [Novità in Azure Machine Learning](whats-new.md).
+Per informazioni sugli aggiornamenti più recenti, vedere [Novità in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Domande su Machine Learning Studio
 ### <a name="import-and-export-data-for-machine-learning"></a>Importare ed esportare dati per Machine Learning
@@ -173,7 +175,7 @@ No. Attualmente è supportata solo la ripetizione del training a livello di codi
 
 **È possibile visualizzare i livelli di un modello di rete neurale usando il modulo predefinito?**
 
-di serie
+No.
 
 **È possibile creare dei moduli personalizzati in C# o in altri linguaggi?**
 
@@ -210,7 +212,7 @@ Usare le API per la ripetizione del training. Per altre informazioni, vedere [Ri
 ### <a name="create"></a>Create
 **È possibile distribuire il modello in locale o in un'applicazione senza una connessione Internet?**
 
-di serie
+No.
 
 **Esiste una latenza di base prevista per tutti i servizi Web?**
 
@@ -251,7 +253,7 @@ Attualmente, il provisioning dell'endpoint predefinito viene effettuato con 20 r
 
 **I processi R sono distribuiti in più nodi?**
 
-di serie  
+No.  
 
 **Quanti dati è possibile usare per il training?**
 
@@ -280,7 +282,7 @@ Le righe e le colonne sono limitate singolarmente in base alla limitazione .NET 
 
 **È possibile modificare le dimensioni della macchina virtuale che esegue il servizio Web?**
 
-di serie  
+No.  
 
 ## <a name="security-and-availability"></a>Sicurezza e disponibilità
 **Chi può accedere per impostazione predefinita all'endpoint HTTP per il servizio Web? Come limitare l'accesso all'endpoint?**
@@ -472,7 +474,7 @@ Sì. In Azure Machine Learning sono ancora disponibili i servizi Web classici.
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Livello Gratuito e Standard di Azure Machine Learning
 **Che cosa include il livello Gratuito di Azure Machine Learning?**
 
-Il livello Gratuito di Azure Machine Learning è concepito per offrire un'introduzione approfondita ad Azure Machine Learning Studio. Per iscriversi è sufficiente un account Microsoft. Il livello Gratuito include l'accesso gratuito a un'area di lavoro di Azure Machine Learning Studio per ogni [account Microsoft](https://www.microsoft.com/account/default.aspx). In questo livello, è possibile usare fino a 10 GB di spazio di archiviazione e rendere operativi i modelli come API di staging. I carichi di lavoro del livello Gratuito non sono coperti da un contratto di servizio e sono destinati esclusivamente allo sviluppo e all'uso personale. 
+Il livello Gratuito di Azure Machine Learning è concepito per offrire un'introduzione approfondita ad Azure Machine Learning Studio. Per iscriversi è sufficiente un account Microsoft. Il livello Gratuito include l'accesso gratuito a un'area di lavoro di Azure Machine Learning Studio per ogni [account Microsoft](https://account.microsoft.com/account). In questo livello, è possibile usare fino a 10 GB di spazio di archiviazione e rendere operativi i modelli come API di staging. I carichi di lavoro del livello Gratuito non sono coperti da un contratto di servizio e sono destinati esclusivamente allo sviluppo e all'uso personale. 
 
 Per le aree di lavoro del livello Gratuito esistono le limitazioni seguenti:
 
