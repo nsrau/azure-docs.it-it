@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400240"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301387"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Connettersi a una macchina virtuale SQL Server in Azure
 
@@ -139,7 +139,7 @@ La tabella seguente elenca i requisiti per la connessione a SQL Server in esecuz
 | [Creare un account di accesso SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Se si usa l'autenticazione SQL, è necessario un account di accesso SQL con un nome utente e una password dotato delle autorizzazioni per il database di destinazione. |
 | [Abilitare il protocollo TCP/IP](#manualTCP) | SQL Server deve consentire le connessioni tramite TCP. |
 | [Abilitare una regola del firewall per la porta di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Il firewall nella macchina virtuale deve consentire il traffico in ingresso sulla porta di SQL Server (porta predefinita: 1433). |
-| [Creare una regola del gruppo di sicurezza di rete per la porta TCP 1433](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | È necessario consentire alla macchina virtuale di ricevere il traffico sulla porta di SQL Server (porta predefinita: 1433) se si vuole connettersi tramite Internet. Le connessioni solo a reti virtuali non richiedono questo passaggio. Questo è l'unico passaggio necessario nel portale di Azure. |
+| [Creare una regola del gruppo di sicurezza di rete per la porta TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | È necessario consentire alla macchina virtuale di ricevere il traffico sulla porta di SQL Server (porta predefinita: 1433) se si vuole connettersi tramite Internet. Le connessioni solo a reti virtuali non richiedono questo passaggio. Questo è l'unico passaggio necessario nel portale di Azure. |
 
 > [!TIP]
 > I passaggi indicati nella tabella seguente vengono eseguiti automaticamente durante la configurazione della connettività nel portale. Usare questi passaggi solo per confermare la configurazione o per configurare manualmente la connettività per SQL Server.
