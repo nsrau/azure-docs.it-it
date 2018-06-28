@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823306"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35761998"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Eseguire processi Pig da una connessione Desktop remoto
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,7 +78,8 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>Ordina i livelli di registrazione in base al numero (decrescente) e memorizza i risultati in RESULT</td>
     </tr>
 </table>
-6. È anche possibile salvare i risultati di una trasformazione usando `STORE` l'istruzione. Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
+
+6. È anche possibile salvare i risultati di una trasformazione usando l'istruzione `STORE` . Ad esempio, il seguente comando salva il valore `RESULT` nella directory **/example/data/pigout** nel contenitore di archiviazione predefinito per il cluster:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -86,6 +87,7 @@ Abilitare Desktop remoto per il cluster HDInsight e quindi connettersi seguendo 
    > I dati vengono memorizzati nella directory specificata nei file denominati **part-nnnnn**. Se la directory esiste già, si riceverà un messaggio di errore.
    >
    >
+   
 7. Per uscire dal prompt grunt, immettere la seguente istruzione.
 
         QUIT;
