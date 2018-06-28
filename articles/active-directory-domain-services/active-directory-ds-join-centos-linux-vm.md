@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 4bf0cfa1fdd1b48233fd4e7bdec0eb72e897b738
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587059"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333582"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CentOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CentOS Linux a un dominio gestito di Azure AD Domain Services.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
@@ -87,7 +89,7 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     > [!NOTE]
     > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:  
       * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).  
-      * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito. 
+      * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
       * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.  
       >
 

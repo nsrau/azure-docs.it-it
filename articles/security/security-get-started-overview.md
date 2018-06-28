@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 6a2ece3fc908963a6c8ea68f9746788278407fdc
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25542147"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752181"
 ---
 # <a name="azure-security-overview"></a>Panoramica della sicurezza in Azure
-Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure. Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+
+Nel sito di informazioni sulla sicurezza di Microsoft Azure su Azure.com è possibile trovare risposte tecniche alle domande relative alla sicurezza di Azure. Se si è interessati alla conformità di Azure e alle modalità di protezione dell'infrastruttura da parte di Azure, visitare il [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 La sicurezza è la priorità principale nel cloud ed è importante che l'utente trovi informazioni accurate e tempestive sulla sicurezza di Azure. Uno dei motivi migliori per usare Azure per le applicazioni e i servizi consiste nella possibilità di sfruttare la vasta gamma di strumenti e funzionalità per la sicurezza disponibili. Questi strumenti e queste funzionalità consentono di creare soluzioni sicure sulla piattaforma Azure protetta.
 
 Questa pagina e questo sito si evolveranno non appena saranno online nuovi servizi di Azure e in caso di aggiornamento dei servizi esistenti. Le offerte sulla sicurezza vengono costantemente migliorate e in questo sito verranno illustrati i dettagli tecnici di tali miglioramenti. È consigliabile visitare regolarmente questo sito per scoprire le novità.
 
 ## <a name="using-the-azure-security-information-site"></a>Uso del sito di informazioni sulla sicurezza di Azure
+
 Sul lato sinistro della pagina viene visualizzato un insieme di categorie di argomenti relativi alla sicurezza. Fare clic o toccare l'argomento per visualizzare gli articoli disponibili per tale categoria.
 
 Ogni categoria è introdotta da un articolo contenente un riepilogo delle funzionalità offerte da Azure in termini di sicurezza per la categoria specifica. Gli articoli introduttivi consentono di comprendere i prodotti, i servizi e le funzionalità disponibili in Azure che è possibile usare per migliorare la sicurezza delle distribuzioni. Gli articoli introduttivi contengono numerosi collegamenti a contenuti tecnici per ottenere maggiori informazioni sugli argomenti e sulla relativa implementazione.

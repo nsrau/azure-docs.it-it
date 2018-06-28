@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371270"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313514"
 ---
 Ci sono varie ragioni alla base dell'impossibilità di avviare o di connettersi a un'applicazione in esecuzione su una macchina virtuale (VM) di Azure. I motivi includono un'applicazione non in esecuzione o in attesa sulle porte previste, la porta di ascolto bloccata o regole di rete che non consentono la trasmissione corretta del traffico all'applicazione. In questo articolo viene descritto un approccio metodico per rilevare e correggere il problema.
 
@@ -32,7 +32,7 @@ Nel caso di problemi di connessione a un'applicazione, provare con i seguenti pa
 
 * Riavviare la macchina virtuale
 * Ricreare l'endpoint/le regole del firewall/le regole del gruppo di sicurezza di rete
-  * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/manage-network-security-group.md)
   * [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Connettersi da un percorso diverso, ad esempio da una diversa rete virtuale di Azure
 * Ridistribuire la macchina virtuale
@@ -93,7 +93,7 @@ Se non è possibile accedere all'applicazione, verificare le seguenti impostazio
 * Il software per il rilevamento intrusione o il monitoraggio di rete in esecuzione nella macchina virtuale di destinazione consente il traffico.
 * Gli endpoint dei servizi cloud o i gruppi di sicurezza di rete consentono il traffico:
   * [Modello Classico: Gestire gli endpoint dei servizi cloud](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Modello di Resource Manager: Gestire gruppi di sicurezza di rete](../articles/virtual-network/manage-network-security-group.md)
 * Un componente separato in esecuzione nella macchina virtuale nel percorso tra la macchina virtuale di test e la macchina virtuale, ad esempio un servizio di bilanciamento del carico o un firewall, consente il traffico.
 
 In una macchina virtuale basata su Windows, utilizzare Windows Firewall con sicurezza avanzata per determinare se le regole del firewall escludono il traffico in entrata e in uscita dell'applicazione.

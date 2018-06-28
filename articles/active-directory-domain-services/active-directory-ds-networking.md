@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265044"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300996"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -107,7 +107,7 @@ Il gruppo di sicurezza di rete mostra anche come bloccare l'accesso LDAP sicuro 
 
 ![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Connettività di rete
@@ -145,4 +145,4 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 * [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 * [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
-* [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md)

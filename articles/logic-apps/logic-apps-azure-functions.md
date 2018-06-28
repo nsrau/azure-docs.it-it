@@ -4,8 +4,8 @@ description: Creare ed eseguire un codice personalizzato per le app per la logic
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 18442c87b049200fac5ed41cc7034ba7a848b8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331173"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Aggiungere ed eseguire un codice personalizzato per le app per la logica di Azure tramite Funzioni di Azure
 
@@ -61,7 +62,7 @@ Dopo la selezione della funzione, viene richiesto di specificare un oggetto payl
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Creare una funzione dalla finestra di progettazione delle app per la logica
 
-È anche possibile creare una funzione webhook node.js dalla finestra di progettazione. Selezionare prima di tutto **Funzioni di Azure nell'area** , quindi scegliere un contenitore per la funzione. Se non è ancora disponibile un contenitore, è necessario crearne uno dal [portale delle funzioni di Azure](https://functions.azure.com/signin). Selezionare quindi **Crea nuovo**.  
+È anche possibile creare una funzione webhook node.js dalla finestra di progettazione. Selezionare prima di tutto **Funzioni di Azure nell'area** , quindi scegliere un contenitore per la funzione. Se non è ancora disponibile un contenitore, è necessario crearne uno dal [portale delle funzioni di Azure](https://functions.azure.com/). Selezionare quindi **Crea nuovo**.  
 
 Per generare un modello in base ai dati da elaborare, specificare l'oggetto di contesto che si prevede di passare a una funzione. Deve trattarsi di un oggetto JSON. Se, ad esempio, si passa il contenuto del file da un'azione FTP, il payload di contesto è simile all'esempio seguente:
 

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826043"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307486"
 ---
 # <a name="guidelines"></a>Indicazioni  
 
@@ -35,7 +35,7 @@ Se più di una persona richiede l'accesso allo stesso ID Microsoft usato per cre
 
 >[!IMPORTANT]
 >Per autorizzare più utenti ad accedere all'account Microsoft Developer Center (Dev Center), Microsoft consiglia di usare Azure Active Directory (Azure AD) per assegnare ruoli ai singoli utenti. Ogni utente può accedere all'account usando le credenziali di Azure AD. Creare l'ID Microsoft tramite un indirizzo di posta elettronica in un dominio registrato per l'azienda, Microsoft suggerisce di non assegnare l'indirizzo di posta elettronica a un singolo utente. Un esempio è `windowsapps@fabrikam.com`.  
->*   Per altre informazioni, vedere la sezione [Problema: ID Microsoft in un dominio federato di Azure AD](#issue:-microsoft-id-in-an-azure-ad-federated-domain).  
+>*   Per altre informazioni, vedere la sezione [Problema: ID Microsoft in un dominio federato di Azure AD](#issue-microsoft-id-in-an-azure-ad-federated-domain).  
 
 *   Limitare l'accesso a questo ID Microsoft al minor numero possibile di sviluppatori. 
 *   Impostare una lista di distribuzione (DL) di posta elettronica aziendale che include tutti gli utenti che devono accedere all'account Dev Center. Aggiungere l'indirizzo di posta elettronica della lista di distribuzione alle informazioni di protezione. La lista di distribuzione consente a tutti i dipendenti nella lista di ricevere codici di sicurezza quando richiesto e di gestire le informazioni di protezione per l'ID Microsoft. Se non è possibile impostare una lista di distribuzione, il proprietario del singolo account di posta elettronica deve accedere e condividere il codice di sicurezza quando richiesto.  

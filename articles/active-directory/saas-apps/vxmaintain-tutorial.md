@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d43e446d1ee1ed4dafc63481b4c874d994896d3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230268"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308748"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Esercitazione: Integrazione di Azure Active Directory con vxMaintain
 
@@ -111,7 +111,7 @@ In questa sezione è possibile abilitare l'accesso SSO di Azure AD nel portale d
     b. Nella casella **URL di risposta** digitare un URL con la sintassi seguente: `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true`
 
     > [!NOTE] 
-    > I valori precedenti non sono valori reali. Aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di vxMaintain](http://www.verisae.com/contact-us).
+    > I valori precedenti non sono valori reali. Aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto di vxMaintain](https://www.hubspot.com/company/contact).
  
 4. In **Certificato di firma SAML** selezionare **XML metadati** e quindi salvare il file di metadati nel computer.
 
@@ -121,7 +121,7 @@ In questa sezione è possibile abilitare l'accesso SSO di Azure AD nel portale d
 
     ![Pulsante Salva](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso SSO di **vxMaintain**, inviare il file **XML metadati** scaricato al [team di supporto di vxMaintain](http://www.verisae.com/contact-us).
+6. Per configurare l'accesso SSO di **vxMaintain**, inviare il file **XML metadati** scaricato al [team di supporto di vxMaintain](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Durante la configurazione dell'app, nel [portale di Azure](https://portal.azure.com) è disponibile un riepilogo delle istruzioni precedenti. Dopo aver aggiunto l'app dalla sezione **Active Directory** > **Applicazioni aziendali**, selezionare la scheda **Single Sign-On** e accedere alla documentazione incorporata dalla sezione **Configurazione**. 
@@ -161,7 +161,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
  
 ### <a name="create-a-vxmaintain-test-user"></a>Creare un utente di test di vxMaintain
 
-In questa sezione viene creato un utente di test di nome Britta Simon in vxMaintain. Collaborare con il [team di supporto di vxMaintain](http://www.verisae.com/contact-us) per aggiungere gli utenti alla piattaforma vxMaintain. Prima di usare l'accesso SSO, creare e attivare gli utenti.
+In questa sezione viene creato un utente di test di nome Britta Simon in vxMaintain. Collaborare con il [team di supporto di vxMaintain](https://www.hubspot.com/company/contact) per aggiungere gli utenti alla piattaforma vxMaintain. Prima di usare l'accesso SSO, creare e attivare gli utenti.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

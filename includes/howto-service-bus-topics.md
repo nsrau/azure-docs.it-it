@@ -1,5 +1,5 @@
 ## <a name="what-are-service-bus-topics-and-subscriptions"></a>Cosa sono gli argomenti e le sottoscrizioni del bus di servizio?
-Gli argomenti e le sottoscrizioni del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione*. Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
+Gli argomenti e le sottoscrizioni del bus di servizio supportano un modello di comunicazione con messaggistica di *pubblicazione-sottoscrizione* . Quando si usano gli argomenti e le sottoscrizioni, i componenti di un'applicazione distribuita non comunicano direttamente l'uno con l'altro, ma scambiano messaggi tramite un argomento, che agisce da intermediario.
 
 ![Concetti relativi agli argomenti](./media/howto-service-bus-topics/sb-topics-01.png)
 
@@ -23,7 +23,7 @@ Per creare uno spazio dei nomi:
 7. In **Località**scegliere il paese o l'area in cui deve essere ospitato lo spazio dei nomi.
    
     ![Crea spazio dei nomi][create-namespace]
-8. Selezionare il pulsante **Crea**. A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
+8. Selezionare il pulsante **Create** . A questo punto, lo spazio dei nomi verrà creato e abilitato nel sistema. Potrebbero essere necessari alcuni minuti per consentire al sistema di effettuare il provisioning delle risorse per lo spazio dei nomi creato.
 
 ### <a name="obtain-the-credentials"></a>Ottenere le credenziali
 1. Nell'elenco degli spazi dei nomi fare clic sul nome dello spazio dei nomi appena creato.

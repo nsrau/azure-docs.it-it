@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155341"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316739"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Accesso di utenti con account Microsoft e con account Azure Active Directory a un'unica applicazione
 In passato, gli sviluppatori di applicazioni che intendevano supportare sia gli account Microsoft personali che quelli aziendali da Azure Active Directory dovevano eseguire l'integrazione con due sistemi separati. L'endpoint di Azure Active Directory (Azure AD) versione 2.0 introduce una nuova versione dell'API di autenticazione che semplifica questo processo. L'endpoint consente di accedere con entrambi i tipi di account tramite un'unica integrazione. Le applicazioni che usano l'endpoint di Azure AD versione 2.0 possono anche usare le API REST dalle [API Microsoft Graph](https://graph.microsoft.io) tramite entrambi i tipi di account.

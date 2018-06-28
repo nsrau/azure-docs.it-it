@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2018
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 8fe3db09acbdec606f25d0bc81300bc4f5e87411
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157395"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319123"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Librerie di autenticazione di Azure Active Directory 2.0
 

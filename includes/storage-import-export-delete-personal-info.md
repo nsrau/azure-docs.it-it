@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684422"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313881"
 ---
 ## <a name="deleting-personal-information"></a>Eliminazione delle informazioni personali
 
@@ -40,7 +40,7 @@ Le informazioni di contatto personali potrebbero essere eliminate nei modi segue
 - I dati salvati con il processo vengono eliminati con il processo. Gli utenti possono eliminare manualmente i processi e i processi completati vengono eliminati automaticamente dopo 90 giorni. È possibile eliminare manualmente i processi tramite l'API REST o il portale di Azure. Per eliminare il processo nel portale di Azure, andare al processo di importazione/esportazione e fare clic su *Elimina* dalla barra dei comandi. Per informazioni dettagliate su come eliminare un processo di importazione/esportazione tramite l'API REST, vedere [Eliminare un processo di importazione/esportazione](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Le informazioni di contatto salvate nelle impostazioni del portale potrebbero essere rimosse in seguito all'eliminazione delle impostazioni del portale. È possibile eliminare le impostazioni del portale seguendo questa procedura:
-  - Accedere al [Portale di Azure](https://portal.azure.com).
+  - Accedere al [portale di Azure](https://portal.azure.com).
   - Fare clic sull'icona *Impostazioni* ![icona delle impostazioni di Azure](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Fare clic su *Esporta tutte le impostazioni* (per salvare le impostazioni correnti in un file `.json`).
   - Fare clic su *Elimina tutte le impostazioni e i dashboard privati* per eliminare tutte le impostazioni, incluse le informazioni di contatto salvate.

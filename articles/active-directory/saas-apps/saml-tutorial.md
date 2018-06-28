@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 73135e3e4a533aa27c228b082f308cb50925c4e5
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fca447b24a299fed116356ca0f985020e079344b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211697"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317603"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Esercitazione: Integrazione di Azure Active Directory con SAML 1.1 Token enabled LOB App
 
@@ -222,4 +222,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [201]: ./media/saml-tutorial/tutorial_general_201.png
 [202]: ./media/saml-tutorial/tutorial_general_202.png
 [203]: ./media/saml-tutorial/tutorial_general_203.png
-

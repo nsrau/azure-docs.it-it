@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: celested
-ms.reviwer: lenalepa; sureshja
+ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 8abd9c35c7d979e1e1a42dd7e178d802f06c4227
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2dff8c25ae0704a15cf02eec7a380b6d894b9ce4
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608318"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316451"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condizioni per l'utilizzo del servizio e informativa sulla privacy per le app di Azure Active Directory registrate
 
@@ -43,9 +43,9 @@ Gli esempi seguenti mostrano l'esperienza di consenso dell'utente quanto le cond
 
 Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy, assicurarsi che gli URL rispettino queste linee guida.
 
-| Linee guida     | Descrizione                           |
+| Linee guida     | DESCRIZIONE                           |
 |---------------|---------------------------------------|
-| Formato        | URL valido                             |
+| Format        | URL valido                             |
 | Schemi validi | HTTP e HTTPS</br>Si consiglia HTTPS |
 | Lunghezza massima    | 2048 caratteri                       |
 
