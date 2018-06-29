@@ -4,19 +4,19 @@ description: Questo scenario mostra come eseguire l'ottimizzazione distribuita d
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832748"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034862"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ottimizzazione distribuita di iperparametri con Azure Machine Learning Workbench
 
@@ -157,7 +157,7 @@ Selezionare quindi il contenitore denominato dataset nell'elenco e fare clic sul
 
 Il caricamento dei file richiede alcuni minuti, a seconda della connessione Internet. 
 
-Nel codice viene usato [Azure Storage SDK](https://azure-storage.readthedocs.io/en/latest/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account viene visualizzato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
+Nel codice viene usato [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/) per scaricare il set di dati dall'archiviazione BLOB nell'ambiente di esecuzione corrente. Il download viene eseguito nella funzione load\_data() del file load_data.py. Per usare questo codice, è necessario sostituire <ACCOUNT_NAME> e <ACCOUNT_KEY> con il nome e la chiave primaria dell'account di archiviazione che ospita il set di dati. Il nome dell'account viene visualizzato nell'angolo superiore sinistro della pagina di Azure relativa all'account di archiviazione. Per ottenere la chiave dell'account, selezionare Chiavi di accesso nella pagina di Azure dell'account di archiviazione (vedere il primo screenshot nella sezione relativa all'inserimento dei dati) e quindi copiare la lunga stringa nella prima riga di colonne chiave:
  
 ![Chiave di accesso](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

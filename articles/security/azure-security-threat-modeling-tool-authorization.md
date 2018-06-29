@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9ab106a78aa56b8308207bcadb3db0b5a9714a9d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019518"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029493"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -65,7 +65,7 @@ ms.locfileid: "28019518"
 
 ## <a id="deployed-privileges"></a>Verificare che le applicazioni distribuite vengano eseguite con privilegi minimi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust dei computer | 
 | **Fase SDL**               | Distribuzione |  
@@ -76,7 +76,7 @@ ms.locfileid: "28019518"
 
 ## <a id="sequential-logic"></a>Applicare l'ordine dei passaggi in sequenza durante l'elaborazione di flussi di logica di business
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -87,7 +87,7 @@ ms.locfileid: "28019518"
 
 ## <a id="rate-enumeration"></a>Implementare un meccanismo di limitazione della frequenza per impedire l'enumerazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -98,7 +98,7 @@ ms.locfileid: "28019518"
 
 ## <a id="principle-least-privilege"></a>Verificare che sia presente l'autorizzazione necessaria e che venga seguito il principio dei privilegi minimi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -109,7 +109,7 @@ ms.locfileid: "28019518"
 
 ## <a id="logic-request-parameters"></a>Le decisioni riguardanti la logica di business e l'autorizzazione di accesso alle risorse non devono basarsi sui parametri di richiesta in ingresso
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -128,7 +128,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 
 ## <a id="enumerable-browsing"></a>Verificare che il contenuto e le risorse non siano enumerabili o accessibili tramite browsing forzato
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -139,7 +139,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 
 ## <a id="privileged-server"></a>Assicurarsi che vengano usati account con privilegi minimi per connettersi al server di database
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -150,7 +150,7 @@ Ora un utente malintenzionato non può manomettere e modificare il funzionamento
 
 ## <a id="rls-tenants"></a>Implementare la sicurezza a livello di riga per impedire ai tenant di accedere ai dati degli altri tenant
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -163,7 +163,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="sysadmin-users"></a>Il ruolo sysadmin deve avere solo utenti necessari validi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -174,7 +174,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="cloud-least-privileged"></a>Connettersi al gateway nel cloud usando token con privilegi minimi
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Distribuzione |  
@@ -185,7 +185,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="sendonly-sas"></a>Usare una chiave di firma di accesso condiviso per autorizzazioni di solo invio per la generazione di token di dispositivo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -229,7 +229,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="grained-rbac"></a>Abilitare la gestione degli accessi con granularità fine per la sottoscrizione di Azure usando il controllo degli accessi in base al ruolo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -240,7 +240,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="cluster-rbac"></a>Limitare l'accesso del client alle operazioni di cluster con il controllo degli accessi in base al ruolo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Distribuzione |  
@@ -251,7 +251,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="modeling-field"></a>Eseguire la modellazione di sicurezza e usare la sicurezza a livello di campo quando richiesto
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Compilare |  
@@ -262,7 +262,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="portal-security"></a>Eseguire la modellazione di sicurezza degli account del portale tenendo presente che il modello di sicurezza per il portale è diverso dagli altri componenti di CRM
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Portale di Dynamics CRM | 
 | **Fase SDL**               | Compilare |  
@@ -273,7 +273,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="permission-entities"></a>Concedere l'autorizzazione con granularità fine in un intervallo di entità nell'archiviazione tabelle di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -295,7 +295,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="rooting-detection"></a>Implementare il rilevamento implicito di jailbreak o rooting
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Client per dispositivi mobili | 
 | **Fase SDL**               | Compilare |  
@@ -306,13 +306,13 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 
 ## <a id="weak-class-wcf"></a>Riferimento debole alla classe in WCF
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Passaggi** | <p>Il sistema usa un riferimento debole alla classe che potrebbe consentire a un utente malintenzionato di eseguire codice non autorizzato. Il programma fa riferimento a una classe definita dall'utente che non è identificata in modo univoco. Quando .NET carica questa classe con identificazione debole, il caricatore di tipo CLR cerca la classe nei percorsi seguenti nell'ordine specificato:</p><ol><li>Se l'assembly del tipo è noto, il caricatore esegue una ricerca nei percorsi di reindirizzamento del file di configurazione, in GAC, nell'assembly corrente usando le informazioni di configurazione e nella directory base dell'applicazione</li><li>Se l'assembly è sconosciuto, il caricatore esegue una ricerca nell'assembly corrente, in mscorlib e nel percorso restituito dal gestore eventi TypeResolve</li><li>Questo ordine di ricerca CLR può essere modificato con hook quali il meccanismo di inoltro dei tipi e l'evento AppDomain.TypeResolve</li></ol><p>Se un utente malintenzionato sfrutta l'ordine di ricerca CLR creando una classe alternativa con lo stesso nome e inserendola in un percorso alternativo che CLR caricherà per primo, il CLR eseguirà involontariamente il codice specificato dall'utente malintenzionato</p>|
 
 ### <a name="example"></a>Esempio
@@ -343,13 +343,13 @@ L'elemento `<behaviorExtensions/>` del file di configurazione WCF seguente indic
 
 ## <a id="wcf-authz"></a>WCF: implementare il controllo di autorizzazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
 | **Passaggi** | <p>Questo servizio non usa un controllo di autorizzazione. Quando un client chiama un servizio WCF specifico, WCF mette a disposizione vari schemi di autorizzazione per verificare che il chiamante sia autorizzato a eseguire il metodo del servizio nel server. Se i controlli di autorizzazione non sono abilitati per i servizi WCF, un utente autenticato può ottenere l'escalation dei privilegi.</p>|
 
 ### <a name="example"></a>Esempio
@@ -391,7 +391,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>Implementare il meccanismo di autorizzazione appropriato nell'API Web ASP.NET
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Eseguire i controlli di autorizzazione nel dispositivo se il dispositivo supporta azioni che richiedono diversi livelli di autorizzazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dispositivo IoT | 
 | **Fase SDL**               | Compilare |  
@@ -453,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Eseguire i controlli di autorizzazione nel gateway sul campo se il gateway supporta azioni che richiedono diversi livelli di autorizzazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Compilare |  

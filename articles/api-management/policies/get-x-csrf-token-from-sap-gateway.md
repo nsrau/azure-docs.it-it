@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 71e76b234b614f5935775d5c387c9897e1dcb968
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3a2067836a1488d117dced96f3935f2d1f8b1b48
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937673"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946024"
 ---
 # <a name="implement-x-csrf-pattern"></a>Implementare il modello X-CSRF
 
@@ -28,7 +28,7 @@ Questo articolo offre un esempio di criteri di Gestione API di Azure che illustr
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Get X-CSRF token from SAP gateway using send request policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Get X-CSRF token from SAP gateway using send request.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

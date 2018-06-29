@@ -9,17 +9,17 @@ ms.topic: include
 ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: a709c5716a861f6b8dca5a365b9ef51e1252f644
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726737"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063722"
 ---
 Nella tabella seguente viene descritto come aggiungere un supporto per questa associazione in ogni ambiente di sviluppo.
 
 | Ambiente di sviluppo               | Per aggiungere un supporto in <br>Funzioni 1.x  |
 |----------------------|----------------|---------------|
-|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) | 
+|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
 |Sviluppo locale - Script C#, JavaScript, F# |Automatico         |
 |Sviluppo con il portale|  Automatico    |

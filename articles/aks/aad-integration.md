@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e5ee38785ea167bfa4ba1747e5ad365fc58dd16f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 7d157d50bbcd25edd9cd6693a71fb04535cbeb79
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267853"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937382"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrare Azure Active Directory con AKS - Anteprima
 
@@ -167,8 +167,8 @@ roleRef:
   name: cluster-admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: Group
-  name: "kubernetes-admin"
+   kind: Group
+   name: "kubernetes-admin"
 ```
 
 Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, vedere [Using RBAC Authorization][rbac-authorization] (Uso delle autorizzazioni RBAC).

@@ -3,18 +3,18 @@ title: Creare e distribuire un modello di previsione usando il pacchetto di Azur
 description: Informazioni su come creare, sottoporre a training, testare e distribuire un modello di previsione usando il pacchetto di Azure Machine Learning per la previsione.
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833530"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035071"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Creare e distribuire modelli di previsione con Azure Machine Learning
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 I dati contengono circa 250 diverse combinazioni di punto vendita e marchio in un frame di dati. Ogni combinazione definisce una specifica serie temporale delle vendite. 
 
-È possibile usare la classe [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
+È possibile usare la classe [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
 
 La differenza tra _livello di dettaglio_ (grain) e _gruppo_ (group) consiste nel fatto che il livello di dettaglio è sempre fisicamente significativo nel mondo reale, mentre il gruppo non deve necessariamente esserlo. Le funzioni interne del pacchetto usano un gruppo per creare un singolo modello da più serie temporali se l'utente ritiene che il raggruppamento consenta di migliorare le prestazioni del modello. Per impostazione predefinita, il gruppo equivale al livello di dettaglio e viene creato un singolo modello per ogni livello di dettaglio. 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
+La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Pre-elaborare i dati e attribuire i valori mancanti
 
-Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
+Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe).
+I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain).
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
+È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinare più modelli
 
-Lo stimatore [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
+Lo stimatore [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
 
 
 ```python
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-La funzione [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
+La funzione [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
 
 
 ```python

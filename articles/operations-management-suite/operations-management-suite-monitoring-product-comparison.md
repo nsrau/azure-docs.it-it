@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040296"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753320"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Confronto tra i prodotti per il monitoraggio Microsoft
 Questo articolo offre un confronto tra System Center Operations Manager (SCOM) e Log Analytics in Operations Management Suite (OMS) dal punto di vista dell'architettura, della logica con cui monitorano le risorse e di come eseguono l'analisi dei dati raccolti.  L'obiettivo è quello di fornire una conoscenza di base delle differenze e dei relativi punti di forza.  
 
 ## <a name="basic-architecture"></a>Architettura di base
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Tutti i componenti SCOM vengono installati nel data center.  [Gli agenti vengono installati](http://technet.microsoft.com/library/hh551142.aspx) in computer Windows e Linux gestiti da SCOM.  Gli agenti si connettono ai [server di gestione](https://technet.microsoft.com/library/hh301922.aspx) che comunicano con il data warehouse e il database SCOM.  Gli agenti si basano sull'autenticazione del dominio per connettersi ai server di gestione.  Quelli esterni a un dominio trusted possono eseguire l'autenticazione del certificato o connettersi a un [server gateway](https://technet.microsoft.com/library/hh212823.aspx).
+Tutti i componenti SCOM vengono installati nel data center.  [Gli agenti vengono installati](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) in computer Windows e Linux gestiti da SCOM.  Gli agenti si connettono ai [server di gestione](https://technet.microsoft.com/library/hh301922.aspx) che comunicano con il data warehouse e il database SCOM.  Gli agenti si basano sull'autenticazione del dominio per connettersi ai server di gestione.  Quelli esterni a un dominio trusted possono eseguire l'autenticazione del certificato o connettersi a un [server gateway](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM richiede due database SQL, uno per i dati operativi e un altro data warehouse per supportare la creazione di report e l'analisi dei dati.  Un [server di report](https://technet.microsoft.com/library/hh298611.aspx) esegue SQL Reporting Services per creare report sui dati dal data warehouse. 
 

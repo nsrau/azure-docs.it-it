@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158422"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025512"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Attività iniziali del proxy di applicazione e installazione del connettore
 Questo articolo illustra la procedura per abilitare il proxy di applicazione di Microsoft Azure AD per la directory cloud in Azure AD.
@@ -30,7 +30,7 @@ Se non si conoscono ancora i vantaggi in termini di produttività e sicurezza of
 ## <a name="application-proxy-prerequisites"></a>Prerequisiti del proxy dell'applicazione
 Prima di poter abilitare e utilizzare i servizi del proxy dell'applicazione, è necessario disporre di:
 
-* Una [sottoscrizione di Microsoft Azure AD Basic o Premium](../active-directory-whatis.md) e una directory di Azure AD di cui si è un amministratore globale.
+* Una [sottoscrizione di Microsoft Azure AD Basic o Premium](../fundamentals/active-directory-whatis.md) e una directory di Azure AD di cui si è un amministratore globale.
 * Un server che esegue Windows Server 2012 R2 o 2016 in cui poter installare il connettore del proxy di applicazione. Il server deve potersi connettere ai servizi proxy di applicazione nel cloud e alle applicazioni locali che vengono pubblicate.
   * Per l'accesso Single Sign-On alle applicazioni pubblicate usando la delega vincolata Kerberos, è necessario che il computer sia aggiunto allo stesso dominio di AD delle applicazioni che vengono pubblicate. Per informazioni, vedere [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md) (KDC per l'Accesso Single Sign-On con il proxy di applicazione).
 
@@ -64,7 +64,6 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
 4. Il connettore deve poter accedere a login.windows.net e login.microsoftonline.com per il processo di registrazione.
 
-5. Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. Tuttavia, la presenza di più segni di spunta verde indica una maggiore resilienza.
 
 ## <a name="install-and-register-a-connector"></a>Installare e registrare un connettore
 1. Accedere come amministratore al [portale di Azure](https://portal.azure.com/).
@@ -82,7 +81,7 @@ Per preparare l'ambiente per il proxy di applicazione di Azure AD, è necessario
 
    * Fornire le credenziali di amministratore globale di Azure AD. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
    * Verificare che l'amministratore che registra il connettore si trovi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias di tale dominio.
-   * Se l'opzione **Configurazione sicurezza** avanzata IE **è**attivata nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se l'opzione **Configurazione sicurezza avanzata IE** è**** attivata nel server in cui si sta installando il connettore, potrebbe non venire visualizzata la schermata di registrazione. Per ottenere l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
 
 Per ottenere una disponibilità elevata, è consigliabile distribuire almeno due connettori. Ogni connettore deve essere registrato separatamente.
 

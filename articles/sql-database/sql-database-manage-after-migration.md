@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650112"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061645"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -31,7 +31,6 @@ In questo articolo vengono descritte alcune caratteristiche principali del datab
 - Sicurezza e conformità
 - Monitoraggio e manutenzione intelligenti del database
 - Spostamento dati
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>Continuità aziendale e ripristino di emergenza (BCDR)
 Le funzionalità della continuità aziendale e del ripristino di emergenza consentono di proseguire normalmente l'attività aziendale in caso di emergenza. Questa situazione di emergenza potrebbe essere un evento a livello di database (ad esempio, un utente che elimina erroneamente una tabella fondamentale) o un evento a livello di data center (calamità regionale, ad esempio uno tsunami). 
@@ -171,7 +170,7 @@ ExpressRoute consente anche di raddoppiare il limite di larghezza di banda acqui
 - [Flussi di lavoro](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Il database SQL è conforme ai requisiti normativi e in che modo questo facilita la conformità dell'organizzazione?
-Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità soddisfatte, visitare il [Centro protezione di Microsoft](https://www.microsoft.com/trustcenter/compliance/complianceofferings) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per capire se il database SQL sia incluso nei servizi conformi ad Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
+Il database SQL rispetta una serie di conformità normative. Per visualizzare il set più recente di conformità soddisfatte, visitare il [Centro protezione di Microsoft](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) ed eseguire il drill-down nelle conformità importanti per l'organizzazione per capire se il database SQL sia incluso nei servizi conformi ad Azure. È importante notare che, sebbene il database SQL possa essere certificato come servizio conforme, agevola la conformità del servizio dell'organizzazione, ma non la garantisce automaticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Monitoraggio e manutenzione intelligenti del database dopo la migrazione
 
@@ -235,7 +234,7 @@ Il database SQL offre vari livelli di servizio: Basic, Standard e Premium. Per o
 
 Per accertarsi di essere nel livello di prestazioni ideale, è possibile monitorare il consumo di risorse di database e query con uno dei modi sopra indicati in "Come monitorare le prestazioni e l'uso delle risorse nel database SQL di Azure?" Se ci si accorge che le query e/o i database esauriscono costantemente CPU, memoria e così via, è opportuno valutare la scalabilità verticale a un livello di prestazioni superiore. In modo analogo, qualora si notasse che, anche nelle ore di punta, le risorse non vengono usate in modo eccessivo, prendere in considerazione la scalabilità verso il basso dal livello di prestazioni corrente. 
 
-In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con un pool elastico, vedere: [Manage pools and databases](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal) (Gestire pool e database). 
+In presenza di criteri di app SaaS o uno scenario di consolidamento del database, considerare l'uso di un pool elastico per l'ottimizzazione dei costi. Il pool elastico è un ottimo modo per conseguire il consolidamento dei database e l'ottimizzazione dei costi. Per altre informazioni sulla gestione di più database con un pool elastico, vedere: [Manage pools and databases](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases) (Gestire pool e database). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Con quale frequenza è necessario eseguire controlli di integrità del database?
 Il database SQL usa alcune tecniche intelligenti che consentono di gestire automaticamente specifiche classi di danneggiamento dei dati, senza alcuna perdita. Queste tecniche sono incorporate nel servizio e vengono usate in base alle esigenze. A intervalli regolari, i backup dei database nel servizio vengono testati ripristinandoli ed eseguendo CHECKDB di DBCC. Se si verificano problemi, il database SQL li gestisce in modo proattivo. La [correzione di pagina automatica](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) viene usata per correggere le pagine danneggiate o con problemi di integrità dei dati. Le pagine di database vengono sempre verificate con l'impostazione CHECKSUM predefinita che verifica l'integrità della pagina. Il database SQL monitora ed esamina in modo proattivo l'integrità dei dati del database e, se si verificano problemi, li gestisce con la massima priorità. È anche possibile eseguire altri controlli di integrità personalizzati.  Per altre informazioni, vedere [Data Integrity in SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) (Integrità dei dati nel database SQL)

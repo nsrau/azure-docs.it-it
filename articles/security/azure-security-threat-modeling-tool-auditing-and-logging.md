@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044406"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029982"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Infrastruttura di sicurezza: controllo e registrazione | Soluzioni di riduzione 
 | Prodotto o servizio | Articolo |
@@ -35,7 +35,7 @@ ms.locfileid: "23044406"
 
 ## <a id="sensitive-entities"></a>Identificare le entità sensibili nella soluzione e implementare il controllo delle modifiche
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Compilare |  
@@ -90,7 +90,7 @@ ms.locfileid: "23044406"
 
 ## <a id="user-management"></a>Assicurarsi che gli eventi di Gestione utenti vengano registrati nel log
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -101,7 +101,7 @@ ms.locfileid: "23044406"
 
 ## <a id="inbuilt-defenses"></a>Assicurarsi che il sistema disponga di difese integrate contro l'utilizzo improprio
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -112,7 +112,7 @@ ms.locfileid: "23044406"
 
 ## <a id="diagnostics-logging"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -123,7 +123,7 @@ ms.locfileid: "23044406"
 
 ## <a id="identify-sensitive-entities"></a>Verificare che il controllo degli accessi sia abilitato in SQL Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -145,7 +145,7 @@ ms.locfileid: "23044406"
 
 ## <a id="analytics"></a>Usare la funzionalità di analisi di Archiviazione di Azure per controllare gli accessi di Archiviazione di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -156,13 +156,13 @@ ms.locfileid: "23044406"
 
 ## <a id="sufficient-logging"></a>Implementare un livello di registrazione sufficiente
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Passaggi** | <p>La mancanza di un'audit trail adeguata dopo un attacco può compromettere le indagini forensi. Windows Communication Foundation (WCF) offre la possibilità di registrare i tentativi di autenticazione riusciti e/o non riusciti.</p><p>La registrazione dei tentativi di autenticazione non riusciti può avvisare gli amministratori di potenziali attacchi di forza bruta. Analogamente, la registrazione di eventi di autenticazione riusciti può offrire una utile audit trail in presenza di compromissioni dei account validi. Abilitare la funzionalità di controllo di sicurezza del servizio di WCF |
 
 ### <a name="example"></a>Esempio
@@ -191,7 +191,7 @@ Di seguito è riportato un esempio di configurazione con la funzionalità di con
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Passaggi** | <p>La soluzione sviluppata è configurata in modo da non generare eccezioni quando non riesce a scrivere in un log di controllo. Se WCF è configurato per non generare un'eccezione quando non è in grado di scrivere un log di controllo, il programma non viene avvisato dell'errore ed è possibile che il controllo degli eventi critici della protezione non avvenga.</p>|
 
 ### <a name="example"></a>Esempio
@@ -212,7 +212,7 @@ Configurare WCF in modo da notificare al programma ogni volta che non riesce a s
 
 ## <a id="logging-web-api"></a>Assicurarsi che la funzionalità di controllo e registrazione venga applicata nell'API Web
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -223,7 +223,7 @@ Configurare WCF in modo da notificare al programma ogni volta che non riesce a s
 
 ## <a id="logging-field-gateway"></a>Assicurarsi che la funzionalità di controllo e registrazione appropriata venga applicata nel gateway sul campo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Compilare |  
@@ -234,7 +234,7 @@ Configurare WCF in modo da notificare al programma ogni volta che non riesce a s
 
 ## <a id="logging-cloud-gateway"></a>Assicurarsi che la funzionalità di controllo e registrazione appropriata venga applicata nel gateway nel cloud
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Compilare |  

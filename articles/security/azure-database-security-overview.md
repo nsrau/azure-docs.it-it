@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365145"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051526"
 ---
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
@@ -69,7 +69,7 @@ Nella stringa di connessione dell'applicazione è necessario specificare i param
 
 Una soluzione consiste nel crittografare i dati riservati nel database e proteggere con un certificato le chiavi utilizzate per crittografarli. Con questa soluzione, senza disporre delle chiavi nessuno potrà usare i dati. Tuttavia, questo tipo di protezione deve essere pianificato.
 
-Per risolvere questo problema, SQL Server e il database SQL supportano la funzionalità [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). Transparent Data Encryption crittografa i file di dati di SQL Server e del database SQL, noti come dati di crittografia inattivi.
+Per risolvere questo problema, SQL Server e il database SQL supportano la funzionalità [Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Transparent Data Encryption crittografa i file di dati di SQL Server e del database SQL, noti come dati di crittografia inattivi.
 
 La funzionalità Transparent Data Encryption consente di proteggersi dalla minaccia di attività dannose. Esegue in tempo reale la crittografia e la decrittografia del database, dei backup associati e dei file di log delle transazioni inattivi, senza richiedere modifiche dell'applicazione.  
 

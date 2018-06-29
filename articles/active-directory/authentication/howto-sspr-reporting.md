@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33869003"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751497"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -54,25 +54,6 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 6. Per filtrare questa visualizzazione esclusivamente in base agli eventi correlati alla reimpostazione delle password, selezionare il pulsante **Filtra** nella parte superiore del riquadro.
 7. Dal menu **Filtra** selezionare l'elenco a discesa **Categoria** e impostare l'elemento su **Self-service Password Management** (Gestione delle password self-service).
 8. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Come recuperare eventi di gestione delle password dall'API relativa a report ed eventi di Azure AD
-
-L'API di creazione di report ed eventi di Azure AD supporta il recupero di tutte le informazioni incluse nei report di reimpostazione delle password e di registrazione per la reimpostazione delle password. Tramite questa API è possibile scaricare eventi singoli di reimpostazione della password e di registrazione per la reimpostazione della password per l'integrazione con la tecnologia di creazione di report in uso.
-
-> [!IMPORTANT]
-> Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a *75.000 eventi singoli* del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L'API copre gli ultimi 30 giorni.
-> 
-> Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. È consigliabile iniziare a recuperare i dati quando nell'organizzazione si inizia a usare la funzionalità di reimpostazione delle password self-service. Rendere questi dati persistenti esternamente e quindi continuare a monitorarne i delta.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Come iniziare a usare l'API di creazione report
-
-Per accedere a questi dati, è necessario scrivere una piccola applicazione o uno script per recuperarli dal server. Per altre informazioni, vedere [Introduzione all'API di creazione report di Azure Active Directory](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Dopo aver creato uno script di lavoro, è opportuno esaminare gli eventi di registrazione e di reimpostazione password che è possibile recuperare per soddisfare i requisiti degli scenari in uso:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): elenca le colonne disponibili per gli eventi di reimpostazione delle password.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): elenca le colonne disponibili per gli eventi di registrazione per la reimpostazione delle password.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 

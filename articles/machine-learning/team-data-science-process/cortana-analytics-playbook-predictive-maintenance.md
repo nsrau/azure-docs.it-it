@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248538"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938010"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -434,7 +434,7 @@ Microsoft Azure offre risorse di formazione e contenuti gratuiti sui concetti e 
 |:-------------------|--------------|
 | [Sviluppatore per intelligenza artificiale in Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Pubblico |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Pubblico |
-| [Formazione su Azure AI da GitHub](http://azure.github.io/learnanalytics/public) | Pubblico |
+| [Formazione su Azure AI da GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Pubblico |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Pubblico |
 | [Webinar YouTube sull'intelligenza artificiale Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Pubblico |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Pubblico |

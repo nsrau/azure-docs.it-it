@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151009"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030054"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Versioni deprecate
+### <a name="deprecated-versions"></a>Versioni deprecate  
 
 Quando una versione precedente diventa deprecata, viene annunciata la data di rimozione per consentire di pianificare l'aggiornamento della versione del runtime di conseguenza. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Come è possibile eseguire query relative allo stato di aggiornamento del sistema operativo e del runtime nelle istanze in uso?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Come è possibile eseguire query relative allo stato di aggiornamento del sistema operativo e del runtime nelle istanze in uso?  
 
 Mentre l'accesso alle informazioni critiche del sistema operativo non è consentito (vedere [Funzionalità del sistema operativo in Servizio app di Azure](web-sites-available-operating-system-functionality.md)), la [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) consente di eseguire query sull'istanza del servizio app relative alla versione del sistema operativo e alle versioni del runtime. 
 
 La tabella seguente illustra come ottenere informazioni sulle versioni di Windows e del runtime di linguaggio che le app eseguono:
 
-| Informazioni | Posizione |
+| Informazioni | Posizione | 
 |-|-|
 | Versione di Windows | Vedere `https://<appname>.scm.azurewebsites.net/Env.cshtml` (nelle informazioni di sistema) |
 | Versione di .NET | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | Versione di .NET Core | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `dotnet --version` |
 | Versione di PHP | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `php --version` |
 | Versione predefinita di Node.js | In [Cloud Shell](../cloud-shell/overview.md) eseguire il comando seguente: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Versione di Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |
+| Versione di Python | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > L'accesso al percorso del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, dove sono archiviate le informazioni sulle [patch "KB"]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)), è bloccato.
 >
 >
 
 ## <a name="more-resources"></a>Altre risorse
 
-[Centro protezione: Sicurezza](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Centro protezione: Sicurezza](https://www.microsoft.com/en-us/trustcenter/security)  
 [64 bit ASP.NET Core on Azure App Service (ASP.NET Core a 64 bit in Servizio app di Azure)](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659383"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960356"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Rete con singolo membro Hyperledger Fabric
 
@@ -61,11 +61,11 @@ Per iniziare, selezionare **Hyperledger Fabric Single Member Blockchain** e fare
 
 La distribuzione del modello consente di configurare in modo guidato la rete multinodo. Il flusso di distribuzione è suddiviso in tre passaggi: informazioni di base, configurazione della rete di rete e configurazione dell'infrastruttura.
 
-### <a name="basics"></a>Informazioni di base
+### <a name="basics"></a>Nozioni di base
 
 Nel pannello **Informazioni di base**, specificare i valori dei parametri standard per qualsiasi distribuzione, ad esempio sottoscrizione, gruppo di risorse e proprietà di base della macchina virtuale.
 
-![Informazioni di base](./media/hyperledger-fabric-single-member-blockchain/basics.png)
+![Nozioni di base](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
 Nome parametro| DESCRIZIONE| Valori consentiti|Default Value
 ---|---|---|---
@@ -89,7 +89,7 @@ In **Network size and performance** (Dimensioni e prestazioni della rete) specif
 Nome parametro| DESCRIZIONE| Valori consentiti|Default Value
 ---|---|---|---
 **Number of Membership Nodes** (Numero di nodi di appartenenza)|Numero di nodi che eseguono il servizio di appartenenza. Per informazioni dettagliate sul servizio di appartenenza, vedere gli articoli dedicati a sicurezza e servizi di appartenenza nella [documentazione](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf) di Hyperledger.<br /><br />Questo valore è attualmente limitato a un nodo, ma si prevede di supportare la scalabilità orizzontale tramite clustering in una versione successiva.|1| 1
-**Number of Orderer Nodes** (Numero di nodi di ordinamento) |Numero di nodi che ordinano (organizzano) le transazioni in un blocco.--> Questa frase è prolissa e confusa. Per altri dettagli sul servizio di ordinamento, vedere la [documentazione](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html) di Hyperledger.<br /><br />Questo valore è attualmente limitato a 1 nodo. |1 |1
+**Number of Orderer Nodes** (Numero di nodi di ordinamento) |Numero di nodi che ordinano (organizzano) le transazioni in un blocco.--> Questa frase è prolissa e confusa. Per altri dettagli sul servizio di ordinamento, vedere la [documentazione](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) di Hyperledger.<br /><br />Questo valore è attualmente limitato a 1 nodo. |1 |1
 **Number of Peer Nodes** (Numero di nodi peer)| Nodi di proprietà dei membri del consorzio che eseguono le transazioni e mantengono lo stato e una copia del libro mastro.<br /><br />Per altri dettagli sul servizio di ordinamento, vedere la [documentazione](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html) di Hyperledger.|3| 3 - 9
 **Storage performance** (Prestazioni di archiviazione)|Tipo di archiviazione a supporto di ognuno dei nodi distribuiti. Per altre informazioni sull'archiviazione, vedere [Introduzione ad Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e [Archiviazione Premium](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard o Premium|Standard
 **Virtual machine size** (Dimensioni della macchina virtuale) |Dimensioni della macchina virtuale usate per tutti i nodi nella rete|Standard A,<br />Standard D,<br />Standard D-v2,<br />Standard serie F,<br />Standard DS<br />e Standard FS|Standard D1_v2

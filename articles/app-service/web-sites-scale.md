@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714936"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030999"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentare le prestazioni di un'app in Azure
 
@@ -98,7 +98,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
   
     [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure][vmsizes]
   
-* Per informazioni sulle procedure consigliate per Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere il post di blog relativo alle [procedure consigliate per le app Web del servizio app di Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Per informazioni sulle procedure consigliate per Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere il post di blog relativo alle [procedure consigliate per le app Web del servizio app di Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Per i video sul ridimensionamento delle app del servizio app, vedere le risorse seguenti:
   
   * [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

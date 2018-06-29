@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895637"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061542"
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -27,7 +27,7 @@ La sicurezza è la priorità principale nel cloud ed è importante che l'utente 
 
 Microsoft Azure garantisce la riservatezza, l'integrità e la disponibilità dei dati dei clienti, assicurando anche al tempo stesso una rendicontazione trasparente. Per consentire una migliore comprensione della raccolta di controlli di sicurezza di rete implementati in Microsoft Azure dal punto di vista del cliente, questo articolo sulla sicurezza di rete di Azure offre una panoramica completa dei controlli di sicurezza di rete disponibili in Microsoft Azure.
 
-Questo documento illustra l'ampia gamma di controlli di rete che è possibile configurare per migliorare la sicurezza delle soluzioni distribuite in Azure. Per informazioni sul modo in cui Microsoft protegge l'infrastruttura di rete della stessa piattaforma Azure, vedere la sezione relativa alla sicurezza di Azure nel [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+Questo documento illustra l'ampia gamma di controlli di rete che è possibile configurare per migliorare la sicurezza delle soluzioni distribuite in Azure. Per informazioni sul modo in cui Microsoft protegge l'infrastruttura di rete della stessa piattaforma Azure, vedere la sezione relativa alla sicurezza di Azure nel [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## <a name="azure-platform"></a>Piattaforma Azure
 
