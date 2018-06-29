@@ -151,6 +151,7 @@
 ### [Personalizzazione di SSPR](authentication/concept-sspr-customization.md)
 ### [Requisiti relativi ai dati di SSPR](authentication/howto-sspr-authenticationdata.md)
 ### [Creazione di report di SSPR](authentication/howto-sspr-reporting.md)
+### [Blocco intelligente](authentication/howto-password-smart-lockout.md)
 ### [Eliminare le password vulnerabili](authentication/concept-password-ban-bad.md)
 ### [Configurare l'elenco di password escluse](authentication/howto-password-ban-bad.md)
 ### [Integrazione locale](authentication/concept-password-ban-bad-on-premises.md)

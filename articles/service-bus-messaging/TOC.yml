@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Funzionalità avanzate
           items:
+            - name: Filtri di connessione IP
+              href: service-bus-ip-filtering.md
+            - name: Endpoint del servizio Rete virtuale
+              href: service-bus-service-endpoints.md
             - name: Coda di messaggi non recapitabili
               href: service-bus-dead-letter-queues.md
             - name: Prelettura dei messaggi

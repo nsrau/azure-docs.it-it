@@ -11,19 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301899"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083041"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Rimuovere il provider di risorse SQL
 
 Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le dipendenze di provider. È necessario anche una copia del pacchetto di distribuzione che è stato utilizzato per installare il provider di risorse.
+
+Esistono diverse attività di pulizia da eseguire prima di eseguire la _DeploySqlProvider.ps1_ script per rimuovere il provider di risorse.
+I tenant sono responsabili per le attività di pulizia seguenti:
+
+* Eliminare tutti i database dal provider di risorse. (Eliminare i database tenant non eliminare i dati).
+* Annullare la registrazione dallo spazio dei nomi di provider di risorse.
+
+L'amministratore è responsabile per le seguenti attività di pulizia:
+
+* Elimina il server di hosting dal provider di risorse SQL.
+* Elimina tutti i piani che fanno riferimento a provider di risorse SQL.
+* Elimina le quote che sono associate con il provider di risorse SQL.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>Per rimuovere il provider di risorse SQL
 
@@ -38,10 +50,10 @@ Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le 
 
 4. Eseguire lo script DeploySqlProvider.ps1 usando i parametri seguenti:
 
-    - **Disinstallare**. Rimuove il provider di risorse e tutte le risorse associate.
-    - **PrivilegedEndpoint**. L'indirizzo IP o nome DNS dell'endpoint con privilegi.
-    - **CloudAdminCredential**. Le credenziali per l'amministratore del cloud, necessaria per accedere all'endpoint con privilegi.
-    - **AzCredential**. Le credenziali per l'account amministratore del servizio Azure Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure.
+    * **Disinstallare**. Rimuove il provider di risorse e tutte le risorse associate.
+    * **PrivilegedEndpoint**. L'indirizzo IP o nome DNS dell'endpoint con privilegi.
+    * **CloudAdminCredential**. Le credenziali per l'amministratore del cloud, necessaria per accedere all'endpoint con privilegi.
+    * **AzCredential**. Le credenziali per l'account amministratore del servizio Azure Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

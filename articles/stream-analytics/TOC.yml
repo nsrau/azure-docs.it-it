@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: Creare un processo - PowerShell
       href: stream-analytics-quick-create-powershell.md
+    - name: Creare un processo - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Esercitazioni
   items:
     - name: 1 - Creare/gestire un processo

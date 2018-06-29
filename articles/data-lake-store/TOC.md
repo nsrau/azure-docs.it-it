@@ -1,11 +1,11 @@
-# [Documentazione su Data Lake Store](index.md)
+# [Documentazione di Data Lake Storage Gen1](index.md)
 
 # Panoramica
-## [Panoramica di Azure Data Lake Store](data-lake-store-overview.md)
-## [Confrontare Azure Data Lake Store e Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
-## [Azure Data Lake Store per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
-## [Applicazioni open source che usano Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
-## [Procedure consigliate per l'uso di Data Lake Store](data-lake-store-best-practices.md)
+## [Panoramica di Data Lake Storage Gen1](data-lake-store-overview.md)
+## [Confrontare Data Lake Storage Gen1 con Archiviazione di Azure](data-lake-store-comparison-with-blob-storage.md)
+## [Data Lake Storage Gen1 per l'elaborazione di Big Data](data-lake-store-data-scenarios.md)
+## [Applicazioni open source che interagiscono con Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+## [Procedure consigliate per l'uso di Data Lake Storage Gen1](data-lake-store-best-practices.md)
 
 # Attività iniziali
 ## [Uso del portale](data-lake-store-get-started-portal.md)
@@ -21,15 +21,15 @@
 ### [Con DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Uso di Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Caricare dati da origini offline](data-lake-store-offline-bulk-data-upload.md)
-### [Eseguire la migrazione di Azure Data Lake Store tra aree](data-lake-store-migration-cross-region.md)
+### [Eseguire la migrazione di Data Lake Store tra aree](data-lake-store-migration-cross-region.md)
 
 ## Proteggere i dati
 ### [Panoramica della sicurezza](data-lake-store-security-overview.md)
-### [Controllo di accesso in Data Lake Store](data-lake-store-access-control.md)
-### [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
+### [Controllo di accesso in Data Lake Storage Gen1](data-lake-store-access-control.md)
+### [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 ### [Crittografia](data-lake-store-encryption.md)
 
-## Autenticazione con Data Lake Store
+## Eseguire l'autenticazione con Data Lake Storage Gen1
 ### [Opzioni di autenticazione](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Uso di Java](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [Uso dell'API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Uso di Python](data-lake-store-service-to-service-authenticate-python.md)
 
-## Usare Data Lake Store
+## Usare Data Lake Storage Gen1
 ### Operazioni di gestione dell'account
 #### [Uso di .NET SDK](data-lake-store-get-started-net-sdk.md)
 #### [Uso dell'API REST](data-lake-store-get-started-rest-api.md)
@@ -54,12 +54,12 @@
 #### [Uso di Python](data-lake-store-data-operations-python.md)
 
 ## Prestazioni
-### [Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
-### [Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-### [Linee guida per l'ottimizzazione delle prestazioni di Spark in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
-### [Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-### [Linee guida per l'ottimizzazione delle prestazioni di MapReduce in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-mapreduce.md)
-### [Linee guida per l'ottimizzazione delle prestazioni di Storm in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-storm.md)
+### [Linee guida per l'ottimizzazione delle prestazioni di Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-guidance.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per l'uso di PowerShell con Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per Spark in HDInsight e Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per Hive in HDInsight e Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per MapReduce in HDInsight e Data Lake Storage Gen1](data-lake-store-performance-tuning-mapreduce.md)
+### [Linee guida per l'ottimizzazione delle prestazioni per Storm in HDInsight e Data Lake Storage Gen1](data-lake-store-performance-tuning-storm.md)
 
 ## Eseguire l'integrazione con i servizi di Azure
 ### Con HDInsight

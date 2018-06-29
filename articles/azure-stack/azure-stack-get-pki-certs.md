@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604710"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083227"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Certificati di Stack Azure generazione di una richiesta di firma
 
@@ -30,8 +30,6 @@ Lo strumento di controllo di conformità dello Stack di Azure (AzsReadinessCheck
 
  - **Richieste di certificato standard**  
     Richiesta in base alla [generare i certificati PKI per la distribuzione di Azure Stack](azure-stack-get-pki-certs.md).
- - **Tipo di richiesta**  
-    Specifica se la richiesta di firma certificato sarà una singola richiesta, o più richieste.
  - **Platform-as-a-Service**  
     Facoltativamente, richiedere platform-as-a-service (PaaS) nomi ai certificati come specificato in [requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack - certificati PaaS facoltativi](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -53,7 +51,7 @@ Il sistema deve soddisfare i prerequisiti seguenti prima di generare CSR(s) per 
 
 ## <a name="generate-certificate-signing-requests"></a>Generare richieste di firma del certificato
 
-Utilizzare questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure dello Stack: 
+Eseguire questi passaggi per preparare e convalidare i certificati di infrastruttura a chiave pubblica di Azure dello Stack: 
 
 1.  Installare AzsReadinessChecker da un prompt di PowerShell (5.1 o versione successiva), eseguendo il cmdlet seguente:
 
@@ -98,22 +96,22 @@ Utilizzare questi passaggi per preparare e convalidare i certificati di infrastr
     > [!note]  
     > `<regionName>.<externalFQDN>` costituisce la base in cui vengono creati tutti i nomi DNS esterni nello Stack di Azure, in questo esempio, il portale sarebbe `portal.east.azurestack.contoso.com`.  
 
-6. Per generare una richiesta di certificato singolo con più nomi di soggetto alternativo:
+6. Per generare richieste per ogni nome DNS di firma del certificato:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    Per includere servizi PaaS specificare il commutatore ```-IncludePaaS```
+
+7. In alternativa, per gli ambienti di sviluppo/Test. Per generare una richiesta di certificato singolo con più Subject Alternative Names aggiungere **- RequestType SingleCSR** parametro e valore (**non** consigliata per ambienti di produzione):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     Per includere servizi PaaS specificare il commutatore ```-IncludePaaS```
-
-7. Per generare singole richieste per ogni nome DNS di firma del certificato:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    Per includere servizi PaaS specificare il commutatore ```-IncludePaaS```
-
+    
 8. Esaminare l'output:
 
     ````PowerShell  

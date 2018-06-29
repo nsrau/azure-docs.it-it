@@ -38,6 +38,7 @@
 #### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Creare un'unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md)
+### [Creare un account del servizio gestito di gruppo in un dominio gestito](active-directory-ds-create-gmsa.md)
 ### [Amministrare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Selezionare una rete virtuale](active-directory-ds-networking.md)
 ## Distribuire applicazioni

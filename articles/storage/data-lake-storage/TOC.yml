@@ -1,0 +1,72 @@
+- name: Documentazione di Archiviazione di Azure
+  href: /azure/storage/
+- name: Passare alla documentazione di Azure Data Lake Storage Gen1
+  href: /azure/data-lake-store/
+- name: Panoramica
+  items:
+    - name: Introduzione
+      href: introduction.md
+- name: Guide introduttive
+  items:
+    - name: Creare un account di archiviazione con supporto di Data Lake Storage Gen2
+      href: quickstart-create-account.md
+    - name: Creare o connettere un account Databricks
+      href: quickstart-create-databricks-account.md
+    - name: Creazione di un cluster HDInsight
+      href: quickstart-create-connect-hdi-cluster.md
+- name: Esercitazioni
+  items:
+    - name: 'Estrarre, trasformare e caricare dati tramite Azure Databricks'
+      href: handle-data-using-databricks.md
+    - name: Accedere ai dati di Data Lake Storage con DataBricks usando Spark
+      href: using-databricks-spark.md
+    - name: 'Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight'
+      href: tutorial-extract-transform-load-hive.md
+- name: Concetti
+  items:
+    - name: Driver del file system di BLOB di Azure per Hadoop
+      href: abfs-driver.md
+    - name: Introduzione all'URI del file system di BLOB di Azure
+      href: introduction-abfs-uri.md
+    - name: Servizio dello spazio dei nomi gerarchico
+      href: namespace.md
+    - name: Sicurezza
+      items:
+        - name: Crittografia per i dati inattivi
+          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+        - name: Crittografia dei dati inattivi con le chiavi clienti
+          href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Valutazione di Data Lake Storage Gen2
+      href: evaluation.md
+- name: Guide alle procedure
+  items:
+    - name: Usare Data Lake Storage Gen2 con cluster Azure HDInsight
+      href: use-hdi-cluster.md
+    - name: Usare l'interfaccia della riga di comando del file system di Hadoop con Data Lake Storage Gen2
+      href: use-hdfs-data-lake-storage.md
+    - name: Inserire dati
+      items:
+        - name: Copiare i dati in Data Lake Storage Gen2 con Distcp
+          href: use-distcp.md
+        - name: Copiare i dati in Data Lake Storage Gen2 con Azure Data Factory
+          href: ../../data-factory/load-azure-data-lake-storage-gen2.md
+    - name: Connettersi ad Azure DataBricks
+      href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+- name: Risorse
+  items:
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Strumenti client di Archiviazione di Azure
+      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/storage/data-lake/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=storage'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'

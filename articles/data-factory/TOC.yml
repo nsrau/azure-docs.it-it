@@ -1,4 +1,4 @@
-- name: Documentazione di Data Factory versione 2
+- name: Documentazione di Data Factory
   href: index.yml
 - name: Passare alla documentazione della versione 1
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Introduzione al servizio Data factory
       href: introduction.md
-    - name: Confrontare le versioni 1 e 2
+    - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
 - name: Guide introduttive
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Archiviazione di Azure Data Lake
+          href: connector-azure-data-lake-storage.md
         - name: Archivio Azure Data Lake
           href: connector-azure-data-lake-store.md
         - name: Database di Azure per MySQL
@@ -275,6 +277,8 @@
         - name: Strumento Copia dati
           href: copy-data-tool.md
           items: null
+        - name: Caricare Data Lake Storage
+          href: load-azure-data-lake-storage-gen2.md
         - name: Caricare dati in SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
         - name: Caricare dati in Data Lake Store

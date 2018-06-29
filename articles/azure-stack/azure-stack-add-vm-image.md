@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 8dd77dd3431f1be2b8edd8b51929c21b1d5bcd88
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287705"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081351"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Rendere disponibile nello Stack di Azure un'immagine di macchina virtuale
 
 *Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
 
-Nello Stack di Azure, si possono rendere le immagini di macchina virtuale disponibili agli utenti. Queste immagini possono fare riferimento i modelli di gestione risorse di Azure oppure è possibile aggiungerli all'interfaccia utente Azure Marketplace come un elemento del Marketplace. È possibile utilizzare un formato immagine globale Azure Marketplace o aggiungere un'immagine personalizzata. È possibile aggiungere una macchina virtuale tramite il portale o Windows PowerShell.
+Nello Stack di Azure, si possono rendere le immagini di macchina virtuale disponibili agli utenti. Queste immagini possono fare riferimento i modelli di Azure Resource Manager oppure è possibile aggiungerli all'interfaccia utente Azure Marketplace come un elemento del Marketplace. È possibile utilizzare un formato immagine globale Azure Marketplace o aggiungere un'immagine personalizzata. È possibile aggiungere una macchina virtuale tramite il portale o Windows PowerShell.
 
 ## <a name="add-a-vm-image-through-the-portal"></a>Aggiungere un'immagine di macchina virtuale tramite il portale
 
@@ -35,32 +35,32 @@ Nello Stack di Azure, si possono rendere le immagini di macchina virtuale dispon
 
 Le immagini devono essere in grado di farvi riferimento da un URI di archiviazione blob. Preparare un'immagine del sistema operativo Windows o Linux nel formato VHD (non VHDX) e quindi caricare l'immagine a un account di archiviazione in Azure o Azure Stack. Se l'immagine è già stata caricata nell'archiviazione blob in Azure o Azure Stack, è possibile ignorare il passaggio 1.
 
-1. [Caricare un'immagine di macchina virtuale Windows Azure per le distribuzioni di gestione risorse](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) oppure, per un'immagine Linux, seguire le istruzioni descritte nel [macchine virtuali Linux di distribuire in Azure Stack](azure-stack-linux.md). Prima di caricare l'immagine, è importante prendere in considerazione i fattori seguenti:
+1. [Caricare un'immagine di macchina virtuale Windows Azure per le distribuzioni di gestione risorse](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) oppure, per un'immagine Linux, seguire le istruzioni descritte nel [macchine virtuali Linux di distribuire in Azure Stack](azure-stack-linux.md). Prima di caricare l'immagine, è importante tenere presente quanto segue:
 
-   - Stack di Azure supporta il formato di disco rigido virtuale del disco fisso. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo tale offset del disco X venga archiviato all'offset del blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fisso, utilizzare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
+   - Stack di Azure supporta il formato di disco rigido virtuale di disco fisso. Il formato fisso strutture del disco logico in modo lineare all'interno del file, in modo tale offset del disco X venga archiviato in corrispondenza dell'offset blob X. Un piccolo piè di pagina alla fine del blob vengono descritte le proprietà del file VHD. Per verificare se il disco è fisso, utilizzare il [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) comando di PowerShell.  
 
     > [!IMPORTANT]
-    >  Stack di Azure non supporta dischi rigidi virtuali disco dinamico. Ridimensionamento di un disco dinamico è associato a una macchina virtuale verrà lasciare la macchina virtuale in uno stato di errore. Per evitare questo problema, eliminare la macchina virtuale senza eliminare disco della macchina virtuale, un blob del disco rigido virtuale in un account di archiviazione. Converti il disco rigido virtuale da un disco dinamico a un disco fisso e ricreare la macchina virtuale.
+    >  Stack di Azure non supporta dischi rigidi virtuali disco dinamico. Ridimensionamento di un disco dinamico è associato a una macchina virtuale lascerà la macchina virtuale in uno stato di errore. Per evitare questo problema, eliminare la macchina virtuale senza eliminare disco della macchina virtuale, un blob di disco rigido virtuale in un account di archiviazione. Converti il disco rigido virtuale da un disco dinamico a un disco fisso e ricreare la macchina virtuale.
 
    * È più efficiente per caricare un'immagine nell'archiviazione blob Azure Stack rispetto a Azure nell'archiviazione blob perché richiede meno tempo per effettuare il push dell'immagine nel repository di immagini dello Stack di Azure.
 
-   * Quando si carica il [immagine di macchina virtuale Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), assicurarsi di sostituire il **account di accesso da Azure** passaggio con il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) passaggio.  
+   * Quando si carica il [immagine di macchina virtuale di Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), assicurarsi di sostituire il **account di accesso da Azure** spostarsi con il [configurare l'ambiente di PowerShell dell'operatore Azure Stack](azure-stack-powershell-configure-admin.md) passaggio.  
 
    * Prendere nota di archiviazione blob di URI in cui caricare l'immagine. URI di archiviazione blob ha il formato seguente: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* file con estensione vhd.
 
-   * Per rendere il blob è accessibile in modo anonimo, passare al contenitore di blob account di archiviazione in cui è stato caricato l'immagine di macchina virtuale, disco rigido virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile invece generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob.
+   * Per rendere il blob in modo anonimo accessibile, passare al contenitore blob di account di archiviazione in cui è stato caricato immagine disco rigido virtuale della macchina virtuale. Selezionare **Blob**, quindi selezionare **criteri di accesso**. Facoltativamente, è possibile invece generare una firma di accesso condiviso per il contenitore e includerlo come parte dell'URI del blob.
 
-   ![Passare al BLOB di account di archiviazione](./media/azure-stack-add-vm-image/image1.png)
+   ![Vai agli oggetti BLOB di account di archiviazione](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Impostare l'accesso su public blob](./media/azure-stack-add-vm-image/image2.png)
+   ![Set blob accesso al ruolo public](./media/azure-stack-add-vm-image/image2.png)
 
-2. Accedi allo Stack di Azure come operatore. Nel menu, selezionare **più servizi** > **i provider di risorse**. Selezionare quindi **calcolo** > **immagini di macchina virtuale** > **Aggiungi**.
+2. Accedi allo Stack di Azure come operatore. Nel menu di scelta, selezionare **più servizi**. Quindi, selezionare **calcolo** > **immagini di macchina virtuale** > **Aggiungi**.
 
-3. In **aggiungere un'immagine di macchina virtuale**, immettere il server di pubblicazione, l'offerta, SKU e versione dell'immagine della macchina virtuale. Questi segmenti dei nomi di fare riferimento all'immagine di macchina virtuale in modelli di gestione risorse. Assicurarsi di selezionare il **osType** valore correttamente. Per **URI Blob del disco del sistema operativo**, immettere l'URI del Blob in cui l'immagine è stata caricata. Selezionare quindi **crea** per iniziare a creare l'immagine di macchina virtuale.
+3. Sotto **aggiungere un'immagine di macchina virtuale**, immettere il server di pubblicazione, offerta, SKU e versione dell'immagine della macchina virtuale. Questi segmenti nome fare riferimento all'immagine di macchina virtuale nei modelli di gestione risorse. Assicurarsi di selezionare il **osType** valore correttamente. Per **URI Blob del disco del sistema operativo**, immettere l'URI del Blob in cui l'immagine è stata caricata. Quindi, selezionare **crea** per iniziare a creare l'immagine di macchina virtuale.
 
    ![Iniziare a creare l'immagine](./media/azure-stack-add-vm-image/image4.png)
 
-   Quando l'immagine viene creata correttamente, lo stato di immagine di macchina virtuale viene modificato in **Succeeded**.
+   Quando l'immagine viene creata correttamente, lo stato di immagine di macchina virtuale diventa **Succeeded**.
 
 4. Per rendere l'immagine di macchina virtuale più facilmente disponibile per l'utilizzo di utente nell'interfaccia utente, è buona norma [creare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md).
 
@@ -92,19 +92,19 @@ Le immagini devono essere in grado di farvi riferimento da un URI di archiviazio
   Il **Add-AzsPlatformimage** cmdlet specifica i valori usati dai modelli di gestione risorse di Azure per fare riferimento all'immagine di macchina virtuale. I valori includono:
   - **publisher**  
     Ad esempio: `Canonical`  
-    Il server di pubblicazione segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti durante la distribuzione dell'immagine. Un esempio è **Microsoft**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Il server di pubblicazione segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine. Ad esempio **Microsoft**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **offer**  
     Ad esempio: `UbuntuServer`  
-    L'offerta segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Un esempio è **WindowsServer**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    L'offerta segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Ad esempio **WindowsServer**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **sku**  
     Ad esempio: `14.04.3-LTS`  
-    Segmento del nome SKU dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Un esempio è **Datacenter2016**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Il segmento di nome SKU dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Ad esempio **Datacenter2016**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **version**  
     Ad esempio: `1.0.0`  
-    Versione dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Questa versione è nel formato *\#.\#.\#*. Un esempio è **1.0.0**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Versione dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Questa versione è nel formato *\#.\#.\#*. Ad esempio **1.0.0**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **osType**  
     Ad esempio: `Linux`  
-    OsType dell'immagine deve essere **Windows** o **Linux**.  
+    OsType dell'immagine deve essere **Windows** oppure **Linux**.  
   - **OSUri**  
     Ad esempio: `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     È possibile specificare un URI di archiviazione blob per un `osDisk`.  
@@ -196,16 +196,16 @@ Quando non è più necessario l'immagine di macchina virtuale che è stato caric
   Il **Remove-AzsPlatformImage** cmdlet specifica i valori usati dai modelli di gestione risorse di Azure per fare riferimento all'immagine di macchina virtuale. I valori includono:
   - **publisher**  
     Ad esempio: `Canonical`  
-    Il server di pubblicazione segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti durante la distribuzione dell'immagine. Un esempio è **Microsoft**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Il server di pubblicazione segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine. Ad esempio **Microsoft**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **offer**  
     Ad esempio: `UbuntuServer`  
-    L'offerta segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Un esempio è **WindowsServer**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    L'offerta segmento corrispondente al nome dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Ad esempio **WindowsServer**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **sku**  
     Ad esempio: `14.04.3-LTS`  
-    Segmento del nome SKU dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Un esempio è **Datacenter2016**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Il segmento di nome SKU dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Ad esempio **Datacenter2016**. Non includere uno spazio o altri caratteri speciali in questo campo.  
   - **version**  
     Ad esempio: `1.0.0`  
-    Versione dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Questa versione è nel formato *\#.\#.\#*. Un esempio è **1.0.0**. Non includere uno spazio o altri caratteri speciali in questo campo.  
+    Versione dell'immagine di macchina virtuale da parte degli utenti quando si distribuisce l'immagine di macchina virtuale. Questa versione è nel formato *\#.\#.\#*. Ad esempio **1.0.0**. Non includere uno spazio o altri caratteri speciali in questo campo.  
     
     Per ulteriori informazioni sul cmdlet Remove-AzsPlatformImage, vedere Microsoft PowerShell [documentazione di Azure Stack operatore modulo](https://docs.microsoft.com/powershell/module/).
 

@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: '2: Progettare database con .NET'
       href: sql-database-design-first-database-csharp.md
-    - name: '3: Eseguire la migrazione al database SQL Server con il servizio Migrazione del database di Azure'
+    - name: '3: Eseguire la migrazione al database SQL Server con Data Migration Assistant'
       href: sql-database-migrate-your-sql-server-database.md
     - name: '4: Proteggere il database SQL'
       href: sql-database-security-tutorial.md

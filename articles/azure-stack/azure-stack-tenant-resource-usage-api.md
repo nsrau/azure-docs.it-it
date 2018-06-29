@@ -1,6 +1,6 @@
 ---
 title: Utilizzo delle risorse API del tenant | Documenti Microsoft
-description: Riferimento per l'utilizzo delle risorse API, ovvero recuperare informazioni sull'utilizzo dello Stack di Azure.
+description: Riferimento API, utilizzo di risorse cui recuperare le informazioni sull'utilizzo dello Stack di Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,40 +12,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8472d8ce733c07641a7fa6d53aeb6909cd709990
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29873488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048391"
 ---
-# <a name="tenant-resource-usage-api"></a>Utilizzo delle risorse API tenant
+# <a name="tenant-resource-usage-api"></a>Utilizzo delle risorse API del tenant
 
 Un tenant può utilizzare l'API Tenant per visualizzare i dati di utilizzo delle risorse del tenant. Questa API è coerenza con l'API di utilizzo di Azure (attualmente in anteprima privata).
 
-È possibile utilizzare il cmdlet di Windows PowerShell **Get UsageAggregates** per ottenere dati di utilizzo, ad esempio in Azure.
+È possibile usare il cmdlet di Windows PowerShell **Get-UsageAggregates** per ottenere i dati di utilizzo, ad esempio in Azure.
 
 ## <a name="api-call"></a>Chiamata API
 ### <a name="request"></a>Richiesta
-La richiesta ottiene i dettagli di utilizzo per le sottoscrizioni di richieste e per l'intervallo di tempo richiesto. Non vi è alcun corpo della richiesta.
+La richiesta ottiene i dettagli di utilizzo per le sottoscrizioni richieste e per l'intervallo di tempo richiesto. Non vi è alcun corpo della richiesta.
 
 | **Metodo** | **URI della richiesta** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-Anteprima & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argomenti
 | **Argomento** | **Descrizione** |
 | --- | --- |
-| *Armendpoint* |Endpoint di gestione delle risorse di Azure dell'ambiente dello Stack di Azure. La convenzione di Stack di Azure è che il nome dell'endpoint di gestione risorse di Azure è nel formato `https://management.{domain-name}`. Ad esempio, per il kit di sviluppo, il nome di dominio è local.azurestack.external, quindi l'endpoint di gestione risorse è `https://management.local.azurestack.external`. |
-| *subId* |ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API solo per query per l'utilizzo di una singola sottoscrizione. Provider possono utilizzare l'API di utilizzo risorse di Provider per l'utilizzo di query per tutti i tenant. |
-| *reportedStartTime* |Ora di inizio della query. Il valore per *DateTime* deve essere in formato UTC e all'inizio dell'ora, ad esempio, 13:00. Per l'aggregazione giornaliera, impostare questo valore alla mezzanotte ora UTC. Il formato è *escape* ISO 8601, ad esempio 2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z, due punti in cui viene sottoposta a escape a % 3a e più in modo che sia descrittivo URI alla versione 2b % di escape. |
+| *Armendpoint* |Endpoint di gestione risorse Azure dell'ambiente dello Stack di Azure. La convenzione di Stack di Azure è che il nome dell'endpoint di Azure Resource Manager sia nel formato `https://management.{domain-name}`. Ad esempio, per il kit di sviluppo, il nome di dominio è local.azurestack.external e quindi l'endpoint di gestione risorse è `https://management.local.azurestack.external`. |
+| *subId* |ID sottoscrizione dell'utente che effettua la chiamata. È possibile utilizzare questa API solo per query per l'utilizzo di una singola sottoscrizione. I provider possono utilizzare l'API di utilizzo di risorse di Provider sull'utilizzo di query per tutti i tenant. |
+| *reportedStartTime* |Ora di inizio della query. Il valore per *DateTime* deve essere in formato UTC e all'inizio dell'ora, ad esempio 13.00. Per l'aggregazione giornaliera, impostare questo valore alla mezzanotte ora UTC. Il formato è *escape* ISO 8601, ad esempio, 2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z, due punti in cui viene sottoposta a escape a % 3a e più in modo che risulti URI descrittivo alla versione 2b % di escape. |
 | *reportedEndTime* |Ora di fine della query. I vincoli che si applicano a *reportedStartTime* si applicano anche a questo argomento. Il valore per *reportedEndTime* non può essere in futuro. |
-| *aggregationGranularity* |Parametro facoltativo che dispone di due valori potenziali discreti: giornaliera e oraria. Come suggeriscono i valori, uno restituisce i dati nella granularità giornaliera e l'altro è una risoluzione oraria. L'opzione giornaliera è il valore predefinito. |
+| *aggregationGranularity* |Parametro facoltativo che dispone di due valori potenziali discreti: giornaliera e oraria. Come suggeriscono valori, uno restituisce i dati nella granularità giornaliera e l'altro è una risoluzione oraria. L'opzione giornaliero è il valore predefinito. |
 | *api-version* |Versione del protocollo utilizzato per effettuare questa richiesta. È necessario utilizzare 2015-06-01-preview. |
-| *continuationToken* |Token recuperato dall'ultima chiamata al provider di API di utilizzo. Questo token è necessaria quando una risposta è maggiore di 1.000 righe e funge da un segnalibro per lo stato di avanzamento. Se non è presente, i dati vengono recuperati dall'inizio del giorno o ora, in base al livello di dettaglio passati. |
+| *continuationToken* |Token recuperato all'ultima chiamata al provider di API di utilizzo. Questo token è necessaria quando una risposta è maggiore di 1.000 righe e funge da un segnalibro per lo stato di avanzamento. Se non è presente, i dati vengono recuperati dall'inizio del giorno o ora, in base alla granularità passati. |
 
 ### <a name="response"></a>Risposta
 OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = giornaliera & api-version = 1.0
@@ -80,12 +80,12 @@ OTTIENI /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reporte
 | *id* |ID univoco della funzione di aggregazione di utilizzo |
 | *nome* |Nome della funzione di aggregazione di utilizzo |
 | *type* |Definizione di risorsa |
-| *subscriptionId* |Identificatore della sottoscrizione dell'utente di Azure |
+| *subscriptionId* |Identificatore della sottoscrizione dell'utente Azure |
 | *usageStartTime* |UTC ora di inizio del bucket di utilizzo a cui appartiene questa aggregazione di utilizzo |
 | *usageEndTime* |UTC ora di fine dell'intervallo di utilizzo a cui appartiene questa aggregazione di utilizzo |
-| *instanceData* |Coppie chiave-valore di dettagli di istanze (in un nuovo formato):<br>  *resourceUri*: ID di risorsa, inclusi gruppi di risorse e il nome di istanza completo <br>  *percorso*: area in cui è stato eseguito il servizio <br>  *tag*: i tag delle risorse specificate dall'utente <br>  *additionalInfo*: ulteriori informazioni sulle risorse che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo |
-| *quantity* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo |
-| *meterId* |ID univoco per la risorsa che è stata utilizzata (detto anche *ResourceID*) |
+| *instanceData* |Coppie chiave-valore di dettagli di istanze (in un nuovo formato):<br>  *resourceUri*: ID di risorsa, inclusi i gruppi di risorse e il nome di istanza completo <br>  *percorso*: area in cui è stato eseguito il servizio <br>  *tag*: i tag delle risorse specificate dall'utente <br>  *additionalInfo*: ulteriori informazioni sulle risorse che è stata utilizzata, ad esempio, il tipo di versione o l'immagine del sistema operativo |
+| *Quantità* |Quantità di utilizzo delle risorse che si sono verificati in questo periodo di tempo |
+| *meterId* |ID univoco per la risorsa che è stata utilizzata (chiamato anche *ResourceID*) |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
