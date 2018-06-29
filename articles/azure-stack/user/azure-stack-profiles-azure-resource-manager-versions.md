@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010976"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054382"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versioni di API del provider di risorse supportate dai profili nello Stack di Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "34010976"
 
 Il profilo di API utilizza tre convenzioni di denominazione:
  - più recenti
- - Aaaa-mm-gg-ibrida
+ - aaaa-mm-gg-ibrida
  - aaaa-mm-gg-profilo
 
 Per una spiegazione dei profili di API e rilasci di versione per lo Stack di Azure, vedere [profili versione API di gestione in Azure Stack](azure-stack-version-profiles.md).
@@ -36,7 +36,7 @@ Per una spiegazione dei profili di API e rilasci di versione per lo Stack di Azu
 
 ## <a name="overview-of-2018--03-01-hybrid"></a>Panoramica di 2018-03-01-ibrida
 
-| Provider di risorse | versione dell'API |
+| Provider di risorse | API-version |
 |-----------------------------------------------|-----------------------------------------------------|
 | Microsoft.Compute | 2017-03-30 |
 | Microsoft.Network | 2017-10-01<br>Gateway VPN sarà 2017-03-01 |
@@ -58,7 +58,7 @@ Per più un elenco delle versioni per ogni tipo di risorsa per i provider nel pr
 
 ## <a name="overview-of-2017-03-09-profile"></a>Panoramica del 2017-03-09-profilo
 
-| Provider di risorse | versione dell'API |
+| Provider di risorse | API-version |
 |------------------------------------------------|------------------------------|
 | Microsoft.Compute | 2016-03-30 |
 | Microsoft.Network | 2015-06-15 |
@@ -144,11 +144,14 @@ Le API di calcolo di Azure forniscono accesso programmatico alle macchine virtua
 
 | Tipi di risorsa | Versioni dell'API |
 |--------------------|--------------------|
-| Regole di avviso | 2016-03-01 |
-| Categorie di eventi | 2017-03-01-anteprima |
-| Tipi di eventi | 2017-03-01-anteprima |
-| Definizioni metrica | 2016-03-01 |
 | Operazioni | 2015-04-01 |
+| Tipi di eventi | 2015-04-01 |
+| Categorie di eventi | 2015-04-01 |
+| Definizioni metrica | 2018-01-01 |
+| Metriche | 2018-01-01 |
+| Impostazioni di diagnostica | 2017-05-01-anteprima |
+| Categorie di impostazioni di diagnostica | 2017-05-01-anteprima |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 

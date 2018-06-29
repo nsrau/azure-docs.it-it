@@ -65,7 +65,7 @@
               href: azure-stack-get-pki-certs.md
             - name: Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack
               href: azure-stack-prepare-pki-certs.md
-            - name: La convalida dei certificati di infrastruttura a chiave pubblica
+            - name: Convalida dei certificati di infrastruttura a chiave pubblica
               href: azure-stack-validate-pki-certs.md
             - name: Monitora e aggiorna i certificati PKI
               href: azure-stack-remediate-certs.md
@@ -94,7 +94,7 @@
   items:
     - name: Configurare la raccolta di dati di telemetria
       href: azure-stack-telemetry.md
-    - name: Registro dello Stack di Azure
+    - name: Registrare Azure Stack
       href: azure-stack-registration.md
     - name: Gestisci
       items:
@@ -153,7 +153,7 @@
         - name: Eseguire il backup di Azure Stack
           href: azure-stack-backup-infrastructure-backup.md
           items:
-            - name: Abilitare il Backup dalla console di amministrazione per lo Stack di Azure
+            - name: Abilitare il Backup per lo Stack di Azure dalla console di amministrazione
               href: azure-stack-backup-enable-backup-console.md
             - name: Abilitare il Backup per lo Stack di Azure con PowerShell
               href: azure-stack-backup-enable-backup-powershell.md
@@ -161,7 +161,7 @@
               href: azure-stack-backup-back-up-azure-stack.md
             - name: Eseguire il backup di file e applicazioni in Azure Stack
               href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
-            - name: Recupero dalla perdita di dati
+            - name: Recupero dalla perdita di dati irreversibile
               href: azure-stack-backup-recover-data.md
             - name: Backup e le procedure consigliate
               href: azure-stack-backup-best-practices.md
@@ -220,7 +220,7 @@
               href: azure-stack-sql-resource-provider-deploy.md
             - name: Aggiungere server di hosting SQL
               href: azure-stack-sql-resource-provider-hosting-servers.md
-            - name: Creare il database SQL
+            - name: Creare i database SQL
               href: azure-stack-sql-resource-provider-databases.md
             - name: Aggiornare il provider di risorse di SQL Server
               href: azure-stack-sql-resource-provider-update.md
@@ -275,7 +275,7 @@
               href: azure-stack-marketplace.md
             - name: Scaricare elementi di Marketplace
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Elementi di Azure Marketplace per lo Stack di Azure
+            - name: Elementi del Marketplace per Azure per lo Stack di Azure
               href: azure-stack-marketplace-azure-items.md
             - name: Creare e pubblicare un elemento di Marketplace
               href: azure-stack-create-and-publish-marketplace-item.md
@@ -294,20 +294,20 @@
             - name: Offrono un Cluster Kubernetes
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Utilizzo e fatturazione
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Panoramica
-              href: azure-stack-billing-and-chargeback.md
-            - name: Gestire l'utilizzo e fatturazione come un CSP
+            - name: Gestire l'utilizzo e fatturazione come un provider CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Aggiungere i tenant per l'utilizzo e fatturazione
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Gestire la registrazione tenant
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Aggiungere ai tenant l'utilizzo e sulla fatturazione
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Gestire la registrazione tenant
+                  href: azure-stack-csp-ref-operations.md
             - name: Informazioni sull'utilizzo e fatturazione di riferimento
               items:
                 - name: Creazione di report sui dati di utilizzo
                   href: azure-stack-usage-reporting.md
-                - name: Utilizzo di reporting dell'infrastruttura per il provider di servizi Cloud
+                - name: Utilizzo di reporting dell'infrastruttura per i provider di servizi Cloud
                   href: azure-stack-csp-ref-infrastructure.md
                 - name: API di utilizzo del provider
                   href: azure-stack-provider-resource-api.md
@@ -347,7 +347,7 @@
   items:
     - name: Guida di orientamento per Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Forum MSDN di Stack di Azure
+    - name: Forum di MSDN Stack Azure
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Suggerimenti sulla documentazione dello Stack di Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
