@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Esercitazioni
   items:
-    - name: Generatore
-      items:
-        - name: 1 - Definire un nuovo tipo di dispositivo
-          href: tutorial-define-device-type.md
-        - name: 2 - Configurare le regole
-          href: tutorial-configure-rules.md
-        - name: 3 - Personalizzare la visualizzazione dell'operatore
-          href: tutorial-customize-operator.md
-    - name: Operatore
-      items:
-        - name: 4 - Monitorare i dispositivi
-          href: tutorial-monitor-devices.md
-        - name: 5 - Aggiungere un dispositivo
-          href: tutorial-add-device.md
+    - name: 1 - Definire un nuovo tipo di dispositivo
+      href: tutorial-define-device-type.md
+    - name: 2 - Configurare le regole
+      href: tutorial-configure-rules.md
+    - name: 3 - Personalizzare la visualizzazione dell'operatore
+      href: tutorial-customize-operator.md
+    - name: 4 - Monitorare i dispositivi
+      href: tutorial-monitor-devices.md
+    - name: 5 - Aggiungere un dispositivo
+      href: tutorial-add-device.md
 - name: Concetti
   items:
     - name: Architecture

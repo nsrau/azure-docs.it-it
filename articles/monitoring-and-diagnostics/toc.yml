@@ -23,6 +23,8 @@
       href: monitoring-data-sources.md
     - name: Monitoraggio di Azure
       href: monitoring-overview-azure-monitor.md
+    - name: Agents
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: Metriche
       href: monitoring-overview-metrics.md
     - name: Autoscale
