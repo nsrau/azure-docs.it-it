@@ -42,7 +42,7 @@
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
-## [Java](/java/api/overview/azure/keyvault/client)
+## [Java](/java/api/overview/azure/keyvault?view=azure-java-stable)
 ## Node.js
 ### [Gestione dell'insieme di credenziali](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
 ### [Gestione dei contenuti dell'insieme di credenziali](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
