@@ -269,6 +269,8 @@
               href: azure-stack-app-service-release-notes-update-one.md
             - name: Servizio app di note sulla versione di Azure Stack update 2
               href: azure-stack-app-service-release-notes-update-two.md
+        - name: Distribuire Ethereum
+          href: azure-stack-ethereum.md
         - name: Popolare Marketplace
           items:
             - name: Panoramica del Marketplace
