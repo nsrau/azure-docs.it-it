@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/29/2018
   ms.author: cgronlun
-  ms.openlocfilehash: 90f677fae4cf741e99ba6bdf488b33c57aae61a3
-  ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+  ms.openlocfilehash: 69e3643f132cbc6c428608cb1c92c22f51765b81
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37020130"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37130812"
 abstract:
   description: Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
 sections:
@@ -52,13 +52,6 @@ sections:
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
       - href: 
-    - title: Visione artificiale personalizzata - Compilare un classificatore di immagini
-      values:
-      - href: 
-      - href: 
-      - href: 
-      - href: 
-      - href: /azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier
     - title: Servizio di riconoscimento vocale - Riconoscimento vocale
       values:
       - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
@@ -66,13 +59,6 @@ sections:
       - href: 
       - href: 
       - href: /azure/cognitive-services/speech-service/get-started
-    - title: Traduzione vocale - Tradurre il parlato
-      values:
-      - href: /azure/cognitive-services/translator-speech/quickstarts/csharp
-      - href: /azure/cognitive-services/translator-speech/quickstarts/java
-      - href: /azure/cognitive-services/translator-speech/quickstarts/nodejs
-      - href: /azure/cognitive-services/translator-speech/quickstarts/python
-      - href: 
     - title: Language Understanding - Usare la domotica predefinita
       values:
       - href: 
@@ -80,12 +66,12 @@ sections:
       - href: 
       - href: 
       - href: /azure/cognitive-services/luis/luis-get-started-create-app
-    - title: Traduzione testuale - Tradurre da una lingua all'altra
+    - title: Analisi del testo - Rilevare la lingua e analizzare il sentiment
       values:
-      - href: Translator/quickstart-csharp-translate
-      - href: Translator/quickstart-java-translate
-      - href: Translator/quickstart-nodejs-translate
-      - href: Translator/quickstart-python-translate
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/java
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/nodejs
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/python
       - href: 
     - title: Ricerca Web Bing - Ottenere query Web pertinenti
       values:

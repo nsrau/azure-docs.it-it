@@ -1,4 +1,4 @@
-- name: Documentazione del controllo degli accessi in base al ruolo
+- name: Documentazione sul controllo degli accessi in base al ruolo
   href: index.yml
   items: null
 - name: Panoramica
@@ -25,16 +25,11 @@
   items:
     - name: Informazioni sulle definizioni del ruolo
       href: role-definitions.md
-    - name: Ruoli predefiniti
-      href: built-in-roles.md
-    - name: Operazioni del provider di risorse
-      href: resource-provider-operations.md
     - name: Privileged Identity Management (PIM) per il controllo degli accessi in base al ruolo
       href: pim-azure-resource.md
     - name: Accesso condizionale per la gestione di Azure
       href: conditional-access-azure-management.md
 - name: Guide alle procedure
-  expanded: true
   items:
     - name: Gestire l'accesso
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: Risolvere problemi
       href: troubleshooting.md
+- name: Riferimenti
+  items:
+    - name: Ruoli predefiniti
+      href: built-in-roles.md
+    - name: Operazioni del provider di risorse
+      href: resource-provider-operations.md
+    - name: Limiti relativi al controllo degli accessi in base al ruolo
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Interfaccia della riga di comando di Azure
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: API REST
+      href: /rest/api/authorization/

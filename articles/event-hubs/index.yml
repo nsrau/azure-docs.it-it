@@ -1,0 +1,92 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione di Hub eventi di Azure
+metadata:
+  document_id: ''
+  title: Documentazione di Hub eventi di Azure - Esercitazioni, guide introduttive e informazioni di riferimento sulle API
+  meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
+  services: event-hubs
+  author: sethmanheim
+  manager: timlt
+  ms.service: event-hubs
+  ms.topic: landing-page
+  ms.date: 05/14/2018
+  ms.author: sethm
+  ms.openlocfilehash: 70d40d58b63f7d0e49290d5283c35166f1380638
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132565"
+abstract:
+  description: Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di elaborazione di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. Il servizio supporta i protocolli HTTPS e AMQP 1.0 per la pubblicazione di eventi.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: /azure/event-hubs/media/index/azure-messaging-and-event-based-architecture.png
+      width: 250
+    title: Messaggistica di Azure e architettura basata su eventi (1:24:32)
+    href: https://azure.microsoft.com/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
+    width: 250
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come trasmettere dati con Hub eventi:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-hubs/media/index/portal.svg
+      text: Portale di Azure
+      href: /azure/event-hubs/event-hubs-quickstart-portal
+    - image:
+        src: /azure/event-hubs/media/index/cli.svg
+      text: Interfaccia della riga di comando di Azure
+      href: /azure/event-hubs/event-hubs-quickstart-cli
+    - image:
+        src: /azure/event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-hubs/event-hubs-quickstart-powershell
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: Informazioni su come creare, gestire e trasmettere eventi con Hub eventi di Azure
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://review.docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?branch=release-mvc-event-hubs">Leggere un flusso di dati di Hub eventi con Analisi di flusso di Azure e visualizzare le anomalie</a>
+- title: Video di formazione gratuiti su PluralSight
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Sviluppo con .NET in Azure
+      href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=FEED65A23CB221A7
+- title: Esempi
+  items:
+  - type: paragraph
+    text: Trovare script per gestire le attività comuni.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure PowerShell</a>
+    - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Interfaccia della riga di comando di Azure</a>
+- title: Riferimenti
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Riga di comando
+      html: <p><a href="/powershell/module/azurerm.eventhub/">Azure PowerShell</a></p><p><a href="/cli/azure/eventhubs">Interfaccia della riga di comando di Azure</a></p>
+    - title: Lingue
+      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.eventhubs">.NET Standard</a></p><p><a href="/java/api/overview/azure/eventhub">Java</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/eventhub/">Informazioni di riferimento sulle API REST</a></p>
