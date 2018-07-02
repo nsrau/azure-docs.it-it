@@ -1,0 +1,43 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione degli acceleratori di soluzioni IoT
+metadata:
+  title: Documentazione degli acceleratori di soluzioni IoT
+  meta.description: Get started quickly building your IoT solutions with the IoT solution accelerators. Add new devices and connect existing ones using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices and rely on the global availability of Azure, no matter how large or small your project.
+  services: iot-accelerators
+  author: dominicbetts
+  manager: timlt
+  ms.service: iot-accelerators
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/19/2018
+  ms.author: dobett
+  ms.openlocfilehash: ab97a3a2579be289f1d88d926fc2151cb4d2ad4f
+  ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 06/28/2018
+  ms.locfileid: "37088331"
+abstract:
+  description: Iniziare a creare rapidamente soluzioni IoT con gli acceleratori di soluzioni IoT. Aggiungere nuovi dispositivi e connettere quelli esistenti usando SDK per i dispositivi per più piattaforme tra cui Linux, Windows e sistemi operativi in tempo reale. Passare facilmente da pochissimi sensori a milioni di dispositivi connessi contemporaneamente e affidati alla disponibilità globale di Azure, indipendentemente dalle dimensioni del progetto.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Introduzione agli acceleratori di soluzioni IoT:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/iot-accelerators/quickstart-remote-monitoring-deploy">Distribuire una soluzione di monitoraggio remoto basata sul cloud</a>
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Informazioni sugli acceleratori di soluzioni IoT e sugli scenari chiave implementati dagli acceleratori:'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">Monitorare i dispositivi IoT</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Configurare e gestire i dispositivi connessi alla soluzione di monitoraggio</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Usare gli avvisi e risolvere i problemi dei dispositivi</a>

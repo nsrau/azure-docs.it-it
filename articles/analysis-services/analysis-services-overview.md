@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234557"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937938"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -31,7 +31,7 @@ Nel portale di Azure è possibile [creare un server](analysis-services-create-se
 
 **Video:** guardare [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Automatizzazione della distribuzione) per altre informazioni su come usare Automazione di Azure per velocizzare la creazione del server.
 
-Azure Analysis Services si integra con molti servizi di Azure e permette di creare soluzioni di analisi avanzate. L'integrazione con [Azure Active Directory](../active-directory/active-directory-whatis.md) offe l'accesso ai dati essenziali sicuro e in base al ruolo. È possibile ottenere l'integrazione con le pipeline di [Azure Data Factory](../data-factory/introduction.md) includendo un'attività che carica i dati nel modello. È possibile usare [Automazione di Azure](../automation/automation-intro.md) e [Funzioni di Azure](../azure-functions/functions-overview.md) per un'orchestrazione semplice di modelli tramite codice personalizzato. 
+Azure Analysis Services si integra con molti servizi di Azure e permette di creare soluzioni di analisi avanzate. L'integrazione con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) offe l'accesso ai dati essenziali sicuro e in base al ruolo. È possibile ottenere l'integrazione con le pipeline di [Azure Data Factory](../data-factory/introduction.md) includendo un'attività che carica i dati nel modello. È possibile usare [Automazione di Azure](../automation/automation-intro.md) e [Funzioni di Azure](../azure-functions/functions-overview.md) per un'orchestrazione semplice di modelli tramite codice personalizzato. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>Il piano giusto quando serve
 
@@ -72,39 +72,41 @@ Questo livello è ottimale per applicazioni di produzione cruciali, che necessit
 
 ## <a name="availability-by-region"></a>Disponibilità per area
 
-Azure Analysis Services è supportato in aree di tutto il mondo. È possibile assicurare la [disponibilità elevata](analysis-services-bcdr.md) distribuendo i modelli in server ridondanti in più aree. I livelli supportati e le repliche delle query dipendono dall'area scelta. 
+Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilità dei piani supportati e delle repliche delle query dipendono dall'area scelta. La disponibilità dei piani e delle repliche delle query può cambiare in base alle necessità e alle risorse disponibili per ogni area. 
 
 ### <a name="americas"></a>Americhe
 
-|Region  | Livelli supportati | Repliche delle query |
+|Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
 |Brasile meridionale     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada centrale    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Stati Uniti orientali     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |Stati Uniti centro-settentrionali     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-meridionali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>Europa
 
-|Region  | Livelli supportati | Repliche delle query |
+|Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
-|Europa settentrionale     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|Europa settentrionale     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Regno Unito meridionale   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa occidentale     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|Europa occidentale     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>Asia/Pacifico 
 
-|Region  | Livelli supportati | Repliche delle query |
+|Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
 |Australia sudorientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Giappone orientale  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asia sudorientale     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|Asia sudorientale     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |India occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* I piani S8 ed S9 nel livello Standard supportano una sola replica delle query.
 
 ## <a name="scale-to-your-needs"></a>Ridimensionare in base alle esigenze specifiche
 
@@ -116,7 +118,7 @@ Azure Analysis Services è supportato in aree di tutto il mondo. È possibile as
 
 Con l'aumento del numero di istanze, le query dei client vengono distribuite tra più *repliche delle query* in un pool di query. Le repliche delle query hanno copie sincronizzate dei modelli tabulari. Distribuendo il carico di lavoro delle query, è possibile ridurre i tempi di risposta quando questi carichi di lavoro sono elevati. Le operazioni di elaborazione del modello possono essere separate dal pool di query, assicurando così che le prestazioni delle query dei client non vengano influenzate negativamente dalle operazioni di elaborazione. 
 
-È possibile creare un pool di query con fino a sette repliche delle query aggiuntive (otto in totale, incluso il server). Il numero di repliche delle query che è possibile avere nel pool dipende dall'area scelta. Le repliche delle query non possono essere distribuite al di fuori dell'area del server. Le repliche delle query vengono fatturate alla stessa tariffa del server.
+È possibile creare un pool di query con fino a sette repliche delle query aggiuntive (otto in totale, incluso il server). Il numero di repliche delle query consentito nel pool dipende dall'area e dal piano scelti. Le repliche delle query non possono essere distribuite al di fuori dell'area del server. Le repliche delle query vengono fatturate alla stessa tariffa del server.
 
 Proprio come con la modifica dei livelli, è possibile aumentare il numero di istanze delle repliche delle query in base alle esigenze. Configurare l'aumento del numero di istanze nel portale o con le API REST. Per altre informazioni, vedere [Aumento delle istanze di Azure Analysis Services](analysis-services-scale-out.md).
 
@@ -148,7 +150,7 @@ Il firewall di Azure Analysis Services blocca tutte le connessioni client divers
 
 ### <a name="authentication"></a>Authentication
 
-L'autenticazione utente viene gestita da [Azure Active Directory (AAD)](../active-directory/active-directory-whatis.md). Durante l'accesso, gli utenti usano un'identità dell'account organizzazione con accesso al database in base al ruolo. Le identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui si trova il server. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
+L'autenticazione utente viene gestita da [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Durante l'accesso, gli utenti usano un'identità dell'account organizzazione con accesso al database in base al ruolo. Le identità utente devono essere membri dell'istanza predefinita di Azure Active Directory per la sottoscrizione in cui si trova il server. Per altre informazioni, vedere [Autenticazione e autorizzazioni utente](analysis-services-manage-users.md).
 
 ### <a name="data-security"></a>Sicurezza dei dati
 

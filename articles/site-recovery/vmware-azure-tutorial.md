@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dab7fac1f28f70a58865ca3a09ad46884d4ac8d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 895665eef722e81030d9699c1a6c75455493bae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266931"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317845"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -58,19 +58,19 @@ Questa esercitazione illustra come replicare una singola macchina virtuale e in 
 
 ## <a name="set-up-the-source-environment"></a>Configurare l'ambiente di origine
 
-Come primo passaggio della distribuzione, è necessario configurare l'ambiente di origine. È necessario un singolo computer locale a disponibilità elevata per l'hosting dei componenti locali di Site Recovery. I componenti includono il server di configurazione, il server di elaborazione e il server di destinazione master:
+Come primo passaggio della distribuzione, è necessario configurare l'ambiente di origine. È necessario un singolo computer locale ad alta disponibilità per ospitare i componenti di Site Recovery locali. I componenti includono il server di configurazione, il server di elaborazione e il server di destinazione master:
 
 - Il server di configurazione coordina le comunicazioni tra i componenti locali e Azure e gestisce la replica dei dati.
 - Il server di elaborazione funge da gateway di replica. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia alla risorsa di archiviazione di Azure. Il server di elaborazione installa anche il servizio Mobility nelle macchine virtuali da replicare ed esegue l'individuazione automatica delle macchine virtuali VMware locali.
 - Il server di destinazione master gestisce i dati di replica durante il failback da Azure.
 
-Per configurare il server di configurazione come una macchina virtuale VMware a disponibilità elevata, scaricare un modello OVF (Open Virtualization Format) preparato e importare il modello in VMware per creare la macchina virtuale. Dopo aver configurato il server di configurazione, registrarlo nell'insieme di credenziali. Dopo la registrazione, Site Recovery individua le VM VMware locali.
+Per configurare il server di configurazione come macchina virtuale VMware a disponibilità elevata, scaricare un modello Open Virtualization Application (OVA) preparato e importare il modello in VMware per creare la macchina virtuale. Dopo aver configurato il server di configurazione, registrarlo nell'insieme di credenziali. Dopo la registrazione, Site Recovery individua le VM VMware locali.
 
 > [!TIP]
-> Questa esercitazione usa un modello OVF per creare la macchina virtuale VMware del server di configurazione. Se non si sa come eseguire questa operazione, è possibile [configurare il server di configurazione manualmente](physical-manage-configuration-server.md). 
+> Questa esercitazione usa un modello OVA per creare la macchina virtuale VMware del server di configurazione. Se non si sa come eseguire questa operazione, è possibile [configurare il server di configurazione manualmente](physical-manage-configuration-server.md).
 
 > [!TIP]
-> In questa esercitazione, Site Recovery scarica e installa MySQL nel server di configurazione. Se non si vuole che Site Recovery esegua questa operazione, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#prepare-for-mysql-installation).
+> In questa esercitazione, Site Recovery scarica e installa MySQL nel server di configurazione. Se non si vuole che Site Recovery esegua questa operazione, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#configure-settings).
 
 
 ### <a name="download-the-vm-template"></a>Scaricare il modello di VM
@@ -78,10 +78,13 @@ Per configurare il server di configurazione come una macchina virtuale VMware a 
 1. Nell'insieme di credenziali passare a **Preparare l'infrastruttura** > **Origine**.
 2. In **Prepara origine** selezionare **+Server di configurazione**.
 3. In **Aggiungi server** verificare che **Tipo di server** contenga **Server di configurazione per VMware**.
-4. Scaricare il modello OVF per il server di configurazione. Con il modello viene fornita una licenza di valutazione valida per 100 giorni. Trascorso questo periodo, è necessario ottenere una licenza.
+4. Scaricare il modello OVF per il server di configurazione.
 
-  > [!TIP]
-  È possibile scaricare l'ultima versione del modello del server di configurazione direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
+ > [!TIP]
+ >È possibile scaricare l'ultima versione del modello del server di configurazione direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
+
+>[!NOTE]
+La licenza fornita con il modello OVF è una licenza di valutazione valida per 180 giorni. Il cliente deve attivare le finestre con una licenza acquistata.
 
 ## <a name="import-the-template-in-vmware"></a>Importare il modello in VMware
 
@@ -133,8 +136,8 @@ Per aggiungere un'altra scheda di interfaccia di rete al server di configurazion
 8. In **Configura le credenziali della macchina virtuale** immettere il nome utente e la password che verranno usati per installare automaticamente il servizio Mobility nelle macchine virtuali quando la replica è abilitata.
     - Per i computer Windows, l'account deve avere privilegi di amministratore locale nei computer da replicare.
     - Per Linux, specificare i dettagli dell'account radice.
-1. Selezionare **Finalizza configurazione** per completare la registrazione. 
-2. Al termine della registrazione, verificare nel portale di Azure che il server di configurazione e il server VMware siano elencati nella pagina **Origine** dell'insieme di credenziali. Fare quindi clic su **OK** per configurare le impostazioni della destinazione.
+9. Selezionare **Finalizza configurazione** per completare la registrazione.
+10. Al termine della registrazione, verificare nel portale di Azure che il server di configurazione e il server VMware siano elencati nella pagina **Origine** dell'insieme di credenziali. Fare quindi clic su **OK** per configurare le impostazioni della destinazione.
 
 
 Site Recovery si connette ai server VMware usando le impostazioni specificate e individua le macchine virtuali.
@@ -147,7 +150,7 @@ Site Recovery si connette ai server VMware usando le impostazioni specificate e 
 Selezionare e verificare le risorse di destinazione.
 
 1. Selezionare **Preparare l'infrastruttura** > **Destinazione**. Selezionare la sottoscrizione di Azure da usare. Si usa un modello di Resource Manager.
-1. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Questi elementi devono essere disponibili quando si configurano i componenti di Azure nella [prima esercitazione](tutorial-prepare-azure.md) in questa serie di esercitazioni.
+2. Site Recovery verifica la disponibilità di uno o più account di archiviazione di Azure e reti compatibili. Questi elementi devono essere disponibili quando si configurano i componenti di Azure nella [prima esercitazione](tutorial-prepare-azure.md) in questa serie di esercitazioni.
 
    ![Scheda Destinazione](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -164,27 +167,25 @@ Selezionare e verificare le risorse di destinazione.
    ![Creare criteri di replica](./media/vmware-azure-tutorial/replication-policy.png)
 
 - I criteri vengono automaticamente associati al server di configurazione.
-- Per impostazione predefinita, vengono creati automaticamente i criteri corrispondenti per il failback. Ad esempio, se il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
+- Per impostazione predefinita, vengono creati automaticamente i criteri corrispondenti per il failback. Se, ad esempio, il criterio di replica è **rep-policy**, il criterio di failback sarà **rep-policy-failback**. Questi criteri non vengono usati fino a quando non si avvia un failback da Azure.
 
 ## <a name="enable-replication"></a>Abilitare la replica
 
-
-Per abilitare la replica, procedere come descritto di seguito:
+Per abilitare la replica, eseguire queste operazioni:
 
 1. Selezionare **Eseguire la replica dell'applicazione** > **Origine**.
 2. In **Origine** selezionare **Locale** e selezionare il server di configurazione in **Percorso di origine**.
 3. In **Tipo di computer** selezionare **Macchine virtuali**.
 4. In **vCenter/vSphere Hypervisor** selezionare l'host vSphere o il server vCenter che gestisce l'host.
-5. Selezionare il server di elaborazione installato per impostazione predefinita nella macchina virtuale del server di configurazione. Selezionare **OK**.
+5. Selezionare il server di elaborazione, installato per impostazione predefinita nella macchina virtuale del server di configurazione. Selezionare **OK**.
 6. In **Destinazione** selezionare la sottoscrizione e il gruppo di risorse in cui si vogliono creare le macchine virtuali di cui viene effettuato il failover. Viene usato il modello di distribuzione di Resource Manager. 
 7. Selezionare l'account di archiviazione di Azure che si vuole usare per replicare i dati e la rete di Azure e la subnet a cui si connetteranno le macchine virtuali di Azure create dopo il failover.
-1. Selezionare **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutte le macchine virtuali in cui viene abilitata la replica. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer.
-2. In **Macchine virtuali** > **Seleziona macchine virtuali** selezionare tutte le macchine virtuali da replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Selezionare **OK**.
-3. In **Proprietà** > **Configura proprietà** selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
-4. In **Impostazioni della replica** > **Configura impostazioni di replica** verificare che siano selezionati i criteri di replica corretti.
-5. Selezionare **Abilita replica**. Quando viene abilitata la replica per una macchina virtuale, Site Recovery installa il servizio Mobility.
-6. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
-
+8. Selezionare **Configurare ora per le macchine virtuali selezionate** per applicare le impostazioni di rete a tutte le macchine virtuali in cui viene abilitata la replica. Scegliere **Configurare in seguito** per selezionare la rete di Azure per ogni computer.
+9. In **Macchine virtuali** > **Seleziona macchine virtuali** selezionare tutte le macchine virtuali da replicare. È possibile selezionare solo i computer per cui è possibile abilitare la replica. Selezionare **OK**.
+10. In **Proprietà** > **Configura proprietà** selezionare l'account che verrà usato dal server di elaborazione per installare automaticamente il servizio Mobility nel computer.
+11. In **Impostazioni della replica** > **Configura impostazioni di replica** verificare che siano selezionati i criteri di replica corretti.
+12. Selezionare **Abilita replica**. Quando viene abilitata la replica per una macchina virtuale, Site Recovery installa il servizio Mobility.
+13. È possibile tenere traccia dello stato del processo **Abilita protezione** in **Impostazioni** > **Processi** > **Processi di Site Recovery**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 - Le modifiche diventeranno effettive e verranno visualizzate nel portale dopo 15 minuti o più.
 - Per eseguire il monitoraggio delle macchine virtuali aggiunte, è possibile controllare l'ora dell'ultima individuazione di macchine virtuali in **Server di configurazione** > **Ora ultimo contatto**. Per aggiungere macchine virtuali senza attendere l'individuazione pianificata, evidenziare il server di configurazione senza selezionarlo e quindi selezionare **Aggiorna**.
 

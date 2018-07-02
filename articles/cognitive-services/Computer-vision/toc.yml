@@ -1,11 +1,11 @@
 - name: Documentazione di Visione artificiale
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Informazioni sulla Visione artificiale
       href: Home.md
-- name: Guide introduttive
-  expanded: true
+- name: Guide introduttive per le API
   items:
     - name: Summary
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: Estrarre testo stampato
           href: QuickStarts/ruby-print-text.md
+- name: Guide introduttive per SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analizzare un'immagine
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Generare un'anteprima
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Estrarre testo scritto a mano
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Guide alle procedure
   items:
     - name: Prime app di Visione artificiale

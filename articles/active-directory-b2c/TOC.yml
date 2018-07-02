@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Uso del controllo dell'accesso in base all'età
           href: basic-age-gating.md
+        - name: Accesso diretto
+          href: direct-signin.md
     - name: Framework dell'esperienza di gestione delle identità
       items:
         - name: Criteri personalizzati

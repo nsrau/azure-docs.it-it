@@ -51,6 +51,29 @@
       href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
 - name: Piattaforma e infrastruttura
   items:
+    - name: Sicurezza dell'infrastruttura
+      href: azure-security-infrastructure.md
+      items:
+        - name: Sicurezza fisica
+          href: azure-physical-security.md
+        - name: Disponibilità
+          href: azure-infrastructure-availability.md
+        - name: Componenti e limiti
+          href: azure-infrastructure-components.md
+        - name: Architettura di rete
+          href: azure-infrastructure-network.md
+        - name: Rete di produzione
+          href: azure-production-network.md
+        - name: Database SQL
+          href: azure-infrastructure-sql.md
+        - name: Operazioni
+          href: azure-infrastructure-operations.md
+        - name: Monitoraggio
+          href: azure-infrastructure-monitoring.md
+        - name: Integrità
+          href: azure-infrastructure-integrity.md
+        - name: Protezione dati
+          href: azure-protection-of-customer-data.md
     - name: Antimalware Microsoft
       href: azure-security-antimalware.md
     - name: Sicurezza IaaS

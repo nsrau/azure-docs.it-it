@@ -138,9 +138,11 @@
         - name: Test delle funzioni
           href: functions-test-a-function.md
         - name: Sviluppare ed eseguire il debug in locale
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Sviluppo di Visual Studio
           href: functions-develop-vs.md
+        - name: Sviluppo di strumenti di base
+          href: functions-run-local.md
         - name: Gestire le connessioni
           href: manage-connections.md
         - name: Gestione degli errori

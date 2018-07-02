@@ -1,7 +1,7 @@
 ---
-title: Creare un'app multi-contenitore (anteprima) con App Web di Azure per contenitori
+title: Creare un'app multi-contenitore (anteprima) in un'app Web per contenitori
 description: Informazioni su come usare più contenitori in Azure, con file di configurazione Docker Compose e Kubernetes, con un'app WordPress e MySQL.
-keywords: servizio app di azure, linux, docker, compose, multi-contenitore, contenitore, kubernetes
+keywords: servizio app di azure, app web, linux, docker, compose, multi-contenitore, contenitore, kubernetes
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651382"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751915"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web di Azure per contenitori
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in un'app Web per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. In questa esercitazione si apprenderà come creare un'app multi-contenitore usando WordPress e MySQL.
+[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa esercitazione descrive come creare un'app multi-contenitore tramite WordPress e MySQL.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -145,7 +145,7 @@ Copiare e incollare localmente il codice YAML seguente in un file denominato `co
 
 ## <a name="create-a-docker-compose-app"></a>Creare un'app Docker Compose
 
-Nel terminale del prompt dei comandi locale creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel `myAppServicePlan`piano di servizio app con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale del prompt dei comandi locale creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -172,9 +172,9 @@ Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mos
 
 Passare all'app distribuita all'indirizzo `http://<app_name>.azurewebsites.net`. Il caricamento dell'app può richiedere alcuni minuti. Se si riceve un errore, attendere qualche minuto e quindi aggiornare il browser. Se si verificano problemi, per la risoluzione esaminare i [log dei contenitori](#find-docker-container-logs).
 
-![App multi-contenitore di esempio in App Web per contenitori][1]
+![App multi-contenitore di esempio in un'app Web per contenitori][1]
 
-La creazione di un'app multi-contenitore in App Web per contenitori è stata **completata**. Ora si configurerà l'app per l'uso di Database di Azure per MySQL. Non installare WordPress in questo momento.
+La creazione di un'app multi-contenitore in un'app Web per contenitori è stata **completata**. Ora si configurerà l'app per l'uso di Database di Azure per MySQL. Non installare WordPress in questo momento.
 
 ## <a name="connect-to-production-database"></a>Connettersi al database di produzione
 
@@ -311,7 +311,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Aggiornare l'app con la nuova configurazione
 
-Nel terminale del prompt dei comandi locale, riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con il nome dell'app Web creata in precedenza.
+Nel terminale del prompt dei comandi locale riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con il nome dell'app Web creata in precedenza.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -332,11 +332,11 @@ Al termine della riconfigurazione dell'app, l'interfaccia della riga di comando 
 
 Passare all'app distribuita all'indirizzo `http://<app_name>.azurewebsites.net`. Ora l'app usa Database di Azure per MySQL.
 
-![App multi-contenitore di esempio in App Web per contenitori][1]
+![App multi-contenitore di esempio in un'app Web per contenitori][1]
 
 ## <a name="add-persistent-storage"></a>Aggiungere l'archiviazione permanente
 
-L'app multi-contenitore è ora in esecuzione in App Web per contenitori. Tuttavia, se si installa WordPress adesso e si riavvia l'app in un secondo momento, si scoprirà che l'installazione di WordPress non è più presente. Questo accade perché la configurazione Docker Compose attualmente punta a un percorso di archiviazione all'interno del contenitore. I file installati nel contenitore non vengono mantenuti dopo il riavvio dell'app. In questa sezione si aggiungerà l'archiviazione permanente al contenitore WordPress.
+L'app multi-contenitore viene ora eseguita nell'app Web per contenitori. Tuttavia, se si installa WordPress adesso e si riavvia l'app in un secondo momento, si scoprirà che l'installazione di WordPress non è più presente. Questo accade perché la configurazione Docker Compose attualmente punta a un percorso di archiviazione all'interno del contenitore. I file installati nel contenitore non vengono mantenuti dopo il riavvio dell'app. In questa sezione si aggiungerà l'archiviazione permanente al contenitore WordPress.
 
 ### <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
@@ -387,7 +387,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Aggiornare l'app con la nuova configurazione
 
-Nel terminale del prompt dei comandi locale, riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale del prompt dei comandi locale riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -458,7 +458,7 @@ Al termine della creazione delle impostazioni app, l'interfaccia della riga di c
 
 ### <a name="update-app-with-new-configuration"></a>Aggiornare l'app con la nuova configurazione
 
-Nel terminale del prompt dei comandi locale, riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale del prompt dei comandi locale riconfigurare l'[app Web](app-service-linux-intro.md) multi-contenitore con il comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
 
 ```bash
 az webapp config container set --resource-group myResourceGroup --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -511,7 +511,7 @@ WordPress è ora **connesso** a Redis. A questo punto, l'app pronta per la produ
 
 In questa sezione si apprenderà come usare una configurazione Kubernetes per distribuire più contenitori. Assicurarsi di eseguire i passaggi precedenti per creare un [gruppo di risorse](#create-a-resource-group) e un [piano di servizio app](#create-an-azure-app-service-plan). Poiché la maggior parte dei passaggi sono simili a quello della sezione di composizione, il file di configurazione è già stato combinato.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>Opzioni Kubernetes supportate per l'uso di più contenitori
+### <a name="supported-kubernetes-options-for-multicontainer"></a>Opzioni Kubernetes supportate per l'uso di più contenitori
 
 * args
 * command
@@ -627,7 +627,7 @@ Al termine della creazione delle impostazioni app, l'interfaccia della riga di c
 
 ### <a name="add-persistent-storage"></a>Aggiungere l'archiviazione permanente
 
-L'app multi-contenitore è ora in esecuzione in App Web per contenitori. I dati verranno cancellati al riavvio perché i file non sono persistenti. In questa sezione si aggiungerà l'archiviazione permanente al contenitore WordPress.
+L'app multi-contenitore viene ora eseguita nell'app Web per contenitori. I dati verranno cancellati al riavvio perché i file non sono persistenti. In questa sezione si aggiungerà l'archiviazione permanente al contenitore WordPress.
 
 ### <a name="configure-environment-variables"></a>Configurare le variabili di ambiente
 
@@ -649,9 +649,9 @@ Al termine della creazione delle impostazioni app, l'interfaccia della riga di c
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>Creare un'app multi-contenitore (Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>Creare un'app multi-contenitore (Kubernetes)
 
-Nel terminale del prompt dei comandi locale creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel gruppo di risorse `myResourceGroup` e il piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale del prompt dei comandi locale creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel gruppo di risorse `myResourceGroup` e nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
@@ -679,9 +679,9 @@ Passare all'app distribuita all'indirizzo `http://<app_name>.azurewebsites.net`.
 
 L'app ora esegue più contenitori in App Web per contenitori.
 
-![App multi-contenitore di esempio in App Web per contenitori][1]
+![App multi-contenitore di esempio in un'app Web per contenitori][1]
 
-La creazione di un'app multi-contenitore in App Web per contenitori è stata **completata**.
+La creazione di un'app multi-contenitore in un'app Web per contenitori è stata **completata**.
 
 Per usare Redis, seguire i passaggi descritti in [Connettere WordPress a Redis](#connect-wordpress-to-redis).
 

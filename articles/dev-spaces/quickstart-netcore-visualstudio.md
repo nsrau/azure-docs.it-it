@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 16ec493708f85e9b3819943e131b9f9c3649f27e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824639"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960424"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
 
@@ -29,7 +29,7 @@ In questa guida si apprenderà come:
 > [!Note]
 > **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-netcore-visualstudio.md) più dettagliata.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 - Un cluster Kubernetes che esegue Kubernetes 1.9.6 nell'area EastUS, WestEurope o CanadaEast con il routing HTTP dell'applicazione abilitato.
 
@@ -51,9 +51,9 @@ In Visual Studio 2017 creare un nuovo progetto. Attualmente deve trattarsi di un
 
 Selezionare il modello **Applicazione Web (MVC)** e assicurarsi che siano selezionati **.NET Core** e **ASP.NET Core 2.0**.
 
-### <a name="create-a-dev-space-in-azure"></a>Creare uno spazio di sviluppo in Azure
+### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Abilitare Dev Spaces per un cluster AKS
 
-Con il progetto appena creato aperto, selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come illustrato di seguito.
+Con il progetto appena creato, selezionare **Azure Dev Spaces** nell'elenco a discesa delle impostazioni di avvio, come mostrato di seguito.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
@@ -78,16 +78,41 @@ Mentre si attende che venga creato lo spazio di sviluppo, esaminare i file che s
 
 - È stata aggiunta una cartella denominata `charts` e in tale cartella è stato eseguito lo scaffolding di un [chart Helm](https://docs.helm.sh) per l'applicazione. Questi file vengono usati per distribuire l'applicazione nello spazio di sviluppo.
 - `Dockerfile` contiene le informazioni necessarie per creare un pacchetto dell'applicazione nel formato Docker standard.
-- `azds.yaml` contiene le informazioni di configurazione necessarie allo spazio di sviluppo, ad esempio per determinare se l'applicazione dovrà essere accessibile tramite un endpoint pubblico.
+- `azds.yaml` contiene la configurazione in fase di sviluppo necessaria per lo spazio di sviluppo.
 
 ![](media/get-started-netcore-visualstudio/ProjectFiles.png)
 
 ## <a name="debug-a-container-in-kubernetes"></a>Eseguire il debug di un contenitore in Kubernetes
 Al termine della creazione dello spazio di sviluppo, è possibile eseguire il debug dell'applicazione. Impostare un punto di interruzione nel codice, ad esempio alla riga 20 del file `HomeController.cs` in cui viene impostata la variabile `Message`. Premere **F5** per avviare il debug. 
 
-Visual Studio comunicherà con lo spazio di sviluppo per compilare e distribuire l'applicazione e quindi aprire un browser con l'app Web in esecuzione. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure. L'indirizzo localhost viene usato perché Azure Dev Spaces crea un tunnel SSH temporaneo per il contenitore eseguito in Azure.
+Visual Studio comunicherà con lo spazio di sviluppo per compilare e distribuire l'applicazione e quindi aprire un browser con l'app Web in esecuzione. Potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito nello spazio di sviluppo in Azure. L'indirizzo localhost viene usato perché Azure Dev Spaces crea un tunnel SSH temporaneo per il contenitore in esecuzione in AKS.
 
 Fare clic sul collegamento **About** nella parte superiore della pagina per attivare il punto di interruzione. Le informazioni di debug, come stack di chiamate, variabili locali, informazioni sulle eccezioni e così via, sono completamente accessibili come in caso di esecuzione del codice in locale.
+
+
+## <a name="iteratively-develop-code"></a>Sviluppare in modo iterativo il codice
+
+Azure Dev Spaces consente non solo di eseguire codice in Kubernetes, ma anche di visualizzare in modo rapido e iterativo l'applicazione delle modifiche apportate al codice in un ambiente Kubernetes nel cloud.
+
+### <a name="update-a-content-file"></a>Aggiornare un file di contenuto
+1. Individuare il file `./Views/Home/Index.cshtml` e apportare una modifica al codice HTML. Ad esempio, modificare la riga 70 contenente `<h2>Application uses</h2>` come segue: `<h2>Hello k8s in Azure!</h2>`
+1. Salvare il file.
+1. Passare al browser e aggiornare la pagina. Nella pagina Web verrà visualizzato il codice HTML aggiornato.
+
+Che cosa è successo? Poiché le modifiche apportate ai file di contenuto, come HTML e CSS, non richiedono la ricompilazione in un'app Web .NET Core, una sessione F5 attiva sincronizza automaticamente tutti i file di contenuto modificati nel contenitore in esecuzione in AKS, permettendo di visualizzare le modifiche di contenuto immediatamente.
+
+### <a name="update-a-code-file"></a>Aggiornare un file di codice
+L'aggiornamento di file di codice richiede alcune operazioni aggiuntive, perché un'app .NET Core deve essere ricompilata e deve generare i file binari dell'applicazione aggiornati.
+
+1. Arrestare il debugger in Visual Studio.
+1. Aprire il file di codice denominato `Controllers/HomeController.cs` e modificare il messaggio che verrà visualizzato nella pagina About: `ViewData["Message"] = "Your application description page.";`
+1. Salvare il file.
+1. Premere **F5** per avviare di nuovo il debug. 
+
+Invece di ricompilare e ridistribuire una nuova immagine del contenitore ogni volta che vengono apportate modifiche al codice, operazione che spesso richiede una notevole quantità di tempo, Azure Dev Spaces ricompilerà in modo incrementale il codice nel contenitore esistente in modo da velocizzare il ciclo di modifica/debug.
+
+Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'interfaccia utente verrà visualizzato il messaggio personalizzato.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

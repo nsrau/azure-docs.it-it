@@ -186,12 +186,6 @@
 ### [Introduzione](manage-apps/plan-an-application-integration.md)
 ### [Esercitazioni sull'integrazione di app SaaS](saas-apps/tutorial-list.md)
 
-
-### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
-#### [Creare report di snapshot](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [Configurare la creazione di report continua](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [Usare un parser di log personalizzato](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [Provisioning e deprovisioning di utenti nelle app SaaS](active-directory-saas-app-provisioning.md) 
 #### [Esercitazioni sull'integrazione di app](saas-apps/tutorial-list.md) 
 #### [Automatizzare il provisioning nelle app abilitate per SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236684"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753796"
 ---
 ### <a name="supportedclientos"></a>Quali sistemi operativi client è possibile usare con la connettività da punto a sito?
 
@@ -21,7 +21,6 @@ Sono supportati i sistemi operativi client seguenti:
 
 * Windows 7 (a 32 e 64 bit)
 * Windows Server 2008 R2 (solo a 64 bit)
-* Windows 8 (a 32 e 64 bit)
 * Windows 8.1 (a 32 e 64 bit)
 * Windows Server 2012 (solo a 64 bit)
 * Windows Server 2012 R2 (solo a 64 bit)
@@ -62,7 +61,7 @@ Sì. Per il modello di distribuzione Resource Manager, è necessario un gateway 
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>È possibile configurare un client da punto a sito per connettersi contempo a più reti virtuali?
 
-di serie Un client da punto a sito può connettersi solo alle risorse nella rete virtuale in cui risiede il gateway di rete virtuale.
+No. Un client da punto a sito può connettersi solo alle risorse nella rete virtuale in cui risiede il gateway di rete virtuale.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>Che velocità effettiva è possibile prevedere usando connessioni da sito a sito o da punto a sito?
 
@@ -70,7 +69,7 @@ di serie Un client da punto a sito può connettersi solo alle risorse nella rete
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>Per la connettività da punto a sito è possibile usare qualsiasi client VPN software che supporta SSTP e/o IKEv2?
 
-di serie È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
+No. È possibile usare solo il client VPN nativo in Windows per SSTP e il client VPN nativo in Mac per IKEv2. Vedere l'elenco dei sistemi operativi client supportati.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure supporta VPN IKEv2 con Windows?
 
@@ -94,7 +93,7 @@ Quando si configurano sia SSTP che IKEv2 in un ambiente misto (costituito da dis
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Oltre a Windows e Mac, quali altre piattaforme supporta Azure per VPN P2S?
 
-Per VPN P2S, Azure supporta solo Windows e Mac.
+Per VPN da punto a sito Azure supporta Windows, Mac e Linux.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Si dispone già di un Gateway VPN di Azure distribuito. È possibile attivare RADIUS e/o VPN IKEv2 su di esso?
 

@@ -9,36 +9,8 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Compilare un modello di app
-      items:
-        - name: Usare un dominio predefinito
-          href: luis-get-started-create-app.md
-        - name: Usare un dominio personalizzato
-          href: luis-quickstart-intents-only.md
-- name: Esercitazioni
-  items:
-    - name: Aggiungere finalità ed entità predefinite
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: Ottenere dati dall'entità
-      items:
-        - name: Entità semplice
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: Entità gerarchica
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: Entità espressione regolare
-          href: luis-quickstart-intents-regex-entity.md
-        - name: Entità elenco
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: Entità KeyPhrase
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: Analisi del sentiment
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Migliorare la previsione
-      items:
-        - name: Con modelli
-          href: luis-tutorial-pattern.md
-        - name: Con un elenco di frasi
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: Compilare app di dominio predefinite
+      href: luis-get-started-create-app.md
     - name: Usare le API
       items:
         - name: Ottenere la previsione dell'espressione con la query endpoint
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: Esercitazioni
+  items:
+    - name: Compilare app
+      items:
+        - name: 1. Con dominio personalizzato
+          href: luis-quickstart-intents-only.md
+        - name: 2. Aggiungere finalità ed entità predefinite
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. Aggiungere un'entità di espressione regolare
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. Aggiungere un'entità elenco
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. Aggiungere un'entità gerarchica
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. Aggiungere un'entità semplice e un elenco di frasi
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. Aggiungere entità KeyPhrase
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. Aggiungere l'analisi del sentiment
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Migliorare la previsione
+      items:
+        - name: Con modelli
+          href: luis-tutorial-pattern.md
+        - name: Con un elenco di frasi
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: Esempi
   items:
     - name: Esempi di codice

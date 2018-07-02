@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fa090a5277b1feb3e1b6ea0114ce90035197076
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637124"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753269"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](log-analytics-tutorial-dashboards.md).   
@@ -41,7 +41,7 @@ Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e
 
 Nell'esempio seguente viene creata una regola di avviso Unità di misura della metrica basata sulla query *Macchine virtuali di Azure - Utilizzo del processore* salvata nell'[esercitazione Visualizzare i dati](log-analytics-tutorial-dashboards.md).  Viene creato un avviso per ogni macchina virtuale che supera la soglia del 90%.  
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Monitoraggio**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Monitoraggio**.
 2. Nel riquadro sinistro selezionare **Avvisi** e quindi fare clic su **Nuova regola di avviso** all'inizio della pagina per creare un nuovo avviso.<br><br> ![Creazione di una nuova regola di avviso](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. Per il primo passaggio, nella sezione **Crea avviso** occorre selezionare l'area di lavoro di Log Analytics come risorsa, poiché di tratta di un segnale di avviso basato su log.  Filtrare i risultati scegliendo nell'elenco a discesa la **sottoscrizione** specifica (se ne esiste più di una) che contiene la macchina virtuale e l'area di lavoro di Log Analytics create in precedenza.  Filtrare **Tipo di risorsa** selezionando **Log Analytics** nell'elenco a discesa.  Infine, selezionare la **risorsa** **DefaultLAWorkspace** e fare clic su **Fine**.<br><br> ![Passaggio 1 della creazione di un avviso](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. Nella sezione **Criteri di avviso** fare clic su **Aggiungi criteri** per selezionare la query salvata e quindi specificare la logica seguita dalla regola di avviso.  Nel riquadro **Configura logica dei segnali** selezionare *Macchine virtuali di Azure - Utilizzo del processore* dall'elenco.  Il riquadro viene aggiornato in modo da presentare le impostazioni di configurazione dell'avviso.  Nella parte alta vengono visualizzati i risultati degli ultimi 30 minuti del segnale selezionato e la query di ricerca stessa.  

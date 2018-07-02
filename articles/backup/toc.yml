@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Installare o aggiornare
           items:
-            - name: Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure
+            - name: Installare il server di Backup di Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Aggiungere risorse di archiviazione al server di Backup di Azure
+            - name: Aggiungere le risorse di archiviazione
               href: backup-mabs-add-storage.md
-            - name: Aggiornare il server di Backup di Azure alla versione 2
+            - name: Aggiornamento a v.2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Installazione automatica del server di Backup di Azure
+            - name: Installazione automatica
               href: backup-mabs-unattended-install.md
         - name: Proteggere i carichi di lavoro
           items:
@@ -205,6 +205,8 @@
           href: backup-azure-mars-troubleshoot.md
         - name: Condivisione file di Azure
           href: troubleshoot-azure-files.md
+        - name: SQL Server
+          href: backup-sql-server-azure-troubleshoot.md
 - name: Riferimenti
   items:
     - name: .NET

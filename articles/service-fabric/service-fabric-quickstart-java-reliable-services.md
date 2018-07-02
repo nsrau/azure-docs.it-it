@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642394"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959546"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>Guida introduttiva: Distribuire un'applicazione Reliable Services di Service Fabric per Java in Azure
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori. 
@@ -120,13 +120,13 @@ Usare il metodo preferito per importare il certificato nel sistema. Ad esempio:
 
 L'identificazione personale del certificato deve essere aggiunta all'applicazione perché usa i modelli di programmazione di Service Fabric. 
 
-1. L'identificazione personale del certificato sarà necessaria nel file ```Voting/VotingApplication/ApplicationManiest.xml``` durante l'esecuzione in un cluster sicuro. Eseguire il comando seguente per estrarre l'identificazione personale del certificato.
+1. L'identificazione personale del certificato sarà necessaria nel file `Voting/VotingApplication/ApplicationManifest.xml` durante l'esecuzione in un cluster sicuro. Eseguire il comando seguente per estrarre l'identificazione personale del certificato.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. In ```Voting/VotingApplication/ApplicationManiest.xml``` aggiungere il frammento di codice seguente sotto il tag **ApplicationManifest**. Il valore **X509FindValue** deve essere l'identificazione personale dal passaggio precedente, senza punto e virgola. 
+2. Nel file `Voting/VotingApplication/ApplicationManifest.xml` aggiungere il frammento di codice seguente sotto il tag **ApplicationManifest**. Il valore **X509FindValue** deve essere l'identificazione personale dal passaggio precedente, senza punto e virgola. 
 
     ```xml
     <Certificates>
