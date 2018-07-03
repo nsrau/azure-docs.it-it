@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 61dea25b9a52a9acaee029162929e4faeb3a0978
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: cd2964d0a579b903ddebfd19c90d2ce38d2374bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291858"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050421"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le seguenti funzionalità di integrazione di dati in diversi ambienti di rete:
@@ -26,10 +26,6 @@ Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Fa
 - **Spostamento dei dati**: spostare dati tra gli archivi dati nella rete pubblica e gli archivi dati nella rete privata (locale o VPN). Fornisce il supporto per i connettori predefiniti, la conversione dei formati, il mapping di colonne e il trasferimento di dati scalabile e ad alte prestazioni.
 - **Invio di attività**: inviare e monitorare le attività di trasformazione in esecuzione in diversi servizi di calcolo, come Azure HDInsight, Azure Machine Learning, il database SQL di Azure, SQL Server e altro ancora.
 - **Esecuzione di pacchetti SSIS**: eseguire in modo nativo i pacchetti SQL Server Integration Services (SSIS) in un ambiente di calcolo Azure gestito.
-
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 In Data Factory, un'attività definisce l'azione da eseguire. Un servizio collegato definisce un archivio dati o un servizio di calcolo di destinazione. Un runtime di integrazione funge da ponte tra l'attività e i servizi collegati.  Viene referenziato dal servizio collegato e fornisce l'ambiente di calcolo in cui l'attività viene eseguita o da cui viene inviata.  In questo modo, l'attività può essere eseguita nell'area più vicina possibile all'archivio dati o al servizio di calcolo di destinazione nel modo più efficiente soddisfacendo al contempo le esigenze di sicurezza e conformità.
 
@@ -64,7 +60,7 @@ Il runtime di integrazione di Azure supporta la connessione agli archivi dati e 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Risorsa di calcolo e ridimensionamento del runtime di integrazione di Azure
 Il runtime di integrazione di Azure fornisce un calcolo senza server completamente gestito in Azure.  Non è necessario preoccuparsi di eseguire il provisioning dell'infrastruttura, l'installazione del software, l'applicazione di patch o il ridimensionamento della capacità.  Inoltre si paga solo per la durata dell'utilizzo effettivo.
 
-Il runtime di integrazione di Azure fornisce il calcolo nativo per spostare i dati tra gli archivi dati cloud in modo sicuro, affidabile e ad alte prestazioni.  È possibile impostare il numero di unità di spostamento dati da usare per l'attività di copia; le dimensioni di calcolo del runtime di integrazione di Azure vengono aumentate di conseguenza in modo elastico senza che sia necessario modificare in modo esplicito le dimensioni del runtime di integrazione di Azure.
+Il runtime di integrazione di Azure fornisce il calcolo nativo per spostare i dati tra gli archivi dati cloud in modo sicuro, affidabile e ad alte prestazioni.  È possibile impostare il numero di unità di integrazione dati da usare per l'attività di copia; le dimensioni di calcolo del runtime di integrazione di Azure vengono aumentate di conseguenza in modo elastico senza che sia necessario modificare in modo esplicito le dimensioni del runtime di integrazione di Azure.
 
 L'invio di attività è un'operazione semplice per indirizzare l'attività al servizio di calcolo di destinazione e quindi non è necessario aumentare le dimensioni di calcolo per questo scenario.
 

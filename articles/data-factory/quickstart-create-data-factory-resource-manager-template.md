@@ -13,23 +13,21 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 2769be7097ebc65bc7c022ebd2e3f2de6e57e9b8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839552"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054276"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Esercitazione: Creare una data factory di Azure usando un modello di Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-build-your-first-pipeline-using-arm.md)
-> * [Versione 2 - Anteprima](quickstart-create-data-factory-resource-manager-template.md) 
+> * [Versione 1](v1/data-factory-build-your-first-pipeline-using-arm.md)
+> * [Versione corrente](quickstart-create-data-factory-resource-manager-template.md) 
 
 Questa guida introduttiva descrive come usare un modello di Azure Resource Manager per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Creare la prima data factory con Data Factory versione 1](v1/data-factory-build-your-first-pipeline-using-arm.md).
->
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 

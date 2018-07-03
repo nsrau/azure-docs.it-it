@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 03/27/2018
+ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 2547407126943161ba604fa2f5e80b9186cae57e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266499"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335561"
 ---
 # <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Esercitazione: Creare un'app che usa un'entità gerarchica
 In questa esercitazione si crea un'app che dimostra come trovare dati correlati in base al contesto. 
@@ -22,140 +22,111 @@ In questa esercitazione si crea un'app che dimostra come trovare dati correlati 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Comprendere le entità gerarchiche e gli elementi figlio contestualmente acquisiti 
-> * Creare una nuova app di Language Understanding per il settore dei viaggi con finalità Bookflight
-> * Aggiungere la finalità _None_ (Nessuna) ed espressioni di esempio
+> * Usare un'app LUIS nel dominio delle risorse umane (HR) 
 > * Aggiungere un'entità gerarchica di località con elementi figlio di origine e destinazione
 > * Eseguire il training e pubblicare l'app
 > * Eseguire una query dell'endpoint dell'app per visualizzare una risposta JSON di Language Understanding, inclusi gli elementi figlio gerarchici 
 
-Per questo articolo è necessario un account gratuito di [Language Understanding][LUIS] per creare la propria applicazione.
+Per questo articolo è necessario un account gratuito di [LUIS][LUIS] per creare la propria applicazione.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità elenco](luis-quickstart-intent-and-list-entity.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+
+Se si vuole mantenere l'app Risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
 
 ## <a name="purpose-of-the-app-with-this-entity"></a>Scopo dell'app con questa entità
-Questa app determina se un utente intende prenotare un volo. Usa l'entità gerarchica per determinare le località, la città di origine e la città di destinazione, all'interno del testo dell'utente. 
+L'app determina dove spostare un dipendente, dalla posizione di origine (edificio e ufficio) alla posizione di destinazione (edificio e ufficio). Viene usata l'entità gerarchica per determinare le posizioni nell'espressione. 
 
 L'entità gerarchica è una buona soluzione per questo tipo di dati, perché i due dati:
 
-* Sono in entrambi i casi località, generalmente espresse come città o codici aeroportuali.
-* Hanno generalmente una scelta di termini specifici usati in tutto il mondo per determinare qual è l'origine e qual è la destinazione. Questi termini includono: a, diretto a, da, in partenza da.
-* Le due località si trovano spesso nella stessa espressione. 
+* Sono correlati tra loro nel contesto dell'espressione.
+* Usano parole specifiche per indicare ogni posizione. Le parole usate sono, ad esempio, from/to, leaving/headed to, away from/toward.
+* Entrambe le posizioni si trovano spesso nella stessa espressione. 
 
 Lo scopo dell'entità **gerarchica** è trovare i dati correlati all'interno dell'espressione in base al contesto. Si consideri l'espressione seguente:
 
 ```JSON
-1 ticket from Seattle to Cairo`
+mv Jill Jones from a-2349 to b-1298
 ```
-
-L'espressione specifica due località. Una è la città di origine, Seattle, l'altro è la città di destinazione, Il Cairo. Queste città sono entrambe importanti per la prenotazione di un volo. Anche se possono essere trovate usando entità semplici, sono in relazione tra loro e si trovano spesso nella stessa espressione. È pertanto opportuno che entrambe siano raggruppate come elementi figlio di un'entità gerarchica, ovvero **"Location"** (Posizione). 
-
-In quanto entità di Machine Learning, l'app necessita di espressioni di esempio con le città di origine e di destinazione etichettate. Con questa operazione, Language Understanding apprende dove si trovano le entità nelle espressioni, la loro lunghezza e le parole che le circondano. 
-
-## <a name="app-intents"></a>Finalità dell'app
-Le finalità sono categorie di intenzioni dell'utente. Questa app ha due finalità: BookFlight e None (Nessuna). La finalità [None](luis-concept-intent.md#none-intent-is-fallback-for-app) (Nessuna) è utile per indicare qualsiasi elemento che non rientra nell'ambito dell'app.  
-
-## <a name="hierarchical-entity-is-contextually-learned"></a>L'apprendimento dell'entità gerarchica è su base contestuale 
-Lo scopo dell'entità è trovare e classificare le parti del testo nell'espressione. Un'entità [gerarchica](luis-concept-entity-types.md) è un'entità padre-figlio basata sul contesto d'uso. È possibile determinare le città di origine e di destinazione in un'espressione in base all'uso di `to` e `from`. Questi sono esempi di uso contestuale.  
-
-Per questa applicazione di viaggio, Language Understanding estrae le località di origine e di destinazione per poter creare e compilare una prenotazione standard. Language Understanding consente varianti, abbreviazioni e gergo nelle espressioni. 
-
-Semplici espressioni di esempio degli utenti includono:
-
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Researve a seat from New York to Paris on the first of April
-```
-
-Le versioni abbreviate o gergali delle espressioni includono:
-
-```
-LHR tomorrow
-SEA to NYC next Monday
-LA to MCO spring break
-```
+Nell'espressione sono specificate due posizioni, `a-2349` e `b-1298`. Si supponga che la lettera corrisponda a un nome di edificio e il numero indichi l'ufficio all'interno di tale edificio. È logico che entrambi i valori siano raggruppati come figli di un'entità gerarchica, `Locations`, perché è necessario estrarre entrambi i dati dall'espressione e si tratta di valori correlati. 
  
-L'entità gerarchica associa le località di origine e destinazione. Se è presente un solo elemento figlio (di origine o di destinazione) di un'entità gerarchica, verrà comunque estratto. Non è necessario individuare tutti gli elementi figlio per estrarne solo uno o alcuni. 
+Se è presente un solo elemento figlio (di origine o di destinazione) di un'entità gerarchica, verrà comunque estratto. Non è necessario individuare tutti gli elementi figlio per estrarne solo uno o alcuni. 
 
-## <a name="what-luis-does"></a>Operazioni di Language Understanding
-Le operazioni di Language Understanding terminano quando la finalità e le entità dell'espressione sono state identificate, [estratte](luis-concept-data-extraction.md#list-entity-data) e restituite in formato JSON dall'[endpoint](https://aka.ms/luis-endpoint-apis). L'applicazione chiamante o il chatbot acquisisce la risposta JSON e soddisfa la richiesta nel modo previsto per l'app o il chatbot. 
+## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
+Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
 
-## <a name="create-a-new-app"></a>Creare una nuova app
-1. Accedere al sito Web di [Language Understanding][LUIS]. Accertarsi di accedere all'[area ][LUIS-regions] in cui è necessario pubblicare gli endpoint di Language Understanding.
+1. Assicurarsi che l'app Risorse umane sia presente nella sezione **Build** di Language Understanding. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
-2. Sul sito Web di [Language Understanding][LUIS] selezionare **Create new app** (Crea nuova app).  
+    [ ![Schermata dell'app di Language Understanding con Build evidenziato nella barra dei menu in alto a destra](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/app-list.png "Screenshot della pagina App lists (Elenchi di app)")](media/luis-quickstart-intent-and-hier-entity/app-list.png#lightbox)
+2. Selezionare **Entità** nel menu a sinistra.
 
-3. Nella finestra di dialogo popup, immettere il nome `MyTravelApp`. 
+    [ ![Screenshot dell'app LUIS con il pulsante relativo alle entità evidenziato nel menu a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-app.png "Schermata della finestra di dialogo popup Create new app (Crea nuova app)")](media/luis-quickstart-intent-and-hier-entity/create-new-app.png#lightbox)
 
-4. Al termine del processo, l'app visualizza la pagina **Intents** (Finalità) con la finalità **None** (Nessuna). 
+3. Selezionare i tre puntini di sospensione (...) a destra dell'entità numero nell'elenco. Selezionare **Elimina**. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png "Schermata dell'elenco di finalità con la sola finalità None (Nessuna)")](media/luis-quickstart-intent-and-hier-entity/intents-page-none-only.png#lightbox)
+    [ ![Screenshot dell'app LUIS nella pagina di elenco delle entità, con il pulsante per l'eliminazione evidenziato per l'entità numero predefinita](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
-## <a name="create-a-new-intent"></a>Creare una nuova finalità
 
-1. Nella pagina **Intents** (Finalità) selezionare **Create new intent** (Crea nuova finalità). 
+## <a name="add-utterances-to-findform-intent"></a>Aggiungere espressioni alla finalità FindForm
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png "Schermata dell'elenco delle finalità con il pulsante Create new intent (Crea nuova finalità) evidenziato")](media/luis-quickstart-intent-and-hier-entity/create-new-intent-button.png#lightbox)
+1. Selezionare **Intents** (Finalità) dal menu a sinistra.
 
-2. Immettere il nome della nuova finalità `BookFlight`. È necessario selezionare questa finalità ogni volta che un utente vuole prenotare un volo.
+    [ ![Screenshot dell'app LUIS con la voce relativa alle finalità evidenziata nel menu a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
-    Creando una finalità, si crea la categoria principale di informazioni da identificare. Assegnando un nome alla categoria, qualsiasi altra applicazione che usi i risultati delle query di Language Understanding può usare il nome della categoria per trovare una risposta o intraprendere azioni appropriate. Language Understanding non risponde a queste domande, si limita a identificare il tipo di informazione richiesta in linguaggio naturale. 
+2. Selezionare **MoveEmployee** nell'elenco di finalità.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png "Schermata della finestra di dialogo popup Create new intent (Crea nuova finalità)")](media/luis-quickstart-intent-and-hier-entity/create-new-intent.png#lightbox)
+    [ ![Screenshot dell'app LUIS con la finalità MoveEmployee evidenziata nel menu a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png)](./media/luis-quickstart-intent-and-hier-entity/hr-intents-list-moveemployee.png#lightbox)
 
-3. Aggiungere alla finalità `BookFlight` diverse espressioni che verranno presumibilmente usate dagli utenti, ad esempio:
+3. Aggiungere le espressioni di esempio seguenti:
 
-    | Espressioni di esempio|
+    |Espressioni di esempio|
     |--|
-    |Prenotare 2 voli da Seattle a Il Cairo per lunedì prossimo|
-    |Prenotare un biglietto per Londra per domani|
-    |Prenotare 4 posti da Parigi a Londra per il 1° aprile|
+    |Move John W. Smith **to** a-2345|
+    |Direct Jill Jones **to** b-3499|
+    |Organize the move of x23456 **from** hh-2345 **to** e-0234|
+    |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567|
+    |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345|
 
-    [![](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png "Schermata di immissione delle espressioni nella pagina della finalità BookFlight")](media/luis-quickstart-intent-and-hier-entity/enter-utterances-on-intent.png#lightbox)
+    Nell'esercitazione sull'[entità elenco](luis-quickstart-intent-and-list-entity.md) un dipendente può essere designato per nome, indirizzo di posta elettronica, numero di interno, numero di telefono cellulare o codice fiscale federale degli Stati Uniti. Questi numeri dei dipendenti sono usati nelle espressioni. Le espressioni di esempio precedenti includono modi diversi per indicare le posizioni di origine e di destinazione, con formattazione in grassetto. Un paio di espressioni includono intenzionalmente solo le destinazioni. In questo modo, LUIS può comprendere come vengono inserite tali posizioni nell'espressione quando l'origine non è specificata.
 
-## <a name="add-utterances-to-none-intent"></a>Aggiungere espressioni alla finalità None (Nessuna)
+    [ ![Screenshot di LUIS con nuove espressioni nella finalità MoveEmployee](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
+     
 
-L'app di Language Understanding non ha attualmente espressioni per la finalità **None** (Nessuna). Sono necessarie espressioni alle quali l'app non dovrà rispondere, quindi occorre inserire espressioni nella finalità **None** (Nessuna). Non lasciarla vuota. 
+## <a name="create-a-location-entity"></a>Creare un'entità posizione
+LUIS deve comprendere le posizioni tramite etichette per l'origine e la destinazione nelle espressioni. Se è necessario visualizzare l'espressione nella vista token (non elaborata), selezionare l'interruttore **Entities View** (Vista entità) sulla barra sopra le espressioni. Dopo aver spostato l'interruttore, l'etichetta del controllo diventerà **Tokens View** (Vista token).
 
-1. Selezionare **Intents** (Finalità) dal pannello di sinistra. 
+1. Nell'espressione `Displace 425-555-0000 away from g-2323 toward hh-2345` selezionare la parola `g-2323`. Verrà visualizzato un menu a discesa con una casella di testo nella parte superiore. Immettere il nome dell'entità `Locations` nella casella di testo, quindi selezionare **Create new entity** (Crea nuova entità) nel menu a discesa. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png "Schermata della pagina della finalità BookFlight con il pulsante Intents (Finalità) evidenziato")](media/luis-quickstart-intent-and-hier-entity/select-intents-from-bookflight-intent.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "Screenshot della creazione di una nuova entità nella pagina delle finalità")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
-2. Selezionare la finalità **None** (Nessuna). Aggiungere tre espressioni che l'utente potrebbe usare, ma che non sono pertinenti per l'app:
+2. Nella finestra popup, selezionare il tipo di entità **Hierarchical** (Gerarchica) con `Origin` e `Destination` come entità figlio. Selezionare **Operazione completata**.
 
-    | Espressioni di esempio|
-    |--|
-    |Annullare.|
-    |Arrivederci|
-    |Che succede?|
+    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "Screenshot della finestra popup di creazione dell'entità per la nuova entità posizione")
 
-## <a name="when-the-utterance-is-predicted-for-the-none-intent"></a>Quando l'espressione viene considerata associata alla finalità None (Nessuna)
-Nell'applicazione chiamante di Language Understanding (ad esempio un chatbot), quando Language Understanding restituisce la finalità **None** (Nessuna) per un'espressione, il bot può chiedere se l'utente intende terminare la conversazione. Il bot può anche dare altre indicazioni per proseguire la conversazione, se l'utente non intende terminarla. 
+3. L'etichetta per `g-2323` è contrassegnata come `Locations` perché Language Understanding non sa se il termine era l'origine, la destinazione o nessuna delle due. Selezionare `g-2323` e quindi **Locations**, seguire il menu a destra e selezionare `Origin`.
 
-Nella finalità **None** (Nessuna) vengono usate le entità. Se la finalità con il punteggio più alto è **None** (Nessuna), ma viene estratta un'entità significativa per il chatbot, il chatbot può proseguire con una domanda incentrata sulla finalità del cliente. 
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "Screenshot della finestra popup di selezione delle etichette per le entità per la modifica degli elementi figlio dell'entità Locations")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
-## <a name="create-a-location-entity-from-the-intent-page"></a>Creare un'entità di località dalla pagina Intent (Finalità)
-Ora che le due finalità hanno espressioni, Language Understanding deve comprendere cos'è una località. Tornare alla finalità `BookFlight` ed etichettare (contrassegnare) il nome della città nell'espressione seguendo questa procedura:
+5. Impostare le etichette per le altre posizioni in tutte le altre espressioni selezionando l'edificio e l'ufficio nell'espressione, quindi selezionando Locations e seguendo il menu a destra per selezionare `Origin` o `Destination`. Una volta etichettate tutte le posizioni, l'aspetto delle espressioni in **Tokens View** (Vista token) diventa simile a un modello. 
 
-1. Tornare alla finalità `BookFlight` selezionando **Intents** (Finalità) nel pannello di sinistra.
+    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "Screenshot dell'entità Locations etichettata nelle espressioni")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
-2. Selezionare `BookFlight` dall'elenco delle finalità.
+## <a name="add-prebuilt-number-entity-to-app"></a>Aggiungere un'entità numero predefinita all'app
+Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
 
-3. Nell'espressione `Book 2 flights from Seattle to Cairo next Monday` selezionare la parola `Seattle`. Verrà visualizzato un menu a discesa con una casella di testo in alto per creare una nuova entità. Immettere il nome dell'entità `Location` nella casella di testo, quindi selezionare **Create new entity** (Crea nuova entità) nel menu a discesa. 
+1. Scegliere **Entities** (Entità) dal menu di spostamento a sinistra.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png "Schermata della finalità BookFlight, creazione di una nuova entità dal testo selezionato")](media/luis-quickstart-intent-and-hier-entity/label-seattle-in-utterance.png#lightbox)
+    [ ![Screenshot del pulsante relativo alle entità evidenziato nel riquadro di spostamento a sinistra](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
 
-4. Nella finestra popup, selezionare il tipo di entità **Hierarchical** (Gerarchica) con `Origin` e `Destination` come entità figlio. Selezionare **Operazione completata**.
+2. Fare clic sul pulsante **Manage prebuilt entities** (Gestisci entità predefinite).
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png "Schermata della finestra di dialogo popup di creazione di entità per la nuova entità di località")](media/luis-quickstart-intent-and-hier-entity/hier-entity-ddl.png#lightbox)
+    [ ![Screenshot dell'elenco di entità con il pulsante per la gestione delle entità predefinite evidenziato](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
-    L'etichetta per `Seattle` è contrassegnata come `Location` perché Language Understanding non sa se il termine era l'origine, la destinazione o nessuna delle due. Selezionare `Seattle`, quindi selezionare Location (Località) e infine selezionare `Origin` dal menu a destra.
+3. Selezionare **number** nell'elenco di entità predefinite e quindi **Done** (Fine).
 
-5. Ora che l'entità è stata creata ed è stata etichettata un'espressione, etichettare le altre città selezionando il nome della città, quindi Location (Località) e infine selezionando `Origin` o `Destination` nel menu a destra.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png "Schermata dell'entità di Bookflight con il testo dell'espressione selezionato per la selezione delle entità")](media/luis-quickstart-intent-and-hier-entity/label-destination-in-utterance.png#lightbox).
+    ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 Language Understanding non rileva le modifiche a finalità ed entità (il modello) finché non viene eseguito il training. 
@@ -173,8 +144,6 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
 1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Publish** (Pubblica). 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish.png "Schermata della finalità BookFlight con il pulsante Publish (Pubblica) evidenziato")](media/luis-quickstart-intent-and-hier-entity/publish.png#lightbox)
-
 2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
@@ -186,41 +155,114 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Schermata della pagina Publish (Pubblica) con l'URL endpoint evidenziato")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `1 ticket to Portland on Friday`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `BookFlight` con l'entità gerarchica estratta.
+2. Passare alla fine dell'URL nella barra degli indirizzi e immettere `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `MoveEmployee` con l'entità gerarchica estratta.
 
-```
+```JSON
 {
-  "query": "1 ticket to Portland on Friday",
+  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.9998226
+    "intent": "MoveEmployee",
+    "score": 0.9966052
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.9998226
+      "intent": "MoveEmployee",
+      "score": 0.9966052
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0325253047
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.006137873
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.00462633232
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.00415637763
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00382325822
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00249120337
     },
     {
       "intent": "None",
-      "score": 0.221926212
+      "score": 0.00130756292
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00119622645
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 1.26910036E-05
     }
   ],
   "entities": [
     {
-      "entity": "portland",
-      "type": "Location::Destination",
-      "startIndex": 12,
-      "endIndex": 19,
-      "score": 0.564448953
+      "entity": "jill - jones @ mycompany . com",
+      "type": "Employee",
+      "startIndex": 18,
+      "endIndex": 41,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "x - 2345",
+      "type": "Locations::Origin",
+      "startIndex": 48,
+      "endIndex": 53,
+      "score": 0.8520272
+    },
+    {
+      "entity": "g - 23456",
+      "type": "Locations::Destination",
+      "startIndex": 58,
+      "endIndex": 64,
+      "score": 0.974032
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 49,
+      "endIndex": 53,
+      "resolution": {
+        "value": "-2345"
+      }
+    },
+    {
+      "entity": "-23456",
+      "type": "builtin.number",
+      "startIndex": 59,
+      "endIndex": 64,
+      "resolution": {
+        "value": "-23456"
+      }
     }
   ]
 }
 ```
 
-## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
-Con solo due finalità e un'entità gerarchica, questa app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati estratti. 
+## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Sarebbe stato possibile usare un'espressione regolare per ogni posizione?
+Sì, creare l'espressione regolare con i ruoli di origine e di destinazione e usarla in un modello.
 
-Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, `BookFlight`, e le informazioni di località trovate nell'espressione. 
+Le posizioni in questo esempio, ad esempio `a-1234`, seguono un formato specifico di una o due lettere seguite da un trattino e quindi da una serie di 4 o 5 numeri. Questi dati possono essere descritti come un'entità espressione regolare con un ruolo per ogni posizione. I ruoli sono disponibili per i modelli. È possibile creare modelli basati su queste espressioni, quindi creare un'espressione regolare per il formato della posizione e aggiungerla ai modelli. <!-- Go to this tutorial to see how that is done -->
+
+## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
+Con solo poche finalità e un'entità gerarchica, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati estratti. 
+
+Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, `MoveEmployee`, e le informazioni di località trovate nell'espressione. 
 
 ## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dall'entità per completare il passaggio successivo. Language Understanding non esegue questa attività a livello di codice per il chatbot o l'applicazione chiamante, ma determina solo la finalità dell'utente. 
@@ -231,11 +273,6 @@ Quando non è più necessaria, eliminare l'app di Language Understanding. A tale
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
 > [Informazioni su come aggiungere un'entità elenco](luis-quickstart-intent-and-list-entity.md) 
-
-Aggiungere l'**entità predefinita** [numero](luis-how-to-add-entities.md#add-prebuilt-entity) per estrarre il numero. 
-
-Aggiungere l'[entità predefinita](luis-how-to-add-entities.md#add-prebuilt-entity) **datetimeV2** per estrarre le informazioni di data.
-
 
 <!--References-->
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

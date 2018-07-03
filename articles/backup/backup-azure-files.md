@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9697bd5a55a5cfcdcd6958f8baff85e55c880c87
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d21a235602c425cef77b26d8c60f1e3562411095
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287661"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961673"
 ---
 # <a name="back-up-azure-file-shares"></a>Eseguire il backup di condivisioni file di Azure
 Questo articolo illustra come usare il portale di Azure per eseguire il backup e il ripristino delle [condivisioni file di Azure](../storage/files/storage-files-introduction.md).
@@ -40,9 +40,9 @@ Il backup per le condivisioni file di Azure è disponibile in anteprima. Gli sce
 - Usare i [blocchi delle risorse](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) nell'account di archiviazione per impedire l'eliminazione accidentale dei backup nell'insieme di credenziali di Servizi di ripristino.
 - Non eliminare gli snapshot creati da Backup di Azure. L'eliminazione degli snapshot può comportare la perdita di punti di ripristino e/o errori di ripristino.
 
-Le \*condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy-grs.md) funzionano come GRS e vengono fatturate con i prezzi GRS
+Le \*condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../storage/common/storage-redundancy-grs.md) funzionano come GRS e vengono fatturate con i prezzi GRS.
 
-Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS) e Stati Uniti orientali 2 (EUS2)
+Il backup per le condivisioni file di Azure negli account di archiviazione con replica di [archiviazione con ridondanza della zona](../storage/common/storage-redundancy-zrs.md) (ZRS) è attualmente disponibile solo nelle aree Stati Uniti centrali (CUS), Stati Uniti orientali 2 (EUS2), Europa settentrionale (NE), Asia sudorientale (SEA) ed Europa occidentale (WE).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurazione del backup per una condivisione file di Azure
 Tutti i dati di backup vengono archiviati negli insiemi di credenziali di Servizi di ripristino. In questa esercitazione si presuppone che sia già disponibile una condivisione file di Azure. Per eseguire il backup della condivisione file di Azure:

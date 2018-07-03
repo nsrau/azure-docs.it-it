@@ -13,23 +13,21 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b934cff674ee6967c9ae97baa5c3b93226600e87
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265493"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046341"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Creare una data factory e una pipeline con .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versione 2 - Anteprima](quickstart-create-data-factory-dot-net.md)
+> * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versione corrente](quickstart-create-data-factory-dot-net.md)
 
 Questa guida introduttiva descrive come usare .NET SDK per creare una data factory di Azure. La pipeline creata in questa data factory **copia** dati da una cartella a un'altra in un archivio BLOB di Azure. Per un'esercitazione su come **trasformare** i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](transform-data-using-spark.md). 
 
 > [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere l'[introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
->
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per un'introduzione al servizio Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -461,7 +459,7 @@ Checking copy activity run details...
     "throughput": 14073.209,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
-    "usedCloudDataMovementUnits": 2,
+    "usedDataIntegrationUnits": 2,
     "billedDuration": 23
 }
 

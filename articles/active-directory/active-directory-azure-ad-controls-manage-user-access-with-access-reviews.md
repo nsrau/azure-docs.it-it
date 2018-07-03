@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 86ca14c8865ee82d61cb63a20f66c508f532f124
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35232966"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020003"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestire l'accesso utente con le verifiche di accesso di Azure AD
 
@@ -43,7 +43,7 @@ A una verifica di accesso possono partecipare uno o più revisori.
 
 2. Decidere se ogni utente dovrà verificare il proprio accesso o se uno o più utenti dovranno verificare l'accesso di tutti.
 
-3. Abilitare la visualizzazione delle verifiche di accesso nei pannelli di accesso dei revisori. Come amministratore globale, passare alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Abilitare la visualizzazione delle verifiche di accesso nei pannelli di accesso dei revisori. Come amministratore globale o amministratore account utente accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 4. Avviare la verifica di accesso. Per altre informazioni, vedere l'articolo su come [creare una verifica di accesso](active-directory-azure-ad-controls-create-access-review.md).
 

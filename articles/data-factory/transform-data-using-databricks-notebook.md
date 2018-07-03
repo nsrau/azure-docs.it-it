@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 78954e2dd00e425d2dfdd81d2c3e386f199f4f8f
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 438aeda39c6ba9246f75f96214bb0ffa1d4d31e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311047"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047809"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -68,7 +68,7 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
 
     Alcuni dei passaggi di questa guida introduttiva presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-1.  Per **Versione** selezionare **V2 (anteprima)**.
+1.  Per **Versione** selezionare **V2**.
 
 2.  Per **Località** selezionare la località per la data factory.
 

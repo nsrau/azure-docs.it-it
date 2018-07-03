@@ -1,44 +1,44 @@
 ---
-title: Utilizzare l'API dello Stack di Azure | Documenti Microsoft
-description: Informazioni su come recuperare un tipo di autenticazione da Azure per effettuare richieste API allo Stack di Azure.
+title: Usare l'API di Azure Stack | Microsoft Docs
+description: Informazioni su come recuperare un tipo di autenticazione da Azure per effettuare richieste di API in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: cblackuk
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 07/02/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e8a9489a3f487a45303bac45f805381b41427b4b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359112"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346791"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Utilizzare l'API dello Stack di Azure
+# <a name="use-the-azure-stack-api"></a>Usare l'API di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-È possibile utilizzare il Azure Stack interfaccia API (Application Programming) per automatizzare le operazioni, ad esempio la diffusione di elementi del marketplace.
+È possibile usare l'interfaccia API (Application Programming) per automatizzare le operazioni quali l'aggiunta di una macchina virtuale al cloud di Azure Stack.
 
-L'API richiede che il client autenticare l'endpoint dell'account di accesso di Microsoft Azure. L'endpoint restituisce un token da usare nell'intestazione di ogni richiesta inviata all'API di Stack di Azure. Microsoft Azure Usa Oauth 2.0.
+L'API richiede che il client per l'autenticazione all'endpoint di accesso di Microsoft Azure. L'endpoint restituisce un token da usare nell'intestazione di ogni richiesta inviata all'API di Azure Stack. Microsoft Azure Usa Oauth 2.0.
 
-In questo articolo vengono forniti esempi che usano il **cURL** utilità per creare le richieste dello Stack di Azure. L'applicazione, cURL, è uno strumento da riga di comando con una libreria per il trasferimento dei dati. In questi esempi vengono illustrano il processo di recupero di un token per accedere all'API di Stack di Azure. La maggior parte dei linguaggi di programmazione forniscono librerie Oauth 2.0, che dispongono di attività di gestione e gestire token affidabile tali il token di aggiornamento.
+Questo articolo fornisce esempi che usano il **cURL** utilità per creare richieste di Azure Stack. L'applicazione, cURL è uno strumento da riga di comando con una libreria per il trasferimento dei dati. In questi esempi viene illustrato il processo di recupero di un token per accedere all'API di Azure Stack. La maggior parte dei linguaggi di programmazione offrono librerie di Oauth 2.0, che hanno attività di gestione e handle di token affidabile di tale aggiornamento del token.
 
-Esaminare l'intero processo di tramite l'API REST di Azure Stack con un client REST generico, ad esempio **cURL**, per aiutare a comprendere sottostante richieste e viene illustrato cosa può aspettarsi di ricevere in un payload di risposta.
+Esaminare l'intero processo di usando l'API REST di Azure Stack con un client REST generico, ad esempio **cURL**, che consentono di comprendere sottostante le richieste e viene illustrato cosa aspettarsi di ricevere in un payload di risposta.
 
-In questo articolo non Esplora tutte le opzioni disponibili per il recupero dei token, ad esempio account di accesso interattivo o la creazione di ID App dedicato. Per ottenere informazioni su questi argomenti, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).
+Questo articolo non Esplora tutte le opzioni disponibili per recuperare i token, ad esempio accesso interattivo o creare dedicato gli ID delle App. Per ottenere informazioni su questi argomenti, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Ottenere un token da Azure
 
-Creare un corpo della richiesta formattata utilizzando il tipo di contenuto x-www-form-urlencoded per ottenere un token di accesso. Registra la richiesta all'endpoint di autenticazione REST di Azure e all'accesso.
+Creare un corpo della richiesta formattata utilizzando il tipo di contenuto x-www-form-urlencoded per ottenere un token di accesso. Registra la richiesta all'endpoint di autenticazione REST di Azure e account di accesso.
 
 ### <a name="uri"></a>URI
 
@@ -52,7 +52,7 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
  - ID del tenant, ad esempio `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
  - Valore predefinito per le chiavi indipendenti dal tenant: `common`
 
-### <a name="post-body"></a>Corpo post
+### <a name="post-body"></a>Corpo della richiesta POST
 
 ```bash  
 grant_type=password
@@ -66,10 +66,10 @@ grant_type=password
 Per ogni valore:
 
  - **grant_type**  
-    Il tipo di schema di autenticazione verrà utilizzando. In questo esempio, il valore è `password`
+    Il tipo di schema di autenticazione si verrà utilizzando. In questo esempio, il valore è `password`
 
  - **resource**  
-    La risorsa accede al token. È possibile trovare la risorsa eseguendo una query all'endpoint di metadati di gestione di Azure Stack. Esaminare i **destinatari** sezione
+    La risorsa accede il token. È possibile trovare la risorsa eseguendo una query all'endpoint di metadati di gestione di Azure Stack. Esaminare i **audience** sezione
 
  - **Endpoint di gestione di Azure Stack**  
     ```
@@ -77,9 +77,9 @@ Per ogni valore:
     ```
 
   > [!NOTE]  
-  > Se si è un amministratore tenta di accedere al tenant API deve assicurarsi che usare endpoint tenant, ad esempio: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > Se sei un amministratore tenta di accedere al tenant di API quindi è necessario assicurarsi di usare endpoint tenant, ad esempio: `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
-  Ad esempio, con il Kit di sviluppo dello Stack Azure come endpoint:
+  Ad esempio, con Azure Stack Development Kit come un endpoint:
 
     ```bash
     curl 'https://management.local.azurestack.external/metadata/endpoints?api-version=2015-01-01'
@@ -113,7 +113,7 @@ Per ogni valore:
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
-  Opzioni alternative sono disponibili per scenari specifici:
+  Opzioni alternative disponibili per scenari specifici:
 
   
   | Applicazione | ApplicationID |
@@ -126,7 +126,7 @@ Per ogni valore:
 
   **username**
 
-  Ad esempio, l'account di Azure AAD dello Stack:
+  Ad esempio, l'account di Azure Stack AAD:
 
   ```
   azurestackadmin@fabrikam.onmicrosoft.com
@@ -134,7 +134,7 @@ Per ogni valore:
 
   **password**
 
-  Password dell'amministratore Azure Stack AAD.
+  La password di amministratore di Azure Stack AAD.
 
 ### <a name="example"></a>Esempio
 
@@ -167,7 +167,7 @@ Risposta:
 
 ## <a name="api-queries"></a>Query dell'API
 
-Dopo aver ottenuto il token di accesso, è necessario aggiungerlo come un'intestazione a ognuna delle richieste di API. Per eseguire questa operazione, è necessario creare un'intestazione **authorization** con valore: `Bearer <access token>`. Ad esempio: 
+Dopo aver ottenuto il token di accesso, è necessario aggiungerlo come un'intestazione a ognuna delle richieste di API. A questo scopo, è necessario creare un'intestazione **authorization** con valore: `Bearer <access token>`. Ad esempio: 
 
 Richiesta:
 
@@ -187,20 +187,20 @@ state : Enabled
 subscriptionPolicies : @{locationPlacementId=AzureStack}
 ```
 
-### <a name="url-structure-and-query-syntax"></a>Sintassi di struttura e query di URL
+### <a name="url-structure-and-query-syntax"></a>Sintassi di query e struttura URL
 
-È costituito da un URI di richiesta generica: {schema URI} :// {URI-host} / {resource-path}? {query-string}
+URI di richiesta generica è costituito da: {schema URI} :// {URI host} / {resource-path}? {query-string}
 
 - **Schema URI**:  
-URI che indica il protocollo utilizzato per inviare la richiesta. Ad esempio, `http` o `https`.
+URI che indica il protocollo usato per inviare la richiesta. Ad esempio, `http` o `https`.
 - **Host dell'URI**:  
 L'host specifica il nome di dominio o l'indirizzo IP del server in cui l'endpoint REST del servizio è ospitato, ad esempio `graph.microsoft.com` o `adminmanagement.local.azurestack.external`.
 - **Percorso della risorsa**:  
-Il percorso Specifica la risorsa o raccolta di risorse, che può includere più segmenti utilizzati dal servizio per determinare la selezione di tali risorse. Ad esempio: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` può essere usato per query sull'elenco dei proprietari di un'applicazione specifica all'interno della raccolta di applicazioni.
+Il percorso Specifica la risorsa o raccolta di risorse, che può includere più segmenti usati dal servizio per determinare la selezione di tali risorse. Ad esempio: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` può essere utilizzato per query sull'elenco dei proprietari di un'applicazione specifica all'interno della raccolta di applicazioni.
 - **Stringa di query**:  
-La stringa fornisce semplici di parametri aggiuntivi, ad esempio i criteri di selezione API versione o una risorsa.
+La stringa fornisce parametri semplici aggiuntivi, ad esempio i criteri di selezione versione o una risorsa API.
 
-## <a name="azure-stack-request-uri-construct"></a>Azure costrutto URI richiesta di Stack
+## <a name="azure-stack-request-uri-construct"></a>Costrutto URI di Azure Stack richiesta
 
 ```
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
@@ -220,4 +220,4 @@ https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-40
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sull'utilizzo gli endpoint REST di Azure, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).
+Per altre informazioni sull'uso di endpoint RESTful di Azure, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).

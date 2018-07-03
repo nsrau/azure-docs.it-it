@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dc67de00abb2eac2eeb6e2b6bf3798e3aa210152
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b512ba91d1df7ec0432bdf9048268714e570fe6b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29949889"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958677"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: creare e distribuire un'applicazione con un servizio front-end API Web Java e un servizio back-end con stato
 Questa è la prima di una serie di esercitazioni. Al termine sarà disponibile un'applicazione Voting con un front-end Web Java che salva i risultati delle votazioni in un servizio back-end con stato nel cluster. Questa serie di esercitazioni presuppone un computer di sviluppo con Mac OSX o Linux. Se non si vuole creare manualmente l'applicazione di voto, è possibile [scaricare il codice sorgente per l'applicazione completa](https://github.com/Azure-Samples/service-fabric-java-quickstart) e passare direttamente a [Descrizione dettagliata dell'applicazione di voto di esempio](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application).
@@ -596,7 +596,7 @@ La struttura del servizio front-end senza stato e del servizio back-end è stata
     }
     
     dependencies {
-        compile ('com.microsoft.servicefabric:sf-actors:1.0.0-preview1')
+        compile ('com.microsoft.servicefabric:sf-actors:1.0.0')
     }
     
     jar {
@@ -898,7 +898,7 @@ A questo punto, l'applicazione è pronta per essere distribuita in un cluster di
 
 4. In Package Explorer (Esplora pacchetti) per Eclipse fare clic con il pulsante destro del mouse sul progetto **Voting** e scegliere **Service Fabric -> Publish Application** (Pubblica applicazione) 
 5. Nella finestra **Publish Application** (Pubblica applicazione) selezionare **Local.json** dall'elenco a discesa e fare clic su **Publish** (Pubblica).
-6. Passare al Web browser e accedere a **http://localhost:8080/** per visualizzare l'applicazione in esecuzione nel cluster locale di Service Fabric. 
+6. Passare al Web browser e accedere a **http://localhost:8080** per visualizzare l'applicazione in esecuzione nel cluster locale di Service Fabric. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa parte dell'esercitazione si è appreso come:

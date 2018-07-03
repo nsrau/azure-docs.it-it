@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8407249ed56059f278f8e4f84a4466ab286a0c24
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c0823fa839df98fa81f42bfbb3f7cd2bec6d7c1a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178090"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054492"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Esercitazione: Creare una pipeline con l'attività di copia usando la Copia guidata di Data Factory
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "30178090"
 > * [API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere l'[esercitazione sull'attività di copia nella documentazione sulla versione 2](../quickstart-create-data-factory-dot-net.md). 
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere l'[esercitazione sull'attività di copia](../quickstart-create-data-factory-dot-net.md). 
 
 
 Questa esercitazione illustra come usare la **copia guidata** per copiare i dati da un archivio BLOB di Azure a un database SQL di Azure. 
@@ -75,7 +75,7 @@ In questo passaggio viene usato il portale di Azure per creare un'istanza di Azu
    ![Home page di Data factory](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
 ## <a name="launch-copy-wizard"></a>Avviare la Copia guidata
-1. Nel pannello Data Factory fare clic su **Copia dati (ANTEPRIMA)** per avviare **Copy Wizard** (Copia guidata). 
+1. Nel pannello Data Factory fare clic su **Copia dati** per avviare la **Copia guidata**. 
    
    > [!NOTE]
    > Se il Web browser è bloccato su "Concessione autorizzazioni in corso...", disabilitare/deselezionare l'impostazione **Block third party cookies and site data** (Blocca cookie e dati del sito di terze parti) nelle impostazioni del browser oppure lasciarla abilitata e creare un'eccezione per **login.microsoftonline.com** e quindi provare di nuovo ad avviare la procedura guidata.

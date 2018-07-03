@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: e32fa771595fdc4bf5fe54ec14630961d467d40f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c9cc94cbfb7575181a65cf21fdd8d19d2fd818f7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32176875"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049781"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 
@@ -29,9 +29,6 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Creare una pipeline che usa un'attività Spark.
 > * Attivare un'esecuzione della pipeline.
 > * Monitorare l'esecuzione della pipeline.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione di Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -98,7 +95,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
    Alcuni dei passaggi di questa guida introduttiva presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-5. Per **Versione** selezionare **V2 (anteprima)**.
+5. Per **Versione** selezionare **V2**.
 6. Per **Località** selezionare la località per la data factory. 
 
    Data Factory V2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.

@@ -12,14 +12,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/14/2018
   ms.author: sethm
-  ms.openlocfilehash: 70d40d58b63f7d0e49290d5283c35166f1380638
-  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+  ms.openlocfilehash: 481a11b284f0bfba73fe8a44b640eac0cdc6f833
+  ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37132565"
+  ms.lasthandoff: 07/02/2018
+  ms.locfileid: "37344064"
 abstract:
-  description: Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di elaborazione di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. Il servizio supporta i protocolli HTTPS e AMQP 1.0 per la pubblicazione di eventi.
+  description: Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di elaborazione di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. Il servizio supporta i protocolli HTTPS e AMQP 1.0 e l'ecosistema Apache Kafka per la pubblicazione di eventi.
   aside:
     image:
       alt: 

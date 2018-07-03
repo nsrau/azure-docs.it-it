@@ -1,6 +1,6 @@
 ---
-title: Introduzione all'uso di R Server in HDInsight - Azure | Microsoft Docs
-description: Informazioni sulla creazione di un cluster Apache Spark in HDInsight che include R Server e sull'invio di uno script R nel cluster.
+title: Introduzione all'uso di ML Services in HDInsight - Azure | Microsoft Docs
+description: Informazioni sulla creazione di un cluster Apache Spark in HDInsight che include ML Services e sull'invio di uno script R nel cluster.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,19 +13,18 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411482"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053433"
 ---
-# <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Introduzione all'uso di un cluster R Server in Azure HDInsight
+# <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 
-Azure HDInsight include un'opzione R Server da integrare nel cluster HDInsight. Con questa opzione, gli script R possono usare Spark e MapReduce per eseguire i calcoli distribuiti. Questo articolo descrive come creare un'istanza di R Server in un cluster HDInsight. Verrà quindi illustrato come eseguire uno script R che mostra l'uso di Spark per i calcoli R distribuiti.
-
+Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, gli script R possono usare Spark e MapReduce per eseguire i calcoli distribuiti. In questo articolo si apprenderà come creare un cluster ML Service in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -53,13 +52,13 @@ Azure HDInsight include un'opzione R Server da integrare nel cluster HDInsight. 
 
 4. Selezionare **Tipo di cluster**, quindi impostare i valori seguenti nella sezione **Configurazione cluster**:
 
-    * **Tipo di cluster**: R Server
+    * **Tipo di cluster**: ML Services
 
     * **Sistema operativo**: Linux
 
-    * **Versione**: R Server 9.1 (HDI 3.6). Le note sulla versione per le versioni disponibili di R Server sono disponibili in [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91).
+    * **Versione**: ML Server 9.3 (HDI 3.6). Le note sulla versione per ML Server 9.3 sono disponibili in [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server).
 
-    * **R Studio Community Edition for R Server**: questo IDE basato su browser viene installato per impostazione predefinita sul nodo perimetrale. Se si preferisce non installarlo, deselezionare la casella di controllo. Se si sceglie di installarlo, l'URL per l'accesso a RStudio Server è disponibile nel pannello delle applicazioni del portale per il cluster, dopo la creazione.
+    * **R Studio Community Edition for ML Server**: questo IDE basato su browser viene installato per impostazione predefinita nel nodo perimetrale. Se si preferisce non installarlo, deselezionare la casella di controllo. Se si sceglie di installarlo, l'URL per l'accesso a RStudio Server è disponibile nel pannello delle applicazioni del portale per il cluster, dopo la creazione.
 
         ![Dettagli di base del cluster](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -81,11 +80,11 @@ Azure HDInsight include un'opzione R Server da integrare nel cluster HDInsight. 
 
 Se si sceglie di installare RStudio Server Community Edition come parte del cluster HDInsight, è possibile accedere a RStudio usando uno dei due metodi seguenti:
 
-* **Opzione 1** - Passare all'URL seguente (in cui **CLUSTERNAME** è il nome del cluster R Server creato):
+* **Opzione 1**: passare all'URL seguente (in cui **CLUSTERNAME** è il nome del cluster ML Services creato):
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **Opzione 2** -Aprire il cluster R Server nel portale di Azure e in **Collegamenti rapidi** fare clic su **Dashboard di R Server**.
+* **Opzione 2**: Aprire il cluster ML Services nel portale di Azure e in **Collegamenti rapidi** fare clic su **ML Services Dashboards** (Dashboard di ML Services).
 
      ![Configurare le impostazioni dell'account di archiviazione per HDInsight](./media/r-server-get-started/dashboard-quick-links.png)
 
@@ -175,9 +174,9 @@ Una volta connessi, la schermata dovrebbe avere un aspetto simile allo screensho
 <a name="connect-to-edge-node"></a>
 ## <a name="connect-to-the-cluster-edge-node"></a>Connettersi al nodo perimetrale del cluster
 
-Questa sezione illustra come connettersi al nodo perimetrale di un cluster R Server HDInsight tramite SSH. Per acquisire familiarità con l'uso di SSH, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Questa sezione illustra come connettersi al nodo perimetrale di un cluster ML Services HDInsight tramite SSH. Per acquisire familiarità con l'uso di SSH, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Il comando SSH per connettersi al nodo perimetrale di un cluster R Server è:
+Il comando SSH per connettersi al nodo perimetrale di un cluster ML Services è:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
@@ -194,15 +193,15 @@ Dopo aver stabilito la connessione, viene visualizzato un prompt simile al segue
     sshuser@ed00-myrclu:~$
 
 <a name="use-r-console"></a>
-## <a name="use-the-r-server-console"></a>Usare la console di R Server
+## <a name="use-the-r-console"></a>Usare la console di R
 
 1. Nella sessione SSH usare il comando seguente per avviare la console R:  
 
         R
 
-2. Verrà visualizzato un output con la versione di R Server e altre informazioni.
+2. Verrà visualizzato un output con la versione di ML Services e altre informazioni.
     
-3. Dal prompt `>` è possibile immettere codice R. R Server in HDInsight include pacchetti che consentono di interagire facilmente con Hadoop ed eseguire calcoli distribuiti. Ad esempio, usare il comando seguente per visualizzare la radice del file system predefinito per il cluster HDInsight:
+3. Dal prompt `>` è possibile immettere codice R. ML Services in HDInsight include pacchetti che permettono di interagire facilmente con Hadoop ed eseguire calcoli distribuiti. Ad esempio, usare il comando seguente per visualizzare la radice del file system predefinito per il cluster HDInsight:
 
         rxHadoopListFiles("/")
 
@@ -216,11 +215,11 @@ Dopo aver stabilito la connessione, viene visualizzato un prompt simile al segue
 
 ## <a name="automated-cluster-creation"></a>Creazione automatizzata di cluster
 
-È possibile automatizzare la creazione di un cluster R Server per HDInsight usando modelli di Azure Resource Manager, l'SDK e PowerShell.
+È possibile automatizzare la creazione di un cluster ML Services per HDInsight usando l'SDK e PowerShell.
 
-* Per creare un cluster R Server con un modello di Azure Resource Manager, vedere [Deploy an R Server for HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/) (Distribuire un cluster R Server per HDInsight).
-* Per creare un cluster R Server con .NET SDK, vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
-* Per creare un cluster R Server con PowerShell, vedere l'articolo [Creare cluster in HDInsight tramite Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+<!---* To create an ML Server cluster using an Azure Resource Management template, see [Deploy an R Server for HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).--->
+* Per creare un cluster ML Services con .NET SDK, vedere [Creare cluster basati su Linux in HDInsight tramite .NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* Per creare un cluster ML Service con PowerShell, vedere l'articolo [Creare cluster in HDInsight tramite Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
 
 ## <a name="delete-the-cluster"></a>Eliminare il cluster
 
@@ -232,10 +231,10 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come creare un nuovo cluster R Server in Azure HDInsight e sono state fornite le nozioni di base sull'uso della console di R da una sessione SSH. Gli articoli seguenti illustrano altre modalità di gestione e uso di R Server in HDInsight:
+In questo articolo è stato illustrato come creare un nuovo cluster ML Services in Azure HDInsight e sono state fornite le nozioni di base sull'uso della console di R da una sessione SSH. Gli articoli seguenti illustrano altre modalità di gestione e uso di ML Services in HDInsight:
 
 * [Inviare processi da R Tools per Visual Studio](r-server-submit-jobs-r-tools-vs.md)
-* [Gestire cluster R Server in HDInsight](r-server-hdinsight-manage.md)
-* [Rendere operativo un cluster R Server in HDInsight](r-server-operationalize.md)
-* [Opzioni del contesto di calcolo per il cluster R Server in HDInsight](r-server-compute-contexts.md)
-* [Opzioni di Archiviazione di Azure per il cluster R Server in HDInsight](r-server-storage.md)
+* [Gestire cluster ML Services in Azure HDInsight](r-server-hdinsight-manage.md)
+* [Rendere operativo un cluster ML Services in Azure HDInsight](r-server-operationalize.md)
+* [Opzioni del contesto di calcolo per un cluster ML Services su HDInsight](r-server-compute-contexts.md)
+* [Opzioni di Archiviazione di Azure per un cluster ML Services su Azure HDInsight](r-server-storage.md)

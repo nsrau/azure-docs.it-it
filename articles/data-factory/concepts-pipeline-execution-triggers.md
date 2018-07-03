@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293480"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048639"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Esecuzione e trigger di pipeline in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-scheduling-and-execution.md)
-> * [Versione 2 - Anteprima](concepts-pipeline-execution-triggers.md)
+> * [Versione 1](v1/data-factory-scheduling-and-execution.md)
+> * [Versione corrente](concepts-pipeline-execution-triggers.md)
 
-Una _esecuzione di pipeline_ in Azure Data Factory versione 2 definisce un'istanza dell'esecuzione di una pipeline. Se una pipeline viene eseguita alle ore 8:00, alle 9:00 e alle 10:00, ad esempio, si hanno tre esecuzioni di pipeline separate. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un GUID che definisce in modo univoco la specifica esecuzione della pipeline. 
+Una _esecuzione di pipeline_ in Azure Data Factory definisce un'istanza dell'esecuzione di una pipeline. Se una pipeline viene eseguita alle ore 8:00, alle 9:00 e alle 10:00, ad esempio, si hanno tre esecuzioni di pipeline separate. ognuna con un ID di esecuzione pipeline univoco. Un ID di esecuzione è un GUID che definisce in modo univoco la specifica esecuzione della pipeline. 
 
 Le istanze delle esecuzioni di pipeline vengono in genere create passando argomenti ai parametri definiti nelle pipeline. È possibile eseguire una pipeline manualmente o tramite un _trigger_. Questo articolo fornisce informazioni dettagliate su entrambe le modalità di esecuzione di una pipeline.
-
-> [!NOTE]
-> Questo articolo è applicabile ad Azure Data Factory versione 2, attualmente in versione di anteprima. Se si usa Azure Data Factory versione 1, disponibile a livello generale, vedere [Pianificazione ed esecuzione in Azure Data Factory versione 1](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="manual-execution-on-demand"></a>Esecuzione manuale (su richiesta)
 L'esecuzione manuale di una pipeline è detta anche esecuzione _su richiesta_.
@@ -136,7 +133,7 @@ Per un esempio completo, vedere [Guida introduttiva: Creare una data factory e u
 > È possibile usare .NET SDK per richiamare le pipeline di Data Factory da Funzioni di Azure, dai propri servizi Web e così via.
 
 <h2 id="triggers">Attivare l'esecuzione</h2>
-I trigger rappresentano una modalità alternativa per attivare una esecuzione di pipeline. I trigger rappresentano un'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Data Factory supporta attualmente due tipi di trigger:
+I trigger rappresentano una modalità alternativa per attivare una esecuzione di pipeline. I trigger rappresentano un'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Data Factory supporta attualmente tre tipi di trigger:
 
 - Trigger di pianificazione: un trigger che richiama una pipeline con una pianificazione basata sul tempo reale.
 

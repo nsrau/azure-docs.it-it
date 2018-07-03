@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: hero-article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 65df472665e5f7e50ee495674889c8048824d5d3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 8db6cf93405ce1d7049c6b4165732d59d65b2d62
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267592"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063176"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory-with-powershell"></a>Eseguire il provisioning del runtime di integrazione SSIS di Azure in Azure Data Factory con PowerShell
 Questa esercitazione illustra la procedura di provisioning di un runtime di integrazione SSIS di Azure in Azure Data Factory. È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire ed eseguire pacchetti SQL Server Integration Services (SSIS) in questo runtime in Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -33,21 +33,18 @@ Questa esercitazione illustra la procedura di provisioning di un runtime di inte
 > * Distribuire pacchetti SSIS
 > * Rivedere lo script completo
 
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="prerequisites"></a>prerequisiti
-- **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare. Per informazioni concettuali in proposito, vedere la [panoramica del runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime).
+- **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare. Per informazioni concettuali in proposito, vedere la [panoramica del runtime di integrazione SSIS di Azure](concepts-integration-runtime.md#azure-ssis-integration-runtime). 
 - **Server di database SQL di Azure**. Se non si ha già un server di database, crearne uno nel portale di Azure prima di iniziare. Questo server ospita il database del catalogo SSIS (SSISDB). È consigliabile creare il server di database nella stessa area di Azure del runtime di integrazione. Questa configurazione consente al runtime di integrazione di scrivere i log di esecuzione in SSISDB senza attraversare aree di Azure. 
-    - In base al server di database selezionato, il database SSISDB può essere creato per conto dell'utente come un database autonomo, parte di un pool elastico o in un'istanza gestita (anteprima) e reso accessibile in una rete pubblica o mediante l'aggiunta a una rete virtuale. Se si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) per ospitare il database SSISDB o occorre accedere a dati in locale, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Vedere [Creare un runtime di integrazione SSIS di Azure in una rete virtuale](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
-    - Verificare che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per il server di database. Questa impostazione non è applicabile quando si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) per ospitare il database SSISDB. Per altre informazioni, vedere [Proteggere il database SQL di Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Per abilitare questa impostazione usando PowerShell, vedere [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1).
+    - In base al server di database selezionato, il database SSISDB può essere creato per conto dell'utente come database singolo, parte di un pool elastico o in un'istanza gestita (anteprima) e reso accessibile in una rete pubblica o mediante l'aggiunta a una rete virtuale. Per materiale sussidiario sulla scelta del tipo di server di database per ospitare SSISDB, vedere [Confrontare il database SQL e l'istanza gestita (anteprima)](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). Se si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) per ospitare il database SSISDB o occorre accedere a dati in locale, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Vedere [Creare un runtime di integrazione SSIS di Azure in una rete virtuale](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). 
+    - Verificare che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per il server di database. Questa impostazione non è applicabile quando si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) per ospitare il database SSISDB. Per altre informazioni, vedere [Proteggere il database SQL di Azure](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Per abilitare questa impostazione usando PowerShell, vedere [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
     - Aggiungere l'indirizzo IP del computer client o un intervallo di indirizzi IP che includa l'indirizzo IP del computer client all'elenco di indirizzi IP client nelle impostazioni del firewall per il server di database. Per altre informazioni, vedere [Regole firewall a livello di server e di database per il database SQL di Azure](../sql-database/sql-database-firewall-configure.md). 
-    - È possibile connettersi al server di database tramite l'autenticazione di SQL Server con le credenziali di amministratore del server o tramite l'autenticazione di Azure Active Directory (AAD) con l'identità del servizio gestita di Azure Data Factory (ADF).  Nel secondo caso, è necessario aggiungere l'identità del servizio gestita di Data Factory in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Creare un runtime di integrazione SSIS di Azure con l'autenticazione AAD](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+    - È possibile connettersi al server di database tramite l'autenticazione di SQL Server con le credenziali di amministratore del server o tramite l'autenticazione di Azure Active Directory (AAD) con l'identità del servizio gestita di Azure Data Factory (ADF).  Nel secondo caso, è necessario aggiungere l'identità del servizio gestita di Data Factory in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Creare un runtime di integrazione SSIS di Azure con l'autenticazione AAD](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). 
     - Verificare che il server di database SQL di Azure non abbia un catalogo SSIS (database SSISDB). Il provisioning del runtime di integrazione Azure-SSIS non supporta l'uso di un catalogo SSIS esistente. 
 - **Azure PowerShell**. Seguire le istruzioni in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Come installare e configurare Azure PowerShell). PowerShell viene usato per eseguire uno script per il provisioning di un runtime di integrazione SSIS di Azure che esegue i pacchetti SSIS nel cloud. 
 
 > [!NOTE]
-> - È possibile creare una data factory della versione 2 nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Asia sud-orientale ed Europa occidentale. 
+> - È possibile creare una data factory nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Asia sud-orientale ed Europa occidentale. 
 > - È possibile creare un runtime di integrazione SSIS di Azure nelle aree Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti occidentali 2, Europa settentrionale, Europa occidentale, Regno Unito meridionale e Australia orientale.
 
 ## <a name="launch-windows-powershell-ise"></a>Avviare Windows PowerShell ISE
@@ -57,13 +54,13 @@ Avviare **Windows PowerShell ISE** con privilegi amministrativi.
 Copiare e incollare lo script seguente, specificando i valori per le variabili. Per un elenco di **piani tariffari** supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md).
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -85,7 +82,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
-$SSISDBServerEndpoint = “[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
@@ -96,7 +93,7 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 Aggiungere lo script seguente per convalidare il server di database SQL di Azure, `<servername>.database.windows.net`. 
 
 ```powershell
-$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=“ + $SSISDBServerAdminPassword
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
 Try
 {
@@ -104,7 +101,7 @@ Try
 }
 Catch [System.Data.SqlClient.SqlException]
 {
-    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_"  ;
+    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
     Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
     $yn = Read-Host
     if(!($yn -ieq "Y"))
@@ -122,7 +119,7 @@ Impostare i valori per le variabili che non sono già state definite. Ad esempio
 New-AzureRmSqlServer -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
     -Location $DataFactoryLocation `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SSISDBServerAdminUserName, $(ConvertTo-SecureString -String $SSISDBServerAdminPassword -AsPlainText -Force))    
 
 New-AzureRmSqlServerFirewallRule -ResourceGroupName $ResourceGroupName `
     -ServerName $SSISDBServerName `
@@ -228,13 +225,13 @@ Per un elenco di **piani tariffari** supportati per il database SQL di Azure, ve
 Per un elenco delle aree supportate da Azure Data Factory V2 e da Azure-SSIS Integration Runtime, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/). Espandere **Dati e analisi** per vedere **Data Factory V2** e **SSIS Integration Runtime**.
 
 ```powershell
-# Azure Data Factory version 2 information 
+# Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
 $SubscriptionName = "[Azure subscription name]"
 $ResourceGroupName = "[Azure resource group name]"
 # Data factory name. Must be globally unique
 $DataFactoryName = "[Data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory of in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS"
 
 # Azure-SSIS integration runtime information. This is a Data Factory compute resource for running SSIS packages
@@ -256,13 +253,13 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 
 # SSISDB info
-$SSISDBServerEndpoint = “[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your Azure SQL Database server name].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf    
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication]"
 # For the basic pricing tier, specify "Basic", not "B". For standard/premium/Elastic Pool tiers, specify "S0", "S1", "S2", "S3", etc.
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>)]"
 
-$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=“ + $SSISDBServerAdminPassword
+$SSISDBConnectionString = "Data Source=" + $SSISDBServerEndpoint + ";User ID=" + $SSISDBServerAdminUserName + ";Password=" + $SSISDBServerAdminPassword    
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $SSISDBConnectionString;
 Try
 {
@@ -270,7 +267,7 @@ Try
 }
 Catch [System.Data.SqlClient.SqlException]
 {
-    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_"  ;
+    Write-Warning "Cannot connect to your Azure SQL Database server, exception: $_";
     Write-Warning "Please make sure the server you specified has already been created. Do you want to proceed? [Y/N]"
     $yn = Read-Host
     if(!($yn -ieq "Y"))
@@ -316,7 +313,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-virtual-network"></a>Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
-Se si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) aggiunto a una rete virtuale per ospitare SSISDB, è necessario anche aggiungere il runtime di integrazione SSIS di Azure alla stessa rete virtuale. Azure Data Factory versione 2 (anteprima) consente di aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale. Per altre informazioni, vedere [Aggiungere un runtime di integrazione Azure-SSIS a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
+Se si usa il database SQL di Azure con endpoint del servizio Rete virtuale/Istanza gestita (anteprima) aggiunto a una rete virtuale per ospitare SSISDB, è necessario anche aggiungere il runtime di integrazione SSIS di Azure alla stessa rete virtuale. Azure Data Factory permette di aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Per altre informazioni, vedere [Aggiungere un runtime di integrazione Azure-SSIS a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
 
 Per uno script completo per creare un runtime di integrazione SSIS di Azure aggiunto a una rete virtuale, vedere [Creare un runtime di integrazione SSIS di Azure](create-azure-ssis-integration-runtime.md).
 

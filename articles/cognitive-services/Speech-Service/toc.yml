@@ -5,6 +5,8 @@
     - name: Informazioni sul Servizio di riconoscimento vocale
       href: overview.md
       expanded: true
+    - name: Scenari di riconoscimento vocale
+      href: speech-scenarios.md
 - name: Guide introduttive
   items:
     - name: Provare gratuitamente il Servizio di riconoscimento vocale
@@ -25,16 +27,18 @@
       href: how-to-text-to-speech.md
     - name: Traduzione vocale
       href: how-to-translate-speech.md
-    - name: Ottenere Speech Devices SDK
-      href: get-speech-devices-sdk.md
     - name: Trascrizione batch
       href: batch-transcription.md
+    - name: Ottenere Speech Devices SDK
+      href: get-speech-devices-sdk.md
 - name: Personalizzazione
   items:
     - name: Personalizzare modelli acustici
       href: how-to-customize-acoustic-models.md
     - name: Personalizzare modelli di lingua
       href: how-to-customize-language-model.md
+    - name: Personalizzare la pronuncia
+      href: how-to-customize-pronunciation.md
     - name: Personalizzare i caratteri voce (voce bot)
       href: how-to-customize-voice-font.md
     - name: Preparare le trascrizioni

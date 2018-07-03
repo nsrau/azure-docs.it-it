@@ -380,6 +380,7 @@
 ### [Integrare le identità locali usando Azure AD Connect](./connect/active-directory-aadconnect.md)
 
 ## Delegare l'accesso alle risorse
+### [Visualizzare i membri di un ruolo amministrativo](directory-manage-roles-portal.md)
 ### [Ruoli dell'amministratore](active-directory-assign-admin-roles-azure-portal.md)
 #### [Assegnare un ruolo di amministratore a un utente](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Confrontare le autorizzazioni dei membri e degli utenti guest](fundamentals/users-default-permissions.md)

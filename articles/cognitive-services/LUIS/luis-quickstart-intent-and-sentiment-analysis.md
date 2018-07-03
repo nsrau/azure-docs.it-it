@@ -7,104 +7,98 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: d000637312619fc493e2f7bad8e8edf0d8d0d94b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265335"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958430"
 ---
 # <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Esercitazione: Creare un'app in grado di restituire una valutazione assieme a una stima delle finalità
 Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni.
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Comprendere le entità gerarchiche e gli elementi figlio contestualmente acquisiti 
-> * Crea una nuova app di Language Understanding per un dominio di viaggio con finalità Bookflight
-> * Aggiungere la finalità _Nessuno_ ed espressioni di esempio
-> * Aggiungere un'entità di percorso gerarchica con elementi figlio di origine e destinazione
+> * Informazioni sull'analisi del sentiment
+> * Usare un'app LUIS nel dominio delle risorse umane (HR) 
+> * Aggiungere l'analisi del sentiment
 > * Eseguire il training e pubblicare l'app
-> * Eseguire una query dell'endpoint dell'app per visualizzare una risposta JSON di Language Understanding, inclusi elementi figlio gerarchici 
+> * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding 
 
-Per questo articolo è necessario un account [LUIS][LUIS] gratuito per creare la propria applicazione.
+Per questo articolo è necessario un account gratuito di [LUIS][LUIS] per creare la propria applicazione.
+
+## <a name="before-you-begin"></a>Prima di iniziare
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità KeyPhrase](luis-quickstart-intent-and-key-phrase.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `sentiment`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
 ## <a name="sentiment-analysis"></a>Analisi del sentiment
 L'analisi del sentiment offre la possibilità di determinare se un'espressione utente è positiva, negativa o neutra. 
 
 Le espressioni seguenti mostrano alcuni esempi di valutazione:
 
-|Valutazione e score|Espressione|
-|:--|--|
-|positivo - 0,89 |L'associazione minestra e insalata era eccellente.|
-|negativo - 0,07 |Non mi sono piaciuti gli aperitivi serviti durante la cena.|
+|Valutazione|Score|Espressione|
+|:--|:--|:--|
+|positivo|0,91 |John W. Smith did a great job on the presentation in Paris.|
+|positivo|0,84 |jill-jones@mycompany.com did fabulous work on the Parker sales pitch.|
 
-L'analisi del sentiment è come un'impostazione dell'app che si applica a ogni espressione. Non è necessario trovare le parole che indicano una valutazione nelle espressioni ed etichettarle: sarà LUIS a farlo automaticamente.
+L'analisi del sentiment è un'impostazione dell'app che si applica a ogni espressione. Non è necessario trovare le parole che indicano il sentiment nell'espressione ed etichettarle, perché l'analisi del sentiment si applica all'intera espressione. 
 
-## <a name="create-a-new-app"></a>Creare una nuova app
-1. Accedere al sito Web di [Language Understanding][LUIS]. Accertarsi di accedere all'[area][LUIS-regions] in cui è necessario pubblicare gli endpoint di Language Understanding.
+## <a name="add-employeefeedback-intent"></a>Aggiungere la finalità EmployeeFeedback 
+Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai membri dell'azienda. 
 
-2. Sul sito Web di [Language Understanding][LUIS], selezionare **Creare nuova app**. 
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Screenshot della pagina Elenchi di app")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+    [ ![Schermata dell'app di Language Understanding con Build evidenziato nella barra dei menu in alto a destra](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-first-image.png#lightbox)
 
-3. Nella finestra di dialogo **Crea nuova app**, denominare l'app `Restaurant Reservations With Sentiment` e selezionare **Operazione completata**. 
+2. Selezionare **Create new intent** (Crea nuova finalità).
 
-    ![Immagine della finestra di dialogo Crea nuova app](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent.png#lightbox)
 
-    Una volta completato il processo di creazione app, LUIS visualizza l'elenco di finalità contenente la finalità Nessuno.
+3. Immettere il nome della nuova finalità `EmployeeFeedback`.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "Screenshot della pagina di elenchi delle finalità)")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+    ![Finestra di dialogo per la creazione di una nuova finalità denominata EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-## <a name="add-a-prebuilt-domain"></a>Aggiungere un dominio predefinito
-Aggiungere un dominio predefinito per aggiungere rapidamente finalità, entità ed espressioni con etichetta.
+4. Aggiungere diverse espressioni che indicano un dipendente che fa qualcosa di positivo o un'area che richiede un miglioramento:
 
-1. Selezionare **Prebuilt Domains** (Domini predefiniti) dal menu a sinistra.
+    Tenere presente in questa app relativa alle risorse umane i dipendenti sono definiti nell'entità elenco, `Employee`, tramite il nome, l'indirizzo di posta elettronica, il numero di interno, il numero di telefono cellulare e il codice fiscale federale degli Stati Uniti. 
 
-    [ ![Screenshot del pulsante Prebuilt Domains (Domini predefiniti)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+    |Espressioni|
+    |--|
+    |425-555-1212 did a nice job of welcoming back a co-worker from maternity leave|
+    |234-56-7891 did a great job of comforting a co-worker in their time of grief.|
+    |jill-jones@mycompany.com didn't have all the required invoices for the paperwork.|
+    |john.w.smith@mycompany.com turned in the required forms a month late with no signatures|
+    |x23456 didn't make it to the important marketing off-site meeting.|
+    |x12345 missed the meeting for June reviews.|
+    |Jill Jones rocked the sales pitch at Harvard|
+    |John W. Smith did a great job on the presentation at Stanford|
 
-2. Selezionare **Aggiungi dominio** per il dominio predefinito **RestaurantReservation**. Attendere fino a quando il dominio non viene aggiunto.
-
-    [ ![Screenshot dell'elenco Prebuilt Domains (Domini predefiniti)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
-
-3. Selezionare **Intents** (Finalità) nel pannello di navigazione a sinistra. Questo dominio predefinito ha una sola finalità.
-
-    [ ![Screenshot dell'elenco Prebuilt Domains (Domini predefiniti) con finalità evidenziate nel riquadro di navigazione a sinistra](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
-
-4.  Selezionare la finalità **RestaurantReservation.Reserve**. 
-
-    [ ![Screenshot dell'elenco Intents (Finalità) con la finalità RestaurantReservation.Reserve evidenziata](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
-
-5. Attivare/disattivare **Visualizza entità** per visualizzare le numerose finalità fornite con entità specifiche del dominio con etichetta.
-
-    [ ![Screenshot della finalità RestaurantReservation.Reserve con Visualizza entità attivato sulla visualizzazione Token evidenziato](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![Screenshot dell'app LUIS con espressioni di esempio nella finalità EmployeeFeedback](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
-Language Understanding non rileva le modifiche a finalità ed entità (il modello) finché non viene eseguito il training. 
+LUIS non riconosce la nuova finalità e le espressioni di esempio fino a quando non viene eseguito il training. 
 
 1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Addestra**.
 
-    ![Screenshot del pulsante Addestra evidenziato](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+    ![Screenshot del pulsante Addestra evidenziato](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
 2. Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
-    ![Screenshot della barra di notifica di completamento del training ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+    ![Screenshot della barra di notifica di completamento del training ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-trained-inline.png)
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurare un'app per includere l'analisi del sentiment
-L'analisi del sentiment è attivata sulla pagina **Pubblica**. 
+Configurare l'analisi del sentiment nella pagina **Publish** (Pubblica). 
 
 1. Selezionare **Pubblica** nella barra di spostamento in alto a destra.
 
-    ![Screenshot della pagina Finalità con il pulsante Pubblica espanso ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+    ![Screenshot della pagina Finalità con il pulsante Pubblica espanso ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Selezionare **Enable Sentiment Analysis** (Abilita analisi del sentiment).
+2. Selezionare **Enable Sentiment Analysis** (Abilita analisi del sentiment). Selezionare lo slot di produzione, quindi fare clic sul pulsante **Pubblica**.
 
-    ![Screenshot della pagina Pubblica con Enable Sentiment Analysis (Abilita analisi del sentiment) evidenziato ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
-
-3. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Pubblica**.
-
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Screenshot della pagina Pubblica con il pulsante Publish to production slot (Pubblica su slot di produzione) evidenziato")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Screenshot della pagina Pubblica con il pulsante Publish to production slot (Pubblica su slot di produzione) evidenziato")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
@@ -112,34 +106,102 @@ L'analisi del sentiment è attivata sulla pagina **Pubblica**.
 
 1. Nella pagina **Pubblica**, selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
-    !["Screenshot della pagina Pubblica con URL endpoint evidenziato](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
+    !["Screenshot della pagina Pubblica con URL endpoint evidenziato](media/luis-quickstart-intent-and-sentiment-analysis/hr-endpoint-url-inline.png)
 
-2. Scorrere fino alla fine dell'URL nell'indirizzo e immettere `Reserve table for  10 on upper level away from kitchen`. L'ultimo parametro QueryString è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `RestaurantReservation.Reserve` con analisi del sentiment estratta.
+2. Scorrere fino alla fine dell'URL nell'indirizzo e immettere `Jill Jones work with the media team on the public portal was amazing`. L'ultimo parametro QueryString è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni con etichetta, per cui rappresenta un buon test e deve restituire la finalità `EmployeeFeedback` con analisi del sentiment estratta.
 
 ```
 {
-  "query": "Reserve table for 10 on upper level away from kitchen",
+  "query": "Jill Jones work with the media team on the public portal was amazing",
   "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
+    "intent": "EmployeeFeedback",
+    "score": 0.4983256
   },
   "intents": [
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
+      "intent": "EmployeeFeedback",
+      "score": 0.4983256
+    },
+    {
+      "intent": "MoveEmployee",
+      "score": 0.06617523
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.04631853
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.0103248553
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.007531875
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.00344597152
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00337914471
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.0026357458
     },
     {
       "intent": "None",
-      "score": 0.00961109251
+      "score": 0.00214573368
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.00157622492
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 7.379545E-05
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 0,
+      "endIndex": 9,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
+    },
+    {
+      "entity": "media team",
+      "type": "builtin.keyPhrase",
+      "startIndex": 25,
+      "endIndex": 34
+    },
+    {
+      "entity": "public portal",
+      "type": "builtin.keyPhrase",
+      "startIndex": 43,
+      "endIndex": 55
+    },
+    {
+      "entity": "jill jones",
+      "type": "builtin.keyPhrase",
+      "startIndex": 0,
+      "endIndex": 9
+    }
+  ],
   "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
+    "label": "positive",
+    "score": 0.8694164
   }
 }
 ```
+
+Il valore di sentimentAnalysis è positivo con un punteggio pari a 0,86. 
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Che cosa ha permesso di ottenere questa app di Language Understanding?
 Questa app, con analisi del sentiment attivata, ha individuato una finalità di query in linguaggio naturale e restituito i dati estratti, inclusa la valutazione generale, come score. 

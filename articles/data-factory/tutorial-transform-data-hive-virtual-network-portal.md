@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: e9ec338e04c456a9a91d51a7a4741e4760f1b3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5959eeea7e5a16170414c7ef8036093ce122681d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179931"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045671"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Data Factory che trasforma i dati con un'attività Hive in un cluster HDInsight che si trova in una rete virtuale di Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -30,9 +30,6 @@ In questa esercitazione si usa il portale di Azure per creare una pipeline di Da
 > * Attivare un'esecuzione della pipeline.
 > * Monitorare l'esecuzione della pipeline 
 > * Verificare l'output
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -90,7 +87,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
       Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2 (anteprima)** per **Versione**.
+4. Selezionare **V2** per la **versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Crea**.

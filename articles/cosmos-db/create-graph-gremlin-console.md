@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 00e4da5fa1867aeddebe0e452f78ea24a3d0a821
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 6f6a622c2b9faf6117a8212000e1e632df3526b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808520"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016608"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Creare, eseguire query e attraversare un grafo nella console Gremlin
 
@@ -45,11 +45,11 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 
 ## <a id="ConnectAppService"></a>Connettersi al servizio app
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Immettere le configurazioni per *Hosts*, *Port*, *Username*, *Password*, *ConnectionPool* e *Serializer*:
+2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
     Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
-    hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.<br><br>Questo valore può anche essere recuperato dalla scheda Chiavi, usando il valore dell'URI senza https://, sostituendo documents con graphs o gremlin.cosmosdb e rimuovendo la parte :443/ finale.
+    hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.
     username|*Nome utente*|Risorsa nel formato `/dbs/<db>/colls/<coll>`, dove `<db>` è il nome del database e `<coll>` è il nome della raccolta.
     password|*Chiave primaria*| Vedere il secondo screenshot di seguito. Si tratta della chiave primaria, che può essere recuperata dalla pagina Chiavi del portale di Azure nella casella Chiave primaria. Per copiare il valore, usare il pulsante di copia a sinistra della casella.

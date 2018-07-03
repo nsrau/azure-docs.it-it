@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 69c0661f515f062a6a99b0692130d52eb23d20d6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 454eaba26155b2bf4a0381af98047dbcbb514bb5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285900"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046817"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Creare una data factory usando l'interfaccia utente di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versione 2 - Anteprima](quickstart-create-data-factory-portal.md)
+> * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versione corrente](quickstart-create-data-factory-portal.md)
 
 La guida introduttiva descrive come usare l'interfaccia utente di Azure Data Factory per creare e monitorare una data factory. La pipeline creata in questa data factory *copia* dati da una cartella a un'altra nell'archivio BLOB di Azure. Per un'esercitazione su come *trasformare* i dati usando Azure Data Factory, vedere [Esercitazione: Trasformare dati usando Spark](tutorial-transform-data-spark-portal.md). 
 
-
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md) prima di seguire la guida introduttiva. 
->
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio con disponibilità generale, vedere l'[esercitazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -58,7 +55,7 @@ Questo video contiene informazioni utili sull'interfaccia utente di Data Factory
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
    Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Per **Versione** selezionare **V2 (anteprima)**.
+4. Per **Versione** selezionare **V2**.
 5. Per **Località** selezionare la località per la data factory.
 
    L'elenco visualizza solo le località supportate da Data Factory. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, HDInsight) usati da Data Factory possono trovarsi in altre località.
@@ -160,7 +157,7 @@ In questo passaggio viene eseguito il debug della pipeline prima della distribuz
 3. Assicurarsi che venga visualizzato un file di output nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
 
 ## <a name="trigger-the-pipeline-manually"></a>Attivare manualmente la pipeline
-In questa procedura vengono distribuite entità (servizi collegati, set di dati, pipeline) in Azure Data Factory. Viene quindi attivata manualmente un'esecuzione della pipeline. È anche possibile pubblicare entità nel proprio repository Git per Visual Studio Team Services. Questa procedura è illustrata in un'[altra esercitazione](tutorial-copy-data-portal.md?#configure-code-repository).
+In questa procedura vengono distribuite entità (servizi collegati, set di dati, pipeline) in Azure Data Factory. Viene quindi attivata manualmente un'esecuzione della pipeline. 
 
 1. Prima di attivare una pipeline, è necessario pubblicare entità in Data Factory. Per pubblicare, selezionare **Pubblica tutti** nella parte superiore. 
 

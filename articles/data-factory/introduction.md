@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237006"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047276"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introduzione a Data factory di Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-introduction.md)
-> * [Versione 2 - Anteprima](introduction.md)
+> * [Versione 1](v1/data-factory-introduction.md)
+> * [Versione corrente](introduction.md)
 
 Nel mondo dei Big Data, dati non elaborati e non organizzati vengono spesso archiviati in sistemi di archiviazione relazionali, non relazionali e di altro tipo. I dati non elaborati non hanno tuttavia intrinsecamente un contesto o significato appropriato per generare informazioni utili per gli analisti, i data scientist e i responsabili delle decisioni aziendali. 
 
@@ -40,9 +40,6 @@ La piattaforma Azure Data Factory è in grado di gestire con successo scenari di
 È anche possibile pubblicare i dati di output in archivi dati, ad esempio Azure SQL Data Warehouse, per consentire alle applicazioni di business intelligence (BI) di utilizzarli. Infine, i dati non elaborati possono essere organizzati in archivi dati e data lake significativi per ottimizzare il processo decisionale aziendale usando Azure Data Factory.
 
 ![Vista generale di Data Factory](media/introduction/big-picture.png)
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Introduzione a Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="how-does-it-work"></a>Come funziona?
 Le pipeline, ovvero i flussi di lavoro basati su dati, in Azure Data Factory eseguono in genere i quattro passaggi seguenti:
@@ -92,7 +89,7 @@ In Data factory i servizi collegati vengono usati per i due scopi seguenti:
 - Per rappresentare una **risorsa di calcolo** che può ospitare l'esecuzione di un'attività. Ad esempio, l'attività HDInsightHive viene eseguita in un cluster HDInsight Hadoop. Vedere l'articolo sulla [trasformazione di dati](transform-data.md) per un elenco di attività di trasformazione e degli ambienti di calcolo supportati.
 
 ### <a name="triggers"></a>Trigger
-I trigger rappresentano l'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Esistono diversi tipi di trigger per i diversi tipi di eventi. Per l'anteprima, Data Factory supporta il trigger dell'utilità di pianificazione basata sul tempo. 
+I trigger rappresentano l'unità di elaborazione che determina quando deve essere avviata l'esecuzione di una pipeline. Esistono diversi tipi di trigger per i diversi tipi di eventi.
 
 ### <a name="pipeline-runs"></a>Esecuzioni di pipeline
 Un'esecuzione di pipeline è un'istanza dell'esecuzione della pipeline. Le istanze delle esecuzioni di pipeline vengono create in genere passando gli argomenti ai parametri definiti nelle pipeline. Gli argomenti possono essere passati manualmente o all'interno della definizione di trigger.
@@ -124,8 +121,8 @@ Anche se Data Factory è disponibile solo nelle aree Stati Uniti orientali, Stat
 
 Si supponga ad esempio che gli ambienti di calcolo, come un cluster Azure HDInsight e Azure Machine Learning, siano in esecuzione nell'area Europa occidentale. È possibile creare e usare un'istanza di Azure Data Factory in Stati Uniti orientali o Stati Uniti orientali 2 e usarla per pianificare processi negli ambienti di calcolo in Europa occidentale. Data Factory necessita di alcuni millisecondi per attivare il processo nell'ambiente di calcolo, ma il tempo per l'esecuzione del processo nell'ambiente di calcolo non cambia.
 
-## <a name="compare-with-version-2"></a>Eseguire il confronto con la versione 2
-Per un elenco delle differenze tra la versione 1 e la versione 2 del servizio Data Factory, vedere [Eseguire il confronto con la versione 1](compare-versions.md). 
+## <a name="compare-with-version-1"></a>Eseguire il confronto con la versione 1
+Per un elenco delle differenze tra la versione 1 e la versione corrente del servizio Data Factory, vedere [Eseguire il confronto con la versione 1](compare-versions.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Iniziare a creare una pipeline di Data Factory usando uno degli strumenti/SDK seguenti: 

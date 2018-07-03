@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195873"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062760"
 ---
 # <a name="what-is-azure-redis-cache"></a>Informazioni su Cache Redis di Azure
 
@@ -77,6 +77,7 @@ La pagina [Prezzi di Cache Redis](https://azure.microsoft.com/pricing/details/ca
 
 * [Guida introduttiva all'app Web ASP.NET](cache-web-app-howto.md): creare una semplice app Web ASP.NET che usa Cache Redis di Azure.
 * [Guida introduttiva a .NET](cache-dotnet-how-to-use-azure-redis-cache.md): creare un'app .NET che usa Cache Redis di Azure.
+* [Guida introduttiva a .NET Core](cache-dotnet-core-quickstart.md): creare un'app .NET Core che usa Cache Redis di Azure.
 * [Guida introduttiva a Node.js](cache-nodejs-get-started.md): creare una semplice app Node.js che usa Cache Redis di Azure.
 * [Guida introduttiva a Java](cache-java-get-started.md): creare una semplice app Java che usa Cache Redis di Azure.
 * [Guida introduttiva a Python](cache-python-get-started.md): creare un'app Python che usa Cache Redis di Azure.

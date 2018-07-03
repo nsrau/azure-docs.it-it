@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598318"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031689"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduzione al Servizio app di Azure in Linux
 
@@ -76,9 +76,9 @@ Il portale di Azure mostra solo le funzionalità che possono essere usate attual
 
 Alcune funzionalità, quali l'integrazione delle reti virtuali, l'autenticazione di Azure Active Directory o di terze parti o le estensioni del sito Kudu, non sono ancora disponibili. Man mano che queste funzionalità dinvetano disponibili, la documentazione verrà aggiornata e le modifiche pubblicate nei blog.
 
-Il Servizio app in Linux è supportato solo nei piani di servizio app [Basic e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). Non è possibile creare app Web per contenitori in un piano di servizio app che ospita già app Web non Linux. Esiste attualmente una limitazione che impedisce di combinare app Windows e Linux nello stesso gruppo di risorse.
+In Linux il servizio app è supportato solo nei piani di servizio app [Basic, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e non ha un livello [Gratuito o Condiviso](https://azure.microsoft.com/pricing/details/app-service/plans/). La funzionalità [Linux nell'ambiente del servizio app (livello isolato)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/) è in modalità di anteprima e non è attualmente supportata per i carichi di lavoro di produzione. In Linux, non è possibile creare l'app Web per i contenitori in un piano di servizio app che ospita già App Web non Linux. Una limitazione corrente impedisce anche che nello stesso gruppo di risorse si trovino app di Windows e di Linux.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Quando non è possibile avviare l'applicazione o si desidera controllare il log dall'app, controllare i log di Docker nella directory LogFiles. È possibile accedere a questa directory tramite il sito SCM o tramite FTP.
 Per registrare `stdout` e `stderr` dal contenitore, è necessario abilitare **Registrazione del contenitore Docker** in **Log di diagnostica**.

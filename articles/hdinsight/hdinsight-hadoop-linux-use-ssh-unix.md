@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179062"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046779"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>Connettersi a HDInsight (Hadoop) con SSH
 
@@ -32,7 +32,7 @@ HDInsight può usare Linux (Ubuntu) come sistema operativo per i nodi nel cluste
 
 | Indirizzo | Porta | Connessione a |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (R Server in HDInsight) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (ML Services in HDInsight) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Nodo perimetrale (qualsiasi tipo di cluster, se è presente un nodo perimetrale) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Nodo head primario |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Nodo head secondario |

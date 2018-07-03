@@ -1,5 +1,5 @@
 ---
-title: Server in Azure Stack di Hosting MySQL | Documenti Microsoft
+title: MySQL che ospita i server in Azure Stack | Microsoft Docs
 description: Come aggiungere le istanze di MySQL per il provisioning tramite il Provider di risorse MySQL Adapter
 services: azure-stack
 documentationCenter: ''
@@ -11,63 +11,74 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 5522eb1b8b0398aeb6f1b0dd8578b906880b4e89
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 60f1978b4173f169ad14deb67b075a61f9e7f149
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938553"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344139"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse MySQL
 
-È possibile ospitare un'istanza di MySQL in una macchina virtuale (VM) nella [Azure Stack](azure-stack-poc.md), o in una macchina virtuale all'esterno dell'ambiente dello Stack di Azure, a condizione che il provider di risorse MySQL possa connettersi all'istanza.
+È possibile ospitare un'istanza di MySQL in una macchina virtuale (VM) nella [Azure Stack](azure-stack-poc.md), o in una macchina virtuale all'esterno dell'ambiente Azure Stack, a condizione che il provider di risorse MySQL può connettersi all'istanza.
+
+Le versioni di MySQL 5.6 e 5.7 8.0 possono essere utilizzate per i server di hosting. RP MySQL non supporta l'autenticazione caching_sha2_password. che verrà aggiunto nella versione successiva. 8.0 di MySQL Server devono essere configurati per usare mysql_native_password. È supportato anche MariaDB.
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>Connettersi a un server di hosting MySQL
 
-Assicurarsi di avere le credenziali per un account con privilegi di amministratore di sistema. Per aggiungere un server di hosting, seguire questi passaggi:
+Assicurarsi di avere le credenziali per un account con privilegi di amministratore di sistema. Per aggiungere un server di hosting, seguire questa procedura:
 
 1. Accedere al portale di Azure Stack operatore come un amministratore del servizio.
 2. Selezionare **Altri servizi**.
-3. Selezionare **risorse amministrative** > **server di Hosting MySQL** > **+ Aggiungi**. Verrà visualizzata la **aggiungere un Server di Hosting MySQL** finestra di dialogo, illustrato nella schermata seguente.
+3. Selezionare **risorse amministrative** > **server di Hosting MySQL** > **+ Aggiungi**. Verrà visualizzata la **aggiungere un Server di Hosting MySQL** finestra di dialogo, illustrata nella schermata riportata di seguito.
 
    ![Configurare un server di hosting](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 
-4. Fornire i dettagli di connessione dell'istanza di MySQL Server.
+4. Fornire i dettagli della connessione dell'istanza di MySQL Server.
 
-   * Per **nome del Server di Hosting MySQL**, fornire il nome di dominio completo (FQDN) o un indirizzo IPv4 valido. Non usare il nome breve della macchina virtuale.
-   * Non viene fornita un'istanza di MySQL predefinita, pertanto è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
+   * Per la **nome del Server di Hosting MySQL**, fornire il nome di dominio completo (FQDN) o un indirizzo IPv4 valido. Non usare il nome breve della macchina virtuale.
+   * Un'istanza di MySQL predefinita non è specificata, quindi è necessario specificare il **le dimensioni del Server di Hosting in GB**. Immettere una dimensione vicina al valore di capacità del server di database.
    * Mantenere l'impostazione predefinita per **sottoscrizione**.
-   * Per **gruppo di risorse**, crearne uno nuovo, o utilizzare un gruppo esistente.
+   * Per la **gruppo di risorse**, crearne uno nuovo o usare un gruppo esistente.
 
    > [!NOTE]
-   > Se l'istanza di MySQL è accessibile da tenant e l'amministratore Gestione risorse di Azure, è possibile inserirlo sotto il controllo del provider di risorse. Tuttavia, l'istanza di MySQL **necessario** essere allocata in modo esclusivo al provider di risorse.
+   > Se l'istanza di MySQL è possibile accedere al tenant e l'amministratore di Azure Resource Manager, è possibile inserirlo sotto il controllo del provider di risorse. Tuttavia, l'istanza di MySQL **necessario** essere allocata esclusivamente per il provider di risorse.
 
-5. Selezionare **SKU** per aprire la **creare SKU** finestra di dialogo.
+5. Selezionare **SKU** per aprire il **SKU creare** finestra di dialogo.
 
-   ![Creare uno SKU di MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+   ![Creare uno SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
-   Lo SKU **nome** deve riflettere le proprietà della SKU in modo che gli utenti possono distribuire i database per lo SKU appropriato.
+   Lo SKU **nome** deve riflettere le proprietà dello SKU in modo che gli utenti possono distribuire i relativi database per lo SKU appropriato.
 
    >[!IMPORTANT]
-   >Caratteri speciali, inclusi gli spazi e i periodi di, non sono supportati in **nome** oppure **livello** quando si crea un'unità SKU per il provider di risorse MySQL.
+   >Caratteri speciali, tra cui spazi e i periodi, non sono supportati in **Name** oppure **livello** quando si crea uno SKU per il provider di risorse MySQL.
 
 6. Selezionare **OK** per creare lo SKU.
+> [!NOTE]
+> Gli SKU possono richiedere fino a un'ora siano visibili nel portale. È possibile creare un database fino a quando non lo SKU è distribuito e in esecuzione.
+
 7. Sotto **aggiungere un Server di Hosting MySQL**, selezionare **crea**.
 
-Quando si aggiungono server, assegnare loro una SKU nuovo o esistente per differenziare le offerte di servizio. Ad esempio, si può avere un'istanza enterprise di MySQL che fornisce un aumento di database e backup automatici. È possibile riservare il server ad alte prestazioni per diversi reparti dell'organizzazione.
+Quando si aggiungono server, assegnarli a uno SKU nuovo o esistente per differenziare le offerte di servizio. Ad esempio, è possibile avere un'istanza di MySQL aziendale che offre un aumento di database e i backup automatici. È possibile riservare il server ad alte prestazioni per reparti diversi all'interno dell'organizzazione.
+
+## <a name="security-considerations-for-mysql"></a>Considerazioni sulla sicurezza per MySQL
+
+Le informazioni seguenti si applicano per la relying Party e il server di hosting MySQL:
+
+* Assicurarsi che tutti i server host siano configurati per la comunicazione con TLS 1.2. Visualizzare [configurazione di MySQL per l'uso di connessioni crittografate](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html).
+* Impiegare [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html).
+* RP MySQL non supporta l'autenticazione caching_sha2_password.
 
 ## <a name="increase-backend-database-capacity"></a>Aumentare la capacità del database back-end
 
-È possibile aumentare la capacità di database back-end tramite la distribuzione di più server di MySQL nel portale di Azure Stack. Aggiungere questi server a uno SKU di nuovo o esistente. Se si aggiunge un server a una SKU esistente, assicurarsi che le caratteristiche server corrispondono a quelle degli altri server nella SKU.
+È possibile aumentare la capacità di database di back-end distribuendo più server di MySQL nel portale di Azure Stack. Aggiungere questi server a uno SKU nuovo o esistente. Se si aggiunge un server a uno SKU esistente, assicurarsi che le caratteristiche server sono le stesse gli altri server nello SKU.
 
-## <a name="make-mysql-database-servers-available-to-your-users"></a>Rendere disponibili agli utenti di server di database MySQL
+## <a name="make-mysql-database-servers-available-to-your-users"></a>Rendere disponibili agli utenti i server di database MySQL
 
-Creare i piani e le offerte per rendere disponibili agli utenti di server di database MySQL. Aggiungere il servizio Microsoft.MySqlAdapter al piano, quindi aggiungere il valore predefinito di Quota o creare una nuova Quota.
-
-![Creare i piani e le offerte per i database](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
+Creare i piani e offerte per rendere disponibili agli utenti i server di database MySQL. Aggiungere il servizio Microsoft.MySqlAdapter al piano e creare una nuova quota. MySQL non consente di limitare le dimensioni dei database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
