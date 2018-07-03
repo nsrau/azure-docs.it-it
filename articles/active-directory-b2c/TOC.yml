@@ -189,7 +189,7 @@
                   href: active-directory-b2c-setup-sf-app-custom.md
             - name: Integrare le API RESTful
               items:
-                - name: Convalidare l'input dell'utente
+                - name: Convalidare l'input utente
                   href: active-directory-b2c-rest-api-validation-custom.md
                 - name: Ottenere attestazioni aggiuntive
                   href: active-directory-b2c-rest-api-step-custom.md
