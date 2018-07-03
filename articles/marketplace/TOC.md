@@ -4,10 +4,10 @@
 ### Panoramica e vantaggi  
 ### Vetrine  
 #### [Confronto tra AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md)  
-#### [Favorire lo sviluppo della propria azienda con AppSource](./grow-your-business-with-appsource.md)  
+#### [Favorire lo sviluppo della propria azienda con AppSource](./grow-your-business-with-appsource.md) 
+#### [Soluzioni preferite](./preferred-solutions.md)
 ##### [Creare una pagina di destinazione](./build-your-landing-page.md)  
 ##### [Abilitare la condivisione di clienti potenziali](./enable-lead-sharing.md)  
-##### [Soluzioni preferite](./preferred-solutions.md)
 ##### [Vantaggi di GTM nel Marketplace](./gtm-benefits.md)  
 ##### [Promuovere la propria attività con Microsoft](./promote-your-business-with-microsoft.md)  
 #### [Favorire lo sviluppo della propria azienda con Azure Marketplace](./grow-your-business-with-azure-marketplace.md)  

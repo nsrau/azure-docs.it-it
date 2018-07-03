@@ -79,7 +79,11 @@
         - name: IoT Core
           href: how-to-install-iot-core.md
     - name: Effettuare il provisioning automatico con il servizio Device Provisioning
-      href: how-to-auto-provision-simulated-device-windows.md
+      items:
+        - name: Linux
+          href: how-to-auto-provision-simulated-device-linux.md
+        - name: Windows
+          href: how-to-auto-provision-simulated-device-windows.md
     - name: Sviluppare ed eseguire il debug dei moduli
       items:
         - name: 'C#'
