@@ -36,7 +36,7 @@ Per configurare l'elenco personalizzato di password escluse, è necessaria una l
    * L'elenco personalizzato di password escluse può contenere fino a 1000 parole.
    * L'elenco personalizzato di password escluse fa distinzione tra maiuscole e minuscole.
    * L'elenco personalizzato di password escluse tiene conto della sostituzione dei caratteri comuni,
-      * ad esempio "o" e "0" o "a" e "@"
+      * ad esempio "o" e "0" o "a" e "\@\"
    * La lunghezza minima delle stringhe è quattro caratteri, la massima è 16 caratteri.
 1. Dopo aver aggiunto tutte le stringhe, fare clic su **Salva**.
 

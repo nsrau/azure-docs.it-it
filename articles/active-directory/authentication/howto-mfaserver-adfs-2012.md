@@ -86,7 +86,7 @@ Per modificare il file MultiFactorAuthenticationAdfsAdapter.config, seguire ques
 
 Per configurare l'SDK del servizio Web è possibile procedere in due modi: usando un nome utente e una password oppure un certificato client. Per la prima opzione, seguire questa procedura. Per la seconda opzione, vedere più avanti.  
 
-1. Impostare il valore di **WebServiceSdkUsername** su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;& #92;&lt;nome utente&gt;.  
+1. Impostare il valore di **WebServiceSdkUsername** su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
 2. Impostare il valore di **WebServiceSdkPassword** sulla password dell'account appropriato.
 
 ### <a name="configure-the-web-service-sdk-with-a-client-certificate"></a>Configurare l'SDK del servizio Web con un certificato client
@@ -106,7 +106,7 @@ Se si preferisce non usare un nome utente e una password, seguire questa procedu
 11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
 12. Impostare certificate sulla stringa copiata nel passaggio precedente.  
 13. Impostare enabled su **true**.  
-14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;& #92;&lt;nome utente&gt;.  
+14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
 15. Impostare la password su quella dell'account appropriato e quindi chiudere l'editor di configurazione.  
 16. Fare clic sul collegamento **Apply** (Applica).  
 17. Nella directory virtuale dell'SDK del servizio Web fare doppio clic su **Autenticazione**.  
