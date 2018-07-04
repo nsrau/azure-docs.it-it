@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: e1e43abd3d0cfceb1713be6cdd02642833283508
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f7784883bca4773d69d94b04e7ec24a89ecd88c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797652"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300697"
 ---
-# <a name="java-bulkexecutor-library-download-information"></a>Libreria Java BulkExecutor: informazioni sul download
+# <a name="java-bulk-executor-library-download-information"></a>Libreria Java BulkExecutor: informazioni sul download
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)

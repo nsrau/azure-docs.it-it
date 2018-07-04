@@ -33,7 +33,8 @@ La procedura seguente illustra come configurare l'autenticazione della password 
    * **{Password}:** password da usare per l'autenticazione con l'app.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Annotare l’ **ApplicationId** dell'applicazione creata. Sarà necessario più avanti.
 5. Creare una nuova entità servizio usando il comando seguente, sostituendo **{MyApplicationId}** con il valore di **ApplicationId** del passaggio precedente:

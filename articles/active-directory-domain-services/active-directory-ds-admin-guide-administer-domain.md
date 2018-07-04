@@ -8,25 +8,27 @@ manager: mtillman
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 68f963b7f3107bad58edb183ec104777903b20d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ee5250147a82199057a3bf6f043627616e7443d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588523"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333687"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Amministrare un dominio gestito di Servizi di dominio Azure Active Directory
 Questo articolo illustra come amministrare un dominio gestito di Servizi di dominio Azure Active Directory (AD).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
+Per completare le attività descritte in questo articolo, sono necessari gli elementi seguenti:
 
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
@@ -46,15 +48,15 @@ Ai membri del gruppo "AAD DC Administrators" vengono concessi privilegi nel domi
 * Ottenere l'accesso amministrativo ai computer aggiunti al dominio gestito.
 
 ## <a name="administrative-privileges-you-do-not-have-on-a-managed-domain"></a>Privilegi amministrativi non disponibili in un dominio gestito
-Il dominio viene gestito da Microsoft, incluse le attività quali applicazione di patch, monitoraggio ed esecuzione di backup. Il dominio è quindi bloccato e non si hanno privilegi per eseguire alcune attività amministrative nel dominio. Ecco alcuni esempi di attività che non è possibile eseguire.
+Il dominio viene gestito da Microsoft, incluse le attività quali applicazione di patch, monitoraggio ed esecuzione di backup. Il dominio è bloccato e non si hanno privilegi per eseguire alcune attività amministrative nel dominio. Ecco alcuni esempi di attività che non è possibile eseguire.
 
 * Non vengono concessi privilegi di amministratore di dominio o amministratore dell'organizzazione per il dominio gestito.
 * Non è possibile estendere lo schema del dominio gestito.
 * Non è possibile connettersi ai controller di dominio per il dominio gestito usando Desktop remoto.
 * Non è possibile aggiungere controller di dominio al dominio gestito.
 
-## <a name="task-1---provision-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Attività 1: Eseguire il provisioning di una macchina virtuale Windows Server aggiunta a un dominio per amministrare in remoto il dominio gestito
-I domini gestiti di Servizi di dominio Azure AD possono essere gestiti con i familiari strumenti di amministrazione di Active Directory, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Gli amministratori tenant non hanno i privilegi necessari per connettersi ai controller di dominio nel dominio gestito con Desktop remoto. Di conseguenza, i membri del gruppo "AAD DC Administrators" possono amministrare i domini gestiti in remoto usando gli strumenti di amministrazione di AD da un computer client o Windows Server aggiunto al dominio gestito. Gli strumenti di amministrazione di AD possono essere installati come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client aggiunti al dominio gestito.
+## <a name="task-1---create-a-domain-joined-windows-server-virtual-machine-to-remotely-administer-the-managed-domain"></a>Attività 1: Creare una macchina virtuale Windows Server aggiunta a un dominio per amministrare in remoto il dominio gestito
+I domini gestiti di Servizi di dominio Azure AD possono essere gestiti con i familiari strumenti di amministrazione di Active Directory, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Gli amministratori tenant non hanno i privilegi necessari per connettersi ai controller di dominio nel dominio gestito con Desktop remoto. I membri del gruppo "AAD DC Administrators" possono amministrare i domini gestiti in remoto usando gli strumenti di amministrazione di AD da un computer client o Windows Server aggiunto al dominio gestito. Gli strumenti di amministrazione di AD possono essere installati come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client aggiunti al dominio gestito.
 
 Il primo passaggio consiste nella configurazione di una macchina virtuale Windows Server aggiunta al dominio gestito. Per istruzioni, vedere l'articolo [Aggiungere una macchina virtuale Windows Server a un dominio gestito](active-directory-ds-admin-guide-join-windows-vm.md).
 
@@ -64,13 +66,13 @@ Le istruzioni in questo articolo usano una macchina virtuale Windows Server per 
 È possibile [installare gli Strumenti di amministrazione remota del server](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) in una macchina virtuale client Windows seguendo le istruzioni in TechNet.
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>Attività 2: Installare gli strumenti di amministrazione di Active Directory nella macchina virtuale
-Eseguire questa procedura per installare gli strumenti di amministrazione di Active Directory nella macchina virtuale aggiunta al dominio. Per altre [informazioni sull'installazione e l'utilizzo degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.
+Seguire questa procedura per installare gli strumenti di amministrazione di Active Directory nella macchina virtuale aggiunta al dominio. Per altre [informazioni sull'installazione e l'utilizzo degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.
 
 1. Passare al portale di Azure. Fare clic su **Tutte le risorse** nel pannello a sinistra. Individuare e fare clic sulla macchina virtuale creata nell'attività 1.
 2. Fare clic su sul pulsante **Connetti** nella scheda Panoramica. Viene creato e scaricato un file Remote Desktop Protocol con estensione rdp.
 
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso ad esempio, si usa 'bob@domainservicespreview.onmicrosoft.com'. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su Sì o Continua per procedere con la connessione.
+3. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. Usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". Ad esempio, "bob@domainservicespreview.onmicrosoft.com". Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su Sì o Continua per procedere con la connessione.
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
 
     ![Avviare Server Manager nella macchina virtuale](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -83,7 +85,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
 7. Nella pagina **Selezione server** selezionare la macchina virtuale corrente dal pool di server e fare clic su **Avanti**.
 
     ![Pagina Selezione dei server](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Nella pagina **Ruoli del server** fare clic su **Avanti**. Questa pagina verrà ignorata perché non si stanno installando ruoli nel server.
+8. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 9. Nella pagina **Funzionalità** fare clic per espandere il nodo **Strumenti di amministrazione remota del server**, quindi fare clic per espandere il nodo **Strumenti di amministrazione ruoli**. Selezionare la funzionalità **Strumenti per Servizi di dominio Active Directory e AD LDS** dall'elenco di strumenti di amministrazione ruoli.
 
     ![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
@@ -92,7 +94,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione di Act
     ![Pagina di conferma](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-confirmation.png)
 
 ## <a name="task-3---connect-to-and-explore-the-managed-domain"></a>Attività 3: Eseguire la connessione ed esplorare il dominio gestito
-Dopo aver installato gli strumenti di amministrazione di AD nella macchina virtuale aggiunta al dominio sarà possibile usare questi strumenti per amministrare il dominio gestito.
+È ora possibile usare gli strumenti di amministrazione AD di Windows Server per esplorare e amministrare il dominio gestito.
 
 > [!NOTE]
 > È necessario essere un membro del gruppo 'AAD DC Administrators' per poter amministrare il dominio gestito.

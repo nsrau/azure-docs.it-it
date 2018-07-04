@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036396"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302234"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizzare i modelli di traffico di rete da e verso le macchine virtuali usando strumenti open source
 
 L'acquisizione pacchetti contiene dati della rete che permettono di eseguire l'analisi della rete e l'ispezione approfondita dei pacchetti. Sono disponibili diversi strumenti open source che è possibile usare per analizzare le acquisizioni pacchetti e ottenere informazioni dettagliate sulla rete. Uno di questi strumenti è CapAnalysis, uno strumento di visualizzazione dell'acquisizione pacchetti open source. La visualizzazione dei dati di acquisizione pacchetti permette di ottenere rapidamente informazioni approfondite sui modelli e le anomalie all'interno della rete e di condividere tali informazioni in un modo facilmente utilizzabile.
 
-Azure Network Watcher offre la possibilità di acquisire dati importanti eseguendo l'acquisizione pacchetti sulla rete. Questo articolo contiene una procedura dettagliata su come visualizzare e ottenere informazioni approfondite dalle acquisizioni pacchetti usando CapAnalysis con Network Watcher.
+Azure Network Watcher offre la possibilità di acquisire dati eseguendo l'acquisizione pacchetti sulla rete. Questo articolo contiene una procedura dettagliata su come visualizzare e ottenere informazioni approfondite dalle acquisizioni pacchetti usando CapAnalysis con Network Watcher.
 
 ## <a name="scenario"></a>Scenario
 
@@ -38,18 +38,18 @@ Una semplice applicazione Web è distribuita in una macchina virtuale in Azure e
 ### <a name="install-capanalysis"></a>Installare CapAnalysis
 
 Per installare CapAnalysis in una macchina virtuale, vedere le istruzioni ufficiali all'indirizzo https://www.capanalysis.net/ca/how-to-install-capanalysis.
-Per accedere a CapAnalysis in modalità remota, è necessario aprire la porta 9877 nella macchina virtuale mediante l'aggiunta di una nuova regola di sicurezza in ingresso. Per altre informazioni sulla creazione di regole in gruppi di sicurezza di rete, vedere [Creare regole in un gruppo di sicurezza di rete esistente](../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg). Dopo aver aggiunto la regola, dovrebbe essere possibile accedere a CapAnalysis da `http://<PublicIP>:9877`.
+Per accedere a CapAnalysis in modalità remota, è necessario aprire la porta 9877 nella macchina virtuale mediante l'aggiunta di una nuova regola di sicurezza in ingresso. Per altre informazioni sulla creazione di regole in gruppi di sicurezza di rete, vedere [Creare regole in un gruppo di sicurezza di rete esistente](../virtual-network/manage-network-security-group.md#create-a-security-rule). Dopo aver aggiunto la regola, dovrebbe essere possibile accedere a CapAnalysis da `http://<PublicIP>:9877`.
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Usare Azure Network Watcher per avviare una sessione di acquisizione pacchetti
 
-Network Watcher consente di acquisire pacchetti per registrare il traffico da e verso una macchina virtuale. Per istruzioni su come avviare una sessione di acquisizione pacchetti, vedere l'articolo relativo alla [gestione dell'acquisizione pacchetti con Network Watcher](network-watcher-packet-capture-manage-portal.md). L'acquisizione pacchetti può essere memorizzata in un BLOB di archiviazione a cui accedere con CapAnalysis.
+Network Watcher consente di acquisire pacchetti per registrare il traffico da e verso una macchina virtuale. Per istruzioni su come avviare una sessione di acquisizione pacchetti, vedere l'articolo relativo alla [gestione dell'acquisizione pacchetti con Network Watcher](network-watcher-packet-capture-manage-portal.md). Un'acquisizione pacchetti può essere memorizzata in un BLOB di archiviazione a cui accedere con CapAnalysis.
 
 ### <a name="upload-a-packet-capture-to-capanalysis"></a>Caricare un'acquisizione pacchetti in CapAnalysis
 È possibile caricare direttamente un'acquisizione pacchetti eseguita da Network Watcher usando la scheda Importa dall'URL e specificando un collegamento al BLOB di archiviazione in cui è memorizzata l'acquisizione pacchetti.
 
-Quando si fornisce un collegamento a CapAnalysis, assicurarsi di aggiungere un token di firma di accesso condiviso per l'URL del BLOB di archiviazione.  A questo scopo, passare a Firma di accesso condiviso dall'account di archiviazione, definire le autorizzazioni consentite e fare clic sul pulsante Genera firma di accesso condiviso per creare un token. È quindi possibile aggiungere tale token di firma di accesso condiviso all'URL del BLOB di archiviazione dell'acquisizione pacchetti.
+Quando si fornisce un collegamento a CapAnalysis, assicurarsi di aggiungere un token di firma di accesso condiviso per l'URL del BLOB di archiviazione.  A questo scopo, passare a Firma di accesso condiviso dall'account di archiviazione, definire le autorizzazioni consentite e fare clic sul pulsante Genera firma di accesso condiviso per creare un token. È quindi possibile aggiungere il token di firma di accesso condiviso all'URL del BLOB di archiviazione dell'acquisizione pacchetti.
 
-L'URL risultante avrà un aspetto simile al seguente: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
+L'URL risultante sarà simile all'URL seguente: http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere
 
 
 ### <a name="analyzing-packet-captures"></a>Analizzare le acquisizioni pacchetti

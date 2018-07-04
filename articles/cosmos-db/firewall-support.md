@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c55f90b944038a0e4ca216a357fc30f4cf6a6ddc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294738"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317287"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Supporto del firewall di Azure Cosmos DB
 Per proteggere i dati archiviati in un account del database di Azure Cosmos DB, Azure Cosmos DB ha reso disponibile il supporto per un [modello di autorizzazione](https://msdn.microsoft.com/library/azure/dn783368.aspx) basato su segreto che usa un codice di autenticazione messaggi basato su hash (HMAC, Hash-based Message Authentication Code). Oltre al modello di autenticazione basato su segreto, Azure Cosmos DB supporta ora controlli dell'accesso agli indirizzi IP basati su criteri per il supporto del firewall in ingresso. Questo modello è simile alle regole del firewall di un sistema di database tradizionale e offre un livello aggiuntivo di sicurezza per l'account del database di Azure Cosmos DB. Con questo modello è ora possibile configurare un account del database di Azure Cosmos DB perché sia accessibile solo da un set di computer e/o servizi cloud approvato. Per l'accesso alle risorse di Azure Cosmos DB da questi set di computer e servizi approvati, è comunque necessario che il chiamante presenti un token di autorizzazione valido.
@@ -56,10 +56,10 @@ L'accesso al portale di Azure viene abilitato per impostazione predefinita quand
 
 ![Screenshot che mostra come abilitare l'accesso al portale di Azure](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>Connessioni da centri dati di Azure o da servizi PaaS di Azure pubblici
+## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Connessioni da centri dati di Azure o da servizi PaaS di Azure globali
 In Azure i servizi PaaS come Analisi di flusso di Azure, Funzioni di Azure e Servizio app di Azure vengono usati in combinazione con Azure Cosmos DB. Per abilitare l'accesso a un account del database di Azure Cosmos DB da questi servizi i cui indirizzi IP non sono prontamente disponibili, aggiungere a livello di codice l'indirizzo IP 0.0.0.0 all'elenco di indirizzi IP consentiti associato all'account del database di Azure Cosmos DB. 
 
-L'accesso alle connessioni all'interno di centri dati di Azure pubblici viene abilitato per impostazione predefinita quando si modifica l'impostazione Firewall specificando **Reti selezionate** nel portale di Azure. 
+L'accesso alle connessioni all'interno di centri dati di Azure globali viene abilitato per impostazione predefinita quando si modifica l'impostazione Firewall specificando **Reti selezionate** nel portale di Azure. 
 
 ![Screenshot che mostra come aprire la pagina Firewall nel portale di Azure](./media/firewall-support/enable-azure-services.png)
 
@@ -87,6 +87,25 @@ Quando si aggiungono istanze di macchina virtuale al gruppo, a queste viene auto
 
 ## <a name="connections-from-the-internet"></a>Connessioni da Internet
 Quando si accede a un account del database di Azure Cosmos DB da un computer in Internet, l'indirizzo IP o l'intervallo di indirizzi IP client del computer deve essere aggiunto all'elenco di indirizzi IP consentiti per l'account del database di Azure Cosmos DB. 
+
+## <a name="using-azure-resource-manager-template-to-set-up-the-ip-access-control"></a>Uso del modello di Azure Resource Manager per configurare il controllo di accesso per indirizzi IP
+
+Aggiungere al modello il codice JSON seguente per configurare il controllo di accesso per indirizzi IP. Il modello di Resource Manager per un account avrà l'attributo ipRangeFilter che riporta l'elenco degli intervalli IP da inserire nell'elenco di elementi consentiti.
+
+```json
+   {
+     "apiVersion": "2015-04-08",
+     "type": "Microsoft.DocumentDB/databaseAccounts",
+     "kind": "GlobalDocumentDB",
+     "name": "[parameters('databaseAccountName')]",
+     "location": "[resourceGroup().location]",
+     "properties": {
+     "databaseAccountOfferType": "Standard",
+     "name": "[parameters('databaseAccountName')]",
+     "ipRangeFilter":"10.0.0.1,10.0.0.2,183.240.196.255"
+   }
+   }
+```
 
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>Risoluzione dei problemi relativi ai criteri di controllo di accesso IP
 ### <a name="portal-operations"></a>Operazioni nel portale

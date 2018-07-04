@@ -1,33 +1,22 @@
 ---
-title: Creare e gestire server e database SQL di Azure | Microsoft Docs
-description: Altre informazioni sui concetti di server e database di database SQL di Microsoft Azure e sulla creazione e la gestione dei server e dei database.
+title: Server logici e database SQL singoli di Azure | Microsoft Docs
+description: Informazioni sui concetti di server logico e database singolo del database SQL di Azure e sulle relative risorse.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649058"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309181"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Creare e gestire server e database del database SQL di Azure
-
-Il database SQL offre tre tipi di database:
-
-- Un database singolo creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione](sql-database-service-tiers-vcore.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
-- Un database creato nell'ambito di un [pool di database](sql-database-elastic-pool.md) all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione basate su DTU](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione (basate su vCore)](sql-database-service-tiers-vcore.md)che vengono condivise tra tutti i database del pool. Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
-- Un'[istanza di un server SQL](sql-database-managed-instance.md) (un'istanza gestita) creata all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di risorse di calcolo e archiviazione per tutti i database presenti nell'istanza. Un'istanza gestita contiene database utente e di sistema. Istanza gestita è stato progettato per consentire il trasferimento di database in modalità lift-and-shift a una soluzione PaaS completamente gestita senza la necessità di riprogettare l'applicazione. Istanza gestita offre compatibilità elevata con il modello di programmazione di SQL Server locale e supporta la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati.  
-
-Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream) e consente solo connessioni TCP/IP crittografate.
-
-> [!IMPORTANT]
-> Istanza gestita di database SQL, attualmente in anteprima pubblica, offre un singolo livello di servizio per utilizzo generico. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md). La parte restante di questo articolo non si applica a Istanza gestita.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Server logici e database singoli del database SQL di Azure e relative risorse
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Che cos'è un server logico SQL di Azure?
 
@@ -59,6 +48,20 @@ Un server logico del database di Azure:
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
 - Le regole di confronto predefinite per tutti i database utente creati in un server logico sono `SQL_LATIN1_GENERAL_CP1_CI_AS`, dove `LATIN1_GENERAL` indica Inglese (Stati Uniti), `CP1` è la tabella codici 1252, `CI` indica che non viene fatta distinzione tra maiuscole e minuscole e `AS` indica che viene fatta distinzione tra caratteri accentati e non accentati.
+
+## <a name="logical-servers-and-databases"></a>Database e server logici
+
+In un server logico è possibile creare:
+
+- Un database singolo creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione](sql-database-service-tiers-vcore.md). Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+- Un database creato nell'ambito di un [pool di database](sql-database-elastic-pool.md) all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set combinato di [risorse di calcolo e archiviazione basate su DTU](sql-database-service-tiers-dtu.md) o una [gamma indipendente di risorse di calcolo e di archiviazione (basate su vCore)](sql-database-service-tiers-vcore.md)che vengono condivise tra tutti i database del pool. Un database SQL di Azure viene associato a un server logico di database SQL di Azure, creato all'interno di un'area specifica di Azure.
+
+> [!IMPORTANT]
+> L'Istanza gestita di database SQL, attualmente in anteprima pubblica, è un'[istanza di un server SQL](sql-database-managed-instance.md) (un'istanza gestita) creata all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con un set definito di risorse di calcolo e archiviazione per tutti i database presenti nell'istanza. Un'istanza gestita contiene database utente e di sistema. Istanza gestita è stato progettato per consentire il trasferimento di database in modalità lift-and-shift a una soluzione PaaS completamente gestita senza la necessità di riprogettare l'applicazione. Istanza gestita offre compatibilità elevata con il modello di programmazione di SQL Server locale e supporta la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md). La parte restante di questo articolo non si applica a Istanza gestita.
+
+## <a name="tds-and-tcpip-connections"></a>Connessioni TDS e TCP/IP
+
+Il database SQL di Microsoft Azure supporta la versione client 7.3 o successiva del protocollo TDS (Tabular Data Stream) e consente solo connessioni TCP/IP crittografate.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>I database SQL di Azure sono protetti dal firewall del database SQL
 
@@ -109,7 +112,7 @@ Per creare e gestire server, database e firewall SQL di Azure con Azure PowerShe
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Recupera uno o più database|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Imposta le proprietà per un database oppure sposta un database esistente in un pool elastico|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Rimuove un database|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Crea un gruppo di risorse]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Crea un gruppo di risorse|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Crea un server|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Restituisce informazioni sui server|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Modifica le proprietà di un server|

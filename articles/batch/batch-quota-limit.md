@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310537"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304022"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -51,14 +51,10 @@ Se è stato creato un account Batch con modalità di allocazione pool impostata 
 | [Attività simultanee](batch-parallel-node-tasks.md) per nodo di calcolo |4 x numero di core del nodo |
 | [Applicazioni](batch-application-packages.md) per account Batch |20 |
 | Pacchetti dell'applicazione per applicazione |40 |
-| Dimensioni del pacchetto dell'applicazione (ciascuno) |Circa 195 GB<sup>1</sup> |
-| Dimensione massima dell'attività di avvio | 32768 caratteri<sup>2</sup> |
-| Durata massima dell'attività | 7 giorni<sup>3</sup> |
+| Durata massima dell'attività | 7 giorni<sup>1</sup> |
 | Nodi di calcolo nel pool in cui è abilitata la comunicazione tra i nodi | 100 |
 
-<sup>1</sup> Limite di archiviazione di Azure per le dimensioni massime del BLOB in blocchi<br />
-<sup>2</sup> Include i file di risorse e le variabili di ambiente<br />
-<sup>3</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
+<sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
 
 
 ## <a name="view-batch-quotas"></a>Visualizzare le quote Batch

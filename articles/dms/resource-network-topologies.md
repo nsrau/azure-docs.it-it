@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235401"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316868"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure
-In questo articolo verranno introdotte diverse topologie di rete usate dal Servizio Migrazione del database di Azure per garantire un'esperienza avanzata di migrazione dai server SQL locali a Istanza gestita di database SQL di Azure.
+Questo articolo illustra diverse topologie di rete usate dal Servizio Migrazione del database di Azure per garantire un'esperienza di migrazione completa dai server SQL locali a Istanza gestita di database SQL di Azure.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Istanza gestita di database SQL di Azure configurata per carichi di lavoro ibridi 
 Usare questa topologia se Istanza gestita di database SQL di Azure è connessa alla rete locale. Questo approccio fornisce il routing di rete più semplificato e garantisce la massima velocità effettiva dei dati durante la migrazione.
@@ -40,7 +40,7 @@ Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari s
 
 **Requisiti**
 - Anche la rete virtuale usata dal Servizio Migrazione del database di Azure per questo scenario deve essere connessa alla rete locale tramite (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- È necessario configurare un [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per Istanza gestita di database SQL di Azure e il Servizio Migrazione del database di Azure.
+- Configurare un [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per Istanza gestita di database SQL di Azure e il Servizio Migrazione del database di Azure.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migrazioni da cloud a cloud: rete virtuale condivisa
@@ -62,7 +62,7 @@ Usare questa topologia di rete se l'ambiente richiede uno o più degli scenari s
 ![Topologia di rete per migrazioni da cloud a cloud con una rete virtuale isolata](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Requisiti**
-- È necessario configurare un [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per Istanza gestita di database SQL di Azure e il Servizio Migrazione del database di Azure.
+- Configurare un [peering di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) tra la rete virtuale usata per Istanza gestita di database SQL di Azure e il Servizio Migrazione del database di Azure.
 
 
 ## <a name="see-also"></a>Vedere anche
