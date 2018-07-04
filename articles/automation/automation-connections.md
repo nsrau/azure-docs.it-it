@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257680"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019313"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -80,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-È possibile utilizzare lo script per creare un asset di connessione perché, quando si crea l'account di Automazione, questo include automaticamente e per impostazione predefinita diversi moduli globali insieme al tipo di connessione **AzurServicePrincipal**, per creare l'asset di connessione **AzureRunAsConnection**.  È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione.  Per ulteriori informazioni su come creare un tipo di connessione personalizzata adatta al modulo da [PowerShell Gallery](https://www.powershellgallery.com), vedere [Moduli di integrazione](automation-integration-modules.md)
+È possibile usare lo script per creare un asset di connessione perché, quando si crea l'account di Automazione, questo include automaticamente e per impostazione predefinita diversi moduli globali insieme al tipo di connessione **AzureServicePrincipal**, per creare l'asset di connessione **AzureRunAsConnection**.  È un fattore importante da tenere presente, poiché se si tenta di creare un nuovo asset di connessione a un servizio o a un'applicazione con un metodo di autenticazione diverso, la creazione avrà esito negativo in quanto il tipo di connessione non è già definito nell'account di Automazione.  Per ulteriori informazioni su come creare un tipo di connessione personalizzata adatta al modulo da [PowerShell Gallery](https://www.powershellgallery.com), vedere [Moduli di integrazione](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Uso di una connessione in un Runbook o in una configurazione DSC
 

@@ -1,6 +1,6 @@
 ---
-title: Proteggere le comunicazioni remote per i servizi in Azure Service Fabric | Microsoft Docs
-description: Informazioni su come proteggere le comunicazioni remote per Reliable Services in esecuzione in un cluster di Azure Service Fabric.
+title: Proteggere le comunicazioni remote per i servizi in Azure Service Fabric con C# | Microsoft Docs
+description: Informazioni su come proteggere le comunicazioni remote per Reliable Services C# in esecuzione in un cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210274"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020020"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Proteggere le comunicazioni remote per un servizio
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteggere le comunicazioni remote in un servizio C#
 > [!div class="op_single_selector"]
 > * [C# su Windows](service-fabric-reliable-services-secure-communication.md)
 > * [Java su Linux](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-La sicurezza è uno degli aspetti essenziali delle comunicazioni. Il framework di applicazioni di Reliable Services offre alcuni stack e strumenti predefiniti che è possibile usare per migliorare la sicurezza. Questo articolo illustra come migliorare la sicurezza quando si usa la comunicazione remota per un servizio.
+La sicurezza è uno degli aspetti essenziali delle comunicazioni. Il framework di applicazioni di Reliable Services offre alcuni stack e strumenti predefiniti che è possibile usare per migliorare la sicurezza. Questo articolo discute come migliorare la sicurezza quando si usa la comunicazione remota in un servizio C#. Verrà usato un [esempio](service-fabric-reliable-services-communication-remoting.md) esistente che spiega come configurare la comunicazione remota per Reliable Services in C#. 
 
-Verrà usato un [esempio](service-fabric-reliable-services-communication-remoting.md) esistente che spiega come configurare la comunicazione remota per Reliable Services. Per proteggere un servizio quando si usa la comunicazione remota, seguire questa procedura:
+Per proteggere un servizio quando si usa la comunicazione remota con i servizi C#, seguire questa procedura:
 
 1. Creare un'interfaccia, `IHelloWorldStateful`, che definisce i metodi che saranno disponibili per la Remote Procedure Call del servizio. Il servizio userà il metodo `FabricTransportServiceRemotingListener`, dichiarato nello spazio dei nomi `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Si tratta di un’implementazione `ICommunicationListener` che fornisce funzionalità di accesso remoto.
 
@@ -57,7 +57,12 @@ Verrà usato un [esempio](service-fabric-reliable-services-communication-remotin
     ```
 2. Aggiungere le impostazioni del listener e le credenziali di sicurezza.
 
-    Assicurarsi che il certificato da usare per proteggere le comunicazioni dei servizi sia installato in tutti i nodi del cluster. Esistono due modi per specificare le impostazioni del listener e le credenziali di sicurezza:
+    Assicurarsi che il certificato da usare per proteggere le comunicazioni dei servizi sia installato in tutti i nodi del cluster. 
+    
+    > [!NOTE]
+    > Sui nodi Linux, il certificato deve essere presente come file formattati PEM nella directory */var/lib/sfcerts*. Per altre informazioni, vedere [Percorso e formato dei certificati X.509 nei nodi Linux](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Esistono due modi per specificare le impostazioni del listener e le credenziali di sicurezza:
 
    1. Specificarle direttamente nel codice del servizio:
 
@@ -94,7 +99,7 @@ Verrà usato un [esempio](service-fabric-reliable-services-communication-remotin
        ```
    2. Specificarle tramite un [pacchetto di configurazione](service-fabric-application-and-service-manifests.md):
 
-       Aggiungere una sezione `TransportSettings` nel file settings.xml.
+       Aggiungere una sezione denominata `TransportSettings` nel file settings.xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -202,5 +207,6 @@ Verrà usato un [esempio](service-fabric-reliable-services-communication-remotin
     string message = await client.GetHelloWorld();
 
     ```
+
 
 Come passaggio successivo, vedere [API Web con OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md).

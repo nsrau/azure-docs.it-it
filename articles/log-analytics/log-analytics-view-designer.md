@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939870"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752040"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Creare visualizzazioni personalizzate usando Progettazione visualizzazioni in Log Analytics
 Tramite Progettazione visualizzazioni in [Azure Log Analytics](log-analytics-overview.md) è possibile creare nel portale di Azure una serie di visualizzazioni personalizzate che consentono di visualizzare i dati nell'area di lavoro di Log Analytics. Questo articolo presenta una panoramica su Progettazione visualizzazioni e sulle procedure per la creazione e la modifica delle visualizzazioni personalizzate.
@@ -55,13 +55,14 @@ Le opzioni sono descritte nella tabella seguente:
 |:--|:--|
 | Aggiorna   | Aggiorna la visualizzazione con i dati più recenti. | 
 | Analytics | Apre il [portale Advanced Analytics](log-analytics-log-search-portals.md#advanced-analytics-portal) per analizzare i dati con ricerche log. |
-| Filtro    | Imposta un filtro temporale per i dati inclusi nella visualizzazione. |
-| Modificare      | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
-| Clone     | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
+| Modificare       | Apre la visualizzazione in Progettazione visualizzazioni per modificarne il contenuto e la configurazione.  |
+| Clone      | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
+| Intervallo di date | Impostare l'intervallo di tempo e di date per i dati inclusi nella vista. |
+| +          | Definire un filtro personalizzato che viene definito per la vista. |
 
 
 ## <a name="create-a-new-view"></a>Creazione di una nuova vista
-È possibile creare una nuova visualizzazione in Progettazione visualizzazioni selezionando il riquadro **Progettazione visualizzazioni** nella pagina **Panoramica** dell'area di lavoro di Log Analytics.
+È possibile creare una nuova vista in Progettazione visualizzazioni selezionando **Progettazione visualizzazioni** nel menu dell'area di lavoro di Log Analytics.
 
 ![Riquadro Progettazione viste](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ Le opzioni per l'uso delle visualizzazioni in modalità di modifica sono descrit
 | Esportazione      | Esporta la visualizzazione in un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) da importare in un'altra area di lavoro. Il nome del file corrisponde al nome della visualizzazione e ha estensione *omsview*. |
 | Importa      | Importa il file *omsview* esportato da un'altra area di lavoro. Questa azione sovrascrive la configurazione della visualizzazione esistente. |
 | Clone       | Crea una nuova visualizzazione e la apre in Progettazione visualizzazioni. La nuova visualizzazione ha lo stesso nome dell'originale, con l'aggiunta di *Copia*. |
-| Pubblica     | Esporta la visualizzazione in un file con estensione json da inserire in una [soluzione di gestione](../operations-management-suite/operations-management-suite-solutions-resources-views.md). Il file ha lo stesso nome della visualizzazione, ma ha estensione *json*. Un secondo file con estensione *resjson* include i valori delle risorse definite nel file con estensione json.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Aggiungere [Riquadri](log-analytics-view-designer-tiles.md) alla vista personalizzata.

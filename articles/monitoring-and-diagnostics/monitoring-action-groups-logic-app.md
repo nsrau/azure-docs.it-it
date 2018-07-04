@@ -1,5 +1,5 @@
 ---
-title: Come attivare azioni complesse con gli avvisi di Monitoraggio di Azure e i gruppi di azioni
+title: Come attivare azioni complesse con avvisi e gruppi di azioni di Monitoraggio di Azure
 description: Informazioni su come creare un'azione dell'app per la logica per elaborare gli avvisi di Monitoraggio di Azure.
 author: dkamstra
 services: azure-monitor
@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263885"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753094"
 ---
 # <a name="create-a-logic-app-action"></a>Creare un'azione dell'app per la logica
-## <a name="overview"></a>Panoramica ##
-Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](monitoring-action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare l'avviso agli utenti ed eventualmente correggere il problema.
 
 Questo articolo illustra come configurare e attivare un'app per la logica per creare una conversazione in Microsoft Teams quando viene generato un avviso.
 
+## <a name="overview"></a>Panoramica
+Quando si attiva un avviso di Monitoraggio di Azure, viene chiamato un [gruppo di azioni](monitoring-action-groups.md). I gruppi di azioni consentono di attivare una o più azioni per notificare un avviso agli utenti e correggere il problema.
+
 Il processo generale è il seguente:
 
--   Creare l'app per la logica per il rispettivo tipo di avviso
+-   Creare l'app per la logica per il rispettivo tipo di avviso.
 
--   Importare lo schema per il rispettivo tipo di avviso nell'app per la logica
+-   Importare lo schema per il rispettivo tipo di avviso nell'app per la logica.
 
--   Definire il comportamento dell'app per la logica
+-   Definire il comportamento dell'app per la logica.
 
--   Copiare l'endpoint HTTP dell'app per la logica in un gruppo di azioni di Azure
+-   Copiare l'endpoint HTTP dell'app per la logica in un gruppo di azioni di Azure.
 
 Il processo è simile se si vuole che l'app per la logica esegua un'azione diversa.
 
-## <a name="create-an-activity-log-alert--administrative"></a>Creare un avviso del log attività - Amministrativo
+## <a name="create-an-activity-log-alert-administrative"></a>Creare un avviso del log attività: amministrativo
 
-1.  Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
+1.  Nel portale di Azure selezionare **Crea una risorsa** nell'angolo superiore sinistro.
 
-2.  Cercare e selezionare **App per la logica**. Selezionare il pulsante **Create** .
+2.  Cercare e selezionare **App per la logica** e quindi selezionare **Crea**.
 
-3.  Assegnare un nome all'app per la logica, scegliere un gruppo di risorse e così via.
+3.  Assegnare un **Nome** all'app per la logica, scegliere un **Gruppo di risorse** e così via.
 
-    ![Finestra di dialogo Crea app per la logica](media/monitoring-action-groups/create-logic-app-dialog.png "Finestra di dialogo Crea app per la logica")
+    ![Creare un'app per la logica](media/monitoring-action-groups/create-logic-app-dialog.png "Creare un'app per la logica")
 
-4.  Fare clic sul pulsante Crea per creare l'app per la logica. Verrà visualizzato un popup al termine della creazione dell'app per la logica. Fare clic sul pulsante Launch Resource (Avvia risorsa) per aprire Progettazione app per la logica.
+4.  Fare clic su **Crea** per creare l'app per la logica. Un messaggio popup indica che l'app per la logica è stata creata. Selezionare **Launch Resource** (Avvia risorsa) per aprire **Progettazione app per la logica**.
 
 5.  Selezionare il trigger **Alla ricezione di una richiesta HTTP**.
 
@@ -51,13 +52,13 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
 
 6.  Selezionare **Modifica** per modificare il trigger di richiesta HTTP.
 
-    ![Forma del trigger di richiesta HTTP](media/monitoring-action-groups/http-request-trigger-shape.png "Forma del trigger di richiesta HTTP")
+    ![Trigger di richiesta HTTP](media/monitoring-action-groups/http-request-trigger-shape.png "Trigger di richiesta HTTP")
 
 7.  Selezionare **Usare il payload di esempio per generare lo schema**.
 
-    ![Pulsante Usare il payload di esempio](media/monitoring-action-groups/use-sample-payload-button.png "Pulsante Usare il payload di esempio")
+    ![Usare un esempio di payload](media/monitoring-action-groups/use-sample-payload-button.png "Usare un esempio di payload")
 
-8.  Copiare e incollare lo schema di esempio seguente nella finestra di dialogo.
+8.  Copiare e incollare lo schema di esempio seguente nella finestra di dialogo:
 
     ```json
         {
@@ -96,21 +97,21 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
         }
     ```
 
-9. In Progettazione app per la logica verrà visualizzata una nota per ricordare all'utente che la richiesta inviata all'app per la logica deve impostare l'intestazione Content-Type su application/json. Andare avanti e ignorare la finestra di dialogo. L'impostazione verrà configurata correttamente dall'avviso di Monitoraggio di Azure.
+9. In **Progettazione app per la logica** viene visualizzata una finestra popup per ricordare che la richiesta inviata all'app per la logica deve impostare l'intestazione **Content-Type** su **application/json**. Chiudere la finestra popup. L'avviso di Monitoraggio di Azure imposta l'intestazione.
 
-    ![Intestazione Content-Type](media/monitoring-action-groups/content-type-header.png "Intestazione Content-Type")
+    ![Impostare l'intestazione Content-Type](media/monitoring-action-groups/content-type-header.png "Impostare l'intestazione Content-Type")
 
-10. Selezionare **+ Nuovo passaggio** e quindi scegliere **Aggiungi un'azione**.
+10. Selezionare **+** **Nuovo passaggio** e quindi selezionare **Aggiungi un'azione**.
 
-    ![Aggiungi un'azione](media/monitoring-action-groups/add-action.png "Aggiungi un'azione")
+    ![Aggiungere un'azione](media/monitoring-action-groups/add-action.png "Aggiungere un'azione")
 
 11. Cercare e selezionare il connettore Microsoft Teams. Scegliere l'azione **Microsoft Teams – Pubblica messaggio**.
 
     ![Azioni di Microsoft Teams](media/monitoring-action-groups/microsoft-teams-actions.png "Azioni di Microsoft Teams")
 
-12. Configurare l'azione di Microsoft Teams. In Progettazione app per la logica verrà chiesto di eseguire l'autenticazione con l'account di Office 365. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
+12. Configurare l'azione di Microsoft Teams. In **Progettazione app per la logica** viene chiesto di autenticarsi con l'account Office 365. Scegliere l'**ID team** e l'**ID canale** per l'invio del messaggio.
 
-13. Configurare il **Messaggio** usando una combinazione di testo statico e riferimenti ai \<campi\> nel contenuto dinamico. Tagliare e incollare il testo seguente nel campo Messaggio.
+13. Configurare il messaggio usando una combinazione di testo statico e riferimenti ai \<campi\> nel contenuto dinamico. Copiare e incollare il testo seguente nel campo **Messaggio**:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -119,19 +120,16 @@ Il processo è simile se si vuole che l'app per la logica esegua un'azione diver
       resourceId: <resourceId>
     ```
 
-    Quindi cercare e sostituire i \<campi\> con i tag di contenuto dinamico con lo stesso nome.
+    Cercare e sostituire quindi i \<campi\> con tag di contenuto dinamico dello stesso nome.
 
-    **[NOTA!]** Sono disponibili due campi dinamici denominati **status**. Aggiungere entrambi i campi di stato al messaggio. Usare quello nel contenitore delle proprietà activityLog ed eliminare l'altro. Se si passa il puntatore sul campo **status**, verrà visualizzato il riferimento di campo completo come illustrato nello screenshot.
+    > [!NOTE]
+    > Sono disponibili due campi dinamici denominati **stato**. Aggiungere entrambi questi campi al messaggio. Usare il campo che si trova nell'elenco delle proprietà **activityLog** ed eliminare l'altro campo. Passare il cursore sul campo **stato** per visualizzare il riferimento completo del campo, come mostrato nella schermata seguente:
 
-    ![Azione di Teams - Pubblica messaggio](media/monitoring-action-groups/teams-action-post-message.png "Azione di Teams - Pubblica messaggio")
+    ![Azione Teams Microsoft: Pubblica un messaggio](media/monitoring-action-groups/teams-action-post-message.png "Azione Teams Microsoft: Pubblica un messaggio")
 
-14. Salvare l'app per la logica facendo clic sul pulsante Salva nella parte superiore della finestra di progettazione.
+14. Nella parte superiore di **Progettazione app per la logica**, selezionare **Salva** per salvare l'app per la logica.
 
-15. Fare clic sulla forma della richiesta HTTP per espanderla. Copiare l'URL HTTP POST.
-
-    ![URL HTTP POST](media/monitoring-action-groups/http-post-url.png "URL HTTP POST")
-
-16. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non è presente un gruppo di azioni, vedere <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups> per crearne uno. Non dimenticare di salvare le modifiche.
+15. Aprire il gruppo di azioni esistente e aggiungere un'azione per fare riferimento all'app per la logica. Se non si dispone di un gruppo di azioni esistente, vedere [Creare e gestire gruppi di azioni nel portale di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) per crearne uno. Non dimenticare di salvare le modifiche.
 
     ![Aggiornare il gruppo di azioni](media/monitoring-action-groups/update-action-group.png "Aggiornare il gruppo di azioni")
 
@@ -139,10 +137,10 @@ Quando un avviso richiama successivamente il gruppo di azioni, viene chiamata l'
 
 ## <a name="create-a-service-health-alert"></a>Creare un avviso di integrità dei servizi
 
-Le voci di integrità dei servizi fanno parte del log attività, pertanto il processo è analogo con le modifiche seguenti.
+Le voci di integrità dei servizi di Azure fanno parte del log attività. Il processo di creazione dell'avviso è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
 
-1.  I passaggi da 1 a 7 sono gli stessi.
-2.  Usare lo schema di esempio seguente per il trigger HTTP al passaggio 8.
+- I passaggi da 1 a 7 sono gli stessi.
+- Nel passaggio 8 usare lo schema di esempio seguente per il trigger della richiesta HTTP:
 
     ```json
     {
@@ -186,48 +184,51 @@ Le voci di integrità dei servizi fanno parte del log attività, pertanto il pro
     }
     ```
 
-3.  I passaggi 9-10 sono gli stessi.
-4.  Dal passaggio 11 in avanti usare la procedura seguente.
-5.  Fare clic sul pulsante **+ Nuovo passaggio** e scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
-    - schemaId == Microsoft.Insights/activityLogs
-    - eventSource == ServiceHealth
-    - version == 0.1.1
+-  I passaggi 9 e 10 sono gli stessi.
+-  Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-    !["Condizione di payload di integrità dei servizi"](media/monitoring-action-groups/service-health-payload-condition.png "Condizione di payload di integrità dei servizi")
+   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
+       - `schemaId == Microsoft.Insights/activityLogs`
+       - `eventSource == ServiceHealth`
+       - `version == 0.1.1`
 
-6. Nella condizione **È true** aggiungere l'azione di Microsoft Teams usando i passaggi da 11 a 13 dell'esempio precedente.
+      !["Condizione di payload di integrità dei servizi"](media/monitoring-action-groups/service-health-payload-condition.png "Condizione di payload di integrità dei servizi")
 
-7. Definire il messaggio usando una combinazione di HTML e [contenuto dinamico]. Copiare e incollare il contenuto riportato di seguito nel campo del messaggio. Sostituire i campi [incidentType], [trackingID], [title] e [communication] con i tag di contenuto dinamico con lo stesso nome.
+   1. Nella condizione **È true** seguire le istruzioni nei passaggi da 11 a 13 in [Creare un avviso del log attività](#create-an-activity-log-alert-administrative) per aggiungere l'azione Microsoft Teams.
 
-    ```html
-    <p>
-    <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
-    <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
-    <strong>Title:</strong>&nbsp;[title]</p>
-    <p>
-    <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard</a>
-    </p>
-    <p>[communication]</p>
-    ```
+   1. Definire il messaggio usando una combinazione di HTML e contenuto dinamico. Copiare e incollare il contenuto seguente nel campo **Messaggio**. Sostituire i campi `[incidentType]`, `[trackingID]`, `[title]` e `[communication]` con tag di contenuto dinamico con lo stesso nome:
 
-    !["Azione pubblicazione con condizione true di integrità dei servizi"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Azione pubblicazione con condizione true di integrità dei servizi")
+       ```html
+       <p>
+       <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
+       <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
+       <strong>Title:</strong>&nbsp;[title]</p>
+       <p>
+       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
+       </p>
+       <p>[communication]</p>
+       ```
 
-8. Per la condizione **È false** specificare un messaggio utile.
+       !["Azione pubblicazione con condizione true di integrità dei servizi"](media/monitoring-action-groups/service-health-true-condition-post-action.png "Azione pubblicazione con condizione true di integrità dei servizi")
 
-    ```html
-    <p><strong>Service Health Alert</strong></p>
-    <p><b>Unrecognized alert schema</b></p>
-    <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard\</a></p>
-    ```
+   1. Per la condizione **È false** specificare un messaggio utile:
 
-    !["Azione pubblicazione con condizione false di integrità dei servizi"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Azione pubblicazione con condizione false di integrità dei servizi")
+       ```html
+       <p><strong>Service Health Alert</strong></p>
+       <p><b>Unrecognized alert schema</b></p>
+       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
+       ```
 
-9.  Seguire i passaggi 15–16 dell'esempio precedente per salvare l'app per la logica e aggiornare il gruppo di azioni.
+       !["Azione pubblicazione con condizione false di integrità dei servizi"](media/monitoring-action-groups/service-health-false-condition-post-action.png "Azione pubblicazione con condizione false di integrità dei servizi")
 
-## <a name="metric-alert"></a>Avviso per la metrica
+- Il passaggio 15 è lo stesso. Seguire le istruzioni per salvare l'app per la logica e aggiornare il gruppo di azioni.
 
-1.  I passaggi da 1 a 7 sono gli stessi del primo esempio.
-2.  Usare lo schema di esempio seguente per il trigger HTTP al passaggio 8.
+## <a name="create-a-metric-alert"></a>Creare un avviso per la metrica
+
+Il processo di creazione di un avviso per la metrica è simile alla [creazione di un avviso del log attività](#create-an-activity-log-alert-administrative), ma con alcune differenze:
+
+- I passaggi da 1 a 7 sono gli stessi.
+- Nel passaggio 8 usare lo schema di esempio seguente per il trigger della richiesta HTTP:
 
     ```json
     {
@@ -271,26 +272,26 @@ Le voci di integrità dei servizi fanno parte del log attività, pertanto il pro
     }
     ```
 
-3.  I passaggi 9-10 sono gli stessi.
-4.  Dal passaggio 11 in avanti usare la procedura seguente.
-5.  Fare clic sul pulsante **+ Nuovo passaggio** e scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
+- I passaggi 9 e 10 sono gli stessi.
+- Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-    - schemaId == AzureMonitorMetricAlert
-    - version == 2.0
+   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
+       - `schemaId == AzureMonitorMetricAlert`
+       - `version == 2.0`
 
-    !["Condizione di payload dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condizione di payload dell'avviso per la metrica")
+       !["Condizione di payload dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condizione di payload dell'avviso per la metrica")
 
-6.  Nella condizione **È true** verranno aggiunte una forma **For each** e l'azione di Microsoft Teams e il messaggio sarà definito usando una combinazione di HTML e [contenuto dinamico].
+   1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
 
-    !["Azione pubblicazione con condizione true dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Azione pubblicazione con condizione true dell'avviso per la metrica")
+       !["Azione pubblicazione con condizione true dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "Azione pubblicazione con condizione true dell'avviso per la metrica")
 
-7.  Nella forma **È false** definire un'azione di Microsoft Teams che comunichi che l'avviso per la metrica non corrisponde alle aspettative dell'app per la logica e includere il payload JSON. Si noti come viene fatto riferimento al contenuto dinamico triggerBody nell'espressione json().
+   1. Nella condizione **È false** definire un'azione Microsoft Teams per comunicare che l'avviso per la metrica non corrisponde alle aspettative dell'app per la logica. Includere il payload JSON. Si noti come fare riferimento al contenuto dinamico `triggerBody` nell'espressione `json()`.
 
-    !["Azione pubblicazione con condizione false dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Azione pubblicazione con condizione false dell'avviso per la metrica")
+       !["Azione pubblicazione con condizione false dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "Azione pubblicazione con condizione false dell'avviso per la metrica")
 
-8.  Seguire i passaggi 15–16 del primo esempio per salvare l'app per la logica e aggiornare il gruppo di azioni.
+- Il passaggio 15 è lo stesso. Seguire le istruzioni per salvare l'app per la logica e aggiornare il gruppo di azioni.
 
-## <a name="next-steps"></a>Passaggi successivi ##
+## <a name="next-steps"></a>Passaggi successivi
 * Leggere una [panoramica degli avvisi del log attività](monitoring-overview-alerts.md) e informazioni su come ricevere gli avvisi.  
-* Informazioni su come [configurare gli avvisi ogni volta che viene inviata una notifica sull'integrità del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
-* Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)
+* Informazioni su come [configurare gli avvisi quando viene inviata una notifica sull'integrità dei servizi di Azure](monitoring-activity-log-alerts-on-service-notifications.md).
+* Altre informazioni sui [gruppi di azione](monitoring-action-groups.md).

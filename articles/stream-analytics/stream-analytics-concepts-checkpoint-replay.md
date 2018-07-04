@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529204"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936718"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Concetti di checkpoint e riproduzione nei processi di Analisi di flusso di Azure
 Questo articolo illustra i concetti di checkpoint interno e riproduzione in Analisi di flusso di Azure e il relativo impatto sul ripristino dei processi. Ogni volta che viene eseguito un processo di Analisi di flusso, le informazioni sullo stato vengono mantenute all'interno del servizio e salvate periodicamente in un checkpoint. In alcuni scenari le informazioni dei checkpoint vengono usate per il ripristino dei processi in caso di errore o di aggiornamento. In altre circostanze il checkpoint non può essere usato per il ripristino ed è necessario procedere alla riproduzione.
@@ -48,7 +48,7 @@ Occasionalmente Microsoft aggiorna i file binari che eseguono i processi di Anal
 
 Nella versione corrente il formato dei checkpoint di ripristino non viene mantenuto da un aggiornamento all'altro. Di conseguenza, lo stato della query di streaming deve essere ripristinato interamente usando la tecnica di riproduzione. Per consentire i processi di Analisi di flusso di riprodurre esattamente lo stesso input precedente, è importante impostare i criteri di conservazione dei dati di origine almeno sulla dimensione della finestra temporale nella query. In caso contrario, è possibile che durante l'aggiornamento del servizio vengano restituiti risultati parziali o non corretti perché i dati di origine potrebbero non essere stati conservati abbastanza a lungo da includere la dimensione dell'intera finestra temporale.
 
-La quantità di riproduzione necessaria è in genere proporzionale alla dimensione della finestra moltiplicata per la frequenza media degli eventi. Ad esempio, per un processo con una frequenza di input di 1000 eventi al secondo, una dimensione della finestra superiore a un'ora richiede un'ampia dimensione di riproduzione. Per le query con un'ampia dimensione di riproduzione è possibile osservare un ritardo di output (nessun output) per un periodo di tempo prolungato. 
+La quantità di riproduzione necessaria è in genere proporzionale alla dimensione della finestra moltiplicata per la frequenza media degli eventi. Ad esempio, per un processo con una frequenza di input di 1000 eventi al secondo, una dimensione della finestra superiore a un'ora richiede un'ampia dimensione di riproduzione. Potrebbe essere necessaria un'ora di rielaborazione dei dati per inizializzare lo stato in modo da produrre risultati completi e corretti, che potrebbe causare un ritardo dell'output (nessun output) per un periodo di tempo prolungato. Per le query senza finestre o di altri operatori temporali, come `JOIN` o `LAG`, non è prevista nessuna riproduzione.
 
 ## <a name="estimate-replay-catch-up-time"></a>Stimare il tempo di ripristino
 Per stimare la durata del ritardo a causa di un aggiornamento del servizio, è possibile adottare questa tecnica:

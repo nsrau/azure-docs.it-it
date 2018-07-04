@@ -10,29 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356087"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336769"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Dashboard panoramica di Application Insights (anteprima)
+# <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
 Application Insights ha sempre fornito un riquadro riepilogativo per consentire una valutazione rapida e immediata dello stato e delle prestazioni dell'applicazione. Il nuovo dashboard panoramica offre un'esperienza più flessibile e veloce.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Come testare la nuova esperienza?
 
- In Application Insights in: _Panoramica_, selezionare _Please try new Overview before it becomes the default experience_ (Provare la nuova Panoramica prima che diventi l'esperienza predefinita).
+Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
-![Panoramica (anteprima)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Verrà avviato il nuovo dashboard panoramica predefinito:
-
-![Riquadro della Panoramica (anteprima)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Riquadro della Panoramica (anteprima)](.\media\app-insights-overview-dashboard\overview-0001.png)
 
 ## <a name="better-performance"></a>Migliori prestazioni
 
@@ -40,7 +36,7 @@ La selezione dell'intervallo di tempo è stata semplificata in una semplice inte
 
 ![Intervallo di tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Le prestazioni complessive sono state notevolmente migliorate. Ciascun riquadro KPI con aggiornamento dinamico predefinito è collegato alla funzionalità Application Insights corrispondente. Ad esempio, selezionando le richieste non riuscite verrà avviato il riquadro _Errori_:
+Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
 ![Errori](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -56,7 +52,7 @@ Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazi
 
 ![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Mentre è possibile mantenere la visualizzazione predefinita desiderata, si può anche aggiungere ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
+Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 
 > [!NOTE]
 > Tutti gli utenti con accesso alla risorsa di Application Insights condividono la stessa esperienza di dashboard dell'applicazione. Le modifiche apportate da un utente modificheranno la visualizzazione per tutti gli utenti.
@@ -64,6 +60,12 @@ Mentre è possibile mantenere la visualizzazione predefinita desiderata, si può
 Per tornare all'esperienza panoramica, selezionare:
 
 ![Pulsante Panoramica](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+
+## <a name="access-the-classic-overview-dashboard"></a>Accedere al dashboard panoramica classica
+
+Se non è disponibile la panoramica precedente, scegliere **Panoramica classica**.
+
+![Panoramica classica](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

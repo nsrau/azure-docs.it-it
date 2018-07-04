@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631762"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752684"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -36,7 +36,7 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 
 ### <a name="start-vs-code"></a>Avviare Visual Studio Code
 
-- Assicurarsi che il DevKit **non** sia connesso al computer.
+- Assicurarsi che il DevKit sia connesso al computer.
 - Avviare Visual Studio Code.
 - Connettere il dispositivo DevKit al computer.
 
@@ -45,7 +45,10 @@ Una sottoscrizione di Azure attiva. Se non è disponibile, è possibile registra
 
 ### <a name="open-arduino-examples-folder"></a>Aprire la cartella degli esempi di Arduino
 
-Espandere la sezione **ARDUINO EXAMPLES** (ESEMPI ARDUINO) a sinistra, passare a **Examples for MXCHIP AZ3166 > AzureIoT** (Esempi per MXCHIP AZ3166 > AzureIoT) e selezionare **ShakeShake**. Si apre una nuova finestra di Visual Studio Code con una cartella di progetto all'interno.
+Espandere la sezione **ARDUINO EXAMPLES** (ESEMPI ARDUINO) a sinistra, passare a **Examples for MXCHIP AZ3166 > AzureIoT** (Esempi per MXCHIP AZ3166 > AzureIoT) e selezionare **ShakeShake**. Si apre una nuova finestra di Visual Studio Code con una cartella di progetto all'interno.  
+
+> [!NOTE]
+> Se non è possibile visualizzare la sezione MXCHIP AZ3166, assicurarsi che il dispositivo sia collegato correttamente e riavviare Visual Studio Code.  
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

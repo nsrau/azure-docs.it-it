@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371338"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943267"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
-Questo articolo illustra il modo in cui viene abilitata la migrazione di risorse dell'infrastruttura distribuita come servizio (IaaS) dal modello di distribuzione classica al modello di Azure Resource Manager. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). Sono disponibili indicazioni su come connettere le risorse dai due modelli di distribuzione che coesistono nella sottoscrizione mediante i gateway da sito a sito per le reti virtuali.
+L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
 
 ## <a name="goal-for-migration"></a>Obiettivo della migrazione
 Resource Manager consente di distribuire applicazioni complesse mediante modelli, configura le macchine virtuali tramite le estensioni di macchina virtuale e incorpora la gestione degli accessi e l'uso dei tag. Azure Resource Manager include anche una distribuzione parallela e scalabile per le macchine virtuali nei set di disponibilità. Il nuovo modello di distribuzione offre inoltre la gestione del ciclo di vita delle risorse di calcolo, rete e archiviazione, in modo indipendente. Infine, ci si concentra anche sull'abilitazione della sicurezza predefinita tramite l'imposizione di macchine virtuali in una rete virtuale.
@@ -38,12 +38,12 @@ Durante la migrazione sono supportate queste risorse IaaS classiche
 * IP riservati
 
 ## <a name="supported-scopes-of-migration"></a>Ambiti di migrazione supportati
-Sono disponibili 4 modi diversi per completare la migrazione delle risorse di calcolo, rete e archiviazione. Si tratta di
+Sono disponibili quattro modi diversi per completare la migrazione delle risorse di calcolo, rete e archiviazione:
 
-* Migrazione di macchine virtuali (NON in una rete virtuale)
-* Migrazione di macchine virtuali (in una rete virtuale)
-* Migrazione degli account di archiviazione
-* Risorse scollegate (gruppi di sicurezza di rete, tabelle di route e indirizzi IP riservati)
+* [Migrazione di macchine virtuali (NON in una rete virtuale)](#migration-of-virtual-machines-not-in-a-virtual-network)
+* [Migrazione di macchine virtuali (in una rete virtuale)](#migration-of-virtual-machines-in-a-virtual-network)
+* [Migrazione di account di archiviazione](#migration-of-storage-accounts)
+* [ di risorse scollegate](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>Migrazione di macchine virtuali (NON in una rete virtuale)
 Nel modello di distribuzione Resource Manager la sicurezza delle applicazioni è applicata per impostazione predefinita. Nel modello di Resource Manager tutte le macchine virtuali devono trovarsi in una rete virtuale. La piattaforma Azure riavvia (`Stop`, `Deallocate`, e `Start`) le VM nell'ambito della migrazione. Sono disponibili due opzioni per le reti virtuali verso le quali verrà eseguita la migrazione delle macchine virtuali:
@@ -53,7 +53,6 @@ Nel modello di distribuzione Resource Manager la sicurezza delle applicazioni è
 
 > [!NOTE]
 > In questo ambito di migrazione, le operazioni del piano di gestione e del piano dati potrebbero non essere consentite per un determinato periodo di tempo durante la migrazione.
->
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>Migrazione di macchine virtuali (in una rete virtuale)
@@ -67,23 +66,25 @@ Le seguenti configurazioni non sono attualmente supportate. Se in futuro verrà 
 > [!NOTE]
 > In questo ambito di migrazione è possibile che le operazioni del piano di gestione non siano consentite per un determinato periodo di tempo durante la migrazione. Per alcune configurazioni, come illustrato in precedenza, il piano dati subisce tempi di inattività.
 >
->
 
-### <a name="storage-accounts-migration"></a>Migrazione degli account di archiviazione
+### <a name="migration-of-storage-accounts"></a>Migrazione degli account di archiviazione
 Per consentire una migrazione senza problemi, è possibile distribuire VM di Resource Manager in un account di archiviazione classico. Questa funzionalità consente di eseguire la migrazione di risorse di calcolo e di rete indipendentemente dagli account di archiviazione. Una volta eseguita la migrazione su macchine virtuali e rete virtuale, sarà necessario fare lo stesso sugli account di archiviazione per completare la procedura di migrazione.
+
+Se all'account di archiviazione non sono associati dischi o dati di macchine virtuali ma solo BLOB, file, tabelle e code, la migrazione ad Azure Resource Manager può essere effettuata come migrazione autonoma senza dipendenze.
 
 > [!NOTE]
 > Il modello di distribuzione Resource Manager non prevede il concetto di immagini e dischi classici. Quando viene migrato l'account di archiviazione, le immagini e i dischi classici non sono visualizzati nello stack di Resource Manager ma i VHD di supporto rimangono nell'account di archiviazione.
 >
->
 
-### <a name="unattached-resources-network-security-groups-route-tables--reserved-ips"></a>Risorse scollegate (gruppi di sicurezza di rete, tabelle di route e indirizzi IP riservati)
-Per i gruppi di sicurezza di rete, le tabelle di route e gli indirizzi IP riservati non associati a macchine e reti virtuali è possibile eseguire la migrazione in modo indipendente.
+### <a name="migration-of-unattached-resources"></a>Migrazione di risorse scollegate
+È possibile effettuare la migrazione di account di archiviazione senza dischi o dati di macchine virtuali associati in modo indipendente.
+
+Per i gruppi di sicurezza di rete, le tabelle di route e gli indirizzi IP riservati non associati a macchine e reti virtuali è possibile anche eseguire la migrazione in modo indipendente.
 
 <br>
 
 ## <a name="unsupported-features-and-configurations"></a>Funzionalità e configurazioni non supportate
-Alcune funzionalità e configurazioni non sono attualmente supportate. Nelle sezioni seguenti sono descritti i consigli in merito.
+Alcune funzioni e configurazioni non sono attualmente supportate; nella sezione seguente sono descritti i consigli in merito.
 
 ### <a name="unsupported-features"></a>Funzionalità non supportate
 Le seguenti funzionalità non sono attualmente supportate. È possibile rimuovere facoltativamente queste impostazioni, eseguire la migrazione delle macchine virtuali e quindi riabilitare le impostazioni nel modello di distribuzione di Resource Manager.

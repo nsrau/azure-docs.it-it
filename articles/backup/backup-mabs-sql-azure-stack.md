@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248975"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751798"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
+# <a name="back-up-sql-server-on-stack"></a>Eseguire il backup di SQL Server in Stack
 Usare questo articolo per configurare il server di Backup di Microsoft Azure (MABS) per proteggere i database di SQL Server in Azure Stack.
 
 La gestione delle operazioni di backup del database SQL server in Azure e di ripristino da Azure prevede tre passaggi:
 
-1. Creare un criterio di backup per proteggere i database SQL Server in Azure.
-2. Creare copie di backup su richiesta in Azure.
-3. Ripristinare il database da Azure.
+1. Creare un criterio di backup per proteggere i database SQL Server
+2. Creare copie di backup su richiesta
+3. Ripristinare il database dai dischi e da Azure
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -63,12 +63,6 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
    >
 
 7. Nella schermata **Verifica allocazione dischi** verificare lo spazio di archiviazione complessivo disponibile e il potenziale spazio su disco. Fare clic su **Avanti**.
-
-    ![Allocazione dei dischi](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Per impostazione predefinita, il server di Backup di Azure crea un volume per origine dati (database di SQL Server), che viene usato per la creazione della copia di backup iniziale. Con questo approccio, il gestore dischi logici (LDM) limita la protezione di Backup di Azure a 300 origini dati (database di SQL Server). Per porre rimedio a questa limitazione, selezionare **Condividi percorso dati nel pool di archiviazione DPM**. Con la condivisione, il server di Backup di Azure usa un singolo volume per più origini dati ed è in grado di proteggere fino a 2000 database di SQL Server.
-
-    Se si seleziona **Aumenta automaticamente i volumi**, il server di Backup di Azure adegua l'aumento del volume di backup all'aumento dei dati di produzione. Se non si seleziona l'opzione, il server di Backup di Azure limita l'archivio di backup usato alle origini dati del gruppo protezione dati.
 
 8. In **Scelta del metodo per la creazione della replica** scegliere la modalità di creazione del primo punto di recupero. Il backup iniziale (fuori rete) può essere trasferito manualmente per evitare la congestione della larghezza di banda o attraverso la rete. Se si sceglie di attendere prima di trasferire il primo backup, è possibile specificare l'orario del trasferimento iniziale. Fare clic su **Avanti**.
 
@@ -111,12 +105,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
     * Il backup di sabato alle ore 12:00 P.M. viene conservato per 104 settimane
     * Il backup dell'ultimo sabato alle 12.00 P.M. viene conservato per 60 mesi
     * Il backup dell'ultimo sabato di marzo alle 12.00 P.M. viene conservato per 10 anni
-13. Fare clic su **Avanti** e selezionare l'opzione appropriata per il trasferimento in Azure della copia di backup iniziale. È possibile scegliere **Automaticamente tramite la rete** o **Backup offline**.
-
-    * **automaticamente tramite la rete** i dati di backup vengono trasferiti in Azure in base alla pianificazione scelta per il backup.
-    * Le caratteristiche di **Backup offline** sono descritte in [Flusso di lavoro di Backup offline in Backup di Azure](backup-azure-backup-import-export.md).
-
-    Scegliere il meccanismo di trasferimento pertinente per l'invio ad Azure della copia di backup iniziale e fare clic su **Avanti**.
+13. Fare clic su **Avanti** e selezionare l'opzione appropriata per il trasferimento in Azure della copia di backup iniziale. È possibile scegliere **Automaticamente tramite la rete**
 
 14. Dopo aver esaminato i dettagli dei criteri nella schermata **Riepilogo**, fare clic su **Crea gruppo** per completare il flusso di lavoro. È possibile fare clic su **Chiudi** e monitorare l'avanzamento del processo nell'area di lavoro Monitoraggio.
 
@@ -147,11 +136,11 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 2. Fare clic con il pulsante destro del mouse sul nome del database e scegliere **Ripristina**.
 
     ![Ripristino da Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM mostra i dettagli del punto di ripristino. Fare clic su **Avanti**. Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Avanti**.
+3. MABS mostra i dettagli del punto di ripristino. Fare clic su **Avanti**. Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Avanti**.
 
     ![Ripristino nel percorso originale](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    In questo esempio DPM recupera il database in un'altra istanza di SQL server o in una cartella di rete autonoma.
+    In questo esempio MABS recupera il database in un'altra istanza di SQL server o in una cartella di rete autonoma.
 
 4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Avanti**.
 

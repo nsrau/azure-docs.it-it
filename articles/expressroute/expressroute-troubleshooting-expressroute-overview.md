@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185986"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753448"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifica della connettività di ExpressRoute
 ExpressRoute, che consente di estendere una rete locale nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività, coinvolge le tre diverse aree di rete seguenti:
@@ -174,7 +174,7 @@ Dopo che il provider di servizi ha completato il provisioning del circuito Expre
 ### <a name="verification-via-the-azure-portal"></a>Verifica tramite il portale di Azure
 
 >[!NOTE]
->Se il livello 3 viene fornito dal provider di servizi e i peering sono vuoti nel portale, aggiornare la configurazione del circuito utilizzando il pulsante di aggiornamento del portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
+>Se il livello 3 viene fornito dal provider di servizi e i peering sono vuoti nel portale, aggiornare la configurazione del circuito usando il pulsante di aggiornamento del portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
 >
 >
 

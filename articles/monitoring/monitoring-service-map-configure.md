@@ -3,8 +3,8 @@ title: Configurare Mapping dei servizi in Azure | Microsoft Docs
 description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 872d5f05e4d607c9445d1af5cc9b9cb984c19e11
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204193"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752575"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -49,7 +49,7 @@ In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Op
 
 In Linux, l'agente OMS per Linux raccoglie e invia i dati di monitoraggio a Log Analytics. È possibile usare Mapping dei servizi in server con agenti OMS diretti o in server collegati a Log Analytics tramite gruppi di gestione di System Center Operations Manager.  
 
-In questo articolo, si fa riferimento a tutti gli agenti, sia Linux che Windows, sia connessi a un gruppo di gestione di System Center Operations Manager sia direttamente a Log Analytics, con l'espressione "Agente OMS". Il nome della distribuzione specifica dell'agente verrà usato solo se necessario per il contesto.
+In questo articolo, si fa riferimento a tutti gli agenti, sia Linux che Windows, sia connessi a un gruppo di gestione di System Center Operations Manager sia direttamente a Log Analytics, con l'espressione *Agente OMS*. Il nome della distribuzione specifica dell'agente verrà usato solo se necessario per il contesto.
 
 L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Mapping dei servizi vengono sempre trasmessi dall'Agente OMS a Log Analytics, direttamente o tramite il gateway OMS.
 
@@ -60,7 +60,7 @@ Per un cliente di System Center Operations Manager con un gruppo di gestione con
 - Non è necessaria alcuna configurazione aggiuntiva se gli agenti System Center Operations Manager possono accedere a Internet per connettersi a Log Analytics.  
 - È necessario configurare il gateway OMS in modo da usare System Center Operations Manager quando gli agenti System Center Operations Manager non possono connettersi a Log Analytics tramite Internet.
   
-Se si usa l'Agente OMS diretto, è necessario configurare l'Agente OMS in modo che si connetta a Log Analytics o al gateway OMS. Il gateway OMS può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
+Se si usa l'Agente OMS diretto, è necessario configurare l'Agente OMS in modo che si connetta a Log Analytics o al gateway OMS. Il gateway OMS può essere scaricato dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666). Per altre informazioni su come distribuire e configurare il gateway OMS, vedere [Connettere computer senza accesso a Internet tramite il gateway OMS](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Management Pack
 Quando viene attivato Mapping dei servizi in un'area di lavoro di Log Analytics, a tutti i server Windows nell'area di lavoro viene inviato un Management Pack di 300 KB. Se si usano gli agenti System Center Operations Manager in un [gruppo di gestione connesso](../log-analytics/log-analytics-om-agents.md), il management pack di Mapping dei servizi viene distribuito da System Center Operations Manager. Se gli agenti sono connessi direttamente, il Management Pack viene fornito da Log Analytics.
@@ -75,7 +75,7 @@ Dependency Agent viene installato nei computer Windows con InstallDependencyAgen
 
 Per installare Dependency Agent in ogni computer Windows, seguire questa procedura:
 
-1.  Installare l'agente OMS seguendo le istruzioni in [Connettere computer Windows al servizio Log Analytics in Azure](../log-analytics/log-analytics-windows-agent.md).
+1.  Installare l'agente OMS attenendosi a uno dei metodi descritti in [Raccogliere dati dai computer dell'ambiente con Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Scaricare l'agente Windows ed eseguirlo usando il comando seguente: <br>`InstallDependencyAgent-Windows.exe`
 3.  Seguire la procedura guidata per installare l'agente.
 4.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs. 
@@ -99,7 +99,7 @@ Dependency Agent viene installato nei computer Linux con InstallDependencyAgent-
  
 Per installare Dependency Agent in ogni computer Linux, seguire questa procedura:
 
-1.  Installare l'agente OMS seguendo le istruzioni in [Collegare e gestire i dati da computer Linux](https://technet.microsoft.com/library/mt622052.aspx).
+1.  Installare l'agente OMS attenendosi a uno dei metodi descritti in [Raccogliere dati dai computer dell'ambiente con Log Analytics](../log-analytics/log-analytics-concept-hybrid.md).
 2.  Installare Linux Dependency Agent come utente ROOT usando il comando seguente:<br>`sh InstallDependencyAgent-Linux64.bin`
 3.  Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Linux la directory di log è /var/opt/microsoft/dependency-agent/log.
 
@@ -143,6 +143,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 È possibile distribuire facilmente Dependency Agent nelle macchine virtuali Azure usando un'[Estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali usando uno script PowerShell o direttamente nel modello di Azure Resource Manager della macchina virtuale.  È disponibile un'estensione sia per Windows (DependencyAgentWindows) che per Linux (DependencyAgentLinux).  Se si esegue la distribuzione con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alle versioni più recenti.
 
 Per distribuire l'estensione di VM Azure tramite PowerShell, è possibile usare l'esempio seguente:
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -169,7 +170,8 @@ ForEach-Object {
 }
 ```
 
-Un modo ancora più semplice per assicurarsi che Dependency Agent sia presente in tutte le macchine virtuali è di includere l'agente nel modello di Azure Resource Manager.  Si noti che Dependency Agent dipende dall'agente OMS, quindi è necessario distribuire prima l'[estensione di VM dell'agente OMS](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension).  È possibile aggiungere il frammento seguente di JSON alla sezione delle *risorse* del modello.
+Un modo ancora più semplice per assicurarsi che Dependency Agent sia presente in tutte le macchine virtuali è di includere l'agente nel modello di Azure Resource Manager.  Si noti che Dependency Agent dipende dall'agente OMS, quindi è necessario distribuire prima l'[estensione di VM dell'agente OMS](../virtual-machines/extensions/oms-linux.md).  È possibile aggiungere il frammento seguente di JSON alla sezione delle *risorse* del modello.
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -190,6 +192,7 @@ Un modo ancora più semplice per assicurarsi che Dependency Agent sia presente i
 
 ## <a name="desired-state-configuration"></a>Configurazione dello stato desiderato
 Per distribuire Dependency Agent tramite Desired State Configuration, è possibile usare il modulo xPSDesiredStateConfiguration e un frammento di codice simile al seguente:
+
 ```
 configuration ServiceMap {
 
@@ -231,10 +234,13 @@ Per disinstallare Dependency Agent, un amministratore può anche eseguire %Progr
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Disinstallare Dependency Agent in Linux
 È possibile disinstallare Dependency Agent da Linux con il comando seguente.
 <br>RHEL, CentOS oppure Oracle:
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu:
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -242,7 +248,7 @@ sudo apt -y purge dependency-agent
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemi di installazione di Dependency Agent
-#### <a name="installer-asks-for-a-reboot"></a>Il programma di installazione richiede il riavvio
+#### <a name="installer-prompts-for-a-reboot"></a>Il programma di installazione richiede il riavvio
 Dependency Agent *in genere* non richiede un riavvio dopo l'installazione o la disinstallazione. Tuttavia, in alcuni casi rari, Windows Server può richiedere di riavviare il computer per continuare con l'installazione. Ciò si verifica quando una dipendenza, in genere Visual C++ Redistributable di Microsoft, richiede un riavvio a causa di un file bloccato.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Viene visualizzato il messaggio "Non è stato possibile installare Dependency Agent: impossibile installare le librerie di runtime di Visual Studio (codice = [numero_di_codice])"
@@ -272,7 +278,7 @@ Se l'installazione di Dependency Agent è stata completata correttamente, ma nel
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'Agente OMS funziona correttamente e comunica con Log Analytics. In caso contrario, controllare l'agente OMS sul server: [Risoluzione dei problemi dell'agente OMS per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) o [Risoluzione dei problemi dell'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+  I risultati mostrano eventi diversi? I dati sono aggiornati? In questo caso, l'Agente OMS funziona correttamente e comunica con Log Analytics. In caso contrario, controllare l'agente OMS sul server: [Risoluzione dei problemi dell'agente OMS per Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) o [Risoluzione dei problemi dell'agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Il server viene visualizzato in Mapping dei servizi, ma non dispone di alcun processo
 Se il server viene visualizzato nell'Elenco dei servizi, ma non presenta processi o dati di connessione, vuol dire che Dependency Agent è installato ed è in esecuzione, ma non è stato caricato il driver del kernel. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425334"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962389"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console seriale per macchine virtuali (anteprima) 
 
@@ -32,6 +32,7 @@ La console seriale per macchine virtuali in Azure fornisce l'accesso a una conso
 
 ## <a name="prerequisites"></a>prerequisiti 
 
+* È necessario usare il modello di distribuzione di Gestione risorse. Non sono supportate le distribuzioni classiche. 
 * La macchina virtuale DEVE avere la [diagnostica di avvio](boot-diagnostics.md) abilitata 
 * L'account che usa la console seriale deve avere il [ruolo Collaboratore](../../role-based-access-control/built-in-roles.md) per la VM e l'account di archiviazione della [diagnostica di avvio](boot-diagnostics.md). 
 * Per le impostazioni specifiche per le distribuzioni di Linux, vedere [Accessing the serial console for Linux](#accessing-serial-console-for-linux) (Accedere alla console seriale per Linux)
@@ -90,8 +91,8 @@ Interazione con bootloader | Accedere a GRUB/BCD tramite la console seriale | Li
 ## <a name="accessing-serial-console-for-linux"></a>Accedere alla console seriale per Linux
 Affinché la console seriale funzioni correttamente, il sistema operativo guest deve essere configurato per leggere e scrivere i messaggi della console nella porta seriale. La maggior parte delle [distribuzioni di Azure per Linux approvate](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) ha la console seriale configurata per impostazione predefinita. Facendo clic nella sezione della console seriale nel portale sarà possibile accedere alla console. 
 
-### <a name="access-for-redhat"></a>Accesso per RedHat 
-Le immagini RedHat disponibili in Azure hanno l'accesso alla console abilitato per impostazione predefinita. La modalità utente singolo in Red Hat richiede che sia abilitato l'utente ROOT, che è disabilitato per impostazione predefinita. Per abilitare la modalità utente singolo, seguire le istruzioni seguenti:
+### <a name="access-for-red-hat"></a>Accesso per Red Hat 
+Le immagini Red Hat disponibili in Azure hanno l'accesso alla console abilitato per impostazione predefinita. La modalità utente singolo in Red Hat richiede che sia abilitato l'utente ROOT, che è disabilitato per impostazione predefinita. Per abilitare la modalità utente singolo, seguire le istruzioni seguenti:
 
 1. Accedere al sistema Red Hat tramite SSH
 2. Abilitare la password per l'utente ROOT 

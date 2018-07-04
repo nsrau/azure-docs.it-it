@@ -3,7 +3,7 @@ title: Come usare PerfInsights in Microsoft Azure| Microsoft Docs
 description: Informazioni su come usare PerfInsights per risolvere i problemi delle prestazioni delle VM Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160659"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946276"
 ---
-# <a name="how-to-use-perfinsights"></a>Come usare PerfInsights 
+# <a name="how-to-use-perfinsights"></a>Come usare PerfInsights
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) è uno strumento Self-help che raccoglie e analizza i dati di diagnostica e fornisce un report utile per risolvere i problemi relativi alle prestazioni delle macchine virtuali Windows in Azure. PerfInsights può essere eseguito nelle macchine virtuali come strumento autonomo o direttamente dal portale installando l'[estensione per macchine virtuali Diagnostica prestazioni di Azure](performance-diagnostics-vm-extension.md).
 
@@ -31,7 +31,7 @@ Se si verificano problemi di prestazioni delle macchine virtuali, eseguire lo st
 
 PerfInsights può raccogliere e analizzare diversi tipi di informazioni. Le sezioni seguenti trattano scenari comuni.
 
-### <a name="collect-basic-configuration"></a>Raccolta della configurazione di base 
+### <a name="quick-performance-analysis"></a>Analisi rapida di prestazioni
 
 Questo scenario consente di raccogliere la configurazione dei dischi e altre importanti informazioni, tra cui:
 
@@ -64,11 +64,11 @@ Questo scenario esegue il test di benchmark [Diskspd](https://github.com/Microso
 > Questo scenario può influire sul sistema e non deve essere eseguito in un sistema di produzione live. Se necessario, eseguire questo scenario in una finestra di manutenzione dedicata per evitare qualsiasi problema. Un maggiore carico di lavoro causato da un test di traccia o di benchmark può influire negativamente sulle prestazioni della macchina virtuale.
 >
 
-### <a name="slow-vm-analysis"></a>Analisi di una macchina virtuale lenta 
+### <a name="slow-vm-analysis"></a>Analisi di una macchina virtuale lenta
 
 Questo scenario esegue una traccia dei [contatori delle prestazioni](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) usando i contatori specificati nel file RuleEngineConfig.json. Se la macchina virtuale viene identificata come server che esegue SQL Server, viene eseguita una traccia del contatore delle prestazioni. Questa operazione viene eseguita usando i contatori che si trovano nel file RuleEngineConfig.json. Lo scenario include anche i dati di diagnostica delle prestazioni.
 
-### <a name="azure-files-analysis"></a>Analisi di File di Azure 
+### <a name="azure-files-analysis"></a>Analisi di File di Azure
 
 Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni insieme a una traccia di rete. L'acquisizione include tutti i contatori delle condivisioni client Server Message Block, ovvero SMB. I seguenti sono alcuni dei principali contatori delle prestazioni Condivisioni client SMB che fanno parte dell'acquisizione:
 
@@ -90,9 +90,9 @@ Questo scenario esegue una speciale acquisizione dei contatori delle prestazioni
 |              | Avg. media coda scrittura       |
 |              | Lunghezza media coda dati        |
 
-### <a name="custom-slow-vm-analysis"></a>Analisi personalizzata di una macchina virtuale lenta 
+### <a name="advanced-slow-vm-analysis"></a>Analisi avanzata di una macchina virtuale lenta avanzata
 
-Quando si esegue un'analisi personalizzata di una macchina virtuale lenta, l'utente deve selezionare le tracce da eseguire in parallelo. Se si vuole, è possibile eseguirle tutte (Performance Counter, Xperf, Network e StorPort).  
+Quando si esegue un'analisi avanzata di una macchina virtuale lenta, l'utente deve selezionare le tracce da eseguire in parallelo. Se si vuole, è possibile eseguirle tutte (Performance Counter, Xperf, Network e StorPort).  
 
 > [!Note]
 > Questo scenario può influire sul sistema e non deve essere eseguito in un sistema di produzione live. Se necessario, eseguire questo scenario in una finestra di manutenzione dedicata per evitare qualsiasi problema. Un maggiore carico di lavoro causato da un test di traccia o di benchmark può influire negativamente sulle prestazioni della macchina virtuale.
@@ -104,7 +104,7 @@ Vengono raccolte informazioni sulla macchina virtuale Windows, sulla configurazi
 
 |Dati raccolti                              |  |  | Scenari delle prestazioni |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Raccolta della configurazione di base | Benchmarking | Analisi di una macchina virtuale lenta | Analisi di File di Azure | Analisi personalizzata di una macchina virtuale lenta |
+|                               | Analisi rapida di prestazioni | Benchmarking | Analisi di una macchina virtuale lenta | Analisi di File di Azure | Analisi avanzata di una macchina virtuale lenta avanzata |
 | Informazioni dei registri eventi       | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Informazioni di sistema                | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
 | Mapping del volume                        | Sì                        | Sì                                | Sì                      | Sì                  | Sì                  |
@@ -171,9 +171,9 @@ Il carico di lavoro di I/O Diskspd testa (disco del sistema operativo [scrittura
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possibili problemi quando si esegue lo strumento nelle macchine virtuali di produzione
 
--  Per lo scenario di benchmarking o per quello di analisi personalizzata di una macchina virtuale lenta configurato per l'uso di XPerf o Diskspd, lo strumento può influire negativamente sulle prestazioni della macchina virtuale. Questi scenari non devono essere eseguiti in un ambiente di produzione attivo.
+-  Per lo scenario di benchmarking o per quello di analisi avanzata di una macchina virtuale lenta configurato per l'uso di XPerf o Diskspd, lo strumento può influire negativamente sulle prestazioni della macchina virtuale. Questi scenari non devono essere eseguiti in un ambiente di produzione attivo.
 
--  Per lo scenario di benchmarking o per quello di analisi personalizzata di una macchina virtuale lenta configurato per l'uso di Diskspd, verificare che non siano presenti interferenze di attività in background con il carico di lavoro di I/O.
+-  Per lo scenario di benchmarking o per quello di analisi avanzata di una macchina virtuale lenta configurato per l'uso di Diskspd, verificare che non siano presenti interferenze di attività in background con il carico di lavoro di I/O.
 
 -  Per impostazione predefinita, lo strumento usa l'unità di archiviazione temporanea per raccogliere i dati. Se la traccia rimane abilitata per un periodo più lungo, la quantità di dati raccolti potrebbe essere rilevante. Ciò può ridurre la disponibilità di spazio nel disco temporaneo e può influire sulle applicazioni che si basano su questa unità.
 
@@ -218,10 +218,16 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    È possibile usare l'esempio seguente per eseguire lo scenario personalizzato con le tracce dei contatori Xperf e Performance per 5 minuti:
+    È possibile usare l'esempio seguente per eseguire lo scenario avanzato con le tracce dei contatori Xperf e Performance per 5 minuti:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    È possibile usare l'esempio riportato di seguito per eseguire uno scenario di macchina virtuale lenta per 5 minuti e caricare il file ZIP finale nell'account di archiviazione:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     È possibile cercare tutti gli scenari e le opzioni disponibili tramite il comando **/list**:
@@ -237,7 +243,7 @@ Per eseguire lo strumento PerfInsights, seguire questa procedura:
     >
     >Per impostazione predefinita, PerfInsights proverà a eseguire l'aggiornamento alla versione più recente, se disponibile. Per ignorare l'aggiornamento automatico, usare il parametro **/SkipAutoUpdate** o **/sau**.  
     >
-    >Se l'opzione relativa alla durata **/d** non è specificata, PerfInsights chiederà all'utente di riprodurre il problema durante l'esecuzione dello scenario di analisi della macchina virtuale lenta, di quello di File di Azure e di quello personalizzato. 
+    >Se l'opzione relativa alla durata **/d** non è specificata, PerfInsights chiederà all'utente di riprodurre il problema durante l'esecuzione dello scenario di analisi della macchina virtuale lenta, di quello di File di Azure e di quello avanzato. 
 
 Al termine delle operazioni o delle tracce, viene visualizzato un nuovo file nella stessa cartella di PerfInsights. Il nome del file è **CollectedData\_aaaa-MM-gg\_hh-mm-ss-fff.zip.** È possibile inviare il file all'agente di supporto per l'analisi oppure aprire il report all'interno del file zip per esaminare i risultati e i consigli.
 
@@ -251,9 +257,9 @@ Selezionare la scheda **Risultati**.
 ![Screenshot del report di PerfInsights](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> I risultati classificati come critici sono problemi noti che possono causare problemi di prestazioni. I risultati classificati come importanti rappresentano configurazioni non ottimali che non necessariamente causano problemi di prestazioni. I risultati classificati come informativi sono solo istruzioni informative.
+> I risultati classificati come alti sono problemi noti che possono causare problemi di prestazioni. I risultati classificati come medi rappresentano configurazioni non ottimali che non necessariamente causano problemi di prestazioni. I risultati classificati come bassi sono solo istruzioni informative.
 
-Esaminare gli elementi consigliati e i collegamenti per tutti i risultati critici e importanti. Informazioni su come questi possono influenzare le prestazioni e sulle procedure consigliate per configurazioni ottimizzate per le prestazioni.
+Esaminare gli elementi consigliati e i collegamenti per tutti i risultati alti e medi. Informazioni su come questi possono influenzare le prestazioni e sulle procedure consigliate per configurazioni ottimizzate per le prestazioni.
 
 ### <a name="storage-tab"></a>Scheda Archiviazione
 

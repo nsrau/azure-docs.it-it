@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285757"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334874"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -23,7 +23,7 @@ Esegui comando usa l'agente di macchine Virtuali per eseguire gli script della s
 
 Sono disponibili più opzioni che possono essere usate per accedere alle macchine virtuali. Esegui comando può eseguire gli script nelle macchine virtuali in remoto tramite l'agente VM. Esegui comando può essere usato con il portale di Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Questa funzionalità è utile in tutti gli scenari in cui si desidera eseguire un script all' interno di una macchina virtuale e fa parte dell'unico modo per risolvere i problemi e correggere una macchina virtuale che non dispone della porta aperta RDP o SSH a causa della rete impropria o della configurazione amministrativa dell'utente.
+Questa funzionalità è utile in tutti gli scenari in cui si desidera eseguire uno script all'interno di una macchina virtuale e fa parte dell'unico modo per risolvere i problemi e correggere una macchina virtuale che non dispone della porta aperta RDP o SSH a causa della rete impropria o della configurazione amministrativa dell'utente.
 
 ## <a name="restrictions"></a>Restrizioni
 

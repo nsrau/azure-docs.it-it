@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851138"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333633"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -39,7 +39,7 @@ Dall'elenco delle aree di lavoro nel portale di Azure fare clic su **Aggiungi**.
 ![Pagina di panoramica](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Dove si trova la pagina della panoramica?
-La schermata principale del portale di OMS contiene i riquadri per tutte le soluzioni di gestione installate nell'area di lavoro e le visualizzazioni personalizzate create. Nel portale di Azure questa è la pagina **Informazioni generali**. Dall'area di lavoro nel portale di Azure selezionare **Informazioni generali** dal menu o fare clic sul pulsante **Informazioni generali** nella pagina principale.
+La schermata principale del portale di OMS contiene i riquadri per tutte le soluzioni di gestione installate nell'area di lavoro e le visualizzazioni personalizzate create. La stessa visualizzazione è disponibile nel portale di Azure. Nell'area di lavoro selezionare **Workspace Summary** (Riepilogo area di lavoro).
 
 ![Pagina di panoramica](media/log-analytics-new-portal/overview.png)
 

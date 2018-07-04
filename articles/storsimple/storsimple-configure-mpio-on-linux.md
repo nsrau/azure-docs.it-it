@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: df9f53694cd72a700d593550bfde13a4f25180db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779092"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021754"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -67,7 +67,7 @@ Un dispositivo StorSimple connesso a un host Linux può essere configurato per l
 
 La procedura seguente descrive come configurare i percorsi multipli quando un dispositivo StorSimple con due interfacce di rete viene connesso a un host con due interfacce di rete.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 Questa sezione illustra nel dettaglio i prerequisiti di configurazione per il server CentOS e il dispositivo StorSimple.
 
 ### <a name="on-centos-host"></a>Sull'host CentOS
@@ -356,7 +356,7 @@ Potrebbe anche essere opportuno verificare che si possano visualizzare alcuni di
   
     `$ dmesg | grep sd*`
      
-     O
+     Oppure
   
     `$ fdisk –l`
   
@@ -420,7 +420,7 @@ A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi con
 Per altre informazioni, vedere come [usare il comando interattivo di risoluzione dei problemi per i percorsi multipli](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
-| Digitare  | Comando | Descrizione |
+| Digitare  | Comando | DESCRIZIONE |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Avviare il servizio iSCSI |
 | &nbsp; |`service iscsid stop` |Arrestare il servizio iSCSI |

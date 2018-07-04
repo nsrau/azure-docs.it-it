@@ -1,5 +1,5 @@
 ---
-title: Eseguire il backup di file e applicazioni di Azure Stack
+title: Eseguire il backup dei file nelle macchine virtuali di Azure Stack
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248861"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751705"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
-È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere qualsiasi applicazione in esecuzione in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
+# <a name="back-up-files-on-azure-stack"></a>Eseguire il backup dei file in Azure Stack
+È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
 
 > [!NOTE]
 > Anche se il server di Backup di Azure e System Center Data Protection Manager (DPM) sono simili, DPM non è supportato per l'uso con Azure Stack.
 >
 
-Questo articolo non tratta l'installazione del server di Backup di Azure nell'ambiente Azure Stack. Per installare il server di Backup di Azure in Azure Stack, vedere l'articolo [Preparazione del backup dei carichi di lavoro con il server di Backup di Azure](backup-mabs-install-azure-stack.md).
+Questo articolo non tratta l'installazione del server di Backup di Azure nell'ambiente Azure Stack. Per installare il server di Backup di Azure in Azure Stack, vedere l'articolo [Installazione del server di Backup di Azure](backup-mabs-install-azure-stack.md).
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Eseguire il backup dei dati dei file della VM di Azure Stack in Azure
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Eseguire il backup di file e cartelle nelle macchine virtuali di Azure Stack su Azure
 
-Per configurare il server di Backup di Azure in modo che protegga le macchine virtuali IaaS, aprire la console del server di Backup di Azure. La console consente di configurare i gruppi protezione dati e di proteggere i dati nelle macchine virtuali.
+Per configurare il serve di Backup di Azure per proteggere i file nelle macchine virtuali di Azure, aprire la console del server di Backup di Azure. La console consente di configurare i gruppi protezione dati e di proteggere i dati nelle macchine virtuali.
 
 1. Nella console del server di Backup di Azure fare clic su **Protezione** e quindi fare clic su **Nuovo** nella barra degli strumenti per aprire la procedura guidata **Crea nuovo gruppo protezione dati**.
 
@@ -49,7 +49,7 @@ Per configurare il server di Backup di Azure in modo che protegga le macchine vi
 
     ![Si apre la creazione guidata del nuovo gruppo protezione dati](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Si consiglia di inserire tutte le macchine virtuali che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Si consiglia di inserire tutti i dati che condivideranno un criterio di protezione in un unico gruppo protezione dati. Per informazioni complete sulla pianificazione e la distribuzione dei gruppi protezione dati, vedere l'articolo di System Center DPM relativo alla [distribuzione dei gruppi protezione dati](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. Nella schermata **Seleziona metodo protezione dati** digitare un nome per il gruppo protezione dati. Selezionare la casella di controllo per la **protezione dati a breve termine** e la **protezione dati online**. Fare clic su **Avanti**.
 
@@ -73,7 +73,7 @@ Per configurare il server di Backup di Azure in modo che protegga le macchine vi
 
     Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning** nel server di Backup di Azure è lo spazio consigliato per il gruppo protezione dati. Il server di Backup di Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei dettagli di allocazione del disco. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Vengono modificati i valori per lo spazio di archiviazione totale e lo spazio di archiviazione libero nel riquadro Spazio di archiviazione su disco disponibile. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
 
-7. In **Scelta del metodo per la creazione della replica** selezionare come gestire la replica dei dati completa iniziale. Se si decide di eseguire la replica in rete, Azure suggerisce di scegliere un orario di scarso traffico. Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati offline con i supporti rimovibili.
+7. In **Scelta del metodo per la creazione della replica** selezionare come gestire la replica dei dati completa iniziale. Se si decide di eseguire la replica in rete, Azure suggerisce di scegliere un orario di scarso traffico. Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati con i supporti rimovibili.
 
 8. Nella pagina **Scelta opzioni di verifica coerenza** selezionare il modo in cui automatizzare le verifiche della coerenza. Abilitare le verifiche della coerenza in modo che vengano eseguite solo quando la replica dei dati diventa incoerente o in base a una pianificazione. Per non configurare verifiche della coerenza automatiche, eseguire una verifica manuale in qualsiasi momento:
     * Nell'area di **protezione** della console del server di Backup di Azure fare clic con il pulsante destro del mouse sul gruppo protezione dati e selezionare **Esegui verifica coerenza**.
@@ -87,8 +87,6 @@ Per configurare il server di Backup di Azure in modo che protegga le macchine vi
 11. In **Specificare i criteri di conservazione online** indicare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
 12. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. 
-
-    È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline usa la [funzionalità di importazione di Azure](./backup-azure-backup-import-export.md).
 
 13. In **Riepilogo** esaminare le impostazioni. Quando fa clic su **Crea gruppo** viene eseguita la replica iniziale dei dati. Al termine della replica dei dati, nella pagina **Stato** lo stato del gruppo protezione dati è **OK**. Il processo di backup iniziale viene eseguito in linea con le impostazioni del gruppo protezione dati.
 
@@ -116,7 +114,6 @@ Usare la console del server di Backup di Azure per recuperare i dati nella macch
     * Come **comportamento del recupero della versione esistente** selezionare **Creare copia**, **Ignora** oppure **Sovrascrivi**. La sovrascrittura è disponibile solo quando si recuperano i dati nel percorso originale.
     * Come **protezione del ripristino** scegliere di **applicare le impostazioni del computer di destinazione** oppure **applicare le impostazioni di sicurezza della versione del punto di recupero**.
     * Per **Limitazione all'utilizzo della larghezza di banda** fare clic su **Modifica** per abilitare la limitazione all'utilizzo della larghezza di banda di rete.
-    * Selezionare **Abilita recupero basato su SAN tramite snapshot dell'hardware** per usare snapshot dell'hardware basati su SAN per un recupero più veloce. Questa opzione è valida solo se è presente una rete SAN in cui è abilitata la funzionalità di snapshot dell'hardware. Perché il punto di recupero diventi modificabile, la SAN deve essere in grado di creare un clone e di suddividerlo. La VM protetta e il server di Backup di Azure devono essere connessi alla stessa SAN.
     * **Notifica** Scegliere di **inviare un messaggio di posta elettronica al termine del recupero** e specificare i destinatari che riceveranno la notifica. Separare gli indirizzi di posta elettronica con virgole.
     * Dopo aver effettuato le selezioni, fare clic su **Avanti**
 
@@ -132,16 +129,13 @@ Se si usa Modern Backup Storage (MBS), il recupero dati del file server gestito 
 
 2. Nel menu **Proprietà** fare clic su **Versioni precedenti** e scegliere la versione da recuperare.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>Registrare il server di Backup di Azure con un insieme di credenziali
-Aggiungere i passaggi per spiegare come:
-
+## <a name="view-azure-backup-server-with-a-vault"></a>Visualizzare il server di Backup di Azure con un insieme di credenziali
+Per visualizzare le entità del server di Backup di Azure nel portale di Azure, è possibile attenersi alla procedura seguente:
 1. Aprire l'insieme di credenziali dei Servizi di ripristino.
 2. Fare clic su Infrastruttura di backup.
 3. Visualizzare i server di gestione dei backup.
 
 ## <a name="see-also"></a>Vedere anche 
 Per informazioni sull'uso del server di Backup di Azure per proteggere altri carichi di lavoro, vedere uno degli articoli seguenti:
-- [Eseguire il backup di una farm di SharePoint](backup-azure-backup-sharepoint-mabs.md)
-- [Eseguire il backup di SQL Server](backup-azure-sql-mabs.md)
+- [Eseguire il backup di una farm di SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Eseguire il backup di SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

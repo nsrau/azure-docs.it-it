@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248895"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753354"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -42,18 +42,9 @@ Il server di Backup di Azure consente di proteggere i carichi di lavoro della ma
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
 | SQL Server 2012 SP1 | Database |
+| SharePoint 2016 | Farm, database, front-end, server Web |
 | SharePoint 2013 | Farm, database, front-end, server Web |
 | SharePoint 2010 | Farm, database, front-end, server Web |
-
-
-### <a name="host-vs-guest-backup"></a>Backup a livello di host o guest
-
-Il server di Backup di Azure esegue backup a livello di host o guest delle macchine virtuali. A livello di host, l'agente di Backup di Azure viene installato nella macchina virtuale o nel cluster e protegge l'intera macchina virtuale e i file di dati eseguiti nell'host. A livello di guest, l'agente di Backup di Azure viene installato in ogni macchina virtuale e protegge il carico di lavoro presente quella macchina.
-
-Entrambi i metodi presentano vantaggi e svantaggi:
-
-   * I backup a livello di host funzionano indipendentemente dal sistema operativo in esecuzione nei computer guest e non richiedono l'installazione dell'agente di Backup di Azure in ogni macchina virtuale. Se si distribuiscono backup a livello di host, si recuperano un'intera macchina virtuale o file e cartelle (recupero a livello di elemento).
-   * Il backup a livello di guest è utile per la protezione di carichi di lavoro specifici in esecuzione in una macchina virtuale. A livello di host, è possibile recuperare un'intera macchina virtuale o file specifici, ma non si recuperano i dati nel contesto di un'applicazione specifica. Ad esempio, per recuperare file di SharePoint specifici da una macchina virtuale protetta, è necessario proteggere la macchina virtuale a livello di guest. Per proteggere i dati archiviati su dischi pass-through, è necessario usare il backup a livello di guest. Il pass-through consente alla macchina virtuale di accedere direttamente al dispositivo di archiviazione e non memorizza i dati del volume virtuale in un file VHD.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Prerequisiti per l'ambiente del server di Backup di Azure
 
@@ -84,13 +75,10 @@ L'archiviazione dei dati di backup in Azure riduce l'infrastruttura di backup in
 
 Per archiviare i dati di backup in Azure, creare o usare un insieme di credenziali di Servizi di ripristino. Nella fase di preparazione all'esecuzione del backup del carico di lavoro del server di Backup di Azure [configurare l'insieme di credenziali di Servizi di ripristino](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Al termine della configurazione, ogni volta che viene eseguito un processo di backup, nell'insieme di credenziali viene creato un punto di ripristino. Ogni insieme di credenziali di Servizi di ripristino contiene fino a 9999 punti di ripristino. A seconda del numero di punti di ripristino creati e del periodo di conservazione, è possibile conservare i dati di backup per molti anni. È ad esempio possibile creare punti di ripristino mensili e conservarli per cinque anni.
  
-### <a name="using-sql-server"></a>Uso di SQL Server
-Se si vuole usare un'istanza remota di SQL Server per il database del server di Backup di Azure, selezionare solo una VM di Azure Stack che esegue SQL Server.
-
 ### <a name="scaling-deployment"></a>Ridimensionamento della distribuzione
 Se si vuole ridimensionare la distribuzione, sono disponibili le opzioni seguenti:
   - Aumentare le prestazioni: aumento delle dimensioni della macchina virtuale del server di Backup di Azure dalla serie A alla serie D e aumento dello spazio di archiviazione locale [in base alle istruzioni della macchina virtuale di Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Offload dei dati: invio dei dati meno recenti al server di Backup di Azure e conservazione solo dei dati più recenti nello spazio di archiviazione collegato al server di Backup di Azure.
+  - Offload dei dati: invio dei dati meno recenti ad Azure e conservazione solo dei dati più recenti nello spazio di archiviazione collegato al server di Backup di Azure.
   - Aumentare le istanze: aggiunta di altri server di Backup di Azure per proteggere i carichi di lavoro.
 
 ### <a name="net-framework"></a>.NET Framework
@@ -216,7 +204,7 @@ Nel passaggio precedente si è fatto clic su **Fine** per uscire dalla fase di e
 
 ![Backup di Microsoft Azure](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Il server di Backup di Azure condivide codice con Data Protection Manager. Verranno visualizzati riferimenti a Data Protection Manager e DPM nel programma di installazione del server di Backup di Azure. Benché il server di Backup di Azure e Data Protection Manager siano prodotti distinti, sono strettamente correlati. Nella documentazione del server di Backup di Azure tutti i riferimenti a Data Protection Manager e DPM si applicano al server di Backup di Azure.
+Il server di Backup di Azure condivide codice con Data Protection Manager. Verranno visualizzati riferimenti a Data Protection Manager e DPM nel programma di installazione del server di Backup di Azure. Benché il server di Backup di Azure e Data Protection Manager siano prodotti distinti, sono strettamente correlati.
 
 1. Fare clic su **Server di Backup di Microsoft Azure** per avviare l'installazione guidata.
 
@@ -322,7 +310,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
 ## <a name="add-backup-storage"></a>Aggiungere risorse di archiviazione di backup
 
-La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Configurare i pool di archiviazione e l'archiviazione su disco](https://technet.microsoft.com/library/hh758075.aspx).
+La prima copia di backup viene salvata in una risorsa di archiviazione collegata al computer del server di Backup di Azure. Per altre informazioni sull'aggiunta di dischi, vedere [Add Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801) (Aggiungere Modern Backup Storage).
 
 > [!NOTE]
 > È necessario aggiungere una risorsa di archiviazione di backup anche se si prevede di inviare i dati ad Azure. Nell'architettura del server di Backup di Azure, l'insieme di credenziali di Servizi di ripristino contiene la *seconda* copia dei dati, mentre la risorsa di archiviazione locale contiene la prima (obbligatoria) copia di backup.
@@ -372,10 +360,10 @@ In caso di errori del server di Backup di Microsoft Azure durante la fase di ins
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-L'articolo sulla [preparazione dell'ambiente per DPM](https://technet.microsoft.com/library/hh758176.aspx) contiene informazioni sulle configurazioni supportate per il server di Backup di Azure.
+L'articolo sulla [preparazione dell'ambiente per DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contiene informazioni sulle configurazioni supportate per il server di Backup di Azure.
 
 È possibile usare gli articoli seguenti per acquisire una comprensione più profonda della protezione dei carichi di lavoro con il server di Backup di Microsoft Azure.
 
-- [Backup di SQL Server](backup-azure-backup-sql.md)
-- [Backup di SharePoint Server](backup-azure-backup-sharepoint.md)
+- [Backup di SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Backup di SharePoint Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Backup del server alternativo](backup-azure-alternate-dpm-server.md)

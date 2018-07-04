@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: backup e ripristino di emergenza; servizio Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605532"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016489"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti dell'agente di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -58,7 +58,7 @@ Certo. Backup di Azure consente il backup a livello di VM per le VM di Azure usa
 Sì. Installare Azure Backup Agent nel sistema operativo guest Windows ed eseguire il backup di file e cartelle in un'archiviazione temporanea. Dopo la cancellazione dei dati nell'archivio temporaneo, i processi di backup hanno esito negativo. Se poi i dati nell'archivio temporaneo sono stati eliminati, è possibile eseguire il ripristino solo in un archivio non temporaneo.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Qual è il requisito di dimensioni minime per la cartella della cache? <br/>
-La dimensione della cartella della cache determina la quantità di dati sottoposti a backup. La cartella della cache deve essere circa il 5% dello spazio necessario per l'archivio dati.
+La dimensione della cartella della cache determina la quantità di dati sottoposti a backup. Il volume nella cartella cache deve essere pari ad almeno il 5-10% di spazio libero, rispetto alle dimensioni locali dei dati di backup. Se il volume è inferiore al 5% di spazio libero aumentare le dimensioni volume o [impostare la cartella cache su un volume con spazio libero sufficiente](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Come si registra un server in un altro data center?<br/>
 I dati di backup vengono inviati al data center dell'insieme di credenziali in cui sono registrati. Il modo più semplice per modificare il data center consiste nel disinstallare e reinstallare l'agente e registrarlo in un nuovo insieme di credenziali appartenente al data center desiderato.

@@ -12,25 +12,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 3bce933787e49d787c9414ef75ee0e97a41b79aa
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 06e91b4d52a70ea33f4317a6434c2bd49e5c3bd3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233639"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020975"
 ---
 # <a name="manage-programs-and-their-controls"></a>Gestire i programmi e i relativi controlli 
 
 Azure Active Directory (Azure AD) include le verifiche di accesso dell'accesso delle applicazioni e di membri del gruppo. Questi esempi di controlli assicurano la supervisione per chi ha accesso alle applicazioni e alle appartenenze ai gruppi dell'organizzazione. Le organizzazioni possono usare questi controlli per gestire in modo efficiente la governance, i requisiti di conformità e la gestione dei rischi.
 
 ## <a name="create-and-manage-programs-and-their-controls"></a>Creare e gestire i programmi e i relativi controlli
-È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica.  I programmi e i risultati delle verifiche di accesso sono visibili agli utenti con il ruolo Amministratore globale, Amministratore della sicurezza o Ruolo con autorizzazioni di lettura per la sicurezza.
+È possibile semplificare il rilevamento e la raccolta delle verifiche di accesso per scopi diversi organizzandole nei programmi. Ogni verifica di accesso può essere collegata a un programma. Quando si preparano i report per un revisore, è possibile concentrarsi sulle verifiche di accesso nell'ambito per un'iniziativa specifica.  I programmi e i risultati delle verifiche di accesso sono visibili agli utenti con il ruolo Amministratore globale, Amministratore account utente, Amministratore della sicurezza o Ruolo con autorizzazioni di lettura per la sicurezza.
 
 Per visualizzare un elenco di programmi, accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selezionare **Programmi**.
 
-**Programma predefinito** è sempre presente. Gli utenti con un ruolo di amministratore globale possono creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
+**Programma predefinito** è sempre presente. Gli utenti con un ruolo di amministratore globale o amministratore account utente possono creare programmi aggiuntivi. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
 
 Se un programma non è più necessario e non dispone di controlli collegati, è possibile eliminarlo.
 

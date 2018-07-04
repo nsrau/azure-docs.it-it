@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301372"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751839"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security and Compliance Blueprint - Ambienti di elaborazione pagamenti conformi a PCI DSS
 
@@ -298,7 +298,7 @@ La distribuzione predefinita ha lo scopo di offrire una serie di consigli di bas
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-I componenti per la distribuzione di questa soluzione sono disponibili nel [repository del codice del piano PCI][repository del codice]. La distribuzione dell'architettura di base richiede diversi passaggi, che vengono eseguiti tramite Microsoft PowerShell versione 5. Per connettersi al sito Web, è necessario specificare un nome di dominio personalizzato (ad esempio, contoso.com). Per specificarlo, usare l'opzione `-customHostName` nel passaggio 2. Per altre informazioni, vedere [Acquistare un nome di dominio personalizzato per app Web di Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Un nome di dominio personalizzato non è necessario per distribuire ed eseguire la soluzione, ma senza di esso non è possibile connettersi al sito Web a scopi dimostrativi.
+I componenti per la distribuzione di questa soluzione sono disponibili nel [repository del codice del piano PCI](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). La distribuzione dell'architettura di base richiede diversi passaggi, che vengono eseguiti tramite Microsoft PowerShell versione 5. Per connettersi al sito Web, è necessario specificare un nome di dominio personalizzato (ad esempio, contoso.com). Specificare il nome tramite una richiesta utente guidata nello script di distribuzione principale nel passaggio 2. Per altre informazioni, vedere [Acquistare un nome di dominio personalizzato per app Web di Azure](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Un nome di dominio personalizzato non è necessario per distribuire ed eseguire la soluzione, ma senza di esso non è possibile connettersi al sito Web a scopi dimostrativi.
 
 Gli script aggiungono utenti del dominio al tenant di Azure AD specificati. È consigliabile creare un nuovo tenant di Azure AD da usare per l'esecuzione di test.
 
@@ -323,19 +323,17 @@ Per distribuire la soluzione, è consigliabile usare un'installazione di PowerSh
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Per istruzioni dettagliate sull'utilizzo, vedere [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md) (Istruzioni dello script: distribuire e configurare risorse di Azure).
+    Per istruzioni dettagliate sull'utilizzo, vedere [Script Instructions - Deploy and Configure Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md) (Istruzioni dello script: distribuire e configurare risorse di Azure). Questo script può essere usato per il supporto dell'archivio Web demo di Contoso o per i passaggi iniziali della distribuzione pilota di un ambiente per il supporto della complicità PCI. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Per istruzioni di utilizzo dettagliate per il supporto della distribuzione demo dell'archivio Web di Contoso, vedere [Script Instructions - Contoso Web Store Demo Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md) (Istruzioni sullo script - Risorse di azure per l'archivio Web demo di Contoso). Questo script può essere usato per la distribuzione dell'infrastruttura demo dell'archivio Web di Contoso. 
+    
+    Questi script sono destinati a essere usati in modo indipendente li uni dagli altri. Per comprendere meglio la soluzione, è consigliabile completare la distribuzione demo per identificare le risorse di Azure necessarie richieste per il supporto della soluzione. 
     
 3. Registrazione e monitoraggio. Al termine della distribuzione della soluzione, è possibile aprire un'area di lavoro di Log Analytics e usare i modelli di esempio forniti nel repository della soluzione, che mostrano come configurare un dashboard di monitoraggio. Per i modelli di esempio, fare riferimento alla [cartella omsDashboards](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Per la corretta distribuzione dei modelli, i dati devono essere raccolti in Log Analytics. Ciò può richiedere fino a un'ora o più a seconda dell'attività del sito.
  

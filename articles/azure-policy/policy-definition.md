@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260482"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937333"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -192,7 +192,8 @@ Una condizione valuta se un **campo** soddisfa determinati criteri. Le condizion
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly (*) nel valore. Il valore non deve contenere più di 1 carattere jolly (*).
+Quando si usano le condizioni **like** e **notLike**, è possibile inserire un carattere jolly `*` nel valore.
+Il valore non deve contenere più di 1 carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Ad esempio, vedere [Consentire modelli nome multipli](scripts/allow-multiple-name-patterns.md).
 

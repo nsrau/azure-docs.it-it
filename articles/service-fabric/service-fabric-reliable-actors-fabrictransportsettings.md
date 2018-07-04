@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213215"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021413"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurare le impostazioni di FabricTransport per Reliable Actors
 
@@ -51,6 +51,10 @@ L'esempio seguente illustra come modificare il valore predefinito delle impostaz
 ## <a name="config-package"></a>Pacchetto di configurazione
 
 È possibile usare un [pacchetto di configurazione](service-fabric-application-and-service-manifests.md) per modificare la configurazione predefinita.
+
+> [!IMPORTANT]
+> Nei nodi di Linux i certificati devono essere formattati con estensione PEM. Per altre informazioni su individuazione e configurazione dei certificati per Linux, vedere [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md) (Configurare i certificati in Linux). 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurare le impostazioni di FabricTransport per il servizio attore
 

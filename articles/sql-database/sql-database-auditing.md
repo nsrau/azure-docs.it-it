@@ -2,19 +2,19 @@
 title: Introduzione al controllo del database SQL di Azure | Microsoft Docs
 description: Usare il controllo del database SQL di Azure per tenere traccia degli eventi del database in un log di controllo.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644590"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751044"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -200,12 +200,17 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 
 **API REST per il controllo BLOB**:
 
-* [Creare o aggiornare i criteri controllo BLOB del database](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [Creare o aggiornare i criteri controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [Ottenere i criteri controllo BLOB del database](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [Ottenere i criteri controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Creare o aggiornare i criteri controllo BLOB del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Creare o aggiornare i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Ottenere i criteri controllo BLOB del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [Ottenere i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [Ottenere il risultato dell'operazione di controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+Criteri estesi con il supporto della clausola WHERE per altri filtri:
+* [Creare o aggiornare*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Creare o aggiornare*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Ottenere*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Ottenere*i criteri controllo BLOB estesi*del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

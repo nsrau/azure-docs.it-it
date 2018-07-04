@@ -1,5 +1,5 @@
 ---
-title: Struttura e sintassi del modello di Azure Resource Manger | Documentazione Microsoft
+title: Struttura e sintassi del modello di Azure Resource Manger | Microsoft Docs
 description: Descrive la struttura e le proprietà dei modelli di Azure Resource Manager con la sintassi dichiarativa JSON.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603077"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334799"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager
 Questo articolo descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per un'esercitazione dettagliata sulla creazione di un modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
@@ -214,6 +214,7 @@ Nel modello è possibile creare funzioni personalizzate. Tali funzioni sono disp
 Quando si crea una funzione definita dall'utente, è necessario tenere presente alcune restrizioni:
 
 * La funzione non può accedere alle variabili.
+* La funzione non può chiamare altre funzioni definite dall'utente.
 * La funzione non può usare la [funzione di riferimento](resource-group-template-functions-resource.md#reference).
 * I parametri della funzione non possono avere valori predefiniti.
 

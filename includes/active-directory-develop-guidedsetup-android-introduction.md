@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e25c8d97698d7a61501094a457174202322d146f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297950"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943420"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 

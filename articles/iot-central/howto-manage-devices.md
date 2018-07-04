@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807476"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937619"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gestire i dispositivi nell'applicazione Azure IoT Central
 
@@ -49,7 +49,7 @@ Per aggiungere un dispositivo all'applicazione Azure IoT Central:
 1. Scegliere **Real** (Reale) oppure **Simulated** (Simulato). Un dispositivo reale indica un dispositivo fisico che si connette a un'applicazione Azure IoT Central. Un dispositivo simulato contiene dati di esempio generati automaticamente da Azure IoT Central. In questo esempio si usa un dispositivo reale. Scegliere **Real** (Reale) per passare alla pagina **Device Details** (Dettagli dispositivo) per il nuovo dispositivo.
 
 
-## <a name="bulk-import-devices"></a>Importazione in blocco dei dispositivi
+## <a name="import-devices"></a>Importare dispositivi
 
 Per connettere un numero elevato di dispositivi all'applicazione, Azure IoT Central consente l'importazione in blocco dei dispositivi tramite un file CSV. 
 
@@ -65,9 +65,12 @@ Per registrare in blocco i dispositivi nell'applicazione:
 
 1. Nel riquadro di sinistra scegliere il modello di dispositivo per il quale si vuole creare in blocco i dispositivi.
 
-1. Scegliere **New** (Nuovo) e selezionare **Bulk Import** (Importazione in blocco).
+ >   [!NOTE] 
+    Se non si dispone ancora di un modello di dispositivo è possibile importare i dispositivi in **Dispositivi senza associazione** e registrarli senza modello. Dopo aver importato i dispositivi, è possibile associarli con un modello come passaggio successivo.
 
-    [![Azione di importazione in blocco](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. Fare clic su **Importa**.
+
+    [![Azione di importazione](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. Selezionare il file CSV contenente l'elenco di ID dispositivo da importare.
 
@@ -75,9 +78,25 @@ Per registrare in blocco i dispositivi nell'applicazione:
 
 1. Al termine dell'importazione viene visualizzato un messaggio di operazione riuscita nella griglia di dispositivi.
 
-    [![Importazione in blocco riuscita](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![Importazione riuscita](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 Se l'importazione di dispositivi ha esito negativo, verrà visualizzato un messaggio di errore nella griglia di dispositivi. Verrà generato un file di log con tutti gli errori, che può essere scaricato facendo clic sul messaggio di errore.
+
+
+**Associazione di dispositivi con un modello**
+
+Se si registrano i dispositivi avviando l'importazione sotto **Dispositivi Unassociated devices**, i dispositivi vengono creati senza l'associazione di modelli dispositivo. Il dispositivo deve essere associato a un modello per esplorare i dati e altri dettagli sul dispositivo. Per associare i dispositivi a un modello attenersi a questa procedura:
+1. Selezionare **Explorer** nel menu di spostamento a sinistra.
+1. Nel pannello sinistro scegliere **Dispositivi senza associazione**.
+    [![Dispositivi senza associazione](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Selezionare i dispositivi da associare al modello.
+1. Fare clic sull'opzione **Associa**.
+    [![Associa dispositivi](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Scegliere il modello dall'elenco dei modelli disponibili e fare clic sul pulsante **Associa**.
+1. I dispositivi selezionati verranno spostati nel rispettivo modello selezionato.
+
+ >   [!NOTE] 
+    Dopo aver associato un dispositivi a un modello, non è possibile rimuovere l'associazione o associarlo a un modello diverso.
 
 ## <a name="export-devices"></a>Esportare dispositivi
 

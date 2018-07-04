@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796717"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751779"
 ---
 # <a name="understanding-policy-effects"></a>Informazioni sugli effetti di Criteri
 
@@ -90,7 +90,7 @@ Esempio 3: coppia **campo/valore** singola che usa un [alias](policy-definition.
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ Esempio: valuta i database SQL Server per determinare se transparentDataEncrypti
 
 ## <a name="layering-policies"></a>Livelli dei criteri
 
-Una risorsa potrebbe essere interessata da assegnazioni multiple. Queste assegnazioni possono essere nello stesso ambito (risorsa, gruppo di risorse, sottoscrizione o gruppo di gestione specifico) o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. Indipendentemente da ciò, la condizione e l'effetto per ogni criterio (assegnato direttamente o come parte di un'iniziativa) vengono valutati in modo indipendente. Ad esempio, se il criterio 1 ha una condizione che limita la creazione del percorso per la sottoscrizione A in 'westus' con l'effetto Deny e il criterio 2 ha una condizione che limita la creazione delle risorse nel gruppo di risorse B (che si trova nella sottoscrizione A) in 'eastus' con l'effetto Audit e sono entrambi assegnati, il risultato finale potrebbe essere il seguente:
+Una risorsa potrebbe essere interessata da assegnazioni multiple. Queste assegnazioni possono essere nello stesso ambito (risorsa, gruppo di risorse, sottoscrizione o gruppo di gestione specifico) o in ambiti diversi. È anche probabile che ognuna di queste assegnazioni abbia un effetto diverso definito. Indipendentemente da ciò, la condizione e l'effetto per ogni criterio (assegnato direttamente o come parte di un'iniziativa) vengono valutati in modo indipendente. Ad esempio, se il criterio 1 ha una condizione che limita la creazione del percorso risorsa per la sottoscrizione A solo in 'westus' con l'effetto Deny e il criterio 2 ha una condizione che limita la creazione del percorso risorsa nel gruppo di risorse B (che si trova nella sottoscrizione A) solo in 'eastus' con l'effetto Audit e sono entrambi assegnati, il risultato finale potrebbe essere il seguente:
 
 - Qualsiasi risorsa già presente nel gruppo di risorse B in 'eastus' è conforme al criterio 2, ma è contrassegnata come non conforme al criterio 1.
 - Qualsiasi risorsa già presente nel gruppo di risorse B non in 'eastus' verrà contrassegnata come non conforme al criterio 2 e potrebbe anche essere contrassegnata come non conforme al criterio 1 se non in 'westus'.
