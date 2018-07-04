@@ -136,7 +136,7 @@
 - name: Guide alle procedure
   items:
     - name: Pianificare l'app
-      href: Plan-your-app.md
+      href: luis-how-plan-your-app.md
     - name: Avviare una nuova app
       href: Create-new-app.md
     - name: Creare il modello
@@ -200,7 +200,7 @@
         - name: Usare i domini predefiniti
           href: luis-how-to-use-prebuilt-domains.md
         - name: Usare l'app predefinita Cortana
-          href: Cortana-Prebuilt-App.md
+          href: luis-how-to-cortana-prebuilt-app.md
     - name: Gestire l'app LUIS
       items:
         - name: Utilizzo del dashboard
@@ -309,6 +309,8 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: Text Analytics
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: Recognizers-Text
+      href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Risorse
   items:
     - name: Roadmap per Azure

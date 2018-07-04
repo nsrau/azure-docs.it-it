@@ -2,7 +2,7 @@
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sul Servizio decisionale personalizzato
+    - name: Che cos'è il Servizio decisionale personalizzato?
       href: custom-decision-service-overview.md
     - name: Flusso di lavoro del Servizio decisionale personalizzato
       href: custom-decision-service-workflow.md
@@ -31,6 +31,8 @@
       href: custom-decision-service-log-downloader-reference.md
 - name: Risorse
   items:
+    - name: Disponibilità a livello di area
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Prezzi (gratuito)
       href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/'
     - name: UserVoice

@@ -45,19 +45,21 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
 - name: Risorse
   items:
+    - name: Analisi per l'API Controllo ortografico Bing
+      href: bing-spell-check-stats.md
     - name: Domande frequenti
       href: bing-spell-check-resource-faq.md
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: Lingue supportate
-      href: bing-spell-check-supported-languages.md
-    - name: Analisi per l'API Controllo ortografico Bing
-      href: bing-spell-check-stats.md
     - name: Chiave della sottoscrizione
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Lingue supportate
+      href: bing-spell-check-supported-languages.md
     - name: Prova
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

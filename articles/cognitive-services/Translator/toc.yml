@@ -157,15 +157,17 @@
           href: return-n-best-translations.md
 - name: Risorse
   items:
-    - name: Domande frequenti
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
     - name: Esempi di codice in GitHub
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: Domande frequenti
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'

@@ -1,12 +1,9 @@
 # Panoramica
-## [Accesso con privilegi di protezione](active-directory-securing-privileged-access.md)
 ## [Informazioni su Azure AD PIM](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Accesso con privilegi di protezione](../admin-roles-best-practices.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [Ruoli della directory in PIM](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [PIM per risorse di Azure](azure-pim-resource-rbac.md)
 ## [Flusso di lavoro di approvazione per PIM](azure-ad-pim-approval-workflow.md)
-## [Ruoli](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-
-
 
 # Attività iniziali
 ## [Requisiti di sottoscrizione](subscription-requirements.md)
@@ -46,16 +43,8 @@
 ### [Completare una verifica dell'accesso](pim-resource-roles-complete-access-review.md)
 
 # Domande frequenti
-## PIM per i ruoli della directory
 ## PIM per i ruoli delle risorse
 ### [Tipi di assegnazione](pim-resource-roles-eligible-visibility.md)
 
 # Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
-
-# Risorse correlate
-## [Azure Active Directory](/azure/active-directory/)
-## [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md)
-# Risorse
-## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
-## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

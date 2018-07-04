@@ -4,7 +4,7 @@
 ## [DOMANDE FREQUENTI](faq-classic.md)
 
 # Attività iniziali
-## [Creare una macchina virtuale Linux con il portale di Azure](createportal-classic.md)
+## [Creare una macchina virtuale Linux](createportal-classic.md)
 
 # Procedure
 ## Calcolo
@@ -46,7 +46,7 @@
 ### [Riavviare o ridimensionare una VM](restart-resize-error-troubleshooting.md)
 ### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)
