@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621617"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052274"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Spostare i dati da un'origine HTTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-http-connector.md)
-> * [Versione 2 - Anteprima](../connector-http.md)
+> * [Versione 1](data-factory-http-connector.md)
+> * [Versione 2 (corrente)](../connector-http.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [connettore HTTP nella versione 2](../connector-http.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore HTTP nella versione 2](../connector-http.md).
 
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare dati da un'origine HTTP locale o cloud a un archivio dati sink supportato. Questo articolo si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con attività di copia e l'elenco degli archivi dati supportati come origini/sink.
@@ -55,7 +55,7 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS. Quando il server HTTPS usa un certificato autofirmato, impostare su false. | No, il valore predefinito è true |
 | gatewayName | Nome del gateway di gestione dati per connettersi a un'origine HTTP locale. | Sì se si copiano i dati da un'origine HTTP locale. |
-| encryptedCredential | Credenziali crittografate per accedere all'endpoint HTTP. Generate automaticamente quando si configurano le informazioni di autenticazione nella procedura di copia guidata o nella finestra di dialogo popup ClickOnce. | di serie Applicare solo se si copiano i dati da un server HTTP locale. |
+| encryptedCredential | Credenziali crittografate per accedere all'endpoint HTTP. Generate automaticamente quando si configurano le informazioni di autenticazione nella procedura di copia guidata o nella finestra di dialogo popup ClickOnce. | No. Applicare solo se si copiano i dati da un server HTTP locale. |
 
 Vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](data-factory-move-data-between-onprem-and-cloud.md) per informazioni dettagliate sull'impostazione delle credenziali per un'origine dati connettore HTTP locale.
 
@@ -154,7 +154,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene
 |:--- |:--- |:--- |
 | type | Specifica il tipo del set di dati. deve essere impostato su `Http`. | Sì |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare [funzioni di Data Factory e variabili di sistema](data-factory-functions-variables.md), ad esempio "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)". | No  |
-| requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. | di serie Il valore predefinito è `GET`. |
+| requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. | No. Il valore predefinito è `GET`. |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
 | requestBody | Il corpo della richiesta HTTP. | No  |
 | format | Se si desidera semplicemente **recuperare i dati dall'endpoint HTTP così come sono** senza analizzarli, ignorare questa impostazione di formato. <br><br> Se si desidera analizzare i contenuti di risposta HTTP durante la copia, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). |No  |
@@ -212,7 +212,7 @@ Quando l'origine nell'attività di copia è di tipo **HttpSource**, sono support
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. | di serie Valore predefinito: 00:01:40 |
+| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. | No. Valore predefinito: 00:01:40 |
 
 ## <a name="supported-file-and-compression-formats"></a>Formati di file e di compressione supportati
 Per i dettagli, vedere l'articolo relativo ai [file e formati di compressione in Azure Data Factory](data-factory-supported-file-and-compression-formats.md).

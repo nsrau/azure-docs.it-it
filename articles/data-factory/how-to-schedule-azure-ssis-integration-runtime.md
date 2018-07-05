@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266822"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050608"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare il runtime di integrazione Azure SSIS in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Azure Data Factory. Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Azure ha un costo. Di conseguenza, in genere è opportuno eseguire il runtime di integrazione solo quando si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è necessario. Per [avviare o arrestare manualmente un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente di Data Factory o Azure PowerShell.
@@ -34,10 +34,6 @@ Di seguito sono riportate le procedure generali descritte in questo articolo:
 3. **Creare due webhook per il runbook**, uno per l'operazione START e l'altro per l'operazione STOP. Gli URL di questi webhook vengono usati quando si configurano attività Web in una pipeline di Data Factory. 
 4. **Creare una pipeline di Data Factory**. La pipeline che si crea è costituita da tre attività. La prima attività **Web** richiama il primo webhook per l'avvio del runtime di integrazione SSIS di Azure. L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Successivamente, è necessario creare un trigger per pianificare l'esecuzione della pipeline con una frequenza specificata.
 
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Chiamare pacchetti SSIS usando l'attività stored procedure nella versione 1](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## <a name="prerequisites"></a>prerequisiti
 Se non è stato ancora eseguito il provisioning di un runtime di integrazione SSIS di Azure, eseguire questa operazione seguendo le istruzioni visualizzate nell'[esercitazione](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -254,7 +250,7 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
       Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2 (anteprima)** per **Versione**.
+4. Selezionare **V2** per la **versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Crea**.

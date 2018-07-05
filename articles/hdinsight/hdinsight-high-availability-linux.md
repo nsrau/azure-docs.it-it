@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404961"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046680"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilità e affidabilità dei cluster Hadoop in HDInsight
 
@@ -63,9 +63,9 @@ I nodi di lavoro eseguono l'analisi dei dati effettivi quando un processo viene 
 
 Un nodo perimetrale non partecipa attivamente all'analisi dei dati all'interno del cluster. Viene usato dagli sviluppatori o i data scientist quando lavorano con Hadoop. Il nodo perimetrale si trova nella stessa rete virtuale di Azure come gli altri nodi del cluster e può accedere direttamente a tutti gli altri nodi. Il nodo perimetrale può essere usato senza sottrarre risorse ai servizi critici di Hadoop o ai processi di analisi.
 
-Attualmente, Server R in HDInsight è l'unico tipo di cluster che fornisce un nodo perimetrale per impostazione predefinita. Per Server R in HDInsight, il nodo perimetrale viene usato per testare il codice R in locale nel nodo prima dell'invio al cluster per l'elaborazione distribuita.
+Attualmente, ML Services in HDInsight è l'unico tipo di cluster che fornisce un nodo perimetrale per impostazione predefinita. Per ML Services in HDInsight, il nodo perimetrale viene usato per testare il codice R in locale nel nodo prima dell'invio al cluster per l'elaborazione distribuita.
 
-Per informazioni sull'uso di un nodo perimetrale con tipi di cluster diversi da R Server, vedere il documento [Usare nodi perimetrali vuoti in HDInsight](hdinsight-apps-use-edge-node.md).
+Per informazioni sull'uso di un nodo perimetrale con tipi di cluster diversi, vedere il documento [Usare nodi perimetrali in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="accessing-the-nodes"></a>Accesso ai nodi head
 

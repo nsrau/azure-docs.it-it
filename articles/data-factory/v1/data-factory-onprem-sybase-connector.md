@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1c39443a187c5ba5e92b22d48914289bc410ec79
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 75fbfe1e682f0022385bb5c406d772bb217180fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622347"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045270"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Spostare i dati da Sybase utilizzando Data factory di Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-onprem-sybase-connector.md)
-> * [Versione 2 - Anteprima](../connector-sybase.md)
+> * [Versione 1](data-factory-onprem-sybase-connector.md)
+> * [Versione 2 (corrente)](../connector-sybase.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [connettore Sybase nella versione 2](../connector-sybase.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore Sybase nella versione 2](../connector-sybase.md).
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un database Sybase locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 

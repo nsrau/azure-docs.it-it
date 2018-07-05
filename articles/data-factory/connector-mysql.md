@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808724"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051264"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-onprem-mysql-connector.md)
-> * [Versione 2 - Anteprima](connector-mysql.md)
+> * [Versione 1](v1/data-factory-onprem-mysql-connector.md)
+> * [Versione corrente](connector-mysql.md)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database MySQL. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Connettore MySQL in V1](v1/data-factory-onprem-mysql-connector.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -38,13 +35,9 @@ In particolare, questo connettore MySQL supporta la **versione 5.1 e le versioni
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per usare questo connettore MySQL, è necessario:
+Se il database MySQL non è accessibile pubblicamente, è necessario configurare un runtime di integrazione self-hosted. Per altre informazioni sui runtime di integrazione self-hosted, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md). Il runtime di integrazione offre un driver MySQL predefinito a partire dalla versione 3.7 e non è quindi necessario installare manualmente alcun driver.
 
-- Configurare un runtime di integrazione self-hosted. Per i dettagli, vedere l'articolo [Runtime di integrazione self-hosted](create-self-hosted-integration-runtime.md).
-- Installare una versione tra la 6.6.5 e la 6.10.7 del [connettore/Net MySQL per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) nel computer di Integration Runtime. Questo driver a 32 bit è compatibile con il runtime di integrazione a 64 bit.
-
-> [!TIP]
-> Se si ottiene l'errore "Autenticazione non riuscita. La parte remota ha chiuso il flusso di trasporto.", è consigliabile aggiornare il connettore MySQL/Net alla versione successiva.
+Per una versione del runtime di integrazione self-hosted precedente alla 3.7, è necessario installare il [connettore MySQL/Net per Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) con una versione compresa tra la 6.6.5 e la 6.10.7 nel computer di Integration Runtime. Questo driver a 32 bit è compatibile con il runtime di integrazione a 64 bit.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -59,14 +52,40 @@ Per il servizio collegato di MySQL sono supportate le proprietà seguenti:
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su: **MySql** | Sì |
-| server | Nome del server MySQL. | Sì |
-| database | Nome del database MySQL. | Sì |
-| schema | Nome dello schema nel database. | No  |
-| username | Specificare nome utente per la connessione al database MySQL. | Sì |
-| password | Specificare la password per l'account utente specificato. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
+| connectionString | Specifica le informazioni necessarie per connettersi all'istanza del database di Azure per MySQL. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+
+Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Altre proprietà che è possibile impostare per il case:
+
+| Proprietà | DESCRIZIONE | Opzioni | Obbligatoria |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Questa opzione specifica se il driver usa la crittografia SSL e verifica la connessione a MySQL. ad esempio `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No  |
+| UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No  |
 
 **Esempio:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Il servizio collegato MySQL con il payload seguente è ancora supportato senza modifiche, ma è consigliato l'uso del nuovo per il futuro.
+
+**Payload precedente:**
 
 ```json
 {
@@ -171,13 +190,14 @@ Quando si copiano dati da MySQL, vengono usati i mapping seguenti tra i tipi di 
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit(1)` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

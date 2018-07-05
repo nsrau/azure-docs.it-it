@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620480"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046987"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-create-datasets.md)
-> * [Versione 2 - Anteprima](../concepts-datasets-linked-services.md)
+> * [Versione 1](data-factory-create-datasets.md)
+> * [Versione 2 (corrente)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, che è in anteprima, vedere le informazioni sui [set di dati nella versione 2](../concepts-datasets-linked-services.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sui [set di dati nella versione 2](../concepts-datasets-linked-services.md).
 
 In questo articolo vengono descritti i set di dati, la procedura di definizione dei set in formato JSON e le modalità di utilizzo nelle pipeline di Azure Data Factory. L'articolo contiene informazioni dettagliate su ogni sezione della definizione JSON del set di dati, ad esempio su struttura, disponibilità e criteri. L'articolo offre anche esempi per l'uso delle proprietà **offset**, **anchorDateTime** e **style** in una definizione JSON del set di dati.
 

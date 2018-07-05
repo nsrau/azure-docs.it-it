@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 958b495b2328a981c573447c44585bc7430c1095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621167"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048550"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, che è in anteprima, vedere le informazioni su come [copiare dati fra percorsi locali e cloud con Data Factory versione 2](../tutorial-hybrid-copy-powershell.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sulla [copia di dati in locale e nel cloud tramite Data Factory](../tutorial-hybrid-copy-powershell.md).
 
 Questo articolo offre una panoramica sull'integrazione tra archivi dati locali e archivi dati cloud con Data Factory. Si basa sull'articolo [Attività di spostamento dei dati](data-factory-data-movement-activities.md) e su altri articoli che illustrano i concetti di base relativi a Data Factory: [set di dati](data-factory-create-datasets.md) e [pipeline](data-factory-create-pipelines.md).
 

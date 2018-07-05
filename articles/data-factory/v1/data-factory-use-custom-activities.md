@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622814"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053134"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-use-custom-activities.md)
-> * [Versione 2 - Anteprima](../transform-data-using-dotnet-custom-activity.md)
+> * [Versione 1](data-factory-use-custom-activities.md)
+> * [Versione 2 (corrente)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sulle [attività personalizzate nella versione 2](../transform-data-using-dotnet-custom-activity.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sulle [attività personalizzate nella versione 2](../transform-data-using-dotnet-custom-activity.md).
 
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 

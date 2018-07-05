@@ -1,25 +1,24 @@
 ---
-title: "Novità di Azure Data Catalog | Microsoft Docs"
-description: "Questo articolo fornisce una panoramica delle nuove funzionalità aggiunte ad Azure Data Catalog."
+title: Novità di Azure Data Catalog | Microsoft Docs
+description: Questo articolo fornisce una panoramica delle nuove funzionalità aggiunte ad Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025359"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Novità di Azure Data Catalog
 Gli aggiornamenti ad **Azure Data Catalog** vengono rilasciati a intervalli regolari. Non tutte le nuove versioni includono tuttavia nuove funzionalità destinate all'utente, in quanto alcune sono incentrate sulle funzionalità del servizio back-end. Questa pagina illustra le nuove funzionalità destinate all'utente aggiunte al servizio Azure Data Catalog.
@@ -99,7 +98,7 @@ A partire da gennaio 2017 sono state aggiunte ad Azure Data Catalog le funzional
 
 ## <a name="whats-new-for-december-2016"></a>Novità di dicembre 2016
 A partire da dicembre 2016 sono state aggiunte ad Azure Data Catalog le funzionalità seguenti:
-*   Azure Data Catalog ora è conforme a [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) e alle [clausole del modello UE](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses).
+*   Azure Data Catalog ora è conforme a [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) e alle [clausole del modello UE](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses).
 *   Supporto per la modifica delle informazioni di connessione dell'origine dati. I proprietari degli asset di dati e gli amministratori di Data Catalog ora possono modificare le informazioni di connessione per le origini dati registrate senza dover registrare nuovamente le origini dati.
 *   Supporto per le origini dati Salesforce.com. Gli utenti ora possono registrare e trovare gli oggetti Salesforce.
 
@@ -246,7 +245,7 @@ A partire da settembre 2015 sono state aggiunte ad Azure Data Catalog le funzion
 * Una nuova esperienza introduttiva per l'individuazione di origini dati nel portale di Azure Data Catalog. Quando gli utenti accedono alla pagina di individuazione del portale di Azure Data Catalog senza immettere un termine di ricerca, viene visualizzata una panoramica dei contenuti del catalogo, inclusi i tag usati più di frequente, gli esperti, i tipi di origini dati e i tipi di oggetti.
 * Supporto per la registrazione e l'individuazione degli oggetti e dei database di Azure SQL Data Warehouse. Per altre informazioni su Azure SQL Data Warehouse, vedere [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
 * Supporto per la registrazione e l'individuazione di modelli di SQL Server Analysis Services e di server SQL Server Reporting Services come contenitori. Quando si registrano oggetti SSAS e SSRS, Azure Data Catalog crea una voce per il modello SSAS e il server SSRS, nonché per i report e altri oggetti. I contenitori possono essere individuati e annotati mediante il portale di Azure Data Catalog. Gli utenti possono inoltre eseguire ricerche e applicare filtri nel contenuto di un modello o di un server oltre a eseguire ricerche e applicare filtri nel contenuto del catalogo.
-* Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
+* Supporto per la registrazione e l'individuazione degli oggetti di SQL Server Analysis Services tramite HTTP/HTTPS. Gli utenti possono ora connettersi ai server SSAS usando un URL (ad esempio https://servername/olap/msmdpump.dll)) anziché un nome di server e possono usare l'autenticazione di base e le connessioni anonime oltre all'autenticazione di Windows. Per altre informazioni sulle connessioni HTTP/HTTPS a SSAS, vedere [Configurare l'accesso HTTP ad Analysis Services](https://msdn.microsoft.com/library/gg492140.aspx).
 * Supporto per le origini dati Hive in HDInsight. Gli utenti possono ora registrarsi e individuare le tabelle Hive per Apache Hive di Hadoop sulle origini dati HDInsight. Per altre informazioni su Hive in HDInsight, vedere il [centro di documentazione HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md).
 * Supporto per la registrazione e l'individuazione dei database Oracle e dei cluster HDFS come contenitori. Quando si registrano tabelle e viste Oracle o HDFS, Azure Data Catalog crea una voce per il database, le tabelle e le viste. Il database può essere individuato e annotato mediante il portale di Azure Data Catalog. Gli utenti possono inoltre cercare e filtrare il contenuto di un database o cluster, oltre a cercare e filtrare il contenuto del catalogo.
 * Supporto per la registrazione manuale di tipi di origini dati sconosciute. Gli utenti possono immettere manualmente informazioni sull'origine dati tramite il portale di Azure Data Catalog in modo che sia possibile annotare e individuare le origini dati non esplicitamente supportate dal tool di registrazione delle origini dati.

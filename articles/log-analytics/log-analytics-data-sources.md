@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792549"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062780"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -37,7 +37,7 @@ Nella tabella seguente sono elencate le origini dati attualmente disponibili in 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Log personalizzati](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | all'arrivo |
 | [Log personalizzati](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | all'arrivo |
-| [Log IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 minuti |
+| [Log IIS](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |dipende dall'impostazione dell'opzione Aggiornamento file di registro |
 | [Contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |come pianificato, almeno 10 secondi |
 | [Contatori delle prestazioni](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |come pianificato, almeno 10 secondi |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |dall'Archiviazione di Azure: 10 minuti; dall'agente: all'arrivo |

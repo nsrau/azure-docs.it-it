@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647663"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050127"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
@@ -78,11 +78,12 @@ Istanza gestita supporta le opzioni di migrazione di database descritte di segui
 
 - Servizio Migrazione del database di Azure - Migrazione con tempo di inattività prossimo a zero
 - Ripristino nativo da URL: usa backup nativi di SQL Server e richiede tempo di inattività
-- Migrazione con un file BACPAC: viene usato il file BACPAC di SQL Server o del database SQL e richiede tempo di inattività
 
 ### <a name="azure-database-migration-service"></a>Servizio Migrazione del database di Azure
 
 [Servizio Migrazione del database di Azure](../dms/dms-overview.md) è un servizio completamente gestito progettato per consentire migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione in anteprima pubblica includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure. Servizio Migrazione del database è il metodo di migrazione consigliato per i carichi di lavoro aziendali. 
+
+Se si utilizza SQL Server Integration Services (SSIS) in SQL Server in locale, DMS non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile eseguire il provisioning del runtime di integrazione Azure-SSIS in Azure Data Factory (ADF), che creerà un nuovo SSISDB nell'istanza gestita/database SQL di Azure. Sarà quindi possibile ridistribuire i pacchetti su di esso. Vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Per altre informazioni su questo scenario e sulla procedura di configurazione per Servizio Migrazione del database, vedere l'articolo su come [eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -107,10 +108,6 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 > Il ripristino di database di sistema non è supportato. Per eseguire la migrazione di oggetti a livello di istanza (archiviati in database master o msdb), è consigliabile inserirli in script ed eseguire gli script T-SQL nell'istanza di destinazione.
 
 Per un'esercitazione completa con il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>Eseguire la migrazione con un file BACPAC
-
-È possibile eseguire l'importazione nel database SQL di Azure e in Istanza gestita da una copia del database originale, con i dati, creata in un file BACPAC. Vedere [Importare un file BACPAC in un nuovo database SQL di Azure](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Monitorare le applicazioni
 

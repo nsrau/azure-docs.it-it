@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 12402ea30e44534734e0429f850772cbef2f7381
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287464"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049299"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Store usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-azure-datalake-connector.md)
-> * [Versione 2 - Anteprima](connector-azure-data-lake-store.md)
+> * [Versione 1](v1/data-factory-azure-datalake-connector.md)
+> * [Versione corrente](connector-azure-data-lake-store.md)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure Data Lake Store. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere le informazioni sul [connettore Azure Data Lake Store nella versione 1](v1/data-factory-azure-datalake-connector.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -42,6 +39,9 @@ In particolare, il connettore Azure Data Lake Store supporta:
 > Se si copiano dati tramite il runtime di integrazione self-hosted, configurare il firewall aziendale in modo da consentire il traffico in uscita verso `<ADLS account name>.azuredatalakestore.net` e `login.microsoftonline.com/<tenant>/oauth2/token` sulla porta 443. Quest'ultimo è un servizio token di sicurezza di Azure con cui il runtime di integrazione deve comunicare per ottenere il token di accesso.
 
 ## <a name="get-started"></a>Attività iniziali
+
+> [!TIP]
+> Per una procedura dettagliata sull'uso del connettore Azure Data Lake Store, vedere [Caricare i dati in Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 

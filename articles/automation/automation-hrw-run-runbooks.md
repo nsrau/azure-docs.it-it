@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195710"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062575"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Esecuzione di runbook in un ruolo di lavoro ibrido per runbook
 
@@ -157,13 +157,9 @@ Salvare il runbook *Export-RunAsCertificateToHybridWorker* nel computer con un'e
 
 Nei ruoli di lavoro ibridi per runbook i processi vengono gestiti in modo leggermente diverso rispetto a come vengono eseguiti nelle sandbox di Azure. Nei ruoli di lavoro ibridi per runbook, ad esempio, non è previsto alcun limite per la durata del processo. Se si ha un runbook a esecuzione prolungata, è possibile che si voglia che sia resiliente a un possibile riavvio, ad esempio al riavvio del computer che ospita il ruolo di lavoro ibrido. In caso di riavvio del computer host con il ruolo di lavoro ibrido, qualsiasi processo di runbook in esecuzione viene riavviato dall'inizio o dall'ultimo checkpoint per i runbook del flusso di lavoro di PowerShell. Se un processo di runbook viene riavviato più di 3 volte, viene sospeso.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Risoluzione dei problemi relativi ai runbook nel ruolo di lavoro ibrido per runbook
+## <a name="troubleshoot"></a>Risolvere problemi
 
-I log vengono archiviati localmente in ogni ruolo di lavoro ibrido in C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Il ruolo di lavoro ibrido registra anche errori ed eventi nel registro eventi di Windows disponibile in **Registri applicazioni e servizi\Microsoft-SMA\Operational**. Gli eventi correlati ai runbook eseguiti nel ruolo di lavoro vengono scritti in **Registri applicazioni e servizi\Microsoft-Automation\Operational**. Il registro **Microsoft-SMA** include molti più eventi relativi al processo del runbook inviato al ruolo di lavoro e all'elaborazione del runbook. Sebbene il registro eventi **Microsoft-Automation** non contenga molti eventi con informazioni utili alla risoluzione di problemi relativi all'esecuzione del runbook, contiene i risultati del processo del runbook.
-
-[output e i messaggi di runbook](automation-runbook-output-and-messages.md) vengono inviati ad Automazione di Azure da ruoli di lavoro ibridi nello stesso modo in cui vengono eseguiti i processi per runbook nel cloud. È anche possibile abilitare i flussi Verbose e Progress come per qualsiasi altro runbook.
-
-Se i runbook non vengono completati correttamente e il riepilogo del processo visualizza lo stato **Sospeso**, vedere l'articolo sulla risoluzione dei problemi [Ruolo di lavoro ibrido per runbook: un processo runbook termina con lo stato Sospeso](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+Se i runbook non vengono completati correttamente e il riepilogo del processo visualizza lo stato **Sospeso**, vedere l'articolo sulla risoluzione dei problemi relativi agli [errori di esecuzione dei runbook](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

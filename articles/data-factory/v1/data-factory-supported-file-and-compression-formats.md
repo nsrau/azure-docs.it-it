@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 50204bac60a694779eafe15df7e8733007ba92a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5afc89e774595952adf860fc6bcdc0e2403c617a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622262"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047095"
 ---
 # <a name="file-and-compression-formats-supported-by-azure-data-factory"></a>Informazioni sui formati di compressione e sui file supportati da Azure Data Factory
 *Questo argomento si applica ai connettori seguenti: [Amazon S3](data-factory-amazon-simple-storage-service-connector.md), [BLOB di Azure](data-factory-azure-blob-connector.md), [Azure Data Lake Store](data-factory-azure-datalake-connector.md), [file system](data-factory-onprem-file-system-connector.md), [FTP](data-factory-ftp-connector.md), [HDFS](data-factory-hdfs-connector.md), [HTTP](data-factory-http-connector.md) e [SFTP](data-factory-sftp-connector.md).*
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Supported file formats and compression codecs in Data Factory version 2](../supported-file-formats-and-compression-codecs.md) (Formati di file e codec di compressione supportati in Data Factory).
+> Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni su [formati di file e codec di compressione in Data Factory](../supported-file-formats-and-compression-codecs.md).
 
 Azure Data Factory supporta i tipi di formato di file seguenti:
 

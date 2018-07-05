@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619321"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055697"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-functions-variables.md)
-> * [Versione 2 - Anteprima](control-flow-expression-language-functions.md)
+> * [Versione 1](v1/data-factory-functions-variables.md)
+> * [Versione corrente](control-flow-expression-language-functions.md)
 
-Questo articolo fornisce informazioni dettagliate sulle espressioni e funzioni supportate da Azure Data Factory (versione 2). 
+Questo articolo offre informazioni dettagliate sulle espressioni e funzioni supportate da Azure Data Factory. 
 
 ## <a name="introduction"></a>Introduzione
 I valori JSON nella definizione possono essere letterali o espressioni che vengono valutate in fase di esecuzione. Ad esempio:   
@@ -40,20 +40,15 @@ I valori JSON nella definizione possono essere letterali o espressioni che vengo
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Funzioni e variabili in Data Factory V1](v1/data-factory-functions-variables.md).
-
-
 ## <a name="expressions"></a>Espressioni  
-Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (@). Se è necessaria una stringa letterale che inizia con @, occorre che la stringa sia preceduta da un carattere di escape @@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
+Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (\@). Se è necessaria una stringa letterale che inizia con @, occorre che la stringa sia preceduta da un carattere di escape @@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
 |"parameters"|Vengono restituiti i caratteri di tipo 'parameters'.|  
 |"parameters[1]"|Vengono restituiti i caratteri di tipo 'parameters[1]'.|  
-|"@@"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
-|\" \@\"|Viene restituita una stringa da 2 caratteri che contiene '\@\'.|  
+|"\@@"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
+|" \@"|Viene restituita una stringa da 2 caratteri che contiene '\@\'.|  
   
  Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| Restituisce `foo` come stringa.|  
-|"@{pipeline().parameters.myString}"| Restituisce `foo` come stringa.|  
-|"@pipeline().parameters.myNumber"| Restituisce `42` come *numero*.|  
-|"@{pipeline().parameters.myNumber}"| Restituisce `42` come *stringa*.|  
+|"\@pipeline().parameters.myString"| Restituisce `foo` come stringa.|  
+|"\@{pipeline().parameters.myString}"| Restituisce `foo` come stringa.|  
+|"\@pipeline().parameters.myNumber"| Restituisce `42` come *numero*.|  
+|"\@{pipeline().parameters.myNumber}"| Restituisce `42` come *stringa*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: 42`.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
+|"Answer is: \@@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Esempi
 

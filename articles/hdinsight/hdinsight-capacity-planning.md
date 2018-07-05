@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: ce8764e79d24d36eb3b162fb5f3f688b3e9fab3f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8a8344388e9d31846770d5989d1ddd43fbe15336
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402003"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047480"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Pianificazione della capacità per cluster HDInsight
 
@@ -114,5 +114,5 @@ Esistono tuttavia alcuni limiti di quota fissi: una singola sottoscrizione di Az
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come impostare e configurare i cluster di HDInsight con Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server o Storm.
+* [Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora](hdinsight-hadoop-provision-linux-clusters.md): informazioni su come impostare e configurare i cluster di HDInsight con Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services o Storm.
 * [Monitorare le prestazioni del cluster](hdinsight-key-scenarios-to-monitor.md): informazioni sui principali scenari da monitorare per il cluster HDInsight che potrebbero influire sulla relativa capacità.

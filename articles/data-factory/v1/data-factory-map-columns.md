@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1c8ea748297b8fe4052b60f08b8f00b1e41275fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620358"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045885"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). 
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. 
 
 Mapping di colonne utilizzabile per specificare come le colonne specificate nella "struttura" di mapping della tabella di origine alle colonne specificate nella "struttura" della tabella di sink. La proprietà **columnMapping** è disponibile nella sezione **typeProperties** dell'attività di copia.
 

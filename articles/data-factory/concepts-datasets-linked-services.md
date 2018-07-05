@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616006"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044977"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Set di dati e servizi collegati in Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-create-datasets.md)
-> * [Versione 2 - Anteprima](concepts-datasets-linked-services.md)
+> * [Versione 1](v1/data-factory-create-datasets.md)
+> * [Versione corrente](concepts-datasets-linked-services.md)
 
-Questo articolo descrive le caratteristiche dei set di dati, la procedura di definizione dei set in formato JSON e le modalità di uso nelle pipeline di Azure Data Factory V2. 
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Datasets in Data Factory V1](v1/data-factory-create-datasets.md) (Set di dati in Data Factory V1).
+In questo articolo vengono descritti i set di dati, la procedura di definizione dei set in formato JSON e le modalità di utilizzo nelle pipeline di Azure Data Factory. 
 
 Se non si ha dimestichezza con Data Factory, vedere [Introduzione al servizio Azure Data Factory](introduction.md). 
 
@@ -220,13 +217,13 @@ Seguire queste linee guida per sapere quando includere le informazioni sulla str
 ## <a name="create-datasets"></a>Creare set di dati
 È possibile creare set di dati tramite uno di questi strumenti o SDK: [API .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modello di Azure Resource Manager e portale di Azure
 
-## <a name="v1-vs-v2-datasets"></a>Set di dati della versione 1 e set di dati della versione 2
+## <a name="current-version-vs-version-1-datasets"></a>Set di dati della versione corrente e set di dati della versione 1
 
-Di seguito sono riportate alcune differenze tra i set di dati di Data Factory della versione 1 e quelli della versione 2: 
+Di seguito sono riportate alcune differenze tra i set di dati di Data Factory e quelli di Data Factory versione 1: 
 
-- La proprietà external non è supportata nella versione 2 e viene sostituita da un [trigger](concepts-pipeline-execution-triggers.md).
-- Le proprietà policy e availability non sono supportate nella versione 2. L'ora di inizio di una pipeline dipende da [trigger](concepts-pipeline-execution-triggers.md).
-- I set di dati con ambito (set di dati definiti in una pipeline) non sono supportati nella versione 2. 
+- La proprietà external non è supportata nella versione corrente. e viene sostituita da un [trigger](concepts-pipeline-execution-triggers.md).
+- Le proprietà policy e availability non sono supportate nella versione corrente. L'ora di inizio di una pipeline dipende da [trigger](concepts-pipeline-execution-triggers.md).
+- I set di dati con ambito (set di dati definiti in una pipeline) non sono supportati nella versione corrente. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere le esercitazioni seguenti per istruzioni dettagliate sulla creazione di pipeline e set di dati tramite uno di questi strumenti o SDK. 

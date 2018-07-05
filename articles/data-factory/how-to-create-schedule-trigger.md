@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618923"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054353"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 Questo articolo fornisce informazioni sui trigger di pianificazione e sulla procedura per creare, avviare e monitorare un trigger di pianificazione. Per altri tipi di trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md).
 
 Quando si crea un trigger di pianificazione, si specifica una pianificazione (data di inizio, ricorrenza, data di fine e così via) per il trigger e si associa a una pipeline. Pipeline e trigger hanno una relazione molti-a-molti. Più trigger possono attivare una singola pipeline. Un singolo trigger può attivare più pipeline.
-
-> [!NOTE]
-> Questo articolo è applicabile ad Azure Data Factory versione 2, attualmente in versione di anteprima. Se si usa Azure Data Factory versione 1, disponibile a livello generale, vedere [Introduzione ad Azure Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Le sezioni successive illustrano la procedura per creare un trigger di pianificazione in modi diversi. 
 
@@ -249,7 +246,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 È possibile usare un modello di Azure Resource Manager per creare un trigger. Per istruzioni dettagliate, vedere [Creare una data factory di Azure usando un modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passare l'ora di inizio del trigger a una pipeline
-Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. In Azure Data Factory versione 2 è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
+Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
 
 ```json
 "parameters": {

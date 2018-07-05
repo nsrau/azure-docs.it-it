@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4db720b2140a5208acc582b01b0b9613a7fd827a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 200b3c36c28cd61ca34e57875d030bf308c387ec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621378"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049282"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Spostare dati da archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-odbc-connector.md)
-> * [Versione 2 - Anteprima](../connector-odbc.md)
+> * [Versione 1](data-factory-odbc-connector.md)
+> * [Versione 2 (corrente)](../connector-odbc.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [connettore ODBC nella versione 2](../connector-odbc.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore ODBC nella versione 2](../connector-odbc.md).
 
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un archivio dati ODBC locale. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 265b227520f25ebd1112d940aaf28fed9f88ecdc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b4d9a684c2c21ed9ec00b04963432f9ebcff7493
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621021"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048455"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - Funzioni e variabili di sistema
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Variabili di sistema in Data Factory versione 2](../control-flow-system-variables.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere l'articolo relativo alle [variabili di sistema in Data Factory](../control-flow-system-variables.md).
 
 In questo articolo vengono fornite informazioni sulle funzioni e le variabili supportate da Azure Data Factory.
 

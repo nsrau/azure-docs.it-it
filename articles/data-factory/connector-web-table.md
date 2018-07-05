@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5fb3aca61b63d70c9341a3964247addf7241a844
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618124"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048935"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copiare dati da Tabella Web usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-web-table-connector.md)
-> * [Versione 2 - Anteprima](connector-web-table.md)
+> * [Versione 1](v1/data-factory-web-table-connector.md)
+> * [Versione corrente](connector-web-table.md)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da un database Tabella Web. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere le informazioni sul [connettore Tabella Web nella versione 1](v1/data-factory-web-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -42,7 +39,7 @@ Per usare questo connettore di tabelle Web, è necessario impostare un runtime d
 
 ## <a name="getting-started"></a>Introduzione
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Tabella Web.
 
@@ -85,7 +82,7 @@ Per copiare dati da Tabella Web, impostare la proprietà type del set di dati su
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del set di dati deve essere impostata su: **WebTable** | Sì |
-| path |URL relativo della risorsa che contiene la tabella. |di serie Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
 | index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 **Esempio:**

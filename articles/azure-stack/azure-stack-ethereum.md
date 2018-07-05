@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341733"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446975"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modelli di soluzioni di Azure Stack Ethereum blockchain
 
@@ -69,7 +69,7 @@ Il modello di leader consortium Configura footprint del primo membro della rete.
     ADMINUSERNAME | Nome utente dell'amministratore di ogni macchina virtuale distribuita | 1-64 caratteri | gethadmin
     ADMINPASSWORD (tipo di autenticazione = Password)| Password dell'account dell'amministratore per ognuna delle macchine virtuali distribuite. La password deve contenere 3 dei requisiti seguenti: un carattere maiuscolo, un carattere minuscolo, un numero e un carattere speciale. <br />Inizialmente tutte le macchine virtuali hanno la stessa password, ma è possibile modificarla dopo il provisioning.|12-72 caratteri|
     ADMINSSHKEY (tipo di autenticazione sshPublicKey =) | Chiave Secure Shell usata per l'accesso remoto. | |
-    GENESISBLOCK | Stringa JSON che rappresenta il blocco originale personalizzato. | |
+    GENESISBLOCK | Stringa JSON che rappresenta il blocco originale personalizzato.  Se si specifica un valore per questo parametro è facoltativo. | |
     ETHEREUMACCOUNTPSSWD | La password amministratore usata per proteggere account Ethereum. | |
     ETHEREUMACCOUNTPASSPHRASE | La passphrase utilizzata per generare la chiave privata associata all'account Ethereum. | |
     ETHEREUMNETWORKID | L'ID di rete di consorzio. | Usare qualsiasi valore compreso tra 5 e 999.999.999 | 72

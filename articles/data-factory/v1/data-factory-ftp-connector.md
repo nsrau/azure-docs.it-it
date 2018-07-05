@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe8982c9c4995cd9ddd6faa9a28fae1f321a2988
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bbbbaab6090941141abd7a2bbd2eac6dbf9fd354
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623248"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051543"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Spostare dati da un server FTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](data-factory-ftp-connector.md)
-> * [Versione 2 - Anteprima](../connector-ftp.md)
+> * [Versione 1](data-factory-ftp-connector.md)
+> * [Versione 2 (corrente)](../connector-ftp.md)
 
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Connettore FTP nella versione 2](../connector-ftp.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore FTP nella versione 2](../connector-ftp.md).
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per spostare i dati da un server FTP. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md), che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 

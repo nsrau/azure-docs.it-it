@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: abc542f79d722f24ff6a6e9d96d12364ed76894b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621184"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048918"
 ---
 # <a name="data-management-gateway"></a>Gateway di gestione dati
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le informazioni sul [runtime di integrazione self-hosted nella versione 2](../create-self-hosted-integration-runtime.md). 
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere il [runtime di integrazione self-hosted](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Gateway di gestione dati è stato rinominato Integration Runtime (self-hosted).  
@@ -46,7 +46,7 @@ Il gateway di gestione dati offre le funzionalità seguenti:
 * Consente di gestire in modo sicuro l'accesso alle origini dati locali.
   * Non è richiesta alcuna modifica del firewall aziendale. Il gateway stabilisce soltanto connessioni basate su HTTP in uscita per accedere a Internet.
   * È possibile crittografare le informazioni sulle credenziali per gli archivi dati locali usando il proprio certificato.
-* Consente di spostare i dati in modo efficiente: i dati vengono trasferiti in parallelo e sono resilienti ai problemi di rete intermittente grazie alla logica di ripetizione dei tentativi automatica.
+* Consente di spostare i dati in modo efficace: i dati vengono trasferiti in parallelo e sono resilienti ai problemi di rete intermittente grazie alla logica di ripetizione dei tentativi automatica.
 
 ### <a name="command-flow-and-data-flow"></a>Flusso dei comandi e flusso di dati
 Quando si usa un'attività di copia per copiare dati tra ambiente cloud e locale, l'attività sfrutta un gateway per trasferire i dati dall'origine dati locale al cloud e viceversa.
@@ -166,7 +166,7 @@ Ad esempio, per eseguire la copia da **un archivio dati locale a un sink di Data
 * Configurare le impostazioni del firewall del server SQL di Azure aggiungendo l'indirizzo IP relativo al computer del gateway all'elenco degli indirizzi IP consentiti.
 
 > [!NOTE]
-> Se il firewall non consente la porta in uscita 1433, il gateway non riesce ad accedere direttamente ad Azure SQL. In questo caso, è possibile usare la [copia di staging](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sul database SQL di Azure o Azure SQL DW. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
+> Se il firewall non consente la porta in uscita 1433, il gateway non riesce ad accedere direttamente ad Azure SQL. In questo caso, è possibile usare la [copia di staging](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) sul database SQL di Azure o SQL Azure DW. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
 >
 >
 
@@ -288,12 +288,12 @@ Lo stato dell'operazione di aggiornamento, manuale o automatica, viene visualizz
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Per il gateway a più nodi a disponibilità e scalabilità elevate (anteprima)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Per il gateway a più nodi a disponibilità e scalabilità elevate](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Avviare Windows PowerShell nel computer gateway.
 2. Passare alla cartella C:\Programmi\Microsoft Integration Runtime\3.0\PowerShellScript\ folder.
 3. Eseguire il comando seguente per disattivare (disabilitare) la funzionalità di aggiornamento automatico.   
 
-    Per il gateway con funzionalità di disponibilità elevata (anteprima), è necessario un parametro di AuthKey aggiuntivo.
+    Per il gateway con funzionalità di disponibilità elevata, è necessario un parametro di AuthKey aggiuntivo.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```
@@ -490,12 +490,12 @@ Questa sezione descrive come creare e registrare un gateway con i cmdlet di Azur
 3. Usare il cmdlet **New-AzureRmDataFactoryGateway** per creare un gateway logico come illustrato di seguito:
 
     ```PowerShell
-    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF �Description <desc>
+    $MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **Comando di esempio e output**:
 
     ```
-    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF �Description �gateway for walkthrough�
+    PS C:\> $MyDMG = New-AzureRmDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
     Name              : MyGateway
     Description       : gateway for walkthrough

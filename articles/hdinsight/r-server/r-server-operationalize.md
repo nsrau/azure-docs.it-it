@@ -1,6 +1,6 @@
 ---
-title: Rendere operativo R Server in HDInsight - Azure | Microsoft Docs
-description: Informazioni su come rendere operativo R Server in Azure HDInsight.
+title: Rendere operativo ML Services in HDInsight - Azure | Microsoft Docs
+description: Informazioni su come rendere operativo ML Services in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,28 +10,31 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 6de6e78d9b4ad68d268b59cff18c75fbdd7be757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412842"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046140"
 ---
-# <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster R Server in Azure HDInsight
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
-Dopo avere usato il cluster R Server in HDInsight per completare la modellazione dei dati, è possibile rendere operativo il modello per eseguire stime. Questo articolo include istruzioni per eseguire questa attività.
+Dopo avere usato il cluster ML Services in HDInsight per completare la modellazione dei dati, è possibile rendere operativo il modello per eseguire stime. Questo articolo include istruzioni per eseguire questa attività.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* **Un cluster R Server in HDInsight**: per istruzioni, vedere [Introduzione a R Server in HDInsight](r-server-get-started.md).
+* **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
 * **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="operationalize-r-server-cluster-with-one-box-configuration"></a>Rendere operativo un cluster R Server con una configurazione One-box
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Rendere operativo un cluster ML Services con una configurazione One-box
 
-1. Accedere tramite SSH al nodo perimetrale.  
+> [!NOTE]
+> I passaggi seguenti si applicano a R Server 9.0 e ML Server 9.1. Per ML Server 9.3, vedere [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) (Usare lo strumento di amministrazione per gestire la configurazione dell'operazionalizzazione).
+
+1. Accedere tramite SSH al nodo perimetrale.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
@@ -39,7 +42,7 @@ Dopo avere usato il cluster R Server in HDInsight per completare la modellazione
 
 2. Passare alla directory della versione corrispondente ed eseguire sudo sulla DLL di .NET: 
 
-    - Per Microsoft R Server 9.1:
+    - Per Microsoft ML Server 9.1:
 
             cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
             sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
@@ -49,11 +52,11 @@ Dopo avere usato il cluster R Server in HDInsight per completare la modellazione
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure R Server for Operationalization**.
+3. Vengono presentate le opzioni tra cui scegliere. Scegliere la prima opzione, come illustrato nello screenshot seguente, **Configure ML Server for Operationalization**.
 
     ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo R Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
+4. Viene ora presentata l'opzione per scegliere come si vuole rendere operativo ML Server. Tra le opzioni presentate scegliere la prima immettendo **A**.
 
     ![Opzione per una casella](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -99,7 +102,7 @@ Se si riscontrano ritardi considerevoli quando si prova a utilizzare un servizio
 
 A questo punto la configurazione per la messa in funzione è completata. È ora possibile usare il pacchetto `mrsdeploy` in RClient per connettersi all'operazionalizzazione sul nodo perimetrale e iniziare a usarne le funzionalità, ad esempio l'[esecuzione remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) e i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). A seconda che il cluster sia configurato o meno su una rete virtuale, potrebbe essere necessario impostare il tunneling di inoltro alla porta tramite l'accesso SSH. Le sezioni seguenti illustrano come configurare questo tunnel.
 
-### <a name="r-server-cluster-on-virtual-network"></a>Cluster R Server nella rete virtuale
+### <a name="ml-services-cluster-on-virtual-network"></a>Cluster ML Services nella rete virtuale
 
 Verificare che sia consentito il traffico attraverso la porta 12800 verso il nodo perimetrale. In questo modo è possibile usare tale nodo per la connessione alla funzionalità di messa in funzione.
 
@@ -115,7 +118,7 @@ Verificare che sia consentito il traffico attraverso la porta 12800 verso il nod
 
 Se `remoteLogin()` non può connettersi al nodo perimetrale ma è possibile accedere a tale nodo tramite SSH, è necessario verificare se la regola che consente il traffico sulla porta 12800 è stata impostata correttamente. Se il problema persiste, può essere risolto configurando il tunneling di port forwarding tramite SSH. Per istruzioni, vedere la sezione seguente:
 
-### <a name="r-server-cluster-not-set-up-on-virtual-network"></a>Cluster R Server non configurato nella rete virtuale
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>Cluster ML Services non configurato nella rete virtuale
 
 Se il cluster non è configurato sulla rete virtuale o si riscontrano problemi relativi alla connettività tramite la rete virtuale, è possibile usare il tunneling di port forwarding SSH:
 
@@ -139,7 +142,7 @@ Per ridimensionare i nodi di calcolo, prima si rimuovono le autorizzazioni dei n
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>Passaggio 1: Rimuovere le autorizzazioni dei nodi di lavoro
 
-Il cluster R Server non viene gestito tramite YARN. Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
+Il cluster ML Services non viene gestito tramite YARN. Se è necessario rimuovere le autorizzazioni dei nodi di lavoro, YARN Resource Manager non funziona come previsto perché non riesce a riconoscere le risorse impiegate dal server. Per evitare questa situazione, è consigliabile rimuovere le autorizzazioni dei nodi del ruolo di lavoro prima di ridimensionare i nodi di calcolo.
 
 Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
@@ -163,11 +166,11 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 1. Accedere tramite SSH a ogni nodo del ruolo di lavoro per il quale è stata rimossa l'autorizzazione.
 
-2. Eseguire l'utilità di amministrazione usando la DLL pertinente per il proprio cluster R Server. Per R Server 9.1, eseguire il codice seguente:
+2. Eseguire l'utilità di amministrazione usando la DLL pertinente per il proprio cluster ML Services. Per ML Server 9.1, eseguire il codice seguente:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Immettere **1** per selezionare l'opzione **Configure R Server for Operationalization**.
+3. Immettere **1** per selezionare l'opzione **Configure ML Server for Operationalization**.
 
 4. Immettere **C** per selezionare l'opzione `C. Compute node`. Il nodo di calcolo viene configurato sul nodo del ruolo di lavoro.
 
@@ -175,7 +178,7 @@ Seguire questi passaggi per rimuovere le autorizzazioni dei nodi di lavoro:
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Passaggio 3: Aggiungere i dettagli dei nodi di calcolo nel nodo Web
 
-Dopo che tutti i nodi di lavoro per i quali è stata rimossa l'autorizzazione sono stati configurati per l'esecuzione del nodo di calcolo, tornare al nodo perimetrale e aggiungere gli indirizzi IP di tali nodi di lavoro nella configurazione del nodo Web R Server:
+Dopo che tutti i nodi di lavoro per i quali è stata rimossa l'autorizzazione sono stati configurati per l'esecuzione del nodo di calcolo, tornare al nodo perimetrale e aggiungere gli indirizzi IP di tali nodi di lavoro nella configurazione del nodo Web ML Server:
 
 1. Accedere tramite SSH al nodo perimetrale.
 
@@ -192,6 +195,6 @@ Dopo che tutti i nodi di lavoro per i quali è stata rimossa l'autorizzazione so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Gestire cluster R Server in HDInsight](r-server-hdinsight-manage.md)
-* [Opzioni del contesto di calcolo per il cluster R Server in HDInsight](r-server-compute-contexts.md)
-* [Opzioni di Archiviazione di Azure per il cluster R Server in HDInsight](r-server-storage.md)
+* [Gestire cluster ML Services in Azure HDInsight](r-server-hdinsight-manage.md)
+* [Opzioni del contesto di calcolo per un cluster ML Services su HDInsight](r-server-compute-contexts.md)
+* [Opzioni di Archiviazione di Azure per un cluster ML Services su HDInsight](r-server-storage.md)

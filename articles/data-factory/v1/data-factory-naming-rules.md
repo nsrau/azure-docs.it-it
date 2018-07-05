@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 882b9cbb3cdcba0b574385e6a7ae2c31c24f27a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eb4579c2d94ae610d21b7221c0b410b07268d419
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622425"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051800"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - Regole di denominazione
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le [regole di denominazione in Data Factory versione 2](../naming-rules.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere l'articolo relativo alle [regole di denominazione in Data Factory](../naming-rules.md).
 
 La tabella seguente specifica le regole di denominazione per gli elementi di Data factory.
 

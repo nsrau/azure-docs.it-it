@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620562"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048615"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA). Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere il [runtime di integrazione self-hosted nella versione 2](../create-self-hosted-integration-runtime.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere il [runtime di integrazione self-hosted nella versione 2](../create-self-hosted-integration-runtime.md).
 
 Una delle maggiori difficoltà relative all'integrazione moderna dei dati consiste nello spostamento di dati da ambienti locali al cloud e viceversa. Data Factory esegue questa integrazione con Gateway di gestione dati, un agente che è possibile installare in locale per abilitare lo spostamento di dati ibridi.
 
@@ -127,12 +127,12 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
     *  Controlli riorganizzati e semplificati.
 
-    *  È possibile copiare dati da un archivio tramite lo [strumento di anteprima della copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
+    *  È possibile copiare dati da un archivio tramite lo [strumento di copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
 *  Gateway di gestione dati consente di inserire i dati direttamente da un database di SQL Server locale in Azure Machine Learning.
 
 *  Miglioramenti delle prestazioni
 
-    * Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di anteprima della copia senza codice.
+    * Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di copia senza codice.
 
 ## <a name="11259531"></a>1.12.5953.1
 
