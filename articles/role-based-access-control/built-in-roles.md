@@ -1,6 +1,6 @@
 ---
-title: Ruoli predefiniti per il controllo degli accessi in base al ruolo in Azure | Microsoft Docs
-description: Descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo in Azure. Elenca le azioni consentite e non consentite.
+title: Ruoli predefiniti in Azure | Microsoft Docs
+description: Descrive i ruoli predefiniti per il controllo degli accessi in base al ruolo in Azure. Elenca le azioni, notActions, dataActions e notDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267374"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294497"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Ruoli predefiniti per il controllo degli accessi in base al ruolo di Azure
+# <a name="built-in-roles-in-azure"></a>Ruoli predefiniti in Azure
 Il [controllo degli accessi in base al ruolo](overview.md) ha diverse definizioni di ruolo predefinite che è possibile assegnare a utenti, gruppi ed entità servizio. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse in Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md).
 
 I ruoli predefiniti sono sempre in evoluzione. Per ottenere le definizioni di ruolo più recenti, usare [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) o [az role definition list](/cli/azure/role/definition#az-role-definition-list).
@@ -31,7 +31,7 @@ I ruoli predefiniti sono sempre in evoluzione. Per ottenere le definizioni di ru
 La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic sul nome del ruolo per vedere l'elenco di `actions`, `notActions`, `dataActions` e `notDataActions` per ogni ruolo.
 
 
-| Ruolo predefinito | Descrizione |
+| Ruolo predefinito | DESCRIZIONE |
 | --- | --- |
 | [Proprietario](#owner) | Consente di gestire tutto, incluso l'accesso alle risorse. |
 | [Collaboratore](#contributor) | Consente di gestire tutto, tranne l'accesso alle risorse. |
@@ -1512,7 +1512,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Network/networkInterfaces/read | Ottiene una definizione dell’interfaccia di rete.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **DataActions** |  |
-> | Microsoft.Compute/virtualMachines/login/action | Consente di accedere alla macchina virtuale come utente normale |
+> | Microsoft.Compute/virtualMachines/login/action | Consente di accedere a una macchina virtuale come utente normale |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Consente di accedere a una macchina virtuale con privilegi di amministratore di Windows o di utente root di Linux |
 
 ## <a name="virtual-machine-contributor"></a>Collaboratore macchine virtuali
@@ -1573,7 +1573,7 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | Microsoft.Network/networkInterfaces/read | Ottiene una definizione dell’interfaccia di rete.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
 > | **DataActions** |  |
-> | Microsoft.Compute/virtualMachines/login/action | Consente di accedere alla macchina virtuale come utente normale |
+> | Microsoft.Compute/virtualMachines/login/action | Consente di accedere a una macchina virtuale come utente normale |
 
 ## <a name="web-plan-contributor"></a>Collaboratore piani Web
 > [!div class="mx-tableFixed"]

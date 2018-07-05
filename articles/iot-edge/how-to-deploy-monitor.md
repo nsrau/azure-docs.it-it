@@ -5,18 +5,20 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/07/2017
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 941568f697ca507ce190bab1b06eb0d426672fa1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630715"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029758"
 ---
-# <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala - Anteprima
+# <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
 Azure IoT Edge consente di spostare le attività di analisi sul perimetro e offre un'interfaccia cloud per gestire e monitorare i dispositivi IoT Edge senza dover accedere fisicamente a ciascuno di essi. La possibilità di gestire in remoto i dispositivi è sempre più importante con il progressivo diffondersi di soluzioni IoT (Internet delle cose) sempre più estese e complesse. Azure IoT Edge è progettato per supportare gli obiettivi aziendali, indipendentemente dal numero di dispositivi aggiunti.
 
@@ -24,7 +26,7 @@ Azure IoT Edge consente di spostare le attività di analisi sul perimetro e offr
 
 ## <a name="identify-devices-using-tags"></a>Identificare i dispositivi tramite tag
 
-Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag ed è possibile definirli in qualsiasi modo risulti appropriato per una soluzione specifica. Ad esempio, se si gestisce un complesso di edifici intelligenti, si potrebbero aggiungere i tag seguenti a un dispositivo:
+Prima di poter creare una distribuzione, è necessario essere in grado di specificare i dispositivi a cui la si vuole applicare. Azure IoT Edge identifica i dispositivi tramite **tag** nel dispositivo gemello. Ogni dispositivo può avere più tag ed è possibile definirli in qualsiasi modo risulti appropriato per una soluzione specifica. Ad esempio, il responsabile di un complesso di edifici intelligenti potrebbe aggiungere a un dispositivo i tag seguenti:
 
 ```json
 "tags":{
@@ -42,14 +44,14 @@ Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e us
 ## <a name="create-a-deployment"></a>Creare una distribuzione
 
 1. Nel [portale di Azure][lnk-portal] passare all'hub IoT. 
-1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
+1. Selezionare **IoT Edge**.
 1. Selezionare **Add IoT Edge device** (Aggiungi il dispositivo di IoT Edge).
 
 La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezioni seguenti. 
 
 ### <a name="step-1-name-and-label"></a>Passaggio 1: Nome ed etichetta
 
-1. Assegnare un nome univoco alla distribuzione. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
+1. Assegnare alla distribuzione un nome univoco contenente al massimo 128 lettere minuscole. Evitare gli spazi e i seguenti caratteri non validi: `& ^ [ ] { } \ | " < > /`.
 1. Aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie di **Nome** e **Valore** che descrivono la distribuzione. Ad esempio, `HostPlatform, Linux` o `Version, 3.0.1`.
 1. Selezionare **Avanti** per procedere al passaggio due. 
 
@@ -57,22 +59,26 @@ La creazione di una distribuzione prevede cinque passaggi, illustrati nelle sezi
 
 Esistono due tipi di moduli che è possibile aggiungere a una distribuzione. Il primo è un modulo basato su un servizio di Azure, ad esempio un account di archiviazione o Analisi di flusso. Il secondo è un modulo basato su codice personalizzato. È possibile aggiungere più moduli di entrambi i tipi a una distribuzione. 
 
-Se si crea una distribuzione senza moduli, tutti i moduli esistenti vengono rimossi dai dispositivi. 
+Se si crea una distribuzione senza moduli, tutti i moduli correnti vengono rimossi dai dispositivi. 
 
 >[!NOTE]
 >Azure Machine Learning e Funzioni di Azure non supportano ancora la distribuzione automatica dei servizi di Azure. Usare la distribuzione di moduli personalizzati per aggiungere manualmente questi servizi alla distribuzione. 
 
 Per aggiungere un modulo da Analisi di flusso di Azure, seguire questa procedura:
-1. Selezionare **Import Azure Stream Analytics IoT Edge module** (Importa modulo di IoT Edge di Analisi di flusso di Azure).
-1. Usare i menu a discesa per selezionare le istanze del servizio Azure che si vuole distribuire.
+1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
+1. Selezionare **Azure Stream Analytics module** (Modulo di Analisi di flusso di Azure).
+1. Scegliere una voce dall'elenco a discesa **Sottoscrizione**.
+1. Scegliere una voce dall'elenco a discesa **Processo Edge**.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Per aggiungere codice personalizzato come modulo o aggiungere manualmente un modulo per un servizio di Azure, seguire questa procedura:
-1. Selezionare **Add IoT Edge module** (Aggiungi il modulo di IoT Edge).
-1. Assegnare un nome al modulo in **Name** (Nome).
-1. Per il campo **Image URI** (URI immagine) immettere l'immagine del contenitore Docker per il modulo. 
-1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
-1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
+1. Nella sezione **Impostazioni registro** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini di modulo per questa distribuzione. L'agente di Edge restituisce l'errore 500 se non trova le credenziali del registro contenitori per un'immagine Docker.
+1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
+1. Selezionare **Modulo IoT Edge**.
+1. Assegnare un nome al modulo in **Nome**.
+1. Nel campo **URI immagine** immettere l'immagine del contenitore per il modulo. 
+1. Specificare le eventuali **Opzioni di creazione del contenitore** da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
+1. Usare il menu a discesa per selezionare **Criteri di riavvio**. È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
    * **On-failed** (In caso di errore): il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 
@@ -81,22 +87,26 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
    * **Running** (In esecuzione): questa è l'opzione predefinita. Il modulo verrà avviato immediatamente dopo la distribuzione.
    * **Stopped** (Arrestato): dopo la distribuzione, il modulo resta inattivo fino a quando non viene chiamato per l'avvio dall'utente o da un altro modulo.
 1. Selezionare **Enable** (Abilita) per aggiungere tag o proprietà al modulo gemello. 
+1. Specificare **Variabili di ambiente** per questo modulo. Le variabili di ambiente consentono di inserire informazioni supplementari in un modulo facilitando il processo di configurazione.
 1. Selezionare **Save** (Salva) per aggiungere il modulo alla distribuzione. 
 
 Dopo aver configurato tutti i moduli per una distribuzione, selezionare **Avanti** per procedere al passaggio tre.
 
 ### <a name="step-3-specify-routes-optional"></a>Passaggio 3: Specificare le route (facoltativo)
 
-Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Specificare le eventuali route richieste per la distribuzione, quindi selezionare **Avanti** per procedere al passaggio quattro. 
+Le route definiscono le modalità di comunicazione tra i moduli in una distribuzione. Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
+
+Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
+
 
 ### <a name="step-4-target-devices"></a>Passaggio 4: Assegnare i dispositivi di destinazione
 
 Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici che devono ricevere la distribuzione. 
 
-Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
+Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta, ovvero con il valore più elevato. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
-1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag del dispositivo gemello e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'`. 
+1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà desiderate dei dispositivi gemelli e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
 ### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello
@@ -108,7 +118,7 @@ Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** 
 Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che la eseguono, seguire questa procedura:
 
 1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
-1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
+1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
    ![Visualizzare le distribuzioni IoT Edge][1]
@@ -117,16 +127,11 @@ Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che 
    * **ID**: nome della distribuzione.
    * **Target condition** (Condizione di destinazione): tag usato per definire i dispositivi di destinazione.
    * **Priority** (Priorità): numero di priorità assegnato alla distribuzione.
-   * **IoT Edge agent status** (Stato dell'agente IoT Edge): numero di dispositivi che hanno ricevuto la distribuzione e i relativi stati di integrità. 
-   * **Unhealthy modules** (Moduli non integri): numero di moduli nella distribuzione che segnalano errori. 
+   * **System metrics** -  (Metriche di sistema): **Targeted** (Assegnati) specifica il numero di dispositivi gemelli nell'hub IoT che corrispondono alla condizione di destinazione, mentre **Applied** (Applicati) specifica il numero di dispositivi il cui contenuto di distribuzione è stato applicato ai rispettivi dispositivi gemelli nell'hub IoT. 
+   * **Metriche del dispositivo**: specifica il numero di dispositivi Edge presenti nella distribuzione che segnalano il completamento dell'operazione o gli errori generati dal runtime del client di IoT Edge.
    * **Creation time** (Data/ora di creazione): timestamp di creazione della distribuzione. Questo timestamp viene usato per stabilire la prevalenza quando due distribuzioni hanno la stessa priorità. 
-1. Selezionare la distribuzione che si vuole monitorare.  
-1. Esaminare i dettagli della distribuzione. È possibile usare le schede per visualizzare dettagli specifici sui dispositivi che hanno ricevuto la distribuzione: 
-   * **Targeted** (Destinazione): dispositivi perimetrali che soddisfano la condizione di destinazione. 
-   * **Applied** (Applicata): dispositivi perimetrali che non rappresentano la destinazione di un'altra distribuzione con priorità più alta. Questi sono i dispositivi che ricevono in effetti la distribuzione. 
-   * **Reporting success** (Distribuzione riuscita): dispositivi perimetrali a cui è applicata la distribuzione, che confermano al servizio la corretta distribuzione dei moduli. 
-   * **Reporting failure** (Distribuzione non riuscita): dispositivi perimetrali a cui è applicata la distribuzione, che segnalano al servizio la distribuzione non corretta di uno o più moduli. Per ulteriori indagini sull'errore, è necessario connettersi in remoto a tali dispositivi e visualizzare i file di log. 
-   * **Reporting unhealthy modules** (Moduli non integri): dispositivi perimetrali a cui è applicata la distribuzione, che comunicano al servizio che uno o più moduli sono stati distribuiti correttamente ma ora segnalano errori. 
+2. Selezionare la distribuzione che si vuole monitorare.  
+3. Esaminare i dettagli della distribuzione. Per esaminare i dettagli della distribuzione sono disponibili schede.
 
 ## <a name="modify-a-deployment"></a>Modificare una distribuzione
 
@@ -140,7 +145,7 @@ Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti
 Per modificare una distribuzione, seguire questa procedura: 
 
 1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
-1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
+1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
    ![Visualizzare le distribuzioni IoT Edge][1]
@@ -158,14 +163,14 @@ Per modificare una distribuzione, seguire questa procedura:
 Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzione successiva nell'ordine di priorità. Se i dispositivi non soddisfano la condizione di destinazione di qualsiasi altra distribuzione, i moduli non vengono rimossi in seguito all'eliminazione della distribuzione. 
 
 1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
-1. Selezionare **IoT Edge (preview)** (IoT Edge - anteprima).
+1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
    ![Visualizzare le distribuzioni IoT Edge][1]
 
 1. Usare la casella di controllo per selezionare la distribuzione che si vuole eliminare. 
 1. Selezionare **Elimina**.
-1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.  Ciò significa che verrà applicata una distribuzione con una priorità più bassa.  Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Se i clienti desiderano procedere in questo modo, devono creare una distribuzione con zero moduli e distribuirla agli stessi dispositivi. Selezionare **Yes** (Sì) per continuare. 
+1. Un messaggio indicherà che questa azione comporta l'eliminazione della distribuzione e il ripristino dello stato precedente per tutti i dispositivi.  Ciò significa che verrà applicata una distribuzione con una priorità più bassa.  Se non viene assegnata alcun'altra distribuzione, i moduli non verranno rimossi. Per rimuovere tutti i moduli dai dispositivi, creare una distribuzione senza moduli e assegnarla agli stessi dispositivi. Selezionare **Yes** (Sì) per continuare. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

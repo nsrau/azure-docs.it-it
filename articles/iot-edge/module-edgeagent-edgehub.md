@@ -8,18 +8,18 @@ ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632908"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030564"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Proprietà dei moduli gemelli "agente di Edge" e "hub di Edge"
 
 L'agente di Edge e l'hub di Edge sono due moduli che costituiscono il runtime di IoT Edge. Per altre informazioni sulle operazioni eseguite da ciascun modulo, vedere [Informazioni sul runtime di Azure IoT Edge e la relativa architettura](iot-edge-runtime.md). 
 
-Questo articolo descrive le proprietà desiderate e quelle segnalate dei moduli gemelli del runtime. Per altre informazioni su come distribuire i moduli nei dispositivi IoT Edge, vedere [Deployment and monitoring][lnk-deploy] (Distribuzione e monitoraggio).
+Questo articolo descrive le proprietà desiderate e quelle segnalate dei moduli gemelli del runtime. Per altre informazioni su come distribuire i moduli nei dispositivi IoT Edge, vedere [Distribuzione e monitoraggio][lnk-deploy].
 
 ## <a name="edgeagent-desired-properties"></a>Proprietà desiderate di EdgeAgent
 
@@ -31,22 +31,25 @@ Il dispositivo gemello del modulo per l'agente Edge è denominato `$edgeAgent` e
 | runtime.type | Deve essere "docker" | Sì |
 | runtime.settings.minDockerVersion | Impostata sulla versione minima di Docker richiesta da questo manifesto della distribuzione | Sì |
 | runtime.settings.loggingOptions | Un file JSON in formato stringa contenente le opzioni di registrazione per il contenitore dell'agente Edge. [Opzioni di registrazione di Docker][lnk-docker-logging-options] | No  |
+| runtime.settings.registryCredentials<br>.{registryId}.username | Nome utente del registro contenitori. Per Registro contenitori di Azure, il nome utente corrisponde in genere al nome del registro.<br><br> Le credenziali del registro sono necessarie per tutte le immagini di modulo che non sono pubbliche. | No  |
+| runtime.settings.registryCredentials<br>.{registryId}.password | Password del registro contenitori. | No  |
+| runtime.settings.registryCredentials<br>.{registryId}.address | Indirizzo del registro contenitori. Per Registro contenitori di Azure, l'indirizzo è in genere *{registryname}.azurecr.io*. | No  |  
 | systemModules.edgeAgent.type | Deve essere "docker" | Sì |
 | systemModules.edgeAgent.settings.image | URI dell'immagine dell'agente Edge. Attualmente, l'agente Edge non è in grado di aggiornarsi automaticamente. | Sì |
-| systemModules.edgeAgent.settings.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'agente Edge. [Opzioni di creazione di Docker][lnk-docker-create-options] | No  |
-| systemModules.edgeAgent.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Impostato dall'hub IoT quando viene applicato questo manifesto usando una distribuzione. Non fa parte di un manifesto della distribuzione. |
+| systemModules.edgeAgent.settings<br>.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'agente Edge. [Opzioni di creazione di Docker][lnk-docker-create-options] | No  |
+| systemModules.edgeAgent.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Questa proprietà è impostata dall'hub IoT quando questo manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
 | systemModules.edgeHub.type | Deve essere "docker" | Sì |
 | systemModules.edgeHub.status | Deve essere "running" | Sì |
 | systemModules.edgeHub.restartPolicy | Deve essere "always" | Sì |
 | systemModules.edgeHub.settings.image | URI dell'immagine dell'hub Edge. | Sì |
-| systemModules.edgeHub.settings.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'hub Edge. [Opzioni di creazione di Docker][lnk-docker-create-options] | No  |
-| systemModules.edgeHub.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Impostato dall'hub IoT quando viene applicato questo manifesto usando una distribuzione. Non fa parte di un manifesto della distribuzione. |
+| systemModules.edgeHub.settings<br>.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore dell'hub Edge. [Opzioni di creazione di Docker][lnk-docker-create-options] | No  |
+| systemModules.edgeHub.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Questa proprietà è impostata dall'hub IoT quando questo manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
 | modules.{moduleId}.version | Una stringa definita dall'utente che rappresenta la versione di questo modulo. | Sì |
 | modules.{moduleId}.type | Deve essere "docker" | Sì |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sì |
 | modules.{moduleId}.settings.image | URI dell'immagine del modulo. | Sì |
 | modules.{moduleId}.settings.createOptions | Un file JSON in formato stringa contenente le opzioni per la creazione del contenitore del modulo. [Opzioni di creazione di Docker][lnk-docker-create-options] | No  |
-| modules.{moduleId}.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Impostato dall'hub IoT quando viene applicato questo manifesto usando una distribuzione. Non fa parte di un manifesto della distribuzione. |
+| modules.{moduleId}.configuration.id | ID della distribuzione che ha distribuito questo modulo. | Questa proprietà è impostata dall'hub IoT quando questo manifesto viene applicato tramite una distribuzione. Non fa parte di un manifesto della distribuzione. |
 
 ## <a name="edgeagent-reported-properties"></a>Proprietà segnalate di EdgeAgent
 
@@ -59,7 +62,7 @@ Le proprietà segnalate dell'agente Edge includono tre tipi di informazioni prin
 Quest'ultima informazione è utile nel caso in cui le proprietà desiderate più recenti non vengano applicate correttamente dal runtime e il dispositivo esegua ancora un manifesto della distribuzione precedente.
 
 > [!NOTE]
-> Le proprietà segnalate dell'agente Edge sono utili in quanto possono essere sottoposte a query con il [linguaggio di query dell'hub IoT][lnk-iothub-query] per esaminare lo stato delle distribuzioni su larga scala. Per altre informazioni su come usare questa funzionalità, fare riferimento a [Distribuzioni][lnk-deploy].
+> Le proprietà segnalate dell'agente Edge sono utili in quanto possono essere sottoposte a query con il [linguaggio di query dell'hub IoT][lnk-iothub-query] per esaminare lo stato delle distribuzioni su larga scala. Per altre informazioni su come usare le proprietà dell'agente di Edge relative allo stato, vedere [Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala][lnk-deploy].
 
 La tabella seguente non include le informazioni copiate dalle proprietà desiderate.
 

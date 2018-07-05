@@ -3,7 +3,7 @@ title: Raccogliere metriche delle risorse PaaS di Azure con Log Analytics | Micr
 description: Informazioni su come abilitare la raccolta di metriche delle risorse PaaS di Azure con PowerShell per la conservazione e l'analisi in Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a2c04c2f79f310b7e70e7add7a8d5f318f056d2
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: na
+ms.openlocfilehash: b44a6627ab12c8a4ad21e7beded7c5fd2c2e1d39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593288"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128463"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Configurare la raccolta di metriche delle risorse PaaS di Azure con Log Analytics
 

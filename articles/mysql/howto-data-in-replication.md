@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265752"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294422"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
-In questo articolo si apprenderà come configurare la replica dei dati in ingresso nel servizio Database di Azure per MySQL eseguendo la configurazione di un server primario e di un server di replica.
+In questo articolo si apprenderà come configurare la replica dei dati in ingresso nel servizio Database di Azure per MySQL eseguendo la configurazione di un server primario e di un server di replica. La funzione per la replica dei dati in ingresso consente di sincronizzare i dati da un server MySQL primario, eseguito in locale, in macchine virtuali o servizi di database ospitati da altri provider cloud in una replica nel servizio Database di Azure per MySQL. 
 
 Per eseguire le procedure descritte in questo articolo è necessario avere già un certo livello di esperienza con i server e i database MySQL.
 
@@ -29,7 +29,7 @@ Per eseguire le procedure descritte in questo articolo è necessario avere già 
    Creare un server MySQL, ad esempio "replica.mysql.database.azure.com". Per istruzioni su come creare il server, vedere [Creare un server di Database di Azure per MySQL usando il portale di Azure](quickstart-create-mysql-server-database-using-azure-portal.md). Questo è il server di "replica" per la replica dei dati in ingresso.
 
    > [!IMPORTANT]
-   > Questo server deve essere creato con il piano tariffario per utilizzo generico o ottimizzato per la memoria.
+   > Il server di Database di Azure per MySQL deve essere creato con il piano tariffario per utilizzo generico o ottimizzato per la memoria.
    > 
 
 2. Creare gli stessi account utente e i privilegi corrispondenti
@@ -37,6 +37,7 @@ Per eseguire le procedure descritte in questo articolo è necessario avere già 
    Gli account utente non vengono replicati dal server primario al server di replica. Se si prevede di specificare gli utenti con accesso al server di replica, è necessario creare manualmente tutti gli account e i privilegi corrispondenti sul nuovo server di Database di Azure per MySQL.
 
 ## <a name="configure-the-primary-server"></a>Configurare il server primario
+I passaggi seguenti consentono di preparare e configurare il server MySQL ospitato in locale, in una macchina virtuale o un servizio di database ospitato da altri provider di cloud per la replica dei dati in ingresso. Questo è il server "primario" per la replica dei dati in ingresso. 
 
 1. Attivare la registrazione binaria
 
@@ -158,7 +159,7 @@ Per eseguire le procedure descritte in questo articolo è necessario avere già 
    - master_ssl_ca: contesto del certificato della CA. Se non si usa SSL, passare una stringa vuota.
        - È consigliabile passare questo parametro sotto forma di variabile. Per altre informazioni, vedere gli esempi seguenti.
 
-   **Esempi**
+   **esempi**
 
    *Replica con SSL*
 
@@ -226,3 +227,6 @@ Per ignorare un errore di replica e consentire alla replica di proseguire, usare
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+- Altre informazioni sulla [replica dei dati in ingresso](concepts-data-in-replication.md) in Database di Azure per MySQL. 

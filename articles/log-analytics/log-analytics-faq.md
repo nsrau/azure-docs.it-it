@@ -3,7 +3,7 @@ title: Domande frequenti su Log Analytics | Documentazione Microsoft
 description: Risposte alle domande frequenti sul servizio Log Analytics di Azure.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221544"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128531"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -79,13 +80,13 @@ R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la p
 
 Quando si crea l'avviso per l'interruzione della raccolta dati, applicare le seguenti impostazioni:
 
-- **Definire la condizione dell'avviso** consente di specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
+- Per **Definire la condizione dell'avviso**, specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
 - **Criteri di avviso** consente di specificare quanto segue:
    - **Nome segnale** selezionare **Ricerca log personalizzata**.
    - **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
    - **Periodo di tempo** di *30* minuti e **Frequenza di avviso** ogni *10* minuti
-- **Definire i dettagli dell'avviso** consente di specificare quanto segue:
+- Per **Definire i dettagli dell'avviso** specificare quanto segue:
    - **Nome** su *Data collection stopped* (Raccolta dati interrotta)
    - **Gravità** su *Avviso*
 

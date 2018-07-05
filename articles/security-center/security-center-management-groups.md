@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 2c95b06ce34b850d1bfaf60e47d6e5fede148a38
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025335"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441501"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure
 Questo articolo illustra come iniziare a eseguire diverse azioni che ottimizzano i vantaggi offerti dal Centro sicurezza di Azure. Queste azioni consentono di ottenere visibilità su tutte le sottoscrizioni di Azure collegate al tenant di Azure Active Directory e di gestire in modo efficiente la sicurezza dell'organizzazione su vasta scala applicando i criteri di sicurezza in più sottoscrizioni secondo una logica aggregativa.
@@ -86,7 +86,7 @@ Un amministratore del tenant di Azure Active Directory non ha accesso diretto al
 5. Eseguire le attività necessarie per cui sono richiesti privilegi elevati. Al termine, impostare nuovamente l'opzione su **No**.
 
 ### <a name="assign-rbac-roles-to-users"></a>Assegnare ruoli Controllo degli accessi in base al ruolo agli utenti
-Dopo che un amministratore del tenant ha eseguito l'accesso con privilegi elevati, può assegnare un ruolo Controllo degli accessi in base al ruolo agli utenti pertinenti a livello del gruppo di gestione radice. Il ruolo consigliato per l'assegnazione è [**Lettore**](../role-based-access-control/built-in-roles.md#reader). Questo ruolo è necessario per fornire visibilità a livello di tenant. Il ruolo assegnato verrà automaticamente propagato a tutti i gruppi di gestione e a tutte le sottoscrizioni nel gruppo di gestione radice. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Ruoli disponibili](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles).
+Dopo che un amministratore del tenant ha eseguito l'accesso con privilegi elevati, può assegnare un ruolo Controllo degli accessi in base al ruolo agli utenti pertinenti a livello del gruppo di gestione radice. Il ruolo consigliato per l'assegnazione è [**Lettore**](../role-based-access-control/built-in-roles.md#reader). Questo ruolo è necessario per fornire visibilità a livello di tenant. Il ruolo assegnato verrà automaticamente propagato a tutti i gruppi di gestione e a tutte le sottoscrizioni nel gruppo di gestione radice. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Ruoli disponibili](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles).
 
 1. Installare [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Eseguire i comandi seguenti: 

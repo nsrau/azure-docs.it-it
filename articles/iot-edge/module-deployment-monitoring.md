@@ -4,18 +4,18 @@ description: Informazioni sulle modalità di distribuzione dei moduli nei dispos
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725327"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029261"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala - Anteprima
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>Informazioni sulle distribuzioni IoT Edge per singoli dispositivi o su vasta scala
 
 I dispositivi Azure IoT Edge seguono un [ciclo di vita del dispositivo][lnk-lifecycle] simile a quello di altri tipi di dispositivi IoT:
 
@@ -23,7 +23,7 @@ I dispositivi Azure IoT Edge seguono un [ciclo di vita del dispositivo][lnk-life
 1. I dispositivi vengono configurati per l'esecuzione di [moduli IoT Edge][lnk-modules] e quindi ne viene monitorata l'integrità. 
 1. Infine, è possibile ritirare i dispositivi quando vengono sostituiti o diventano obsoleti.  
 
-Azure IoT Edge offre due modi per configurare i moduli da eseguire su dispositivi IoT Edge: uno per lo sviluppo e le iterazioni veloce in un singolo dispositivo (quello usato nelle esercitazioni per Azure IoT Edge) e uno per la gestione di grandi quantità di dispositivi IoT Edge. Entrambi gli approcci sono disponibili nel portale di Azure e a livello di codice.
+Azure IoT Edge consente di adottare due approcci per configurare i moduli da eseguire su dispositivi IoT Edge: uno per lo sviluppo e le iterazioni veloci su un singolo dispositivo (ovvero l'approccio usato nelle esercitazioni per Azure IoT Edge) e uno per la gestione di grandi quantità di dispositivi IoT Edge. Entrambi gli approcci sono disponibili nel portale di Azure e a livello di codice.
 
 Questo articolo è incentrato sulle fasi di configurazione e monitoraggio per grandi quantità di dispositivi, collettivamente indicate come distribuzioni automatiche IoT Edge. I passaggi per la distribuzione nel suo complesso sono i seguenti:   
 
@@ -36,11 +36,11 @@ Questo articolo descrive ogni componente coinvolto nella configurazione e nel mo
 
 ## <a name="deployment"></a>Distribuzione
 
-Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti. Una distribuzione può essere assegnata a un singolo dispositivo (in genere in base all'ID del dispositivo) o a un gruppo di dispositivi (in base a tag). Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dei moduli dai repository corrispondenti, quindi li configura come specificato. Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.   
+Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'esecuzione come istanze in un set di destinazione di dispositivi IoT Edge. Il funzionamento è basato sulla configurazione di un manifesto per la distribuzione IoT Edge, che include un elenco di moduli con i parametri di inizializzazione corrispondenti. Una distribuzione può essere assegnata a un singolo dispositivo (in base al relativo ID) o a un gruppo di dispositivi (in base ai tag). Quando un dispositivo IoT Edge riceve un manifesto di distribuzione, scarica e installa le immagini dei contenitori dei moduli dai repository corrispondenti, quindi li configura come specificato. Dopo aver creato una distribuzione, un operatore può monitorare lo stato di distribuzione per verificare se i dispositivi di destinazione sono configurati correttamente.   
 
-È necessario eseguire il provisioning dei dispositivi come dispositivi IoT Edge perché sia possibile configurarli con una distribuzione. Di seguito sono riportati i prerequisiti, non inclusi nella distribuzione:
+È necessario eseguire il provisioning dei dispositivi come dispositivi IoT Edge perché sia possibile configurarli con una distribuzione. Prima di poter ricevere la distribuzione, il dispositivo deve soddisfare i prerequisiti seguenti:
 * Sistema operativo di base
-* Docker 
+* Sistema di gestione dei contenitori, come Moby o Docker
 * Provisioning del runtime IoT Edge 
 
 ### <a name="deployment-manifest"></a>Manifesto della distribuzione
@@ -48,16 +48,20 @@ Una distribuzione automatica IoT Edge assegna immagini di moduli IoT Edge per l'
 Un manifesto di distribuzione è un documento JSON che descrive i moduli da configurare nei dispositivi IoT Edge di destinazione e contiene i metadati di configurazione per tutti i moduli, inclusi i moduli di sistema richiesti, in particolare l'agente IoT Edge e l'hub IoT Edge.  
 
 I metadati di configurazione per ogni modulo includono: 
-* Version 
-* type 
+* Versione 
+* Tipo 
 * Stato (ad esempio, in esecuzione o arrestato) 
 * Criteri di riavvio 
-* Repository di immagini e contenitori 
+* Registro di immagini e contenitori
 * Route per l'input e l'output dei dati 
+
+Se l'immagine del modulo è archiviata in una registro contenitori privato, le credenziali del registro sono contenute nell'agente di IoT Edge. 
 
 ### <a name="target-condition"></a>Condizione di destinazione
 
-La condizione di destinazione viene costantemente valutata in modo da includere eventuali nuovi dispositivi conformi ai requisiti o rimuovere dispositivi non più conformi nel corso della durata della distribuzione. Se il servizio rileva qualsiasi variazione della condizione di destinazione, la distribuzione viene riattivata. Ad esempio, si dispone di una distribuzione A con una condizione di destinazione tags.environment = 'prod'. Quando viene avviata la distribuzione, sono disponibili 10 dispositivi di produzione. I moduli vengono installati correttamente in questi 10 dispositivi. Lo stato dell'agente IoT Edge riporta 10 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 0 risposte in sospeso. Si aggiungano ora altri 5 dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente IoT Edge riporta 15 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 5 risposte in sospeso quando tenta di distribuire i cinque nuovi dispositivi.
+La condizione di destinazione viene costantemente valutata in modo da includere eventuali nuovi dispositivi conformi ai requisiti o rimuovere dispositivi non più conformi nel corso della durata della distribuzione. Se il servizio rileva qualsiasi variazione della condizione di destinazione, la distribuzione viene riattivata. 
+
+Si supponga ad esempio di avere una distribuzione A con una condizione di destinazione tags.environment = 'prod'. Quando viene avviata la distribuzione, sono disponibili dieci dispositivi di produzione. I moduli vengono installati correttamente nei dieci dispositivi. Lo stato dell'agente di IoT Edge riporta 10 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 0 risposte in sospeso. Si aggiungono ora altri cinque dispositivi con tags.environment = 'prod'. Il servizio rileva la modifica e lo stato dell'agente di IoT Edge riporta 15 dispositivi totali, 10 risposte corrette, 0 risposte con esito negativo e 5 risposte in sospeso quando tenta di eseguire la distribuzione nei cinque nuovi dispositivi.
 
 Usare qualsiasi condizione booleana sui tag dei dispositivi gemelli o deviceId per selezionare i dispositivi di destinazione. Se si intende usare una condizione con tag, è necessario aggiungere la sezione "tags"{} nel dispositivo gemello allo stesso livello delle proprietà. [Altre informazioni sui tag nel dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ Di seguito sono riportati alcuni vincoli validi quando si crea una condizione di
 * In un dispositivo gemello è solo possibile creare una condizione di destinazione tramite tags o deviceId.
 * Le virgolette doppie non sono consentite in qualsiasi parte della condizione di destinazione. Usare le virgolette singole.
 * Le virgolette singole rappresentano i valori della condizione di destinazione. Pertanto, è necessario eseguire l'escape della virgoletta singola con un'altra virgoletta singola se fa parte del nome del dispositivo. Ad esempio, la condizione di destinazione per operator'sDevice dovrà essere scritta come deviceId='operator''sDevice'.
-* I numeri, le lettere e i caratteri seguenti sono consentiti nei valori della condizione di destinazione: -:.+%_#*?!(),=@;$
+* Nei valori della condizione di destinazione sono consentiti i numeri, le lettere e i caratteri seguenti: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Priorità
 

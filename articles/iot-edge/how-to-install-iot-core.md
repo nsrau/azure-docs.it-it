@@ -9,25 +9,26 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: af6ce22d1b41ebfe9b64ea5fc1a2cf99478af925
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae5644a62b794dc8d6ace52f21a452fa70027d39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630035"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029561"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installare il runtime di IoT Edge su Windows IoT Core - anteprima
 
 Azure IoT Edge e [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) interagiscono per consentire l'elaborazione perimetrale anche in dispositivi di piccole dimensioni. Il Runtime di Azure IoT Edge può essere eseguito anche in piccoli dispositivi Single Board Computer (SBC) molto diffusi nel settore IoT. 
 
-In questo articolo vengono illustrati il provisioning del runtime in una scheda di sviluppo [MinnowBoard Turbot][lnk-minnow] che esegue Windows IoT Core. Windows IoT Core supporta Azure IoT Edge solo con processori Intel x64. 
+Questo articolo illustra il provisioning del runtime su una scheda di sviluppo che esegue Windows IoT Core. 
 
-## <a name="install-the-runtime"></a>Installare il runtime
+**Windows IoT Core supporta attualmente Azure IoT Edge solo con processori Intel x64.**
 
-1. Installare il [Dashboard Windows 10 IoT Core] [ lnk-core] in un sistema host.
-1. Seguire i passaggi in [Set up your device (Impostare il dispositivo)] [ lnk-board] per configurare la scheda con l'immagine di MinnowBoard Turbot/MAX Build 16299. 
+## <a name="install-the-container-runtime"></a>Installare il runtime per contenitori
+
+1. Configurare la scheda con l'immagine di IoT Core **Build 17134 (RS4)**. 
 1. Accendere il dispositivo, quindi [effettuare l'accesso in remoto con PowerShell][lnk-powershell].
-1. Nella console di PowerShell installare il runtime del contenitore: 
+1. Nella console di PowerShell installare il runtime per contenitori: 
 
    ```powershell
    Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-0.0.0-dev.zip -o temp.zip
@@ -40,28 +41,18 @@ In questo articolo vengono illustrati il provisioning del runtime in una scheda 
    ```
 
    >[!NOTE]
-   >Questo runtime del contenitore proviene dal server di compilazione del progetto Moby ed è destinato solo a fini di valutazione. Non è stato pertanto sottoposto a test, approvato o supportato da Docker.
+   >Questo runtime proviene dal server di compilazione del progetto Moby ed è destinato solo a fini di valutazione. Non è stato pertanto sottoposto a test, approvato o supportato da Docker.
 
-1. Installare il runtime IoT Edge e verificare la configurazione:
+## <a name="finish-installing"></a>Completare l'installazione
 
-   ```powershell
-   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
-   ```
-
-   Lo script esegue queste operazioni: 
-   * Python 3.6
-   * Script di controllo di IoT Edge (iotedgectl.exe)
-
-È possibile visualizzare l'output informativo dallo strumento iotedgectl.exe in verde nella finestra remota di PowerShell. Ciò non indica necessariamente la presenza di errori. 
+Installare il daemon di sicurezza di IoT Edge e configurarlo seguendo le istruzioni riportate in [questo articolo][lnk-install-windows-on-windows].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver creato un dispositivo che esegue il runtime di IoT Edge, scoprire come [distribuire e monitorare i moduli di IoT Edge su larga scala][lnk-deploy].
 
 <!--Links-->
-[lnk-minnow]: https://minnowboard.org/ 
-[lnk-core]: https://docs.microsoft.com/windows/iot-core/connect-your-device/iotdashboard
-[lnk-board]: https://developer.microsoft.com/windows/iot/Docs/GetStarted/mbm/sdcard/stable/getstartedstep2
+[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md#download-the-edge-daemon-package-and-install
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
 [lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows

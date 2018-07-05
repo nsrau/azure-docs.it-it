@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293178"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031730"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Esercitazione: creazione di report sul provisioning automatico degli account utente
 
@@ -30,9 +30,9 @@ In questo articolo viene descritto come controllare lo stato dei processi di pro
 
 ## <a name="overview"></a>Panoramica
 
-I connettori di provisioning sono impostati e configurati principalmente tramite il [portale di gestione di Azure](https://portal.azure.com), seguendo la [documentazione presente](active-directory-saas-tutorial-list.md) per l'applicazione in cui si desidera eseguire il provisioning dell'account utente. Dopo averli configurati e averne avviata l'esecuzione, i processi di provisioning per un'applicazione possono essere segnalati tramite uno dei due metodi indicati:
+I connettori di provisioning vengono impostati e configurati tramite il [portale di Azure](https://portal.azure.com) in base alla [documentazione disponibile](saas-apps/tutorial-list.md) per l'applicazione supportata. Una volta configurati e in esecuzione, i processi di provisioning possono essere segnalati tramite uno dei due metodi seguenti:
 
-* **Portale di gestione di Azure**: questo articolo descrive principalmente il recupero delle informazioni del report dal [portale di gestione di Azure](https://portal.azure.com), che consente di creare i report di riepilogo del provisioning, nonché i log di controllo dettagliati sul provisioning per una determinata applicazione.
+* **Portale di gestione di Azure**: questo articolo descrive principalmente il recupero delle informazioni del report dal [portale di Azure](https://portal.azure.com), che consente di creare i report di riepilogo del provisioning, nonché i log di controllo dettagliati sul provisioning per una determinata applicazione.
 
 * **API di controllo**: Azure Active Directory offre anche un'API di controllo che consente di abilitare il recupero programmatico dei log di controllo dettagliati sul provisioning. Vedere [Informazioni di riferimento sull'API di controllo di Azure Active Directory](active-directory-reporting-api-audit-reference.md) per la documentazione specifica sull'uso di questa API. Sebbene questo articolo non si concentri in particolare sull'uso dell'API, contiene informazioni dettagliate sui tipi di eventi di provisioning registrati nel log di controllo.
 
@@ -54,23 +54,23 @@ Per ottenere le informazioni sui report del provisioning per una determinata app
 A questo punto, è possibile accedere al report di riepilogo del provisioning e ai log di controllo del provisioning, entrambi descritti di seguito.
 
 
-### <a name="provisioning-summary-report"></a>Report di riepilogo del provisioning
+## <a name="provisioning-summary-report"></a>Report di riepilogo del provisioning
 
-Il report di riepilogo del provisioning è visibile nella scheda **Provisioning** di una determinata applicazione. Si trova nella sezione Dettagli sincronizzazione in **Impostazioni** e contiene le informazioni seguenti:
+Il report di riepilogo del provisioning è visibile nella scheda **Provisioning** di una determinata applicazione. Si trova nella sezione **Dettagli sincronizzazione** in **Impostazioni** e contiene le informazioni seguenti:
 
-* Il numero totale di utenti e gruppi che sono stati sincronizzati e che attualmente si trovano nell'ambito per il provisioning tra il sistema di origine e il sistema di destinazione.
+* Il numero totale di utenti e gruppi che sono stati sincronizzati e che attualmente si trovano nell'ambito per il provisioning tra il sistema di origine e quello di destinazione.
 
-* Ora dell'ultima sincronizzazione. Le sincronizzazioni in genere vengono eseguite ogni 20-40 minuti, in seguito al totale completamento di una sincronizzazione.
+* Ora dell'ultima sincronizzazione. Le sincronizzazioni in genere vengono eseguite ogni 20-40 minuti, dopo il completamento di una [sincronizzazione iniziale](active-directory-saas-app-provisioning.md#what-happens-during-provisioning).
 
-* Eventuale completamento di una sincronizzazione iniziale.
+* Eventuale completamento di una [sincronizzazione iniziale](active-directory-saas-app-provisioning.md#what-happens-during-provisioning).
 
-* Eventuale quarantena applicata a un processo di provisioning e il motivo dello stato di quarantena, ad esempio errore di comunicazione con il sistema di destinazione a causa di credenziali di amministratore non valide
+* Eventuale quarantena applicata a un processo di provisioning e motivo dello stato di quarantena, ad esempio errore di comunicazione con il sistema di destinazione a causa di credenziali di amministratore non valide.
 
 Il report di riepilogo del provisioning deve essere il primo documento in cui gli amministratori devono controllare l'integrità operativa del processo di provisioning.
 
  ![Report di riepilogo](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Log di controllo del provisioning
+## <a name="provisioning-audit-logs"></a>Log di controllo del provisioning
 Tutte le attività eseguite dal servizio di provisioning vengono registrate nei log di controllo di Azure AD, che possono essere visualizzati nella scheda **Log di controllo** della categoria **Provisioning account**. I tipi di eventi dell'attività registrati includono:
 
 * **Eventi di importazione**: ogni volta che il servizio di provisioning di Azure AD recupera informazioni su un singolo utente o gruppo da un sistema di origine o destinazione si registra un evento di "importazione". Durante la sincronizzazione, gli utenti vengono recuperati prima dal sistema di origine, con i risultati registrati come eventi di "importazione". Gli ID corrispondenti degli utenti recuperati sono quindi sottoposti a query dal sistema di destinazione per verificarne l'esistenza: anche i risultati vengono registrati come eventi di "importazione". Questi eventi registrano tutti gli attributi utente mappati e i relativi valori osservati dal servizio di provisioning di Azure Active Directory al momento dell'evento. 
@@ -87,7 +87,7 @@ Se si esaminano gli eventi di provisioning per un singolo utente si nota che in 
 
 2. Evento di importazione: il sistema di destinazione viene sottoposto a query per verificare l'esistenza dell'utente recuperato.
 
-3. Evento della regola di sincronizzazione: i dati utente dei sistemi di origine e di destinazione vengono valutati rispetto alle regole di mapping degli attributi configurati a i filtri di ambito per determinare le azioni, se possibili, da eseguire.
+3. Evento della regola di sincronizzazione: i dati utente dei sistemi di origine e di destinazione vengono valutati rispetto alle regole di mapping degli attributi configurati e ai filtri di ambito per determinare le eventuali azioni da eseguire.
 
 4. Evento di esportazione: se l'evento della regola di sincronizzazione determina l'esecuzione di un'azione, ad esempio Aggiungi, Aggiorna, Elimina, i risultati dell'azione vengono registrati in un evento di esportazione.
 
@@ -112,6 +112,9 @@ Il caso di uso più comune per i log di controllo del provisioning consiste nel 
 
 7. Fare clic su singoli eventi per visualizzare maggiori dettagli, comprese tutte le proprietà utente recuperate, valutate o scritte come parte dell'evento.
 
+Per una dimostrazione su come usare i log di controllo, vedere il video seguente. I log di controllo vengono presentati nel video dopo circa 5 minuti e 30 secondi:
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>Suggerimenti per la visualizzazione dei log di controllo del provisioning
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029799"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -40,7 +40,7 @@ ms.locfileid: "28019484"
 
 ## <a id="comm-ssltls"></a>Proteggere la comunicazione con l'hub eventi con SSL/TLS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -51,7 +51,7 @@ ms.locfileid: "28019484"
 
 ## <a id="priv-aspnet"></a>Verificare i privilegi dell'account del servizio e controllare che le pagine ASP.NET o i servizi personalizzati rispettino la sicurezza di CRM
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Dynamics CRM | 
 | **Fase SDL**               | Compilare |  
@@ -73,7 +73,7 @@ ms.locfileid: "28019484"
 
 ## <a id="identity-https"></a>Verificare che tutto il traffico verso Identity Server venga gestito su connessione HTTPS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Distribuzione |  
@@ -84,7 +84,7 @@ ms.locfileid: "28019484"
 
 ## <a id="x509-ssltls"></a>Verificare i certificati X.509 usati per autenticare le connessioni SSL, TLS e DTLS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -95,7 +95,7 @@ ms.locfileid: "28019484"
 
 ## <a id="ssl-appservice"></a>Configurare il certificato SSL per un dominio personalizzato nel servizio app di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -139,7 +139,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="http-hsts"></a>Abilitare HTTP Strict Transport Security (HSTS)
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -150,7 +150,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="sqlserver-validation"></a>Verificare la crittografia della connessione e la convalida dei certificati di SQL Server
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -172,7 +172,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="comm-storage"></a>Verificare che per la comunicazione con Archiviazione di Azure venga usato HTTPS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -183,7 +183,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="md5-https"></a>Convalidare l'hash MD5 dopo il download di BLOB se non è possibile abilitare HTTPS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -194,7 +194,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 
 ## <a id="smb-shares"></a>Usare un client compatibile con SMB 3.0 per garantire la crittografia dei dati in transito per le condivisioni file di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Client per dispositivi mobili | 
 | **Fase SDL**               | Compilare |  
@@ -282,18 +282,18 @@ namespace CertificatePinningExample
 
 ## <a id="https-transport"></a>Abilitare HTTPS: canale di trasporto sicuro
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **Passaggi** | La configurazione dell'applicazione deve garantire l'uso di HTTPS per tutti gli accessi a informazioni riservate.<ul><li>**SPIEGAZIONE:** se un'applicazione che gestisce informazioni riservate non usa la crittografia a livello di messaggio, all'applicazione deve essere consentita la comunicazione solo tramite un canale di trasporto crittografato.</li><li>**RACCOMANDAZIONI:** verificare che il trasporto HTTP sia disabilitato e abilitare invece il trasporto HTTPS. Ad esempio, sostituire il tag `<httpTransport/>` con il tag `<httpsTransport/>`. Non basarsi su una configurazione di rete (firewall) per garantire che l'applicazione sia accessibile solo tramite un canale sicuro. Da un punto di vista teorico, l'applicazione non deve dipendere dalla rete per la sicurezza.</li></ul><p>Da un punto di vista pratico, le persone responsabili della protezione della rete non sempre tengono traccia dell'evoluzione dei requisiti di sicurezza dell'applicazione.</p>|
 
 ## <a id="message-protection"></a>WCF: impostare il livello di protezione per la sicurezza dei messaggi su EncryptAndSign
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
@@ -333,7 +333,7 @@ string GetData(int value);
 
 ## <a id="webapi-https"></a>Forzare tutto il traffico verso le API Web su una connessione HTTPS
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -374,7 +374,7 @@ public class ValuesController : ApiController
  
 ## <a id="redis-ssl"></a>Verificare che per la comunicazione con Cache Redis di Azure venga usato SSL
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Cache Redis di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -387,7 +387,7 @@ Si noti che Redis è progettato per essere accessibile da client attendibili all
 
 ## <a id="device-field"></a>Proteggere la comunicazione da dispositivo a gateway sul campo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT sul campo | 
 | **Fase SDL**               | Compilare |  

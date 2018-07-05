@@ -1,24 +1,26 @@
 ---
-title: Procedure consigliate per l'uso di Azure Data Lake Store | Microsoft Docs
-description: Informazioni sulle procedure consigliate per l'inserimento dati, la sicurezza dei dati e le prestazioni in relazione all'uso di Azure Data Lake Store
+title: Procedure consigliate per l'uso di Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Informazioni sulle procedure consigliate per l'inserimento dati, la sicurezza dei dati e le prestazioni in relazione all'uso di Azure Data Lake Storage Gen1, noto in precedenza come Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625339"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034802"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Procedure consigliate per l'uso di Azure Data Lake Store
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Questo articolo illustra le procedure consigliate e alcune considerazioni per l'uso di Azure Data Lake Store. L'articolo fornisce informazioni su sicurezza, prestazioni, resilienza e monitoraggio per Data Lake Store. Prima di Data Lake Store, l'uso di Big Data in servizi come Azure HDInsight era un'operazione complessa. Era necessario partizionare i dati tra più account di archiviazione BLOB, per ottenere spazio di archiviazione di petabyte e prestazioni ottimali su tale scala. Data Lake Store rimuove la maggior parte dei limiti assoluti relativi a dimensioni e prestazioni. Ci sono tuttavia alcune considerazioni illustrate in questo articolo che aiutano a ottenere prestazioni ottimali con Data Lake Store. 
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
@@ -97,7 +99,7 @@ Per garantire la resilienza dei dati con Data Lake Store, è consigliabile abili
 Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestrazione della replica tra gli account Data Lake Store e le principali differenze tra di esse.
 
 
-|  |Distcp  |Data factory di Azure  |AdlCopy  |
+|  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
 |**Supporto per la copia delta**     |   Sì      | No          | No          |
@@ -114,7 +116,7 @@ I processi di copia possono essere attivati dai flussi di lavoro di Apache Oozie
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Usare Azure Data Factory per pianificare i processi di copia 
 
-È anche possibile usare Azure Data Factory per pianificare i processi di copia tramite un'**attività di copia**, oltre che impostare una frequenza tramite la **copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Store, quindi le cartelle come le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/v1/data-factory-copy-activity-performance.md). 
+È anche possibile usare Azure Data Factory per pianificare i processi di copia tramite un'**attività di copia**, oltre che impostare una frequenza tramite la **copia guidata**. Tenere presente che Azure Data Factory prevede un limite di unità di spostamento dei dati cloud (DMU) e applica limiti relativi a velocità effettiva e calcolo per i carichi di lavoro con dati di grandi dimensioni. Inoltre, Azure Data Factory attualmente non consente gli aggiornamenti delta tra account Data Lake Store, quindi le cartelle come le tabelle Hive richiedono una copia completa per la replica. Per altre informazioni sulla copia con Data Factory, vedere [Guida alle prestazioni dell'attività di copia e all'ottimizzazione](../data-factory/copy-activity-performance.md). 
 
 ### <a name="adlcopy"></a>AdlCopy
 
@@ -181,11 +183,11 @@ Nel caso comune di dati batch elaborati direttamente in database, come Hive o i 
 
 ## <a name="next-steps"></a>Passaggi successivi     
 
-* [Panoramica di Archivio Data Lake di Azure](data-lake-store-overview.md) 
+* [Panoramica di Azure Data Lake Store](data-lake-store-overview.md) 
 * [Controllo di accesso in Azure Data Lake Store](data-lake-store-access-control.md) 
 * [Sicurezza in Azure Data Lake Store](data-lake-store-security-overview.md)
 * [Ottimizzazione delle prestazioni di Azure Data Lake Store](data-lake-store-performance-tuning-guidance.md)
 * [Linee guida per l'ottimizzazione delle prestazioni di Spark in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-spark.md)
 * [Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store](data-lake-store-performance-tuning-hive.md)
-* [Orchestrazione di dati con Azure Data Factory per Archivio Azure Data Lake](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Orchestrazione di dati con Azure Data Factory per Azure Data Lake Store](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [Creare cluster HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md) 

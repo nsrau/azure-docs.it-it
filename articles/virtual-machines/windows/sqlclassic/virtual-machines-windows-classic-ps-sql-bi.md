@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425613"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031057"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Esistono due tipi di licenza di SQL Server in macchine virtuali di Microsoft Azu
 1. Vantaggi di mobilità delle licenze che fanno parte del contratto Software Assurance. Per altre informazioni, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
 2. Pagare la tariffa oraria di macchine virtuali di Azure con SQL Server installato. Vedere la sezione "SQL Server" in [Prezzi delle macchine virtuali](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 
-Per altre informazioni sulla gestione delle licenze e le tariffe attuali, vedere l'articolo relativo alle [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/%20/).
+Per altre informazioni sulla gestione delle licenze e le tariffe attuali, vedere l'articolo relativo alle [domande frequenti sulle licenze di macchine virtuali](https://azure.microsoft.com/pricing/licensing-faq/).
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Immagini SQL Server disponibili nella raccolta macchine virtuali di Azure
 Nella raccolta di macchine virtuali di Microsoft Azure sono disponibili numerose immagini che contengono Microsoft SQL Server. Il software installato in immagini di macchina virtuale varia in base alla versione del sistema operativo e alla versione di SQL Server. L'elenco delle immagini disponibili nella raccolta di macchina virtuale di Azure viene spesso modificato.
@@ -317,7 +317,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
   * Creare endpoint della macchina virtuale per le porte indicate (*).
 * Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
   
-  | Porta | type | DESCRIZIONE |
+  | Porta | Tipo | DESCRIZIONE |
   | --- | --- | --- |
   | **80** |TCP |Accesso remoto al server di report (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -351,5 +351,5 @@ Il diagramma seguente illustra le porte da aprire nel firewall della macchina vi
 > [È possibile inviare commenti e suggerimenti e informazioni di contatto tramite Microsoft SQL Server Connect](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>Contenuti della community
-* [Gestione del database SQL di Azure con PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [Gestione del database SQL di Azure con PowerShell](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 

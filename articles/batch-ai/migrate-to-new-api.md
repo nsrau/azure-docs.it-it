@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294878"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294960"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>Eseguire la migrazione all'API Batch per intelligenza artificiale aggiornata
 
-Nell'imminente versione 2018-05-01 dell'API REST Batch per intelligenza artificiale e negli SDK e strumenti di Batch per intelligenza artificiale correlati verranno introdotte nuove funzionalità e modifiche significative.
+Nella versione 2018-05-01 dell'API REST Batch per intelligenza artificiale e negli SDK e strumenti di Batch per intelligenza artificiale correlati sono state introdotte nuove funzionalità e modifiche significative.
 
-Se è stata usata una versione precedente dell'API Batch per intelligenza artificiale, questo articolo illustra come modificare il codice e gli script per usare la nuova API. Apportare queste modifiche solo dopo che la nuova API è disponibile.
+Se è stata usata una versione precedente dell'API Batch per intelligenza artificiale, questo articolo illustra come modificare il codice e gli script per usare la nuova API. 
 
 ## <a name="whats-changing"></a>Modifiche introdotte
 

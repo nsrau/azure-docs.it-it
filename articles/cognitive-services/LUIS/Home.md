@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751596"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344832"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 Il servizio Language Understanding (LUIS) è un servizio basato su cloud che applica l'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate. 
@@ -82,7 +82,7 @@ Dopo che LUIS restituisce le entità trovate nell'espressione dell'utente, l'app
 
 LUIS fornisce diversi metodi per identificare e classificare le entità.
 
-* **Entità predefinite** Il servizio LUIS dispone di molti modelli di dominio predefiniti che includono finalità, espressioni ed [entità predefinite](pre-builtentities.md). È possibile usare le entità predefinite senza dover usare le finalità e le espressioni del modello predefinito. Le entità predefinite consentono di risparmiare tempo.
+* **Entità predefinite** Il servizio LUIS dispone di molti modelli di dominio predefiniti che includono finalità, espressioni ed [entità predefinite](luis-prebuilt-entities.md). È possibile usare le entità predefinite senza dover usare le finalità e le espressioni del modello predefinito. Le entità predefinite consentono di risparmiare tempo.
 
 * **Entità personalizzate** LUIS offre diversi modi per identificare le proprie [entità](luis-concept-entity-types.md) personalizzate, comprese le entità apprese automaticamente, le entità specifiche o con valore letterale e una combinazione di entità apprese automaticamente e con valore letterale.
 

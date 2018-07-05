@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 14ed3ef57da28b6929115cf3e5746653d199b140
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263749"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294905"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Eseguire la replica dei dati in Database di Azure per MySQL
 
@@ -38,7 +38,7 @@ Il [*database di sistema mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-
 - Il server primario deve usare il motore InnoDB di MySQL.
 - L'utente deve disporre delle autorizzazioni necessarie per configurare la registrazione binaria e creare nuovi utenti sul server primario.
 
-### <a name="other"></a>Altro
+### <a name="other"></a>Altri
 - Gli identificatori di transazione globale (GTID) non sono supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215100"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030710"
 ---
-# <a name="service-endpoint-monitor"></a>Monitoraggio endpoint di servizio
+# <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
-È possibile usare la funzionalità Monitoraggio endpoint di servizio in [Monitoraggio prestazioni rete](log-analytics-network-performance-monitor.md) per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta. Tali endpoint includono siti Web, applicazioni SaaS, applicazioni PaaS e database SQL. 
+È possibile usare la funzionalità Monitoraggio connettività servizio in [Monitoraggio prestazioni rete](log-analytics-network-performance-monitor.md) per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta. Tali endpoint includono siti Web, applicazioni SaaS, applicazioni PaaS e database SQL. 
 
-Con Monitoraggio endpoint di servizio è possibile eseguire le funzioni seguenti: 
+Con Monitoraggio connettività servizio è possibile eseguire le funzioni seguenti: 
 
 - Monitorare la connettività di rete alle applicazioni e ai servizi di rete da più succursali o località. Le applicazioni e i servizi di rete includono Office 365, Dynamics CRM, applicazioni line-of-business interne e database SQL.
 - Usare test predefiniti per monitorare la connettività di rete agli endpoint di Office365 e Dynamics365. 
@@ -34,7 +34,7 @@ Con Monitoraggio endpoint di servizio è possibile eseguire le funzioni seguenti
 - Identificare le aree sensibili della rete che potrebbero essere la causa di prestazioni dell'applicazione non soddisfacenti, visualizzando la latenza generata da ogni hop in una mappa della topologia.
 
 
-![Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configurazione 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Creare i test per Monitoraggio endpoint di servizio 
+### <a name="create-service-connectivity-monitor-tests"></a>Creare test di Monitoraggio connettività servizio 
 
 Iniziare a creare i test per monitorare la connettività di rete agli endpoint di servizio.
 
-1. Selezionare la scheda **Monitoraggio endpoint di servizio**.
+1. Selezionare la scheda **Monitoraggio connettività servizio**.
 2. Selezionare **Aggiungi test** e immettere nome e descrizione del test. 
 3. Selezionare il tipo di test:<br>
 
@@ -84,7 +84,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
 ## <a name="walkthrough"></a>Procedura dettagliata 
 
-Passare alla vista dashboard di Monitoraggio prestazioni rete. Per un riepilogo dell'integrità per i diversi test creati, vedere la pagina **Monitoraggio endpoint di servizio**. 
+Passare alla vista dashboard di Monitoraggio prestazioni rete. Per un riepilogo dell'integrità per i diversi test creati, vedere la pagina **Monitoraggio connettività servizio**. 
 
 ![Pagina Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

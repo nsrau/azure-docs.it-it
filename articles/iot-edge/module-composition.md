@@ -1,37 +1,37 @@
 ---
 title: Composizione di un modulo Azure IoT Edge | Microsoft Docs
-description: Informazioni su come comporre i moduli Azure IoT Edge e in che modo riusarli
+description: Informazioni su come un manifesto della distribuzione dichiara quali moduli distribuire, come distribuirli e come creare tra di loro route di messaggi.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631684"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098465"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Informazioni su come usare, configurare e riusare i moduli IoT Edge - Anteprima
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route
 
-Ogni dispositivo IoT Edge esegue almeno due moduli: $edgeAgent e $edgeHub, che costituiscono il runtime di IoT Edge. Oltre a questi due moduli standard, qualsiasi dispositivo IoT Edge può eseguire vari moduli per portare a termine qualsiasi numero di processi. Quando si distribuiscono contemporaneamente tutti questi moduli in un dispositivo, è necessario un modo per dichiarare quali moduli devono essere inclusi e come devono interagire tra loro. 
+Ogni dispositivo IoT Edge esegue almeno due moduli: $edgeAgent e $edgeHub, che costituiscono il runtime di IoT Edge. Oltre a questi due moduli standard, qualsiasi dispositivo IoT Edge può eseguire vari moduli per portare a termine qualsiasi numero di processi. Quando si distribuiscono contemporaneamente tutti questi moduli in un dispositivo, è necessario adottare un approccio per dichiarare quali moduli devono essere inclusi e come devono interagire tra loro. 
 
 Il *manifesto della distribuzione* è un documento JSON che descrive:
 
-* I moduli IoT Edge da distribuire, oltre alle relative opzioni di creazione e gestione.
+* La configurazione dell'agente di Edge, che include l'immagine del contenitore per ogni modulo, le credenziali per l'accesso ai registri contenitori privati e le istruzioni per creare e gestire ogni modulo.
 * La configurazione dell'hub di Edge, nonché le modalità di flusso dei messaggi tra i moduli e con l'hub IoT.
-* Facoltativamente, i valori da impostare nelle proprietà desiderate dei dispositivi gemelli dei moduli, per configurare le singole applicazioni dei moduli.
+* Facoltativamente, le proprietà desiderate dei dispositivi gemelli.
 
 Tutti i dispositivi IoT Edge devono essere configurati con un manifesto della distribuzione. Un runtime IoT Edge appena installato segnala un codice di errore finché non verrà configurato con un manifesto valido. 
 
-Nelle esercitazioni di Azure IoT Edge viene creato un manifesto della distribuzione seguendo una procedura guidata nel portale di Azure IoT Edge. È anche possibile applicare un manifesto della distribuzione a livello di codice usando REST o IoT Hub Service SDK. Per altre informazioni sulle distribuzioni IoT Edge, fare riferimento a [Deploy and monitor][lnk-deploy] (Distribuire e monitorare).
+Nelle esercitazioni di Azure IoT Edge viene creato un manifesto della distribuzione seguendo una procedura guidata nel portale di Azure IoT Edge. È anche possibile applicare un manifesto della distribuzione a livello di codice usando REST o IoT Hub Service SDK. Per altre informazioni, vedere [Informazioni sulle distribuzioni IoT Edge][lnk-deploy].
 
 ## <a name="create-a-deployment-manifest"></a>Creare un manifesto di distribuzione
 
-A livello generale, il manifesto della distribuzione configura le proprietà desiderate di un modulo gemello per i moduli IoT Edge distribuiti in un dispositivo IoT Edge. Due di questi moduli sono sempre presenti: l'agente Edge e l'hub Edge.
+A livello generale, il manifesto della distribuzione configura le proprietà desiderate di un modulo gemello per i moduli IoT Edge distribuiti in un dispositivo IoT Edge. Due di questi moduli sono sempre presenti: `$edgeAgent` e `$edgeHub`.
 
 È valido anche un manifesto di distribuzione contenente solo il runtime di IoT Edge (agente e hub).
 
@@ -44,6 +44,7 @@ Il manifesto segue questa struttura:
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ Il manifesto segue questa struttura:
 
 ## <a name="configure-modules"></a>Configurare i moduli
 
-Oltre a definire le proprietà desiderate dei moduli che si intende distribuire, è necessario indicare al runtime di IoT Edge come installarli. Le informazioni di configurazione e gestione di tutti i moduli vengono incluse nella proprietà desiderate di **$edgeAgent**. Queste informazioni includono anche i parametri di configurazione dell'agente di Edge. 
+È necessario indicare al runtime di IoT Edge come installare i moduli nella distribuzione. Le informazioni di configurazione e gestione di tutti i moduli vengono incluse nella proprietà desiderate di **$edgeAgent**. Queste informazioni includono anche i parametri di configurazione dell'agente di Edge. 
 
 Per un elenco completo delle proprietà che possono o devono essere incluse, vedere [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Proprietà dell'agente di Edge e dell'hub di Edge).
 
@@ -78,6 +79,11 @@ Le proprietà di $edgeAgent seguono questa struttura:
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ Le proprietà di $edgeAgent seguono questa struttura:
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ Il sink definisce dove vengono inviati i messaggi. Può essere uno dei valori se
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |
 
-È importante notare che l'hub di Edge fornisce garanzie di tipo At-Least-Once, ovvero i messaggi vengono archiviati in locale nel caso in cui una route non possa recapitare il messaggio al relativo sink, ad esempio se l'hub di Edge non può connettersi all'hub IoT o il modulo di destinazione non è connesso.
+IoT Edge offre garanzie di tipo at-least-once. L'hub di Edge archivia i messaggi in locale nel caso in cui una route non riesca a recapitare il messaggio al relativo sink. Ad esempio, se l'hub di Edge non riesce a connettersi all'hub IoT o il modulo di destinazione non è connesso.
 
 L'hub di Edge archivia i messaggi fino all'ora specificata nella proprietà `storeAndForwardConfiguration.timeToLiveSecs` delle [proprietà desiderate dell'hub di Edge](module-edgeagent-edgehub.md).
 
@@ -176,72 +182,79 @@ Questo è un esempio di un documento JSON di manifesto della distribuzione.
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

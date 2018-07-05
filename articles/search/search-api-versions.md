@@ -1,23 +1,23 @@
 ---
-title: Versioni dell'API di Ricerca di Azure | Microsoft Docs
-description: Criteri di versione per le API REST di Ricerca di Azure e la libreria client in .NET SDK.
+title: Versioni dell'API di Ricerca di Azure | Microsoft Azure | API di ricerca
+description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
 manager: jlembicz
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 7bbc26402b30c7796ba11fef159d5cedefa5d58d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802470"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113606"
 ---
-# <a name="api-versions-in-azure-search"></a>Versioni dell'API di Ricerca di Azure
-Il servizio Ricerca di Azure distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
+# <a name="api-versions-in-azure-search"></a>Versioni API in Ricerca di Azure
+Il servizio Ricerca di Azure Search distribuisce regolarmente aggiornamenti delle funzionalità. Talvolta, ma non sempre, questi aggiornamenti richiedono una nuova versione dell'API per mantenere la compatibilità con le versioni precedenti. Questa pubblicazione consente di controllare come e quando integrare gli aggiornamenti del servizio di ricerca nel codice.
 
 Di norma, il team di Ricerca di Azure pubblica nuove versioni solo se necessario, perché ciò può richiedere l'aggiornamento del codice per l'uso di una nuova versione dell'API. Una nuova versione è necessaria solo se alcuni aspetti dell'API sono stati modificati in modo da interrompere la compatibilità con le versioni precedenti. Ciò può verificarsi in caso di correzioni alle funzionalità esistenti o di nuove funzionalità che modificano la superficie di attacco dell'API esistente.
 
@@ -29,7 +29,7 @@ La stessa regola vale per gli aggiornamenti all'SDK. Azure Search SDK segue le r
 ## <a name="snapshot-of-current-versions"></a>Panoramica delle versioni correnti
 Di seguito è illustrata una panoramica delle versioni correnti di tutte le interfacce di programmazione di Ricerca di Azure.
 
-| Interfacce | Versione principale più recente | Stato |
+| Interfacce | Versione principale più recente | Status |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |5.0 |Disponibile a livello generale, rilasciata ad aprile 2018 |
 | [Anteprima di .NET SDK](https://aka.ms/search-sdk-preview) |4.0.1-Preview |Anteprima, rilasciata a maggio 2017 |
