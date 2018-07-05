@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802266"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109521"
 ---
 # <a name="service-bus-faq"></a>Domande frequenti sul bus di servizio
 
-Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083).
+Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/).
 
 ## <a name="general-questions-about-azure-service-bus"></a>Domande generali sul bus di servizio di Azure
 ### <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
@@ -56,7 +56,7 @@ In questa sezione vengono fornite le risposte ad alcune delle domande più frequ
 
 L'articolo [Informazioni sul prezzo e la fatturazione del Bus di servizio](service-bus-pricing-billing.md) spiega i metodi di fatturazione nel bus di servizio. Per informazioni specifiche sulle opzioni relative ai prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Per informazioni generali sui prezzi di Azure, vedere le [Domande frequenti sul supporto di Azure](http://go.microsoft.com/fwlink/?LinkID=185083). 
+Per informazioni generali sui prezzi di Azure, vedere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/en-us/support/faq/). 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Quali sono le modalità di addebito per il bus di servizio?
 Per informazioni complete sui prezzi del bus di servizio, vedere la pagina relativa ai [prezzi del Bus di servizio][Pricing overview]. Oltre ai prezzi indicati, vengono addebitati i trasferimenti di dati associati in uscita dal data center in cui è stato effettuato il provisioning dell'applicazione.

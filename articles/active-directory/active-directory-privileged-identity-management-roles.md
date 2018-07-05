@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 03/04/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 3d1027a2fe53a45b089fbae29a831d9e23df059e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: cbb0e6c4f72e53938ba8ee838a1db9cab5357fc2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233323"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441023"
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Ruolo amministrativo differente in Azure AD PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -28,7 +28,7 @@ ms.locfileid: "35233323"
 > [!IMPORTANT]
 > Microsoft consiglia di gestire Azure AD usando l'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) nel portale di Azure.
 
-Un amministratore globale può aggiornare gli utenti assegnati in modo **permanente** ai ruoli di Azure AD, usando i cmdlet di PowerShell, ad esempio `Add-MsolRoleMember` e `Remove-MsolRoleMember`, o il portale come descritto in [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Un amministratore globale può aggiornare gli utenti assegnati in modo **permanente** ai ruoli di Azure AD, usando i cmdlet di PowerShell, ad esempio `Add-MsolRoleMember` e `Remove-MsolRoleMember`, o il portale come descritto in [Assegnazione dei ruoli di amministratore in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 Azure AD Privileged Identity Management (PIM) gestisce i criteri per l'accesso con privilegi per gli utenti in Azure AD. PIM assegna utenti a uno o più ruoli in Azure AD ed è possibile assegnare un utente in modo che sia permanente nel ruolo o idoneo per il ruolo. Quando a un utente viene assegnato in modo permanente a un ruolo o attiva un'assegnazione di idoneità al ruolo, può gestire Azure Active Directory, Office 365 e altre applicazioni con le autorizzazioni assegnate ai relativi ruoli.
 
@@ -52,7 +52,7 @@ Privileged Identity Management consente di assegnare utenti a ruoli di amministr
 * **amministratore di SharePoint (anteprima)** ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online. Questo ruolo è attualmente in fase di anteprima. Potrebbero verificarsi ritardi se gli utenti idonei usano il ruolo all'interno di SharePoint dopo l'attivazione di PIM.
 * **amministratore di Skype for Business** ha accesso amministrativo a Skype for Business tramite l'interfaccia di amministrazione di Skype for Business e può eseguire quasi tutte le attività in Skype for Business Online.
 
-Leggere gli articoli seguenti per altre informazioni sull'[assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) e sull'[assegnazione dei ruoli di amministratore in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Leggere gli articoli seguenti per altre informazioni sull'[assegnazione dei ruoli di amministratore in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) e sull'[assegnazione dei ruoli di amministratore in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

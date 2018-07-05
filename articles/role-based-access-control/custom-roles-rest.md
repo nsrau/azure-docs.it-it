@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8267846fed30baf2c37dcddd453ae9ead9341da9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8a1bbe8217e2d4a9846f56124e248e19cbe70b19
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323396"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436063"
 ---
 # <a name="create-custom-roles-using-the-rest-api"></a>Creare ruoli personalizzati con l'API REST
 
@@ -38,7 +38,7 @@ Per elencare tutti i ruoli o ottenere informazioni su un singolo ruolo usando il
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Ambito | Tipo |
+    | Scope | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -46,7 +46,7 @@ Per elencare tutti i ruoli o ottenere informazioni su un singolo ruolo usando il
 
 1. Sostituire *{filter}* con la condizione da applicare per filtrare l'elenco di ruoli.
 
-    | Filtro | Descrizione |
+    | Filtro | DESCRIZIONE |
     | --- | --- |
     | `$filter=atScopeAndBelow()` | Elencare i ruoli disponibili per l'assegnazione nell'ambito specificato e in tutti i relativi ambiti figlio. |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | Usare il form con codifica URL dell'esatto nome visualizzato del ruolo. Ad esempio: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
@@ -67,7 +67,7 @@ Per ottenere informazioni su un singolo ruolo usando il relativo nome visualizza
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito per il quale elencare i ruoli.
 
-    | Ambito | Tipo |
+    | Scope | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -115,7 +115,7 @@ Per creare un ruolo personalizzato, usare l'API REST [Role Definitions - Create 
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Scope | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -179,7 +179,7 @@ Per aggiornare un ruolo personalizzato, usare l'API REST [Role Definitions - Cre
 
 1. All'interno dell'URI sostituire *{scope}* con il primo `assignableScopes` del ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Scope | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |
@@ -262,7 +262,7 @@ Per eliminare un ruolo personalizzato, usare l'API REST [Role Definitions - Dele
 
 1. All'interno dell'URI sostituire *{scope}* con l'ambito in cui si vuole eliminare il ruolo personalizzato.
 
-    | Ambito | Tipo |
+    | Scope | type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Sottoscrizione |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Gruppo di risorse |

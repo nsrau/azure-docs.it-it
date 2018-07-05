@@ -8,19 +8,19 @@ manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 074c305cb15bc1fb25dfa5cfc52dcce53b661a7e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 446cb34f2de8d0de3ee52e23df6cd26644d31bba
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324186"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435971"
 ---
 # <a name="custom-roles-in-azure"></a>Ruoli personalizzati in Azure
 
@@ -88,7 +88,7 @@ Dopo la creazione, il ruolo personalizzato viene visualizzato nel portale di Azu
 
 Un ruolo personalizzato ha le proprietà descritte di seguito.
 
-| Proprietà | Obbligatoria | Tipo | Descrizione |
+| Proprietà | Obbligatoria | type | DESCRIZIONE |
 | --- | --- | --- | --- |
 | `Name` | Sì | string | Nome visualizzato del ruolo personalizzato. Deve essere univoco del tenant. Può includere lettere, numeri, spazi e caratteri speciali. Il numero massimo di caratteri è 128. |
 | `Id` | Sì | string | ID univoco del ruolo personalizzato. Per Azure PowerShell e l'interfaccia della riga di comando di Azure questo ID viene generato automaticamente quando viene creato un nuovo ruolo. |
@@ -104,7 +104,7 @@ Un ruolo personalizzato ha le proprietà descritte di seguito.
 
 Come per i ruoli predefiniti, la proprietà `assignableScopes` specifica gli ambiti in cui il ruolo personalizzato può essere assegnato. Non è tuttavia possibile usare l'ambito radice (`"/"`) nei ruoli personalizzati. Se si esegue questo tentativo, si ottiene un errore di autorizzazione. La proprietà `assignableScopes` per un ruolo personalizzato controlla anche chi può creare, eliminare, modificare o visualizzare il ruolo personalizzato.
 
-| Attività | Operazione | Descrizione |
+| Attività | Operazione | DESCRIZIONE |
 | --- | --- | --- |
 | Creare o eliminare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinition/write` | Gli utenti a cui viene concessa questa operazione su tutti gli ambiti `assignableScopes` del ruolo personalizzato possono creare (o eliminare) ruoli personalizzati da usare in tali ambiti. Ad esempio, i ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) di sottoscrizioni, gruppi di risorse e risorse. |
 | Modificare un ruolo personalizzato | `Microsoft.Authorization/ roleDefinition/write` | Gli utenti a cui viene concessa questa autorizzazione su tutti gli ambiti `assignableScopes` del ruolo personalizzato possono modificare ruoli personalizzati in tali ambiti. Ad esempio, i ruoli [Proprietario](built-in-roles.md#owner) e [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator) di sottoscrizioni, gruppi di risorse e risorse. |

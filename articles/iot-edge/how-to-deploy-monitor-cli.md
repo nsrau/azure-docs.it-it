@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 705f7bfa62154bff62b2357bd8f33c01e97404d1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 3dfb0fe0227fdd0ff1a43cb7b0a89eb9d3e066f4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034969"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097938"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
 
@@ -31,11 +31,11 @@ In questo articolo vengono configurate l'interfaccia della riga di comando di Az
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure. 
 * [Dispositivi IoT Edge](how-to-register-device-cli.md) con il runtime IoT Edge installato.
 * [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente. La versione dell'interfaccia della riga di comando di Azure 2.0 deve essere 2.0.24 o successiva. Usare `az –-version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. 
-* [Estensione IoT per l'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* L'[estensione IoT per l'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
-Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
+Un manifesto della distribuzione è un documento JSON contenente la descrizione dei moduli da distribuire, dei flussi di dati esistenti tra i moduli e delle proprietà desiderate dei moduli gemelli. Per altre informazioni sul funzionamento e sulla modalità di creazione dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli di IoT Edge](module-composition.md).
 
 Per distribuire i moduli tramite l'interfaccia della riga di comando di Azure 2.0, salvare il manifesto della distribuzione a livello locale come file con estensione txt. Il percorso del file verrà usato nella sezione successiva quando si eseguirà il comando per applicare la configurazione al dispositivo. 
 
@@ -65,7 +65,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
                  "edgeAgent": {
                    "type": "docker",
                    "settings": {
-                     "image": "microsoft/azureiotedge-agent:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                      "createOptions": "{}"
                    }
                  },
@@ -74,7 +74,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
                    "status": "running",
                    "restartPolicy": "always",
                    "settings": {
-                     "image": "microsoft/azureiotedge-hub:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                      "createOptions": "{}"
                    }
                  }
@@ -191,7 +191,7 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 * **--hub-name**: nome dell'hub IoT in cui si trova la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 * **--set**: aggiorna una proprietà nella distribuzione. È possibile aggiornare le proprietà seguenti:
     * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
-    * labels 
+    * Etichette 
     * priority
 
 

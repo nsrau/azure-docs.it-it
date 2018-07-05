@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943213"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098818"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 
@@ -146,7 +146,7 @@ I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consen
 
 È possibile ottenere l'URL di anteprima quando si crea il canale. Per ottenere l'URL, non è necessario che il canale sia nello stato **In esecuzione** . Dopo l'avvio dell'inserimento di dati da parte del canale, è possibile visualizzare in anteprima il flusso.
 
-Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. È possibile usare il lettore [Smooth Streaming Health Monitor](http://smf.cloudapp.net/healthmonitor) per testare il flusso uniforme. Per visualizzare il flusso, è possibile anche usare un lettore ospitato nel portale di Azure classico.
+Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. È possibile usare il lettore [Smooth Streaming Health Monitor](http://playready.directtaps.net/smoothstreaming/) per testare il flusso uniforme. Per visualizzare il flusso, è possibile anche usare un lettore ospitato nel portale di Azure classico.
 
 #### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
 È possibile definire gli indirizzi IP autorizzati a connettersi all'endpoint di anteprima. Se non viene specificato alcun indirizzo IP, sarà consentito qualsiasi indirizzo IP. È possibile specificare un indirizzo IP consentito come uno dei seguenti:

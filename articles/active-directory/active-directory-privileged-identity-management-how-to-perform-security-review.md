@@ -1,5 +1,5 @@
 ---
-title: Come eseguire una verifica dell'accesso | Microsoft Docs
+title: Come eseguire una verifica dell'accesso | Documentazione Microsoft
 description: Informazioni su come eseguire una verifica con l'applicazione Azure Privileged Identity Management.
 services: active-directory
 documentationcenter: ''
@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c536a4e7f93a2f1ef42b7600513994dd80826a0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: f3d8cbdcef25509304785090190f172ae20913b6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020871"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440809"
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Come eseguire una verifica dell'accesso in Azure AD Privileged Identity Management
 Azure Active Directory (AD) Privileged Identity Management semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri Microsoft Online Services, ad esempio Office 365 o Microsoft Intune.  

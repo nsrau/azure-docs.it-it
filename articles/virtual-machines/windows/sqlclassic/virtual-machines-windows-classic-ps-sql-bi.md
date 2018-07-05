@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031057"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098747"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
@@ -63,7 +63,7 @@ Nella raccolta di macchine virtuali di Microsoft Azure sono disponibili numerose
 
 Per altre informazioni sulle edizioni e sulle funzionalità supportate da SQL Server, vedere gli argomenti seguenti:
 
-* [Edizioni di SQL Server](https://www.microsoft.com/server-cloud/products/sql-server-editions/#fbid=Zae0-E6r5oh)
+* [Edizioni di SQL Server](https://www.microsoft.com/sql-server/sql-server-2017-editions)
 * [Funzionalità supportate dalle edizioni di SQL Server 2016](https://msdn.microsoft.com/library/cc645993.aspx)
 
 ### <a name="bi-features-installed-on-the-sql-server-virtual-machine-gallery-images"></a>Funzionalità di Business Intelligence installate nelle immagini della raccolta di macchine virtuali di SQL Server
@@ -317,7 +317,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
   * Creare endpoint della macchina virtuale per le porte indicate (*).
 * Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
   
-  | Porta | Tipo | DESCRIZIONE |
+  | Porta | type | DESCRIZIONE |
   | --- | --- | --- |
   | **80** |TCP |Accesso remoto al server di report (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |

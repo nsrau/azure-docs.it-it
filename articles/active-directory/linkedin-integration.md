@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/28/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3d73cae0975bea0332c2d266d2745773b373b7d8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762371"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109587"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connessioni dell'account LinkedIn per app e servizi Microsoft
 Questo articolo spiega come gestire le connessioni dell'account LinkedIn per il tenant nell'interfaccia di amministrazione di Azure Active Directory (Azure AD). 
@@ -53,7 +53,7 @@ La funzionalità delle connessioni dell'account LinkedIn è abilitata per impost
 4. In **LinkedIn account connections** (Connessioni account LinkedIn):
   * Selezionare **Sì** per abilitare le connessioni dell'account LinkedIn per tutti gli utenti nel tenant
   * Selezionare **Selezionati** per abilitare le connessioni dell'account LinkedIn solo per gli utenti del tenant selezionati
-  * Selezionare **No** per disabilitare le connessioni dell'account LinkedIn per tutti gli utenti ![Abilitazione delle connessioni dell'account LinkedIn](./media/linkedin-integration/LinkedIn-integration.png)
+  * Selezionare **No** per disabilitare le connessioni dell'account LinkedIn per tutti gli utenti ![Abilitazione delle connessioni dell'account LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Al termine salvare le impostazioni facendo clic su **Salva**.
 
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Abilitare o disabilitare le connessioni dell'account LinkedIn per le app di Office 2016 dell'organizzazione tramite Criteri di gruppo
@@ -64,7 +64,7 @@ La funzionalità delle connessioni dell'account LinkedIn è abilitata per impost
 4. Creare un oggetto Criteri di gruppo con le impostazioni seguenti: **Configurazione utente** > **Modelli amministrativi** > **Microsoft Office 2016** > **Varie** > **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office).
 5. Selezionare **Abilitato** o **Disabilitato**.
   * Se il criterio è **Abilitato**, l'impostazione **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office) nella finestra di dialogo Opzioni di Office 2016 è abilitata. Ciò significa anche che gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni di Office.
-  * Se il criterio è **Disabilitato**, l'impostazione **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office) nella finestra di dialogo Opzioni di Office 2016 è disabilitata e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016. 
+  * Se il criterio è **Disabilitato**, l'impostazione **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office) nella finestra di dialogo Opzioni di Office 2016 è disabilitata e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
 
 Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il computer locale. Gli utenti possono visualizzare in Office 365 le funzionalità di LinkedIn nella scheda del profilo anche se disabilitano LinkedIn per le app di Office 2016. 
 

@@ -1,6 +1,6 @@
 ---
 title: Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST - Azure | Microsoft Docs
-description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Viene descritto anche come elencare, concedere e rimuovere l'accesso.
+description: Informazioni su come gestire l'accesso per utenti, gruppi e applicazioni tramite il controllo degli accessi in base al ruolo e l'API REST. Vengono presentate anche la visualizzazione, la concessione e la rimozione dell'accesso.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -11,16 +11,16 @@ ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: cfcb87fdff8105b25d4f7e63b775aaf9243d2a90
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 859a410a4ff9204e8e52fbd2cc3b38823f4bb830
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317008"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435219"
 ---
 # <a name="manage-access-using-rbac-and-the-rest-api"></a>Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'API REST
 

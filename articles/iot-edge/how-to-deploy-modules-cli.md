@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 02a7533cf1c06142f564ed9fd6008a25be9fc603
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034793"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095975"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Distribuire i moduli di Azure IoT Edge con l'interfaccia della riga di comando di Azure 2.0
 
 Dopo aver creato i moduli di IoT Edge in base alla propria logica di business, si distribuiscono i moduli nei dispositivi per consentirne il funzionamento nella rete perimetrale. Se si hanno più moduli che interagiscono per raccogliere ed elaborare dati, è possibile distribuirli contemporaneamente e dichiarare le regole di routing che li connettono. 
 
-L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio Device Provisioning e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure 2.0 con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
+L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. Consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio di provisioning di dispositivi e gli hub collegati predefiniti. La nuova estensione IoT arricchisce l'interfaccia della riga di comando di Azure 2.0 con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
-Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor-cli.md)
+Questo articolo illustra come creare un manifesto della distribuzione JSON e quindi usare tale file per eseguire il push della distribuzione in un dispositivo IoT Edge. Per informazioni sulla creazione di una distribuzione da assegnare a più dispositivi in base ai relativi tag condivisi, vedere [Distribuire e monitorare i moduli di IoT Edge su larga scala](how-to-deploy-monitor-cli.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) nella sottoscrizione di Azure. 
 * Un [dispositivo IoT Edge](how-to-register-device-cli.md) con il runtime di IoT Edge installato.
 * [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) nell'ambiente. La versione dell'interfaccia della riga di comando di Azure 2.0 deve essere 2.0.24 o successiva. Usare `az –-version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. 
-* [Estensione IoT per l'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* L'[estensione IoT per l'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configurare un manifesto della distribuzione
 
@@ -62,7 +62,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
              "edgeAgent": {
                "type": "docker",
                "settings": {
-                 "image": "microsoft/azureiotedge-agent:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                  "createOptions": "{}"
                }
              },
@@ -71,7 +71,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-hub:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                  "createOptions": "{}"
                }
              }
@@ -83,7 +83,7 @@ Di seguito è riportato un esempio di manifesto della distribuzione di base con 
                "status": "running",
                "restartPolicy": "always",
                "settings": {
-                 "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
+                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
                  "createOptions": "{}"
                }
              }
@@ -130,7 +130,7 @@ Visualizzare i moduli nel dispositivo IoT Edge:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-Il parametro device id fa distinzione tra maiuscole e minuscole.
+Per il parametro device-id viene fatta distinzione tra maiuscole e minuscole.
 
    ![Elencare i moduli](./media/how-to-deploy-cli/list-modules.png)
 

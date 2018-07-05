@@ -2,19 +2,19 @@
 title: Usare un indirizzo IP statico con il bilanciamento del carico di Azure Kubernetes Service (AKS)
 description: Usare un indirizzo IP statico con il bilanciamento del carico di Azure Kubernetes Service (AKS).
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596662"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100590"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP statico con il bilanciamento del carico di Azure Kubernetes Service (AKS)
 

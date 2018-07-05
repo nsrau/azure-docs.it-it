@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 06/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 8d033cc09de8e115324067d7bbdf052751730d63
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e33a3f843017ec24f3a79701fac9a62e15b4f9ba
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28031052"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109189"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
 
@@ -59,9 +59,9 @@ Se si usa un array virtuale StorSimple, usare la tabella seguente per determinar
 
 | Versione in esecuzione  | Azione da eseguire                                    |
 |----------------------------|--------------------------------------------------------------|
-| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| Modificare le regole del firewall per includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). |
+| Aggiornamento 1.0 o versione successiva e dispositivo offline. <br> Viene visualizzato l'avviso che comunica che l'URL non è nell'elenco elementi consentiti.| 1. Modificare le regole del firewall per includere l'URL di autenticazione. Vedere gli [URL di autenticazione](#url-changes-for-aad-authentication). <br> 2. [Ottenere la chiave di registrazione di Azure Active Directory dal servizio](#aad-based-registration-keys). <br> 3. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Usare il cmdlet `Invoke-HcsReRegister` per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 1.0 o versione successiva e dispositivo online.| non è necessaria alcuna azione.                                       |
-| Aggiornamento 0.6 o versione precedente e dispositivo offline. | [Scaricare l'aggiornamento 1.0 tramite il server di catalogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>[Applicare l'aggiornamento 1.0 tramite l'interfaccia utente Web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix). <br> [Ottenere la chiave di registrazione di Azure Active Directory dal servizio](#aad-based-registration-keys). <br> Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> Usare il cmdlet `Invoke-HcsReRegister` per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
+| Aggiornamento 0.6 o versione precedente e dispositivo offline. | 1. [Scaricare l'aggiornamento 1.0 tramite il server di catalogo](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Applicare l'aggiornamento 1.0 tramite l'interfaccia utente Web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Ottenere la chiave di registrazione di Azure Active Directory dal servizio](#aad-based-registration-keys). <br>4. Eseguire i passaggi da 1 a 5 per [connettersi all'interfaccia di Windows PowerShell dell'array virtuale](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Usare il cmdlet `Invoke-HcsReRegister` per registrare il dispositivo tramite Windows PowerShell. Inserire la chiave ottenuta nel passaggio precedente.|
 | Aggiornamento 0.6 o versione precedente e dispositivo online | Modificare le regole del firewall per includere l'URL di autenticazione.<br> Installare l'aggiornamento 1.0 tramite il portale di Azure. |
 
 ## <a name="aad-based-registration-keys"></a>Chiavi di registrazione basate su Azure Active Directory

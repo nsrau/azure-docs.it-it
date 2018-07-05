@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/02/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 1f1a131d4e0cf900d04acc9730b04e1375f396a6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264300"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436706"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 È possibile trasmettere il [log attività di Azure](monitoring-overview-activity-logs.md) quasi in tempo reale a qualsiasi applicazione:
@@ -78,7 +78,7 @@ Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profil
    $eventHubNamespace = "<event hub namespace>"
 
    # Build the service bus rule Id from the settings above
-   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespace/authorizationrules/RootManageSharedAccessKey"
 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```

@@ -1,20 +1,16 @@
 ---
 title: Eliminare un insieme di credenziali di Site Recovery
 description: Informazioni su come eliminare un insieme di credenziali di Azure Site Recovery, in base allo scenario di Site Recovery.
-service: site-recovery
 author: rajani-janaki-ram
-manager: rochakm
-ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f5f92b0dc064a992b93447f785db6c717f81e47b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300572"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436644"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Eliminare un insieme di credenziali di Site Recovery
 
@@ -52,7 +48,7 @@ Per eliminare l'insieme di credenziali, seguire la procedura consigliata per lo 
 
 2. Annullare l'associazione ed eliminare tutti i criteri di replica passando all'insieme di credenziali -> **Infrastruttura di Site Recovery** -> **For Hyper-V Sites** (Per siti Hyper-V) -> **Criteri di replica**
 
-3. Eliminare i riferimenti ai server Hyper-V seguendo la procedura descritta in [Annullare la registrazione di un host Hyper-V in un sito di Hyper-V](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Eliminare i riferimenti ai server Hyper-V seguendo la procedura descritta in [Annullare la registrazione di un host Hyper-V in un sito di Hyper-V](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Eliminare il sito Hyper-V.
 

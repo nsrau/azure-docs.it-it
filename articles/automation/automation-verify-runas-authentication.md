@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af1d05c171eb5544104b12aebb6c7be937061f6a
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598770"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437179"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Testare l'autenticazione con un account RunAs di Automazione di Azure
 Al termine della creazione di un account di Automazione, è possibile eseguire un semplice test per verificare di poter completare l'autenticazione in Azure Resource Manager o nella distribuzione classica di Azure con l'account RunAs di Automazione appena creato o aggiornato.    
@@ -63,7 +63,7 @@ Usare il codice di esempio seguente per [creare un runbook di PowerShell](automa
 Si noti che il cmdlet usato per l'autenticazione nel runbook, **Connect-AzureRmAccount**, usa il set di parametri *ServicePrincipalCertificate*.  ed esegue l'autenticazione usando il certificato dell'entità servizio, non le credenziali.  
 
 > [!IMPORTANT]
-> **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure aggiornare i moduli nell'account di Automazione.
+> **Add-AzureRmAccount** è ora un alias per **Connect-AzureRMAccount**. Quando si esegue la ricerca tra gli elementi della libreria, se **Connect-AzureRMAccount** non viene visualizzato, è possibile usare **Add-AzureRmAccount** oppure aggiornare i moduli nell'account di Automazione.
 
 Quando si [esegue il runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) per convalidare l'account RunAs, viene creato un [processo del runbook](automation-runbook-execution.md), viene visualizzata la pagina del processo e lo stato del processo è riportato nel riquadro **Riepilogo processi**. Lo stato del processo è inizialmente *In coda* per indicare che è in attesa della disponibilità di un ruolo di lavoro per runbook nel cloud. Lo stato passerà quindi ad *Avvio in corso* quando un ruolo di lavoro richiede il processo e quindi a *In esecuzione* quando l'esecuzione del runbook viene effettivamente avviata.  Al termine del processo del runbook, lo stato visualizzato dovrebbe essere **Completato**.
 

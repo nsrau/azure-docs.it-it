@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: da44fb2982c76b849181683f308e414c3d3f0b7a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8eb12764cf5df539f61842ba3602c6265c1e2b86
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331207"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441210"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 
@@ -85,4 +85,4 @@ Dopo aver completato la configurazione dell'applicazione self-service, gli utent
 Tali approvazioni supportano solo flussi di lavoro di approvazione individuali. Se si specificano pertanto più responsabili approvazione, uno qualsiasi di essi potrà approvare l'accesso all'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Configurazione di Azure Active Directory per la gestione self-service dei gruppi](active-directory-accessmanagement-self-service-group-management.md)
+[Configurazione di Azure Active Directory per la gestione self-service dei gruppi](users-groups-roles/groups-self-service-management.md)

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029442"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128061"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -237,4 +237,4 @@ Quando viene visualizzato questo errore, è possibile risolvere il problema conf
       ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Se si ritiene di aver rilevato un bug nella piattaforma di IoT Edge, [inviare il problema](https://github.com/Azure/iot-edge/issues) in modo da poter migliorare l'esperienza. 
+Se si ritiene di aver rilevato un bug nella piattaforma di IoT Edge, [inviare il problema](https://github.com/Azure/iotedge/issues) in modo da poter migliorare l'esperienza. 

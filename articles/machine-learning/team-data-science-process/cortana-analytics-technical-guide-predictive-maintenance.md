@@ -1,5 +1,5 @@
 ---
-title: Manutenzione predittiva nel settore aerospaziale con Azure - Guida tecnica alla soluzione Cortana Intelligence | Microsoft Docs
+title: Manutenzione predittiva nel settore aerospaziale con Azure - Guida tecnica alla soluzione Cortana Intelligence | Documentazione Microsoft
 description: Guida tecnica del modello di soluzione con Microsoft Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale, nei servizi pubblici e nei trasporti.
 services: machine-learning
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939966"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099663"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guida tecnica del modello di soluzione Cortana Intelligence per la manutenzione predittiva nel settore aerospaziale e in altri campi
 
@@ -54,7 +54,7 @@ Le sezioni seguenti descrivono le parti della soluzione.
 ### <a name="synthetic-data-source"></a>Origine dati sintetica
 L'origine dati usata per questo modello viene generata da un'applicazione desktop da scaricare ed eseguire localmente al termine della distribuzione.
 
-Per trovare le istruzioni per il download e l'installazione di questa applicazione, selezionare il primo nodo denominato Predictive Maintenance Data Generator nel diagramma del modello di soluzione. Le istruzioni sono disponibili nella barra delle proprietà. Questa applicazione invia al servizio [Hub eventi di Azure](#azure-event-hub) punti dati, o eventi, che vengono usati nel flusso della soluzione. L'origine dati è derivata da dati disponibili pubblicamente nel [repository dei dati della NASA](https://c3.nasa.gov/dashlink/resources/139/) usando il [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Per trovare le istruzioni per il download e l'installazione di questa applicazione, selezionare il primo nodo denominato Predictive Maintenance Data Generator nel diagramma del modello di soluzione. Le istruzioni sono disponibili nella barra delle proprietà. Questa applicazione invia al servizio [Hub eventi di Azure](#azure-event-hub) punti dati, o eventi, che vengono usati nel flusso della soluzione. L'origine dati è derivata da dati disponibili pubblicamente nel [repository dei dati della NASA](https://c3.nasa.gov/dashlink/resources/139/) usando il [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 L'applicazione di generazione eventi popola l'Hub eventi di Azure solo quando è in esecuzione nel computer.  
 
@@ -82,7 +82,7 @@ Usare [Power BI](https://powerbi.microsoft.com) per visualizzare un dashboard co
 ## <a name="how-to-bring-in-your-own-data"></a>Come inserire i propri dati
 Questa sezione descrive come inserire i propri dati in Azure e quali aree è necessario modificare per i dati inseriti in questa architettura.
 
-È poco probabile che i set di dati personali corrispondano al set di dati [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) usato per questo modello di soluzione. Per poter adattare questo modello ai propri dati è fondamentale comprendere i dati e i requisiti. 
+È poco probabile che i set di dati personali corrispondano al set di dati [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) usato per questo modello di soluzione. Per poter adattare questo modello ai propri dati è fondamentale comprendere i dati e i requisiti. 
 
 Le sezioni seguenti illustrano le parti del modello che è necessario modificare quando viene introdotto un nuovo set di dati.
 

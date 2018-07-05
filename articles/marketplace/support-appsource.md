@@ -3,8 +3,8 @@ title: Supporto per AppSource | Azure
 description: Informazioni sul supporto e collegamenti per AppSource.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2ca55456a735a19f4739b20d7c7530efc357621
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 447453abb59507e0f3a8505410ceb52640914f22
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826075"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436577"
 ---
 # <a name="support-for-appsource"></a>Supporto per AppSource  
 Opzioni di supporto per AppSource.  
@@ -32,6 +32,6 @@ Opzioni di supporto per AppSource.
 | StackOverflow: Azure Active Directory disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD su stackoverflow") | Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure Active Directory (Azure AD). |  
 
 ## <a name="next-steps"></a>Passaggi successivi
-*   Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
+Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
  
 ---  

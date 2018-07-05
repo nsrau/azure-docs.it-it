@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359629"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441574"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse
 
@@ -47,7 +47,7 @@ Per completare questo articolo è necessario disporre di autorizzazioni sufficie
 
    ![Visualizzare le registrazioni dell'app](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. Se Registrazioni per l'app è impostata su **No**, solo gli [amministratori globali](../active-directory/active-directory-assign-admin-roles-azure-portal.md) possono registrare app. Controllare se l'account è un amministratore per il tenant di Azure AD. Selezionare **Panoramica** ed esaminare le informazioni utente. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app (del passaggio precedente) è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo di amministratore globale o di consentire agli utenti di registrare le app.
+1. Se Registrazioni per l'app è impostata su **No**, solo gli [amministratori globali](../active-directory/users-groups-roles/directory-assign-admin-roles.md) possono registrare app. Controllare se l'account è un amministratore per il tenant di Azure AD. Selezionare **Panoramica** ed esaminare le informazioni utente. Se l'account è assegnato al ruolo Utente, ma l'impostazione Registrazioni per l'app (del passaggio precedente) è limitata agli utenti amministratori, chiedere all'amministratore di essere assegnati a un ruolo di amministratore globale o di consentire agli utenti di registrare le app.
 
    ![Trova un utente](./media/resource-group-create-service-principal-portal/view-user-info.png)
 
