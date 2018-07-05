@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652543"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -76,72 +77,6 @@ Per determinati casi d'uso ISV, in cui è più conveniente elaborare dati da pi�
 > Questo modello di query spesso ha un numero elevato di sottoquery e ciò comporta una topologia molto grande e complessa. Il controller del processo potrebbe non essere in grado di gestire una topologia di così grandi dimensioni. Come regola generale, rimanere al di sotto di 40 tenant per il processo di 1 unità di ricerca al di sotto di 60 tenant per i processi di 3 unità di ricerca e 6 unità di ricerca. Quando si supera la capacità del controller, il processo non verrà avviato correttamente.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>Un esempio di velocità effettiva di Analisi di flusso di Azure su larga scala
-Per illustrare la scalabilità dei processi di Analisi di flusso, è stato eseguito un esperimento in base all'input di un dispositivo Raspberry Pi. L'esperimento ha consentito di osservare l'effetto prodotto da più unità di streaming e partizioni sulla velocità effettiva.
-
-In questo scenario il dispositivo invia i dati dei sensori (client) a un hub eventi. Analisi di flusso elabora i dati e invia come output un avviso o dati statistici a un altro hub eventi. 
-
-Il client invia i dati dei sensori in formato JSON e anche l'output dei dati è in formato JSON. L'aspetto dei dati sarà simile al seguente:
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-La query seguente consente di inviare un avviso quando una luce si spegne:
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>Misurare la velocità effettiva
-
-In questo contesto la velocità effettiva è la quantità di dati di input elaborata da Analisi di flusso in un determinato intervallo di tempo (10 minuti). Per ottenere la velocità effettiva di elaborazione ottimale per i dati di input, l'input del flusso dei dati e la query sono stati partizionati. Nella query è stato incluso **COUNT()** per misurare il numero di eventi di input che sono stati elaborati. Per essere certi che il processo non rimanesse semplicemente in attesa dell'arrivo di eventi di input, ogni partizione dell'hub eventi di input è stata precaricata con circa 300 MB di dati di input.
-
-La tabella seguente mostra i risultati ottenuti aumentando il numero di unità di streaming e il numero di partizioni corrispondenti negli hub eventi.  
-
-<table border="1">
-<tr><th>Partizioni di input</th><th>Partizioni di output</th><th>Unità di streaming</th><th>Velocità effettiva sostenuta
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4,06 MB/s</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8,06 MB/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38,32 MB/s</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172,67 MB/s</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454,27 MB/s</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609,69 MB/s</td>
-</tr>
-</table>
-
-Il grafico seguente illustra la relazione tra unità di streaming e velocità effettiva.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Ottenere aiuto
 Per ulteriore assistenza, provare il [Forum di Analisi dei flussi di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).

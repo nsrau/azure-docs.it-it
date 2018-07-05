@@ -1,5 +1,5 @@
 ---
-title: Informazioni su Utilizzo istanze riservate di Azure per Enterprise - Fatturazione di Azure | Microsoft Docs
+title: Informazioni su Utilizzo istanze riservate di Azure per Enterprise | Microsoft Docs
 description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata l'istanza di macchina virtuale riservata di Azure per l'iscrizione Enterprise.
 services: billing
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: a92fce33b194c5cb7b763930e7fd11135f9fbd4f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d6e8b2544f919abeb7fde0e37fc12bd29f0171ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301315"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064645"
 ---
 # <a name="understand-azure-reserved-instance-usage-for-your-enterprise-enrollment"></a>Informazioni su Utilizzo istanze riservate di Azure per l'iscrizione Enterprise
-Per informazioni sull'utilizzo dell'istanza riservata, usare **ReservationId** della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file di utilizzo del [portale EA](https://ea.azure.com). È possibile anche visualizzare l'utilizzo delle istanze riservate nella sezione di riepilogo dell'utilizzo del [portale EA](https://ea.azure.com).
+Per informazioni sull'utilizzo di un'istanza riservata, usare **ReservationId** della [pagina Prenotazione](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e il file di utilizzo del [portale EA](https://ea.azure.com). È possibile anche visualizzare l'utilizzo delle istanze riservate nella sezione di riepilogo dell'utilizzo del [portale EA](https://ea.azure.com).
 
 >[!NOTE]
->Se si è acquistata l'istanza riservata in un contesto di fatturazione con pagamento in base al consumo, vedere [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md).
+>Se si è acquistata l'istanza riservata in un contesto di fatturazione con pagamento in base al consumo, vedere [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo.](billing-understand-reserved-instance-usage.md)
 
 Per la sezione seguente, si presupponga di eseguire una VM Windows Standard_D1_v2 nell'area Stati Uniti orientali e che le informazioni sull'istanza riservata siano simili a quelle della tabella seguente:
 
@@ -38,7 +38,7 @@ Per la sezione seguente, si presupponga di eseguire una VM Windows Standard_D1_v
 
 ## <a name="reserved-instance-application"></a>Applicazione dell'istanza riservata
 
-La parte hardware della macchina virtuale è coperta perché la VM distribuita corrisponde agli attributi dell'istanza riservata. Per sapere quale software Windows non è coperto da Istanza riservata, andare a [Costi del software Windows con le istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).
+La parte hardware della macchina virtuale è coperta perché la VM distribuita corrisponde agli attributi dell'istanza riservata. Per sapere quale software Windows non è coperto dall'istanza riservata, andare a [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md) (Costi del software Windows con le istanze di macchina virtuale riservate di Azure).
 
 
 ### <a name="reserved-instance-usage-in-csv"></a>Utilizzo istanze riservate in formato CSV
@@ -55,18 +55,18 @@ La parte hardware della macchina virtuale è coperta perché la VM distribuita c
 
 Utilizzo istanze riservate viene visualizzato anche nella sezione di riepilogo dell'utilizzo nel portale EA: ![Riepilogo dell'utilizzo Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
-1. Il componente hardware della VM non viene addebitato perché è coperto da Istanza riservata. 
+1. Il componente hardware della VM non viene addebitato perché è coperto dall'istanza riservata. 
 2. Il software Windows viene addebitato perché Vantaggio Azure Hybrid non viene usato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle istanze riservate di Azure, vedere gli articoli seguenti:
 
-- [Risparmiare sui costi delle macchine virtuali tramite le istanze riservate di Azure](billing-save-compute-costs-reservations.md)
-- [Pagare in anticipo le macchine virtuali tramite le istanze riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze riservate](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto relativo alle istanze riservate](billing-understand-vm-reservation-charges.md)
+- [Cosa sono le istanze di macchina virtuale riservate di Azure?](billing-save-compute-costs-reservations.md)
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md)
 - [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-- [Costi del software Windows non inclusi nelle istanze riservate](billing-reserved-instance-windows-software-costs.md)
+- [Windows software costs not included with reserved instances](billing-reserved-instance-windows-software-costs.md) (Costi del software Windows non inclusi nelle istanze riservate)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

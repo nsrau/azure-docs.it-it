@@ -1,5 +1,5 @@
 ---
-title: Soluzione Monitoraggio VMware in Log Analytics | Documentazione Microsoft
+title: Soluzione Monitoraggio VMware in Log Analytics | Microsoft Docs
 description: Informazioni su come la soluzione di monitoraggio VMware è in grado di gestire i log e monitorare gli host ESXi.
 services: log-analytics
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775112"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019290"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Soluzione di monitoraggio VMware (anteprima) in Log Analytics
 
@@ -171,7 +171,7 @@ Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si ve
 La soluzione usa il meccanismo di inoltro del SysLog dell'host ESXi nativo. Non è necessario aggiungere software Microsoft nell'host ESXi per acquisire log. Non dovrebbero esserci conseguenze di grande entità per l'ambiente esistente. Tuttavia, è necessario impostare l'inoltro SysLog, una funzionalità ESXi.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>È necessario riavviare l'host ESXi?
-di serie Questo processo non richiede un riavvio. Talvolta, vSphere non aggiorna correttamente il SysLog. In tal caso, accedere all'host ESXi e ricaricare il SysLog. Anche qui, non è necessario riavviare l'host, pertanto questo processo non risulta problematico per l'ambiente.
+No. Questo processo non richiede un riavvio. Talvolta, vSphere non aggiorna correttamente il SysLog. In tal caso, accedere all'host ESXi e ricaricare il SysLog. Anche qui, non è necessario riavviare l'host, pertanto questo processo non risulta problematico per l'ambiente.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>È possibile aumentare o diminuire il volume dei dati di log inviati a Log Analytics?
 Sì. È possibile usare le impostazioni a livello di log dell'host ESXi in vSphere. La raccolta dei log è basata sul livello *info*. Pertanto, se si desidera controllare la creazione o l'eliminazione di VM, è necessario mantenere il livello *info* in HostId. Per altre informazioni, consultare la [Knowledge Base di VMware](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).

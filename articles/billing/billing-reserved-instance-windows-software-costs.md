@@ -1,5 +1,5 @@
 ---
-title: Costi del software Windows per le istanze riservate di Azure - Fatturazione di Azure | Microsoft Docs
+title: Costi del software Windows per le istanze di macchina virtuale riservate di Azure | Microsoft Docs
 description: Informazioni sui contatori relativi al software Windows non inclusi nei costi dell'istanza di macchina virtuale riservata di Azure.
 services: billing
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303352"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064464"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>I costi del software Windows non sono inclusi nelle istanze riservate di Azure
 
-Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
+Se non si possiede l'offerta Vantaggio Azure Hybrid Use per l'istanza di macchina virtuale riservata in uso, i costi verranno addebitati in base ai contatori relativi al software Windows elencati nella sezione seguente.
 
 ## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Costi dei contatori relativi al software Windows non inclusi nell'istanza riservata
 
@@ -55,10 +55,10 @@ Se non si dispone dell'offerta Azure Hybrid Use Benefit per l'istanza di macchin
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle istanze riservate di Azure, vedere gli articoli seguenti:
 
-- [Risparmiare sui costi delle macchine virtuali tramite le istanze riservate di Azure](billing-save-compute-costs-reservations.md)
-- [Pagare in anticipo le macchine virtuali tramite le istanze riservate](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gestire le istanze riservate](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto relativo alle istanze riservate](billing-understand-vm-reservation-charges.md)
+- [Cosa sono le istanze di macchina virtuale riservate di Azure?](billing-save-compute-costs-reservations.md)
+- [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Gestire le istanze riservate in Azure](billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto per le istanze riservate](billing-understand-vm-reservation-charges.md)
 - [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e6d7d5d7b205d275c72e96df527a354b072a9dd3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 90ffae3dd8b05041c34d766e464eb68f793f6066
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260970"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062979"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Elemento Microsoft.Common.Section dell'interfaccia utente
 Controllo che raggruppa uno o più elementi sotto un'intestazione.
@@ -31,17 +31,17 @@ Controllo che raggruppa uno o più elementi sotto un'intestazione.
 {
   "name": "section1",
   "type": "Microsoft.Common.Section",
-  "label": "Some section",
+  "label": "Example section",
   "elements": [
     {
-      "name": "element1",
+      "name": "text1",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 1"
+      "label": "Example text box 1"
     },
     {
-      "name": "element2",
+      "name": "text2",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 2"
+      "label": "Example text box 2"
     }
   ],
   "visible": true
@@ -49,14 +49,14 @@ Controllo che raggruppa uno o più elementi sotto un'intestazione.
 ```
 
 ## <a name="remarks"></a>Osservazioni
-- `elements` deve contenere almeno un elemento e può contenere tutti i tipi di elementi, ad eccezione di `Microsoft.Common.Section`.
+- `elements` deve avere almeno un elemento e può avere tutti i tipi di elemento, ad eccezione di `Microsoft.Common.Section`.
 - Questo elemento non supporta la proprietà `toolTip`.
 
 ## <a name="sample-output"></a>Output di esempio
 Per accedere ai valori di output degli elementi in `elements`, usare le funzioni [basics()](create-uidefinition-functions.md#basics) o [steps()](create-uidefinition-functions.md#steps) e la notazione punto:
 
 ```json
-basics('section1').element1
+steps('configuration').section1.text1
 ```
 
 Gli elementi di tipo `Microsoft.Common.Section` stessi non hanno valori di output.

@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657605"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063275"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Backup e ripristino del sistema operativo per SKU di tipo II
 
-In questo documento vengono descritti i passaggi necessari per eseguire il backup e il ripristino del sistema operativo per **SKU di tipo II** di istanze Large di HANA. 
+Questo documento descrive la procedura per eseguire il backup e il ripristino del sistema operativo per **SKU di tipo II** di SAP HANA in istanze Large. 
 
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning, per impostazione predefinita il server risulta configurato per la pianificazione dell'esecuzione di due backup del sistema operativo completo. È possibile controllare la pianificazione del processo di backup tramite il comando seguente:
+Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning, per impostazione predefinita il server risulta configurato per la pianificazione dell'esecuzione di due backup del sistema operativo a livello di file system. È possibile controllare la pianificazione del processo di backup tramite il comando seguente:
 ```
 #crontab –l
 ```
@@ -38,7 +38,7 @@ Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Esecuzione di un backup manuale
 
-Il backup del sistema operativo viene già pianificato usando un **processo cron**. Tuttavia, è possibile eseguire il backup del sistema operativo anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
+Il backup del file system del sistema operativo viene già pianificato usando un **processo cron**. Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
 
 ```
 #rear -v mkbackup

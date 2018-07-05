@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fde0ea00aacbb791836fc1076b88dafd3728454
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591396"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063477"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticazione pass-through di Azure Active Directory: approfondimento tecnico
 Questo articolo offre una panoramica del funzionamento dell'autenticazione pass-through di Azure Active Directory (Azure AD). Per informazioni approfondite di tipo tecnico e relative alla sicurezza, vedere l'articolo di [approfondimento sulla sicurezza](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
@@ -31,15 +31,16 @@ Quando un utente tenta di accedere a un'applicazione Azure Active Directory, se 
 
 1. L'utente tenta di accedere a un'applicazione, ad esempio [Outlook Web App](https://outlook.office365.com/owa/).
 2. Se l'utente non ha ancora eseguito l'accesso, viene reindirizzato alla pagina **Accesso utente** di Azure AD.
-3. L'utente immette il nome utente e la password nella pagina Accesso utente di Azure AD e quindi seleziona il pulsante **Accedi**.
-4. Quando riceve la richiesta di accesso, Azure AD inserisce il nome utente e la password, crittografata con una chiave pubblica, in una coda.
-5. Un agente di autenticazione locale recupera il nome utente e la password crittografata dalla coda. Si noti che l'agente non esegue di frequente il polling per le richieste dalla coda, ma recupera le richieste su una connessione permanente prestabilita.
-6. L'agente decrittografa la password tramite la chiave privata.
-7. L'agente convalida il nome utente e la password in Active Directory usando le API Windows standard. Questo meccanismo è simile a quello usato da Active Directory Federation Services (AD FS). Il nome utente può essere il nome utente predefinito locale (in genere `userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
-8. Il controller di dominio (DC, Domain Controller) di Active Directory locale valuta la richiesta e restituisce all'agente la risposta appropriata che può essere esito positivo, errore, password scaduta o utente bloccato.
-9. L'agente di autenticazione, a sua volta, restituisce la risposta ad Azure AD.
-10. Azure AD valuta la risposta e risponde all'utente nel modo appropriato. Ad esempio, Azure AD esegue l'accesso immediato dell'utente o richiede l'esecuzione dell'autenticazione a più fattori di Azure.
-11. Se l'accesso dell'utente ha esito positivo, l'utente può accedere all'applicazione.
+3. L'utente immette il nome utente nella pagina di accesso di Azure AD e seleziona il pulsante **Avanti**.
+4. L'utente immette la password nella pagina di accesso di Azure AD e seleziona il pulsante **Accedi**.
+5. Quando riceve la richiesta di accesso, Azure AD inserisce in una coda il nome utente e la password, crittografata con una chiave pubblica degli Agenti autenticazione.
+6. Un agente di autenticazione locale recupera il nome utente e la password crittografata dalla coda. Si noti che l'agente non esegue di frequente il polling per le richieste dalla coda, ma recupera le richieste su una connessione permanente prestabilita.
+7. L'agente decrittografa la password tramite la chiave privata.
+8. L'agente convalida il nome utente e la password in Active Directory usando le API Windows standard. Questo meccanismo è simile a quello usato da Active Directory Federation Services (AD FS). Il nome utente può essere il nome utente predefinito locale (in genere `userPrincipalName`) o un altro attributo configurato in Azure AD Connect (noto come `Alternate ID`).
+9. Il controller di dominio (DC, Domain Controller) di Active Directory locale valuta la richiesta e restituisce all'agente la risposta appropriata che può essere esito positivo, errore, password scaduta o utente bloccato.
+10. L'agente di autenticazione, a sua volta, restituisce la risposta ad Azure AD.
+11. Azure AD valuta la risposta e risponde all'utente nel modo appropriato. Ad esempio, Azure AD esegue l'accesso immediato dell'utente o richiede l'esecuzione dell'autenticazione a più fattori di Azure.
+12. Se l'accesso dell'utente ha esito positivo, l'utente può accedere all'applicazione.
 
 Il diagramma seguente illustra tutti i componenti e i passaggi interessati:
 
@@ -48,7 +49,7 @@ Il diagramma seguente illustra tutti i componenti e i passaggi interessati:
 ## <a name="next-steps"></a>Passaggi successivi
 - [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md): apprendere quali sono gli scenari supportati.
 - [Guida introduttiva](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
-- [Blocco intelligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
+- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
 - [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): informazioni su come risolvere i problemi comuni con la funzionalità di autenticazione pass-through.
 - [Approfondimento sulla sicurezza](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): informazioni tecniche approfondite sull'autenticazione pass-through di Azure AD.

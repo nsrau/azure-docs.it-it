@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683050"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063698"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
 
-Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate di Azure. Per altre informazioni, vedere l'articolo relativo all'[offerta di istanze riservate di Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Pagare in anticipo le macchine virtuali e risparmiare sui costi tramite le istanze di macchina virtuale riservate di Azure. Per altre informazioni, vedere [Istanze di macchina virtuale riservate di Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 È possibile acquistare le istanze riservate di Azure nel [portale di Azure](https://portal.azure.com). Per acquistare un'istanza riservata:
 -   È necessario disporre del ruolo di Proprietario per almeno una sottoscrizione aziendale o con pagamento in base al consumo.
@@ -24,7 +24,7 @@ Per identificare correttamente la dimensione della macchina virtuale per un forn
 2. È anche possibile ottenere informazioni accurate sulla dimensione della macchina virtuale tramite PowerShell o Azure Resource Manager, oppure dai dettagli sulla macchina virtuale nel portale di Azure.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Acquistare un'istanza di macchine virtuali riservata
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutti i servizi** > **Prenotazioni**.
 3. Selezionare **Aggiungi** per acquistare una nuova istanza riservata.
 4. Compilare i campi obbligatori. Lo sconto relativo all'istanza riservata viene applicato alle istanze di macchine virtuali in esecuzione che corrispondono agli attributi. Il numero di istanze di macchine virtuali a cui viene applicato lo sconto dipende dall'ambito e dalla quantità selezionati.
@@ -50,17 +50,17 @@ Per identificare correttamente la dimensione della macchina virtuale per un forn
 ## <a name="next-steps"></a>Passaggi successivi 
 Lo sconto dell'istanza riservata si applica automaticamente al numero di macchine virtuali in esecuzione corrispondenti all'ambito e agli attributi dell'istanza riservata. È possibile aggiornare l'ambito dell'istanza riservata nel [portale di Azure](https://portal.azure.com), in PowerShell, nell'interfaccia della riga di comando o tramite l'API. 
 
-Per informazioni su come gestire un'istanza riservata, vedere [Gestire le istanze riservate di Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+Per informazioni su come gestire un'istanza riservata, vedere [Gestire le istanze riservate](../articles/billing/billing-manage-reserved-vm-instance.md).
 
 Per altre informazioni sulle istanze riservate di Azure, vedere gli articoli seguenti:
 
-- [Risparmiare sui costi delle macchine virtuali tramite le istanze riservate di Azure](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Gestire le istanze riservate di Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto relativo alle istanze riservate](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [Informazioni su Utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Informazioni su Utilizzo istanze riservate per l'iscrizione Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Cosa sono le istanze di macchina virtuale riservate di Azure?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Gestire le istanze riservate](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Informazioni su come viene applicato lo sconto per le istanze riservate](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Informazioni su utilizzo istanze riservate per la sottoscrizione con pagamento in base al consumo](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Informazioni su utilizzo istanze riservate di Azure per l'iscrizione Enterprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle istanze riservate](../articles/billing/billing-reserved-instance-windows-software-costs.md)
-- [Istanze riservate nel programma Cloud Solution Provider (CSP) del Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Reserved instances in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations) (Istanze riservate nel programma Cloud Solution Provider (CSP) del Centro per i partner)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

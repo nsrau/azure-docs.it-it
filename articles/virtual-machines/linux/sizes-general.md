@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: jonbeck
-ms.openlocfilehash: cb001705a0864899f070db3c36c1b82f0227ec16
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3dc2a3baa77a6aed1a8128d8172089efc2958e5c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34654090"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali di utilizzo generico
 
@@ -35,6 +36,7 @@ ms.lasthandoff: 04/16/2018
 - [Ottimizzate per l'archiviazione](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [High Performance Computing (HPC)](sizes-hpc.md)
+- [Generazioni precedenti](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su come le [unità di calcolo di Azure](acu.md) consentono di confrontare le prestazioni di calcolo negli SKU di Azure.

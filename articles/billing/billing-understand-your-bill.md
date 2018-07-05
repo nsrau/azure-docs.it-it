@@ -1,5 +1,5 @@
 ---
-title: Informazioni sulla fattura per Azure
+title: Informazioni sulla fattura per Azure | Microsoft Docs
 description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
 services: ''
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204892"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064626"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Comprendere la fattura per Microsoft Azure
 Per comprendere la fattura di Azure, confrontare la fattura con il file dei dettagli di utilizzo giornaliero e con i report di gestione dei costi nel portale di Azure.
@@ -101,6 +101,40 @@ Se si [paga tramite fattura](billing-how-to-pay-by-invoice.md), inviare il pagam
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Come si controlla lo stato di un pagamento effettuato con carta di credito?
 
 [Creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per richiedere lo stato del pagamento. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Sono disponibili diversi tipi di clienti Azure? Come posso sapere che tipo di cliente sono?
+Esistono diversi tipi di clienti Azure. Per comprendere meglio la determinazione dei prezzi e la fattura, vedere le seguenti descrizioni relative ai tipi di cliente.
+
+- **Enterprise**: i clienti Enterprise hanno sottoscritto un Contratto Enterprise con Azure per concludere impegni monetari negoziati e ottenere l'accesso alla determinazione dei prezzi personalizzata per le risorse di Azure.
+- **Accesso Web diretto**: i clienti con accesso Web diretto non hanno sottoscritto alcun contratto personalizzato con Azure. Questi clienti hanno eseguito la sottoscrizione di Azure tramite azure.com e sono soggetti ai prezzi al pubblico per tutte le risorse Azure.
+- **Provider di servizi cloud**: i provider di servizi Cloud sono in genere società assunte da un cliente finale per compilare soluzioni basate principalmente su Azure.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Per quale motivo non visualizzo il costo della risorsa creato nella fattura?
+Azure non emette fatture basate direttamente sui costi delle risorse. La fatturazione avviene in base a uno o più contatori che consentono di tenere traccia dell'utilizzo di una risorsa nel suo intero ciclo di vita. Questi contatori vengono quindi usati per calcolare la fattura. Per altre informazioni sulle misurazioni in Azure, vedere di seguito.
+
+## <a name="how-does-azure-charge-metering-work"></a>Come funzionano le misurazioni in Azure?
+Quando si avvia una singola risorsa di Azure, ad esempio una macchina virtuale, verranno create anche una o più istanze di misurazione. Questi contatori vengono usati per tenere traccia dell'utilizzo delle risorse nel tempo. Ogni misuratore genera record di utilizzo che vengono quindi usati da Azure nel sistema di misurazione dei costi per calcolare la fattura. 
+
+Ad esempio, in una singola macchina virtuale creata in Azure possono essere creati i contatori seguenti per tenere traccia dell'utilizzo:
+
+- Ore di calcolo
+- Ore indirizzo IP
+- Importazione dati
+- Trasferimento dati in uscita
+- Managed Disks Standard
+- Operazioni disco gestito Standard
+- I/O Standard - Disco
+- I/O Standard - Lettura BLOB in blocchi
+- I/O Standard - Scrittura BLOB in blocchi
+- I/O Standard - Eliminazione BLOB in blocchi
+
+Dopo aver creato la macchina virtuale, ognuno dei contatori descritti sopra inizierà a emettere record di utilizzo. Questo utilizzo verrà quindi usato nel sistema di misurazione di Azure insieme al prezzo del contatore per determinare l'importo addebitato a un cliente.
+
+> [!Note]
+> I contatori di esempio precedenti possono essere solo un subset di contatori creato con una macchina virtuale.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Qual è la differenza tra le spese per Azure di prime parti e gli addebiti per Marketplace?
+Le spese per Azure di prime parti si riferiscono alle risorse direttamente sviluppate e offerte da Azure. Gli addebiti per Marketplace si riferiscono alle risorse che sono state create dai fornitori di software di terze parti e sono disponibili per l'uso tramite Marketplace. Ad esempio, un firewall Barracuda è una risorsa di Marketplace offerta da terze parti. Tutti gli addebiti per il firewall e i relativi contatori corrispondenti verranno visualizzati come addebiti Marketplace. 
 
 ## <a name="tips-for-cost-management"></a>Suggerimenti per la gestione dei costi
 - Stimare i costi usando il [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) e il [calcolatore del costo totale di proprietà](https://aka.ms/azure-tco-calculator) e ottenere [informazioni dettagliate sui prezzi per ogni servizio](https://azure.microsoft.com/pricing/).
