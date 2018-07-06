@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055031"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086212"
 ---
 Una delle principali funzionalità di Azure IoT Edge è la possibilità di distribuire i moduli nei dispositivi IoT Edge dal cloud. Un modulo di IoT Edge è un pacchetto eseguibile implementato come contenitore. In questa sezione si distribuisce un modulo che genera dati di telemetria per il dispositivo simulato. 
 
@@ -21,14 +21,14 @@ Una delle principali funzionalità di Azure IoT Edge è la possibilità di distr
 1. Passare a **IoT Edge** e selezionare il dispositivo IoT Edge.
 1. Selezionare **Set Modules** (Configura i moduli).
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi** e quindi selezionare **Modulo IoT Edge**.
-1. Nel campo **Nome** immettere `tempsensor`. 
+1. Nel campo **Nome** immettere `tempSensor`. 
 1. Nel campo **URI immagine** immettere `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`. 
 1. Lasciare invariate le altre impostazioni e selezionare **Salva**.
 
    ![Salvare il modulo IoT Edge dopo l'immissione di nome e URI dell'immagine](./media/iot-edge-deploy-module/name-image.png)
 
 1. Nel passaggio **Aggiungi moduli** fare clic su **Avanti**.
-1. Nel passaggio **Specifica route** deve essere presente una route predefinita che invia tutti i messaggi da tutti i moduli per l'hub IoT. In caso contrario, aggiungere il codice seguente e quindi selezionare **Avanti**.
+1. Nel passaggio **Specifica route** deve essere presente una route predefinita che invia tutti i messaggi di tutti i moduli all'hub IoT. In caso contrario, aggiungere il codice seguente e quindi selezionare **Avanti**.
 
    ```json
    {

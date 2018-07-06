@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 16d35a6b36f4dd85db430e05abdff898affbfd67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160022"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342294"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
@@ -291,7 +291,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 
     ![Passaggio Impostazioni](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. Per informazioni sulla scheda Avanzate, vedere [Procedura guidata Pubblica l'applicazione Azure](http://msdn.microsoft.com/library/hh535756.aspx).
+    Le impostazioni predefinite della scheda **Advanced** sono corrette per questa esercitazione. Per informazioni sulla scheda Avanzate, vedere [Procedura guidata Pubblica l'applicazione Azure](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
 4. Nel passaggio **Riepilogo** fare clic su **Pubblica**.
 
     ![Passaggio Riepilogo](./media/cloud-services-dotnet-get-started/pubsummary.png)

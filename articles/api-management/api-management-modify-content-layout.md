@@ -3,7 +3,7 @@ title: Modificare i contenuti della pagina nel portale per sviluppatori in Gesti
 description: Informazioni su come modificare i contenuti di una pagina nel portale per sviluppatori in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377800"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437597"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificare il contenuto e il layout delle pagine nel portale per sviluppatori in Gestione API di Azure
 Per personalizzare il portale per sviluppatori in Gestione API di Azure ci sono tre modalità principali:
@@ -34,7 +34,7 @@ Il portale per sviluppatori è basato su un sistema di gestione dei contenuti. I
 
 ![Struttura della pagina del portale per sviluppatori][api-management-customization-widget-structure]
 
-Tutti i widget sono modificabili. 
+Tutti i widget sono modificabili.
 * I contenuti principali specifici per ogni singola pagina si trovano nel widget "Contenuto". La modifica di una pagina comporta la modifica del contenuto di questo widget.
 * Tutti gli elementi di layout della pagina sono contenuti negli altri widget. Le modifiche apportate a questi widget vengono applicate a tutte le pagine. Questi widget sono detti "widget di layout".
 
@@ -42,12 +42,12 @@ Nella modifica quotidiana di una pagina in genere viene modificato solo il widge
 
 ## <a name="modify-layout-widget"></a>Modifica dei contenuti di un widget di layout
 
-È possibile accedere al portale per sviluppatori dal portale di Azure. 
+È possibile accedere al portale per sviluppatori dal portale di Azure.
 
 1. Fare clic su **Portale per sviluppatori** sulla barra degli strumenti dell'istanza di Gestione API.
-2. Per modificare i contenuti dei widget, fare clic sull'icona composta da due pennelli nel menu del **portale per sviluppatori** a sinistra. 
+2. Per modificare i contenuti dei widget, fare clic sull'icona composta da due pennelli nel menu del **portale per sviluppatori** a sinistra.
 3. Per modificare il contenuto dell'intestazione, scorrere fino alla sezione **Intestazione** nell'elenco a sinistra.
-    
+
     I widget possono essere modificati all'interno dei campi.
 4. Quando si è pronti per pubblicare le modifiche, fare clic su **Pubblica** nella parte inferiore della pagina.
 

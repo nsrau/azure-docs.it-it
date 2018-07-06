@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 7ed564d5954841f96109568b33183908d25bb8be
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ec30f1507bfa45c29709a7f4b7dc1e91aa25ca57
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939541"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440749"
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>Assegnare un utente ai ruoli di amministratore in Azure Active Directory
 Questo articolo descrive come assegnare un ruolo di amministratore a un utente in Azure Active Directory (Azure AD). Per informazioni sull'aggiunta di nuovi utenti nell'organizzazione, vedere [Aggiungere nuovi utenti ad Azure Active Directory](../add-users-azure-active-directory.md). Gli utenti aggiunti non hanno autorizzazioni di amministratore per impostazione predefinita, ma è possibile assegnare loro dei ruoli in qualsiasi momento.
@@ -30,7 +30,7 @@ Questo articolo descrive come assegnare un ruolo di amministratore a un utente i
 
     ![Apertura di Gestione utenti](./media/active-directory-users-assign-role-azure-portal/create-users-user-management.png)
 
-3. Per l'utente selezionato, scegliere **Ruolo directory**, **Aggiungi ruolo** e quindi selezionare i ruoli amministrativi appropriati nell'elenco **Ruoli della directory**, ad esempio **Amministratore dell'accesso condizionale**. Per altre informazioni sui ruoli amministrativi, vedere [Assegnazione dei ruoli di amministratore in Azure AD](../active-directory-assign-admin-roles-azure-portal.md). 
+3. Per l'utente selezionato, scegliere **Ruolo directory**, **Aggiungi ruolo** e quindi selezionare i ruoli amministrativi appropriati nell'elenco **Ruoli della directory**, ad esempio **Amministratore dell'accesso condizionale**. Per altre informazioni sui ruoli amministrativi, vedere [Assegnazione dei ruoli di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md). 
 
     ![Assegnazione di un utente a un ruolo](./media/active-directory-users-assign-role-azure-portal/create-users-assign-role.png)
 

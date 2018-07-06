@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049163"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099186"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -134,8 +134,9 @@ Il daemon di sicurezza viene installato come servizio di sistema in modo che il 
 6. Visualizzare i moduli in esecuzione nel dispositivo: 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Dopo una disconnessione e un accesso, non è necessario usare *sudo* per il comando sopra citato.
 
    ![Visualizzare un modulo nel dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel 
 Aprire il prompt dei comandi nel computer eseguendo ancora il dispositivo simulato. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge:
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+Dopo una disconnessione e un accesso, non è necessario usare *sudo* per il comando sopra citato.
 
    ![Visualizzare tre moduli nel dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
 Visualizzare i messaggi inviati dal modulo tempSensor:
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+Dopo una disconnessione e un accesso, non è necessario usare *sudo* per il comando sopra citato.
 
 ![Visualizzare i dati dal modulo](./media/quickstart-linux/iotedge-logs.png)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ad2895a457a20632823260f2429ac95fad82089c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060196"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081388"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge - anteprima
 
@@ -128,7 +128,7 @@ In questa sezione si crea un processo di Analisi di flusso di Azure per prelevar
    Se il modulo tempSensor è stato distribuito in precedenza in questo dispositivo, la compilazione dei campi potrebbe essere automatica. In caso contrario, aggiungere il modulo seguendo questa procedura:
 
    1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
-   2. Per il nome, digitare **tempsensor**.
+   2. Per il nome, digitare **tempSensor**.
    3. Per l'URI dell'immagine, immettere **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
    4. Lasciare invariate le altre impostazioni.
    5. Selezionare **Salva**.
