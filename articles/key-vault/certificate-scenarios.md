@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333514"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109485"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -121,5 +121,5 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
   (5) L'applicazione completa la creazione del nuovo certificato con l'unione del certificato X509 proveniente dalla CA.
 
 ## <a name="see-also"></a>Vedere anche
-- [Operazioni relative ai certificati](/rest/api/keyvault/certificate-operations.md)
+- [Operazioni relative ai certificati](/rest/api/keyvault/certificate-operations)
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)
