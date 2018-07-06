@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751671"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083992"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelli di acquisto e risorse del database SQL di Azure | Microsoft Docs 
 

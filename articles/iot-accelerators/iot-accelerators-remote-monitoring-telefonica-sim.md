@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628284"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097081"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrare i dati di una scheda SIM nella soluzione di monitoraggio remoto
 
@@ -33,9 +33,9 @@ In questa esercitazione si apprenderà come:
 
 Questa funzionalità aggiuntiva di monitoraggio remoto è attualmente in anteprima. Per sincronizzare i dati di connettività con la soluzione di monitoraggio remoto di Azure, seguire questi passaggi:
 
-1. Compilare una richiesta sul [sito di Telefónica](https://iot.Telefónica.com/contact), selezionare l'opzione **Azure Remote Monitoring** (Monitoraggio remoto di Azure) includendo le informazioni di contatto.
+1. Compilare una richiesta sul [sito di Telefónica](https://iot.telefonica.com/contact), selezionare l'opzione **Azure Remote Monitoring** (Monitoraggio remoto di Azure) includendo le informazioni di contatto.
 2. Telefónica attiva l'account.
-3. Se non si è ancora cliente di Telefónica e si desidera sfruttare questo o altri servizi pronti per il cloud della connettività IoT, visitare il [sito di Telefónica](https://iot.Telefónica.com/contact) e selezionare l'opzione **Connectivity** (Connettività).
+3. Se non si è ancora cliente di Telefónica e si desidera sfruttare questo o altri servizi pronti per il cloud della connettività IoT, visitare il [sito di Telefónica](https://iot.telefonica.com/) e selezionare l'opzione **Connectivity** (Connettività).
 
 ### <a name="telefnica-sim-setup"></a>Configurazione della SIM di Telefónica
 L'associazione della SIM di Telefónica e dell'ID del dispositivo gemello di Azure si basa sulla proprietà "alias" della SIM IoT di Telefónica. 

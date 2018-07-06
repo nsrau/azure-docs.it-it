@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062080"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346587"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Avvio rapido: impostazione dei cluster in HDInsight
 
@@ -55,7 +55,7 @@ Seguire le istruzioni sullo schermo per eseguire una configurazione base del clu
 
 * [Nome del gruppo di risorse](#resource-group-name)
 * [Tipi di cluster e configurazione](#cluster-types) 
-* [Account di accesso del cluster e nome utente SSH](#cluster-login-and-ssh-username)
+* [Account di accesso del cluster e nome utente SSH](#cluster-login-and-ssh-user-name)
 * [Località](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Sebbene l'installazione locale di Hadoop usi Hadoop Distributed File System (HDF
 
 Durante la configurazione, come endpoint di archiviazione predefinito viene indicato Archiviazione di Azure Data Lake. L'archiviazione predefinita include registri di sistema e applicazioni. Facoltativamente, è possibile specificare degli account di Archiviazione di Azure Data Lake collegati a cui il cluster può accedere. Il cluster HDInsight e l'account di archiviazione da esso dipendente devono trovarsi nella stessa posizione di Azure.
 
-![Impostazioni di archiviazione del cluster: endpoint di archiviazione compatibili con HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Impostazioni di archiviazione del cluster: endpoint di archiviazione compatibili con HDFS](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Assicurarsi di **disattivare l'accesso al Data Lake Store**. Questa impostazione si riferisce alla funzionalità obsoleta di *Data Lake Store* e deve essere disattivata per consentire il corretto funzionamento delle funzioni di *Archiviazione di Azure Data Lake*.

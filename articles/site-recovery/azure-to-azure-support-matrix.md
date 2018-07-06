@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324216"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342532"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -170,8 +170,8 @@ Disco temporaneo | Sempre escluso dalla replica | Il disco temporaneo è sempre 
 Frequenza di modifica dei dati sul disco | Un massimo di 10 MBps per disco per l'archiviazione Premium e di 2 MBps per disco per l'archiviazione Standard | Se la frequenza media di modifica dei dati nel disco supera costantemente 10 MBps (Premium) e 2 MBps (Standard), la replica non viene aggiornata. Se invece si tratta di un picco di dati occasionale e la frequenza di modifica dei dati supera i 10 MBps (Premium) e 2 MBps (Standard) solo per un breve intervallo, la replica viene aggiornata. In questo caso, potrebbero verificarsi punti di ripristino leggermente ritardati.
 Dischi su account di archiviazione standard | Supportato |
 Dischi su account di archiviazione premium | Supportato | Se una macchina virtuale dispone di dischi distribuiti tra account di archiviazione standard e premium, è possibile selezionare un account di archiviazione di destinazione diverso per ogni disco per assicurarsi di avere la stessa configurazione di archiviazione nell'area di destinazione
-Dischi gestiti standard | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. I cloud per enti pubblici non sono attualmente supportati.  |  
-Dischi gestiti premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. I cloud per enti pubblici non sono attualmente supportati. |
+Dischi gestiti standard | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |  
+Dischi gestiti premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
 Spazi di archiviazione | Supportato |         
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.   
 Crittografia dischi di Azure (ADE) | Non supportate |
