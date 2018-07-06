@@ -1,6 +1,6 @@
 ---
-title: Utilizzo della libreria Java BulkExecutor per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
-description: Usare la libreria Java BulkExecutor di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
+title: Utilizzo della libreria Java dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
+description: Usare la libreria Java dell'executor bulk di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
 keywords: Executor in blocco Java
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610243"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300714"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java BulkExecutor per eseguire operazioni in blocco sui dati di Azure Cosmos DB
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria BulkExecutor e su come consente di sfruttare la velocità effettiva estremamente elevata e l'archiviazione, vedere l'articolo [Panoramica della libreria BulkExecutor](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in una raccolta di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in una raccolta di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -197,7 +197,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 ## <a name="performance-tips"></a>Suggerimenti per incrementare le prestazioni 
 
-Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere presente quanto segue:
+Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk tenere presente quanto segue:
 
 * Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 * Per ottenere una velocità effettiva più elevata:  
@@ -211,6 +211,6 @@ Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere
 
     
 ## <a name="next-steps"></a>Passaggi successivi
-* Per i dettagli del pacchetto Maven e le note sulla versione della libreria Java BulkExecutor, vedere i [dettagli su BulkExecutor SDK](sql-api-sdk-bulk-executor-java.md).
+* Per i dettagli del pacchetto Maven e le note sulla versione della libreria Java dell'executor bulk, vedere i [dettagli sull'SDK dell'executor bulk](sql-api-sdk-bulk-executor-java.md).
 
 

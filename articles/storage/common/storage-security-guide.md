@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735328"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304132"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -101,7 +101,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Questo riferimento descrive le API che è possibile usare per gestire l'account di archiviazione a livello di codice.
-* [Guida per gli sviluppatori sull'autenticazione con l'API di Azure Resource Manager](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Usare l'API di autenticazione di Gestione risorse per accedere alle sottoscrizioni](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Questo articolo illustra come eseguire l'autenticazione con le API di Resource Manager.
 * [Controllo degli accessi in base al ruolo per Microsoft Azure da Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -209,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Modalità di autenticazione della firma di accesso condiviso tramite il servizio di archiviazione di Azure
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Modalità di autorizzazione della firma di accesso condiviso tramite il servizio Archiviazione di Azure
 Quando il servizio di archiviazione riceve la richiesta, accetta i parametri di query di input e crea una firma usando lo stesso metodo del programma chiamante, quindi confronta le due firme. Se concordano, il servizio di archiviazione può controllare la versione del servizio di archiviazione per assicurarsi che sia valida, verificare che la data e l'ora correnti rientrino nell'intervallo specificato, assicurarsi che l'accesso richiesto corrisponda alla richiesta eseguita e così via.
 
 Ad esempio, se l'URL precedente puntasse a un file invece che a un BLOB, la richiesta non riuscirebbe perché specifica che la firma di accesso condiviso è per un BLOB. Se il comando REST chiamato doveva aggiornare un BLOB, non sarebbe riuscito perché la firma di accesso condiviso specifica che è consentito solo l'accesso in lettura.
@@ -404,11 +404,11 @@ Le risorse indicate di seguito includono un articolo che fornisce l'elenco dei m
 
 ![Snapshot dei campi in un file di log](./media/storage-security-guide/image3.png)
 
-In questo caso, sono interessanti le voci per GetBlob e come vengono autenticate, quindi occorre cercare le voci con tipo di operazione "Get-Blob" e controllare lo stato della richiesta (quarta</sup> colonna) e il tipo di autorizzazione (ottava</sup> colonna).
+In questo caso, sono interessanti le voci per GetBlob e come vengono autorizzate, quindi occorre cercare le voci con tipo di operazione "Get-Blob" e controllare lo stato della richiesta (quarta</sup> colonna) e il tipo di autorizzazione (ottava</sup> colonna).
 
-Nelle prime righe nell'elenco precedente, ad esempio, request-status è "Success" e authorization-type è "authenticated". Ciò significa che la richiesta è stata convalidata con la chiave dell'account di archiviazione.
+Nelle prime righe nell'elenco precedente, ad esempio, request-status è "Success" e authorization-type è "authenticated". Ciò significa che la richiesta è stata autorizzata con la chiave dell'account di archiviazione.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Modalità di autenticazione dei BLOB
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Come viene autorizzato l'accesso ai BLOB personali?
 Sono tre i casi interessanti in questo caso.
 
 1. Il BLOB è pubblico e vi si accede tramite un URL senza una firma di accesso condiviso. In questo caso, request-status è "AnonymousSuccess" e authorization-type è "anonymous".

@@ -2,19 +2,19 @@
 title: 'Unità richiesta e stima della velocità effettiva: Azure Cosmos DB | Microsoft Docs'
 description: Informazioni su come comprendere, specificare e stimare i requisiti relativi alle unità richiesta in Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823724"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053328"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Azure Cosmos DB offre prestazioni veloci e prevedibili, riservando risorse per s
 
 Con Azure Cosmos DB, la velocità effettiva riservata è specificata in termini di unità richiesta elaborata al secondo. Le unità richiesta possono essere considerate come valuta effettiva. Si riservano diverse unità richiesta garantite perché siano disponibili al secondo per l'applicazione. Ogni operazione in Azure Cosmos DB, tra cui scrittura di un documento, esecuzione di una query e aggiornamento di un documento, usa CPU, memoria e operazioni di I/O al secondo. In altre parole, ogni operazione comporta un addebito richiesta espresso in unità richiesta. Quando si riconoscono i fattori che influiscono sugli addebiti delle unità richiesta e i requisiti di velocità effettiva dell'applicazione, è possibile eseguire l'applicazione nel modo più economicamente conveniente possibile. 
 
-Per aiutare gli utenti a iniziare, Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta nel video seguente: <br /><br />
+Per aiutare gli utenti a iniziare, Andrew Liu, Program Manager di Azure Cosmos DB, illustra le unità richiesta nel video seguente (nell'esempio delle unità di richiesta del video c'è un piccolo refuso: quando si usa 1 kB di dati cin 100.000 record, lo spazio di archiviazione totale è 100 MB e non 100 GB): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Per usare lo strumento:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Usare l'intestazione della risposta di addebito della richiesta di Azure Cosmos DB
-Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta usate per una determinata richiesta. È possibile accedere a questa intestazione anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, **RequestCharge** è una proprietà dell'oggetto **ResourceResponse**. Per quanto riguarda le query, Esplora dati di Azure Cosmos DB disponibile nel portale di Azure offre informazioni sugli addebiti per le richieste relative alle query eseguite.
+Ogni risposta dal servizio Azure Cosmos DB include un'intestazione personalizzata (`x-ms-request-charge`) che contiene le unità richiesta usate per una determinata richiesta. È possibile accedere a questa intestazione anche tramite gli SDK di Azure Cosmos DB. In .NET SDK, **RequestCharge** è una proprietà dell'oggetto **ResourceResponse**. Per quanto riguarda le query, Esplora dati di Azure Cosmos DB disponibile nel portale di Azure offre informazioni sugli addebiti per le richieste relative alle query eseguite. Per informazioni su come ottenere e impostare la velocità effettiva usando diverse API multimodello, vedere l'articolo [Impostare e ottenere la velocità effettiva per i contenitori di Azure Cosmos DB](set-throughput.md).
 
 Un metodo per stimare la quantità di velocità effettiva riservata richiesta dall'applicazione consiste nel registrare l'addebito delle unità richiesta associato all'esecuzione di operazioni tipiche rispetto a un elemento rappresentativo usato dall'applicazione. Quindi, stimare il numero di operazioni che si prevede di eseguire ogni secondo. Assicurarsi di misurare e includere anche le query tipiche e l'utilizzo di script di Azure Cosmos DB.
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745895"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302114"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Ripristino di emergenza geografico nel servizio Hub eventi di Azure
 
@@ -48,7 +48,7 @@ In questo articolo viene usata la terminologia seguente:
 
 -  *Failover*: processo di attivazione dello spazio dei nomi secondario.
 
-## <a name="setup-and-failover-flow"></a>Flusso di configurazione e failover
+## <a name="setup-and-failover-flow"></a>Configurazione e flusso del failover
 
 La sezione seguente è una panoramica del processo di failover e illustra come configurare il failover iniziale. 
 
@@ -101,6 +101,17 @@ Tenere presente le considerazioni seguenti per questa versione:
 
 4. La sincronizzazione delle entità può richiedere tempo, circa un minuto per 50-100 entità.
 
+## <a name="availability-zones-preview"></a>Zone di disponibilità (anteprima)
+
+Lo SKU Standard di Hub eventi supporta anche le [zone di disponibilità di Azure](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno di un'area di Azure. 
+
+> [!NOTE]
+> L'anteprima delle zone di disponibilità è supportata solo nelle aree **Stati Uniti centrali**, **Stati Uniti orientali 2** e **Francia centrale**.
+
+È possibile abilitare le zone di disponibilità solo negli spazi dei nomi usando il portale di Azure. Hub eventi non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
+
+![3][]
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * L'[esempio disponibile in GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) illustra in dettaglio un semplice flusso di lavoro per la creazione di un'associazione geografica e l'avvio di un failover per uno scenario di ripristino di emergenza.
@@ -114,3 +125,4 @@ Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

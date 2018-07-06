@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593713"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960128"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analizzare i dati di Twitter con Hive in HDInsight
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari.
@@ -68,7 +68,7 @@ In questa esercitazione verranno usate le [API di streaming di Twitter][twitter-
 > [!NOTE]
 > Un file contenente 10.000 tweet e il file di script Hive (descritto nella sezione successiva) sono stati caricati in un contenitore BLOB pubblico. Se si preferisce usare i file caricati, è possibile ignorare questa sezione.
 
-[I dati dei tweet](https://dev.twitter.com/docs/platform-objects/tweets) vengono archiviati nel formato JSON (JavaScript Object Notation) che include una struttura annidata complessa. Invece di scrivere molte righe di codice usando un linguaggio di programmazione convenzionale, è possibile trasformare la struttura annidata in una tabella Hive, in modo da consentire l'esecuzione di query tramite un linguaggio analogo a SQL ( Structured Query Language), denominato HiveQL.
+I dati dei tweet vengono archiviati nel formato JSON (JavaScript Object Notation) che include una struttura annidata complessa. Invece di scrivere molte righe di codice usando un linguaggio di programmazione convenzionale, è possibile trasformare la struttura annidata in una tabella Hive, in modo da consentire l'esecuzione di query tramite un linguaggio analogo a SQL ( Structured Query Language), denominato HiveQL.
 
 Twitter usa OAuth per fornire accesso autorizzato alla propria API. OAuth è un protocollo di autenticazione che consente agli utenti di autorizzare l'applicazione ad agire per proprio conto senza divulgare la propria password. Altre informazioni sono disponibili su [oauth.net](http://oauth.net/) o nell'ottima guida [Beginner's Guide to OAuth](http://hueniverse.com/oauth/) di Hueniverse.
 

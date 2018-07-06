@@ -1,6 +1,6 @@
 ---
-title: Estensione macchina virtuale di Azure OMS per Linux | Documentazione Microsoft
-description: Distribuire l'agente OMS in una macchina virtuale Linux usando un'estensione macchina virtuale.
+title: Estensione macchina virtuale di Azure Log Analytics per Linux | Microsoft Docs
+description: Distribuire l'agente di Log Analytics nella macchina virtuale Linux usando un'estensione macchina virtuale.
 services: virtual-machines-linux
 documentationcenter: ''
 author: danielsollondon
@@ -15,24 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/21/2018
 ms.author: danis
-ms.openlocfilehash: f0d8224e5578a5ae46245e6c70792e962a44c933
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc8b3f6a4ff6b683fc4ed2777adf6ab0b17f05be
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652856"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301486"
 ---
-# <a name="oms-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale OMS per Linux
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Log Analytics per Linux
 
 ## <a name="overview"></a>Panoramica
 
-Log Analytics include funzionalità di monitoraggio, impostazione di avvisi e correzione tramite avvisi per asset cloud e locali. L'estensione macchina virtuale Agente OMS per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente OMS in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale OMS per Linux.
+Log Analytics include funzionalità di monitoraggio, impostazione di avvisi e correzione tramite avvisi per asset cloud e locali. L'estensione macchina virtuale agente di Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Log Analytics per Linux.
 
 ## <a name="prerequisites"></a>prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
-L'estensione agente OMS può essere eseguita in queste distribuzioni di Linux.
+L'estensione agente di Log Analytics può essere eseguita in queste distribuzioni di Linux.
 
 | Distribuzione | Version |
 |---|---|
@@ -44,9 +44,9 @@ L'estensione agente OMS può essere eseguita in queste distribuzioni di Linux.
 | SUSE Linux Enterprise Server | 11 e 12 (x86/x64) |
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
-La tabella seguente illustra il mapping della versione delle estensioni macchina virtuale OMS e dei bundle agenti OMS per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti OMS. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
+La tabella seguente illustra il mapping della versione delle estensioni macchina virtuale di Log Analytics e dei bundle agenti di Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
 
-| Versione delle estensioni di macchina virtuale Linux OMS | Versione bundle agenti OMS | 
+| Versione delle estensioni di macchina virtuale di Log Analytics per Linux | Versione bundle agenti Log Analytics | 
 |--------------------------------|--------------------------|
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
@@ -62,15 +62,15 @@ La tabella seguente illustra il mapping della versione delle estensioni macchina
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 
-Il Centro sicurezza di Azure effettua automaticamente il provisioning dell'agente OMS e lo connette a un'area di lavoro predefinita di Log Analytics creata dal Centro di sicurezza di Azure nella sottoscrizione di Azure. Se si usa il Centro sicurezza di Azure, non completare i passaggi inclusi in questo documento. In caso contrario, si sovrascriverà l'area di lavoro configurata e si interromperà la connessione al Centro sicurezza di Azure.
+Il Centro sicurezza di Azure effettua automaticamente il provisioning dell'agente di Log Analytics e lo connette a un'area di lavoro predefinita di Log Analytics creata dal Centro sicurezza di Azure nella sottoscrizione di Azure. Se si usa il Centro sicurezza di Azure, non completare i passaggi inclusi in questo documento. In caso contrario, si sovrascriverà l'area di lavoro configurata e si interromperà la connessione al Centro sicurezza di Azure.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Per distribuire l'estensione agente OMS per Linux, è necessario che la macchina virtuale di destinazione sia connessa a Internet. 
+Per distribuire l'estensione agente di Log Analytics per Linux, è necessario che la macchina virtuale di destinazione sia connessa a Internet. 
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 
-Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro di Log Analytics di destinazione. Questi valori sono [disponibili nell'area di lavoro di Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
+Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di Log Analytics. L'estensione richiede che siano indicati l'ID e la chiave dell'area di lavoro presenti nell'area di lavoro di Log Analytics di destinazione. Questi valori sono [disponibili nell'area di lavoro di Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) nel portale di Azure. Poiché la chiave dell'area di lavoro deve essere tratta come i dati sensibili, deve essere memorizzata in una configurazione protetta. I dati della configurazione protetta dell'estensione macchina virtuale di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Tenere presente che **workspaceId** e **workspaceKey** distinguono tra maiuscole e minuscole.
 
 ```json
 {
@@ -109,7 +109,7 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione OMS Agent. 
 
 ## <a name="template-deployment"></a>Distribuzione del modello
 
-Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio il caricamento in Log Analytics. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale Agente OMS è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Le estensioni macchina virtuale di Azure possono essere distribuite con i modelli di Azure Resource Manager. I modelli rappresentano la scelta migliore quando si distribuiscono una o più macchine virtuali per cui è necessaria una configurazione post-distribuzione, ad esempio il caricamento in Log Analytics. Un esempio di modello di Resource Manager che include l'estensione macchina virtuale agente di Log Analytics è disponibile nella [raccolta di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 La configurazione JSON per un'estensione macchina virtuale può essere annidata nella risorsa della macchina virtuale o posizionata nel livello radice o nel livello superiore di un modello JSON di Gestione risorse. Il posizionamento della configurazione JSON influisce sul valore del nome e del tipo di risorsa. Per altre informazioni, vedere [Set name and type for child resources](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources) (Impostare il nome e il tipo per le risorse figlio). 
 
@@ -165,7 +165,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
-L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale Agente OMS in una macchina virtuale esistente. Sostituire *workspaceId* e *workspaceKey* con quelli dall'area di lavoro di Log Analytics. 
+L'interfaccia della riga di comando di Azure può essere usata per distribuire l'estensione macchina virtuale agente di Log Analytics in una macchina virtuale esistente. Sostituire *workspaceId* e *workspaceKey* con quelli dall'area di lavoro di Log Analytics. 
 
 ```azurecli
 az vm extension set \

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 3d98ed2be7a040ad889d1d504f303569c265360b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3ac3df7f7861b8a12778190072e5554927706e08
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271592"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061420"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Componenti e versioni di Hadoop disponibili in HDInsight
 
@@ -29,7 +29,7 @@ Informazioni su componenti e versioni dell'ecosistema Apache Hadoop in Microsoft
 Ogni versione di HDInsight è una distribuzione cloud di una versione di Hortonworks Data Platform (HDP).
 
 ## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Componenti di Hadoop disponibili con diverse versioni di HDInsight
-Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta crea una versione specifica della distribuzione HDP (Hortonworks Data Platform) e un set di componenti contenuti in tale distribuzione. A partire dal 17 febbraio 2017, la versione cluster predefinita usata da Azure HDInsight è la 3.5, basata su HDP 2.5.
+Azure HDInsight supporta più versioni cluster di Hadoop che possono essere distribuite in qualsiasi momento. Ogni versione scelta crea una versione specifica della distribuzione HDP (Hortonworks Data Platform) e un set di componenti contenuti in tale distribuzione. A partire dal 4 aprile 2017, la versione cluster predefinita utilizzata da Azure HDInsight è la 3.6, basata su HDP 2.6.
 
 Le versioni del componente associate alle versioni del cluster HDInsight sono elencate nella tabella seguente: 
 
@@ -53,12 +53,13 @@ Le versioni del componente associate alle versioni del cluster HDInsight sono el
 | Apache Storm |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.1.0, 2.2.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (solo Windows) |-|-|
+| Apache Spark |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (solo Windows) |-|-|
 | Apache Livy |0,4 |0,3 |0,3 |0,2 |-|-|-|
-| Apache Kafka | 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |3.2.8 |-|-|-|
+| Apache Slider | 0.92.0 |-|-|-|-|-|-|
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Controllare le informazioni sulle versioni correnti dei componenti Hadoop
 
@@ -234,7 +235,7 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
 
 * Tutte le aree supportate tranne Brasile meridionale e Giappone occidentale:
 
-  | Tipo di cluster | Hadoop | hbase | Interactive Query | Storm | Spark | R Server |
+  | Tipo di cluster | Hadoop | hbase | Interactive Query | Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head: dimensioni VM predefinite |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | Head: dimensioni VM consigliate |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -246,7 +247,7 @@ La tabella seguente elenca le dimensioni di macchina virtuale (VM) predefinite p
   | Edge: dimensioni VM consigliate | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Solo Brasile meridionale e Giappone occidentale (non sono disponibili dimensioni v2):
 
-  | Tipo di cluster | Hadoop | hbase | Interactive Query |Storm | Spark | R Server |
+  | Tipo di cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head: dimensioni VM predefinite |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Head: dimensioni VM consigliate |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

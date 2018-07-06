@@ -1,26 +1,26 @@
 ---
-title: Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Analytics | Microsoft Docs
-description: Informazioni su come monitorare la sincronizzazione dati SQL di Azure (anteprima) usando Log Analytics
+title: Monitorare sincronizzazione dati SQL di Azure con Log Analytics | Microsoft Docs
+description: Informazioni su come monitorare la sincronizzazione dati SQL di Azure usando Log Analytics
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650248"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025415"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL (anteprima) con Log Analytics 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL con Log Analytics 
 
 Per controllare il registro attività di sincronizzazione dati SQL e rilevare gli errori e gli avvisi, in precedenza era necessario verificare manualmente la sincronizzazione dati SQL nel Portale di Azure o usare PowerShell o l'API REST. Per configurare una soluzione personalizzata che migliori l'esperienza di monitoraggio della sincronizzazione dei dati, seguire i passaggi descritti in questo articolo. È possibile personalizzare questa soluzione per adattarla allo scenario specifico.
 
-Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](sql-database-sync-data.md).
+Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 

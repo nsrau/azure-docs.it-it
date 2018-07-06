@@ -1,8 +1,8 @@
 ---
 title: Privacy dell'utente e accesso Single Sign-On facile di Azure AD | Microsoft Docs
-description: Questo articolo riguarda l'accesso Single Sign-On facile di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (RGPD).
+description: Questo articolo riguarda l'accesso Single Sign-On facile di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (GDPR).
 services: active-directory
-keywords: che cos'è Azure AD Connect, RGPD, componenti richiesti per Azure AD, SSO, Single Sign-On
+keywords: che cos'è Azure AD Connect, GDPR, componenti richiesti per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
 author: swkrish
 manager: mtillman
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bffa5a3aa57c5b01e3361bc6fc6b284348707800
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a4fc779cdfb177a9817049fd7b62b0014e141ce0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149528"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34592409"
 ---
 # <a name="user-privacy-and-azure-ad-seamless-single-sign-on"></a>Privacy dell'utente e accesso Single Sign-On facile di Azure AD
 
@@ -28,11 +29,11 @@ ms.locfileid: "32149528"
 ## <a name="overview"></a>Panoramica
 
 
-L'accesso Single Sign-On facile di Azure AD crea il tipo di log seguente che può contenere informazioni personali degli utenti finali:
+L'accesso Single Sign-On facile di Azure AD crea il tipo di log seguente che può contenere dati personali: 
 
 - File di log di traccia di Azure AD Connect.
 
-La conformità alla privacy dell'utente per l'accesso Single Sign-On facile può essere ottenuta in due modi:
+Migliorare la privacy dell'utente per l'accesso Single Sign-On facile in due modi:
 
 1.  Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dalle installazioni.
 2.  Verificare che nessun dato venga conservato per più di 48 ore.
@@ -41,7 +42,7 @@ La seconda opzione è consigliabile perché risulta più semplice da implementar
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminare i file di log di traccia di Azure AD Connect
 
-Controllare il contenuto della cartella **%ProgramData%\AADConnect** ed eliminare il contenuto del log di traccia (file **trace-\*.log**) di questa cartella entro 48 ore dall'installazione o dall'aggiornamento di Azure AD Connect o dalla modifica della configurazione dell'accesso Single Sign-On facile, perché questa azione può creare dati a cui si applica il regolamento RGPD.
+Controllare il contenuto della cartella **%ProgramData%\AADConnect** ed eliminare il contenuto del log di traccia (file **trace-\*.log**) di questa cartella entro 48 ore dall'installazione o dall'aggiornamento di Azure AD Connect o dalla modifica della configurazione dell'accesso Single Sign-On facile, perché questa azione può creare dati a cui si applica il regolamento GDPR.
 
 >[!IMPORTANT]
 >Non eliminare il file **PersistedState.xml** in questa cartella, perché questo file viene usato per mantenere lo stato dell'installazione precedente di Azure AD Connect e viene usato quando viene eseguita un'installazione di aggiornamento. Questo file non conterrà mai dati relativi a un utente e non deve essere mai eliminato.
@@ -58,7 +59,7 @@ Foreach ($file in $Files) {
 
 Salvare lo script in un file con estensione "PS1". Eseguire questo script quando necessario.
 
-Per altre informazioni sui requisiti RGPD per Azure AD Connect correlati, vedere [questo articolo](active-directory-aadconnect-gdpr.md).
+Per altre informazioni sui requisiti GDPR per Azure AD Connect correlati, vedere [questo articolo](active-directory-aadconnect-gdpr.md).
 
 ### <a name="note-about-domain-controller-logs"></a>Nota sui log del controller di dominio
 

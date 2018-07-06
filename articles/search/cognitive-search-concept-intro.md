@@ -3,17 +3,18 @@ title: Ricerca cognitiva per l'estrazione di dati, elaborazione del linguaggio n
 description: Estrazione dei dati, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641112"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304282"
 ---
 # <a name="what-is-cognitive-search"></a>Che cos'è la ricerca cognitiva?
 
@@ -25,12 +26,12 @@ L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i doc
 
 Le competenze usate durante l'indicizzazione possono essere predefinite o personalizzate:
 
-+ Le [competenze predefinite](cognitive-search-predefined-skills.md) si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) sono soltanto alcune di esse. 
++ Le [competenze predefinite](cognitive-search-predefined-skills.md) si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) sono soltanto alcuni esempi. 
 
 + Le [Competenze personalizzate](cognitive-search-create-custom-skill-example.md) possono essere sviluppate dall'utente per operazioni di elaborazione specializzate. Esempi di competenze personalizzate possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> La Ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
+> La ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
 

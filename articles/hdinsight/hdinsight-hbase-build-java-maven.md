@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597089"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019322"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Usare Maven per compilare applicazioni Java che usano HBase con HDInsight basato su Windows (Hadoop)
 In questo articolo si apprenderà come creare e compilare un'applicazione [Apache HBase](http://hbase.apache.org/) in Java usando Apache Maven. quindi a usare l'applicazione con HDInsight di Azure (Hadoop).

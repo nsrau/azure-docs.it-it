@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763451"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064513"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Come installare e configurare SAP HANA (istanze di grandi dimensioni) in Azure
 
@@ -80,18 +80,7 @@ Si presuppone che siano state seguite le indicazioni relative alla progettazione
 
 Esistono alcuni dettagli che vale la pena citare sulle reti delle singole unità. Ogni unità di istanza di grandi dimensioni HANA include due o tre indirizzi IP assegnati a due o tre porte NIC dell'unità. Tre indirizzi IP vengono usati nelle configurazioni con scalabilità orizzontale HANA e nello scenario di replica DFS HANA. Uno degli indirizzi IP assegnati alla scheda di interfaccia di rete dell'unità è esterno al pool di indirizzi IP del server che è stato descritto in [Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-La distribuzione per le unità con due indirizzi IP assegnati dovrebbe appare come segue:
-
-- A eth0.xx deve essere assegnato un indirizzo IP non compreso nell'intervallo di indirizzi del pool di indirizzi IP del Server inviati a Microsoft. Questo indirizzo IP deve essere usato per la gestione in /etc/hosts del sistema operativo.
-- A eth1.xx deve essere assegnato un indirizzo IP usato per la comunicazione con NFS. Pertanto, tali indirizzi **NON** devono essere gestiti in etc/hosts per consentire il traffico da istanza a istanza nel tenant.
-
-Una configurazione del pannello con due indirizzi IP assegnati non è appropriata per i casi di distribuzione di tipo replica del sistema HANA o di HANA con scalabilità orizzontale. Se sono stati assegnati solo due indirizzi IP e si vuole distribuire una configurazione di questo tipo, contattare SAP HANA in Azure Service Management per ottenere un terzo indirizzo IP in una terza VLAN assegnata. Per le unità di istanza Large di HANA con tre indirizzi IP assegnati alle tre porte NIC, si applicano le regole di utilizzo seguenti:
-
-- A eth0.xx deve essere assegnato un indirizzo IP non compreso nell'intervallo di indirizzi del pool di indirizzi IP del Server inviati a Microsoft. Questo indirizzo, pertanto, IP deve non essere usato per la gestione in /etc/hosts del sistema operativo.
-- A eth1.xx deve essere assegnato un indirizzo IP usato per la comunicazione con l'archivio NFS. Questo tipo di indirizzi, quindi, non deve essere conservato in etc/host.
-- eth2.xx deve essere usato esclusivamente in etc/hosts per la comunicazione tra istanze diverse. Questi indirizzi corrispondono agli indirizzi IP da mantenere nelle configurazioni HANA con scalabilità orizzontale come indirizzi IP usati da HANA per la configurazione tra nodi.
-
-
+Per informazioni sui dettagli relativi a Ethernet per l'architettura, vedere [Scenari HLI supportati](hana-supported-scenario.md).
 
 ## <a name="storage"></a>Archiviazione
 
@@ -111,7 +100,7 @@ Dove SID corrisponde all'ID di sistema dell'istanza HANA.
 
 Tenant corrisponde a un'enumerazione interna delle operazioni durante la distribuzione di un tenant.
 
-Come si può notare, la condivisione HANA e usr/sap condividono lo stesso volume. La nomenclatura dei punti di montaggio include l'ID di sistema delle istanze HANA e i numeri di montaggio. Nelle distribuzioni con aumento delle prestazioni è disponibile un solo montaggio, ad esempio mnt00001. Nelle distribuzioni con scalabilità orizzontale, invece, il numero di montaggi corrisponde al numero di nodi di lavoro e nodi master. Per l'ambiente con scalabilità orizzontale i volumi relativi a dati, log e backup dei log sono condivisi e sono collegati a ogni nodo nella configurazione con scalabilità orizzontale. Per le configurazioni che eseguono più istanze di SAP viene creato un set diverso di volumi, che vengono collegati a un'unità di istanze Large di HANA.
+Come si può notare, la condivisione HANA e usr/sap condividono lo stesso volume. La nomenclatura dei punti di montaggio include l'ID di sistema delle istanze HANA e i numeri di montaggio. Nelle distribuzioni con aumento delle prestazioni è disponibile un solo montaggio, ad esempio mnt00001. Nelle distribuzioni con scalabilità orizzontale, invece, il numero di montaggi corrisponde al numero di nodi di lavoro e nodi master. Per l'ambiente con scalabilità orizzontale i volumi relativi a dati, log e backup dei log sono condivisi e sono collegati a ogni nodo nella configurazione con scalabilità orizzontale. Per le configurazioni che eseguono più istanze di SAP viene creato un set diverso di volumi, che vengono collegati a un'unità di istanze Large di HANA. Per informazioni sui dettagli relativi al layout di archiviazione per lo scenario, vedere [Scenari HLI supportati](hana-supported-scenario.md).
 
 Man mano che si prosegue nella lettura del documento e si cerca un'unità di istanze Large di HANA, ci si rende conto che le unità hanno un volume del disco piuttosto grande per HANA/data e un volume per HANA/log/backup. Le dimensioni di HANA/data sono così grandi perché gli snapshot di archiviazione offerti ai clienti usano lo stesso volume del disco. Maggiore è il numero di snapshot di archiviazione creati, maggiore sarà la quantità di spazio utilizzata dagli snapshot nei volumi di archiviazione assegnati. Il volume HANA/log/backup non è il volume in cui salvare i backup dei database. Le dimensioni sono appropriate per l'uso come volume di backup per i backup dei log delle transazioni HANA. Nelle versioni futuri degli snapshot di archiviazione self-service questo volume verrà modificato in modo da consentire snapshot più frequenti, oltre a repliche più frequenti nel sito di ripristino di emergenza, se si vuole scegliere esplicitamente la funzionalità di ripristino di emergenza fornita dall'infrastruttura delle istanze Large di HANA. Per informazioni dettagliate, vedere [Disponibilità elevata e ripristino di emergenza di SAP HANA (istanze Large) in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -150,6 +139,7 @@ Per le versioni 1.0 di SAP HANA fino a SPS12, questi parametri possono essere im
 
 Con SAP HANA 2.0, il framework hdbparam è stato deprecato. Di conseguenza i parametri devono essere impostati tramite i comandi SQL. Per informazioni dettagliate, vedere [SAP Note #2399079: Elimination of hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079) (Nota SAP #2399079: eliminazione di hdbparam HANA 2).
 
+Per informazioni sui dettagli relativi al layout dell'archiviazione per l'architettura, vedere [Scenari HLI supportati](hana-supported-scenario.md).
 
 ## <a name="operating-system"></a>Sistema operativo
 

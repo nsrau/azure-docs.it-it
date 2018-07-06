@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215855"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020442"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Creare la prima applicazione Java Reliable Actors di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -219,6 +219,10 @@ I parametri per questi comandi si trovano nei manifesti generati nel pacchetto d
 Dopo la distribuzione dell'applicazione, aprire un browser e passare a [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) all'indirizzo [http://localhost:19080/Explorer](http://localhost:19080/Explorer).
 Espandere quindi il nodo **Applicazioni**, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
+> [!IMPORTANT]
+> Per distribuire l'applicazione a un cluster Linux protetto in Azure, è necessario configurare un certificato per convalidare l'applicazione con il runtime di Service Fabric. In questo modo i servizi di Reliable Actors possono comunicare con le API di runtime di Service Fabric sottostanti. Per altre informazioni, vedere [Configurare un'app di Reliable Services da eseguire su cluster Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
+
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Avviare il client di test ed eseguire un failover
 Gli attori non eseguono alcuna operazione in modo indipendente, ma richiedono un altro servizio o client per l'invio dei messaggi. Il modello Actor include un semplice script di test che è possibile usare per interagire con il servizio Actor.
 
@@ -226,6 +230,14 @@ Gli attori non eseguono alcuna operazione in modo indipendente, ma richiedono un
 > Il client di test usa la classe ActorProxy per comunicare con gli attori, che devono essere eseguiti nello stesso cluster del servizio Actor o condividere lo stesso spazio degli indirizzi IP.  È possibile eseguire il client di test nello stesso computer del cluster di sviluppo locale.  Per comunicare con gli attori in un cluster remoto, tuttavia, è necessario distribuire un gateway nel cluster che gestisce le comunicazioni esterne con gli attori.
 
 1. Eseguire lo script tramite l'utilità delle espressioni di controllo per visualizzare l'output del servizio Actor.  Lo script di test chiama il metodo `setCountAsync()` nell'attore per incrementare un contatore, chiama il metodo `getCountAsync()` nell'attore per ottenere il nuovo valore del contatore e visualizza tale valore nella console.
+
+   In caso di MAC OS X è necessario copiare la cartella HelloWorldTestClient in un percorso all'interno del contenitore eseguendo i comandi aggiuntivi seguenti.    
+    
+    ```bash
+     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+     docker exec -it [first-four-digits-of-container-ID] /bin/bash
+     cd /home
+     ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -257,8 +269,8 @@ Supporto di Service Fabric Reliable Actors per l'applicazione.
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-actors-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-actors</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -267,7 +279,7 @@ Supporto di Service Fabric Reliable Actors per l'applicazione.
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-actors:1.0.0'
   }
   ```
 
@@ -278,8 +290,8 @@ Supporto delle applicazioni Reliable Services di Service Fabric per l'applicazio
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-services-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-services</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -288,7 +300,7 @@ Supporto delle applicazioni Reliable Services di Service Fabric per l'applicazio
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-services:1.0.0'
   }
   ```
 
@@ -300,8 +312,8 @@ Supporto del livello trasporto per l'applicazione Java di Service Fabric. Non è
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-transport-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf-transport</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -310,7 +322,7 @@ Supporto del livello trasporto per l'applicazione Java di Service Fabric. Non è
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf-transport:1.0.0'
   }
   ```
 
@@ -321,8 +333,8 @@ Supporto a livello di sistema per Service Fabric, che comunica con il runtime na
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
-      <artifactId>sf-preview</artifactId>
-      <version>0.12.0</version>
+      <artifactId>sf</artifactId>
+      <version>1.0.0</version>
   </dependency>
   ```
 
@@ -331,7 +343,7 @@ Supporto a livello di sistema per Service Fabric, che comunica con il runtime na
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
+      compile 'com.microsoft.servicefabric:sf:1.0.0'
   }
   ```
 

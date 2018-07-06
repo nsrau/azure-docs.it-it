@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 191f8973e85186590a2ba840e473f8fff57a9d94
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053049"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Informazioni di riferimento sugli script JSON
 > [!NOTE]
-> Questo articolo si applica alla versione 1 del servizio Data Factory, disponibile a livello generale (GA).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory.
 
 
 Questo articolo fornisce gli schemi JSON ed esempi per la definizione di entità di Azure Data Factory (pipeline, attività, set di dati e servizi collegati).  
@@ -1480,7 +1481,7 @@ Se si copiano dati dall'archiviazione tabelle di Azure, impostare il **tipo di o
 
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
-| AzureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |di serie Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
+| AzureTableSourceQuery |Usare la query personalizzata per leggere i dati. |Stringa di query della tabella di Azure. Vedere gli esempi nella sezione successiva. |No. Quando si specifica tableName senza azureTableSourceQuery, tutti i record della tabella vengono copiati nella destinazione. Se si specifica anche azureTableSourceQuery, i record della tabella che soddisfa la query vengono copiati nella destinazione. |
 | azureTableSourceIgnoreTableNotFound |Indica se ignorare l'eccezione di tabella inesistente. |TRUE<br/>FALSE |No  |
 
 #### <a name="example"></a>Esempio
@@ -1944,7 +1945,7 @@ Per definire un servizio collegato di Oracle, impostare il **tipo** di servizio 
 | --- | --- | --- |
 | driverType | Specificare il driver da usare per copiare i dati da/verso il database Oracle. I valori consentiti sono **Microsoft** o **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere la sezione [Versione e installazione supportate](#supported-versions-and-installation). | No  |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale |Sì |
+| gatewayName | Nome del gateway utilizzato per connettersi al server Oracle locale |Sì |
 
 #### <a name="example"></a>Esempio
 ```json
@@ -2976,7 +2977,7 @@ Se si copiano dati da Cassandra, impostare il **tipo di origine** dell'attività
 | Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se tableName e keyspace sul set di dati sono definiti). |
-| consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |di serie Il valore predefinito è ONE. |
+| consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. |ONE, TWO, THREE, QUORUM, ALL, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati). |No. Il valore predefinito è ONE. |
 
 #### <a name="example"></a>Esempio
   
@@ -3553,7 +3554,7 @@ Per definire un servizio collegato di FTP, impostare il **tipo** di servizio col
 | username |Utente che ha accesso al server FTP |No  |&nbsp; |
 | password |Password per l'utente (nome utente) |No  |&nbsp; |
 | encryptedCredential |Credenziali crittografate per accedere al server FTP |No  |&nbsp; |
-| gatewayName |Nome del gateway di Gateway di gestione dati per connettersi a un server FTP locale |No  |&nbsp; |
+| gatewayName |Nome del gateway di gestione dati per connettersi a un server FTP locale |No  |&nbsp; |
 | port |Porta su cui è in ascolto il server FTP |No  |21 |
 | enableSsl |Specificare se usare FTP su un canale SSL/TLS |No  |true |
 | enableServerCertificateValidation |Specificare se abilitare la convalida del certificato SSL del server quando si usa FTP sul canale SSL/TLS |No  |true |
@@ -3865,10 +3866,10 @@ Per definire un servizio collegato di SFTP, impostare il **tipo** di servizio co
 | host | Nome o indirizzo IP del server SFTP. |Sì |
 | port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è 21 |No  |
 | authenticationType |Specificare il tipo di autenticazione. Valori consentiti: **Base**, **SshPublicKey**. <br><br> Fare riferimento alle sezioni [Uso dell'autenticazione di base](#using-basic-authentication) e [Uso dell'autenticazione con chiave pubblica SSH](#using-ssh-public-key-authentication) rispettivamente per vedere altre proprietà ed esempi JSON. |Sì |
-| skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host. | di serie Il valore predefinito è: falso |
+| skipHostKeyValidation | Specificare se si desidera ignorare la convalida tramite della chiave host. | No. Il valore predefinito è: falso |
 | hostKeyFingerprint | Specificare le impronte digitali della chiave host. | Sì se `skipHostKeyValidation` è impostato su falso.  |
 | gatewayName |Nome del gateway di gestione dati per connettersi a un server SFTP locale. | Sì se si copiano i dati da un server SFTP locale. |
-| encryptedCredential | Credenziali crittografate per accedere al server SFTP. Generato automaticamente quando si specifica l'autenticazione di base (nome utente e password) o l'autenticazione SshPublicKey (nome utente e percorso della chiave privato o contenuto) nella copia guidata o nella finestra di dialogo popup ClickOnce. | di serie Applicare solo se si copiano i dati da un server SFTP locale. |
+| encryptedCredential | Credenziali crittografate per accedere al server SFTP. Generato automaticamente quando si specifica l'autenticazione di base (nome utente e password) o l'autenticazione SshPublicKey (nome utente e percorso della chiave privato o contenuto) nella copia guidata o nella finestra di dialogo popup ClickOnce. | No. Applicare solo se si copiano i dati da un server SFTP locale. |
 
 #### <a name="example-using-basic-authentication"></a>Esempio: uso dell'autenticazione di base
 
@@ -4073,7 +4074,7 @@ Per definire un servizio collegato di HTTP, impostare il **tipo** di servizio co
 | authenticationType | Specifica il tipo di autenticazione. I valori consentiti sono: **Anonymous**, **Basic**, **Digest**, **Windows** e **ClientCertificate**. <br><br> Fare riferimento alle sezioni sotto questa tabella per altre proprietà e altri esempi JSON per questi tipi di autenticazione. | Sì |
 | enableServerCertificateValidation | Specificare se abilitare la convalida del certificato SSL del server se l'origine è un server Web HTTPS | No, il valore predefinito è true |
 | gatewayName | Nome del gateway di gestione dati per connettersi a un'origine HTTP locale. | Sì se si copiano i dati da un'origine HTTP locale. |
-| encryptedCredential | Credenziali crittografate per accedere all'endpoint HTTP. Generate automaticamente quando si configurano le informazioni di autenticazione nella procedura di copia guidata o nella finestra di dialogo popup ClickOnce. | di serie Applicare solo se si copiano i dati da un server HTTP locale. |
+| encryptedCredential | Credenziali crittografate per accedere all'endpoint HTTP. Generate automaticamente quando si configurano le informazioni di autenticazione nella procedura di copia guidata o nella finestra di dialogo popup ClickOnce. | No. Applicare solo se si copiano i dati da un server HTTP locale. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Esempio: uso dell'autenticazione di base, Digest o Windows
 Impostare `authenticationType` come `Basic`, `Digest`, o `Windows` e specificare le proprietà seguenti oltre a quelle generiche del connettore HTTP illustrate in precedenza:
@@ -4158,7 +4159,7 @@ Per definire un set di dati di HTTP, impostare il **tipo** di set di dati su **H
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | relativeUrl | URL relativo della risorsa che contiene i dati. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. <br><br> Per creare un URL dinamico, è possibile usare le [unzioni e variabili di sistema di Data Factory](data-factory-functions-variables.md), ad esempio: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | No  |
-| requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. | di serie Il valore predefinito è `GET`. |
+| requestMethod | Metodo HTTP. I valori consentiti sono **GET** o **POST**. | No. Il valore predefinito è `GET`. |
 | additionalHeaders | Intestazioni richiesta HTTP aggiuntive. | No  |
 | requestBody | Il corpo della richiesta HTTP. | No  |
 | format | Se si desidera semplicemente **recuperare i dati dall'endpoint HTTP così come sono** senza analizzarli, ignorare questa impostazione di formato. <br><br> Se si desidera analizzare i contenuti di risposta HTTP durante la copia, sono supportati i tipi di formato seguenti: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Per altre informazioni, vedere le sezioni [TextFormat](data-factory-supported-file-and-compression-formats.md#text-format), [JsonFormat](data-factory-supported-file-and-compression-formats.md#json-format), [AvroFormat](data-factory-supported-file-and-compression-formats.md#avro-format), [OrcFormat](data-factory-supported-file-and-compression-formats.md#orc-format) e [ParquetFormat](data-factory-supported-file-and-compression-formats.md#parquet-format). |No  |
@@ -4213,7 +4214,7 @@ Se si copiano dati da un'origine HTTP, impostare il **tipo di origine** dell'att
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. | di serie Valore predefinito: 00:01:40 |
+| httpRequestTimeout | Il timeout (TimeSpan) durante il quale la richiesta HTTP attende una risposta. Si tratta del timeout per ottenere una risposta, non per leggere i dati della risposta stessa. | No. Valore predefinito: 00:01:40 |
 
 
 #### <a name="example"></a>Esempio
@@ -4742,7 +4743,7 @@ Per definire un set di dati Web, impostare il **tipo** di set di dati su **WebTa
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
 | type |Tipo del set di dati. Deve essere impostato su **WebTable** |Sì |
-| path |URL relativo della risorsa che contiene la tabella. |di serie Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
+| path |URL relativo della risorsa che contiene la tabella. |No. Quando non è specificato alcun percorso, viene usato solo l'URL specificato nella definizione del servizio collegato. |
 | index |Indice della tabella nella risorsa. Per i passaggi per ottenere l'indice di una tabella in una pagina HTML, vedere la sezione [Ottenere l'indice di una tabella in una pagina HTML](#get-index-of-a-table-in-an-html-page) . |Sì |
 
 #### <a name="example"></a>Esempio

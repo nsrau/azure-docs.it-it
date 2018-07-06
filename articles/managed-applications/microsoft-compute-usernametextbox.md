@@ -4,21 +4,20 @@ description: Illustra l'elemento Microsoft.Compute.UserNameTextBox dell'interfac
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b65b62389fbb66c9461430d1dd2df42e71bf6cff
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260723"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063302"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Elemento Microsoft.Compute.UserNameTextBox dell'interfaccia utente
 Controllo casella di testo con convalida predefinita per i nomi utente di Windows e Linux.
@@ -45,16 +44,15 @@ Controllo casella di testo con convalida predefinita per i nomi utente di Window
 ```
 
 ## <a name="remarks"></a>Osservazioni
-- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo la casella di testo deve contenere un valore. Il valore predefinito è **true**.
+- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo la casella di testo deve avere un valore. Il valore predefinito è **true**.
 - È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
 - `constraints.regex` è un modello di espressione regolare di JavaScript. Se specificato, perché la convalida venga abbia esito positivo il valore della casella di testo deve corrispondere al modello. Il valore predefinito è **null**.
 - `constraints.validationMessage` è una stringa da visualizzare quando il valore della casella di testo non supera la convalida specificata da `constraints.regex`. Se non specificata, vengono usati i messaggi di convalida predefiniti della casella di testo. Il valore predefinito è **null**.
-- La convalida predefinita di questo elemento su basa sul valore specificato per `osPlatform`. È possibile usare la convalida predefinita insieme a un'espressione regolare personalizzata.
-Se si specifica un valore per `constraints.regex`, viene attivata sia la convalida predefinita che quella personalizzata.
+- La convalida predefinita di questo elemento su basa sul valore specificato per `osPlatform`. È possibile usare la convalida predefinita insieme a un'espressione regolare personalizzata. Se si specifica un valore per `constraints.regex`, viene attivata sia la convalida predefinita che quella personalizzata.
 
 ## <a name="sample-output"></a>Output di esempio
 ```json
-"tabrezm"
+"Example name"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34658775"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
 
@@ -198,4 +199,10 @@ Una volta scaricato e modificato lo script in base alle esigenze, eseguire lo sc
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Passaggio 5 - Configurare il routing all'interno del sistema operativo della VM
 
-Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md) (Routing in un sistema operativo di macchina virtuale con più interfacce di rete).
+Azure DHCP assegna un gateway predefinito alla prima interfaccia di rete (primaria) associata alla macchina virtuale. Azure non assegna un gateway predefinito alle interfacce di rete (secondarie) associate a una macchina virtuale. Di conseguenza, per impostazione predefinita, non è possibile comunicare con risorse esterne alla subnet in cui si trova un'interfaccia di rete secondaria. Le interfacce di rete secondarie possono tuttavia comunicare con risorse esterne alla loro subnet. Per configurare il routing per le interfacce di rete secondarie, vedere gli articoli seguenti:
+
+- [Configurare una VM Windows per più schede di interfaccia di rete](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Configurare una VM Linux per più schede di interfaccia di rete](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

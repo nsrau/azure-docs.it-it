@@ -4,7 +4,7 @@
 
 Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Microsoft Update Catalog.
 
-1. Avviare Internet Explorer e accedere al sito [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 
     ![Installare il catalogo](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
@@ -28,7 +28,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento del software da Micro
 Per installare e verificare gli aggiornamenti rapidi in modalità normale, seguire questa procedura. Se sono già stati installati con il portale di Azure, passare direttamente a [installare e verificare gli aggiornamenti rapidi in modalità di manutenzione](#to-install-and-verify-maintenance-mode-hotfixes).
 
 1. Per installare gli hotfix, accedere all'interfaccia di Windows PowerShell dalla console seriale del dispositivo StorSimple. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**.
-2. Selezionare l' **opzione 1** per eseguire l'accesso completo al dispositivo. È consigliabile installare innanzitutto l'hotfix sul controller passivo.
+2. Selezionare l'opzione 1, **Accedi con accesso completo**. È consigliabile installare innanzitutto l'hotfix sul controller passivo.
 3. Per installare l'hotfix, al prompt dei comandi, digitare:
    
     `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
@@ -82,7 +82,7 @@ Per installare e verificare gli aggiornamenti rapidi in modalità normale, segui
     > [!NOTE]
     > In alcuni casi, i cmdlet mostrano`False` quando l'aggiornamento è ancora in corso. Per assicurarsi che l'aggiornamento rapido è stato completato, attendere alcuni minuti, eseguire nuovamente il comando e verificare che `RunInProgress` sia `False`. In caso affermativo, l'aggiornamento rapido è stato completato.
 
-7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare:
+7. Dopo aver installato gli aggiornamenti del software, verificare le versioni del software del sistema. Digitare: 
    
     `Get-HcsSystem`
    
@@ -164,7 +164,7 @@ Per installare gli aggiornamenti del firmware del disco, seguire le istruzioni r
         [Y] Yes [N] No (Default is "Y"): Y
         WARNING: Installation is currently in progress. This operation can take several minutes to complete.
 3. Monitorare l'avanzamento dell'installazione con il comando `Get-HcsUpdateStatus` . L'aggiornamento è completo quando `RunInProgress` diventa `False`.
-4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1 con accesso completo e verificare la versione del firmware del disco. Digitare:
+4. Al termine dell'installazione, il controller in cui è stato installato l'aggiornamento rapido in modalità di manutenzione viene riavviato. Accedere all'opzione 1, **Accedi con accesso completo** e verificare la versione del firmware del disco. Digitare: 
    
    `Get-HcsFirmwareVersion`
    

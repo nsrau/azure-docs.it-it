@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642666"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301037"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurare Log Analytics per un cluster
 
@@ -38,20 +38,20 @@ Se si intende aggiungere un'area di lavoro di Log Analytics dopo aver distribuit
 
 3. Selezionare **Create**.
 
-    ![Analisi SF OMS in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+    ![Analisi Service Fabric in Marketplace](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
 4. Nella finestra di creazione di Analisi Service Fabric scegliere **Selezionare un'area di lavoro** per il campo **Area di lavoro di OMS** e quindi su **Crea una nuova area di lavoro**. Compilare le voci necessarie. L'unico requisito è che la sottoscrizione per il cluster di Service Fabric e l'area di lavoro sia la stessa. Dopo aver convalidato le voci, verrà avviata la distribuzione dell'area di lavoro. La distribuzione richiede solo alcuni minuti.
 
 5. Al termine, selezionare di nuovo **Crea** nella parte inferiore della finestra di creazione di Analisi Service Fabric. Assicurarsi che la nuova area di lavoro sia visualizzata in **Area di lavoro OMS**. Questa azione aggiunge la soluzione all'area di lavoro creata.
 
-Se si usa Windows, continuare con i passaggi seguenti per connettere OMS all'account di archiviazione in cui vengono archiviati gli eventi cluster. 
+Se si usa Windows, continuare con i passaggi seguenti per connettere Log Analytics all'account di archiviazione in cui vengono archiviati gli eventi cluster. 
 
 >[!NOTE]
 >L'abilitazione di questa esperienza per i cluster Linux non è ancora disponibile. 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connettere l'area di lavoro di Log Analytics al cluster 
 
-1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<NomeAreaDiLavoro\>** e andare alla relativa pagina di panoramica. Da qui, è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere all'area di lavoro di OMS.
+1. L'area di lavoro deve essere connessa ai dati di diagnostica provenienti dal cluster. Andare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<NomeAreaDiLavoro\>** e andare alla relativa pagina di panoramica. Da qui è possibile modificare le impostazioni della soluzione, le impostazioni dell'area di lavoro e accedere all'area di lavoro di Log Analytics.
 
 2. Nel menu di spostamento a sinistra in **Origini dati dell'area di lavoro** selezionare **Log account di archiviazione**.
 
@@ -65,16 +65,16 @@ Se si usa Windows, continuare con i passaggi seguenti per connettere OMS all'acc
 
 7. Selezionare **OK** per connettere l'area di lavoro ai log del cluster.
 
-    ![Aggiungere i log dell'account di archiviazione a OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Aggiungere i log dell'account di archiviazione a Log Analytics](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 L'account viene ora visualizzato come parte dei log degli account di archiviazione nelle origini dati dell'area di lavoro.
 
-La soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro di OMS Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del registro applicazioni. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
+La soluzione Analisi Service Fabric è stata aggiunta in un'area di lavoro di Log Analytics, che è ora connessa correttamente alla piattaforma del cluster e alla tabella del registro applicazioni. È possibile aggiungere altre origini all'area di lavoro nello stesso modo.
 
 
-## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Distribuire OMS con un modello di Resource Manager
+## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Distribuire Log Analytics con un modello di Resource Manager
 
-Quando si distribuisce un cluster con un modello di Resource Manager, il modello crea una nuova area di lavoro OMS, aggiunge la soluzione Service Fabric all'area di lavoro e la configura per leggere i dati dalle tabelle di archiviazione appropriate.
+Quando si distribuisce un cluster con un modello di Resource Manager, il modello crea una nuova area di lavoro di Log Analytics, aggiunge la soluzione Service Fabric all'area di lavoro e la configura per leggere i dati dalle tabelle di archiviazione appropriate.
 
 È possibile usare e modificare [questo modello di esempio](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms) per soddisfare i requisiti.
 
@@ -86,7 +86,7 @@ Apportare le modifiche seguenti:
         "type": "string",
         "defaultValue": "sfomsworkspace",
         "metadata": {
-            "description": "Name of your OMS Log Analytics Workspace"
+            "description": "Name of your Log Analytics Workspace"
         }
     },
     "omsRegion": {
@@ -98,21 +98,21 @@ Apportare le modifiche seguenti:
             "Southeast Asia"
         ],
         "metadata": {
-            "description": "Specify the Azure Region for your OMS workspace"
+            "description": "Specify the Azure Region for your Log Analytics workspace"
         }
     }
     ```
 
     I valori `omsRegion` devono essere conformi a un set specifico di valori. Scegliere il valore più vicino alla distribuzione del cluster.
 
-2. Se i registri applicazioni vengono inviati a OMS, assicurarsi prima che `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` siano inclusi come parametri nel modello. Se non sono inclusi, aggiungerli alla sezione delle variabili e modificare i relativi valori in base alle esigenze. È anche possibile includerli come parametri seguendo il formato precedente.
+2. Se i registri applicazioni vengono inviati a Log Analytics, assicurarsi prima che `applicationDiagnosticsStorageAccountType` e `applicationDiagnosticsStorageAccountName` siano inclusi come parametri nel modello. Se non sono inclusi, aggiungerli alla sezione delle variabili e modificare i relativi valori in base alle esigenze. È anche possibile includerli come parametri seguendo il formato precedente.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
     "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
-3. Aggiunta della soluzione OMS Service Fabric alle variabili del modello:
+3. Aggiungere la soluzione Service Fabric alle variabili del modello:
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
@@ -188,16 +188,16 @@ Apportare le modifiche seguenti:
 
     Azure Resource Manager rileva che questo comando è un aggiornamento a una risorsa esistente. Elabora solo le modifiche tra il modello che definisce la distribuzione esistente e il nuovo modello fornito.
 
-## <a name="deploy-oms-by-using-azure-powershell"></a>Distribuire OMS usando Azure PowerShell
+## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Distribuire Log Analytics tramite Azure PowerShell
 
-È anche possibile distribuire la risorsa Log Analytics di OMS tramite PowerShell usando il comando `New-AzureRmOperationalInsightsWorkspace`. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Usare questo script per creare una nuova area di lavoro di Log Analytics di OMS e aggiungervi la soluzione Service Fabric: 
+È anche possibile distribuire la risorsa di Log Analytics tramite PowerShell usando il comando `New-AzureRmOperationalInsightsWorkspace`. Per usare questo metodo, assicurarsi che sia installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1). Usare questo script per creare una nuova area di lavoro di Log Analytics e aggiungervi la soluzione Service Fabric: 
 
 ```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
-$WorkspaceName = "<OMS Log Analytics workspace name>"
+$WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
@@ -216,11 +216,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-Al termine, seguire i passaggi nella sezione precedente per connettere OMS Log Analytics all'account di archiviazione appropriato.
+Al termine, seguire i passaggi nella sezione precedente per connettere Log Analytics all'account di archiviazione appropriato.
 
-È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro di OMS usando PowerShell. Per altre informazioni, vedere [Gestire Log Analytics con PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
+È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro di Log Analytics usando PowerShell. Per altre informazioni, vedere [Gestire Log Analytics con PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire l'agente di OMS](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere i contatori delle prestazioni, le statistiche Docker e registri per i contenitori
+* [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere i contatori delle prestazioni, le statistiche Docker e registri per i contenitori
 * Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
 * [Usare Progettazione viste per creare viste personalizzate in Log Analytics](../log-analytics/log-analytics-view-designer.md)

@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631599"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028966"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Come usare un dispositivo Azure IoT Edge come gateway - anteprima
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
 Nelle soluzioni IoT i gateway vengono usati per uno scopo specifico della soluzione e offrono funzionalità per la connettività dei dispositivi e l'analisi perimetrale. Azure IoT Edge consente di soddisfare qualsiasi esigenza per un gateway IoT, indipendentemente dal fatto che sia correlata alla connettività, alla gestione delle identità o all'analisi perimetrale. I modelli di gateway descritti in questo articolo fanno riferimento solo alle caratteristiche di identità e connettività dei dispositivi downstream e non al modo in cui i dati dei dispositivi vengono elaborati nel gateway.
 
@@ -54,7 +54,7 @@ Quando si usa un modello di gateway opaco (conversione di protocollo), tutti i d
 ## <a name="next-steps"></a>Passaggi successivi
 Usare un dispositivo IoT Edge come [gateway trasparente][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

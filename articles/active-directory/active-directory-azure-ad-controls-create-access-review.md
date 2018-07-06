@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234074"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020407"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Creare una verifica di accesso dei membri del gruppo o dell'accesso all'applicazione con Azure AD
 
@@ -26,7 +26,7 @@ Le assegnazioni di accessi diventano "obsolete" quando gli utenti dispongono di 
 
 ## <a name="create-an-access-review"></a>Creare una verifica di accesso
 
-1. Come amministratore globale, accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selezionare **Programmi**.
+1. Come amministratore globale o amministratore account utente accedere alla [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) e selezionare **Programmi**.
 
 2. Selezionare il programma che contiene il controllo della verifica di accesso da creare. **Programma predefinito** è sempre presente oppure è possibile creare un altro programma. Ad esempio, è possibile scegliere che sia disponibile un programma per ogni obiettivo di business o iniziativa di conformità.
 
@@ -38,7 +38,7 @@ Le assegnazioni di accessi diventano "obsolete" quando gli utenti dispongono di 
 
 6. Per rendere ricorrente la verifica di accesso, modificare la frequenza da Singola occorrenza a Settimanale, Mensile, Trimestrale o Annuale e usare la casella di testo o il dispositivo di scorrimento per definire per quanti giorni ogni verifica della serie ricorrente rimarrà aperta per consentire l'input da parte dei revisori. La durata massima che è possibile impostare per una verifica mensile, ad esempio, è di 27 giorni, per evitare la sovrapposizione delle verifiche. 
 
-7.  La serie di verifiche di accesso ricorrenti può terminare in 3 modi: viene eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica o dopo che è stato completato un numero definito di occorrenze. Un amministratore globale può arrestare la serie dopo la creazione modificando la data in Impostazioni, in modo che termini in tale data.
+7.  La serie di verifiche di accesso ricorrenti può terminare in 3 modi: viene eseguita in modo continuo per avviare le verifiche per un periodo illimitato o fino a una data specifica o dopo che è stato completato un numero definito di occorrenze. Un altro amministratore di account utente o un altro amministratore globale può arrestare la serie dopo la creazione modificando la data in Impostazioni, in modo che termini in tale data.
 
 8. Le verifiche di accesso possono essere relative ai membri di un gruppo o agli utenti assegnati a un'applicazione. È possibile anche definire l'ambito della verifica di accesso in modo da controllare solo gli utenti guest che sono membri o che sono stati assegnati all'app, anziché controllare tutti gli utenti che sono membri o che hanno accesso all'applicazione.
 

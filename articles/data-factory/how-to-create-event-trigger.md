@@ -10,26 +10,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 457983021034d83e0eed05bd91eae1ac30c046da
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296878"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062122"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
 
 Questo articolo descrive i trigger basati su eventi che è possibile creare nelle pipeline di Data Factory.
 
-Un'architettura guidata dagli eventi è un comune modello di integrazione dei dati che implica produzione, rilevamento, utilizzo e risposta agli eventi. Negli scenari di integrazione dei dati è spesso necessario che i clienti di Data Factory attivino pipeline in base agli eventi.
+Un'architettura guidata dagli eventi è un comune modello di integrazione dei dati che implica produzione, rilevamento, utilizzo e risposta agli eventi. Negli scenari di integrazione dei dati è spesso necessario che i clienti di Data Factory attivino pipeline in base agli eventi. Data Factory è ora integrato con [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/), che consente di attivare pipeline su un evento.
 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory
 
 ### <a name="create-a-new-event-trigger"></a>Creare un nuovo trigger di evento
 
 Un tipico evento è costituito dall'arrivo di un file o dall'eliminazione di un file nell'account di archiviazione di Azure. È possibile creare un trigger che risponde a questo evento nella pipeline di Data Factory.
+
+> [!NOTE]
+> Questa integrazione supporta solo gli account di archiviazione della versione 2 (utilizzo generico).
 
 ![Creare un nuovo trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
@@ -61,11 +64,20 @@ La tabella seguente offre una panoramica degli elementi dello schema correlati a
 Questa sezione contiene alcuni esempi di impostazioni di trigger basati su eventi.
 
 -   **Percorso BLOB inizia con**('/nomecontenitore/'): riceve gli eventi per qualsiasi BLOB nel contenitore.
--   **Percorso BLOB inizia con**('/nomecontenitore/nomecartella'): riceve gli eventi per qualsiasi BLOB nel contenitore nomecontenitore e nella cartella nomecartella.
--   **Percorso BLOB inizia con**('/nomecontenitore/nomecartella/file.txt'): riceve gli eventi per un BLOB denominato file.txt nella cartella nomecartella all'interno del contenitore nomecontenitore.
+-   **Il percorso BLOB inizia con**("/nomecontenitore/blobs/nomecartella"): riceve gli eventi per tutti i BLOB nel contenitore nomecontenitore e nella cartella nomecartella.
+-   **Il percorso BLOB inizia con**("/nomecontenitore/blobs/nomecartella/file.txt"): riceve gli eventi per un BLOB denominato file.txt nella cartella nomecartella all'interno del contenitore nomecontenitore.
 -   **Percorso BLOB termina con**('file.txt'): riceve gli eventi per un BLOB denominato file.txt in qualsiasi percorso.
--   **Percorso BLOB termina con**('/nomecontenitore/file.txt'): riceve gli eventi per un BLOB denominato file.txt nel contenitore nomecontenitore.
+-   **Il percorso BLOB termina con**("/nomecontenitore/blobs/file.txt"): riceve gli eventi per un BLOB denominato file.txt nel contenitore nomecontenitore.
 -   **Percorso BLOB termina con**('nomecartella/file.txt'): riceve gli eventi per un BLOB denominato file.txt nella cartella nomecartella all'interno di qualsiasi contenitore.
+
+> [!NOTE]
+> È necessario includere il segmento `/blobs/` del percorso ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file.
+
+## <a name="using-blob-events-trigger-properties"></a>Uso delle proprietà del trigger di eventi BLOB
+
+Quando viene attivato un trigger di eventi BLOB, rende disponibili due variabili disponibili per la pipeline: *folderPath* e *fileName*. Per accedere a queste variabili, usare le espressioni `@triggerBody().fileName` o `@triggerBody().folderPath`.
+
+Ad esempio, si consideri un trigger configurato per l'attivazione quando viene creato un BLOB con `.csv` come valore di `blobPathEndsWith`. Quando viene rilasciato un file con estensione .csv nell'account di archiviazione, *folderPath* e *fileName* descrivono il percorso del file CSV. Ad esempio *folderPath* ha il valore `/containername/foldername/nestedfoldername` e *fileName* ha il valore `filename.csv`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).

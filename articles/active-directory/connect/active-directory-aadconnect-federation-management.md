@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590855"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961690"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -246,31 +246,8 @@ In questa regola si verifica semplicemente il flag temporaneo **idflag**. Decide
 > La sequenza delle regole è importante.
 
 ### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN di sottodominio
-È possibile aggiungere più domini per la federazione usando Azure AD Connect, come descritto in [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain). È necessario modificare l'attestazione basata sul nome dell'entità utente (UPN), in modo che l'ID autorità emittente corrisponda al dominio radice e non al sottodominio, perché il dominio radice federato include anche il dominio figlio.
 
-Per impostazione predefinita, la regola attestazioni per l'ID autorità di certificazione è impostata come:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Attestazione predefinita per l'ID autorità di certificazione](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-La regola predefinita usa semplicemente il suffisso UPN nell'attestazione per l'ID autorità di certificazione. Ad esempio, John è un utente in sub.contoso.com e contoso.com è federato con Azure AD. John immette john@sub.contoso.com come nome utente per accedere ad Azure AD. La regola di attestazione ID autorità emittente predefinita in AD FS gestisce nel modo seguente:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valore di attestazione:**   http://sub.contoso.com/adfs/services/trust/
-
-Perché il valore attestazione dell'autorità emittente contenga solo il dominio radice, modificare la regola attestazioni in modo che corrisponda a quanto segue:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+È possibile aggiungere più domini per la federazione usando Azure AD Connect, come descritto in [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versione 1.1.553.0 e successive crea automaticamente la regola di attestazione corretta per issuerID. Se non è possibile usare Azure AD Connect 1.1.553.0 o versione più recente, è consigliabile che venga usato lo strumento delle [regole di attestazioni dell'attendibilità del componente (RPT, Relying Party Trust) di Azure Active Directory](https://aka.ms/aadrptclaimrules) per generare e configurare le regole di attestazioni corrette per il trust della relying party di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulle [opzioni di accesso utente](active-directory-aadconnect-user-signin.md).

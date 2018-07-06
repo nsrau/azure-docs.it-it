@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628124"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017510"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -68,7 +68,7 @@ Quando si crea una soluzione di base, viene effettuato il provisioning dei servi
 | Conteggio | Risorsa                       | type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
-| 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - Livello base | Comunicazione e gestione dei dispositivi |
+| 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |  
 | 1     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
@@ -82,7 +82,7 @@ Quando si crea una soluzione standard, viene effettuato il provisioning dei serv
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Macchine virtuali Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master e 3 agenti per microservizi di hosting con ridondanza |
 | 1     | [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/) |                 | Agente di orchestrazione [Kubernetes](https://kubernetes.io) |
-| 1     | [Hub IoT di Azure][https://azure.microsoft.com/services/iot-hub/]                     | S1 - Livello base | Gestione, comando e controllo dei dispositivi |
+| 1     | [Hub IoT di Azure][https://azure.microsoft.com/services/iot-hub/]                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |
 | 5     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |
 | 1     | [Servizio app](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway applicazione su SSL |
