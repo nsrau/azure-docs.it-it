@@ -17,12 +17,12 @@ ms.date: 06/25/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3b0fbbe466f51a6216716d274f238497a8a79294
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936956"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441635"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Autorizzazioni in Azure Active Directory
 
@@ -36,7 +36,7 @@ Azure AD definisce due tipi di autorizzazioni:
 
 Le autorizzazioni valide sono le autorizzazioni che l'app avrà quando effettuerà le richieste a un'API. 
 
-* Per le autorizzazioni delegate, le autorizzazioni valide dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per altre informazioni sui ruoli di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure AD](/azure/active-directory/active-directory-assign-admin-roles-azure-portal.md).
+* Per le autorizzazioni delegate, le autorizzazioni valide dell'app sono costituite dall'intersezione con meno privilegi tra le autorizzazioni delegate concesse all'app (tramite il consenso) e i privilegi dell'utente attualmente connesso. L'app non può mai avere più privilegi rispetto all'utente connesso. All'interno delle organizzazioni, i privilegi dell'utente connesso possono essere determinati da criteri o dall'appartenenza a uno o più ruoli di amministratore. Per altre informazioni sui ruoli di amministratore, vedere [Assegnazione dei ruoli di amministratore in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Si supponga, ad esempio, che all'app sia stata concessa l'autorizzazione delegata `User.ReadWrite.All` in Microsoft Graph. Questa autorizzazione concede nominalmente all'app l'autorizzazione per leggere e aggiornare il profilo di ogni utente in un'organizzazione. Se l'utente connesso è un amministratore globale, l'app sarà in grado di aggiornare il profilo di tutti gli utenti dell'organizzazione. Se tuttavia l'utente connesso non ha un ruolo di amministratore, l'app sarà in grado di aggiornare solo il profilo dell'utente connesso. Non sarà in grado di aggiornare i profili di altri utenti nell'organizzazione, perché l'utente per conto del quale è autorizzata ad agire non dispone di tali privilegi.
 * Per le autorizzazioni dell'applicazione, le autorizzazioni valide dell'app corrispondono al livello completo di privilegi impliciti nell'autorizzazione. Un'app che ha l'autorizzazione dell'applicazione `User.ReadWrite.All` può ad esempio aggiornare il profilo di tutti gli utenti dell'organizzazione. 
 
