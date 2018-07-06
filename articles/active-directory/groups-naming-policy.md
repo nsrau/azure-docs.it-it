@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71367737a1364925f49c79f5c9562989752d26bc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594551"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449102"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
 
@@ -102,7 +102,7 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
   ````
   Nella schermata **Accedi all'account** che viene aperta, immettere account e password amministratore per connettersi al servizio e selezionare **Accedi**.
 
-3. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
+3. Seguire i passaggi in [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](users-groups-roles/groups-settings-cmdlets.md) per creare impostazioni di gruppo per questo tenant.
 
 ### <a name="view-the-current-settings"></a>Visualizzare le impostazioni correnti
 
@@ -142,7 +142,7 @@ Se viene chiesto di accedere a un repository non attendibile, digitare **S**. L'
 
 ## <a name="export-or-import-the-list-of-custom-blocked-words"></a>Esportare o importare l'elenco di parole di bloccate personalizzate
 
-Per altre informazioni, vedere l'articolo [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](active-directory-accessmanagement-groups-settings-cmdlets.md).
+Per altre informazioni, vedere l'articolo [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](users-groups-roles/groups-settings-cmdlets.md).
 
 Di seguito è riportato un esempio di script di PowerShell per esportare più parole bloccate:
 
@@ -200,9 +200,9 @@ Interfaccia di amministrazione di Office 365 | L'interfaccia di amministrazione 
 ## <a name="next-steps"></a>Passaggi successivi
 Questi articoli forniscono informazioni aggiuntive sui gruppi di Azure AD.
 
-* [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
+* [Vedere i gruppi esistenti](fundamentals/active-directory-groups-view-azure-portal.md)
 * [Criteri di scadenza per i gruppi di Office 365](active-directory-groups-lifecycle-azure-portal.md)
-* [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
-* [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
-* [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
+* [Gestire le impostazioni di un gruppo](fundamentals/active-directory-groups-settings-azure-portal.md)
+* [Gestire i membri di un gruppo](fundamentals/active-directory-groups-members-azure-portal.md)
+* [Gestire le appartenenze di un gruppo](fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Gestire le regole dinamiche per gli utenti in un gruppo](active-directory-groups-dynamic-membership-azure-portal.md)

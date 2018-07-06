@@ -8,16 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850172"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35636853"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificazione delle immagini con Azure Machine Learning Workbench
 
@@ -236,7 +236,8 @@ Azure Machine Learning Workbench archivia la cronologia di ogni esecuzione in Az
 Nella prima schermata il perfezionamento della rete neurale profonda comporta maggiori precisioni rispetto al training della SVM per tutte le classi. La seconda schermata illustra tutte le metriche tracciate, incluso il classificatore. Questa verifica viene eseguita nello script `5_evaluate.py` chiamando il logger di Azure Machine Learning Workbench. In aggiunta, lo script salva anche la curva ROC e la matrice di confusione nella cartella *outputs*. Questa cartella *outputs* è speciale in quanto il suo contenuto è anche rilevato dalla funzionalità di cronologia di Workbench e quindi è possibile accedere ai file di output in ogni momento, indipendentemente se le copie locali siano state sovrascritte.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>

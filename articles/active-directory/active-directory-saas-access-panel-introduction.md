@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34347500"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449053"
 ---
 # <a name="what-is-the-access-panel"></a>Che cos'è il pannello di accesso?
 
@@ -40,7 +40,7 @@ Il pannello di accesso è separato dal portale di Azure. Non è necessario avere
 
 - Visualizzare e avviare applicazioni basate su cloud a cui l'amministratore di Azure AD ha concesso l'accesso. 
 
-- Gestire i gruppi in modalità self-service. Gli amministratori possono creare e gestire gruppi di sicurezza e richiedere appartenenze a gruppi di sicurezza in Azure AD. Per altre informazioni, vedere [Gestione dei gruppi in modalità self-service per gli utenti in Azure AD](active-directory-accessmanagement-self-service-group-management.md) e [Gestione dei gruppi](active-directory-manage-groups.md).
+- Gestire i gruppi in modalità self-service. Gli amministratori possono creare e gestire gruppi di sicurezza e richiedere appartenenze a gruppi di sicurezza in Azure AD. Per altre informazioni, vedere [Gestione dei gruppi in modalità self-service per gli utenti in Azure AD](users-groups-roles/groups-self-service-management.md) e [Gestione dei gruppi](fundamentals/active-directory-manage-groups.md).
 
 
 
@@ -214,7 +214,7 @@ Se, ad esempio, un'applicazione è configurata per l'autenticazione degli utenti
 
 - Per visualizzare un elenco di tutti gli argomenti relativi alla gestione delle applicazioni, vedere [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md).
  
-- Per informazioni su come integrare un'app SaaS con Azure AD, vedere l'[elenco di esercitazioni sull'integrazione di app SaaS](active-directory-saas-tutorial-list.md).
+- Per informazioni su come integrare un'app SaaS con Azure AD, vedere l'[elenco di esercitazioni sull'integrazione di app SaaS](saas-apps/tutorial-list.md).
  
 - Per altre informazioni sulla gestione di app con Azure AD, vedere l'[introduzione a Single Sign-On e alla gestione dell'accesso alle app con Azure Active Directory](manage-apps/what-is-single-sign-on.md).
  

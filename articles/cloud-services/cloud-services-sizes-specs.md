@@ -1,5 +1,5 @@
 ---
-title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Microsoft Docs
+title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Documentazione Microsoft
 description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940285"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34608815"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -85,13 +85,13 @@ Le tabelle seguenti illustrano le dimensioni e le capacità offerte da ogni dime
 | Dimensione            | Core CPU | Memoria: GiB  | Archivio temporaneo: GiB       | Larghezza di banda della rete/scheda NIC max |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Molto piccola      | 1         | 0,768        | 20                   | 1/bassa |
-| Piccolo           | 1         | 1,75         | 70                   | 1/moderata |
-| Media          | 2         | 3,5          | 135                  | 1/moderata |
-| Grande           | 4         | 7            | 285                  | 2/alta |
-| Molto grande      | 8         | 14           | 605                  | 4/alta |
-| A5              | 2         | 14           | 135                  | 1/moderata |
-| A6              | 4         | 28           | 285                  | 2/alta |
-| A7              | 8         | 56           | 605                  | 4/alta |
+| Piccolo           | 1         | 1,75         | 225                  | 1/moderata |
+| Media          | 2         | 3,5          | 490                  | 1/moderata |
+| Grande           | 4         | 7            | 1000                 | 2/alta |
+| Molto grande      | 8         | 14           | 2040                 | 4/alta |
+| A5              | 2         | 14           | 490                  | 1/moderata |
+| A6              | 4         | 28           | 1000                 | 2/alta |
+| A7              | 8         | 56           | 2040                 | 4/alta |
 
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
 Per informazioni e considerazioni sull'uso di queste dimensioni, vedere [Dimensioni delle VM High Performance Computing (HPC)](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

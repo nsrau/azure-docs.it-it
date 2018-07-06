@@ -2,7 +2,7 @@
 title: Connettersi ad Archiviazione BLOB di Azure - App per la logica di Azure | Microsoft Docs
 description: Creare e gestire BLOB in Archiviazione di Azure con App per la logica di Azure
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 05/21/2018
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 15d737cd85f70717bfdf15dfb3d179f977b63c72
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 49d08135dee4568d1a9d65ec2d22d17ee3bda2ea
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723433"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "35294680"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Creare e gestire BLOB in Archiviazione BLOB di Azure con App per la logica di Azure
 

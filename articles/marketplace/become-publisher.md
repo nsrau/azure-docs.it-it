@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826086"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083162"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Diventare un editore nelle vetrine su Marketplace  
 I passaggi seguenti forniscono assistenza nella registrazione come editore nelle vetrine su Marketplace. A seconda degli accordi stipulati con Microsoft e del tipo di inserzione selezionato, alcuni dei seguenti passaggi potrebbero non essere necessari.  
@@ -30,7 +30,6 @@ I passaggi seguenti forniscono assistenza nella registrazione come editore nelle
 | 2 | Creare un ID Microsoft | 15 minuti | [Creare un ID Microsoft](#create-a-microsoft-id) |  
 | 3 | Inviare il modulo di candidatura al marketplace | 1-3 giorni | [Inviare il modulo di candidatura a Marketplace](#submit-the-marketplace-nomination-form) |  
 | 4 | Eseguire la registrazione in Microsoft Developer Center (Dev Center) | 5-10 giorni | [Eseguire la registrazione nel Dev Center](#register-in-dev-center) |  
-| 5 | Accedere ad AppSource | 15 minuti | [Accedere ad AppSource](#sign-into-appSource) |  
 | 5 |  Accedere al portale Cloud Partner | 15 minuti | [Accedere al portale Cloud Partner](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Eseguire la registrazione a Microsoft Partner Network  
@@ -81,18 +80,6 @@ L'app o l'offerta viene esaminata e convalidata dopo l'invio del modulo. In caso
 >[!Important]
 >Prima di provare a creare un account Dev Center, verificare che la società non disponga già di un account Dev Center. 
 >*   Per altre informazioni, visitare la sezione [How to Register in Dev Center](#how-to-register-in-dev-center) (Come eseguire la registrazione in Dev Center).  
-
----  
-
-## <a name="sign-into-appsource"></a>Accedere ad AppSource  
-| 15 minuti |  
-Dopo l'approvazione della candidatura e aver effettuato la registrazione in MPN e in Dev Center, viene creato l'account Marketplace con accesso a AppSource. Le credenziali di accesso iniziali vengono inviate nel messaggio di posta elettronica di approvazione della candidatura. 
-*   Per accedere a MPN, visitare la pagina Adesione all'indirizzo [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Per accedere a Dev Center, visitare la pagina Windows Dev Center all'indirizzo [dev.windows.com](https://dev.windows.com).  
-*   Per accedere ad AppSource, visitare la pagina AppSource disponibile all'indirizzo [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Per accedere al portale Microsoft Cloud Partner, visitare la pagina del portale Cloud Partner all'indirizzo [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Per altre informazioni sull'uso del portale Cloud Partner, visitare la sezione delle informazioni all'indirizzo [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Per la documentazione sull'uso del portale Cloud Partner, visitare la sezione della documentazione all'indirizzo [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 

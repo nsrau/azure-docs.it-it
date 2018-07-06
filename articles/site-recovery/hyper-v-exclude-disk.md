@@ -1,19 +1,17 @@
 ---
 title: Escludere dischi dalla protezione tramite Azure Site Recovery | Microsoft Docs
 description: Descrive perché e come escludere dalla replica dischi di macchine virtuali per scenari da Hyper-V ad Azure.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 131c98c6772a68c8617df3160b159ece62bd1fc9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8803b87b21e30e3ff3770147e4d56e965dc41c22
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466837"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341879"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.

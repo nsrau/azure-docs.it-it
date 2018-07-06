@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754289"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446776"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -45,7 +45,7 @@ Di seguito sono riportati alcuni prerequisiti necessari per qualsiasi modello di
 | Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per controllare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
 | Versione di valutazione di Azure AD Premium o EMS abilitata | [Azure Active Directory Premium gratis per un mese](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Licenze di Azure AD Premium o EMS assegnate agli utenti dei modelli di verifica | [Concessione di licenze a se stessi e agli utenti in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
-| Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Facoltativo ma vivamente consigliato: ambiente di laboratorio parallelo come fallback | [Prerequisiti di Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Sincronizzazione directory: sincronizzazione dell'hash delle password (PHS), nuova installazione
@@ -428,7 +428,7 @@ Tempo previsto per il completamento: 10 minuti
 ### <a name="considerations"></a>Considerazioni
 
 1. I passaggi del modello di verifica in questo blocco predefinito consentono di impostare in modo esplicito MFA per un utente per tutti gli accessi. Sono disponibili altri strumenti, ad esempio l'accesso condizionale e la protezione dell'identità, che usano MFA in scenari più specifici. Questo è un aspetto da considerare quando si passa dal modello di verifica alla produzione.
-2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) come secondo fattore.
+2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) come secondo fattore.
 Altre informazioni: documento [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Accesso condizionale MFA per applicazioni SaaS
@@ -553,7 +553,7 @@ Tempo previsto per il completamento: 20 minuti
 | --- | --- |
 | Dispositivo con certificato utente di cui è stato eseguito il provisioning (Windows, iOS o Android) dall'infrastruttura a chiave pubblica aziendale | [Distribuire i certificati utente](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Dominio di Azure AD federato con AD FS | [Azure AD Connect e federazione](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Informazioni generali sui Servizi certificati di Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passaggi
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308561"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447541"
 ---
 # <a name="what-is-baseline-protection---preview"></a>Che cos'è la protezione di base? - Anteprima  
 
@@ -51,7 +51,7 @@ Gli utenti con accesso ad account con privilegi hanno accesso illimitato all'amb
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-Questi criteri di base offrono la possibilità di escludere utenti e gruppi. È possibile escludere un *[account amministrativo di accesso di emergenza](active-directory-admin-manage-emergency-access-accounts.md)* per assicurarsi di non rimanere bloccati fuori dal tenant.
+Questi criteri di base offrono la possibilità di escludere utenti e gruppi. È possibile escludere un *[account amministrativo di accesso di emergenza](users-groups-roles/directory-emergency-access.md)* per assicurarsi di non rimanere bloccati fuori dal tenant.
 
 
 ## <a name="enable-a-baseline-policy"></a>Abilitare un criterio di base 
@@ -67,9 +67,9 @@ Per impostazione predefinita, i criteri di base, mentre sono in anteprima, non s
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. Nella sezione **Gestisci** della pagina **Azure Active Directory** fare clic su **Accesso condizionale**.
+3. Nella sezione **Sicurezza** della pagina **Azure Active Directory** fare clic su **Accesso condizionale**.
 
-    ![Accesso condizionale](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![Accesso condizionale](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. Nell'elenco dei criteri fare clic su un criterio che inizia con **Baseline policy:** (Criteri di base). 
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 729cb89fbe63dbecb65c6f948052b920bf6e70fe
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4facc88aad5338362f2220148f1b1870ade5fe7e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937453"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445484"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -117,7 +117,7 @@ Assicurarsi che non possano verificarsi situazioni in cui agli utenti venga inav
 
 Gli account di accesso di emergenza consentono alle organizzazioni di limitare l'accesso con privilegi in un ambiente Azure Active Directory esistente. Si tratta di account con privilegi elevati non assegnati a utenti specifici. Gli account di accesso di emergenza sono limitati a scenari di emergenza critici, in cui non è possibile usare i normali account amministrativi. Le organizzazioni devono impegnarsi a controllare e limitare l'uso dell'account di emergenza solo per il tempo strettamente necessario. 
 
-Valutare gli account assegnati o idonei per il ruolo di amministratore globale. Se non sono presenti account solo cloud con il dominio *.onmicrosoft.com (destinati all'accesso di emergenza in situazioni critiche), crearli. Per altre informazioni, vedere [Gestire gli account amministrativi di accesso di emergenza in Azure AD](active-directory-admin-manage-emergency-access-accounts.md).
+Valutare gli account assegnati o idonei per il ruolo di amministratore globale. Se non sono presenti account solo cloud con il dominio *.onmicrosoft.com (destinati all'accesso di emergenza in situazioni critiche), crearli. Per altre informazioni, vedere [Gestire gli account amministrativi di accesso di emergenza in Azure AD](users-groups-roles/directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Attivare l'autenticazione a più fattori e registrare tutti gli altri account amministratore con privilegi elevati non federati per utente singolo 
 
@@ -345,7 +345,7 @@ La fase finale e continuativa della roadmap per la sicurezza dell'accesso con pr
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>Esaminare i ruoli di amministratore in Azure Active Directory 
 
-Determinare se i ruoli di amministratore di Azure AD predefiniti correnti sono ancora aggiornati e assicurarsi che gli utenti siano associati solo ai ruoli e alle deleghe per cui hanno bisogno delle autorizzazioni corrispondenti. Azure AD consente di designare amministratori diversi per le diverse funzioni. Per altre informazioni, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Determinare se i ruoli di amministratore di Azure AD predefiniti correnti sono ancora aggiornati e assicurarsi che gli utenti siano associati solo ai ruoli e alle deleghe per cui hanno bisogno delle autorizzazioni corrispondenti. Azure AD consente di designare amministratori diversi per le diverse funzioni. Per altre informazioni, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md).
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Esaminare gli utenti che amministrano i dispositivi aggiunti ad Azure AD
 

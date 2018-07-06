@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776907"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084349"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuire e gestire hub di notifica tramite PowerShell
 ## <a name="overview"></a>Panoramica
@@ -158,7 +158,7 @@ Sono disponibili per il download anche alcuni script predefiniti:
 [Offerte per i membri]: http://azure.microsoft.com/pricing/member-offers/
 [Versione di valutazione gratuita]: http://azure.microsoft.com/pricing/free-trial/
 [Come installare e configurare Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[API .NET per Hub di notifica]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[API .NET per Hub di notifica]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
