@@ -115,6 +115,8 @@
   items:
     - name: Domande frequenti
       href: FAQs.md
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: Esportare o eliminare i dati dell'account

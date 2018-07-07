@@ -66,6 +66,8 @@
           href: qs-configure-powershell-windows-vm.md
         - name: Modello di Azure Resource Manager
           href: qs-configure-template-windows-vm.md
+        - name: REST
+          href: qs-configure-rest-vm.md
         - name: Azure SDK
           href: qs-configure-sdk-windows-vm.md
     - name: Configurare l'identità per un set di scalabilità di macchine virtuali di Azure
@@ -78,6 +80,8 @@
           href: qs-configure-powershell-windows-vmss.md
         - name: Modello di Azure Resource Manager
           href: qs-configure-template-windows-vmss.md
+        - name: REST
+          href: qs-configure-rest-vmss.md
     - name: Usare l'identità del servizio gestito di una VM
       items:
         - name: Acquisire un token di accesso
@@ -96,6 +100,8 @@
           href: how-to-manage-ua-identity-powershell.md
         - name: Modello di Azure Resource Manager
           href: how-to-manage-ua-identity-arm.md
+        - name: REST
+          href: how-to-manage-ua-identity-rest.md
 - name: Riferimenti
   items:
     - name: CLI

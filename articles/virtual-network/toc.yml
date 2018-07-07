@@ -69,10 +69,10 @@
       items:
         - name: Gruppi di sicurezza di rete
           items:
+            - name: Azure PowerShell
+              href: tutorial-filter-network-traffic-powershell.md
             - name: Interfaccia della riga di comando di Azure
               href: tutorial-filter-network-traffic-cli.md
-            - name: Portale di Azure
-              href: virtual-networks-create-nsg-arm-pportal.md
         - name: Tabelle di route
           items:
             - name: Azure PowerShell

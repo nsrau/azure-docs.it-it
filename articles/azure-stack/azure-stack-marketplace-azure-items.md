@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2dc59a631107df6a9e77722b98fa77f7936f07aa
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9216d43bd6431bb16c14e0bf2d8fb7d174365417
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437298"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902701"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Elementi del Marketplace Azure disponibili per Azure Stack
 
@@ -228,6 +228,7 @@ Microsoft Azure Stack supporta le seguenti macchine virtuali di Azure Marketplac
 | ![F5](media/azure-stack-marketplace-azure-items/f5.png) | [Edizione di F5 Big-IP virtuale](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Il bilanciamento del carico avanzato, GSLB, Firewall di rete, DNS, WAF e accedere all'App. | F5 Networks |
 | ![Sandbox di Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Sandbox di Hortonworks Data Platform (HDP)](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Basata su HDP 2.5 piattaforma open source di 100% per Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![KEMP LoadMaster Load Balancer ADC contenuto commutatore](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC contenuto commutatore](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer di livello 4-7 Application Delivery Controller (ADC), contenuto Switch e gestione traffico. | KEMP Technologies Inc. |
+| ![NRI mPLAT Suite - Conductor multi-Cloud](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Conductor multi-Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Un unico pannello di controllo per monitorare, configurare, eseguire il provisioning, automatizzare e gestire qualsiasi carico di lavoro o cloud. | NRI |
 | ![Compatibile con NooBaa ibrida AWS S3 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa ibrida AWS S3 compatibe - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | Servizio di archiviazione compatibili con S3 che si estende su pubblico e alle capacità risorse locali. | NooBaa |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall rileva le vulnerabilità note & sconosciute e impedisce gli attacchi all'App web. **Scaricare entrambi gli elementi di Marketplace PT.** | Tecnologie positive |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise ti permette di automatizzare l'intero ciclo di vita dell'infrastruttura di Azure Stack. **Scaricare entrambi gli elementi di Marketplace Puppet.** | Puppet |

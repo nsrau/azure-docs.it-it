@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: Governance e conformità
   items:
-    - name: Servizi finanziari per carichi di lavoro regolamentati
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: Analisi dei dati
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: Applicazione Web IaaS
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: Applicazione Web PaaS
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: Analisi dei dati
@@ -187,34 +195,15 @@
         - name: Applicazione Web PaaS
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: Panoramica dei requisiti
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: 'Requisito 1: firewall'
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: 'Requisito 2: password'
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: 'Requisito 3: dati del titolare della carta'
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: 'Requisito 4: crittografia'
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: 'Requisito 5: malware'
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: 'Requisito 6: sistemi sicuri'
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: 'Requisito 7: accesso'
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: 'Requisito 8: identità'
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: 'Requisito 9: accesso fisico'
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: 'Requisito 10: monitoraggio'
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: 'Requisito 11: test'
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: 'Requisito 12: criteri'
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: Analisi dei dati
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: Applicazione Web IaaS
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: Applicazione Web PaaS
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: Servizio sanitario nazionale (NHS) Regno Unito
       items:
         - name: Analisi dei dati

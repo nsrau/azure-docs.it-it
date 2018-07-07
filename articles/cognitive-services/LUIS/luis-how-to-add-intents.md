@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378527"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344328"
 ---
 # <a name="manage-intents"></a>Gestire le finalità 
 Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi. 
@@ -139,7 +139,7 @@ Attiva/disattiva **Vista token** per visualizzare i token anziché i nomi dei ti
 ![Schermata della finalità di BookFlight con il pulsante Vista token evidenziato](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Eseguire il training dell'app dopo la modifica del modello con le finalità
-Dopo aver aggiunto, modificato o rimosso le finalità, [esegui il training](luis-how-to-train.md) e [pubblica](PublishApp.md) l'app affinché le modifiche siano attive per le query di endpoint. 
+Dopo aver aggiunto, modificato o rimosso le finalità, [esegui il training](luis-how-to-train.md) e [pubblica](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
