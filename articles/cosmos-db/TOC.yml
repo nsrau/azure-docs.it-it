@@ -73,7 +73,7 @@ items:
     items:
       - name: Distribuzione globale
         href: distribute-data-globally.md
-      - name: Configurazione a più master
+      - name: Multimaster
         href: multi-region-writers.md
       - name: Partizionamento
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Query
                 items:
                   - name: Eseguire query SQL
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: Partizionamento dei dati SQL
                 href: sql-api-partition-data.md
-              - name: 'Stored procedure, trigger e UDF'
-                href: programming.md
               - name: Feed delle modifiche
                 href: change-feed.md
               - name: Tipi di dati
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Playground SQL
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: Visualizzare dati con Power BI
                 href: powerbi-visualize.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentazione sull'API Graph
@@ -352,12 +342,8 @@ items:
             items:
               - name: Partizionamento Graph
                 href: graph-partitioning.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentazioni sull'API di tabella
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Panoramica dell'archivio tabelle
                 href: table-storage-overview.md
               - name: Guida alla progettazione dell'archivio tabelle
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: Registrazione diagnostica
         href: logging.md
+      - name: 'Stored procedure, trigger e UDF'
+        href: programming.md
       - name: Panoramica di BulkExecutor
         href: bulk-executor-overview.md
       - name: Operazioni di lettura e scrittura convenienti
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: Gestire con Storage Explorer
         href: storage-explorer.md
-      - name: Writer con più aree
+      - name: Configurazione a più master
         href: multi-master-workaround.md
   - name: Risorse
     items:
-      - name: Gestire con Storage Explorer
-        href: storage-explorer.md
       - name: Foglio informativo sulle query
         href: query-cheat-sheet.md
       - name: 20 giorni di suggerimenti

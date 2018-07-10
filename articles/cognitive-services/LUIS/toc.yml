@@ -65,8 +65,10 @@
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 8. Aggiungere l'analisi del sentiment
           href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: Migliorare la previsione
+    - name: Migliorare l'app
       items:
+        - name: Esaminare le espressioni endpoint
+          href: luis-tutorial-review-endpoint-utterances.md
         - name: Con modelli
           href: luis-tutorial-pattern.md
         - name: Con un elenco di frasi
@@ -313,6 +315,8 @@
       href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: Risorse
   items:
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roadmap per Azure
       href: 'https://aka.ms/luis-roadmap'
     - name: Glossario
@@ -326,7 +330,7 @@
     - name: UserVoice
       href: 'https://aka.ms/luis-uservoice-forum'
     - name: Ricerca
-      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blog
       href: 'https://blog.botframework.com/category/luis/'
     - name: Knowledge Base

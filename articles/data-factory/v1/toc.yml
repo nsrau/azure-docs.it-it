@@ -76,7 +76,7 @@
               href: data-factory-azure-blob-connector.md
             - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
-            - name: Archivio Azure Data Lake
+            - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
             - name: Ricerca di Azure
               href: data-factory-azure-search-connector.md

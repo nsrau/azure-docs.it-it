@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 2c25bff60adc1f3d462cc6a437eab0d46f9fa413
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287872"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054545"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Copiare dati da HDFS usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-hdfs-connector.md)
-> * [Versione 2 - Anteprima](connector-hdfs.md)
+> * [Versione 1](v1/data-factory-hdfs-connector.md)
+> * [Versione corrente](connector-hdfs.md)
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da HDFS. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere le informazioni sul [connettore HDFS nella versione 1](v1/data-factory-hdfs-connector.md).
-
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 

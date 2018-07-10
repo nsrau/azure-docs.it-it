@@ -21,7 +21,7 @@
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
-#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+#### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
 ### [Aggiungere utenti](data-lake-analytics-add-users.md)
 ### [Criteri](data-lake-analytics-policies.md)
 ### [Proteggere le cartelle processi](data-lake-analytics-secure.md)
@@ -40,12 +40,11 @@
 #### [Estensioni cognitive](data-lake-analytics-u-sql-cognitive.md)
 #### [Guida alla programmabilità](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK
-#### [Esecuzione e debug locale](data-lake-analytics-data-lake-tools-local-run.md)
-#### [Esecuzione e test](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [Installare](data-lake-analytics-data-lake-tools-install.md)
+#### [Esecuzione locale](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Debug locale](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [Sviluppare database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Sfogliare e visualizzare processi](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Eseguire il debug di codice personalizzato in C#](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Risolvere i problemi dei processi ricorrenti](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -60,10 +59,15 @@
 #### [Codice personalizzato](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Esecuzione e debug locale](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+### Integrazione continua e distribuzione continua
+#### [Overview](data-lake-analytics-cicd-overview.md)
+#### [Configurare i test](data-lake-analytics-cicd-test.md)
+#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+
 # Riferimenti
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/dla)

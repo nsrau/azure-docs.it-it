@@ -47,6 +47,8 @@
       items:
         - name: Panoramica di Rilevamento modifiche
           href: automation-change-tracking.md
+        - name: Visualizzare il contenuto dei file sottoposti a rilevamento
+          href: change-tracking-file-contents.md
     - name: Inventario
       items:
         - name: Gestire una macchina virtuale con la raccolta dell'inventario

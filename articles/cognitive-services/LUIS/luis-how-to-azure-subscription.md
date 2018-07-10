@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35378530"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340774"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gestire la chiave di sottoscrizione a un endpoint di Azure
 
@@ -40,7 +40,7 @@ Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i siste
     ![Chiavi di Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Accedi al sito Web della tua area geografica di [LUIS](luis-reference-regions.md) e [aggiungi la nuova chiave di endpoint LUIS](Manage-Keys.md#assign-endpoint-key). 
+    > * Accedi al sito Web della tua area geografica di [LUIS](luis-reference-regions.md) e [aggiungi la nuova chiave di endpoint LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
     > * È necessario ricordare il nome del servizio Azure creato per poterla selezionare nella pagina di pubblicazione della tua area geografica di [LUIS](luis-reference-regions.md).  
 
 ## <a name="change-luis-pricing-tier"></a>Modificare il piano tariffario LUIS
@@ -53,7 +53,7 @@ Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i siste
     ![Modifica il piano tariffario LUIS](./media/luis-usage-tiers/plans.png)
 4.  Una volta completata la modifica dei prezzi, una finestra popup verifica il nuovo piano tariffario. 
     ![Verifica il piano tariffario LUIS](./media/luis-usage-tiers/updated.png)
-5. Ricorda di [assegnare questa chiave di endpoint](manage-keys.md#assign-endpoint-key) nella pagina **Pubblica** e di usarla in tutte le query di endpoint. 
+5. Ricorda di [assegnare questa chiave di endpoint](luis-how-to-manage-keys.md#assign-endpoint-key) nella pagina **Pubblica** e di usarla in tutte le query di endpoint. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Superamento dell'utilizzo del piano tariffario
 Ogni livello consente richieste di endpoint al proprio account LUIS a una specifica velocità. Se la velocità delle richieste è superiore a quella dell'account a consumo consentita al minuto o al mese, le richieste riportano un errore HTTP "429: ricevute troppe richieste."

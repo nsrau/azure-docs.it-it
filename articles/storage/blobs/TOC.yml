@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Usare i BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Usare i BLOB - Java
+    - name: Usare i BLOB - Java (Storage SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Usare i BLOB - Java (Storage SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: Usare i BLOB - Python
       href: storage-quickstart-blobs-python.md
@@ -192,6 +194,8 @@
           href: storage-blob-immutable-storage.md
         - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
           href: ../common/storage-security-tls.md
+        - name: Offerte di conformità
+          href: ../common/storage-compliance-offerings.md
     - name: Monitorare e risolvere i problemi
       items:
         - name: Esercitazione sulla risoluzione dei problemi

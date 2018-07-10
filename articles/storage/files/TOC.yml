@@ -108,6 +108,8 @@
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
           href: ../common/storage-security-tls.md
+        - name: Offerte di conformità
+          href: ../common/storage-compliance-offerings.md
     - name: Monitorare e risolvere i problemi
       items:
         - name: 'Risolvere i problemi di connessione di File di Azure: Windows'
