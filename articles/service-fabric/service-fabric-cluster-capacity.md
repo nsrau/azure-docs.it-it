@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641884"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061559"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -27,6 +27,10 @@ La pianificazione della capacità è un passaggio importante per qualsiasi distr
 * Numero di tipi di nodo con cui il cluster deve iniziare
 * Proprietà di ciascun tipo di nodo (dimensione, primario, per Internet, numero di VM e così via)
 * Caratteristiche di affidabilità e durabilità del cluster
+
+> [!NOTE]
+> Durante la pianificazione, è necessario come minimo rivedere tutti i valori **Non consentiti** dei criteri di aggiornamento, per assicurarsi che i valori siano stati impostati in modo corretto e ridurre l'uso del cluster in un secondo momento a causa di impostazioni di configurazione di sistema non modificabili. 
+> 
 
 Ogni aspetto verrà ora esaminato brevemente.
 
@@ -46,6 +50,8 @@ I **tipi di nodo** possono essere paragonati ai ruoli in Servizi cloud, poiché 
 Per ogni tipo di nodo, che rappresenta un set di scalabilità distinto, è possibile aumentare o ridurre le prestazioni in modo indipendente e avere diversi set di porte aperte e metriche per la capacità diverse. Per altre informazioni sulle relazioni tra i tipi di nodo e i set di scalabilità di macchine virtuali, su come connettersi tramite RDP a una delle istanze, come aprire nuove porte e così via, vedere la pagina relativa ai [tipi di nodo del cluster di Service Fabric](service-fabric-cluster-nodetypes.md).
 
 Un cluster di Service Fabric può comprendere più di un tipo di nodo. In tal caso, il cluster è costituito da un tipo di nodo primario e uno o più tipi di nodo non primari.
+
+Un tipo di nodo singolo non può superare i 100 nodi per ogni set di scalabilità di macchine virtuali. Per ottenere la scalabilità di destinazione potrebbe essere necessario aggiungere set di scalabilità di macchine virtuali. La scalabilità automatica non può aggiungere automaticamente set di scalabilità di macchine virtuali. L'aggiunta di set di scalabilità di macchine virtuali sul posto a un cluster in tempo reale è un'attività complessa che di norma spinge gli utenti a effettuare il provisioning di nuovi cluster con i tipi di nodo appropriati al momento della creazione. 
 
 ### <a name="primary-node-type"></a>Tipo di nodo primario
 
@@ -188,7 +194,7 @@ Linee guida per i carichi di lavoro senza stato in esecuzione nel tipo di nodo n
 
 **Numero di istanze delle VM:** per i carichi di lavoro di produzione senza stato, la dimensione minima supportata per il tipo di nodo non primario è pari a 2. Ciò consente di eseguire due istanze senza stato dell'applicazione e consente al servizio di resistere alla perdita di un'istanza di una VM. 
 
-**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Poiché le esigenze in termini di capacità del tipo di nodo dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare.
+**SKU di VM:** in questo tipo di nodo sono in esecuzione i servizi dell'applicazione, quindi lo SKU per le VM scelto deve tenere in considerazione il carico massimo che si prevede di inserire in ogni nodo. Poiché le esigenze in termini di capacità del tipo di nodo dipendono dal carico di lavoro che si prevede di eseguire nel cluster, non è possibile offrire una guida valida per un carico di lavoro specifico. Di seguito sono tuttavia riportate indicazioni generali per poter iniziare
 
 Per i carichi di lavoro di produzione 
 

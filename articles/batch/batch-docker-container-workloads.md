@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801116"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060518"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -229,7 +229,13 @@ Usare la proprietà `ContainerSettings` delle classi di attività per configurar
 
 Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
 
-Quando si configurano le impostazioni del contenitore, tutte le directory elencate in modo ricorsivo in `AZ_BATCH_NODE_ROOT_DIR`, ovvero la radice della directory di Azure Batch nel nodo, vengono mappate nel contenitore, tutte le variabili di ambiente dell'attività vengono mappate nel contenitore e la riga di comando dell'attività viene eseguita nel contenitore.
+Riga di comando per un'attività contenitore di Azure Batch eseguita in una directory di lavoro nel contenitore, molto simile all'ambiente impostato da Batch per un'attività normale (non contenitore):
+
+* Per tutte le directory che appaiono in modo ricorsivo sotto `AZ_BATCH_NODE_ROOT_DIR` (la radice delle directory di Azure Batch nel nodo) viene eseguito il mapping nel contenitore
+* Viene eseguito il mapping di tutte le variabili di ambiente delle attività nel contenitore
+* La directory di lavoro dell'applicazione è identica a quella di un'attività regolare, pertanto è possibile usare funzionalità come i pacchetti delle applicazioni e i file di risorse
+
+Poiché Batch modifica la directory di lavoro predefinita nel contenitore, l'attività viene eseguita in un percorso diverso dal tipico punto di ingresso del contenitore (ad esempio `c:\` per impostazione predefinita in un contenitore di Windows o `/` in Linux). Assicurarsi che il punto di ingresso della riga di comando dell'attività o del contenitore specifichi un percorso assoluto, se non è già configurato in questo modo.
 
 Il frammento di codice Python seguente illustra una riga di comando di base in esecuzione in un contenitore di Ubuntu di cui è stato eseguito il pull dall'hub Docker. Le opzioni di esecuzione del contenitore sono argomenti aggiuntivi per il comando `docker create` eseguito dall'attività. L'opzione `--rm` rimuove il contenitore al termine dell'attività.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ L'esempio C# seguente illustra le impostazioni di base del contenitore per un'at
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

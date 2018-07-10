@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153660"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061438"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestito di Azure (anteprima pubblica) nel Servizio App e in Funzioni di Azure
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Come usare Identità del servizio gestita di Azure nel Servizio App e in Funzioni di Azure
 
 > [!NOTE] 
-> Identità del servizio gestito in Servizio App e Funzioni di Azure è attualmente disponibile in anteprima. Servizio app su Linux e le app Web per contenitori non sono attualmente supportati.
-
+> Il Servizio App su Linux e le app Web per contenitori attualmente non supportano Identità del servizio gestita.
 
 > [!Important] 
-> Identità del servizio gestita per Servizio app di Azure e Funzioni di Azure non funzioneranno come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni/tenant. Sarà necessario ottenere una nuova identità per l'app, mentre l'identità esistente non potrà essere eliminata correttamente senza eliminare il sito stesso. L'app dovrà essere ricreata con una nuova identità, mentre le risorse a valle dovranno disporre di criteri di accesso aggiornati per usare la nuova identità.
-
+> Identità del servizio gestita per Servizio app di Azure e Funzioni di Azure non funzioneranno come previsto se viene eseguita la migrazione dell'app tra sottoscrizioni/tenant. L'app dovrà ottenere una nuova identità disabilitando e abilitando di nuovo la funzionalità. Vedere [Rimozione di un'identità](#remove) più avanti. Per usare la nuova identità, anche le risorse a valle dovranno disporre di criteri di accesso aggiornati.
 
 Questo argomento illustra come creare un'identità di applicazione gestita per le applicazioni di Servizio App e Funzioni di Azure e come usarla per accedere ad altre risorse. Un'identità del servizio gestito da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure come ad esempio Azure Key Vault. L'identità viene gestita dalla piattaforma Azure e non è necessario eseguire il provisioning o ruotare alcun segreto. Per altre informazioni sull'identità del servizio gestito, vedere il [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-service-identity/overview.md).
 
@@ -77,6 +75,31 @@ La procedura seguente consente di creare di un'app Web e assegnarle un'identità
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>Uso di Azure PowerShell
+
+La procedura seguente consente di creare un'app Web e assegnarle un'identità tramite Azure PowerShell:
+
+1. Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+
+2. Creare un'applicazione Web tramite Azure PowerShell. Per altri esempi su come usare Azure PowerShell con il Servizio app, vedere [Esempi di PowerShell del Servizio app](../app-service/app-service-powershell-samples.md):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. Eseguire il comando `identity assign` per creare l'identità per l'applicazione:
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>Uso di un modello di Azure Resource Manager
 
 Per automatizzare la distribuzione delle risorse di Azure, è possibile usare un modello di Azure Resource Manager. Per altre informazioni sulla distribuzione nel Servizio App e in Funzioni, vedere [Automating resource deployment in App Service](../app-service/app-service-deploy-complex-application-predictably.md) (Automatizzare la distribuzione delle risorse nel Servizio App) e [Automatizzare la distribuzione di risorse per l'app per le funzioni in Funzioni di Azure](../azure-functions/functions-infrastructure-as-code.md).
@@ -121,7 +144,7 @@ Quando viene creato, il sito ha le proprietà aggiuntive seguenti:
 }
 ```
 
-Dove `<TENANTID>` e `<PRINCIPALID>` vengono sostituiti con GUID. La proprietà tenantId identifica a quale tenant AAD appartiene l'applicazione. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In AAD l'applicazione ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
+Dove `<TENANTID>` e `<PRINCIPALID>` vengono sostituiti con GUID. La proprietà tenantId identifica a quale tenant AAD appartiene l'identità. La proprietà principalId è un identificatore univoco per la nuova identità dell'applicazione. In AAD, l'entità servizio ha lo stesso nome assegnato all'istanza di Servizio App o Funzioni di Azure.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Ottenimento di token per le risorse di Azure
 
@@ -205,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Esempi di codice
-Per eseguire questa richiesta in C#:
+<a name="token-csharp"></a>Per eseguire questa richiesta in C#:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -216,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > Per i linguaggi .NET è anche possibile usare [Microsoft.Azure.Services.AppAuthentication](#asal) invece di creare la richiesta manualmente.
 
-In Node.JS:
+<a name="token-js"></a>In Node.JS:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -231,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-In PowerShell:
+<a name="token-powershell"></a>In PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -240,9 +263,24 @@ $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SEC
 $accessToken = $tokenResponse.access_token
 ```
 
+## <a name="remove"></a>Rimozione di un'identità
+
+Un'identità può essere rimossa disabilitando la funzionalità tramite il portale, PowerShell o l'interfaccia della riga di comando nello stesso modo in cui è stata creata. Nel protocollo di modello REST/ARM, questa operazione viene eseguita impostando il tipo su "None":
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+Rimuovendo l'identità in questo modo verrà eliminata anche l'entità di sicurezza da Azure Active Directory. Le identità assegnate dal sistema vengono rimosse automaticamente da Azure Active Directory quando viene eliminata la risorsa app.
+
+> [!NOTE] 
+> È inoltre disponibile l'impostazione applicazione WEBSITE_DISABLE_MSI che, se attivata, disabilita il servizio token locale, senza tuttavia disattivare l'identità, per cui gli strumenti mostreranno comunque MSI come "on" o "enabled". Di conseguenza, l'uso di questa impostazione non è consigliato.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Accedere al database SQL in modo sicuro con un'identità del servizio gestito](app-service-web-tutorial-connect-msi.md)
 
-[documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication]: https://go.microsoft.com/fwlink/p/?linkid=862452

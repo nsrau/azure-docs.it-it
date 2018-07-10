@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619627"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055520"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Caricare dati in Azure Data Lake Store tramite Azure Data Factory
 
@@ -35,9 +35,6 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 > [!NOTE]
 > Per altre informazioni, vedere [Copiare dati da e in Azure Data Lake Store usando Azure Data Factory](connector-azure-data-lake-store.md).
->
-> Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia in Azure Data Factory versione 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>prerequisiti
 
 * Sottoscrizione di Azure: se non è disponibile una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -56,7 +53,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     * **Nome**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, è possibile usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Riprovare a creare la data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione**: selezionare la sottoscrizione di Azure in cui creare la data factory. 
     * **Gruppo di risorse**: selezionare un gruppo di risorse esistente nell'elenco a discesa oppure selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-    * **Versione**: selezionare **V2 (anteprima)**.
+    * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
 3. Selezionare **Create**.
@@ -74,35 +71,45 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 2. Nella pagina **Proprietà** specificare **CopyFromAmazonS3ToADLS** per il campo **Nome attività**, quindi selezionare **Avanti**:
 
     ![Pagina Proprietà](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. Nella pagina **Archivio dati di origine** selezionare **Amazon S3**, quindi selezionare **Avanti**:
+3. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione**:
 
     ![Pagina Archivio dati di origine](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    Selezionare **Amazon S3** e quindi **Continua**
+    
+    ![Pagina Archivio dati di origine s3](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. Nella pagina **Specificare la connessione ad Amazon S3**, effettuare i passaggi seguenti: 
    1. Specificare il valore **ID della chiave di accesso**.
    2. Specificare il valore **Chiave di accesso segreta**.
-   3. Selezionare **Avanti**.
+   3. Selezionare **Fine**.
    
    ![Specificare l'account di Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. Si noterà una nuova connessione. Selezionare **Avanti**.
+   
+   ![Specificare l'account di Amazon S3](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) passare alla cartella e al file da copiare. Selezionare la cartella o il file, selezionare **Scegli**, quindi selezionare **Avanti**:
 
     ![Scegliere il file o la cartella di input](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. Nella pagina **Archivio dati di destinazione**, selezionare **Azure Data Lake Store**, quindi selezionare **Avanti**:
-
-    ![Pagina dell'archivio dati di destinazione](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Scegliere il comportamento di copia selezionando le opzioni **Copia i file in modo ricorsivo** e **Copia binaria** (copia i file così come sono). Selezionare **Avanti**:
+6. Scegliere il comportamento di copia selezionando le opzioni **Copia i file in modo ricorsivo** e **Copia binaria** (copia i file così come sono). Selezionare **Avanti**:
 
     ![Specificare la cartella di output](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. Nella pagina **Archivio dati di destinazione** fare clic su **+ Crea nuova connessione**, quindi selezionare **Azure Data Lake Storage** e **Continua**:
+
+    ![Pagina dell'archivio dati di destinazione](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. Nella pagina **Specifica la connessione a Data Lake Store**, effettuare i passaggi seguenti: 
 
    1. Selezionare il Data Lake Store per il **nome dell'account Data Lake Store**.
-   2. Specificare le informazioni relative all'entità servizio: **Tenant**, **ID dell'entità servizio** e **chiave dell'entità servizio**.
+   2. Specificare il **Tenant** e scegliere Fine.
    3. Selezionare **Avanti**.
    
    > [!IMPORTANT]
-   > In questa procedura dettagliata, si userà un'_entità servizio_ per autenticare il Data Lake Store. Assicurarsi di concedere le autorizzazioni appropriate all'entità servizio in Azure Data Lake Store seguendo [queste istruzioni](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > In questa procedura dettagliata, si userà un'_identità del servizio gestita_ per autenticare il Data Lake Storage. Assicurarsi di concedere le autorizzazioni appropriate all'entità servizio in Azure Data Lake Store seguendo [queste istruzioni](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Specificare un account di Azure Data Lake Store](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **copyfroms3** come nome della cartella di output, quindi selezionare **Avanti**: 

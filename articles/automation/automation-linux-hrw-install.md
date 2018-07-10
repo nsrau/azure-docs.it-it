@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8507cf99ea22b24aa3026565cb7c4139e4c3742d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267863"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060239"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Linux
 
@@ -109,41 +109,9 @@ I tipi di runbook seguenti non possono essere usati in un ruolo di lavoro ibrido
 * Grafico
 * Grafico del flusso di lavoro di PowerShell
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
-Il ruolo di lavoro ibrido per runbook di Linux dipende dall'agente OMS per Linux per comunicare con l'account di automazione per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore.
-
-### <a name="the-oms-agent-for-linux-isnt-running"></a>L'agente di Operations Management Suite per Linux non è in esecuzione
-
-Se l'agente di Operations Management Suite per Linux non è in esecuzione, il ruolo di lavoro ibrido per runbook di Linux non è in grado di comunicare con Automazione di Azure. Verificare che l'agente sia in esecuzione immettendo il comando `ps -ef | grep python`. 
-
-L'output dovrebbe essere simile al seguente (processi Python con l'account utente **nxautomation**). Se la soluzione Gestione aggiornamenti o Automazione di Azure non è abilitata, nessuno dei processi seguenti verrà eseguito.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-Vengono avviati i processi seguenti per un ruolo di lavoro ibrido per runbook di Linux. Si trovano tutti nella directory `/var/opt/microsoft/omsagent/state/automationworker/`.
-
-* **oms.conf**: questo è il processo di gestione del ruolo di lavoro. Viene avviato direttamente da Configurazione dello stato desiderato (DSC).
-
-* **worker.conf**: questo è il processo del ruolo di lavoro ibrido registrato automaticamente. Viene avviato dal gestore del ruolo di lavoro. Questo processo viene usato da Gestione aggiornamenti ed è trasparente all'utente. Questo processo è presente solo se la soluzione Gestione aggiornamenti è abilitata nel computer.
-
-* **diy/worker.conf**: questo è il processo del ruolo di lavoro ibrido registrato manualmente. Il processo del ruolo di lavoro ibrido registrato manualmente viene usato per eseguire i runbook dell'utente nel ruolo di lavoro ibrido per runbook. La differenza con il processo del ruolo di lavoro ibrido registrato automaticamente è solo che usa una configurazione diversa. Questo processo è presente solo se la soluzione Automazione di Azure è abilitata e il ruolo di lavoro ibrido di Linux registrato manualmente è registrato.
-
-Se l'agente di Operations Management Suite per Linux non è in esecuzione, eseguire il comando seguente per avviare il servizio: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="the-specified-class-doesnt-exist"></a>La classe specificata non esiste
-
-Se viene visualizzato l'errore "La classe specificata non esiste" in `/var/opt/microsoft/omsconfig/omsconfig.log`, l'agente di Operations Management per Linux deve essere aggiornato. Eseguire il comando seguente per reinstallare l'agente OMS:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-Per altre procedure di risoluzione dei problemi con Gestione aggiornamenti, vedere [Gestione degli aggiornamenti - Risoluzione dei problemi](automation-update-management.md#troubleshooting).
+Per informazioni su come risolvere i problemi del ruolo di lavoro ibrido per runbook, vedere [Risoluzione dei problemi dei ruoli di lavoro ibridi per runbook](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

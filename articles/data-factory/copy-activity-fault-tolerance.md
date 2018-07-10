@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619100"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055511"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolleranza di errore dell'attività di copia in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Versione 2 - Anteprima](copy-activity-fault-tolerance.md)
+> * [Versione 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Versione corrente](copy-activity-fault-tolerance.md)
 
 L'attività di copia di Azure Data Factory offre due modi per gestire le righe incompatibili durante la copia di dati tra gli archivi dati di origine e sink:
 
 - È possibile interrompere l'attività di copia quando vengono rilevati dati incompatibili (comportamento predefinito).
 - È possibile continuare a copiare tutti i dati aggiungendo la tolleranza di errore e ignorando le righe di dati incompatibili. È anche possibile registrare le righe incompatibili nell'archivio BLOB di Azure o in Azure Data Lake Store. È quindi possibile esaminare il log per conoscere la causa dell'errore, correggere i dati nell'origine dati e ripetere l'attività di copia.
 
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [tolleranza di errore dell'attività di copia della versione 1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Scenari supportati
+## <a name="supported-scenarios"></a>Scenari supportati
 L'attività di copia supporta tre scenari per rilevare, ignorare e registrare i dati incompatibili:
 
 - **Incompatibilità tra il tipo di dati di origine e il tipo nativo sink**. 
