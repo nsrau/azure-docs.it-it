@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5fb93ebbd2da02df0c2cdf0d19ed282aeafe9473
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335561"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081694"
 ---
-# <a name="tutorial-create-app-that-uses-hierarchical-entity"></a>Esercitazione: Creare un'app che usa un'entità gerarchica
+# <a name="tutorial-5-add-hierarchical-entity"></a>Tutorial: 5. Aggiungere un'entità gerarchica
 In questa esercitazione si crea un'app che dimostra come trovare dati correlati in base al contesto. 
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ Per questo articolo è necessario un account gratuito di [LUIS][LUIS] per creare
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità elenco](luis-quickstart-intent-and-list-entity.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
 
-Se si vuole mantenere l'app Risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
 ## <a name="purpose-of-the-app-with-this-entity"></a>Scopo dell'app con questa entità
 L'app determina dove spostare un dipendente, dalla posizione di origine (edificio e ufficio) alla posizione di destinazione (edificio e ufficio). Viene usata l'entità gerarchica per determinare le posizioni nell'espressione. 
@@ -41,7 +41,7 @@ L'entità gerarchica è una buona soluzione per questo tipo di dati, perché i d
 
 * Sono correlati tra loro nel contesto dell'espressione.
 * Usano parole specifiche per indicare ogni posizione. Le parole usate sono, ad esempio, from/to, leaving/headed to, away from/toward.
-* Entrambe le posizioni si trovano spesso nella stessa espressione. 
+* Le due località si trovano spesso nella stessa espressione. 
 
 Lo scopo dell'entità **gerarchica** è trovare i dati correlati all'interno dell'espressione in base al contesto. Si consideri l'espressione seguente:
 
@@ -55,9 +55,9 @@ Se è presente un solo elemento figlio (di origine o di destinazione) di un'enti
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
 Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
 
-1. Assicurarsi che l'app Risorse umane sia presente nella sezione **Build** di Language Understanding. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
-    [ ![Schermata dell'app di Language Understanding con Build evidenziato nella barra dei menu in alto a destra](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
+    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
 2. Selezionare **Entità** nel menu a sinistra.
 
