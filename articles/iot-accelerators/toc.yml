@@ -10,6 +10,8 @@
   items:
     - name: Distribuire una soluzione di monitoraggio remoto
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuire una soluzione Simulazione dispositivi
+      href: quickstart-device-simulation-deploy.md
 - name: Esercitazioni
   items:
     - name: Monitorare i dispositivi IoT
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: Simulazione dei dispositivi
       items:
-        - name: Distribuire un acceleratore di soluzioni
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: Eseguire una simulazione
-          href: iot-accelerators-device-simulation-explore.md
+        - name: Usare un hub IoT esistente
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: Usare un modello di dispositivo personalizzato
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: Riferimenti
   items:
     - name: Guida di riferimento per gli sviluppatori

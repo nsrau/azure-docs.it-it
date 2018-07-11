@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Abilitare le impostazioni di diagnostica con i modelli di Resource Manager
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: Preparazione per il formato dei log di diagnostica JSON Lines
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Usare log attività
       items:
         - name: Visualizzare eventi nel log attività

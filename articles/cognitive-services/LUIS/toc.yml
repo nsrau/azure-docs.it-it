@@ -59,16 +59,20 @@
           href: luis-quickstart-intent-and-list-entity.md
         - name: 5. Aggiungere un'entità gerarchica
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 6. Aggiungere un'entità semplice e un elenco di frasi
+        - name: 6. Aggiungere un'entità composita
+          href: luis-tutorial-composite-entity.md
+        - name: 7. Aggiungere un'entità semplice e un elenco di frasi
           href: luis-quickstart-primary-and-secondary-data.md
-        - name: 7. Aggiungere entità KeyPhrase
+        - name: 8. Aggiungere entità KeyPhrase
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. Aggiungere l'analisi del sentiment
+        - name: 9. Aggiungere l'analisi del sentiment
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: Migliorare l'app
       items:
         - name: Esaminare le espressioni endpoint
           href: luis-tutorial-review-endpoint-utterances.md
+        - name: Con test in batch
+          href: luis-tutorial-batch-testing.md
         - name: Con modelli
           href: luis-tutorial-pattern.md
 - name: Esempi
@@ -138,7 +142,7 @@
     - name: Pianificare l'app
       href: luis-how-plan-your-app.md
     - name: Avviare una nuova app
-      href: Create-new-app.md
+      href: luis-how-to-start-new-app.md
     - name: Creare il modello
       items:
         - name: Aggiungere finalità
@@ -147,15 +151,15 @@
           href: luis-how-to-add-example-utterances.md
         - name: Aggiungi entità
           href: luis-how-to-add-entities.md
-        - name: Usare un'entità composita per estrarre i dati raggruppati
-          href: luis-tutorial-composite-entity.md
-        - name: Usare un'entità elenco per individuare una corrispondenza di testo esatta con Node.js
-          href: luis-tutorial-list-entity.md
-        - name: Compilare app a livello di codice con Node.js
-          href: luis-tutorial-node-import-utterances-csv.md
+        - name: Con le API
+          items:
+            - name: Compilare app a livello di codice con Node.js
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Usare un'entità elenco per individuare una corrispondenza di testo esatta con Node.js
+              href: luis-tutorial-list-entity.md
     - name: Integrare
       items:
-        - name: Correggere l'ortografia con l'API Controllo ortografico Bing v7
+        - name: Con l'API Controllo ortografico Bing v7
           href: luis-tutorial-bing-spellcheck.md
         - name: Con il Servizio riconoscimento vocale
           href: luis-tutorial-speech-to-intent.md
@@ -176,7 +180,7 @@
     - name: Migliorare l'accuratezza della previsione
       items:
         - name: Esaminare le espressioni endpoint
-          href: Label-Suggested-Utterances.md
+          href: luis-how-to-review-endoint-utt.md
         - name: Aggiungere un elenco di frasi
           href: luis-how-to-add-features.md
         - name: Aggiungere modelli
@@ -189,36 +193,36 @@
           href: interactive-test.md
         - name: Test in batch
           href: luis-how-to-batch-test.md
-        - name: Migliorare l'accuratezza con test in batch
-          href: luis-tutorial-batch-testing.md
     - name: Pubblicare l'app
       href: luis-how-to-publish-app.md
     - name: Usare modelli predefiniti
       items:
-        - name: Usare le entità predefinite
+        - name: Usare le entità
           href: luis-prebuilt-entities.md
-        - name: Usare i domini predefiniti
+        - name: Usare i domini
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Usare l'app predefinita Cortana
+        - name: Usare Cortana
           href: luis-how-to-cortana-prebuilt-app.md
-    - name: Gestire l'app LUIS
+    - name: Gestire un'app
       items:
         - name: Utilizzo del dashboard
           href: luis-how-to-use-dashboard.md
-        - name: Creare chiavi
+        - name: Creare chiavi endpoint
           href: luis-how-to-azure-subscription.md
-        - name: Aggiungere chiavi in Language Understanding
+        - name: Aggiungere chiavi endpoint all'app
           href: luis-how-to-manage-keys.md
-        - name: Visualizzare l'uso di endpoint con PowerShell
-          href: luis-how-to-manage-from-cloud-shell.md
         - name: Gestire le versioni
           href: luis-how-to-manage-versions.md
         - name: Collaborare con altri autori
           href: luis-how-to-collaborate.md
-        - name: Distribuire la quota di endpoint tra le chiavi con Gestione traffico
-          href: traffic-manager.md
-    - name: Gestire l'account Language Understanding
-      href: luis-how-to-account-settings.md
+        - name: Gestire la chiave di creazione
+          href: luis-how-to-account-settings.md
+        - name: Gestire l'uso degli endpoint
+          items:
+            - name: Visualizzare l'uso di endpoint con PowerShell
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Distribuire la quota di endpoint tra le chiavi con Gestione traffico
+              href: traffic-manager.md
     - name: Eseguire la migrazione all'API V2
       href: migration-v1-to-v2.md
     - name: Trovare l'area a livello di codice
@@ -251,6 +255,8 @@
           href: luis-reference-prebuilt-deprecated.md
         - name: Entità di posta elettronica
           href: luis-reference-prebuilt-email.md
+        - name: Entità keyPhrase
+          href: luis-reference-prebuilt-keyphrase.md
         - name: Entità numero
           href: luis-reference-prebuilt-number.md
         - name: Entità ordinale
