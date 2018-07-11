@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: fdce9dc733f8c1a389a44374641eb27ba40d6b37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446017"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920907"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -177,6 +177,7 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">App Web</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funzioni senza server</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Contenitori</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">Microservizi con Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservizi con Service Fabric</a></li>
                                                 </ul>
                                             </div>
@@ -494,6 +495,11 @@ Informazioni su DevOps con Azure </a>
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>App Web per contenitori</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dev-spaces/">
+                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
+                                                <p>Azure Dev Spaces</p>
                                         </li>
                                     </ul>
                                     <h3>Integrazione</h3>
@@ -883,7 +889,7 @@ Informazioni su DevOps con Azure </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Ricerca di anomalie</p>
                                             </a>
                                         </li>
@@ -2702,6 +2708,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>App Web per contenitori</h3>
                                                     <p>Distribuire ed eseguire con facilità app Web in contenitori che si adattano alle dimensioni del business</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dev-spaces/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Dev Spaces</h3>
+                                                    <p>Sviluppo rapido Kubernetes con contenitori e microservizi</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5772,6 +5797,34 @@ Strumenti di migrazione del database </h3>
                                                 </p>
                                                 <p>
                                                     <a href="https://aka.ms/dea-tool">Database Experimentation Assistant (DEA)</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Azure Dev Spaces </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Introduzione</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Download per .NET Core e Visual Studio Code</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Download per .NET Core e Visual Studio</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Download per Node. js</a>
                                                 </p>
                                             </div>
                                         </div>

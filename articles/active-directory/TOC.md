@@ -127,11 +127,13 @@
 #### [Autenticazione a più fattori](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### Risolvere problemi
 #### [Dati di controllo mancanti](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dati mancanti nei download](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Errori dei pacchetti di contenuto dei log attività di Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Errori nell'API di creazione report di Azure Active Directory](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [Accesso a livello di codice](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisiti](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Esempi di controllo](active-directory-reporting-api-audit-samples.md)
