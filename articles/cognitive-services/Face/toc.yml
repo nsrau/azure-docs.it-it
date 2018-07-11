@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: Esercitazioni
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: Guide pratiche
   items:
     - name: Prime applicazioni dell'API Viso
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Java per Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: Python

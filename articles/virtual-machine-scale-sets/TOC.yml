@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Modello
           href: tutorial-autoscale-template.md
-    - name: Distribuire le app in un set di scalabilità di macchine virtuali di Azure con un'immagine Packer personalizzata
-      items:
-        - name: Interfaccia della riga di comando di Azure 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure 2.0
