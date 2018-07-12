@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: d98a804961defc80bebe3e3a838dd229c23044bc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180454"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704188"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Guida introduttiva: diagnosticare un problema di filtro del traffico di rete di una macchina virtuale - Azure PowerShell
 
@@ -59,7 +59,7 @@ Per testare la comunicazione di rete con Network Watcher è necessario innanzitu
 
 ### <a name="enable-network-watcher"></a>Abilitare Network Watcher
 
-Se si dispone già di un Network Watcher abilitato nell'area Stati Uniti orientali, usare [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) per recuperare Network Watcher. L'esempio seguente recupera un Network Watcher esistente denominato *NetworkWatcher_eastus* che si trova nel gruppo di risorse *NetworkWatcherRG*:
+Se si ha già un'istanza di Network Watcher abilitata nell'area Stati Uniti orientali, usare [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) per recuperare Network Watcher. L'esempio seguente recupera un'istanza di Network Watcher esistente denominata *NetworkWatcher_eastus* che si trova nel gruppo di risorse *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzureRmNetworkWatcher `

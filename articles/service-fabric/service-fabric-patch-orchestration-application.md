@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642812"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970721"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -320,7 +320,7 @@ R. Alcuni aggiornamenti del prodotto vengono visualizzati solo nella rispettiva 
 
 D: **È possibile usare Patch Orchestration App per applicare le patch al cluster di sviluppo (cluster con un solo nodo)?**
 
-R. No, non è possibile usare Patch Orchestration App per applicare le patch a un cluster con un solo nodo. Questa limitazione dipende dalla progettazione, perché i [servizi di sistema di Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) o le app dei clienti incorreranno in tempi di inattività, pertanto qualsiasi processo di ripristino per l'applicazione di patch non verrebbe mai approvato da Repair Manager.
+R. No, non è possibile usare Patch Orchestration App per applicare le patch a un cluster con un solo nodo. Questa limitazione dipende dalla progettazione, perché i [servizi di sistema di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o le app dei clienti incorreranno in tempi di inattività, pertanto qualsiasi processo di ripristino per l'applicazione di patch non verrebbe mai approvato da Repair Manager.
 
 ## <a name="disclaimers"></a>Dichiarazioni di non responsabilità
 

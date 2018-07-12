@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 083b0c956055ab5b54a4af2eec57f096613cbe65
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778219"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681520"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche alle app iOS con Hub di notifica di Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -44,7 +44,7 @@ Il codice completo per questa esercitazione è disponibile in [GitHub](https://g
 ## <a name="prerequisites"></a>prerequisiti
 
 - Un account Azure attivo. Se non si dispone di un account, è possibile creare un [account di valutazione gratuita](https://azure.microsoft.com/free) in pochi minuti. 
-- [framework di messaggistica di Windows Azure]
+- [Framework di messaggistica di Windows Azure]
 - Ultima versione di [Xcode]
 - Dispositivo compatibile con iOS 10 o versione successiva
 - [Apple Developer Program](https://developer.apple.com/programs/) .
@@ -211,7 +211,7 @@ In questo semplice esempio le notifiche push sono state trasmesse a tutti i disp
 
 
 <!-- URLs. -->
-[framework di messaggistica di Windows Azure]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Framework di messaggistica di Windows Azure]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
 [Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
@@ -227,4 +227,4 @@ In questo semplice esempio le notifiche push sono state trasmesse a tutti i disp
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com

@@ -16,11 +16,11 @@ ms.date: 05/21/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 8f71feb610884af29bdfbf170cfc411f32c50233
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640849"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700783"
 ---
 # <a name="quickstart-how-to-use-azure-redis-cache-with-nodejs"></a>Guida introduttiva: Come usare Cache Redis di Azure con Node.js
 
@@ -156,7 +156,7 @@ Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengon
 In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'applicazione Node.js. Continuare con la guida introduttiva successiva per usare Cache Redis con un'app Web ASP.NET.
 
 > [!div class="nextstepaction"]
-> [Creare un'app Web ASP.NET con Cache Redis](./cache-web-app-howto.md)
+> [Creare un'app Web ASP.NET con Cache Redis di Azure.](./cache-web-app-howto.md)
 
 
 

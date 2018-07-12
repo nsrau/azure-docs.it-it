@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029391"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701819"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gestire condivisioni file di Azure con l'interfaccia della riga di comando di Azure
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere montate in Windows, Linux e macOS. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con l'interfaccia della riga di comando di Azure. È possibile passare agli argomenti seguenti: 

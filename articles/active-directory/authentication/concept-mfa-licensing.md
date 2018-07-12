@@ -11,11 +11,11 @@ author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
 ms.openlocfilehash: ec1a3e7e3e8969e161854a9f386d4b2e767ee48a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866933"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970417"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Come ottenere Azure Multi-Factor Authentication
 
