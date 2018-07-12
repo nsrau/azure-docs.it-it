@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 268b9af7835c51d78812b35aff5aaac585961b01
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781940"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619189"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
 
@@ -30,9 +30,9 @@ Guardare il video seguente per una panoramica dei passaggi descritti in questo a
 > 
 
 ## <a name="overview"></a>Panoramica
-È possibile usare gli *elementi* per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Un elemento è costituito da un file di definizione dell'elemento e da altri file di script archiviati in una cartella in un repository Git. I file di definizione dell'elemento sono costituiti da JSON ed espressioni che è possibile usare per specificare gli elementi da installare in una macchina virtuale. È ad esempio possibile definire il nome di un elemento, il comando da eseguire e i parametri disponibili quando si esegue il comando. È possibile fare riferimento ad altri file di script all'interno del file di definizione dell'elemento in base al nome.
+È possibile usare gli *elementi* per distribuire e configurare l'applicazione dopo il provisioning di una macchina virtuale. Un elemento è costituito da un file di definizione dell'elemento e da altri file di script archiviati in una cartella in un repository Git. I file di definizione dell’elemento sono costituiti da JSON ed espressioni che è possibile utilizzare per specificare gli elementi da installare in una macchina virtuale. È ad esempio possibile definire il nome di un elemento, il comando da eseguire e i parametri disponibili quando si esegue il comando. È possibile fare riferimento ad altri file di script all'interno del file di definizione dell'elemento in base al nome.
 
-## <a name="artifact-definition-file-format"></a>Formato del file di definizione dell'elemento
+## <a name="artifact-definition-file-format"></a>Formato del file di definizione dell’elemento
 L'esempio seguente illustra le sezioni che compongono la struttura di base di un file di definizione:
 
     {
@@ -53,7 +53,7 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
       }
     }
 
-| Nome dell'elemento | Obbligatorio? | Descrizione |
+| Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
 | $schema |No  |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
 | title |Sì |Nome dell'elemento visualizzato nel lab. |
@@ -61,7 +61,7 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
 | iconUri |No  |URI dell'icona visualizzata nel lab. |
 | targetOsType |Sì |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
 | Parametri |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
-| runCommand |Sì |Il comando di installazione dell'elemento che viene eseguito in una macchina virtuale. |
+| runCommand |Sì |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento
 Nella sezione dei parametri del file di definizione è possibile specificare i valori che un utente può immettere quando installa un elemento. È possibile fare riferimento a questi valori nel comando di installazione dell'elemento.
@@ -76,7 +76,7 @@ Per definire i parametri, usare la struttura seguente:
         }
       }
 
-| Nome dell'elemento | Obbligatorio? | Descrizione |
+| Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
 | --- | --- | --- |
 | type |Sì |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
 | displayName |Sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
@@ -89,9 +89,9 @@ I tipi consentiti sono:
 * bool (tutti i valori booleani JSON validi)
 * array (tutte le matrici JSON valide)
 
-## <a name="artifact-expressions-and-functions"></a>Espressioni e funzioni dell'elemento
+## <a name="artifact-expressions-and-functions"></a>Espressioni e funzioni dell’elemento
 È possibile usare espressioni e funzioni per costruire il comando di installazione dell'elemento.
-Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento dell'installazione dell'elemento. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON. Le espressioni restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra ([), usare due parentesi quadre ([[).
+Le espressioni sono racchiuse tra parentesi quadre ([ e ]) e vengono valutate al momento dell’installazione dell’elemento. Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON. Le espressioni restituiscono sempre un altro valore JSON. Se è necessario usare una stringa letterale che inizia con una parentesi quadra ([), usare due parentesi quadre ([[).
 In genere, si usano espressioni con funzioni per costruire un valore. Proprio come in JavaScript, le chiamate di funzione sono formattate come **functionName(arg1, arg2, arg3)**.
 
 L'elenco seguente riporta le funzioni comuni:
@@ -111,7 +111,7 @@ L'esempio seguente mostra come usare espressioni e funzioni per costruire un val
 ## <a name="create-a-custom-artifact"></a>Creare un elemento personalizzato
 
 1. Installare un editor JSON. È necessario un editor JSON per lavorare con i file di definizione dell'elemento. È consigliabile usare [Visual Studio Code](https://code.visualstudio.com/) disponibile per Windows, Linux e OS X.
-2. Ottenere un file di definizione artifactfile.json di esempio. Esaminare gli elementi creati dal team di DevTest Labs nel [repository GitHub](https://github.com/Azure/azure-devtestlab). È stata creata una libreria completa di elementi utili per creare i propri elementi. Scaricare un file di definizione dell'elemento e apportare modifiche al codice per creare i propri elementi.
+2. Ottenere un file di definizione artifactfile.json di esempio. Esaminare gli elementi creati dal team di DevTest Labs nel [repository GitHub](https://github.com/Azure/azure-devtestlab). È stata creata una libreria completa di elementi utili per creare i propri elementi. Scaricare un file di definizione dell’elemento e apportare modifiche al codice per creare i propri elementi.
 3. Usare IntelliSense. Usare IntelliSense per vedere gli elementi validi che è possibile usare per costruire un file di definizione dell'elemento. È anche possibile vedere le diverse opzioni per i valori di un elemento. Quando, ad esempio, si modifica l'elemento **targetOsType**, IntelliSense mostra due opzioni, per Windows o Linux.
 4. Archiviare l'elemento in un [repository Git](devtest-lab-add-artifact-repo.md).
    
