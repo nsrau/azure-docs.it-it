@@ -2,18 +2,19 @@
 title: Guida introduttiva - Cluster Kubernetes Azure per Linux
 description: Informazioni per creare rapidamente un cluster Kubernetes per contenitori Linux nel servizio contenitore di Azure con l'interfaccia della riga di comando di Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/14/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 3bcdd4ba935b0fe9fe891503999c907aa1667abd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0105b9e59a2ae872c53f9522f93f2ffca7c1bd7a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127839"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
@@ -27,23 +28,11 @@ Questa guida introduttiva presuppone una conoscenza di base dei concetti relativ
 
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.27 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
-## <a name="enabling-aks-preview"></a>Abilitazione dell'anteprima del servizio contenitore di Azure
-
-Assicurarsi che i provider di servizi di Azure necessari siano abilitati con il comando `az provider register`.
-
-```azurecli-interactive
-az provider register -n Microsoft.Network
-az provider register -n Microsoft.Storage
-az provider register -n Microsoft.Compute
-az provider register -n Microsoft.ContainerService
-```
-
-Dopo la registrazione è possibile Creare un cluster Kubernetes con AKS.
-
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
 Creare un gruppo di risorse con il comando [az group create][az-group-create]. Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure vengono distribuite e gestite.
-Quando si crea un gruppo di risorse viene richiesto di specificare una posizione, ovvero la posizione in cui risiederanno le risorse in Azure. Durante la disponibilità in anteprima del servizio contenitore di Azure sono disponibili solo alcune opzioni relative alla posizione, ovvero `eastus, westeurope, centralus, canadacentral, canadaeast`.
+
+Quando si crea un gruppo di risorse viene richiesto di specificare una posizione, ovvero la posizione in cui risiederanno le risorse in Azure.
 
 L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *stati uniti orientali*.
 
@@ -68,7 +57,7 @@ Output:
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
-Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio contenitore di Azure. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo.
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio contenitore di Azure. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Quando si distribuisce un cluster del servizio contenitore di Azure, è inoltre possibile abilitare la soluzione di monitoraggio dell'integrità del contenitore. Per altre informazioni sul monitoraggio dell'integrità del contenitore, vedere [Monitorare l'integrità del servizio Kubernetes di Azure][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
@@ -248,6 +237,8 @@ Per altre informazioni sul servizio contenitore di Azure e l'analisi del codice 
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
 
 <!-- LINKS - internal -->
+[aks-monitor]: ../monitoring/monitoring-container-health.md
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [az-aks-browse]: /cli/azure/aks?view=azure-cli-latest#az_aks_browse
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
@@ -255,5 +246,4 @@ Per altre informazioni sul servizio contenitore di Azure e l'analisi del codice 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
-[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 
