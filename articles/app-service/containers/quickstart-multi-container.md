@@ -1,7 +1,7 @@
 ---
 title: Creare un'app multi-contenitore (anteprima) nell'app Web per contenitori di Azure con una configurazione di Docker Compose
 description: Distribuire la prima app multi-contenitore nell'app Web per contenitori di Azure in pochi minuti
-keywords: servizio app di azure, app web, linux, docker, compose, multi-contenitore, contenitore, kubernetes
+keywords: servizio app di azure, app web, linux, docker, compose, multicontenitore, multi-contenitore, app web per contenitori, più contenitori, contenitore, kubernetes, wordpress, db azure per mysql, database di produzione con contenitori
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,20 +15,20 @@ ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ec5c92415668c925fe360c0c8887fd792a121842
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bf567402a66f9152c7eb9b97925fec2a159ffe56
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753718"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127421"
 ---
-# <a name="create-a-multicontainer-preview-app-using-web-app-for-containers"></a>Creare un'app multi-contenitore (anteprima) in un'app Web per contenitori
+# <a name="create-a-multi-container-preview-app-using-web-app-for-containers"></a>Creare un'app multi-contenitore (anteprima) in un'app Web per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa guida introduttiva illustra come distribuire un'app multi-contenitore nell'app Web per contenitori in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) con una configurazione di Docker Compose. Per Kubernetes seguire i passaggi di Kubernetes nell'[esercitazione del multi-contenitore](tutorial-multi-container-app.md).
+[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. Questa guida introduttiva illustra come distribuire un'app multi-contenitore nell'app Web per contenitori in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) con una configurazione di Docker Compose. Per Kubernetes e una soluzione completa end-to-end usando il database di Azure per MySQL, seguire l'[esercitazione sui multi-contenitori](tutorial-multi-container-app.md).
 
-Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive). Questa guida introduttiva userà un file di configurazione di Docker Compose.
+Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive). 
 
-![App multi-contenitore di esempio in un'app Web per contenitori][1]
+![App multi-contenitore di esempio in App Web per contenitori][1]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comand
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-Per questa guida introduttiva si userà il file compose di [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), ma modificato in modo da includere Database di Azure per MySQL, l'archiviazione permanente e Redis. I file di configurazione sono disponibili negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Per questa guida introduttiva, usare il file Compose da [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). I file di configurazione sono disponibili negli [Esempi di Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
 
@@ -48,10 +48,12 @@ mkdir quickstart
 cd quickstart
 ```
 
-Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart.
+Eseguire quindi il comando seguente per clonare il repository dell'app di esempio nella directory quickstart. Quindi, passare alla directory `multicontainerwordpress`.
 
 ```bash
 git clone https://github.com/Azure-Samples/multicontainerwordpress
+
+cd multicontainerwordpress
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -100,11 +102,9 @@ Al termine della creazione del piano di servizio app, l'interfaccia della riga d
 
 ## <a name="create-a-docker-compose-app"></a>Creare un'app Docker Compose
 
-Nel terminale Cloud Shell passare alla directory `multicontainerwordpress`. Creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+Nel terminale Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
 
 ```bash
-cd multicontainerwordpress
-
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 
@@ -129,9 +129,9 @@ Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mos
 
 Passare all'app distribuita all'indirizzo `http://<app_name>.azurewebsites.net`. Il caricamento dell'app può richiedere alcuni minuti. Se si riceve un errore, attendere qualche minuto e quindi aggiornare il browser.
 
-![App multi-contenitore di esempio in un'app Web per contenitori][1]
+![App multi-contenitore di esempio in App Web per contenitori][1]
 
-La creazione di un'app multi-contenitore in un'app Web per contenitori è stata **completata**.
+La creazione di un'app multi-contenitore in App Web per contenitori è stata **completata**.
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 

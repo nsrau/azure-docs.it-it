@@ -9,11 +9,11 @@ ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 6cbf24c56458ab8b3b6c7b44bedbd8b48d4677b3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34702422"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38739229"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 

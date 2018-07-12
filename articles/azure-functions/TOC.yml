@@ -11,12 +11,12 @@
   items:
     - name: 'Creare una funzione: portale'
       href: functions-create-first-azure-function.md
-    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creare una funzione: Visual Studio'
       href: functions-create-your-first-function-visual-studio.md
     - name: Creare una funzione - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creare una funzione: Linux'
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Trigger
@@ -97,6 +97,8 @@
       items:
         - name: Panoramica
           href: durable-functions-overview.md
+        - name: Tipi e funzionalità delle funzioni
+          href: durable-functions-types-features-overview.md
         - name: Associazioni
           href: durable-functions-bindings.md
         - name: Checkpoint e riproduzione

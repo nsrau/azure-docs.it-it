@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: 5eb5c2d1f0b85c907f788fb6ac752488601f613a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389836"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127534"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
@@ -33,8 +33,8 @@ Questa esercitazione illustra come scrivere un'applicazione console .NET Core ch
 * [Microsoft Visual Studio 2015 o 2017](http://www.visualstudio.com). Gli esempi inclusi nell'esercitazione usano Visual Studio 2017, ma è supportato anche Visual Studio 2015.
 * [Strumenti di Visual Studio 2015 o 2017 per .NET Core](http://www.microsoft.com/net/core).
 * Una sottoscrizione di Azure.
-* Uno spazio dei nomi di Hub eventi in Azure.
-* Un account dell'Archiviazione di Azure.
+* Uno spazio dei nomi di Hub eventi di Azure e un hub eventi.
+* Un account di archiviazione di Azure.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi  
 
@@ -123,11 +123,11 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
     using System.Threading.Tasks;
     ```
 
-2. Aggiungere le costanti alla classe `Program` per la stringa di connessione dell'hub eventi, il nome dell'hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori.
+2. Aggiungere le costanti alla classe `Program` per la stringa di connessione dell'hub eventi, il nome dell'hub, il nome del contenitore dell'account di archiviazione, il nome dell'account di archiviazione e la chiave dell'account di archiviazione. Aggiungere il codice seguente, sostituendo i segnaposto con i relativi valori:
 
     ```csharp
-    private const string EhConnectionString = "{Event Hubs connection string}";
-    private const string EhEntityPath = "{Event Hub path/name}";
+    private const string EventHubConnectionString = "{Event Hubs connection string}";
+    private const string EventHubName = "{Event Hub path/name}";
     private const string StorageContainerName = "{Storage account container name}";
     private const string StorageAccountName = "{Storage account name}";
     private const string StorageAccountKey = "{Storage account key}";
@@ -143,9 +143,9 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
         Console.WriteLine("Registering EventProcessor...");
 
         var eventProcessorHost = new EventProcessorHost(
-            EhEntityPath,
+            EventHubName,
             PartitionReceiver.DefaultConsumerGroupName,
-            EhConnectionString,
+            EventHubConnectionString,
             StorageConnectionString,
             StorageContainerName);
 
@@ -174,8 +174,8 @@ Aggiungere al progetto i pacchetti NuGet [**Microsoft.Azure.EventHubs**](https:/
 
         public class Program
         {
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
             private const string StorageContainerName = "{Storage account container name}";
             private const string StorageAccountName = "{Storage account name}";
             private const string StorageAccountKey = "{Storage account key}";
@@ -223,4 +223,4 @@ Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
-[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcore.png
+[2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

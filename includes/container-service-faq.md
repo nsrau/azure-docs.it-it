@@ -64,7 +64,7 @@ DNSnamePrefix.AzureRegion.cloudapp.azure.net
 
 ### <a name="how-do-i-tell-which-orchestrator-version-is-running-in-my-cluster"></a>Come si può stabilire la versione dell'agente di orchestrazione in esecuzione nel cluster?
 
-* DC/OS: vedere la [documentazione di Mesosphere](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: vedere la [documentazione di Mesosphere](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: eseguire `docker version`
 * Kubernetes: eseguire `kubectl version`
 

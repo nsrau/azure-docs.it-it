@@ -42,6 +42,10 @@
           href: contoso-migration-refactor-linux-app-service-mysql.md
         - name: 11. Contoso - Eseguire la migrazione da TFS a VSTS
           href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso - Riprogettare un'app in Azure Service Fabric e nel database SQL di Azure
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso - Ricompilare un'app in Azure
+          href: contoso-migration-rebuild.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md
     - name: Raggruppare i computer

@@ -10,6 +10,8 @@
   items:
     - name: Distribuire una soluzione di monitoraggio remoto
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuire una soluzione di manutenzione predittiva
+      href: quickstart-predictive-maintenance-deploy.md
     - name: Distribuire una soluzione Simulazione dispositivi
       href: quickstart-device-simulation-deploy.md
 - name: Esercitazioni

@@ -16,11 +16,11 @@ ms.date: 05/01/2018
 ms.author: andret
 ms.custom: include file
 ms.openlocfilehash: cfad8c7f8ae87f26fbc18a31ebb7a634d3482a3b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33901262"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944719"
 ---
 | App per dispositivi mobili e native | App Web e API Web | Integrare direttamente nei protocolli |
 | --- | --- | --- |
