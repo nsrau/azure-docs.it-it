@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796534"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856165"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Filtri di sicurezza per limitare i risultati di Ricerca di Azure usando le identità di Active Directory
 
@@ -138,7 +138,7 @@ Per filtrare i documenti restituiti nei risultati della ricerca in base ai grupp
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Passaggio 1: recuperare gli identificatori di gruppo dell'utente
 
-Se i gruppi dell'utente non sono stati ancora memorizzati nella cache o se la cache è scaduta, emettere la richiesta per [groups](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups).
+Se i gruppi dell'utente non sono stati ancora memorizzati nella cache o se la cache è scaduta, emettere la richiesta per [groups](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups).
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

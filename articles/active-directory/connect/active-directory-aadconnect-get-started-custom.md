@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849992"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473987"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](active-directory-aadconnect-get-started-express.md) non soddisfa la distribuzione o la topologia.
@@ -67,7 +67,7 @@ Questo account viene usato solo per creare un account di servizio in Azure AD e 
 Se per l'account amministratore globale è abilitata l'autenticazione MFA, è necessario fornire nuovamente la password nella finestra popup di accesso e completare la richiesta di autenticazione MFA. La richiesta può consistere nel fornire un codice di verifica o in una telefonata.  
 ![Accesso utente in MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-Per l'account amministratore globale può essere abilitato anche [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) .
+Per l'account amministratore globale può essere abilitato anche [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) .
 
 Se viene visualizzato un errore e si hanno problemi di connettività, vedere [Risolvere i problemi di connettività](active-directory-aadconnect-troubleshoot-connectivity.md).
 

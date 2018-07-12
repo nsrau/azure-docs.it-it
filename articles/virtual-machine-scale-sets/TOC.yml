@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: Convertire un modello in dischi gestiti
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Manutenzione pianificata
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: Risolvere problemi
       items:
         - name: Autoscale

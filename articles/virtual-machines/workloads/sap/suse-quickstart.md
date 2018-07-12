@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: 9bb13cde07141c576a0ec78c3b48c5a20d6dbb67
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657656"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858613"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Esecuzione di SAP NetWeaver nelle VM SUSE Linux di Microsoft Azure
 Questo articolo descrive vari aspetti da considerare quando si esegue SAP NetWeaver in macchine virtuali (VM) SUSE Linux di Microsoft Azure. A partire dal 19 maggio 2016 SAP NetWeaver è ufficialmente supportato nelle macchine virtuali SUSE Linux in Azure. Tutti i dettagli riguardanti le versioni di Linux, le versioni del kernel SAP e altri prerequisiti sono reperibili nella nota 1928533 di SAP "Applicazioni SAP in Azure: prodotti supportati e tipi di macchine virtuali di Azure".
@@ -129,7 +129,7 @@ SUSE offre un pacchetto denominato "sapconf" che gestisce un set di impostazioni
 
 È anche disponibile un nuovo strumento che sostituisce sapconf: tuned-adm. Per altre informazioni su questo strumento fare clic sui due collegamenti seguenti:
 
-- La documentazione SLES sull'uso del profilo sap-hana tuned-adm è reperibile [qui](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html). 
+- La documentazione SLES sull'uso del profilo sap-hana tuned-adm è reperibile [qui](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_saptune.html). 
 
 - Informazioni su come ottimizzare i sistemi per i carichi di lavoro SAP con lo strumento tuned-adm è reperibile [qui](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf), nel capitolo 6.2
 

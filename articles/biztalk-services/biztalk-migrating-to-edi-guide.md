@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 1b70fc3d199d7f1521acb534dafec8fb3e69500e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998846"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860079"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrazione di soluzioni EDI di BizTalk Server nei servizi BizTalk: guida tecnica
 
@@ -104,7 +104,7 @@ I servizi BizTalk di Microsoft Azure forniscono uno strumento per eseguire la mi
 ## <a name="orchestrations"></a>Orchestrazioni
 Se è necessario eseguire la migrazione a Microsoft Azure dell’elaborazione di orchestrazioni di BizTalk Server, le orchestrazioni devono essere riscritte poiché Microsoft Azure non supporta l'esecuzione di orchestrazioni di BizTalk Server.  È possibile riscrivere la funzionalità di orchestrazione in un servizio di Windows Workflow Foundation 4.0 (WF4).  Si tratta di una riscrittura completa poiché non esiste attualmente la migrazione dalle orchestrazioni di BizTalk Server a WF4. Di seguito sono riportate alcune risorse per Windows Workflow:
 
-* [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://msdn.microsoft.com/library/azure/hh709041.aspx) di Paolo Salvatori. 
+* [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) di Paolo Salvatori. 
 * [Sessione *Building apps with Windows Workflow Foundation and Azure*](http://go.microsoft.com/fwlink/p/?LinkId=237314) (Compilazione di app con Windows Workflow Foundation e Azure) estratta dalla conferenza Build 2011.
 * [*Centro per sviluppatori Windows Workflow Foundation*](http://go.microsoft.com/fwlink/p/?LinkId=237315) in MSDN.
 * [*Documentazione di Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) in MSDN.

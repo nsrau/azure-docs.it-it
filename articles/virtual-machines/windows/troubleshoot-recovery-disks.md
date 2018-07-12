@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 408429d0f8697b8b807e386dbcf2eade29938249
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1e87704e7d8cf3c7cc21e537d36f95a97265061b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271692"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903517"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino usando Azure PowerShell
 Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare Azure PowerShell per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale.
@@ -183,7 +183,7 @@ Dopo aver risolto gli errori, smontare e scollegare il disco rigido virtuale esi
 ## <a name="create-vm-from-original-hard-disk"></a>Creare una macchina virtuale dal disco rigido originale
 Per creare una macchina virtuale dal disco rigido virtuale originale, usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Il modello JSON effettivo è disponibile all'indirizzo seguente:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+- https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json
 
 Il modello distribuisce una macchina virtuale in una rete virtuale esistente, usando l'URL del disco rigido virtuale del comando precedente. L'esempio seguente distribuisce il modello nel gruppo di risorse `myResourceGroup`:
 
@@ -207,9 +207,9 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
 
 ## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Risolvere i problemi di una macchina virtuale con disco gestito collegando un nuovo disco del sistema operativo
 1. Arrestare la macchina virtuale Windows con disco gestito interessata.
-2. [Creare una copia shadow del disco gestito](snapshot-copy-managed-disk.md) per il disco del sistema operativo della macchina virtuale con disco gestito.
-3. [Creare un disco gestito dalla copia shadow](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Collegare il disco gestito come disco dati della macchina virtuale](attach-disk-ps.md).
+2. [Creare uno snapshot del disco gestito](snapshot-copy-managed-disk.md) per il disco del sistema operativo della macchina virtuale con disco gestito.
+3. [Creare un disco gestito da uno snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
+4. [Collegare un disco dati a una macchina virtuale Windows](attach-disk-ps.md).
 5. [Modificare il disco dati del passaggio 4 nel disco del sistema operativo](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

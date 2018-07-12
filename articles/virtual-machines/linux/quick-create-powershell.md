@@ -3,7 +3,7 @@ title: Guida introduttiva - Creare una macchina virtuale Linux con Azure PowerSh
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e910ced35738fcba27a8a1d7f2f010b2cd42e55d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 45b1597d3b61a9386fc015b5a7272d948fa5772b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188991"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930947"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Guida introduttiva: creare una macchina virtuale Linux in Azure con PowerShell
 
@@ -132,7 +132,7 @@ Quando viene richiesto, il nome utente di accesso è *azureuser*. Se con le chia
 
 ## <a name="install-web-server"></a>Installare il server Web
 
-Per vedere la macchina virtuale in azione, installare il server Web NGINX. Per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente, eseguire i comandi seguenti dalla sessione SSH:
+Per visualizzare la macchina virtuale in azione, installare il server Web NGINX. Per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente, eseguire i comandi seguenti dalla sessione SSH:
 
 ```bash
 # update packages
@@ -146,7 +146,7 @@ Al termine `exit` dalla sessione SSH
 
 ## <a name="view-the-web-server-in-action"></a>Visualizzare il server Web in azione
 
-Dopo l'installazione di NGINX e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la home page predefinita di NGINX. Usare l'indirizzo IP pubblico della macchina virtuale ottenuto nel passaggio precedente. L'esempio seguente mostra il sito Web predefinito di NGINX:
+Dopo l'installazione di NGINX e l'apertura della porta 80 nella macchina virtuale da Internet, è possibile usare il Web browser preferito per visualizzare la home page predefinita di NGINX. Usare l'indirizzo IP pubblico della macchina virtuale ottenuto in un passaggio precedente. L'esempio seguente mostra il sito Web NGINX predefinito:
 
 ![Sito NGINX predefinito](./media/quick-create-cli/nginx.png)
 
@@ -160,7 +160,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata distribuita una macchina virtuale semplice, sono stati creati una regola e un gruppo di sicurezza di rete ed è stato installato un server Web di base. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
+In questa guida introduttiva è stata distribuita una macchina virtuale semplice, sono stati creati un gruppo di sicurezza di rete e una regola ed è stato installato un server Web. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni per le macchine virtuali di Linux in Azure](./tutorial-manage-vm.md)

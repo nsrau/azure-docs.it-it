@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783860"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903048"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.
@@ -276,7 +276,7 @@ L'esempio seguente mostra un file VMAP che specifica gli eventi di rilevamento.
     </vmap:VMAP>
 ```
 
-Per altre informazioni sull'elemento <**TrackingEvents**> e i rispettivi elementi figlio, vedere http://iab.org/VMAP.pdf
+Per altre informazioni sull'elemento <**TrackingEvents**> e i rispettivi elementi figlio, vedere http://iab.net/VMAP.pdf
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Uso di un file MAST (Media Abstract Sequencing Template)
 Un file MAST permette di specificare i trigger che definiscono il momento in cui è visualizzato un annuncio. Di seguito è riportato un file MAST di esempio che contiene trigger per un annuncio di tipo preroll, midroll e postroll.

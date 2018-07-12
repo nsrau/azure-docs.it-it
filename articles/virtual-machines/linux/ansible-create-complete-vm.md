@@ -3,7 +3,7 @@ title: Usare Ansible per creare una macchina virtuale Linux completa in Azure | 
 description: Informazioni su come usare Ansible per creare e gestire un ambiente completo per la macchina virtuale Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 63228f8bf8729f1bf3796a77516490ae7088d5ed
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716459"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930845"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Creare un ambiente completo per la macchina virtuale Linux in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire le macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa. In questo articolo viene illustrato come creare un ambiente Linux completo e le risorse di supporto con Ansible. È anche possibile apprendere come [creare una macchina virtuale di base con Ansible](ansible-create-vm.md).

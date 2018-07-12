@@ -17,11 +17,11 @@ ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34658775"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477659"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Creare una macchina virtuale (classica) con più schede di interfaccia di rete usando PowerShell
 
