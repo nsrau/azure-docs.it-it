@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650938"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906387"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sicurezza e protezione dei dati di StorSimple
 
@@ -43,7 +43,7 @@ Le sezioni seguenti descrivono le funzionalità di sicurezza di StorSimple che c
 
 Gestione dispositivi StorSimple è un servizio di gestione ospitato in Microsoft Azure che consente di gestire tutti i dispositivi StorSimple installati all'interno di un'organizzazione. È possibile accedere al servizio Gestione dispositivi StorSimple usando le credenziali aziendali per accedere al portale di Azure da un Web browser.
 
-Per accedere al servizio Gestione dispositivi StorSimple l'organizzazione deve avere una sottoscrizione di Azure in cui sia incluso StorSimple. La sottoscrizione determina le funzionalità a cui si può accedere nel portale di Azure. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../active-directory/sign-up-organization.md).
+Per accedere al servizio Gestione dispositivi StorSimple l'organizzazione deve avere una sottoscrizione di Azure in cui sia incluso StorSimple. La sottoscrizione determina le funzionalità a cui si può accedere nel portale di Azure. Se l'organizzazione non dispone ancora di una sottoscrizione di Azure e si desidera ottenere informazioni al riguardo, vedere [Iscrizione ad Azure come organizzazione](../active-directory/fundamentals/sign-up-organization.md).
 
 Poiché il servizio Gestione dispositivi StorSimple è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
 
@@ -267,7 +267,7 @@ Di seguito sono riportate alcune domande e risposte relative alla sicurezza e a 
 
 **R:** È possibile scaricare il nuovo certificato dal servizio Gestione dispositivi StorSimple, quindi inviarlo per l'installazione nell'archivio certificati dei client di accesso remoto. Per istruzioni, vedere:
 
-* [Cmdlet Import-Certificate](https://technet.microsoft.com/library/hh848630.aspx)
+* [Cmdlet Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **D:** Se il servizio Gestione dispositivi StorSimple risulta compromesso, i miei dati sono protetti?
 
