@@ -20,7 +20,7 @@
 
 È possibile creare [avvisi](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md) in base a metriche di prestazioni specifiche. I problemi che possono essere segnalati tramite avvisi, ad esempio, sono il superamento di una determinata soglia di utilizzo medio della CPU o la presenza di spazio su disco inferiore rispetto a una quantità specifica. Gli avvisi possono essere configurati nel [portale di Azure](../articles/monitoring-and-diagnostics/insights-alerts-portal.md), tramite [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) o nell'[interfaccia della riga di comando di Azure](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md).
 
-## <a name="azure-service-health"></a>Integrità del servizio di Azure
+## <a name="azure-service-health"></a>Integrità dei servizi di Azure
 
 [Integrità dei servizi di Azure](../articles/service-health/service-health-overview.md) offre indicazioni e modalità di supporto personalizzate in caso di problemi relativi ai servizi di Azure e permette di prepararsi per la manutenzione pianificata successiva. Integrità dei servizi di Azure invia avvisi all'utente e ai team tramite notifiche mirate e flessibili.
 

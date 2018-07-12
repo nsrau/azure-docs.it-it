@@ -9,27 +9,27 @@ ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
 ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34664928"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38730499"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 Un insieme di credenziali dei servizi di ripristino è un'entità che archivia i backup e i punti di ripristino che sono stati creati nel corso del tempo. L'insieme di credenziali dei servizi di ripristino contiene anche i criteri di backup associati alle macchine virtuali protette.
 
 Per creare un insieme di credenziali dei servizi di ripristino:
 
-1. Accedere alla sottoscrizione nel [portale di Azure](https://portal.azure.com/).
+1. Accedere alla propria sottoscrizione nel [portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Tutti i servizi**.
 
     ![Scegliere l'opzione Tutti i servizi nel menu principale](./media/backup-create-rs-vault/click-all-services.png) <br/>
 
-3. Nella finestra di dialogo Tutti i servizi digitare *Servizi di ripristino*. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Quando viene visualizzata, selezionare l'opzione **Insiemi di credenziali dei servizi di ripristino**.
+3. Nella finestra di dialogo Tutti i servizi digitare *Servizi di ripristino*. Non appena si inizia a digitare, l'elenco delle risorse viene filtrato in base all'input. Quando viene visualizzata, selezionare l'opzione **Insiemi di credenziali di Servizi di ripristino**.
 
-    ![Tipo di servizi di ripristino nella finestra di dialogo Tutti i servizi](./media/backup-create-rs-vault/all-services.png) <br/>
+    ![Digitare Servizi di ripristino nella finestra di dialogo Tutti i servizi](./media/backup-create-rs-vault/all-services.png) <br/>
 
-    Verrà visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino nella sottoscrizione.
+    Viene visualizzato l'elenco degli insiemi di credenziali di Servizi di ripristino.
 4. Nel menu di **Insiemi di credenziali dei servizi di ripristino** selezionare **Aggiungi**.
 
     ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 2](./media/backup-create-rs-vault/add-button-create-vault.png)

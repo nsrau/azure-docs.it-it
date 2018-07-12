@@ -201,7 +201,7 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
 - La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione [Definizione della struttura per i set di dati rettangolari](#specifying-structure-definition-for-rectangular-datasets) per altri dettagli.
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare **array[x].property** per estrarre il valore della proprietà specificata dall'oggetto xth oppure è possibile usare **array[*].property** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
+- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare dati dalla matrice, è possibile usare **matrice[x].proprietà** per estrarre il valore della proprietà specificata dall'oggetto x oppure è possibile usare **matrice[*].proprietà** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
 "properties": {

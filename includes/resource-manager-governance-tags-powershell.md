@@ -9,11 +9,11 @@ ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 5dc4ce00685c74b2974cf1bfb5e8606eb3063e8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34675324"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740553"
 ---
 Per aggiungere due tag a un gruppo di risorse, usare il comando [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup):
 
