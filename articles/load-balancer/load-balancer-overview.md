@@ -141,7 +141,7 @@ Per altre informazioni, vedere i [limiti del servizio di Load Balancer](https://
 
 ## <a name="concepts"></a>Concetti
 
-### <a name = "publicloadbalancer">Bilanciamento del carico pubblico</a>
+### <a name = "publicloadbalancer"></a>Bilanciamento del carico pubblico
 
 Il bilanciamento del carico pubblico esegue il mapping dell'indirizzo IP pubblico e del numero di porta del traffico in ingresso all'indirizzo IP privato e al numero di porta della macchina virtuale e viceversa per il traffico di risposta proveniente dalla macchina virtuale. Applicando le regole di bilanciamento del carico è possibile distribuire tipi specifici di traffico in più macchine virtuali o servizi. È ad esempio possibile dividere il carico del traffico delle richieste Web tra più server Web.
 
