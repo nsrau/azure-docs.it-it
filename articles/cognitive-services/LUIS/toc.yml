@@ -185,7 +185,7 @@
           href: luis-how-to-add-features.md
         - name: Aggiungere modelli
           href: luis-how-to-model-intent-pattern.md
-    - name: Eseguire il training
+    - name: Train
       href: luis-how-to-train.md
     - name: Test
       items:
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: Usare i domini
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Usare Cortana
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: Gestire un'app
       items:
         - name: Utilizzo del dashboard
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: Informazioni di riferimento sui domini predefiniti
       href: luis-reference-prebuilt-domains.md
-    - name: Informazioni di riferimento sulle app Cortana predefinite
-      href: luis-reference-cortana-prebuilt.md
     - name: Creazione di API V2
       href: 'https://aka.ms/luis-authoring-apis'
     - name: API Endpoint V2

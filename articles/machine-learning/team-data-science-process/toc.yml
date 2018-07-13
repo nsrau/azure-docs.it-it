@@ -218,8 +218,6 @@
           items:
             - name: Panoramica
               href: create-features.md
-            - name: Usare Pandas
-              href: create-features-blob.md
             - name: Usare SQL e Python
               href: create-features-sql-server.md
             - name: Usare le query Hive
@@ -263,7 +261,7 @@
               items:
                 - name: Panoramica
                   href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: Architecture
+                - name: Architettura
                   href: cortana-analytics-architecture-predictive-maintenance.md
                 - name: Guida tecnica
                   href: cortana-analytics-technical-guide-predictive-maintenance.md

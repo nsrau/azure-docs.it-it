@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606954"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598391"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installare il server di Backup di Azure v2
 
@@ -47,15 +47,15 @@ Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, ass
 
 3. Nella procedura guidata del server di Backup di Microsoft Azure, sotto **Installare** selezionare **Server di Backup di Microsoft Azure**.
 
-  ![Programma di installazione - Selezionare cosa installare](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![Programma di installazione - Selezionare cosa installare](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. Nella pagina **Benvenuti** esaminare gli avvisi e quindi selezionare **Avanti**.
 
-  ![Programma di installazione - Pagina di benvenuto](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![Programma di installazione - Pagina di benvenuto](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. L'installazione guidata esegue i controlli dei prerequisiti per verificare che sia possibile aggiornare l'ambiente. Nella pagina **Controlli dei prerequisiti** selezionare **Controlla**.
 
-  ![Programma di installazione - Pagina del controllo dei prerequisiti](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![Programma di installazione - Pagina del controllo dei prerequisiti](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. L'ambiente deve superare i controlli dei prerequisiti. Se l'ambiente non supera i controlli, prendere nota dei problemi e correggerli. Selezionare quindi **Controlla di nuovo**. Dopo avere superato i controlli dei prerequisiti, selezionare **Avanti**.
 
@@ -63,11 +63,11 @@ Per eseguire l'aggiornamento dal server di backup v1 al server di backup v2, ass
 
 7. Nella pagina **Impostazioni SQL** selezionare l'opzione appropriata per l'installazione di SQL, quindi selezionare **Controlla e installa**.
 
-  ![Programma di installazione - Pagina delle impostazioni di SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![Programma di installazione - Pagina delle impostazioni di SQL](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   I controlli potrebbero richiedere alcuni minuti. Al termine dell'operazione selezionare **Avanti**.
 
-  ![Programma di installazione - Controllo delle impostazioni di SQL e pulsante di installazione](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![Programma di installazione - Controllo delle impostazioni di SQL e pulsante di installazione](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. Nella pagina **Impostazioni di installazione** apportare le modifiche necessarie al percorso in cui è installato il server di Backup o al percorso dei file temporanei. Selezionare **Avanti**.
 
