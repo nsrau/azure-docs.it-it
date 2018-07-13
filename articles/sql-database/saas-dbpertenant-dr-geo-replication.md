@@ -7,14 +7,15 @@ author: AyoOlubeko
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34645794"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 
@@ -87,7 +88,7 @@ Successivamente, in un passaggio di ricollocamento distinto, si effettua il fail
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 
 Prima di iniziare il processo di ripristino, esaminare il normale stato di integrità dell'applicazione.
-1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net sostituendo &lt;utente&gt; con il valore utente della distribuzione.
+1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net. Sostituire &lt;utente&gt; con il valore utente della distribuzione.
     * Scorrere la pagina verso il basso e osservare il nome e la posizione del server di catalogo nella parte inferiore della pagina. La posizione corrisponde all'area in cui l'app è stata distribuita.
     *SUGGERIMENTO: passare il puntatore del mouse sulla posizione per ingrandire la visualizzazione.*
     ![Stato di integrità dell'hub eventi nell'area originale](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -283,7 +284,7 @@ Si supponga ora che l'interruzione sia stata risolta e si esegue quindi lo scrip
     * Premere **F5** per eseguire lo script di ripristino in una nuova finestra di PowerShell.  Il processo di ricollocamento richiede alcuni minuti e può essere monitorato nella finestra di PowerShell.
     ![Processo di ricollocamento](media/saas-dbpertenant-dr-geo-replication/repatriation-process.png)
 
-4. Mentre lo script è in esecuzione, aggiornare la pagina dell'hub eventi (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net)
+4. Mentre lo script è in esecuzione, aggiornare la pagina Hub eventi (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net).
     * Si noti che tutti i tenant sono online e accessibili durante questo processo.
 
 5. Al termine del ricollocamento, aggiornare l'hub eventi e aprire la pagina degli eventi per Hawthorn Hall. Si noti che il database è stato ricollocato nell'area originale.

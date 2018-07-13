@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 870b8d501db4a31bf7a822bd9c86965bdfa224e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 432e1164e56c6afadfc76ec980de99837c106dc5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447619"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919991"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Eseguire Azure Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
 

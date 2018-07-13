@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8d52469e11ac508ee8b353311f6040ac9d6f2e4e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 85bea1b042eb9b882022118d36e5a55a802a1bdc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447150"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950564"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Concedere l'accesso per la gestione di Azure AD Privileged Identity Management
 L'amministratore globale che abilita Azure AD Privileged Identity Management (PIM) per un'organizzazione ottiene automaticamente le assegnazioni di ruolo e l'accesso a PIM. Per impostazione predefinita, nessun altro utente ottiene l'accesso in scrittura, inclusi gli altri amministratori globali. Gli altri amministratori globali, amministratori della sicurezza e ruoli con autorizzazioni di lettura per la sicurezza hanno l'accesso in sola lettura ad Azure AD PIM. Per concedere l'accesso a PIM, il primo utente può assegnare ad altri il ruolo di **amministratore dei ruoli con privilegi** .
@@ -34,10 +34,10 @@ Assicurarsi che almeno due utenti abbiano sempre il ruolo di amministratore dei 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare l'app **Azure AD Privileged Identity Management** nel dashboard.
 2. Selezionare **Gestione dei ruoli con privilegi** > **Amministratore dei ruoli con privilegi** > **Aggiungi**.
    
-    ![Schermata Aggiungi amministratori dei ruoli con privilegi][1]
+    ![Schermata Aggiungi amministratori dei ruoli con privilegi](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png)
 3. Nel pannello Aggiungi utenti gestiti il passaggio 1 è già stato completato. Selezionare il passaggio 2, **Seleziona utenti** e ricercare l'utente da aggiungere.
    
-    ![Schermata Seleziona gli utenti][2]
+    ![Schermata Seleziona gli utenti](./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png)
 4. Selezionare l'utente nell'elenco dei risultati della ricerca e fare clic su **Fine**.
 5. Fare clic su **OK** per salvare la selezione. L'utente selezionato verrà visualizzato nell'elenco degli amministratori dei ruoli con privilegi.
    
@@ -55,8 +55,3 @@ Prima di rimuovere un utente dal ruolo di amministratore dei ruoli con privilegi
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_add_PRA.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-give-access-to-pim/PIM_select_users.png

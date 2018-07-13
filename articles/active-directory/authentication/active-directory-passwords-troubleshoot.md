@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592878"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857219"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -39,7 +39,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 | Tipi di errore | Soluzione |
 | --- | --- |
-| Non viene visualizzata la sezione **Reimpostazione password** in Azure AD nel portale di Azure. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Assegnare una licenza all'account amministratore in questione. È possibile seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| Non viene visualizzata la sezione **Reimpostazione password** in Azure AD nel portale di Azure. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Assegnare una licenza all'account amministratore in questione. È possibile seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Non è possibile visualizzare un'opzione di configurazione specifica. | Molti elementi dell'interfaccia utente rimangono nascosti finché non sono necessari. Provare ad abilitare tutte le opzioni che si desidera visualizzare. |
 | Non possibile visualizzare la scheda **Integrazione locale**. | Questa opzione è visibile solo se è stato scaricato Azure AD Connect ed è stata eseguita la configurazione del writeback delle password. Per altre informazioni, vedere [Introduzione alle impostazioni rapide per Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md). |
 
@@ -47,7 +47,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 
 | Tipi di errore | Soluzione |
 | --- | --- |
-| Nella categoria degli eventi di controllo **Self-Service Password Management** (Gestione delle password self-service) non viene visualizzato alcun tipo di attività di gestione della password. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| Nella categoria degli eventi di controllo **Self-Service Password Management** (Gestione delle password self-service) non viene visualizzato alcun tipo di attività di gestione della password. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Le registrazioni utente vengono visualizzate più volte. | Attualmente, quando un utente effettua la registrazione, ogni singolo dato inserito viene registrato come un evento distinto. <br> <br> Per aggregare i dati e avere più flessibilità nelle modalità di visualizzazione, è possibile scaricare il report e aprire i dati come tabella pivot in Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Risolvere i problemi relativi al portale di registrazione per la reimpostazione della password
@@ -55,7 +55,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 | Tipi di errore | Soluzione |
 | --- | --- |
 | La directory non è abilitata per la reimpostazione della password. **L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.** | Impostare il flag **Reimpostazione password self-service abilitata** su **Selezionato** o **Tutto** e quindi fare clic su **Salva**. |
-| All'utente non è stata assegnata una licenza di Azure AD Premium o Basic. **L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.** | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses).|
+| All'utente non è stata assegnata una licenza di Azure AD Premium o Basic. **L'amministratore non ha abilitato l'utente all'uso di questa funzionalità.** | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).|
 | Si è verificato un errore durante l'elaborazione della richiesta. | Questo errore può essere causato da molti problemi, ma in genere è dovuto a un'interruzione del servizio o a un problema di configurazione. Se l'errore si verifica e ha un impatto sull'attività aziendale, contattare il supporto tecnico Microsoft per assistenza. |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Risolvere i problemi relativi al portale di reimpostazione della password
@@ -63,7 +63,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 | Tipi di errore | Soluzione |
 | --- | --- |
 | La directory non è abilitata per la reimpostazione della password. | Impostare il flag **Reimpostazione password self-service abilitata** su **Selezionato** o **Tutto** e quindi fare clic su **Salva**. |
-| All'utente non è stata assegnata una licenza di Azure AD Premium o Basic. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses). |
+| All'utente non è stata assegnata una licenza di Azure AD Premium o Basic. | Questo problema può verificarsi se all'amministratore che esegue l'operazione non è stata assegnata una licenza di Azure AD Premium o Basic. <br> <br> Per risolvere il problema, assegnare una licenza all'account amministratore in questione. Seguire i passaggi illustrati nell'articolo [Assegnare e verificare le licenze e risolvere i relativi problemi](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | La directory è abilitata per la reimpostazione della password, ma le informazioni di autenticazione dell'utente sono mancanti o errate. | Prima di procedere, verificare che i dati di contatto dell'utente archiviati nella directory siano corretti. Per altre informazioni, vedere l'articolo relativo ai [dati usati per la reimpostazione password self-service di Azure AD](howto-sspr-authenticationdata.md). |
 | La directory è abilitata per la reimpostazione della password, ma per l'utente è archiviato un solo metodo di contatto mentre i criteri sono impostati in modo da richiedere due metodi di verifica. | Prima di procedere, verificare che per l'utente siano configurati correttamente almeno due metodi di contatto. Sono ad esempio necessari un numero di telefono cellulare *e* un numero di telefono dell'ufficio. |
 | La directory è abilitata per la reimpostazione della password, ma non è possibile contattare l'utente anche se questo è configurato correttamente. | Questo errore può essere causato da un problema temporaneo del servizio o da dati di contatto errati che non sono stati rilevati correttamente. <br> <br> Se l'utente attende 10 secondi, vengono visualizzati i collegamenti per riprovare o per contattare l'amministratore. Se l'utente sceglie di riprovare, viene eseguito un nuovo tentativo di chiamata. Se l'utente sceglie di contattare l'amministratore, viene inviato un modulo di posta elettronica agli amministratori in cui viene richiesto di eseguire la reimpostazione della password per l'account utente. |

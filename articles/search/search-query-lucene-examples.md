@@ -2,19 +2,19 @@
 title: Esempi di query Lucene per Ricerca di Azure | Microsoft Docs
 description: Sintassi di query Lucene per ricerca fuzzy, ricerca per prossimità, l'aumento della priorità dei termini, ricerca con espressioni regolari e ricerca con caratteri jolly.
 author: LiamCa
-manager: jlembicz
+manager: pablocas
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: 46e03834cb307ea103a8794616f6f38227881272
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190091"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951023"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Esempi di sintassi di query Lucene per la creazione di query in Ricerca di Azure
 Quando si creano query per Ricerca di Azure, è possibile usare la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) predefinita o il [parser di query Lucene in Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Il parser di query Lucene supporta costrutti di query più complessi, ad esempio le query con ambito campo, ricerca fuzzy, ricerca di prossimità, aumento priorità dei termini e ricerca di espressioni regolari.
@@ -38,13 +38,13 @@ Tutti gli esempi in questo articolo specificano il parametro di ricerca **queryT
 
 **Esempio 1** : fare clic con il pulsante destro del mouse sul frammento di query seguente per aprirlo in una nuova pagina del browser che carica JSFiddle ed esegue la query:
 
-* [&queryType=full&search=*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
+* [&queryType=full&search=*](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*)
 
 Nella nuova finestra del browser il codice di origine Javascript e l'output HTML sono affiancati. Lo script fa riferimento a una query completa, non al solo frammento di codice, come illustrato nel collegamento. La query completa è illustrata negli URL di ogni esempio. 
 
 Questa query restituisce documenti dall'indice delle offerte di lavoro della città di New York, ovvero nycjobs caricato in un servizio sandbox. Per ragioni di brevità, la query specifica che vengono restituiti solo i titoli aziendali. La query sottostante completa è la seguente:
 
-    http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
+    https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26searchFields=business_title%26$select=business_title%26queryType=full%26search=*
 
 Il parametro **searchFields** limita la ricerca al solo campo della qualifica professionale (business_title). **queryType** è impostato su **full**, pertanto Ricerca di Azure usa il parser di query Lucene per eseguire la query.
 
@@ -64,7 +64,7 @@ Il campo specificato in **nomecampo:terminericerca** deve essere un campo ricerc
 
 **Esempio 2**: fare clic con il pulsante destro del mouse sul frammento di query seguente. Questa query cerca titoli aziendali che contengono il termine senior ma non junior:
 
-* [&queryType=full&search= business_title:senior NOT junior](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
+* [&queryType=full&search= business_title:senior NOT junior](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:senior+NOT+junior)
 
 ## <a name="fuzzy-search-example"></a>Esempio di ricerca fuzzy
 Una ricerca fuzzy trova le corrispondenze in termini che hanno una costruzione simile. Secondo la [documentazione di Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), le ricerche fuzzy si basano sulla [distanza di Damerau-Levenshtein](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance).
@@ -73,7 +73,7 @@ Per eseguire una ricerca fuzzy, aggiungere il simbolo tilde "~" alla fine di una
 
 **Esempio 3** : fare clic con il pulsante destro del mouse sul frammento di query seguente. Questa query cerca i processi con il termine associate, che non è scritto correttamente:
 
-* [&amp;queryType=full&amp;search= business_title:asosiate~](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
+* [&amp;queryType=full&amp;search= business_title:asosiate~](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:asosiate~)
 
 > [!Note]
 > Le query fuzzy non vengono [analizzate](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis), il che può sorprendere se si prevede lo stemming o la lemmatizzazione. L'analisi lessicale viene eseguita solo su termini completi, la query di un termine o di una locuzione. I tipi di query con termini incompleti, ad esempio query di prefisso, di caratteri jolly, di espressioni regolari, fuzzy, vengono aggiunte direttamente alla struttura della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
@@ -84,11 +84,11 @@ Le ricerche per prossimità vengono usate per trovare termini che si trovano vic
 
 **Esempio 4** : fare clic con il pulsante destro del mouse sulla query. Ricerca processi con il termine "senior analyst" separato da non più di una parola:
 
-* [&amp;queryType=full&amp;search=business_title:"senior analyst"~1](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
+* [&amp;queryType=full&amp;search=business_title:"senior analyst"~1](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~1)
 
 **Esempio 5** : ricerca le ricorrenze in cui "senior analyst" non è separato da nessuna parola.
 
-* [&queryType=full&search=business_title:"senior analyst"~0](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
+* [&queryType=full&search=business_title:"senior analyst"~0](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:%22senior%20analyst%22~0)
 
 ## <a name="term-boosting-examples"></a>Esempi di aumento della priorità dei termini
 Questa definizione si riferisce alla termine si riferisce alla classificazione più alta di un documento se contiene il termine con aumento di priorità, rispetto a documenti che non contengono il termine. Questo comportamento è diverso dall'assegnazione di punteggi ai profili, perché questo metodo assegna priorità ad alcuni campi, invece che a termini specifici. L'esempio seguente illustra le differenze.
@@ -99,11 +99,11 @@ Per aumentare la priorità di un termine, usare il carattere accento circonfless
 
 **Esempio 6**: fare clic con il pulsante destro del mouse sulla query. Cercare processi con il termine "computer analyst" per cui non sono presenti risultati con entrambe le parole computer e analyst, anche se all'inizio dei risultati sono presenti processi che contengono analyst.
 
-* [&amp;queryType=full&amp;search=business_title:computer analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&amp;queryType=full&amp;search=business_title:computer analyst](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 **Esempio 7**: provare di nuovo, questa volta aumentando la priorità dei risultati con il termine computer rispetto al termine analyst, se non esiste nessuna delle due parole.
 
-* [&queryType=full&search=business_title:computer^2 analyst](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
+* [&queryType=full&search=business_title:computer^2 analyst](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26$select=business_title%26queryType=full%26search=business_title:computer%5e2%20analyst)
 
 ## <a name="regular-expression-example"></a>Esempio di espressione regolare
 Una ricerca con espressione regolare trova una corrispondenza in base al contenuto incluso tra le barre "/", come indicato nella [classe RegExp](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
@@ -112,14 +112,14 @@ Una ricerca con espressione regolare trova una corrispondenza in base al contenu
 
 * `&queryType=full&$select=business_title&search=business_title:/(Sen|Jun)ior/`
 
-L'URL per questo esempio non visualizza correttamente la pagina. Come soluzione alternativa, copiare l'URL seguente e incollarlo nell'indirizzo URL del browser: `http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
+L'URL per questo esempio non visualizza correttamente la pagina. Come soluzione alternativa, copiare l'URL seguente e incollarlo nell'indirizzo URL del browser: `https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:/(Sen|Jun)ior/)`
 
 ## <a name="wildcard-search-example"></a>Esempio di ricerca con caratteri jolly
 È possibile usare una sintassi generalmente riconosciuta per ricerche con caratteri jolly per trovare più caratteri (\*) o un singolo carattere (?). Si noti che il parser di query Lucene supporta l'utilizzo di questi simboli con un singolo termine, non una frase.
 
 **Esempio 9**: fare clic con il pulsante destro del mouse sulla query. Cercare processi contenenti il prefisso 'prog' che includerà business_title con i termini programming e programmer.
 
-* [&queryType=full&$select=business_title&search=business_title:prog*](http://fiddle.jshell.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
+* [&queryType=full&$select=business_title&search=business_title:prog*](https://jsfiddle.net/liamca/gkvfLe6s/1/?index=nycjobs&apikey=252044BE3886FE4A8E3BAA4F595114BB&query=api-version=2017-11-11%26queryType=full%26$select=business_title%26search=business_title:prog*)
 
 Non è possibile usare un carattere * o ? come primo carattere di una ricerca.
 

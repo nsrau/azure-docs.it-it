@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26738380"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856689"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Eseguire la migrazione dei dati da un dispositivo StorSimple serie 5000/7000 a un dispositivo serie 8000
 
@@ -56,7 +56,7 @@ Una migrazione sul lato host consente di configurare il dispositivo serie 8000 i
 | 3.   | Dopo la migrazione, tutti i dati sono archiviati in locale nell'appliance. Non si verificano problemi di latenza durante l'accesso ai dati. | L'utilizzo delle risorse di archiviazione di Azure aumenta finché i dati non vengono eliminati dal dispositivo serie 5000/7000.                                                                                                        |
 | 4.   |                                                                                                                           | Se il dispositivo serie 5000/7000 contiene una grande quantità di dati, durante la migrazione i dati devono essere scaricati da Azure. Ciò comporta un addebito di costi e problemi di latenza dovuti al download dei dati da Azure. |
 
-Questo articolo illustra solo la funzionalità di migrazione da un dispositivo serie 5000/7000 a un dispositivo serie 8000. Per altre informazioni relative alla migrazione sul lato host, vedere [Migration from other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf) (Migrazione da altri dispositivi di archiviazione).
+Questo articolo illustra solo la funzionalità di migrazione da un dispositivo serie 5000/7000 a un dispositivo serie 8000. Per altre informazioni relative alla migrazione sul lato host, vedere [Migration from other storage devices](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating%20Data%20to%20StorSimple%20Volumes_09-02-15.pdf) (Migrazione da altri dispositivi di archiviazione).
 
 ## <a name="migration-prerequisites"></a>Prerequisiti per la migrazione
 

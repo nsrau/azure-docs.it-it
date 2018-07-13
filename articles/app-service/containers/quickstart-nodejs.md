@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293905"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969545"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Creare un'app Web Node.js nel Servizio app di Azure in Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "35293905"
 > Questo articolo consente di distribuire un'app nel servizio app in Linux. Per la distribuzione nel servizio app in _Windows_, vedere [Creare un'app Web Node.js in Azure](../app-service-web-get-started-nodejs.md).
 >
 
-Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva illustra come distribuire un'app Node.js nel Servizio app in Linux usando [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
@@ -40,7 +40,7 @@ Questa guida introduttiva verrà completata in Cloud Shell, ma gli stessi comand
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Installare l'estensione di app Web per Cloud Shell
 
-Per completare questa guida introduttiva, è necessario aggiungere l'[estensione di app Web az](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se l'estensione è già installata, occorre aggiornarla all'ultima versione. Per aggiornare l'estensione dell'app Web, digitare `az extension update -n webapp`.
+Per completare questa guida introduttiva, è necessario aggiungere l'[estensione di app Web az](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se l'estensione è già installata, occorre aggiornarla all'ultima versione. Per aggiornare l'estensione dell'app Web, digitare `az extension update -n webapp`.
 
 Per installare l'estensione dell'app Web, eseguire il comando seguente:
 
@@ -136,7 +136,7 @@ Il comando `az webapp up` esegue le azioni seguenti:
 
 - Crea un'app con il nome specificato.
 
-- [Distribuisce con zipdeploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
+- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
 
 ## <a name="browse-to-the-app"></a>Passare all'app
 

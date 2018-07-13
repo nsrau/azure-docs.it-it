@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: marsma
 ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057775"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582631"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build
 

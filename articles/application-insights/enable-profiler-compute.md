@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: ramach; mbullwin
-ms.openlocfilehash: 9d95cb637607e69c4b7a7ab22f3c6239bd67c4f7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: ramach
+ms.author: mbullwin
+ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950672"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Abilitare Application Insights Profiler per macchine virtuali di Azure, Service Fabric e Servizi cloud di Azure
 
@@ -210,7 +212,7 @@ Per configurare l'ambiente, procedere come segue:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Se l'applicazione interessata è in esecuzione tramite [IIS](https://www.microsoft.com/web/platform/server.aspx), abilitare la funzionalità `IIS Http Tracing` di Windows come illustrato di seguito:  
+2. Se l'applicazione interessata è in esecuzione tramite [IIS](https://www.microsoft.com/web/downloads/platform.aspx), abilitare la funzionalità `IIS Http Tracing` di Windows come illustrato di seguito:  
 
    a. Stabilire l'accesso remoto all'ambiente e quindi usare la finestra [Aggiungi funzionalità Windows]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) oppure eseguire il comando seguente in PowerShell, come amministratore:  
 

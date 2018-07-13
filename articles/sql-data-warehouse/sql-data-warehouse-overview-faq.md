@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187073"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971704"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Domande frequenti su SQL Data Warehouse di Azure
 
@@ -49,11 +49,11 @@ R. Se si dispone di una richiesta di funzionalità, inviarla alla pagina [UserVo
 
 D: Come posso fare?
 
-R. Per assistenza nello sviluppo con SQL Data Warehouse, è possibile porre domande alla pagina [Overflow dello stack]. 
+R. Per assistenza nello sviluppo con SQL Data Warehouse, è possibile porre domande alla pagina [Stack Overflow]. 
 
 D: Come posso inviare un ticket di supporto?
 
-R. [I ticket di supporto] possono essere inviati tramite il Portale di Azure.
+R. [Ticket di supporto] possono essere inviati tramite il Portale di Azure.
 
 ## <a name="sql-languagefeature-support"></a>Supporto per le funzionalità/linguaggio SQL 
 
@@ -80,7 +80,7 @@ R. Sì. La maggior parte delle funzionalità REST che può essere usata con il D
 
 D: Quali driver client sono supportati?
 
-R. Il supporto dei driver per DW è reperibile nella pagina delle[stringhe di connessione]
+R. Il supporto dei driver per DW è reperibile nella pagina delle[Stringhe di connessione]
 
 D: Quali formati di file sono supportati da PolyBase con SQL Data Warehouse?
 
@@ -88,7 +88,7 @@ R: Orc, RC, Parquet e testo delimitato semplice
 
 D: A cosa è possibile collegarsi da SQL Data Warehouse usando PolyBase? 
 
-R: [Azure Data Lake Store] e [BLOB del servizio di archiviazione di Azure]
+R: [Archivio Data Lake di Azure] e [BLOB di archiviazione di Azure]
 
 D: È possibile impostare il calcolo per la connessione al BLOB del servizio di archiviazione di Azure o ad ADLS? 
 
@@ -99,21 +99,21 @@ D: È possibile connettersi ad HDI?
 R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello HDFS, è possibile caricare i dati in SQL DW. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Panoramica].
+Per altre informazioni su SQL Data Warehouse nel complesso, vedere la pagina [Overview].
 
 
 <!-- Article references -->
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[stringhe di connessione]: ./sql-data-warehouse-connection-strings.md
-[Overflow dello stack]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[I ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
+[Stringhe di connessione]: ./sql-data-warehouse-connection-strings.md
+[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Ticket di supporto]: ./sql-data-warehouse-get-started-create-support-ticket.md
 [Sicurezza]: ./sql-data-warehouse-overview-manage-security.md
 [Conformità di Microsoft]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [limiti di capacità]: ./sql-data-warehouse-service-capacity-limits.md
 [tipi di dati]: ./sql-data-warehouse-tables-data-types.md
 [Funzionalità non supportate delle tabelle]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[BLOB del servizio di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Archivio Data Lake di Azure]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[BLOB di archiviazione di Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [richiesta di funzionalità per progetti di Database]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Panoramica]: ./sql-data-warehouse-overview-faq.md
+[Overview]: ./sql-data-warehouse-overview-faq.md

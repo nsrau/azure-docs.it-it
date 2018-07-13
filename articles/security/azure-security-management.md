@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 209fdda974dee2386328da43991cc9d453e61aa7
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062162"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857481"
 ---
 # <a name="security-management-in-azure"></a>Gestione della sicurezza in Azure
 I sottoscrittori di Azure possono gestire i propri ambienti cloud da più dispositivi, tra cui workstation di gestione, PC per sviluppatori e dispositivi di utenti finali con privilegi elevati con autorizzazioni specifiche per le attività. In alcuni casi le funzioni amministrative vengono eseguite tramite console basate sul Web, ad esempio il [portale di Azure](https://azure.microsoft.com/features/azure-portal/). In altri casi è possibile che vengano usate connessioni dirette ad Azure da sistemi locali su reti private virtuali (VPN), Servizi terminal, protocolli applicativi client oppure, a livello di codice, l'API Gestione dei servizi di Azure (SMAPI). Gli endpoint client possono essere inoltre aggiunti a un dominio o isolati e non gestiti, ad esempio tablet o smartphone.
@@ -93,7 +93,7 @@ In una workstation con protezione avanzata l'amministratore esegue un account ut
 * Restrizione dell'esecuzione. È possibile consentire solo un set di file eseguibili predefiniti necessari per l'esecuzione della gestione. Questo approccio è definito "rifiuto predefinito". Per impostazione predefinita, gli utenti non devono essere autorizzati a eseguire alcun programma, a meno che non sia definito esplicitamente nell'elenco Consenti.
 * Privilegi minimi. Gli utenti delle workstation di gestione non devono avere privilegi amministrativi nel computer locale stesso. In questo modo non potranno modificare la configurazione del sistema o i file di sistema, in modo intenzionale o accidentale.
 
-È possibile applicare queste restrizioni usando [Oggetti Criteri di gruppo](https://www.microsoft.com/download/details.aspx?id=2612) in Active Directory Domain Services (AD DS) e applicandoli nel dominio di gestione (locale) a tutti gli account di gestione.
+È possibile applicare queste restrizioni usando [Oggetti Criteri di gruppo](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy) in Active Directory Domain Services (AD DS) e applicandoli nel dominio di gestione (locale) a tutti gli account di gestione.
 
 ### <a name="managing-services-applications-and-data"></a>Gestione di servizi, applicazioni e dati
 La configurazione dei servizi cloud di Azure viene eseguita mediante il portale di Azure o SMAPI, tramite l'interfaccia da riga di comando di Windows PowerShell o un'applicazione personalizzata che sfrutta queste interfacce RESTful. I servizi che usano questi meccanismi includono Azure Active Directory (Azure AD), Archiviazione di Azure, Siti Web di Azure, Rete virtuale di Azure e altri ancora.

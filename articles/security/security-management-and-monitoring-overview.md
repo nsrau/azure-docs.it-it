@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752289"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697106"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Panoramica su gestione e monitoraggio della sicurezza di Azure
 Azure offre meccanismi di sicurezza utili per la gestione e il monitoraggio dei servizi cloud e delle macchine virtuali (VM) di Azure. Questo articolo offre una panoramica dei servizi e delle funzionalità di sicurezza di base. Per ottenere maggiori informazioni, sono disponibili collegamenti ad articoli contenenti informazioni dettagliate su ogni funzionalità.
@@ -100,8 +100,8 @@ Privileged Identity Management introduce il concetto di amministratore temporane
 
 Altre informazioni:
 
-* [Gestione identità con privilegi di Azure AD](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Introduzione ad Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Gestione identità con privilegi di Azure AD](../active-directory/privileged-identity-management/pim-configure.md)
+* [Introduzione ad Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>Identity Protection
 Azure AD Identity Protection offre una visualizzazione consolidata delle attività di accesso sospette e delle potenziali vulnerabilità per garantire la protezione dell'organizzazione. Identity Protection rileva attività sospette per utenti e identità privilegiate (admin), sulla base di segnali come:

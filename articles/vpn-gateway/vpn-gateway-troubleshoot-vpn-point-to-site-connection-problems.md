@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 0db2291b53c4fe7d2d0894a4c266ed60f78219de
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072233"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857331"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -305,11 +305,11 @@ Per risolvere questo problema, [reimpostare il gateway VPN di Azure](vpn-gateway
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Errore: "La funzione di revoca non è in grado di completare il controllo di revoca perché il server di revoca è offline (errore 0x80092013)"
 
 ### <a name="causes"></a>Cause
-Questo messaggio di errore viene visualizzato se il client non può accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.  La verifica delle revoche richiede l'accesso a questi due siti.  Questo problema si verifica in genere nel client che ha un server proxy configurato. In alcuni ambienti se le richieste non passano attraverso il server proxy, verranno rifiutate a livello di firewall di confine.
+Questo messaggio di errore viene visualizzato se il client non può accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.crl.  La verifica delle revoche richiede l'accesso a questi due siti.  Questo problema si verifica in genere nel client che ha un server proxy configurato. In alcuni ambienti se le richieste non passano attraverso il server proxy, verranno rifiutate a livello di firewall di confine.
 
 ### <a name="solution"></a>Soluzione
 
-Controllare le impostazioni del server proxy, assicurarsi che il client possa accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.cr.
+Controllare le impostazioni del server proxy, assicurarsi che il client possa accedere a http://crl3.digicert.com/ssca-sha2-g1.crl e http://crl4.digicert.com/ssca-sha2-g1.crl.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>Errore del client VPN: Impossibile stabilire la connessione a causa di un criterio configurato nel server RAS/VPN (errore 812)
 

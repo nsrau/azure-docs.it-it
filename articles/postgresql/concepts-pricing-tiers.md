@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018340"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970262"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -64,6 +64,8 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Asia orientale | X | X |
 | Asia sudorientale | X | X |
 | Australia orientale |  | X |
+| Australia centrale |  | X |
+| Australia centrale 2 |  | X |
 | Australia sudorientale |  | X |
 | India centrale | X | X |
 | India occidentale | X | X |
@@ -82,7 +84,7 @@ Lo spazio di archiviazione di cui si esegue il provisioning è la capacità di a
 | Tipo di archiviazione | Archiviazione Standard di Azure | Archiviazione Premium di Azure | Archiviazione Premium di Azure |
 | Dimensioni della risorsa di archiviazione | Da 5 GB a 1 TB | Da 5 GB a 4 TB | Da 5 GB a 4 TB |
 | Dimensioni di incremento dell'archiviazione | 1 GB | 1 GB | 1 GB |
-| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Minimo 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Minimo 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
+| IOPS | Variabile |3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo | 3 operazioni di I/O al secondo/GB<br/>Min 100 operazioni di I/O al secondo<br/>Massimo 6000 operazioni di I/O al secondo |
 
 È possibile aggiungere capacità di archiviazione durante e dopo la creazione del server. Il piano Basic non offre la garanzia relativa alle operazioni di I/O al secondo. Nei piani tariffari Utilizzo generico e Con ottimizzazione per la memoria, la scalabilità delle operazioni di I/O al secondo rispetto allo spazio di archiviazione sottoposto a provisioning è in un rapporto di 3 a 1.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077806"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35777329"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualizzare la topologia di una rete virtuale di Azure
 
@@ -37,10 +37,12 @@ Per visualizzare una topologia è possibile usare il [portale di Azure](#azure-p
 
     ![Visualizzare la topologia](./media/view-network-topology/view-topology.png)
 
-    Come illustrato nell'immagine precedente, la rete virtuale contiene tre subnet. In una delle subnet è implementata una macchina virtuale a cui sono associati un'interfaccia di rete e un indirizzo IP pubblico. Alle altre due subnet è associata una tabella di route. Ogni tabella contiene due route. A una delle subnet è associato un gruppo di sicurezza di rete. Le informazioni sulla topologia vengono visualizzate solo per le risorse che: - Si trovano all'interno dello stesso gruppo di risorse e della stessa area della rete virtuale *myVnet*. Ad esempio, un gruppo di sicurezza di rete incluso in un gruppo di risorse diverso da *MyResourceGroup* non viene visualizzato, anche se tale gruppo è associato a una subnet nella rete virtuale *MyVnet*.
-        - Si trovano all'interno della rete virtuale *myVnet* o sono associate alle risorse incluse in tale rete. Ad esempio, un gruppo di sicurezza di rete che non è associato a una subnet o a un'interfaccia di rete nella rete virtuale *myVnet* non viene visualizzato, anche se tale gruppo è incluso nel gruppo di risorse *MyResourceGroup*.
+    Come illustrato nell'immagine precedente, la rete virtuale contiene tre subnet. In una delle subnet è implementata una macchina virtuale a cui sono associati un'interfaccia di rete e un indirizzo IP pubblico. Alle altre due subnet è associata una tabella di route. Ogni tabella contiene due route. A una delle subnet è associato un gruppo di sicurezza di rete. Le informazioni sulla topologia vengono visualizzate solo per le risorse che:
+    
+    - Si trovano all'interno dello stesso gruppo di risorse e della stessa area della rete virtuale *myVnet*. Ad esempio, un gruppo di sicurezza di rete incluso in un gruppo di risorse diverso da *MyResourceGroup* non viene visualizzato, anche se tale gruppo è associato a una subnet nella rete virtuale *MyVnet*.
+    - Si trovano all'interno della rete virtuale *myVnet* o sono associate alle risorse incluse in tale rete. Ad esempio, un gruppo di sicurezza di rete che non è associato a una subnet o a un'interfaccia di rete nella rete virtuale *myVnet* non viene visualizzato, anche se tale gruppo è incluso nel gruppo di risorse *MyResourceGroup*.
 
-    Nell'immagine è illustrata la topologia relativa alla rete virtuale creata dopo la distribuzione dell'**esempio di script per instradare il traffico attraverso un'appliance virtuale di rete**, che è possibile distribuire tramite l'[interfaccia della riga di comando di Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+  Nell'immagine è illustrata la topologia relativa alla rete virtuale creata dopo la distribuzione dell'**esempio di script per instradare il traffico attraverso un'appliance virtuale di rete**, che è possibile distribuire tramite l'[interfaccia della riga di comando di Azure](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) o [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 6. Selezionare **Scarica topologia** per scaricare l'immagine come file modificabile, con estensione svg.
 
@@ -132,7 +134,7 @@ Tutte le risorse restituite in una topologia sono correlate in base a uno dei ti
 | Contenimento       | Una rete virtuale contiene una subnet. Una subnet contiene un'interfaccia di rete.                            |
 | Associazione        | Un'interfaccia di rete è associata a una VM. Un indirizzo IP pubblico è associato a un'interfaccia di rete. |
 
-## <a name="properties"></a>Proprietà
+## <a name="properties"></a>Properties
 
 Tutte le risorse restituite in una topologia hanno le proprietà seguenti:
 

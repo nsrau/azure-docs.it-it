@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: d6195eda43dfd6ad249e82dabd0b314fc162b8c6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301083"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969606"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Driver di volume per File di Azure di Service Fabric (anteprima)
 Il plug-in di volume di File di Azure è un [plug-in di volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) che fornisce volumi basati su [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) per contenitori Docker. Questo plug-in di volume Docker viene offerto come pacchetto di applicazione di Service Fabric distribuibile nei cluster di Service Fabric, con lo scopo di fornire volumi basati su File di Azure per altre applicazioni contenitore di Service Fabric distribuite nel cluster.
@@ -29,17 +29,17 @@ Il plug-in di volume di File di Azure è un [plug-in di volume Docker](https://d
 >
 
 ## <a name="prerequisites"></a>prerequisiti
-* La versione Windows del plug-in di volume di File di Azure può essere usata solo in [Windows Server versione 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versione 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) o sistemi operativi successivi. La versione Linux del plug-in di volume di File di Azure può essere usata in tutte le versioni del sistema operativo supportate da Service Fabric.
+* La versione Windows del plug-in di volume di File di Azure può essere usata solo in [Windows Server versione 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 versione 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) o sistemi operativi successivi. La versione Linux del plug-in di volume di File di Azure può essere usata in tutte le versioni del sistema operativo supportate da Service Fabric.
 
 * Il plug-in di volume di File di Azure funziona solo con Service Fabric 6.2 e versioni successive.
 
-* Per creare una condivisione file per l'applicazione contenitore di Service Fabric da usare come volume, seguire le istruzioni riportate nella [documentazione di File di Azure](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share).
+* Per creare una condivisione file per l'applicazione contenitore di Service Fabric da usare come volume, seguire le istruzioni riportate nella [documentazione di File di Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 
-* È necessario che sia installato [Powershell con il modulo Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli).
+* È necessario che sia installato [Powershell con il modulo Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) o [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli).
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Distribuire l'applicazione File di Azure di Service Fabric
 
-L'applicazione di Service Fabric che fornisce i volumi per i contenitori può essere scaricata dal [collegamento](https://aka.ms/sfvolume) seguente. L'applicazione può essere distribuita nel cluster tramite [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), l'[interfaccia della riga di comando](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o le [API di FabricClient](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+L'applicazione di Service Fabric che fornisce i volumi per i contenitori può essere scaricata dal [collegamento](https://aka.ms/sfvolume) seguente. L'applicazione può essere distribuita nel cluster tramite [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), l'[interfaccia della riga di comando](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) o le [API di FabricClient](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Usando la riga di comando, passare alla directory radice del pacchetto dell'applicazione scaricato.
 

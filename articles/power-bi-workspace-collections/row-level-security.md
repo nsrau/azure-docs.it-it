@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 7256e2f798fbc32c098f19f60b62e577300868c7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 09a0de1efc909b72192f9d8584edd0fda5e6217d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414102"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856352"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 
@@ -93,7 +93,7 @@ I filtri possono essere ora applicati anche dalla tabella Sales alla tabella **I
 1. **File** -> **Opzioni e impostazioni** -> **Funzionalità di anteprima** -> **Abilita il filtro incrociato in entrambe le direzioni per DirectQuery**.
 2. **File** -> **Opzioni e impostazioni** -> **DirectQuery** -> **Consenti misure senza limitazioni in modalità DirectQuery**.
 
-Per altre informazioni sui filtri incrociati bidirezionali, scaricare il white paper [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional cross-filtering in Analysis Services 2016 and Power BI.docx) (Filtro incrociato bidirezionale in SQL Server Analysis Services 2016 e Power BI Desktop).
+Per altre informazioni sui filtri incrociati bidirezionali, scaricare il white paper [Bidirectional cross-filtering in SQL Server Analysis Services 2016 and Power BI Desktop](http://download.microsoft.com/download/2/7/8/2782DF95-3E0D-40CD-BFC8-749A2882E109/Bidirectional%20cross-filtering%20in%20Analysis%20Services%202016%20and%20Power%20BI.docx) (Filtro incrociato bidirezionale in SQL Server Analysis Services 2016 e Power BI Desktop).
 
 Queste sono tutte le operazioni da eseguire in Power BI Desktop, ma per consentire il funzionamento delle regole di sicurezza a livello di riga in Power BI Embedded è necessario ancora un passaggio. Gli utenti vengono autenticati e autorizzati dall'applicazione e i token dell'app vengono usati per concedere l'accesso a un report specifico di Power BI Embedded. Power BI Embedded non ha informazioni specifiche sull'identità dell'utente. Per consentire il funzionamento di Sicurezza a livello di riga, è necessario passare contesto aggiuntivo all'interno del token dell'app:
 

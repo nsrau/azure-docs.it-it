@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237425"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970245"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Funzionalità di archiviazione non modificabile dell'archivio BLOB di Azure (anteprima)
 
@@ -42,7 +42,7 @@ La funzionalità di archiviazione non modificabile offre:
 
 - **Configurazione a livello di contenitore:** la funzionalità di archiviazione non modificabile consente agli utenti di configurare i criteri di conservazione basati sul tempo e i tag di blocco a fini giudiziari a livello di contenitore.  Gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere blocchi a fini giudiziari e così via tramite semplici impostazioni a livello di contenitore.  Questi criteri verranno applicati a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
-- **Supporto per la registrazione di controllo:** ogni contenitore include un log di controllo che contiene fino a cinque comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati, con un massimo di tre log per le estensioni dell'intervallo di conservazione.  Per la conservazione basata sul tempo, il log contiene l'ID utente, il tipo di comando, i timestamp e il periodo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag del blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del contenitore, in base alle linee guida delle normative SEC 17a-4(f). Un log più completo di tutte le attività del piano di controllo è disponibile nel [log attività di Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
+- **Supporto per la registrazione di controllo:** ogni contenitore include un log di controllo che contiene fino a cinque comandi di conservazione basati sul tempo per i criteri di conservazione basati sul tempo bloccati, con un massimo di tre log per le estensioni dell'intervallo di conservazione.  Per la conservazione basata sul tempo, il log contiene l'ID utente, il tipo di comando, i timestamp e il periodo di conservazione. Per i blocchi a fini giudiziari, il log contiene l'ID utente, il tipo di comando, i timestamp e i tag del blocco a fini giudiziari. Questo log viene mantenuto per tutta la durata del contenitore, in base alle linee guida delle normative SEC 17a-4(f). Un log più completo di tutte le attività del piano di controllo è disponibile nel [log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). È responsabilità dell'utente archiviare questi log in modo permanente, come potrebbe essere richiesto per scopi legali o di altro tipo.
 
  La funzionalità è abilitata in tutte le aree pubbliche di Azure.
 
@@ -68,7 +68,7 @@ Per informazioni dettagliate su come impostare e rimuovere blocchi a fini giudiz
 
 A un contenitore possono essere applicati contemporaneamente sia un criterio di conservazione basato sul tempo che un blocco a fini giudiziari. Tutti i BLOB nel contenitore rimarranno nello stato non modificabile finché non vengono rimossi tutti i blocchi a fini giudiziari, anche se il relativo periodo di conservazione effettivo è scaduto. Viceversa, un BLOB rimarrà in uno stato non modificabile fino alla scadenza del periodo di conservazione effettivo anche se sono stati rimossi tutti i blocchi a fini giudiziari.
 La tabella seguente illustra i tipi di operazioni BLOB che verranno disabilitate per i diversi scenari di archiviazione non modificabile.
-Per informazioni dettagliate sull'API REST per i BLOB, fare riferimento alla documentazione dell'[API del servizio BLOB di Azure](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api).
+Per informazioni dettagliate sull'API REST per i BLOB, fare riferimento alla documentazione dell'[API del servizio BLOB di Azure](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api).
 
 |Scenario  |Stato BLOB  |Operazioni BLOB non consentite  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Per informazioni dettagliate sull'API REST per i BLOB, fare riferimento alla doc
 
 > [!NOTE]
 > La prima operazione Put Blob e le operazioni Put Block List e Put Block necessarie per creare un BLOB sono consentite nei primi due scenari della tabella precedente, mentre tutte le operazioni successive non sono consentite.
-> La funzionalità di archiviazione non modificabile è disponibile solo negli account per utilizzo generico v2 e negli account di archiviazione BLOB e deve essere creata tramite [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview).
+> La funzionalità di archiviazione non modificabile è disponibile solo negli account per utilizzo generico v2 e negli account di archiviazione BLOB e deve essere creata tramite [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prezzi
 
@@ -94,7 +94,7 @@ Durante l'anteprima pubblica si applicano le restrizioni seguenti:
 
 ## <a name="getting-started"></a>Introduzione
 
-L'archiviazione non modificabile di Azure per i BLOB di Azure è supportata nelle versioni più recenti del [portale di Azure](http://portal.azure.com), dell'[interfaccia della riga di comando 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) di Azure e di Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+L'archiviazione non modificabile di Azure per i BLOB di Azure è supportata nelle versioni più recenti del [portale di Azure](http://portal.azure.com), dell'[interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) di Azure e di Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -130,7 +130,7 @@ L'archiviazione non modificabile di Azure per i BLOB di Azure è supportata nell
 
 ### <a name="cli-20"></a>Interfaccia della riga di comando 2.0
 
-Installare l'[estensione dell'interfaccia della riga di comando](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) con `az extension add -n storage-preview`
+Installare l'[estensione dell'interfaccia della riga di comando](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) con `az extension add -n storage-preview`
 
 Se l'estensione è già installata, usare il comando seguente per abilitare la funzionalità di archiviazione non modificabile: `az extension update -n storage-preview`
 

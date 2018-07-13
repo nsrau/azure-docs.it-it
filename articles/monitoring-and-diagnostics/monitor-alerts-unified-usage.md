@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a913075c051c6b784495917b7edbd7340254a212
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287838"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952631"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure  
 
@@ -62,7 +62,7 @@ Di seguito è riportata una guida dettagliata per l'uso di Avvisi di Azure.
 
     > Sono supportati anche gli avvisi del log attività, ma sono in versione di anteprima. [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Avvisi delle metriche: verificare che **Tipo di risorsa** sia selezionato con tipo di segnale **Metrica** e quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Operazione completata* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
+5. *Avvisi delle metriche*: verificare che **Tipo di risorsa** sia selezionato con tipo di segnale **Metrica**, quindi, una volta selezionata la **risorsa** appropriata, fare clic sul pulsante *Operazione completata* per tornare alla finestra Crea avviso. Usare quindi il pulsante **Aggiungi criteri** per selezionare il segnale specifico nell'elenco delle opzioni di segnale, il servizio di monitoraggio e il tipo elencato disponibili per la risorsa selezionata in precedenza.
 
     ![Selezionare una risorsa](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 

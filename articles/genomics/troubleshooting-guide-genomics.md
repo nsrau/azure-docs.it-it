@@ -12,11 +12,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34627365"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 Questa panoramica descrive le strategie per risolvere i problemi comuni quando si usa il servizio Genomica di Microsoft. Per domande frequenti generali, vedere [Domande comuni](frequently-asked-questions-genomics.md). 
@@ -72,9 +73,7 @@ Se vengono visualizzati i messaggi di errore seguenti, si è verificato un error
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-Provare a inviare di nuovo il flusso di lavoro. Se i problemi dei processi persistono o se si hanno altre domande, contattare il supporto di Genomica di Microsoft dal portale di Azure.
-
-![Contattare il supporto nel portale di Azure](./media/troubleshooting-guide/genomics-contact-support.png "Contattare il supporto nel portale di Azure")
+Provare a inviare di nuovo il flusso di lavoro. Se i problemi dei processi persistono o se si hanno altre domande, contattare il supporto di Genomica di Microsoft dal portale di Azure. Per altre informazioni su come inviare una richiesta di supporto, vedere [qui](file-support-ticket-genomics.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come risolvere i problemi comuni con il servizio Genomica di Microsoft. Per altre informazioni e domande frequenti più generali, vedere [Domande comuni](frequently-asked-questions-genomics.md). 

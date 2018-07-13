@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595020"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901477"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Key Vault 
 
@@ -137,7 +137,7 @@ Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è pos
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere ad Azure Key Vault.  Per altre informazioni su Azure Key Vault, vedere:
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere ad Azure Key Vault.  Per altre informazioni su Azure Key Vault, consultare:
 
 > [!div class="nextstepaction"]
 >[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-whatis)

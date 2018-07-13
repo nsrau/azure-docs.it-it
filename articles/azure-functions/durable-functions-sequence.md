@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763561"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970055"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Concatenamento di funzioni in Funzioni permanenti - Esempio di sequenza di Hello
 
@@ -71,7 +71,7 @@ Il codice sorgente è il seguente:
 
 Tutte le funzioni di orchestrazione JavaScript devono includere il modulo `durable-functions`. Si tratta di una libreria JavaScript che traduce le azioni della funzione di orchestrazione nel protocollo di esecuzione di Funzioni permanenti per lingue out-of-process. Esistono tre differenze significative tra una funzione di orchestrazione e altre funzioni JavaScript:
 
-1. La funzione è una [funzione generatore.](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. La funzione è una [funzione generatore.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. Per la funzione viene eseguito il wrapping in una chiamata al modulo `durable-functions` (qui `df`).
 3. La funzione termina chiamando `return`, non `context.done`.
 

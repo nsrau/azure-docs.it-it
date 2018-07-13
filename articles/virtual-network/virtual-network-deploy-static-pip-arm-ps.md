@@ -17,11 +17,11 @@ ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525133"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696584"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Creare una VM con un indirizzo IP pubblico statico mediante Azure PowerShell
 

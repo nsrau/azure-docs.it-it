@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: dx@sendgrid.com
 ms.openlocfilehash: a5f07d02bfe4032d77a17e5972b88f6530125f28
-ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "27534856"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Come inviare messaggi di posta elettronica usando SendGrid con Azure
@@ -43,7 +43,7 @@ Per altre informazioni visitare [https://sendgrid.com](https://sendgrid.com) o l
 Il [pacchetto NuGet di SendGrid](https://www.nuget.org/packages/Sendgrid) è il modo più semplice per recuperare l'API SendGrid e configurare l'applicazione con tutte le dipendenze. NuGet è un'estensione di Visual Studio inclusa in Microsoft Visual Studio 2015 e versioni successive che semplifica l'installazione e l'aggiornamento di librerie e strumenti.
 
 > [!NOTE]
-> Per installare NuGet se si esegue una versione di Visual Studio precedente rispetto a Visual Studio 2015, visitare il sito [http://www.nuget.org](http://www.nuget.org)e fare clic su **Install NuGet** .
+> Per installare NuGet se si esegue una versione di Visual Studio precedente rispetto a Visual Studio 2015, visitare il sito [http://www.nuget.org](http://www.nuget.org) e fare clic su **Install NuGet**.
 >
 >
 
@@ -254,7 +254,7 @@ SendGrid offre diverse API e webhook che si possono usare per sfruttare altre fu
 A questo punto, dopo aver appreso le nozioni di base del servizio di posta elettronica SendGrid, usare i collegamenti seguenti per altre informazioni.
 
 * Repository della libreria C\# di SendGrid: [sendgrid-csharp][sendgrid-csharp]
-* Documentazione relativa all'API SendGrid: <https://sendgrid.com/docs>
+* Documentazione dell'API SendGrid: <https://sendgrid.com/docs>
 
 [Next steps]: #next-steps
 [What is the SendGrid Email Service?]: #whatis

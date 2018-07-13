@@ -71,7 +71,7 @@ items:
     items:
       - name: Distribuzione globale
         href: distribute-data-globally.md
-      - name: Configurazione a più master
+      - name: Multimaster
         href: multi-region-writers.md
       - name: Partizionamento
         href: partition-data.md
@@ -168,8 +168,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Query
                 items:
                   - name: Eseguire query SQL
@@ -258,8 +256,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: Playground SQL
@@ -322,12 +318,8 @@ items:
                 href: mongodb-indexing.md
               - name: Visualizzare dati con Power BI
                 href: powerbi-visualize.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentazione sull'API Graph
@@ -346,12 +338,8 @@ items:
             items:
               - name: Partizionamento Graph
                 href: graph-partitioning.md
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Estensione Visual Studio Code
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Documentazioni sull'API di tabella
@@ -404,8 +392,6 @@ items:
                 href: table-sdk-python.md
           - name: Risorse
             items:
-              - name: Gestire con Storage Explorer
-                href: storage-explorer.md
               - name: Panoramica dell'archivio tabelle
                 href: table-storage-overview.md
               - name: Guida alla progettazione dell'archivio tabelle
@@ -458,8 +444,6 @@ items:
     items:
       - name: Foglio informativo sulle query
         href: query-cheat-sheet.md
-      - name: Gestire con Storage Explorer
-        href: storage-explorer.md
       - name: 20 giorni di suggerimenti
         href: 20-days-of-tips.md
       - name: Video

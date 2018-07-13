@@ -1,19 +1,19 @@
 ---
 title: Eliminare un insieme di credenziali di Servizi di ripristino in Azure
 description: Questo articolo descrive come eliminare un insieme di credenziali dei servizi di ripristino. L'articolo include procedure per la risoluzione dei problemi quando si tenta di eliminare un insieme di credenziali senza riuscirci.
-services: service-name
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937601"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901851"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -77,7 +77,7 @@ Per eliminare un insieme di credenziali dei servizi di ripristino:
 
 4. Eseguire il comando seguente per scaricare il pacchetto client Azure Resource Manager da chocolately.org.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Usare il comando seguente per installare il client API Azure Resource Manager.
 
