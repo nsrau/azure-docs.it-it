@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c28686c3b6494a0cf8938d39ab9b8338de7aa0c1
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d5f44c634b953194ad4f112722d82f282d8c8f1a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012581"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444611"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Windows nel portale di Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "34012581"
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
@@ -43,13 +43,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
     ![Immettere le informazioni di base sulla VM nel pannello del portale](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
 
-5. Scegliere **Crea nuovo** per creare un nuovo gruppo di risorse e quindi specificare un nome, ad esempio *GruppoRisorse*. Scegliere la **Località** desiderata e quindi selezionare **OK**.
+5. Scegliere **Crea nuovo** per creare un nuovo gruppo di risorse e quindi specificare un nome, ad esempio *GruppoRisorse*. Scegliere la **Località**, quindi selezionare **OK**.
 
-4. Selezionare una dimensione per la VM. È possibile filtrare in base a *Tipo di calcolo* oppure a *Tipo di disco*, ad esempio. Le dimensioni consigliate per le macchine virtuali sono *D2s_v3*.
+4. Selezionare una dimensione per la VM. È possibile filtrare in base a *Tipo di calcolo* oppure a *Tipo di disco*, ad esempio. Le dimensioni consigliate per le macchine virtuali sono *D2s_v3*. Fare clic su **Seleziona** dopo aver scelto una dimensione.
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
 
-5. In **Impostazioni**  accettare tutte le impostazioni predefinite e selezionare **OK**.
+5. Nella pagina **Impostazioni** in **Rete** > **Gruppo di sicurezza di rete** > **Seleziona le porte in ingresso pubbliche**, selezionare **HTTP** e **RDP (3389)** dal menu a discesa. Accettare tutte le impostazioni predefinite e selezionare **OK**.
 
 6. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
@@ -79,20 +79,12 @@ Per visualizzare la macchina virtuale in azione, installare il server Web IIS. A
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Al termine, chiudere la connessione RDP con la macchina virtuale.
+Al termine chiudere la connessione RDP con la macchina virtuale.
 
-## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
-
-Un gruppo di sicurezza di rete (NSG) protegge il traffico in ingresso e in uscita. Quando si crea una VM nel portale di Azure, viene creata una regola in ingresso sulla porta 3389 per le connessioni RDP. Questa macchina virtuale ospita un server Web, quindi è necessario creare una regola del gruppo di sicurezza di rete per la porta 80.
-
-1. Nella pagina di panoramica per la macchina virtuale selezionare **Rete**.
-2. Viene visualizzato l'elenco delle regole ingresso e in uscita esistenti. Scegliere **Aggiungi regola porta in ingresso**.
-3. Selezionare l'opzione **Base** nella parte superiore e quindi scegliere *HTTP* nell'elenco dei servizi disponibili. Vengono forniti automaticamente la porta 80, una priorità e un nome.
-4. Per creare la regola, selezionare **Aggiungi**.
 
 ## <a name="view-the-iis-welcome-page"></a>Visualizzare la pagina iniziale di IIS
 
-Dopo l'installazione di IIS e l'apertura della porta 80 nella macchina virtuale da Internet, usare il Web browser preferito per visualizzare la pagina iniziale predefinita di IIS. Usare l'indirizzo IP pubblico della macchina virtuale ottenuto in un passaggio precedente. L'esempio seguente mostra il sito Web predefinito di IIS:
+Nel portale, selezionare la macchina virtuale e nella panoramica della macchina virtuale, usare il pulsante **Fare clic per copiare** a destra dell'indirizzo IP per copiarlo e incollarlo in una scheda del browser. Si aprirà la pagina iniziale di IIS predefinita, che avrà il seguente aspetto:
 
 ![Sito IIS predefinito](./media/quick-create-powershell/default-iis-website.png)
 

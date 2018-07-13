@@ -1,6 +1,6 @@
 ---
-title: Ridimensionare un cluster di Azure Service Fabric | Microsoft Docs
-description: In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric.
+title: Ridimensionare un cluster di Service Fabric in Azure | Microsoft Docs
+description: In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric in Azure.
 services: service-fabric
 documentationcenter: .net
 author: Thraka
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642700"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109410"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster"></a>Esercitazione: Ridimensionare un cluster di Service Fabric
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
 
 Questa esercitazione, la seconda di una serie, illustra come aumentare e ridurre il numero di istanze del cluster esistente. Al termine, si riuscirà a ridimensionare il cluster e a pulire le risorse rimaste.
 
@@ -41,14 +41,17 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>prerequisiti
+
 Prima di iniziare questa esercitazione:
-- Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o [la versione 2.0 dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-- Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure
-- Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2017](http://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
-- Se si distribuisce un cluster Linux, configurare un ambiente di sviluppo Java in [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md). 
+
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) o [la versione 2.0 dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* Creare [un cluster di Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) o un [cluster di Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) protetto in Azure
+* Se si distribuisce un cluster di Windows, configurare un ambiente di sviluppo di Windows. Installare [Visual Studio 2017](http://www.visualstudio.com) e installare i carichi di lavoro per lo **sviluppo di Azure**, lo **sviluppo ASP.NET e Web** e lo **sviluppo multipiattaforma .NET Core**.  Configurare un [ambiente di sviluppo .NET](service-fabric-get-started.md).
+* Se si distribuisce un cluster Linux, configurare un ambiente di sviluppo Java in [Linux](service-fabric-get-started-linux.md) o [MacOS](service-fabric-get-started-mac.md).  Installare l'[interfaccia della riga di comando di Service Fabric](service-fabric-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
 Accedere al proprio account di Azure e selezionare la sottoscrizione prima di eseguire i comandi di Azure.
 
 ```powershell
@@ -118,7 +121,7 @@ La riduzione del numero di istanze è identica all'aumento, ma si usa un valore 
 > [!NOTE]
 > Questa parte si applica solo al livello di durabilità *Bronzo*. Per altre informazioni sulla durabilità, vedere [Pianificazione della capacità dei cluster di Service Fabric][durability].
 
-Quando si riduce il numero di istanze di un set di scalabilità di macchine virtuali, il set di scalabilità di macchine virtuali (nella maggior parte dei casi) rimuove l'istanza della macchina virtuale creata per ultima. È quindi necessario trovare il nodo di Service Fabric corrispondente creato per ultimo. È possibile trovare quest'ultimo nodo controllando il valore della proprietà `NodeInstanceId` più elevato nei nodi di Service Fabric. Gli esempi di codice seguenti ordinano per nodo l'istanza e restituiscono i dettagli sull'istanza con il valore di ID più elevato. 
+Quando si riduce il numero di istanze di un set di scalabilità di macchine virtuali, il set di scalabilità di macchine virtuali (nella maggior parte dei casi) rimuove l'istanza della macchina virtuale creata per ultima. È quindi necessario trovare il nodo di Service Fabric corrispondente creato per ultimo. È possibile trovare quest'ultimo nodo controllando il valore della proprietà `NodeInstanceId` più elevato nei nodi di Service Fabric. Gli esempi di codice seguenti ordinano per nodo l'istanza e restituiscono i dettagli sull'istanza con il valore di ID più elevato.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -180,7 +183,7 @@ else
     # Stop node
     $stopid = New-Guid
     Start-ServiceFabricNodeTransition -Stop -OperationId $stopid -NodeName $nodename -NodeInstanceId $nodeid -StopDurationInSeconds 300
-    
+
     $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
     $loopTimeout = 10
 
@@ -191,7 +194,7 @@ else
         $state = (Get-ServiceFabricNodeTransitionProgress -OperationId $stopid).State
         Write-Host "Checking state... $state found"
     }
-    
+
     if ($state -ne [System.Fabric.TestCommandProgressState]::Completed)
     {
         Write-Error "Stop transaction failed with $state"
@@ -220,13 +223,12 @@ sfctl node remove-state --node-name _nt1vm_5
 > [!TIP]
 > Usare le query **sfctl** seguenti per controllare lo stato di ogni passaggio
 >
-> **Controllare lo stato di disattivazione**  
+> **Controllare lo stato di disattivazione**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].nodeDeactivationInfo"`
 >
-> **Controllare lo stato di arresto**  
+> **Controllare lo stato di arresto**
 > `sfctl node list --query "sort_by(items[*], &name)[-1].isStopped"`
 >
-
 
 ### <a name="scale-in-the-scale-set"></a>Ridurre il numero di istanze del set di scalabilità
 
@@ -249,7 +251,6 @@ az vmss list-instances -n nt1vm -g sfclustertutorialgroup --query [*].name
 az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 ```
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questa esercitazione illustra come:
@@ -258,7 +259,6 @@ Questa esercitazione illustra come:
 > * Leggere il conteggio dei nodi del cluster
 > * Aggiungere nodi del cluster (aumentare il numero di istanze)
 > * Rimuovere nodi del cluster (ridurre il numero di istanze)
-
 
 Procedere quindi con l'esercitazione seguente per scoprire come aggiornare il runtime di un cluster.
 > [!div class="nextstepaction"]

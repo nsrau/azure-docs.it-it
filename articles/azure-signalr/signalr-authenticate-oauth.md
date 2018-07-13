@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 748e5839233b9d71b9ed072d0cfe45f018471c52
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c24e3045640471ed6ee7052f877850acd8e8cf00
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869700"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101127"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: Autenticazione del servizio Azure SignalR
 
@@ -54,7 +54,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
+Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
 * Un account creato in [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
@@ -88,9 +88,10 @@ Per completare questa esercitazione, sono necessari i prerequisiti seguenti:
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>Aggiornare la classe Startup per il supporto dell'autenticazione di GitHub
 
-1. Aggiungere un riferimento al pacchetto *Microsoft.AspNetCore.Authentication.Cookies* più recente e ripristinare tutti i pacchetti.
+1. Aggiungere un riferimento ai pacchetti *Microsoft.AspNetCore.Authentication.Cookies* e *AspNet.Security.OAuth.GitHub* più recenti e ripristinare tutti i pacchetti.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. Aprire *Startup.cs* e aggiungere istruzioni `using` per gli spazi dei nomi seguenti:
@@ -478,7 +479,7 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure:SignalR:ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
@@ -594,7 +595,7 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio de
 
 Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...**  quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
    
 ![Delete](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
@@ -602,7 +603,7 @@ Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di ri
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
    
-Dopo qualche istante il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati.
+Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

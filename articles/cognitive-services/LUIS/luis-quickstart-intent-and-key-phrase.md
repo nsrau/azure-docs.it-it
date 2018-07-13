@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063409"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340951"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>Esercitazione: Informazioni su come restituire i dati dall'entità KeyPhrase 
+# <a name="tutorial-7-add-keyphrase-entity"></a>Esercitazione: 7. Aggiungere entità KeyPhrase 
 In questa esercitazione viene usata un'app che illustra come estrarre domini chiave da espressioni.
 
 <!-- green checkmark -->
@@ -75,7 +75,7 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 È necessario eseguire il training della nuova versione `keyphrase` dell'app.  
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Addestra**.
+1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Train** (Esegui il training).
 
     ![Eseguire il training dell'app](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
 
@@ -87,11 +87,11 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
 1. Selezionare **Pubblica** nella barra di spostamento in alto a destra.
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Screenshot della pagina Pubblica con il pulsante Publish to production slot (Pubblica su slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
 
-2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Pubblica**.
+2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot della pagina Pubblica con il pulsante Publish to production slot (Pubblica su slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
 
 3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
@@ -101,7 +101,7 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
     ![Screenshot della pagina Pubblica con l'URL endpoint evidenziato](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
 
-2. Scorrere alla fine dell'URL nell'indirizzo e immettere `does form hrf-123456 cover the new dental benefits and medical plan`. L'ultimo parametro QueryString è `q`, la **query** dell'espressione. 
+2. Scorrere alla fine dell'URL nell'indirizzo e immettere `does form hrf-123456 cover the new dental benefits and medical plan`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
 ```
 {
@@ -192,19 +192,19 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
 Durante la ricerca per di un modulo, l'utente ha fornito più informazioni del necessario per trovare il modulo. Le informazioni aggiuntive vengono restituite come **builtin.keyPhrase**. L'applicazione client può usare queste informazioni aggiuntive per una domanda di completamento, ad esempio per chiedere se si desidera parlare con un rappresentate del reparto risorse umane in merito ai nuovi vantaggi dentistici, oppure per fornire un menu con altre opzioni, tra cui una relativa ad altre informazioni sui vantaggi dentistici o su un piano medico.
 
-## <a name="what-has-this-luis-app-accomplished"></a>Che cosa ha permesso di ottenere questa app di Language Understanding?
+## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
 Questa app, con il rilevamento di entità KeyPhrase, ha identificato una finalità di query in linguaggio naturale e restituito i dati estratti, tra cui il dominio principale. 
 
 Il chatbot dispone ora di informazioni sufficienti per determinare il passaggio successivo nella conversazione. 
 
 ## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Con questa richiesta viene eseguito Language Understanding. L'applicazione chiamante, ad esempio un chatbot, può rilevare il risultato topScoringIntent e i dati KeyPhrase dall'espressione per completare il passaggio successivo. Language Understanding non esegue questo lavoro programmatico per il chatbot o l'applicazione chiamante, ma determina solo l'intenzione dell'utente. 
+Con questa richiesta viene eseguito Language Understanding. L'applicazione chiamante, ad esempio un chatbot, può rilevare il risultato topScoringIntent e i dati KeyPhrase dall'espressione per completare il passaggio successivo. Language Understanding non esegue questo lavoro programmatico per il chatbot o l'applicazione chiamante, ma determina solo la finalità dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare il menu con tre punti (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?), selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Seleziona **App personali** nel menu in alto a sinistra. Seleziona il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi seleziona **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare un'app in grado di restituire una valutazione assieme a una stima delle finalità](luis-quickstart-intent-and-sentiment-analysis.md)
+> [Aggiungere l'analisi del sentiment all'app](luis-quickstart-intent-and-sentiment-analysis.md)
 

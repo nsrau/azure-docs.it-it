@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611807"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082102"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Esportare i certificati dell'emulatore di Azure Cosmos DB per l'uso con Java, Python e Node.js
 
@@ -99,7 +99,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 > * Esportazione del certificato SSL
 > * Uso del certificato in Java, Python e Node.js
 
-È ora possibile passare all'esercitazione Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB.
+È ora possibile passare alla sezione dei concetti per altre informazioni su Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Creare una funzione di Azure con input da Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

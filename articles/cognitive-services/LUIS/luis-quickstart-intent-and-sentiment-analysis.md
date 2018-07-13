@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: ac959989dbe64460025bfba84df7b6f22c3c1c04
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958430"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340934"
 ---
-# <a name="tutorial-create-app-that-returns-sentiment-along-with-intent-prediction"></a>Esercitazione: Creare un'app in grado di restituire una valutazione assieme a una stima delle finalità
+# <a name="tutorial-8--add-sentiment-analysis"></a>Esercitazione: 8.  Aggiungere l'analisi del sentiment
 Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni.
 
 <!-- green checkmark -->
@@ -27,10 +27,10 @@ Questa esercitazione mostra come creare un'app che illustra come estrarre una va
 > * Eseguire il training e pubblicare l'app
 > * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding 
 
-Per questo articolo è necessario un account gratuito di [LUIS][LUIS] per creare la propria applicazione.
+Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se non si ha l'app relativa alle risorse umane dell'esercitazione sulle [entità KeyPhrase](luis-quickstart-intent-and-key-phrase.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Se non disponi dell'app relativa alle risorse umane dell'esercitazione sull'[entità KeyPhrase predefinita](luis-quickstart-intent-and-key-phrase.md), [importa](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `sentiment`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
@@ -81,7 +81,7 @@ Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai memb
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 LUIS non riconosce la nuova finalità e le espressioni di esempio fino a quando non viene eseguito il training. 
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Addestra**.
+1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Train** (Esegui il training).
 
     ![Screenshot del pulsante Addestra evidenziato](./media/luis-quickstart-intent-and-sentiment-analysis/train-button.png)
 
@@ -96,9 +96,9 @@ Configurare l'analisi del sentiment nella pagina **Publish** (Pubblica).
 
     ![Screenshot della pagina Finalità con il pulsante Pubblica espanso ](./media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-button-in-top-nav-highlighted.png)
 
-2. Selezionare **Enable Sentiment Analysis** (Abilita analisi del sentiment). Selezionare lo slot di produzione, quindi fare clic sul pulsante **Pubblica**.
+2. Selezionare **Enable Sentiment Analysis** (Abilita analisi del sentiment). Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Screenshot della pagina Pubblica con il pulsante Publish to production slot (Pubblica su slot di produzione) evidenziato")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Screenshot della pagina Publish (Pubblica) con il pulsante Publish to production slot (Pubblica in slot di produzione) evidenziato")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
@@ -203,22 +203,19 @@ Configurare l'analisi del sentiment nella pagina **Publish** (Pubblica).
 
 Il valore di sentimentAnalysis è positivo con un punteggio pari a 0,86. 
 
-## <a name="what-has-this-luis-app-accomplished"></a>Che cosa ha permesso di ottenere questa app di Language Understanding?
+## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
 Questa app, con analisi del sentiment attivata, ha individuato una finalità di query in linguaggio naturale e restituito i dati estratti, inclusa la valutazione generale, come score. 
 
 Il chatbot dispone ora di informazioni sufficienti per determinare il passaggio successivo nella conversazione. 
 
 ## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Con questa richiesta viene eseguito Language Understanding. L'applicazione chiamante, ad esempio un chatbot, può rilevare il risultato topScoringIntent e i dati di valutazione dall'espressione per completare il passaggio successivo. Language Understanding non esegue questo lavoro programmatico per il chatbot o l'applicazione chiamante, ma determina solo l'intenzione dell'utente. 
+Con questa richiesta viene eseguito Language Understanding. L'applicazione chiamante, ad esempio un chatbot, può rilevare il risultato topScoringIntent e i dati di valutazione dall'espressione per completare il passaggio successivo. Language Understanding non esegue questo lavoro programmatico per il chatbot o l'applicazione chiamante, ma determina solo la finalità dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare il menu con tre punti (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?), selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Seleziona **App personali** nel menu in alto a sinistra. Seleziona il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi seleziona **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"] 
 > [Chiamare l'API per endpoint LUIS con C#](luis-get-started-cs-get-intent.md) 
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

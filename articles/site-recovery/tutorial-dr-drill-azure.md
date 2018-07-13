@@ -1,29 +1,28 @@
 ---
 title: Eseguire un'analisi di ripristino di emergenza per computer locali in Azure tramite Azure Site Recovery | Microsoft Docs
 description: Informazioni sull'esecuzione di un'analisi di ripristino di emergenza locale in Azure, con Azure Site Recovery
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286580"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437213"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
 In questo articolo viene illustrato come eseguire un'analisi del ripristino di emergenza per un computer locale in Azure tramite un failover di test. Un'analisi convalida la strategia di replica senza perdita di dati.
 
-Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali.
+Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali o macchine virtuali Hyper-V.
 
 Per questa esercitazione si presuppone che siano state completate le prime tre esercitazioni: 
-    - Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati configurati i componenti di Azure necessari per il ripristino di emergenza di VMware.
-    - Nella [seconda esercitazione](vmware-azure-tutorial-prepare-on-premises.md) sono stati preparati i componenti locali per il ripristino di emergenza e sono stati esaminati i prerequisiti.
-    - Nella [terza esercitazione](vmware-azure-tutorial.md) è stata configurata e abilitata la replica per la macchina virtuale VMware locale.
+    - Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati [preparati i componenti di Azure](tutorial-prepare-azure.md) necessari per il ripristino di emergenza di VMware o Hyper-V.
+    - Nella seconda esercitazione sono stati preparati i componenti locali per il ripristino di emergenza di [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md).
+    - Nella terza esercitazione è stata configurata e abilitata la replica per le [macchine virtuali VMware](vmware-azure-tutorial.md), le [macchine virtuali Hyper-V con System Center VMM](hyper-v-vmm-azure-tutorial.md), o le [macchine virtuali Hyper-V senza VMM](hyper-v-azure-tutorial.md) locali.
 - Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Tutte le esercitazioni configurano Site Recovery con le impostazioni più semplici, usando le impostazioni predefinite, dove appropriato. Per informazioni più dettagliate sui passaggi del failover di test, leggere la [guida alle procedure](site-recovery-test-failover-to-azure.md).
 
 In questa esercitazione si apprenderà come:
@@ -37,7 +36,7 @@ Questa esercitazione
 
 ## <a name="verify-vm-properties"></a>Verificare le proprietà della macchina virtuale
 
-Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale VMware e assicurarsi che la [macchina virtuale Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms), la [macchina virtuale VMware o il server fisico](vmware-physical-azure-support-matrix.md#replicated-machines) sia conforme ai requisiti di Azure.
+Prima di eseguire un failover di test, verificare le proprietà della macchina virtuale e assicurarsi che la [macchina virtuale Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) o la [macchina virtuale VMware](vmware-physical-azure-support-matrix.md#replicated-machines) sia conforme ai requisiti di Azure.
 
 1. In **Elementi protetti** fare clic su **Elementi replicati** > macchina virtuale.
 2. Nel riquadro **Elemento replicato** è possibile vedere un riepilogo relativo a informazioni sulla macchina virtuale, stato integrità e ultimi punti di ripristino disponibili. Fare clic su **Proprietà** per visualizzare altri dettagli.
@@ -70,3 +69,4 @@ In alcuni scenari il failover richiede un'altra elaborazione il cui completament
 
 > [!div class="nextstepaction"]
 > [Eseguire failover e failback per macchine virtuali VMware locali](vmware-azure-tutorial-failover-failback.md).
+> [Eseguire failover e failback per macchine virtuali Hyper-V locali](hyper-v-azure-failover-failback-tutorial.md).
