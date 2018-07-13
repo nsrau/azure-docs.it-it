@@ -101,7 +101,7 @@
       href: service-fabric-application-scenarios.md
     - name: Modelli e scenari
       href: service-fabric-patterns-and-scenarios.md
-    - name: Architecture
+    - name: Architettura
       href: service-fabric-architecture.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
@@ -141,7 +141,7 @@
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
-            - name: Architecture
+            - name: Architettura
               href: service-fabric-reliable-actors-platform.md
             - name: Implementazione di funzionalità a livello di servizio
               href: service-fabric-reliable-actors-using.md
@@ -215,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: Risorse del servizio
           href: service-fabric-service-manifest-resources.md
+        - name: Backup e ripristino periodici
+          items:
+            - name: Informazioni sulla configurazione del backup periodico
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: Cluster
       href: service-fabric-deploy-anywhere.md
       items:
@@ -233,7 +237,7 @@
         - name: Gestione risorse cluster
           href: service-fabric-cluster-resource-manager-introduction.md
           items:
-            - name: Architecture
+            - name: Architettura
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: Descrivere un cluster
               href: service-fabric-cluster-resource-manager-cluster-description.md

@@ -29,7 +29,7 @@
       href: tutorial-add-device.md
 - name: Concetti
   items:
-    - name: Architecture
+    - name: Architettura
       href: concepts-architecture.md
     - name: Connettività
       href: concepts-connectivity.md
@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: Creare una regola di telemetria
           href: howto-create-telemetry-rules.md
-        - name: Creare una regola eventi
-          href: howto-create-event-rules.md
+        - name: Configurare la home page
+          href: howto-configure-homepage.md
         - name: Preparare e caricare immagini
           href: howto-prepare-images.md
     - name: Operatore

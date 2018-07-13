@@ -7,18 +7,10 @@
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Provare la ricerca cognitiva
-      href: cognitive-search-quickstart-blob.md
     - name: Creare un servizio
       href: search-create-service-portal.md
-    - name: Portale
-      items:
-        - name: Creare un indice
-          href: search-create-index-portal.md
-        - name: Importa dati
-          href: search-import-data-portal.md
-        - name: Esplora ricerche
-          href: search-explorer.md
+    - name: Provare la ricerca cognitiva
+      href: cognitive-search-quickstart-blob.md
     - name: .NET
       items:
         - name: Creare un indice
@@ -39,18 +31,18 @@
           href: search-fiddler.md
 - name: Esercitazioni
   items:
+    - name: Usare gli strumenti predefiniti
+      href: search-get-started-portal.md
     - name: Sviluppo della ricerca cognitiva
       href: cognitive-search-tutorial-blob.md
-    - name: Indicizzare un database SQL di Azure
-      href: search-indexer-tutorial.md
     - name: Indicizzare BLOB di Azure
       href: search-semi-structured-data.md
+    - name: Indicizzare un database SQL di Azure
+      href: search-indexer-tutorial.md
     - name: Aggiungere sinonimi in .NET
       href: search-synonyms-tutorial-sdk.md
     - name: Aggiungere il completamento automatico in .NET
       href: search-autocomplete-tutorial.md
-    - name: Procedura dettagliata per il portale
-      href: search-get-started-portal.md
 - name: Esempi
   items:
     - name: Esempi di codice per Azure
@@ -129,6 +121,8 @@
       items:
         - name: Definizione di indice
           href: search-what-is-an-index.md
+        - name: Creare un indice (portale)
+          href: search-create-index-portal.md
         - name: Analizzatori
           items:
             - name: Analizzatori di testo
@@ -151,6 +145,8 @@
       items:
         - name: Confronto tra indicizzazione push e pull
           href: search-what-is-data-import.md
+        - name: Importazione guidata (portale)
+          href: search-import-data-portal.md
         - name: Ricompilare un indice
           href: search-howto-reindex.md
         - name: Indicizzare set di dati di grandi dimensioni
@@ -181,6 +177,8 @@
       items:
         - name: Costruzione di query di base
           href: search-query-overview.md
+        - name: Esplora ricerche (portale)
+          href: search-explorer.md
         - name: Sintassi di query semplice
           href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
         - name: Sintassi di query Lucene

@@ -22,22 +22,10 @@
   items:
     - name: Livelli di zoom e griglia riquadri
       href: zoom-levels-and-tile-grid.md
-    - name: Copertura per la geocodifica
-      href: geocoding-coverage.md
-    - name: Copertura per il traffico
-      href: traffic-coverage.md
-    - name: Copertura per il rendering
-      href: render-coverage.md
-    - name: Copertura per il routing
-      href: routing-coverage.md
     - name: Categorie di ricerca supportate
       href: supported-search-categories.md
     - name: Lingue supportate
       href: supported-languages.md
-    - name: Modello di utilizzo
-      href: consumption-model.md
-    - name: Estendere geoJSON
-      href: extend-geojson.md
 - name: Guide alle procedure
   items:
     - name: Gestire gli account di Mappe
@@ -76,6 +64,22 @@
           href: map-accessibility.md
 - name: Riferimenti
   items:
+    - name: Copertura del servizio
+      items:
+        - name: Geocodifica
+          href: geocoding-coverage.md
+        - name: Traffico
+          href: traffic-coverage.md
+        - name: Rendering
+          href: render-coverage.md
+        - name: Routing.
+          href: routing-coverage.md
+    - name: Estensioni di API e parametri
+      items:
+        - name: Modello di consumo del veicolo
+          href: consumption-model.md
+        - name: Estendere il formato GeoJSON
+          href: extend-geojson.md
     - name: REST
       items:
         - name: Servizio di rendering
@@ -139,4 +143,4 @@
     - name: Case study tecnici
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Video
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: Attività simultanee nei nodi
           href: batch-parallel-node-tasks.md
-        - name: Conteggiare le attività in base allo stato
-          href: batch-get-task-counts.md
         - name: Dipendenze dell'attività
           href: batch-task-dependencies.md
         - name: Account utente per l'esecuzione di attività
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Monitorare con Application Insights
           href: monitor-application-insights.md
-        - name: Query di elenco efficienti
+        - name: Contare le risorse per stato
+          href: batch-get-resource-counts.md
+        - name: Eseguire query efficienti sulle risorse
           href: batch-efficient-list-queries.md
     - name: Usare gli strumenti per sviluppatori
       items:

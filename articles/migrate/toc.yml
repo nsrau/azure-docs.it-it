@@ -22,7 +22,7 @@
       items:
         - name: 1. Panoramica della migrazione Contoso
           href: contoso-migration-overview.md
-        - name: 2. Contoso - Configurare un'infrastruttura di Azure
+        - name: 2. Contoso - Distribuire un'infrastruttura di Azure
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso - Valutare le risorse locali per la migrazione in Azure
           href: contoso-migration-assessment.md
@@ -30,7 +30,7 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: 5. Contoso - Rehosting di un'app in macchine virtuali di Azure
           href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso - Rehosting di un'app in macchine virtuali di Azure e in Azure SQL AlwaysOn
+        - name: 6. Contoso - Rehosting di un'app in macchine virtuali di Azure e gruppi di disponibilità AlwaysOn di Azure SQL Server
           href: contoso-migration-rehost-vm-sql-ag.md
         - name: 7. Contoso - Rehosting di un'app Linux in VM di Azure
           href: contoso-migration-rehost-linux-vm.md
@@ -42,7 +42,7 @@
           href: contoso-migration-refactor-linux-app-service-mysql.md
         - name: 11. Contoso - Eseguire la migrazione da TFS a VSTS
           href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso - Riprogettare un'app in Azure Service Fabric e nel database SQL di Azure
+        - name: 12. Contoso - Riprogettare un'app in contenitori di Azure e nel database SQL di Azure
           href: contoso-migration-rearchitect-container-sql.md
         - name: 13. Contoso - Ricompilare un'app in Azure
           href: contoso-migration-rebuild.md

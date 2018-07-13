@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989238"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003614"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
@@ -29,7 +29,7 @@ Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack
 > Per risolvere i nomi DNS esterni dallo Stack di Azure (ad esempio, www.bing.com), è necessario fornire i server DNS per inoltrare le richieste DNS. Per altre informazioni sui requisiti di DNS di Azure Stack, vedere [integrazione di Data Center di Azure Stack - DNS](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Progettazione di rete fisica
-La soluzione di Azure Stack richiede un'infrastruttura fisica resiliente e a disponibilità elevata per supportare il funzionamento e i servizi. Uplink da ToR alle opzioni del bordo sono limitati a SFP + supporto e delle velocità di 1 GB o 10 GB. Rivolgersi al fornitore dell'hardware (OEM) original equipment manufacturer per la disponibilità. Il diagramma seguente rappresenta la progettazione consigliata:
+La soluzione di Azure Stack richiede un'infrastruttura fisica resiliente e a disponibilità elevata per supportare il funzionamento e i servizi. Uplink da ToR alle opzioni del bordo sono limitati a SFP + o supporti SFP28 e 1 GB, 10 GB o velocità del 25 GB. Rivolgersi al fornitore dell'hardware (OEM) original equipment manufacturer per la disponibilità. Il diagramma seguente illustra la progettazione consigliata:
 
 ![Progettazione di rete di Azure Stack consigliato](media/azure-stack-network/recommended-design.png)
 

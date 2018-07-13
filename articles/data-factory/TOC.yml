@@ -279,6 +279,9 @@
           items: null
         - name: Caricare dati in Data Lake Storage Gen2
           href: load-azure-data-lake-storage-gen2.md
+          items:
+            - name: Copiare da Data Lake Storage Gen1
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
         - name: Caricare dati in SQL Data Warehouse
           href: load-azure-sql-data-warehouse.md
         - name: Caricare dati in Data Lake Storage Gen1

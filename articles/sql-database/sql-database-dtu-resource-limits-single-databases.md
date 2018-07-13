@@ -2,19 +2,19 @@
 title: Limiti delle risorse basati su DTU del database SQL di Azure per i singoli database| Microsoft Docs
 description: Questa pagina descrive alcuni limiti di risorse comuni basati su DTU per i database singoli nel database SQL di Azure.
 services: sql-database
-author: CarlRabeler
+author: sachinpMSFT
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 06/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7abb7d67de59ea326b5180cf94e3594cd06576
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 2d6660e1064959f2d04424ae1c3e9bc668231c92
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753388"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131322"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU 
 
@@ -72,7 +72,7 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 
 
 > [!IMPORTANT]
-> Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Regno Unito settentrionale, Stati Uniti centro-occidentali, Regno Unito meridionale 2, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, US Gov South Central, Germania nord-orientale, Cina settentrionale, US Gov East. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Stati Uniti centro-occidentali, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, Germania nord-orientale, USGovIowa, Cina settentrionale. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Database singolo: modifica delle dimensioni di archiviazione
 

@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: Eseguire la migrazione di computer locali ad Azure
           href: migrate-tutorial-on-premises-azure.md
+        - name: Eseguire la migrazione di Windows Server 2008 e di server 2008 R2 in Azure
+          href: migrate-tutorial-windows-server-2008.md
         - name: Eseguire la migrazione di istanze AWS ad Azure
           href: migrate-tutorial-aws-azure.md
         - name: Eseguire la migrazione di VM di Azure a un'altra area
