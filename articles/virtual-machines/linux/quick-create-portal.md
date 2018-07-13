@@ -3,7 +3,7 @@ title: Guida introduttiva - Creare una macchina virtuale Linux nel portale di Az
 description: Questa guida introduttiva illustra come usare il portale di Azure per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012884"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447959"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
-È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per visualizzare la macchina virtuale in azione, viene quindi usato SSH per accedere alla macchina virtuale e installare il server Web NGINX.
+È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per vedere la macchina virtuale in azione, eseguire SSH nella macchina virtuale e installare il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -63,7 +63,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
     ![Screenshot che mostra le dimensioni delle VM](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. In **Impostazioni**  accettare tutte le impostazioni predefinite e selezionare **OK**.
+5. Nella pagina **Impostazioni** in **Rete** > **Gruppo di sicurezza di rete** > **Selezionare le porte in ingresso pubbliche**, selezionare **HTTP** e **SSH (22)**. Accettare tutte le impostazioni predefinite e selezionare **OK**.
 
 6. Nella pagina di riepilogo selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 Al termine, usare `exit` per chiudere la sessione SSH e tornare alle proprietà della macchina virtuale nel portale di Azure.
 
-## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
-
-Un gruppo di sicurezza di rete (NSG) protegge il traffico in ingresso e in uscita. Quando si crea una VM nel portale di Azure, viene creata una regola in ingresso sulla porta 22 per le connessioni SSH. Questa macchina virtuale ospita un server Web, quindi è necessario creare una regola del gruppo di sicurezza di rete per la porta 80.
-
-1. Nella pagina di panoramica per la macchina virtuale selezionare **Rete**.
-2. Viene visualizzato l'elenco delle regole ingresso e in uscita esistenti. Scegliere **Aggiungi regola porta in ingresso**.
-3. Selezionare l'opzione **Base** nella parte superiore e quindi scegliere *HTTP* nell'elenco dei servizi disponibili. Vengono forniti automaticamente la porta 80, una priorità e un nome.
-4. Per creare la regola, selezionare **Aggiungi**.
 
 ## <a name="view-the-web-server-in-action"></a>Visualizzare il server Web in azione
 

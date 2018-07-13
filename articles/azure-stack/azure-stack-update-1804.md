@@ -1,6 +1,6 @@
 ---
-title: Aggiornamento di Azure Stack 1804 | Documenti Microsoft
-description: Informazioni sulle novità nell'aggiornamento 1804 per lo Stack di Azure integrati sistemi, i problemi noti e come scaricare l'aggiornamento.
+title: Aggiornamento di Azure Stack 1804 | Microsoft Docs
+description: Informazioni sulle novità nell'aggiornamento 1804 per Azure Stack integrati sistemi, i problemi noti e dove scaricare l'aggiornamento.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,45 +12,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316434"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990133"
 ---
-# <a name="azure-stack-1804-update"></a>Aggiornamento dello Stack 1804 Azure
+# <a name="azure-stack-1804-update"></a>Aggiornamento di Azure Stack 1804
 
-*Si applica a: Azure Stack integrati sistemi*
+*Si applica a: i sistemi integrati di Azure Stack*
 
-In questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto di aggiornamento 1804, conosciuti per questa versione e come scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi direttamente correlati al processo di aggiornamento e con la compilazione (post-installazione).
+Questo articolo vengono descritti i miglioramenti e correzioni nel pacchetto di aggiornamento 1804, problemi noti per questa versione e dove scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
 > [!IMPORTANT]        
-> Questo pacchetto di aggiornamento è solo per i sistemi Azure Stack integrato. Questo pacchetto di aggiornamento non si applicano al Kit di sviluppo dello Stack di Azure.
+> Questo pacchetto di aggiornamento è solo per i sistemi integrati di Azure Stack. Questo pacchetto di aggiornamento non sono applicabili per Azure Stack Development Kit.
 
-## <a name="build-reference"></a>Riferimento su build    
-È il numero di build aggiornamento Azure Stack 1804 **20180513.1**.   
+## <a name="build-reference"></a>Riferimento alla compilazione    
+È il numero di build di aggiornamento di Azure Stack 1804 **20180513.1**.   
 
 ### <a name="new-features"></a>Nuove funzionalità
-Questo aggiornamento include i miglioramenti seguenti per lo Stack di Azure.
+Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 
-- <!-- 15028744 - IS -->  **Supporto di Visual Studio per le distribuzioni di Azure Stack disconnesse usando ADFS**. All'interno di Visual Studio è ora possibile aggiungere sottoscrizioni e l'autenticazione mediante ADFS federati le credenziali dell'utente. 
+- <!-- 15028744 - IS -->  **Supporto di Visual Studio per le distribuzioni di Azure Stack disconnessi, Usa AD FS**. All'interno di Visual Studio è ora possibile aggiungere sottoscrizioni ed eseguire l'autenticazione tramite AD FS federato le credenziali dell'utente. 
  
-- <!-- 1779474, 1779458 - IS --> **Utilizzare le macchine virtuali serie Av2 e F**. Stack di Azure è ora possibile usare le macchine virtuali in base alle dimensioni delle macchine virtuali serie Av2 e F. Per altre informazioni, vedere [le dimensioni di macchina virtuale supportate in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
+- <!-- 1779474, 1779458 - IS --> **Usare le macchine virtuali serie Av2 e F**. Azure Stack è ora possibile usare le macchine virtuali basate sulle dimensioni delle macchine virtuali della serie Av2 e F-series. Per altre informazioni, vedere [le dimensioni di macchina virtuale supportate in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes). 
 
-- <!-- 1759172 - IS, ASDK --> **Le nuove sottoscrizioni amministrative**. Con 1804 sono disponibili due nuovi tipi di sottoscrizione nel portale. Questi nuovi tipi di sottoscrizione sono oltre la sottoscrizione del Provider predefinito ed è visibile con le nuove installazioni Azure Stack partire dalla versione 1804. *Non utilizzare questi nuovi tipi di sottoscrizione con questa versione di Azure Stack*. Si annuncerà la disponibilità per l'utilizzo di questi tipi di sottoscrizione con un aggiornamento futuro. 
+- <!-- 1759172 - IS, ASDK --> **Le nuove sottoscrizioni amministrative**. Con 1804 sono disponibili due nuovi tipi di sottoscrizione nel portale. Questi nuovi tipi di sottoscrizione sono oltre la sottoscrizione del Provider predefinito e visibili le nuove installazioni di Azure Stack partire dalla versione 1804. *Non usare questi nuovi tipi di sottoscrizione con questa versione di Azure Stack*. Verranno annunciati la disponibilità per usare questi tipi di sottoscrizione con un aggiornamento futuro. 
 
-  Se si aggiorna Stack Azure alla versione 1804, i due nuovi tipi di sottoscrizione non sono visibili. Tuttavia, nuove distribuzioni di Azure Stack integrati sistemi e le installazioni della versione del Kit di sviluppo di Azure Stack 1804 o versioni successiva possono accedere a tutti i tipi di sottoscrizione tre.  
+  Se Azure Stack l'aggiornamento alla versione 1804, i due nuovi tipi di sottoscrizione non sono visibili. Tuttavia, i sistemi integrati di nuove distribuzioni di Azure Stack e le installazioni della versione di Azure Stack Development Kit 1804 o versioni successiva hanno accesso a tutti i tipi di sottoscrizione tre.  
 
-  Questi nuovi tipi di sottoscrizione fanno parte di una modifica di dimensioni maggiore per proteggere la sottoscrizione del Provider predefinito e per semplificare la distribuzione di risorse condivise come server di Hosting SQL. Man mano che si aggiungono altre parti di questa modifica di dimensioni maggiore con gli aggiornamenti futuri allo Stack di Azure, le risorse distribuite in questi nuovi tipi di sottoscrizione potrebbero andare perse. 
+  Questi nuovi tipi di sottoscrizione fanno parte di una modifica di dimensioni maggiori per proteggere la sottoscrizione del Provider predefinito e per renderne più semplice distribuire le risorse condivise come i server di Hosting SQL. Quando si aggiungono altre parti di questa modifica di dimensioni maggiori con gli aggiornamenti futuri ad Azure Stack, le risorse distribuite in questi nuovi tipi di sottoscrizione potrebbero andare perse. 
 
-  I tipi di tre sottoscrizione ora visibili sono:  
-  - Sottoscrizione di Provider predefinito: continuare a utilizzare questo tipo di sottoscrizione. 
-  - Sottoscrizione di controllo: *non utilizzano questo tipo di sottoscrizione.*
-  - Sottoscrizione di utilizzo: *non utilizzano questo tipo di sottoscrizione*
+  Sono ora visibili i tipi di tre sottoscrizione:  
+  - Sottoscrizione del Provider predefinito: continuare a usare questo tipo di sottoscrizione. 
+  - Sottoscrizione di controllo: *non usare questo tipo di sottoscrizione.*
+  - Sottoscrizione di consumo: *non usare questo tipo di sottoscrizione*
 
   
 
@@ -58,99 +58,99 @@ Questo aggiornamento include i miglioramenti seguenti per lo Stack di Azure.
 
 ## <a name="fixed-issues"></a>Problemi risolti
 
-- <!-- IS, ASDK -->  Nel portale di amministrazione, non è più necessario aggiornare il riquadro di aggiornamento prima di visualizzare informazioni.
+- <!-- IS, ASDK -->  Nel portale di amministrazione, è necessario non è più aggiornare il riquadro di aggiornamento prima di visualizzare le informazioni.
  
-- <!-- 2050709  -->  È ora possibile usare il portale di amministrazione per modificare le metriche di archiviazione per il servizio Blob del servizio tabelle e servizio di Accodamento.
+- <!-- 2050709  -->  È ora possibile usare il portale di amministrazione per modificare le metriche di archiviazione per il servizio Blob, servizio tabelle e servizio di Accodamento.
  
-- <!-- IS, ASDK --> Sotto **Networking**, quando si fa clic su **connessione** per impostare una connessione VPN **Site-to-site (IPsec)** è l'unica opzione disponibile.
+- <!-- IS, ASDK --> Sotto **Networking**quando fa clic su **connessione** per configurare una connessione VPN, **Site-to-site (IPsec)** è a questo punto l'unica opzione disponibile.
 
-- **Varie correzioni** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene utilizzato dallo Stack di Azure.
+- **Varie correzioni di** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene usato da Azure Stack.
 
-## <a name="additional-releases-timed-with-this-update"></a>Versioni aggiuntive programmate con questo aggiornamento  
-Di seguito è ora disponibili, ma non richiede l'aggiornamento dello Stack Azure 1804.
-- **Aggiornamento in Microsoft Azure Stack System Center Operations Manager Monitoring Pack**. È disponibile per una nuova versione (1.0.3.0) di Microsoft System Center Operations Manager Monitoring Pack per Azure Stack [scaricare](https://www.microsoft.com/download/details.aspx?id=55184). Con questa versione, è possibile utilizzare le entità servizio quando si aggiunge una distribuzione di Azure Stack connessa. Questa versione include anche un'esperienza di gestione degli aggiornamenti che consente di eseguire l'azione di correzione direttamente all'interno di Operations Manager. Sono inoltre disponibili nuovi dashboard che visualizzano i provider di risorse, unità di scala e ridimensionare i nodi di unità.
+## <a name="additional-releases-timed-with-this-update"></a>Altri rilasci programmati con questo aggiornamento  
+Di seguito è ora disponibili, ma non richiede l'aggiornamento di Azure Stack 1804.
+- **Aggiornamento di Microsoft Azure Stack System Center Operations Manager Monitoring Pack**. È disponibile per una nuova versione (1.0.3.0) di Microsoft System Center Operations Manager Monitoring Pack per Azure Stack [scaricare](https://www.microsoft.com/download/details.aspx?id=55184). Con questa versione, è possibile usare le entità servizio quando si aggiunge una distribuzione di Azure Stack connesso. Questa versione offre anche un'esperienza di gestione degli aggiornamenti che consente di eseguire l'azione di correzione direttamente dall'interno di Operations Manager. Sono inoltre disponibili nuovi dashboard che visualizzano i provider di risorse, unità di scala e ridimensionare i nodi di unità.
 
-- **Nuova versione di Azure Stack amministrazione PowerShell versione 1.3.0**.  Azure PowerShell Stack 1.3.0 è ora disponibile per l'installazione. Questa versione sono disponibili comandi per tutti i provider di risorse di amministrazione gestire Azure Stack.  Con questa versione, alcuni contenuti verranno deprecati a partire da Azure Stack strumenti GitHub [repository](https://github.com/Azure/AzureStack-Tools). 
+- **Nuovo di Azure Stack Admin PowerShell versione 1.3.0**.  Azure Stack PowerShell 1.3.0 è ora disponibile per l'installazione. Questa versione sono disponibili comandi per tutti i provider di risorse di amministratore per la gestione di Azure Stack.  Con questa versione, verranno deprecato alcuni contenuti da GitHub gli strumenti di Azure Stack [repository](https://github.com/Azure/AzureStack-Tools). 
 
-   Per informazioni dettagliate di installazione, seguire le [istruzioni](azure-stack-powershell-install.md) o il [Guida](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) contenuto per il modulo di Azure Stack 1.3.0. 
+   Per informazioni dettagliate di installazione, seguire le [istruzioni](azure-stack-powershell-install.md) o il [Guida](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) contenuto per Azure Stack modulo 1.3.0. 
 
-- **Versione del riferimento all'API Rest di Azure Stack iniziale**. Il [riferimento API per tutti i provider di risorse di Azure Stack Admin](https://docs.microsoft.com/rest/api/azure-stack/) ora viene pubblicato. 
+- **Versione iniziale del riferimento all'API Rest di Azure Stack**. Il [riferimento API per tutti i provider di risorse di Azure Stack Admin](https://docs.microsoft.com/rest/api/azure-stack/) viene pubblicato. 
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare    
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Installare lo Stack di Azure [1803 aggiornare](azure-stack-update-1803.md) prima di applicare l'aggiornamento di Azure Stack 1804.    
+- Installare Azure Stack [1803 aggiornare](azure-stack-update-1803.md) prima di applicare l'aggiornamento di Azure Stack 1804.    
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento   
-- Durante l'installazione dell'aggiornamento 1804, si potrebbero visualizzare avvisi con il titolo *Error: modello per il tipo FaultType UserAccounts.New mancante.*  È possibile ignorare questi avvisi. Questi avvisi verranno chiuso automaticamente dopo l'aggiornamento a 1804 viene completato.   
+- Durante l'installazione dell'aggiornamento 1804, si potrebbero visualizzare avvisi con il titolo *Error: modello per FaultType UserAccounts.New è manca.*  È possibile ignorare questi avvisi. Questi avvisi chiuderà automaticamente dopo l'aggiornamento a 1804.   
  
-- <!-- TBD - IS --> Non tentare di creare macchine virtuali durante l'installazione di questo aggiornamento. Per ulteriori informazioni sulla gestione degli aggiornamenti, vedere [gestire gli aggiornamenti in panoramica di Azure Stack](azure-stack-updates.md#plan-for-updates).
+- <!-- TBD - IS --> Non tentare di creare macchine virtuali durante l'installazione dell'aggiornamento. Per altre informazioni sulla gestione degli aggiornamenti, vedere [gestire gli aggiornamenti nella panoramica di Azure Stack](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
-Dopo l'installazione di 1804, installare gli aggiornamenti rapidi applicabili. Per ulteriori informazioni, vedere i seguenti articoli della knowledge base, nonché il nostro [manutenzione criteri](azure-stack-servicing-policy.md).  
- - [KB 4341392 - Stack Azure Hotfix 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392).
+Dopo l'installazione di 1804, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md).  
+ - [KB 4344114 - aggiornamento rapido di Azure Stack 1.0.180527.15](https://support.microsoft.com/help/4344114).
 
 
 
 
 ### <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
-Di seguito sono i problemi noti di post-installazione per la compilazione **20180513.1**.
+Di seguito sono riportati problemi noti di post-installazione per la compilazione **20180513.1**.
 
 #### <a name="portal"></a>Portale
-- <!-- 1272111 - IS --> Dopo l'installazione o aggiornamento alla versione corrente dello Stack di Azure, potrebbe non essere in grado di visualizzare unità di scala dello Stack di Azure nel portale di amministrazione.  
-  Soluzione alternativa: Utilizzare PowerShell per visualizzare le informazioni sulle unità di scala. Per altre informazioni, vedere la [Guida](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) contenuto per il modulo di Azure Stack 1.3.0. 
+- <!-- 1272111 - IS --> Dopo l'installazione o aggiornamento a questa versione di Azure Stack, potrebbe non essere in grado di visualizzare unità di scala di Azure Stack nel portale di amministrazione.  
+  Soluzione alternativa: Utilizzare PowerShell per visualizzare le informazioni sulle unità di scala. Per altre informazioni, vedere la [aiutare](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) contenuto per Azure Stack modulo 1.3.0. 
 
-- <!-- 2332636 - IS -->  Quando si usa ADFS per il sistema di identità di Azure Stack e l'aggiornamento alla versione corrente dello Stack di Azure, il proprietario predefinito della sottoscrizione del provider predefinito viene reimpostato su incorporati **CloudAdmin** utente.  
-  Soluzione alternativa: Per risolvere questo problema dopo aver installato questo aggiornamento, passaggio 3 da utilizzare il [automazione Trigger per configurare le attestazioni trust del provider in Stack Azure](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedure per reimpostare il proprietario della sottoscrizione del provider predefinito.   
+- <!-- 2332636 - IS -->  Quando si usa AD FS per il sistema di identità di Azure Stack e l'aggiornamento a questa versione di Azure Stack, il proprietario predefinito della sottoscrizione del provider predefinito viene reimpostato per l'oggetto incorporato **CloudAdmin** utente.  
+  Soluzione alternativa: Per risolvere questo problema dopo aver installato questo aggiornamento, passaggio 3 da usare la [attivare l'automazione per configurare attestazioni attendibilità del provider in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedura per reimpostare il proprietario della sottoscrizione del provider predefinito.   
 
-- <!-- TBD - IS ASDK --> Alcuni tipi di sottoscrizione amministrativi non disponibili.  Quando si aggiorna Azure Stack per questa versione, i tipi di due sottoscrizione che in precedenza erano [introdotta con la versione 1804](#new-features) non sono visibili nella console. Si tratta di un comportamento previsto. I tipi di sottoscrizione disponibili sono *misurazione sottoscrizione*, e *sottoscrizione consumo*. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'utilizzo. È consigliabile continuare a usare il *Provider predefinito* tipo di sottoscrizione.  
+- <!-- TBD - IS ASDK --> Alcuni tipi di sottoscrizione amministrativi non disponibili.  Quando si esegue l'aggiornamento di Azure Stack per questa versione, i tipi di due sottoscrizioni che erano [introdotta con la versione 1804](#new-features) non sono visibili nella console. Si tratta di un comportamento previsto. I tipi di sottoscrizione disponibili sono *sottoscrizione di misurazione*, e *sottoscrizione consumo*. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il *Provider predefinito* tipo di sottoscrizione.  
 
 
-- <!-- TBD -  IS ASDK -->La capacità [per aprire una nuova richiesta di supporto nell'elenco a discesa](azure-stack-manage-portals.md#quick-access-to-help-and-support) da entro l'amministratore del portale non è attualmente disponibile. Usare invece il collegamento seguente:     
-    - Per lo Stack di Azure usare sistemi integrati, https://aka.ms/newsupportrequest.
+- <!-- TBD -  IS ASDK -->La possibilità [per aprire una nuova richiesta di supporto nell'elenco a discesa](azure-stack-manage-portals.md#quick-access-to-help-and-support) all'interno di amministratore del portale non è disponibile. In alternativa, usare il collegamento seguente:     
+    - Per Azure Stack i sistemi integrati, usare https://aka.ms/newsupportrequest.
 
-- <!-- 2403291 - IS ASDK --> Non si dispone di utilizzo della barra di scorrimento orizzontale nella parte inferiore dei portali di amministratore e utente. Se non hai accesso la barra di scorrimento orizzontale, utilizzare il percorso di navigazione per passare a un pannello precedente nel portale di selezionando il nome del pannello si desidera visualizzare nell'elenco di navigazione nella parte superiore sinistra del portale.
+- <!-- 2403291 - IS ASDK --> Non si dispone di utilizzo della barra di scorrimento orizzontale nella parte inferiore di portali di amministratore e utente. Se non è possibile accedere la barra di scorrimento orizzontale, usare i percorsi di navigazione per passare al pannello precedente nel portale selezionando il nome del pannello si desidera visualizzare nell'elenco di navigazione nella parte superiore sinistra del portale.
   ![Barra di navigazione](media/azure-stack-update-1804/breadcrumb.png) 
 
-- <!-- TBD - IS --> Potrebbe non essere possibile visualizzare le risorse di calcolo o di archiviazione nel portale di amministrazione. La causa di questo problema è un errore durante l'installazione dell'aggiornamento che fa sì che l'aggiornamento da segnalare in modo non corretto come esito positivo. Se si verifica questo problema, contattare il supporto tecnico clienti Microsoft per assistenza.
+- <!-- TBD - IS --> Potrebbe non essere possibile visualizzare le risorse di calcolo o archiviazione nel portale di amministrazione. La causa del problema è un errore durante l'installazione dell'aggiornamento che causa l'aggiornamento da segnalare in modo errato come esito positivo. Se si verifica questo problema, contattare il supporto tecnico clienti Microsoft per assistenza.
 
 - <!-- TBD - IS --> È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, selezionare l'icona a forma di ingranaggio in alto a destra del portale e quindi selezionare **ripristinare le impostazioni predefinite**.
 
-- <!-- TBD - IS ASDK --> Se si elimina utente sottoscrizioni nelle risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse, quindi eliminare le sottoscrizioni dell'utente.
+- <!-- TBD - IS ASDK --> Eliminazione utente diverso, le sottoscrizioni le risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
 
-- <!-- TBD - IS ASDK --> Non è possibile visualizzare le autorizzazioni per la sottoscrizione utilizzando i portali di Stack di Azure. In alternativa, utilizzare PowerShell per verificare le autorizzazioni.
+- <!-- TBD - IS ASDK --> Non è possibile visualizzare le autorizzazioni per la sottoscrizione tramite il portale di Azure Stack. In alternativa, usare PowerShell per verificare le autorizzazioni.
 
-- <!-- TBD - IS ASDK --> Nel portale di amministrazione, è possibile notare un avviso critico per la *Microsoft.Update.Admin* componente. Il nome dell'avviso, la descrizione e monitoraggio e aggiornamento tutti visualizzati come:  
-    - *Errore: modello per FaultType ResourceProviderTimeout mancante.*
+- <!-- TBD - IS ASDK --> Nel portale di amministrazione, è possibile notare un avviso critico per la *Microsoft.Update.Admin* componente. Il nome dell'avviso, descrizione e correzione tutti visualizzati come:  
+    - *Errore: modello per FaultType ResourceProviderTimeout è manca.*
 
   Questo avviso può essere tranquillamente ignorato. 
 
 
 #### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
-- <!-- 1264761 - IS ASDK -->  Si potrebbero visualizzare avvisi per il *controller integrità* componente che ha i seguenti dettagli:  
+- <!-- 1264761 - IS ASDK -->  Si potrebbero visualizzare avvisi per i *controller integrità* componente con i dettagli seguenti:  
 
    Avviso #1:
    - NOME: Ruolo di infrastruttura non integro
    - GRAVITÀ: avviso
    - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò potrebbe influire su rapporti di stato e le metriche.  
+   - Descrizione: Il controller di integrità Heartbeat Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.  
 
   Avviso #2:
    - NOME: Ruolo di infrastruttura non integro
    - GRAVITÀ: avviso
    - COMPONENTI: Controllo di integrità
-   - Descrizione: Il controller di integrità scanner di codici di errore non è disponibile. Ciò potrebbe influire su rapporti di stato e le metriche.
+   - Descrizione: Il controller di integrità errore Scanner è disponibile. Ciò può influire sulle metriche e i report sull'integrità.
 
-  Entrambi gli avvisi possono essere tranquillamente ignorati. Verrà chiusa automaticamente nel corso del tempo.  
+  Entrambi gli avvisi possono essere tranquillamente ignorati. Verranno chiusi automaticamente nel corso del tempo.  
  
 
 #### <a name="compute"></a>Calcolo
-- <!-- TBD - IS --> Quando si seleziona una dimensione di macchina virtuale per una distribuzione della macchina virtuale, alcune dimensioni di macchina virtuale della serie F non sono visibili nell'ambito del selettore di dimensioni quando si crea una macchina virtuale. Le dimensioni delle macchine Virtuali seguenti non vengono visualizzati nel selettore: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
-  In alternativa, usare uno dei metodi seguenti per distribuire una macchina virtuale. Ogni metodo, è necessario specificare la dimensione di macchina virtuale che si desidera utilizzare.
+- <!-- TBD - IS --> Quando si seleziona una dimensione di macchina virtuale per una distribuzione della macchina virtuale, alcune dimensioni di VM serie F non sono visibili nell'ambito del selettore di dimensione quando si crea una macchina virtuale. Le dimensioni delle macchine Virtuali seguenti non vengono visualizzati nel selettore: *F8s_v2*, *F16s_v2*, *F32s_v2*, e *F64s_v2*.  
+  In alternativa, usare uno dei metodi seguenti per distribuire una macchina virtuale. In ogni metodo, è necessario specificare le dimensioni di macchina virtuale da usare.
 
-  - **Modello di gestione risorse di Azure:** quando si utilizza un modello, impostare il *vmSize* nel modello per la dimensione di macchina virtuale desiderata è uguale. Ad esempio, nell'esempio viene utilizzato per distribuire una macchina virtuale che utilizza il *F32s_v2* dimensioni:  
+  - **Modello di Azure Resource Manager:** quando si usa un modello, impostare il *vmSize* nel modello per uguale alle dimensioni della macchina virtuale desiderata. Ad esempio, il seguente consente di distribuire una macchina virtuale che usa il *F32s_v2* dimensioni:  
 
     ```
         "properties": {
@@ -158,53 +158,53 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **CLI di Azure:** è possibile usare il [creare vm az](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e specificare le dimensioni della VM come parametro, simile a `--size "Standard_F32s_v2"`.
+  - **Comando di Azure:** è possibile usare il [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) comando e specificare le dimensioni VM come parametro, simile a `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** con PowerShell è possibile utilizzare [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con il parametro che specifica le dimensioni della VM, simile a `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** con PowerShell è possibile usare [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) con il parametro che specifica le dimensioni VM, simile a `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD - IS ASDK --> Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile utilizzare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario usare il `-Name` parametro anziché `-VMScaleSetName`.
+- <!-- TBD - IS ASDK --> Impostazioni di scalabilità per il set di scalabilità di macchine virtuali non sono disponibili nel portale. In alternativa, è possibile usare [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). A causa delle differenze di versione di PowerShell, è necessario usare il `-Name` parametro anziché `-VMScaleSetName`.
 
-- <!-- TBD - IS --> Quando si crea un set di disponibilità in del portale, passare a **New** > **calcolo** > **set di disponibilità**, è possibile creare solo un set di disponibilità con un dominio di errore e dominio di aggiornamento pari a 1. Creare il set tramite PowerShell, CLI, o dall'interno di disponibilità come soluzione alternativa, quando si crea una nuova macchina virtuale, il portale.
+- <!-- TBD - IS --> Quando si crea un set di disponibilità nel portale, dovrà **New** > **calcolo** > **set di disponibilità**, è possibile creare solo un set di disponibilità con un dominio di errore e dominio di aggiornamento 1. Creare set tramite PowerShell, interfaccia della riga di comando, o dall'interno di disponibilità come soluzione alternativa, quando si crea una nuova macchina virtuale, il portale.
 
-- <!-- TBD - IS ASDK --> Quando si creano macchine virtuali nel portale per gli utenti dello Stack di Azure, il portale consente di visualizzare un numero errato di dischi dati che è possibile collegare a una VM di serie D. Tutte le serie D supportate macchine virtuali possono contenere tutti i dischi di dati come la configurazione di Azure.
+- <!-- TBD - IS ASDK --> Quando si creano macchine virtuali nel portale utenti Azure Stack, il portale Visualizza un numero errato di dischi dati che è possibile collegare a una VM serie D. Serie D supportate tutte le macchine virtuali è possono soddisfare tutti i dischi dati come la configurazione di Azure.
 
-- <!-- TBD - IS ASDK --> Quando un'immagine di macchina virtuale ha esito negativo deve essere creato, un elemento non riuscito che è possibile eliminare potrebbe essere aggiunti al pannello di calcolo immagini della macchina virtuale.
+- <!-- TBD - IS ASDK --> Quando un'immagine di macchina virtuale ha esito negativo deve essere creato, un elemento non riuscito che non è possibile eliminare potrebbe essere aggiunto al pannello calcolo immagini di macchina virtuale.
 
-  In alternativa, creare una nuova immagine di macchina virtuale con un disco rigido virtuale fittizio che può essere creato tramite Hyper-V (New-VHD-percorso C:\dummy.vhd-predefinito - SizeBytes 1 GB). Questo processo deve risolvere il problema che impedisce l'eliminazione dell'elemento non riuscito. Quindi, 15 minuti dopo la creazione dell'immagine fittizio, è possibile correttamente eliminarla.
+  In alternativa, creare una nuova immagine di macchina virtuale con un disco rigido virtuale fittizio che può essere creato tramite Hyper-V (New-VHD-percorso C:\dummy.vhd-predefinito - SizeBytes 1 GB). Questo processo dovrebbe risolvere il problema che impedisce l'eliminazione dell'elemento non riuscito. Quindi, 15 minuti dopo la creazione dell'immagine fittizio, è possibile correttamente eliminarlo.
 
-  È quindi possibile provare a scaricare di nuovo l'immagine di macchina virtuale precedentemente non riuscito.
+  È quindi possibile provare a scaricare di nuovo l'immagine di macchina virtuale che in precedenza non è riuscita.
 
-- <!-- TBD - IS ASDK --> Se il provisioning di un'estensione in una distribuzione della macchina virtuale è troppo lunga, gli utenti devono consentire il timeout provisioning anziché tentare di arrestare il processo per deallocare o eliminare la macchina virtuale.  
+- <!-- TBD - IS ASDK --> Se il provisioning di un'estensione in una distribuzione della VM impiega troppo tempo, gli utenti devono consentire il timeout provisioning anziché tentare di arrestare il processo per deallocare o eliminare la macchina virtuale.  
 
-- <!-- 1662991 IS ASDK --> Diagnostica Linux VM non è supportato nello Stack di Azure. Quando si distribuisce una VM Linux con diagnostica di macchina virtuale abilitata, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilita la metrica di base VM Linux tramite le impostazioni di diagnostica.  
+- <!-- 1662991 IS ASDK --> Diagnostica delle VM di Linux non è supportata in Azure Stack. Quando si distribuisce una VM Linux con abilitata la diagnostica della macchina virtuale, la distribuzione ha esito negativo. La distribuzione ha esito negativo anche se si abilitano le metriche di base della VM Linux tramite le impostazioni di diagnostica.  
 
 
 #### <a name="networking"></a>Rete
-- <!-- 1766332 - IS ASDK --> Sotto **Networking**, se si fa clic su **crea Gateway VPN** per configurare una connessione VPN, **basata su criteri** è elencato come un tipo di VPN. Non selezionare questa opzione. Solo il **basato su Route** opzione è supportata nello Stack di Azure.
+- <!-- 1766332 - IS ASDK --> Sotto **Networking**, se si fa clic su **creare Gateway VPN** per configurare una connessione VPN, **basata su criteri** viene elencato come un tipo di VPN. Non selezionare questa opzione. Solo le **basato su Route** opzione è supportata in Azure Stack.
 
-- <!-- 2388980 - IS ASDK --> Dopo che una macchina virtuale viene creata e associata a un indirizzo IP pubblico, è non è possibile eliminare l'associazione di tale macchina virtuale da tale indirizzo IP. Disassociazione sembra funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato alla macchina virtuale originale.
+- <!-- 2388980 - IS ASDK --> Dopo che una macchina virtuale viene creata e associata a un indirizzo IP pubblico, si non è possibile annullare l'associazione di tale macchina virtuale da quell'indirizzo IP. Dissociazione sembra funzionare, ma l'indirizzo IP pubblico assegnato in precedenza rimane associato alla VM originale.
 
-  Attualmente, è necessario utilizzare solo indirizzi IP pubblici nuovo per nuove macchine virtuali create.
+  Attualmente, è necessario usare solo nuovi indirizzi IP pubblici per nuove VM eventualmente create.
 
-  Questo comportamento si verifica anche se si riassegna l'indirizzo IP da una nuova macchina virtuale (conosciuta come un *scambio VIP*). Tutti i successivi tenta di connettersi tramite il risultato di indirizzi IP in una connessione alla macchina virtuale originariamente associata e non a quello nuovo.
+  Questo comportamento si verifica anche se si riassegna una nuova macchina virtuale l'indirizzo IP (noto come un *scambio VIP*). Tutti i successivi tentativi di connettersi tramite il risultato di indirizzi IP in una connessione alla macchina virtuale di origine associata e non a quello nuovo.
 
-- <!-- 2292271 - IS ASDK --> Se si genera un limite di Quota per una risorsa di rete che fa parte di un piano che è associato a una sottoscrizione tenant e l'offerta, il nuovo limite non viene applicato a tale sottoscrizione. Tuttavia, il nuovo limite viene applicato a nuove sottoscrizioni creati dopo che la quota viene aumentata. 
+- <!-- 2292271 - IS ASDK --> Se si aumenta un limite di Quota per una risorsa di rete che fa parte di un'offerta e il piano associato a una sottoscrizione tenant, il nuovo limite non viene applicato a tale sottoscrizione. Tuttavia, il nuovo limite è applicabile per i nuovi abbonamenti creati dopo che la quota viene aumentata. 
 
-  Per risolvere questo problema, utilizzare un piano del componente aggiuntivo per aumentare la Quota di rete quando il piano è già associato a una sottoscrizione. Per altre informazioni, vedere come [rendere disponibile un piano del componente aggiuntivo](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
+  Per risolvere questo problema, utilizzare un piano del componente aggiuntivo per aumentare una Quota di rete quando il piano è già associato a una sottoscrizione. Per altre informazioni, vedere come [rendere disponibile un piano aggiuntivo](azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> È possibile eliminare una sottoscrizione con risorse di zona DNS o tabella di Route è associato. Per eliminare correttamente la sottoscrizione, è innanzitutto necessario eliminare le risorse di zona DNS e tabella di Route dalla sottoscrizione tenant. 
+- <!-- 2304134 IS ASDK --> È possibile eliminare una sottoscrizione con risorse di zona DNS o le risorse di tabella di Route associate. Per eliminare correttamente la sottoscrizione, è innanzitutto necessario eliminare le risorse di zona DNS e tabella di Route nella sottoscrizione del tenant. 
   
 
-- <!-- 1902460 - IS ASDK --> Stack di Azure supporta una singola *gateway di rete locale* per ogni indirizzo IP. Questo vale per tutte le sottoscrizioni di tenant. Dopo la creazione della prima rete locale gateway connessione, successiva tentativi di creare una risorsa di gateway di rete locale con lo stesso indirizzo IP vengono bloccate.
+- <!-- 1902460 - IS ASDK --> Azure Stack supporta un'unica *gateway di rete locale* per ogni indirizzo IP. Questo vale per tutte le sottoscrizioni tenant. Dopo la creazione della prima rete locale connessione gateway, successivi tentativi di creare una risorsa gateway di rete locale con lo stesso indirizzo IP vengono bloccate.
 
-- <!-- 16309153 - IS ASDK --> In una rete virtuale che è stato creato con un'impostazione del Server DNS *automatico*, la modifica di guasto a un Server DNS personalizzato. Le impostazioni aggiornate non vengono inserite da macchine virtuali in tale rete virtuale.
+- <!-- 16309153 - IS ASDK --> In una rete virtuale che è stato creato con l'impostazione Server DNS *automatica*, la modifica di un errore di Server DNS personalizzato. Le impostazioni aggiornate non vengono inviate alle macchine virtuali in tale rete virtuale.
 
-- <!-- TBD - IS ASDK --> Stack di Azure non supporta l'aggiunta di interfacce di rete aggiuntiva a un'istanza di macchina virtuale dopo aver distribuita la macchina virtuale. Se la macchina virtuale richiede più di un'interfaccia di rete, devono essere definiti in fase di distribuzione.
+- <!-- TBD - IS ASDK --> Azure Stack non supporta l'aggiunta di interfacce di rete aggiuntiva a un'istanza di macchina virtuale dopo aver distribuita la macchina virtuale. Se la macchina virtuale richiede più di un'interfaccia di rete, devono essere definite in fase di distribuzione.
 
-- <!-- 2096388 IS --> È possibile utilizzare il portale di amministrazione per aggiornare le regole per un gruppo di sicurezza di rete. 
+- <!-- 2096388 IS --> È possibile usare il portale di amministrazione per aggiornare le regole per un gruppo di sicurezza di rete. 
 
-    Soluzione alternativa per il servizio App: se è necessario per desktop remoto alle istanze del Controller, si modificano le regole di sicurezza all'interno dei gruppi di sicurezza di rete con PowerShell.  Di seguito sono esempi di come *consentire*e quindi ripristinare la configurazione per *negare*:  
+    Soluzione alternativa per il servizio App: se è necessario per desktop remoto alle istanze del Controller, si modificano le regole di sicurezza all'interno dei gruppi di sicurezza di rete con PowerShell.  Come negli esempi seguenti viene *consentire*e quindi ripristinare la configurazione per *negare*:  
     
     - *Consenti:*
  
@@ -235,7 +235,7 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-    - *Nega:*
+    - *Negazione:*
 
         ```powershell
         
@@ -267,28 +267,28 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 
 #### <a name="sql-and-mysql"></a>SQL e MySQL
 
-- <!-- TBD - IS --> È supportato solo il provider di risorse per creare gli elementi nei server di tale host SQL o MySQL. Gli elementi creati in un server host che non vengono creati dal provider di risorse potrebbero causare uno stato non corrispondente.  
+- <!-- TBD - IS --> È supportato solo il provider di risorse per creare gli elementi nei server di tale host SQL o MySQL. Gli elementi creati in un server host che non vengono creati dal provider di risorse potrebbe essere in uno stato non corrispondente.  
 
-- <!-- IS, ASDK --> Caratteri speciali, inclusi gli spazi e i periodi di, non sono supportati nel **famiglia** oppure **livello** nomi quando si crea un'unità SKU per i provider di risorse MySQL e SQL Server.
+- <!-- IS, ASDK --> Caratteri speciali, tra cui spazi e i periodi, non sono supportati nel **famiglia** oppure **livello** nomi quando si crea uno SKU per i provider di risorse SQL e MySQL.
 
 
 > [!NOTE]  
-> <!-- TBD - IS --> Dopo l'aggiornamento alla 1804 dello Stack di Azure, è possibile continuare a utilizzare i provider di risorse MySQL e SQL distribuito in precedenza.  È consigliabile che aggiornare MySQL e SQL Server quando diventa disponibile una nuova versione. Come Azure Stack, applicare gli aggiornamenti ai provider di risorse MySQL e SQL Server in modo sequenziale.  Ad esempio, se si utilizza versione 1802, applicare prima versione 1803 e quindi aggiornare a 1804.      
+> <!-- TBD - IS --> Dopo aver aggiornato per Azure Stack 1804, è possibile continuare a usare i provider di risorse MySQL e SQL distribuito in precedenza.  È consigliabile che aggiornare SQL e MySQL quando diventa disponibile una nuova versione. Come Azure Stack, applicare gli aggiornamenti per i provider di risorse SQL e MySQL in modo sequenziale.  Ad esempio, se si usa la versione 1802, applicare prima versione 1803 e quindi aggiornare a 1804.      
 >   
-> L'installazione dell'aggiornamento 1804 non influenza l'uso del provider di risorse SQL o MySQL dagli utenti.
-> Indipendentemente dalla versione dei provider di risorse che è usare, agli utenti di dati nei database non interessati e rimangono accessibili.    
+> L'installazione dell'aggiornamento 1804 non interessa l'utilizzo corrente di provider di risorse SQL o MySQL dagli utenti.
+> Indipendentemente dalla versione dei provider di risorse che è usare, i dati degli utenti nei relativi database non viene aggiornati e rimangono accessibili.    
 
 
 
 #### <a name="app-service"></a>Servizio app
 - <!-- 2352906 - IS ASDK --> Gli utenti devono registrare il provider di risorse di archiviazione prima di creare la prima funzione di Azure nella sottoscrizione.
 
-- <!-- TBD - IS ASDK --> Per applicare la scalabilità orizzontale l'infrastruttura (worker, gestione, i ruoli front-end), è necessario usare PowerShell, come descritto nelle note sulla versione per il calcolo.
+- <!-- TBD - IS ASDK --> Per ridimensionare l'infrastruttura (ruoli di lavoro, gestione, i ruoli front-end), è necessario usare PowerShell come descritto nelle note sulla versione per il calcolo.
 
-- <!-- TBD - IS ASDK --> Servizio App può essere distribuito solo nel **sottoscrizione Provider predefinito** in questo momento.  In un futuro aggiornamento servizio App verrà distribuito nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
+- <!-- TBD - IS ASDK --> Servizio App può essere distribuito solo nel **sottoscrizione del Provider predefinito** in questo momento.  In un futuro aggiornamento App servizio verranno distribuiti nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
 
 #### <a name="usage"></a>Uso  
-- <!-- TBD - IS ASDK --> Dati misuratore sull'utilizzo degli indirizzi IP pubblici dell'utilizzo viene mostrata la stessa *EventDateTime* valore per ogni record anziché il *TimeDate* stamp che indica quando è stato creato il record. Questi dati non è attualmente utilizzati per eseguire accounting accurata di utilizzo degli indirizzi IP pubblico.
+- <!-- TBD - IS ASDK --> Dati misuratore utilizzo degli indirizzi IP pubblici dell'utilizzo viene mostrata la stessa *EventDateTime* valore per ogni record anziché il *TimeDate* timestamp indicante quando il record è stato creato. Attualmente, è possibile usare questi dati per eseguire l'accounting accurato dell'utilizzo di indirizzi IP pubblico.
 
 
 <!-- #### Identity -->
@@ -300,6 +300,6 @@ Di seguito sono i problemi noti di post-installazione per la compilazione **2018
 
 
 ## <a name="see-also"></a>Vedere anche 
-- Per usare il punto finale con privilegi (PEP) per monitorare e riprendere gli aggiornamenti, vedere [monitorare gli aggiornamenti nello Stack di Azure utilizzando l'endpoint con privilegi](azure-stack-monitor-update.md).
-- Per una panoramica del processo di gestione nello Stack di Azure, vedere [gestire gli aggiornamenti in panoramica di Azure Stack](azure-stack-updates.md).
-- Per ulteriori informazioni su come applicare gli aggiornamenti con lo Stack di Azure, vedere [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md).
+- Per usare il punto finale con privilegi (PEP) per monitorare e riprendere gli aggiornamenti, vedere [monitorare gli aggiornamenti in Azure Stack tramite l'endpoint con privilegi](azure-stack-monitor-update.md).
+- Per una panoramica di gestione degli aggiornamenti in Azure Stack, vedere [gestire gli aggiornamenti nella panoramica di Azure Stack](azure-stack-updates.md).
+- Per altre informazioni su come applicare gli aggiornamenti con Azure Stack, vedere [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md).

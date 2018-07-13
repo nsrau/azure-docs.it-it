@@ -6,32 +6,27 @@ documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 4bd084c8-0842-4a10-8460-080c6a085bec
 ms.service: azure-resource-manager
 ms.devlang: multiple
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/09/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: bd2869b35d92ea92261223131476d7cc8eb854eb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af8b91ee20ccb4d16e7666c317ea7d08a265e6d6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360105"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435545"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
-Con Visual Studio e [Azure SDK](https://azure.microsoft.com/downloads/)è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. In alternativa, è possibile definire una macchina virtuale, una rete virtuale e un account di archiviazione e distribuire questa infrastruttura insieme a uno script che viene eseguito nella macchina virtuale. Il progetto di distribuzione **Gruppo di risorse di Azure** consente di distribuire tutte le risorse necessarie in una singola operazione ripetibile. Per altre informazioni sulla distribuzione e sulla gestione delle risorse, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
+Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL.  
 
-I progetti di tipo Gruppo di risorse di Azure includono modelli JSON di Azure Resource Manager, che definiscono le risorse che vengono distribuite in Azure. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md). Visual Studio consente di modificare questi modelli e offre strumenti utili per semplificare l'utilizzo dei modelli.
-
-In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL. I passaggi sono però quasi identici per qualsiasi tipo di risorsa. È possibile distribuire con altrettanta facilità una macchina virtuale e le rispettive risorse. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni.
-
-Questo articolo illustra la procedura per Visual Studio 2017. Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale. È anche possibile usare Azure SDK 2.6 o versione successiva, ma l'esperienza dell'interfaccia utente può essere diversa da quella illustrata in questo articolo. È consigliabile installare la versione più recente di [Azure SDK](https://azure.microsoft.com/downloads/) prima di iniziare la procedura. 
+Questo articolo illustra come usare [Visual Studio 2017 con lo sviluppo di Azure e i carichi di lavoro ASP.NET installati](/dotnet/azure/dotnet-tools). Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale.
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
-In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web e SQL** .
+In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un modello **App Web e SQL**.
 
 1. In Visual Studio scegliere **File**, **Nuovo progetto** e quindi **C#** o **Visual Basic**. Il linguaggio scelto non ha alcun impatto sulle fasi successive perché questi progetti includono solo contenuto JSON e PowerShell. Scegliere quindi **Cloud** e scegliere il progetto **Gruppo di risorse di Azure**.
    
@@ -56,14 +51,14 @@ In questa procedura verrà creato un progetto Gruppo di risorse di Azure con un 
    
    | Nome file | DESCRIZIONE |
    | --- | --- |
-   | Deploy-AzureResourceGroup.ps1 |Script di PowerShell che richiama i comandi di PowerShell per la distribuzione in Azure Resource Manager.<br />**Nota** : Visual Studio usa questo script di PowerShell per distribuire il modello. Eventuali modifiche apportate allo script influiscono sulla distribuzione in Visual Studio, quindi è opportuno prestare attenzione. |
+   | Deploy-AzureResourceGroup.ps1 |Script di PowerShell che esegue i comandi di PowerShell per la distribuzione in Azure Resource Manager.<br />**Nota** : Visual Studio usa questo script di PowerShell per distribuire il modello. Eventuali modifiche apportate allo script influiscono sulla distribuzione in Visual Studio, quindi è opportuno prestare attenzione. |
    | WebSiteSQLDatabase.json |Modello di Resource Manager che definisce l'infrastruttura da distribuire in Azure e parametri che si possono specificare durante la distribuzione. Definisce anche le dipendenze tra le risorse, per consentire a Resource Manager di distribuire le risorse nell'ordine corretto. |
    | WebSiteSQLDatabase.parameters.json |File di parametri contenente i valori necessari per il modello, che vengono passati per personalizzare ogni distribuzione. |
    
     Tutti i progetti di distribuzione di tipo Gruppo di risorse contengono questi file di base. Altri progetti potrebbero includere file aggiuntivi per supportare altre funzionalità.
 
 ## <a name="customize-the-resource-manager-template"></a>Personalizzare il modello di Gestione risorse
-È possibile personalizzare un progetto di distribuzione modificando i modelli JSON che descrivono le risorse da distribuire. JSON è l'acronimo di JavaScript Object Notation ed è un formato dati serializzati facile da usare. I file JSON usano uno schema a cui viene fatto riferimento all'inizio di ogni file. Per comprendere meglio lo schema, è possibile scaricarlo e analizzarlo. Lo schema definisce gli elementi validi, i tipi e i formati dei campi, i valori possibili dei valori enumerati e così via. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
+È possibile personalizzare un progetto di distribuzione modificando i modelli JSON che descrivono le risorse da distribuire. JSON è l'acronimo di JavaScript Object Notation ed è un formato dati serializzati facile da usare. I file JSON usano uno schema a cui viene fatto riferimento all'inizio di ogni file. Per comprendere meglio lo schema, è possibile scaricarlo e analizzarlo. Lo schema definisce gli elementi validi, i tipi e i formati dei campi e i valori possibili di una proprietà. Per informazioni sugli elementi del modello di Gestione risorse, vedere [Creazione di modelli di Gestione risorse di Azure](resource-group-authoring-templates.md).
 
 Per utilizzare il modello, aprire il file **WebSiteSQLDatabase.json**.
 
@@ -87,7 +82,7 @@ Si noti che non è stata aggiunta solo la risorsa, ma anche un parametro per il 
 
 ![visualizzazione della struttura](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-Il parametro **storageType** è preimpostato con i tipi consentiti e un tipo predefinito. È possibile usare questi valori o modificarli per il proprio scenario. Per impedire agli utenti di distribuire un account di archiviazione di tipo **Archiviazione con ridondanza locale Premium** tramite questo modello, rimuoverlo dai tipi consentiti. 
+Il parametro **storageType** è preimpostato con i tipi consentiti e un tipo predefinito. È possibile usare questi valori o modificarli per il proprio scenario. Per impedire agli utenti di distribuire un account di archiviazione di tipo **Premium_LRS** tramite questo modello, rimuoverlo dai tipi consentiti. 
 
 ```json
 "storageType": {
@@ -139,9 +134,9 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
    
     **hostingPlanName** specifica un nome per il [piano di servizio app da creare](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) . 
    
-    **administratorLogin** specifica il nome utente per l'amministratore di SQL Server. Non usare nomi di amministratore comuni, ad esempio **sa** o **admin**. 
+    **administratorLogin** specifica il nome utente per l'amministratore di SQL Server. Non usare nomi di amministratore comuni, ad esempio **sa** o **amministratore**. 
    
-    **administratorLoginPassword** specifica una password per l'amministratore di SQL Server. L'opzione **Salva le password come testo normale nel file dei parametri** non è sicura, quindi non selezionarla. Poiché la password non viene salvata come testo normale, è necessario immetterla ancora durante la distribuzione. 
+    **administratorLoginPassword** specifica una password per l'amministratore di SQL Server. L'opzione **Salva le password come testo normale nel file dei parametri** non è sicura, quindi non selezionarla. Poiché la password non viene salvata come testo normale, è necessario immetterla nuovamente durante la distribuzione. 
    
     **databaseName** specifica un nome per il database da creare. 
    
@@ -167,7 +162,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
     ![Gruppo di risorse di Azure distribuito](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/redeploy.png)
 
 ## <a name="deploy-code-with-your-infrastructure"></a>Distribuire codice con l'infrastruttura
-A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito codice effettivo con il progetto. Questo articolo illustra come distribuire un'app Web e tabelle del database SQL durante la distribuzione. Se si sta distribuendo una macchina virtuale invece di un'app Web, è consigliabile eseguire codice nella macchina virtuale come parte della distribuzione. Il processo di distribuzione di codice per un'app Web o per la configurazione di una macchina virtuale è quasi uguale.
+A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato ancora distribuito il codice effettivo con il progetto. Questo articolo illustra come distribuire un'app Web e tabelle del database SQL durante la distribuzione. Se si sta distribuendo una macchina virtuale invece di un'app Web, è consigliabile eseguire il codice nella macchina virtuale come parte della distribuzione. Il processo di distribuzione di codice per un'app Web o per la configurazione di una macchina virtuale è quasi uguale.
 
 1. Aggiungere un progetto alla soluzione Visual Studio. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Aggiungi** > **Nuovo progetto**.
    
@@ -194,8 +189,8 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
    
     Le proprietà sono:
    
-   * In **Additional Properties** (Proprietà aggiuntive) è disponibile la posizione di staging del pacchetto di distribuzione Web di cui viene effettuato il push in Archiviazione di Azure. Prendere nota della cartella (ExampleApp) e del file (package.zip). È necessario conoscere questi valori perché vengono specificati come parametri durante la distribuzioni dell'app. 
-   * In **Include File Path** (Includi percorso file) è disponibile il percorso in cui viene creato il pacchetto. In **Include Targets** (Includi destinazioni) è disponibile il comando che viene eseguito dalla distribuzione. 
+   * In **Additional Properties** è disponibile il percorso di gestione temporanea del pacchetto di distribuzione Web di cui viene effettuato il push in Archiviazione di Azure. Prendere nota della cartella (ExampleApp) e del file (package.zip). È necessario conoscere questi valori perché vengono specificati come parametri durante la distribuzioni dell'app. 
+   * In **Include File Path** è disponibile il percorso in cui viene creato il pacchetto. In **Include Targets** è disponibile il comando che viene eseguito dalla distribuzione. 
    * Il valore predefinito di **Build;Package** consente alla distribuzione di sviluppare e creare un pacchetto di distribuzione Web (package.zip).  
      
      Il profilo di pubblicazione non è necessario, perché la distribuzione ottiene le informazioni necessarie dalle proprietà per creare il pacchetto.
@@ -218,11 +213,11 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
      ![visualizzazione dell'app distribuita](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-deployed-app.png)
 
 ## <a name="add-an-operations-dashboard-to-your-deployment"></a>Aggiungere un dashboard operazioni alla distribuzione
-Dopo la creazione di una soluzione è possibile eseguire l'ultimo passaggio e renderla operativa. Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual Studio. È possibile sfruttare i vantaggi dell'uso dei dashboard condivisi, definiti come risorse in JSON. A questo scopo è possibile modificare il modello e aggiungere una risorsa personalizzata. 
+Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual Studio. È possibile personalizzare la distribuzione mediante l'aggiunta di una risorsa personalizzata al modello. Per visualizzare l'aggiunta di una risorsa, aggiungere un dashboard operativo per gestire la risorsa che è stata distribuita.
 
-1. Aprire il file WebsiteSqlDeploy.json e aggiungere il blocco di codice JSON seguente dopo la risorsa dell'account di archiviazione ma prima della parentesi ] di chiusura della sezione relativa alle risorse.
+1. Aprire il file WebsiteSqlDeploy.json e aggiungere il codice JSON seguente dopo la risorsa dell'account di archiviazione ma prima della parentesi `]` di chiusura della sezione relativa alle risorse.
 
-```json
+  ```json
     ,{
       "properties": {
         "lenses": {
@@ -297,23 +292,19 @@ Dopo la creazione di una soluzione è possibile eseguire l'ultimo passaggio e re
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-}
-```
+  }
+  ```
 
-2. Ridistribuire il gruppo di risorse. Quando si esamina il dashboard nel portale di Azure, verrà visualizzato il dashboard condiviso aggiunto all'elenco di opzioni. 
+2. Ridistribuire il gruppo di risorse. Esaminando il dashboard nel portale di Azure,si noti che il dashboard condiviso è stata aggiunto al proprio elenco di scelte.
 
-    ![Dashboard personalizzato](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
+   ![Dashboard personalizzato](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/view-custom-dashboards.png)
 
+3. Selezionare il dashboard.
 
+   ![Dashboard personalizzato](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
 
-   > [!NOTE] 
-   > L'accesso al dashboard può essere gestito tramite gruppi di controllo degli accessi in base al ruolo ed è possibile pubblicare personalizzazioni alla risorsa dopo la distribuzione. Si noti che quando si ridistribuisce il gruppo di risorse, verranno ripristinate le impostazioni predefinite del modello. È consigliabile prendere in considerazione l'aggiornamento del modello con le personalizzazioni. Per informazioni su questa procedura, vedere [Creare dashboard di Azure a livello di programmazione](../azure-portal/azure-portal-dashboards-create-programmatically.md)
+È possibile gestire l'accesso al dashboard usando i gruppi RBAC. È anche possibile personalizzare l'aspetto del dashboard dopo la distribuzione. Tuttavia, se si ridistribuisce il gruppo di risorse, il dashboard viene ripristinato allo stato predefinito nel modello. Per altre informazioni sulla creazione di dashboard, vedere [Creazione di dashboard di Azure a livello di codice](../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-
-    ![Dashboard personalizzato](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/Ops-DemoSiteGroup-dashboard.png)
-    
-    
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sulla gestione delle risorse tramite il portale, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
 * Per altre informazioni sui modelli, vedere [Creazione di modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 

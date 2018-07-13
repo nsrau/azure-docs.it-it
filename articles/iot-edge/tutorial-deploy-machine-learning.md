@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afc9e7c0635f9920aa3ec7c9e6012aa4e41edb9d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8e6873f45beac281adbc7a9669504f1703a9eaf5
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062042"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345492"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Distribuire Azure Machine Learning come modulo di IoT Edge - anteprima
 
@@ -33,13 +33,13 @@ In questa esercitazione si apprenderà come:
 >[!NOTE]
 >I moduli di Azure Machine Learning in Azure IoT Edge sono in anteprima pubblica. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per testare il modulo di Machine Learning che si compila in questa esercitazione, è necessario un dispositivo IoT Edge. È possibile usare il dispositivo configurato nella guida introduttiva per [dispositivi Linux](quickstart-linux.md) o [Windows](quickstart.md). 
 
 Il modulo Azure Machine Learning non supporta i processori ARM.
 
-Nel computer di sviluppo sono necessari prerequisiti seguenti: 
+Nel computer di sviluppo sono necessari i prerequisiti seguenti: 
 * Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). Non è necessario installare l'applicazione workbench per questa esercitazione. 
 * Gestione modelli per Azure ML nel computer in uso. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](../machine-learning/desktop-workbench/deployment-setup-configuration.md).
 
@@ -60,14 +60,14 @@ Modificare il file di configurazione del daemon IoT Edge:
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Aggiornare la sezione **connect** della configurazione. Ad esempio: 
+Aggiornare la sezione **connect** della configurazione con l'indirizzo IP. Ad esempio:
 ```yaml
 connect:
   management_uri: "http://172.17.0.1.1:15580"
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-Immettere gli stessi indirizzi nella sezione **listen** della configurazione. Ad esempio: 
+Immettere gli stessi indirizzi nella sezione **listen** della configurazione. Ad esempio:
 
 ```yaml
 listen:
@@ -116,7 +116,7 @@ Verificare che l'immagine del contenitore sia stata creata e archiviata corretta
 
 1. Passare a **IoT Edge** e selezionare il dispositivo IoT Edge.
 
-1. Selezionare **Set modules** (Configura i moduli).
+1. Selezionare **Imposta moduli**.
 
 1. Nella sezione **Impostazioni registro** aggiungere le credenziali copiate dal registro contenitori di Azure. 
 
@@ -125,7 +125,7 @@ Verificare che l'immagine del contenitore sia stata creata e archiviata corretta
 1. Se il modulo tempSensor è stato distribuito in precedenza nel dispositivo IoT Edge, la compilazione dei campi potrebbe essere automatica. Se non è già incluso nell'elenco dei moduli, aggiungerlo.
 
     1. Fare clic su **Aggiungi** e selezionare **Modulo IoT Edge**.
-    2. Nel campo **Nome** immettere `tempsensor`.
+    2. Nel campo **Nome** immettere `tempSensor`.
     3. Nel campo **URI immagine** immettere `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`.
     4. Selezionare **Salva**.
 
@@ -136,9 +136,9 @@ Verificare che l'immagine del contenitore sia stata creata e archiviata corretta
     1. Nel campo **Immagine** immettere l'indirizzo dell'immagine, ad esempio `<registry_name>.azurecr.io/machinelearningmodule:1`.
     1. Selezionare **Salva**.
 
-1. Nel passaggio **Add Modules** (Aggiungi moduli) selezionare **Next** (Avanti).
+1. Nel passaggio **Aggiungi moduli** selezionare **Avanti**.
 
-1. Nel passaggio **Specify Routes** (Specifica route) copiare il codice JSON seguente nella casella di testo. La prima route trasporta i messaggi del sensore di temperatura al modulo di Machine Learning tramite l'endpoint "amlInput", che è l'endpoint usato da tutti i moduli di Azure Machine Learning. La seconda route trasporta i messaggi dal modulo di Machine Learning all'hub IoT. In questa route ''amlOutput'' è l'endpoint usato da tutti i moduli di Azure Machine Learning per l'output dei dati, mentre ''$upstream'' fa riferimento all'hub IoT.
+1. Nel passaggio **Specifica route** copiare il codice JSON seguente nella casella di testo. La prima route trasporta i messaggi del sensore di temperatura al modulo di Machine Learning tramite l'endpoint "amlInput", che è l'endpoint usato da tutti i moduli di Azure Machine Learning. La seconda route trasporta i messaggi dal modulo di Machine Learning all'hub IoT. In questa route ''amlOutput'' è l'endpoint usato da tutti i moduli di Azure Machine Learning per l'output dei dati, mentre ''$upstream'' fa riferimento all'hub IoT.
 
     ```json
     {

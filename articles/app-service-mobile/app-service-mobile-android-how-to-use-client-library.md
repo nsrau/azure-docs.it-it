@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: d89aa308ab8f6684cebbec49bbefdcb54d77c886
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1ab7aa9ecdd51809f6e1d82958f21b78b16e7e63
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869717"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859558"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Come usare Azure Mobile Apps SDK per Android
 
@@ -905,7 +905,7 @@ Per abilitare l'autenticazione nell'app, è necessario eseguire quattro passaggi
 * Limitare le autorizzazioni per la tabella solo agli utenti autenticati nel back-end del servizio app.
 * Aggiungere codice di autenticazione all'app.
 
-È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Aggiungere l'autenticazione all'app Android] e la documentazione sulle procedure dell'SDK del server.
+È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. Per modificare le richieste, è anche possibile usare il SID di un utente autenticato.  Per altre informazioni, vedere [Introduzione all'autenticazione] e la documentazione sulle procedure dell'SDK del server.
 
 ### <a name="caching"></a>Autenticazione: flusso server
 
@@ -988,7 +988,7 @@ dependencies {
 }
 ```
 
-È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Aggiungere l'autenticazione all'app Android].
+È possibile ottenere l'ID dell'utente connesso da un oggetto **MobileServiceUser** usando il metodo **getUserId**. Per un esempio di come usare Futures per chiamare le API di accesso asincrone, vedere [Introduzione all'autenticazione].
 
 > [!WARNING]
 > Lo schema URL indicato rispetta la distinzione tra maiuscole e minuscole.  Assicurarsi che tutte le occorrenze di `{url_scheme_of_you_app}` rispettino questa distinzione.
@@ -1290,10 +1290,10 @@ Questo codice deve essere eseguito prima di creare un riferimento al client per 
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Aggiungere l'autenticazione all'app Android]: app-service-mobile-android-get-started-users.md
-[1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
+[Introduzione all'autenticazione]: app-service-mobile-android-get-started-users.md
+[1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
-[3]: http://go.microsoft.com/fwlink/p/?LinkId=290801
+[3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps

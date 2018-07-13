@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335823"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127856"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>Esercitazione: Creare un'app usando un'entità elenco
+# <a name="tutorial-4-add-list-entity"></a>Esercitazione: 4. Aggiungere un'entità elenco
 In questa esercitazione si crea un'app che dimostra come ottenere dati corrispondenti a un elenco predefinito. 
 
 <!-- green checkmark -->
@@ -30,9 +30,9 @@ In questa esercitazione si crea un'app che dimostra come ottenere dati corrispon
 Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se non si ha l'app relativa alle risorse umane dell'esercitazione sul [dominio personalizzato](luis-quickstart-intents-regex-entity.md) delle entità espressione regolare, [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità di espressione regolare](luis-quickstart-intents-regex-entity.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
 
-Se si vuole mantenere l'app Risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `list`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `list`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
 ## <a name="purpose-of-the-list-entity"></a>Scopo dell'entità elenco
 Quest'app permette di prevedere le espressioni relative allo spostamento di un dipendente da un edificio a un altro. Quest'app usa un'entità elenco per estrarre un dipendente. Il dipendente può essere designato usando il nome, il numero di telefono, l'indirizzo di posta elettronica o il codice fiscale federale degli Stati Uniti. 
@@ -69,7 +69,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 ## <a name="add-moveemployee-intent"></a>Aggiungere la finalità MoveEmployee
 
-1. Assicurarsi che l'app Risorse umane sia presente nella sezione **Build** di Language Understanding. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
     [ ![Schermata dell'app di Language Understanding con Build evidenziato nella barra dei menu in alto a destra](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891 to hh-2345|
 
     [ ![Schermata della pagina della finalità con le nuove espressioni evidenziate](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    L'applicazione ha un'entità numero predefinita aggiunta con l'esercitazione precedente, quindi ogni numero è contrassegnato. Queste informazioni possono essere sufficienti per l'applicazione client, ma il numero non è etichettato con il tipo. La creazione di una nuova entità con un nome appropriato permette all'applicazione client di elaborare l'entità quando viene restituita da LUIS.
 
 ## <a name="create-an-employee-list-entity"></a>Creare un'entità elenco dipendenti
 Ora che la finalità **MoveEmployee** ha espressioni, LUIS deve capire cos'è un dipendente. 
@@ -298,10 +296,10 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, 
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dall'entità per completare il passaggio successivo. Language Understanding non esegue questa attività a livello di codice per il chatbot o l'applicazione chiamante, ma determina solo la finalità dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** nel menu in alto a sinistra. Selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come aggiungere un'entità gerarchica](luis-quickstart-intent-and-hier-entity.md)
+> [Aggiungere un'entità gerarchica all'app](luis-quickstart-intent-and-hier-entity.md)
 

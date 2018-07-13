@@ -2,19 +2,19 @@
 title: Guida introduttiva - Portale per cluster Azure Kubernetes
 description: Informazioni per creare rapidamente un cluster Kubernetes per contenitori Linux nel servizio contenitore di Azure con il portale di Azure.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286597"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344475"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
@@ -28,11 +28,9 @@ Questa guida introduttiva presuppone una comprensione di base dei concetti relat
 
 Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
-
-
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
-Scegliere **Crea una risorsa** > selezionare **Servizio Kubernetes** > **Crea**.
+Scegliere **Crea una risorsa** > selezionare **Servizio Kubernetes**.
 
 Completare i passaggi seguenti in ogni intestazione del modulo per la creazione di un cluster del servizio contenitore di Azure.
 
@@ -47,7 +45,7 @@ Al termine dell'operazione, selezionare **Next: Networking** (Avanti: Rete).
 
 Configurare le opzioni di rete seguenti:
 
-- **Http application routing** (Routing applicazione HTTP) - configura un controller di ingresso integrato con creazione automatica del nome DNS pubblico. Per altre informazioni sul routing HTTP, vedere, [AKS HTTP routing and DNS][http-routing] (Routing e HTTP ASK e DNS).
+- **Http application routing** (Routing applicazione HTTP) - configura un controller di ingresso integrato con creazione automatica del nome DNS pubblico. Per altre informazioni sul routing HTTP, vedere, [AKS HTTP routing and DNS][http-routing] (Routing HTTP e DNS nel servizio contenitore di Azure).
 - **Network configuration** (Configurazione di rete) - scegliere la configurazione di rete di base tramite il plug-in [kubenet][kubenet] di Kubernetes oppure la configurazione di rete avanzata tramite [Azure CNI][azure-cni]. Per altre informazioni sulle opzioni relative alla rete, vedere [AKS networking overview][aks-network] (Panoramica di rete AKS).
 
 Al termine dell'operazione, selezionare **Next: Monitoring** (Avanti: Monitoraggio).

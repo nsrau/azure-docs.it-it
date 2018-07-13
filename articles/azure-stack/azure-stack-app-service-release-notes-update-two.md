@@ -1,6 +1,6 @@
 ---
-title: Servizio app di Azure stack aggiornamento 2 note sulla versione | Documenti Microsoft
-description: Informazioni sulle caratteristiche di aggiornamento due per il servizio App nello Stack di Azure, i problemi noti e dove scaricare l'aggiornamento.
+title: Note sulla versione 2 aggiornamento del servizio App in Azure Stack | Microsoft Docs
+description: Informazioni sulle novità nell'aggiornamento 2 per il servizio App in Azure Stack, i problemi noti e dove scaricare l'aggiornamento.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 8e1790b7d0b3a210a9142fc8580ff8ed4d64311c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: be09773a1ce3e80547d9e5f0e9de2a2d9e093c60
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360414"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970918"
 ---
-# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Servizio app di note sulla versione di Azure Stack update 2
+# <a name="app-service-on-azure-stack-update-2-release-notes"></a>Servizio App in note sulla versione update 2 di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Queste note sulla versione vengono descritti i miglioramenti e correzioni in Azure App Service in Azure Stack Update 2 e i problemi noti. Problemi noti sono suddivisi in problemi direttamente correlati alla distribuzione, processo di aggiornamento e i problemi con la compilazione (post-installazione).
+Queste note sulla versione descrivono i miglioramenti e correzioni in servizio App di Azure in Azure Stack Update 2 e problemi noti. Problemi noti sono suddivisi in problemi correlati direttamente per la distribuzione, il processo di aggiornamento e i problemi con la build (post-installazione).
 
 > [!IMPORTANT]
-> Applicare l'aggiornamento 1804 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire Azure App Service 1.2.
+> Applicare l'aggiornamento 1804 per il sistema integrato Azure Stack o distribuire il kit di sviluppo di Azure Stack più recente prima della distribuzione del servizio App di Azure 1.2.
 >
 >
 
-## <a name="build-reference"></a>Compilazione di riferimento
+## <a name="build-reference"></a>Riferimento alla compilazione
 
-Il servizio App sul numero di build Azure Stack Update 2 è **72.0.13698.10**
+Il servizio App sul numero di build di Azure Stack Update 2 è **72.0.13698.10**
 
 ### <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-> Nuove distribuzioni di Azure App Service nello Stack di Azure è ora necessario un [certificato con caratteri jolly tre soggetto](azure-stack-app-service-before-you-get-started.md#get-certificates) in seguito ai miglioramenti nel modo in cui SSO per Kudu viene gestito nel servizio App di Azure. Il nuovo argomento viene  **\*. sso.appservice.\< area\>.\< DomainName\>.\< estensione\>**
+> Le nuove distribuzioni del servizio App di Azure in Azure Stack è ora necessario un [certificato con caratteri jolly tre soggetto](azure-stack-app-service-before-you-get-started.md#get-certificates) grazie ai miglioramenti nel modo in cui l'accesso SSO per Kudu è ora gestito nel servizio App di Azure. Il nuovo soggetto  **\*. sso.appservice.\< area geografica\>.\< DomainName\>.\< estensione\>**
 >
 >
 
-Consultare il [documentazione prima di iniziare a](azure-stack-app-service-before-you-get-started.md) prima di iniziare la distribuzione.
+Vedere le [documentazione prima di iniziare a](azure-stack-app-service-before-you-get-started.md) prima di iniziare la distribuzione.
 
 ### <a name="new-features-and-fixes"></a>Nuove funzionalità e correzioni
 
 Servizio App di Azure in Azure Stack Update 2 include le correzioni e i miglioramenti seguenti:
 
-- Gli aggiornamenti a **Tenant di servizio App, amministratore, i portali di funzioni e gli strumenti Kudu**. Coerentemente con versione del SDK portale di Azure dello Stack.
+- Gli aggiornamenti **Tenant del servizio App, amministratore, i portali di funzioni e gli strumenti di Kudu**. Coerente con la versione di SDK portale di Azure Stack.
 
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 
-- **Gli aggiornamenti per gli strumenti e Framework di applicazioni seguenti**:
+- **Gli aggiornamenti per gli strumenti e Framework di applicazione seguenti**:
   - Aggiunta di .net Framework 4.7.1
-  - Aggiunto **Node. js** versioni:
+  - Aggiunti **Node. js** versioni:
     - NodeJS 6.12.3
     - NodeJS 8.9.4
     - NodeJS 8.10.0
     - NodeJS 8.11.1
-  - Aggiunto **NPM** versioni:
+  - Aggiunti **NPM** versioni:
     - 5.6.0
-  - Aggiornamento .net Core componenti siano coerenti con il servizio App di Azure nel cloud pubblico.
+  - .NET Core aggiornati i componenti siano coerenti con il servizio App di Azure nel cloud pubblico.
   - Kudu aggiornato
 
-- Lo scambio automatico della distribuzione di slot della funzionalità abilitata - [configurazione scambio automatico](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Lo scambio automatico della distribuzione slot funzionalità abilitata - [configurazione scambio automatico](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
 
-- Eseguire test in produzione abilitata - [Introduzione al Testing nell'ambiente di produzione](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
+- Test in produzione abilitata - [Introduzione al Testing nell'ambiente di produzione](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
-- Azure funzioni proxy abilitato - [lavorare con i proxy di funzioni di Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-proxies)
+- Proxy di funzioni di Azure abilitata - [lavorare con il proxy di funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-proxies)
 
-- Estensione di amministrazione del servizio App UX supportano aggiunti per:
+- Estensione amministratore del servizio App dell'esperienza utente il supporto aggiunto per:
   - Rotazione segreta
-  - Rotazione di certificato
+  - Rotazione del certificato
   - Rotazione delle credenziali di sistema
-  - Rotazione di stringa di connessione
+  - Rotazione delle stringhe di connessione
 
 ### <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 
-- Thread di lavoro sono in grado di raggiungere il server di file in caso di servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
+- I ruoli di lavoro sono in grado di raggiungere il server di file quando il servizio App viene distribuito in una rete virtuale esistente e il file server è disponibile nella rete privata solo.
 
-Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al server di file, è necessario aggiungere una regola di sicurezza in uscita, abilitare il traffico SMB tra la subnet di lavoro e il file server. A tale scopo, passare al WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
- * Origine: qualsiasi
+Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+ * Origine: tutti
  * Intervallo di porte di origine: *
- * Destinazione: Indirizzi IP
+ * Destinazione: Gli indirizzi IP
  * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
  * Intervallo di porte di destinazione: 445
  * Protocollo: TCP
@@ -93,11 +93,11 @@ Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP in
  * Priorità: 700
  * Nome: Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud operativo Azure App Service nello Stack di Azure
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problemi noti per gli amministratori Cloud funziona nel servizio App di Azure in Azure Stack
 
-Consultare la documentazione nel [note sulla versione di Azure Stack 1804](azure-stack-update-1804.md)
+Vedere la documentazione nel [note sulla versione 1804 dello Stack di Azure](azure-stack-update-1804.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica di servizio App di Azure, vedere [Azure App Service nella panoramica di Azure Stack](azure-stack-app-service-overview.md).
-- Per ulteriori informazioni su come preparare la distribuzione di servizio App nello Stack di Azure, vedere [prima di iniziare a con il servizio App in Azure Stack](azure-stack-app-service-before-you-get-started.md).
+- Per una panoramica del servizio App di Azure, vedere [servizio App di Azure nella panoramica di Azure Stack](azure-stack-app-service-overview.md).
+- Per altre informazioni su come preparare la distribuzione del servizio App in Azure Stack, vedere [prima di iniziare con il servizio App in Azure Stack](azure-stack-app-service-before-you-get-started.md).

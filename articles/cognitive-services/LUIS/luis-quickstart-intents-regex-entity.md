@@ -7,17 +7,17 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 317d5b37b90f6c436e3cecf0486d587f54960598
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316543"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128446"
 ---
-# <a name="tutorial-use-regular-expression-entity"></a>Esercitazione: Usare un'entità di espressione regolare
-In questa esercitazione si crea un'app che dimostra come estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
+# <a name="tutorial-3-add-regular-expression-entity"></a>Esercitazione: 3. Aggiungere un'entità di espressione regolare
+Questa esercitazione illustra come creare un'app che dimostra come estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
 
 
 <!-- green checkmark -->
@@ -31,9 +31,9 @@ In questa esercitazione si crea un'app che dimostra come estrarre dati formattat
 Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se non è disponibile l'app Human Resources (Risorse umane) descritta nell'esercitazione sui [domini personalizzati](luis-tutorial-prebuilt-intents-entities.md) per le entità predefinite, [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website) dal repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Se non è disponibile l'app relativa alle risorse umane descritta nell'esercitazione sulle [entità predefinite](luis-tutorial-prebuilt-intents-entities.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website) dal repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
-Se si vuole mantenere l'app Risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
 
 
 ## <a name="purpose-of-the-regular-expression-entity"></a>Scopo dell'entità di espressione regolare
@@ -144,54 +144,70 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
     ![Schermata della pagina Publish (Pubblica) con l'URL endpoint evidenziato](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `When were HRF-123456 and hrf-234567 published?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
+2. Passare alla fine dell'URL nell'indirizzo e immettere `When were HRF-123456 and hrf-234567 published in the last year?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni etichettate, per cui rappresenta un buon test e deve restituire la finalità `FindForm` con i due numeri di modulo `HRF-123456` e `hrf-234567`.
 
     ```
     {
-      "query": "When were HRF-123456 and hrf-234567 published?",
+      "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.970179737
+        "score": 0.9993477
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.970179737
+          "score": 0.9993477
         },
         {
           "intent": "ApplyForJob",
-          "score": 0.0131893409
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00364777143
+          "score": 0.0206110049
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0024568392
+          "score": 0.00533067342
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.004215215
         },
         {
           "intent": "Utilities.Help",
-          "score": 0.00173760345
+          "score": 0.00209096959
         },
         {
           "intent": "None",
-          "score": 0.00173070864
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00130692765
+          "score": 0.0017655947
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.00130328839
+          "score": 0.00109490135
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.0005704638
         },
         {
           "intent": "Utilities.Cancel",
-          "score": 0.0006671795
+          "score": 0.000525338168
         }
       ],
       "entities": [
+        {
+          "entity": "last year",
+          "type": "builtin.datetimeV2.daterange",
+          "startIndex": 53,
+          "endIndex": 61,
+          "resolution": {
+            "values": [
+              {
+                "timex": "2017",
+                "type": "daterange",
+                "start": "2017-01-01",
+                "end": "2018-01-01"
+              }
+            ]
+          }
+        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -237,10 +253,10 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, 
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i numeri di modulo ed eseguire ricerche in un'API di terze parti. Language Understanding non esegue queste operazioni, ma determina solo l'intenzione dell'utente ed estrae i dati relativi a tale intenzione. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** nel menu in alto a sinistra. Selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Elimina**. Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni sull'entità KeyPhrase](luis-quickstart-intent-and-key-phrase.md)
+> [Informazioni sull'entità di elenco](luis-quickstart-intent-and-list-entity.md)
 

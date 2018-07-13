@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598080"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473750"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Come usare Node.js SDK per App per dispositivi mobili
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -886,14 +886,14 @@ Il portale di Azure consente di modificare i file di script del back-end Node.js
 [Monitoraggio del servizio app di Azure]: ../app-service/web-sites-monitor.md
 [Abilitare la registrazione diagnostica nel servizio app di Azure]: ../app-service/web-sites-enable-diagnostic-log.md
 [Risolvere i problemi del servizio app di Azure in Visual Studio]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[Specificare la versione di Node]: ../nodejs-specify-node-version-azure-apps.md
+[specificare la versione di Node]: ../nodejs-specify-node-version-azure-apps.md
 [usare i moduli di Node]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Portale di Azure]: https://portal.azure.com/
+[portale di Azure]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [esempio basicapp in GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

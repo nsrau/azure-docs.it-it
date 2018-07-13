@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 884237a851461fe3d7a48708d221909804760ceb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 42af2b5ec6b591929f37afebe6546d61b8a3a02a
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063123"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082849"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Python per IoT Edge in un dispositivo simulato
 
@@ -32,29 +32,33 @@ Il modulo di IoT Edge creato in questa esercitazione filtra i dati relativi alla
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Il dispositivo Azure IoT Edge creato nella guida introduttiva per [dispositivi Linux](quickstart-linux.md) o [Windows](quickstart.md).
+* Il dispositivo Azure IoT Edge creato nella guida introduttiva per [Linux](quickstart-linux.md).
+
+   >[!Note]
+   >I moduli Python per Azure IoT Edge non supportano dispositivi Windows o ARM. 
+
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Estensione Azure IoT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [Estensione di Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
+* [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker](https://docs.docker.com/engine/installation/) nello stesso computer con Visual Studio Code. La Community Edition (CE) è sufficiente per questa esercitazione. 
 * [Python](https://www.python.org/downloads/).
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) per l'installazione di pacchetti Python (generalmente incluso con l'installazione di Python).
 
 ## <a name="create-a-container-registry"></a>Creare un registro di contenitori
-In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo di IoT Edge.  
+In questa esercitazione viene usata l'estensione Azure IoT Edge per Visual Studio Code per creare un modulo e un'**immagine del contenitore** dai file. Eseguire quindi il push dell'immagine in un **registro** che archivia e gestisce le immagini. Distribuire infine l'immagine dal registro nel dispositivo IoT Edge.  
 
-È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il registro contenitori di Azure. 
+È possibile usare qualsiasi registro compatibile con Docker per questa esercitazione. Due servizi molto diffusi per il registro Docker disponibili sul cloud sono il [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) e [Hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Questa esercitazione usa il Registro contenitori di Azure. 
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro di sistema del contenitore di Azure**.
-2. Assegnare un nome al registro di sistema, scegliere una sottoscrizione e un gruppo di risorse e impostare lo SKU su **Basic**. 
-3. Selezionare **Create**.
-4. Dopo aver creato il registro di sistema del contenitore, accedervi e selezionare **Chiavi di accesso**. 
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Contenitori** > **Registro contenitori di Azure**.
+2. Assegnare un nome al registro, scegliere una sottoscrizione e un gruppo di risorse e impostare lo SKU su **Di base**. 
+3. Selezionare **Crea**.
+4. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**. 
 5. Impostare **Utente amministratore** su **Abilita**.
 6. Copiare i valori nei campi **Server di accesso**, **Nome utente** e **Password**. Questi valori verranno usati più avanti nell'esercitazione. 
 
-## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo di IoT Edge
+## <a name="create-an-iot-edge-module-project"></a>Creare un progetto di modulo IoT Edge
 La procedura seguente illustra come creare un modulo Python per IoT Edge tramite Visual Studio Code e l'estensione Azure IoT Edge.
 
 ### <a name="create-a-new-solution"></a>Creare una nuova soluzione
@@ -71,9 +75,9 @@ Usare il pacchetto Python **cookiecutter** per creare un modello di soluzione Py
 
 3. Selezionare **Visualizza** > **Riquadro comandi** per aprire il riquadro comandi di VS Code. 
 
-4. Nel riquadro comandi digitare ed eseguire il comando **Azure: Sign in** (Azure: Accedi) seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
+4. Nel riquadro comandi digitare ed eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
 
-5. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi fornire le informazioni seguenti per creare la soluzione: 
+5. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
 
    1. Selezionare la cartella in cui si vuole creare la soluzione. 
    2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
@@ -81,19 +85,19 @@ Usare il pacchetto Python **cookiecutter** per creare un modello di soluzione Py
    4. Assegnare al modulo il nome **PythonModule**. 
    5. Specificare il registro contenitori di Azure creato nella sezione precedente come repository di immagini per il primo modulo. Sostituire **localhost:5000** con il valore del server di accesso copiato. La stringa finale è simile a **\<nome registro\>.azurecr.io/pythonmodule**.
  
-La finestra VS Code carica l'area di lavoro della soluzione IoT Edge. Sono presenti una cartella **modules**, un file modello del manifesto della distribuzione e un file **ENV**. 
+La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. Sono presenti una cartella **modules**, un file modello del manifesto della distribuzione e un file con estensione **env**. 
 
 ### <a name="add-your-registry-credentials"></a>Aggiungere le credenziali del registro
 
 Il file dell'ambiente archivia le credenziali per il repository di contenitori e le condivide con il runtime IoT Edge. Queste credenziali sono necessarie al runtime per eseguire il pull delle immagini private nel dispositivo IoT Edge. 
 
-1. Nello strumento di esplorazione di VS Code aprire il file **ENV**. 
-2. Aggiornare i campi con i valori di **username** e **password** copiati dal registro contenitori di Azure. 
+1. Nello strumento di esplorazione di VS Code aprire il file con estensione **env**. 
+2. Aggiornare i campi con i valori di **nome utente** e **password** copiati dal registro contenitori di Azure. 
 3. Salvare questo file. 
 
 ### <a name="update-the-module-with-custom-code"></a>Aggiornare il modulo con il codice personalizzato
 
-In ogni modello è incluso il codice di esempio, che simula i dati del sensore dal modulo **tempSensor** e li instrada all'hub IoT. In questa sezione aggiungere il codice che si espande pythonModule per analizzare i messaggi prima di inviarli. 
+In ogni modello è incluso il codice di esempio, che simula i dati del sensore dal modulo **tempSensor** e li instrada all'hub IoT. In questa sezione aggiungere il codice che espande pythonModule per analizzare i messaggi prima di inviarli. 
 
 1. Nello strumento di esplorazione di VS Code aprire **modules** > **PythonModule** > **main.py**.
 
@@ -208,13 +212,13 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
 4. Selezionare la sottoscrizione che contiene l'hub IoT, quindi selezionare l'hub IoT a cui si vuole accedere.
 
-5. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'Hub IoT di Azure). 
+5. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
 
 6. Fare clic con il pulsante destro del mouse sul dispositivo IoT Edge, quindi scegliere **Create Deployment for IoT Edge device** (Crea la distribuzione per il dispositivo IoT Edge). 
 
 7. Passare alla cartella della soluzione che contiene PythonModule. Aprire la cartella **config** e selezionare il file **deployment.json**. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge).
 
-8. Aggiornare la sezione **Azure IoT Hub Devices** (Dispositivi dell'Hub IoT di Azure). Dovrebbe essere visualizzato il nuovo **PythonModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**. 
+8. Aggiornare la sezione **Azure IoT Hub Devices** (Dispositivi dell'hub IoT di Azure). Dovrebbe essere visualizzato il nuovo **PythonModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 

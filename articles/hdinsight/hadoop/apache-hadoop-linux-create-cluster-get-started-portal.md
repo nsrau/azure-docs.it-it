@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: b9cf3ae3417b993cd721460484d6228daf7b283c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627348"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097897"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Guida di avvio rapido: Iniziare a usare Hadoop e Hive in Azure HDInsight mediante il portale di Azure
 
@@ -62,7 +62,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
     ![HDInsight Linux guida introduttiva fornisce i valori di base per il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-provide-cluster-type.png "Fornire i valori di base per la creazione di un cluster HDInsight")
 
-    Selezionare i valori seguenti.
+    Selezionare i valori seguenti:
     
     |Proprietà  |DESCRIZIONE  |
     |---------|---------|
@@ -76,11 +76,11 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
     ![HDInsight Linux guida introduttiva fornisce i valori di archiviazione per il cluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-portal-select-storage.png "Fornire i valori di archiviazione per la creazione di un cluster HDInsight")
 
-    Selezionare i valori seguenti.
+    Selezionare i valori seguenti:
     
     |Proprietà  |DESCRIZIONE  |
     |---------|---------|
-    |**Tipo di archiviazione primario**     | Per questo articolo selezionare **Archiviazione di Azure** per BLOB del servizio di archiviazione di Azure come account di archiviazione predefinito. Si può anche usare Azure Data Lake Store come risorsa di archiviazione predefinita. |
+    |**Tipo di archiviazione primario**     | Per questo articolo selezionare **Archiviazione di Azure** per BLOB del servizio di archiviazione di Azure come account di archiviazione predefinito. Si può anche usare Azure Data Lake Storage come risorsa di archiviazione predefinita. |
     |**Metodo di selezione**     |  Per questo articolo selezionare **Sottoscrizioni personali** per usare un account di archiviazione dalla sottoscrizione di Azure. Per usare un account di archiviazione di altre sottoscrizioni, selezionare **Chiave di accesso** e quindi specificare la chiave di accesso per quell'account. |
     |**Creare un nuovo account di archiviazione**     | Fornire un nome per l'account di archiviazione.|
 
@@ -109,7 +109,7 @@ In questa sezione viene creato un cluster Hadoop in HDInsight usando il portale 
 
 [Apache Hive](hdinsight-use-hive.md) è il componente più diffuso usato in HDInsight. Esistono diversi modi per eseguire processi Hive in HDInsight. In questa esercitazione si usa la visualizzazione Hive di Ambari dal portale. Per altri metodi di esecuzione di processi Hive, vedere [Usare Hive in HDInsight](hdinsight-use-hive.md).
 
-1. Per aprire Ambari, nello screenshot precedente selezionare **Dashboard cluster**.  È inoltre possibile passare a **https://&lt;NomeCluster>.azurehdinsight.net**, dove &lt;NomeCluster> è il cluster creato nella sezione precedente.
+1. Per aprire Ambari, nello screenshot precedente selezionare **Dashboard cluster**.  È anche possibile passare a **https://&lt;NomeCluster>.azurehdinsight.net**, dove &lt;NomeCluster> è il cluster creato nella sezione precedente.
 
     ![Guida introduttiva di HDInsight Linux al dashboard del cluster](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-open-cluster-dashboard.png "Guida introduttiva di HDInsight Linux al dashboard del cluster")
 
@@ -177,6 +177,7 @@ In questa esercitazione si è appreso come creare un cluster HDInsight basato su
 Se si è pronti per iniziare a usare i dati, ma sono necessarie altre informazioni sulle modalità di archiviazione dei dati in HDInsight o sulle procedure di importazione dei dati in HDInsight, vedere gli articoli seguenti:
 
 * Per informazioni sul modo in cui HDInsight usa Archiviazione di Azure, vedere [Usare Archiviazione di Azure con HDInsight](../hdinsight-hadoop-use-blob-storage.md).
+* Per informazioni su come creare un cluster HDInsight con Data Lake Storage, vedere [Avvio rapido: configurare cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * Per informazioni su come caricare i dati in HDInsight, vedere [Caricare dati in HDInsight](../hdinsight-upload-data.md).
 
 Per altre informazioni sull'analisi dei dati con HDInsight, vedere gli articoli seguenti:

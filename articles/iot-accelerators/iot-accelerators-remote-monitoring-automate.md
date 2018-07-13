@@ -1,68 +1,65 @@
 ---
-title: Rilevare i problemi dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
+title: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs
 description: Questa esercitazione mostra come usare regole e azioni per rilevare automaticamente problemi dei dispositivi in base alle soglie nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
-services: iot-suite
-ms.date: 05/01/2018
-ms.topic: conceptual
-ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+services: iot-accelerators
+ms.date: 06/08/2018
+ms.topic: tutorial
+ms.custom: mvc
+ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627314"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098482"
 ---
-# <a name="detect-issues-using-threshold-based-rules"></a>Rilevare i problemi usando regole basate su soglie
+# <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
-Questa esercitazione mostra le funzionalità del motore regole nella soluzione di monitoraggio remoto. Per presentare queste funzionalità, l'esercitazione usa uno scenario nell'applicazione IoT Contoso.
+In questa esercitazione si configura l'acceleratore della soluzione di monitoraggio remoto per rilevare i problemi con i dispositivi IoT connessi. Per rilevare i problemi con i dispositivi, vengono aggiunte regole che generano avvisi nel dashboard della soluzione.
 
-Contoso ha implementato una regola che genera un allarme critico quando la pressione segnalata da un dispositivo **Chiller** (Refrigeratore) è maggiore di 250 PSI. In qualità di operatore, è necessario identificare i dispositivi **Chiller** (Refrigeratore) che possono avere sensori problematici osservando i picchi di pressione iniziali. Per identificare questi dispositivi, è necessario creare una regola per generare un avviso quando la pressione è maggiore di 150 PSI.
+Per inserire regole e avvisi, l'esercitazione usa un dispositivo refrigeratore simulato. Il refrigeratore è gestito da un'organizzazione denominata Contoso ed è connesso all'acceleratore della soluzione di monitoraggio remoto. Contoso ha già implementato una regola che genera un allarme critico quando la pressione in un refrigeratore supera 298 PSI. In qualità di operatore in Contoso, è necessario identificare i dispositivi refrigeratore che possono avere sensori problematici osservando i picchi di pressione iniziali. Per identificare tali dispositivi, si aggiunge una regola che genera un messaggio di avviso quando la pressione nel refrigeratore supera 150 PSI.
 
-Si sa inoltre che un avviso critico deve essere attivato quando l'umidità media del dispositivo **Chiller** (Refrigeratore) negli ultimi 5 minuti è maggiore dell'80% e la temperatura del dispositivo **Chiller** (Refrigeratore) negli ultimi 5 minuti è superiore a 75 gradi Fahrenheit.
+Inoltre, è stato richiesto di creare un avviso critico per un refrigeratore quando, negli ultimi cinque minuti, l'umidità media del dispositivo è stata superiore all'80% e la temperatura del dispositivo è stata superiore a 75 gradi Fahrenheit.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione:
 
 >[!div class="checklist"]
 > * Visualizzare le regole nella soluzione
-> * Creare una nuova regola
-> * Creare una nuova regola con più condizioni
+> * Creare una regola
+> * Creare una regola con più condizioni
 > * Modificare una regola esistente
-> * Eliminare una regola
+> * Attivare e disattivare le regole
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per seguire questa esercitazione, è necessaria un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
+Per seguire questa esercitazione, è necessaria un'istanza distribuita dell'acceleratore della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
 
-Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
+Se l'acceleratore della soluzione di monitoraggio remoto non è stato ancora distribuito, completare la guida introduttiva [Distribuire la soluzione di monitoraggio remoto basata su cloud](quickstart-remote-monitoring-deploy.md).
 
-## <a name="view-the-rules-in-your-solution"></a>Visualizzare le regole nella soluzione
+## <a name="view-the-existing-rules"></a>Visualizzare le regole esistenti
 
-La pagina **Rules** (Regole) visualizza un elenco di tutte le regole correnti:
+La pagina **Regole** nell'acceleratore di soluzione mostra un elenco di tutte le regole correnti:
 
-![Pagina Rules & Actions (Regole e azioni)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2.png)
+[![Pagina delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Per visualizzare solo le regole valide per i dispositivi **Chiller** (Refrigeratore), applicare un filtro:
+Per visualizzare solo le regole valide per i dispositivi refrigeratore, applicare un filtro:
 
-![Filtrare l'elenco delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2.png)
+[![Filtrare l'elenco delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
 
 Quando si seleziona una regola nell'elenco, è possibile visualizzare altre informazioni sulla regola o modificarla:
 
-![Visualizzare i dettagli delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2.png)
+[![Visualizzare i dettagli delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
 
-Per disabilitare, abilitare o eliminare una o più regole, selezionare più regole nell'elenco:
+Per disabilitare o abilitare una o più regole, selezionare una o più regole nell'elenco:
 
-![Selezionare più regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2.png)
+[![Selezionare più regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
-## <a name="create-a-new-rule"></a>Creare una nuova regola
+## <a name="create-a-rule"></a>Creare una regola
 
-Per aggiungere una nuova regola che generi un avviso quando la pressione in un dispositivo **Chiller** (Refrigeratore) è maggiore di 150 PSI, scegliere **New rule** (Nuova regola):
-
-![Creare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2.png)
-
-Usare i valori seguenti per creare la regola:
+Per creare una regola che generi un avviso quando la pressione in un dispositivo refrigeratore è maggiore di 150 PSI, fare clic su **Nuova regola**. Usare i valori seguenti per creare la regola:
 
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
@@ -75,17 +72,17 @@ Usare i valori seguenti per creare la regola:
 | Valore condizione 1    | 150                               |
 | Livello di gravità  | Avviso                               |
 
-Per salvare la nuova regola, scegliere **Apply** (Applica).
+[![Creare regola di avviso](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_v2-expanded.png#lightbox)
 
-È possibile visualizzare i momenti in cui viene attivata la regola nella pagina **Rules** (Regole) o nella pagina **Dashboard**.
+Per salvare la nuova regola, fare clic su **Applica**.
 
-## <a name="create-a-new-rule-with-multiple-conditions"></a>Creare una nuova regola con più condizioni
+È possibile vedere quando la regola viene attivata nella pagina **Regole** o nella pagina **Dashboard**:
 
-Per creare una nuova regola con più condizioni che genera un avviso critico quando l'umidità media del dispositivo **Chiller** (Refrigeratore) negli ultimi 5 minuti è maggiore dell'80% e la temperatura del dispositivo **Chiller** (Refrigeratore) negli ultimi 5 minuti è superiore a 75 gradi Fahrenheit, selezionare **New rule** (Nuova regola):
+[![Regola di avviso attivata](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-![Creare una regola con più condizioni](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2.png)
+## <a name="create-a-rule-with-multiple-conditions"></a>Creare una regola con più condizioni
 
-Usare i valori seguenti per creare la regola:
+Per creare una regola con più condizioni che genera un avviso critico quando negli ultimi cinque minuti per un dispositivo refrigeratore l'umidità media è superiore a 80% e la temperatura media è superiore a 75 gradi fahrenheit, fare clic su **Nuova regola** . Usare i valori seguenti per creare la regola:
 
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
@@ -96,14 +93,12 @@ Usare i valori seguenti per creare la regola:
 | Periodo di tempo      | 5                                     |
 | Campo condizione 1| umidità                              |
 | Operatore condizione 1 | Maggiore di                      |
-| Valore condizione 1    | 80                               |
+| Valore condizione 1    | 80                                |
 | Livello di gravità  | Critico                              |
 
-Per aggiungere la seconda condizione, fare clic su "+ Add condition" (+ Aggiungi condizione).
+[![Creare regola con più condizioni prima parte](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_v2-expanded.png#lightbox)
 
-![Creare la condizione 2](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2.png)
-
-Sulla nuova condizione, usare i valori seguenti:
+Per aggiungere la seconda condizione, fare clic su "+ Add condition" (+ Aggiungi condizione). Utilizzare i seguenti valori per la nuova condizione:
 
 | Impostazione          | Valore                                 |
 | ---------------- | ------------------------------------- |
@@ -111,45 +106,49 @@ Sulla nuova condizione, usare i valori seguenti:
 | Operatore condizione 2 | Maggiore di                      |
 | Valore condizione 2    | 75                                |
 
-Per salvare la nuova regola, scegliere **Apply** (Applica).
+[![Creare regola con più condizioni seconda parte](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsnewrule_mult_cond2_v2-expanded.png#lightbox)
 
-È possibile visualizzare i momenti in cui viene attivata la regola nella pagina **Rules** (Regole) o nella pagina **Dashboard**.
+Per salvare la nuova regola, fare clic su **Applica**.
+
+È possibile vedere quando la regola viene attivata nella pagina **Regole** o nella pagina **Dashboard**:
+
+[![Regola con più condizioni attivata](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/criticalruletriggered-expanded.png#lightbox)
 
 ## <a name="edit-an-existing-rule"></a>Modificare una regola esistente
 
-Per apportare una modifica a una regola esistente, selezionare la regola nell'elenco delle regole.
+Per apportare una modifica a una regola esistente, selezionare la regola nell'elenco delle regole e fare clic su **Modifica**:
 
-![Modificare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2.png)
+[![Modifica regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsedit_v2-expanded.png#lightbox)
 
-<!--## Disable a rule
+## <a name="disable-a-rule"></a>Disabilitare una regola
 
-To temporarily switch off a rule, you can disable it in the list of rules. Choose the rule to disable, and then choose **Disable**. The **Status** of the rule in the list changes to indicate the rule is now disabled. You can re-enable a rule that you previously disabled using the same procedure.
+Per disattivare temporaneamente una regola, è possibile disabilitarla nell'elenco delle regole. Scegliere la regola da disabilitare e quindi scegliere **Disable** (Disabilita). Il valore di **Status** (Stato) per la regole nell'elenco cambia per indicare che la regola è ora disabilitata. È possibile riabilitare una regola precedentemente disabilitata usando la stessa procedura.
 
-![Disable rule](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable.png)
+[![Disabilitare una regola](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
-You can enable and disable multiple rules at the same time if you select multiple rules in the list.-->
+È possibile attivare e disattivare più regole contemporaneamente selezionando più regole nell'elenco.
 
-<!--## Delete a rule
+<!-- ## Delete a rule
 
 To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
 
 You can delete multiple rules at the same time if you select multiple rules in the list.-->
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se si intende passare all'esercitazione successiva, lasciare l'acceleratore della soluzione di monitoraggio remoto distribuito. Per ridurre i costi di esecuzione dell'acceleratore della soluzione mentre non è in uso, è possibile arrestare i dispositivi simulati nel pannello delle impostazioni:
+
+[![Sospendere la telemetria](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
+
+Quando si è pronti per iniziare l'esercitazione successiva, è possibile riavviare i dispositivi simulati.
+
+Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard):
+
+![Eliminare la soluzione](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha mostrato come:
+Questa esercitazione ha mostrato come utilizzare la pagina **Regole** nell'acceleratore della soluzione di monitoraggio remoto per creare e gestire regole che attivano gli avvisi nella soluzione. Per informazioni su come usare l'acceleratore della soluzione per gestire e configurare i dispositivi collegati, passare all'esercitazione successiva.
 
-<!-- Repeat task list from intro -->
->[!div class="checklist"]
-> * Visualizzare le regole nella soluzione
-> * Creare una nuova regola
-> * Modificare una regola esistente
-> * Eliminare una regola
-
-Ora che si è appreso come rilevare i problemi usando regole basate su soglie, i passaggi successivi consigliati consentono di apprendere come:
-
-* [Gestire e configurare i dispositivi](iot-accelerators-remote-monitoring-manage.md).
-* [Risolvere e correggere i problemi dei dispositivi](iot-accelerators-remote-monitoring-maintain.md).
-* [Testare la soluzione con dispositivi simulati](iot-accelerators-remote-monitoring-test.md).
-
-<!-- Next tutorials in the sequence -->
+> [!div class="nextstepaction"]
+> [Configurare e gestire i dispositivi connessi alla soluzione di monitoraggio](iot-accelerators-remote-monitoring-manage.md)

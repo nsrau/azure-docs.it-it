@@ -1,6 +1,6 @@
 ---
-title: Gestire gli aggiornamenti in panoramica di Azure Stack | Documenti Microsoft
-description: Informazioni sulla gestione degli aggiornamenti per i sistemi Azure Stack integrato.
+title: Gestire gli aggiornamenti nella panoramica di Azure Stack | Microsoft Docs
+description: Informazioni sulla gestione degli aggiornamenti per i sistemi integrati di Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,42 +12,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27620924"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988909"
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti in panoramica di Azure Stack
+# <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti nella panoramica di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: i sistemi integrati di Azure Stack*
 
-Microsoft rilascerà i pacchetti di aggiornamento per i sistemi Azure Stack integrato a un ritmo regolari che possono essere suddivise il quarto martedì di ogni mese, a partire da disponibilità generale. Chiedere l'OEM sul processo di notifica specifica per garantire l'organizzazione di copertura di notifiche di aggiornamento, oppure fare clic qui in sistemi Notes\Integrated Overview\Release note sulla versione per altre informazioni sulle specifiche versioni.
+Nuovi pacchetti di aggiornamento per Azure Stack in genere i sistemi integrati di una versione per il quarto martedì di ogni mese. Chiedere l'OEM sul processo di notifica specifici per garantire le notifiche di aggiornamento raggiungano l'organizzazione. È inoltre possibile controllare in questa libreria della documentazione in sotto **Overview** > **note sulla versione** per informazioni sulle versioni che sono in supporto attivo. 
 
-Ogni versione di Microsoft degli aggiornamenti del software viene fornito come un singolo pacchetto di aggiornamento. Come operatore di Stack di Azure, è possibile importare, installare e monitorare l'avanzamento dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
+Ogni versione di aggiornamenti software Microsoft viene incluso come un singolo pacchetto di aggiornamento. Un operatore di Azure Stack, è possibile importare, install e monitorare lo stato dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 
-Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio aggiornamenti di driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM e vengono gestiti separatamente da Microsoft Update.
+Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio gli aggiornamenti di driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM e vengono gestiti separatamente da Microsoft updates.
 
-Per mantenere il sistema di supporto, è necessario mantenere aggiornato a un livello di versione Stack di Azure. Verificare che il [dello Stack di Azure per la manutenzione dei criteri](azure-stack-servicing-policy.md).
+Per mantenere il sistema sottoposto a supporto, è necessario mantenere aggiornato a un livello di versione specifica di Azure Stack. Assicurarsi di rivedere le [criteri di manutenzione Azure Stack](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> Non è possibile applicare i pacchetti di aggiornamento dello Stack di Azure al Kit di sviluppo dello Stack di Azure. I pacchetti di aggiornamento sono progettati per sistemi integrati.
+> È possibile applicare i pacchetti di aggiornamento di Azure Stack per Azure Stack Development Kit. I pacchetti di aggiornamento sono progettati per i sistemi integrati. Per informazioni, vedere [ridistribuire il ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
 
 ## <a name="the-update-resource-provider"></a>Il provider di risorse di aggiornamento
 
-Stack di Azure include un provider di risorse di aggiornamento che coordina l'applicazione degli aggiornamenti software Microsoft. Questo provider di risorse garantisce che gli aggiornamenti vengono applicati a tutti gli host fisici, le applicazioni di Service Fabric e Runtime e tutte le macchine virtuali dell'infrastruttura e i servizi associati.
+Lo Stack di Azure include un provider di risorse di aggiornamento che Orchestra l'applicazione degli aggiornamenti software Microsoft. Questo provider di risorse garantisce che gli aggiornamenti vengano applicati a tutti gli host fisici, le applicazioni di Service Fabric e i Runtime e tutte le macchine virtuali dell'infrastruttura e i servizi associati.
 
-Come installare gli aggiornamenti, è possibile visualizzare facilmente lo stato di alto livello come destinazioni di processo di aggiornamento i vari sottosistemi nello Stack di Azure (ad esempio, gli host fisici e macchine virtuali di infrastruttura).
+Come installare gli aggiornamenti, è possibile visualizzare lo stato di alto livello come destinazioni di processo di aggiornamento i sottosistemi diversi in Azure Stack (ad esempio, gli host fisici e macchine virtuali dell'infrastruttura).
 
-## <a name="plan-for-updates"></a>Pianificare gli aggiornamenti
+## <a name="plan-for-updates"></a>Piano per gli aggiornamenti
 
-È consigliabile inviare una notifica agli utenti di tutte le operazioni di manutenzione e pianificare le operazioni di manutenzione durante le ore non lavorative quanto possibile. Carichi di lavoro tenant sia le operazioni del portale, possono influire sulle operazioni di manutenzione.
+È consigliabile inviare notifiche agli utenti di tutte le operazioni di manutenzione e pianificare finestre di manutenzione normale durante non lavorative se possibile. Carichi di lavoro tenant sia operazioni nel portale, possono influire sulle operazioni di manutenzione.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Utilizzando il riquadro di aggiornamento per gestire gli aggiornamenti
-La gestione degli aggiornamenti dal portale di amministrazione è un processo semplice. Un operatore di Stack di Azure è possibile passare al riquadro nel dashboard di aggiornamento:
+## <a name="using-the-update-tile-to-manage-updates"></a>Usando il riquadro Update per gestire gli aggiornamenti
+Gestire gli aggiornamenti dal portale di amministratore. Un operatore di Azure Stack è possibile usare il riquadro di aggiornamento nel dashboard di:
 
 - Consente di visualizzare informazioni importanti, ad esempio la versione corrente.
 - installare gli aggiornamenti e monitorare lo stato di avanzamento.
@@ -55,13 +55,13 @@ La gestione degli aggiornamenti dal portale di amministrazione è un processo se
  
 ## <a name="determine-the-current-version"></a>Determinare la versione corrente
 
-Nel riquadro di aggiornamento vengono visualizzati la versione corrente dello Stack di Azure. È possibile ottenere il titolo dell'aggiornamento utilizzando uno dei metodi seguenti nel portale di amministrazione:
+Il riquadro di aggiornamento Visualizza la versione corrente di Azure Stack. È possibile ottenere al riquadro aggiornamento utilizzando uno dei metodi seguenti nel portale di amministrazione:
 
-- Nel dashboard, visualizzare la versione corrente nel **aggiornamento** riquadro.
+- Nel dashboard di visualizzare la versione corrente nel **Update** riquadro.
  
    ![Gli aggiornamenti riquadro nel dashboard predefinito](./media/azure-stack-updates/image1.png)
  
-- Nel **Gestione area** riquadro, fare clic sul nome di area. Visualizzare la versione corrente nel **aggiornamento** riquadro.
+- Nel **gestione delle aree** riquadro, fare clic sul nome di area. Visualizzare la versione corrente nel **Update** riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

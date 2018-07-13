@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302978"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127714"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati a Connessioni ibride di Inoltro di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>Creare un'applicazione per elaborare gli eventi
+
+È necessaria un'applicazione in grado di recuperare gli eventi dalla connessione ibrida. L'[esempio di consumer della connessione ibrida di Griglia di eventi di Microsoft Azure per C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) esegue tale operazione. I passaggi preliminari sono stati completati.
+
+1. Assicurarsi di disporre di Visual Studio 2017, versione 15.5 o successiva.
+
+1. Clonare il repository nel computer locale.
+
+1. Caricare il progetto HybridConnectionConsumer in Visual Studio.
+
+1. In Program.cs, sostituire `<relayConnectionString>` e `<hybridConnectionName>` con la stringa di connessione di inoltro e il nome della connessione ibrida creata.
+
+1. Compilare ed eseguire l'applicazione da Visual Studio.
+
 ## <a name="send-an-event-to-your-topic"></a>Inviare un evento all'argomento
 
-Attivare un evento per vedere come la Griglia di eventi distribuisce il messaggio nell'endpoint. Ottenere prima di tutto l'URL e la chiave per l'argomento personalizzato. Usare ancora una volta il nome dell'argomento per `<topic_name>`.
+Attivare un evento per vedere come la Griglia di eventi distribuisce il messaggio nell'endpoint. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per attivare l'evento. In alternativa, è possibile usare [l'applicazione per la pubblicazione della Griglia di eventi](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher).
+
+Ottenere prima di tutto l'URL e la chiave per l'argomento personalizzato. Usare ancora una volta il nome dell'argomento per `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

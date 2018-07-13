@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c29bfd42a9e664d83a867debb6b984f3e99a5b7d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3ba52417b8478884fdfdca3210c75844f0009219
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053008"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082564"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 In questa esercitazione si crea una pipeline di Data Factory che copia i dati da un archivio BLOB di Azure al database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -37,7 +37,7 @@ In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanism
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) per informazioni su come crearne uno.
 * **Database SQL di Azure**. Usare il database come archivio dati **sink**. Se non si ha un database SQL di Azure, vedere la procedura per crearne uno nell'articolo [Creare un database SQL di Azure](../sql-database/sql-database-get-started-portal.md).
@@ -47,7 +47,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Creare un BLOB e una tabella SQL
 
-Preparare ora il BLOB di Azure e il database SQL di Azure per l'esercitazione seguendo questa procedura.
+Preparare ora il BLOB di Azure e il database SQL di Azure per l'esercitazione seguendo questa procedura:
 
 #### <a name="create-a-source-blob"></a>Creare un BLOB di origine
 
@@ -119,7 +119,7 @@ Creare un'applicazione console .NET in C# con Visual Studio 2015 o 2017.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
     
-2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i valori personalizzati. Data Factory V2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+2. Aggiungere il codice seguente al metodo **Main** per impostare le variabili. Sostituire i segnaposto con i valori personalizzati. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
     ```csharp
     // Set variables
@@ -160,7 +160,7 @@ Creare un'applicazione console .NET in C# con Visual Studio 2015 o 2017.
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 Aggiungere il codice seguente al metodo **Main** per creare una **data factory**.
 
@@ -184,7 +184,7 @@ while (client.Factories.Get(resourceGroup, dataFactoryName).ProvisioningState ==
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
-In questa esercitazione si creano due servizi collegati, rispettivamente per l'origine e il sink.
+In questa esercitazione si creano due servizi collegati, rispettivamente per l'origine e il sink:
 
 ### <a name="create-an-azure-storage-linked-service"></a>Creare un servizio collegato Archiviazione di Azure
 
@@ -230,7 +230,7 @@ In questa sezione vengono creati due set di dati: uno per l'origine e l'altro pe
 
 Aggiungere il codice seguente al metodo **Main** per creare un **set di dati del BLOB di Azure**. Per informazioni sulle proprietà supportate e altri dettagli, vedere le [proprietà dei set di dati dei BLOB di Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati del BLOB fa riferimento al servizio collegato Archiviazione di Azure creato nel passaggio precedente e descrive quanto segue.
+Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Questo set di dati del BLOB fa riferimento al servizio collegato Archiviazione di Azure creato nel passaggio precedente e descrive quanto segue:
 
 - Posizione del BLOB da cui eseguire la copia: **FolderPath** e **FileName**.
 - Formato BLOB che indica come analizzare il contenuto: **TextFormat** e relative impostazioni (ad esempio, il delimitatore di colonna).

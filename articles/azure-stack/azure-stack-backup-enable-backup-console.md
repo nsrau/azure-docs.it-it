@@ -1,6 +1,6 @@
 ---
-title: Abilitare il backup per lo Stack di Azure dal portale di amministrazione | Documenti Microsoft
-description: Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può essere ripristinato se si è verificato un errore.
+title: Abilitare il backup per Azure Stack dal portale di amministrazione | Microsoft Docs
+description: Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può essere ripristinato se si verifica un errore.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,21 +12,21 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/11/2018
 ms.author: jeffgilb
-ms.openlocfilehash: ce5fd2feaa30948042cc0570a4b0ea7f0ab7ad77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fba04490aca4c7123ca478ae07a5f0c865d9a826
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302257"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968698"
 ---
-# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per lo Stack di Azure dal portale di amministrazione
-Abilitare il servizio di Backup di infrastruttura tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile utilizzare queste copie di backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](.\azure-stack-backup-recover-data.md). Lo scopo di ripristino cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino. Gli utenti avranno le relative sottoscrizioni ripristinati incluse le autorizzazioni di accesso basata su ruoli e ruoli, piani originali, offerte e definito in precedenza calcolo, archiviazione e le quote di rete.
+# <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per Azure Stack dal portale di amministrazione
+Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup. È possibile usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](.\azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati incluse le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e calcolo definito in precedenza, archiviazione e le quote di rete.
 
-Tuttavia, il servizio di Backup dell'infrastruttura non esegue il backup le macchine virtuali IaaS, configurazioni di rete e le risorse di archiviazione, ad esempio gli account di archiviazione BLOB, tabelle e così via, in modo che gli utenti che accedono al termine del ripristino di cloud completa non verrà visualizzato uno dei relativi già esistente risorse. Piattaforma distribuita come servizio (PaaS) delle risorse e i dati inoltre non sottoposti a backup dal servizio. 
+Tuttavia, il servizio Backup di infrastruttura non esegue il backup delle macchine virtuali IaaS, le configurazioni di rete e le risorse di archiviazione, ad esempio gli account di archiviazione, BLOB, tabelle e così via, in modo che gli utenti che accedono dopo il ripristino di cloud completa non verrà visualizzato uno dei relativi già esistente risorse. Piattaforma come servizio (PaaS), risorse e i dati anche senza il backup dal servizio. 
 
-Gli amministratori e gli utenti sono responsabili per backup e ripristino risorse IaaS e PaaS separatamente dai processi di backup dell'infrastruttura. Per informazioni sul backup risorse IaaS e PaaS, vedere i collegamenti seguenti:
+Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse IaaS e PaaS separatamente dai processi di backup dell'infrastruttura. Per informazioni sul backup delle risorse IaaS e PaaS, vedere i collegamenti seguenti:
 
 - [Macchine virtuali](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
 - [Servizio app](https://docs.microsoft.com/azure/app-service/web-sites-backup)
@@ -34,27 +34,27 @@ Gli amministratori e gli utenti sono responsabili per backup e ripristino risors
 
 
 > [!Note]  
-> Prima di abilitare il backup tramite la console, è necessario configurare il servizio di backup. È possibile configurare il servizio di backup tramite PowerShell. Per ulteriori informazioni, vedere [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+> Prima di abilitare il backup tramite la console, è necessario configurare il servizio di backup. È possibile configurare il servizio di backup tramite PowerShell. Per altre informazioni, vedere [abilitare il Backup per Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## <a name="enable-backup"></a>Abilitare il backup
 
-1. Aprire il portale di amministrazione dello Stack di Azure all'indirizzo [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Selezionare **più servizi** > **backup infrastruttura**. Scegliere **configurazione** nel **backup infrastruttura** blade.
+1. Aprire il portale di amministrazione di Azure Stack al [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+2. Selezionare **altri servizi** > **backup Infrastructure**. Scegli **Configuration** nel **backup dell'infrastruttura** pannello.
 
-    ![Stack di Azure - impostazioni Backup del controller](media\azure-stack-backup\azure-stack-backup-settings.png).
+    ![Azure Stack - impostazioni Backup del controller](media\azure-stack-backup\azure-stack-backup-settings.png).
 
-3. Digitare il percorso di **il percorso di archiviazione di Backup**. Utilizzare una stringa di Universal Naming Convention (UNC) per il percorso di una condivisione file ospitata su un dispositivo distinto. Una stringa UNC specifica il percorso delle risorse, ad esempio i dispositivi o file condivisi. Per il servizio, è possibile utilizzare un indirizzo IP. Per garantire la disponibilità dei dati di backup dopo un'emergenza, il dispositivo deve essere in una posizione separata.
+3. Digitare il percorso per il **percorso di archiviazione di Backup**. Usare una stringa di Universal Naming Convention (UNC) per il percorso a una condivisione file ospitata su un dispositivo separato. Una stringa UNC specifica il percorso delle risorse, ad esempio i file condivisi o i dispositivi. Per il servizio, è possibile usare un indirizzo IP. Per garantire la disponibilità dei dati di backup dopo un'emergenza, il dispositivo deve trovarsi in una posizione separata.
     > [!Note]  
-    > Se l'ambiente supporta la risoluzione dei nomi di rete dell'infrastruttura di Azure Stack per l'ambiente aziendale, è possibile utilizzare un nome di dominio completo anziché l'indirizzo IP.
-4. Tipo di **Username** utilizzando il dominio e nome utente con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio, `Contoso\backupshareuser`.
+    > Se l'ambiente supporta la risoluzione dei nomi dalla rete dell'infrastruttura di Azure Stack per l'ambiente dell'organizzazione, è possibile usare un nome di dominio completo anziché l'indirizzo IP.
+4. Tipo di **Username** usando il nome utente e il dominio con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio, `Contoso\backupshareuser`.
 5. Tipo di **Password** per l'utente.
 5. Digitare di nuovo la password **Conferma Password**.
-6. Fornire una chiave precondivisa nel **chiave di crittografia** casella. I file di backup vengono crittografati tramite la chiave. Assicurarsi di archiviare la chiave in un luogo sicuro. Dopo aver impostato questa chiave per la prima volta o ruotare la chiave in futuro, è possibile visualizzare la chiave da questa interfaccia. Per ulteriori istruzioni generare una chiave precondivisa, seguire gli script in [abilitare il Backup per lo Stack di Azure con PowerShell](azure-stack-backup-enable-backup-powershell.md#generate-a-new-encryption-key). 
-7. Selezionare **OK** per salvare le impostazioni del controller di backup.
+6. Fornire una chiave precondivisa nel **chiave di crittografia** casella. I file di backup vengono crittografati usando questa chiave. Assicurarsi di conservare la chiave in un luogo sicuro. Dopo aver impostato questa chiave per la prima volta o ruotare la chiave in futuro, non è possibile visualizzare questa chiave da questa interfaccia. Per altre istruzioni generare una chiave precondivisa, seguire gli script in [abilitare il Backup per Azure Stack con PowerShell](azure-stack-backup-enable-backup-powershell.md).
+7. Selezionare **OK** per salvare le impostazioni di backup controller.
 
-Per eseguire un backup, è necessario scaricare gli strumenti di Azure Stack e quindi eseguire il cmdlet PowerShell **inizio AzSBackup** sul nodo Amministrazione dello Stack di Azure. Per ulteriori informazioni, vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+Per eseguire un backup, è necessario scaricare gli strumenti di Azure Stack e quindi eseguire il cmdlet di PowerShell **Start-AzSBackup** nel nodo di amministrazione di Azure Stack. Per altre informazioni, vedere [eseguire il backup di Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come eseguire un backup. Vedere [backup Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
-- Informazioni su come verificare che sia stato eseguito il backup. Vedere [backup conferma completata nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md).
+- Informazioni su come eseguire un backup. Visualizzare [eseguire il backup di Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+- Informazioni su come verificare che sia stato eseguito il backup. Visualizzare [conferma backup completato nel portale di amministrazione](azure-stack-backup-back-up-azure-stack.md).

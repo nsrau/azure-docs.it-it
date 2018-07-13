@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061248"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130893"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>Esercitazione: Creare un'app che usa un'entità semplice
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Esercitazione: 6. Aggiungere un'entità semplice e un elenco di frasi
 In questa esercitazione si crea un'app che illustra come estrarre dati di Machine Learning da un'espressione usando l'entità **semplice**.
 
 <!-- green checkmark -->
@@ -34,7 +34,7 @@ Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#lu
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità gerarchica](luis-quickstart-intent-and-hier-entity.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
 
-Se si vuole mantenere l'app Risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale.  
+Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale.  
 
 ## <a name="purpose-of-the-app"></a>Scopo dell'app
 Questa app illustra come eseguire il pull dei dati da un'espressione. Considerare le espressioni seguenti di un chatbot:
@@ -45,14 +45,14 @@ Questa app illustra come eseguire il pull dei dati da un'espressione. Considerar
 |Please submit my resume for the engineering position.|engineering|
 |Fill out application for job 123456|123456|
 
-Questa esercitazione aggiunge una nuova entità per estrarre il nome della mansione. La possibilità di estrarre un numero di mansione specifico è illustrata nell'[esercitazione](luis-quickstart-intents-regex-entity.md) relativa alle espressioni regolari. 
+Questa esercitazione aggiunge una nuova entità per estrarre il nome della mansione. 
 
 ## <a name="purpose-of-the-simple-entity"></a>Scopo dell'entità semplice
 Lo scopo dell'entità semplice in questa app LUIS è quello di indicare a LUIS cos'è un nome di mansione e dove trovarlo in un'espressione. La parte dell'espressione che rappresenta la mansione può variare da espressione a espressione, a seconda della scelta delle parole e della lunghezza dell'espressione. LUIS necessita di esempi di mansioni nelle espressioni per tutte le finalità.  
 
-Il nome della mansione è difficile da determinare perché può essere un sostantivo, un verbo o una frase di diverse parole. Ad esempio: 
+Il nome della mansione è difficile da determinare perché può essere un sostantivo, un verbo o una frase di diverse parole. Ad esempio:
 
-|Mansioni|
+|Processi|
 |--|
 |engineer|
 |software engineer|
@@ -69,7 +69,7 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
 
 ## <a name="create-job-simple-entity"></a>Creare un'entità mansione semplice
 
-1. Assicurarsi che l'app Risorse umane sia presente nella sezione **Build** di Language Understanding. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
 
     [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
@@ -85,7 +85,7 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
 
     ![Finestra di dialogo modale popup di creazione di un'entità semplice con nome Job e tipo Simple](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. Nell'espressione `Submit resume for engineering position` etichettare la parola engineering come entità Job. Selezionare la parola engineering e quindi scegliere Job dal menu a comparsa. 
+5. Nell'espressione `Submit resume for engineering position` etichettare la parola `engineering` come entità Job. Selezionare la parola `engineering` e quindi scegliere **Job** dal menu a comparsa. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot di LUIS con l'etichetta dell'entità Job evidenziata ")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -292,7 +292,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    Se si vuole aggiungere più parole all'elenco di frasi, esaminare le parole consigliate e aggiungere quelle pertinenti. 
+    Se si vuole aggiungere più parole all'elenco di frasi, esaminare **Related Values** (Valori correlati) e aggiungere quelle pertinenti. 
 
 4. Fare clic su **Save** (Salva) per attivare l'elenco di frasi.
 
@@ -369,7 +369,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
 L'aggiunta dell'elenco di frasi ha aumentato il segnale delle parole nell'elenco ma **non** è stata usata una corrispondenza esatta. L'elenco di frasi include diverse mansioni con la prima parola corrispondente a `lead` e include anche la mansione `welder`, ma non `lead welder`. Questo elenco di frasi per le mansioni potrebbe non essere completo. Man mano che si [rivedono le espressioni dell'endpoint](label-suggested-utterances.md) su base regolare e si trovano altre parole relative alle mansioni, aggiungerle all'elenco di frasi. Quindi ripetere il training e la pubblicazione.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
-Con un'entità semplice e un elenco di parole, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati del messaggio. 
+Con un'entità semplice e un elenco di parole, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati del lavoro. 
 
 Il chatbot ha ora informazioni sufficienti per determinare l'azione principale di candidatura per una mansione e un parametro di tale azione, che fa riferimento alla mansione. 
 
@@ -377,9 +377,9 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale d
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può prendere il risultato topScoringIntent e i dati dell'entità per usare un'API di terze parti per inviare le informazioni sulla mansione a un rappresentante del reparto risorse umane. Se sono presenti altre opzioni a livello di codice per l'applicazione chiamante o il bot, Language Understanding non esegue tali operazioni, ma determina solo la finalità dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** (App) nel menu in alto a sinistra. Selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni su come aggiungere un'entità KeyPhrase predefinita](luis-quickstart-intent-and-key-phrase.md)
+> [Aggiungere un'entità KeyPhrase predefinita](luis-quickstart-intent-and-key-phrase.md)
