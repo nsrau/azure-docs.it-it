@@ -9,23 +9,23 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264010"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951114"
 ---
 # <a name="best-practices"></a>Procedure consigliate
 Usare il processo di creazione dell'app per compilare l'app LUIS. 
 
 * Compilare il modello linguistico
 * Aggiungere alcune espressioni di esempio di training (10-15 per finalità)
-* Pubblica 
+* Pubblicare 
 * Test dall'endpoint 
 * Aggiungere funzionalità
 
-Dopo che l'app è stata [pubblicata](publishapp.md), usare il ciclo di creazione per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo ulteriori espressioni di esempio. Questo non consente a LUIS di apprendere il modello con espressioni utente reali. 
+Dopo che l'app è stata [pubblicata](luis-how-to-publish-app.md), usare il ciclo di creazione per aggiungere funzionalità, pubblicare e testare dall'endpoint. Non iniziare il ciclo di creazione successivo aggiungendo ulteriori espressioni di esempio. Questo non consente a LUIS di apprendere il modello con espressioni utente reali. 
 
 Affinché LUIS assolva alla sua funzione di apprendimento in modo efficiente, non espandere le espressioni finché il set corrente di espressioni di esempio e di endpoint non restituiscono punteggi di stima elevati. Migliorare i punteggi usando l'apprendimento attivo, [criteri](luis-concept-patterns.md) ed [elenchi di frasi](luis-concept-feature.md). 
 
@@ -77,7 +77,7 @@ Non applicare queste procedure prima che l'app abbia ricevuto le richieste endpo
 Si tratta della finalità di fallback, che indica ogni cosa all'esterno dell'applicazione. Aggiungere un'espressione di esempio alla finalità None (Nessuna) ogni 10 espressioni di esempio nel resto dell'app LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Usare la funzionalità suggerimento per l'apprendimento attivo
-Usare regolarmente [Review endpoint utterances](label-suggested-utterances.md) (Rivedi espressioni endpoint) dell'**apprendimento attivo** anziché aggiungere più espressioni di esempio alle finalità. Poiché l'app riceve costantemente espressioni endpoint, questo elenco è destinato a crescere e a cambiare.
+Usare regolarmente [Review endpoint utterances](luis-how-to-review-endoint-utt.md) (Rivedi espressioni endpoint) dell'**apprendimento attivo** anziché aggiungere più espressioni di esempio alle finalità. Poiché l'app riceve costantemente espressioni endpoint, questo elenco è destinato a crescere e a cambiare.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Non monitorare le prestazioni dell'app
 Monitorare la precisione della stima usando un set di test. 
@@ -113,6 +113,4 @@ Aggiungere 10 o 15 espressioni prima di procedere con il training e la pubblicaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulla [pianificazione dell'app](plan-your-app.md) nell'app LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* Informazioni sulla [pianificazione dell'app](luis-how-plan-your-app.md) nell'app LUIS.

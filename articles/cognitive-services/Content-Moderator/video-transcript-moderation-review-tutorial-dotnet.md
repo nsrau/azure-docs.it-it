@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: a084b50e44fe26ba2547d0f7b7ed184fb71b190c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35374260"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865472"
 ---
 # <a name="video-and-transcript-moderation-tutorial"></a>Esercitazione sulla moderazione di video e trascrizioni
 
@@ -40,7 +40,7 @@ Prima di procedere, esaminiamo gli output di esempio del programma seguenti:
 - [Revisione del video](#video-review-default-view)
 - [Visualizzazione della trascrizione](#video-review-transcript-view)
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. Eseguire la registrazione al sito Web dello [strumento di revisione Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e [creare tag personalizzati](Review-Tool-User-Guide/tags.md) che l'applicazione console C# assegna all'interno del codice. La schermata seguente illustra i tag personalizzati.
 
@@ -50,7 +50,7 @@ Prima di procedere, esaminiamo gli output di esempio del programma seguenti:
 
 1. Modificare il file `App.config` e aggiungere il nome del tenant di Active Directory, gli endpoint del servizio e le chiavi di sottoscrizione indicate da `#####`. Sono necessarie le informazioni seguenti:
 
-|Chiave|Descrizione|
+|Chiave|DESCRIZIONE|
 |-|-|
 |`AzureMediaServiceRestApiEndpoint`|Endpoint per l'API Servizi multimediali di Azure (AMS)|
 |`ClientSecret`|Chiave di sottoscrizione per Servizi multimediali di Azure|
@@ -66,7 +66,7 @@ La classe `Program` in `Program.cs` è il punto di ingresso principale per l'app
 
 ### <a name="methods-of-class-program"></a>Metodi della classe Program
 
-|Metodo|Descrizione|
+|Metodo|DESCRIZIONE|
 |-|-|
 |`Main`|Analizza la riga di comando, raccoglie l'input utente e inizia l'elaborazione.|
 |`ProcessVideo`|Comprime, carica, modera e crea revisioni video.|
@@ -131,7 +131,7 @@ Se non sono presenti argomenti della riga di comando, `Main()` chiama `GetUserIn
 
 Indipendentemente dal fatto che le opzioni del programma provengano dalla riga di comando e dall'input utente interattivo, `Main()` chiama in seguito `Initialize()` per creare le istanze seguenti:
 
-|Classe|Descrizione|
+|Classe|DESCRIZIONE|
 |-|-|
 |`AMSComponent`|Comprime i file video prima di inviarli per la moderazione.|
 |`AMSconfigurations`|Interfaccia i dati di configurazione dell'applicazione trovati in `App.config`.|

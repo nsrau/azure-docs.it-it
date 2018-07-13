@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221632"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951238"
 ---
 # <a name="test-your-luis-app"></a>Testare l'app LUIS
 <a name="train-your-app"></a>
@@ -65,7 +65,7 @@ Per chiudere il pannello **test**, selezionare nuovamente il pulsante **Test**.
 
 ## <a name="view-sentiment-results"></a>Visualizzare i risultati del sentiment
 
-Se l'**analisi del sentiment** è stata configurata nella pagina **[Publish](publishapp.md#enable-sentiment-analysis)** (Pubblica), i risultati del test includono il sentiment trovato nell'espressione. 
+Se l'**analisi del sentiment** è stata configurata nella pagina **[Publish](luis-how-to-publish-app.md#enable-sentiment-analysis)** (Pubblica), i risultati del test includono il sentiment trovato nell'espressione. 
 
 ![Immagine del riquadro Test con analisi del sentiment](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -129,5 +129,5 @@ Vedere i [concetti](luis-concept-batch-test.md) del test in batch e imparare a [
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare l'accuratezza dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare espressioni suggerite con LUIS](Label-Suggested-Utterances.md) 
+* [Etichettare espressioni suggerite con LUIS](luis-how-to-review-endoint-utt.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 

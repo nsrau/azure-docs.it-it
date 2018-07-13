@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265938"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888249"
 ---
 # <a name="authoring-cycle"></a>Ciclo di creazione
 LUIS apprende meglio in un ciclo iterativo di modifiche ai modelli, esempi di espressioni, pubblicazione e raccolta di dati da query endpoint. 
@@ -40,7 +40,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 Quando si dispone di 10 - 15 diverse espressioni per ciascuna finalità, e le entità necessarie sono etichettate, eseguire il training di LUIS, quindi pubblicare l'app per ottenere gli endpoint. Assicurarsi di creare l'app e di pubblicarla affinché sia disponibile nelle [regioni endpoint](luis-reference-regions.md) necessarie. 
 
 ## <a name="https-endpoint-testing"></a>Test dall'endpoint HTTPS
-È possibile eseguire il test dell'app LUIS dall'endpoint HTTPS elencato nella pagina **[Publish](publishapp.md)** (Pubblica). Il test dall'endpoint consente a LUIS di scegliere qualsiasi espressione con bassa probabilità di revisione.  
+È possibile eseguire il test dell'app LUIS dall'endpoint HTTPS elencato nella pagina **[Publish](luis-how-to-publish-app.md)** (Pubblica). Il test dall'endpoint consente a LUIS di scegliere qualsiasi espressione con bassa probabilità di revisione.  
 
 ## <a name="recycle"></a>Ripetere il ciclo
 Dopo aver completato un ciclo di creazione, è possibile ricominciare. Rivedere innanzitutto le espressioni endpoint che LUIS ha contrassegnato con probabilità bassa. Controllare le espressioni a livello di finalità e di entità. Dopo aver rivisto le espressioni, l'elenco di revisione dovrebbe risultare vuoto.  
@@ -51,5 +51,3 @@ Il test in batch è un modo per stabilire a quante espressioni di esempio LUIS a
 ## <a name="next-steps"></a>Passaggi successivi
 
 Concetti di [collaborazione](luis-concept-collaborator.md).
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
