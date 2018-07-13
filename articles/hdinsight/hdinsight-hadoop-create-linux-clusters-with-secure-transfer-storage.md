@@ -3,25 +3,22 @@ title: Creare un cluster Hadoop con account di archiviazione con trasferimento s
 description: Informazioni su come creare cluster HDInsight con account di archiviazione di Azure con trasferimento sicuro abilitato.
 keywords: introduzione a Hadoop,Hadoop basato su Linux,guida introduttiva a Hadoop,trasferimento sicuro,account di archiviazione di Azure
 services: hdinsight
-documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/14/2018
+ms.date: 07/09/2018
 ms.author: jgao
-ms.openlocfilehash: 7a2022fd5cd67120b8dc435a950533e07017218c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1a905d574d67b5965325dba80c03d75901f97fef
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200521"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952195"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Creare un cluster Hadoop con account di archiviazione con trasferimento sicuro in Azure HDInsight
 
@@ -33,6 +30,7 @@ Prima di iniziare questa esercitazione, è necessario avere:
 * **Sottoscrizione di Azure**: per creare un account di valutazione gratuito di un mese, passare ad [azure.microsoft.com/free](https://azure.microsoft.com/free).
 * **Account di archiviazione di Azure con trasferimento sicuro abilitato**. Per istruzioni, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md#create-a-storage-account) e [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md).
 * **Contenitore BLOB nell'account di archiviazione**. 
+
 ## <a name="create-cluster"></a>Creare cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]

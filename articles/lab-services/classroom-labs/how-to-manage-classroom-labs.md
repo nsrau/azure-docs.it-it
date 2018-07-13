@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304122"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082524"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo illustra come creare e configurare un lab per le classi, visualizzare tutti i lab per le classi o eliminare un lab per le classi.
@@ -86,8 +86,8 @@ Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel 
 2. Selezionare ora il pulsante **Pubblica**. Questo processo potrebbe richiedere alcuni minuti a seconda del numero di macchine virtuali da creare, che è uguale al numero di utenti consentiti nel lab.
     
     > [!IMPORTANT]
-    > Quando un modello è disponibile pubblicamente, l'accesso non può essere modificato su privato. 
-4. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate cinque macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. 
+    > Non è possibile annullare la pubblicazione di un modello, dopo che questo è stato pubblicato. 
+4. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. 
 
     ![Macchine virtuali](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Attendere finché le macchine virtuali non vengono create. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 

@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
 ms.openlocfilehash: 44086bc20966d9c01ff27dda68f837101c71a778
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/12/2018
 ms.locfileid: "33777930"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Informazioni su Hub di notifica
