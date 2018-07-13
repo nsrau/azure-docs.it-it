@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264375"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971721"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Avvisi del log nel Monitoraggio di Azure - Avvisi 
 Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](monitoring-overview-unified-alerts.md), che permette agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi. Per informazioni sugli avvisi delle metriche basati su log, vedere [Avvisi delle metriche near real time](monitoring-near-real-time-metric-alerts.md).
@@ -120,7 +120,7 @@ Le API fornite per gli avvisi di log sono RESTful ed è possibile accedervi tram
 
 Per informazioni dettagliate e alcuni esempi di uso dell'API REST, vedere le risorse seguenti:
 - [API REST per gli avvisi in Log Analytics](../log-analytics/log-analytics-api-alerts.md) per informazioni su come creare e gestire le regole di avviso di ricerca log per Azure Log Analytics
-- [API REST per le regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) per informazioni su come creare e gestire regole di avviso di ricerca log per Azure Application Insights
+- [API REST per le regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) per informazioni su come creare e gestire regole di avviso di ricerca log per Azure Application Insights
 
 ### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
 Gli utenti possono anche sfruttare la flessibilità offerta da [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per la creazione e l'aggiornamento di risorse per creare o aggiornare gli avvisi di log.

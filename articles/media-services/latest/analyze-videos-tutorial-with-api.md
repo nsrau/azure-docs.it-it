@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114225"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971999"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Esercitazione: Analizzare i video con Servizi multimediali di Azure 
 
@@ -112,7 +112,7 @@ Quando si crea un oggetto **Transform**, è necessario verificare se ne esiste g
 
 #### <a name="job"></a>Processo
 
-Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare la posizione del video tramite URL HTTPS, URL di firma di accesso condiviso o asset inclusi nell'account di Servizi multimediali. 
+Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare la posizione del video tramite URL HTTPS, URL di firma di accesso condiviso o asset inclusi nell'account di Servizi multimediali. 
 
 In questo esempio, l'input del processo è un video locale.  
 
@@ -120,7 +120,7 @@ In questo esempio, l'input del processo è un video locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](https://docs.microsoft.com/en-us/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling. 
+Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](https://docs.microsoft.com/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling. 
 
 Il polling non è una procedura consigliata per le applicazioni di produzione poiché comporta rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi.
 

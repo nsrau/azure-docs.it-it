@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262403"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971646"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando 2.0 per Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Se l'interfaccia della riga di comando di Azure non è stata ancora installata, vedere le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). È anche possibile usare [Azure Cloud Shell](/azure/cloud-shell) per eseguire l'interfaccia della riga di comando in modalità interattiva nel browser. Vedere un riferimento completo di tutti i comandi disponibili nel [riferimento dell'interfaccia della riga di comando di Monitoraggio di Azure](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
+Se l'interfaccia della riga di comando di Azure non è stata ancora installata, vedere le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). È anche possibile usare [Azure Cloud Shell](/azure/cloud-shell) per eseguire l'interfaccia della riga di comando in modalità interattiva nel browser. Vedere un riferimento completo di tutti i comandi disponibili nel [riferimento dell'interfaccia della riga di comando di Monitoraggio di Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 Il primo passaggio prevede l'accesso all'account Azure.

@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447558"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952460"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Come configurare gli avvisi di sicurezza in Azure AD Privileged Identity Management
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
-![Schermata Avvisi di sicurezza del dashboard di PIM][1]
+![Schermata Avvisi di sicurezza del dashboard di PIM](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | Avviso | Gravità | Trigger | Raccomandazione |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Azure Privileged Identity Management (PIM) genera avvisi nel caso di attività s
 1. Accedere al [portale di Azure](https://portal.azure.com/) e selezionare **Azure AD Privileged Identity Management** nel dashboard.
 2. Selezionare **Managed privileged roles (Ruoli con privilegi gestiti)** > **Impostazioni** > **Impostazioni degli avvisi**.
    
-    ![Passare a impostazioni degli avvisi di sicurezza][2]
+    ![Passare a impostazioni degli avvisi di sicurezza](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>Avviso "I ruoli vengono attivati con una frequenza eccessiva"
 Questo avviso viene attivato se un utente attiva lo stesso ruolo con privilegi più volte entro l'intervallo temporale specificato. È possibile configurare il periodo di tempo e il numero di attivazioni.
@@ -66,8 +66,3 @@ Questo avviso viene attivato se un utente non attiva un ruolo dopo un determinat
 
 ## <a name="next-steps"></a>Passaggi successivi
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

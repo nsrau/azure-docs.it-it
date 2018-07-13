@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237086"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972180"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -32,7 +32,7 @@ Questo articolo offre una panoramica dettagliata e include i diagrammi dei princ
 
 ## <a name="overview-of-main-components"></a>Panoramica dei componenti principali
 
-In Servizi multimediali i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito a un codificatore live locale. Il LiveEvent riceve flussi di input live dal codificatore live in formato RTMP o Smooth Streaming e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Un [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) consente di controllare la pubblicazione, la registrazione e le impostazioni della finestra DVR del flusso live. Il LiveEvent fornisce anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. 
+In Servizi multimediali i [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) sono responsabili dell'elaborazione dei contenuti in streaming live. Un LiveEvent fornisce un endpoint di input (URL di inserimento) che può essere a sua volta fornito a un codificatore live locale. Il LiveEvent riceve flussi di input live dal codificatore live in formato RTMP o Smooth Streaming e li rende disponibili per lo streaming mediante uno o più [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Un [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) consente di controllare la pubblicazione, la registrazione e le impostazioni della finestra DVR del flusso live. Il LiveEvent fornisce anche un endpoint di anteprima (URL di anteprima) che consente di visualizzare in anteprima e convalidare il flusso prima dell'ulteriore elaborazione e del recapito. 
 
 Servizi multimediali include la **creazione dinamica dei pacchetti**, che consente di visualizzare in anteprima e trasmettere il contenuto nei formati di streaming MPEG DASH, HLS e Smooth Streaming senza dover ricreare manualmente i pacchetti con questi formati di streaming. È possibile riprodurre con qualsiasi lettore compatibile HLS, DASH o Smooth. È anche possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso.
 
@@ -101,7 +101,7 @@ Si tratta dello stato attuale del LiveEvent. I valori possibili sono:
 
 ## <a name="liveoutput"></a>LiveOutput
 
-Un [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs) consente di controllare la pubblicazione, la registrazione e le impostazioni della finestra DVR del flusso live. La relazione tra LiveEvent e LiveOutput è simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale (LiveEvent) è costituito da un flusso costante di contenuti, mentre un programma (LiveOutput) ha come ambito una serie di eventi programmati su tale LiveEvent.
+Un [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) consente di controllare la pubblicazione, la registrazione e le impostazioni della finestra DVR del flusso live. La relazione tra LiveEvent e LiveOutput è simile a quella che intercorre tra di essi nei media tradizionali, in cui un canale (LiveEvent) è costituito da un flusso costante di contenuti, mentre un programma (LiveOutput) ha come ambito una serie di eventi programmati su tale LiveEvent.
 È possibile specificare il numero di ore per cui si vuole mantenere il contenuto registrato per il LiveOutput impostando la proprietà **ArchiveWindowLength**. La proprietà **ArchiveWindowLength** indica la durata in termini di intervallo di tempo ISO 8601 della lunghezza dell'intervallo di archiviazione (videoregistratore digitale o DVR). Il valore impostato può essere compreso tra 5 minuti e 25 ore. 
 
 La proprietà **ArchiveWindowLength** determina anche l'intervallo massimo di tempo per cui i client possono eseguire ricerche a ritroso nel tempo dalla posizione live corrente. I LiveOutput possono essere eseguiti per l'intervallo di tempo specificato, ma il contenuto che supera la durata prevista viene scartato in modo continuo. Il valore della proprietà determina anche il tempo per cui i manifesti client possono crescere.

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129041"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868940"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connettere computer senza accesso a Internet usando il gateway OMS
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway OMS quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway OMS, che è un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e Log Analytics per conto dei computer.  
@@ -85,7 +85,7 @@ Il gateway OMS è disponibile nelle lingue seguenti:
 Il gateway OMS supporta solo TLS (Transport Layer Security) 1.0, 1.1 e 1.2.  Non supporta SSL (Secure Sockets Layer).
 
 ### <a name="supported-number-of-agent-connections"></a>Numero di connessioni dell'agente supportate
-La tabella seguente indica il numero di agenti che comunicano con un server gateway supportati.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
+La tabella seguente indica il numero supportato di agenti che comunicano con un server gateway.  Questo supporto è basato su agenti che caricano circa 200 KB di dati ogni 6 secondi. Il volume di dati per agente del test è circa 2,7 GB al giorno.
 
 |Gateway |Numero approssimativo di agenti supportati|  
 |--------|----------------------------------|  

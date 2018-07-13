@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757321"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971834"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
 
 I [set di scalabilità di macchine virtuali di Azure](/azure/virtual-machine-scale-sets) consentono di creare e gestire un gruppo macchine virtuali identiche con bilanciamento del carico in cui il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c64061aee94e8c08a3f6bcae78cffca0b4172d97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650673"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969385"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrazione delle metriche di Archiviazione di Azure
 
@@ -35,7 +35,7 @@ Le metriche precedenti forniscono metriche relative alla capacità solo per Arch
 
 Le metriche precedenti sono progettate in base a uno schema piatto. Viene pertanto restituito un valore zero anche quando non sono presenti modelli di traffico che attivano una metrica. Ad esempio, il valore **ServerTimeoutError** viene impostato su 0 nelle tabelle $Metric anche quando non si ricevono errori di timeout del server dal traffico in tempo reale in un account di archiviazione.
 
-## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Informazioni sulle nuove metriche gestite da Monitoraggio di Azure
+## <a name="understand-new-metrics-managed-by-azure-monitor"></a>Nozioni di base sulle nuove metriche gestite da Monitoraggio di Azure
 
 Per le nuove metriche relative all'archiviazione, Archiviazione di Azure invia i dati al back-end di Monitoraggio di Azure. Monitoraggio di Azure offre un'esperienza di monitoraggio unificata, che include i dati del portale e quelli dei processi di inserimento dati. Per informazioni più dettagliate, è possibile vedere questo [articolo](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -105,10 +105,10 @@ L'elenco seguente include le nuove metriche non supportate in precedenza:
 | **ServerTimeoutError** | Transactions con dimensione **ResponseType** equivalente a **ServerTimeoutError** |
 | **Success** | Transactions con dimensione **ResponseType** equivalente a **Success** |
 | **ThrottlingError** | **Transactions** con dimensione **ResponseType** equivalente a **ClientThrottlingError** o **ServerBusyError**|
-| **TotalBillableRequests** | **Transactions** |
-| **TotalEgress** | **Egress** |
-| **TotalIngress** | **Ingress** |
-| **TotalRequests** | **Transactions** |
+| **TotalBillableRequests** | **Transazioni** |
+| **TotalEgress** | **Dati in uscita** |
+| **TotalIngress** | **Dati in ingresso** |
+| **TotalRequests** | **Transazioni** |
 
 ## <a name="faq"></a>Domande frequenti
 
@@ -118,7 +118,7 @@ Se sono state create regole di avviso classiche in base a metriche di archiviazi
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>I dati delle nuove metriche vengono archiviati nello stesso account di archiviazione per impostazione predefinita?
 
-No. Per archiviare i dati delle metriche in un account di archiviazione, usare l'[API delle impostazioni di diagnostica di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate).
+No. Per archiviare i dati delle metriche in un account di archiviazione, usare l'[API delle impostazioni di diagnostica di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

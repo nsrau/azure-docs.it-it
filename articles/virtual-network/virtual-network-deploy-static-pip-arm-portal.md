@@ -17,11 +17,11 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 524293f9a1ded73ee7cb6ba4f53208a9f9c54ffa
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048227"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38670985"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Creare una VM con un indirizzo IP pubblico statico mediante il portale di Azure
 

@@ -3,7 +3,7 @@ title: Esercitazione - Creare e gestire un set di scalabilità di macchine virtu
 description: Informazioni su come usare Azure PowerShell per creare un set di scalabilità di macchine virtuali, con alcune attività di gestione comuni come l'avvio e l'arresto di un'istanza o la modifica della capacità del set di scalabilità.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6e3262ffbf31c18611a82c8293c63e13e572e30c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366257"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531563"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Esercitazione: Creare e gestire un set di scalabilità di macchine virtuali con Azure PowerShell
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Nel ciclo di vita del set di scalabilità di una macchina virtuale potrebbe essere necessario eseguire una o più attività di gestione. In questa esercitazione si apprenderà come:
@@ -146,7 +146,7 @@ Dopo aver effettuato l'accesso all'istanza di VM, è possibile apportare alcune 
 
 
 ## <a name="understand-vm-instance-images"></a>Informazioni sulle immagini delle istanze di VM
-Quando in un passaggio precedente è stata definita la configurazione di un set di scalabilità con [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile), è stata usata un'immagine Windows Server 2016 Datacenter. Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. Per visualizzare un elenco degli editori disponibili, usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
+Azure Marketplace include molte immagini utilizzabili per creare istanze di VM. Per visualizzare un elenco degli editori disponibili, usare il comando [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher).
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

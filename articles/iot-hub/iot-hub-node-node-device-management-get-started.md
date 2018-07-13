@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: juanpere
 ms.openlocfilehash: 54658ea72ac8e32db45774e87e3ab177d68046fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635951"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573435"
 ---
 # <a name="get-started-with-device-management-node"></a>Introduzione alla gestione dei dispositivi (Node)
 

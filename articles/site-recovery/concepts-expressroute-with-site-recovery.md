@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071448"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916422"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Microsoft Azure ExpressRoute con Azure Site Recovery
 
@@ -51,10 +51,10 @@ Per il ripristino di emergenza di VM di Azure, per impostazione predefinita Expr
 
 Se si sta già usando ExpressRoute per connettersi dal data center locale alle macchine virtuali di Azure nell'area di origine, è possibile pianificare il ripristino della connettività ExpressRoute con l'area di destinazione del failover. È possibile usare lo stesso circuito ExpressRoute per connettersi all'area di destinazione tramite una nuova connessione di rete virtuale o si possono usare un circuito ExpressRoute e una connessione distinti per il ripristino di emergenza. I diversi scenari possibili sono descritti [qui](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
 
-È possibile replicare macchine virtuali di Azure in qualsiasi area di Azure all'interno dello stesso cluster geografico, come descritto in dettaglio [qui](../site-recovery/azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione scelta non si trova nella stessa area geopolitica dell'origine, può essere necessario abilitare ExpressRoute Premium. Per altre informazioni, vedere le [località di ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+È possibile replicare macchine virtuali di Azure in qualsiasi area di Azure all'interno dello stesso cluster geografico, come descritto in dettaglio [qui](../site-recovery/azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione scelta non si trova nella stessa area geopolitica dell'origine, può essere necessario abilitare ExpressRoute Premium. Per altre informazioni, vedere le [località](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [circuiti ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
-- Altre informazioni sui [domini di routing ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
+- Altre informazioni sui [circuiti di ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
+- Altre informazioni sui [domini di routing di ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
 - Altre informazioni sulle [località di ExpressRoute](../expressroute/expressroute-locations.md).
 - Altre informazioni sul ripristino di emergenza delle [macchine virtuali di Azure con ExpressRoute ](azure-vm-disaster-recovery-with-expressroute.md).

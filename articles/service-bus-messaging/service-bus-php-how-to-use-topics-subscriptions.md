@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: sethm
 ms.openlocfilehash: 4763b172375668213372e6f4f8fc87431c430e53
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044586"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561321"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con PHP
 

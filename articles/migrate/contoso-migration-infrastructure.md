@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232007"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38562759"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Distribuire un'infrastruttura di migrazione
 
@@ -556,7 +556,7 @@ Dopo aver aggiornato le impostazioni di rete, Contoso è pronta a creare i contr
 1. Nel portale di Azure distribuisce una nuova VM Windows Server nella rete virtuale appropriata.
 2. Crea set di disponibilità in ogni posizione per la VM. I set di disponibilità:
     - Fanno in modo che l'infrastruttura di Azure separi le VM in infrastrutture distinte nell'area di Azure. 
-    -  Garantiscono a Contoso l'idoneità del contratto di servizio al 99,95% per le VM in Azure.  [Altre informazioni](https://docs.microsoftcom/azure/virtual-machines/windows/regions-and-availability#availability-sets).
+    -  Garantiscono a Contoso l'idoneità del contratto di servizio al 99,95% per le VM in Azure.  [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets).
 
     ![Gruppo di disponibilità](./media/contoso-migration-infrastructure/availability-group.png) 
 3. Dopo aver distribuito la VM, apre l'interfaccia di rete per la VM. Qui imposta come statico l'indirizzo IP privato e specifica un indirizzo valido.

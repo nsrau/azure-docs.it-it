@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: tomfitz
 ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301968"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38578918"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi
 

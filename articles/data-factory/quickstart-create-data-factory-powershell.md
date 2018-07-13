@@ -1,6 +1,6 @@
 ---
-title: Copiare dati in archiviazione BLOB usando Azure Data Factory | Microsoft Docs
-description: Creare una data factory di Azure per copiare i dati da una posizione di archiviazione BLOB di Azure a un'altra posizione.
+title: Copiare dati in un archivio BLOB usando Azure Data Factory | Microsoft Docs
+description: Creare una data factory di Azure per copiare i dati da una posizione dell'archivio BLOB di Azure a un'altra posizione.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 17be4668bacaf94b0421f6cce83dfcf98f302f60
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081141"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237747"
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>Creare una data factory di Azure con PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,14 +54,14 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFQuickStartRG";
     ```
 
-    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$ResourceGroupName` ed eseguire di nuovo il comando
+    Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$ResourceGroupName` ed eseguire di nuovo il comando.
 2. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
 
     ```powershell
@@ -85,7 +85,7 @@ Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni desc
 
 Tenere presente quanto segue:
 
-* È necessario specificare un nome univoco globale per l'istanza di data factory di Azure. Se viene visualizzato l'errore seguente, modificare il nome e riprovare.
+* È necessario specificare un nome univoco globale per l'istanza di Azure Data Factory. Se viene visualizzato l'errore seguente, modificare il nome e riprovare.
 
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.

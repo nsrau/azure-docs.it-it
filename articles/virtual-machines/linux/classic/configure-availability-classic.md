@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 07/12/2016
 ms.author: cynthn
 ms.openlocfilehash: c5ca51f854e2358dc57286759d5b219e0d954a15
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842371"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308090"
 ---
 # <a name="how-to-configure-an-availability-set-for-linux-virtual-machines-in-the-classic-deployment-model"></a>Come configurare un set di disponibilità per le macchine virtuali Linux nel modello di distribuzione classica
 > [!IMPORTANT] 

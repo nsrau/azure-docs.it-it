@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062207"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968620"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
@@ -77,7 +77,7 @@ Fare clic [qui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-n
 ## <a name="7-cost-saving"></a>7. Risparmio sui costi
 ### <a name="cost-saving-for-devtest-environments"></a>Risparmio sui costi per gli ambienti di sviluppo/test
 #### <a name="b-series-"></a>Serie B*:
-Mentre le macchine virtuali serie F e D erano comunemente consigliate per l'ambiente di produzione Pivotal Cloud Foundry, la nuova [serie B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) con possibilità di burst offre nuove opzioni. Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. Il costo è di € 0,011/ora (B1) rispetto a € 0,043/ora (F1). Vedere l'elenco completo di [dimensioni di macchine virtuali](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) e [prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) per informazioni dettagliate. 
+Mentre le macchine virtuali serie F e D erano comunemente consigliate per l'ambiente di produzione Pivotal Cloud Foundry, la nuova [serie B](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/) con possibilità di burst offre nuove opzioni. Le VM della serie B che prevedono burst sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. Il costo è di € 0,011/ora (B1) rispetto a € 0,043/ora (F1). Vedere l'elenco completo di [dimensioni di macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) e [prezzi](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) per informazioni dettagliate. 
 #### <a name="managed-standard-disk"></a>Managed Disks Standard: 
 Per prestazioni affidabili nell'ambiente di produzione erano consigliati i dischi Premium.  Con [Managed Disks](https://azure.microsoft.com/services/managed-disks/), l'archiviazione Standard può offrire un livello di affidabilità simile, con prestazioni diverse. Per i carichi di lavoro per cui le prestazioni non sono importanti, ad esempio per un ambiente non critico o di sviluppo/test, il servizio Managed Disks Standard offre un'opzione alternativa a un costo inferiore.  
 ### <a name="cost-saving-in-general"></a>Risparmio sui costi in generale 

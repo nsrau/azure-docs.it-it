@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187760"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972292"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 

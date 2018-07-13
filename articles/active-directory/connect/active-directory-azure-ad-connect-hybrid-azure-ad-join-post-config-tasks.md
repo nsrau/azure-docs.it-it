@@ -3,7 +3,7 @@ title: "Azure AD Connect: Attività di configurazione successiva all'aggiunta ad
 description: Questo documento illustra nel dettaglio le attività di configurazione posteriori necessarie per completare l'aggiunta ad Azure AD ibrido
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: samueld
 editor: billmath
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
 ms.component: hybrid
-ms.author: anandyadavmsft
-ms.openlocfilehash: b337594f53c03ca1ddbc230473fe191bc968c92b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: billmath
+ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593300"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916548"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Attività successive di configurazione per Aggiunta ad Azure AD ibrido
 

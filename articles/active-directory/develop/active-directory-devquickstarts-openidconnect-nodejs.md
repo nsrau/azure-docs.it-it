@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594115"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969079"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introduzione all'app Web Node.js per Azure AD
 Passport viene usato per:
@@ -62,7 +62,7 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 6. Dopo la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, è necessario copiarlo dalla pagina dell'applicazione.
 7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione. La convenzione consiste nell'usare il formato `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Per creare una chiave privata, seguire il passaggio 4 in [Aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+8. Per creare una chiave privata, seguire il passaggio 4 in [Aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copiare il valore della chiave dell'applicazione. Si tratta del valore per `clientSecret`, necessario per il **passaggio 3** di seguito. 

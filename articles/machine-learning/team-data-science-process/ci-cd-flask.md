@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836267"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968792"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure mediante Docker e Kubernetes
 Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi di lavoro: i data scientist che compilano modelli di Machine Learning e gli sviluppatori di app che compilano l'applicazione e la espongono per gli utenti finali. Questo articolo illustra come implementare una pipeline di integrazione continua/recapito continuo per un'applicazione di intelligenza artificiale. L'applicazione di intelligenza artificiale è una combinazione del codice di applicazione incorporato con un modello di Machine Learning (ML) di cui è stato eseguito il training. In questo articolo viene recuperato un modello di cui è già stato eseguito il training da un account di archiviazione BLOB privato di Azure, ma è possibile usare anche un account AWS S3. Nell'articolo viene usata una semplice applicazione Web Python Flask.
@@ -35,10 +35,10 @@ Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi 
 
 ## <a name="pre-requisites"></a>Prerequisiti
 I prerequisiti seguenti si applicano alla pipeline di integrazione continua/recapito continuo descritta di seguito:
-* [Account di Visual Studio Team Services](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Cluster del servizio contenitore di Azure (AKS) che esegue Kubernetes](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [Account del Registro contenitori di Azure (ACR)](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Account di Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Cluster del servizio contenitore di Azure (AKS) che esegue Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [Account del Registro contenitori di Azure (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Installare Kubectl per eseguire i comandi nel cluster Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Necessario per recuperare la configurazione dal cluster ACS. 
 * Creare una fork del repository nell'account GitHub.
 
@@ -69,6 +69,6 @@ L'architettura della pipeline è descritta di seguito.
 
 ## <a name="references"></a>Riferimenti
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)
-* [Azure Machine Learning (AML)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
-* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+* [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

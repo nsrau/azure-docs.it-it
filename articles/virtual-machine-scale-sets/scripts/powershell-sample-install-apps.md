@@ -3,7 +3,7 @@ title: Esempi di Azure PowerShell - Installare app | Microsoft Docs
 description: Esempi di Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 622ccac3c99d2e8f2a31849ecc1c33d0d470ca0e
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4553dba3e7242f9c98f66b4851a1186ccd0cb31b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246407"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38605779"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-powershell"></a>Installare applicazioni in un set di scalabilità di macchine virtuali con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 e usa l'estensione di script personalizzati per installare un'applicazione Web di base. Dopo aver eseguito lo script, è possibile accedere all'app Web tramite un Web browser.

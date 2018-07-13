@@ -4,7 +4,7 @@ description: Procedura dettagliata di risoluzione dei problemi di connessione SS
 keywords: connessione SSH rifiutata,errore SSH,SSH Azure,connessione SSH non riuscita
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 88f3ca3202359f9f45f5b9a5054ab95b40558520
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: cynthn
+ms.openlocfilehash: 425bb5bc7e6a1bc877041d447e999e9270dd3bfb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365492"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932025"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Procedura dettagliata di risoluzione dei problemi di connessione SSH a una macchina virtuale Linux in Azure
 Se il client SSH non riesce a raggiungere il servizio SSH nella VM, i motivi possono essere molti. Se è stata eseguita la [procedura generica di risoluzione dei problemi SSH](troubleshoot-ssh-connection.md), per risolvere il problema di connessione è necessario ricorrere una procedura dettagliata. Questo articolo descrive i passaggi dettagliati per individuare e risolvere gli eventuali errori della connessione SSH.

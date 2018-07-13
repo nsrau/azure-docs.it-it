@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593014"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295397"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -174,7 +174,7 @@ L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema 
 L'autenticazione ha avuto esito positivo. L'utente non è un amministratore globale.
 
 ### <a name="privilegedidentitymanagement"></a>Privileged Identity Management
-L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 ### <a name="companyinfounavailable"></a>Informazioni aziendali non disponibili
 L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni aziendali da Azure AD.

@@ -3,7 +3,7 @@ title: Reimpostare la password o la configurazione di Desktop remoto in una VM W
 description: Informazioni su come reimpostare la password di un account o i servizi Desktop remoto in una VM Windows creata usando il modello di distribuzione classico tramite il portale di Azure o Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 516cb740f9acad19dac77db0239341b42a2b27fe
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917650"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931379"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Come reimpostare il servizio Desktop remoto o la relativa password di accesso in una VM Windows creata usando il modello di distribuzione classico
 > [!IMPORTANT]

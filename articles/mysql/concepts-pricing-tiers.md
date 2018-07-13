@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: d42fa432f57def5e4f80480e41c2299098e20d7d
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/11/2018
+ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020693"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971938"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Piani tariffari di Database di Azure per MySQL
 
@@ -63,6 +63,8 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Asia orientale | X | X |
 | Asia sudorientale | X | X |
 | Australia orientale |  | X |
+| Australia centrale |  | X |
+| Australia centrale 2 |  | X |
 | Australia sudorientale |  | X |
 | India centrale | X | X |
 | India occidentale | X | X |

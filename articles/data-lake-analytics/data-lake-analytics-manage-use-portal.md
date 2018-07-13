@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623707"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969511"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Gestire Azure Data Lake Analytics tramite il portale di Azure
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -166,4 +166,4 @@ Per visualizzare un elenco di processi U-SQL ricorrenti:
 
 * [Panoramica di Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Gestire Azure Data Lake Analytics tramite Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
-* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies) (Gestire Azure Data Lake Analytics con criteri)
+* [Manage Azure Data Lake Analytics using policies](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies) (Gestire Azure Data Lake Analytics con criteri)

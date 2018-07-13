@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344832"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952539"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 Il servizio Language Understanding (LUIS) è un servizio basato su cloud che applica l'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate. 
@@ -99,7 +99,7 @@ Un esempio di [espressione](luis-how-to-add-example-utterances.md) è un input d
 Dopo che l'app LUIS è stata pubblicata e ha ricevuto espressioni utente reali, LUIS fornisce diversi metodi per migliorare l'accuratezza della previsione: [apprendimento attivo](#active-learning) di espressioni endpoint [elenchi di frasi](#phrase-lists) per l'inclusione delle parole nel dominio e [modelli](#patterns) per ridurre il numero di espressioni necessarie.
 
 ### <a name="active-learning"></a>Apprendimento attivo
-Nel processo di [apprendimento attivo](label-suggested-utterances.md), LUIS consente all'utente di adattare l'app LUIS alle espressioni reali selezionando le espressioni ricevute in corrispondenza dell'endpoint per la revisione da parte dell'utente. È possibile accettare o correggere la previsione, l'impostazione e la ripubblicazione degli endpoint. LUIS apprende rapidamente con questo processo iterativo e richiede una quantità minima di tempo e impegno. 
+Nel processo di [apprendimento attivo](luis-how-to-review-endoint-utt.md), LUIS consente all'utente di adattare l'app LUIS alle espressioni reali selezionando le espressioni ricevute in corrispondenza dell'endpoint per la revisione da parte dell'utente. È possibile accettare o correggere la previsione, l'impostazione e la ripubblicazione degli endpoint. LUIS apprende rapidamente con questo processo iterativo e richiede una quantità minima di tempo e impegno. 
 
 ### <a name="phrase-lists"></a>Elenchi di frasi 
 LUIS offre [elenchi di frasi](luis-concept-feature.md) pertanto è possibile indicare parole o frasi importanti al dominio modello. LUIS usa questi elenchi per aggiungere ulteriore significato a tali parole e frasi che altrimenti non verrebbero trovate nel modello.

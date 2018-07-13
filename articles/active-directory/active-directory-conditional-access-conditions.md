@@ -18,10 +18,10 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36232174"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
@@ -223,7 +223,7 @@ Per "Altri client" è possibile configurare qualsiasi condizione.
 
 **Exchange ActiveSync supporta tutte le condizioni e tutti i controlli?**
 
-di serie Ecco un riepilogo del supporto di Exchange ActiveSync (EAS):
+No. Ecco un riepilogo del supporto di Exchange ActiveSync (EAS):
 
 - EAS supporta solo utenti e gruppi come destinazione. Non supporta guest e ruoli. Se si configura la condizione guest/ruolo, vengono bloccati tutti gli utenti, perché non è possibile determinare se il criterio debba essere applicato o meno all'utente.
 
@@ -235,7 +235,7 @@ di serie Ecco un riepilogo del supporto di Exchange ActiveSync (EAS):
 
 **I criteri si applicheranno a tutte le app client per impostazione predefinita d'ora in poi?**
 
-di serie Non è prevista alcuna modifica al comportamento predefinito dei criteri. I criteri continueranno ad applicarsi ad applicazioni browser e per dispositivi mobili e a client desktop per impostazione predefinita.
+No. Non è prevista alcuna modifica al comportamento predefinito dei criteri. I criteri continueranno ad applicarsi ad applicazioni browser e per dispositivi mobili e a client desktop per impostazione predefinita.
 
 
 

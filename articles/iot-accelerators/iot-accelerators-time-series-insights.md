@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111477"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968956"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Azure Time Series Insights
 
@@ -99,7 +99,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 1. Fare clic su **Crea**.
 
 > [!NOTE]
-> Se è necessario concedere ad altri utenti l'accesso allo strumento di esplorazione di Azure Time Series Insights, eseguire la procedura seguente per [concedere l'accesso ai dati](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
+> Se è necessario concedere ad altri utenti l'accesso allo strumento di esplorazione di Azure Time Series Insights, eseguire la procedura seguente per [concedere l'accesso ai dati](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).
 
 ## <a name="time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 

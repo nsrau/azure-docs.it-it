@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 1c1488b2744c25e9b7a191d208cb3f81d336bd3a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 96676c3ec6d96fd6c6f78aa2dbed8cf4d0a6718d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446691"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295301"
 ---
 # <a name="retrieve-access-review-results"></a>Recuperare i risultati della verifica di accesso
 
@@ -55,6 +55,6 @@ Per impostazione predefinita, un utente eliminato rimarrà comunque in Azure AD 
 - [Gestire l'accesso guest con le verifiche di accesso di Azure AD](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Gestire i programmi e i controlli per le verifiche di accesso di Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](active-directory-azure-ad-controls-create-access-review.md)
-- [Creare una verifica di accesso degli utenti in un ruolo amministrativo Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Creare una verifica di accesso degli utenti in un ruolo amministrativo Azure AD](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

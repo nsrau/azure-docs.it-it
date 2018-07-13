@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: d344174ffa290b55386918ae19e2f792bb801a8a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466747"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920873"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Eseguire il failback per le macchine virtuali Hyper-V
 
@@ -39,7 +39,7 @@ Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine
 
 
 4. Se la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
-5. Avviare il failover. Nella scheda **Processi** è possibile monitorare l'avanzamento del failover.
+5. Avviare il failover. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
 6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** nome processo failover pianificato **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata in locale.
 7. A questo punto è possibile accedere alla macchina virtuale per verificare che sia disponibile come previsto.
 8. La macchina virtuale è in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.

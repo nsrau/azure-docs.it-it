@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767524"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857724"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Creare un gruppo e aggiungere membri in Azure Active Directory
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Questo articolo descrive come creare e popolare un nuovo gruppo in Azure Active 
 
    ![Selezione del comando Aggiungi](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. Nel pannello **Gruppo** aggiungere un nome e una descrizione per il gruppo.
-6. Per selezionare i membri da aggiungere al gruppo, selezionare **Assegnato** nella casella **Tipo di appartenenza** e quindi selezionare **Membri**. Per altre informazioni su come gestire l'appartenenza di un gruppo in modo dinamico, vedere [Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo](../active-directory-groups-dynamic-membership-azure-portal.md).
+6. Per selezionare i membri da aggiungere al gruppo, selezionare **Assegnato** nella casella **Tipo di appartenenza** e quindi selezionare **Membri**. Per altre informazioni su come gestire l'appartenenza di un gruppo in modo dinamico, vedere [Utilizzo degli attributi per creare regole avanzate per l'appartenenza al gruppo](../users-groups-roles/groups-dynamic-membership.md).
 
    ![Selezione dei membri da aggiungere](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. Nel pannello **Membri** selezionare uno o più utenti o dispositivi da aggiungere al gruppo e fare clic sul pulsante **Seleziona** nella parte inferiore del pannello per aggiungerli al gruppo. La visualizzazione nella casella **Utente** viene filtrata in base alla corrispondenza con l'immissione di una parte di un nome utente o di dispositivo. I caratteri jolly non sono consentiti nella casella.
@@ -56,4 +56,4 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 * [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
 * [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
 * [Gestire le appartenenze di un gruppo](active-directory-groups-membership-azure-portal.md)
-* [Gestire le regole dinamiche per gli utenti in un gruppo](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [Gestire le regole dinamiche per gli utenti in un gruppo](../users-groups-roles/groups-dynamic-membership.md)

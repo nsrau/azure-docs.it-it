@@ -16,11 +16,11 @@ ms.date: 02/09/2017
 ms.author: richrund
 ms.component: na
 ms.openlocfilehash: 47158d0c2b5a80ceae25b275836d45b63db50ff4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127043"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38309340"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
 

@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 71569da662c5d5e5ef5ad6c7d9783a69e307f2fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 452501d5da58d06093f22009c6ecc30e02f581a5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441183"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295640"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
@@ -30,7 +30,7 @@ Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la colla
 È possibile anche assicurarsi che gli utenti guest dispongano dell'accesso appropriato. Si può chiedere ai guest stessi o a un decision maker di partecipare a una verifica di accesso e certificare di nuovo (o "attestare") l'accesso dei guest. I revisori possono esprimere il proprio giudizio sull'effettiva esigenza di accesso continuo da parte di ogni utente in base ai suggerimenti ottenuti da Azure AD. Al termine di una verifica di accesso è possibile apportare modifiche e rimuovere l'accesso per i guest per i quali non è più necessario.
 
 > [!NOTE]
-> Questo documento è incentrato sulla verifica dell'accesso degli utenti guest. Se si vuole controllare l'accesso di tutti gli utenti, non solo dei guest, vedere l'argomento su come [gestire l'accesso utente con le verifiche di accesso](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Se si vuole verificare l'appartenenza degli utenti a ruoli amministrativi come amministratore globale, vedere l'articolo su come [avviare una verifica di accesso in Azure AD Privileged Identity Management](active-directory-privileged-identity-management-how-to-start-security-review.md). 
+> Questo documento è incentrato sulla verifica dell'accesso degli utenti guest. Se si vuole controllare l'accesso di tutti gli utenti, non solo dei guest, vedere l'argomento su come [gestire l'accesso utente con le verifiche di accesso](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md). Se si vuole verificare l'appartenenza degli utenti a ruoli amministrativi come amministratore globale, vedere l'articolo su come [avviare una verifica di accesso in Azure AD Privileged Identity Management](privileged-identity-management/pim-how-to-start-security-review.md). 
 >
 >
 

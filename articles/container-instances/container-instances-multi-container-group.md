@@ -2,19 +2,19 @@
 title: Distribuire gruppi di più contenitori in Istanze di contenitore di Azure
 description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in Istanze di contenitore di Azure.
 services: container-instances
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: iainfou
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6d337c9ed23ac9af884f4113b046a8e9756fd441
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097105"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888198"
 ---
 # <a name="deploy-a-container-group"></a>Distribuire un gruppo di contenitori
 

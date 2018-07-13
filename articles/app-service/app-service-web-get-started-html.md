@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294013"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968757"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
-Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base in un'app Web di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base in un'app Web di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ![Home page dell'app di esempio](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -34,7 +34,7 @@ Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hos
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Installare l'estensione di app Web per Cloud Shell
 
-Per completare questa guida introduttiva è necessario aggiungere l'[estensione di app Web az](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se l'estensione è già installata, occorre aggiornarla all'ultima versione. Per aggiornare l'estensione dell'app Web, digitare `az extension update -n webapp`.
+Per completare questa guida introduttiva è necessario aggiungere l'[estensione di app Web az](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add). Se l'estensione è già installata, occorre aggiornarla all'ultima versione. Per aggiornare l'estensione dell'app Web, digitare `az extension update -n webapp`.
 
 Per installare l'estensione dell'app Web, eseguire il comando seguente:
 
@@ -84,7 +84,7 @@ Il comando `az webapp up` esegue le azioni seguenti:
 
 - Crea un'app con il nome specificato.
 
-- [Distribuisce con zipdeploy](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
+- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) i file dalla directory di lavoro corrente all'app Web.
 
 L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
 

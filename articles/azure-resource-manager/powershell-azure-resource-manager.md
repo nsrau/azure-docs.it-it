@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 02616ef566dd576c3f406d4b9f3059dab27bf3e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603414"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723493"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gestire le risorse con Azure PowerShell
 
@@ -56,7 +56,7 @@ In questo articolo viene eseguita la distribuzione di una macchina virtuale e de
 * [Collaboratore di rete](../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaboratore account di archiviazione](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
+Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
 
 L'esempio seguente crea un gruppo e lo assegna al ruolo Collaboratore Macchina virtuale per il gruppo di risorse. Per eseguire il comando `New-AzureAdGroup`, è necessario usare [Azure Cloud Shell](/azure/cloud-shell/overview) o [scaricare il modulo di Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/).
 

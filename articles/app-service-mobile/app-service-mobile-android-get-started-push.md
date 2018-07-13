@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
 ms.openlocfilehash: 9e9f7aba49c53a1a6fcc611ed771f266eb49c883
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593029"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547176"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Aggiungere notifiche push all'app Android
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -59,7 +59,7 @@ In questa sezione l'app del client Android viene aggiornata in modo da gestire l
 
 Il passaggio successivo comporta l'installazione di Google Play Services. Firebase Cloud Messaging prevede alcuni requisiti minimi a livello di API per lo sviluppo e i test. È necessario che la proprietà **minSdkVersion** nel manifesto sia conforme a tali requisiti.
 
-In caso di test con un dispositivo meno recente, vedere [Add Firebase to Your Android Project] (Aggiungere Firebase a un progetto Android) per determinare il livello minimo su cui è possibile impostare tale valore e applicare l'impostazione corretta.
+In caso di test con un dispositivo meno recente, vedere [Aggiungere Firebase al progetto Android] (Aggiungere Firebase a un progetto Android) per determinare il livello minimo su cui è possibile impostare tale valore e applicare l'impostazione corretta.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Aggiungere Firebase Cloud Messaging al progetto
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
@@ -80,4 +80,4 @@ Dopo aver completato questa esercitazione, continuare con una delle esercitazion
 
 <!-- URLs -->
 [avvio rapido di Android]: app-service-mobile-android-get-started.md
-[Add Firebase to Your Android Project]:https://firebase.google.com/docs/android/setup
+[Aggiungere Firebase al progetto Android]:https://firebase.google.com/docs/android/setup

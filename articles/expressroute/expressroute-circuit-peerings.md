@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849931"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969096"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuiti e domini di routing ExpressRoute
  È necessario ordinare un *circuito ExpressRoute* per connettere un'infrastruttura locale a Microsoft tramite un provider di connettività. La figura riportata di seguito fornisce una rappresentazione logica della connettività fra la rete WAN e Microsoft.
@@ -89,7 +89,7 @@ La tabella seguente confronta i tre domini di routing:
 Se si sceglie di usare tutte e tre le sessioni di peering, saranno necessarie tre coppie di sessioni BGP (una coppia per ogni tipo di peering). Le coppie di sessioni BGP forniscono un collegamento a disponibilità elevata. Se si stabilisce la connessione tramite provider di connettività di livello 2, l'utente è responsabile della configurazione e della gestione del routing. È possibile ottenere più informazioni esaminando i [flussi di lavoro](expressroute-workflows.md) per la configurazione di ExpressRoute.
 
 ## <a name="expressroute-health"></a>Integrità di ExpressRoute
-La disponibilità, la connettività alle reti virtuali e l'utilizzo della larghezza di banda dei circuiti ExpressRoute possono essere monitorati usando [Monitoraggio prestazioni di rete](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview).
+La disponibilità, la connettività alle reti virtuali e l'utilizzo della larghezza di banda dei circuiti ExpressRoute possono essere monitorati usando [Monitoraggio prestazioni di rete](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 Monitoraggio prestazioni rete verifica l'integrità del peering privato di Azure e del peering Microsoft.  Per altre informazioni, vedere questo [post](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/).
 

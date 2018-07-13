@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767460"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856090"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>Guida introduttiva: Assegnare licenze a utenti in Azure Active Directory
 I servizi di Azure AD basati su licenza funzionano attivando una sottoscrizione di Azure Active Directory (Azure AD) nel tenant di Azure. Dopo aver attivato la sottoscrizione, le funzionalità del servizio vengono gestite dagli amministratori di Azure AD e usate dagli utenti dotati di licenza. Quando si acquista Enterprise Mobility + Security, Azure AD Premium o Azure AD Basic, il tenant viene aggiornato con la sottoscrizione, inclusi il relativo periodo di validità e le licenze prepagate. Le informazioni relative alla sottoscrizione, tra cui il numero di licenze disponibili o assegnate, sono disponibili tramite il Portale di Azure nel riquadro **Licenze** di **Azure Active Directory**. Il pannello **Licenze** è anche la posizione migliore per gestire le assegnazioni delle licenze.
@@ -35,7 +35,7 @@ Anche se per configurare le funzionalità a pagamento è sufficiente ottenere un
 * È possibile delegare la decisione ad altri responsabili nell'organizzazione (tramite [gruppi self-service](../users-groups-roles/groups-self-service-management.md))
 
 > [!TIP]
-> Per una descrizione dettagliata dell'assegnazione delle licenze ai gruppi, inclusi scenari di gestione licenze di Office 365 e scenari avanzati, vedere [Assegnare licenze a un gruppo di utenti in Azure Active Directory](../active-directory-licensing-group-assignment-azure-portal.md).
+> Per una descrizione dettagliata dell'assegnazione delle licenze ai gruppi, inclusi scenari di gestione licenze di Office 365 e scenari avanzati, vedere [Assegnare licenze a un gruppo di utenti in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
 ## <a name="assign-licenses-to-users-and-groups"></a>Assegnare licenze a utenti e gruppi
 Se si usa una sottoscrizione attiva, è necessario prima assegnare una licenza a se stessi e quindi aggiornare il browser per verificare che siano visibili tutte le funzionalità previste nella sottoscrizione. Il passaggio successivo consiste nell'assegnare licenze agli utenti che devono accedere alle funzionalità a pagamento di Azure AD. Uno dei metodi di assegnazione più semplici è quello di assegnare le licenze a gruppi di utenti anziché a singoli utenti. Se si assegnano licenze a un gruppo, a tutti i membri del gruppo viene assegnata una licenza. Quando un utente viene aggiunto al gruppo o rimosso dal gruppo, anche la relativa licenza viene automaticamente assegnata o rimossa. 

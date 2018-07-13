@@ -6,14 +6,14 @@ author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 1ed0184ac76b5fb3e607458559327da5e8fe90c5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29809421"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920849"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS
 
@@ -27,7 +27,7 @@ Una buona soluzione di ripristino di emergenza supporta la modellazione di piani
 
 Questo articolo descrive come proteggere un'applicazione Web basata su Internet Information Services (IIS) usando [Azure Site Recovery](site-recovery-overview.md). L'articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure. Spiega anche come eseguire un'analisi di ripristino di emergenza e come effettuare il failover dell'applicazione in Azure.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attività seguenti:
 

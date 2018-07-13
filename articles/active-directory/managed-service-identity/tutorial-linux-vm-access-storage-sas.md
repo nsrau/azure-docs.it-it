@@ -9,17 +9,17 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e5e08985f88c7cf3018ecadce2cabac743e4bd37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cbb56ce6befaaa6a5d38cc6afbad0ba6db259711
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594853"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901603"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite una credenziale di firma di accesso condiviso
 
@@ -254,7 +254,7 @@ Risposta:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere a Archiviazione di Azure con le credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, vedere:
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere a Archiviazione di Azure con le credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, consultare:
 
 > [!div class="nextstepaction"]
 >[Uso delle firme di accesso condiviso](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
