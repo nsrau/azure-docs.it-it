@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: cd517d7e652b38c7ecf28a17657936698416413a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034691"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435474"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installare il runtime di Azure IoT Edge in Windows per l'uso con contenitori Linux
 
-Il runtime di Azure IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza di IoT Edge** fornisce e gestisce gli standard di sicurezza nel dispositivo Edge. Il daemon viene avviato a ogni avvio del dispositivo e ne esegue il bootstrap avviando l'agente di IoT Edge. L'**agente di IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo Edge, tra cui l'hub di IoT Edge. L'**hub di IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
+Il runtime di Azure IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza di IoT Edge** fornisce e gestisce gli standard di sicurezza nel dispositivo Edge. Il daemon viene avviato a ogni avvio del dispositivo e ne esegue il bootstrap avviando l'agente di IoT Edge. L'**agente di IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo Edge, tra cui l'hub di IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT.
 
 Questo articolo descrive i passaggi da eseguire per installare il runtime di Azure IoT Edge in un sistema Windows x64 (Intel o AMD). Il supporto per Windows è attualmente disponibile in versione di anteprima.
 
@@ -87,15 +87,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurare il daemon di sicurezza di Azure IoT Edge
 
-Il daemon può essere configurato tramite il file di configurazione in `C:\ProgramData\iotedge\config.yaml`. Il dispositivo Edge può essere configurato <!--[automatically via Device Provisioning Service][lnk-dps] or--> manualmente tramite una [stringa di connessione del dispositivo][lnk-dcs].
+Il daemon può essere configurato usando il file di configurazione in `C:\ProgramData\iotedge\config.yaml`.
 
-Per la configurazione manuale, immettere la stringa di connessione del dispositivo nella sezione **provisioning** di **config.yaml**.
+Il dispositivo Edge può essere configurato manualmente tramite una [stringa di connessione del dispositivo][lnk-dcs] oppure [automaticamente tramite il servizio di provisioning di dispositivi][lnk-dps].
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* Per la configurazione manuale, rimuovere il commento dalla modalità di provisioning **manuale**. Aggiornare il valore di **device_connection_string** con la stringa di connessione del dispositivo IoT Edge.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Per la configurazione automatica, rimuovere il commento dalla modalità di provisioning **dps**. Aggiornare i valori di **scope_id** e **registration_id** con i valori dell'istanza DPS dell'hub IoT e aggiornare il dispositivo IoT Edge con TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Ottenere il nome del dispositivo Edge usando il comando `hostname` in PowerShell e impostarlo come valore per **hostname** nel file yaml di configurazione. Ad esempio: 
 
@@ -112,30 +134,38 @@ Ottenere il nome del dispositivo Edge usando il comando `hostname` in PowerShell
   hostname: "edgedevice-1"
 ```
 
-Sarà quindi necessario specificare l'indirizzo IP e la porta per **workload_uri** e **management_uri** nella sezione **connect** della configurazione.
+Sarà quindi necessario specificare l'indirizzo IP e la porta per **workload_uri** e **management_uri** nella sezione **connect:** e **listen:** della configurazione.
 
-Per l'indirizzo IP, immettere `ipconfig` nella finestra di PowerShell e selezionare l'indirizzo IP dell'interfaccia **vEthernet (DockerNAT)**, come illustrato nell'esempio seguente (l'indirizzo IP nel sistema in uso può essere diverso):
+Per recuperare l'indirizzo IP, immettere `ipconfig` nella finestra di PowerShell. Copiare l'indirizzo IP dell'interfaccia  **vEthernet (DockerNAT)**, come illustrato nell'esempio seguente (l'indirizzo IP nel sistema in uso può essere diverso):
 
 ![DockerNat][img-docker-nat]
 
+Aggiornare **workload_uri** e **management_uri** nella sezione **connect:** del file di configurazione. Sostituire **\<GATEWAY_ADDRESS\>** con l'indirizzo IP che è stato copiato. 
+
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Immettere gli stessi indirizzi nella sezione **listen** della configurazione. Ad esempio: 
+Immettere gli stessi indirizzi nella sezione **listen:** della configurazione, usando l'indirizzo IP come l'indirizzo del gateway.
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-Nella finestra di PowerShell creare una variabile di ambiente **IOTEDGE_HOST** con l'indirizzo **management_uri**, ad esempio:
+Nella finestra di PowerShell creare una variabile di ambiente **IOTEDGE_HOST** con l'indirizzo **management_uri**.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+Rendere persistente la variabile di ambiente nei vari riavvii.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 Verificare infine che l'impostazione **network** in **moby_runtime** non sia commentata e sia impostata su **azure-iot-edge**.
@@ -155,6 +185,9 @@ Start-Service iotedge
 ```
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
+
+Se è stata usata la **configurazione manuale** nella sezione precedente, il runtime di IoT Edge deve essere correttamente sottoposto a provisioning e in esecuzione nel dispositivo. Se è stata usata la **configurazione automatica**, è necessario completare alcuni passaggi aggiuntivi in modo che il runtime possa registrare il dispositivo con l'hub IoT per tuo conto. Per i passaggi successivi, vedere [Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+
 
 È possibile verificare lo stato del servizio IoT Edge nel modo seguente: 
 
@@ -183,7 +216,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si riscontrano problemi durante l'installazione del runtime di Edge, vedere la pagina relativa alla [risoluzione dei problemi][lnk-trouble].
+In caso di problemi durante l'installazione del runtime di Edge, vedere la pagina relativa alla [risoluzione dei problemi][lnk-trouble].
 
 
 <!-- Images -->
@@ -191,8 +224,8 @@ Se si riscontrano problemi durante l'installazione del runtime di Edge, vedere l
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md
