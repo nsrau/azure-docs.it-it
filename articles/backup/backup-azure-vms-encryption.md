@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441132"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598425"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Backup e ripristino di macchine virtuali crittografate con Backup di Azure
 Questo articolo illustra i passaggi per eseguire il backup e il ripristino di macchine virtuali tramite Backup di Azure. L'articolo contiene anche informazioni sugli scenari supportati, sui prerequisiti e sui passaggi per la risoluzione dei problemi per i casi di errore.
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
- * Il backup e il ripristino di macchine virtuali crittografate sono supportati solo per le macchine virtuali che usano il modello di distribuzione Azure Resource Manager, ma non per macchine virtuali che usano il modello di distribuzione classica. <br>
- * Il backup e il ripristino di macchine virtuali crittografate sono supportati per macchine virtuali Windows e Linux che usano Crittografia dischi di Azure. Crittografia dischi usa la funzionalità BitLocker standard di settore di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia dei dischi. <br>
- 
- La tabella seguente illustra gli scenari supportati per le macchine virtuali crittografate solo con la chiave di crittografia BitLocker (BEK) e con la chiave di crittografia della chiave (KEK).
- 
- 
+ Il backup e il ripristino di macchine virtuali crittografate sono supportati solo per le macchine virtuali che usano il modello di distribuzione Azure Resource Manager, ma non per macchine virtuali che usano il modello di distribuzione classica. Il backup e il ripristino di macchine virtuali crittografate sono supportati per macchine virtuali Windows e Linux che usano Crittografia dischi di Azure. Crittografia dischi usa la funzionalità BitLocker standard di settore di Windows e la funzionalità dm-crypt di Linux per fornire la crittografia dei dischi. La tabella seguente mostra il tipo di crittografia e il supporto per le macchine virtuali.
+
    |  | VM con BEK + KEK | Macchine virtuali solo con crittografia BEK |
    | --- | --- | --- |
    | **Macchine virtuali non gestite**  | Sì | Sì  |
