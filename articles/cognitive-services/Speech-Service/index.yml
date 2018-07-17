@@ -13,14 +13,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/01/2018
+  ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 21f67f7fcce505e18792a3be830524d64dd8045e
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37045304"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39070111"
 abstract:
   description: Il Servizio di riconoscimento vocale Microsoft offre agli sviluppatori un modo semplice per aggiungere funzioni vocali avanzate alle applicazioni, come comandi vocali, trascrizione, dettatura e traduzione tramite <a href="rest-apis">API REST</a> oppure SDK in <a href="speech-sdk">C#, C++ o Java</a>.<p>Il Servizio di riconoscimento vocale consente di personalizzare i modelli di <a href="how-to-customize-speech-models">riconoscimento vocale</a> per vocabolari specifici, ambienti rumorosi e per i diversi modi di parlare. Sono anche disponibili la <a href="https://cris.ai/Home/customvoice">sintesi vocale</a> e la <a href="https://www.microsoft.com/translator/customization.aspx">traduzione vocale</a>.<p>Per altre informazioni, vedere <a href="overview">Informazioni sul Servizio di riconoscimento vocale</a>
 sections:
@@ -32,27 +32,63 @@ sections:
     style: dataMatrix
     columns:
     - image:
+        src: media/index/uwp.jpg
+    - image:
         src: media/index/logo_csharp.svg
     - image:
         src: media/index/logo_cplusplus.svg
     - image:
-        src: media/index/logo_java.jpg
+        src: media/index/logo_netcore.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
     rows:
     - title: Windows
       values:
+      - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
       - href: quickstart-cpp-windows
+      - href: quickstart-csharp-dotnetcore-windows
+      - href: 
+      - href: 
       - href: 
     - title: Linux
       values:
       - href: 
+      - href: 
       - href: quickstart-cpp-linux
       - href: 
-    - title: Devices SDK (Android)
+      - href: 
+    - title: Android SDK
       values:
       - href: 
       - href: 
-      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+      - href: 
+      - href: 
+      - href: quickstart-java-android
+      - href: 
+      - href: 
+    - title: Devices SDK
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: speech-devices-sdk
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: rest-apis
+      - href: rest-apis
 - title: Esempi e informazioni di riferimento
   items:
   - type: list
@@ -62,10 +98,8 @@ sections:
     - title: Esempi
       html: <ul><li><a href="speech-to-text-sample.md">Riconoscimento vocale</a></li><li><a href="intent.md">Riconoscimento finalità</a></li><li><a href="translation.md">Traduzione</a></li></ul>
     - title: Informazioni di riferimento sulle API
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C#</a></li><li><a href="https://aka.ms/csspeech/cppref">API C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java (Speech Devices SDK)</a></li></ul>
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">API C# (inclusi UWP e .NET Standard)</a></li><li><a href="https://aka.ms/csspeech/cppref">API C++</a></li><li><a href="https://aka.ms/csspeech/javaref">API Java</a> per Speech SDK<br>e Speech Devices SDK</li></ul>
 - title: Speech Devices SDK
   items:
   - type: paragraph
-    text: Con l'introduzione del Servizio di riconoscimento vocale unificato, Microsoft e i suoi partner offrono ora una piattaforma hardware/software integrata ottimizzata per lo sviluppo di dispositivi con funzioni vocali, ovvero <b>Speech Devices SDK</b>. Questo SDK è adatto per lo sviluppo di dispositivi vocali intelligenti per tutti i tipi di applicazioni.
-  - type: paragraph
-    text: <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Speech Devices SDK</a> consente di creare dispositivi per il proprio ambiente con una parola di attivazione personalizzata, esclusiva del proprio marchio, che attiva l'acquisizione audio. Offre inoltre un'eccellente elaborazione dell'audio di sorgenti multicanale per un riconoscimento vocale più accurato, con soppressione del rumore, voci in campo lontano e beamforming.
+    text: Con l'introduzione del Servizio di riconoscimento vocale unificato, Microsoft e i suoi partner offrono ora una piattaforma hardware/software integrata ottimizzata per lo sviluppo di dispositivi con funzioni vocali, ovvero <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Questo SDK, adatto per lo sviluppo di dispositivi ambientali per tutti i tipi di applicazioni, consente di definire una <I>parola di attivazione</I> univoca per il tuo marchio. L'hardware offre un'eccellente elaborazione dell'audio di sorgenti multicanale per un riconoscimento vocale più accurato, con soppressione del rumore, voci in campo lontano e beamforming.

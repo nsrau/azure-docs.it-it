@@ -10,6 +10,8 @@
   items:
     - name: Distribuire una soluzione di monitoraggio remoto
       href: quickstart-remote-monitoring-deploy.md
+    - name: Distribuire una soluzione di fabbrica connessa
+      href: quickstart-connected-factory-deploy.md
     - name: Distribuire una soluzione di manutenzione predittiva
       href: quickstart-predictive-maintenance-deploy.md
     - name: Distribuire una soluzione Simulazione dispositivi
@@ -40,7 +42,7 @@
     - name: Connected Factory
       href: iot-accelerators-connected-factory-features.md
       items:
-        - name: Architecture
+        - name: Architettura
           href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Autorizzazioni in azureiotsolutions.com
       href: iot-accelerators-permissions.md
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: Connected Factory
       items:
-        - name: Distribuire un acceleratore di soluzioni
-          href: iot-accelerators-connected-factory-overview.md
+        - name: Usare il dashboard
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: Distribuire un gateway
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: Usare il modulo di pubblicazione OPC

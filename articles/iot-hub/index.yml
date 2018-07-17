@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: dobett
-  ms.openlocfilehash: 35f60b4fef75c3eebb9ac203aaded26d32773c53
-  ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+  ms.openlocfilehash: 9a173ee72f909c8f516f321592efde639e3a3a08
+  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/05/2018
-  ms.locfileid: "37858348"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39068247"
 abstract:
   description: Informazioni su come usare hub IoT per connettersi a miliardi di asset IoT (Internet of Things) per monitorarli e controllarli. Esercitazioni, informazioni di riferimento sulle API, video e altri documenti illustrano come distribuire comunicazioni affidabili e bidirezionali tra dispositivi IoT e un backend di soluzione.
 sections:
@@ -69,4 +69,4 @@ sections:
     - title: Lingue
       html: <p><a href="/dotnet/api/microsoft.azure.devices">.NET (servizio)</a></p><p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (dispositivi)</a></p><p><a href="https://azure.github.io/azure-iot-sdk-c/index.html">C (SDK per dispositivi)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (servizio)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (dispositivi)</a></p><p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (servizio)</a></p><p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (dispositivi)</a></p>
     - title: REST
-      html: <p><a href="/rest/api/iothub/iothubresource">REST (provider di risorse)</a></p><p><a href="/rest/api/iothub/deviceapi">REST (identità dispositivi)</a></p><p><a href="/rest/api/iothub/devicetwinapi">REST (dispositivi gemelli)</a></p><p><a href="/rest/api/iothub/httpruntime">REST (messaggistica dei dispositivi)</a></p><p><a href="/rest/api/iothub/jobapi">REST (processi)</a></p>
+      html: <p><a href="/rest/api/iothub/device">REST (dispositivo)</a></p><p><a href="/rest/api/iothub/service">REST (servizio)</a></p><p><a href="/rest/api/iothub/iothubresource">REST (risorsa dell'hub IoT)</a></p><p><a href="/rest/api/iothub/certificates">REST (certificati)</a></p>

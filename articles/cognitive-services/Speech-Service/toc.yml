@@ -11,12 +11,18 @@
   items:
     - name: Provare gratuitamente il Servizio di riconoscimento vocale
       href: get-started.md
-    - name: 'Riconoscimento vocale in C#'
-      href: quickstart-csharp-windows.md
+    - name: 'Riconoscimento vocale in C# (.NET in Windows)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'Riconoscimento vocale in C# (.NET Core in Windows)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: Riconoscimento vocale in un'app UWP
+      href: quickstart-csharp-uwp.md
     - name: Riconoscimento vocale in C++ per Windows
       href: quickstart-cpp-windows.md
     - name: Riconoscimento vocale in C++ per Linux
       href: quickstart-cpp-linux.md
+    - name: Riconoscimento vocale in Java per Android
+      href: quickstart-java-android.md
     - name: Introduzione a Speech Devices SDK
       href: speech-devices-sdk-qsg.md
 - name: Guide alle procedure

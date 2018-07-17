@@ -48,8 +48,19 @@
 ### Configurazione SAP a più SID
 #### [Windows con disco condiviso per l'istanza (A)SCS](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [Windows con condivisione file SOFS per l'istanza (A)SCS](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [Guida alla distribuzione](deployment-guide.md)
-## [Guida alla distribuzione DBMS](dbms-guide.md)
+## [Guida alla distribuzione di SAP NetWeaver](deployment-guide.md)
+## Guide alla distribuzione DBMS per un carico di lavoro SAP
+### [Distribuzione DBMS generale di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_general.md)
+### [Distribuzione DBMS per SQL Server di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_sqlserver.md)
+### [Distribuzione DBMS per Oracle di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_oracle.md)
+### [Distribuzione DBMS per IBM DB2 di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_ibm.md)
+### [Distribuzione DBMS per SAP ASE di Macchine virtuali di Azure per un carico di lavoro SAP](dbms_guide_sapase.md)
+### [Distribuzione di SAP MaxDB, liveCache e server di contenuti in Azure](dbms_guide_maxdb.md)
+### [Guida operativa a SAP HANA in Azure](hana-vm-operations.md)
+#### Disponibilità di SAP HANA in Macchine virtuali di Azure
+##### [Panoramica della disponibilità di SAP HANA in Azure](sap-hana-availability-overview.md)
+##### [Disponibilità di SAP HANA in un'area di Azure](sap-hana-availability-one-region.md)
+##### [Disponibilità di SAP HANA tra aree di Azure](sap-hana-availability-across-regions.md)
 ## [Azure Site Recovery per il ripristino di emergenza di SAP](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # Integrazione delle identità AAD con SAP e Single-Sign-On
 ## [Integrazione con SAP Cloud](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

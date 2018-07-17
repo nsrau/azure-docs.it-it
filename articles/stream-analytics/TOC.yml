@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Eseguire una funzione JavaScript definita dall'utente
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Eseguire la distribuzione con CI/CD in Visual Studio Team Services
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Esempi
   items:
     - name: Esempi di codice
