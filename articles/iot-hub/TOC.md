@@ -32,11 +32,6 @@
 ### [.NET](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java](iot-hub-java-java-device-management-getstarted.md)
 ### [Python](iot-hub-python-python-device-management-get-started.md)
-## Usare processi del dispositivo per aggiornarne il firmware
-### [Node.JS](iot-hub-node-node-firmware-update.md)
-### [.NET](iot-hub-csharp-csharp-firmware-update.md)
-### [Java](iot-hub-java-java-firmware-update.md)
-### [Python](iot-hub-python-python-firmware-update.md)
 
 ### [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
 
@@ -180,11 +175,6 @@
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
 #### [Java](iot-hub-java-java-direct-methods.md)
 #### [Python](iot-hub-python-python-direct-methods.md)
-### Come usare le proprietà dei dispositivi gemelli
-#### [Node.JS](iot-hub-node-node-twin-how-to-configure.md)
-#### [.NET](iot-hub-csharp-csharp-twin-how-to-configure.md)
-#### [Java](iot-hub-java-java-twin-how-to-configure.md)
-#### [Python](iot-hub-python-python-twin-how-to-configure.md)
 ### Pianificare e trasmettere processi
 #### [Node.JS](iot-hub-node-node-schedule-jobs.md)
 #### [.NET](iot-hub-csharp-csharp-schedule-jobs.md)
@@ -212,7 +202,7 @@
 ### [Eseguire la migrazione nelle impostazioni di diagnostica](iot-hub-migrate-to-diagnostics-settings.md)
 ### [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 ## Usare dispositivi reali
-### [Introduzione](iot-hub-get-started.md)
+### [Attività iniziali](iot-hub-get-started.md)
 ### [Usare un simulatore online](iot-hub-raspberry-pi-web-simulator-get-started.md)
 ### [Usare un dispositivo fisico](iot-hub-get-started-physical.md)
 #### [Raspberry Pi con Python](iot-hub-raspberry-pi-kit-python-get-started.md)

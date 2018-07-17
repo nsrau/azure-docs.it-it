@@ -143,9 +143,9 @@
 ## Gestire le password
 ### [Panoramica delle password](authentication/active-directory-passwords-overview.md)
 ### Documenti degli utenti
-#### [Reimpostare o modificare la password](active-directory-passwords-update-your-own-password.md)
+#### [Reimpostare o modificare la password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Procedure consigliate per le password](active-directory-secure-passwords.md)
-#### [Registrarsi per la reimpostazione della password self-service](active-directory-passwords-reset-register.md)
+#### [Registrarsi per la reimpostazione della password self-service](user-help/active-directory-passwords-reset-register.md)
 ### [Funzionamento di SSPR](authentication/concept-sspr-howitworks.md)
 ### [Guida alla distribuzione di SSPR](authentication/howto-sspr-deployment.md)
 ### [SSPR e Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Pianificare l'aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Domande frequenti](device-management-faq.md)
 ### Attività
-#### [Configurare i dispositivi Windows 10 registrati in Azure AD](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurare i dispositivi aggiunti ad Azure AD](device-management-azuread-joined-devices-setup.md)
+#### [Configurare i dispositivi Windows 10 registrati in Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Configurare i dispositivi aggiunti ad Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Configurare i dispositivi aggiunti all'istanza ibrida di Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md) (Distribuire in locale)
 #### [Aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](device-management-azuread-joined-devices-frx.md)
@@ -434,7 +434,7 @@
 ### Autenticazione basata su certificati
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Attività iniziali](active-directory-certificate-based-authentication-get-started.md)
+#### [Introduzione](active-directory-certificate-based-authentication-get-started.md)
 
 ### [Azure AD Identity Protection](active-directory-identityprotection.md)
 #### [Abilitazione](active-directory-identityprotection-enable.md)
