@@ -1,8 +1,29 @@
+---
+title: 'Ricerca personalizzata Bing: Usare indicatori di effetto per evidenziare il testo | Microsoft Docs'
+description: Illustra come abilitare gli effetti testo nelle risposte della ricerca.
+services: cognitive-services
+author: brapel
+manager: ehansen
+ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
+ms.service: cognitive-services
+ms.component: bing-custom-search
+ms.topic: article
+ms.date: 09/28/2017
+ms.author: v-brapel
+ms.openlocfilehash: d2d0070865aa29257ac827bbb4fc313d87ea7282
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35373036"
+---
+# <a name="using-decoration-markers-to-highlight-text"></a>Uso degli indicatori di effetto per evidenziare il testo
+
 Bing supporta l'evidenziazione dei risultati, con cui i termini di query o altri termini ritenuti rilevanti da Bing vengono contrassegnati nelle stringhe visualizzate di alcune risposte. I termini di query possono ad esempio essere contrassegnati con i campi `name`, `displayUrl` e `snippet` di una pagina Web.
 
 Per impostazione predefinita, Bing non include i marcatori di evidenziazione nelle stringhe visualizzate. Per includerli, includere il parametro di query `textDecorations` nella richiesta e impostarlo su **true**. Bing contrassegna i termini di query usando i caratteri Unicode E000 e E001 Unicode per indicare l'inizio e la fine del termine. Se il termine di query è Sailing Dinghy e uno dei termini è presente nel campo, ad esempio, il termine è racchiuso tra i caratteri di evidenziazione dei risultati come illustrato di seguito:  
   
-![Evidenziazione dei risultati](./media/cognitive-services-bing-hit-highlighting/bing-hit-highlighting.PNG) 
+![Evidenziazione dei risultati](./media/bing-hit-highlighting.PNG) 
 
 Prima di visualizzare la stringa nell'interfaccia utente, i caratteri Unicode verranno sostituiti con caratteri appropriati per il formato di visualizzazione. Se si visualizza il testo in formato HTML, ad esempio, è possibile evidenziare il termine di query sostituendo E000 con <b\> e E001 con </b\>. Se non si vuole applicare formattazione, rimuovere i marcatori dalla stringa. 
 
@@ -35,9 +56,9 @@ Se il parametro `textDecorations` è impostato su **true**, nelle stringhe visua
 |U+E018|\<sup&gt;|Contrassegna l'inizio di contenuto formattato come apice
 |U+E019|\</sup>|Contrassegna la fine di contenuto formattato come apice
 
-L'esempio seguente illustra una risposta `Computation` contenente i marcatori di pedice per il termine di query log(2). Il campo `expression` contiene i marcatori solo se `textDecoration` è **true**.
+L'esempio seguente illustra una risposta `Computation` contenente i marcatori di pedice per il termine di query log(2). Il campo `expression` contiene i marcatori solo se textDecoration è **true**.
 
-![Marcatori in computation](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
+![Marcatori in computation](./media/bing-markers-computation.PNG) 
 
 In assenza di effetti nella richiesta, l'espressione sarebbe log10(2). 
   
