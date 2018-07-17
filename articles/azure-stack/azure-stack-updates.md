@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988909"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069860"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti nella panoramica di Azure Stack
 
 *Si applica a: i sistemi integrati di Azure Stack*
 
-Nuovi pacchetti di aggiornamento per Azure Stack in genere i sistemi integrati di una versione per il quarto martedì di ogni mese. Chiedere l'OEM sul processo di notifica specifici per garantire le notifiche di aggiornamento raggiungano l'organizzazione. È inoltre possibile controllare in questa libreria della documentazione in sotto **Overview** > **note sulla versione** per informazioni sulle versioni che sono in supporto attivo. 
+I pacchetti di aggiornamento di Microsoft per Azure Stack in genere i sistemi integrati di una versione per il quarto martedì di ogni mese. Chiedere l'OEM sul processo di notifica specifici per garantire le notifiche di aggiornamento raggiungano l'organizzazione. È inoltre possibile controllare in questa libreria della documentazione in sotto **Overview** > **note sulla versione** per informazioni sulle versioni che sono in supporto attivo. 
 
 Ogni versione di aggiornamenti software Microsoft viene incluso come un singolo pacchetto di aggiornamento. Un operatore di Azure Stack, è possibile importare, install e monitorare lo stato dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 
-Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio gli aggiornamenti di driver e firmware. Questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM e vengono gestiti separatamente da Microsoft updates.
+Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio gli aggiornamenti di driver e firmware. Durante questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM, questi vengono importati, installato e gestiti i pacchetti di aggiornamento stesso modo di Microsoft, i pacchetti di aggiornamento vengono importati, installati e gestiti.
 
 Per mantenere il sistema sottoposto a supporto, è necessario mantenere aggiornato a un livello di versione specifica di Azure Stack. Assicurarsi di rivedere le [criteri di manutenzione Azure Stack](azure-stack-servicing-policy.md).
 

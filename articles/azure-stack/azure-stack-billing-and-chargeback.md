@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
-ms.author: mabrigg
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: f2449176f96b18a374ff6d54fbf7e09c8f5e21cc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f055837711b52fc32cb387fb86c623d3502f47ab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003578"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090140"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Informazioni sull'utilizzo e fatturazione in Azure Stack
 
