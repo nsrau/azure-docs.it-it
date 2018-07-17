@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095752"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>Moderazione di cataloghi di e-commerce con il Machine Learning
 
@@ -158,7 +158,7 @@ In questo caso verranno definiti i tag personalizzati **celebrità**, **bandiera
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Classificare in bandiere, giocattoli e penne
 
-1. [Accedere](https://www.customvision.ai/account/signin) all'[anteprima dell'API Visione personalizzata](https://www.customvision.ai/).
+1. [Accedere](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) all'[anteprima dell'API Visione personalizzata](https://www.customvision.ai/).
 2. Fare riferimento all'[Introduzione](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) per compilare il classificatore personalizzato per rilevare la potenziale presenza di bandiere, giocattoli e penne.
    ![Immagini di training di Visione personalizzata](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Ottenere l'URL dell'endpoint di stima](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) per il classificatore personalizzato.

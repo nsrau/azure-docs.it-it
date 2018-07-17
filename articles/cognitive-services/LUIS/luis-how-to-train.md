@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: v-geberr
-ms.openlocfilehash: 4593954e9e0a60beaa5ee86df848f908b23c6b20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ec731ee2110b21a35d76d53fae4a1a6756fb5b8
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378137"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951815"
 ---
 # <a name="train-your-luis-app"></a>Eseguire il training dell'app LUIS
 
@@ -45,5 +45,5 @@ Per avviare il processo iterativo, è prima necessario eseguire il training dell
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Etichettare le espressioni suggerite con LUIS](Label-Suggested-Utterances.md) 
+* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endoint-utt.md) 
 * [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 

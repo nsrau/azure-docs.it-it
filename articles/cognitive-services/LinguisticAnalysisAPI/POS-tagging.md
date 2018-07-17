@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 35d2042db5f8d64c7dbd1df6bfdebcba6d6aab28
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373292"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082639"
 ---
 # <a name="part-of-speech-tagging"></a>Tag delle parti del discorso
 
@@ -76,4 +76,4 @@ ad esempio categorie come *nome* (che in genere rappresenta persone, luoghi, cos
 
 ## <a name="specification"></a>Specifiche
 
-Come per la tokenizzazione, Microsoft si avvale della specifica di [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+Come per la tokenizzazione, Microsoft si avvale della specifica di [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
