@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Usare Kafka con il servizio contenitore di Azure
           href: apache-kafka-azure-container-services.md
-        - name: Kafka e Funzioni di Azure
-          href: apache-kafka-azure-functions.md
     - name: Sviluppo
       items:
         - name: Usare nodi perimetrali vuoti

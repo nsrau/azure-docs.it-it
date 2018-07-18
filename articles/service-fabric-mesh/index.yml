@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073700"
+  ms.locfileid: "39090044"
 abstract:
   description: Mesh Azure Service Fabric è un servizio completamente gestito che consente agli sviluppatori di creare e distribuire applicazioni cruciali senza gestire l'infrastruttura.  È possibile usare mesh Service Fabric per creare ed eseguire applicazioni di microservizi sicure e distribuite, ridimensionabili su richiesta. Per informazioni su come usare mesh Azure Service Fabric, vedere le guide introduttive e le esercitazioni.  Per altre informazioni, vedere la <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">panoramica di mesh Service Fabric</a>.
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Distribuire un'applicazione .NET Core</a>
-- title: Esempi
-  items:
-  - type: paragraph
-    text: 'Trovare applicazioni .NET Core di esempio per Windows e Linux:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Hello world!</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Volume di File di Azure</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">Elenco attività</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">Oggetti visivi</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">Valutazione</a>
