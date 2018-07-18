@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 3bb190570cbdf795668dd6e9f9d36630b6f3201b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945857"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949867"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e VS Code)
 
@@ -32,7 +32,7 @@ In questa guida si apprenderà come:
 ## <a name="prerequisites"></a>prerequisiti
 
 - Una sottoscrizione di Azure. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/free).
-- Un [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) che esegue Kubernetes 1.9.6 nell'area EastUS, WestEurope o CanadaEast con il **routing HTTP dell'applicazione** abilitato.
+- Un [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) che esegue Kubernetes 1.10.3 nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il **routing HTTP dell'applicazione** abilitato.
 
   ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -42,15 +42,14 @@ In questa guida si apprenderà come:
 
 1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versione 2.0.38 o successiva).
 1. Configurare Dev Spaces nel cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. Scaricare l'[estensione Azure Dev Spaces](https://aka.ms/get-azds-code) per Visual Studio Code.
-1. Installare l'estensione: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
+1. Scaricare l'[estensione Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) per Visual Studio Code. Fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 
 ## <a name="build-and-run-code-in-kubernetes"></a>Compilare ed eseguire codice in Kubernetes
 
 1. Scaricare il codice di esempio da GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. Passare alla cartella webfrontend: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Generare gli asset dei chart Docker e Helm: `azds prep --public`
-1. Compilare ed eseguire il codice in AKS. Nella finestra del terminale, dalla **cartella webfrontend**eseguire questo comando:`azds up`
+1. Compilare ed eseguire il codice in AKS. Dalla **cartella webfrontend** nella finestra del terminale eseguire questo comando: `azds up`
 1. Analizzare l'output della console per informazioni sull'URL che è stato creato con il comando `up`. Sarà nel formato: 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
@@ -58,7 +57,7 @@ In questa guida si apprenderà come:
    Aprire l'URL in una finestra del browser; si dovrebbe visualizzare il caricamento dell'applicazione Web. 
    
    > [!Note]
-   > Alla prima esecuzione, perché il DNS pubblico sia pronto possono essere necessari alcuni minuti. Se l'URL pubblico non viene risolto, è possibile usare l'URL http://localhost:<portnumber> alternativo visualizzato nell'output della console. Se si usa l'URL localhost, può sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in AKS. Per praticità e per agevolare l'interazione con il servizio nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure. È possibile tornare in seguito per tentare di usare l'URL pubblico quando il record DNS è pronto.
+   > Alla prima esecuzione, possono essere necessari alcuni minuti prima che il DNS pubblico sia pronto. Se l'URL pubblico non viene risolto, è possibile usare l'URL http://localhost:<portnumber> alternativo visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in AKS. Per motivi di praticità e per semplificare l'interazione con il servizio nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure. È possibile tornare in seguito per tentare di usare l'URL pubblico quando il record DNS sarà pronto.
 
 ### <a name="update-a-content-file"></a>Aggiornare un file di contenuto
 
@@ -89,7 +88,7 @@ In questa sezione si userà VS Code per eseguire direttamente il debug del conte
 ### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inizializzare gli asset di debug con l'estensione VS Code
 Per prima cosa è necessario configurare il progetto di codice in modo che Visual Studio Code comunichi con lo spazio di sviluppo in Azure. L'estensione Visual Studio Code per Azure Dev Spaces offre un comando helper per l'impostazione della configurazione di debug. 
 
-Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**) e usare il completamento automatico per digitare e selezionare questo comando: `Azure Dev Spaces: Create configuration files for connected development`. 
+Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**) e usare il completamento automatico per digitare e selezionare questo comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
 
 In questo modo viene aggiunta la configurazione di debug per Azure Dev Spaces nella cartella `.vscode`.
 
@@ -143,4 +142,4 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 Informazioni su come Azure Dev Spaces consente di sviluppare app più complesse in più contenitori e su come è possibile semplificare lo sviluppo collaborativo usando versioni o rami doversi del codice in spazi diversi. 
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](get-started-netcore.md#call-a-service-running-in-a-separate-container)
+> [Uso di più contenitori e sviluppo in team](team-development-netcore.md)

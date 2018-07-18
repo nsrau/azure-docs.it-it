@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285798"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920723"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -30,7 +30,11 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
-- Il supporto per Hyper-V è disponibile nella nostra roadmap. Nel frattempo, per pianificare la migrazione di carichi di lavoro Hyper-V è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc).
+
+> [!NOTE]
+> Il supporto per Hyper-V e i server fisici è disponibile nella roadmap. Nel frattempo, è consigliabile usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) per pianificare la migrazione di carichi di lavoro Hyper-V e gli [strumenti dei partner](https://azure.microsoft.com/migration/partners/) per pianificare la migrazione dei carichi di lavoro fisici.
+
+
 - È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione. Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md). Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
 - È possibile creare un progetto Azure Migrate solo nell'area Stati Uniti centro-occidentali o Stati Uniti orientali. Ciò non impedisce, tuttavia, di pianificare una migrazione per una diversa località di Azure di destinazione. La località del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.

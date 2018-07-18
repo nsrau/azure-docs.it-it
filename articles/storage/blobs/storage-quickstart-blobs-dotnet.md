@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 0074e0a66ae842d798d6fd8cd2f4392644d873fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650758"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767137"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con .NET
 
@@ -63,7 +63,7 @@ Questo comando consente di duplicare il repository nella cartella locale git. Pe
 
 ## <a name="configure-your-storage-connection-string"></a>Configurare la stringa di connessione di archiviazione
 
-Per eseguire l'applicazione, è necessario specificare la stringa di connessione per l'account di archiviazione. L'applicazione di esempio legge la stringa di connessione da una variabile di ambiente e la usa per l'autenticazione delle richieste ad Archiviazione di Azure.
+Per eseguire l'applicazione, è necessario specificare la stringa di connessione per l'account di archiviazione. L'applicazione di esempio legge la stringa di connessione da una variabile di ambiente e la usa per l'autorizzazione delle richieste ad Archiviazione di Azure.
 
 Dopo aver copiato la stringa di connessione, scriverla in una nuova variabile di ambiente nel computer locale che esegue l'applicazione. Per impostare la variabile di ambiente, aprire una finestra della console e seguire le istruzioni per il sistema operativo specifico. Sostituire `<yourconnectionstring>` con la stringa di connessione effettiva:
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030438"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901042"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -31,7 +31,7 @@ Ogni livello di hub IoT è disponibile in tre dimensioni, in base alla velocità
 
 Il livello Standard dell'hub IoT supporta tutte le funzionalità ed è necessario per qualsiasi soluzione IoT in cui si vogliano usare le funzionalità di comunicazione bidirezionale. Il livello Basic supporta un subset delle funzionalità ed è destinato alle soluzioni IoT per cui è sufficiente la comunicazione unidirezionale dai dispositivi al cloud. Entrambi i livelli offrono le stesse funzionalità di sicurezza e autenticazione.
 
-Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Basic al livello Standard senza interrompere le operazioni esistenti. Per altre informazioni, vedere [How to upgrade your IoT hub](iot-hub-upgrade.md) (Come eseguire l'aggiornamento dell'hub IoT).
+Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Basic al livello Standard senza interrompere le operazioni esistenti. Per altre informazioni, vedere [How to upgrade your IoT hub](iot-hub-upgrade.md) (Come eseguire l'aggiornamento dell'hub IoT). Si noti che il limite di partizioni per il livello di base dell'hub IoT è 8. Questo limite rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 | Funzionalità | Livello Basic | Livello Standard |
 | ---------- | ---------- | ------------- |
@@ -43,7 +43,7 @@ Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Ba
 | [Monitoraggio e diagnostica](iot-hub-monitor-resource-health.md) | Sì | Sì |
 | [Messaggistica da cloud a dispositivo](iot-hub-devguide-c2d-guidance.md) |   | Sì |
 | [Dispositivi gemelli](iot-hub-devguide-device-twins.md), [Module gemelli](iot-hub-devguide-module-twins.md) e [Gestione dei dispositivi](iot-hub-device-management-overview.md) |   | Sì |
-| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sì |
+| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Sì |
 
 L'hub IoT offre inoltre un livello gratuito adatto per il testing e la valutazione. Include tutte le funzionalità del livello standard, ma offre un supporto limitato delle funzionalità di messaggistica. Non è possibile eseguire l'aggiornamento dal livello gratuito al livello Basic o Standard. 
 
@@ -59,9 +59,9 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 | Recupero modulo | Sì | Sì |
 | [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sì | Sì |
 | [Recupero statistiche dei servizi](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sì | Sì |
-| [Creazione o aggiornamento dispositivo](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Sì | Sì |
+| [Inserimento dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sì | Sì |
 | Inserimento modulo | Sì | Sì |
-| [Query su hub IoT](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Sì | Sì |
+| [Query su dispositivi](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sì | Sì |
 | Query su moduli | Sì | Sì |
 | [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sì | Sì |
 | [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sì | Sì |

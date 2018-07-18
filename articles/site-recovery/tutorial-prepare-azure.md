@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737205"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915970"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -54,11 +54,12 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione**  > **Account di archiviazione: BLOB, File, Tabelle, Code**.
 2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni viene usato **contosovmsacct1910171607**. Il nome selezionato deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
 3. In **Modello di distribuzione** selezionare **Resource Manager**.
-4. In **Tipologia account** selezionare **Archiviazione (Utilizzo generico v1)**. Non selezionare l'archivio BLOB. In **Prestazioni** selezionare **Standard**. 
+4. In **Tipologia account** selezionare **Archiviazione (Utilizzo generico v1)**. Non selezionare l'archivio BLOB.
 5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. È in corso lasciando **trasferimento necessario protetto** come **disabilitato**.
-6. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione. 
-2. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato **ContosoRG**.
-3. In **Località** selezionare la posizione geografica dell'account di archiviazione. 
+6. In **Prestazioni** selezionare **Standard** e in **Livello di accesso** scegliere l'opzione predefinita di **Accesso frequente**.
+7. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
+8. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato **ContosoRG**.
+9. In **Località** selezionare la posizione geografica dell'account di archiviazione. 
 
    ![Creare un account di archiviazione](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono
 
 - [Informazioni](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sulle reti di Azure.
 - [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sui tipi di archiviazione di Azure.
-- - [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sulla ridondanza dell'archiviazione e il [trasferimento sicuro](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) per l'archiviazione.
+- [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sulla ridondanza dell'archiviazione e il [trasferimento sicuro](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) per l'archiviazione.
 
 
 

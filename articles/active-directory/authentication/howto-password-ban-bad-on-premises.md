@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231959"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902028"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Anteprima: Distribuire la funzione della password di protezione di Azure AD
 
@@ -103,7 +103,7 @@ Sono necessari due programmi di installazione per la password di protezione di A
          L'esempio funziona solo se l'utente attualmente connesso è anche amministratore del dominio Active Directory per il dominio radice. In alternativa è possibile specificare le credenziali di dominio tramite il parametro -ForestCredential.
 
          > [!NOTE]
-         > Se nell'ambiente sono installati più server proxy, non è importante su quale server proxy specifico viene eseguita la procedura sopra descritta.
+         > Se nell'ambiente sono installati più server proxy, non è importante quale tra essi si aspecificato nella procedura sopra descritta.
 
          > [!TIP]
          > È possibile che si verifichi un ritardo di diversi secondi la prima volta che si esegue questo cmdlet per uno specifico tenant di Azure prima che il comando venga completato. A meno che non venga segnalato un errore, il ritardo non deve preoccupare.

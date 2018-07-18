@@ -2,7 +2,6 @@
 title: 'Azure Toolkit for Eclipse: creare applicazioni Scala per HDInsight Spark | Microsoft Docs'
 description: Usare gli strumenti di HDInsight in Azure Toolkit for Eclipse per creare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark direttamente dall'IDE di Eclipse.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6b1198e4cea4cae62881464ddbddd56c84275909
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010864"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952791"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for Eclipse per creare applicazioni Spark per un cluster HDInsight
 
@@ -43,8 +41,10 @@ Usare gli strumenti HDInsight in Azure Toolkit for Eclipse per sviluppare applic
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Installare gli strumenti di HDInsight in Azure Toolkit for Eclipse e nel plug-in di Scala
+
 ### <a name="install-azure-toolkit-for-eclipse"></a>Installare Azure Toolkit for Eclipse
 Gli strumenti HDInsight per Eclipse sono disponibili come parte di Azure Toolkit for Eclipse. Le istruzioni di installazione sono disponibili in [Installazione di Azure Toolkit for Eclipse](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation).
+
 ### <a name="install-the-scala-plug-in"></a>Installare il plug-in di Scala
 Quando si apre Eclipse, lo strumenti di HDInsight rileva automaticamente se è installato il plug-in Scala. Selezionare **OK** per continuare, quindi seguire le istruzioni per installare il plug-in del Marketplace di Eclipse.
 
@@ -70,9 +70,10 @@ Per iniziare è possibile [accedere alla sottoscrizione di Azure](#Sign-in-to-yo
    
    ![Espansione di un nome cluster per vedere le risorse](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">Collegare un cluster</h2>
-È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com).
-1. Fare clic su **Link a cluster** (Collega un cluster) in **Azure Explorer** (Esplora Azure).
+## <a name="link-a-cluster"></a>Collegare un cluster
+È possibile collegare un normale cluster usando lo username gestito di Ambari. Analogamente, è possibile collegare un cluster HDInsight aggiunto al dominio tramite il dominio e il nome utente, come user1@contoso.com.
+
+1. Fare clic su **Collega un cluster** in **Esplora Azure**.
 
    ![Menu di scelta rapida per collegare un cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737613"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922658"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -34,10 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
-    - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate HVM), con un driver Citrix Paravirtual o un driver AWS Paravirtual. Le istanze che eseguono i driver Red Hat Paravirtual *non sono* supportate.
+    - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate di HVM) e solo con driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV **non** sono supportate.
 
 - Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
 

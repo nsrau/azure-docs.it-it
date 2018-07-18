@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935573"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972999"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -58,10 +58,14 @@ Gestione API genera le metriche ogni minuto in modo da ottenere una visibilità 
 Per accedere alle metriche:
 
 1. Selezionare **Metriche** dal menu nella parte inferiore della pagina.
-2. Dall'elenco a discesa selezionare le metriche desiderate. È possibile aggiungere più metriche. 
 
+    ![Metriche](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. Dall'elenco a discesa selezionare le metriche desiderate. È possibile aggiungere più metriche.  
     Selezionare ad esempio **Totale richieste gateway** e **Richieste gateway non riuscite** dall'elenco delle metriche disponibili.
-3. Il grafico mostra il numero totale di chiamate API. Viene indicato anche il numero di chiamate API non riuscite. 
+3. Il grafico mostra il numero totale di chiamate API. Viene indicato anche il numero di chiamate API non riuscite.
+
+    ![Grafico metriche](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurare una regola di avviso per le richieste non autorizzate
 
@@ -73,7 +77,10 @@ Per accedere alle metriche:
 
 Per configurare gli avvisi:
 
-1. Selezionare **Regole di avviso** nella barra dei menu nella parte inferiore della pagina.
+1. Selezionare **Avvisi (versione classica)** nella barra dei menu nella parte inferiore della pagina.
+
+    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. Selezionare **Aggiungi avviso per la metrica**.
 3. Immettere un **nome** per questo avviso.
 4. Selezionare **Richieste del gateway non autorizzate** come metrica da monitorare.
@@ -100,6 +107,12 @@ Per visualizzare i log di attività:
 1. Selezionare l'istanza del servizio Gestione API.
 2. Fare clic su **Log attività**.
 
+    ![Log attività](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Selezionare l'ambito di filtro desiderato e fare clic su **Applica**.
+
+    ![Log attività](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
 I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa.
@@ -107,7 +120,10 @@ I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli err
 Per configurare i log di diagnostica:
 
 1. Selezionare l'istanza del servizio Gestione API.
-2. Fare clic su **Log di diagnostica**.
+2. Fare clic su **Log diagnostici**.
+
+    ![Log di diagnostica](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. Fare clic su **Attiva diagnostica**. I log di diagnostica possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un Hub eventi o inviati a Log Analytics. 
 
 Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole richieste API, dove ogni voce ha la struttura seguente:

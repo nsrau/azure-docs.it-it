@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/09/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 72d980a683503374ed778dc57726114ebecd929f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443535"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929230"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Esercitazione: Configurare i ruoli utente e di amministratore del server
 
@@ -124,7 +124,7 @@ In questa attività si usa il comando [Create](https://docs.microsoft.com/sql/an
     }
     ```
 
-3. Sostituire il valore dell'oggetto **"memberName": \"globalsales@adventureworks.com\"** con un account utente o gruppo di Azure AD.
+3. Sostituire il valore dell'oggetto `"memberName": "globalsales@adventureworks.com"` con un account utente o gruppo di Azure AD.
 4. Premere **F5** per eseguire lo script.
 
 ## <a name="verify-your-changes"></a>Verificare le modifiche

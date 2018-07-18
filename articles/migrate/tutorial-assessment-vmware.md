@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236145"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970786"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -33,10 +33,6 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - **VMware**: le macchine virtuali che si prevede di migrare devono essere gestite tramite il server vCenter versione 5.5, 6.0 o 6.5. Inoltre, è necessario che sia in esecuzione l'host ESXi versione 5.0 o versione successiva per distribuire la macchina virtuale dell'agente di raccolta.
-
-> [!NOTE]
-> Il supporto per Hyper-V è in programma e sarà disponibile a breve.
-
 - **Account server vCenter**: è necessario un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario avere le autorizzazioni per creare una macchina virtuale importando un file con estensione ova.
 - **Impostazioni delle statistiche**: prima di avviare la distribuzione, le statistiche del server vCenter devono essere impostate sul livello 3. Con un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso le dimensioni consigliate verranno stabilite in base ai dati sulle prestazioni per i dati di CPU, memoria e configurazione per le schede disco e di rete.
@@ -49,6 +45,7 @@ Azure Migrate deve avere accesso ai server VMware per l'individuazione automatic
 - Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
 - Dettagli: l'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
 - Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to child object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -85,6 +82,14 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Il valore hash generato deve corrispondere a queste impostazioni.
+
+  Per OVA versione 1.0.9.12
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   Per OVA versione 1.0.9.8
 
@@ -143,7 +148,7 @@ Importare il file scaricato nel server vCenter.
 5. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
     - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
     - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
-    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity) sui requisiti di connettività Internet e l'elenco di URL ai quali accede l'agente di raccolta.
+    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sui requisiti di connettività Internet e l'elenco di URL ai quali accede l'agente di raccolta.
 
     > [!NOTE]
     > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP.
@@ -157,10 +162,12 @@ Importare il file scaricato nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. [Altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente più grande.
 
 7. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
-8. In **View collection progress** (Visualizza stato raccolta) monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo. [Altre informazioni](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
+8. In **View collection progress** (Visualizza stato raccolta) monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
 
 > [!NOTE]
-> Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti). Sarà presto disponibile il supporto per altre lingue.
+> Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti).
+> Se si modificano le impostazioni in un computer a cui si vuole accedere, attivare di nuovo l'individuazione prima di eseguire la valutazione. A questo scopo, usare l'opzione **Avvia di nuovo la raccolta** nell'agente di raccolta. Al termine della raccolta, selezionare l'opzione **Ricalcola** per la valutazione nel portale in modo da ottenere i risultati della valutazione aggiornati.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale

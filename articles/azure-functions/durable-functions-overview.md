@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764401"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970490"
 ---
 # <a name="durable-functions-overview"></a>Panoramica di Funzioni permanenti
 
 *Funzioni permanenti* è un'estensione di [Funzioni di Azure](functions-overview.md) e [Processi Web di Azure](../app-service/web-sites-create-web-jobs.md) che consente di scrivere funzioni con stato in un ambiente senza server. L'estensione gestisce automaticamente lo stato, i checkpoint e i riavvii.
 
-L'estensione consente di definire flussi di lavoro con stato in un nuovo tipo di funzione denominata *funzione di orchestrazione*. Ecco alcuni vantaggi delle funzioni di orchestrazione:
+L'estensione consente di definire flussi di lavoro con stato in un nuovo tipo di funzione denominata [*funzione di orchestrazione*](durable-functions-types-features-overview.md#orchestrator-functions). Ecco alcuni vantaggi delle funzioni di orchestrazione:
 
 * Definiscono i flussi di lavoro nel codice. Non sono necessari schemi JSON o finestre di progettazione.
 * Possono chiamare altre funzioni in modo sincrono e asincrono. L'output delle funzioni chiamate può essere salvato in variabili locali.
@@ -340,7 +340,7 @@ Le funzioni di orchestrazione mantengono in modo affidabile il proprio stato di 
 
 L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
 
-Quando a una funzione di orchestrazione vengono assegnate altre operazioni da eseguire (ad esempio, viene ricevuto un messaggio di risposta o un timer permanente scade), l'agente di orchestrazione si riattiva ed esegue nuovamente l'intera funzione dall'inizio per ricompilare lo stato locale. Se durante la riesecuzione il codice tenta di chiamare una funzione o di eseguire altro lavoro asincrono, Durable Task Framework esamina la *cronologia di esecuzione* dell'orchestrazione corrente. Se rileva che la funzione di attività è già stata eseguita e ha restituito un risultato, riesegue il risultato della funzione e l'esecuzione del codice dell'agente di orchestrazione continua. Il processo continua finché il codice della funzione non giunge a un punto in cui termina o viene pianificato nuovo lavoro asincrono.
+Quando a una funzione di orchestrazione vengono assegnate altre operazioni da eseguire (ad esempio, viene ricevuto un messaggio di risposta o un timer permanente scade), l'agente di orchestrazione si riattiva ed esegue nuovamente l'intera funzione dall'inizio per ricompilare lo stato locale. Se durante la riesecuzione il codice tenta di chiamare una funzione o di eseguire altro lavoro asincrono, Durable Task Framework esamina la *cronologia di esecuzione* dell'orchestrazione corrente. Se rileva che la [funzione di attività](durable-functions-types-features-overview.md#activity-functions) è già stata eseguita e ha restituito un risultato, riesegue il risultato della funzione e l'esecuzione del codice dell'agente di orchestrazione continua. Il processo continua finché il codice della funzione non giunge a un punto in cui termina o viene pianificato nuovo lavoro asincrono.
 
 ### <a name="orchestrator-code-constraints"></a>Vincoli del codice dell'agente di orchestrazione
 
@@ -348,7 +348,7 @@ Questo comportamento di riesecuzione crea vincoli rispetto al tipo di codice che
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-Attualmente C# (funzioni v1 e v2) e JavaScript (solo funzioni v2) sono gli unici linguaggi supportati per Funzioni permanenti. Questo include le funzioni di orchestrazione e le funzioni di attività. In futuro verrà aggiunto il supporto per tutti i linguaggi supportati da Funzioni di Azure. Per informazioni sullo stato attuale del supporto di linguaggi aggiuntivi, vedere l'[elenco di problemi del repository GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) di Funzioni di Azure.
+Attualmente C# (funzioni v1 e v2), F# e JavaScript (solo funzioni v2) sono gli unici linguaggi supportati per Funzioni permanenti. Questo include le funzioni di orchestrazione e le funzioni di attività. In futuro verrà aggiunto il supporto per tutti i linguaggi supportati da Funzioni di Azure. Per informazioni sullo stato attuale del supporto di linguaggi aggiuntivi, vedere l'[elenco di problemi del repository GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) di Funzioni di Azure.
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoraggio e diagnostica
 
@@ -384,7 +384,7 @@ Tutti i problemi noti dovrebbero essere segnalati nell'elenco di [problemi GitHu
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Continuare a leggere la documentazione su Funzioni permanenti](durable-functions-bindings.md)
+> [Continuare a leggere la documentazione su Funzioni permanenti](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [Installare l'estensione Funzioni permanenti e i relativi esempi](durable-functions-install.md)

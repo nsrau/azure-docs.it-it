@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100122"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951006"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (.NET Core e Visual Studio)
 
@@ -31,7 +31,7 @@ In questa guida si apprenderà come:
 
 ## <a name="prerequisites"></a>prerequisiti
 
-- Un cluster Kubernetes che esegue Kubernetes 1.9.6 nell'area EastUS, WestEurope o CanadaEast con il routing HTTP dell'applicazione abilitato.
+- Un cluster Kubernetes che esegue Kubernetes 1.10.3 nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il routing HTTP dell'applicazione abilitato.
 
   ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
@@ -117,4 +117,4 @@ Aggiornare l'app Web nel browser e passare alla pagina delle informazioni. Nell'
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](get-started-netcore-visualstudio.md#call-another-container)
+> [Uso di più contenitori e sviluppo in team](team-development-netcore-visualstudio.md)

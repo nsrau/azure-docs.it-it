@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031431"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902905"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Guida introduttiva: Creare un processo di Analisi di flusso di Azure tramite il portale di Azure
 
@@ -48,7 +48,7 @@ Prima di definire il processo di Analisi di flusso, è necessario preparare i da
 
 4. Nella pagina **Tutte le risorse** individuare l'account di archiviazione creato nel passaggio precedente. Aprire la pagina **Panoramica** e quindi il riquadro **BLOB**.  
 
-5. Nella pagina **Servizio BLOB** selezionare **Contenitore**, impostare il campo **Nome** per il contenitore, ad esempio *container1*, modificare il valore di **Livello di accesso pubblico** in BLOB (accesso in lettura anonimo solo per BLOB) e quindi selezionare **OK**.  
+5. Nella pagina **Servizio BLOB** selezionare **Contenitore**, impostare il campo **Nome** per il contenitore, ad esempio *container1*, modificare il **Livello di accesso pubblico** in Privato (accesso anonimo non consentito) e quindi selezionare **OK**.  
 
    ![Creare un contenitore](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

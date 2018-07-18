@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096275"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38482075"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -44,6 +44,22 @@ Aggiungere l'estensione Azure IoT all'istanza di Cloud Shell.
    az extension add --name azure-cli-iot-ext
    ```
 
+## <a name="prerequisites"></a>prerequisiti
+
+Questa guida introduttiva usa un computer Linux come dispositivo IoT Edge. Se non se ne ha uno disponibile per il test, è possibile crearlo con l'interfaccia della riga di comando di Azure. 
+
+Creare un nuovo gruppo di risorse. È possibile usare questo gruppo di risorse per le altre risorse di Azure create in questa guida introduttiva, per semplificare la gestione.  
+
+   ```azurecli-interactive
+   az group create --name IoTEdgeResources --location westus
+   ```
+
+Creare la macchina virtuale. Non è necessaria una macchina virtuale di grandi dimensioni per testare IoT Edge. Sono sufficienti dimensioni come **B1ms**.
+
+   ```azurecli-interactive
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   ```
+
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
 Iniziare la guida introduttiva creando l'hub IoT nel portale di Azure.
@@ -51,17 +67,19 @@ Iniziare la guida introduttiva creando l'hub IoT nel portale di Azure.
 
 Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se l'hub IoT è già stato usato in passato ed già stato creato un hub gratuito, è possibile usarlo qui. Ogni sottoscrizione può avere un solo hub IoT gratuito. 
 
-1. In Azure Cloud Shell creare un gruppo di risorse. Il codice seguente crea un gruppo di risorse denominato **TestResources** nell'area **Stati Uniti occidentali**. Inserendo tutte le risorse per le guide introduttive e le esercitazioni in un gruppo, è possibile gestirle insieme. 
+1. In Azure Cloud Shell creare un gruppo di risorse se non è stato fatto nell'ambito dei prerequisiti. Inserendo tutte le risorse per le guide introduttive e le esercitazioni in un gruppo, è possibile gestirle insieme. 
 
    ```azurecli-interactive
-   az group create --name TestResources --location westus
+   az group create --name IoTEdgeResources --location westus
    ```
 
-1. Creare un hub IoT nel nuovo gruppo di risorse. Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **TestResources**. Sostituire *{hub_name}* con un nome univoco per l'hub IoT.
+1. Creare un hub IoT nel nuovo gruppo di risorse. Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeResources**. Sostituire *{hub_name}* con un nome univoco per l'hub IoT.
 
    ```azurecli-interactive
    az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
    ```
+
+   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**. 
 
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
@@ -73,7 +91,7 @@ Creare un'identità del dispositivo per il dispositivo simulato in modo che poss
 1. In Azure Cloud Shell immettere il comando seguente per creare un dispositivo denominato **myEdgeDevice** nell'hub.
 
    ```azurecli-interactive
-   az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
+   az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
 1. Recuperare la stringa di connessione per il dispositivo, che collega il dispositivo fisico alla sua identità nell'hub IoT. 
@@ -91,6 +109,8 @@ Installare e avviare il runtime di Azure IoT Edge nel dispositivo.
 ![Registrare un dispositivo][5]
 
 Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza IoT Edge** si avvia a ogni avvio di un dispositivo Edge ed esegue l' avvio del dispositivo avviando l'agente IoT Edge. L'**agente IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
+
+Completare i passaggi seguenti nel computer o nella VM Linux preparata per questa guida introduttiva. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrare il dispositivo per usare il repository software
 
@@ -122,11 +142,16 @@ Aggiornare **apt get**.
    sudo apt-get update
    ```
 
-Installare Moby, un runtime del contenitore, e i relativi comandi dell'interfaccia della riga di comando. 
+Installare **Moby**, un runtime del contenitore.
 
    ```bash
    sudo apt-get install moby-engine
-   sudo apt-get install moby-cli   
+   ```
+
+Installare i comandi dell'interfaccia della riga di comando per Moby. 
+
+   ```bash
+   sudo apt-get install moby-cli
    ```
 
 ### <a name="install-and-configure-the-iot-edge-security-daemon"></a>Installare e configurare il daemon di sicurezza IoT Edge
@@ -146,15 +171,19 @@ Il daemon di sicurezza viene installato come servizio di sistema in modo che il 
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Aggiungere la stringa di connessione del dispositivo IoT Edge copiata durante la registrazione del dispositivo. Sostituire il valore della variabile **device_connection_string** copiato in precedenza in questa guida introduttiva.
+3. Aggiungere la stringa di connessione del dispositivo IoT Edge. Trovare la variabile **device_connection_string** e aggiornarne il valore con la stringa copiata dopo la registrazione del dispositivo.
 
-4. Riavviare il daemon di sicurezza IoT Edge:
+4. Salvare e chiudere il file. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+4. Riavviare il daemon di sicurezza di IoT Edge.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Verificare che il daemon di sicurezza IoT Edge sia in esecuzione come servizio di sistema:
+5. Verificare che il daemon di sicurezza IoT Edge sia in esecuzione come servizio di sistema.
 
    ```bash
    sudo systemctl status iotedge
@@ -168,13 +197,14 @@ Il daemon di sicurezza viene installato come servizio di sistema in modo che il 
    journalctl -u iotedge
    ```
 
-6. Visualizzare i moduli in esecuzione nel dispositivo: 
+6. Visualizzare i moduli in esecuzione nel dispositivo. 
+
+   >[!TIP]
+   >È necessario usare *sudo* per eseguire inizialmente i comandi `iotedge`. Disconnettere il computer ed eseguire di nuovo l'accesso per aggiornare le autorizzazioni e poter quindi eseguire i comandi `iotedge` senza privilegi elevati. 
 
    ```bash
    sudo iotedge list
    ```
-
-   Dopo una disconnessione e un accesso, non è necessario usare *sudo* per il comando sopra citato.
 
    ![Visualizzare un modulo nel dispositivo](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -214,7 +244,22 @@ Il modulo del sensore temperatura può attendere di connettersi all'hub di IoT E
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il dispositivo registrato e configurato in questa guida introduttiva. Se si vuole rimuovere le installazioni dal dispositivo, usare i comandi seguenti.  
+Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il dispositivo registrato e configurato in questa guida introduttiva. In caso contrario, è possibile eliminare le risorse di Azure create e rimuovere il runtime IoT Edge dal dispositivo. 
+
+### <a name="delete-azure-resources"></a>Eliminare le risorse di Azure
+
+Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di risorse, è possibile eliminare il gruppo e tutte le risorse associate. Se nel gruppo sono presenti risorse che si vuole conservare, eliminare solo le singole risorse che si vuole pulire. 
+
+Per rimuovere un gruppo di risorse, seguire questa procedura: 
+
+1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+2. Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse che contiene l'hub IoT. 
+3. A destra del gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere di nuovo il nome del gruppo di risorse per confermare e fare clic su **Elimina**. Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
+
+### <a name="remove-the-iot-edge-runtime"></a>Rimuovere il runtime IoT Edge
+
+Se si vuole rimuovere le installazioni dal dispositivo, usare i comandi seguenti.  
 
 Rimuovere il runtime IoT Edge.
 
@@ -222,22 +267,24 @@ Rimuovere il runtime IoT Edge.
    sudo apt-get remove --purge iotedge
    ```
 
-Eliminare i contenitori creati nel dispositivo. 
+Quando il runtime IoT Edge viene rimosso, i contenitori creati vengono arrestati, ma rimangono sul dispositivo. Visualizzare tutti i contenitori.
 
    ```bash
-   sudo docker rm -f $(sudo docker ps -aq)
+   sudo docker ps -a
+   ```
+
+Eliminare i contenitori creati nel dispositivo dal runtime IoT Edge. Modificare il nome del contenitore tempSensor se gli è stato assegnato un nome diverso. 
+
+   ```bash
+   sudo docker rm -f tempSensor
+   sudo docker rm -f edgeHub
+   sudo docker rm -f edgeAgent
    ```
 
 Rimuovere il runtime del contenitore.
 
    ```bash
    sudo apt-get remove --purge moby
-   ```
-
-Quando le risorse di Azure create non sono più necessarie, è possibile usare il comando seguente per eliminare il gruppo di risorse creato e tutte le risorse associate:
-
-   ```azurecli-interactive
-   az group delete --name TestResources
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi

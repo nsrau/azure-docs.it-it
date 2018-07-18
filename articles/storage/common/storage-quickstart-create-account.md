@@ -3,18 +3,18 @@ title: Guida introduttiva di Azure - Creare un account di archiviazione | Micros
 description: Informazioni su come creare rapidamente un nuovo account di archiviazione usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752334"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856529"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -165,7 +165,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Tutti i servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 2. Immettere un nome per l'account di archiviazione.
 3. Impostare il campo **Tipologia account** su **StorageV2 (utilizzo generico v2)**.
-4. Lasciare il campo **Replica** impostato su **Archiviazione con ridondanza locale**. In alternativa, è possibile scegliere **Archiviazione con ridondanza della zona (ZRS) (anteprima)**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**.
+4. Lasciare il campo **Replica** impostato su **Archiviazione con ridondanza locale**. In alternativa, è possibile scegliere **Archiviazione con ridondanza della zona (ZRS)**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**.
 5. Non modificare i valori predefiniti per questi campi: **Modello di distribuzione**, **Prestazioni**, **Trasferimento sicuro obbligatorio**.
 6. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
 7. Nella sezione **Gruppo di risorse** selezionare **Usa esistente** e quindi scegliere il gruppo di risorse creato nella sezione precedente.

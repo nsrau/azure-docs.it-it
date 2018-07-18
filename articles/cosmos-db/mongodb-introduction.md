@@ -3,22 +3,20 @@ title: 'Introduzione ad Azure Cosmos DB: API MongoDB | Microsoft Docs'
 description: Informazioni su come usare Azure Cosmos DB per archiviare volumi elevati di documenti JSON ed eseguire query su di essi con bassa latenza usando le diffuse API MongoDB OSS.
 keywords: che cos'è MongoDB
 services: cosmos-db
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 02/12/2018
-ms.author: anhoh
-ms.openlocfilehash: bebf8b8830255277b5ea492f06e130ee667affa5
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: sngun
+ms.openlocfilehash: 214dfe3e676d3b07cf688fa0f7dcaf11462edfe8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930886"
 ---
 # <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Introduzione ad Azure Cosmos DB: API MongoDB
 
@@ -28,7 +26,7 @@ ms.lasthandoff: 04/18/2018
 
 È possibile usare i database Azure Cosmos DB come archivio dati per le app scritte per [MongoDB](https://docs.mongodb.com/manual/introduction/). Di conseguenza, usando i [driver](https://docs.mongodb.org/ecosystem/drivers/) esistenti l'applicazione scritta per MongoDB ora può comunicare con Azure Cosmos DB e usare i database Azure Cosmos DB invece dei database MongoDB. In molti casi, per passare da MongoDB a Azure Cosmos DB e viceversa, è sufficiente modificare una stringa di connessione. Questa funzionalità consente di sviluppare ed eseguire con facilità applicazioni di database MongoDB distribuite a livello globale nel cloud di Azure sfruttando Azure Cosmos DB e i relativi [contratti di servizio completi leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db), continuando al tempo stesso a usare competenze e strumenti familiari per MongoDB.
 
-**Compatibilità con MongoDB**: è possibile sfruttare le competenze, il codice dell'applicazione e degli strumenti MongoDB esistenti poiché Azure Cosmos DB implementa il protocollo di trasmissione MongoDB 3.4 (versione 5) e supporta la [pipeline di aggregazione MongoDB](mongodb-feature-support.md#aggregation-pipeline). È possibile sviluppare applicazioni con MongoDB e distribuirle in produzione tramite il servizio Azure Cosmos DB distribuito a livello globale e completamente gestito.
+**Compatibilità con MongoDB**: è possibile sfruttare le competenze, il codice dell'applicazione e degli strumenti MongoDB esistenti poiché Azure Cosmos DB implementa il protocollo di trasmissione MongoDB. È possibile sviluppare applicazioni con MongoDB e distribuirle in produzione tramite il servizio Azure Cosmos DB distribuito a livello globale e completamente gestito. Per altre informazioni sulle versioni supportate, vedere [Supporto dei protocolli per MongoDB](mongodb-feature-support.md#mongodb-protocol-support).
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>Vantaggi legati all'uso di Azure Cosmos DB per applicazioni MongoDB
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 04/18/2018
 
 **Nessuna gestione server**: non è necessario gestire e ridimensionare i database MongoDB. Azure Cosmos DB è un servizio completamente gestito che elimina la necessità di gestire manualmente infrastrutture o macchine virtuali. Cosmos DB è disponibile in più di 30 [aree di Azure](https://azure.microsoft.com/regions/services/).
 
-**Livelli di coerenza regolabili:** Azure Cosmos DB implementa attualmente la versione 3.4 di MongoDB, che include due impostazioni di coerenza: assoluta e finale. Azure Cosmos DB è un'applicazione multi-API e, pertanto, le impostazioni di coerenza sono applicabili a livello di account e l'applicazione della coerenza è controllata da ogni API. Fino a MongoDB 3.6 non esisteva il concetto di coerenza della sessione e, se si imposta un account di API MongoDB per l'uso della coerenza di sessione, quando si usano le API di MongoDB viene eseguito il downgrade della coerenza a "finale". Se è necessaria una garanzia di tipo Read Your Own Write (RYOW) per un account di API MongoDB, il livello di coerenza predefinito per l'account deve essere impostato su "assoluta" o "decadimento ristretto". Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
+**Livelli di coerenza regolabili** Azure Cosmos DB è un'applicazione multi-API e, pertanto, le impostazioni di coerenza sono applicabili a livello di account e l'applicazione della coerenza è controllata da ogni API. Fino a MongoDB 3.6 non esisteva il concetto di coerenza della sessione e, se si imposta un account di API MongoDB per l'uso della coerenza di sessione, quando si usano le API di MongoDB viene eseguito il downgrade della coerenza a "finale". Se è necessaria una garanzia di tipo Read Your Own Write (RYOW) per un account di API MongoDB, il livello di coerenza predefinito per l'account deve essere impostato su "assoluta" o "decadimento ristretto". Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
 
 | Livello di coerenza predefinito di Azure Cosmos DB |   API di Mongo (3.4) |
 |---|---|

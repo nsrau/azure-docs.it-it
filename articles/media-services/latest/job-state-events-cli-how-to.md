@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6a098f43819bb6581b2c5978fbcc4a378a8514c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723743"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Instradare gli eventi di Servizi multimediali di Azure verso un endpoint Web personalizzato tramite l'interfaccia della riga di comando
 
@@ -32,7 +32,7 @@ Accedere al [portale di Azure](http://portal.azure.com) e avviare **CloudShell**
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
@@ -185,8 +185,8 @@ az group delete --name <resource_group_name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Reazione agli eventi](reacting-to-media-services-events.md)## Vedere anche
+[Reazione agli eventi](reacting-to-media-services-events.md)
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Interfaccia della riga di comando 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

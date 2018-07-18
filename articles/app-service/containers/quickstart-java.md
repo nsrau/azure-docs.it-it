@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 2018f5b7051f2b6906372dad3319c763974b93b1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 49702349b1c2476f5743122b33cb3375e54df191
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355186"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930097"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Web Java nel servizio app in Linux
 
@@ -35,7 +35,7 @@ La [distribuzione di app Web Java in un contenitore Linux nel cloud con Azure To
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva: 
 
@@ -76,7 +76,7 @@ Per distribuire da Maven, aggiungere la definizione di plug-in seguente all'inte
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <configuration> 
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
@@ -101,12 +101,44 @@ Per distribuire da Maven, aggiungere la definizione di plug-in seguente all'inte
 
 Aggiornare i segnaposto seguenti nella configurazione del plug-in:
 
-| Segnaposto | Descrizione |
+| Placeholder | DESCRIZIONE |
 | ----------- | ----------- |
 | `YOUR_RESOURCE_GROUP` | Nome del nuovo gruppo di risorse in cui creare l'app Web. Inserendo tutte le risorse per un'app in un gruppo è possibile gestirle insieme. Ad esempio, eliminando il gruppo di risorse si eliminano tutte le risorse associate all'app. Aggiornare questo valore con un nuovo nome univoco di gruppo di risorse, ad esempio *TestResources*. Questo nome di gruppo di risorse verrà usato per pulire tutte le risorse di Azure in una sezione successiva. |
 | `YOUR_WEB_APP` | Il nome dell'app sarà incluso nel nome host dell'app Web durante la distribuzione in Azure (YOUR_WEB_APP.azurewebsites.net). Aggiornare questo valore con un nome univoco per l'app Web di Azure, che ospiterà l'app Java, ad esempio *contoso*. |
 
-L'elemento `linuxRuntime` della configurazione consente di controllare in che modo viene usata l'immagine Linux predefinita con l'applicazione.
+L'elemento `linuxRuntime` della configurazione consente di controllare in che modo viene usata l'immagine Linux predefinita con l'applicazione. Per trovare tutti gli stack di runtime supportati, fare clic su [questo collegamento](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks). 
+
+
+> [!NOTE] 
+> In questo articolo vengono usati solo file WAR. Il plug-in supporta tuttavia le applicazioni Web JAR, con la definizione del plug-in seguente all'interno dell'elemento `<build>` di un file *pom.xml*:
+>
+>```xml
+>    <plugins>
+>      <plugin>
+>        <groupId>com.microsoft.azure</groupId> 
+>        <artifactId>azure-webapp-maven-plugin</artifactId> 
+>        <version>1.2.0</version>
+>        <configuration> 
+>          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+>          <appName>YOUR_WEB_APP</appName> 
+>          <linuxRuntime>jre8</linuxRuntime>   
+>          <!-- This is to make sure the jar file will not be occupied during the deployment -->
+>          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+>          <deploymentType>ftp</deploymentType> 
+>          <resources> 
+>              <resource> 
+>                  <directory>${project.basedir}/target</directory> 
+>                  <targetPath>webapps</targetPath> 
+>                  <includes> 
+>                      <!-- Currently it is required to set as app.jar -->
+>                      <include>app.jar</include> 
+>                  </includes>  
+>              </resource> 
+>          </resources> 
+>        </configuration>
+>      </plugin>
+>    </plugins>
+>```    
 
 Eseguire il comando seguente e seguire tutte le istruzioni per l'autenticazione con l'interfaccia della riga di comando di Azure:
 

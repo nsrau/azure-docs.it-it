@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077327"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951122"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali di Azure
 
@@ -62,7 +62,7 @@ Per semplificare la configurazione degli ambienti, sono disponibili alcuni [mode
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurare due reti virtuali in due aree diverse
 
-Selezionare l'immagine seguente per creare due reti virtuali in due aree diverse e la connessione VPN tra le reti virtuali. Il modello è disponibile in un'[archiviazione BLOB pubblica]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Per usare un modello che riesca a creare due reti virtuali in due aree diverse e la connessione VPN tra le reti virtuali, selezionare il pulsante seguente **Implementa in Azure**. La definizione del modello è disponibile in un'[archiviazione BLOB pubblica](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

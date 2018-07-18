@@ -1,6 +1,6 @@
 ---
-title: Script dell'interfaccia della riga di comando di Azure - Creare un account API Gremlin, un database e una raccolta di Azure Cosmos DB | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account API Gremlin, un database e una raccolta di Azure Cosmos DB
+title: Script dell'interfaccia della riga di comando di Azure - Creare un account API Gremlin, un database e un grafico di Azure Cosmos DB | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un account API Gremlin, un database e un grafico di Azure Cosmos DB
 services: cosmos-db
 documentationcenter: cosmosdb
 author: SnehaGunda
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/29/2018
 ms.author: sngun
-ms.openlocfilehash: 72253d2733b7d15d22506e520b81ebe1379d289f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2993b5400db399ffc9ad50839c2f35d06fedfc8d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796023"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859106"
 ---
 # <a name="azure-cosmos-db-create-a-gremlin-api-account-using-the-azure-cli"></a>Azure Cosmos DB: creare un account API Gremlin con l'interfaccia della riga di comando di Azure
 
-Questo script di esempio dell'interfaccia della riga di comando di Azure crea un account API Gremlin, un database e una raccolta di Azure Cosmos DB. 
+Questo script di esempio dell'interfaccia della riga di comando di Azure crea un account API Gremlin, un database e un grafico di Azure Cosmos DB. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +32,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and collection")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-gremlin-account/create-cosmosdb-gremlin-account.sh?highlight=15-35 "Create an Azure Cosmos DB Gremlin API account, database, and graph")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 

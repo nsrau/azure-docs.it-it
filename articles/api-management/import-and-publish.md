@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935878"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722848"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -53,6 +53,8 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
     È possibile impostare i valori dell'API durante la creazione o successivamente andando alla scheda **Impostazioni**. L'asterisco rosso accanto a un campo indica che il campo è obbligatorio.
 
+    Usare i valori della tabella seguente per creare la prima API.
+
     |Impostazione|Valore|DESCRIZIONE|
     |---|---|---|
     |**Specifica OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
@@ -75,19 +77,21 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 1. Selezionare l'API creata nel passaggio precedente nella scheda **API**.
 2. Fare clic sulla scheda **Test**.  ![Testare l'API](./media/api-management-get-started/test-api.png)
 3. Fare clic su **GetSpeakers**.
-    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
+    La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
 4. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
 
 ## <a name="call-operation"> </a>Chiamare un'operazione dal portale per sviluppatori
 
-È anche possibile chiamare le operazioni dal **portale per sviluppatori** per testare le API. 
+È anche possibile chiamare le operazioni dal **portale per sviluppatori** per testare le API.
 
-1. Selezionare **Demo Conference API**.
-2. Fare clic su **GetSpeakers**.
+1. Passare al **portale per sviluppatori**.
+![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
+
+2. Selezionare **API**, fare clic su **Demo Conference API** (API Demo Conference) e quindi su **GetSpeakers**.
     
-    La pagina visualizza i campi per i parametri di query, ma in questo caso non ne esistono. La pagina visualizza anche i campi per le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
+    La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
 3. Fare clic su **Prova**.
 4. Fare clic su **Invia**.
     

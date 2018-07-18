@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651422"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869597"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -49,7 +49,7 @@ L'applicazione del simulatore di dispositivi in esecuzione in questa esercitazio
 node --version
 ```
 
-Scaricare il progetto di esempio del simulatore di dispositivi di Node.js da https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip ed estrarre l'archivio ZIP.
+Scaricare il progetto di esempio del simulatore di dispositivi di Node.js da https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip ed estrarre l'archivio ZIP.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -123,6 +123,9 @@ Questa volta viene visualizzato un errore di autenticazione quando l'applicazion
 Se il dispositivo usa uno degli SDK per dispositivi hub IoT, il codice della libreria SDK genera il token di firma di accesso condiviso usato per l'autenticazione con l'hub. Un token di firma di accesso condiviso viene generato dal nome dell'hub, dal nome del dispositivo e dalla chiave del dispositivo.
 
 In alcuni scenari, ad esempio in un gateway di protocollo cloud o nell'ambito di uno schema di autenticazione personalizzato, potrebbe essere necessario generare manualmente il token di firma di accesso condiviso. Per risolvere i problemi relativi al codice di generazione della firma di accesso condiviso, è utile essere in grado di generare un token di firma di accesso condiviso corretto noto da usare durante il test.
+
+> [!NOTE]
+> Il file di esempio SimulatedDevice-2.js include esempi che illustrano come generare un token di firma di accesso condiviso con o senza l'SDK.
 
 Per generare un token di firma di accesso condiviso corretto noto tramite l'interfaccia della riga di comando, eseguire il comando seguente:
 

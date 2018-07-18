@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776713"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972275"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Esercitazione: effettuare il push di notifiche alle app Xamarin.Android con Hub di notifica di Azure
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -58,7 +58,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
 L'hub di notifica è configurato per l'uso con FCM e sono disponibili le stringhe di connessione per registrare l'app in modo da ricevere notifiche e inviare notifiche push.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Creare un'app Xamarin.Android e connetterla all'hub di notifica
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Creare un'app Xamarin.Android e connetterla all'hub di notifica
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Creare un progetto di Visual Studio e aggiungere i pacchetti NuGet
 1. In Visual Studio andare su **File**, selezionare **New** (Nuovo), quindi fare clic su **Project** (Progetto). 
@@ -142,6 +142,7 @@ Aprire il file **AndroidManifest.xml** e inserire gli elementi `<receiver>` segu
 8. Aggiungere le istruzioni using seguenti a **MyFirebaseIIDService.cs**:
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ Aprire il file **AndroidManifest.xml** e inserire gli elementi `<receiver>` segu
 12. Aggiungere le istruzioni using seguenti a **MyFirebaseMessagingService.cs**.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```
@@ -287,7 +289,7 @@ In questa esercitazione, le notifiche sono state trasmesse a tutti i dispositivi
 [Visual Studio con Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio per Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx

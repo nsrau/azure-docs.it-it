@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263151"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918272"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
@@ -136,6 +136,11 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 Il monitoraggio dei dati nella macchina virtuale viene quindi trasmesso all'account di archiviazione.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualizzare i dati di monitoraggio nell'account di archiviazione
+
+> [!WARNING]
+> Il formato dei dati di log nell'account di archiviazione verrà modificato a JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Se è stata seguita la procedura precedente, il processo di trasmissione dei dati all'account di archiviazione è iniziato.
 

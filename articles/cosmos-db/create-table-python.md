@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f23d7441a2abc6b66e95e226ef0d17d29ed25c9d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3bad2e8c8011f82ab4daf75e73b1c71c46436882
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795999"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38407021"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app dell'API Tabelle con Python e Azure Cosmos DB
 
@@ -31,9 +31,8 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Eseguire anche queste operazioni:
 
-* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
-* Python Tools per Visual Studio, disponibile su [GitHub](http://microsoft.github.io/PTVS/). Questa esercitazione usa Python Tools per Visual Studio 2015.
-* Python 2.7, disponibile in [python.org](https://www.python.org/downloads/release/python-2712/)
+* Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio selezionare i carichi di lavoro **Sviluppo di Azure** e **Sviluppo di Python**.
+* Selezionare anche l'opzione Python 2 nel carico di lavoro **Sviluppo di Python** o scaricare Python 2.7 da [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Creare un account di database
 

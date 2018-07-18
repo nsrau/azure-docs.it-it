@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824095"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952893"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usare l'emulatore di Azure Cosmos DB per sviluppo e test locali
 
@@ -59,9 +59,10 @@ Questo articolo illustra le attività seguenti:
 > 
 
 ## <a name="how-the-emulator-works"></a>Come funziona l'emulatore
+
 L'emulatore Azure Cosmos DB offre un'emulazione ultra fedele del servizio Azure Cosmos DB. Supporta le stesse funzionalità di Azure Cosmos DB, incluso il supporto per la creazione e l'esecuzione di query su documenti JSON, il provisioning e la scalabilità delle raccolte e l'esecuzione di stored procedure e trigger. È possibile sviluppare e testare le applicazioni usando l'emulatore di Azure Cosmos DB e distribuirle in Azure su scala globale semplicemente apportando una singola modifica di configurazione all'endpoint di connessione per Azure Cosmos DB.
 
-Anche se è stata creata un'emulazione locale estremamente fedele del servizio Azure Cosmos DB effettivo, l'implementazione dell'emulatore di Azure Cosmos DB è diversa da quella del servizio. L'emulatore di Azure Cosmos DB, ad esempio, usa i componenti del sistema operativo standard, ad esempio il file system locale per la persistenza e lo stack di protocolli HTTPS per la connettività. Di conseguenza alcune funzionalità basate sull'infrastruttura di Azure, ad esempio la replica globale, la latenza in millisecondi a cifra singola per le operazioni di lettura/scrittura e i livelli di coerenza regolabili, non sono disponibili nell'emulatore di Azure Cosmos DB.
+Anche se l'emulazione del servizio Azure Cosmos DB è fedele, l'implementazione dell'emulatore è diversa da quella del servizio. L'emulatore, ad esempio, usa i componenti del sistema operativo standard, ad esempio il file system locale per la persistenza e lo stack di protocolli HTTPS per la connettività. Le funzionalità basate sull'infrastruttura di Azure, ad esempio la replica globale, la latenza in millisecondi a cifra singola per le operazioni di lettura/scrittura e i livelli di coerenza regolabili, non sono disponibili.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Differenze tra l'emulatore e il servizio 
 Poiché l'emulatore di Azure Cosmos DB fornisce un ambiente emulato eseguito in una workstation di sviluppo locale, esistono alcune differenze a livello di funzionalità tra l'emulatore e un account Azure Cosmos DB nel cloud:
@@ -72,7 +73,7 @@ Poiché l'emulatore di Azure Cosmos DB fornisce un ambiente emulato eseguito in 
 * L'emulatore di Azure Cosmos DB non simula [livelli di coerenza di Azure Cosmos DB](consistency-levels.md) diversi.
 * L'emulatore di Azure Cosmos DB non simula la [replica tra più aree](distribute-data-globally.md).
 * L'emulatore di Azure Cosmos DB non supporta gli override della quota del servizio disponibili nel servizio Azure Cosmos DB, ad esempio i limiti di dimensioni dei documenti e lo spazio di archiviazione per le raccolte partizionate aumentato.
-* Poiché la copia dell'emulatore di Azure Cosmos DB potrebbe non essere aggiornata con le modifiche più recenti del servizio Azure Cosmos DB, vedere [Capacity Planner di Azure Cosmos DB](https://www.documentdb.com/capacityplanner) per stimare con precisione le esigenze di produttività (UR) dell'applicazione.
+* Poiché la copia dell'emulatore di Azure Cosmos DB potrebbe non essere aggiornata con le modifiche più recenti del servizio Azure Cosmos DB, usare [Capacity Planner di Azure Cosmos DB](https://www.documentdb.com/capacityplanner) per stimare con precisione le esigenze di produttività (UR) dell'applicazione.
 
 ## <a name="system-requirements"></a>Requisiti di sistema
 L'emulatore di Azure Cosmos DB presenta i requisiti hardware e software seguenti:
@@ -99,7 +100,7 @@ Quando l'emulatore è in esecuzione, verrà visualizzata un'icona nell'area di n
 
 Per impostazione predefinita, l'emulatore di Azure Cosmos DB viene eseguito nel computer locale ("localhost") in ascolto sulla porta 8081.
 
-Per impostazione predefinita, l'emulatore di Azure Cosmos DB viene installato nella directory `C:\Program Files\Azure Cosmos DB Emulator`. È anche possibile avviare e arrestare l'emulatore dalla riga di comando. Per altre informazioni, vedere le [informazioni di riferimento sullo strumento da riga di comando](#command-line).
+Per impostazione predefinita, l'emulatore di Azure Cosmos DB viene installato in `C:\Program Files\Azure Cosmos DB Emulator`. È anche possibile avviare e arrestare l'emulatore dalla riga di comando. Per altre informazioni, vedere le [informazioni di riferimento sullo strumento da riga di comando](#command-line).
 
 ## <a name="start-data-explorer"></a>Avviare Esplora dati
 
@@ -366,7 +367,7 @@ Avvia l'emulatore. Per impostazione predefinita, il comando attende fino a quand
 
 #### <a name="remarks"></a>Osservazioni
 
-Arresta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
+Attesta l'emulatore. Per impostazione predefinita, questo comando attende fino all'arresto completo dell'emulatore. Usare l'opzione -NoWait se si vuole che il cmdlet restituisca valori subito dopo l'inizio dell'arresto dell'emulatore.
 
 ### `Uninstall-CosmosDbEmulator`
 
@@ -395,13 +396,13 @@ Per avviare l'immagine, eseguire i comandi seguenti.
 Dalla riga di comando:
 ```cmd 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 Da PowerShell:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 La risposta sarà simile a quanto riportato di seguito:

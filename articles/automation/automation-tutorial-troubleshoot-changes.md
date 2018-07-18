@@ -11,12 +11,12 @@ ms.date: 02/28/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 62d34f82749900e161bebdb7a1a8d470b2e85bbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 4d62e8e4cb778e60b39e502f09ce0aafca9b5212
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054691"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866818"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Risolvere i problemi delle modifiche nell'ambiente
 
@@ -113,6 +113,7 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Item Name     | Nome descrittivo del file da rilevare        |
 |Group     | Nome del gruppo per il raggruppamento logico dei file        |
 |Immettere il percorso     | Percorso in cui cercare il file, ad esempio "c:\temp\myfile.txt"       |
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file nelle modifiche di cui si è tenuta traccia. Opzioni disponibili: **True** o **False**.|
 
 ### <a name="add-a-linux-file"></a>Aggiungere un file di Linux
 
@@ -130,6 +131,7 @@ Nella finestra **Configurazione dell'area di lavoro** aggiungere le chiavi del R
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file nelle modifiche di cui si è tenuta traccia. Opzioni disponibili: **True** o **False**.|
 
    > [!NOTE]   
    > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
