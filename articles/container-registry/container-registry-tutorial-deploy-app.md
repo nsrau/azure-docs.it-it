@@ -3,21 +3,22 @@ title: Esercitazione per Registro contenitori di Azure - Distribuire un'app Web 
 description: Distribuire un'app Web basata su Linux usando un'immagine del contenitore da un registro contenitori di Azure con replica geografica. Seconda parte di una serie in tre parti.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582302"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Esercitazione: Distribuire un'app Web dal Registro contenitori di Azure
 
-Questa esercitazione è la seconda di una serie in tre parti. Nella [prima parte](container-registry-tutorial-prepare-registry.md), è stato creato un registro contenitori privato, con replica geografica; è stata quindi creata un'immagine del contenitore poi inserita nel registro contenitori. Questo articolo illustra come distribuire il contenitore in due istanze di App Web in due diverse aree di Azure, per sfruttare i vantaggi della struttura simile alla rete del registro contenitori con replica geografica.
+Questa esercitazione è la seconda di una serie in tre parti. Nella [prima parte](container-registry-tutorial-prepare-registry.md), è stato creato un registro contenitori privato, con replica geografica; è stata quindi creata un'immagine del contenitore poi inserita nel registro contenitori. In questo articolo vengono sfruttati i vantaggi della struttura simile alla rete del registro con replica geografica distribuendo il contenitore nelle istanze dell'app Web in due diverse aree di Azure. Ogni istanza effettua quindi il pull dell'immagine del contenitore dal registro più vicino.
 
 In questa esercitazione, la seconda della serie, vengono illustrate le seguenti attività:
 
@@ -27,11 +28,11 @@ In questa esercitazione, la seconda della serie, vengono illustrate le seguenti 
 
 Se non è ancora stato creato il registro contenitori con replica geografica e non è stata inserita l'immagine dell'applicazione di esempio nei contenitori nel registro, tornare all'esercitazione precedente della serie, [Preparare un Registro contenitori di Azure con replica geografica](container-registry-tutorial-prepare-registry.md).
 
-Nella parte successiva della serie viene aggiornata l'applicazione e quindi inserita una nuova immagine del contenitore nel registro. Infine, si esamina ogni istanza dell'app Web in esecuzione per visualizzare le modifiche automaticamente applicate a entrambe, che mostrano il Registro contenitori di Azure con replica geografica e i webhook in azione.
+Nell'articolo successivo della serie viene aggiornata l'applicazione e quindi viene eseguito il push di un'immagine aggiornata del contenitore nel registro. Infine, si esamina ogni istanza dell'app Web in esecuzione per visualizzare le modifiche automaticamente applicate a entrambe, che mostrano il Registro contenitori di Azure con replica geografica e i webhook in azione.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Distribuzione automatica nell'app Web per contenitori
 
-Registro contenitori di Azure offre il supporto per la distribuzione di applicazioni nei contenitori direttamente in[App Web per contenitori](../app-service/containers/index.yml). In questa esercitazione, viene usato il portale di Azure per distribuire l'immagine del contenitore creato nell'esercitazione precedente nei due piani di app Web ubicati in aree diverse di Azure.
+Registro contenitori di Azure offre il supporto per la distribuzione di applicazioni nei contenitori direttamente in[App Web per contenitori](../app-service/containers/index.yml). In questa esercitazione viene usato il portale di Azure per distribuire l'immagine del contenitore creata nell'esercitazione precedente nei due piani di app Web ubicati in aree diverse di Azure.
 
 Quando si distribuisce un'app Web da un'immagine del contenitore nel registro contenitori e si dispone di un registro contenitori con replica geografica nella stessa area, Registro contenitori di Azure crea automaticamente un [webhook](container-registry-webhook.md) di distribuzione dell'immagine. Quando viene inserita una nuova immagine nel repository del contenitore, il webhook preleva la modifica e distribuisce automaticamente la nuova immagine del contenitore nell'app Web.
 
@@ -103,11 +104,7 @@ Una volta distribuita l'immagine Docker dal Registro contenitori con replica geo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state distribuite due istanze di app Web per contenitori da un registro contenitori con replica geografica di Azure. In questa esercitazione sono stati completati i passaggi seguenti:
-
-> [!div class="checklist"]
-> * Distribuzione di un'immagine del contenitore in due istanze di *App Web per i contenitori*
-> * Verifica dell'applicazione distribuita
+In questa esercitazione sono state distribuite due istanze di app Web per contenitori da un registro contenitori con replica geografica di Azure.
 
 Passare all'esercitazione successiva per aggiornare e quindi distribuire una nuova immagine del contenitore nel registro contenitori, quindi verificare che le app Web in esecuzione in entrambe le aree siano state aggiornate automaticamente.
 

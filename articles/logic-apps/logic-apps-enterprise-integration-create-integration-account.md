@@ -4,7 +4,7 @@ description: Creare, collegare, spostare ed eliminare gli account di integrazion
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166240"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297989"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>Creare e gestire account di integrazione per soluzioni B2B con le app per la logica
 
@@ -52,14 +52,14 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    ![Immettere i dettagli dell'account di integrazione](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Proprietà | Obbligatoria | Valore di esempio | Descrizione | 
+   | Proprietà | Obbligatoria | Valore di esempio | DESCRIZIONE | 
    |----------|----------|---------------|-------------|
-   | Name | Sì | test-integration-account | Nome dell'account di integrazione. Per questo esempio, usare il nome specificato. | 
-   | Subscription | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure da usare. | 
-   | Resource group | Sì | test-integration-account-rg | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome specificato. | 
-   | Pricing tier | Sì | Gratuito | Piano tariffario che si vuole usare. Per questo esempio, selezionare **Gratuito**, ma per altre informazioni, vedere [Limiti e configurazione di App per la logica](../logic-apps/logic-apps-limits-and-config.md) e [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Location | Sì | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di integrazione. Selezionare la stessa posizione dell'app per la logica oppure creare un'app per la logica nella stessa posizione dell'account di integrazione. Per questo esempio: | 
-   | Log Analytics | No | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
+   | NOME | Sì | test-integration-account | Nome dell'account di integrazione. Per questo esempio, usare il nome specificato. | 
+   | Sottoscrizione | Sì | <*nome sottoscrizione di Azure*> | Nome della sottoscrizione di Azure da usare. | 
+   | Gruppo di risorse | Sì | test-integration-account-rg | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare le risorse correlate. Per questo esempio, creare un nuovo gruppo di risorse con il nome specificato. | 
+   | Piano tariffario | Sì | Gratuito | Piano tariffario che si vuole usare. Per questo esempio, selezionare **Gratuito**, ma per altre informazioni, vedere [Limiti e configurazione di App per la logica](../logic-apps/logic-apps-limits-and-config.md) e [Prezzi di App per la logica](https://azure.microsoft.com/pricing/details/logic-apps/). | 
+   | Località | Sì | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di integrazione. Selezionare la stessa posizione dell'app per la logica oppure creare un'app per la logica nella stessa posizione dell'account di integrazione. | 
+   | Log Analytics | No  | Off | Lasciare l'impostazione **No** per la registrazione diagnostica. | 
    ||||| 
 
 4. Selezionare quindi **Aggiungi al dashboard** e scegliere **Crea**.
@@ -101,7 +101,7 @@ Per collegare l'app per la logica a un altro account di integrazione o smettere 
 
 1. Nel browser passare ad <a href="https://resources.azure.com" target="_blank">Azure Resource Explorer (https://resources.azure.com)</a>. Assicurarsi di aver eseguito l'accesso con le stesse credenziali di Azure.
 
-   ![Azure Resource Explorer](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
+   ![Esplora risorse di Azure](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer.png)
 
 2. Nella casella di ricerca immettere il nome dell'app per la logica, quindi trovare e selezionare l'app per la logica specificata.
 
@@ -125,7 +125,7 @@ Per collegare l'app per la logica a un altro account di integrazione o smettere 
    },
    ```
 
-   Ad esempio:
+   Ad esempio: 
 
    ![Trovare la definizione della proprietà "integrationAccount"](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

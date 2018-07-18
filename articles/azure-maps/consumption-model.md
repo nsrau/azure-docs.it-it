@@ -1,22 +1,19 @@
 ---
 title: Modello di consumo in Mappe di Azure | Microsoft Docs
 description: Informazioni sul modello di consumo in Mappe di Azure
-services: azure-maps
-keywords: ''
 author: subbarayudukamma
 ms.author: skamma
-ms.date: 5/8/2018
-ms.topic: article
+ms.date: 05/08/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 146ea084c02bb3de0c74da79ca85021589207de8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+services: azure-maps
+manager: ''
+ms.openlocfilehash: cf20c7dbfbf7cd3f09579b03b835148c1c295137
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600630"
 ---
 # <a name="consumption-model"></a>Modello di utilizzo
 
@@ -28,7 +25,7 @@ Non è possibile usare il modello di consumo con i valori _bicicletta_ e _pedona
 
 In entrambi i modelli di consumo, per specificare esplicitamente alcuni parametri è necessario specificarne anche altri. Le dipendenze sono le seguenti:
 
-* Tutti i parametri richiedono che l'utente specifichi **constantSpeedConsumption**. È un errore specificare qualsiasi altro parametro del modello di consumo, ad eccezione di **vehicleWeight**, se non è specificato **constantSpeedConsumption***.
+* Tutti i parametri richiedono che l'utente specifichi **constantSpeedConsumption**. È un errore specificare qualsiasi altro parametro del modello di consumo, ad eccezione di **vehicleWeight**, se non è specificato **constantSpeedConsumption**\*.
 * **accelerationEfficiency** e **decelerationEfficiency** devono essere sempre specificati in coppia (ovvero entrambi o nessuno).
 * Se vengono specificati **accelerationEfficiency** e **decelerationEfficiency**, il prodotto dei loro valori non deve essere maggiore di 1 per evitare il moto perpetuo.
 * **uphillEfficiency** e **downhillEfficiency** devono essere sempre specificati in coppia (ovvero entrambi o nessuno).

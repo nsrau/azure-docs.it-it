@@ -2,24 +2,23 @@
 title: Prerequisiti di Azure Data Catalog | Documentazione Microsoft
 description: Informazioni sui prerequisiti necessari per iniziare a usare Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: ef497a54-dc4d-4820-b5bf-c361b64b964d
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: a7effaaaeb23661b9be96dcddc2c140ab8c8b92b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: d34d9e49c3ad405a86e42ada9c86615a12adaa62
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449192"
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Prerequisiti del Catalogo dati di Azure
 
@@ -28,12 +27,12 @@ Prima di poter configurare Azure Data Catalog, sono necessarie alcune operazioni
 ## <a name="azure-subscription"></a>Sottoscrizione di Azure
 Per configurare Data Catalog, l'utente deve essere proprietario o comproprietario di una sottoscrizione di Azure.
 
-Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse del servizio cloud, ad esempio Data Catalog. Le sottoscrizioni consentono anche di controllare come l'utilizzo delle risorse viene segnalato, fatturato e pagato. Ogni sottoscrizione può avere un metodo di fatturazione e pagamento distinto e avere così sottoscrizioni e piani diversi per reparto, progetto, ufficio locale e così via. Ogni servizio cloud appartiene a una sottoscrizione ed è necessario che la sottoscrizione sia disponibile prima di configurare Data Catalog. Per altre informazioni, vedere l'articolo su come [gestire gli account, le sottoscrizioni e i ruoli amministrativi](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
+Le sottoscrizioni di Azure consentono di organizzare l'accesso alle risorse del servizio cloud, ad esempio Data Catalog. Le sottoscrizioni consentono anche di controllare come l'utilizzo delle risorse viene segnalato, fatturato e pagato. Ogni sottoscrizione può avere un metodo di fatturazione e pagamento distinto e avere così sottoscrizioni e piani diversi per reparto, progetto, ufficio locale e così via. Ogni servizio cloud appartiene a una sottoscrizione ed è necessario che la sottoscrizione sia disponibile prima di configurare Data Catalog. Per altre informazioni, vedere l'articolo su come [gestire gli account, le sottoscrizioni e i ruoli amministrativi](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Per configurare Data Catalog, è necessario accedere con un account utente di Azure Active Directory (Azure AD).
 
-Azure AD è un servizio che offre semplici e pratiche funzionalità di gestione delle identità e degli accessi, sia nel cloud sia in locale. Gli utenti possono usare un singolo account aziendale o dell'istituto di istruzione per eseguire l'accesso Single Sign-On a qualsiasi applicazione Web locale o nel cloud. Data Catalog usa Azure AD per autenticare l'accesso. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../active-directory/active-directory-whatis.md).
+Azure AD è un servizio che offre semplici e pratiche funzionalità di gestione delle identità e degli accessi, sia nel cloud sia in locale. Gli utenti possono usare un singolo account aziendale o dell'istituto di istruzione per eseguire l'accesso Single Sign-On a qualsiasi applicazione Web locale o nel cloud. Data Catalog usa Azure AD per autenticare l'accesso. Per altre informazioni, vedere [Informazioni su Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 > [!NOTE]
 > Usando il [portale di Azure](http://portal.azure.com/) è possibile eseguire l'accesso con un account Microsoft personale oppure con un account aziendale o dell'istituto di istruzione di Azure Active Directory. Per configurare Data Catalog usando il portale di Azure o il [portale di Data Catalog](http://www.azuredatacatalog.com), è necessario eseguire l'accesso con un account di Azure Active Directory, non con un account personale.

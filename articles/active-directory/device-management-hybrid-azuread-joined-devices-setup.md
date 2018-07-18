@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258313"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261186"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
 Tramite la gestione dei dispositivi in Azure Active Directory (Azure AD) è possibile garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. Per altre informazioni, vedere [Introduction to device management in Azure Active Directory](device-management-introduction.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory).
 
-Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. Questo argomento offre i passaggi correlati. 
+Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. Questo articolo illustra i passaggi necessari. 
 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -37,7 +38,7 @@ Se si intende usare l'[Utilità preparazione sistema (Sysprep)](https://docs.mic
 
 Tutti i dispositivi aggiunti a un dominio che eseguono la versione Aggiornamento dell'anniversario di Windows 10 e Windows Server 2016 vengono registrati automaticamente in Azure AD al riavvio del dispositivo o all'accesso dell'utente dopo il completamento dei passaggi di configurazione illustrati di seguito. **Se non si vuole applicare questo comportamento di registrazione automatica o se si vuole eseguire un'implementazione controllata**, seguire le istruzioni nella sezione Passaggio 4: Controllare la distribuzione e l'implementazione più avanti per abilitare o disabilitare in modo selettivo l'implementazione automatica prima di eseguire gli altri passaggi di configurazione.  
 
-Per una migliore leggibilità delle descrizioni, in questo argomento viene usata la terminologia seguente. 
+Per una migliore leggibilità delle descrizioni, in questo articolo viene usata la terminologia seguente: 
 
 - **Dispositivo Windows corrente**: questo termine indica i dispositivi aggiunti a un dominio che eseguono Windows 10 o Windows Server 2016.
 - **Dispositivi Windows di livello inferiore**: questo termine indica tutti i dispositivi Windows aggiunti a un dominio **supportati** che non eseguono Windows 10 né Windows Server 2016.  
@@ -56,7 +57,8 @@ Per una migliore leggibilità delle descrizioni, in questo argomento viene usata
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso).
+- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso). 
+- Le registrazione di dispositivi legacy di Windows **non è** supportata quando si usa l'autenticazione pass-through di Azure AD.
 - Le registrazione di dispositivi legacy di Windows **non è** supportata per i dispositivi che utilizzano profili di roaming. In caso di roaming delle impostazioni o dei profili, usare Windows 10.
 
 
@@ -80,8 +82,7 @@ Verificare che gli URL seguenti siano accessibili dall'interno della rete aziend
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com (Consenti)
 - https://device.login.microsoftonline.com
 
 - Servizio token di sicurezza dell'organizzazione (domini federati)

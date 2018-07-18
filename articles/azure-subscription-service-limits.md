@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939961"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610773"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -40,8 +40,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 
 > [!NOTE]
 > È importante sottolineare che le quote per le risorse nei gruppi di risorse di Azure sono da intendersi per ogni area accessibile dalla sottoscrizione e non per ogni sottoscrizione, come nel caso delle quote di gestione del servizio. Si considerino, ad esempio, le quote di vCPU. Se è necessario richiedere un aumento della quota con supporto per le vCPU, è necessario stabilire quante vCPU si vuole usare e in quali aree e quindi effettuare una richiesta specifica per le quote di vCPU del gruppo di risorse di Azure per le quantità e le aree desiderate. Se quindi è necessario usare 30 vCPU in Europa occidentale per eseguire l'applicazione, è necessario richiedere in modo specifico 30 vCPU in Europa occidentale. La quota di vCPU per le altre aree non verrà tuttavia aumentata, ma sarà disponibile una quota di 30 vCPU solo in Europa occidentale.
-> <!-- -->
-> Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](resource-manager-common-deployment-errors.md) .
+> <!-- --> Di conseguenza, può risultare utile stabilire le quote per il gruppo di risorse di Azure necessarie per il carico di lavoro in ogni area e richiedere tale quantità in ogni area in cui si prevede di eseguire la distribuzione. Per altre informazioni su come individuare le quote correnti per aree specifiche, vedere l'argomento relativo alla [risoluzione dei problemi di distribuzione](resource-manager-common-deployment-errors.md) .
 >
 >
 
@@ -74,6 +73,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Identità gestita](#managed-identity-limits)
 * [Servizi multimediali](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Servizi mobili](#mobile-services-limits)
@@ -83,6 +83,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Network Watcher](#network-watcher-limits)
 * [Servizio di Hub di notifica](#notification-hub-service-limits)
 * [Gruppo di risorse](#resource-group-limits)
+* [Controllo degli accessi in base al ruolo](#role-based-access-control-limits)
 * [Utilità di pianificazione](#scheduler-limits)
 * [Search](#search-limits)
 * [Bus di servizio](#service-bus-limits)
@@ -316,8 +317,14 @@ Per informazioni più dettagliati sui limiti, ad esempio dimensioni dei document
 ### <a name="automation-limits"></a>Limiti di automazione
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
 
+### <a name="managed-identity-limits"></a>Limiti relativi all'identità gestita
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Limiti relativi al controllo degli accessi in base al ruolo
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
+
 ### <a name="sql-database-limits"></a>Limiti relativi a database SQL
-Per i limiti di Database SQL, vedere [Limiti delle risorse dei Database SQL](sql-database/sql-database-resource-limits.md).
+Per i limiti relativi al database SQL, vedere [Limiti delle risorse del database SQL per i database singoli](sql-database/sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse del database SQL per pool elastici e database in pool](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>Limiti relativi a SQL Data Warehouse
 Per i limiti relativi a SQL Data Warehouse, vedere [Limiti di capacità di SQL Data Warehouse](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

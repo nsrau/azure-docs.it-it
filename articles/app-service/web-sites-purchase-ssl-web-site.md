@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807459"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acquistare e configurare un certificato SSL per il servizio app di Azure
 
@@ -196,13 +197,24 @@ Fare clic sul pulsante **Reimposta** per avviare il processo. Questo processo pu
 
 Con la reimpostazione viene emesso un nuovo certificato da parte dell'autorità di certificazione.
 
+## <a name="renew-the-certificate"></a>Rinnovare il certificato
+
+Per attivare il rinnovo automatico del certificato in qualsiasi momento, fare clic su **Impostazioni di rinnovo automatico** nella pagina di gestione dei certificati. Selezionare **Attivato** e fare clic su **Salva**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Per rinnovare il certificato manualmente, fare clic su **Rinnovo manuale**.
+
+> [!NOTE]
+> Il certificato rinnovato, sia manualmente che automaticamente, non viene associato automaticamente all'app. Per associarlo all'app, vedere [Rinnovare i certificati](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Perché il certificato SSL non viene rinnovato automaticamente?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Perché il certificato non viene rinnovato automaticamente?
 
-Se il certificato SSL è configurato per il rinnovo automatico, ma non viene rinnovato automaticamente, è possibile che sia presente una verifica del dominio in sospeso. Tenere presente quanto segue: 
+Se il certificato SSL è configurato per il rinnovo automatico, ma non viene rinnovato automaticamente, è possibile che sia presente una verifica del dominio in sospeso. Si noti che: 
 
-- GoDaddy, che genera i certificati del servizio app, richiede la verifica del dominio una volta ogni tre anni. Per la verifica del dominio, l'amministratore di dominio riceve un messaggio di posta elettronica una volta ogni tre anni. Se il messaggio di posta elettronica non viene letto oppure la verifica del dominio non viene eseguita, il certificato del servizio app non potrà essere rinnovato automaticamente. 
-- Tutti i certificati del servizio app rilasciati prima del 31 marzo 2017 richiedono la nuova verifica del dominio al momento del rinnovo successivo, anche se per il certificato è abilitato il rinnovo automatico. Questo requisito deriva dalla modifica dei criteri di GoDaddy. Controllare la posta elettronica ed eseguire questa verifica del dominio occasionale per proseguire il rinnovo automatico del certificato del servizio app. 
+- GoDaddy, che genera i certificati del servizio app, richiede la verifica del dominio una volta ogni due anni. Per la verifica del dominio, l'amministratore di dominio riceve un messaggio di posta elettronica una volta ogni tre anni. Se il messaggio di posta elettronica non viene letto oppure la verifica del dominio non viene eseguita, il certificato del servizio app non potrà essere rinnovato automaticamente. 
+- A causa della modifica delle norme di GoDaddy, tutti i certificati del servizio app rilasciati prima del 1 marzo 2018 richiedono la nuova verifica del dominio al momento del rinnovo successivo, anche se per il certificato è abilitato il rinnovo automatico. Controllare la posta elettronica ed eseguire questa verifica del dominio occasionale per proseguire il rinnovo automatico del certificato del servizio app. 
 
 ## <a name="more-resources"></a>Altre risorse
 

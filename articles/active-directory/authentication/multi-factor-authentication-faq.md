@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128691"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Domande frequenti su Azure Multi-Factor Authentication
 
@@ -117,7 +118,7 @@ Quando si usa il modello di licenza, è necessario usare Azure Active Directory 
 
 È auspicabile che tutti gli utenti abbiano configurato più metodi di verifica. Dire loro di tentare nuovamente l'accesso, ma selezionando un altro metodo di verifica nella pagina di accesso.
 
-È possibile invitare gli utenti a leggere l'articolo [Problemi con la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md).
+È possibile invitare gli utenti a leggere l'articolo [Problemi con la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-troubleshoot.md).
 
 
 **D: Cosa fare se uno degli utenti non riesce ad accedere al proprio account?**
@@ -130,7 +131,7 @@ L'amministratore può eliminare tutte le password di app dell'utente per impedir
 
 **D: Cosa accade se un utente non riesce ad accedere alle applicazioni non basate su browser?**
 
-Se l'organizzazione usa ancora client legacy ed è stato [consentito l'uso delle password di app](howto-mfa-mfasettings.md#app-passwords), gli utenti non possono eseguire l'accesso a questi client legacy con il loro nome utente e password. Devono invece [impostare le password di app](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Gli utenti devono cancellare (eliminare) le informazioni di accesso, riavviare l'app e quindi accedere con il proprio nome utente e *password di app* anziché le password normali.
+Se l'organizzazione usa ancora client legacy ed è stato [consentito l'uso delle password di app](howto-mfa-mfasettings.md#app-passwords), gli utenti non possono eseguire l'accesso a questi client legacy con il loro nome utente e password. Devono invece [impostare le password di app](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Gli utenti devono cancellare (eliminare) le informazioni di accesso, riavviare l'app e quindi accedere con il proprio nome utente e *password di app* anziché le password normali.
 
 Se l'organizzazione non ha client legacy, non è consigliabile consentire agli utenti di creare password di app.
 

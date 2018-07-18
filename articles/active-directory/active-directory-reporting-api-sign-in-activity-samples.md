@@ -3,28 +3,30 @@ title: Esempi dell'API del report sull'attività di accesso di Azure Active Dire
 description: Come iniziare a usare l'API di creazione report di Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
-ms.author: dhanyahk;markvi
+ms.component: compliance-reports
+ms.date: 05/31/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c76ac75acdb1645ee6cc5b496aadccbd1daf2d79
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 52d49770014a5fb6a5eec644868e702c8a8d9ef3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36224899"
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Esempi dell'API del report sull'attività di accesso di Azure Active Directory
-Questo argomento fa parte di una raccolta di argomenti sull'API di creazione report di Azure Active Directory.  
+Questo articolo fa parte di una raccolta di articoli sull'API di creazione report di Azure Active Directory.  
 La creazione di report di Azure Active Directory fornisce un'API che consente di accedere ai dati sull'attività di accesso tramite codice o strumenti correlati.  
-L'obiettivo di questo argomento è fornire il codice di esempio per l' **API sull'attività di accesso**.
+L'obiettivo di questo articolo è fornire il codice di esempio per l'**API sull'attività di accesso**.
 
 Vedere:
 
@@ -33,58 +35,69 @@ Vedere:
 
 
 ## <a name="prerequisites"></a>prerequisiti
-Prima di poter usare gli esempi contenuti in questo argomento, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
+Prima di poter usare gli esempi contenuti in questo articolo, è necessario completare i [prerequisiti di accesso all'API di creazione report di Azure AD](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>Script di PowerShell
-    # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID       = "<clientId>"             # Should be a ~35 character string insert your info here
-    $ClientSecret   = "<clientSecret>"         # Should be a ~44 character string insert your info here
-    $loginURL       = "https://login.microsoftonline.com/"
-    $tenantdomain   = "<tenantDomain>"
-    $daterange            # For example, contoso.onmicrosoft.com
 
-    $7daysago = "{0:s}" -f (get-date).AddDays(-7) + "Z"
-    # or, AddMinutes(-5)
+```powershell
 
-    Write-Output $7daysago
-
-    # Get an Oauth 2 access token based on client id, secret and tenant domain
-    $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
-
-    $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
-
-    if ($oauth.access_token -ne $null) {
+# This script will require the Web Application and permissions setup in Azure Active Directory
+$clientID       = "<appid>"             # ApplicationId
+$clientSecret   = "<key>"         # Should be a ~44 character string insert your info here
+$loginURL       = "https://login.windows.net/"
+$tenantdomain   = "<domain>"            # For example, contoso.onmicrosoft.com
+$msgraphEndpoint = "https://graph.microsoft.com"
+$countOfSignInDocsToBeSavedInAFile = 2000
+    
+# Get an Oauth 2 access token based on client id, secret and tenant domain
+$body       = @{grant_type="client_credentials";resource=$msgraphEndpoint;client_id=$clientID;client_secret=$clientSecret}
+$oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
+    
+if ($oauth.access_token -ne $null) {
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}
-
-    $url = "https://graph.windows.net/$tenantdomain/activities/signinEvents?api-version=beta&`$filter=signinDateTime ge $7daysago"
-
+    
+    $url = "$msgraphEndpoint/beta/auditLogs/signIns"
+    Write-Output "Fetching data using Uri: $url"
     $i=0
-
+    $docCount=0
     Do{
-        Write-Output "Fetching data using Uri: $url"
         $myReport = (Invoke-WebRequest -UseBasicParsing -Headers $headerParams -Uri $url)
-        Write-Output "Save the output to a file SigninActivities$i.json"
-        Write-Output "---------------------------------------------"
-        $myReport.Content | Out-File -FilePath SigninActivities$i.json -Force
-        $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'
-        $i = $i+1
-    } while($url -ne $null)
+        $jsonReport = ($myReport.Content | ConvertFrom-Json).value
+        $fetchedRecordCount = $jsonReport.Count
+        $docCount = $docCount + $fetchedRecordCount
+        $totalFetchedRecordCount = $totalFetchedRecordCount + $fetchedRecordCount
+        Write-Output "Fetched $fetchedRecordCount records and saved into SignIns$i.json"
+        if($docCount -le $countOfSignInDocsToBeSavedInAFile)
+        {
+            $myReport.Content | Out-File -FilePath SignIns$i.json -append  -Force       
+        }
+        else
+        {           
+            $docCount=0
+            $i = $i+1
+        }
+            
+        #Get url from next link
+        $url = ($myReport.Content | ConvertFrom-Json).'@odata.nextLink'         
+    }while($url -ne $null)
+    Write-Output "Total Fetched record count is : $totalFetchedRecordCount"
+                
+} else {
+    Write-Host "ERROR: No Access Token"
+}
 
-    } else {
-
-        Write-Host "ERROR: No Access Token"
-    }
+```
 
 
 
 
 ## <a name="executing-the-script"></a>Esecuzione dello script
-Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti dal report Log di controllo.
+Una volta modificato lo script, eseguirlo e verificare che vengano restituiti i dati corretti dal report dei log di accesso.
 
-Lo script restituisce l'output del report sugli accessi in formato JSON. Crea anche un file `SigninActivities.json` con lo stesso output. È possibile provare a modificare lo script per restituire i dati di altri report e rimuovere i commenti per i formati di output non necessari.
+Lo script restituisce l'output del report sugli accessi in formato JSON. Crea anche un file `SignIns.json` con lo stesso output. È possibile provare a modificare lo script per restituire i dati di altri report e rimuovere i commenti per i formati di output non necessari.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Si desidera personalizzare gli esempi contenuti in questo argomento? Consultare la pagina [Riferimento API del report sull'attività di accesso di Azure Active Directory](active-directory-reporting-api-sign-in-activity-reference.md). 
+* Personalizzare gli esempi contenuti in questo articolo? Consultare la pagina [Riferimento API del report sull'attività di accesso di Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
 * Se si desidera visualizzare una panoramica completa sull'uso dell'API di creazione report di Azure Active Directory, vedere [Introduzione all'API di creazione report di Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Per altre informazioni sulla creazione di report di Azure Active Directory, vedere [Guida alla creazione di report in Azure Active Directory](active-directory-reporting-guide.md).  
 

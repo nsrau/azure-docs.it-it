@@ -1,25 +1,19 @@
 ---
 title: Informazioni sui metodi diretti dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per gli sviluppatori: usare metodi diretti per richiamare il codice nei dispositivi da un'app di servizio."
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a35c88ac053b43d4a95b5bef92f3ebfb03567e2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736678"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno,
@@ -85,6 +79,11 @@ L'app back-end riceve una risposta che include:
     ```
 
     Sia `status` che `body` vengono forniti dal dispositivo e usati per rispondere con la descrizione e/o il codice di stato del dispositivo.
+
+### <a name="method-invocation-for-iot-edge-modules"></a>Chiamata al metodo per i moduli di IoT Edge
+La chiamata a metodi diretti tramite un ID modulo è supportata nella versione di anteprima dell'SDK per C# (disponibile [qui](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+
+A tale scopo, usare il metodo `ServiceClient.InvokeDeviceMethodAsync()` e passare `deviceId` e `moduleId` come parametri.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Gestire un metodo diretto in un dispositivo
 ### <a name="mqtt"></a>MQTT

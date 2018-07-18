@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763358"
 ---
 # <a name="azure-service-fabric-cli"></a>Interfaccia della riga di comando di Azure Service Fabric
 
@@ -32,7 +33,8 @@ L'interfaccia della riga di comando di Service Fabric è progettata per supporta
 
 | Versione dell'interfaccia della riga di comando   | Versione runtime supportata |
 |---------------|---------------------------|
-| Più recenti (~=4)  | Più recenti (~=6.1)            |
+| Più recente (~=5)  | Più recente (~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-Eseguire quindi il comando seguente per installare l'interfaccia della riga di comando di Service Fabric:
+Eseguire quindi il comando seguente per installare l'interfaccia della riga di comando di Azure Service Fabric (sfctl) e visualizzare la pagina della Guida dell'interfaccia della riga di comando:
 
 ```bat
 pip install sfctl
@@ -231,13 +233,13 @@ Per altre informazioni, vedere la [documentazione di OpenSSL](https://www.openss
 
 Alcune operazioni potrebbero generare il messaggio seguente:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Verificare che l'endpoint del cluster specificato sia disponibile e in ascolto. Verificare anche che l'interfaccia utente di Service Fabric Explorer sia disponibile nell'host e nella porta specificati. Per aggiornare l'endpoint, usare `sfctl cluster select`.
 
 ### <a name="detailed-logs"></a>Log dettagliati
 
-I log dettagliati si rivelano spesso utili per il debug o la segnalazione di un problema. Un flag `--debug` globale aumenta il livello di dettaglio dei file di log.
+I log dettagliati si rivelano spesso utili per il debug o la segnalazione di un problema. Il flag `--debug` aumenta il livello di dettaglio dell'output.
 
 ### <a name="command-help-and-syntax"></a>Informazioni sui comandi e sintassi
 

@@ -1,24 +1,19 @@
 ---
-title: "Procedure consigliate per la scalabilità automatica | Microsoft Docs"
-description: "Modelli di scalabilità automatica in Azure per App Web, set di scalabilità di macchine virtuali e Servizi cloud"
+title: Procedure consigliate per la scalabilità automatica
+description: Modelli di scalabilità automatica in Azure per App Web, set di scalabilità di macchine virtuali e Servizi cloud
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: autoscale
+ms.openlocfilehash: e9fc5a4c5d2e23750493cc320dffa380724347fb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262444"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedure consigliate per la scalabilità automatica
 Questo articolo illustra le procedure consigliate per applicare la scalabilità automatica in Azure. Il ridimensionamento automatico di Monitoraggio di Azure si applica solo a [set di scalabilità di macchine virtuali](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Servizi cloud](https://azure.microsoft.com/services/cloud-services/) e [app Web del servizio app](https://azure.microsoft.com/services/app-service/web/). Altri servizi Azure usano metodi di ridimensionamento diversi.

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a40432aa1d9a466706b4a3ebbcbd56cd8e5b768e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971537"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
@@ -28,9 +29,9 @@ Esistono molte domande frequenti sulle caratteristiche e sulle modalità di uso 
 
 ### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Come si configura il certificato del cluster di Service Fabric?
 
-Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade?branch=master) applica i [Parametri di aggiornamento di un'applicazione](https://review.docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
+Il rollback di un aggiornamento dell'applicazione richiede il rilevamento degli errori di integrità prima che il quorum del cluster di Service Fabric esegua il commit della modifica; solo a questo punto sarà possibile eseguire il roll forward delle modifiche. Potrebbe essere necessario fare ripristinare il cluster da un tecnico dell'escalation tramite il servizio clienti se è stata introdotta una modifica di interruzione del certificato non monitorata.  [Aggiornamento dell'applicazione di Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applica i [Parametri di aggiornamento di un'applicazione](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master) e promette un aggiornamento con tempi di inattività pari a zero.  Dopo l'aggiornamento monitorato dell'applicazione consigliato, l'avanzamento automatico tramite domini di aggiornamento è basato sul superamento di controlli di integrità, eseguendo il rollback automaticamente se l'aggiornamento di un servizio predefinito non riesce.
  
-Se il cluster sfrutta ancora la proprietà di identificazione personale del certificato classica nel modello di gestione risorse, si consiglia di [modificare il cluster dall'identificazione personale del certificato a un nome comune](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), per sfruttare le moderne funzionalità di gestione dei segreti.
+Se il cluster sfrutta ancora la proprietà di identificazione personale del certificato classica nel modello di gestione risorse, si consiglia di [modificare il cluster dall'identificazione personale del certificato a un nome comune](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), per sfruttare le moderne funzionalità di gestione dei segreti.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>È possibile creare un cluster che si estenda a più aree di Azure o ai miei data center?
 

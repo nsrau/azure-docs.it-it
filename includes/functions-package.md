@@ -6,15 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: e94b817e6e08fcf2aee6e3000842bc1b853d512e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 75be516dc3f23ee02638a6ca9981a6732b00e27a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38738916"
 ---
-Per lo sviluppo locale in Funzioni di Azure versione 2.x, il pacchetto viene usato per [registrare l'estensione dell'associazione](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools). Per lo sviluppo di librerie di classi C# in Funzioni 1.x e 2.x, il supporto per l'associazione viene aggiunto [installando il pacchetto](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code).
+Nella tabella seguente viene descritto come aggiungere un supporto per questa associazione in ogni ambiente di sviluppo.
 
-Si noti che il codice sorgente segue la numerazione delle versioni di WebJobs SDK: WebJobs SDK versione 2.x equivale a Funzioni di Azure 1.x, pertanto il codice di Funzioni 1.x è incluso nel ramo v2.x nel repository. I rami master e dev contengono il codice per Web Jobs 3.x, che corrisponde a Funzioni 2.x.
+| Ambiente di sviluppo               | Per aggiungere un supporto in <br>Funzioni 1.x  |
+|----------------------|----------------|---------------|
+|Sviluppo locale - Libreria di classi C#       | [Installare il pacchetto](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|Sviluppo locale - Script C#, JavaScript, F# |Automatico         |
+|Sviluppo con il portale|  Automatico    |

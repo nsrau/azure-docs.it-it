@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 01/10/2018
+  ms.locfileid: "27740085"
 abstract:
   description: Azure Site Recovery orchestra e gestisce il ripristino di emergenza per le macchine virtuali di Azure, le macchine virtuali locali e i server fisici. Questo articolo contiene informazioni su come replicare ed effettuare il failover e il failback con guide introduttive ed esercitazioni.
 sections:

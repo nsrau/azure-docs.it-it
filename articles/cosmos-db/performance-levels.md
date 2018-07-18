@@ -4,21 +4,18 @@ description: Informazioni sui livelli di prestazioni S1, S2 e S3 disponibili in 
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/29/2017
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e565f4ee4d25afb29627e6beca99fd2998cd6396
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d1bb7551e6dfb6c42853ab95096f17f5285c69c1
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796649"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Ritiro dei livelli di prestazioni S1, S2 e S3
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 04/06/2018
 > I livelli di prestazioni S1, S2 e S3 descritti in questo articolo sono in fase di ritiro e non sono più disponibili per i nuovi account Azure Cosmos DB.
 >
 
-Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come, a fine 2017, verrà eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Alla fine della lettura, si avranno le risposte alle domande seguenti:
+Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e descrive come può essere eseguita la migrazione delle raccolte che usano questi livelli di prestazioni a raccolte a partizione singola. Alla fine della lettura, si avranno le risposte alle domande seguenti:
 
 - [Perché i livelli di prestazioni S1, S2 e S3 sono in fase di ritiro?](#why-retired)
 - [Che differenze ci sono tra le raccolte a partizione singola e partizionate e i livelli di prestazioni S1, S2 e S3?](#compare)
@@ -35,7 +32,6 @@ Questo articolo offre una panoramica dei livelli di prestazioni S1, S2 e S3 e de
 - [Dopo la migrazione a raccolte a partizione singola, come cambierà la fatturazione?](#billing-change)
 - [Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?](#more-storage-needed)
 - [È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?](#change-before)
-- [Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?](#when-migrated)
 - [Come è possibile seguire autonomamente la migrazione dai livelli di prestazioni S1, S2 e S3 alle raccolte a partizione singola?](#migrate-diy)
 - [Quali sono le conseguenze per i clienti EA?](#ea-customer)
 
@@ -64,25 +60,23 @@ Per i clienti EA, è consigliabile fare riferimento a [Quali sono le conseguenze
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>Cosa bisogna fare per garantire l'accesso ininterrotto ai dati?
 
-Niente, perché Cosmos DB gestisce automaticamente la migrazione. Per chi usa una raccolta S1, S2 o S3, a fine 2017 verrà eseguita la migrazione a una raccolta a partizione singola. 
+Se si ha una raccolta S1, S2 o S3, è necessario eseguirne la migrazione a una raccolta a partizione singola a livello di codice [tramite .NET SDK](#migrate-diy). 
 
 <a name="collection-change"></a>
 
 ## <a name="how-will-my-collection-change-after-the-migration"></a>Dopo la migrazione, come cambierà una raccolta esistente?
 
-Se si dispone di una raccolta S1, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 400 UR/sec, cioè la velocità effettiva minima disponibile per le raccolte a partizione singola. Tuttavia, il costo di 400 UR/sec in una raccolta a partizione singola corrisponde approssimativamente a quello di 250 UR/sec pagato in una raccolta S1, per cui i 150 UR/sec aggiuntivi sono praticamente gratuiti.
+Se si ha una raccolta S1, è possibile eseguirne la migrazione a una raccolta a partizione singola con una velocità effettiva di 400 UR/secondo, cioè la velocità effettiva minima disponibile per le raccolte a partizione singola. Tuttavia, il costo di 400 UR/sec in una raccolta a partizione singola corrisponde approssimativamente a quello di 250 UR/sec pagato in una raccolta S1, per cui i 150 UR/sec aggiuntivi sono praticamente gratuiti.
 
-Se si dispone di una raccolta S2, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 1000 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
+Se si ha una raccolta S2, è possibile eseguirne la migrazione a una raccolta a partizione singola con una velocità effettiva di 1.000 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
 
-Se si dispone di una raccolta S3, verrà eseguita la migrazione a una raccolta a partizione singola con una velocità effettiva di 2500 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
+Se si ha una raccolta S3, è possibile eseguirne la migrazione a una raccolta a partizione singola con una velocità effettiva di 2.500 UR/sec. Non sarà percepita nessuna modifica al livello di velocità effettiva.
 
-In ognuno di questi casi dopo la migrazione della raccolta sarà possibile personalizzare il livello di velocità effettiva o aumentarla e ridurla in base alle proprie esigenze, per offrire agli utenti un accesso a bassa latenza. Per modificare il livello di velocità effettiva dopo la migrazione della raccolta, è sufficiente aprire il proprio account Cosmos DB nel portale di Azure, fare clic su Piano, scegliere la raccolta e quindi modificare il livello di velocità effettiva come illustrato nello screenshot seguente:
-
-![Come ridimensionare la velocità effettiva nel Portale di Azure](./media/performance-levels/portal-scale-throughput.png)
+In ognuno di questi casi, dopo la migrazione della raccolta sarà possibile personalizzare il livello di velocità effettiva o aumentarla e ridurla in base alle proprie esigenze, per offrire agli utenti un accesso a bassa latenza. 
 
 <a name="billing-change"></a>
 
-## <a name="how-will-my-billing-change-after-im-migrated-to-the-single-partition-collections"></a>Dopo la migrazione alle raccolte a partizione singola, come cambierà la fatturazione?
+## <a name="how-will-my-billing-change-after-i-migrated-to-the-single-partition-collections"></a>Dopo la migrazione alle raccolte a partizione singola, come cambierà la fatturazione?
 
 Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio di archiviazione, nell'area degli Stati Uniti orientali e di eseguire la migrazione di queste raccolte a 10 raccolte a partizione singola con 400 UR/sec (livello minimo). Se si mantengono le 10 raccolte a partizione singola per un mese intero, la fattura sarà simile a questa:
 
@@ -92,55 +86,23 @@ Si supponga di avere a disposizione 10 raccolte S1, ciascuna con 1 GB di spazio 
 
 ## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>Come bisogna comportarsi se sono necessari più di 10 GB di spazio di archiviazione?
 
-Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
+Se si ha una raccolta con livello di prestazioni S1, S2 o S3 o una raccolta a partizione singola con spazio di archiviazione disponibile di 10 GB, è possibile usare lo strumento di migrazione dati di Azure Cosmos DB per eseguire la migrazione dei dati a una raccolta partizionata con spazio di archiviazione quasi illimitato. Per informazioni sui vantaggi di una raccolta partizionata, vedere l'articolo relativo a [partizionamento e scalabilità in Azure Cosmos DB](sql-api-partition-data.md). 
 
 <a name="change-before"></a>
 
 ## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>È possibile passare tra i livelli di prestazioni S1, S2 e S3 prima della migrazione pianificata?
 
-Solo gli account già esistenti con livelli di prestazioni S1, S2 e S3 potranno cambiare livelli tramite il portale o a livello di programmazione. Se si passa da S1, S3 o S3 a una raccolta a partizione singola non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
-
-<a name="when-migrated"></a>
-
-## <a name="how-will-i-know-when-my-collection-has-migrated"></a>Come è possibile sapere quando sarà stata eseguita la migrazione di una raccolta?
-
-La migrazione verrà a fine 2017. Se l'utente ha una raccolta che usa i livelli di prestazioni S1, S2 o S3, verrà contattato per posta elettronica dal team di Cosmos DB prima della migrazione. Al termine della migrazione, sul portale di Azure verrà mostrato che la raccolta usa il piano tariffario Standard.
-
-![Come verificare che è stata eseguita la migrazione della raccolta al piano tariffario Standard](./media/performance-levels/portal-standard-pricing-applied.png)
+Solo gli account esistenti con prestazioni S1, S2 e S3 possono essere modificati e modificare i livelli di prestazioni a livello di codice [tramite .NET SDK](#migrate-diy). Se si passa da S1, S3 o S3 a una raccolta a partizione singola non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
 
 <a name="migrate-diy"></a>
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>Come è possibile eseguire autonomamente la migrazione dai livelli di prestazioni S1, S2, S3 a raccolte a partizione singola?
 
-È possibile eseguire la migrazione dai livelli di prestazioni S1, S2 e S3 a raccolte a partizione singola tramite il Portale di Azure o a livello di programmazione. È possibile farlo autonomamente prima della migrazione pianificata per poter beneficiare delle opzioni di flessibilità della velocità effettiva, disponibili con le raccolte a partizione singola; in alternativa, la migrazione verrà eseguita da Microsoft a fine 2017.
+È possibile eseguire la migrazione dai livelli di prestazioni S1, S2 e S3 a raccolte a partizione singola a livello di codice [tramite .NET SDK](#migrate-diy). È possibile farlo autonomamente prima della migrazione pianificata per poter beneficiare delle opzioni di flessibilità della velocità effettiva, disponibili con le raccolte a partizione singola.
 
-**Per eseguire la migrazione delle raccolte a partizione singola tramite il Portale di Azure**
+### <a name="migrate-to-single-partition-collections-by-using-the-net-sdk"></a>Eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK
 
-1. Nel [**portale di Azure**](https://portal.azure.com) fare clic su **Azure Cosmos DB** e quindi selezionare l'account Cosmos DB da modificare. 
- 
-    Se la voce **Azure Cosmos DB** non è inclusa nell'indice, fare clic su >, scorrere fino a **Database**, selezionare **Azure Cosmos DB** e quindi l'account.  
-
-2. Nel menu delle risorse fare clic su **Piano** in **Contenitori**, selezionare la raccolta da modificare nell'elenco a discesa e quindi fare clic su **Piano tariffario**. Gli account che usano la velocità effettiva predefinita hanno un piano tariffario S1, S2 o S3.  Nella pagina **Scegliere il piano tariffario** fare clic su **Standard** per passare alla velocità effettiva definita dall'utente e quindi su **Seleziona** per salvare la modifica.
-
-    ![Screenshot della pagina Impostazioni che indica dove modificare il valore della velocità effettiva](./media/performance-levels/change-performance-set-thoughput.png)
-
-3. Nella pagina **Piano** il **piano tariffario** è impostato su **Standard** e nella casella **Velocità effettiva (UR/sec)** viene visualizzato un valore predefinito pari a 400. Impostare la velocità effettiva tra 400 e 10.000 [unità richiesta](request-units.md)al secondo (UR/sec). Il contenuto di **Fattura mensile stimata** nella parte inferiore della pagina viene aggiornato automaticamente per fornire una stima del costo mensile. 
-
-    >[!IMPORTANT] 
-    > Dopo aver salvato le modifiche ed essere passati al piano tariffario Standard, non è possibile tornare ai livelli di prestazioni S1, S2 o S3.
-
-4. Fare clic su **Salva** per salvare le modifiche.
-
-    Se è necessaria una velocità effettiva maggiore di 10.000 UR/sec o uno spazio di archiviazione maggiore di 10 GB, è possibile creare una raccolta partizionata. Per eseguire la migrazione di una raccolta a partizione singola a una raccolta partizionata vedere [Migrazione da raccolte a partizione singola a raccolte partizionate](sql-api-partition-data.md#migrating-from-single-partition).
-
-    > [!NOTE]
-    > Il passaggio dai livelli S1, S2 o S3 al livello Standard può richiedere fino a due minuti.
-    > 
-    > 
-
-**Per eseguire la migrazione alle raccolte a partizione singola tramite .NET SDK**
-
-Un'altra opzione per la modifica dei livelli di prestazioni delle raccolte è tramite Azure Cosmos DB SDK. Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET SQL](sql-api-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
+Questa sezione illustra solo la modifica del livello di prestazioni di una raccolta tramite l'[API .NET SQL](sql-api-sdk-dotnet.md), ma il processo per gli altri SDK è simile.
 
 Di seguito è riportato un frammento di codice per modificare la velocità effettiva della raccolta a 5000 unità richiesta al secondo:
     

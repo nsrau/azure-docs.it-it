@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305311"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247881"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>Pubblicare un'applicazione gestita per uso interno
 
-È possibile creare e pubblicare [applicazioni gestite](overview.md) di Azure studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite che garantiscano la conformità agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
+È possibile creare e pubblicare [applicazioni gestite](overview.md) di Azure studiate per i membri della propria organizzazione. Un reparto IT può, ad esempio, pubblicare applicazioni gestite conformi agli standard aziendali. Queste applicazioni gestite sono disponibili nel catalogo dei servizi, non in Azure Marketplace.
 
 Per pubblicare un'applicazione gestita per il catalogo dei servizi, è necessario:
 
@@ -31,9 +31,11 @@ Per pubblicare un'applicazione gestita per il catalogo dei servizi, è necessari
 
 Per questo articolo, l'applicazione gestita contiene solo un account di archiviazione. Lo scopo è quello di illustrare i passaggi necessari per pubblicare un'applicazione gestita. Per esempi completi, vedere [Progetti di esempio per applicazioni gestite di Azure](sample-projects.md).
 
+Gli esempi di PowerShell questo articolo richiedono la versione 6.2 o successiva di Azure PowerShell. Se necessario, [aggiornare la versione](/powershell/azure/install-azurerm-ps).
+
 ## <a name="create-the-resource-template"></a>Creare il modello di risorsa
 
-Ogni definizione di applicazione gestita contiene un file denominato **mainTemplate.json**, in cui si definiscono le risorse di Azure di cui effettuare il provisioning. Il modello non è diverso da un modello standard di Resource Manager.
+Ogni definizione di applicazione gestita include un file denominato **mainTemplate.json**, in cui si definiscono le risorse di Azure da distribuire. Il modello non è diverso da un modello standard di Resource Manager.
 
 Creare un file denominato **mainTemplate.json**. Il nome distingue tra maiuscole e minuscole.
 
@@ -187,7 +189,7 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 
 ### <a name="create-the-managed-application-definition"></a>Creare la definizione di applicazione gestita
 
-Se non si dispone già di un gruppo di risorse per archiviare la definizione di applicazione gestita, crearne uno ora:
+Se non è già disponibile un gruppo di risorse per archiviare la definizione di applicazione gestita, crearne uno ora:
 
 ```powershell
 New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
@@ -208,6 +210,10 @@ New-AzureRmManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+### <a name="make-sure-users-can-see-your-definition"></a>Assicurarsi che gli utenti possano visualizzare la definizione
+
+Si ha accesso alla definizione dell'applicazione gestita, ma si vuole assicurarsi che gli altri utenti nell'organizzazione possano accedervi. Concedere loro almeno il ruolo di Lettore per la definizione. Gli utenti potrebbero aver ereditato questo livello di accesso dalla sottoscrizione o dal gruppo di risorse. Per controllare chi ha accesso alla definizione e aggiungere utenti o gruppi, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-the-managed-application"></a>Creare l'applicazione gestita
 
@@ -256,6 +262,16 @@ A questo punto si usa il portale per distribuire l'applicazione gestita. Viene v
 1. Trovare l'applicazione gestita che si vuole creare dall'elenco di soluzioni disponibili e selezionarla. Selezionare **Create**.
 
    ![Trovare l'applicazione gestita](./media/publish-service-catalog-app/find-application.png)
+
+   Se non è possibile visualizzare la definizione dell'applicazione gestita tramite il portale, potrebbe essere necessario modificare le impostazioni del portale. Selezionare **Filtro per directory e sottoscrizione**.
+
+   ![Selezionare il filtro della sottoscrizione](./media/publish-service-catalog-app/select-filter.png)
+
+   Verificare che il filtro della sottoscrizione globale includa la sottoscrizione che contiene la definizione dell'applicazione gestita.
+
+   ![Controllare il filtro della sottoscrizione](./media/publish-service-catalog-app/check-global-filter.png)
+
+   Dopo aver selezionato la sottoscrizione, ricominciare per creare l'applicazione gestita del catalogo di servizi. Dovrebbe essere visualizzata a questo punto.
 
 1. Fornire le informazioni di base necessarie per l'applicazione gestita. Specificare la sottoscrizione e un nuovo gruppo di risorse che contenga l'applicazione gestita. Selezionare **West Central US** (Stati Uniti centro-occidentali) per il percorso. Al termine selezionare **OK**.
 

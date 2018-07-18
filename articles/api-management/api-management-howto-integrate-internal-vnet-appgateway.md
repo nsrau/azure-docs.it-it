@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: solankisamir
 manager: kjoshi
-editor: antonba
+editor: vlvinogr
 ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7d4351a9691c9787c42107306220e075f8648a0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936106"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435124"
 ---
-# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione 
+# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
 ##<a name="overview"></a> Panoramica
- 
+
 Il servizio Gestione API può essere configurato in una rete virtuale in modalità interna, rendendolo così accessibile solo dall'interno della rete virtuale. Il gateway applicazione di Azure è un servizio PAAS con bilanciamento del carico di livello 7. Funge da servizio proxy inverso e offre anche un Web application firewall (WAF).
 
 La combinazione di Gestione API in una rete virtuale interna con il gateway applicazione come front-end consente gli scenari seguenti:
 
 * Uso della stessa risorsa di Gestione API sia da parte degli utenti interni che di quelli esterni.
 * Uso di una singola risorsa di Gestione API e disponibilità di un sottoinsieme di API definite in Gestione API per gli utenti esterni.
-* Predisposizione di un modo veloce per attivare e disattivare l'accesso a Gestione API dalla rete Internet pubblica. 
+* Predisposizione di un modo veloce per attivare e disattivare l'accesso a Gestione API dalla rete Internet pubblica.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -53,7 +53,7 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 ## <a name="before-you-begin"></a> Prima di iniziare
 
 1. Installare la versione più recente dei cmdlet di Azure PowerShell usando l'Installazione guidata piattaforma Web. È possibile scaricare e installare la versione più recente dalla sezione **Windows PowerShell** della [Pagina di download](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Creare una rete virtuale e subnet separate per Gestione API e il gateway applicazione. 
+2. Creare una rete virtuale e subnet separate per Gestione API e il gateway applicazione.
 3. Se si intende creare un server DNS personalizzato per la rete virtuale, eseguire tale operazione prima di iniziare la distribuzione. Controllarne il funzionamento verificando che una macchina virtuale creata in una nuova subnet della rete virtuale possa risolvere tutti gli endpoint di servizio di Azure e accedervi.
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Elementi necessari per creare un'integrazione tra Gestione API e il gateway applicazione
@@ -66,7 +66,7 @@ Nel primo esempio di configurazione, tutte le API sono gestite solo dall'interno
 * **Probe di integrità personalizzato:** per impostazione predefinita, il gateway applicazione usa probe basati su indirizzi IP per individuare i server attivi in BackendAddressPool. Il servizio Gestione API risponde solo alle richieste con l'intestazione host corretta, quindi i probe predefiniti hanno esito negativo. È necessario definire un probe di integrità personalizzato per consentire al gateway applicazione di determinare che il servizio è attivo e deve inoltrare le richieste.
 * **Certificato di dominio personalizzato:** per accedere a Gestione API da Internet è necessario creare un mapping CNAME del nome host al nome DNS del front-end del gateway applicazione. Ciò garantisce che l'intestazione del nome host e il certificato inviati al gateway applicazione e inoltrati a Gestione API siano riconoscibili come validi da Gestione API.
 
-## <a name="overview-steps"> </a> Passaggi necessari per l'integrazione di Gestione API e il gateway applicazione 
+## <a name="overview-steps"> </a> Passaggi necessari per l'integrazione di Gestione API e il gateway applicazione
 
 1. Creare un gruppo di risorse per Gestione risorse.
 2. Creare una rete virtuale, una subnet e un indirizzo IP pubblico per il gateway applicazione. Creare un'altra subnet per Gestione API.
@@ -164,14 +164,14 @@ Dopo il completamento del comando precedente, per l'accesso vedere la [configura
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>Configurare un nome di dominio personalizzato in Gestione API
 
 ### <a name="step-1"></a>Passaggio 1
-Caricare il certificato con chiave privata per il dominio. Per questo esempio sarà `*.contoso.net`. 
+Caricare il certificato con chiave privata per il dominio. Per questo esempio sarà `*.contoso.net`.
 
 ```powershell
 $certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>Passaggio 2
-Dopo aver caricato il certificato, creare un oggetto di configurazione del nome host per il proxy con il nome host `api.contoso.net`, perché il certificato di esempio fornisce l'autorità per il dominio `*.contoso.net`. 
+Dopo aver caricato il certificato, creare un oggetto di configurazione del nome host per il proxy con il nome host `api.contoso.net`, perché il certificato di esempio fornisce l'autorità per il dominio `*.contoso.net`.
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
@@ -236,8 +236,8 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 Creare un probe personalizzato per l'endpoint del dominio proxy `ContosoApi` del servizio Gestione API. Il percorso `/status-0123456789abcdef` è un endpoint di integrità predefinito ospitato in tutti i servizi Gestione API. Impostare `api.contoso.net` come nome host probe personalizzato per assicurare la protezione con il certificato SSL.
 
 > [!NOTE]
-> Il nome host `contosoapi.azure-api.net` è il nome host proxy predefinito configurato quando viene creato un servizio `contosoapi` nell'ambiente Azure pubblico. 
-> 
+> Il nome host `contosoapi.azure-api.net` è il nome host proxy predefinito configurato quando viene creato un servizio `contosoapi` nell'ambiente Azure pubblico.
+>
 
 ```powershell
 $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName "api.contoso.net" -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
@@ -291,7 +291,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>Passaggio 11
 
-Configurare i percorsi della regola per gli URL per i pool back-end. È così possibile selezionare solo alcune API di Gestione API da esporre al pubblico. Ad esempio, se esistono `Echo API` (/echo/), `Calculator API` (/calc/) e così via, è possibile rendere accessibile da Internet solo `Echo API`. 
+Configurare i percorsi della regola per gli URL per i pool back-end. È così possibile selezionare solo alcune API di Gestione API da esporre al pubblico. Ad esempio, se esistono `Echo API` (/echo/), `Calculator API` (/calc/) e così via, è possibile rendere accessibile da Internet solo `Echo API`.
 
 L'esempio seguente crea una semplice regola per il percorso "/echo/" che instrada il traffico al back-end "apimProxyBackendPool".
 
@@ -305,7 +305,7 @@ In caso di mancata corrispondenza con le regole di percorso che devono essere ab
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-Il passaggio precedente assicura che solo le richieste per il percorso "/echo" siano consentite attraverso il gateway applicazione. Le richieste ad altre API configurate in Gestione API genereranno errori 404 del gateway applicazione in caso di accesso da Internet. 
+Il passaggio precedente assicura che solo le richieste per il percorso "/echo" siano consentite attraverso il gateway applicazione. Le richieste ad altre API configurate in Gestione API genereranno errori 404 del gateway applicazione in caso di accesso da Internet.
 
 ### <a name="step-12"></a>Passaggio 12
 
@@ -340,7 +340,7 @@ $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGr
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>Creare un mapping CNAME del nome host proxy di Gestione API al nome DNS pubblico della risorsa gateway applicazione
 
-Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, che potrebbe non essere facile da usare. 
+Dopo avere creato il gateway, il passaggio successivo prevede la configurazione del front-end per la comunicazione. Quando si usa un IP pubblico, il gateway applicazione richiede un nome DNS assegnato in modo dinamico, che potrebbe non essere facile da usare.
 
 Il nome DNS del gateway applicazione dovrà essere usato per creare un record CNAME che associa il nome host proxy di Gestione API (negli esempi precedenti, `api.contoso.net`) a questo nome DNS. Per configurare il record CNAME per l'IP front-end, recuperare i dettagli del gateway applicazione e il nome DNS e l'IP associati usando l'elemento PublicIPAddress. Non è consigliabile usare record A perché l'indirizzo VIP può cambiare al riavvio del gateway.
 

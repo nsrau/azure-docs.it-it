@@ -16,7 +16,7 @@
       href: storage-how-to-use-files-windows.md
     - name: Eseguire il montaggio in Linux
       href: storage-how-to-use-files-linux.md
-    - name: Eseguire il montaggio in Mac
+    - name: Eseguire il montaggio in macOS
       href: storage-how-to-use-files-mac.md
     - name: Gestire con il portale di Azure
       href: storage-how-to-use-files-portal.md
@@ -103,9 +103,13 @@
         - name: Richiedere il trasferimento sicuro
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Autenticazione della chiave condivisa
-          href: /rest/api/storageservices/Authentication-for-the-Azure-Storage-Services
+          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: Firme di accesso condiviso
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
+          href: ../common/storage-security-tls.md
+        - name: Offerte di conformità
+          href: ../common/storage-compliance-offerings.md
     - name: Monitorare e risolvere i problemi
       items:
         - name: 'Risolvere i problemi di connessione di File di Azure: Windows'
@@ -147,17 +151,17 @@
     - name: .NET
       items:
         - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Spostamento dati
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
         - name: Gestione risorse
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
       items:
         - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/clientlibrary'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
         - name: Gestione risorse
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/managementapi'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby

@@ -1,0 +1,49 @@
+- name: Panoramica
+  href: Home.md
+- name: Attività iniziali
+  expanded: true
+  href: GetStarted/GetStarted.md
+  items:
+    - name: REST
+      href: GetStarted/GetStartedREST.md
+    - name: Librerie client
+      href: GetStarted/GetStartedClientLibraries.md
+      items:
+        - name: 'Libreria desktop C#'
+          href: GetStarted/GetStartedCSharpDesktop.md
+        - name: 'Libreria di servizi C#'
+          href: GetStarted/GetStartedCSharpServiceLibrary.md
+        - name: Libreria JavaScript
+          href: GetStarted/GetStartedJSWebsockets.md
+        - name: Libreria Java per Android
+          href: GetStarted/GetStartedJavaAndroid.md
+        - name: Libreria Objective-C per iOS
+          href: GetStarted/Get-Started-ObjectiveC-iOS.md
+- name: Esempi
+  href: samples.md
+- name: Concetti
+  href: concepts.md
+- name: Guide alle procedure
+  items:
+    - name: Autenticazione per l'uso del servizio
+      href: How-to/how-to-authentication.md
+    - name: Scegliere la modalità di riconoscimento
+      href: How-to/how-to-choose-recognition-mode.md
+    - name: Trasferimento in blocchi del flusso audio
+      href: How-to/how-to-chunked-transfer.md
+- name: Riferimenti
+  items:
+    - name: Protocollo WebSocket di Riconoscimento vocale Microsoft
+      href: API-Reference-REST/websocketprotocol.md
+    - name: Informazioni di riferimento sull'API Sintesi vocale
+      href: API-Reference-REST/BingVoiceOutput.md
+    - name: Lingue supportate
+      href: API-Reference-REST/supportedlanguages.md
+- name: risoluzione dei problemi
+  href: troubleshooting.md
+- name: Risorse
+  items:
+    - name: Supporto
+      href: support.md
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech'

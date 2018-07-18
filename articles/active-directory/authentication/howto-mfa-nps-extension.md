@@ -1,5 +1,5 @@
 ---
-title: Usare i server di Server dei criteri di rete esistenti per offrire le funzionalità MFA di Azure | Microsoft Docs
+title: Usare i server NPS esistenti per offrire le funzionalità MFA di Azure
 description: Aggiungere le funzionalità di verifica in due passaggi basate sul cloud all'infrastruttura di autenticazione esistente
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868331"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031142"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrare l'infrastruttura NPS esistente con Azure Multi-Factor Authentication
 
@@ -42,7 +42,7 @@ L'estensione di Server dei criteri di rete gestisce automaticamente la ridondanz
 
 I server VPN indirizzano le richieste di autenticazione, quindi è necessario essere a conoscenza dei nuovi Server dei criteri di rete abilitati per Azure MFA.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'estensione di Server dei criteri di rete è progettata per funzionare con l'infrastruttura esistente. Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili.
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 o versione successiva.
 
 Queste librerie vengono installate automaticamente con l'estensione.
 
--   [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages per Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Modulo di Microsoft Azure Active Directory per Windows PowerShell versione 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Il modulo di Microsoft Azure Active Directory per Windows PowerShell viene installato, se non è già presente, tramite uno script di configurazione eseguito come parte del processo di installazione. Non è necessario installare il modulo in anticipo, se non è già installato.
 
@@ -70,6 +70,13 @@ Gli utenti che usano l'estensione di Server dei criteri di rete devono essere si
 Quando si installa l'estensione, per il tenant di Azure AD sono necessarie le credenziali di amministrazione e l'ID della directory. L'ID della directory si trova nel [Portale di Azure](https://portal.azure.com). Accedere come amministratore, selezionare l'icona di **Azure Active Directory** sulla sinistra, quindi selezionare **Proprietà**. Copiare il GUID nella casella **ID directory** e salvare. Questo GUID verrà usato come ID tenant quando si installerà l'estensione di Server dei criteri di rete.
 
 ![L'ID directory si trova nelle proprietà di Azure Active Directory](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Requisiti di rete
+
+Il server NPS deve essere in grado di comunicare con gli URL seguenti sulle porte 80 e 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Preparare l'ambiente
 
@@ -115,7 +122,7 @@ Quando si distribuisce l'estensione di Server dei criteri di rete, usare questi 
 
 ### <a name="register-users-for-mfa"></a>Registrare utenti per l'MFA
 
-Prima di distribuire e usare l'estensione NPS, gli utenti che dovranno eseguire la verifica in due passaggi devono essere registrati per l'MFA. Per testare l'estensione in modo più immediato mentre viene distribuita, è necessario almeno un account di test completamente registrato per l'MFA.
+Prima di distribuire e usare l'estensione NPS, gli utenti che devono eseguire la verifica in due passaggi devono essere registrati per l'MFA. Per testare l'estensione in modo più immediato mentre viene distribuita, è necessario almeno un account di test completamente registrato per l'MFA.
 
 Seguire questa procedura per avviare un account di test:
 1. Accedere a [https://aka.ms/mfasetup](https://aka.ms/mfasetup) con un account di prova. 
@@ -131,19 +138,19 @@ Gli utenti devono inoltre eseguire la procedura per la registrazione prima di po
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Scaricare e installare l'estensione di Server dei criteri di rete per Azure MFA
 
-1.  [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download di Microsoft.
-2.  Copiare il file binario nel Server dei criteri di rete da configurare.
-3.  Eseguire *setup.exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
+1. [Scaricare l'estensione di Server dei criteri di rete](https://aka.ms/npsmfa) dall'Area download di Microsoft.
+2. Copiare il file binario nel Server dei criteri di rete da configurare.
+3. Eseguire *setup.exe* e seguire le istruzioni di installazione. Se si verificano errori, controllare che le due librerie indicate nella sezione sui prerequisiti siano state installate correttamente.
 
 ### <a name="run-the-powershell-script"></a>Eseguire lo script di PowerShell
 
-Il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Lo script di PowerShell esegue le azioni seguenti:
+Il programma di installazione crea uno script di PowerShell in questa posizione: `C:\Program Files\Microsoft\AzureMfa\Config` (dove C:\ è l'unità di installazione). Ogni volta che viene eseguito, lo script di PowerShell esegue le azioni seguenti:
 
--   Creare un certificato autofirmato.
--   Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
--   Archiviare il certificato nell'archivio certificati del computer locale.
--   Concedere l'accesso alla chiave privata del certificato all'utente di rete.
--   Riavviare il Server dei criteri di rete.
+- Creare un certificato autofirmato.
+- Associare la chiave pubblica del certificato all'entità servizio su Azure AD.
+- Archiviare il certificato nell'archivio certificati del computer locale.
+- Concedere l'accesso alla chiave privata del certificato all'utente di rete.
+- Riavviare il Server dei criteri di rete.
 
 A meno che non si desideri utilizzare i propri certificati (invece dei certificati autofirmati generati dallo script di PowerShell), eseguire lo script di PowerShell per completare l'installazione. Se si installa l'estensione su più server, ciascun server dovrebbe avere il proprio certificato.
 
@@ -162,8 +169,8 @@ A meno che non si desideri utilizzare i propri certificati (invece dei certifica
 
 Ripetere questi passaggi per tutti i server dei criteri di rete aggiuntivi che si intende configurare per il bilanciamento del carico.
 
->[!NOTE]
->Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
+> [!NOTE]
+> Se si usano i propri certificati invece di generare certificati con lo script di PowerShell, verificare che rispettino la convenzione di denominazione di Server dei criteri di rete. Il nome oggetto deve essere **CN=\<TenantID\>,OU=Estensione di Server dei criteri di rete Microsoft**. 
 
 ## <a name="configure-your-nps-extension"></a>Configurare l'estensione di Server dei criteri di rete
 
@@ -172,7 +179,7 @@ In questa sezione sono disponibili considerazioni e suggerimenti sulla progettaz
 ### <a name="configuration-limitations"></a>Limitazioni di configurazione
 
 - L'estensione di Server dei criteri di rete per Azure MFA non include strumenti per la migrazione degli utenti e impostazioni dal Server MFA al cloud. Per questo motivo, è consigliabile usare l'estensione per le distribuzioni nuove piuttosto che per quelle esistenti. Se si usano le estensioni in una distribuzione esistente, gli utenti dovranno ripetere il processo di registrazione per popolare i dettagli di Azure MFA nel cloud.  
-- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](howto-mfaserver-nps-vpn.md).
+- L'estensione di Server dei criteri di rete usa UPN dell'Active Directory locale per identificare l'utente in Azure MFA che deve eseguire l'autenticazione secondaria. L'estensione può essere configurata per usare un identificatore differente come ID di accesso alternativo o campo Active Directory personalizzato diverso dall'UPN. Per altre informazioni, vedere l'articolo [Opzioni di configurazione avanzate per l'estensione NPS per Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Non tutti i protocolli di crittografia supportano tutti i metodi di verifica.
    - **PAP** supporta la chiamata telefonica, gli SMS unidirezionali, la notifica dell'app per dispositivi mobili e il codice di verifica app per dispositivi mobili
    - **CHAPV2** e **EAP** supportano la chiamata telefonica e la notifica dell'app per dispositivi mobili
@@ -232,12 +239,15 @@ Questo errore potrebbe essere dovuto a diverse ragioni. Usare la procedura segue
 
 Verificare che AD Connect sia in esecuzione e che l'utente sia presente sia in Active Directory di Windows sia in Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>Perché vengono visualizzati errori di connessione HTTP nei log che contengono le autenticazioni non riuscite?
 
 Verificare che https://adnotifications.windowsazure.com sia raggiungibile dal server che esegue l'estensione del server dei criteri di rete.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Gestione dei protocolli TLS/SSL e dei pacchetti di crittografia
+
+È consigliabile disabilitare o rimuovere i pacchetti di crittografia meno recenti e meno sicuri, a meno che non siano richiesti dall'organizzazione. Altre informazioni sul completamento di questa attività sono disponibili nell'articolo [Gestione dei protocolli SSL/TLS e dei pacchetti di crittografia per AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

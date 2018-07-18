@@ -3,7 +3,7 @@ title: Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello u
 description: Questo articolo descrive come proteggere le distribuzioni di applicazioni SAP NetWeaver con Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: asgang
 manager: rochakm
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: manayar
-ms.openlocfilehash: e2107177663163259d1f731717c4910bc986fc1f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 06/04/2018
+ms.author: asgang
+ms.openlocfilehash: 27dfdec4e833a2f30963157ba2f4d95232e21270
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267333"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Site Recovery
 
@@ -57,43 +58,97 @@ Nello scenario affrontato in questo articolo vengono distribuiti i servizi di ba
 
 È consigliabile definire questa infrastruttura prima di distribuire Site Recovery.
 
-## <a name="typical-sap-application-deployment"></a>Distribuzione tipica di un'applicazione SAP
-I clienti SAP di grandi dimensioni in genere distribuiscono tra 6 e 20 singole applicazioni SAP. La maggior parte di queste applicazioni si basa su motori SAP NetWeaver ABAP o Java. A supporto di queste applicazioni NetWeaver di base ci sono numerosi motori autonomi SAP non NetWeaver più piccoli e in genere alcune applicazioni non SAP.  
+## <a name="reference-sap-application-deployment"></a>Riferimento alla distribuzione di un'applicazione SAP
 
-È essenziale creare un inventario di tutte le applicazioni SAP in esecuzione nell'ambiente in uso. Determinare poi la modalità di distribuzione (a due o tre livelli), le versioni, le patch, le dimensioni, la frequenza di varianza e i requisiti di persistenza del disco.
+Questa architettura di riferimento mostra l'esecuzione di SAP NetWeaver in un ambiente Windows su Azure con disponibilità elevata.  Questa architettura viene distribuita con dimensioni di macchina virtuale (VM) specifiche, che possono essere modificate in base alle esigenze dell'organizzazione.
 
-![Diagramma di un tipico criterio di distribuzione SAP](./media/site-recovery-sap/sap-typical-deployment.png)
+![Diagramma di un tipico criterio di distribuzione SAP](./media/site-recovery-sap/reference_sap.png)
 
-Proteggere il livello di persistenza del database SAP con strumenti DBMS nativi, ad esempio SQL Server AlwaysOn, Oracle DataGuard o la replica di sistema SAP HANA. Come il livello database di SAP, il livello client non è protetto da Site Recovery. È importante prendere in considerazione fattori che influiscono su questo livello. Alcuni fattori includono ritardo nella propagazione DNS, sicurezza e accesso remoto al data center di ripristino di emergenza.
+## <a name="disaster-recovery-considerations"></a>Considerazioni sul ripristino di emergenza
 
-Site Recovery è la soluzione consigliata per il livello dell'applicazione, anche per SAP SCS e ASCS. Altre applicazioni, ad esempio le applicazioni SAP non NetWeaver e le applicazioni non SAP, fanno parte dell'ambiente di distribuzione SAP globale. Devono essere anch'esse protette con Azure Site Recovery.
+Per il ripristino di emergenza, è necessario essere in grado di eseguire il failover in un'area secondaria. Ogni livello usa una strategia diversa per fornire una protezione con ripristino di emergenza.
 
-## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
+#### <a name="vms-running-sap-web-dispatcher-pool"></a>Macchine virtuali che eseguono pool di componenti SAP Web Dispatcher 
+Il componente Web Dispatcher viene usato come servizio di bilanciamento del carico per il traffico SAP tra i server applicazioni SAP. Per ottenere la disponibilità elevata per il componente Web Dispatcher, viene usato Azure Load Balancer per implementare la configurazione di Web Dispatcher parallela in una configurazione round robin per la distribuzione del traffico HTTP(S) tra i componenti Web Dispatcher disponibili nel pool di bilanciamento del carico. Questo verrà replicato tramite Azure Site Recovery(ASR) e gli script di automazione consentiranno di configurare il bilanciamento del carico nell'area del ripristino di emergenza. 
+
+####<a name="vms-running-application-servers-pool"></a>Macchina virtuale che esegue il pool di server applicazioni
+Per gestire i gruppi di accesso per i server applicazioni ABAP, viene usata la transazione SMLG. Questa usa la funzione di bilanciamento del carico nel server messaggi di Central Services per distribuire il carico di lavoro nel pool di server applicazioni SAP per le interfacce utente grafiche di SAP e il traffico RFC. Questo verrà replicato tramite Azure Site Recovery 
+
+####<a name="vms-running-sap-central-services-cluster"></a>Macchina virtuale che esegue Cluster SAP Central Services
+Questa architettura di riferimento esegue Central Services in macchine virtuali nel livello applicazione. Central Services è un singolo punto di errore potenziale se distribuito in un'unica macchina virtuale, che è la distribuzione tipica quando la disponibilità elevata non è un requisito.<br>
+
+Per implementare una soluzione a disponibilità elevata, può essere usato un cluster di dischi condiviso o un cluster di condivisione file. Per configurare le macchine virtuali per un cluster di dischi condivisi, usare il Cluster di Failover di Windows Server. Cloud Witness è consigliato come quorum di controllo. 
+ > [!NOTE]
+ > Azure Site Recovery non replica il server di controllo cloud pertanto si consiglia di distribuire il server di controllo cloud nell'area di ripristino di emergenza.
+
+Per supportare l'ambiente cluster di failover, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) svolge la funzione di volume condiviso del cluster replicando i dischi indipendenti di proprietà dei nodi del cluster. Azure non supporta in modo nativo i dischi condivisi e di conseguenza richiede soluzioni fornite da SIOS. 
+
+Un altro modo di gestire il clustering consiste nell'implementare un cluster di condivisioni file. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha di recente modificato il modello di distribuzione di Central Services in modo da permettere l'accesso alle directory globali /sapmnt tramite un percorso UNC. Questa modifica elimina il requisito relativo a SIOS o ad altre soluzioni con dischi condivisi nelle macchine virtuali di Central Services. È comunque consigliabile assicurarsi che la condivisione UNC /sapmnt abbia disponibilità elevata. A questo scopo, nell'istanza di Central Services usare Windows Server Failover Cluster con File server di scalabilità orizzontale e la funzionalità Storage Spaces Direct in Windows Server 2016. 
+ > [!NOTE]
+ > Attualmente il supporto di Azure Site Recovery arresta solo la replica del punto consistente delle macchine virtuali tramite gli spazi di archiviazione diretti 
+
+
+## <a name="disaster-recovery-considerations"></a>Considerazioni sul ripristino di emergenza
+
+È possibile usare Azure Site Recovery per orchestrare il failover della distribuzione completa di SAP nelle aree di Azure.
+Di seguito è riportata la procedura per la configurazione del ripristino di emergenza 
+
+1. Replicare le macchine virtuali 
+2. Progettare una rete di ripristino
+3.  Replicare un controller di dominio
+4.  Replicare un livello dati di base 
+5.  Eseguire un failover di test 
+6.  Eseguire un failover 
+
+Di seguito è presente l'indicazione per il ripristino di emergenza di ogni livello usato in questo esempio. 
+
+ **Livelli di SAP** | **Consiglio**
+ --- | ---
+**Pool di componenti SAP Web Dispatcher** |  Replica con Site Recovery 
+Pool di server applicazioni SAP |  Replica con Site Recovery 
+**Cluster SAP Central Services** |  Replica con Site Recovery 
+**Macchine virtuali di Active directory** |  Replica di Active Directory 
+**Server di database SQL** |  Replica di SQL AlwaysOn
+
+##<a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
+
 Per avviare la replica di tutte le macchine virtuali dell'applicazione SAP al data center di ripristino di emergenza di Azure, seguire le indicazioni in [Replicare una macchina virtuale in Azure](azure-to-azure-walkthrough-enable-replication.md).
+
+
+* Per le linee guida sulla protezione di Active Directory e DNS, fare riferimento al documento [Proteggere Active Directory e DNS con Azure Site Recovery](site-recovery-active-directory.md).
+
+* Per le linee guida sulla protezione del livello database in esecuzione in SQL Server, fare riferimento al documento [Proteggere SQL Server](site-recovery-active-directory.md).
+
+## <a name="networking-configuration"></a>Configurazione delle impostazioni di rete
 
 Se si usa un indirizzo IP statico, è possibile specificare l'indirizzo IP che dovrà essere usato dalla macchina virtuale. Per impostare l'indirizzo IP, passare a **Compute and Network settings** > **Network interface card** (Impostazioni Calcolo e rete, Scheda interfaccia di rete).
 
 ![Schermata che illustra come impostare un indirizzo IP privato nel riquadro della scheda di interfaccia di rete di Site Recovery](./media/site-recovery-sap/sap-static-ip.png)
 
-## <a name="create-a-recovery-plan"></a>Creare un piano di ripristino
+
+## <a name="creating-a-recovery-plan"></a>Creazione di un piano di ripristino
 Un piano di ripristino supporta la sequenziazione di vari livelli in un'applicazione multilivello durante un failover. La sequenziazione aiuta a mantenere la coerenza delle applicazioni. Quando si crea un piano di ripristino per un'applicazione Web multilivello, completare la procedura descritta in [Creare un piano di ripristino con Site Recovery](site-recovery-create-recovery-plans.md).
+
+### <a name="adding-virtual-machines-to-failover-groups"></a>Aggiunta di macchine virtuali a gruppi di failover
+
+1.  Creare un piano di ripristino aggiungendo il server applicazioni, il dispatcher web e le macchine virtuali dei servizi centrali SAP.
+2.  Fare clic su "Personalizza" per raggruppare le VM. Per impostazione predefinita, tutte le VM fanno parte di "Gruppo 1".
+
+
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Aggiungere script al piano di ripristino
 Per far sì che le applicazioni funzionino correttamente, potrebbe essere necessario eseguire alcune operazioni nelle macchine virtuali di Azure dopo il failover o durante un failover di test. È possibile automatizzare alcune operazioni successive al failover. È ad esempio possibile aggiornare la voce DNS e modificare associazioni e connessioni aggiungendo gli script corrispondenti al piano di ripristino.
 
-### <a name="dns-update"></a>Aggiornamento del DNS
-Se il DNS è configurato per l'aggiornamento DNS dinamico, le macchine virtuali aggiornano in genere il DNS con il nuovo indirizzo IP all'avvio. Se si vuole aggiungere un passaggio esplicito per l'aggiornamento del DNS con i nuovi indirizzi IP delle macchine virtuali, aggiungere uno [script per l'aggiornamento dell'indirizzo IP nel DNS](https://aka.ms/asr-dns-update) come azione dopo il failover nei gruppi del piano di ripristino.  
 
-## <a name="example-azure-to-azure-deployment"></a>Esempio di distribuzione da Azure ad Azure
-Il diagramma seguente illustra uno scenario di ripristino di emergenza da Azure ad Azure di Site Recovery:
+È possibile distribuire gli script di Azure Site Recovery usate più comunemente nell'account di Automazione facendo clic sul pulsante "Distribuisci in Azure" di seguito. Quando si usa uno script pubblicato, assicurarsi di seguire le istruzioni nello script.
 
-![Diagramma di uno scenario di replica da Azure ad Azure](./media/site-recovery-sap/sap-replication-scenario.png)
+[![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-* Il data center principale è a Singapore (area Asia sud-orientale di Azure). Il data center di ripristino di emergenza è a Hong Kong (area Asia orientale di Azure). In questo scenario, la disponibilità elevata locale viene resa disponibile con due VM che eseguono SQL Server AlwaysOn in modalità sincrona a Singapore.
-* La condivisione file SAP ASCS offre disponibilità elevata per il singolo punto di guasto SAP. La condivisione file ASCS non richiede un disco condiviso del cluster. Non sono necessarie applicazioni come SIOS.
-* La protezione tramite ripristino di emergenza per il livello DBMS viene ottenuta con replica asincrona.
-* Questo scenario mostra "ripristino di emergenza simmetrico". Questo termine descrive una soluzione di ripristino di emergenza che corrisponde a una replica esatta di produzione. La soluzione di ripristino di emergenza SQL Server ha una disponibilità locale elevata. Il ripristino di emergenza simmetrico non è obbligatorio per il livello di database. Molti clienti sfruttano la flessibilità delle distribuzioni cloud per creare rapidamente un nodo a disponibilità locale elevata dopo un evento di ripristino di emergenza.
-* Il diagramma illustra i livelli del server applicazioni e ASCS di SAP NetWeaver replicati da Site Recovery.
+1. Aggiungere uno script precedente all'azione a "Gruppo 1" per il gruppo di disponibilità SQL. Usare lo script "ASR-SQL-FailoverAG" pubblicato negli script di esempio. Assicurarsi di seguire le istruzioni nello script e apportare le modifiche necessarie nello script nel modo appropriato.
+2. Aggiungere uno script successivo all'azione per collegare un servizio di bilanciamento del carico nelle macchine virtuali sottoposte a failover di livello Web (Gruppo 1). Usare lo script "ASR-AddSingleLoadBalancer" pubblicato negli script di esempio. Assicurarsi di seguire le istruzioni nello script e apportare le modifiche necessarie nello script nel modo appropriato.
+
+![Piano di ripristino SAP](./media/site-recovery-sap/sap_recovery_plan.png)
+
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test
 

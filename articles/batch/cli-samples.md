@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316080"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Esempi di interfaccia della riga di comando di Azure per Azure Batch
 

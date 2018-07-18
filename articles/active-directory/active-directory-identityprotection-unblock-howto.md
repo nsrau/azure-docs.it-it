@@ -3,11 +3,12 @@ title: 'Azure Active Directory Identity Protection: come sbloccare gli utenti | 
 description: Informazioni su come sbloccare gli utenti bloccati da un criterio di Azure Active Directory Identity Protection.
 services: active-directory
 keywords: Azure Active Directory Identity Protection, sbloccare gli utenti
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,14 +16,15 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ab11f27ceed716ba90e9027eee1775c190d2d93f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1e96f24aeb0083e57618ad3e38163f50c23c55d3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713457"
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection: come sbloccare gli utenti
-Azure Active Directory Identity Protection consente di configurare criteri per bloccare gli utenti se vengono rispettate le condizioni configurate. Un utente bloccato contatta in genere l'help desk per essere sbloccato. Questo argomento illustra la procedura da eseguire per sbloccare un utente bloccato.
+Azure Active Directory Identity Protection consente di configurare criteri per bloccare gli utenti se vengono rispettate le condizioni configurate. Un utente bloccato contatta in genere l'help desk per essere sbloccato. Questo articolo illustra la procedura da eseguire per sbloccare un utente bloccato.
 
 ## <a name="determine-the-reason-for-blocking"></a>Determinare il motivo del blocco
 Il primo passaggio per sbloccare un utente consiste nel determinare il tipo di criterio che ha bloccato l'utente, perché i passaggi successivi dipendono da questa informazione.
@@ -43,15 +45,15 @@ Un utente bloccato da:
 ## <a name="unblocking-suspicious-sign-ins"></a>Sblocco di accessi sospetti
 Per sbloccare un accesso sospetto, sono disponibili le opzioni seguenti:
 
-1. **Accesso da una località o un dispositivo familiare** : un motivo comune per gli accessi sospetti bloccati è costituito da tentativi di accesso da località o dispositivi non familiari. Gli utenti possono determinare rapidamente se questo è il motivo del blocco provando ad accedere da una località o un dispositivo familiare.
+1. **Accesso da una località o un dispositivo familiare**: un motivo comune del blocco di accessi sospetti è costituito da tentativi di accesso da località o dispositivi non familiari. Gli utenti possono determinare rapidamente se questo è il motivo del blocco provando ad accedere da una località o un dispositivo familiare.
 2. **Esclusione dal criterio** : se si ritiene che la configurazione corrente del criterio di accesso provochi problemi agli utenti, è possibile escludere gli utenti dal criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 3. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
 ## <a name="unblocking-accounts-at-risk"></a>Sblocco di account a rischio
 Per sbloccare un account a rischio, sono disponibili le opzioni seguenti:
 
-1. **Reimpostazione della password** : è possibile reimpostare la password dell'utente. Per informazioni dettagliate, vedere [Reimpostazione manuale della password di protezione](active-directory-identityprotection.md#manual-secure-password-reset) .
-2. **Eliminazione di tutti gli eventi di rischio** : il criterio di rischio utente blocca un utente se è stato raggiunto il livello di rischio utente configurato per il blocco dell'accesso. È possibile ridurre il livello di rischio di un utente chiudendo manualmente gli eventi di rischio segnalati. Per informazioni dettagliate, vedere [Chiusura manuale degli eventi di rischio](active-directory-identityprotection.md#closing-risk-events-manually).
+1. **Reimpostazione della password** : è possibile reimpostare la password dell'utente. Per altre informazioni, vedere [Reimpostazione manuale della password di protezione](active-directory-identityprotection.md#manual-secure-password-reset).
+2. **Eliminazione di tutti gli eventi di rischio** : il criterio di rischio utente blocca un utente se è stato raggiunto il livello di rischio utente configurato per il blocco dell'accesso. È possibile ridurre il livello di rischio di un utente chiudendo manualmente gli eventi di rischio segnalati. Per altre informazioni, vedere [Chiusura manuale degli eventi di rischio](active-directory-identityprotection.md#closing-risk-events-manually).
 3. **Esclusione dal criterio** : se si ritiene che la configurazione corrente del criterio di accesso provochi problemi agli utenti, è possibile escludere gli utenti dal criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 4. **Disabilitazione del criterio** : se si ritiene che la configurazione del criterio provochi problemi per tutti gli utenti, è possibile disabilitare il criterio. Per altre informazioni, vedere [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 

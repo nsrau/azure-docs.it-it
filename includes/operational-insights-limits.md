@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307489"
 ---
 I limiti seguenti si applicano alle risorse di Log Analytics per ogni sottoscrizione:
 

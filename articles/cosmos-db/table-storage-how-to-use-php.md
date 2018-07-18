@@ -1,30 +1,28 @@
 ---
-title: Come usare il servizio Tabella di archiviazione di Azure o l'API del servizio tabelle di Azure Cosmos DB da PHP | Microsoft Docs
-description: Informazioni su come usare l'API del servizio tabelle da PHP per creare ed eliminare una tabella e per inserire, eliminare ed eseguire query sulla tabella.
+title: Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP | Microsoft Docs
+description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797941"
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API del servizio tabelle di Cosmos DB da PHP
+# <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>Come usare il servizio Tabella di archiviazione di Azure o l'API Tabelle di Azure Cosmos DB da PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Panoramica
-Questo documento illustra come eseguire scenari comuni con il servizio Tabella di archiviazione di Azure e l'API del servizio tabelle di Azure Cosmos DB. Gli esempi sono scritti in PHP e usano la [libreria client PHP per Tabella di archiviazione di Azure][download]. Gli scenari presentati includono operazioni di **creazione ed eliminazione di una tabella**, nonché di **inserimento, eliminazione ed esecuzione di query sulle entità di una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps) .
+Questa guida illustra come eseguire scenari comuni con il servizio Tabella di archiviazione di Azure e l'API Tabelle di Azure Cosmos DB. Gli esempi sono scritti in PHP e usano la [libreria client PHP per Tabella di archiviazione di Azure][download]. Gli scenari presentati includono operazioni di **creazione ed eliminazione di una tabella**, nonché di **inserimento, eliminazione ed esecuzione di query sulle entità di una tabella**. Per altre informazioni sul servizio tabelle di Azure, vedere la sezione [Passaggi successivi](#next-steps) .
 
 
 ## <a name="create-an-azure-service-account"></a>Creare un account del servizio di Azure

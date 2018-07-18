@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197670"
 ---
 | **SKU** | **Connessioni P2S**| **Benchmark della velocità effettiva aggregata** | **Autenticazione RADIUS** | **VPN da punto a sito IKEv2** |
 |---|---|---|---| --- |

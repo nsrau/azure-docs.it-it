@@ -1,10 +1,10 @@
 ---
-title: Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure | Microsoft Docs
+title: Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure | Documentazione Microsoft
 description: Informazioni su come migliorare la velocità di trasferimento dei file e aumentare le prestazioni di caricamento delle pagine comprimendo i file nella rete CDN di Azure.
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260397"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Migliorare le prestazioni con la compressione dei file nella rete CDN di Azure
 La compressione dei file è un metodo semplice ed efficace per aumentare la velocità di trasferimento dei file e migliorare le prestazioni di caricamento delle pagine mediante la riduzione delle dimensioni del file prima che venga inviato dal server. Riduce i costi della larghezza di banda e offre un'esperienza più reattiva per gli utenti.
 
 Esistono due modi per abilitare la compressione dei file:
 
-- Abilitare la compressione nel server di origine. In questo caso, la rete CDN trasmette i file compressi e li distribuisce ai client che li richiedono.
-- Abilitare la compressione direttamente nei server POP della rete CDN ("compressione in tempo reale"). In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
+- Abilitare la compressione nel server di origine. In questo caso, la rete CDN di Azure trasmette i file compressi e li distribuisce ai client che li richiedono.
+- Abilitare la compressione direttamente nei server POP della rete CDN (*compressione in tempo reale*). In questo caso, la rete CDN comprime i file e li trasmette agli utenti finali anche se non erano stati compressi dal server di origine.
 
 > [!IMPORTANT]
-> La propagazione delle modifiche alla configurazione della rete CDN può richiedere tempo: 
-- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in dieci minuti. 
+> La propagazione delle modifiche alla configurazione della rete CDN di Azure può richiedere tempo: 
+- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Microsoft** viene in genere completata in 10 minuti. 
 - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
-- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti. 
+- La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata in 10 minuti. 
 >
 > Se si configura la compressione per l'endpoint della rete CDN per la prima volta, prima di procedere alla risoluzione dei problemi provare ad attendere 1-2 ore per assicurarsi che le impostazioni di compressione siano state propagate ai POP.
 > 
@@ -75,7 +76,7 @@ I livelli della rete CDN Standard e Premium forniscono la stessa funzionalità d
 
 1. Nella pagina del profilo della rete CDN selezionare **Gestisci**.
    
-    ![Selezione Gestisci della rete CDN](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![Selezione di Gestisci per la rete CDN](./media/cdn-file-compression/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
 2. Passare il puntatore sulla scheda **HTTP Large** (HTTP esteso) e quindi sul riquadro a comparsa **Impostazioni cache**. Selezionare **Compressione**.

@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637736"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di classificazione delle immagini con Azure Machine Learning
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>Definire i modelli DNN
 
 Con questo pacchetto sono supportati i modelli Deep Neural Network con training preliminare seguenti: 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -444,13 +444,9 @@ Usando un account di [Azure](https://azure.microsoft.com/) con una sottoscrizion
 + Per visualizzare l'account di gestione del modello corrente, usare il comando:
   <br>`az ml account modelmanagement show`
 
-**Creare e impostare l'ambiente di distribuzione**
+**Creare e impostare l'ambiente di distribuzione del cluster**
 
 L'ambiente di distribuzione deve essere impostato una sola volta. Se l'ambiente di distribuzione non è ancora disponibile, configurarlo ora seguendo [queste istruzioni](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Seguire i passaggi di configurazione della distribuzione locale o cluster in base alle proprie esigenze.
-+ Le distribuzioni locali sono supportate per i computer Linux e Windows 10, ma non per la macchina virtuale per l'analisi scientifica dei dati di Windows o la macchina virtuale di Deep Learning. 
-+ Le distribuzioni di ambienti cluster sono supportate sia per Linux che per Windows. 
 
 Per visualizzare l'ambiente di distribuzione attivo, usare questo comando dell'interfaccia della riga di comando:
 <br>`az ml env show`

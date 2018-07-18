@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934691"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Eseguire il debug delle API con la traccia delle richieste
 

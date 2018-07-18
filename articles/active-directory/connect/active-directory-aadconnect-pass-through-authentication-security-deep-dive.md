@@ -3,8 +3,8 @@ title: Approfondimento di sicurezza sull'autenticazione pass-through di Azure Ac
 description: Questo articolo descrive in che modo l'autenticazione pass-through di Azure Active Directory (Azure AD) consente di proteggere gli account locali
 services: active-directory
 keywords: Autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti necessari per Azure AD, SSO, Single Sign-On
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: billmath
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84a5ef23739635ba4d2f0adc688c1b506f643a36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917993"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -130,20 +132,21 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
 1. Un utente tenta di accedere a un'applicazione, ad esempio [Outlook Web App](https://outlook.office365.com/owa).
 2. Se l'utente non ha ancora eseguito l'accesso, l'applicazione reindirizza il browser alla pagina di accesso di Azure AD.
 3. Il servizio STS di Azure AD risponde con la pagina **Accesso utente**.
-4. L'utente immette il nome utente e la password nella pagina **Accesso utente** di Azure AD e seleziona il pulsante **Accedi**.
-5. Il nome utente e la password vengono inviati a STS di Azure AD in una richiesta HTTPS POST.
-6. STS di Azure AD recupera le chiavi pubbliche per tutti gli agenti di autenticazione registrati nel tenant dal database SQL di Azure e con queste esegue la crittografa della password. 
+4. L'utente immette il nome utente nella pagina **Accesso utente** e seleziona il pulsante **Avanti**.
+5. L'utente immette la password nella pagina **Accesso utente** e seleziona il pulsante **Accedi**.
+6. Il nome utente e la password vengono inviati a STS di Azure AD in una richiesta HTTPS POST.
+7. STS di Azure AD recupera le chiavi pubbliche per tutti gli agenti di autenticazione registrati nel tenant dal database SQL di Azure e con queste esegue la crittografa della password. 
     - Produce "n" valori password crittografata per "n" agenti di autenticazione registrati nel tenant.
-7. STS di Azure AD inserisce la richiesta di convalida della password, che consiste dei valori del nome utente e della password crittografata, nella coda del bus di servizio specifica per il tenant.
-8. Poiché gli agenti di autenticazione inizializzati sono connessi in modo permanente alla coda del bus di servizio, uno degli agenti di autenticazione disponibili recupera la richiesta di convalida della password.
-9. L'agente di autenticazione individua il valore password crittografata specifico per la chiave pubblica usando un identificatore e lo decrittografa con la chiave privata.
-10. L'agente di autenticazione tenta di convalidare il nome utente e la password in Active Directory locale usando l'[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) con il paramento **dwLogonType** impostato su **LOGON32_LOGON_NETWORK**. 
+8. STS di Azure AD inserisce la richiesta di convalida della password, che consiste dei valori del nome utente e della password crittografata, nella coda del bus di servizio specifica per il tenant.
+9. Poiché gli agenti di autenticazione inizializzati sono connessi in modo permanente alla coda del bus di servizio, uno degli agenti di autenticazione disponibili recupera la richiesta di convalida della password.
+10. L'agente di autenticazione individua il valore password crittografata specifico per la chiave pubblica usando un identificatore e lo decrittografa con la chiave privata.
+11. L'agente di autenticazione tenta di convalidare il nome utente e la password in Active Directory locale usando l'[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) con il paramento **dwLogonType** impostato su **LOGON32_LOGON_NETWORK**. 
     - Si tratta della stessa API utilizzata da Active Directory Federation Services per consentire agli utenti di effettuare l'accesso in uno scenario di accesso federato.
     - Questa API fa affidamento sul processo di risoluzione standard in Windows Server per individuare il controller di dominio.
-11. L'agente di autenticazione riceve il risultato da Active Directory, ad esempio risultati come operazione riuscita, nome utente o password errata o password scaduta.
-12. L'agente di autenticazione inoltra il risultato a STS di Azure AD su un canale HTTPS autenticato reciprocamente in uscita sulla porta 443. L'autenticazione reciproca usa il certificato emesso in precedenza per l'agente di autenticazione durante la registrazione.
-13. STS di Azure AD verifica che questo risultato si metta in correlazione con la richiesta di accesso specifica per il tenant.
-14. STS di Azure AD continua la procedura di accesso, come configurato. Ad esempio, se la convalida della password ha esito positivo, all'utente potrebbe essere richiesto di effettuare l'autenticazione a più fattori oppure potrebbe essere reindirizzato all'applicazione.
+12. L'agente di autenticazione riceve il risultato da Active Directory, ad esempio risultati come operazione riuscita, nome utente o password errata o password scaduta.
+13. L'agente di autenticazione inoltra il risultato a STS di Azure AD su un canale HTTPS autenticato reciprocamente in uscita sulla porta 443. L'autenticazione reciproca usa il certificato emesso in precedenza per l'agente di autenticazione durante la registrazione.
+14. STS di Azure AD verifica che questo risultato si metta in correlazione con la richiesta di accesso specifica per il tenant.
+15. STS di Azure AD continua la procedura di accesso, come configurato. Ad esempio, se la convalida della password ha esito positivo, all'utente potrebbe essere richiesto di effettuare l'autenticazione a più fattori oppure potrebbe essere reindirizzato all'applicazione.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Sicurezza operativa degli agenti di autenticazione
 
@@ -206,7 +209,7 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
 ## <a name="next-steps"></a>Passaggi successivi
 - [Limitazioni correnti](active-directory-aadconnect-pass-through-authentication-current-limitations.md): apprendere quali sono gli scenari supportati.
 - [Guida introduttiva](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
-- [Blocco intelligente](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
+- [Blocco intelligente](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [Come funziona](active-directory-aadconnect-pass-through-authentication-how-it-works.md): nozioni di base sul funzionamento dell'autenticazione pass-through di Azure AD.
 - [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.
 - [Risoluzione dei problemi](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): apprendere come risolvere i problemi comuni relativi alla funzionalità di autenticazione pass-through.

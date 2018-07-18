@@ -11,11 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902079"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Creare un gateway applicazione con regole di routing basato su percorsi usando il portale di Azure
 
@@ -141,8 +142,8 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
 1. Fare clic su **Regole** e quindi su **Basata sul percorso**.
 2. Immettere *rule2* come nome.
-3. Immettere *Images* come nome del primo percorso. Immettere */images/** come percorso. Selezionare **imagesBackendPool** come pool back-end.
-4. Immettere *Video* come nome del secondo percorso. Immettere */video/** come percorso. Selezionare **videoBackendPool** come pool back-end.
+3. Immettere *Images* come nome del primo percorso. Immettere */images/*\* come percorso. Selezionare **imagesBackendPool** come pool back-end.
+4. Immettere *Video* come nome del secondo percorso. Immettere */video/*\* come percorso. Selezionare **videoBackendPool** come pool back-end.
 
     ![Creare una regola basata sul percorso](./media/create-url-route-portal/application-gateway-route-rule.png)
 
@@ -154,11 +155,11 @@ In questo esempio vengono create tre macchine virtuali da usare come server back
 
     ![Registrare l'indirizzo IP pubblico del gateway applicazione](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, http://http://40.121.222.19.
+2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, http://40.121.222.19.
 
     ![Testare l'URL di base nel gateway applicazione](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Modificare l'URL in http://&lt;ip-address&gt;:8080/video/test.htm sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
+3. Modificare l'URL in http://&lt;ip-address&gt;:8080/images/test.htm sostituendo &lt;ip-address&gt; con l'indirizzo IP usato come nell'esempio seguente:
 
     ![Testare l'URL delle immagini nel gateway applicazione](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

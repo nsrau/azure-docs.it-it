@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a7b8c480291360cb50af1ce4ae36cd406f0ddc21
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971007"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -112,7 +113,7 @@ Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali
 Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app del servizio app](https://docs.microsoft.com/azure/app-service/app-service-web-overview) consiste nell'usare l'[integrazione con Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) per eseguire sull'app un'analisi delle vulnerabilità con un solo clic. È possibile visualizzare i risultati del test in un report di facile comprensione e imparare a risolvere ogni vulnerabilità con istruzioni dettagliate.
 
 ### <a name="penetration-testing"></a>Test di penetrazione
-Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://security-forms.azure.com/penetration-testing/terms) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
+Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
 
 ### <a name="web-application-firewall"></a>Web application firewall
 Il Web application firewall (WAF) del [gateway applicazione di Azure](https://azure.microsoft.com/services/application-gateway/) consente di proteggere le applicazioni Web da attacchi basati sul Web comuni come SQL injection, cross-site scripting e hijack della sessione. Include la protezione preconfigurata dalle minacce identificate da [Open Web Application Security Project (OWASP) come le 10 principali vulnerabilità comuni](https://msdn.microsoft.com/library/).

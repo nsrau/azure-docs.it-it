@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: eseguire la migrazione di utenti con identità di social networking'
-description: Presentazione dei concetti di base sulla migrazione di utenti con identità di social networking in Azure AD B2C usando l'API Graph
+title: Eseguire la migrazione di utenti con identità di social network in Azure Active Directory B2C | Microsoft Docs
+description: Presentazione dei concetti di base sulla migrazione di utenti con identità di social network in Azure AD B2C usando l'API Graph.
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: a150d8255171c83334ac4c1f81cbcee39c1df70a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445144"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: eseguire la migrazione di utenti con identità di social networking
 Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. Questo articolo spiega come eseguire la migrazione in Azure AD B2C di account esistenti con identità di social networking, come account di Facebook, LinkedIn, Microsoft e Google. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.

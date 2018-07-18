@@ -3,31 +3,32 @@ title: Errore imprevisto durante la richiesta di consenso per un'applicazione | 
 description: Vengono illustrati gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione, nonché suggerite le operazioni da eseguire per risolverli
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331078"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Errore imprevisto durante la richiesta di consenso per un'applicazione
 
 Questo articolo descrive gli errori che possono verificarsi quando si tenta di ottenere il consenso per un'applicazione. Per risolvere i problemi relativi a richieste di consenso impreviste che non contengono messaggi di errore, vedere [Scenari di autenticazione per Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Molte applicazioni integrate in Azure Active Directory richiedono autorizzazioni per accedere ad altre risorse e garantire il funzionamento. Quando anche queste risorse sono integrate in Azure Active Directory, le autorizzazioni per il relativo accesso vengono spesso richieste tramite il framework di consenso comune. 
+Molte applicazioni integrate in Azure Active Directory richiedono autorizzazioni per accedere ad altre risorse e garantire il funzionamento. Quando anche queste risorse sono integrate in Azure Active Directory, le autorizzazioni per il relativo accesso vengono spesso richieste tramite il framework di consenso comune. Questo comporta la visualizzazione di una richiesta di consenso, che in genere viene inviata al primo utilizzo di un'applicazione ma a volte anche successivamente.
 
-Questo comporta la visualizzazione di una richiesta di consenso, che in genere viene inviata al primo utilizzo di un'applicazione ma a volte anche successivamente.
-
-Perché un utente possa concedere le autorizzazioni richieste da un'applicazione, è necessario che siano soddisfatte determinate condizioni. In caso contrario, possono verificarsi diversi errori, incluse le seguenti:
+Perché un utente possa concedere le autorizzazioni richieste da un'applicazione, è necessario che siano soddisfatte determinate condizioni. In caso contrario, possono verificarsi gli errori seguenti.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Errore di richiesta di autorizzazioni non consentite
 * **AADSTS90093:** &lt;NomeVisualizzatoAppClient&gt; richiede una o più autorizzazioni che l'utente non è autorizzato a concedere. Contattare un amministratore che possa concedere il consenso per l'applicazione per conto dell'utente.
@@ -40,7 +41,7 @@ Questo errore si verifica quando un utente non amministratore della società ten
 Questo errore si verifica quando un amministratore della società impedisce agli utenti di concedere il consenso per le applicazioni e un utente non amministratore tenta di usare un'applicazione che richiede il consenso. Il problema può essere risolto chiedendo a un amministratore di concedere l'accesso all'applicazione per conto dell'organizzazione.
 
 ## <a name="intermittent-problem-error"></a>Errore dovuto a un problema intermittente
-* **AADSTS90090:** sembra che si sia verificato un problema intermittente durante la registrazione delle autorizzazioni che si è tentato di concedere a &lt;NomeVisualizzazioneAppClient&gt;. Riprovare in un secondo momento.
+* **AADSTS90090:** sembra che la procedura di accesso rilevi un problema intermittente durante la registrazione delle autorizzazioni che si è tentato di concedere a &lt;NomeVisualizzazioneAppClient&gt;. Riprovare in un secondo momento.
 
 Questo errore indica che si è verificato un problema intermittente relativo al servizio. È possibile risolverlo provando a concedere di nuovo il consenso per l'applicazione.
 
@@ -61,7 +62,7 @@ Tutti questi errori si verificano quando l'applicazione per la quale un utente s
 
 -   Lo sviluppatore dell'applicazione client ha configurato l'applicazione in modo errato per cui questa richiede l'accesso a una risorsa non valida. In questo caso, lo sviluppatore dell'applicazione deve aggiornare la configurazione dell'applicazione client per risolvere il problema.
 
--   Un'entità servizio che rappresenta l'applicazione della risorsa di destinazione non esiste nell'organizzazione o esisteva in precedenza ma è stata rimossa. Per risolvere questo problema, è necessario eseguire il provisioning di un'entità servizio per l'applicazione della risorsa all'interno dell'organizzazione, in modo che l'applicazione client possa richiedere le autorizzazioni per tale entità. A seconda del tipo di applicazione, è possibile eseguire questa operazione in diversi modi, tra cui:
+-   Un'entità servizio che rappresenta l'applicazione della risorsa di destinazione non esiste nell'organizzazione o esisteva in precedenza ma è stata rimossa. Per risolvere questo problema, è necessario eseguire il provisioning di un'entità servizio per l'applicazione della risorsa all'interno dell'organizzazione, in modo che l'applicazione client possa richiedere le autorizzazioni per tale entità. È possibile eseguire il provisioning dell'entità servizio in diversi modi, in funzione del tipo di applicazione, incluso:
 
     -   Acquisendo una sottoscrizione per l'applicazione della risorsa (applicazioni pubblicate da Microsoft)
 

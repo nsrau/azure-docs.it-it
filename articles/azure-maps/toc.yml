@@ -22,20 +22,10 @@
   items:
     - name: Livelli di zoom e griglia riquadri
       href: zoom-levels-and-tile-grid.md
-    - name: Copertura per la geocodifica
-      href: geocoding-coverage.md
-    - name: Copertura per il traffico
-      href: traffic-coverage.md
-    - name: Copertura per il rendering
-      href: render-coverage.md
-    - name: Copertura per il routing
-      href: routing-coverage.md
-    - name: Categorie di ricerca
-      href: search-categories.md
+    - name: Categorie di ricerca supportate
+      href: supported-search-categories.md
     - name: Lingue supportate
       href: supported-languages.md
-    - name: Modello di utilizzo
-      href: consumption-model.md
 - name: Guide alle procedure
   items:
     - name: Gestire gli account di Mappe
@@ -70,17 +60,49 @@
           href: map-show-traffic.md
         - name: Interazione con gli eventi del mouse
           href: map-events.md
+        - name: Applicazioni di mapping accessibili
+          href: map-accessibility.md
 - name: Riferimenti
   items:
-    - name: API Servizi - REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: API di controllo mappa - Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: Copertura del servizio
+      items:
+        - name: Geocodifica
+          href: geocoding-coverage.md
+        - name: Traffico
+          href: traffic-coverage.md
+        - name: Rendering
+          href: render-coverage.md
+        - name: Routing.
+          href: routing-coverage.md
+    - name: Estensioni di API e parametri
+      items:
+        - name: Modello di consumo del veicolo
+          href: consumption-model.md
+        - name: Estendere il formato GeoJSON
+          href: extend-geojson.md
+    - name: REST
+      items:
+        - name: Servizio di rendering
+          href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Servizio di pianificazione percorso
+          href: 'https://docs.microsoft.com/rest/api/maps/route'
+        - name: Servizio di ricerca
+          href: 'https://docs.microsoft.com/rest/api/maps/search'
+        - name: Servizio fuso orario
+          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
+        - name: Servizio informazioni sul traffico
+          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Gestione dell'account Mappe
+          href: 'https://docs.microsoft.com/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Controllo mappa
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: Risorse correlate
   items:
     - name: Soluzioni
       items:
-        - name: Soluzioni preconfigurate IoT Suite
+        - name: Acceleratori di soluzioni IoT
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'
@@ -121,4 +143,4 @@
     - name: Case study tecnici
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
     - name: Video
-      href: 'https://azure.microsoft.com/documentation/videos'
+      href: 'https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo'

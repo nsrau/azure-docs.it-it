@@ -2,28 +2,26 @@
 title: Eseguire operazioni dell'API di tabella di Azure Cosmos DB con PowerShell | Microsoft Docs
 description: Come eseguire operazioni dell'API di tabella di Azure Cosmos DB con PowerShell
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082275"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Eseguire operazioni dell'API di tabella di Azure Cosmos DB con Azure PowerShell 
 
 >[!NOTE]
->L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. Nella maggior parte dei casi i comandi di PowerShell descritti in questo articolo sono validi sia per l'API di tabella di Azure Cosmos DB che per Archiviazione tabelle di Azure. Tuttavia, in questo articolo si fa specifico riferimento all'API di tabella di Azure Cosmos DB. Se si usa Archiviazione tabelle di Azure, vedere [Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell](table-storage-how-to-use-powershell.md).
+>L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. Nella maggior parte dei casi i comandi di PowerShell descritti in questo articolo sono validi sia per l'API di tabella di Azure Cosmos DB che per Archiviazione tabelle di Azure. Tuttavia, in questo articolo si fa specifico riferimento all'API di tabella di Azure Cosmos DB. Se si usa Archiviazione tabelle di Azure, vedere [Eseguire operazioni di Archiviazione tabelle di Azure con Azure PowerShell](../storage/tables/table-storage-how-to-use-powershell.md).
 >
 
 L'API di tabella di Azure Cosmos DB consente di archiviare ed eseguire query su grandi set di dati strutturati non relazionali. I componenti principali del servizio sono tabelle, entità e proprietà. una tabella è una raccolta di entità. Un'entità è un set di proprietà. Ogni entità può avere fino a 252 proprietà, che corrispondono tutte a coppie nome-valore. Questo articolo presuppone la conoscenza dei concetti relativi all'API di tabella di Azure Cosmos DB. Per informazioni dettagliate, vedere [Introduzione all'API di tabella di Azure Cosmos DB](table-introduction.md) e [Creare un'applicazione .NET tramite l'API di tabella](create-table-dotnet.md).
@@ -47,7 +45,7 @@ Dopo avere installato o aggiornato Azure PowerShell, è necessario installare il
 Install-Module AzureRmStorageTable
 ```
 
-Per usare i cmdlet di PowerShell, installare gli assembly di Azure Cosmos DB localmente. Per le istruzioni su come procedere, vedere [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/) (Modulo PowerShell delle tabelle di archiviazione di Azure RM per le tabelle di Cosmos DB).
+Per usare i cmdlet di PowerShell, installare gli assembly di Azure Cosmos DB localmente. Per le istruzioni su come procedere, vedere [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/) (Modulo PowerShell delle tabelle di archiviazione di Azure RM per le tabelle di Cosmos DB).
 
 Per provare gli esercizi seguenti, è necessario un account di database Azure Cosmos DB. Se non è già presente, creare un nuovo account Azure Cosmos DB usando il [portale di Azure](https://portal.azure.com). Per informazioni sulla creazione di un nuovo account di database, vedere [Azure Cosmos DB: creare un account di database](create-table-dotnet.md#create-a-database-account).
 
@@ -90,7 +88,7 @@ Non è possibile elencare le tabelle nell'account Azure Cosmos DB usando PowerSh
 
 ## <a name="delete-a-table"></a>Eliminare una tabella 
 
-PowerShell non supporta l'eliminazione delle tabelle da Azure Cosmos DB. Per eliminare una tabella, andare al [portale di Azure](https://azure.portal.com), individuare l'account Azure Cosmos DB usato, quindi trovare ed eliminare la tabella. 
+PowerShell non supporta l'eliminazione delle tabelle da Azure Cosmos DB. Per eliminare una tabella, andare al [portale di Azure](https://portal.azure.com), individuare l'account Azure Cosmos DB usato, quindi trovare ed eliminare la tabella. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

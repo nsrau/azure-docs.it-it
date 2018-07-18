@@ -6,15 +6,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 130b3ea0012c5fb21766b26ce2c3e589f0916736
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649228"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -80,6 +81,10 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 ## <a name="use-powershell-to-configure-long-term-retention-policies-and-restore-backups"></a>Usare PowerShell per configurare i criteri di conservazione a lungo termine e ripristinare i backup
 
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
+
+> [!IMPORTANT]
+> Deve essere usata la versione più recente di PowerShell AzureRM per configurare i criteri di conservazione a lungo termine V2. La versione corrente è [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview). Trattandosi di una versione di anteprima, usare questo comando per installarla: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
+> Per il materiale sussidiario relativo all'installazione della versione preliminare, vedere [Ottenere il modulo PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). Il rilascio della versione di PowerShell AzureRM di maggio 2018 è previsto per il 18/5/2018; è possibile ignorare l'opzione -AllowPrerelease quando si installa la versione di rilascio quando diventa disponibile e usare il comando seguente `Install-Module -Name AzureRM.Sql -Force`.
 
 ### <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
 

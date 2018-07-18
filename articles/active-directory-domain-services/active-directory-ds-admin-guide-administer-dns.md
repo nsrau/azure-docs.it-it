@@ -1,30 +1,34 @@
 ---
-title: 'Azure Active Directory Domain Services: amministrare DNS in domini gestiti | Documentazione Microsoft'
+title: 'Azure Active Directory Domain Services: amministrare DNS in domini gestiti | Microsoft Docs'
 description: Amministrare DNS in domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 55b6368d55b5d0ad50d066a4963e74d8c44a2049
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d8559df366bdd9c1439f2ff8c7b7ebc1a7c66960
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334191"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Amministrare DNS in un dominio gestito dai Servizi di dominio Azure AD
 I Servizi di dominio Azure Active Directory includono un server DNS (Domain Name System, sistema dei nomi di dominio) che fornisce la risoluzione DNS per il dominio gestito. In alcuni casi potrebbe essere necessario configurare DNS nel dominio gestito. Potrebbe anche essere necessario creare record DNS per i computer non aggiunti al dominio, configurare indirizzi IP virtuali per servizi di bilanciamento del carico oppure impostare server d'inoltro DNS esterni. Per questo motivo, agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione DNS nel dominio gestito.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="before-you-begin"></a>Prima di iniziare
-Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:
+Per completare le attività descritte in questo articolo, sono necessari gli elementi seguenti:
 
 1. Una **sottoscrizione di Azure**valida.
 2. Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
@@ -34,21 +38,21 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Attività 1: Eseguire il provisioning di una macchina virtuale aggiunta a un dominio per amministrare in remoto DNS per il dominio gestito
+## <a name="task-1---create-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Attività 1: Creare una macchina virtuale aggiunta a un dominio per amministrare in remoto DNS per il dominio gestito
 I domini gestiti di Servizi di dominio Azure AD possono essere gestiti in remoto con i familiari strumenti di amministrazione di Active Directory, ad esempio il Centro di amministrazione di Active Directory o AD PowerShell. Analogamente, il DNS per il dominio gestito può essere amministrato in remoto usando gli strumenti di amministrazione del server DNS.
 
-Gli amministratori nella directory di Azure AD non hanno i privilegi necessari per connettersi ai controller di dominio nel dominio gestito con Desktop remoto. I membri del gruppo 'AAD DC Administrators' possono amministrare DNS per i domini gestiti in remoto usando Strumenti per server DNS da un computer client/Windows Server aggiunto al dominio gestito. La funzionalità Strumenti per server DNS può essere installate come parte della funzionalità facoltativa Strumenti di amministrazione remota del server in Windows Server e nei computer client aggiunti al dominio gestito.
+Gli amministratori nella directory di Azure AD non hanno i privilegi necessari per connettersi ai controller di dominio nel dominio gestito con Desktop remoto. I membri del gruppo 'AAD DC Administrators' possono amministrare DNS per i domini gestiti in remoto usando Strumenti per server DNS da un computer client/Windows Server aggiunto al dominio gestito. Gli strumenti del server DNS fanno parte della funzione opzionale RSAT (Remote Server Administration Tools).
 
-La prima attività consiste nel provisioning di una macchina virtuale Windows Server aggiunta al dominio gestito. Per istruzioni, vedere l'articolo [Aggiungere una macchina virtuale Windows Server a un dominio gestito](active-directory-ds-admin-guide-join-windows-vm.md).
+La prima attività consiste nella creazione di una macchina virtuale Windows Server aggiunta al dominio gestito. Per istruzioni, vedere l'articolo [Aggiungere una macchina virtuale Windows Server a un dominio gestito](active-directory-ds-admin-guide-join-windows-vm.md).
 
 ## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>Attività 2: Installare gli strumenti per server DNS nella macchina virtuale
-Eseguire questa procedura per installare gli strumenti di amministrazione DNS nella macchina virtuale aggiunta a un dominio. Per altre informazioni sull'[installazione e uso degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.
+Completare questa procedura per installare gli strumenti di amministrazione DNS nella macchina virtuale aggiunta a un dominio. Per altre informazioni sull'[installazione e uso degli strumenti di amministrazione remota del server](https://technet.microsoft.com/library/hh831501.aspx), vedere Technet.
 
 1. Passare al portale di Azure. Fare clic su **Tutte le risorse** nel pannello a sinistra. Individuare e fare clic sulla macchina virtuale creata nell'attività 1.
 2. Fare clic su sul pulsante **Connetti** nella scheda Panoramica. Viene creato e scaricato un file Remote Desktop Protocol con estensione rdp.
 
     ![Connettersi alla macchina virtuale Windows](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. Al prompt di accesso usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". In questo caso ad esempio, si usa 'bob@domainservicespreview.onmicrosoft.com'. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su Sì o Continua per procedere con la connessione.
+3. Per connettersi alla VM, aprire il file RDP scaricato. Se richiesto, fare clic su **Connetti**. Usare le credenziali di un utente appartenente al gruppo "AAD DC Administrators". Ad esempio,  'bob@domainservicespreview.onmicrosoft.com'. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Fare clic su Sì o su Continua per connettersi.
 
 4. Dalla schermata Start aprire **Server Manager**. Fare clic su **Aggiungi ruoli e funzionalità** nel riquadro centrale della finestra di Server Manager.
 
@@ -62,7 +66,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione DNS ne
 7. Nella pagina **Selezione server** selezionare la macchina virtuale corrente dal pool di server e fare clic su **Avanti**.
 
     ![Pagina Selezione dei server](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Nella pagina **Ruoli del server** fare clic su **Avanti**. Questa pagina verrà ignorata perché non si stanno installando ruoli nel server.
+8. Nella pagina **Ruoli del server** fare clic su **Avanti**.
 9. Nella pagina **Funzionalità** fare clic per espandere il nodo **Strumenti di amministrazione remota del server**, quindi fare clic per espandere il nodo **Strumenti di amministrazione ruoli**. Selezionare la funzionalità **Strumenti per server DNS** dall'elenco di strumenti di amministrazione ruoli.
 
     ![Pagina Funzionalità](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
@@ -71,7 +75,7 @@ Eseguire questa procedura per installare gli strumenti di amministrazione DNS ne
     ![Pagina di conferma](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 ## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>Attività 3: Avviare la console di gestione DNS per l'amministrazione di DNS
-Dopo aver installato la funzionalità Strumenti per server DNS nella macchina virtuale aggiunta a un dominio sarà possibile usare gli strumenti DNS per amministrare il sistema DNS nel dominio gestito.
+Ora, è possibile usare gli strumenti del serve DNS Windows per amministrare DNS sul dominio gestito.
 
 > [!NOTE]
 > È necessario essere un membro del gruppo 'AAD DC Administrators' per poter amministrare DNS nel dominio gestito.
@@ -82,7 +86,7 @@ Dopo aver installato la funzionalità Strumenti per server DNS nella macchina vi
 
     ![Strumenti di amministrazione - Console DNS](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 2. Fare clic su **DNS** per avviare la console di gestione DNS.
-3. Nella finestra di dialogo **Connessione al server DNS** fare clic sull'opzione **Il computer seguente** e immettere il nome di dominio DNS del dominio gestito, ad esempio "contoso100.com".
+3. Nella finestra di dialogo **Connessione al server DNS** fare clic su **Il computer seguente** e immettere il nome di dominio DNS del dominio gestito, ad esempio "contoso100.com".
 
     ![Console DNS - connettersi al dominio](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 4. La console DNS si connette al dominio gestito.
@@ -95,7 +99,7 @@ Dopo aver installato la funzionalità Strumenti per server DNS nella macchina vi
 >
 >
 
-Per altre informazioni sulla gestione del DNS, vedere l'[articolo sugli strumenti DNS in Technet](https://technet.microsoft.com/library/cc753579.aspx).
+Per altre informazioni sulla gestione DNS, vedere l' [articolo sugli strumenti DNS in Technet](https://technet.microsoft.com/library/cc753579.aspx).
 
 ## <a name="related-content"></a>Contenuti correlati
 * [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)

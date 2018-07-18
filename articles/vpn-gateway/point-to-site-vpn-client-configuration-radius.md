@@ -5,27 +5,32 @@ services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235890"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Creare e installare i file di configurazione del client VPN per l'autenticazione RADIUS da punto a sito
 
 Per connettersi a una rete virtuale tramite connessione da punto a sito (P2S), è necessario configurare il dispositivo client da cui si effettuerà la connessione. È possibile creare connessioni VPN da punto a sito da dispositivi client Windows, Mac OS X e Linux. 
 
 Quando si usa l'autenticazione RADIUS, sono disponibili più opzioni di autenticazione: autenticazione con nome utente/password, autenticazione del certificato e altri tipi di autenticazione. La configurazione dei client VPN è diversa per ogni tipo di autenticazione. Per configurare il client VPN, usare i file di configurazione client che contengono le impostazioni necessarie. Questo articolo consente di creare e installare la configurazione del client VPN per il tipo di autenticazione RADIUS che si vuole usare.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 Di seguito è riportato il flusso di lavoro di configurazione per l'autenticazione RADIUS da punto a sito:
 
@@ -152,6 +157,10 @@ Le istruzioni seguenti sono state create usando strongSwan 5.5.1 in Ubuntu 17.0.
 ## <a name="certeap"></a>Autenticazione del certificato
  
 È possibile creare i file di configurazione del client VPN per l'autenticazione del certificato RADIUS con il protocollo EAP-TLS. Per l'autenticazione di un utente per una VPN in genere viene usato un certificato rilasciato dalla CA globale (enterprise). Verificare che nei dispositivi di tutti gli utenti che effettuano la connessione sia installato un certificato e che il server RADIUS sia in grado di convalidare il certificato.
+
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 Nei comandi `-AuthenticationMethod` è `EapTls`. Durante l'autenticazione del certificato, il client convalida il server RADIUS convalidando il certificato. `-RadiusRootCert` è il file con estensione cer che contiene il certificato radice usato per convalidare il server RADIUS.
 

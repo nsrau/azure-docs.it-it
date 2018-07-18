@@ -1,21 +1,21 @@
 ---
 title: Informazioni sul runtime di Azure IoT Edge| Microsoft Docs
 description: Informazioni sul runtime di Azure IoT Edge e su come potenzia i dispositivi perimetrali
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
-ms.topic: article
+ms.date: 06/05/2018
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8bd725e2201cb08853f4fb63d156b6359427663b
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+services: iot-edge
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030380"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Informazioni sul runtime di Azure IoT Edge e la relativa architettura: anteprima
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
 Il runtime di IoT Edge è una raccolta di programmi che devono essere installati in un dispositivo affinché possa essere considerato come dispositivo IoT Edge. I componenti del runtime di IoT Edge collettivamente abilitano i dispositivi di IoT Edge alla ricezione del codice da eseguire sul dispositivo perimetrale e ne comunicano i risultati. 
 
@@ -90,9 +90,9 @@ Per avviare l'esecuzione dell'agente di Edge, eseguire il comando di avvio azure
 
 Ogni elemento nel dizionario dei moduli contiene informazioni specifiche su un modulo e viene usato dall'agente di Edge per il controllo del ciclo di vita del modulo. Di seguito sono riportate alcune delle proprietà più interessanti: 
 
-* **settings.image**: l'immagine del contenitore usato dall'agente di Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di Edge deve essere configurato con le credenziali per il registro contenitori. Per configurare l'agente di Edge, usare il comando seguente: `azure-iot-edge-runtime-ctl.py –configure`
+* **settings.image**: l'immagine del contenitore usato dall'agente di Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di Edge deve essere configurato con le credenziali per il registro contenitori. Per configurare l'agente di Edge, aggiornare il file `config.yaml`. In Linux usare il comando seguente: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions**: una stringa che viene passata direttamente al daemon Docker all'avvio del contenitore di un modulo. L'aggiunta di opzioni di Docker in questa proprietà consente di avere opzioni avanzate come l'inoltro o il montaggio di volumi da parte della porta nel contenitore di un modulo.  
-* **status**: lo stato in cui l'agente di Edge inserisce il modulo. Questo valore viene in genere impostato su *in esecuzione* perché la maggior parte degli utenti desidera che l'agente di Edge avvii immediatamente tutti i moduli nel dispositivo. Tuttavia, è possibile specificare lo stato iniziale di un modulo da arrestare e attendere un secondo momento per fare in modo che l'agente di Edge lo avvii. L'agente di Edge segnala lo stato di ciascun modulo al cloud nelle proprietà segnalate. Una differenza tra la proprietà desiderata e la proprietà segnalata è un indicatore o un comportamento errato del dispositivo. Gli stati supportati sono:
+* **status**: lo stato in cui l'agente di Edge inserisce il modulo. Questo valore viene in genere impostato su *in esecuzione* perché la maggior parte degli utenti desidera che l'agente di Edge avvii immediatamente tutti i moduli nel dispositivo. Tuttavia, è possibile specificare lo stato iniziale di un modulo da arrestare e attendere un secondo momento per fare in modo che l'agente di Edge lo avvii. L'agente di Edge segnala lo stato di ciascun modulo al cloud nelle proprietà segnalate. Una differenza tra la proprietà desiderata e la proprietà segnalata è indicativa del comportamento errato di un dispositivo. Gli stati supportati sono:
    * Download in corso
    * In esecuzione
    * Non integro
@@ -104,7 +104,7 @@ Ogni elemento nel dizionario dei moduli contiene informazioni specifiche su un m
    * Non integro: se il modulo si blocca o viene considerato non integro, l'agente di Edge lo riavvia.
    * Sempre: se il modulo si blocca, viene considerato non integro o si arresta, l'agente di Edge lo riavvia. 
 
-L'agente IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
+L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
   * 200 - OK
   * 400 - La configurazione della distribuzione è in formato non corretto o non valida.
   * 417 - Il dispositivo non ha un set di configurazione di distribuzione.
@@ -114,7 +114,7 @@ L'agente IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di rispo
 
 ### <a name="security"></a>Sicurezza
 
-L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. Queste funzionalità verranno aggiunte con disponibilità generale delle funzionalità V2. 
+L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. Queste funzionalità verranno aggiunte nella versione con disponibilità generale. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

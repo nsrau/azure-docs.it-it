@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup dello Stack di Azure | Documenti Microsoft
-description: Eseguire un backup su richiesta nello Stack di Azure con backup sul posto.
+title: Eseguire il backup di Azure Stack | Microsoft Docs
+description: Eseguire un backup su richiesta in Azure Stack con backup posto.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,42 +15,60 @@ ms.topic: article
 ms.date: 5/08/2017
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: c2a6727692a7a74b3e5fe32de8800722a9ed91b5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2570423a3cae2a15f0cfd294f1d91e6730748f68
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972679"
 ---
 # <a name="back-up-azure-stack"></a>Eseguire il backup di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Eseguire un backup su richiesta nello Stack di Azure con backup sul posto. Se è necessario abilitare il servizio di Backup di infrastruttura, vedere [abilitare il Backup per lo Stack di Azure dal portale di amministrazione](azure-stack-backup-enable-backup-console.md).
-
-> [!Note]  
->  Per istruzioni sulla configurazione dell'ambiente di PowerShell, vedere [installazione di PowerShell per Azure Stack ](azure-stack-powershell-install.md).
+Eseguire un backup su richiesta in Azure Stack con backup posto. Per istruzioni sulla configurazione dell'ambiente di PowerShell, vedere [installazione di PowerShell per Azure Stack ](azure-stack-powershell-install.md). Per accedere ad Azure Stack, vedere [configurare l'ambiente di operatore e accedere ad Azure Stack](azure-stack-powershell-configure-admin.md).
 
 ## <a name="start-azure-stack-backup"></a>Avviare il backup di Azure Stack
 
-Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati nell'ambiente di gestione (operatore) ed eseguire i comandi seguenti:
+Utilizzare Start-AzSBackup per avviare un nuovo backup con variabile di - AsJob per tenere traccia dello stato. 
 
 ```powershell
-    Start-AzSBackup -Location $location.Name
+    $backupjob = Start-AzsBackup -Force -AsJob
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
 ```
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confermare di backup completata nel portale di amministrazione
+## <a name="confirm-backup-completed-via-powershell"></a>Conferma backup completato tramite PowerShell
 
-1. Aprire il portale di amministrazione dello Stack di Azure all'indirizzo [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
-2. Selezionare **più servizi** > **backup infrastruttura**. Scegliere **configurazione** nel **backup infrastruttura** blade.
-3. Trovare il **nome** e **Data completamento** del backup nella **backup disponibili** elenco.
-4. Verificare il **stato** è **Succeeded**.
+```powershell
+    if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
+```
 
-<!-- You can also confirm the backup completed from the administration portal. Navigate to `\MASBackup\<datetime>\<backupid>\BackupInfo.xml`
+- Il risultato dovrebbe essere simile al seguente:
 
-In ‘Confirm backup completed’ section, the path at the end doesn’t make sense (ie relative to what, datetime format, etc?)
-\MASBackup\<datetime>\<backupid>\BackupInfo.xml -->
+  ```powershell
+      BackupDataVersion : 1.0.1
+      BackupId          : <backup ID>
+      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+      Status            : Succeeded
+      CreatedDateTime   : 7/6/2018 6:46:24 AM
+      TimeTakenToCreate : PT20M32.364138S
+      DeploymentID      : <deployment ID>
+      StampVersion      : 1.1807.0.41
+      OemVersion        : 
+      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+      Name              : local/<local name>
+      Type              : Microsoft.Backup.Admin/backupLocations/backups
+      Location          : local
+      Tags              : {}
+  ```
 
+## <a name="confirm-backup-completed-in-the-administration-portal"></a>Conferma backup completato nel portale di amministrazione
+
+1. Aprire il portale di amministrazione di Azure Stack al [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+2. Selezionare **altri servizi** > **backup Infrastructure**. Scegli **Configuration** nel **backup dell'infrastruttura** pannello.
+3. Trovare il **Name** e **data di completamento** del backup nella **backup disponibili** elenco.
+4. Verificare i **lo stato** viene **Succeeded**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Ulteriori informazioni sul flusso di lavoro per il ripristino da un evento di perdita di dati. Vedere [recupero dalla perdita di dati irreversibile](azure-stack-backup-recover-data.md).
+- Altre informazioni sul flusso di lavoro per il ripristino da un evento di perdita di dati. Visualizzare [risarcimento grave perdita dei dati](azure-stack-backup-recover-data.md).

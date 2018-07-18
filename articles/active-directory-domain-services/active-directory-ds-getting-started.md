@@ -2,26 +2,40 @@
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
 description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265270"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 Questo articolo illustra come abilitare Azure Active Directory Domain Services (Azure AD DS) tramite il portale di Azure.
+
+
+## <a name="before-you-begin"></a>Prima di iniziare
+Per completare le attività descritte in questo articolo, sono necessari gli elementi seguenti:
+
+* Una **sottoscrizione di Azure**valida.
+* Una **directory di Azure AD** sincronizzata con una directory locale o con una directory solo cloud.
+* La **sottoscrizione di Azure deve essere associata alla directory di Azure AD**.
+* Per abilitare Azure AD Domain Services, sono necessari privilegi di **amministratore globale** per la directory di Azure AD.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Abilitare Azure Active Directory Domain Services
 
 Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire questa procedura:
 
@@ -39,7 +53,7 @@ Per avviare la procedura guidata **Abilita Azure AD Domain Services**, seguire q
 
 
 ## <a name="task-1-configure-basic-settings"></a>Attività 1: Configurare le impostazioni di base
-Nella pagina **Informazioni di base** della procedura guidata è possibile specificare il nome di dominio DNS relativo al dominio gestito. È possibile anche scegliere il gruppo di risorse e la località di Azure in cui deve essere distribuito il dominio gestito.
+Nella pagina **Informazioni di base** della procedura guidata specificare il nome di dominio DNS relativo al dominio gestito. È possibile anche scegliere il gruppo di risorse e la località di Azure in cui deve essere distribuito il dominio gestito.
 
 ![Configurare le informazioni di base](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +73,11 @@ Nella pagina **Informazioni di base** della procedura guidata è possibile speci
 
 2. Selezionare la **Sottoscrizione** di Azure in cui si vuole creare il dominio gestito.
 
-3. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Quando si seleziona il gruppo di risorse, è possibile scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
+3. Selezionare il **Gruppo di risorse** a cui deve appartenere il dominio gestito. Per selezionare il gruppo di risorse, scegliere tra le opzioni **Crea nuovo** e **Usa esistente**.
 
 4. Scegliere la **Località** di Azure in cui deve essere creato il dominio gestito. Nella pagina **Rete** della procedura guidata vengono visualizzate solo le reti virtuali appartenenti alla località selezionata.
 
-5. Al termine, fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
+5. Fare clic su **OK** per passare alla pagina **Rete** della procedura guidata.
 
 
 ## <a name="next-step"></a>Passaggio successivo

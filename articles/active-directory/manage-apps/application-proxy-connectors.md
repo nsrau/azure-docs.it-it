@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 16f008c6a6f97a791122a3b441c4c09eaf7eadde
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025367"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -91,7 +92,6 @@ I connettori inviano le richieste soltanto in uscita. Il traffico in uscita vien
 
 Per maggiori informazioni sulla configurazione delle regole del firewall in uscita, vedere [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Usare lo [strumento per il test delle porte del connettore Proxy di applicazione Azure AD](https://aadap-portcheck.connectorporttest.msappproxy.net/) per verificare che il connettore possa raggiungere il servizio Proxy di applicazione. Assicurarsi almeno che l'area Stati Uniti centrali e l'area più vicina all'utente abbiano segni di spunta verdi. Tuttavia, la presenza di più segni di spunta verde indica una maggiore resilienza. 
 
 ## <a name="performance-and-scalability"></a>Prestazioni e scalabilità
 
@@ -103,7 +103,7 @@ Le prestazioni del connettore sono legate alla CPU e alla rete. Le prestazioni d
 
 La memoria, al contrario, ha meno importanza per i connettori. Il servizio online si occupa di gran parte dell'elaborazione e di tutto il traffico non autenticato. Tutto ciò che può essere fatto nel cloud viene fatto nel cloud. 
 
-Il bilanciamento del carico si verifica tra i connettori di un determinato gruppo di connettori. Viene fatta una variazione round-robin per determinare il connettore del gruppo che serve una particolare richiesta. Dopo aver scelto un connettore, si mantiene un'affinità di sessione tra l'utente e l'applicazione per la durata della sessione. Se per qualsiasi motivo il connettore o il computer non sono più disponibili, il traffico inizierà ad andare su un altro connettore del gruppo. Questa resilienza esiste anche perché si consiglia di avere più connettori.
+Il bilanciamento del carico si verifica tra i connettori di un determinato gruppo di connettori. Viene fatta una variazione round-robin per determinare il connettore del gruppo che serve una particolare richiesta. Se per qualsiasi motivo il connettore o il computer non sono più disponibili, il traffico inizierà ad andare su un altro connettore del gruppo. Questa resilienza esiste anche perché si consiglia di avere più connettori.
 
 Un altro fattore che influenza le prestazioni è la qualità della connessione di rete tra i connettori, inclusi: 
 
@@ -164,6 +164,6 @@ Per visualizzare i registri, passare al Visualizzatore eventi, aprire il menu **
 
 * [Pubblicare applicazioni in reti e posizioni separate tramite i gruppi di connettori](application-proxy-connector-groups.md)
 * [Usare server proxy locali esistenti](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Risolvere i problemi di errore del proxy di applicazione e del connettore](../active-directory-application-proxy-troubleshoot.md)
+* [Risolvere i problemi di errore del proxy di applicazione e del connettore](application-proxy-troubleshoot.md)
 * [Come eseguire un'installazione invisibile all'utente del connettore del proxy di applicazione di Azure AD](application-proxy-register-connector-powershell.md)
 

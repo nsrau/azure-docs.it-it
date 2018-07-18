@@ -3,16 +3,17 @@ title: 'Esercitazione su Azure Analysis Services - Lezione 5: Creare colonne cal
 description: Descrive come creare colonne calcolate nel progetto per l'esercitazione su Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fa4a092fd811572136bf355de3545a2c847a5ed9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d97a365d1eae21a58e2b33b82dc2593343248e0e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445954"
 ---
 # <a name="create-calculated-columns"></a>Creare colonne calcolate
 

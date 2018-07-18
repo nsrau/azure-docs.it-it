@@ -7,22 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737681"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
 Quando si progetta un'applicazione SaaS multi-tenant, è necessario scegliere con attenzione il modello di tenancy più adatto alle esigenze dell'applicazione.  Un modello di tenancy determina la modalità di mapping dei dati di ogni tenant alla risorsa di archiviazione.  La scelta del modello di tenancy influisce sulla progettazione e sulla gestione dell'applicazione.  In alcuni casi il passaggio a un modello diverso in un secondo momento è dispendioso.
 
-Di seguito è riportata una discussione sui vari modelli di tenancy.
+Questo articolo descrive modelli di tenancy alternativi.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>R. Come scegliere il modello di tenancy appropriato
+## <a name="a-saas-concepts-and-terminology"></a>R. Concetti e terminologia relativi a SaaS
+
+Nel modello software come un servizio (SaaS), l'azienda non vende *licenze* del proprio software, ma il cliente paga un noleggio all'azienda e diventa *tenant* dell'azienda stessa.
+
+In cambio della tariffa di noleggio, ogni tenant ottiene l'accesso ai componenti dell'applicazione SaaS e l'archiviazione dei propri dati nel sistema SaaS.
+
+Il termine *modello di tenancy* indica il modo in cui sono organizzati i dati dei tenant che vengono archiviati:
+
+- *A tenancy singolo:*&nbsp; in ogni database sono archiviati i dati di un solo tenant.
+- *A più tenancy:*&nbsp; in ogni database sono archiviati i dati di più tenant diversi, con meccanismi per proteggere la privacy dei dati.
+- Sono disponibili anche modelli di tenancy ibridi.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Come scegliere il modello di tenancy appropriato
 
 In generale, il modello di tenancy non influisce sul funzionamento di un'applicazione, ma è probabile che influisca su altri aspetti della soluzione globale.  Per valutare ogni modello vengono usati i criteri seguenti:
 
@@ -50,7 +64,7 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
 
 La discussione sui tenancy è incentrata sul livello dei *dati*.  Consideriamo tuttavia per un momento il livello dell'*applicazione*.  Il livello dell'applicazione viene considerato come un'entità monolitica.  Se si divide l'applicazione in vari componenti di dimensioni inferiori, la scelta del modello di tenancy potrebbe cambiare.  È possibile trattare alcuni componenti in modo diverso rispetto ad altri in merito alla tenancy e alla tecnologia di archiviazione o alla piattaforma usata.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. App autonoma a tenant singolo con database a tenant singolo
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. App autonoma a tenant singolo con database a tenant singolo
 
 #### <a name="application-level-isolation"></a>Isolamento del livello dell'applicazione
 
@@ -66,7 +80,7 @@ Ogni database tenant viene distribuito come database autonomo.  Questo modello f
 
 Il fornitore può accedere a tutti i database in tutte le istanze di app autonome, anche se sono installate in sottoscrizioni tenant diverse.  L'accesso avviene tramite connessioni SQL.  Questo accesso tra istanze consente al fornitore di centralizzare la gestione degli schemi e le query tra database per scopi di report o analisi.  Per ottenere questo tipo di gestione centralizzata, è necessario distribuire un catalogo che esegua il mapping degli identificatori dei tenant agli URI del database.  Il database SQL di Azure fornisce una libreria di partizionamento orizzontale usata insieme a un database SQL per fornire un catalogo.  La libreria di partizionamento orizzontale è denominata formalmente [Libreria client dei database elastici][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. App multi-tenant con database per tenant
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. App multi-tenant con database per tenant
 
 Questo criterio successivo usa un'applicazione multi-tenant con vari database, tutti a tenant singolo.  Viene eseguito il provisioning di un nuovo database per ogni nuovo tenant.  Il livello applicazione viene *aumentato* verticalmente mediante l'aggiunta di altre risorse per ogni nodo.  In alternativa, l'app viene *scalata* orizzontalmente aggiungendo altri nodi.  Il ridimensionamento è basato sul carico di lavoro ed è indipendente dal numero o dalla scalabilità dei singoli database.
 
@@ -105,7 +119,7 @@ Le operazioni di gestione possono essere eseguite tramite script e offerte media
 
 Ad esempio, è possibile automatizzare un ripristino temporizzato di un tenant singolo.  Il ripristino prevede soltanto il recupero del database a tenant singolo che archivia il tenant.  Questo ripristino non ha alcun impatto su altri tenant, a conferma del fatto che le operazioni di gestione si verificano a livello di granularità di ogni singolo tenant.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. App multi-tenant con database multi-tenant
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. App multi-tenant con database multi-tenant
 
 Un altro criterio disponibile permette di archiviare diversi tenant in un database multi-tenant.  L'istanza dell'applicazione può avere un numero qualsiasi di database multi-tenant.  Lo schema di un database multi-tenant deve contenere una o più colonne di identificatori dei tenant, in modo che i dati di un determinato tenant possano essere recuperati in modo selettivo.  Lo schema potrebbe anche richiedere alcune tabelle o colonne utilizzate solo da un subset di tenant.  Tuttavia, codice statico e dati di riferimento vengono archiviati una sola volta e condivisi da tutti i tenant.
 
@@ -121,13 +135,13 @@ In generale, i database multi-tenant sono caratterizzati dal costo minimo per te
 
 Di seguito vengono discusse due varianti di un modello di database multi-tenant, in cui il modello multi-tenant partizionato rappresenta la soluzione più flessibile e scalabile.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. App multi-tenant con un singolo database multi-tenant
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App multi-tenant con un singolo database multi-tenant
 
 Il criterio di database multi-tenant più semplice usa un singolo database autonomo per ospitare i dati di tutti i tenant.  Con l'aggiunta di più tenant, il database viene aumentato con maggiori risorse di archiviazione e calcolo.  Questo aumento potrebbe essere sufficiente, sebbene esista sempre un limite di scalabilità.  Tuttavia, molto prima che venga raggiunto questo limite, il database diventa complesso da gestire.
 
 Le operazioni di gestione incentrate sui singoli tenant sono più complesse da implementare in un database multi-tenant.  Su larga scala, queste operazioni potrebbero diventare inaccettabilmente lente.  Un esempio è rappresentato da un ripristino temporizzato dei dati per un solo tenant.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F. App multi-tenant con database multi-tenant partizionati
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. App multi-tenant con database multi-tenant partizionati
 
 La maggior parte delle applicazioni SaaS accede ai dati di un solo tenant alla volta.  Questo criterio di accesso consente di distribuire i dati in più database o partizioni, in cui tutti i dati di ogni tenant sono contenuti in una sola partizione.  In combinazione con un criterio di database multi-tenant, un modello partizionato consente un livello quasi illimitato di scalabilità.
 
@@ -151,7 +165,7 @@ In base all'approccio di partizionamento orizzontale usato, potrebbero essere im
 
 I database multi-tenant partizionati possono essere inseriti in pool elastici.  In generale, includere molti database a tenant singolo in un pool è vantaggioso tanto quanto includere più tenant in alcuni database multi-tenant.  I database multi-tenant risultano vantaggiosi in presenza di un numero elevato di tenant relativamente inattivi.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Modello di database multi-tenant partizionato ibrido
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Modello di database multi-tenant partizionato ibrido
 
 Nel modello ibrido tutti i database presentano l'identificatore del tenant nello schema.  I database sono tutti in grado di archiviare più tenant e possono essere partizionati.  A livello di schema sono quindi tutti database multi-tenant.  In pratica, però, alcuni database contengono un solo tenant.  Indipendentemente da ciò, la quantità di tenant archiviati in un determinato database non ha effetto sullo schema del database.
 
@@ -165,7 +179,7 @@ Il modello ibrido risulta particolarmente indicato se sussistono grandi differen
 
 In questo modello ibrido i database a tenant singolo per i tenant con sottoscrizione possono essere posizionati in pool di risorse per ridurre i costi di database per ogni tenant.  Questa situazione si verifica anche nel modello di database per tenant.
 
-## <a name="h-tenancy-models-compared"></a>H. Modelli di tenancy a confronto
+## <a name="i-tenancy-models-compared"></a>I. Modelli di tenancy a confronto
 
 La tabella seguente riepiloga le differenze tra i modelli di tenancy principali.
 

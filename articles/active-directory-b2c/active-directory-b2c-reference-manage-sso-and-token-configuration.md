@@ -1,27 +1,27 @@
 ---
-title: Gestire la personalizzazione dei token e SSO con i criteri personalizzati| Microsoft Docs
+title: Gestire la personalizzazione dei token e SSO con criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
 description: Informazioni sulla gestione della personalizzazione dei token e SSO con i criteri personalizzati
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: davidmu
-ms.openlocfilehash: c9eb7f7711a8987945b8aeaee8d6798b7a6b8284
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441798"
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: gestire la personalizzazione dei token e SSO con i criteri personalizzati
 L'uso dei criteri personalizzati offre lo stesso controllo sulle configurazioni di token, sessioni e Single Sign-On (SSO) dei criteri predefiniti.  Per informazioni sulle singole impostazioni, vedere la documentazione [qui](#active-directory-b2c-token-session-sso).
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configurazione delle attestazioni e delle durate dei token
-Per modificare le impostazioni delle durate dei token, è necessario aggiungere un elemento `<ClaimsProviders>` nel file di relying party del criterio su cui si vuole intervenire.  `<ClaimsProviders>` è un elemento figlio di `<TrustFrameworkPolicy>`.  Sarà necessario inserirvi le informazioni che interessano le durate dei token.  Il codice XML è simile al seguente:
+Per modificare le impostazioni delle durate dei token, è necessario aggiungere un elemento `<ClaimsProviders>` nel file di relying party del criterio su cui si vuole intervenire.  `<ClaimsProviders>` è un elemento figlio di `<TrustFrameworkPolicy>`.  Sarà necessario inserirvi le informazioni che influiscono sulle durate dei token.  L'XML è simile all'esempio seguente:
 
 ```XML
 <ClaimsProviders>
@@ -76,6 +76,7 @@ con la riga seguente:
 ```
 
 ## <a name="session-behavior-and-sso"></a>Comportamento della sessione e SSO
+
 Per modificare il comportamento della sessione e le configurazioni SSO, è necessario aggiungere un elemento `<UserJourneyBehaviors>` nell'elemento `<RelyingParty>`.  L'elemento `<UserJourneyBehaviors>` deve seguire immediatamente `<DefaultUserJourney>`.  Il contenuto dell'elemento `<UserJourneyBehavors>` sarà il seguente:
 
 ```XML

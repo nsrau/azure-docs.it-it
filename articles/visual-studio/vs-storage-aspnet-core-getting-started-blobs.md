@@ -2,10 +2,10 @@
 title: Introduzione all'archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET Core) | Microsoft Docs
 description: Informazioni su come iniziare a usare l'archiviazione BLOB di Azure in un progetto ASP.NET Core in Visual Studio dopo avere eseguito la connessione a un account di archiviazione con i Servizi connessi di Visual Studio
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
 ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720230"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introduzione all'archiviazione BLOB di Azure e ai relativi servizi di Visual Studio (ASP.NET Core)
 
@@ -106,7 +107,7 @@ La procedura seguente crea un metodo per eseguire la connessione all'account di 
 
 1. Aprire il file `BlobsController.cs` .
 
-1. Aggiungere un metodo denominato **GetCloudBlobContainer** che restituisce un elemento **CloudBlobContainer**. Assicurarsi di sostituire `<storageaccountname>_AzureStorageConnectionString` con il nome effettivo della chiave in **Web. config**.
+1. Aggiungere un metodo denominato **GetCloudBlobContainer** che restituisce un elemento **CloudBlobContainer**. Assicurarsi di sostituire `<storageaccountname>_AzureStorageConnectionString` con il nome effettivo della chiave in **Web.config**.
     
     ```csharp
     private CloudBlobContainer GetCloudBlobContainer()
@@ -147,7 +148,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB:
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Chiamare il metodo `CloudBlobContainer.CreateIfNotExists` per creare il contenitore, se non esiste ancora. Il metodo `CloudBlobContainer.CreateIfNotExists` restituisce **true** se il contenitore non esiste ma viene creato correttamente. In caso contrario, il metodo restituisce **false**.    
+1. Chiamare il metodo `CloudBlobContainer.CreateIfNotExists` per creare il contenitore, se non esiste ancora. Il metodo `CloudBlobContainer.CreateIfNotExists` restituisce **true** se il contenitore non esiste, ma viene creato correttamente. In caso contrario, il metodo restituisce **false**.    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExistsAsync().Result;
@@ -159,7 +160,7 @@ I passaggi seguenti illustrano come creare un contenitore BLOB:
     ViewBag.BlobContainerName = container.Name;
     ```
     
-    Di seguito viene mostrato il metodo `CreateBlobContainer` completato:
+    Di seguito viene illustrato il metodo `CreateBlobContainer` completato:
 
     ```csharp
     public ActionResult CreateBlobContainer()
@@ -231,7 +232,7 @@ Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i fi
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Archiviazione di Azure supporta tipi di BLOB diversi. In questa esercitazione vengono utilizzati BLOB in blocchi. Per recuperare un riferimento a un BLOB in blocchi, eseguire una chiamata al metodo `CloudBlobContainer.GetBlockBlobReference`.
+1. Archiviazione di Azure supporta diversi tipi di BLOB. In questa esercitazione vengono utilizzati BLOB in blocchi. Per recuperare un riferimento a un BLOB in blocchi, eseguire una chiamata al metodo `CloudBlobContainer.GetBlockBlobReference`.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -249,7 +250,7 @@ Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i fi
     }
     ```
     
-    Di seguito viene mostrato il metodo `UploadBlob` completato (con un percorso assoluto al file da caricare):
+    Di seguito viene illustrato il metodo `UploadBlob` completato (con un percorso assoluto al file da caricare):
 
     ```csharp
     public string UploadBlob()
@@ -272,7 +273,7 @@ Dopo aver [creato il contenitore BLOB](#create-a-blob-container), caricarvi i fi
     <li><a asp-area="" asp-controller="Blobs" asp-action="UploadBlob">Upload blob</a></li>
     ```
 
-1. Eseguire l'applicazione e selezionare **Carica BLOB**. Dovrebbe venire visualizzato il testo *success!* .
+1. Eseguire l'applicazione e selezionare **Carica BLOB**. Dovrebbe venire visualizzato il termine *success!* .
     
     ![Screenshot della verifica dell'esito positivo](./media/vs-storage-aspnet-core-getting-started-blobs/upload-blob.png)
   
@@ -361,7 +362,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere `ListBlobs` come nome della visualizzazione e selezionare **Aggiungi**.
 
-1. Aprire `ListBlobs.cshtml` e sostituire il contenuto con il codice riportato di seguito:
+1. Aprire `ListBlobs.cshtml` e sostituire il contenuto con il codice seguente:
 
     ```html
     @model List<string>
@@ -389,7 +390,7 @@ Questa sezione illustra come elencare i BLOB in un contenitore BLOB. Il codice d
 
 1. Eseguire l'applicazione e selezionare **Elenca BLOB** per visualizzare risultati simili allo screenshot seguente:
   
-    ![Schermata di Elenca BLOB](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
+    ![Screenshot di Elenca BLOB](./media/vs-storage-aspnet-core-getting-started-blobs/listblobs.png)
 
 ## <a name="download-blobs"></a>Scaricare BLOB
 
@@ -420,7 +421,7 @@ Questa sezione illustra come scaricare un BLOB. È possibile renderlo persistent
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Per scaricare un BLOB, usare il metodo `CloudBlockBlob.DownloadToStream`. Il codice seguente trasferisce il contenuto di un BLOB a un oggetto flusso. Tale oggetto viene quindi reso persistente in un file locale. Cambiare *&lt;local-file-name>* nel nome file completo che rappresenta la posizione in cui viene scaricato il BLOB. 
+1. Per scaricare un BLOB, usare il metodo `CloudBlockBlob.DownloadToStream`. Il codice seguente trasferisce il contenuto di un BLOB a un oggetto flusso. Tale oggetto viene quindi reso persistente in un file locale. Modificare *&lt;local-file-name>* nel nome file completo che rappresenta la posizione in cui viene scaricato il BLOB. 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -429,7 +430,7 @@ Questa sezione illustra come scaricare un BLOB. È possibile renderlo persistent
     }
     ```
     
-    Di seguito viene mostrato il metodo `ListBlobs` completato (con un percorso assoluto al file locale da creare):
+    Di seguito viene illustrato il metodo `ListBlobs` completato (con un percorso assoluto al file locale da creare):
     
     ```csharp
     public string DownloadBlob()
@@ -489,7 +490,7 @@ I passaggi seguenti illustrano come eliminare un BLOB:
     blob.DeleteAsync().Wait();
     ```
     
-    Il metodo `DeleteBlob` completato dovrebbe apparire come mostrato di seguito:
+    Il metodo `DeleteBlob` completato dovrebbe apparire come illustrato di seguito:
     
     ```csharp
     public string DeleteBlob()

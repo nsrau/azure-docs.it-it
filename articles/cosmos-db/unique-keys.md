@@ -6,20 +6,17 @@ keywords: vincolo di chiave univoca, violazione del vincolo di chiave univoca
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261101"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chiavi univoche in Azure Cosmos DB
 
@@ -34,7 +31,7 @@ Le chiavi univoche consentono agli sviluppatori di aggiungere un livello di inte
 
 A titolo di esempio, si esaminerà in che modo un database utente associato a un'[applicazione social](use-cases.md#web-and-mobile-applications) può trarre vantaggio dalla definizione di criteri di chiave univoca negli indirizzi di posta elettronica. Impostando l'indirizzo di posta elettronica dell'utente come chiave univoca, è possibile assicurarsi che ogni record abbia un indirizzo di posta elettronica univoco e che nessun nuovo record possa essere creato con indirizzi duplicati. 
 
-Se si vuole consentire agli utenti di creare più record con lo stesso indirizzo di posta elettronica, ma non con la stessa combinazione di nome, cognome e indirizzo di posta elettronica, è possibile aggiungere altri percorsi ai criteri di chiave univoca. Pertanto, anziché creare una chiave univoca basata semplicemente su un indirizzo di posta elettronica, è possibile crearne una composta da nome, cognome e indirizzo di posta elettronica. In questo modo, è consentita ogni combinazione univoca dei tre percorsi e il database può quindi contenere elementi con i valori di percorso seguenti. Ognuno di questi record sarà in grado di soddisfare i criteri di chiave univoca.  
+Se si vuole consentire agli utenti di creare più record con lo stesso indirizzo di posta elettronica, ma non con la stessa combinazione di nome, cognome e indirizzo di posta elettronica, è possibile aggiungere altri percorsi ai criteri di chiave univoca. Pertanto, anziché creare una chiave univoca basata su un indirizzo di posta elettronica, è possibile crearne una composta da nome, cognome e indirizzo di posta elettronica. In questo modo, è consentita ogni combinazione univoca dei tre percorsi e il database può quindi contenere elementi con i valori di percorso seguenti. Ognuno di questi record sarà in grado di soddisfare i criteri di chiave univoca.  
 
 **Valori consentiti per la chiave univoca firstName, lastName e email**
 
@@ -46,13 +43,13 @@ Se si vuole consentire agli utenti di creare più record con lo stesso indirizzo
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-Se si prova a inserire un altro record con una qualsiasi delle combinazioni elencate nella tabella, verrà visualizzato un messaggio di errore per segnalare che il vincolo di chiave univoca non è stato soddisfatto. Azure Cosmos DB restituisce uno degli errori seguenti: "Resource with specified id or name already exists." (La risorsa con l'ID o il nome specificato esiste già.) o "Resource with specified id, name, or unique index already exists." (La risorsa con l'ID, il nome o l'indice univoco specificato esiste già.) 
+Se si prova a inserire un altro record con una qualsiasi delle combinazioni elencate nella tabella, verrà visualizzato un messaggio di errore per segnalare che il vincolo di chiave univoca non è stato soddisfatto. Azure Cosmos DB ha restituito uno degli errori seguenti: "Resource with specified id or name already exists" (La risorsa con l'ID o il nome specificato esiste già). o "Resource with specified id, name, or unique index already exists." (La risorsa con l'ID, il nome o l'indice univoco specificato esiste già.) 
 
 ## <a name="using-unique-keys"></a>Uso delle chiavi univoche
 
 Le chiavi univoche devono essere definite al momento della creazione del contenitore e hanno un ambito limitato alla chiave di partizione. Riprendendo l'esempio precedente, se le partizioni sono definite in base al codice postale, i record dalla tabella possono essere duplicati in ogni partizione.
 
-Non è possibile aggiornare i contenitori esistenti per l'uso di chiavi univoche.
+Non è possibile aggiornare un contenitore esistente per l'uso di chiavi univoche.
 
 Una volta creato un contenitore con criteri di chiave univoca, è possibile modificare i criteri solo se si crea un nuovo contenitore. Se si hanno dati per i quali si desidera implementare chiavi univoche, creare il nuovo contenitore e quindi usare lo strumento di migrazione appropriato per spostare i dati nel contenitore. Per i contenitori di SQL, usare l'[Utilità di migrazione dati](import-data.md). Per i contenitori di MongoDB, usare [mongoimport.exe o mongorestore.exe](mongodb-migrate.md).
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,17 +111,20 @@ Documento JSON di esempio.
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> I nome di chiave univoca fanno distinzione tra maiuscole e minuscole. Come illustrato nell'esempio precedente, il nome univoco è impostato per /address/zipcode. Se i dati avranno ZipCode, sarà inserito "null" nella chiave univoca in quanto zipcode non è uguale a ZipCode. Inoltre, a causa di questa distinzione tra maiuscole e minuscole, tutti gli altri record con ZipCode non potranno essere inseriti, in quanto i "null" duplicati violeranno il vincolo di chiave univoca.
+
 ## <a name="mongodb-api-sample"></a>Esempio di API MongoDB
 
 L'esempio di comando seguente illustra come creare un indice univoco in base ai campi firstName, lastName e email della raccolta users per l'API MongoDB. In questo modo si ha la certezza che la combinazione dei tre campi sia univoca in tutti i documenti della raccolta. Per le raccolte dell'API MongoDB, l'indice univoco viene creato dopo che la raccolta è stata creata, ma prima che venga popolata.
@@ -133,6 +132,20 @@ L'esempio di comando seguente illustra come creare un indice univoco in base ai 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Configurare chiavi univoche mediante il portale di Azure
+
+Nelle sezioni riportate sopra sono presenti esempi di codice che mostrano come è possibile definire vincoli di chiave univoca quando viene creata una raccolta usando l'API di SQL o l'API di MongoDB. Ma è anche possibile definire chiavi univoche quando si crea una raccolta tramite l'interfaccia utente Web nel portale di Azure. 
+
+- Passare a **Esplora dati** nell'account di DB Cosmos
+- Fare clic su **Nuova raccolta**
+- Nella sezione relativa alle chiavi univoche ** è possibile aggiungere i vincoli di chiave univoca desiderati facendo clic su **Add unique key** (Aggiungi chiave univoca)
+
+![Definire chiavi univoche in Esplora dati](./media/unique-keys/unique-keys-azure-portal.png)
+
+- Se si vuole creare un vincolo di chiave univoca nel percorso lastName, aggiungere `/lastName`.
+- Se si vuole creare un vincolo di chiave univoca per la combinazione lastName firstName, aggiungere `/lastName,/firstName`
+
+Al termine, fare clic su **OK** per creare la raccolta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

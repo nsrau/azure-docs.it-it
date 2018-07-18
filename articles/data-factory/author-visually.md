@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265289"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 L'interfaccia utente di Azure Data Factory consente di creare e distribuire con strumenti visivi le risorse della data factory senza dover scrivere il codice. È possibile trascinare le attività in un'area di disegno della pipeline, eseguire test, eseguire il debug in modo iterativo, nonché distribuire e monitorare le esecuzioni della pipeline. Sono disponibili due approcci per usare l'esperienza utente per la creazione di oggetti visivi:
@@ -46,8 +47,8 @@ La soluzione che prevede l'uso dell'integrazione di GIT in VSTS supporta funzion
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Configurare un repository GIT di VSTS con Azure Data Factory
 È possibile configurare un repository GIT di VSTS con una data factory seguendo due diversi metodi.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>Metodo di configurazione 1: Pagina Attività iniziali
+#### <a name="method1"></a> Metodo di configurazione 1: Pagina Attività iniziali
+
 In Azure Data Factory andare alla pagina **Attività iniziali**. Selezionare **Configure Code Repository** (Configura repository di codice):
 
 ![Configurare un repository di codice VSTS](media/author-visually/configure-repo.png)
@@ -62,11 +63,11 @@ Il riquadro visualizza le impostazioni del repository di codice VSTS seguenti:
 |:--- |:--- |:--- |
 | **Tipo di repository** | Tipo del repository di codice VSTS.<br/>**Nota**: GitHub non è attualmente supportato. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Nome del tenant di Azure AD. | <your tenant name> |
-| **Account di Visual Studio Team Services** | Nome dell'account VSTS. È possibile trovare il nome dell'account VSTS all'indirizzo `https://{account name}.visualstudio.com`. È possibile [accedere all'account di VSTS](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare il repository e i progetti. | \<nome dell'account> |
-| **Nome progetto** | Nome del progetto VSTS. È possibile trovare il nome del progetto VSTS all'indirizzo `https://{account name}.visualstudio.com/{project name}`. | \<nome del progetto VSTS> |
-| **Nome repository** | Nome del repository di codice VSTS. i progetti di VSTS contengono repository GIT per gestire il codice sorgente man mano che aumentano le dimensioni del progetto. È possibile creare un nuovo repository o usare un repository già presente nel progetto. | \<nome del repository di codice VSTS> |
-| **Ramo di collaborazione** | Ramo di collaborazione di VSTS che verrà usato per la pubblicazione. L'impostazione predefinita è `master`. Modificare questa impostazione per pubblicare le risorse da un altro ramo. | \<nome del ramo di collaborazione > |
-| **Cartella radice** | Cartella radice nel ramo di collaborazione di VSTS. | \<nome della cartella radice> |
+| **Account di Visual Studio Team Services** | Nome dell'account VSTS. È possibile trovare il nome dell'account VSTS all'indirizzo `https://{account name}.visualstudio.com`. È possibile [accedere all'account di VSTS](https://www.visualstudio.com/team-services/git/) e quindi accedere al proprio profilo di Visual Studio e visualizzare il repository e i progetti. | <your account name> |
+| **Nome progetto** | Nome del progetto VSTS. È possibile trovare il nome del progetto VSTS all'indirizzo `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **Nome repository** | Nome del repository di codice VSTS. i progetti di VSTS contengono repository GIT per gestire il codice sorgente man mano che aumentano le dimensioni del progetto. È possibile creare un nuovo repository o usare un repository già presente nel progetto. | <your VSTS code repository name> |
+| **Ramo di collaborazione** | Ramo di collaborazione di VSTS che verrà usato per la pubblicazione. L'impostazione predefinita è `master`. Modificare questa impostazione per pubblicare le risorse da un altro ramo. | <your collaboration branch name> |
+| **Cartella radice** | Cartella radice nel ramo di collaborazione di VSTS. | <your root folder name> |
 | **Import existing Data Factory resources to repository** (Importa risorse Data Factory esistenti nel repository) | Specifica se importare le risorse di Data Factory esistenti dall'**area di disegno di creazione** dell'esperienza utente in un repository GIT di VSTS. Selezionare la casella per importare le risorse di Data Factory nel repository GIT associato in formato JSON. Questa azione esporta ogni risorsa singolarmente, vale a dire che i servizi collegati e i set di dati vengono esportati in file JSON separati. Quando questa casella non è selezionata, le risorse esistenti non vengono importate. | Selezionata (impostazione predefinita) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Metodo di configurazione 2: Area di disegno di creazione dell'esperienza utente
@@ -75,6 +76,14 @@ Nell'**area di disegno di creazione** dell'esperienza utente di Azure Data Facto
 Viene visualizzato un riquadro di configurazione. Per informazioni dettagliate sulle impostazioni di configurazione, vedere le descrizioni in <a href="#method1">Metodo di configurazione 1</a>.
 
 ![Configurare le impostazioni del repository di codice per la creazione nell'esperienza utente](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Cambiare repository Git
+
+Per passare a un repository Git diverso, individuare l'icona nell'angolo superiore destro della pagina di panoramica di Data Factory, come illustrato nella schermata seguente. Se l'icona non è visibile, cancellare la cache del browser locale. Selezionare l'icona per rimuovere l'associazione al repository corrente.
+
+Dopo aver rimosso l'associazione al repository corrente, è possibile configurare le impostazioni di Git per usare un repository diverso. È quindi possibile importare le risorse di Data Factory esistenti nel nuovo repository.
+
+![Rimuovere l'associazione al repository Git corrente.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Usare il controllo della versione
 I sistemi di controllo della versione (o del _controllo del codice sorgente_) consentono agli sviluppatori di collaborare alla creazione e alla modifica del codice e di tenere traccia delle modifiche apportate alla codebase. Il controllo del codice sorgente è uno strumento essenziale per i progetti in cui sono coinvolti più sviluppatori.

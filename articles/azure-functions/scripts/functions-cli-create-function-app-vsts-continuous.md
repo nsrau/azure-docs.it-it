@@ -2,7 +2,7 @@
 title: Creare una funzione in Azure distribuita da Visual Studio Team Services | Microsoft Docs
 description: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 01/09/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842348"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
 

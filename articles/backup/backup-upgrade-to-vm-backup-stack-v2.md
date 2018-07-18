@@ -1,24 +1,20 @@
 ---
-title: Eseguire l'aggiornamento al modello di distribuzione Azure Resource Manager per lo stack di backup di macchine virtuali di Azure | Microsoft Docs
+title: Eseguire l'aggiornamento al modello di distribuzione Azure Resource Manager per lo stack di backup di macchine virtuali di Azure
 description: Processo di aggiornamento e domande frequenti per lo stack di backup di macchine virtuali e il modello di distribuzione Resource Manager
 services: backup, virtual-machines
-documentationcenter: ''
 author: trinadhk
 manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 03/08/2018
-ms.author: trinadhk, sogup
-ms.openlocfilehash: 1e5515486afac5a6d84a35bca33f55ae98e287d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: trinadhk
+ms.openlocfilehash: e822e0c354fd671ee2802506e0e268d4078b395e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764860"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606903"
 ---
 # <a name="upgrade-to-the-azure-resource-manager-deployment-model-for-azure-vm-backup-stack"></a>Eseguire l'aggiornamento al modello di distribuzione Azure Resource Manager per lo stack di backup di macchine virtuali di Azure
 Il modello di distribuzione Resource Manager per l'aggiornamento allo stack di backup di macchine virtuali offre i seguenti miglioramenti delle funzionalità:

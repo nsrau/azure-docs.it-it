@@ -1,10 +1,10 @@
 ---
 title: Privacy dell'utente e autenticazione pass-through di Azure Active Directory | Microsoft Docs
-description: Questo articolo riguarda l'autenticazione pass-through di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (RGPD).
+description: Questo articolo riguarda l'autenticazione pass-through di Azure Active Directory (Azure AD) e la conformità al Regolamento generale sulla protezione dei dati (GDPR).
 services: active-directory
-keywords: Autenticazione pass-through di Azure AD Connect, RGPD, componenti necessari per Azure AD, SSO, Single Sign-On
+keywords: Autenticazione pass-through di Azure AD Connect, GDPR, componenti necessari per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150624"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915878"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150624"
 
 ## <a name="overview"></a>Panoramica
 
-L'autenticazione pass-through di Azure AD crea i seguenti tipi di log, che possono contenere informazioni personali degli utenti finali:
+L'autenticazione pass-through di Azure AD crea il seguente tipo di log, che può contenere informazioni personali:
 
 - File di log di traccia di Azure AD Connect.
 - File di log di traccia dell'agente di autenticazione.
 - File di log di eventi di Windows.
 
-La conformità alla privacy dell'utente per l'autenticazione pass-through può essere ottenuta in due modi:
+Migliorare la privacy dell'utente per l'autenticazione pass-through in due modi:
 
 1.  Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dalle installazioni.
 2.  Verificare che nessun dato venga conservato per più di 48 ore.
@@ -44,7 +45,7 @@ La seconda opzione è consigliabile perché risulta più semplice da implementar
 
 ### <a name="delete-azure-ad-connect-trace-log-files"></a>Eliminare i file di log di traccia di Azure AD Connect
 
-Controllare il contenuto della cartella **%ProgramData%\AADConnect** ed eliminare il contenuto del log di traccia (file **trace-\*.log**) di questa cartella entro 48 ore dall'installazione o dall'aggiornamento di Azure AD Connect o dalla modifica della configurazione dell'autenticazione pass-through, perché questa azione può creare dati a cui si applica il regolamento RGPD.
+Controllare il contenuto della cartella **%ProgramData%\AADConnect** ed eliminare il contenuto del log di traccia (file **trace-\*.log**) di questa cartella entro 48 ore dall'installazione o dall'aggiornamento di Azure AD Connect o dalla modifica della configurazione dell'autenticazione pass-through, perché questa azione può creare dati a cui si applica il regolamento GDPR.
 
 >[!IMPORTANT]
 >Non eliminare il file **PersistedState.xml** in questa cartella, perché questo file viene usato per mantenere lo stato dell'installazione precedente di Azure AD Connect e viene usato quando viene eseguita un'installazione di aggiornamento. Questo file non conterrà mai dati relativi a un utente e non deve essere mai eliminato.
@@ -61,7 +62,7 @@ Foreach ($file in $Files) {
 
 Salvare lo script in un file con estensione "PS1". Eseguire questo script quando necessario.
 
-Per altre informazioni sui requisiti RGPD per Azure AD Connect correlati, vedere [questo articolo](active-directory-aadconnect-gdpr.md).
+Per altre informazioni sui requisiti GDPR per Azure AD Connect correlati, vedere [questo articolo](active-directory-aadconnect-gdpr.md).
 
 ### <a name="delete-authentication-agent-event-logs"></a>Eliminare i log eventi dell'agente di autenticazione
 

@@ -1,0 +1,87 @@
+---
+title: "Come usare le schede con un'applicazione di Conversation Learner: parte 1 - Servizi cognitivi Microsoft| Microsoft Docs"
+titleSuffix: Azure
+description: Informazioni su come usare le schede con un'applicazione di Conversation Learner.
+services: cognitive-services
+author: v-jaswel
+manager: nolachar
+ms.service: cognitive-services
+ms.component: conversation-learner
+ms.topic: article
+ms.date: 04/30/2018
+ms.author: v-jaswel
+ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35376204"
+---
+# <a name="how-to-use-cards-part-1-of-2"></a>Come usare le schede (parte 1 di 2)
+
+Questa esercitazione illustra come aggiungere e usare una scheda semplice nel bot.
+
+Si noti che Conversation Learner prevede che i file di definizione delle schede si trovino in una directory denominata "cards" presente nella directory in cui viene avviato il bot.
+
+## <a name="requirements"></a>Requisiti
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
+
+    npm run tutorial-general
+
+## <a name="details"></a>Dettagli
+
+Le schede sono elementi dell'interfaccia utente che consentono all'utente di selezionare un'opzione nella conversazione. 
+
+### <a name="open-the-demo"></a>Aprire la demo
+
+Nell'elenco delle app dell'interfaccia utente Web fare clic su Tutorial-13-Cards-1. 
+
+### <a name="the-card"></a>Scheda
+
+La definizione della scheda si trova nel percorso seguente: C:\<percorsoinstallazione\>\src\cards\prompt.json.
+
+Il sistema prevede che le definizioni delle schede si trovino nella directory cards.
+
+![](../media/tutorial13_prompt.PNG)
+
+- Si notino TextBlock e il modello della domanda.
+- Sono presenti due pulsanti di invio e il testo inviato per ognuno.
+
+### <a name="actions"></a>Azioni
+
+Sono state create tre azioni. Come illustrato di seguito, la prima azione è una scheda.
+
+![](../media/tutorial13_actions.PNG)
+
+L'azione di tipo scheda è stata creata come segue:
+
+![](../media/tutorial13_cardaction.PNG)
+
+Si notino la domanda di input e i pulsanti 1 e 2, che costituiscono i riferimenti al modello nella scheda in cui si immettono la domanda e le rispettive risposte. È anche possibile fare riferimento a entità o combinazioni di testo ed entità e usarle.
+
+L'icona a forma di occhio consente di visualizzare l'aspetto della scheda.
+
+### <a name="train-dialog"></a>Dialogo di training
+
+Verrà ora illustrato un dialogo di training.
+
+1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
+1. Immettere "hi".
+2. Fare clic su Score Action (Punteggio azione).
+3. Fare clic per selezionare "Prompt go left or right".
+    - Fare clic su "left" o "right" equivale a digitare rispettivamente "left" o "right" in qualità di utente. 
+4. Fare clic su Score Actions (Punteggio azioni).
+4. Fare clic per selezionare "left". Questa è un'azione senza attesa.
+6. Fare clic per selezionare "Prompt go left or right".
+4. Fare clic su "right".
+5. Fare clic su Score Actions (Punteggio azioni).
+3. Fare clic per selezionare "right".
+6. Fare clic per selezionare "Prompt go left or right".
+4. Fare clic su Done Testing (Test completato).
+
+È stato illustrato il funzionamento delle schede, definite nella directory cards come modelli JSON. I modelli vengono presentati nell'interfaccia utente, in cui è possibile inserire una stringa, un'entità o una combinazione di entrambe.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+> [!div class="nextstepaction"]
+> [Schede: parte 2](./14-cards-2.md)

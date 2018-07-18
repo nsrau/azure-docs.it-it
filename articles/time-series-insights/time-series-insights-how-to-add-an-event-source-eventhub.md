@@ -1,21 +1,21 @@
 ---
 title: Come aggiungere un'origine evento dell'hub eventi in Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive come aggiungere un'origine evento connessa a un hub eventi all'ambiente Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
-author: sandshadow
+services: time-series-insights
+author: ashannon7
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330863"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Come aggiungere un'origine evento hub eventi a un ambiente Time Series Insights
 
@@ -26,6 +26,22 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
 - Creare un hub eventi. Per altre informazioni sugli hub eventi, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il portale di Azure](../event-hubs/event-hubs-create.md).
 - Lo hub eventi deve ricevere eventi messaggio attivi. Per altre informazioni, vedere [Inviare eventi a Hub eventi di Azure usando .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Creare un gruppo di consumer dedicato in Hub eventi per l'utilizzo nell'ambiente Time Series Insights. Tutte le origini evento Time Series Insights devono avere un proprio gruppo di consumer dedicato che non sia condiviso con altri consumer. Se più lettori consumano eventi dello stesso gruppo di consumer, è probabile che tutti i lettori riscontrino errori. Si noti che è presente anche un limite di 20 gruppi di utenti per Hub eventi. Per informazioni dettagliate, vedere la [Guida alla programmazione di Hub eventi](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Aggiungere un gruppo di consumer all'hub eventi
+I gruppi di consumer vengono usati dalle applicazioni per eseguire il pull dei dati da hub eventi di Azure. Per leggere in modo affidabile i dati dall'hub eventi, specificare un gruppo di consumer dedicato per l'uso esclusivo da parte di questo ambiente Time Series Insights.
+
+Per aggiungere un nuovo gruppo di consumer all'hub eventi, eseguire questa procedura:
+1. Nel portale di Azure individuare e aprire l'hub eventi.
+
+2. Sotto l'intestazione **Entità** selezionare **Gruppi di consumer**.
+
+   ![Hub eventi: aggiungere un gruppo di consumer](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Selezionare **+ Gruppo di consumer** per aggiungere un nuovo gruppo di consumer. 
+
+4. Nella pagina **Gruppi di consumer** specificare un nuovo **Nome** univoco.  Usare questo nome al momento di creare una nuova origine evento nell'ambiente Time Series Insights.
+
+5. Selezionare **Crea** per creare il nuovo gruppo di consumer.
 
 ## <a name="add-a-new-event-source"></a>Aggiungere una nuova origine evento
 1. Accedere al [portale di Azure](https://portal.azure.com).
@@ -78,29 +94,14 @@ Questo articolo descrive come usare il portale di Azure per aggiungere all'ambie
    | Formato di serializzazione eventi | JSON è l'unico formato di serializzazione attualmente disponibile. I messaggi relativi agli eventi devono essere in questo formato. In caso contrario, non è possibile leggere i dati. |
    | Nome della proprietà Timestamp | Per determinare questo valore, è necessario comprendere il formato dei dati del messaggio inviato all'hub eventi. Questo valore è il **nome** della proprietà evento specifica nei dati del messaggio che si vuole usare come timestamp dell'evento. Il valore fa distinzione tra maiuscole e minuscole. Se lasciato vuoto, come timestamp dell'evento viene usato il **tempo di accodamento dell'evento** all'interno dell'origine evento. |
 
+10. Aggiungere il nome del gruppo di consumer TSI dedicato aggiunto all'hub eventi.
 
-10. Selezionare **Crea** per aggiungere la nuova origine evento.
+11. Selezionare **Crea** per aggiungere la nuova origine evento.
    
    ![Click Create](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Dopo la creazione dell'origine evento, Time Series Insights inizierà automaticamente a trasmettere i dati nell'ambiente.
 
-
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Aggiungere un gruppo di consumer all'hub eventi
-I gruppi di consumer vengono usati dalle applicazioni per eseguire il pull dei dati da hub eventi di Azure. Per leggere in modo affidabile i dati dall'hub eventi, specificare un gruppo di consumer dedicato per l'uso esclusivo da parte di questo ambiente Time Series Insights.
-
-Per aggiungere un nuovo gruppo di consumer all'hub eventi, eseguire questa procedura:
-1. Nel portale di Azure individuare e aprire l'hub eventi.
-
-2. Sotto l'intestazione **Entità** selezionare **Gruppi di consumer**.
-
-   ![Hub eventi: aggiungere un gruppo di consumer](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-3. Selezionare **+ Gruppo di consumer** per aggiungere un nuovo gruppo di consumer. 
-
-4. Nella pagina **Gruppi di consumer** specificare un nuovo **Nome** univoco.  Usare questo nome al momento di creare una nuova origine evento nell'ambiente Time Series Insights.
-
-5. Selezionare **Crea** per creare il nuovo gruppo di consumer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Definire criteri di accesso ai dati](time-series-insights-data-access.md) per proteggere i dati.

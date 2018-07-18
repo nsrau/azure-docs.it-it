@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064627"
 ---
 # <a name="understanding-cost-management-reports"></a>Informazioni sui report di gestione dei costi
 
@@ -175,6 +176,10 @@ Ogni area numerata nella figura è descritta in dettaglio nei paragrafi seguenti
 
     Usare questa opzione per salvare, esportare o pianificare il report.
 
+15. **Criteri**
+
+    Anche se non sono illustrati, alcuni report includono criteri di calcolo dei costi previsti. In tali report il criterio **Consolidated** visualizza le indicazioni per tutti gli account e le sottoscrizioni con l'entità corrente, ad esempio la registrazione Microsoft o il conto del pagatore AWS. Il criterio **Standalone** visualizza indicazioni per un solo account o una sottoscrizione come se non esistessero altre sottoscrizioni. I criteri selezionati variano in base alla strategia di ottimizzazione usata dall'organizzazione. Le proiezioni dei costi si basano sugli ultimi 30 giorni di utilizzo.
+
 ## <a name="save-and-schedule-reports"></a>Salvare e pianificare report
 
 Dopo avere creato un report, è possibile salvarlo per un uso futuro. I report salvati sono disponibili in **My Tools** (Strumenti personali) > **My Reports** (Report personali). Se si apportano modifiche a un report esistente e lo si salva, il report viene salvato come una nuova versione. In alternativa, è possibile salvarlo come un nuovo report.
@@ -198,4 +203,5 @@ Mentre si visualizza un report, fare clic su **Actions** (Azioni) e quindi selez
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se non si è ancora completata la prima esercitazione per Gestione costi, leggere le informazioni riportate in [Esaminare l'utilizzo e i costi](tutorial-review-usage.md).
+- Informazioni sui report inclusi in Cloudyn in [Usare i report di Gestione costi](use-reports.md).
+- Informazioni su come usare i report per creare [dashboard](dashboards.md).

@@ -1,76 +1,50 @@
 ---
-title: Disponibilità elevata - Servizio del database SQL di Azure | Microsoft Docs
+title: Disponibilità elevata - Servizio del database SQL di Azure | Documentazione Microsoft
 description: Informazioni sulle funzionalità di disponibilità elevata del servizio di database SQL di Azure
 services: sql-database
-author: anosov1960
+author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 04/24/2018
-ms.author: sashan
-ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.topic: conceptual
+ms.date: 06/20/2018
+ms.author: jovanpop
+ms.reviewer: carlrab, sashan
+ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777018"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060384"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Disponibilità elevata e database SQL di Azure
-Dall'inizio dell'offerta PaaS del database SQL di Azure, Microsoft ha promesso ai clienti l'integrazione della disponibilità elevata nel servizio evitando ai clienti di dover gestire, aggiungere una logica specifica o prendere decisioni in merito alla disponibilità elevata. Microsoft mantiene il controllo completo sulla configurazione e il funzionamento del sistema di disponibilità elevata offrendo ai clienti un contratto di servizio. Il contratto di servizio di disponibilità elevata si applica a un database SQL in un'area e non assicura protezione in caso di errore nell'intera area dovuto a fattori al di fuori del ragionevole controllo di Microsoft (ad esempio calamità naturali, guerra, atti di terrorismo, sommosse, azioni governative o un errore della rete o del dispositivo esterno al data center Microsoft, inclusi problemi presso la sede del cliente o tra questa e il data center Microsoft).
 
-Per semplificare l'ambito dei problemi della disponibilità elevata, Microsoft utilizza i presupposti seguenti:
-1.  Gli errori hardware e software sono inevitabili
-2.  Lo staff operativo commette errori che causano problemi
-3.  Gli interventi di manutenzione pianificati causano interruzioni 
+Database SQL di Azure è la piattaforma distribuita come servizio del database a disponibilità elevata che garantisce che il database sia attivo e in esecuzione il 99,99% del tempo, senza doversi preoccupare di manutenzione e tempi di inattività. Si tratta di un processo del motore di database di SQL Server completamente gestito ospitato nel cloud di Azure che assicura che il database di SQL Server sia sempre aggiornato o con patch senza influire sul carico di lavoro. Database SQL di Azure può effettuare rapidamente il recupero anche nei casi più critici garantendo che i dati siano sempre disponibili.
 
-Benché tali eventi singoli siano poco frequenti, a livello di cloud accadono ogni settimana, se non tutti i giorni. 
+La piattaforma Azure gestisce completamente ogni database SQL di Azure e garantisce che i dati non vengano persi oltre a una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. Gli ingegneri di SQL Server hanno implementato le procedure note, assicurando che tutte le operazioni di manutenzione vengano completate in meno dello 0,01% del tempo del ciclo di vita del database. Questa architettura è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi e che le operazioni di manutenzione vengano eseguite senza influire sul carico di lavoro. Non ci sono finestre di manutenzione o tempi di inattività che richiedono l'arresto del carico di lavoro mentre il database viene aggiornato o se ne esegue la manutenzione. La disponibilità elevata incorporata nel database SQL di Azure garantisce che il database non sia mai un singolo punto di guasto nell'architettura del software.
 
-## <a name="fault-tolerant-sql-databases"></a>Database SQL a tolleranza di errore
-I clienti sono più interessati alla resilienza dei propri database e meno a quella del servizio di database SQL nel suo complesso. Il tempo di attività del 99,99% per un servizio perde significato se il database del cliente fa parte di quello 0,01% di database inattivi. Ogni singolo database deve essere a tolleranza di errore e la mitigazione dei rischi non deve mai comportare la perdita di una transazione approvata. 
+In Azure SQL esistono due modelli a disponibilità elevata applicati:
 
-Per i dati, il servizio di database SQL utilizza sia l'archiviazione locale (LS, local storage) basata su dischi rigidi virtuali/dischi collegati diretti sia l'archiviazione remota (RS, remote storage) basata sui BLOB di pagine di Archiviazione Premium di Azure. 
-- L'archiviazione locale viene usata nei database e nei pool elastici Premium o Business Critical (anteprima), progettati per le applicazioni OLTP strategiche con requisiti elevati di operazioni di I/O al secondo. 
-- L'archiviazione remota viene usata per i livelli di servizio Basic, Standard e Utilizzo generico progettati per carichi di lavoro aziendali orientati al budget che richiedono scalabilità indipendente di potenza di calcolo e archiviazione. Utilizzano un unico BLOB di pagine per file di log e database e meccanismi predefiniti di replica e failover di archiviazione.
+- Modello Standard/utilizzo generico che garantisce il 99,99% di disponibilità, ma con possibile riduzione del livello delle prestazioni durante l'attività di manutenzione.
+- Modello Premium/business critical, anch'esso garantisce il 99,99% di disponibilità con impatto minimo sulle prestazioni del carico di lavoro anche durante le attività di manutenzione.
 
-In entrambi i casi, i meccanismi di replica, rilevamento degli errori e failover del servizio di database SQL sono completamente automatizzati e funzionano senza intervento umano. Questa architettura è progettata per garantire che i dati di cui è stato eseguito il commit non vengano mai persi e che la durabilità dei dati abbia la precedenza su tutto il resto.
+Azure aggiorna e applica le patch al sistema operativo, ai driver e al motore di database di SQL Server in modo trasparente con tempi di inattività minimi per gli utenti finali. Il database SQL di Azure viene eseguito sulla versione stabile più recente del motore di database di SQL Server e del sistema operativo Windows. La maggior parte degli utenti non si accorgerà del fatto che gli aggiornamenti vengono eseguiti continuamente.
 
-Vantaggi principali:
-- I clienti ottengono i massimi vantaggi dei database replicati senza dover configurare o gestire hardware, software, sistema operativo o ambienti di virtualizzazione complessi.
-- Le proprietà ACID complete dei database relazionali vengono gestite dal sistema.
-- I failover sono completamente automatizzati senza perdite di dati di cui è stato eseguito il commit.
-- Il routing delle connessioni alla replica primaria è gestito in modo dinamico dal servizio senza la necessità di logica di applicazione.
-- L'elevato livello di ridondanza automatizzata viene fornito senza alcun costo aggiuntivo.
+## <a name="standard-availability"></a>Disponibilità Standard
 
-> [!NOTE]
-> L'architettura a disponibilità elevata descritta è soggetta a modifica senza preavviso. 
+La disponibilità Standard si riferisce al 99,99% dei contratti di servizio che viene applicata nei livelli Standard/Basic/per utilizzo generico. La disponibilità si ottiene separando i livelli di calcolo e archiviazione. Nel modello a disponibilità Standard sono presenti due livelli:
 
-## <a name="data-redundancy"></a>Ridondanza dei dati
+- Un livello di calcolo senza stato che esegue il processo sqlserver.exe e contiene solo i dati temporanei e memorizzati nella cache, ad esempio cache dei piani, pool di buffer, pool di archiviazione della colonna. Il nodo di SQL Server senza stato è gestito da Azure Service Fabric che inizializza il processo, controlla l'integrità del nodo e, se necessario, esegue il failover in un'altra posizione.
+- Un livello di dati con stato con i file di database (.mdf/.ldf) archiviati nei dischi di archiviazione Premium di Azure. Archiviazione di Azure garantisce che i dati dei record che si trovano in un file di database non vengano persi. Archiviazione di Azure è dotato di disponibilità/ridondanza dei dati incorporata che assicura che ogni record nel file di log o pagina nel file di dati verrà conservato anche se si blocca il processo di SQL Server.
 
-La soluzione a disponibilità elevata del database di SQL si basa sulla tecnologia dei [gruppi di disponibilità Always ON](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) di SQL Server e funziona per database LS e RS con differenze minime. Nella configurazione LS la tecnologia del gruppo di disponibilità Always ON viene usata per la persistenza, mentre in quella RS viene usata per la disponibilità (RTO basso tramite replica geografica attiva). 
+Ogni volta che viene aggiornato il motore di database o il sistema operativo oppure se viene rilevato un problema critico nel processo di SQL Server, Azure Service Fabric sposta il processo di SQL Server senza stato in un altro nodo di calcolo senza stato. I dati nel livello di Archiviazione di Azure non sono interessati e i dati e i file di log vengono associati al processo di SQL Server appena inizializzato. Il tempo di failover previsto può essere misurato in secondi. Questo processo garantisce il 99,99% della disponibilità, ma potrebbe influire sulle prestazioni per carichi di lavoro importanti in esecuzione a causa del tempo di transizione e del fatto che il nuovo nodo di SQL Server inizia con la cache a freddo.
 
-## <a name="local-storage-configuration"></a>Configurazione dell'archiviazione locale
+## <a name="premium-availability"></a>Disponibilità Premium
 
-In questo tipo di configurazione, ogni database viene portato online dal servizio di gestione all'interno dell'anello di controllo. Una replica primaria e almeno due repliche secondarie (set di quorum) si trovano all'interno di un anello di tenant che si estende su tre sottosistemi fisici indipendenti all'interno dello stesso data center. Tutte le letture e le scritture sono inviate dal gateway alla replica primaria e le scritture vengono replicate in modo asincrono nelle repliche secondarie. Il database SQL usa uno schema di commit basato su quorum in cui i dati vengono scritti nella replica primaria e in almeno una replica secondaria prima del commit della transazione.
+Nel livello Premium del Database SQL di Azure è abilitata la disponibilità Premium, progettata per carichi di lavoro elevati che non tollerano un impatto sulle prestazioni dovuto alle operazioni di manutenzione continua.
 
-Il sistema di failover di [Service Fabric](../service-fabric/service-fabric-overview.md) ricompila automaticamente le repliche in caso di errori dei nodi e mantiene l'appartenenza al set di quorum quando i nodi escono ed entrano nel sistema. La manutenzione pianificata è attentamente coordinata per evitare che il set di quorum scenda al di sotto di un numero di repliche minime (in genere due). Questo è un modello ottimale per i database Premium e Business Critical (anteprima), ma richiede ridondanza dei componenti di calcolo e archiviazione e comporta costi maggiori.
+Nel modello Premium il database SQL di Azure integra calcolo e archiviazione nel singolo nodo. Sia il processo del motore di database di SQL Server che i file mdf/ldf sottostanti vengono posizionati nello stesso nodo con una risorsa di archiviazione SSD collegata in locale che offre bassa latenza al carico di lavoro.
 
-## <a name="remote-storage-configuration"></a>Configurazione dell'archiviazione remota
-
-Per le configurazioni di archiviazione remota (livelli Basic, Standard o Utilizzo generale), viene mantenuta esattamente una copia nell'archiviazione BLOB remota, usando le funzionalità dei sistemi di archiviazione per durabilità, ridondanza e rilevamento di bit rot. 
-
-L'architettura a disponibilità elevata è illustrata nel diagramma seguente:
- 
-![architettura a disponibilità elevata](./media/sql-database-high-availability/high-availability-architecture.png)
-
-## <a name="failure-detection-and-recovery"></a>Rilevamento degli errori e recupero 
-Un sistema distribuito su larga scala richiede un sistema di rilevamento degli errori altamente affidabile in grado di rilevare gli errori in modo efficiente, rapido e più vicino possibile al cliente. Per database SQL, questo sistema si basa su Azure Service Fabric. 
-
-Nel caso della replica primaria, è immediatamente evidente se e quando ha avuto esito negativo e non è possibile continuare il lavoro perché tutte le letture e le scritture hanno luogo innanzitutto nella replica primaria. Il processo di promozione di una replica secondaria a primaria ha un obiettivo del tempo di ripristino (RTO) di 30 secondi e un obiettivo del punto di ripristino (RPO) pari a 0. Per mitigare l'impatto dell'RTO di 30 secondi, la procedura consigliata consiste nel tentativo di riconnettersi più volte con un tempo di attesa ridotto per i tentativi non riusciti.
-
-Quando una replica secondaria ha esito negativo, il database rimane inattivo per un set di quorum minimo, senza riserve. Service Fabric avvia il processo di riconfigurazione, analogo a quello che segue l'errore della replica primaria, quindi dopo una breve attesa per determinare se l'errore è permanente, viene creata un'altra replica secondaria. Nei casi di fuori servizio temporaneo, ad esempio in caso di errore del sistema operativo o aggiornamento, non viene creata immediatamente una nuova replica per consentire invece il riavvio del nodo in errore. 
-
-Per le configurazioni di archiviazione remota, database SQL usa la funzionalità Always ON per il failover dei database durante gli aggiornamenti. A tale scopo, viene attivata in anticipo come parte dell'evento di aggiornamento pianificato una nuova istanza di SQL che collega e ripristina il file di database dall'archiviazione remota. In caso di arresti anomali del processo o altri eventi imprevisti, Windows Fabric gestisce la disponibilità dell'istanza e, come ultimo passaggio del ripristino, collega il file di database remoto.
+La disponibilità elevata viene implementata usando i [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) standard. Ogni database è un cluster di nodi del database con un database primario accessibile per il carico di lavoro del cliente e alcuni processi secondari contenenti le copie dei dati. Il nodo primario esegue il push costante delle modifiche ai nodi secondari per garantire che i dati siano disponibili nelle repliche secondarie se il nodo primario si arresta per un qualsiasi motivo. Il failover viene gestito dal motore di database di SQL Server: una replica secondaria diventa il nodo primario e viene creata una nuova replica secondaria per garantire un numero sufficiente di nodi nel cluster. Il carico di lavoro viene reindirizzato automaticamente al nuovo nodo primario. Il tempo di failover viene misurato in millisecondi e la nuova istanza primaria è subito pronta per continuare a gestire le richieste.
 
 ## <a name="zone-redundant-configuration-preview"></a>Configurazione con ridondanza della zona (anteprima)
 
@@ -79,14 +53,14 @@ Per impostazione predefinita, le repliche di set di quorum per le configurazioni
 Poiché il set di quorum con ridondanza della zona dispone di repliche in diversi data center distanti tra loro, la maggiore latenza di rete può aumentare il tempo di commit e pertanto compromettere le prestazioni di alcuni carichi di lavoro OLTP. È sempre possibile tornare alla configurazione a singola zona disabilitando l'impostazione di ridondanza della zona. Questo processo è un'operazione di dimensionamento dei dati ed è simile al normale aggiornamento dell'obiettivo del livello di servizio. Al termine del processo, viene eseguita la migrazione del database o del pool da un anello con ridondanza della zona a un anello a singola zona o viceversa.
 
 > [!IMPORTANT]
-> I pool elastici e i database con ridondanza della zona sono supportati solo nei livelli di servizio Premium e Business Critical (anteprima). Durante l'anteprima pubblica, i backup e i record di controllo vengono archiviati nell'archiviazione con ridondanza geografica e accesso in lettura. È quindi possibile che non siano disponibili automaticamente in caso di un'interruzione a livello di zona. 
+> I pool elastici e i database con ridondanza della zona sono attualmente supportati solo per il livello di servizio Premium. Durante l'anteprima pubblica, i backup e i record di controllo vengono archiviati nell'archiviazione con ridondanza geografica e accesso in lettura. È quindi possibile che non siano disponibili automaticamente in caso di un'interruzione a livello di zona. 
 
 La versione con ridondanza della zona dell'architettura a disponibilità elevata è illustrata nel diagramma seguente:
  
 ![architettura a disponibilità elevata con ridondanza della zona](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Scalabilità in lettura
-Come descritto, i livelli di servizio Premium e Business Critical (anteprima) sfruttano i set di quorum e la tecnologia AlwaysON per la disponibilità elevata nelle configurazioni a singola zona e con ridondanza della zona. Uno dei vantaggi della tecnologia AlwaysOn è che le repliche sono sempre in uno stato coerente a livello di transazione. Le repliche hanno lo stesso livello di prestazioni della replica primaria, pertanto l'applicazione può sfruttare tale capacità aggiuntiva per la manutenzione dei carichi di lavoro di sola lettura senza costi aggiuntivi (scalabilità in lettura). In questo modo le query di sola lettura verranno isolate dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità di scalabilità in lettura è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, e quindi potrebbero sfruttare tale capacità senza connettersi alla replica primaria. 
+Come descritto, i livelli di servizio Premium e business critical (anteprima) sfruttano i set di quorum e la tecnologia AlwaysOn per la disponibilità elevata sia nelle configurazioni a singola zona e che in quelle con ridondanza della zona. Uno dei vantaggi della tecnologia AlwaysOn è che le repliche sono sempre in uno stato coerente a livello di transazione. Le repliche hanno lo stesso livello di prestazioni della replica primaria, pertanto l'applicazione può sfruttare tale capacità aggiuntiva per la manutenzione dei carichi di lavoro di sola lettura senza costi aggiuntivi (scalabilità in lettura). In questo modo le query di sola lettura verranno isolate dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità di scalabilità in lettura è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, e quindi potrebbero sfruttare tale capacità senza connettersi alla replica primaria. 
 
 Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario attivarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate).
 
@@ -100,7 +74,7 @@ Se la scalabilità in lettura è disabilitata o è stata impostata la proprietà
 La funzionalità di scalabilità in lettura supporta la coerenza a livello di sessione. Se la sessione di sola lettura si riconnette dopo un errore di connessione causato dalla mancata disponibilità della replica, può essere reindirizzata a una replica diversa. Sebbene sia poco probabile, ciò può comportare l'elaborazione del set di dati non aggiornato. Analogamente, se un'applicazione scrive i dati usando una sessione di lettura/scrittura e li legge immediatamente usando la sessione di sola lettura, è possibile che i nuovi dati non siano immediatamente visibili.
 
 ## <a name="conclusion"></a>Conclusioni
-Il database SQL di Azure è completamente integrato con la piattaforma Azure e altamente dipendente da Service Fabric per il rilevamento degli errori e il ripristino, dai BLOB del servizio di archiviazione di Azure per la protezione dati e da Zone di disponibilità per la tolleranza di errore. Allo stesso tempo, il database SQL di Azure sfrutta completamente i vantaggi offerti dalla tecnologia Always On di SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di ottenere tutti i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più esigenti. 
+Il database SQL di Azure è completamente integrato con la piattaforma Azure e altamente dipendente da Service Fabric per il rilevamento degli errori e il ripristino, dai BLOB del servizio di archiviazione di Azure per la protezione dati e da Zone di disponibilità per la tolleranza di errore. Allo stesso tempo, il database SQL di Azure sfrutta completamente la tecnologia del gruppo di disponibilità AlwaysOn del nuovo prodotto SQL Server per la replica e il failover. La combinazione di queste tecnologie consente alle applicazioni di ottenere tutti i vantaggi di un modello di archiviazione mista e supportare i contratti di servizio più esigenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850447"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Guida per la risoluzione dei problemi di Analisi di flusso di Azure
 
@@ -41,6 +42,7 @@ Per ottenere i migliori risultati nella risoluzione dei problemi del processo di
 
 5.  Eliminare i problemi comuni, ad esempio:
     - Una clausola [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) della query ha filtrato tutti gli eventi impedendo la generazione dell'output.
+    - Una funzione [**CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) non riesce, causando l'esito negativo del processo. Per evitare errori di cast di tipo, usare [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics).
     - Quando si usano le funzioni finestra, attendere la durata dell'intera finestra per vedere l'output dalla query.
     - Il timestamp per gli eventi precede l'ora di inizio del processo, perciò gli eventi vengono eliminati.
 

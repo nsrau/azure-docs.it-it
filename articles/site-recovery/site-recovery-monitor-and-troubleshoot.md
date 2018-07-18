@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30186292"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Monitoraggio e risoluzione dei problemi di Azure Site Recovery
 

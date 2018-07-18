@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702177"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Informazioni sul routing VPN da punto a sito
 
@@ -228,7 +229,7 @@ Tutti i client possono accedere solo a VNet1.
 
 ## <a name="multivnets2sbranchbgp"></a>Più reti virtuali connesse tramite una connessione da sito a sito e una succursale (BGP)
 
-In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a VNet1. VNet1 è connessa a VNet2 tramite una connessione VPN da sito a sito. VNet2 è connessa a VNet3 tramite una connessione VPN da sito a sito. Non è presente alcun peering diretto o tunnel VPN da sito a sito tra le reti VNet1 e VNet3. VNet3 è connessa a una succursale (Site1) tramite una connessione VPN da sito a sito. Nessuna connessione VPN esegue il protocollo BGP. Tutte le connessioni VPN eseguono il protocollo BGP.
+In questo esempio, la connessione gateway VPN da punto a sito fa riferimento a VNet1. VNet1 è connessa a VNet2 tramite una connessione VPN da sito a sito. VNet2 è connessa a VNet3 tramite una connessione VPN da sito a sito. Non è presente alcun peering diretto o tunnel VPN da sito a sito tra le reti VNet1 e VNet3. VNet3 è connessa a una succursale (Site1) tramite una connessione VPN da sito a sito. Tutte le connessioni VPN eseguono il protocollo BGP.
 
 I client che usano Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito, ma le route a VNet2, VNet3 e Site1 devono essere aggiunte manualmente al client. I client non Windows possono accedere alle reti virtuali e ai siti connessi tramite una connessione VPN da sito a sito senza alcun intervento manuale. L'accesso è transitivo e i client possono accedere alle risorse in tutte le reti virtuali e in tutti i siti (locali) connessi.
 

@@ -9,18 +9,19 @@ editor: daveba
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: bdd57e33e53bd8b3d83f8279bed5413ccd556549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901477"
 ---
-# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usare un'Identità del servizio gestito con una macchina virtuale Linux per accedere ad Azure Key Vault 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -134,12 +135,12 @@ Per completare questi passaggi, è necessario disporre di un client SSH.  Se si 
     
 Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è possibile usarlo per eseguire l'autenticazione a un servizio che richiede un nome e una password.
 
+## <a name="next-steps"></a>Passaggi successivi
 
-## <a name="related-content"></a>Contenuti correlati
+Questa esercitazione ha illustrato come usare l'identità del servizio gestita con una macchina virtuale Linux per accedere ad Azure Key Vault.  Per altre informazioni su Azure Key Vault, consultare:
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](overview.md).
-
-Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
+> [!div class="nextstepaction"]
+>[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-whatis)
 
 
 

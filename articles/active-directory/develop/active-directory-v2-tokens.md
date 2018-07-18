@@ -1,5 +1,5 @@
 ---
-title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Microsoft Docs
+title: Informazioni di riferimento sui token di Azure Active Directory 2.0 | Documentazione Microsoft
 description: Tipi di token e attestazioni generati dall'endpoint di Azure AD 2.0.
 services: active-directory
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164459"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316669"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informazioni di riferimento sui token di Azure Active Directory 2.0
 L'endpoint di Azure Active Directory (Azure AD) 2.0 genera tipi diversi di token di sicurezza in ogni [flusso di autenticazione](active-directory-v2-flows.md). Questo articolo di riferimento descrive il formato, le caratteristiche di sicurezza e i contenuti di ogni tipo di token.
@@ -95,8 +95,7 @@ Quando si riscatta un token di aggiornamento per un nuovo token di accesso e l'a
 ## <a name="validating-tokens"></a>Convalida dei token
 Attualmente, l'unica convalida dei token che le app devono eseguire è la convalida dei token ID. Per convalidare un token ID, l'app deve convalidarne la firma e le attestazioni incluse.
 
-<!-- TODO: Link -->
-Microsoft fornisce esempi di codice e librerie che illustrano come gestire in modo semplice la convalida dei token. Le sezioni successive illustrano il processo sottostante. Sono anche disponibili varie librerie open source di terze parti per la convalida dei token JWT. È disponibile almeno una libreria per ogni piattaforma e linguaggio.
+<!-- TODO: Link --> Microsoft fornisce esempi di codice e librerie che illustrano come gestire in modo semplice la convalida dei token. Le sezioni successive illustrano il processo sottostante. Sono anche disponibili varie librerie open source di terze parti per la convalida dei token JWT. È disponibile almeno una libreria per ogni piattaforma e linguaggio.
 
 ### <a name="validate-the-signature"></a>convalidare la firma
 Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come *intestazione*, il secondo come *corpo* e il terzo come *firma*. Il segmento della firma può essere usato per convalidare l'autenticità del token ID perché venga considerato attendibile dall'app.
@@ -113,7 +112,7 @@ I token ID vengono firmati usando algoritmi di crittografia asimmetrica standard
 
 L'attestazione `alg` indica l'algoritmo usato per firmare il token. L'attestazione `kid` indica la chiave pubblica usata per firmare il token.
 
-In qualsiasi momento, l'endpoint 2.0 può firmare un token ID usando una qualsiasi coppia di chiavi pubblica-privata di un set specifico. L'endpoint 2.0 ruota periodicamente il set di chiavi, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate dall'endpoint 2.0 è di circa 24 ore.
+L'endpoint 2.0 firma i token ID e di accesso usando una qualsiasi coppia di chiavi pubblica-privata di un set specifico. L'endpoint 2.0 ruota periodicamente il set di chiavi, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate dall'endpoint 2.0 è di circa 24 ore.
 
 È possibile acquisire i dati della chiave di firma necessari per convalidare la firma usando il documento di metadati di OpenID Connect disponibile all'indirizzo:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > Provare l'URL in un browser.
->
->
 
 Il documento di metadati è un oggetto JSON contenente diverse informazioni utili, ad esempio la posizione dei vari endpoint necessari per l'autenticazione di OpenID Connect. Il documento include anche un oggetto *jwks_uri* che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Il documento JSON in jwks_uri include tutte le informazioni sulla chiave pubblica corrente. L'app può usare l'attestazione `kid` nell'intestazione del token JWT per selezionare la chiave pubblica del documento usata per firmare un token. Esegue quindi la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
+
+> [!NOTE]
+> L'attestazione `x5t` è deprecata nell'endpoint v2.0. È consigliabile usare l'attestazione `kid` per convalidare il token.
 
 La convalida della firma non rientra nelle finalità di questo documento. A tale scopo è possibile consultare le varie librerie open source disponibili.
 

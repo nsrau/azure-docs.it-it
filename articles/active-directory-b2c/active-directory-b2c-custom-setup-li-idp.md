@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: aggiungere LinkedIn come provider di identità OAuth2 tramite criteri personalizzati'
-description: Articolo di procedure su come configurare un'applicazione LinkedIn con il protocollo OAuth2 e criteri personalizzati
+title: Aggiungere LinkedIn come provider di identità OAuth2 tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+description: Articolo che contiene le procedure per configurare un'applicazione LinkedIn tramite il protocollo OAuth2 e criteri personalizzati.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444379"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: aggiungere LinkedIn come provider di identità tramite criteri personalizzati
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ Questo articolo illustra come consentire l'accesso agli utenti di un account Lin
 Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>Passaggio 1: Creare un'applicazione di account LinkedIn
-Per usare LinkedIn come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione LinkedIn e inserire i parametri corretti. È possibile registrare un'applicazione di LinkedIn visitando la [pagina di iscrizione a LinkedIn](https://LinkedIn.com/signup).
+Per usare LinkedIn come provider di identità in Azure Active Directory B2C (Azure AD B2C), è necessario creare un'applicazione LinkedIn e inserire i parametri corretti. È possibile registrare un'applicazione di LinkedIn visitando la [pagina di iscrizione a LinkedIn](https://www.linkedin.com/start/join).
 
 1. Passare al sito Web per la [gestione delle applicazioni di LinkedIn](https://www.linkedin.com/secure/developer?newapp=), accedere con le credenziali dell'account LinkedIn e fare clic su **Crea applicazione**.
 

@@ -2,7 +2,7 @@
 title: Opzioni di calcolo di Azure - Servizi cloud di Azure | Microsoft Docs
 description: 'Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud di Azure e Macchine virtuali'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120285"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud di Azure
 Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi. Quello da scegliere dipende dalle attività che si tenta di eseguire.

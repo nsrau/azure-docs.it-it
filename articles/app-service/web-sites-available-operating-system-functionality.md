@@ -1,8 +1,8 @@
 ---
-title: "Funzionalità del sistema operativo in Servizio app di Azure"
-description: "Informazioni sulle funzionalità del sistema operativo disponibili per app Web, back-end per app per dispositivi mobili e app per le API in Servizio app di Azure"
+title: Funzionalità del sistema operativo in Servizio app di Azure
+description: Informazioni sulle funzionalità del sistema operativo disponibili per app Web, back-end per app per dispositivi mobili e app per le API in Servizio app di Azure
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850155"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
 Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le app in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
@@ -37,7 +38,7 @@ Poiché il servizio app supporta una perfetta scalabilità tra i diversi livelli
 ## <a name="development-frameworks"></a>Framework di sviluppo
 I piani tariffari del servizio app controllano la quantità di risorse di calcolo (CPU, archiviazione su disco, memoria e uscita di rete) disponibili per le app. Tuttavia, la gamma di funzionalità del framework disponibili per le app resta la stessa indipendentemente dai livelli di scalabilità.
 
-Il servizio app supporta diversi framework di sviluppo, tra cui ASP.NET, ASP classico, Node.js, PHP e Python, tutti eseguibili come estensioni in IIS. Per semplificare e normalizzare la configurazione della sicurezza, le app del servizio app eseguono i vari framework di sviluppo con le relative impostazioni predefinite. Un approccio alla configurazione delle app avrebbe potuto comportare la personalizzazione delle funzionalità e della superficie di attacco delle API per ogni framework di sviluppo. Il servizio app invece usa un approccio più generico, abilitando una linea di base comune delle funzionalità del sistema operativo indipendentemente dal framework di sviluppo di un'app.
+Servizio app supporta diversi framework di sviluppo, tra cui ASP.NET, ASP classico, Node.js, PHP e Python, tutti eseguibili come estensioni in IIS. Per semplificare e normalizzare la configurazione della sicurezza, le app del servizio app eseguono i vari framework di sviluppo con le relative impostazioni predefinite. Un approccio alla configurazione delle app avrebbe potuto comportare la personalizzazione delle funzionalità e della superficie di attacco delle API per ogni framework di sviluppo. Il servizio app invece usa un approccio più generico, abilitando una linea di base comune delle funzionalità del sistema operativo indipendentemente dal framework di sviluppo di un'app.
 
 Le sezioni seguenti riepilogano i tipi generali di funzionalità del sistema operativo disponibili per le app del servizio app.
 
@@ -49,16 +50,22 @@ Nel servizio app sono presenti varie unità, tra cui unità locali e unità di r
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Unità locali
-Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Sono incluse un'unità del sistema operativo (l'unità D:\), un'unità delle applicazioni contenente i file pacchetto di Azure (cspkg) usati esclusivamente dal servizio app (e non accessibili ai clienti) e un'unità "utente" (l'unità C:\), la cui dimensione varia in base alla dimensione della VM. È importante monitorare l'utilizzo del disco man mano che aumentano le dimensioni dell'applicazione. Il raggiungimento della quota disco può avere effetti negativi sull'applicazione.
+Il servizio app è essenzialmente un servizio in esecuzione sull'infrastruttura PaaS (piattaforma distribuita come servizio) di Azure. Di conseguenza, le unità locali collegate a una macchina virtuale sono dello stesso tipo di quelle disponibili in qualsiasi ruolo di lavoro in esecuzione in Azure. Sono inclusi:
+
+- Un'unità del sistema operativo (l'unità D:\)
+- Un'unità di applicazione che contiene file cspkg del pacchetto di Azure usata esclusivamente da Servizio app (e inaccessibile ai clienti)
+- Un'unità "utente" (unità C:\), le cui dimensioni variano a seconda delle dimensioni della macchina virtuale. 
+
+È importante monitorare l'utilizzo del disco man mano che aumentano le dimensioni dell'applicazione. Il raggiungimento della quota disco può avere effetti negativi sull'applicazione.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Unità di rete (note anche come condivisioni UNC)
 Uno degli aspetti esclusivi del servizio app che rende immediata la distribuzione e la manutenzione delle app è rappresentato dal fatto che l'intero contenuto utente è archiviato in un set di condivisioni UNC. Questo modello corrisponde perfettamente al modello comune di archiviazione di contenuto usato dagli ambienti host Web locali che dispongono di più server con carico bilanciato. 
 
-Nel servizio app sono presenti numerose condivisioni UNC create in ogni data center. A ciascuna condivisione UNC è allocata una percentuale del contenuto utente per tutti i clienti di ciascun data center. Inoltre, l'intero contenuto dei file per una sottoscrizione di un singolo cliente è sempre posizionato nella stessa condivisione UNC. 
+In Servizio app sono presenti numerose condivisioni UNC create in ogni data center. A ciascuna condivisione UNC è allocata una percentuale del contenuto utente per tutti i clienti di ciascun data center. Inoltre, l'intero contenuto dei file per una sottoscrizione di un singolo cliente è sempre posizionato nella stessa condivisione UNC. 
 
-Tenere presente che per effetto della modalità di funzionamento dei servizi cloud, la macchina virtuale specifica che è responsabile dell'hosting di una condivisione UNC cambierà nel corso del tempo. Sicuramente le condivisioni UNC verranno montate da macchine virtuali diverse in quanto vengono avviate e arrestate durante la normale esecuzione delle operazioni cloud. Per questo motivo le app non devono mai essere hardcoded in base al presupposto che le informazioni sul computer in un percorso file UNC rimarranno stabili nel corso del tempo. Devono invece usare il pratico percorso assoluto *faux* **D:\home\site** offerto dal servizio app, che offre un metodo portatile, indipendente dall'app e dall'utente per fare riferimento alla propria app. Usando **D:\home\site** è possibile trasferire file condivisi da un'app all'altra senza dover configurare un nuovo percorso assoluto per ogni trasferimento.
+Per effetto della modalità di funzionamento dei servizi Azure, la macchina virtuale specifica responsabile dell'hosting di una condivisione UNC cambierà nel corso del tempo. Sicuramente le condivisioni UNC verranno montate da macchine virtuali diverse in quanto vengono avviate e arrestate durante la normale esecuzione delle operazioni di Azure. Per questo motivo le app non devono mai essere hardcoded in base al presupposto che le informazioni sul computer in un percorso file UNC rimarranno stabili nel corso del tempo. Devono invece usare il pratico percorso assoluto *faux* **D:\home\site** offerto dal servizio app, che offre un metodo portatile, indipendente dall'app e dall'utente per fare riferimento alla propria app. Usando **D:\home\site** è possibile trasferire file condivisi da un'app all'altra senza dover configurare un nuovo percorso assoluto per ogni trasferimento.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -69,7 +76,7 @@ Il servizio app riserva una porzione di spazio dell'unità C:\ per l'archiviazio
 
 Due esempi del modo in cui il servizio app usa le risorse di archiviazione locale temporanea sono costituiti dalla directory per i file ASP.NET temporanei e dalla directory per i file IIS compressi. Il sistema di compilazione di ASP.NET usa la directory "Temporary ASP.NET Files" come posizione cache temporanea per la compilazione. IIS usa la directory "IIS Temporary Compressed Files" per archiviare l'output della risposta in formato compresso. Entrambi i tipi di utilizzo di file (nonché altri) sono rimappati nel servizio app a una risorsa di archiviazione locale temporanea per singola app. Il remapping garantisce una funzionalità conforme alle aspettative.
 
-Ogni app nel servizio app viene eseguita come identità esclusiva e casuale del processo di lavoro con privilegi limitati, definita come "identità del pool di applicazioni" e descritta più dettagliatamente all'indirizzo seguente: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
+Ogni app in Servizio app viene eseguita come identità esclusiva e casuale del processo di lavoro con privilegi limitati, definita come "identità del pool di applicazioni" e descritta più dettagliatamente qui: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Il codice dell'applicazione usa questa identità per l'accesso di base in sola lettura all'unità del sistema operativo (l'unità D:\). Questo significa che il codice dell'applicazione può elencare strutture di directory comuni e file comuni in lettura nell'unità del sistema operativo. Sebbene questo livello di accesso possa sembrare piuttosto esteso, è possibile accedere alle stesse directory e agli stessi file quando si esegue il provisioning di un ruolo di lavoro in un servizio ospitato Azure e la lettura dei contenuti dell'unità. 
 
 <a name="multipleinstances"></a>
 
@@ -81,7 +88,7 @@ La home directory include il contenuto di un'app e il codice dell'applicazione p
 ## <a name="network-access"></a>Accesso alla rete
 Il codice dell'applicazione può usare i protocolli basati su TCP/IP e UDP per effettuare connessioni di rete in uscita a endpoint accessibili tramite Internet che rendono visibili i servizi esterni. Le app possono usare gli stessi protocolli per connettersi ai servizi di Azure&#151; ad esempio stabilendo connessioni HTTPS al database SQL.
 
-È anche presente una capacità limitata per le app di stabilire una connessione loopback locale e di disporre di un'app in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le app che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Si noti che ogni app visualizza una connessione di loopback "privata". L'app "A" non può essere in ascolto su un socket di loopback locale stabilito dall'app "B".
+È anche presente una capacità limitata per le app di stabilire una connessione loopback locale e di disporre di un'app in ascolto su tale socket loopback locale. Questa funzionalità esiste principalmente per abilitare le app che includono tra le proprie funzionalità l'ascolto su socket di loopback locali. Ogni app vede una connessione loopback "privata". L'app "A" non può porsi in ascolto di un socket di loopback locale stabilito dall'app "B".
 
 Sono supportate anche le named pipe come meccanismo di comunicazione interprocesso (IPC) tra processi diversi che eseguono collettivamente un'app. Ad esempio, il modulo IIS FastCGI si basa su named pipe per coordinare i singoli processi che eseguono le pagine PHP.
 

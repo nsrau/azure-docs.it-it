@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971782"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Esempi di query per modelli di uso comune di Analisi di flusso
 
@@ -117,7 +118,7 @@ Fornire ad esempio una stringa descrittiva relativa al numero di automobili dell
         Make,
         TumblingWindow(second, 10)
 
-**Spiegazione**: la clausola **CASE** consente di fornire un calcolo diverso in base ad alcuni criteri (in questo esempio, il numero di automobili nella finestra di aggregazione).
+**Spiegazione**: l'espressione **CASE** confronta un'espressione con un set di espressioni semplici per determinare il risultato. In questo esempio, le marche di veicolo con un conteggio pari a 1 hanno restituito una stringa descrittiva diversa da quella delle marche di veicolo con un numero diverso da 1. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Esempio di query: Invio di dati a più output
 **Descrizione**: inviare dati a più destinazioni di output da un singolo processo.
@@ -418,7 +419,7 @@ Ad esempio, 2 automobili consecutive della stessa casa automobilistica hanno att
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Esempio di query: rilevare la durata di una condizione
 **Descrizione**: individuare la durata di una condizione.
-Si supponga, ad esempio, che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre, pari a 9 tonnellate) e che si voglia calcolare la durata del bug.
+Ad esempio, si supponga che un bug abbia generato un peso errato per tutte le automobili (oltre 20.000 libbre) e che debba essere calcolata la durata di tale bug.
 
 **Input**:
 
@@ -507,7 +508,7 @@ Generare, ad esempio, un evento ogni 5 secondi che segnali il punto di dati più
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Esempio di query: correlare due tipi di evento all'interno dello stesso flusso
 **Descrizione**: a volte è necessario generare gli avvisi in base a più tipi di evento che si sono verificati in un determinato intervallo di tempo.
-Nello scenario IoT per forni domestici, ad esempio, si vuole generare un avviso quando la temperatura della ventola è inferiore a 40 e la potenza massima negli ultimi tre minuti è minore di 10.
+Nello scenario IoT per forni domestici, ad esempio, deve essere generato un avviso quando la temperatura della ventola è inferiore a 40 e la potenza massima negli ultimi tre minuti è minore di 10.
 
 **Input**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Spiegazione**: la prima query `max_power_during_last_3_mins`, usa la [finestra scorrevole](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) per trovare il valore massimo del sensore di alimentazione per ogni dispositivo, durante gli ultimi 3 minuti. La seconda query viene unita alla prima query per trovare il valore di potenza nella finestra più recente rilevante per l'evento corrente. A condizione che le condizioni siano soddisfatte, viene quindi generato un avviso per il dispositivo.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Esempio di query: elaborare eventi indipendenti dallo sfasamento di orario dei dispositivi (substream)
+**Descrizione**: gli eventi possono arrivare in ritardo o non in ordine a causa di sfasamenti di orario tra producer di eventi, sfasamenti di orario tra partizioni o latenza di rete. Nell'esempio seguente il clock di dispositivo per TollID 2 è dieci secondi indietro rispetto a TollID 1 e il clock di dispositivo per TollID 3 è cinque secondi indietro rispetto a TollID 1. 
+
+
+**Input**:
+| Targa | Assicurarsi | Tempo | ID casello |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |27-07-2015T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Output**:
+| ID casello | Conteggio |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Soluzione**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Spiegazione**: la clausola [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) esamina la sequenza temporale di ogni dispositivo separatamente tramite substream. Gli eventi di output per ogni TollID vengono generati man mano che vengono elaborati, vale a dire che gli eventi sono in ordine rispetto a ogni TollID anziché venire riordinati come se tutti i dispositivi fossero nello stesso clock.
 
 
 ## <a name="get-help"></a>Ottenere aiuto

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193455"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293330"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -32,9 +32,11 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Aggiornare il piano tariffario dell'app
-> * Associare il certificato SSL personalizzato al servizio app
-> * Imporre HTTPS per l'app
-> * Automatizzare l'associazione dei certificati SSL con gli script
+> * Associare il certificato personalizzato al servizio app
+> * Rinnovare i certificati
+> * Applicare HTTPS
+> * Applicare TLS 1.1/1.2
+> * Automatizzare la gestione TLS con script
 
 > [!NOTE]
 > Se è necessario usare un certificato SSL personalizzato, è possibile ottenerlo direttamente nel portale di Azure e associarlo all'app Web. Seguire l'[esercitazione sui certificati del Servizio app](web-sites-purchase-ssl-web-site.md).
@@ -84,17 +86,17 @@ Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino a
 
 ![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-Verificare che l'app Web non sia inclusa nel livello **Gratuito** o **Condiviso**. Il livello corrente dell'app Web è evidenziato da una casella blu scuro.
+Verificare che l'app Web non sia inclusa nel livello **F1** o **D1**. Il livello corrente dell'app Web è evidenziato da una casella blu scuro.
 
 ![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-Il certificato SSL personalizzato non è supportato nel livello **Gratuito** o **Condiviso**. Se è necessario passare a un livello superiore, seguire la procedura della sezione successiva. In caso contrario, chiudere la pagina **Scegliere il livello di prezzo** e passare a [Caricare il certificato SSL e Associare il certificato SSL](#upload).
+Il certificato SSL personalizzato non è supportato nel livello **F1** o **D1**. Se è necessario passare a un livello superiore, seguire la procedura della sezione successiva. In caso contrario, chiudere la pagina **Aumenta** e passare a [Caricare il certificato SSL e Associare il certificato SSL](#upload).
 
 ### <a name="scale-up-your-app-service-plan"></a>Passare a un piano di servizio app superiore
 
-Selezionare uno tra i livelli **Basic**, **Standard** o **Premium**.
+Selezionare uno dei livelli non gratuiti (**B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
 
-Fare clic su **Seleziona**.
+Fare clic su **Apply**.
 
 ![Scegliere un piano tariffario](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 
@@ -213,6 +215,14 @@ A questo punto, non resta che assicurarsi che HTTPS funzioni correttamente per i
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Rinnovare i certificati
+
+L'indirizzo IP in ingresso può essere modificato quando si elimina un'associazione, anche se tale associazione è basata su IP. Questo aspetto è particolarmente importante quando si rinnova un certificato che si trova già in un'associazione basata su IP. Per evitare una modifica dell'indirizzo IP dell'app, seguire questi passaggi nell'ordine indicato:
+
+1. Caricare il nuovo certificato.
+2. Associare il nuovo certificato al dominio personalizzato desiderato senza eliminare quello precedente. Questa operazione sostituisce l'associazione anziché rimuovere quella precedente.
+3. Eliminare il certificato precedente. 
+
 ## <a name="enforce-https"></a>Applicare HTTPS
 
 Per impostazione predefinita, gli utenti possono continuare ad accedere all'app Web usando il protocollo HTTP. È possibile reindirizzare tutte le richieste HTTP alla porta HTTPS.
@@ -236,14 +246,6 @@ Nel riquadro di spostamento a sinistra della pagina dell'app Web selezionare **I
 ![Applicare TLS 1.1 o 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 Al termine dell'operazione, l'app rifiuta tutte le connessioni con versioni di TLS meno recenti.
-
-## <a name="renew-certificates"></a>Rinnovare i certificati
-
-L'indirizzo IP in ingresso può essere modificato quando si elimina un'associazione, anche se tale associazione è basata su IP. Questo aspetto è particolarmente importante quando si rinnova un certificato che si trova già in un'associazione basata su IP. Per evitare una modifica dell'indirizzo IP dell'app, seguire questi passaggi nell'ordine indicato:
-
-1. Caricare il nuovo certificato.
-2. Associare il nuovo certificato al dominio personalizzato desiderato senza eliminare quello precedente. Questa operazione sostituisce l'associazione anziché rimuovere quella precedente.
-3. Eliminare il certificato precedente. 
 
 ## <a name="automate-with-scripts"></a>Automatizzazione con gli script
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+Il comando seguente consente di applicare almeno la versione 1.2 di TLS
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Il comando seguente carica un file PFX esportato e aggiunge un'associazione SSL basata su SNI.
@@ -297,9 +308,11 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Aggiornare il piano tariffario dell'app
-> * Associare il certificato SSL personalizzato al servizio app
-> * Imporre HTTPS per l'app
-> * Automatizzare l'associazione dei certificati SSL con gli script
+> * Associare il certificato personalizzato al servizio app
+> * Rinnovare i certificati
+> * Applicare HTTPS
+> * Applicare TLS 1.1/1.2
+> * Automatizzare la gestione TLS con script
 
 Passare all'esercitazione successiva per imparare a usare la rete di distribuzione dei contenuti di Azure.
 

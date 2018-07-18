@@ -1,24 +1,25 @@
 ---
-title: Procedure consigliate per la sincronizzazione dati SQL di Azure (anteprima)| Microsoft Docs
-description: Informazioni sulle procedure consigliate per la configurazione e l'esecuzione della sincronizzazione dati SQL di Azure (anteprima).
+title: Procedure consigliate per la sincronizzazione dati SQL di Azure | Microsoft Docs
+description: Informazioni sulle procedure consigliate per la configurazione e l'esecuzione della sincronizzazione dati SQL di Azure.
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025351"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>Procedure consigliate per la sincronizzazione dati SQL: anteprima 
+# <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
-Questo articolo descrive le procedure consigliate per la sincronizzazione dati SQL di Azure (anteprima).
+Questo articolo descrive le procedure consigliate per la sincronizzazione dati SQL di Azure.
 
-Per una panoramica della sincronizzazione dati SQL (anteprima), vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](sql-database-sync-data.md).
+Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a>Sicurezza e affidabilità
 
@@ -49,10 +50,10 @@ Il database SQL di Azure supporta un solo set di credenziali. Per eseguire quest
 
 #### <a name="sql-database-instance-size"></a>Dimensione dell'istanza del database SQL
 
-Quando si crea una nuova istanza di database SQL, impostare la dimensione massima in modo che sia sempre maggiore rispetto al database da distribuire. Se la dimensione massima impostata non è maggiore rispetto al database distribuito, la sincronizzazione avrà esito negativo. Anche se la sincronizzazione dati SQL (anteprima) non offre funzioni di aumento automatico, è possibile eseguire il comando `ALTER DATABASE` per aumentare le dimensioni del database dopo che è stato creato. Verificare di rientrare nei limiti delle dimensioni delle istanze di database SQL.
+Quando si crea una nuova istanza di database SQL, impostare la dimensione massima in modo che sia sempre maggiore rispetto al database da distribuire. Se la dimensione massima impostata non è maggiore rispetto al database distribuito, la sincronizzazione avrà esito negativo. Anche se la sincronizzazione dati SQL non offre funzioni di aumento automatico, è possibile eseguire il comando `ALTER DATABASE` per aumentare le dimensioni del database dopo che è stato creato. Verificare di rientrare nei limiti delle dimensioni delle istanze di database SQL.
 
 > [!IMPORTANT]
-> La sincronizzazione dati SQL (anteprima) consente di archiviare metadati aggiuntivi con ogni database. Tenere conto di questi metadati quando si calcola lo spazio necessario. La maggiore quantità di overhead è correlata alla larghezza delle tabelle (ad esempio, le tabelle strette richiedono più overhead) e alla quantità di traffico.
+> Sincronizzazione dati SQL archivia altri metadati con ogni database. Tenere conto di questi metadati quando si calcola lo spazio necessario. La maggiore quantità di overhead è correlata alla larghezza delle tabelle (ad esempio, le tabelle strette richiedono più overhead) e alla quantità di traffico.
 
 ### <a name="table-considerations-and-constraints"></a>Vincoli e considerazioni sulle tabelle
 
@@ -62,19 +63,19 @@ Non è necessario includere in un gruppo di sincronizzazione tutte le tabelle pr
 
 #### <a name="primary-keys"></a>Chiavi primarie
 
-Ogni tabella inclusa in un gruppo di sincronizzazione deve avere una chiave primaria. Il servizio di sincronizzazione dati SQL (anteprima) non può sincronizzare una tabella che non dispone di una chiave primaria.
+Ogni tabella inclusa in un gruppo di sincronizzazione deve avere una chiave primaria. Il servizio di sincronizzazione dati SQL non può sincronizzare una tabella che non dispone di una chiave primaria.
 
-Prima di usare la sincronizzazione dati SQL (anteprima) in fase di produzione, testare le prestazioni della sincronizzazione iniziale e di quella continua.
+Prima di usare la sincronizzazione dati SQL in fase di produzione, testare le prestazioni della sincronizzazione iniziale e di quella continua.
 
 ### <a name="provisioning-destination-databases"></a>Provisioning dei database di destinazione
 
-La sincronizzazione dati SQL (anteprima) consente il provisioning automatico di base dei database.
+La sincronizzazione dati SQL consente il provisioning automatico di base dei database.
 
-Questa sezione descrive le limitazioni del provisioning nel servizio di sincronizzazione dati SQL (anteprima).
+Questa sezione descrive le limitazioni del provisioning nel servizio di sincronizzazione dati SQL.
 
 #### <a name="autoprovisioning-limitations"></a>Limitazioni del provisioning automatico
 
-Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL (anteprima) presenta le limitazioni seguenti:
+Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL presenta le limitazioni seguenti:
 
 -   Nella tabella di destinazione vengono create solo le colonne selezionate.  
     Nelle tabelle di destinazione non viene eseguito il provisioning delle colonne che non fanno parte del gruppo di sincronizzazione.
@@ -87,7 +88,7 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL (an
 
 #### <a name="recommendations"></a>Raccomandazioni
 
--   Usare la funzionalità di provisioning automatico della sincronizzazione dati SQL (anteprima) solo per testare il servizio.  
+-   Usare la funzionalità di provisioning automatico della sincronizzazione dati SQL solo per testare il servizio.  
 -   Per la fase di produzione eseguire il provisioning dello schema del database.
 
 ### <a name="locate-hub"></a> Ubicazione del database hub
@@ -113,7 +114,7 @@ Questa sezione prende in esame la sincronizzazione iniziale di un gruppo di sinc
 
 #### <a name="how-initial-sync-works"></a>Funzionamento della sincronizzazione iniziale
 
-Quando si crea un gruppo di sincronizzazione, iniziare con dati in un solo database. Se sono presenti dati in più database, la sincronizzazione dati SQL (anteprima) considera ogni riga come un conflitto da risolvere. La risoluzione dei conflitti causa un rallentamento della sincronizzazione iniziale, che può richiedere giorni o addirittura mesi a seconda delle dimensioni del database.
+Quando si crea un gruppo di sincronizzazione, iniziare con dati in un solo database. Se sono presenti dati in più database, la sincronizzazione dati SQL considera ogni riga come un conflitto da risolvere. La risoluzione dei conflitti causa un rallentamento della sincronizzazione iniziale, che può richiedere giorni o addirittura mesi a seconda delle dimensioni del database.
 
 Se i database si trovano in data center diversi, ogni riga deve spostarsi da un data center a un altro, con il conseguente aumento dei costi della sincronizzazione iniziale.
 
@@ -208,16 +209,16 @@ Rimuovere prima un database da un gruppo di sincronizzazione. Distribuire quindi
 Se si prova a rimuovere un database e quindi a modificare un gruppo di sincronizzazione senza aver prima distribuito una delle modifiche, una delle due operazioni avrà esito negativo. L'interfaccia del portale può essere visualizzata in modo incoerente. In questo caso, aggiornare la pagina per ripristinare lo stato corretto.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulla sincronizzazione dati SQL (anteprima), vedere:
+Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 
--   [Sincronizzare i dati tra più database cloud e locali con l'anteprima di sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
--   [Impostare la sincronizzazione dati SQL di Azure (anteprima)](sql-database-get-started-sql-data-sync.md)
--   [Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Analytics](sql-database-sync-monitor-oms.md)
--   [Risolvere i problemi della sincronizzazione dati SQL di Azure (anteprima)](sql-database-troubleshoot-data-sync.md)  
--   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL (anteprima):  
+-   [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md)
+-   [Configurare la sincronizzazione dati SQL](sql-database-get-started-sql-data-sync.md)
+-   [Monitorare la sincronizzazione dati SQL con Log Analytics](sql-database-sync-monitor-oms.md)
+-   [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)  
+-   Esempi di PowerShell completi che illustrano come configurare la sincronizzazione dati SQL:  
     -   [Usare PowerShell per sincronizzare più database SQL di Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usare PowerShell per la sincronizzazione tra un database SQL di Azure e un database locale di SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL (anteprima)](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [Scaricare la documentazione dell'API REST di sincronizzazione dati SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Per altre informazioni sul database SQL, vedere:
 

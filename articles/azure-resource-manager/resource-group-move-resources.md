@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360088"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36940162"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -57,7 +57,7 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
   Se gli ID tenant per le sottoscrizioni di origine e di destinazione non sono uguali, usare i metodi descritti di seguito per risolvere le differenze degli ID tenant:
 
   * [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md)
-  * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [Come associare o aggiungere una sottoscrizione di Azure ad Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. Il servizio deve abilitare lo spostamento di risorse. In questo articolo sono elencati i servizi che consentono di spostare risorse e quelli che invece non lo consentono.
 3. Il provider di risorse della risorsa da spostare deve essere registrato nella sottoscrizione di destinazione, altrimenti un errore indica che la **sottoscrizione non è registrata per un tipo di risorsa**. Questo problema può verificarsi se si sposta una risorsa in una nuova sottoscrizione, ma la sottoscrizione non è mai stata usata con tale tipo di risorsa.
@@ -93,6 +93,10 @@ Prima di spostare una risorsa è necessario eseguire alcuni passi importanti. La
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sul gruppo di risorse di origine.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sul gruppo di risorse di destinazione.
 
+5. Prima di spostare le risorse, controllare le quote della sottoscrizione in cui si desidera spostare le risorse. Se lo spostamento di risorse causa il superamento dei limiti della sottoscrizione, è necessario verificare se è possibile richiedere un aumento della quota. Per un elenco dei limiti e su come richiedere un aumento, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
+
+5. Quando possibile, suddividere spostamenti di grandi dimensioni in operazioni di spostamento separate. Resource Manager restituisce immediatamente l'esito negativo di tentativi di spostamento di più di 800 risorse in un'unica operazione. Anche lo spostamento di meno di 800 risorse può non riuscire a causa di un timeout.
+
 ## <a name="when-to-call-support"></a>Quando chiamare il supporto
 
 È possibile spostare la maggior parte delle risorse tramite le operazioni self-service descritte in questo articolo. Usare le operazioni self-service per:
@@ -113,6 +117,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * App del servizio app (app Web): vedere [Limitazioni del servizio app](#app-service-limitations)
 * Certificati del servizio app
 * Application Insights
+* Analysis Services
 * Automazione
 * Azure Cosmos DB
 * Servizio di inoltro di Azure
@@ -151,7 +156,8 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Archiviazione
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
-* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse. 
+* Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
+* Time Series Insights
 * Gestione traffico
 * Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
@@ -172,6 +178,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Azure Migrate
 * Servizi BizTalk
 * Certificati: i certificati del servizio app possono essere spostati, ma i certificati caricati presentano alcune [limitazioni](#app-service-limitations).
+* Servizio contenitore
 * DevTest Labs: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni diverse non lo è.
 * Dynamics LCS
 * Express Route
@@ -187,7 +194,7 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 ## <a name="virtual-machines-limitations"></a>Limitazioni delle macchine virtuali
 
-I dischi gestiti non supportano lo spostamento. A causa di questa restrizione, non è possibile spostare le risorse correlate seguenti:
+I dischi gestiti non supportano lo spostamento. A causa di questa restrizione, non è possibile spostare le risorse correlate. Non è possibile spostare:
 
 * Dischi gestiti
 * Macchine virtuali con dischi gestiti
@@ -216,7 +223,7 @@ Non è possibile spostare una rete virtuale in un'altra sottoscrizione se la ret
 
 ## <a name="app-service-limitations"></a>Limitazioni del servizio app
 
-Le limitazioni per lo spostamento delle risorse del Servizio app variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
+Le limitazioni per lo spostamento delle risorse del Servizio app di Azure variano a seconda che lo spostamento avvenga all'interno di una sottoscrizione o a una nuova sottoscrizione.
 
 Le limitazioni descritte in queste sezioni si applicano ai certificati caricati e non ai certificati del servizio app. È possibile spostare i certificati del servizio app in un nuovo gruppo di risorse o in una nuova sottoscrizione senza limitazioni. Se si hanno più app Web che usano lo stesso certificato del servizio app, spostare prima tutte le app Web e quindi spostare il certificato.
 

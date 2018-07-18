@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 71b817c92fe007f36645f28acae7421667dcb13b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888671"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Creare e distribuire modelli di previsione con Azure Machine Learning
 
@@ -26,16 +27,16 @@ Questo articolo illustra come usare il **pacchetto di Azure Machine Learning per
 
 Consultare la [documentazione di riferimento del pacchetto](https://aka.ms/aml-packages/forecasting) per l'elenco completo dei convertitori e dei modelli e informazioni di riferimento dettagliate per ogni modulo e classe.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 1. È necessario che gli account e l'applicazione seguenti siano configurati e installati:
-   - Un account di Sperimentazione di Azure Machine Learning 
+   - Un account Sperimentazione di Azure Machine Learning 
    - Un account di Gestione modelli di Azure Machine Learning
-   - Azure Machine Learning Workbench installato
+   - Azure Machine Learning Workbench installato 
 
-   Se questi tre prerequisiti non sono soddisfatti, seguire le istruzioni dell'articolo [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../service/quickstart-installation.md). 
+    Se questi tre elementi non sono stati ancora creati o installati, seguire le istruzioni dell'articolo [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../service/quickstart-installation.md).
 
 1. È necessario che sia installato il pacchetto di Azure Machine Learning per la previsione. Vedere [qui le istruzioni per installare questo pacchetto](https://aka.ms/aml-packages/forecasting).
 
@@ -57,7 +58,7 @@ L'esempio segue questo flusso di lavoro:
 Scaricare il notebook per eseguire gli esempi di codice descritti in questo articolo.
 
 > [!div class="nextstepaction"]
-> [Scarica il notebook di Jupyter](https://aka.ms/aml-packages/forecasting/notebooks/financial_forecasting)
+> [Scarica il notebook di Jupyter](https://aka.ms/aml-packages/forecasting/notebooks/sales_forecasting)
 
 ### <a name="explore-the-sample-data"></a>Esplorare il codice di esempio
 
@@ -65,7 +66,8 @@ Gli esempi di previsione di Machine Learning nelle sezioni di codice seguenti si
 
 ### <a name="import-any-dependencies-for-this-sample"></a>Importare tutte le dipendenze per questo esempio
 
-Per gli esempi di codice seguente devono essere importate queste dipendenze.
+Per gli esempi di codice seguente devono essere importate queste dipendenze:
+
 
 ```python
 import pandas as pd
@@ -84,7 +86,7 @@ from sklearn.neighbors import KNeighborsRegressor
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
 from ftk.tsutils import last_n_periods_split
 
-from ftk.transforms import LagLeadOperator, TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
+from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
 from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
 from ftk.models.forecasterunion import ForecasterUnion
@@ -103,7 +105,8 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Caricare i dati ed esplorare
 
-Questo frammento di codice illustra il processo tipico che consiste nell'iniziare con un set di dati non elaborato, in questo caso i [dati di Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  È anche possibile usare la funzione di utilità [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Questo frammento di codice illustra il processo tipico che consiste nell'iniziare con un set di dati non elaborato, in questo caso i [dati di Dominick's Finer Foods](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  È anche possibile usare la pratica funzione [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+
 
 ```python
 # Load the data into a pandas DataFrame
@@ -111,6 +114,9 @@ csv_path = pkg_resources.resource_filename('ftk', 'data/dominicks_oj/dominicks_o
 whole_df = pd.read_csv(csv_path, low_memory = False)
 whole_df.head()
 ```
+
+
+
 
 <table border="1" class="dataframe">
   <thead>
@@ -151,7 +157,7 @@ whole_df.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>0,46</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -171,7 +177,7 @@ whole_df.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>0,46</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -191,7 +197,7 @@ whole_df.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>0,46</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -211,7 +217,7 @@ whole_df.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>0,46</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -221,7 +227,7 @@ whole_df.head()
       <td>2</td>
       <td>tropicana</td>
       <td>50</td>
-      <td>9,09</td>
+      <td>9.09</td>
       <td>0</td>
       <td>3,87</td>
       <td>0,23</td>
@@ -231,7 +237,7 @@ whole_df.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>0,46</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -239,16 +245,18 @@ whole_df.head()
   </tbody>
 </table>
 
+
+
 I dati sono costituiti dalle vendite settimanali per marchio e punto vendita. Nella colonna _logmove_ è riportato il valore logaritmico della quantità venduta. Sono incluse anche alcune caratteristiche demografiche dei clienti. 
 
 Per modellare le serie temporali, è necessario estrarre gli elementi seguenti da questo frame di dati: 
 + Un asse data/ora 
 + La quantità di vendite per cui generare la previsione
 
+
 ```python
 # The sales are contained in the 'logmove' column. 
 # Values are logarithmic, so exponentiate and round them to get quantity sold
-
 def expround(x):
     return math.floor(math.exp(x) + 0.5)
 whole_df['Quantity'] = whole_df['logmove'].apply(expround)
@@ -256,13 +264,15 @@ whole_df['Quantity'] = whole_df['logmove'].apply(expround)
 # The time axis is in the 'week' column
 # This is the week offset from the week of 1989-09-07 through 1989-09-13 inclusive
 # Create new datetime columns containing the start and end of each week period
-
 weekZeroStart = pd.to_datetime('1989-09-07 00:00:00')
 weekZeroEnd = pd.to_datetime('1989-09-13 23:59:59')
 whole_df['WeekFirstDay'] = whole_df['week'].apply(lambda n: weekZeroStart + timedelta(weeks=n))
 whole_df['WeekLastDay'] = whole_df['week'].apply(lambda n: weekZeroEnd + timedelta(weeks=n))
 whole_df[['store','brand','WeekLastDay','Quantity']].head()
 ```
+
+
+
 
 <table border="1" class="dataframe">
   <thead>
@@ -271,7 +281,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
       <th>store</th>
       <th>brand</th>
       <th>WeekLastDay</th>
-      <th>Quantity</th>
+      <th>Quantità</th>
     </tr>
   </thead>
   <tbody>
@@ -314,9 +324,7 @@ whole_df[['store','brand','WeekLastDay','Quantity']].head()
 </table>
 
 
-I dati contengono circa 250 diverse combinazioni di punto vendita e marchio in un frame di dati. Ogni combinazione definisce una specifica serie temporale delle vendite. 
 
-È possibile usare la classe [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
 
 ```python
 nseries = whole_df.groupby(['store', 'brand']).ngroups
@@ -326,6 +334,9 @@ print('{} time series in the data frame.'.format(nseries))
     249 time series in the data frame.
     
 
+I dati contengono circa 250 diverse combinazioni di punto vendita e marchio in un frame di dati. Ogni combinazione definisce una specifica serie temporale delle vendite. 
+
+È possibile usare la classe [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) per modellare facilmente più serie in una singola struttura di dati in base al _livello di dettaglio_, che è specificato dalle colonne `store` e `brand`.
 
 La differenza tra _livello di dettaglio_ (grain) e _gruppo_ (group) consiste nel fatto che il livello di dettaglio è sempre fisicamente significativo nel mondo reale, mentre il gruppo non deve necessariamente esserlo. Le funzioni interne del pacchetto usano un gruppo per creare un singolo modello da più serie temporali se l'utente ritiene che il raggruppamento consenta di migliorare le prestazioni del modello. Per impostazione predefinita, il gruppo equivale al livello di dettaglio e viene creato un singolo modello per ogni livello di dettaglio. 
 
@@ -345,13 +356,15 @@ whole_tsdf[['Quantity']].head()
 ```
 
 
+
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th></th>
       <th></th>
-      <th>Quantity</th>
+      <th>Quantità</th>
     </tr>
     <tr>
       <th>WeekLastDay</th>
@@ -395,6 +408,7 @@ whole_tsdf[['Quantity']].head()
 </table>
 
 
+
 Nella rappresentazione TimeSeriesDataFrame l'asse temporale e il livello di dettaglio fanno ora parte dell'indice di frame di dati e facilitano l'accesso alla funzionalità di sezionamento datetime di Pandas.
 
 
@@ -406,13 +420,16 @@ whole_tsdf.sort_index(inplace=True)
 whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 ```
 
+
+
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
       <th></th>
       <th></th>
-      <th>Quantity</th>
+      <th>Quantità</th>
     </tr>
     <tr>
       <th>WeekLastDay</th>
@@ -481,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
+La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) genera un report completo del frame di dati delle serie temporali. Il report include una descrizione generale dei dati e le statistiche specifiche dei dati delle serie temporali. 
 
 
 ```python
@@ -623,6 +640,7 @@ whole_tsdf.ts_report()
     
 
 
+
 ![png](./media/how-to-build-deploy-forecast-models/output_15_1.png)
 
 
@@ -644,6 +662,12 @@ whole_tsdf.ts_report()
 
 
 ![png](./media/how-to-build-deploy-forecast-models/output_15_6.png)
+
+![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+ 
 
 
 ## <a name="integrate-with-external-data"></a>Integrare dati esterni
@@ -680,6 +704,9 @@ whole_tsdf = whole_tsdf.merge(weather_all, how='left', on='WeekLastDay')
 whole_tsdf.head()
 ```
 
+
+
+
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -701,7 +728,7 @@ whole_tsdf.head()
       <th>SSTRVOL</th>
       <th>CPDIST5</th>
       <th>CPWVOL5</th>
-      <th>Quantity</th>
+      <th>Quantità</th>
       <th>WeekFirstDay</th>
       <th>TEMP</th>
       <th>DEWP</th>
@@ -751,7 +778,7 @@ whole_tsdf.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>...</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -799,7 +826,7 @@ whole_tsdf.head()
       <td>0,10</td>
       <td>0,30</td>
       <td>...</td>
-      <td>2,11</td>
+      <td>2.11</td>
       <td>1,14</td>
       <td>1,93</td>
       <td>0,38</td>
@@ -819,7 +846,7 @@ whole_tsdf.head()
       <td>1,59</td>
       <td>0,12</td>
       <td>0,32</td>
-      <td>0,05</td>
+      <td>0.05</td>
       <td>10,92</td>
       <td>0,10</td>
       <td>0,41</td>
@@ -843,7 +870,7 @@ whole_tsdf.head()
       <td>2,99</td>
       <td>0,12</td>
       <td>0,32</td>
-      <td>0,05</td>
+      <td>0.05</td>
       <td>10,92</td>
       <td>0,10</td>
       <td>0,41</td>
@@ -863,17 +890,16 @@ whole_tsdf.head()
 </table>
 
 
-
 ## <a name="preprocess-data-and-impute-missing-values"></a>Pre-elaborare i dati e attribuire i valori mancanti
 
-Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
+Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe).
+I modelli di base richiedono serie temporali contigue. Verificare se le serie sono regolari, ovvero se hanno un indice temporale campionato a intervalli regolari, usando la funzione [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain).
 
 
 ```python
@@ -948,7 +974,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
+È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
 
 
 ```python
@@ -1014,16 +1040,17 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinare più modelli
 
-Lo stimatore [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
+Lo stimatore [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
 
 
 ```python
 forecaster_union = ForecasterUnion(
     forecaster_list=[('naive', naive_model), ('seasonal_naive', seasonal_naive_model), 
-                     ('ets', ets_model)]) 
+                     ('ets', ets_model), ('arima', arima_model)]) 
 ```
 
 ### <a name="fit-and-predict"></a>Fit e Predict
+
 Nel pacchetto di Azure Machine Learning per la previsione, gli stimatori seguono la stessa API degli stimatori scikit-learn, ovvero un metodo fit per il training dei modelli e un metodo predict per la generazione delle previsioni. 
 
 **Eseguire il training dei modelli**  
@@ -1032,7 +1059,6 @@ Poiché questi modelli sono tutti univariati, a ogni livello di dettaglio dei da
 
 ```python
 forecaster_union_fitted = forecaster_union.fit(train_imputed_tsdf)
-arima_model_fitted = arima_model.fit(train_imputed_tsdf)
 ```
 
 **Prevedere le vendite sui dati di test**  
@@ -1041,66 +1067,95 @@ Analogamente al metodo fit, è possibile creare stime per le 249 serie nel set d
 
 ```python
 forecaster_union_prediction = forecaster_union_fitted.predict(test_tsdf, retain_feature_column=True)
-arima_prediction= arima_model_fitted.predict(test_tsdf)
 ```
 
-**Valutare le prestazioni dei modelli**
+**Valutare le prestazioni dei modelli**   
 
-È ora possibile calcolare gli errori di previsione nel set di test. A tale scopo è possibile usare l'errore medio assoluto percentuale (MAPE, Mean Absolute Percentage Error), ovvero l'errore medio assoluto rispetto ai valori effettivi delle vendite. La funzione ```calc_error``` offre alcune funzioni predefinite per la metrica di errore di uso comune, ma è anche possibile definire una funzione di errore personalizzata e passare il risultato all'argomento ```err_fun```.
+È ora possibile calcolare gli errori di previsione nel set di test. A tale scopo è possibile usare l'errore medio assoluto percentuale (MAPE, Mean Absolute Percentage Error), ovvero l'errore percentuale medio assoluto rispetto ai valori effettivi delle vendite. La funzione ```calc_error``` offre alcune funzioni predefinite per la metrica di errore di uso comune, ma è anche possibile definire la funzione di errore personalizzata per calcolare MedianAPE e passare il risultato all'argomento err_fun.
 
 
 ```python
-forecaster_union_error = forecaster_union_prediction.calc_error(err_name='MAPE', by='ModelName')
-arima_error = pd.DataFrame({'ModelName': 'arima','MAPE': arima_prediction.calc_error(err_name='MAPE')}, 
-                           index=[len(forecaster_union_error)])
-
-all_model_errors = pd.concat([forecaster_union_error, arima_error])
-print(all_model_errors)
+def calc_median_ape(y_true, y_pred):
+    y_true = np.array(y_true).astype(float)
+    y_pred = np.array(y_pred).astype(float)
+    y_true_rm_na = y_true[~(np.isnan(y_true) | np.isnan(y_pred))]
+    y_pred_rm_na = y_pred[~(np.isnan(y_true) | np.isnan(y_pred))]
+    y_true = y_true_rm_na
+    y_pred = y_pred_rm_na
+    if len(y_true) == 0:
+        # if there is no entries left after removing na data, return np.nan
+        return(np.nan)
+    y_true_rm_zero = y_true[y_true != 0]
+    y_pred_rm_zero = y_pred[y_true != 0]
+    if len(y_true_rm_zero) == 0:
+        # if all values are zero, np.nan will be returned.
+        return(np.nan)
+    ape = np.abs((y_true_rm_zero - y_pred_rm_zero) / y_true_rm_zero) * 100
+    median_ape = np.median(ape)
+    return median_ape
 ```
-
-        MAPE       ModelName
-    0 187.89             ets
-    1 103.57           naive
-    2 180.54  seasonal_naive
-    3 126.57           arima
-    
-
-È utile per verificare la distribuzione di questi errori nelle 249 serie temporali presenti nei dati. A tale scopo, usare l'argomento `by` in `calc_error` per calcolare gli errori per ogni serie. Creare quindi un grafico box plot per visualizzarli.
 
 
 ```python
-# Compute MAPE by grain for each model
-forecaster_union_error_bygrain = forecaster_union_prediction.calc_error(err_name='MAPE',
-                                                                        by=['ModelName'] + test_tsdf.grain_colnames)
-arima_error_bygrain = arima_prediction.calc_error(err_name='MAPE', 
-                                                  by=test_tsdf.grain_colnames)
-arima_error_bygrain['ModelName'] = 'arima'
+forecaster_union_MAPE = forecaster_union_prediction.calc_error(err_name='MAPE',
+                                                               by='ModelName')
+forecaster_union_MedianAPE = forecaster_union_prediction.calc_error(err_name='MedianAPE', 
+                                                                    err_fun=calc_median_ape,
+                                                                    by='ModelName')
 
-error_bygrain_univariate = pd.concat([forecaster_union_error_bygrain, arima_error_bygrain])
-
-# Display a boxplot to visualize the forecast error distributions
-error_bygrain_univariate[['ModelName', 'MAPE']].groupby('ModelName').boxplot(subplots=False, figsize=[10, 8])
+univariate_model_errors = forecaster_union_MAPE.merge(forecaster_union_MedianAPE, on='ModelName')
+univariate_model_errors
 ```
 
 
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ModelName</th>
+      <th>MAPE</th>
+      <th>MedianAPE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>arima</td>
+      <td>126,57</td>
+      <td>66,49</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ets</td>
+      <td>187,89</td>
+      <td>75,73</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>naive</td>
+      <td>103,57</td>
+      <td>59,14</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>seasonal_naive</td>
+      <td>180,54</td>
+      <td>65,99</td>
+    </tr>
+  </tbody>
+</table>
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x15b5d60d4a8>
 
 
+## <a name="build-machine-learning-models"></a>Compilare modelli di Machine Learning
 
-
-![png](./media/how-to-build-deploy-forecast-models/output_41_1.png)
-
-
-In generale il modello Naive sembra in grado di generare previsioni più attendibili, tranne in alcuni casi in cui le previsioni risultano meno precise. 
-
-## <a name="build-machine-learning-models"></a>Creare modelli di apprendimento automatico
-Oltre ai modelli univariati tradizionali, il pacchetto di Azure Machine Learning per la previsione consente di creare modelli di apprendimento automatico. S
+Oltre ai modelli univariati tradizionali, il pacchetto di Azure Machine Learning per la previsione consente di creare modelli di apprendimento automatico.
 
 Per questi modelli, creare prima di tutto le caratteristiche.
 
 ### <a name="feature-engineering"></a>Progettazione delle caratteristiche
+
 **Convertitori**   
 Il pacchetto include numerosi convertitori per la definizione di caratteristiche e per la pre-elaborazione dei dati delle serie temporali. Gli esempi che seguono illustrano alcune delle funzionalità disponibili per la pre-elaborazione e per la definizione di caratteristiche.
 
@@ -1127,9 +1182,6 @@ fillna_imputer = TimeSeriesImputer(option='fillna',
 # TimeIndexFeaturizer: extract temporal features from timestamps
 time_index_featurizer = TimeIndexFeaturizer(correlation_cutoff=0.1, overwrite_columns=True)
 
-# LagOperator: create features from the past values of the series
-lag_operator = LagLeadOperator({'price': [1, 2]}, dropna=True)
-
 # GrainIndexFeaturizer: create indicator variables for stores and brands
 grain_featurizer = GrainIndexFeaturizer(overwrite_columns=True, ts_frequency=oj_series_freq)
 ```
@@ -1142,9 +1194,9 @@ Gli oggetti pipeline consentono di salvare con facilità un set di passaggi, in 
 pipeline_ml = AzureMLForecastPipeline([('drop_columns', column_dropper), 
                                        ('fillna_imputer', fillna_imputer),
                                        ('time_index_featurizer', time_index_featurizer),
-                                       ('lag_operator', lag_operator),
                                        ('grain_featurizer', grain_featurizer)
                                       ])
+
 
 train_feature_tsdf = pipeline_ml.fit_transform(train_imputed_tsdf)
 test_feature_tsdf = pipeline_ml.transform(test_tsdf)
@@ -1153,128 +1205,69 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-04-26 17:02:33,633 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-04-26 17:03:51,556 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:01:17.920637
-    F1 2018-04-26 17:03:51,602 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-04-26 17:04:40,372 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:48.770162
-                                                               AGE60  CPDIST5  \
-    WeekLastDay         store brand       origin                                
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59   0.17     2.12   
-                              minute.maid 1990-06-27 23:59:59   0.17     2.12   
-                              tropicana   1990-06-27 23:59:59   0.17     2.12   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59   0.17     2.12   
-                              minute.maid 1990-07-04 23:59:59   0.17     2.12   
+    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
+    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+                                           feat  price  AGE60  EDUC  ETHNIC  \
+    WeekLastDay         store brand                                           
+    1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
+                              minute.maid  0.00   3.17   0.23  0.25    0.11   
+                              tropicana    0.00   3.87   0.23  0.25    0.11   
+                        5     dominicks    1.00   1.59   0.12  0.32    0.05   
+                              minute.maid  0.00   2.99   0.12  0.32    0.05   
     
-                                                               CPWVOL5  DEWP  \
-    WeekLastDay         store brand       origin                               
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59     0.44 43.23   
-                              minute.maid 1990-06-27 23:59:59     0.44 43.23   
-                              tropicana   1990-06-27 23:59:59     0.44 43.23   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59     0.44 43.23   
-                              minute.maid 1990-07-04 23:59:59     0.44 43.23   
+                                           INCOME  HHLARGE  WORKWOM  HVAL150  \
+    WeekLastDay         store brand                                            
+    1990-06-20 23:59:59 2     dominicks     10.55     0.10     0.30     0.46   
+                              minute.maid   10.55     0.10     0.30     0.46   
+                              tropicana     10.55     0.10     0.30     0.46   
+                        5     dominicks     10.92     0.10     0.41     0.54   
+                              minute.maid   10.92     0.10     0.41     0.54   
     
-                                                               EDUC  ETHNIC  \
-    WeekLastDay         store brand       origin                              
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59  0.22    0.16   
-                              minute.maid 1990-06-27 23:59:59  0.22    0.16   
-                              tropicana   1990-06-27 23:59:59  0.22    0.16   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59  0.22    0.16   
-                              minute.maid 1990-07-04 23:59:59  0.22    0.16   
+                                           SSTRDIST     ...       CPWVOL5  \
+    WeekLastDay         store brand                     ...                 
+    1990-06-20 23:59:59 2     dominicks        2.11     ...          0.38   
+                              minute.maid      2.11     ...          0.38   
+                              tropicana        2.11     ...          0.38   
+                        5     dominicks        3.80     ...          0.74   
+                              minute.maid      3.80     ...          0.74   
     
-                                                               HHLARGE  HVAL150  \
-    WeekLastDay         store brand       origin                                  
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59     0.12     0.34   
-                              minute.maid 1990-06-27 23:59:59     0.12     0.34   
-                              tropicana   1990-06-27 23:59:59     0.12     0.34   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59     0.12     0.34   
-                              minute.maid 1990-07-04 23:59:59     0.12     0.34   
+                                           Quantity  TEMP  DEWP  WDSP  PRCP  year  \
+    WeekLastDay         store brand                                                 
+    1990-06-20 23:59:59 2     dominicks    10560.00 72.00 61.87  9.74  0.19  1990   
+                              minute.maid   4480.00 72.00 61.87  9.74  0.19  1990   
+                              tropicana     8256.00 72.00 61.87  9.74  0.19  1990   
+                        5     dominicks     1792.00 72.00 61.87  9.74  0.19  1990   
+                              minute.maid   4224.00 72.00 61.87  9.74  0.19  1990   
     
-                                                               INCOME  PRCP  \
-    WeekLastDay         store brand       origin                              
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59   10.62  0.11   
-                              minute.maid 1990-06-27 23:59:59   10.62  0.11   
-                              tropicana   1990-06-27 23:59:59   10.62  0.11   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59   10.62  0.11   
-                              minute.maid 1990-07-04 23:59:59   10.62  0.11   
+                                           day  grain_brand  grain_store  
+    WeekLastDay         store brand                                       
+    1990-06-20 23:59:59 2     dominicks     20    dominicks            2  
+                              minute.maid   20  minute.maid            2  
+                              tropicana     20    tropicana            2  
+                        5     dominicks     20    dominicks            5  
+                              minute.maid   20  minute.maid            5  
     
-                                                                    ...        \
-    WeekLastDay         store brand       origin                    ...         
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59       ...         
-                              minute.maid 1990-06-27 23:59:59       ...         
-                              tropicana   1990-06-27 23:59:59       ...         
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59       ...         
-                              minute.maid 1990-07-04 23:59:59       ...         
-    
-                                                               WORKWOM  day  feat  \
-    WeekLastDay         store brand       origin                                    
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59     0.36    4  0.23   
-                              minute.maid 1990-06-27 23:59:59     0.36    4  0.23   
-                              tropicana   1990-06-27 23:59:59     0.36    4  0.23   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59     0.36   11  0.23   
-                              minute.maid 1990-07-04 23:59:59     0.36   11  0.23   
-    
-                                                               price  year  \
-    WeekLastDay         store brand       origin                             
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59   2.33  1990   
-                              minute.maid 1990-06-27 23:59:59   2.33  1990   
-                              tropicana   1990-06-27 23:59:59   2.33  1990   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59   2.33  1990   
-                              minute.maid 1990-07-04 23:59:59   2.33  1990   
-    
-                                                               price_lag1  \
-    WeekLastDay         store brand       origin                            
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59        2.33   
-                              minute.maid 1990-06-27 23:59:59        2.33   
-                              tropicana   1990-06-27 23:59:59        2.33   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59        2.33   
-                              minute.maid 1990-07-04 23:59:59        2.33   
-    
-                                                               price_lag2  \
-    WeekLastDay         store brand       origin                            
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59        1.59   
-                              minute.maid 1990-06-27 23:59:59        3.17   
-                              tropicana   1990-06-27 23:59:59        3.87   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59        2.33   
-                              minute.maid 1990-07-04 23:59:59        2.33   
-    
-                                                               grain_brand  \
-    WeekLastDay         store brand       origin                             
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59    dominicks   
-                              minute.maid 1990-06-27 23:59:59  minute.maid   
-                              tropicana   1990-06-27 23:59:59    tropicana   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59    dominicks   
-                              minute.maid 1990-07-04 23:59:59  minute.maid   
-    
-                                                               grain_store  \
-    WeekLastDay         store brand       origin                             
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59            2   
-                              minute.maid 1990-06-27 23:59:59            2   
-                              tropicana   1990-06-27 23:59:59            2   
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59            2   
-                              minute.maid 1990-07-04 23:59:59            2   
-    
-                                                               horizon_origin  
-    WeekLastDay         store brand       origin                               
-    1990-07-04 23:59:59 2     dominicks   1990-06-27 23:59:59               1  
-                              minute.maid 1990-06-27 23:59:59               1  
-                              tropicana   1990-06-27 23:59:59               1  
-    1990-07-11 23:59:59 2     dominicks   1990-07-04 23:59:59               1  
-                              minute.maid 1990-07-04 23:59:59               1  
-    
-    [5 rows x 25 columns]
+    [5 rows x 22 columns]
     
 
-**RegressionForecaster**
+ **RegressionForecaster**
 
-La funzione [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. Usare i modelli `Lasso` e `RandomForest` direttamente da `scikit-learn`.  È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
+La funzione [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) esegue il wrapping degli stimatori di regressione sklearn in modo che sia possibile eseguirne il training su TimeSeriesDataFrame. Il modulo di previsione sottoposto a wrapping inserisce nello stesso modello anche ogni gruppo incluso nell'archivio di casi. Il modulo di previsione può apprendere da un unico modello per un gruppo di serie considerate simili che possono essere raggruppate. Un modello per un gruppo di serie usa spesso i dati di serie più lunghe per migliorare le previsioni relative alle serie brevi. È possibile usare questi modelli in sostituzione di altri modelli della libreria con supporto per la regressione. 
 
 
 ```python
-lasso_model = RegressionForecaster(estimator=Lasso())
-elastic_net_model = RegressionForecaster(estimator=ElasticNet())
-knn_model = RegressionForecaster(estimator=KNeighborsRegressor())
-random_forest_model = RegressionForecaster(estimator=RandomForestRegressor())
-boosted_trees_model = RegressionForecaster(estimator=GradientBoostingRegressor())
+lasso_model = RegressionForecaster(estimator=Lasso(),
+                                   make_grain_features=False)
+elastic_net_model = RegressionForecaster(estimator=ElasticNet(),
+                                         make_grain_features=False)
+knn_model = RegressionForecaster(estimator=KNeighborsRegressor(),
+                                 make_grain_features=False)
+random_forest_model = RegressionForecaster(estimator=RandomForestRegressor(),
+                                           make_grain_features=False)
+boosted_trees_model = RegressionForecaster(estimator=GradientBoostingRegressor(),
+                                           make_grain_features=False)
 
 ml_union = ForecasterUnion(forecaster_list=[
     ('lasso', lasso_model), 
@@ -1287,19 +1280,22 @@ ml_union = ForecasterUnion(forecaster_list=[
 
 
 ```python
-warnings.filterwarnings("ignore") 
 ml_union.fit(train_feature_tsdf, y=train_feature_tsdf.ts_value)
 ml_results = ml_union.predict(test_feature_tsdf, retain_feature_column=True)
 ```
 
 
 ```python
-ml_results_by_grain = ml_results.calc_error(err_name='MAPE', by=ml_results.slice_key_colnames)
-ml_results_no_origin = ml_results_by_grain.copy()
-del ml_results_no_origin['ForecastOriginTime']
-all_results = pd.concat([error_bygrain_univariate, ml_results_no_origin])
-all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
+ml_model_MAPE = ml_results.calc_error(err_name='MAPE', by='ModelName')
+ml_model_MedianAPE = ml_results.calc_error(err_name='MedianAPE', 
+                                           err_fun=calc_median_ape,
+                                           by='ModelName')
+ml_model_errors = ml_model_MAPE.merge(ml_model_MedianAPE, on='ModelName')
+all_errors = pd.concat([univariate_model_errors, ml_model_errors])
+all_errors.sort_values('MedianAPE')
 ```
+
+
 
 
 
@@ -1307,65 +1303,80 @@ all_results[['ModelName', 'MAPE']].groupby('ModelName').median()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>MAPE</th>
-    </tr>
-    <tr>
       <th>ModelName</th>
-      <th></th>
+      <th>MAPE</th>
+      <th>MedianAPE</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>arima</th>
-      <td>81,21</td>
+      <th>4</th>
+      <td>random_forest</td>
+      <td>78,82</td>
+      <td>42,81</td>
     </tr>
     <tr>
-      <th>boosted_trees</th>
-      <td>45,31</td>
+      <th>0</th>
+      <td>boosted_trees</td>
+      <td>78,46</td>
+      <td>45,37</td>
     </tr>
     <tr>
-      <th>elastic_net</th>
-      <td>65,70</td>
+      <th>2</th>
+      <td>naive</td>
+      <td>103,57</td>
+      <td>59,14</td>
     </tr>
     <tr>
-      <th>ets</th>
-      <td>159,17</td>
+      <th>2</th>
+      <td>knn</td>
+      <td>129,85</td>
+      <td>65,37</td>
     </tr>
     <tr>
-      <th>knn</th>
-      <td>67,94</td>
+      <th>1</th>
+      <td>elastic_net</td>
+      <td>125,11</td>
+      <td>65,59</td>
     </tr>
     <tr>
-      <th>lasso</th>
-      <td>63,18</td>
+      <th>3</th>
+      <td>seasonal_naive</td>
+      <td>180,54</td>
+      <td>65,99</td>
     </tr>
     <tr>
-      <th>naive</th>
-      <td>61,64</td>
+      <th>0</th>
+      <td>arima</td>
+      <td>126,57</td>
+      <td>66,49</td>
     </tr>
     <tr>
-      <th>random_forest</th>
-      <td>43,56</td>
+      <th>3</th>
+      <td>lasso</td>
+      <td>112,87</td>
+      <td>67,92</td>
     </tr>
     <tr>
-      <th>seasonal_naive</th>
-      <td>154,60</td>
+      <th>1</th>
+      <td>ets</td>
+      <td>187,89</td>
+      <td>75,73</td>
     </tr>
   </tbody>
 </table>
 
 
 
-Il modello di apprendimento automatico è riuscito a sfruttare le caratteristiche aggiunte e le analogie tra le serie per ottenere previsioni più precise.
+Alcuni modelli di apprendimento automatico sono riusciti a sfruttare le caratteristiche aggiunte e le analogie tra le serie per ottenere previsioni più precise.
 
-**Convalida incrociata e sweep di parametri**
+**Convalida incrociata e sweep di parametri**    
 
 Il pacchetto adatta alcune funzioni di apprendimento automatico tradizionali per un'applicazione di previsione.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) esegue la convalida incrociata a livello temporale, rispettando ciò che è presumibilmente noto e ciò che non lo è in un framework di previsione. 
 
 Nella figura seguente ogni quadratino rappresenta i dati relativi a un momento specifico. I quadratini blu rappresentano il training, mentre quelli arancioni rappresentano il testing in ogni fase. I dati di testing devono provenire dai momenti successivi al momento di training più ampio, altrimenti alcuni dati futuri passeranno ai dati di training e la valutazione del modello non risulterà valida. 
 
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
-
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1385,24 +1396,32 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
     Best paramter: {'estimator__n_estimators': 100}
     
 
-
 **Creare la pipeline finale**   
 Dopo aver identificato il modello migliore è possibile creare e adattare la pipeline finale con tutti i convertitori e il modello migliore. 
 
 
 ```python
-random_forest_model_final = RegressionForecaster(estimator=RandomForestRegressor(n_estimators=100))
+random_forest_model_final = RegressionForecaster(estimator=RandomForestRegressor(100),make_grain_features=False)
 pipeline_ml.add_pipeline_step('random_forest_estimator', random_forest_model_final)
 pipeline_ml_fitted = pipeline_ml.fit(train_imputed_tsdf)
 final_prediction = pipeline_ml_fitted.predict(test_tsdf)
+final_median_ape = final_prediction.calc_error(err_name='MedianAPE', err_fun=calc_median_ape)
+print('Median of APE of final pipeline: {0}'.format(final_median_ape))
 ```
+
+    F1 2018-05-04 11:07:04,108 INFO azureml.timeseries - pipeline fit started. 
+    F1 2018-05-04 11:07:43,121 INFO azureml.timeseries - pipeline fit finished. Time elapsed 0:00:39.012880
+    F1 2018-05-04 11:07:43,136 INFO azureml.timeseries - pipeline predict started. 
+    F1 2018-05-04 11:08:03,564 INFO azureml.timeseries - pipeline predict finished. Time elapsed 0:00:20.428147
+    Median of APE of final pipeline: 42.54336821266968
+    
 
 ## <a name="operationalization-deploy-and-consume"></a>Operazionalizzazione: distribuzione e utilizzo
 
-In questa sezione si distribuisce una pipeline come servizio Web di Azure Machine Learning e si utilizza la pipeline per il training e l'assegnazione di un punteggio.
-Le pipeline non sono adatte per la distribuzione. Se si assegna un punteggio al servizio Web distribuito, viene eseguito di nuovo il training del modello e vengono generate previsioni in base ai nuovi dati. 
+In questa sezione si distribuisce una pipeline come servizio Web di Azure Machine Learning e si utilizza la pipeline per il training e l'assegnazione di un punteggio. Se si assegna un punteggio al servizio Web distribuito, viene eseguito di nuovo il training del modello e vengono generate previsioni in base ai nuovi dati.
 
 ### <a name="set-model-deployment-parameters"></a>Impostare i parametri di distribuzione del modello
+
 Impostare i parametri seguenti in base a valori personalizzati. Verificare che l'ambiente di Azure Machine Learning, l'account di gestione dei modelli e il gruppo di risorse si trovino nella stessa area.
 
 
@@ -1435,7 +1454,7 @@ model_management_account_resource_group = '<model management account resource gr
 model_management_account_location = '<model management account location>'
 
 # The name of the deployment/web service.
-deployment_name = '<web service name?'
+deployment_name = '<web service name>'
 
 # The directory to store deployment related files, such as pipeline pickle file, score script, 
 # and conda dependencies file. 
@@ -1455,28 +1474,30 @@ aml_settings = AMLSettings(azure_subscription=azure_subscription,
                      model_management_account_location=model_management_account_location,
                      cluster=deployment_type)
 
+random_forest_model_deploy = RegressionForecaster(estimator=RandomForestRegressor(),make_grain_features=False)
 pipeline_deploy = AzureMLForecastPipeline([('drop_columns', column_dropper), 
                                            ('fillna_imputer', fillna_imputer),
                                            ('time_index_featurizer', time_index_featurizer),
-                                           ('random_forest_estimator', random_forest_model_final)
+                                           ('random_forest_estimator', random_forest_model_deploy)
                                           ])
 
 aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/latest/azuremlftk-1.0.0b1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>Creare il servizio Web
 
 
 ```python
-# This step can take 5 to 20 minutes if a new cluster needs to be provisioned
+# This step can take 5 to 20 minutes
 aml_deployment.deploy()
 ```
 
 ### <a name="score-the-web-service"></a>Assegnare un punteggio al servizio Web
+
 Per assegnare un punteggio a un set di dati di piccole dimensioni, usare il metodo [score](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) per inviare una chiamata al servizio Web per tutti i dati.
 
 
@@ -1496,7 +1517,6 @@ aml_web_service = aml_deployment.get_deployment()
 
 # Score the web service
 results = aml_web_service.score(score_context=score_context)
-
 ```
 
 Per assegnare un punteggio a un set di dati di grandi dimensioni, usare la modalità di [assegnazione di punteggio in parallelo](https://docs.microsoft.com/python/api/ftk.operationalization.deployment.amlwebservice) per inviare più chiamate al servizio Web, una per ogni gruppo di dati.

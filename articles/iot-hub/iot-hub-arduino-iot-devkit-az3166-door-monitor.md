@@ -1,24 +1,20 @@
 ---
 title: Ricevere un messaggio di posta elettronica quando la porta viene aperta usando il servizio SendGrid e Funzioni di Azure | Microsoft Docs
 description: Monitorare il sensore magnetico per rilevare quando viene aperta una porta e usare Funzioni di Azure per inviare una notifica tramite posta elettronica.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 4eb13a588f0ffd1377caf3ce9bac4886f052a22f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437716"
 ---
 # <a name="door-monitor"></a>Monitoraggio della porta          
 
@@ -37,7 +33,7 @@ In questo progetto viene illustrato:
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-Completare la [Guida introduttiva]({{"/docs/get-started/" | absolute_url }}) per:
+Completare la [Guida introduttiva](iot-hub-arduino-iot-devkit-az3166-get-started.md) per:
 
 * Connettere il dispositivo DevKit alla rete Wi-Fi
 * Preparare l'ambiente di sviluppo

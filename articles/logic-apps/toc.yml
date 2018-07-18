@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Ambiti
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Creare variabili per salvare valori
+          href: logic-apps-create-variables-store-values.md
         - name: Aggiungere codice personalizzato con Funzioni di Azure
           href: logic-apps-azure-functions.md
         - name: Chiamare le app per la logica con Funzioni di Azure
@@ -226,13 +228,15 @@
           href: ../connectors/connectors-native-recurrence.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
+        - name: SFTP
+          href: ../connectors/connectors-create-api-sftp.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
           href: ../connectors/connectors-create-api-sharepointserver.md
         - name: Slack
           href: ../connectors/connectors-create-api-slack.md
-        - name: SQL Azure e SQL Server
+        - name: SQL Server
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Trasformare XML
           href: logic-apps-enterprise-integration-transform.md
@@ -266,14 +270,14 @@
       items:
         - name: Monitorare lo stato delle app per la logica
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Monitorare lo stato di app per la logica in OMS con Log Analytics
+        - name: Monitorare lo stato di app per la logica con Azure Log Analytics
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: Monitorare i messaggi B2B
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: Tenere traccia dei messaggi B2B in OMS
+            - name: Tenere traccia dei messaggi B2B in Azure Log Analytics
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Cercare messaggi B2B in OMS
+            - name: Eseguire query in Azure Log Analytics per messaggi B2B
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Esempi, scenari e procedure dettagliate'
       href: logic-apps-examples-and-scenarios.md
@@ -288,6 +292,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: Riferimenti
   items:
+    - name: Modelli di architettura
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: Integrazione aziendale semplice
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: Integrazione aziendale con code ed eventi
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: 'Connettori: dettagli completi'
       href: 'https://docs.microsoft.com/connectors/'
     - name: Limiti e configurazione

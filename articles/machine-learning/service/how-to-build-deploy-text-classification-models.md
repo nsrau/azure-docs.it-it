@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
-ms.openlocfilehash: 66d316f50f161c2e905c3f76da30580b44a63a23
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a970bd889e6994833b2e34adc90af594f9db4d6b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33939711"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di classificazione del testo con Azure Machine Learning
 
@@ -90,7 +91,7 @@ pip.main(["show", "azureml-tatk"])
 ```
 
 ### <a name="set-the-location-of-the-data"></a>Impostare il percorso dei dati
-Impostare il percorso in cui sono stati scaricati i dati nel parametro data dir. È anche possibile usare i propri dati. Il set di dati di input deve essere nel formato file TSV.
+Impostare il percorso in cui sono stati scaricati i dati nel parametro data dir. È anche possibile usare i propri dati. Il set di dati di input deve essere nel formato file \*.TSV.
 
 ```python
 import os
@@ -420,13 +421,14 @@ text_classifier.fit(df_train)
             text_callable_list=None, text_cols=['text'], text_regex_list=None,
             weight_col=None)
 
-### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Esaminare e impostare i parametri dei diversi passaggi della pipeline
 
-Nonostante l'adattamento di un modello scikit-learn, la pre-elaborazione viene eseguita prima dell'adattamento usando una pipeline con passaggi di preprocessore e utilità di funzioni (trasformazione). Per questo motivo si fa riferimento a una "pipeline" per il training. Durante la valutazione, a un set di dati di test viene applicata la pipeline completa, inclusa la pre-elaborazione e la stima del modello scikit-learn.
+Durante il training, è necessario disporre sia di colonne di testo che di etichette. Mentre per le stime, è necessaria solo la colonna di testo. 
+
+### <a name="examine-and-set-the-parameters-of-the-different-pipeline-steps"></a>Esaminare e impostare i parametri dei diversi passaggi della pipeline
+    
+I parametri vengono generalmente impostati prima di adattare un modello. 
 
 ***Esempio mostrato con text_word_ngrams*** 
-
-I parametri vengono generalmente impostati prima di adattare un modello. 
 
 Gli esempi di codice seguente mostrano come eseguire il training del modello usando la pipeline e i parametri predefiniti del modello. 
 

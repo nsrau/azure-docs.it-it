@@ -3,7 +3,7 @@ title: Eseguire la copia incrementale tramite Rilevamento modifiche e Azure Data
 description: 'In questa esercitazione si creerà una pipeline di Azure Data Factory che copia dati differenziali in modo incrementale da più tabelle di un database di SQL Server locale a un database SQL di Azure. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
-ms.author: jingwang
-ms.openlocfilehash: 891dad1a481c966e6ea1771f3e7c7850fa429352
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 4d2339ace047a5aacda74f6b1ccb9f1eb77aab0c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054043"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Caricare dati in modo incrementale da un database SQL di Azure all'archiviazione BLOB di Azure tramite il rilevamento delle modifiche 
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati differenziali basati su informazioni di **rilevamento delle modifiche** nel database SQL di Azure di origine in una risorsa di archiviazione BLOB di Azure.  
@@ -33,11 +34,8 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Aggiungere o aggiornare dati nella tabella di origine
 > * Creare, eseguire e monitorare la pipeline di copia incrementale
 
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 ## <a name="overview"></a>Panoramica
-In una soluzione di integrazione dei dati il caricamento incrementale di dati dopo i caricamenti di dati iniziali è uno scenario ampiamente diffuso. In alcuni casi, i dati modificati entro un periodo di tempo nell'archivio dati di origine possono essere suddivisi facilmente, ad esempio con LastModifyTime e CreationTime. In alcuni casi, non esiste un modo esplicito per identificare i dati differenziali dall'ultima elaborazione dei dati. È possibile usare la tecnologia Rilevamento modifiche supportata da archivi dati come il database SQL di Azure e SQL Server per identificare i dati differenziali.  Questa esercitazione descrive come usare Azure Data Factory versione 2 per usare la tecnologia Rilevamento modifiche SQL per caricare in modo incrementare dati differenziali dal database SQL di Azure all'archiviazione BLOB di Azure.  Per altre informazioni pratiche sulla tecnologia Rilevamento modifiche SQL, vedere [Rilevamento modifiche in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
+In una soluzione di integrazione dei dati il caricamento incrementale di dati dopo i caricamenti di dati iniziali è uno scenario ampiamente diffuso. In alcuni casi, i dati modificati entro un periodo di tempo nell'archivio dati di origine possono essere suddivisi facilmente, ad esempio con LastModifyTime e CreationTime. In alcuni casi, non esiste un modo esplicito per identificare i dati differenziali dall'ultima elaborazione dei dati. È possibile usare la tecnologia Rilevamento modifiche supportata da archivi dati come il database SQL di Azure e SQL Server per identificare i dati differenziali.  Questa esercitazione descrive come usare Azure Data Factory con la tecnologia Rilevamento modifiche SQL per caricare in modo incrementare dati differenziali dal database SQL di Azure in Archiviazione BLOB di Azure.  Per altre informazioni pratiche sulla tecnologia Rilevamento modifiche SQL, vedere [Rilevamento modifiche in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server). 
 
 ## <a name="end-to-end-workflow"></a>Flusso di lavoro end-to-end
 Ecco alcuni passaggi del tipico flusso di lavoro end-to-end per caricare dati in modo incrementale usando la tecnologia Rilevamento modifiche.

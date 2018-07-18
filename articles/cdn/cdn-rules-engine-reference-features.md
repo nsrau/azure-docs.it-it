@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011425"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.

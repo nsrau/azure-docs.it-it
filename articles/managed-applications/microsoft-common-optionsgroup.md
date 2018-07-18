@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5387f3911c58b115629c461420737230fce6b85a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061186"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento Microsoft.Common.OptionsGroup dell'interfaccia utente
 Controllo di selezione con una riga di opzioni disponibili.
@@ -31,7 +32,7 @@ Controllo di selezione con una riga di opzioni disponibili.
   "name": "element1",
   "type": "Microsoft.Common.OptionsGroup",
   "label": "Some options group",
-  "defaultValue": "my value",
+  "defaultValue": "Value two",
   "toolTip": "",
   "constraints": {
     "allowedValues": [
@@ -43,7 +44,8 @@ Controllo di selezione con una riga di opzioni disponibili.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -53,11 +55,10 @@ Controllo di selezione con una riga di opzioni disponibili.
 - L'etichetta per `constraints.allowedValues` è il testo visualizzato per un elemento e il rispettivo valore è il valore di output dell'elemento in caso di selezione.
 - Se specificato, il valore predefinito deve essere un'etichetta presente in `constraints.allowedValues`. Se non è specificato, viene selezionato il primo elemento in `constraints.allowedValues` per impostazione predefinita. Il valore predefinito è **null**.
 - `constraints.allowedValues` deve contenere almeno un elemento.
-- Questo elemento non supporta la proprietà `constraints.required`. Per una convalida corretta, è necessario selezionare un elemento.
 
 ## <a name="sample-output"></a>Output di esempio
 ```json
-"Bar"
+"two"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

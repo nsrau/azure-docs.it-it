@@ -1,6 +1,6 @@
 ---
-title: Gestire cluster R Server in HDInsight - Azure | Microsoft Docs
-description: Informazioni su come gestire un cluster R Server in Azure HDInsight.
+title: Gestire cluster ML Services in HDInsight - Azure | Microsoft Docs
+description: Informazioni su come gestire un cluster ML Services in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,41 +10,42 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 827bcb7bb20f1def9acec8cb2043ea295801583a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb3af3b1614c8afc98d2dcf12ecb53fb80b6037a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049745"
 ---
-# <a name="manage-r-server-cluster-on-azure-hdinsight"></a>Gestire cluster R Server in Azure HDInsight
+# <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gestire cluster ML Services in Azure HDInsight
 
-In questo articolo viene illustrato come gestire un cluster R Server esistente in Azure HDInsight per eseguire attività come l'aggiunta di più utenti simultanei, la connessione remota a un'istanza di R Server (Microsoft ML Server) o a un client, la modifica del contesto di calcolo e così via.
+In questo articolo viene illustrato come gestire un cluster ML Services esistente in Azure HDInsight per eseguire attività come l'aggiunta di più utenti simultanei, la connessione remota a un cluster ML Services, la modifica del contesto di calcolo e così via.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-* **Un cluster R Server in HDInsight**: per istruzioni, vedere [Introduzione a R Server in HDInsight](r-server-get-started.md).
+* **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
 * **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Abilitare più utenti simultanei
 
-È possibile abilitare più utenti simultanei per un cluster R Server in HDInsight aggiungendo altri utenti per il nodo perimetrale in cui viene eseguita la versione Community di RStudio. Quando si crea un cluster HDInsight, è necessario specificare due utenti: un utente HTTP e un utente SSH.
+È possibile abilitare più utenti simultanei per un cluster ML Services in HDInsight aggiungendo altri utenti per il nodo perimetrale in cui viene eseguita la versione Community di RStudio. Quando si crea un cluster HDInsight, è necessario specificare due utenti: un utente HTTP e un utente SSH.
 
 ![Utenti simultanei 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Nome utente dell'account di accesso del cluster**: utente HTTP per l'autenticazione tramite il gateway HDInsight usato per proteggere i cluster HDInsight creati. Questo utente HTTP viene usato per accedere all'interfaccia utente di Ambari, all'interfaccia utente di YARN e ad altri componenti di interfaccia utente.
 - **Nome utente Secure Shell (SSH)**: utente SSH per accedere al cluster tramite Secure Shell. È un utente del sistema Linux per tutti i nodi head, di lavoro e perimetrali. È così possibile usare Secure Shell per accedere a qualsiasi nodo di un cluster remoto.
 
-La versione RStudio Server Community usata nel cluster R Server in HDInsight accetta solo un nome utente e una password Linux come meccanismo di accesso. Non supporta il passaggio di token. Quando dunque si prova ad accedere a R Studio per la prima volta in un cluster R Server, è necessario eseguire l'accesso due volte.
+La versione RStudio Server Community usata nel cluster ML Services in HDInsight accetta solo un nome utente e una password Linux come meccanismo di accesso. Non supporta il passaggio di token. Quando dunque si prova ad accedere a R Studio per la prima volta in un cluster ML Services, è necessario eseguire l'accesso due volte.
 
 - Accedere prima con le credenziali utente HTTP tramite il gateway HDInsight. 
 
 - Usare quindi le credenziali utente SSH per accedere a RStudio.
   
-Attualmente, durante il provisioning di un cluster HDInsight è possibile creare un solo account utente SSH. Per consentire a più utenti di accedere a cluster R Server in HDInsight, è necessario creare utenti aggiuntivi nel sistema Linux.
+Attualmente, durante il provisioning di un cluster HDInsight è possibile creare un solo account utente SSH. Per consentire a più utenti di accedere a cluster ML Services in HDInsight, è necessario creare utenti aggiuntivi nel sistema Linux.
 
 Poiché RStudio viene eseguito nel nodo perimetrale del cluster, si devono completare diversi passaggi:
 
@@ -52,9 +53,9 @@ Poiché RStudio viene eseguito nel nodo perimetrale del cluster, si devono compl
 2. Aggiungere altri utenti Linux nel nodo perimetrale
 3. Usare la versione Community di RStudio con l'utente creato
 
-### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>Passaggio 1: Usare l'utente SSH creato per accedere al nodo perimetrale
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Passaggio 1: Usare l'utente SSH creato per accedere al nodo perimetrale
 
-Seguire le istruzioni riportate in [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) per accedere al nodo perimetrale. L'indirizzo del nodo perimetrale per il cluster R Server in HDInsight è `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Seguire le istruzioni riportate in [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) per accedere al nodo perimetrale. L'indirizzo del nodo perimetrale per il cluster ML Services in HDInsight è `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>Passaggio 2: Aggiungere altri utenti Linux nel nodo perimetrale
 
@@ -63,7 +64,7 @@ Per aggiungere un utente al nodo perimetrale, eseguire questi comandi:
     # Add a user 
     sudo useradd <yournewusername> -m
 
-    # Set password for the new user 
+    # Set password for the new user
     sudo passwd <yournewusername>
 
 Lo screenshot seguente illustra gli output.
@@ -74,21 +75,21 @@ Quando viene richiesto di immettere la password Kerberos corrente, è sufficient
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Passaggio 3: Usare la versione Community di RStudio con l'utente creato
 
-Accedere a RStudio da https://CLUSTERNAME.azurehdinsight.net/rstudio/. Se si sta eseguendo il primo accesso dopo la creazione del cluster, immettere le credenziali amministratore del cluster seguite dalle credenziali utente SSH appena create. Se non si tratta del primo accesso, immettere solo le credenziali per l'utente SSH create.
+Accedere a RStudio da https://CLUSTERNAME.azurehdinsight.net/rstudio/. Se si sta eseguendo il primo accesso dopo la creazione del cluster, immettere le credenziali amministratore del cluster seguite dalle credenziali utente SSH create. Se non si tratta del primo accesso, immettere solo le credenziali per l'utente SSH create.
 
 Si può anche accedere simultaneamente da un'altra finestra del browser con le credenziali originali (per impostazione predefinita, *sshuser*).
 
 Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice nel sistema Linux, ma hanno lo stesso accesso a tutti i file nella risorsa di archiviazione HDFS e WASB remota.
 
-## <a name="connect-remotely-to-microsoft-ml-server-or-client"></a>Connettersi in modalità remota a Microsoft ML Server o Client
+## <a name="connect-remotely-to-microsoft-ml-services"></a>Connettersi in modalità remota a Microsoft ML Services
 
-È possibile configurare l'accesso al contesto di calcolo Hadoop Spark HDInsight da un'istanza remota di Microsoft ML Server o Microsoft ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
+È possibile configurare l'accesso al contesto di calcolo Hadoop Spark HDInsight da un'istanza remota di ML Client in esecuzione nel computer desktop. A tale scopo, è necessario specificare le opzioni (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches e sshProfileScript) quando si definisce il contesto di calcolo RxSpark nel computer desktop, ad esempio:
 
     myNameNode <- "default"
     myPort <- 0
 
-    mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- '<sshuser>'# HDI SSH username
     mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
     myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
@@ -106,7 +107,7 @@ Si noti anche gli utenti appena aggiunti non hanno privilegi a livello radice ne
       consoleOutput= TRUE
     )
 
-Per altre informazioni, vedere la sezione "Using Microsoft R Server as a Hadoop Client" (Uso di Microsoft R Server come client Hadoop) in [Create a Compute Context for Spark](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Creare un contesto di calcolo per Spark)
+Per altre informazioni, vedere la sezione "Using Microsoft Machine Learning Server as a Hadoop Client" (Uso di Microsoft Machine Learning Server come client Hadoop) in [How to use RevoScaleR in a Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Come usare RevoScaleR in un contesto di calcolo per Spark)
 
 ## <a name="use-a-compute-context"></a>Usare un contesto di calcolo
 
@@ -145,7 +146,7 @@ Un contesto di calcolo consente di controllare se il calcolo viene eseguito loca
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. Successivamente, creare alcune informazioni sui dati e definire due origini dati per poter lavorare con i dati.
+2. Successivamente, creare alcune informazioni sui dati e definire due origini dati.
 
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
@@ -183,7 +184,7 @@ Un contesto di calcolo consente di controllare se il calcolo viene eseguito loca
         # Display a summary
         summary(modelLocal)
 
-    L'output dovrebbe terminare con righe simili alle seguenti:
+    L'output dovrebbe terminare con righe simili al frammento seguente:
 
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
@@ -223,43 +224,41 @@ Un contesto di calcolo consente di controllare se il calcolo viene eseguito loca
         system.time(  
            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
-        
+
         # Display a summary
         summary(modelSpark)
 
 
    > [!NOTE]
-   > È anche possibile usare MapReduce per distribuire il calcolo sui nodi del cluster. Per altre informazioni sul contesto di calcolo, vedere [Opzioni del contesto di calcolo per R Server su HDInsight](r-server-compute-contexts.md).
-
+   > È anche possibile usare MapReduce per distribuire il calcolo sui nodi del cluster. Per altre informazioni sul contesto di calcolo, vedere [Opzioni del contesto di calcolo per il cluster ML Services in HDInsight](r-server-compute-contexts.md).
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuire il codice R su più nodi
 
-Con R Server in HDInsight, è possibile prelevare il codice R esistente ed eseguirlo su più nodi del cluster usando `rxExec`. Questa funzione è utile in caso di sweep di parametri o simulazioni. Il codice seguente è un esempio di come usare `rxExec`:
+Con ML Services in HDInsight, è possibile prelevare il codice R esistente ed eseguirlo su più nodi del cluster usando `rxExec`. Questa funzione è utile in caso di sweep di parametri o simulazioni. Il codice seguente è un esempio di come usare `rxExec`:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Se si sta ancora usando il contesto Spark o MapReduce, questo comando restituisce il valore nodename per i nodi di lavoro in cui viene eseguito il codice `(Sys.info()["nodename"])`. In un cluster a quattro nodi, ad esempio, si può prevedere di ricevere un output simile al seguente:
+Se si sta ancora usando il contesto Spark o MapReduce, questo comando restituisce il valore nodename per i nodi di lavoro in cui viene eseguito il codice `(Sys.info()["nodename"])`. In un cluster a quattro nodi, ad esempio, verrà restituito un output simile al frammento seguente:
 
     $rxElem1
         nodename
-    "wn3-myrser"
+    "wn3-mymlser"
 
     $rxElem2
         nodename
-    "wn0-myrser"
+    "wn0-mymlser"
 
     $rxElem3
         nodename
-    "wn3-myrser"
+    "wn3-mymlser"
 
     $rxElem4
         nodename
-    "wn3-myrser"
-
+    "wn3-mymlser"
 
 ## <a name="access-data-in-hive-and-parquet"></a>Accedere ai dati in Hive e Parquet
 
-Una funzionalità disponibile in R Server 9.1 consente l'accesso diretto ai dati in Hive e Parquet per l'uso da parte delle funzioni di ScaleR nel contesto di calcolo di Spark. Queste funzionalità sono disponibili tramite nuove funzioni di origine dati ScaleR denominate RxHiveData e RxParquetData, che usano Spark SQL per caricare i dati direttamente in un frame di dati di Spark per l'analisi da parte di ScaleR.  
+HDInsight ML Services consente l'accesso diretto ai dati in Hive e Parquet per l'uso da parte delle funzioni di ScaleR nel contesto di calcolo di Spark. Queste funzionalità sono disponibili tramite nuove funzioni di origine dati ScaleR denominate RxHiveData e RxParquetData, che usano Spark SQL per caricare i dati direttamente in un frame di dati di Spark per l'analisi da parte di ScaleR.
 
 Il codice seguente offre un esempio dell'uso delle nuove funzioni:
 
@@ -294,7 +293,7 @@ Il codice seguente offre un esempio dell'uso delle nuove funzioni:
     rxSparkDisconnect(myHadoopCluster)
 
 
-Per altre informazioni sull'uso di queste nuove funzioni, vedere la guida online di ML Server tramite i comandi `?RxHivedata` e `?RxParquetData`.  
+Per altre informazioni sull'uso di queste nuove funzioni, vedere la guida online di ML Services tramite i comandi `?RxHivedata` e `?RxParquetData`.  
 
 ## <a name="install-additional-r-packages-on-the-cluster"></a>Installare pacchetti R aggiuntivi nel cluster
 
@@ -307,7 +306,7 @@ Per installare pacchetti R aggiuntivi nel nodo perimetrale, è possibile usare `
 Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare un'azione script. Le azioni di script sono script Bash usati per apportare modifiche di configurazione al cluster HDInsight o per installare software aggiuntivo, ad esempio altri pacchetti R. 
 
 > [!IMPORTANT]
-> Le azioni di script per installare altri pacchetti R sono possono essere usate solo dopo aver creato il cluster. Non usare questa procedura durante la creazione del cluster poiché lo script si basa su R Server completamente installato e configurato.
+> Le azioni di script per installare altri pacchetti R sono possono essere usate solo dopo aver creato il cluster. Non usare questa procedura durante la creazione del cluster perché lo script si basa su ML Services completamente configurato.
 >
 >
 
@@ -328,8 +327,8 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
    * Selezionare la casella di controllo **Persist this script action** (Salva questa azione script in modo permanente).  
 
    > [!NOTE]
-   > 1. Per impostazione predefinita, tutti i pacchetti R vengono installati da uno snapshot dell'archivio MRAN di Microsoft coerente con la versione di R Server che è stato installato. L'installazione di versioni più recenti dei pacchetti espone al rischio di incompatibilità. Questo tipo di installazione è tuttavia possibile specificando `useCRAN` come primo elemento dell'elenco dei pacchetti, ad esempio `useCRAN bitops, stringr, arules`.  
-   > 2. Alcuni pacchetti R richiedono librerie di sistema di Linux aggiuntive. Per praticità sono state preinstallate le dipendenze necessarie per i 100 pacchetti R più diffusi. Tuttavia, se i pacchetti R installati richiedono altre librerie, è necessario scaricare lo script di base usato qui e continuare la procedura per installare le librerie di sistema. È quindi necessario caricare lo script modificato in un contenitore BLOB pubblico su Archiviazione di Azure e usare lo script modificato per installare i pacchetti.
+   > 1. Per impostazione predefinita, tutti i pacchetti R vengono installati da uno snapshot dell'archivio MRAN di Microsoft coerente con la versione di ML Server che è stata installata. L'installazione di versioni più recenti dei pacchetti espone al rischio di incompatibilità. Questo tipo di installazione è tuttavia possibile specificando `useCRAN` come primo elemento dell'elenco dei pacchetti, ad esempio `useCRAN bitops, stringr, arules`.  
+   > 2. Alcuni pacchetti R richiedono librerie di sistema di Linux aggiuntive. Per praticità in HDInsight ML Services sono state preinstallate le dipendenze necessarie per i 100 pacchetti R più diffusi. Tuttavia, se i pacchetti R installati richiedono altre librerie, è necessario scaricare lo script di base usato qui e continuare la procedura per installare le librerie di sistema. È quindi necessario caricare lo script modificato in un contenitore BLOB pubblico su Archiviazione di Azure e usare lo script modificato per installare i pacchetti.
    >    Per altre informazioni sullo sviluppo di azioni script, vedere l'articolo [Sviluppo di azioni script con HDInsight](../hdinsight-hadoop-script-actions-linux.md).  
    >
    >
@@ -340,6 +339,6 @@ Per installare pacchetti R nei nodi di lavoro del cluster, è necessario usare u
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Rendere operativo un cluster R Server in HDInsight](r-server-operationalize.md)
-* [Opzioni del contesto di calcolo per il cluster R Server in HDInsight](r-server-compute-contexts.md)
-* [Opzioni di Archiviazione di Azure per il cluster R Server in HDInsight](r-server-storage.md)
+* [Rendere operativo un cluster ML Services in Azure HDInsight](r-server-operationalize.md)
+* [Opzioni del contesto di calcolo per il cluster ML Services in HDInsight](r-server-compute-contexts.md)
+* [Opzioni di Archiviazione di Azure per un cluster ML Services su HDInsight](r-server-storage.md)

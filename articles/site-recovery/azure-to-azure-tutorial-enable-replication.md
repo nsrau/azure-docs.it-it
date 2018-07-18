@@ -1,21 +1,22 @@
 ---
-title: Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria con Azure Site Recovery (anteprima)
+title: Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria con Azure Site Recovery
 description: Informazioni su come configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure diversa usando il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 18b66cb9c0690df7b95cb36438ba802cb7432af6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918758"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurare il ripristino di emergenza per macchine virtuali di Azure in un'area di Azure secondaria (anteprima)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
@@ -26,6 +27,7 @@ Questa esercitazione illustra come configurare il ripristino di emergenza in un'
 > * Verificare le impostazioni delle risorse di destinazione
 > * Configurare l'accesso in uscita per le macchine virtuali
 > * Abilitare la replica per una macchina virtuale
+
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -109,7 +111,7 @@ Maggiori informazioni sui [ruoli predefiniti del Controllo degli accessi in base
 ### <a name="select-the-source"></a>Selezionare l'origine
 
 1. In Insiemi di credenziali dei servizi di ripristino fare clic sul nome dell'insieme di credenziali e quindi selezionare **+Replica**.
-2. In **Origine** selezionare **Azure - ANTEPRIMA**.
+2. In **Source** (Origine) selezionare **Azure**.
 3. In **Percorso di origine** selezionare l'area di Azure di origine in cui le VM sono attualmente in esecuzione.
 4. Selezionare il **modello di distribuzione delle macchine virtuali di Azure**: **Resource Manager** o **Classica**.
 5. Selezionare il **Gruppo di risorse di origine** per le VM di Resource Manager o **Servizio cloud** per le VM classiche.

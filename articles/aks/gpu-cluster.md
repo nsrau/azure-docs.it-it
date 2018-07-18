@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 1e07845591583c7159958d4e2eb7eeb2f126b75f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
+ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070567"
 ---
 # <a name="using-gpus-on-aks"></a>Uso di GPU nel servizio contenitore di Azure
 
@@ -168,9 +169,9 @@ spec:
             path: /usr/local/nvidia
 ```
 
-Usare il comando [kubectl create][kubectl-create] per eseguire il processo. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.
+Usare il comando [kubectl apply][kubectl-apply] per eseguire il processo. Questo comando analizza il file manifesto e crea gli oggetti Kubernetes definiti.
 ```
-$ kubectl create -f samples-tf-mnist-demo.yaml
+$ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
 ```
 
@@ -273,12 +274,12 @@ job "samples-tf-mnist-demo" deleted
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si è interessati a eseguire carichi di lavoro di Machine Learning in Kubernetes, fare riferimento alla documentazione di Kubeflow per altri dettagli.
+Se si è interessati a eseguire carichi di lavoro di Machine Learning in Kubernetes, fare riferimento ai lab di Kubeflow per altri dettagli.
 
 > [!div class="nextstepaction"]
-> [Kubeflow User Guide][kubeflow-docs] (Manuale dell'utente di Kubeflow)
+> [Lab di Kubeflow][kubeflow-labs]
 
 <!-- LINKS - external -->
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubeflow-docs]: https://github.com/kubeflow/kubeflow/blob/master/user_guide.md
+[kubeflow-labs]: https://github.com/Azure/kubeflow-labs

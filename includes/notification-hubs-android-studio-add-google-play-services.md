@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33835766"
 ---
 1. Aprire Android SDK Manager facendo clic sull'icona della barra degli strumenti di Android Studio o su **Strumenti** > **Android** > **SDK Manager** nel menu. Trovare la versione di destinazione di Android SDK usata nel progetto, aprirla facendo clic su **Show Package Details** (Visualizza dettagli pacchetto) e quindi scegliere **Google APIs** (API Google), se non è già installato.
 2. Fare sulla scheda **SDK Tools** . Se Google Play Service non è già installato, fare clic su **Google Play Services** come mostrato di seguito. Fare quindi clic su **Apply** per installarlo. 

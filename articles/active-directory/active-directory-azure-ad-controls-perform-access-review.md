@@ -2,21 +2,24 @@
 title: Verificare l'accesso usando le verifiche di accesso di Azure AD | Microsoft Docs
 description: Informazioni su come verificare l'accesso usando le verifiche di accesso di Azure Active Directory.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: 
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: 98658a2b9fdd0ede98b3f6c10a19af527a8677cc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446640"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Verificare l'accesso con le verifiche di accesso di Azure AD
 

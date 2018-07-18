@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129941"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Come registrare un ticket di supporto per eventi di sicurezza
 

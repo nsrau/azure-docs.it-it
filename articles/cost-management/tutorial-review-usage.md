@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 79857f05505a59de94d7a6926afe38cceeac34f3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5505ec8dd25e5468fad81d4eb26980202425969a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35628718"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -27,21 +28,22 @@ Gestione costi di Azure visualizza l'utilizzo e i costi consentendo di tenere tr
 > * Tenere traccia delle tendenze di utilizzo e dei costi
 > * Rilevare le inefficienze dell'utilizzo
 > * Creare avvisi per spese inusuali o eccessive
+> * Esportazione dei dati
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
 - È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
 
 ## <a name="open-the-cloudyn-portal"></a>Aprire il portale Cloudyn
 
-È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale di Cloudyn dal portale di Azure o passare a https://azure.cloudyn.com ed eseguire l'accesso.
+È possibile esaminare tutte le informazioni sull'utilizzo e sui costi nel portale Cloudyn. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com ed eseguire l'accesso.
 
 ## <a name="track-usage-and-cost-trends"></a>Tenere traccia delle tendenze di utilizzo e dei costi
 
-È possibile tenere traccia del denaro effettivamente speso per l'utilizzo e i costi con i report nel tempo per identificare le tendenze. Per iniziare a osservare le tendenze, usare il report Actual Cost Over Time (Costi effettivi nel tempo). Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Quando viene aperto per la prima volta, al report non sono applicati gruppi o filtri.
+È possibile tenere traccia del denaro effettivamente speso per l'utilizzo e i costi con i report nel tempo per identificare le tendenze. Per iniziare a osservare le tendenze, usare il report Actual Cost Over Time (Costi effettivi nel tempo). Nella parte superiore sinistra del portale, fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Quando viene aperto per la prima volta, al report non sono applicati gruppi o filtri.
 
 Di seguito è illustrato un report di esempio:
 
@@ -89,12 +91,15 @@ Per guardare un video di esercitazione per il rilevamento delle inefficienze di 
 
 È possibile creare un avviso per qualsiasi spesa utilizzando un report Cost (Costo). In questo esempio usare il report Actual Cost Over Time (Costo effettivo nel tempo) per ricevere un avviso quando la spesa della macchina virtuale di Azure si avvicina al budget totale. Tutti i passaggi seguenti sono necessari per la creazione dell'avviso. Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). Nella parte superiore destra del report fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
 
-Usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 500.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 250.000 e un **Yellow alert** (Avviso giallo) a $ 240.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
+Nella casella Save or Schedule this report (Salva o pianifica report), usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 500.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 250.000 e un **Yellow alert** (Avviso giallo) a $ 240.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
 
 ![report di esempio](./media/tutorial-review-usage/schedule-alert01.png)
 
 È anche possibile scegliere Cost Percentage vs. Budget (Percentuale costo/budget) per la creazione degli avvisi. Con questa metrica è possibile usare le percentuali del budget anziché i valori di valuta.
 
+## <a name="export-data"></a>Esportazione dei dati
+
+Analogamente al modo in cui si creano gli avvisi per i report, è possibile esportare dati da tutti i report. Ad esempio, è possibile esportare un elenco di account Cloudyn o altri dati utente. Per esportare i report, aprire il report e fare clic su **Azioni** nella parte superiore destra del report. Tra le azioni disponibili, è possibile **esportare tutti i dati del report** in modo da poter scaricare o stampare le informazioni. In alternativa, è possibile selezionare **Pianifica report** per pianificare l'invio del report come messaggio di posta elettronica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -104,6 +109,7 @@ Questa esercitazione illustra come:
 > * Tenere traccia delle tendenze di utilizzo e dei costi
 > * Rilevare le inefficienze dell'utilizzo
 > * Creare avvisi per spese inusuali o eccessive
+> * Esportazione dei dati
 
 
 Passare alla prossima esercitazione per imparare come prevedere la spesa usando i dati cronologici.

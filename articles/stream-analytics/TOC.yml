@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: Creare un processo - PowerShell
       href: stream-analytics-quick-create-powershell.md
+    - name: Creare un processo - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Esercitazioni
   items:
     - name: 1 - Creare/gestire un processo
@@ -18,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - Eseguire una funzione JavaScript definita dall'utente
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Eseguire la distribuzione con CI/CD in Visual Studio Team Services
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Esempi
   items:
     - name: Esempi di codice
@@ -54,11 +58,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Configurare gli avvisi
           href: stream-analytics-set-up-alerts.md
-        - name: Testare il processo
+        - name: Testare un processo
           href: stream-analytics-test-query.md
         - name: Visualizzare i risultati in un dashboard
           href: stream-analytics-power-bi-dashboard.md
-        - name: Pulire il processo
+        - name: Pulire un processo
           href: stream-analytics-clean-up-your-job.md
         - name: Associare processi per l'affidabilità
           href: stream-analytics-job-reliability.md
@@ -125,8 +129,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: Log di diagnostica
           href: stream-analytics-job-diagnostic-logs.md
-        - name: Verificare l'integrità delle risorse
-          href: stream-analytics-resource-health.md
         - name: Istruzione SELECT INTO
           href: stream-analytics-select-into.md
         - name: Ricevitori di hub eventi

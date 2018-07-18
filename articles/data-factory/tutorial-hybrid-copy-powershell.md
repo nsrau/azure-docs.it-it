@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 5d362d8167cdfb772c70b02cc57bb49d3c2eb01d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d002955bcdb6e521fd3daddc223e07afa50f2208
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082707"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale all'archivio BLOB di Azure
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
 
 > [!NOTE]
-> Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-> 
 > Questo articolo non offre una presentazione dettagliata del servizio Data Factory. Per altre informazioni, vedere l'[introduzione ad Azure Data Factory](introduction.md). 
 
 In questa esercitazione si segue questa procedura:
@@ -38,7 +37,7 @@ In questa esercitazione si segue questa procedura:
 > * Avviare un'esecuzione della pipeline.
 > * Monitorare l'esecuzione della pipeline.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -107,7 +106,7 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
     ![Selezionare il contenitore](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
 
-5. Tenere aperta la finestra **Contenitore** per **adftutorial**. perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
+5. Tenere aperta la finestra **Contenitore** per **adftutorial** perché verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 
     ![Finestra Contenitore](media/tutorial-hybrid-copy-powershell/container-page.png)
 
@@ -142,7 +141,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
     ```
 
-## <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+## <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie (ad esempio `"adfrg"`) e quindi eseguire il comando. 
    
@@ -186,7 +185,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account deve essere un *amministratore* della sottoscrizione di Azure.
-> * Data Factory versione 2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+> * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 > 
 > 
 
@@ -194,7 +193,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 
 In questa sezione si crea un runtime di integrazione self-hosted e lo si associa a un computer locale con il database di SQL Server. Il runtime di integrazione self-hosted è il componente che copia i dati dal database SQL Server presente nel computer all'archivio BLOB di Azure. 
 
-1. Creare una variabile per il nome del runtime di integrazione. Usare un nome univoco e annotarlo. perché sarà usato più avanti in questa esercitazione. 
+1. Creare una variabile per il nome del runtime di integrazione. Usare un nome univoco e annotarlo perché sarà usato più avanti in questa esercitazione. 
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
@@ -362,7 +361,7 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureStorageLinkedService
     ```
 
-    Se viene visualizzato un errore di tipo "File non trovato", verificare che il file esista eseguendo il comando `dir`. Se il nome del file ha estensione *.txt*, ad esempio AzureStorageLinkedService.json.txt, rimuovere l'estensione ed eseguire di nuovo il comando di PowerShell. 
+    Se viene visualizzato un errore di tipo "File non trovato", verificare che il file esista eseguendo il comando `dir`. Se il nome del file ha estensione *txt*, ad esempio AzureStorageLinkedService.json.txt, rimuovere l'estensione ed eseguire di nuovo il comando di PowerShell. 
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Creare e crittografare un servizio collegato SQL Server (origine)
 In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
@@ -496,7 +495,7 @@ In questo passaggio si definisce un set di dati che rappresenta i dati nell'ista
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Creare un set di dati per l'archivio BLOB di Azure (sink)
 In questo passaggio si definisce un set di dati che rappresenta i dati da copiare nell'archivio BLOB di Azure. Il set di dati è di tipo AzureBlob. Fa riferimento al servizio collegato Archiviazione di Azure creato in precedenza in questa esercitazione. 
 
-Il servizio collegato ha le informazioni di connessione usate da Data Factory in fase di esecuzione per la connessione all'account di archiviazione di Azure. Questo set di dati specifica la cartella nella risorsa di archiviazione di Azure in cui vengono copiati i dati dal database di SQL Server. In questa esercitazione la cartella è *adftutorial/fromonprem*, dove `adftutorial` è il contenitore BLOB e `fromonprem` è la cartella. 
+Il servizio collegato ha le informazioni di connessione usate da Data Factory in fase di esecuzione per la connessione all'account di archiviazione di Azure. Questo set di dati specifica la cartella nella risorsa di archiviazione di Azure in cui vengono copiati i dati dal database di SQL Server. In questa esercitazione la cartella è *adftutorial/fromonprem* dove `adftutorial` è il contenitore BLOB e `fromonprem` è la cartella. 
 
 1. Creare un file JSON denominato *AzureBlobDataset.json* nella cartella *C:\ADFv2Tutorial* con il codice seguente:
 
@@ -686,4 +685,4 @@ Per un elenco degli archivi dati supportati da Data Factory, vedere gli [archivi
 Passare all'esercitazione successiva per ottenere informazioni sulla copia di dati in blocco da un'origine a una destinazione:
 
 > [!div class="nextstepaction"]
->[Copiare i dati nel bulk](tutorial-bulk-copy.md)
+>[Copiare dati in blocco](tutorial-bulk-copy.md)

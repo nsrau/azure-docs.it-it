@@ -5,20 +5,17 @@ keywords: Come migliorare le prestazioni del database
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 95f6e3d6d9db5a88b5b974daf6e36573b60878a5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101536"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -52,7 +49,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
 3. **Ottimizzazione di ConnectionPolicy**
 
-    Quando si usa Async Java SDK, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette alle dimensioni massime predefinite del pool di connessioni (1000). Questo valore predefinito dovrebbe essere ottimale per la maggior parte dei casi d'uso. Tuttavia, in presenza di una raccolta molto grande con tante partizioni, è possibile impostare le dimensioni massime del pool di connessioni su un numero più grande (ad esempio 1500) tramite setMaxPoolSize.
+    Quando si usa Async Java SDK, le richieste di Azure Cosmos DB vengono eseguite su HTTPS/REST e sono soggette alle dimensioni massime predefinite del pool di connessioni (1000). Questo valore predefinito dovrebbe essere ottimale per la maggior parte dei casi d'uso. Tuttavia, in presenza di una raccolta ampia con tante partizioni, è possibile impostare le dimensioni massime del pool di connessioni su un numero più grande (ad esempio 1500) tramite setMaxPoolSize.
 
 4. **Ottimizzazione delle query parallele per le raccolte partizionate**
 
@@ -129,13 +126,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Per altre informazioni, vedere la [pagina di Github](https://github.com/Azure/azure-cosmosdb-java) per Async Java SDK.
 
-10. **Disabilitare la registrazione di Netty** La registrazione della libreria Netty è molto dettagliata e deve essere disattivata (la soppressione del log nella configurazione potrebbe non essere sufficiente) per evitare costi aggiuntivi di CPU. Se non si è in modalità di debug, disabilitare del tutto la registrazione di Netty. Pertanto, se si usa log4j per evitare i costi della CPU aggiuntivi causati da ``org.apache.log4j.Category.callAppenders()`` da Netty aggiungere la riga seguente alla codebase:
+10. **Disabilitare la registrazione di Netty** La registrazione della libreria Netty è molto dettagliata e deve essere disattivata (la soppressione dell'accesso alla configurazione potrebbe non essere sufficiente) per evitare costi aggiuntivi di CPU. Se non si è in modalità di debug, disabilitare del tutto la registrazione di Netty. Pertanto, se si usa log4j per evitare i costi della CPU aggiuntivi causati da ``org.apache.log4j.Category.callAppenders()`` da Netty aggiungere la riga seguente alla codebase:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **Limite di risorse per i file aperti del sistema operativo** Alcuni sistemi Linux (ad esempio Redhat) prevedono un limite massimo per il numero di file aperti e quindi per il numero totale di connessioni. Eseguire il comando seguente per visualizzare i limiti correnti:
+11. **Limite di risorse per i file aperti del sistema operativo** Alcuni sistemi Linux (ad esempio Red Hat) prevedono un limite massimo per il numero di file aperti e quindi per il numero totale di connessioni. Eseguire il comando seguente per visualizzare i limiti correnti:
 
     ```bash
     ulimit -a
@@ -173,7 +170,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     </dependency>
     ```
 
-Per le altre piattaforme (Redhat, Windows, Mac e così via), fare riferimento a queste istruzioni https://netty.io/wiki/forked-tomcat-native.html
+Per le altre piattaforme (Red Hat, Windows, Mac e così via), fare riferimento a queste istruzioni https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Criterio di indicizzazione
  
@@ -212,7 +209,7 @@ Per le altre piattaforme (Redhat, Windows, Mac e così via), fare riferimento a 
     response.getRequestCharge();
     ```             
 
-    L'addebito richiesta restituito in questa intestazione è una frazione della velocità effettiva con provisioning. Se, ad esempio, sono presenti 2000 UR/secondo e se la query precedente restituisce 1000 documenti da 1 kB, il costo dell'operazione è 1000. Entro un secondo, il server rispetterà quindi solo due richieste di questo tipo prima di limitare le richieste successive. Per altre informazioni, vedere [Unità richiesta](request-units.md) e il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner).
+    L'addebito richiesta restituito in questa intestazione è una frazione della velocità effettiva con provisioning. Se, ad esempio, sono presenti 2000 UR/secondo e se la query precedente restituisce 1000 documenti da 1 kB, il costo dell'operazione è 1000. Entro un secondo, il server rispetterà quindi solo due richieste di questo tipo prima di limitare la velocità delle richieste successive. Per altre informazioni, vedere [Unità richiesta](request-units.md) e il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Gestire la limitazione della frequenza o una frequenza di richieste troppo elevata**
 

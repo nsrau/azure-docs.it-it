@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: b6c2e2b685855455550612abb58ada6a694bbdff
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011527"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38237833"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -26,9 +26,6 @@ L'attività di ricerca può essere usata per recuperare un set di dati da qualsi
 - Determinare in modo dinamico gli oggetti (file, tabelle e così via) su cui operare in un'attività successiva, anziché impostare come hardcoded il nome dell'oggetto
 
 L'attività di ricerca può leggere e restituire il contenuto di un file di configurazione, di una tabella di configurazione o il risultato dell'esecuzione di una query o di una stored procedure.  L'output dall'attività di ricerca può essere usato in un'attività di trasformazione o di copia successive se è un valore singleton, o in un'attività ForEach se è una matrice di attributi.
-
-> [!NOTE]
-> Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -61,7 +58,7 @@ NOME | DESCRIZIONE | type | Obbligatorio?
 ---- | ----------- | ---- | --------
 dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione "Proprietà del set di dati" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
 una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | di serie Il valore predefinito è `true`.
+firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | No. Il valore predefinito è `true`.
 
 **Tenere presente quanto segue:**
 
@@ -279,11 +276,11 @@ L'istanza del database SQL di Azure contiene i dati da copiare in Archiviazione 
 ```json
 {
   "Id": "1",
-  "tableName": "Table1",
+  "tableName": "Table1"
 }
 {
    "Id": "2",
-  "tableName": "Table2",
+  "tableName": "Table2"
 }
 ```
 
@@ -293,11 +290,11 @@ L'istanza del database SQL di Azure contiene i dati da copiare in Archiviazione 
 [ 
     {
         "Id": "1",
-          "tableName": "Table1",
-    }
+        "tableName": "Table1"
+    },
     {
         "Id": "2",
-        "tableName": "Table2",
+        "tableName": "Table2"
     }
 ]
 ```

@@ -1,24 +1,19 @@
 ---
 title: Informazioni sul linguaggio di query dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per sviluppatori: descrizione del linguaggio di query dell'hub IoT simile a SQL usato per recuperare informazioni su dispositivi/moduli gemelli e processi dall'hub IoT."
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 27ddc41c463c00a061a396098f0ccfaa6cec80a1
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444185"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -173,13 +168,13 @@ SELECT * FROM devices.modules
 Il join tra i dispositivi e le raccolte devices.modules non è consentito. Se si vogliono eseguire query sui moduli gemelli nei dispositivi, usare i tag. Questa query restituirà tutti i moduli gemelli presenti in tutti i dispositivi con lo stato di analisi:
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 Questa query restituirà tutti i moduli gemelli con lo stato di analisi, ma solo nel subset di dispositivi specificato.
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>Esempio in C#

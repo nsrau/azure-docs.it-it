@@ -10,7 +10,7 @@
 | Stati Uniti centro-settentrionali    | 3                       |
 | Stati Uniti centro-meridionali    | 3                       |
 | Stati Uniti centro-occidentali     | 2                       |
-| Canada centrale      | 2                       |
+| Canada centrale      | 3                      |
 | Canada orientale         | 2                       |
 |                     |                         |
 | Europa settentrionale        | 3                       |
@@ -25,8 +25,8 @@
 | India meridionale         | 2                       |
 | India centrale       | 2                       |
 | India occidentale          | 2                       |
-| Corea centrale       | 2                       |
-| Corea meridionale         | 2                       |
+| Corea del Sud centrale       | 2                       |
+| Corea del Sud meridionale         | 2                       |
 |                     |                         |
 | Australia orientale      | 2                       |
 | Australia sudorientale | 2                       |

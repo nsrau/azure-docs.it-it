@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: b40aa0e105c0e9fac9c9cab63a5b0a2a6116c4c9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300996"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -67,7 +69,7 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 | --- | --- | --- |
 | 443 | Mandatory |Sincronizzazione con il tenant di Azure AD |
 | 5986 | Mandatory | Gestione del dominio |
-| 3389 | Facoltativo | Gestione del dominio |
+| 3389 | Mandatory | Gestione del dominio |
 | 636 | Facoltativo | Accesso LDAP sicuro (LDAPS) per il dominio gestito |
 
 **Porta 443 (sincronizzazione con Azure AD)**
@@ -78,12 +80,13 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 **Porta 5986 (comunicazione remota di PowerShell)**
 * Usata per eseguire attività di gestione con la comunicazione remota di PowerShell nel dominio gestito.
 * È obbligatorio consentire l'accesso attraverso questa porta nel gruppo di sicurezza di rete. Senza accesso a questa porta, il dominio gestito non può essere aggiornato né configurato e non è possibile eseguirne il monitoraggio o il backup.
-* È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Per eventuali nuovi domini o domini con una rete virtuale ARM, è possibile limitare l'accesso in ingresso a questa porta per i seguenti indirizzi IP di origine: 52.180.179.108 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Per i domini con una rete virtuale classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * I controller di dominio del dominio gestito non sono in genere in ascolto su questa porta. Il servizio apre questa porta sui controller di dominio gestiti solo quando per il dominio gestito deve essere eseguita un'operazione di gestione o di manutenzione. Non appena completata l'operazione, il servizio arresta la porta sui controller di dominio gestiti.
 
 **Porta 3389 (Desktop remoto)**
 * Usata per le connessioni Desktop remoto ai controller di dominio del dominio gestito.
-* L'apertura di questa porta tramite il gruppo di sicurezza di rete è facoltativa.
+* È possibile limitare l'accesso in ingresso agli indirizzi IP di origine seguenti: 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
 * Anche questa porta resta per la maggior parte del tempo disattivata nel dominio gestito. Questo meccanismo non viene usato regolarmente poiché le attività di gestione e monitoraggio vengono eseguite usando la comunicazione remota di PowerShell. Questa porta viene usata solo nel raro caso in cui per Microsoft sia necessario connettersi in remoto al dominio gestito dell'utente per una risoluzione dei problemi avanzata. La porta viene chiusa non appena l'operazione di risoluzione dei problemi viene completata.
 
 **Porta 636 (LDAP sicuro)**
@@ -104,7 +107,7 @@ Il gruppo di sicurezza di rete mostra anche come bloccare l'accesso LDAP sicuro 
 
 ![Gruppo di sicurezza di rete di esempio per proteggere l'accesso LDAPS su Internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Altre informazioni** - [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Connettività di rete
@@ -142,4 +145,4 @@ Un dominio gestito di Azure AD Domain Services può essere abilitato solo in una
 * [Peering reti virtuali](../virtual-network/virtual-network-peering-overview.md)
 * [Configurare una connessione da rete virtuale a rete virtuale per il modello di distribuzione classico](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Che cos'è un gruppo di sicurezza di rete](../virtual-network/security-overview.md)
-* [Creare un gruppo di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Creare un gruppo di sicurezza di rete](../virtual-network/manage-network-security-group.md)

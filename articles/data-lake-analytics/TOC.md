@@ -21,8 +21,10 @@
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
-#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+#### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
+### [Aggiungere utenti](data-lake-analytics-add-users.md)
 ### [Criteri](data-lake-analytics-policies.md)
+### [Proteggere le cartelle processi](data-lake-analytics-secure.md)
 ### [Accedere ai log di diagnostica](data-lake-analytics-diagnostic-logs.md)
 ### [Modificare i limiti di quota](data-lake-analytics-quota-limits.md)
 
@@ -40,12 +42,16 @@
 
 ### Visual Studio
 #### [Installare](data-lake-analytics-data-lake-tools-install.md)
+#### [Esecuzione locale](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Debug locale](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [Sviluppare database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [Sfogliare e visualizzare processi](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [Eseguire il debug di codice personalizzato in C#](data-lake-analytics-debug-u-sql-jobs.md)
 #### [Risolvere i problemi dei processi ricorrenti](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 #### [Dettagli di esecuzione dei vertici](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [Esportare un database U-SQL](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Analizzare i log dei siti Web](data-lake-analytics-analyze-weblogs.md)
+#### [Risolvere l'asimmetria dei dati](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [Monitorare e risolvere i problemi relativi ai processi](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -53,10 +59,15 @@
 #### [Codice personalizzato](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Esecuzione e debug locale](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Integrazione continua e distribuzione continua
+### [Overview](data-lake-analytics-cicd-overview.md)
+### [Configurare i test](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+
 # Riferimenti
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/dla)
@@ -64,7 +75,7 @@
 # Risorse
 ## [Blog di Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [Commenti e suggerimenti su UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Richiedere modifiche](https://feedback.azure.com/forums/327234-data-lake)
 ## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)

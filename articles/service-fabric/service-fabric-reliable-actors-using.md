@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212892"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementazione di funzionalità a livello di servizio nel servizio Actor
 Come descritto in [Livelli del servizio](service-fabric-reliable-actors-platform.md#service-layering), il servizio Actor stesso è un servizio affidabile.  È possibile scrivere il proprio servizio che deriva da `ActorService` e implementare funzionalità a livello di servizio così come si farebbe quando si eredita StatefulService, ad esempio:

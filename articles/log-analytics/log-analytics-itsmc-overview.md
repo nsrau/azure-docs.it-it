@@ -3,7 +3,7 @@ title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: Questo articolo fornisce una panoramica di Connettore di Gestione dei servizi IT e informazioni su come usare questa soluzione per monitorare e gestire da una posizione centrale gli elementi di lavoro di Gestione dei servizi IT in Azure Log Analytics e risolvere rapidamente eventuali problemi.
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: na
+ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131719"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -98,7 +100,7 @@ Una volta preparati gli strumenti di Gestione dei servizi IT, seguire la procedu
 
     > [!NOTE]
 
-    > Per impostazione predefinita, Connettore di Gestione dei servizi IT aggiorna i dati di configurazione della connessione ogni 24 ore. Per aggiornare i dati della connessione immediatamente in caso di eventuali modifiche o aggiornamenti del modello, fare clic sul pulsante "Aggiorna" posto accanto alla connessione.
+    > Per impostazione predefinita, Connettore di Gestione dei servizi IT aggiorna i dati di configurazione della connessione ogni 24 ore. Per aggiornare i dati della connessione immediatamente in caso di eventuali modifiche o aggiornamenti del modello, fare clic sul pulsante **Sincronizza** nel pannello della connessione.
 
     ![Aggiornamento della connessione](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +139,6 @@ Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni
 >[!NOTE]
 
 > Per informazioni sui prezzi delle azioni di Gestione dei servizi IT, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/monitor/) per i gruppi di azioni.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT da avvisi di Log Analytics
-
-È possibile configurare le regole di avviso nel portale di Azure Log Analytics per creare elementi di lavoro nello strumento di Gestione dei servizi IT, seguendo questa procedura.
-
-1. Dalla finestra **Ricerca Log** eseguire una query di ricerca log per visualizzare i dati. I risultati della query sono l'origine degli elementi di lavoro.
-2. In **Ricerca Log** fare clic su **Avviso** per aprire la pagina **Aggiungi regola di avviso**.
-
-    ![Schermata di Log Analytics](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. Nella finestra **Aggiungi regola di avviso**, inserire i dettagli necessari per **Nome**, **Gravità**,  **Query di ricerca** e **Criteri avvisi** (misurazione dell'intervallo di tempo/metrica).
-4. Selezionare **Sì** per **Azioni ITSM**.
-5. Selezionare la connessione ITSM dall'elenco **Selezionare una connessione**.
-6. Specificare i dettagli richiesti.
-7. Per creare un elemento di lavoro separato per ogni voce di log dell'avviso, selezionare la casella di controllo **Crea elementi di lavoro singoli per ogni voce di log**.
-
-    Oppure
-
-    non selezionare questa casella di controllo per creare un solo elemento di lavoro per il numero di voci di log in questo avviso.
-
-7. Fare clic su **Save**.
-
-È possibile visualizzare l'avviso di Log Analytics creato in **Impostazioni > Avvisi**. Gli elementi di lavoro della connessione ITSM corrispondente vengono creati quando viene soddisfatta la condizione dell'avviso specificata.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>Creare elementi di lavoro di Gestione dei servizi IT da record di log di Log Analytics
-
-È anche possibile creare elementi di lavoro nelle origini del Connettore di Gestione dei servizi IT connesse direttamente da un record di log. Tali elementi possono essere usati per verificare se la connessione funziona correttamente.
-
-
-1. Da **Ricerca Log** cercare i dati richiesti, selezionare i dettagli e fare clic su **Crea elemento di lavoro**.
-
-    Viene visualizzata la finestra **Crea elemento di lavoro ITSM**:
-
-    ![Schermata di Log Analytics](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Aggiungere i dettagli seguenti:
-
-  - **Titolo elemento di lavoro**: il titolo dell'elemento di lavoro.
-  - **Descrizione elemento di lavoro**: descrizione per il nuovo elemento di lavoro.
-  - **Computer interessato**: nome del computer in cui sono stati trovati i dati del log.
-  - **Selezionare una connessione**: connessione ITSM in cui si desidera creare questo elemento di lavoro.
-  - **Elemento di lavoro**: tipo di elemento di lavoro.
-
-3. Per usare un modello di elemento di lavoro esistente per un evento imprevisto, fare clic su **Sì** nell'opzione **Genera elemento di lavoro in base al modello** e quindi fare clic su **Crea**.
-
-    Oppure
-
-    Fare clic su **No** se si desidera specificare valori personalizzati.
-
-4. Inserire i valori appropriati nelle caselle di testo **Tipo di contatto**, **Impatto**, **Urgenza**, **Categoria** e **Sottocategoria** e quindi fare clic su **Crea**.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizzare e analizzare i dati degli eventi imprevisti e delle richieste di modifica

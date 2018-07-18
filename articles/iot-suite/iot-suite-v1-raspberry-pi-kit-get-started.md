@@ -1,12 +1,12 @@
 ---
 title: Connettere un dispositivo Raspberry Pi ad Azure IoT Suite | Microsoft Docs
-description: "Le esercitazioni che usano Node.js o C consentono di imparare a usare lo Starter Kit di Microsoft Azure IoT per Raspberry Pi 3 e la soluzione di monitoraggio remoto IoT Suite. È possibile scegliere un'esercitazione che simula i dati di telemetria, che usa sensori reali o che consente di eseguire aggiornamenti del firmware remoto."
-services: 
+description: Le esercitazioni che usano Node.js o C consentono di imparare a usare lo Starter Kit di Microsoft Azure IoT per Raspberry Pi 3 e la soluzione di monitoraggio remoto IoT Suite. È possibile scegliere un'esercitazione che simula i dati di telemetria, che usa sensori reali o che consente di eseguire aggiornamenti del firmware remoto.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010424"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Connettere lo Starter Kit di Microsoft Azure IoT per Raspberry Pi 3 alla soluzione di monitoraggio remoto
 

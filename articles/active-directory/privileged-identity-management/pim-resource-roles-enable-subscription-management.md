@@ -3,22 +3,23 @@ title: Privileged Identity Management per le risorse di Azure - Abilitare la ges
 description: Informazioni su come gli amministratori globali possono gestire le sottoscrizioni nel tenant.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/27/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e164d8adaf5df63dba31bb6aa8e56f768741479c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 6aeb82ff1feb3521f3a09dc1b28186754568bb27
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200876"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442991"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Abilitare la gestione delle sottoscrizioni nel tenant
 

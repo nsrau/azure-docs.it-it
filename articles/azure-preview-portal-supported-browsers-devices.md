@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165112"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Browser e dispositivi supportati per il portale di Azure
 È possibile eseguire il [portale di Azure](https://portal.azure.com) in tutti i moderni browser e dispositivi tablet e desktop.

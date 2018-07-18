@@ -3,17 +3,18 @@ title: Ricerca cognitiva per l'estrazione di dati, elaborazione del linguaggio n
 description: Estrazione dei dati, elaborazione del linguaggio naturale (NLP) ed elaborazione di immagini per creare contenuti che supportano la ricerca nell'indicizzazione di Ricerca di Azure tramite competenze cognitive.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942160"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304282"
 ---
 # <a name="what-is-cognitive-search"></a>Che cos'è la ricerca cognitiva?
 
@@ -25,12 +26,12 @@ L'integrazione IA avviene tramite *competenze cognitive* che arricchiscono i doc
 
 Le competenze usate durante l'indicizzazione possono essere predefinite o personalizzate:
 
-+ Le [competenze predefinite](cognitive-search-predefined-skills.md) si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) sono soltanto alcune di esse. 
++ Le [competenze predefinite](cognitive-search-predefined-skills.md) si basano sugli stessi algoritmi IA usati nelle API Servizi cognitivi: [Riconoscimento di entità denominate](cognitive-search-skill-named-entity-recognition.md), [Estrazione frasi chiave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) sono soltanto alcuni esempi. 
 
 + Le [Competenze personalizzate](cognitive-search-create-custom-skill-example.md) possono essere sviluppate dall'utente per operazioni di elaborazione specializzate. Esempi di competenze personalizzate possono essere un modulo di entità personalizzato o un classificatore di documenti destinato a un dominio specifico, ad esempio pubblicazioni finanziarie, scientifiche o mediche.
 
 > [!NOTE]
-> La Ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
+> La ricerca cognitiva è disponibile in anteprima pubblica e l'esecuzione del set di competenze è attualmente offerta gratuitamente. Il prezzo per questa funzionalità verrà annunciato in un momento successivo.
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
 
@@ -103,9 +104,9 @@ Attualmente, vengono fornite solo API REST. Usare `api-version=2017-11-11-Previe
 | API REST | DESCRIZIONE |
 |-----|-------------|
 | [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Risorsa che identifica un'origine dati esterna che fornisce dati di origine usati per creare documenti arricchiti.  |
-| [Creare un set di competenze (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
+| [Creare un set di competenze (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che coordina l'utilizzo di [competenze predefinite](cognitive-search-predefined-skills.md) e [competenze cognitive personalizzate](cognitive-search-custom-skill-interface.md) usate in una pipeline di arricchimento durante l'indicizzazione. |
 | [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Schema che esprime un indice di Ricerca di Azure. Viene eseguito il mapping dei campi nell'indice con i campi nei dati di origine o i campi prodotti durante la fase di arricchimento (ad esempio, un campo per i nomi dell'organizzazione creati dal riconoscimento entità). |
-| [Creare un indicizzatore (api-version=2017-11-11-Preview)](ref-create-skillset.md)  | Risorsa che definisce i componenti usati durante l'indicizzazione, incluso un'origine dati, un set di competenze, associazioni di campi dalle strutture dei dati di origine e intermedie all'indice di destinazione, oltre all'indice stesso. L'esecuzione dell'indicizzatore è il trigger di inserimento dati e arricchimento. L'output è un insieme di ricerche basato sullo schema dell'indice, popolato con dati di origine e arricchito tramite insiemi di competenze.  |
+| [Creare un indicizzatore (api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Risorsa che definisce i componenti usati durante l'indicizzazione, incluso un'origine dati, un set di competenze, associazioni di campi dalle strutture dei dati di origine e intermedie all'indice di destinazione, oltre all'indice stesso. L'esecuzione dell'indicizzatore è il trigger di inserimento dati e arricchimento. L'output è un insieme di ricerche basato sullo schema dell'indice, popolato con dati di origine e arricchito tramite insiemi di competenze.  |
 
 **Elenco di controllo: un flusso di lavoro tipico**
 
@@ -113,11 +114,11 @@ Attualmente, vengono fornite solo API REST. Usare `api-version=2017-11-11-Previe
 
 1. Creare un [oggetto di origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Ricerca di Azure per fornire una stringa di connessione per il recupero dati.
 
-1. Creare un [set di competenze](ref-create-skillset.md) con una procedura di arricchimento.
+1. Creare un [set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con una procedura di arricchimento.
 
 1. Definire lo [schema dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index). La raccolta *Campi* include campi provenienti dall'origine dati. È necessario anche disattivare i campi aggiuntivi per mantenere i valori generati per il contenuto creato durante l'arricchimento.
 
-1. Definire l'[indicizzatore](ref-create-skillset.md) che fa riferimento all'origine dati, al set di competenze e all'indice.
+1. Definire l'[indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-skillset) che fa riferimento all'origine dati, al set di competenze e all'indice.
 
 1. All'interno dell'indicizzatore, aggiungere *outputFieldMappings*. In questa sezione viene eseguito il mapping dell'output dal set di competenze (nel passaggio 3) ai campi di input nello schema dell'indice (nel passaggio 4).
 

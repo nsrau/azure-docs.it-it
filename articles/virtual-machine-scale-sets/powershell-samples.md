@@ -3,7 +3,7 @@ title: Esempi di Azure PowerShell | Microsoft Docs
 description: Esempi di Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: eae8ca04b5242375ad08e5a673c78f2ab7738d63
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38707472"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Esempi di Azure PowerShell per set di scalabilità di macchine virtuali
 
@@ -29,7 +30,8 @@ La tabella seguente include i collegamenti agli script Bash compilati tramite Az
 | | |
 |---|---|
 |**Creare e gestire un set di scalabilità**||
-| [Creare un set di scalabilità di macchine virtuali](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un set di scalabilità di macchine virtuali con una configurazione minima. |
+| [Creare un set di scalabilità di macchine virtuali semplice](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un set di scalabilità di macchine virtuali con una configurazione minima. |
+| [Creare un set di scalabilità di macchine virtuali completo](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Crea un set di scalabilità di macchine virtuali e le risorse associate con un file di configurazione. |
 | [Creare un set di scalabilità da un'immagine di macchina virtuale personalizzata](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crea un set di scalabilità di macchine virtuali che usa un'immagine di macchina virtuale personalizzata. |
 | [Installare applicazioni in un set di scalabilità](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Usare l'estensione Script personalizzato per installare un'applicazione Web di base in un set di scalabilità. |
 |**Gestire l'archiviazione**||

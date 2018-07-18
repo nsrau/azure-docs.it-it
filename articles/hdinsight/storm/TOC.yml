@@ -14,7 +14,7 @@
     - name: Installare app HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: pianificazione della capacità
+    - name: Pianificazione della capacità
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: Procedure
@@ -234,13 +234,10 @@
         - name: Connettere HDInsight alla rete locale
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: Monitoraggio tramite OMS
+    - name: Monitoraggio dell'uso di Log Analytics
       items:
         - name: Usare Azure Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Dashboard specifici per i cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Usare query con Log Analytics
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -248,7 +245,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

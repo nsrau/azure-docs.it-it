@@ -1,25 +1,20 @@
 ---
-title: "Risolvere un problema di Backup di Azure: stato dell'agente guest non disponibile | Microsoft Docs"
+title: "Risolvere un problema di Backup di Azure: stato dell'agente guest non disponibile"
 description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correlati all'agente, all'estensione e ai dischi.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Backup di Azure; agente di macchine virtuali; connettività di rete;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: de3fcc4abcc8558066d9e524011047d6a117f4e5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 06/25/2018
+ms.author: genli
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754203"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -63,7 +58,7 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>Errore di backup a causa della mancata risposta da parte dell'agente di macchine virtuali
 
-Messaggio di errore: "Non è possibile eseguire l'operazione perché l'agente di macchine virtuali non risponde" <br>
+Messaggio di errore: "Non è stato possibile comunicare con l'agente VM per lo stato dello snapshot" <br>
 Codice errore: "GuestAgentSnapshotTaskStatusError"
 
 Dopo la registrazione e la pianificazione di una macchina virtuale per il servizio Backup di Azure, tale servizio avvia il processo comunicando con l'estensione di backup della macchina virtuale per la creazione di uno snapshot temporizzato. Una delle condizioni seguenti può impedire l'attivazione dello snapshot. Se lo snapshot non viene attivato, può verificarsi un errore di backup. Seguire questi passaggi per la risoluzione dei problemi nell'ordine specificato e provare a eseguire di nuovo l'operazione:  
@@ -91,6 +86,16 @@ In base al requisito di distribuzione, la macchina virtuale non ha accesso a Int
 
 Per funzionare correttamente, l'estensione di backup richiede la connettività agli indirizzi IP pubblici di Azure. L'estensione invia comandi a un endpoint di archiviazione di Azure (URL HTTP) per gestire gli snapshot della macchina virtuale. Se l'estensione non ha accesso a Internet pubblico, il backup ha esito negativo.
 
+È possibile distribuire un server proxy per instradare il traffico delle VM.
+##### <a name="create-a-path-for-https-traffic"></a>Creare un percorso per il traffico HTTP
+
+1. Se sono state applicate restrizioni di rete, ad esempio un gruppo di sicurezza di rete, distribuire un server proxy HTTP per indirizzare il traffico.
+2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
+
+Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+La VM di backup o il server proxy tramite cui viene indirizzato il traffico richiede l'accesso agli indirizzi IP pubblici di Azure
+
 ####  <a name="solution"></a>Soluzione
 Per risolvere il problema, utilizzare uno dei seguenti metodi alternativi:
 
@@ -104,13 +109,6 @@ Per comprendere la procedura dettagliata per configurare i tag di servizio, guar
 
 > [!WARNING]
 > I tag del servizio di archiviazione sono in versione di anteprima. Sono disponibili solo in aree specifiche. Per un elenco delle aree, vedere [Tag di servizio per l'archiviazione](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>Creare un percorso per il traffico HTTP
-
-1. Se sono state applicate restrizioni di rete, ad esempio un gruppo di sicurezza di rete, distribuire un server proxy HTTP per indirizzare il traffico.
-2. Per consentire l'accesso a Internet dal server proxy HTTP, aggiungere regole al gruppo di sicurezza di rete, se disponibile.
-
-Per informazioni su come configurare un proxy HTTP per i backup delle macchine virtuali, vedere [Preparare l'ambiente per il backup di macchine virtuali di Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Se si usa Azure Managed Disks, può essere necessario aprire una porta aggiuntiva (8443) nei firewall.
 
@@ -194,7 +192,7 @@ Questo problema è specifico delle macchine virtuali gestite in cui l'utente blo
 
 #### <a name="solution"></a>Soluzione
 
-Per risolvere il problema, seguire la procedura illustrata di seguito per rimuovere la raccolta di punti di ripristino: <br>
+Per risolvere il problema, rimuovere il blocco dal gruppo di risorse e completare la procedura illustrata di seguito per rimuovere la raccolta di punti di ripristino: 
  
 1. Rimuovere il blocco nel gruppo di risorse in cui si trova la macchina virtuale. 
 2. Installare ARMClient usando Chocolatey: <br>
@@ -209,6 +207,4 @@ Per risolvere il problema, seguire la procedura illustrata di seguito per rimuov
     `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
 6. Il successivo backup pianificato crea automaticamente una raccolta di punti di ripristino e i nuovi punti di ripristino.
 
- 
-Il problema si verificherà di nuovo se il gruppo di risorse viene bloccato nuovamente. 
-
+Al termine, sarà possibile reinserire il blocco sul gruppo di risorse della macchina virtuale. 

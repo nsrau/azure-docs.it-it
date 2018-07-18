@@ -1,12 +1,12 @@
 ---
 title: Librerie di gestione di Hub eventi di Azure | Microsoft Docs
-description: "Gestire entità e spazi dei nomi di Hub eventi da .NET"
+description: Gestire entità e spazi dei nomi di Hub eventi da .NET
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780974"
 ---
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
 

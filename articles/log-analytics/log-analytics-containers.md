@@ -3,7 +3,7 @@ title: Soluzione Monitoraggio contenitori in Log Analytics di Azure | Microsoft 
 description: La soluzione Monitoraggio contenitori in Log Analytics consente di visualizzare e gestire gli host del contenitore Docker e Windows in un'unica posizione.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: na
+ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970803"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -128,7 +130,7 @@ Dopo aver installato Docker, usare le impostazioni seguenti per l'host di conten
 Avviare il contenitore da monitorare. Modificare e usare l'esempio seguente:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
 **Per tutti gli host del contenitore Linux Azure per enti pubblici, incluso CoreOS:**
@@ -136,7 +138,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 Avviare il contenitore da monitorare. Modificare e usare l'esempio seguente:
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
 **Passaggio dall'uso di un agente Linux installato a un agente in un contenitore**
@@ -150,7 +152,7 @@ Se in precedenza veniva usato l'agente installato direttamente e si vuole usare 
 - Eseguire quanto segue sul nodo principale.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>Proteggere i segreti per Docker Swarm
@@ -528,7 +530,7 @@ Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Micr
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
+Dal portale di OMS, passare alla *Raccolta soluzioni* e aggiungere la **soluzione Monitoraggio contenitori**. Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 - *ContainerManagement.xxx* installato in C:\Programmi\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -563,6 +565,7 @@ Le etichette aggiunte ai tipi di dati *PodLabel* sono etichette personalizzate. 
 
 ## <a name="monitor-containers"></a>Monitorare i contenitori
 Dopo avere abilitato la soluzione nel portale di Log Analytics, il riquadro **Contenitori** mostra le informazioni di riepilogo sugli host di contenitori e i contenitori in esecuzione negli host.
+
 
 ![Riquadro Containers (Contenitori)](./media/log-analytics-containers/containers-title.png)
 

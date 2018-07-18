@@ -1,6 +1,6 @@
 ---
-title: 'Esempi dell''interfaccia della riga di comando di Azure: applicazioni gestite di Azure | Microsoft Docs'
-description: 'Esempi dell''interfaccia della riga di comando di Azure: applicazioni gestite di Azure'
+title: "Esempi dell'interfaccia della riga di comando di Azure: applicazioni gestite di Azure | Microsoft Docs"
+description: "Esempi dell'interfaccia della riga di comando di Azure: applicazioni gestite di Azure"
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632552"
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
 

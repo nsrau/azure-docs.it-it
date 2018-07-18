@@ -6,15 +6,14 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: c306c52ff6f76e09312995974013df6840a5a1a1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4bffe811dcee6a92e97c66b5813211e58004bb73
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38946206"
 ---
-Per lo sviluppo locale in Funzioni di Azure versione 2.x, il pacchetto viene automaticamente [registrato come estensione dell'associazione](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools). Per lo sviluppo di librerie di classe C# in Funzioni 1.x e 2.x, il pacchetto viene automaticamente [installato nel progetto](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code). 
-
-Si noti che il codice sorgente segue la numerazione delle versioni di WebJobs SDK: WebJobs SDK versione 2.x equivale a Funzioni di Azure 1.x, pertanto il codice di Funzioni 1.x è incluso nel ramo v2.x nel repository. I rami master e dev contengono il codice per Web Jobs 3.x, che corrisponde a Funzioni 2.x.
+Il supporto per questa associazione viene fornito automaticamente in tutti gli ambienti di sviluppo. Non è necessario installare il pacchetto o registrare l'estensione manualmente.

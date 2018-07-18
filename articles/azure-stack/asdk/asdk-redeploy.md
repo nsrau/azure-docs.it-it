@@ -1,6 +1,6 @@
 ---
 title: Ridistribuire il Kit di sviluppo di Azure Stack (ASDK) | Documenti Microsoft
-description: In questa esercitazione imparare a reinstallare il ASDK.
+description: In questo articolo si informazioni su come reinstallare il ASDK.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850321"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Esercitazione: ridistribuire il ASDK
-In questa esercitazione, è illustrato come ridistribuire Azure Stack Development Kit (ASDK) in un ambiente non di produzione. Perché non è supportato l'aggiornamento di ASDK, è necessario ridistribuirla completamente per spostare in una versione più recente. È anche possibile ridistribuire il ASDK ogni volta che si desidera iniziare da zero.
+# <a name="redeploy-the-asdk"></a>Ridistribuire la ASDK
+In questo articolo è illustrato come ridistribuire Azure Stack Development Kit (ASDK) in un ambiente non di produzione. Perché non è supportato l'aggiornamento di ASDK, è necessario ridistribuirla completamente per spostare in una versione più recente. È anche possibile ridistribuire il ASDK ogni volta che si desidera iniziare da zero.
 
 > [!IMPORTANT]
 > Non è supportato l'aggiornamento di ASDK a una nuova versione. È necessario ridistribuire il ASDK nel computer host kit sviluppo ogni volta che si desidera valutare una versione più recente dello Stack di Azure.
-
-In questa esercitazione si apprenderà come:
-
-> [!div class="checklist"]
-> * Rimuovere la registrazione di Azure 
-> * Ridistribuire la ASDK
 
 ## <a name="remove-azure-registration"></a>Rimuovere la registrazione di Azure 
 Se sono state registrate in precedenza l'installazione ASDK con Azure, è consigliabile rimuovere la risorsa di registrazione prima di ridistribuire il ASDK. Registrare nuovamente il ASDK per consentire la diffusione marketplace quando si ridistribuisce il ASDK. Se non è stato registrato in precedenza il ASDK con la sottoscrizione di Azure, è possibile ignorare questa sezione.
@@ -55,7 +50,7 @@ Per rimuovere la risorsa di registrazione, usare il **Remove-AzsRegistration** c
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Per rimuovere la risorsa di registrazione, usare il **Remove-AzsRegistration** c
 
 Stack di Azure dovrebbe ora essere correttamente annullata la registrazione dalla sottoscrizione di Azure. Inoltre, il gruppo di risorse azurestack, creato quando il ASDK è registrato in Azure, anche deve essere eliminato.
 
-## <a name="redeploy-the-asdk"></a>Ridistribuire la ASDK
+## <a name="deploy-the-asdk"></a>Distribuire il ASDK
 Per ridistribuire dello Stack di Azure, è necessario ricominciare da zero come descritto di seguito. I passaggi sono diversi a seconda del fatto usato lo script di installazione (asdk-installer.ps1) dello Stack di Azure per installare il ASDK.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Ridistribuire ASDK usando lo script di installazione
@@ -85,7 +80,7 @@ Per ridistribuire dello Stack di Azure, è necessario ricominciare da zero come 
 
 3. Dopo che l'host di kit sviluppo riavvio nel sistema operativo di base, accedere come amministratore locale. Individuare ed eliminare le **C:\CloudBuilder.vhdx** file che è stato utilizzato come parte della distribuzione precedente. 
 
-4. Ripetere gli stessi passaggi eseguiti al primo [distribuire l'ASDK](asdk-deploy.md).
+4. Ripetere gli stessi passaggi eseguiti al primo [distribuire l'ASDK](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Ridistribuire la ASDK senza utilizzare il programma di installazione
 Se è stato utilizzato lo script asdk installer.ps1 non installare il ASDK, è necessario riconfigurare manualmente il computer host kit sviluppo prima di ridistribuire il ASDK.
@@ -100,16 +95,7 @@ Se è stato utilizzato lo script asdk installer.ps1 non installare il ASDK, è n
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Rimuovere la registrazione di Azure 
-> * Ridistribuire la ASDK
-
-Passare alla prossima esercitazione per informazioni su come aggiungere un elemento del marketplace dello Stack di Azure.
-
-> [!div class="nextstepaction"]
-> [Aggiungere un elemento del marketplace Azure Stack](asdk-marketplace-item.md)
+[Attività post-installazione ASDK configurazione](asdk-post-deploy.md)
 
 
 

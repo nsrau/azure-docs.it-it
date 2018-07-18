@@ -1,12 +1,12 @@
 ---
 title: Usare il riepilogo per dispositivi StorSimple serie 8000 | Microsoft Docs
-description: "Descrive il pannello di riepilogo del servizio StorSimple e illustra come usarlo per monitorare l'integrità della soluzione StorSimple."
+description: Descrive il pannello di riepilogo del servizio StorSimple e illustra come usarlo per monitorare l'integrità della soluzione StorSimple.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108209"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Usare il pannello di riepilogo del servizio per dispositivi StorSimple serie 8000
 

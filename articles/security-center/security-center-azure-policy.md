@@ -3,7 +3,7 @@ title: Integrazione dei criteri di sicurezza del Centro sicurezza di Azure con C
 description: Questo documento illustra come configurare l'integrazione dei criteri di sicurezza del Centro sicurezza di Azure con Criteri di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -12,60 +12,65 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: aec29ac1ccf9386615e7603898f071fe9cda44cf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/21/2018
+ms.author: terrylan
+ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364336"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018564"
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
-Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di Criteri di Azure.
+Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di [Criteri di Azure](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="how-security-policies-work"></a>Funzionamento dei criteri di sicurezza
-Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare i criteri nel Centro sicurezza o usare [Criteri di Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) per eseguire le operazioni seguenti:
-* Creare nuove definizioni dei criteri.
-* Assegnare i criteri ai gruppi di gestione, che possono rappresentare un'intera organizzazione o una business unit entro l'organizzazione.
-* Monitorare la conformità ai criteri.
+Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare i criteri nel Centro sicurezza o usare Criteri di Azure per eseguire le operazioni seguenti:
+- Creare nuove definizioni dei criteri.
+- Assegnare i criteri ai gruppi di gestione e alle sottoscrizioni, che possono rappresentare un'intera organizzazione o una business unit all'interno dell'organizzazione.
+- Monitorare la conformità ai criteri.
 
-> [!NOTE]
-> Criteri di Azure è disponibile in anteprima limitata. Per partecipare, passare all'[iscrizione per Criteri di Azure](https://aka.ms/getpolicy). Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
+Per altre informazioni su Criteri di Azure, vedere [Creare e gestire i criteri per applicare la conformità](../azure-policy/create-manage-policy.md).
+
+Un criterio di Azure è costituito dai componenti seguenti:
+
+- Un **criterio** è una regola
+- Un'**iniziativa** è una raccolta di criteri
+- Un'**assegnazione** è un'applicazione di un'iniziativa o di un criterio a un ambito specifico (gruppo di gestione, sottoscrizione o gruppo di risorse)
+
+Una risorsa viene valutata in base ai criteri ad essa assegnati e riceve un rapporto di conformità in base al numero di criteri a cui la risorsa è conforme.
 
 ## <a name="edit-security-policies"></a>Modificare i criteri di sicurezza
-È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere un proprietario, un collaboratore o un amministratore della sicurezza della sottoscrizione o del gruppo di gestione che la include. Per visualizzare i criteri di sicurezza nel Centro sicurezza, seguire questa procedura:
+È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione e gruppo di gestione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere un proprietario, un collaboratore o un amministratore della sicurezza della sottoscrizione o del gruppo di gestione che la include. Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
-1. Accedere al portale di Azure.
-
-2. Nel dashboard **Centro sicurezza** in **Generale** selezionare **Criteri di sicurezza**.
+1. Nel dashboard **Centro sicurezza** in **CRITERI E CONFORMITÀ** selezionare **Criteri di sicurezza**. Verrà visualizzato **Gestione dei criteri**.
 
     ![Riquadro Gestione dei criteri](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
-3. Selezionare la sottoscrizione per cui abilitare un criterio di sicurezza.  
+  Gestione dei criteri permette di visualizzare il numero dei gruppi di gestione, delle sottoscrizioni e delle aree di lavoro, oltre alla struttura dei gruppi di gestione.
 
-4. Nella sezione **Componenti dei criteri** selezionare **Criteri di sicurezza**.  
-    Viene visualizzata la finestra **Informazioni di base**.
+  > [!NOTE]
+  > Il dashboard Centro sicurezza potrebbe mostrare in **Copertura della sottoscrizione** un numero di sottoscrizioni maggiore rispetto a quello indicato in **Gestione dei criteri**. In Copertura della sottoscrizione è riportato il numero di sottoscrizioni di tipo Standard, Gratuito e “senza copertura”. Le sottoscrizioni “senza copertura” non hanno abilitato il Centro sicurezza e non vengono visualizzate in **Gestione dei criteri**.
+  >
+  >
 
-    ![Componenti dei criteri](./media/security-center-azure-policy/security-center-policies-fig12.png)
+  Le colonne nella tabella mostrano:
 
-5. Per eliminare una definizione di criterio, in **Policies and Parameters** (Criteri e parametri) selezionare **Elimina** accanto alla definizione da eliminare.
+ - Assegnazione dell'iniziativa relativa ai criteri: iniziative e criteri predefiniti del Centro sicurezza assegnati a una sottoscrizione o a un gruppo di gestione.
+ - Conformità: punteggio di conformità complessiva per un gruppo di gestione, una sottoscrizione o un'area di lavoro. Il punteggio è la media ponderata delle assegnazioni. La media ponderata si scompone nel numero di criteri in una singola assegnazione e nel numero di risorse a cui si applica l'assegnazione.
 
-6. Fare clic su **Save**.  
-    Viene visualizzata la finestra **Available Definitions** (Definizioni disponibili), che mostra il criterio predefinito assegnato al Centro sicurezza tramite Criteri di Azure.
+ Ad esempio, se la sottoscrizione dispone di due macchine virtuali e un'iniziativa con cinque criteri assegnati, sono presenti 10 valutazioni nella sottoscrizione. Se una delle macchine virtuali non è conforme a due dei criteri, il punteggio di conformità complessiva dell'assegnazione della sottoscrizione è pari all'80%.
 
-7. (Facoltativo) Nella finestra **Available Definitions** (Definizioni disponibili) eseguire una delle operazioni seguenti:
+ - Copertura: identifica il piano tariffario, Gratuito o Standard, in cui viene eseguito il gruppo di gestione, la sottoscrizione o l'area di lavoro.  Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
+ - Impostazioni: per le sottoscrizioni è disponibile il collegamento **Modifica impostazioni**. Selezionando **Modifica impostazioni**, è possibile aggiornare le impostazioni della sottoscrizione, ad esempio raccolta dati, piano tariffario e notifiche di posta elettronica.
 
-    * Per aggiungere una definizione di criterio, selezionare il segno più (+) accanto alla definizione.
+2. Selezionare la sottoscrizione o il gruppo di gestione per cui abilitare un criterio di sicurezza. Viene visualizzata la finestra **Criteri di sicurezza**.
 
-    ![Definizioni dei criteri disponibili](./media/security-center-azure-policy/security-center-policies-fig11.png)
+3.  In **Criteri di sicurezza** selezionare i controlli per cui si vuole che il Centro sicurezza esegua il monitoraggio e fornisca raccomandazioni selezionando **Sì**.  Selezionare **No** se non si vuole che il Centro sicurezza esegua il monitoraggio di tale controllo.
 
-    * Per una spiegazione dettagliata di un criterio, selezionarlo.  
-    Viene visualizzata una finestra di **Anteprima** della definizione. La finestra mostra una descrizione della definizione e un collegamento al codice JSON che fornisce la struttura della [definizione del criterio](../azure-policy/policy-definition.md).
+    ![Componenti dei criteri](./media/security-center-azure-policy/security-policy.png)
 
-    ![Finestra Anteprima della definizione](./media/security-center-azure-policy/security-center-policies-fig14.png)
-
-7. Al termine delle modifiche, selezionare **Salva**.
+4. Selezionare **Salva**.
 
 ## <a name="available-security-policy-definitions"></a>Definizioni di criteri di sicurezza disponibili
 
@@ -77,14 +82,22 @@ Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicur
 | Configurazioni di sicurezza |Analizza giornalmente le configurazioni del sistema operativo per determinare i problemi che potrebbero rendere vulnerabile agli attacchi la macchina virtuale. Il criterio consiglia anche le modifiche alla configurazione necessarie per risolvere queste vulnerabilità. Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di baseline consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). (Al momento, Windows Server 2016 non è completamente supportato.) |
 | Endpoint Protection |Consiglia di configurare Endpoint Protection per tutte le macchine virtuali di Windows, per identificare e rimuovere virus, spyware e altro software dannoso. |
 | Crittografia del disco |Suggerisce di abilitare la crittografia dischi in tutte le macchine virtuali per migliorare la protezione dei dati inattivi. |
-| Gruppi di sicurezza di rete |Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet vengono ereditati da tutte le interfacce di rete della macchina virtuale se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
-| Web application firewall |Consiglia di configurare un Web application firewall nelle macchine virtuali quando una delle due affermazioni seguenti è vera: <ul><li>Viene usato un [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) e le regole di sicurezza in ingresso per il gruppo di sicurezza di rete associato vengono configurate in modo da consentire l'accesso alla porta 80/443.</li><li>Viene usato un IP con carico bilanciato e le regole NAT (Network Address Translation) in ingresso e di bilanciamento del carico associate sono configurate per consentire l'accesso alla porta 80/443. Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
+| Gruppi di sicurezza di rete |Consiglia di configurare [gruppi di sicurezza di rete](../virtual-network/security-overview.md) per controllare il traffico in ingresso e in uscita nelle VM che hanno endpoint pubblici. I gruppi di sicurezza di rete configurati per una subnet vengono ereditati da tutte le interfacce di rete della macchina virtuale, se non diversamente specificato. Oltre a controllare che sia stato configurato un gruppo di sicurezza di rete, questo criterio valuta le regole di sicurezza in ingresso per identificare le regole che consentono il traffico in ingresso. |
+| Web application firewall |Consiglia di configurare un Web application firewall nelle macchine virtuali quando una delle due condizioni seguenti è vera: <ul><li>Viene usato un [IP pubblico a livello di istanza](../virtual-network/virtual-networks-instance-level-public-ip.md) e le regole di sicurezza in ingresso per il gruppo di sicurezza di rete associato vengono configurate in modo da consentire l'accesso alla porta 80/443.</li><li>Viene usato un IP con carico bilanciato e le regole NAT (Network Address Translation) in ingresso e di bilanciamento del carico associate sono configurate per consentire l'accesso alla porta 80/443. Per altre informazioni, vedere [Supporto di Azure Resource Manager per Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Firewall di nuova generazione |Estende le protezioni di rete oltre i gruppi di sicurezza di rete predefiniti di Azure. Il Centro sicurezza individua le distribuzioni per cui è consigliabile un firewall di nuova generazione ed è quindi possibile configurare un'appliance virtuale. |
 | Controllo e rilevamento delle minacce SQL |Consiglia l'abilitazione del controllo dell'accesso al database di Azure per la conformità e il rilevamento avanzato delle minacce, per scopi di analisi. |
 | Crittografia SQL |Consiglia l'abilitazione della crittografia dati inattivi per il database SQL di Azure, i backup associati e file di log delle transazioni. Anche se i dati vengono violati, non sono leggibili. |
 | Valutazione della vulnerabilità |Consiglia di installare una soluzione di valutazione della vulnerabilità nella VM. |
 | Crittografia di archiviazione |Questa funzionalità è attualmente disponibile per archivi BLOB di Azure e File di Azure. Dopo l'abilitazione della Crittografia del servizio di archiviazione vengono crittografati solo i nuovi dati, mentre i file già esistenti nell'account di archiviazione rimangono non crittografati. |
 | Accesso alla rete JIT |Quando è abilitato l'accesso alla rete Just-in-Time, il Centro sicurezza protegge il traffico in ingresso alle macchine virtuali di Azure creando una regola del gruppo di sicurezza di rete. Selezionare le porte nella macchina virtuale per cui bloccare il traffico in ingresso. Per altre informazioni, vedere [Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)](https://docs.microsoft.com/azure/security-center/security-center-just-in-time). |
+
+## <a name="management-groups"></a>Gruppi di gestione
+Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I gruppi di gestione di Azure forniscono un livello di ambito oltre le sottoscrizioni. Le sottoscrizioni sono organizzate in contenitori chiamati "gruppi di gestione" a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. A ogni directory viene assegnato un gruppo di gestione principale denominato gruppo di gestione "radice". Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di Controllo degli accessi in base al ruolo a livello di directory. Per configurare i gruppi di gestione per l'uso con Centro sicurezza di Azure, seguire le istruzioni nell'articolo [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) (Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure). 
+
+> [!NOTE]
+> È importante comprendere la gerarchia dei gruppi di gestione e delle sottoscrizioni. Vedere [Organizzare le risorse con i gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory) per altre informazioni sui gruppi di gestione, la gestione radice e l'accesso ai gruppi di gestione.
+>
+>
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -94,5 +107,8 @@ In questo articolo si è appreso come configurare i criteri di sicurezza nel Cen
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md): informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
+* [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) (Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure): informazioni su come configurare i gruppi di gestione per il Centro sicurezza di Azure. 
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+
+Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).

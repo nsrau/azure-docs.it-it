@@ -1,31 +1,73 @@
-1. Per visualizzare i tag per una risorsa o un gruppo di risorse, selezionare l'icona **Tag**. 
+---
+title: File di inclusione
+description: File di inclusione
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675337"
+---
+1. Per visualizzare i tag per una risorsa o un gruppo di risorse, cercare i tag esistenti nella panoramica. Se in precedenza non sono stati applicati tag, l'elenco è vuoto.
    
-     ![Selezionare i tag nei pannelli della risorsa e del gruppo di risorse](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Vengono visualizzati i tag esistenti per la risorsa. Se in precedenza non sono stati applicati tag, l'elenco è vuoto. 
+     ![Visualizzare i tag per la risorsa o il gruppo di risorse](./media/resource-manager-tag-resources/view-tags.png)
+1. Per aggiungere un tag, selezionare **Fare clic qui per aggiungere i tag**.
 
-     ![Visualizzare i tag esistenti nei pannelli della risorsa e del gruppo di risorse](./media/resource-manager-tag-resources/existing-tags.png)
-3. Per aggiungere un tag, digitare un nome e un valore oppure selezionarne uno esistente nel menu a discesa. Selezionare **Salva**.
+1. Specificare un nome e valore. Selezionare **+** per aggiungere il tag.
+   
+     ![Aggiungere un tag](./media/resource-manager-tag-resources/add-tag.png)
+1. Continuare ad aggiungere i tag in base alle esigenze. Al termine scegliere **Salva**.
+   
+     ![Salvare i tag](./media/resource-manager-tag-resources/save-tags.png)
+1. I tag vengono ora visualizzati nella panoramica.
+   
+     ![Visualizzare i tag](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Per aggiungere o eliminare un tag, selezionare **Modifica**.
+   
+1. Per eliminare un tag, selezionare l'icona Cestino. Selezionare quindi **Salva**.
 
-     ![Aggiungere un nuovo tag](./media/resource-manager-tag-resources/tag-resources.png)
-3. Per visualizzare tutte le risorse con un valore di tag, selezionare **>** (**Altri servizi**) e immettere la parola **Tags** nella casella di testo del filtro. Selezionare **Tag** tra le opzioni disponibili.
-   
-     ![Trovare tag tramite l'hub di esplorazione](./media/resource-manager-tag-resources/browse-tags.png)
-4. Nelle sottoscrizioni viene visualizzato un riepilogo dei tag.
-   
-     ![Visualizzare tutti i tag](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Selezionare un tag per visualizzare le risorse e i gruppi di risorse che lo contengono.
-   
-     ![Visualizzare le risorse con tag](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Selezionare **Aggiungi pannello al dashboard** per l'accesso rapido.
-   
-     ![Aggiungere i tag al dashboard](./media/resource-manager-tag-resources/pin-tag.png)
-7. È possibile selezionare i tag aggiunti dal dashboard per visualizzare le risorse con tale tag.
-
-     ![Aggiungere i tag al dashboard](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Eliminare un tag](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Per eseguire l'assegnazione in blocco dei tag a più risorse:
-1. Da qualsiasi elenco di risorse (ad esempio, Tutte le risorse - panoramica del gruppo di risorse):
-2. Selezionare la casella di controllo per le risorse a cui si vuole assegnare il tag.
-3. Selezionare l'opzione Assegna tag.
-4. Aggiungere il nome o i nomi e il valore o i valori e quindi selezionare Assegna.
+
+1. Da qualsiasi elenco di risorse selezionare la casella di controllo per le risorse a cui si vuole assegnare il tag.
+
+     ![Selezionare più risorse](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. Selezionare **Assegna tag**.
+
+     ![Assegnare i tag](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. Dopo ogni nome e valore, selezionare **+**. Al termine selezionare **Assegna**.
+
+     ![Selezionare Assegna](./media/resource-manager-tag-resources/select-assign.png)
+
+Per visualizzare tutte le risorse con un tag:
+
+1. Selezionare **Tutti i servizi** e **Tag**.
+
+     ![Ricerca in base al tag](./media/resource-manager-tag-resources/find-tags.png)
+
+1. Selezionare il tag per la visualizzazione delle risorse.
+
+     ![Selezionare il tag](./media/resource-manager-tag-resources/select-tag.png)
+
+1. Vengono visualizzate tutte le risorse con tale tag.
+
+     ![Visualizzare le risorse in base al tag](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. Per l'accesso rapido, aggiungere la visualizzazione al dashboard.
+
+     ![Aggiungi al dashboard](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. La visualizzazione è disponibile dal dashboard.
+
+     ![dashboard](./media/resource-manager-tag-resources/dashboard.png)

@@ -6,15 +6,15 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 04/23/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: sashan
-ms.openlocfilehash: d2472867c71aedf35e537a29d3912b9e423de2e2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185427"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060009"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)
 
@@ -22,7 +22,7 @@ La **scalabilità in lettura** consente di bilanciare il carico dei carichi di l
 
 ## <a name="overview-of-read-scale-out"></a>Panoramica della scalabilità in lettura
 
-Di ogni database nel livello Premium ([modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md)) o nel livello business critical ([modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md)) viene effettuato il provisioning automatico con diverse repliche Always On per supportare il contratto di servizio per la disponibilità. Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
+Di ogni database nel livello Premium, [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), o nel livello business critical, [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md), viene effettuato il provisioning automatico con diverse repliche AlwaysOn per supportare il contratto di servizio per la disponibilità. Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
 
 Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario abilitarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate). 
 
@@ -61,9 +61,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 È possibile verificare se si è connessi a una replica di sola lettura eseguendo la query seguente. Verrà restituito READ_ONLY quando si è connessi a una replica di sola lettura.
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
+> [!NOTE]
+> In un determinato momento solo una delle repliche AlwaysOn è accessibile per le sessioni ReadOnly.
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Abilitare e disabilitare la scalabilità in lettura usando Azure PowerShell
 
@@ -106,6 +109,14 @@ Body:
 ```
 
 Per altre informazioni, vedere [Databases - Create or Update](/rest/api/sql/databases/createorupdate) (Database - Creare o aggiornare).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Uso della scalabilità in lettura con database con replica geografica
+
+Se si usa la scalabilità in lettura per bilanciare il carico dei carichi di lavoro di sola lettura in un database con replica geografica, ad esempio come un membro di un gruppo di failover, assicurarsi che la scalabilità in lettura sia abilitata per i database primari e secondari con replica geografica. In questo modo si garantisce lo stesso effetto di bilanciamento del carico quando l'applicazione si connette al nuovo database primario dopo il failover. Se ci si connette al database secondario con replica geografica con scalabilità in lettura abilitata, le sessioni con `ApplicationIntent=ReadOnly` saranno indirizzate a una delle repliche nello stesso modo in cui le connessioni sono state indirizzate al database primario.  Le sessioni senza `ApplicationIntent=ReadOnly` verranno indirizzate alla replica primaria del database secondario con replica geografica, anche questa di sola lettura. Poiché il database secondario con replica geografica dispone di un endpoint diverso da quello del database primario, in passato per accedere al database secondario non era necessario impostare `ApplicationIntent=ReadOnly`. Per garantire la compatibilità con le versioni precedenti, DMV `sys.geo_replication_links` mostra `secondary_allow_connections=2`, che indica che qualsiasi connessione client è consentita.
+
+> [!NOTE]
+> Durante l'anteprima non verranno eseguiti round robin o altri routing con carico bilanciato tra le repliche locali del database secondario. 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

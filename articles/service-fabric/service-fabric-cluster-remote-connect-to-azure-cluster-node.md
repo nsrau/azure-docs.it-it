@@ -14,49 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 3c7b3626db0e38d28513d4665a83dd7155663034
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642574"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Connessione remota a un'istanza di set di scalabilità di macchine virtuali o a un nodo del cluster
-In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (o nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.
+In un cluster di Service Fabric in esecuzione in Azure, ogni tipo di nodo del cluster definito [configura un'istanza separata di set di scalabilità di macchine virtuali](service-fabric-cluster-nodetypes.md).  È possibile connettersi in remoto a istanze specifiche di set di scalabilità (nodi del cluster).  Diversamente dalle macchine virtuali a istanza singola, le istanze dei set di scalabilità non ottengono un proprio indirizzo IP virtuale. Può quindi essere difficile cercare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica.
 
 Per trovare un indirizzo IP e una porta da usare per connettersi in remoto a un'istanza specifica, completare questi passaggi.
 
-1. Trovare l'indirizzo IP virtuale per il tipo di nodo ottenendo le regole NAT in ingresso per Remote Desktop Protocol (RDP).
+1. Ottenere le regole NAT in ingresso per Remote Desktop Protocol (RDP).
 
-    Innanzitutto, ottenere i valori delle regole NAT in ingresso definiti nell'ambito della definizione di risorse per `Microsoft.Network/loadBalancers`.
+    In genere, ogni tipo di nodo definito nel cluster ha il proprio indirizzo IP virtuale e un bilanciamento del carico dedicato. Per impostazione predefinita, il bilanciamento del carico per un tipo di nodo è denominato in base al formato seguente: *LB-{nome-cluster}-{tipo-di-nodo}*, ad esempio *LB-mycluster-FrontEnd*. 
     
-    Nella pagina del bilanciamento del carico nel portale di Azure selezionare **Impostazioni** > **Regole NAT in ingresso**. Si ottengono così l'indirizzo IP e la porta che è possibile usare per connettersi in remoto alla prima istanza del set di scalabilità. 
-    
-    ![Bilanciamento del carico][LBBlade]
-    
-    Nella figura seguente l'indirizzo IP e la porta sono **104.42.106.156** e **3389**.
-    
-    ![Regole NAT][NATRules]
+    Nella pagina del bilanciamento del carico nel portale di Azure selezionare **Impostazioni** > **Regole NAT in ingresso**: 
 
-2. Trovare la porta che è possibile usare per connettersi in remoto all'istanza del set di scalabilità o al nodo specifico.
+    ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
-    Mapping dei set di scalabilità ai nodi. Usare le informazioni del set di scalabilità per determinare la porta esatta da usare.
-    
-    Le porte vengono allocate in un ordine crescente che corrisponde all'istanza del set di scalabilità. Nell'esempio precedente del tipo di nodo FrontEnd, le porte per ognuna delle cinque istanze del nodo sono elencate nella tabella seguente. Applicare lo stesso mapping all'istanza del set di scalabilità.
-    
-    | **Istanza del set di scalabilità della macchina virtuale** | **Porta** |
-    | --- | --- |
-    | FrontEnd_0 |3389 |
-    | FrontEnd_1 |3390 |
-    | FrontEnd_2 |3391 |
-    | FrontEnd_3 |3392 |
-    | FrontEnd_4 |3393 |
-    | FrontEnd_5 |3394 |
+    Lo screenshot seguente mostra le regole NAT in ingresso per un tipo di nodo denominato FrontEnd: 
 
-3. Connettersi in remoto all'istanza specifica del set di scalabilità.
+    ![Regole NAT in ingresso di bilanciamento del carico](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    Nella figura seguente viene usata Connessione Desktop remoto per connettersi al set di istanza di scalabilità FrontEnd_1:
+    Per ogni nodo, vengono indicati l'indirizzo IP nella colonna **IP DESTINAZIONE**, l'istanza del set di scalabilità nella colonna **DESTINAZIONE** e il numero di porta nella colonna **SERVIZIO**. Per la connessione remota, le porte vengono allocate a ciascun nodo in ordine crescente a partire dalla porta 3389.
+
+    È anche possibile trovare le regole NAT in ingresso nella sezione `Microsoft.Network/loadBalancers` del modello di Resource Manager per il cluster.
     
-    ![Connessione Desktop remoto][RDP]
+2. Per verificare il mapping tra la porta in ingresso e la porta di destinazione per un nodo, è possibile fare clic sulla relativa regola e osservare il valore **Porta di destinazione**. Lo screenshot seguente mostra la regola NAT in ingresso per il nodo **FrontEnd (Instance 1)** nel passaggio precedente. Si noti che, anche se il numero di porta (in ingresso) è 3390, la porta di destinazione è mappata alla porta 3389, ovvero la porta per il servizio RDP nella destinazione.  
+
+    ![Mapping delle porte di destinazione](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+
+    Per impostazione predefinita, per i cluster di Windows la porta di destinazione è la porta 3389, che è mappata al servizio RDP nel nodo di destinazione. Per i cluster Linux, la porta di destinazione è la porta 22, che è mappata al servizio SSH (Secure Shell).
+
+3. Connettersi in remoto allo specifico nodo (istanza del set di scalabilità). È possibile usare il nome utente e la password impostati durante la creazione del cluster o eventuali altre credenziali configurate. 
+
+    Lo screenshot seguente mostra l'uso di Connessione Desktop remoto per la connessione al nodo **FrontEnd (Instance 1)** in un cluster Windows:
+    
+    ![Connessione Desktop remoto](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+
+    Nei nodi Linux è possibile connettersi con SSH (nell'esempio seguente vengono riutilizzati lo stesso indirizzo IP e la stessa porta per brevità):
+
+    ``` bash
+    ssh SomeUser@40.117.156.199 -p 3390
+    ```
 
 
 Per i passaggi successivi, leggere gli articoli seguenti:
@@ -65,7 +67,3 @@ Per i passaggi successivi, leggere gli articoli seguenti:
 * [Aggiornare i valori dell'intervallo di porte RDP](./scripts/service-fabric-powershell-change-rdp-port-range.md) nelle macchine virtuali del cluster dopo la distribuzione
 * [Cambiare il nome utente e la password dell'amministratore](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) per le macchine virtuali del cluster
 
-<!--Image references-->
-[LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
-[NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
-[RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png

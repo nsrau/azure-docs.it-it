@@ -1,19 +1,20 @@
 ---
 title: Presentazione dell'interfaccia utente di Azure IoT Central | Microsoft Docs
 description: I generatori devono acquisire familiarità con le aree principali dell'interfaccia utente di Azure IoT Central usata per creare una soluzione IoT.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
-ms.date: 4/13/2018
+ms.date: 04/13/2018
 ms.topic: overview
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: aa0d496b073600bb976a639ea0039d2a5bbdbbcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201476"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629372"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
@@ -54,13 +55,13 @@ Il menu superiore viene visualizzato in ogni pagina:
 
 ![Scegliere un tema per l'interfaccia utente](media/overview-iot-central-tour/themes.png)
 
-## <a name="home-page"></a>Homepage
+## <a name="home-page"></a>Home page
 
 ![Home page](media/overview-iot-central-tour/homepage.png)
 
 La home page è la prima pagina visualizzata quando si accede all'applicazione Azure IoT Central. Per personalizzare la home page per altri utenti dell'applicazione, i generatori possono aggiungere riquadri. Per altre informazioni, vedere l'esercitazione sulla [personalizzazione della visualizzazione operatore di Azure IoT Central](tutorial-customize-operator.md).
 
-## <a name="device-explorer"></a>Device Explorer (Esplora dispositivi)
+## <a name="device-explorer"></a>Esplora dispositivi
 
 ![Pagina Explorer](media/overview-iot-central-tour/explorer.png)
 
@@ -75,7 +76,7 @@ La pagina Explorer visualizza i _modelli di dispositivo_ e i _dispositivi_ prese
 
 La pagina _Device Sets_ (Set di dispositivi) visualizza i set di dispositivi creati dal generatore. Per set di dispositivi si intende una raccolta di dispositivi correlati. I generatori definiscono una query per identificare i dispositivi inclusi in un set di dispositivi. I set di dispositivi vengono usati durante la personalizzazione dell'analisi nell'applicazione. Per altre informazioni, vedere l'articolo sull'[uso di set di dispositivi nell'applicazione Azure IoT Central](howto-use-device-sets.md).
 
-## <a name="analytics"></a>Analytics (Analisi)
+## <a name="analytics"></a>Analytics
 
 ![Pagina Analytics (Analisi)](media/overview-iot-central-tour/analytics.png)
 
@@ -87,7 +88,7 @@ La pagina Analytics (Analisi) visualizza grafici che consentono di comprendere i
 
 La pagina Application Builder (Generatore applicazioni) contiene i collegamenti agli strumenti usati dai generatori per creare un'applicazione Azure IoT Central, ad esempio per creare modelli di dispositivo e configurare la home page. Per altre informazioni, vedere l'esercitazione sulla [definizione di un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](tutorial-define-device-type.md).
 
-## <a name="administration"></a>Administration (Amministrazione)
+## <a name="administration"></a>Administration
 
 ![Pagina Administration (Amministrazione)](media/overview-iot-central-tour/administration.png)
 

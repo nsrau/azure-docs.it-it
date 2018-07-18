@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076710"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809472"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>Guida tecnica alla pubblicazione di applicazioni SaaS
 
@@ -37,7 +37,7 @@ Per illustrare più chiaramente come pubblicare un'offerta SaaS, questa guida è
 
 Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabella seguente illustra le opzioni attualmente disponibili:
 
-| Vetrina | Inserzione | Versione di valutazione/Transazione |  
+| Vetrina | Elenco | Versione di valutazione/Transazione |  
 | --- | --- | --- |  
 | AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
 | Azure Marketplace | No  | Sì (app SaaS) |   
@@ -51,7 +51,7 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
 | **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
 
-Per altre informazioni sulle vetrine di Marketplace e per una descrizione delle opzioni di pubblicazione,vedere [Guida alla pubblicazione per Azure Marketplace](https://aka.ms/sellerguide) e [Opzioni di pubblicazione](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Per altre informazioni sulle vetrine di Marketplace e per una descrizione delle opzioni di pubblicazione,vedere [Guida alla pubblicazione per Azure Marketplace](https://aka.ms/sellerguide) e [Opzioni di pubblicazione](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>Requisiti aziendali
 I requisiti aziendali dell'offerta SaaS possono essere soddisfatti in parallelo con i requisiti tecnici. La maggior parte delle informazioni e dei requisiti aziendali viene raccolta durante la creazione dell'offerta SaaS nel portale Cloud Partner. Di seguito sono riportati i requisiti aziendali: 
@@ -62,7 +62,7 @@ I requisiti aziendali dell'offerta SaaS possono essere soddisfatti in parallelo 
 * Configurare l'informativa sulla privacy e le condizioni per l'utilizzo
 * Definire i contatti del supporto tecnico  
 
-Altre informazioni sono disponibili nell'argomento [Prerequisiti per la pubblicazione nel Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
+Altre informazioni sono disponibili nell'argomento [Prerequisiti per la pubblicazione nel Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
 
 ## <a name="technical-requirements"></a>Requisiti tecnici
 
@@ -72,11 +72,11 @@ Per iniziare, è consigliabile disporre di una sottoscrizione dedicata per la pu
 
 La documentazione, gli esempi e le linee guida migliori per Azure Active Directory sono disponibili nei siti seguenti: 
 
-* [Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Guida per gli sviluppatori di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Integrazione con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Integrazione con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Roadmap per Azure - Sicurezza e identità](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -111,7 +111,7 @@ Il diagramma seguente illustra i passaggi principali per la pubblicazione dell'o
 
 La tabella seguente descrive i passaggi di pubblicazione principali:  
 
-| Passaggio di pubblicazione | Descrizione |   
+| Passaggio di pubblicazione | DESCRIZIONE |   
 | --- | --- |  
 | **Creare l'applicazione SaaS** | Accedere al portale Cloud Partner, selezionare **New** (Nuovo) e quindi selezionare l'offerta relativa alle **app SaaS**. |  
 | **Creare l'integrazione con Azure AD** | Seguire i requisiti tecnici descritti nella sezione precedente per integrare l'offerta SaaS con Azure AD. |  
@@ -125,7 +125,7 @@ La tabella seguente descrive i passaggi di pubblicazione principali:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
-Microsoft usa Azure AD per autenticare tutti gli utenti di Marketplace. Pertanto, quando un utente autenticato fa clic su un'inserzione relativa a una versione di valutazione in Marketplace e viene reindirizzato all'ambiente di valutazione, l'editore può consentire all'utente di accedere direttamente a tale ambiente senza richiedere un altro passaggio di accesso. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims).
+Microsoft usa Azure AD per autenticare tutti gli utenti di Marketplace. Pertanto, quando un utente autenticato fa clic su un'inserzione relativa a una versione di valutazione in Marketplace e viene reindirizzato all'ambiente di valutazione, l'editore può consentire all'utente di accedere direttamente a tale ambiente senza richiedere un altro passaggio di accesso. Il token che l'app riceve da Azure AD in fase di autenticazione include informazioni rilevanti sull'utente che l'editore può usare per creare un account utente nell'app, in modo da automatizzare l'esperienza di provisioning e aumentare così le probabilità che la versione di valutazione venga convertita in offerta a pagamento. Per altre informazioni sul token, vedere [Token di esempio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla versione di valutazione offre i vantaggi seguenti:  
 * Consente di ottimizzare l'esperienza di accesso dei clienti da Marketplace alla versione di valutazione.  
@@ -141,15 +141,15 @@ L'uso di Azure AD per abilitare l'autenticazione con un solo clic all'app o alla
 
 Se Azure AD è già supportato, eseguire le operazioni seguenti:
 1.  Registrare l'applicazione nel portale di Azure
-2.  Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  Abilitare la funzionalità per il supporto multi-tenancy in Azure AD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire queste operazioni: 
 1.  Registrare l'applicazione nel portale di Azure
-2.  Sviluppare SSO con Azure AD usando [OpenID Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Abilitare la funzionalità per il supporto multi-tenancy in AAD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Sviluppare SSO con Azure AD usando [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) o [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Abilitare la funzionalità per il supporto multi-tenancy in AAD per ottenere un'esperienza di valutazione con un solo clic. Altre informazioni specifiche sono disponibili [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Per un'applicazione single-tenant, usare una delle opzioni seguenti:**  
-* Aggiungere utenti alla directory come utenti guest tramite [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Aggiungere utenti alla directory come utenti guest tramite [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * Effettuare manualmente il provisioning delle versioni di valutazione per i clienti tramite l'opzione Contatta
 * Sviluppare una test drive per ogni cliente
 * Creare un'app demo di esempio multi-tenant con SSO

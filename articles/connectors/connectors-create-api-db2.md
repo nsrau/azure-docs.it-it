@@ -1,25 +1,22 @@
 ---
-title: Aggiungere il connettore DB2 alle app per la logica | Microsoft Docs
-description: Panoramica del connettore DB2 con i parametri dell'API REST
-services: 
-documentationcenter: 
+title: Connettersi a DB2 - App per la logica di Azure | Microsoft Docs
+description: Gestione delle risorse con le API REST di DB2 e App per la logica di Azure
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295092"
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introduzione al connettore DB2
 Microsoft Connector for DB2 connette le app per la logica alle risorse archiviate in un database IBM DB2. Il connettore include un client Microsoft per comunicare con computer server DB2 remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Bluemix dashDB o IBM DB2 per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-db2.md#supported-db2-platforms-and-versions) delle piattaforme e delle versioni di IBM DB2 supportate (in questo argomento).

@@ -7,15 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193972"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645335"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
@@ -78,7 +78,7 @@ Gli script per il ripristino di emergenza usati in questa esercitazione sono dis
 ## <a name="review-the-healthy-state-of-the-application"></a>Esaminare lo stato di integrità dell'applicazione
 Prima di iniziare il processo di ripristino, esaminare il normale stato di integrità dell'applicazione.
 
-1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net sostituendo &lt;utente&gt; con il valore utente della distribuzione.
+1. Nel Web browser aprire l'hub eventi di Wingtip Tickets all'indirizzo http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net, sostituire &lt;utente&gt; con il valore utente della distribuzione.
     
    Scorrere la pagina verso il basso e osservare il nome e la posizione del server di catalogo nella parte inferiore della pagina. La posizione corrisponde all'area in cui l'app è stata distribuita.    
 
@@ -264,7 +264,7 @@ In questa attività si aggiorna uno dei database tenant ripristinati. Il process
 
 3. Per eseguire lo script, selezionare F5.
 
-4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall). Si noterà che l'evento Seriously Strauss non è presente.
+4. Aggiornare la pagina degli eventi di Contoso Concert Hall (http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall). Si noti che l'evento Seriously Strauss non è presente.
 
 A questo punto dell'esercitazione l'applicazione è stata ripristinata ed è in esecuzione nell'area di ripristino. È stato effettuato il provisioning di un nuovo tenant nell'area di ripristino e sono stati modificati i dati di uno dei tenant ripristinati.  
 

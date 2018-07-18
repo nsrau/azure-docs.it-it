@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746251"
 ---
 Quando si crea una macchina virtuale (VM) di Azure, è necessario creare una [rete virtuale](../articles/virtual-network/virtual-networks-overview.md) o usarne una esistente. È anche necessario decidere come si accederà alle macchine virtuali nella rete virtuale. È importante [pianificare prima di creare risorse](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e comprendere i [limiti delle risorse di rete](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -109,7 +110,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un gruppo di si
 
 | Metodo | DESCRIZIONE |
 | ------ | ----------- |
-| [Portale di Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Quando si crea una VM nel portale di Azure, un gruppo di sicurezza di rete viene creato e associato automaticamente all'interfaccia di rete creata dal portale. Il nome del gruppo di sicurezza di rete è una combinazione del nome della VM e **-nsg**. Questo gruppo di sicurezza di rete contiene una regola in ingresso con una priorità pari a 1000, il servizio impostato su RDP, il protocollo impostato su TCP, la porta impostata su 3389 e l'azione impostata su Consenti. Per consentire altro traffico in ingresso nella macchina virtuale è necessario aggiungere regole al gruppo di sicurezza di rete. |
+| [Portale di Azure](../articles/virtual-network/tutorial-filter-network-traffic.md) | Quando si crea una VM nel portale di Azure, un gruppo di sicurezza di rete viene creato e associato automaticamente all'interfaccia di rete creata dal portale. Il nome del gruppo di sicurezza di rete è una combinazione del nome della VM e **-nsg**. Questo gruppo di sicurezza di rete contiene una regola in ingresso con una priorità pari a 1000, il servizio impostato su RDP, il protocollo impostato su TCP, la porta impostata su 3389 e l'azione impostata su Consenti. Per consentire altro traffico in ingresso nella macchina virtuale è necessario aggiungere regole al gruppo di sicurezza di rete. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | Usare [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) e specificare le informazioni necessarie per la regola. Usare [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) per creare il gruppo di sicurezza di rete. Usare [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) per configurare il gruppo di sicurezza di rete per la subnet. Usare [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork) per aggiungere il gruppo di sicurezza di rete alla rete virtuale. |
 | [Interfaccia della riga di comando di Azure](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | Usare [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) per creare il gruppo di sicurezza di rete. Usare [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) per aggiungere regole al gruppo di sicurezza di rete. Usare [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update) per aggiungere il gruppo di sicurezza di rete alla subnet. |
 | [Modello](../articles/virtual-network/template-samples.md) | Vedere [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) (Creare un gruppo di sicurezza di rete) per istruzioni sulla distribuzione di un gruppo di sicurezza di rete con un modello. |
@@ -170,4 +171,4 @@ Sono anche disponibili esercitazioni sul bilanciamento del carico delle VM e la 
 
 - Informazioni sulla configurazione di [route definite dall'utente e inoltro IP](../articles/virtual-network/virtual-networks-udr-overview.md). 
 - Informazioni sulla configurazione di [connessioni tra reti virtuali](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
-- Informazioni sulla [risoluzione dei problemi relativi alle route](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md).
+- Informazioni sulla [risoluzione dei problemi relativi alle route](../articles/virtual-network/diagnose-network-routing-problem.md).

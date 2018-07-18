@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034745"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -38,7 +39,7 @@ Le metriche sono abilitate per impostazione predefinita ed è possibile accedere
 
 ![Screenshot dell'accesso alle metriche nel portale di Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Per le metriche che supportano le dimensioni, è necessario filtrare specificando il valore di dimensione da usare. L'esempio seguente mostra come visualizzare la metrica **Transactions** a livello di account con il tipo di risposta **Success**.
+Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato. L'esempio seguente mostra come visualizzare **Transactions** a livello di account su un'operazione specifica selezionando valori per la dimensione **API Name**.
 
 ![Screenshot dell'accesso alle metriche con dimensioni nel portale di Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Di seguito viene mostrato il formato per specificare l'ID risorsa per ogni servi
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * ID risorsa del servizio file `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID risorsa nell'API REST di Monitoraggio di Azure
@@ -337,7 +338,7 @@ Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in 
 
 | Nome della metrica | DESCRIZIONE |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
+| UsedCapacity | Quantità di risorse di archiviazione usata dall'account di archiviazione. Per gli account di archiviazione Standard, corrisponde alla somma della capacità usata da BLOB, tabelle, file e code. Per gli account di archiviazione Premium e gli account di archiviazione BLOB corrisponde a BlobCapacity. <br/><br/> Unità: byte <br/> Tipo di aggregazione: media <br/> Esempio di valore: 1024 |
 
 ### <a name="blob-storage"></a>Archiviazione BLOB
 
@@ -402,6 +403,12 @@ Per le dimensioni che supportano metriche, è necessario specificare il valore r
 ## <a name="service-continuity-of-legacy-metrics"></a>Continuità del servizio delle metriche legacy
 
 Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite da Monitoraggio di Azure. Il supporto rimane invariato fino al termine del servizio relativo alle metriche legacy da parte di Archiviazione di Azure.
+
+## <a name="faq"></a>Domande frequenti
+
+**Archiviazione di Azure supporta le metriche per i dischi gestiti o non gestiti?**
+
+No, le metriche relative ai dischi sono supportate da Calcolo di Azure. Per informazioni più dettagliate, vedere [questo articolo](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

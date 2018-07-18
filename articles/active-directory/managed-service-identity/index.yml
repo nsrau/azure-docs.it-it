@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 05/20/2018
+  ms.locfileid: "34354283"
 abstract:
   description: Identità del servizio gestito (MSI) offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità del servizio gestite con le guide introduttive e le esercitazioni.
 sections:

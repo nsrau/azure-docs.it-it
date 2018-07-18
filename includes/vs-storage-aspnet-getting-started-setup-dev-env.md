@@ -1,12 +1,12 @@
 ## <a name="set-up-the-development-environment"></a>Configurare l'ambiente di sviluppo
 
-Questa sezione illustra la configurazione dell'ambiente di sviluppo. Include la creazione di un'app ASP.NET MVC, l'aggiunta di una connessione di Servizi connessi, l'aggiunta di un controller e la specifica delle direttive degli spazi dei nomi necessarie.
+Questa sezione illustra dettagliatamente come configurare l'ambiente di sviluppo. Include la creazione di un'app ASP.NET MVC, l'aggiunta di una connessione di Servizi connessi, l'aggiunta di un controller e la specifica delle direttive degli spazi dei nomi necessarie.
 
 ### <a name="create-an-aspnet-mvc-app-project"></a>Creare un progetto di app ASP.NET MVC
 
 1. Aprire Visual Studio.
 
-1. Nel menu principale, selezionare **File** > **Nuovo** > **Progetto**.
+1. Nel menu principale selezionare **File** > **Nuovo** > **Progetto**.
 
 1. Nella finestra di dialogo **Nuovo progetto** selezionare **Web** > **Applicazione Web ASP.NET (.NET Framework)**. Nel campo **Nome** specificare **StorageAspNet**. Selezionare **OK**.
 
@@ -16,13 +16,13 @@ Questa sezione illustra la configurazione dell'ambiente di sviluppo. Include la 
 
     ![Screenshot della finestra di dialogo Nuova applicazione Web ASP.NET](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-2.png)
 
-### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Usare Servizi connessi per connettersi a un account di archiviazione di Azure
+### <a name="use-connected-services-to-connect-to-an-azure-storage-account"></a>Usare i servizi connessi per connettersi a un account di archiviazione di Azure
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto.
 
 2. Nel menu di scelta rapida selezionare **Aggiungi** > **Servizio connesso**.
 
-1. Nella finestra di dialogo **Servizi connessi** selezionare **Archiviazione cloud con Archiviazione di Azure**, quindi selezionare **Configura**.
+1. Nella finestra di dialogo **Servizi connessi** selezionare **Archiviazione cloud con Archiviazione di Azure**.
 
     ![Screenshot della finestra di dialogo Servizi connessi](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064483"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -45,12 +46,12 @@ La funzionalità snapshot di condivisione è disponibile a livello di condivisio
 
 Uno snapshot di una condivisione file è identico alla condivisione file di base. L'unica differenza sta nel fatto che all'URI della condivisione viene aggiunto un valore **DateTime** indicante l'ora di creazione dello snapshot di condivisione. Ad esempio, se l'URI di una condivisione file è http://storagesample.core.file.windows.net/myshare, l'URI dello snapshot di condivisione sarà simile al seguente:
 ```
-http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Gli snapshot di condivisione vengono mantenuti finché non vengono eliminati in modo esplicito. Uno snapshot di condivisione non può durare più a lungo della condivisione file di base associata. È possibile enumerare gli snapshot associati alla condivisione file di base per tenere traccia degli snapshot correnti. 
 
-Quando si crea uno snapshot di una condivisione file, i file che si trovano nelle proprietà di sistema della condivisione vengono copiati nello snapshot di condivisione con gli stessi valori. Anche i file di base e i metadati della condivisione file vengono copiati nello snapshot di condivisione, a meno che non si specifichino metadati separati per lo snapshot durante la sua creazione.
+Quando si crea uno snapshot di una condivisione di file, i file che si trovano nelle proprietà di sistema della condivisione vengono copiati nello snapshot di condivisione con gli stessi valori. Anche i file di base e i metadati della condivisione di file vengono copiati nello snapshot di condivisione, a meno che non si specifichino metadati separati per lo snapshot di condivisione durante la sua creazione.
 
 Non è possibile eliminare una condivisione per la quale sono disponibili snapshot di condivisione senza eliminare prima tutti gli snapshot.
 

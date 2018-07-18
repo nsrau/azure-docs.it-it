@@ -3,7 +3,7 @@ title: Ridimensionare automaticamente i set di scalabilità di macchine virtuali
 description: Come creare regole di scalabilità automatica per i set di scalabilità di macchine virtuali nel portale di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
-ms.author: iainfou
-ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 05/29/2018
+ms.author: cynthn
+ms.openlocfilehash: a93467404232b0fff51136cb7648d84a81165bdb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697960"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
 
-Questo articolo illustra come creare regole di scalabilità automatica nel portale di Azure per monitorare le prestazioni delle istanze di macchine virtuali nel set di scalabilità. Queste regole di scalabilità automatica aumentano o diminuiscono il numero di istanze di macchine virtuali in risposta a queste metriche delle prestazioni. È anche possibile completare questa procedura con [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) o l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md).
+Questo articolo illustra come creare regole di scalabilità automatica nel portale di Azure per monitorare le prestazioni delle istanze di macchine virtuali nel set di scalabilità. Queste regole di scalabilità automatica aumentano o diminuiscono il numero di istanze di macchine virtuali in risposta a queste metriche delle prestazioni. È anche possibile completare questa procedura con [Azure PowerShell](tutorial-autoscale-powershell.md) o l'[interfaccia della riga di comando di Azure 2.0](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>prerequisiti
@@ -58,7 +59,7 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
     | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 20             |
     | *Disattiva regole dopo (minuti)*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
 
-    Gli esempi seguenti mostrano una regola creata nel portale di Azure che corrisponde a queste impostazioni:    
+    Gli esempi seguenti mostrano una regola creata nel portale di Azure che corrisponde a queste impostazioni:
 
     ![Creare una regola di scalabilità automatica per aumentare il numero di istanze di macchine virtuali](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
 

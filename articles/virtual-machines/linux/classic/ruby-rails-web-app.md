@@ -1,11 +1,11 @@
 ---
-title: Ospitare un sito Web Rails in una macchina virtuale di Linux su Ruby | Microsoft Docs
+title: Ospitare un sito Web Rails in una macchina virtuale di Linux su Ruby | Documentazione Microsoft
 description: Impostare e ospitare un sito Web basato su Ruby on Rails in Azure usando una macchina virtuale Linux.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901154"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Applicazione Web Ruby on Rails in una macchina virtuale di Azure
 Questa esercitazione mostra come ospitare un sito Web Ruby on Rails usando una macchina virtuale Linux.  
@@ -99,7 +100,7 @@ L'output dovrebbe essere simile al seguente.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>Aggiungere un endpoint
-1. Andare al [portale di Azure][https://portal.azure.com] e selezionare la VM.
+1. Accedere al [portale di Azure][https://portal.azure.com] e selezionare la macchina virtuale.
 
 2. Selezionare **ENDPOINT** in **Impostazioni** sul lato sinistro della pagina.
 
@@ -128,7 +129,7 @@ L'output dovrebbe essere simile al seguente.
     ![Pagina predefinita Rails][default-rails-cloud]
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stata eseguita la maggior parte dei passaggi manualmente. In un ambiente di produzione, si potrebbe scrivere l'applicazione in un computer di sviluppo e distribuirla nella macchina virtuale di Azure. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche. Per altre informazioni, vedere http://rubyonrails.org/deploy/.
+In questa esercitazione è stata eseguita la maggior parte dei passaggi manualmente. In un ambiente di produzione, si potrebbe scrivere l'applicazione in un computer di sviluppo e distribuirla nella macchina virtuale di Azure. Inoltre, la maggior parte degli ambienti di produzione ospita l'applicazione Rails insieme a un altro processo server, ad esempio Apache o NginX, che gestisce il routing delle richieste a più istanze dell'applicazione Rails e la distribuzione di risorse statiche. Per altre informazioni, vedere http://guides.rubyonrails.org/routing.html.
 
 Per altre informazioni su Ruby on Rails, vedere le [Guide di Ruby on Rails][rails-guides].
 

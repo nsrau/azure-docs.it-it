@@ -1,58 +1,63 @@
 ---
-title: Creare un ambiente di sviluppo Kubernetes nel cloud | Microsoft Docs
+title: Creare uno spazio di sviluppo Kubernetes nel cloud | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 author: ghogen
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 9c9a485a5c59342149027798e118b97b7305c640
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d0cb1c113724af5d07abf75e6d3a45b54e5202dc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361533"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950771"
 ---
-# <a name="quickstart-create-a-kubernetes-development-environment-with-azure-dev-spaces-nodejs"></a>Guida introduttiva: Creare un ambiente di sviluppo Kubernetes con Azure Dev Spaces (Node.js)
+# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-nodejs"></a>Guida introduttiva: Creare uno spazio di sviluppo Kubernetes con Azure Dev Spaces (Node.js)
 
+In questa guida si apprenderà come:
 
-[!INCLUDE[](includes/learning-objectives.md)]
+- Configurare Azure Dev Spaces con un cluster Kubernetes gestito in Azure.
+- Sviluppare codice in modo iterativo nei contenitori con VS Code e la riga di comando.
+- Eseguire il debug del codice in esecuzione nel cluster.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **In caso di problemi** in qualsiasi momento, vedere la sezione [Risoluzione dei problemi](troubleshooting.md) o inserire un commento in questa pagina. È anche possibile provare l'[esercitazione](get-started-nodejs.md) più dettagliata.
 
-È ora possibile creare un ambiente di sviluppo basato su Kubernetes in Azure.
+## <a name="prerequisites"></a>prerequisiti
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+- Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free).
+- Un [cluster Kubernetes](https://ms.portal.azure.com/#create/microsoft.aks) che esegue Kubernetes 1.10.3 nell'area EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral o CanadaEast con il **routing HTTP dell'applicazione** abilitato.
 
-## <a name="install-the-azure-cli"></a>Installare l'interfaccia della riga di comando di Azure
-Azure Dev Spaces richiede un'installazione minima nel computer locale. La maggior parte della configurazione dell'ambiente di sviluppo viene archiviata nel cloud ed è condivisibile con altri utenti. Per iniziare, scaricare ed eseguire l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+  ![Assicurarsi di abilitare il routing HTTP dell'applicazione.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-> [!IMPORTANT]
-> Se l'interfaccia della riga di comando di Azure è già installata, assicurarsi di usare la versione 2.0.32 o una successiva.
+- Visual Studio Code, che può essere scaricato [qui](https://code.visualstudio.com/download).
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+## <a name="set-up-azure-dev-spaces"></a>Configurare Azure Dev Spaces
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+1. Installare l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) (versione 2.0.38 o successiva).
+1. Configurare Dev Spaces nel cluster AKS: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
+1. Scaricare l'[estensione Azure Dev Spaces](https://aka.ms/get-azds-code) per Visual Studio Code. Fare clic su Installa nella pagina del Marketplace dell'estensione e di nuovo in VS Code.
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+## <a name="build-and-run-code-in-kubernetes"></a>Compilare ed eseguire codice in Kubernetes
 
-Mentre si attende che venga creato l'ambiente, si può iniziare a scrivere il codice.
+1. Scaricare il codice di esempio da GitHub: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
+1. Passare alla cartella webfrontend: `cd dev-spaces/samples/nodejs/getting-started/webfrontend`
+1. Generare gli asset dei chart Docker e Helm: `azds prep --public`
+1. Compilare ed eseguire il codice in AKS. Dalla **cartella webfrontend** nella finestra del terminale eseguire questo comando: `azds up`
+1. Analizzare l'output della console per informazioni sull'URL che è stato creato con il comando `up`. Sarà nel formato: 
 
-## <a name="create-a-nodejs-container-in-kubernetes"></a>Creare un contenitore Node.js in Kubernetes
+   `Service 'webfrontend' port 'http' is available at <url>` 
 
-In questa sezione si creerà un'app Web Node.js e si eseguirà tale app in un contenitore in Kubernetes.
-
-### <a name="create-a-nodejs-web-app"></a>Creare un'app Web Node.js
-Scaricare il codice da GitHub passando a https://github.com/Azure/dev-spaces e selezionando **Clone or Download** (Clona o scarica) per scaricare il repository GitHub nell'ambiente locale. Il codice per questa guida è disponibile in `samples/nodejs/getting-started/webfrontend`.
-
-[!INCLUDE[](includes/azds-prep.md)]
-
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+   Aprire l'URL in una finestra del browser; si dovrebbe visualizzare il caricamento dell'applicazione Web. Durante l'esecuzione del contenitore, l'output `stdout` e `stderr` vengono trasmessi nella finestra del terminale.
+   
+   > [!Note]
+   > Alla prima esecuzione, possono essere necessari alcuni minuti prima che il DNS pubblico sia pronto. Se l'URL pubblico non viene risolto, è possibile usare l'URL http://localhost:<portnumber> alternativo visualizzato nell'output della console. Se si usa l'URL localhost, potrebbe sembrare che il contenitore sia in esecuzione in locale, ma in realtà viene eseguito in AKS. Per motivi di praticità e per semplificare l'interazione con il servizio nel computer locale, Azure Dev Spaces crea un tunnel SSH temporaneo al contenitore in esecuzione in Azure. È possibile tornare in seguito per tentare di usare l'URL pubblico quando il record DNS sarà pronto.
 
 ### <a name="update-a-content-file"></a>Aggiornare un file di contenuto
 Azure Dev Spaces consente non solo di eseguire codice in Kubernetes, ma anche di visualizzare in modo rapido e iterativo l'applicazione delle modifiche apportate al codice in un ambiente Kubernetes nel cloud.
@@ -63,13 +68,13 @@ Azure Dev Spaces consente non solo di eseguire codice in Kubernetes, ma anche di
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Salvare il file. Poco dopo, nella finestra del terminale verrà visualizzato un messaggio che informa che un file nel contenitore in esecuzione è stato aggiornato.
+1. Salvare il file. Poco dopo, nella finestra del terminale verrà visualizzato un messaggio che informa che un file nel contenitore in esecuzione è stato aggiornato.
 1. Passare al browser e aggiornare la pagina. Verrà visualizzato l'aggiornamento del colore.
 
 Che cosa è successo? Le modifiche ai file di contenuto, come HTML e CSS, non richiedono il riavvio del processo Node.js, di conseguenza un comando `azds up` attivo sincronizzerà automaticamente qualsiasi file di contenuto modificato direttamente nel contenitore in esecuzione in Azure, offrendo così un modo rapido per visualizzare le modifiche apportate al contenuto.
 
 ### <a name="test-from-a-mobile-device"></a>Eseguire test da un dispositivo mobile
-Se si apre l'app Web su un dispositivo mobile, si noterà che l'interfaccia utente non viene visualizzata correttamente su un dispositivo di piccole dimensioni.
+Aprire l'app Web in un dispositivo mobile usando l'URL pubblico per webfrontend. È possibile copiare e inviare l'URL dal desktop al dispositivo, per evitare l'immissione dell'indirizzo lungo. Se l'app Web viene caricata in un dispositivo mobile di piccole dimensioni, si noterà che l'interfaccia utente non viene visualizzata correttamente.
 
 Per risolvere il problema, si aggiungerà un tag META `viewport`:
 1. Aprire il file `./public/index.html`
@@ -85,7 +90,7 @@ Per risolvere il problema, si aggiungerà un tag META `viewport`:
 1. Salvare il file.
 1. Aggiornare il browser del dispositivo. Il rendering dell'app Web dovrebbe ora essere visualizzato correttamente. 
 
-Questo è un esempio di come alcuni problemi non siano rilevabili finché non si eseguono test sui dispositivi in cui è previsto che l'app venga usata. Con VS Azure Dev Spaces, è possibile eseguire rapidamente l'iterazione del codice e convalidare le modifiche sui dispositivi di destinazione.
+Questo è un esempio di come alcuni problemi non siano rilevabili finché non si eseguono test sui dispositivi in cui è previsto che l'app venga usata. Con Azure Dev Spaces, è possibile eseguire rapidamente l'iterazione del codice e convalidare le modifiche sui dispositivi di destinazione.
 
 ### <a name="update-a-code-file"></a>Aggiornare un file di codice
 L'aggiornamento di file di codice sul lato server richiede alcune operazioni aggiuntive, perché un'app Node.js deve essere riavviata.
@@ -106,15 +111,24 @@ Esiste tuttavia un *metodo ancora più rapido* per lo sviluppo di codice, che ve
 
 ## <a name="debug-a-container-in-kubernetes"></a>Eseguire il debug di un contenitore in Kubernetes
 
-[!INCLUDE[](includes/debug-intro.md)]
+In questa sezione si userà VS Code per eseguire direttamente il debug del contenitore in esecuzione in Azure. Si apprenderà anche come eseguire più rapidamente un ciclo modifica-esecuzione-test.
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+![](./media/common/edit-refresh-see.png)
+
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Inizializzare gli asset di debug con l'estensione VS Code
+Per prima cosa è necessario configurare il progetto di codice in modo che Visual Studio Code comunichi con lo spazio di sviluppo in Azure. L'estensione Visual Studio Code per Azure Dev Spaces offre un comando helper per l'impostazione della configurazione di debug. 
+
+Aprire il **riquadro comandi** (usando il menu **Visualizza | Riquadro comandi**) e usare il completamento automatico per digitare e selezionare questo comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+
+In questo modo viene aggiunta la configurazione di debug per Azure Dev Spaces nella cartella `.vscode`.
+
+![](./media/common/command-palette.png)
 
 ### <a name="select-the-azds-debug-configuration"></a>Selezionare la configurazione di debug di AZDS
 1. Per aprire la visualizzazione Debug, fare clic sull'icona Debug nella **barra attività** sul lato di VS Code.
 1. Selezionare **Launch Program (AZDS)** (Avvia programma - AZDS) come configurazione di debug attiva.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > Se nel riquadro comandi non vengono visualizzati comandi di Azure Dev Spaces, assicurarsi di aver installato l'estensione di VS Code per Azure Dev Spaces.
@@ -122,9 +136,10 @@ Esiste tuttavia un *metodo ancora più rapido* per lo sviluppo di codice, che ve
 ### <a name="debug-the-container-in-kubernetes"></a>Eseguire il debug del contenitore in Kubernetes
 Premere **F5** per eseguire il debug del codice in Kubernetes.
 
-Analogamente a quanto avviene con il comando `up`, all'avvio del debug viene sincronizzato il codice con l'ambiente di sviluppo e viene compilato e distribuito un contenitore in Kubernetes. In questo caso, il debugger è associato al contenitore remoto.
+Analogamente a quanto avviene con il comando `up`, all'avvio del debug il codice viene sincronizzato con lo spazio di sviluppo e viene compilato e distribuito un contenitore in Kubernetes. In questo caso, il debugger è associato al contenitore remoto.
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+> [!Tip]
+> La barra di stato di VS Code visualizza un URL selezionabile.
 
 Impostare un punto di interruzione in un file di codice sul lato server, ad esempio `app.get('/api'...` in `server.js`. Aggiornare la pagina del browser oppure fare clic sul pulsante "Say It Again" (Ripeti). Si raggiungerà il punto di interruzione e sarà possibile scorrere il codice.
 
@@ -148,9 +163,8 @@ Invece di ricompilare e ridistribuire una nuova immagine del contenitore ogni vo
 Aggiornare l'app Web nel browser oppure fare clic sul pulsante *Say It Again* (Ripeti). Nell'interfaccia utente verrà visualizzato il messaggio personalizzato.
 
 ### <a name="use-nodemon-to-develop-even-faster"></a>Usare nodemon per velocizzare ulteriormente lo sviluppo
-*nodemon* è uno strumento diffuso usato dagli sviluppatori Node.js per lo sviluppo rapido. Invece di riavviare manualmente il processo Node ogni volta che viene apportata una modifica al codice sul lato server, gli sviluppatori spesso configurano il progetto Node in modo che *nodemon* monitori le modifiche ai file e riavvii automaticamente il processo server. Con questo stile di lavoro, lo sviluppatore dopo aver apportato una modifica al codice si limita ad aggiornare il browser.
 
-Con Azure Dev Spaces è possibile usare molti dei flussi di lavoro di sviluppo usati nello sviluppo in locale. Per illustrare questo aspetto, il progetto `webfrontend` di esempio è stato configurato per l'uso di *nodemon* (configurato come dipendenza di sviluppo in `package.json`).
+Il progetto di esempio `webfrontend` è stato configurato per usare [nodemon](https://nodemon.io/), un noto strumento che accelera lo sviluppo di Node.js ed è completamente compatibile con Azure Dev Spaces.
 
 Attenersi alla procedura seguente:
 1. Arrestare il debugger di VS Code.
@@ -167,4 +181,4 @@ In questa configurazione, il contenitore è configurato per avviare *nodemon*. Q
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Uso di più contenitori e sviluppo in team](get-started-nodejs.md#call-a-service-running-in-a-separate-container)
+> [Uso di più contenitori e sviluppo in team](team-development-nodejs.md)

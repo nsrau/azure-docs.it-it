@@ -9,19 +9,20 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053662"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 > [!NOTE]
-> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere [Servizi collegati di calcolo nella versione 2](../compute-linked-services.md).
+> Le informazioni di questo articolo sono valide per la versione 1 di Azure Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Servizi collegati di calcolo](../compute-linked-services.md).
 
 Questo articolo illustra gli ambienti di calcolo che è possibile usare per elaborare o trasformare i dati. Fornisce anche informazioni dettagliate sulle diverse configurazioni (on demand e Bring Your Own) supportate da Data Factory quando si configurano servizi collegati che collegano questi ambienti di calcolo a una data factory di Azure.
 
@@ -65,7 +66,7 @@ Dopo il 31 luglio 2018:
 - Se si usa un servizio collegato HDInsight on demand per eseguire l'attività personalizzata DotNet di Data Factory versione 1, aggiornare la definizione JSON dell'attività personalizza DotNet per usare invece un servizio collegato di Azure Batch. Per altre informazioni, vedere l'articolo [Usare attività personalizzate in una pipeline di Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Se si usa il dispositivo collegato al cluster HDInsight Bring Your Own esistente in Data Factory versione 1 o un servizio collegato HDInsight Bring Your Own e on demand in Azure Data Factory versione 2, non sono necessarie azioni. In tali scenari i criteri di supporto dell'ultima versione dei cluster HDInsight sono già applicati. 
+> Se si usa il dispositivo collegato al cluster HDInsight Bring Your Own esistente in Data Factory versione 1 o un servizio collegato HDInsight Bring Your Own e on demand in Azure Data Factory, non sono necessarie azioni. In tali scenari i criteri di supporto dell'ultima versione dei cluster HDInsight sono già applicati. 
 >
 > 
 

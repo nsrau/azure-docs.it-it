@@ -13,25 +13,29 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: b9f350870dde71666d269aaae9cb7c14aaac5aad
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34608900"
 ---
-# <a name="how-to-create-php-web-and-worker-roles"></a>Come creare ruoli Web e di lavoro PHP
+# <a name="create-php-web-and-worker-roles"></a>Creare ruoli Web e di lavoro PHP
+
 ## <a name="overview"></a>Panoramica
+
 Questa guida illustrerà come creare ruoli Web o di lavoro PHP in un ambiente di sviluppo Windows, scegliere una versione specifica di PHP tra le versioni incorporate disponibili, modificare la configurazione di PHP, abilitare le estensioni e, infine, eseguire la distribuzione in Azure. Verrà inoltre descritto come configurare un ruolo Web o di lavoro per l'uso del runtime PHP (con configurazione ed estensioni personalizzate) fornito dall'utente.
 
-## <a name="what-are-php-web-and-worker-roles"></a>Cosa sono i ruoli Web e di lavoro PHP?
 Azure offre tre modelli di calcolo per le applicazioni in esecuzione: Servizio App di Azure, Macchine virtuali di Azure e Servizi cloud di Azure. Tutti e tre i modelli supportano PHP. Servizi cloud, che include ruoli Web e di lavoro, fornisce la tecnologia *PaaS (Platform as a Service)*. In un servizio cloud un ruolo Web fornisce un server Web IIS (Internet Information Services) dedicato per ospitare applicazioni Web front-end. Un ruolo di lavoro può eseguire attività asincrone, con esecuzione prolungata o perpetue indipendenti dall'interazione o dall'input dell'utente.
 
 Per altre informazioni su queste opzioni, vedere [Opzioni di hosting di calcolo fornite da Azure](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
-[Azure SDK per PHP] è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
+
+[Azure SDK per PHP](php-download-sdk.md) è composto da diversi componenti. Questo articolo ne userà due: Azure PowerShell e gli emulatori di Azure. È possibile installare questi due componenti tramite Installazione piattaforma Web Microsoft. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Creare un progetto di servizi cloud
+
 Il primo passaggio nella creazione di un ruolo Web o di lavoro PHP consiste nel creare un progetto di servizio di Azure, che funge da contenitore logico per i ruoli Web e di lavoro e contiene la [definizione del servizio (.csdef)] e i file di [configurazione del servizio (.cscfg)] del progetto.
 
 Per creare un nuovo progetto di servizio di Azure, eseguire Azure PowerShell come amministratore e avviare il comando seguente:
@@ -41,6 +45,7 @@ Per creare un nuovo progetto di servizio di Azure, eseguire Azure PowerShell com
 Questo comando permette di creare una nuova directory (`myProject`) a cui è possibile aggiungere ruoli Web e di lavoro.
 
 ## <a name="add-php-web-or-worker-roles"></a>Aggiungere ruoli Web o di lavoro PHP
+
 Per aggiungere un ruolo Web PHP a un progetto, avviare il comando seguente dalla directory radice del progetto:
 
     PS C:\myProject> Add-AzurePHPWebRole roleName
@@ -55,6 +60,7 @@ Per un ruolo di lavoro, utilizzare il comando seguente:
 >
 
 ## <a name="specify-the-built-in-php-version"></a>Specificare la versione PHP incorporata
+
 Quando si aggiunge un ruolo Web o di lavoro PHO a un progetto, i file di configurazione del progetto verranno modificati in modo che PHP venga installato su ciascuna istanza Web o di lavoro dell'applicazione alla sua distribuzione. Per visualizzare la versione di PHP che verrà installata per impostazione predefinita, eseguire il comando seguente:
 
     PS C:\myProject> Get-AzureServiceProjectRoleRuntime
@@ -83,6 +89,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 >
 
 ## <a name="customize-the-built-in-php-runtime"></a>Personalizzare il runtime PHP incorporato
+
 L'utente dispone del controllo completo sulla configurazione del runtime PHP che viene installato eseguendo la procedura sopra illustrata, incluse le modifiche delle impostazioni `php.ini` e l'abilitazione delle estensioni.
 
 Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
@@ -100,9 +107,11 @@ Per personalizzare il runtime PHP incorporato, eseguire la procedura seguente:
 >
 
 ## <a name="use-your-own-php-runtime"></a>Utilizzare il proprio runtime PHP
+
 In alcuni casi, invece di selezionare un runtime PHP incorporato e configurarlo come sopra descritto, può essere consigliabile fornire un proprio runtime PHP. È ad esempio possibile usare lo stesso runtime PHP in un ruolo Web o di lavoro usato nell'ambiente di sviluppo. In questo modo sarà più semplice garantire che il comportamento dell'applicazione non cambi nell'ambiente di produzione.
 
 ### <a name="configure-a-web-role-to-use-your-own-php-runtime"></a>Configurare un ruolo Web per l'uso del proprio runtime PHP
+
 Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, seguire questa procedura.
 
 1. Creare un progetto di servizio Azure e aggiungere un ruolo Web PHP come descritto precedentemente in questo argomento.
@@ -138,6 +147,7 @@ Per configurare un ruolo Web per l'uso di un runtime PHP fornito dall'utente, se
 >
 
 ### <a name="configure-a-worker-role-to-use-your-own-php-runtime"></a>Configurare un ruolo di lavoro per l'uso del proprio runtime PHP
+
 Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'utente, seguire questa procedura.
 
 1. Creare un progetto di servizio Azure e aggiungere un ruolo di lavoro PHP come descritto precedentemente in questo argomento.
@@ -177,6 +187,7 @@ Per configurare un ruolo di lavoro per l'uso di un runtime PHP fornito dall'uten
 6. Pubblicare l'applicazione come descritto nella sezione [Pubblicare l'applicazione](#publish-your-application) più avanti.
 
 ## <a name="run-your-application-in-the-compute-and-storage-emulators"></a>Eseguire l'applicazione negli emulatori di calcolo e archiviazione
+
 Gli emulatori di Azure forniscono un ambiente locale in cui è possibile testare l'applicazione Azure prima di distribuirla nel cloud. Vi sono alcune differenze tra gli emulatori e l'ambiente Azure. Per una migliore comprensione, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](storage/common/storage-use-emulator.md).
 
 Si noti che per usare l'emulatore di calcolo è necessario aver installato PHP in locale. L'emulatore di calcolo userà l'installazione locale di PHP per eseguire l'applicazione.
@@ -199,12 +210,13 @@ Per arrestare gli emulatori, eseguire il comando seguente:
     PS C:\MyProject> Stop-AzureEmulator
 
 ## <a name="publish-your-application"></a>Pubblicare l'applicazione
+
 Per pubblicare l'applicazione, è necessario prima importare le impostazioni di pubblicazione usando il cmdlet [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) . Pubblicare quindi l'applicazione usando il cmdlet [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) . Per informazioni sull'accesso, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
 
-[Azure SDK per PHP]: /develop/php/common-tasks/download-php-sdk/
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
+
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [definizione del servizio (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [configurazione del servizio (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076616"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Preparare una macchina virtuale basata su Red Hat per lo Stack di Azure
 In questo articolo si apprenderà come preparare una macchina virtuale Red Hat Enterprise Linux (RHEL) per l'utilizzo nello Stack di Azure. Le versioni di RHEL trattate in questo articolo sono 7.1 +. Gli hypervisor per la preparazione illustrati in questo articolo sono Hyper-V, KVM (Kernel-based Virtual Machine) e VMware.

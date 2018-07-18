@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573401"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Aggiungere un utente o un proprietario a livello di lab
-Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale di Azure. Sono inclusi gli utenti esterni con un [account Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account)valido.
+Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale di Azure. Un utente può essere un utente esterne con un [account Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account)valido.
 Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevTest Labs prevede i passaggi seguenti:
 
 1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.
-4. Nel pannello del lab selezionare **Configurazione**. 
-5. Nel pannello **Configurazione** selezionare **Utenti**.
-6. Nel pannello **Utenti** selezionare **+Aggiungi**.
-   
+4. Nel pannello del lab selezionare **Configurazione e criteri**. 
+5. Nella pagina **Configurazione e criteri** selezionare **Controllo di accesso (IAM)** nel menu a sinistra. 
+6. Selezionare **Aggiungi** sulla barra degli strumenti per aggiungere un utente a un ruolo.
+
     ![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. Nel pannello **Selezionare un ruolo** selezionare il ruolo desiderato. La sezione [Azioni che possono essere eseguite in ogni ruolo](#actions-that-can-be-performed-in-each-role) elenca le diverse azioni che possono essere eseguite dagli utenti nei ruoli Proprietario, Utente DevTest Labs e Collaboratore.
-8. Nel pannello **Aggiungi utenti** immettere l'indirizzo di posta elettronica o il nome dell'utente che si vuole aggiungere nel ruolo specificato. Se l'utente non viene trovato, un messaggio di errore spiega il problema. Se l'utente viene trovato, tale utente è elencato e selezionato. 
-9. Scegliere **Seleziona**.
-10. Selezionare **OK** per chiudere il pannello **Aggiungi accesso**.
+1. Nella finestra **Aggiungi autorizzazioni** eseguire queste operazioni: 
+    1. Selezionare un ruolo (ad esempio: Utente DevTest Labs). La sezione [Azioni che possono essere eseguite in ogni ruolo](#actions-that-can-be-performed-in-each-role) elenca le diverse azioni che possono essere eseguite dagli utenti nei ruoli Proprietario, Utente DevTest Labs e Collaboratore.
+    2. Selezionare l'utente da aggiungere al ruolo. 
+    3. Selezionare **Salva**. 
+
+        ![Aggiungere l'utente al ruolo](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Quando si torna al pannello **Utenti** , l'utente risulta aggiunto.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Aggiungere un utente esterno a un lab usando PowerShell
-Oltre ad aggiungere gli utenti nel portale di Azure, è possibile aggiungere un utente esterno al lab usando uno script di PowerShell. Nell'esempio seguente, è sufficiente modificare i valori dei parametri nel commento **Values to change** (Valori da modificare).
+Oltre ad aggiungere gli utenti nel portale di Azure, è possibile aggiungere un utente esterno al lab usando uno script di PowerShell. Nell'esempio seguente, modificare i valori dei parametri nel commento **Values to change** (Valori da modificare).
 È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello Lab nel portale di Azure.
 
 > [!NOTE]

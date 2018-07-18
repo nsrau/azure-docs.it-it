@@ -3,22 +3,24 @@ title: Errore "Can't Access this Corporate Application" (Impossibile accedere al
 description: Come risolvere problemi di accesso comuni con applicazioni Proxy di applicazione di Azure AD.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: b9a643dab98fa685bb4873705c177a834af831ce
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 1e13fe6a9a2e5251d167bb56a05721e613300e83
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156093"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334831"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Errore "Can't Access this Corporate Application" (Impossibile accedere all'applicazione aziendale) quando si usa un'applicazione Proxy di applicazione
 
@@ -108,7 +110,7 @@ Ora aprire un browser e provare nuovamente ad accedere all'applicazione. Dovrebb
 
 Se si continua a visualizzare l'errore, accedere al computer su cui è installato il connettore, aprire un browser e tentare di raggiungere l'URL interno usato per l'applicazione. Il connettore funziona come un altro client dallo stesso computer. Se non è possibile raggiungere l'applicazione, ricercarne il motivo o usare un connettore su un server in grado di accedere all'applicazione.
 
-Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](active-directory-application-proxy-troubleshoot.md#connector-errors). È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i registri, vedere la [documentazione sui connettori](manage-apps/application-proxy-connectors.md#under-the-hood).
+Se è possibile raggiungere l'applicazione da tale computer, cercare problemi o errori relativi al connettore stesso. Alcuni errori comuni sono riportati nel [documento di risoluzione dei problemi](manage-apps/application-proxy-troubleshoot.md#connector-errors). È anche possibile consultare direttamente i registri del connettore per verificare se sono riportati errori. Molti dei messaggi di errore riportano consigli più specifici per la risoluzione dei problemi. Per informazioni su come visualizzare i registri, vedere la [documentazione sui connettori](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Comprendere i connettori del proxy applicazione di Azure AD](manage-apps/application-proxy-connectors.md)

@@ -1,42 +1,39 @@
 ---
-title: Introduzione all'archiviazione tabelle di Azure con .NET | Documentazione Microsoft
-description: Archiviare dati non strutturati nel cloud con il servizio di archiviazione tabelle di Azure, ovvero un archivio dati NoSQL.
+title: Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con .NET | Microsoft Docs
+description: Archiviare dati strutturati nel cloud usando l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360190"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959968"
 ---
-# <a name="get-started-with-azure-table-storage-using-net"></a>Introduzione all'archiviazione tabelle di Azure con .NET
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Introduzione all'archiviazione tabelle di Azure e all'API Tabelle di Azure Cosmos DB con .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-L'archiviazione tabelle di Azure è un servizio che archivia dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema. Poiché l'archiviazione tabelle è senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati dell'archiviazione tabelle è rapido ed economico per molti tipi di applicazioni e presenta costi generalmente più bassi rispetto alle soluzioni SQL tradizionali per volumi di dati simili.
+È possibile usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB per archiviare dati NoSQL strutturati nel cloud, mettendo a disposizione un archivio di chiavi/attributi senza schema. Dato che l'archiviazione tabelle e l'API Tabelle di Azure Cosmos DB sono senza schema, è facile adattare i dati con il variare delle esigenze dell'applicazione. L'accesso ai dati dell'archiviazione tabelle e all'API Tabelle di Azure Cosmos DB è rapido ed economico per molti tipi di applicazioni e presenta costi generalmente più bassi rispetto alle soluzioni SQL tradizionali per volumi di dati simili.
 
-È possibile usare l'archiviazione tabelle per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. In una tabella possono essere archiviate il numero desiderato di tabelle e un account di archiviazione può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione.
+È possibile usare l'archiviazione tabelle o e l'API Tabelle di Azure Cosmos DB per archiviare set di dati flessibili, ad esempio i dati utente per le applicazioni Web, le rubriche, le informazioni sui dispositivi o altri tipi di metadati richiesti dal servizio. In una tabella è possibile archiviare qualsiasi numero di entità e un account di archiviazione o un account dell'API Tabelle può contenere un numero qualsiasi di tabelle, fino a che non viene raggiunto il limite di capacità dell'account di archiviazione o dell'account dell'API Tabelle.
 
-### <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
-Questa esercitazione illustra come usare la [libreria di tabelle Microsoft Azure CosmosDB per .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) all'interno di scenari comuni di archiviazione tabelle di Azure. Il nome del pacchetto indica che il pacchetto è destinato all'uso con Azure Cosmos DB. Il pacchetto tuttavia funziona sia con Azure Cosmos DB che con l'archiviazione tabelle di Azure, ma ogni servizio ha un endpoint univoco. Questi scenari vengono esaminati tramite esempi C# che illustrano come:
+### <a name="about-this-sample"></a>Informazioni sull'esempio
+Questo esempio mostra come usare la [libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) all'interno di scenari comuni di archiviazione tabelle di Azure e dell'API Tabelle. Il nome del pacchetto indica che il pacchetto è destinato all'uso con Azure Cosmos DB. Il pacchetto tuttavia funziona sia con l'API Tabelle di Azure Cosmos DB che con l'archiviazione tabelle di Azure, ma ogni servizio ha un endpoint univoco. Questi scenari vengono esaminati tramite esempi C# che illustrano come:
 * Creare ed eliminare tabelle
 * Inserire, aggiornare ed eliminare righe
 * Eseguire query su tabelle
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per completare l'esercitazione sono necessari gli elementi seguenti:
+Per completare correttamente l'esempio sono necessari gli elementi seguenti:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Libreria comune di Archiviazione di Azure per .NET (anteprima)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Questo è un pacchetto di anteprima obbligatorio supportato in ambienti di produzione. 
@@ -74,12 +71,12 @@ In Visual Studio creare una nuova applicazione console di Windows. La procedura 
 4. Nel campo **Nome** immettere un nome per l'applicazione.
 5. Selezionare **OK**.
 
-Tutti gli esempi di codice in questa esercitazione possono essere aggiunti al metodo `Main()` del file `Program.cs` dell'applicazione console.
+Tutti gli esempi di codice in questo esempio possono essere aggiunti al metodo `Main()` del file `Program.cs` dell'applicazione console.
 
 È possibile usare la libreria di tabelle di Azure CosmosDB in qualsiasi tipo di applicazione .NET, ad esempio un servizio cloud o un'app Web di Azure, nonché in applicazioni desktop e per dispositivi mobili. Per semplicità, in questa guida si usa un'applicazione console.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Usare NuGet per installare i pacchetti necessari
-Per completare questa esercitazione, all'interno del progetto è necessario fare riferimento a tre pacchetti consigliati:
+Per completare questo esempio, all'interno del progetto è necessario fare riferimento a tre pacchetti consigliati:
 
 * [Libreria comune di Archiviazione di Azure per .NET (anteprima)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
 * [Libreria di tabelle Microsoft Azure Cosmos DB per .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Questo pacchetto consente l'accesso a livello di codice alle risorse dati nell'account di archiviazione tabelle di Azure o nell'account dell'API di tabella di Azure Cosmos DB.
@@ -98,7 +95,7 @@ Per ottenere entrambi i pacchetti, è possibile usare NuGet. A tale scopo, segui
 > 
 
 > [!TIP]
-> Gli sviluppatori già esperti in archiviazione tabelle di Azure potrebbero avere già usato il pacchetto [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) in passato. È consigliabile che tutte le nuove applicazioni di tabella usino la [libreria comune di archiviazione di Azure](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) e la [libreria di tabelle di Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), ma il pacchetto WindowsAzure.Storage è ancora supportato. Se si usa la libreria WindowsAzure.Storage, includere Microsoft.WindowsAzure.Storage.Table nelle istruzioni using.
+> Gli sviluppatori già esperti in archiviazione tabelle di Azure potrebbero avere già usato il pacchetto [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) in passato. È consigliabile che tutte le nuove applicazioni di tabella usino la [libreria comune di archiviazione di Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) e la [libreria di tabelle di Azure Cosmos DB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), ma il pacchetto WindowsAzure.Storage è ancora supportato. Se si usa la libreria WindowsAzure.Storage, includere Microsoft.WindowsAzure.Storage.Table nelle istruzioni using.
 >
 >
 
@@ -112,7 +109,7 @@ Sono disponibili tre opzioni relative all'ambiente per l'esecuzione degli esempi
 Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
-> È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questa esercitazione saranno minimi.
+> È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questo esempio saranno minimi.
 > 
 > 
 
@@ -144,13 +141,13 @@ Per configurare la stringa di connessione, aprire il file `app.config` da Esplor
 Se ad esempio si usa un account di Archiviazione di Azure, le impostazioni di configurazione sono simili a:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
 Se si usa un account di Azure Cosmos DB, le impostazioni di configurazione sono simili a:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 Per impostare come destinazione l'emulatore di archiviazione, è possibile usare un collegamento con mapping al nome dell'account e alla chiave noti. In questo caso, l'impostazione della stringa di connessione è:

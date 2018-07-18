@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700707"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -90,7 +91,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Per altre informazioni, vedere il documento [Risolvere i problemi relativi ai gruppi di sicurezza di rete](../virtual-network/virtual-network-nsg-troubleshoot-portal.md).
+        Per altre informazioni, vedere il documento [Risolvere i problemi relativi ai gruppi di sicurezza di rete](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]
         > Le regole di gruppo di sicurezza di rete vengono applicate seguendo un ordine basato sulla priorità delle regole. Viene applicata la prima regola che corrisponde al modello di traffico, dopodiché non vengono applicate altre regole per quel traffico. Ordinare le regole dalla più permissiva alla più restrittiva. Per altre informazioni, vedere il documento [Filtrare il traffico di rete con gruppi di sicurezza di rete](../virtual-network/security-overview.md).
@@ -107,7 +108,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Per altre informazioni, vedere il documento [Risolvere i problemi relativi alle route](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
+        Per altre informazioni, vedere il documento [Risolvere i problemi relativi alle route](../virtual-network/diagnose-network-routing-problem.md).
 
 4. Creare un cluster HDInsight e selezionare la rete virtuale di Azure durante la configurazione. Per comprendere il processo di creazione del cluster, attenersi alla procedura nei documenti seguenti:
 
@@ -291,8 +292,8 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
     | India | India centrale | 52.172.153.209</br>52.172.152.49 | 443 | In ingresso |
     | Giappone | Giappone orientale | 13.78.125.90</br>13.78.89.60 | 443 | In ingresso |
     | &nbsp; | Giappone occidentale | 40.74.125.69</br>138.91.29.150 | 443 | In ingresso |
-    | Corea | Corea centrale | 52.231.39.142</br>52.231.36.209 | 433 | In ingresso |
-    | &nbsp; | Corea meridionale | 52.231.203.16</br>52.231.205.214 | 443 | In ingresso
+    | Corea del Sud | Corea del Sud centrale | 52.231.39.142</br>52.231.36.209 | 433 | In ingresso |
+    | &nbsp; | Corea del Sud meridionale | 52.231.203.16</br>52.231.205.214 | 443 | In ingresso
     | Regno Unito | Regno Unito occidentale | 51.141.13.110</br>51.141.7.20 | 443 | In ingresso |
     | &nbsp; | Regno Unito meridionale | 51.140.47.39</br>51.140.52.16 | 443 | In ingresso |
     | Stati Uniti | Stati Uniti centrali | 13.67.223.215</br>40.86.83.253 | 443 | In ingresso |

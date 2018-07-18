@@ -7,22 +7,25 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332912"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Aggiungere una macchina virtuale Ubuntu a un dominio gestito in Azure
 Questo articolo illustra come aggiungere una macchina virtuale Ubuntu Linux a un dominio gestito di Azure AD Domain Services.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:  
@@ -120,17 +123,17 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Risoluzione dei problemi:** se *realm discover* non riesce a trovare il dominio gestito:
      * Verificare che il dominio sia raggiungibile dalla macchina virtuale (provare a effettuare il ping).
      * Verificare che la macchina virtuale sia stata effettivamente distribuita nella stessa rete virtuale in cui è disponibile il dominio gestito.
      * Verificare che le impostazioni del server DNS per la rete virtuale siano state aggiornate affinché puntino ai controller di dominio del dominio gestito.
    >
 
-2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente: 
+2. Inizializzare Kerberos. Nel terminale SSH digitare il comando seguente:
 
-    > [!TIP] 
-    > * Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators. 
+    > [!TIP]
+    > * Verificare che l'utente specificato appartenga al gruppo AAD DC Administrators.
     > * Specificare il nome di dominio in lettere maiuscole; in caso contrario kinit avrà esito negativo.
     >
 
@@ -138,9 +141,9 @@ Ora che i pacchetti sono installati nella macchina virtuale Linux, l'attività s
     kinit bob@CONTOSO100.COM
     ```
 
-3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente: 
+3. Aggiungere il computer al dominio. Nel terminale SSH digitare il comando seguente:
 
-    > [!TIP] 
+    > [!TIP]
     > Usare lo stesso account utente specificato nel passaggio precedente ("kinit").
     >
 
@@ -173,7 +176,7 @@ Per abilitare la creazione automatica della home directory dopo la registrazione
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Aggiungere la riga seguente nel file sotto la linea "session optional pam_sss.so" e salvarlo:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

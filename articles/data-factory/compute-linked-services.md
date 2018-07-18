@@ -8,14 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: 6f9f0f9a9bab7e6865ae5a48552ac702ae2bf6fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824932"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambienti di calcolo supportati da Azure Data Factory
 Questo articolo spiega i diversi ambienti di calcolo che è possibile utilizzare per elaborare o una trasformare dati. Fornisce inoltre informazioni dettagliate sulle diverse configurazioni (on-demand e bring your own) supportate da Data Factory durante la configurazione di servizi collegati che collegano questi ambienti a una data factory di Azure.
@@ -37,8 +38,6 @@ In questo tipo di configurazione, l'ambiente informatico è completamente gestit
 
 > [!NOTE]
 > La configurazione su richiesta è attualmente supportata solo per i cluster HDInsight di Azure.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Servizio collegato Azure HDInsight su richiesta
 Il servizio Azure Data Factory può creare automaticamente un cluster HDInsight su richiesta per elaborare i dati. La creazione del cluster avviene nella stessa area dell'account di archiviazione (proprietà linkedServiceName in JSON) associato al cluster. L'account di archiviazione deve essere un account di archiviazione di Azure standard per utilizzo generico. 
@@ -48,11 +47,14 @@ Tenere presente i seguenti punti **importanti** sul servizio collegato HDInsight
 * Il cluster HDInsight su richiesta verrà creato nella sottoscrizione di Azure. È possibile visualizzare il cluster nel portale di Azure quando questo è attivo e in esecuzione. 
 * I registri per i processi eseguiti su un cluster HDInsight su richiesta vengono copiati nell'account di archiviazione associato al cluster HDInsight. ClusterUserName, clusterPassword, clusterSshUserName, clusterSshPassword definiti nella definizione del servizio collegato vengono usati per accedere al cluster per la risoluzione approfondita dei problemi durante il ciclo di vita del cluster. 
 * Viene addebitato solo il tempo in cui il cluster HDInsight è attivo e i processi in esecuzione.
+* Non è possibile utilizzare un'azione script con il servizio collegato Azure HDInsight su richiesta. Se, ad esempio, è necessario installare altre dipendenze, prendere in considerazione l'utilizzo di Automazione di Azure per eseguire uno script PowerShell che effettui le operazioni seguenti:  
+  a. Creare il cluster HDInsight.  
+  b. Eseguire un'azione script per installare altre dipendenze, ad esempio.  
+  c. Eseguire la pipeline di Data Factory.  
+  d. Eliminare il cluster.  
 
 > [!IMPORTANT]
 > Richiede in genere almeno **20 minuti** per il provisioning di un cluster HDInsight di Azure su richiesta.
->
-> 
 
 ### <a name="example"></a>Esempio
 Il codice JSON seguente definisce un servizio collegato HDInsight su richiesta basato su Linux. Il servizio Data factory crea automaticamente un cluster HDInsight **basato su Linux** per elaborare un'attività richiesta. 
@@ -500,7 +502,7 @@ La tabella seguente specifica le regole di denominazione per gli elementi di Dat
 
 | NOME                             | Univocità del nome                          | Controlli di convalida                        |
 | :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data factory                     | Univoco in Microsoft Azure. Per i nomi non viene fatta distinzione tra maiuscole e minuscole: `MyDF` e `mydf`, ad esempio, fanno riferimento alla stessa data factory. | <ul><li>Ogni data factory è collegata a una sola sottoscrizione di Azure.</li><li>I nomi degli oggetti devono iniziare con una lettera o un numero e possono contenere solo lettere, numeri e il carattere trattino (-).</li><li>Ogni carattere trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. Nei nomi di contenitori non sono consentiti trattini consecutivi.</li><li>Il nome può contenere da 3 a 63 caratteri.</li></ul> |
+| Data Factory                     | Univoco in Microsoft Azure. Per i nomi non viene fatta distinzione tra maiuscole e minuscole: `MyDF` e `mydf`, ad esempio, fanno riferimento alla stessa data factory. | <ul><li>Ogni data factory è collegata a una sola sottoscrizione di Azure.</li><li>I nomi degli oggetti devono iniziare con una lettera o un numero e possono contenere solo lettere, numeri e il carattere trattino (-).</li><li>Ogni carattere trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. Nei nomi di contenitori non sono consentiti trattini consecutivi.</li><li>Il nome può contenere da 3 a 63 caratteri.</li></ul> |
 | Servizi collegati/Tabelle/Pipeline | Univoco in una data factory. Per i nomi viene fatta distinzione tra maiuscole e minuscole. | <ul><li>Numero massimo di caratteri nel nome di una tabella: 260.</li><li>I nomi degli oggetti devono iniziare con una lettera, un numero o un carattere di sottolineatura (_).</li><li>Non sono ammessi i caratteri seguenti: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\".</li></ul> |
 | Gruppo di risorse                   | Univoco in Microsoft Azure. Per i nomi viene fatta distinzione tra maiuscole e minuscole. | <ul><li>Numero massimo di caratteri: 1000.</li><li>Il nome può contenere lettere, cifre e i caratteri seguenti: "-", "_", "," e "."</li></ul> |
 

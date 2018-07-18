@@ -9,11 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435491"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>Registri server nel database di Azure per PostgreSQL 
 Il database di Azure per PostgreSQL genera log di query e registri errori. Tuttavia, l'accesso ai log delle transazioni non è supportato. I log di query e degli errori possono essere usati per individuare e risolvere i problemi e correggere errori di configurazione e prestazioni non ottimali. Per altre informazioni, vedere [Error Reporting and Logging](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html) (Segnalazione e registrazione degli errori).
@@ -28,7 +29,7 @@ I file di log ruotano ogni ora o 100 MB di spazio, a seconda della condizione ch
 ## <a name="configure-logging-for-azure-postgresql-server"></a>Configurare la registrazione per il server PostgreSQL di Azure
 È possibile abilitare la registrazione delle query e degli errori per il server. I log degli errori possono contenere informazioni su checkpoint, connessioni e vuoto automatico.
 
-È possibile abilitare la registrazione delle query per l'istanza del database PostgreSQL impostando due parametri del server: `log\_statement` e `log\_min\_duration\_statement`.
+È possibile abilitare la registrazione delle query per l'istanza del database PostgreSQL impostando due parametri del server: `log_statement` e `log_min_duration_statement`.
 
 Il parametro **log\_statement** controlla quali istruzioni SQL sono registrate. È consigliabile impostare questo parametro su ***all*** per registrare tutte le istruzioni. Il valore predefinito è none.
 

@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 55243ead4f088f7a2b3d54c0581c604f0dc63d07
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261220"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considerazioni relative all'integrazione di Data Center per i sistemi Azure Stack integrato
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere alcune delle principali considerazioni sulla pianificazione per la distribuzione e sulle modalità di integrazione di sistema nel Data Center. In questo articolo fornisce una panoramica generale di queste considerazioni consentono di prendere decisioni importanti infrastruttura per il sistema a più nodi di Azure Stack. La comprensione di queste considerazioni è utile quando si distribuiscono dello Stack di Azure al Data Center funziona con il fornitore dell'hardware OEM.  
@@ -88,7 +89,7 @@ Nella tabella seguente sono riepilogate queste decisioni di nomi di dominio.
 
 | NOME | DESCRIZIONE | 
 | -------- | ------------- | 
-|Nome dell'area | Il nome dell'area dello Stack di Azure prima. Questo nome viene utilizzato come parte del nome FQDN per i pubblici indirizzi IP virtuali (VIP) che gestisce dello Stack di Azure. In genere, il nome dell'area sarebbe un identificatore di posizione fisica, ad esempio un'ubicazione del Data Center. | 
+|Nome area | Il nome dell'area dello Stack di Azure prima. Questo nome viene utilizzato come parte del nome FQDN per i pubblici indirizzi IP virtuali (VIP) che gestisce dello Stack di Azure. In genere, il nome dell'area sarebbe un identificatore di posizione fisica, ad esempio un'ubicazione del Data Center. | 
 | Nome di dominio esterno | Il nome della zona sistema DNS (Domain Name) per gli endpoint con gli indirizzi VIP esterna. Utilizzata nel FQDN per i VIP pubblici. | 
 | Nome di dominio (interna) privato | Il nome del dominio (e zona DNS interno) creato nello Stack di Azure per la gestione dell'infrastruttura. 
 | | |
@@ -134,9 +135,9 @@ Nella tabella seguente sono riepilogati gli scenari di connettività ibrida con 
 
 | Scenario | Metodo di connettività | Vantaggi | Svantaggi | Adatto per |
 | -- | -- | --| -- | --|
-| Single-tenant Azure Stack, distribuzione intranet | NAT in uscita | Migliore della larghezza di banda per il trasferimento più veloce. Semplice da implementare; Nessun gateway necessario. | Traffico non crittografato. Nessun isolamento o crittografia oltre TOR. | Distribuzioni aziendali in cui tutti i tenant sono ugualmente attendibili.<br><br>Organizzazioni che dispongono di un circuito ExpressRoute di Azure in Azure. |
+| Single-tenant Azure Stack, distribuzione intranet | NAT in uscita | Migliore della larghezza di banda per il trasferimento più veloce. Semplice da implementare; Nessun gateway necessario. | Traffico non crittografato. Nessun isolamento o la crittografia di fuori dello stack. | Distribuzioni aziendali in cui tutti i tenant sono ugualmente attendibili.<br><br>Organizzazioni che dispongono di un circuito ExpressRoute di Azure in Azure. |
 | Stack di Azure multi-tenant, distribuzione intranet | Da sito a VPN | Il traffico proveniente da tenant rete virtuale di destinazione è protetto. | Larghezza di banda è limitata dal tunnel VPN da sito a sito.<br><br>Richiede un gateway nella rete virtuale e un dispositivo VPN della rete di destinazione. | Le distribuzioni aziendali in cui alcuni traffico del tenant devono essere protetto da altri tenant. |
-| Single-tenant di Azure, Stack di distribuzione in internet | NAT in uscita | Migliore della larghezza di banda per il trasferimento più veloce. | Traffico non crittografato. Nessun isolamento o crittografia oltre TOR. | Scenari in cui il tenant Ottiene la distribuzione di Azure Stack e un circuito dedicato per l'ambiente dello Stack di Azure di hosting. Ad esempio, ExpressRoute e Multiprotocol Label cambio MPLS ().
+| Single-tenant di Azure, Stack di distribuzione in internet | NAT in uscita | Migliore della larghezza di banda per il trasferimento più veloce. | Traffico non crittografato. Nessun isolamento o la crittografia di fuori dello stack. | Scenari in cui il tenant Ottiene la distribuzione di Azure Stack e un circuito dedicato per l'ambiente dello Stack di Azure di hosting. Ad esempio, ExpressRoute e Multiprotocol Label cambio MPLS ().
 | Stack di Azure multi-tenant, distribuzione in internet | Da sito a VPN | Il traffico proveniente da tenant rete virtuale di destinazione è protetto. | Larghezza di banda è limitata dal tunnel VPN da sito a sito.<br><br>Richiede un gateway nella rete virtuale e un dispositivo VPN della rete di destinazione. | Hosting di scenari in cui il provider desidera realizzare un cloud multi-tenant, in cui i tenant non attendibili tra loro e il traffico deve essere crittografato.
 |  |  |  |  |  |
 

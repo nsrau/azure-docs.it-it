@@ -1,26 +1,21 @@
 ---
-title: Linee guida sulla sicurezza per MFA | Microsoft Docs
+title: Indicazioni sulla sicurezza per Azure Multi-Factor Authentication
 description: Questo documento include le linee guida relative all'uso di Azure MFA con account Azure
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: 50e6cd3c067e09ebf9ace442894d5d066141e0b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e143c8c17d5cbc3403d90f7a354d5300265d679
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152299"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100386"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Linee guida sulla sicurezza per l'uso di Azure Multi-Factor Authentication con account Azure AD
 
@@ -111,5 +106,5 @@ Usare questo elenco per leggere alcune considerazioni e procedure consigliate ag
 Anche se questo articolo evidenzia alcune procedure consigliate per Azure MFA, sono disponibili anche altre risorse che è possibile usare quando si pianifica la distribuzione di MFA. L'elenco seguente include alcuni articoli importanti che possono risultare utili durante questo processo:
 
 * [Report in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
-* [L'esperienza di registrazione della verifica in due passaggi](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+* [L'esperienza di registrazione della verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-first-time.md)
 * [Domande frequenti su Azure Multi-Factor Authentication](multi-factor-authentication-faq.md)

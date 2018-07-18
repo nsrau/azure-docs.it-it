@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774183"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Connessione di Azure Active Directory Identity Protection al Centro sicurezza di Azure
 Questo documento consente di configurare l'integrazione tra Azure Active Directory (AD) Identity Protection e il Centro sicurezza di Azure.

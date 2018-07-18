@@ -13,11 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337179"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personalizzare l'autenticazione e l'autorizzazione in Servizio app di Azure
 
@@ -88,7 +89,7 @@ Quando il token di accesso del provider scade, è necessario ripetere l'autentic
 
 - **Google**: aggiungere un parametro di stringa di query `access_type=offline` alla chiamata API di `/.auth/login/google`. Se si usa Mobile Apps SDK, è possibile aggiungere il parametro a uno degli overload `LogicAsync`. Vedere [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens) (Token di aggiornamento di Google).
 - **Facebook**: non vengono forniti token di aggiornamento. I token di lunga durata scadono dopo 60 giorni. Vedere [Scadenza ed estensione dei token d'accesso di Facebook](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension).
-- **Twitter**: i token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq).
+- **Twitter**: i token di accesso non scadono. Vedere le [domande frequenti su OAuth di Twitter](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq).
 - **Account Microsoft**: in fase di [configurazione delle impostazioni di autenticazione dell'account Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md), selezionare l'ambito `wl.offline_access`.
 - **Azure Active Directory**: in [https://resources.azure.com](https://resources.azure.com) seguire questa procedura:
     1. Nella parte superiore della pagina selezionare **Lettura/scrittura**.
@@ -102,7 +103,7 @@ Quando il token di accesso del provider scade, è necessario ripetere l'autentic
 
     1. Fare clic su **Put**. 
 
-Una volta configurato il provider, verificare se i token di aggiornamento si trovano nell'archivio di token chiamando `/.auth/me`. 
+Dopo aver configurato il provider è possibile [trovare il token di aggiornamento e l'ora di scadenza del token di accesso](#retrieve-tokens-in-app-code) nell'archivio token. 
 
 Per aggiornare il token di accesso in qualsiasi momento, chiamare `/.auth/refresh` in qualsiasi linguaggio. Il frammento di codice seguente usa jQuery per aggiornare i token di accesso da un client JavaScript.
 

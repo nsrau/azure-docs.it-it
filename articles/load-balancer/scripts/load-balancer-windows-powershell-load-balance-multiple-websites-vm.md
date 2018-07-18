@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181236"
 ---
 # <a name="azure-powershell-script-example-load-balance-multiple-websites"></a>Esempio di script di Azure PowerShell - Eseguire il bilanciamento del carico di più siti Web
 

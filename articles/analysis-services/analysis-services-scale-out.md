@@ -3,16 +3,17 @@ title: Ridimensionamento orizzontale di Azure Analysis Services | Microsoft Docs
 description: Replicare server di Azure Analysis Services con ridimensionamento orizzontale
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445021"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -33,6 +34,22 @@ Al termine delle operazioni di elaborazione, è necessario effettuare una sincro
 
 > [!NOTE]
 > Il ridimensionamento orizzontale non aumenta la quantità di memoria disponibile per il server. Per aumentare la memoria, è necessario aggiornare il piano.
+
+## <a name="region-limits"></a>Limiti delle aree
+
+Il numero di repliche di query che è possibile configurare dipende dall'area in cui risiede il server. Si applicano i limiti seguenti:
+
+|Region  |Numero massimo di repliche  |
+|---------|---------|
+|Stati Uniti orientali 2    |    7     |
+|Stati Uniti centro-occidentali     |    7     |
+|Europa occidentale     |    7     |
+|Stati Uniti occidentali     |     7    |
+|Stati Uniti centrali     |     3    |
+|Asia sudorientale    |     3    |
+|Tutte le altre aree  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>Monitorare l'utilizzo di QPU
 

@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733860"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrazione di Azure Data Center di Stack - DNS
 Per poter accedere agli endpoint di Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, ecc.)  dallo Stack all'esterno di Azure, è necessario integrare i servizi di Azure Stack DNS con i server DNS che ospitano le zone DNS che si desidera utilizzare nello Stack di Azure.

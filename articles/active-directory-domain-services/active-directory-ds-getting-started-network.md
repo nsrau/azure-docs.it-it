@@ -2,23 +2,25 @@
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
 description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2018
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 858adf2b0a0431078561a6f0edf80860927f8233
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c6c5762a460fadb04f940742bed759ea17f74aad
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215736"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -32,7 +34,7 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
 
 1. Fare clic su **Rete virtuale** per selezionare una rete virtuale.
     > [!NOTE]
-    > **Le reti virtuali classiche non sono supportate per le nuove distribuzioni.** Le reti virtuali classiche non sono supportate per le nuove distribuzioni. I domini gestiti esistenti distribuiti nelle reti virtuali classiche continuano a essere supportati. Nel prossimo futuro verrà offerta la possibilità di eseguire la migrazione di un dominio gestito esistente da una rete virtuale classica a una rete virtuale di Resource Manager.
+    > **Le reti virtuali classiche non sono supportate per le nuove distribuzioni.** Le reti virtuali classiche non sono supportate per le nuove distribuzioni. I domini gestiti esistenti distribuiti nelle reti virtuali classiche continuano a essere supportati. Nel prossimo futuro Microsoft offrirà la possibilità di eseguire la migrazione di un dominio gestito esistente da una rete virtuale classica a una rete virtuale di Gestione risorse.
     >
 
 2. Nella pagina **Scegli rete virtuale** vengono visualizzate tutte le reti virtuali esistenti. Vengono visualizzate solamente le reti virtuali che appartengono al gruppo di risorse e la posizione di Azure selezionata nella pagina di procedura guidata **Nozioni di base**.
@@ -42,7 +44,7 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
   > **Non è possibile spostare il dominio gestito in una rete virtuale diversa dopo l'abilitazione di Azure AD Domain Services.** Selezionare la rete virtuale corretta per abilitare il dominio gestito. Dopo aver creato un dominio gestito, è possibile spostarlo in un'altra rete virtuale, senza eliminare il dominio gestito. Prima di procedere, è consigliabile leggere [Considerazioni sulla rete per Azure Active Directory Domain Services](active-directory-ds-networking.md).  
   >
 
-4. **Creare la rete virtuale:** fare clic su **Crea nuovo** per creare una nuova rete virtuale. È consigliabile l'utilizzo di una subnet dedicata per Azure AD Domain Services. Ad esempio, se si crea una subnet con il nome 'DomainServices', è più semplice per gli altri amministratori comprendere cosa viene implementato all'interno della subnet. Al termine, fare clic su **OK**.
+4. **Creare la rete virtuale:** fare clic su **Crea nuovo** per creare una nuova rete virtuale. Usare una subnet dedicata per Azure AD Domain Services. Ad esempio, se si crea una subnet con il nome 'DomainServices', è più semplice per gli altri amministratori comprendere cosa viene implementato all'interno della subnet. Al termine, fare clic su **OK**.
 
     ![Selezionare una rete virtuale](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
@@ -57,7 +59,7 @@ L'attività di configurazione successiva consiste nel creare una rete virtuale d
   > **Linee guida per la selezione di una subnet**
   > 1. Usare una subnet dedicata per Azure AD Domain Services. Non distribuire eventuali altre macchine virtuali per questa subnet. Questa configurazione consente di configurare gruppi di sicurezza di rete per le macchine virtuali/carichi di lavoro senza interromperne il dominio gestito. Per i dettagli vedere [Considerazioni sulla rete per Azure Active Directory Domain Services](active-directory-ds-networking.md).
   2. Non selezionare la subnet del Gateway per l’implementazione di Azure AD Domain Services poiché non si tratta di una configurazione supportata.
-  3. Verificare che la subnet selezionata disponga di sufficiente spazio per gli indirizzi (almeno 3-5 indirizzi IP disponibili) ed esista nello spazio di indirizzi IP privato.
+  3. La subnet selezionata deve avere almeno da 3 a 5 indirizzi IP disponibili nel proprio spazio di indirizzi.
   >
 
 6. Al termine, fare clic su **OK** per procedere alla pagina **Gruppo amministratore** della procedura guidata.

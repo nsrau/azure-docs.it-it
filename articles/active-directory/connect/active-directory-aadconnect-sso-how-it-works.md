@@ -4,7 +4,7 @@ description: In questo articolo viene descritto il funzionamento dell'accesso Si
 services: active-directory
 keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918255"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
 
@@ -50,7 +52,7 @@ Una volta completata l'installazione, l'accesso SSO facile funziona esattamente 
 
 Il flusso di accesso in un browser Web è il seguente:
 
-1. L'utente tenta di accedere a un'applicazione Web, ad esempio Outlook Web App, https://outlook.office365.com/owa/, da un dispositivo aziendale appartenente a un dominio all'interno della rete aziendale.
+1. L'utente tenta di accedere a un'applicazione Web, ad esempio, l'app Web di Outlook https://outlook.office365.com/owa/) da un dispositivo aziendale appartenente a un dominio all'interno della rete aziendale.
 2. Se l'utente non ha ancora eseguito l'accesso, viene reindirizzato alla pagina di accesso di Azure AD.
 3. L'utente digita il nome utente nella pagina di accesso di Azure AD.
 

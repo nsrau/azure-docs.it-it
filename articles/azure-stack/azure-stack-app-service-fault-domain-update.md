@@ -12,28 +12,27 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: 42adef66fb1b1141ab44aab3a1ccdaae022202b5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130371"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Come ridistribuire il servizio App di Azure nello Stack di Azure nei domini di errore
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: Azure Stack integrati sistemi*
 
-Con l'aggiornamento 1802, Stack di Azure supporta ora la distribuzione dei carichi di lavoro nei domini di errore, una funzionalità, è fondamentale per la disponibilità elevata.
+Con l'aggiornamento 1802, Stack di Azure supporta ora la distribuzione dei carichi di lavoro nei domini di errore, una funzionalità che è fondamentale per la disponibilità elevata.
 
-> [!IMPORTANT]
-> Deve avere il sistema è aggiornato Stack Azure integrato a 1802 per essere in grado di sfruttare i vantaggi del supporto di domini di errore.  Questo documento si applica solo alle distribuzioni di provider di risorse servizio App che sono state completate, prima dell'aggiornamento 1802.  Se è stato distribuito il servizio App nello Stack di Azure dopo che è stato applicato l'aggiornamento 1802 allo Stack di Azure, il provider di risorse è già distribuito nei domini di errore.
->
->
+>[!IMPORTANT]
+>Per sfruttare i vantaggi del supporto di domini di errore, è necessario aggiornare il sistema Azure Stack integrato a 1802. Questo documento si applica solo alle distribuzioni di provider di risorse del servizio App completati prima dell'aggiornamento 1802. Se è stato distribuito il servizio App nello Stack di Azure dopo che è stato applicato l'aggiornamento 1802 allo Stack di Azure, il provider di risorse è già distribuito nei domini di errore.
 
 ## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Ribilanciare un provider di risorse di servizio App nei domini di errore
 
-Per ridistribuire i set di scalabilità per il provider di risorse di servizio App distribuiti, è necessario eseguire i passaggi seguenti per ogni set di scalabilità.  Per impostazione predefinita i nomi scaleset sono:
+Per ridistribuire i set di scalabilità per il provider di risorse di servizio App distribuiti, è necessario eseguire i passaggi in questo articolo per ogni set di scalabilità. Per impostazione predefinita, i nomi scaleset sono:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -43,43 +42,44 @@ Per ridistribuire i set di scalabilità per il provider di risorse di servizio A
 * MediumWorkerTierScaleSet
 * LargeWorkerTierScaleSet
 
-> [!NOTE]
-> Se non si dispone di alcun istanze distribuite in alcuni set di scalabilità di livello il lavoro, è necessario ribilanciare i set di scalabilità.  I set di scalabilità verranno bilanciati correttamente quando si aumenta il essere adattati in futuro.
->
->
+>[!NOTE]
+> Se non si dispone di istanze distribuite in alcuni set di scalabilità di livello il lavoro, è necessario ribilanciare i set di scalabilità. I set di scalabilità verranno bilanciati correttamente quando si aumenta il essere adattati in futuro.
 
-1. Selezionare i set di scalabilità macchina virtuale nel portale di amministrazione di Stack di Azure.  Verranno elencati i set di scalabilità esistenti distribuiti come parte della distribuzione del servizio App con le informazioni sul conteggio di istanza.
+Per ampliare il set di scalabilità, seguire questi passaggi:
 
-    ![Set di scalabilità di servizio Azure App elencati nella macchina virtuale scala set UX][1]
+1. Accedi al portale di amministrazione di Stack di Azure.
+2. Selezionare **Altri servizi**.
+3. CALCOLO, selezionare **set di scalabilità di macchine virtuali**. Verranno elencati i set di scalabilità esistenti distribuiti come parte della distribuzione del servizio App con le informazioni sul conteggio di istanza. Nella schermata seguente mostra un esempio di set di scalabilità.
 
-2. Avanti con scalabilità orizzontale ogni set.  Ad esempio, se si dispongano di tre istanze esistenti nel set di scalabilità prevedono la scalabilità orizzontale a 6 in modo che le tre nuove istanze verranno eseguito il provisioning in domini di errore.
-    a. [Configurare l'ambiente Azure Stack Admin in PowerShell](azure-stack-powershell-configure-admin.md) b. Usare questo esempio per scalare orizzontalmente il set di scalabilità:
-        ```powershell
-                Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
+      ![Set di scalabilità di servizio Azure App elencati nella macchina virtuale scala set UX][1]
 
-                # Get current scale set
-                $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+4. Scalabilità orizzontale ogni set. Ad esempio, se si dispongano di tre istanze esistenti nel set di scalabilità prevedono la scalabilità orizzontale a 6 in modo che le tre nuove istanze vengono distribuite in domini di errore. Nell'esempio di PowerShell seguente mostra per scalare in orizzontale il set di scalabilità.
 
-                # Set and update the capacity of your scale set
-                $vmss.sku.capacity = 6
-                Update-AzureRmVmss -ResourceGroupName "AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
-        '''
-> [!NOTE]
-> Questo passaggio può richiedere un numero di ore in base al tipo di ruolo e il numero di istanze.
->
->
+   ```powershell
+   Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
 
-3. Monitorare lo stato delle istanze del ruolo nuovo nel pannello dei ruoli di amministrazione del servizio App.  Controllare lo stato di una singola istanza del ruolo selezionando il tipo di ruolo nell'elenco
+   # Get current scale set
+   $vmss = Get-AzureRmVmss -ResourceGroupName "AppService.local" -VMScaleSetName "SmallWorkerTierScaleSet"
+
+   # Set and update the capacity of your scale set
+   $vmss.sku.capacity = 6
+   Update-AzureRmVmss -ResourceGroupName AppService.local" -Name "SmallWorkerTierScaleSet" -VirtualMachineScaleSet $vmss
+   ```
+
+   >[!NOTE]
+   >Questo passaggio può richiedere diverse ore per terminare, a seconda del tipo di ruolo e il numero di istanze.
+
+5. In **ruoli di amministrazione del servizio App**, monitorare lo stato delle nuove istanze del ruolo. Per controllare lo stato di un'istanza del ruolo, selezionare il tipo di ruolo nell'elenco
 
     ![Servizio App di Azure su ruoli di Azure Stack][2]
 
-4. Un nuove istanze si trovano in un **pronto** stato, tornare al pannello del Set di scalabilità della macchina virtuale e **eliminare** le istanze del precedente.
+6. Quando lo stato delle nuove istanze del ruolo è **pronto**, tornare alla **Set di scalabilità della macchina virtuale** e **eliminare** le istanze del ruolo precedente.
 
-5. Ripetere questi passaggi per **ogni** set di scalabilità della macchina virtuale.
+7. Ripetere questi passaggi per **ogni** set di scalabilità della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile provare altre [piattaforma come un servizio (PaaS) di servizi](azure-stack-tools-paas-services.md).
+È anche possibile provare altre [piattaforma distribuita come un servizio (PaaS) di servizi](azure-stack-tools-paas-services.md).
 
 * [Provider di risorse di SQL Server](azure-stack-sql-resource-provider-deploy.md)
 * [Provider di risorse MySQL](azure-stack-mysql-resource-provider-deploy.md)

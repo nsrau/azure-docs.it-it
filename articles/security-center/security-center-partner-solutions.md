@@ -1,11 +1,11 @@
 ---
 title: Gestione delle soluzioni connesse dei partner nel Centro sicurezza di Azure | Microsoft Docs
-description: "Questo documento descrive in modo dettagliato il modo in cui il Centro sicurezza di Azure permette di monitorare in modo immediato lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure."
+description: Questo documento descrive in modo dettagliato il modo in cui il Centro sicurezza di Azure permette di monitorare in modo immediato lo stato di integrità delle soluzioni dei partner integrate nella sottoscrizione di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23454979"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Gestione delle soluzioni connesse dei partner nel Centro sicurezza di Azure
 Questo articolo contiene informazioni dettagliate su come gestire e monitorare le soluzioni di sicurezza connesse nel Centro sicurezza di Azure.

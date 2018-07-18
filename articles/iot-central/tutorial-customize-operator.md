@@ -1,21 +1,22 @@
 ---
 title: Personalizzare le visualizzazioni dell'operatore in Azure IoT Central | Microsoft Docs
 description: Come creatore, l'utente può personalizzare le visualizzazioni dell'operatore nell'applicazione Azure IoT Central.
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202323"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235369"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 - Personalizzare la visualizzazione dell'operatore in Azure IoT Central
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Esercitazione: Personalizzare la visualizzazione dell'operatore in Azure IoT Central
 
 Questa esercitazione illustra ai creatori come personalizzare la visualizzazione dell'operatore dell'applicazione. Quando si apporta una modifica all'applicazione da creatori, è possibile visualizzare in anteprima la visualizzazione dell'operatore nell'applicazione Microsoft Azure IoT Central.
 
@@ -35,8 +36,8 @@ In questa esercitazione si apprenderà come:
 
 Prima di iniziare, si consiglia di completare le due esercitazioni precedenti:
 
-1. [Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](tutorial-define-device-type.md).
-1. [Configurare le regole e le azioni per il dispositivo](tutorial-configure-rules.md).
+* [Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central](tutorial-define-device-type.md).
+* [Configurare le regole e le azioni per il dispositivo](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Configurare il dashboard del dispositivo
 
@@ -46,17 +47,17 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
 
     ![Pagina Explorer](media/tutorial-customize-operator/explorer.png)
 
-1. Per iniziare a personalizzare il dashboard del condizionatore connesso, selezionare il modello di dispositivo **Condizionatore connesso (1.0.0)**. Scegliere il dispositivo **Condizionatore connesso 1** creato nell'esercitazione [Definire un nuovo tipo di dispositivo nell'applicazione](tutorial-define-device-type.md):
+2. Per iniziare a personalizzare il dashboard del condizionatore connesso, selezionare il modello di dispositivo **Condizionatore connesso (1.0.0)**. Scegliere il dispositivo **Condizionatore connesso 1** creato nell'esercitazione [Definire un nuovo tipo di dispositivo nell'applicazione](tutorial-define-device-type.md):
 
     ![Selezionare il condizionatore connesso](media/tutorial-customize-operator/selectdevice.png)
 
     Quando si apporta una modifica a un dispositivo, ad esempio **Condizionatore connesso 1**, si apporta una modifica al modello sottostante. Per altre informazioni, vedere [Creare una nuova versione del modello di dispositivo](howto-version-devicetemplate.md).
 
-1. Per modificare il dashboard, scegliere **Dashboard**:
+3. Per modificare il dashboard, scegliere **Dashboard**:
 
     ![Pagina dashboard del modello di dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-1. Per aggiungere un riquadro indicatore KPI al dashboard, scegliere **KPI**:
+4. Per aggiungere un riquadro indicatore KPI al dashboard, scegliere **KPI**:
 
     ![Aggiungere indicatori KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +70,11 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
     | Aggregazione | Massima |
     | Intervallo di tempo  | 1 settimana precedente |
 
-1. Scegliere **Salva**. È ora possibile visualizzare il riquadro dell'indicatore KPI nel dashboard:
+5. Scegliere **Salva**. È ora possibile visualizzare il riquadro dell'indicatore KPI nel dashboard:
 
     ![Riquadro dell'indicatore KPI](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Per spostare o ridimensionare un riquadro nel dashboard, spostare il puntatore del mouse sul riquadro. È possibile trascinare il riquadro in una nuova posizione o modificarne le dimensioni:
+6. Per spostare o ridimensionare un riquadro nel dashboard, spostare il puntatore del mouse sul riquadro. È possibile trascinare il riquadro in una nuova posizione o modificarne le dimensioni:
 
     ![Modificare il layout del dashboard](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +86,7 @@ I creatori possono anche configurare la visualizzazione delle impostazioni del d
 
     ![Pagina Impostazioni](media/tutorial-customize-operator/settings.png)
 
-1. È possibile spostare e ridimensionare i riquadri delle impostazioni:
+2. È possibile spostare e ridimensionare i riquadri delle impostazioni:
 
     ![Modificare il layout delle impostazioni](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +101,7 @@ Oltre ai dashboard e alle impostazioni, è possibile configurare anche la visual
 
     ![Pagina Proprietà](media/tutorial-customize-operator/properties.png)
 
-1. È possibile spostare e ridimensionare i campi delle proprietà:
+2. È possibile spostare e ridimensionare i campi delle proprietà:
 
     ![Modificare il layout delle proprietà](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +114,17 @@ In **Modalità progettazione** è possibile personalizzare il dashboard e le pag
 
 1. Per visualizzare il condizionatore connesso come un operatore è necessario disattivare la **Modalità progettazione**. Per disattivare la **Modalità progettazione**, portare in posizione disattivata l'opzione **Modalità progettazione** in alto a destra nella pagina.
 
-1. Per aggiornare il numero di serie del dispositivo, modificare il valore nel relativo riquadro e scegliere **Salva**:
+2. Per aggiornare il numero di serie del dispositivo, modificare il valore nel relativo riquadro e scegliere **Salva**:
 
     ![Modificare il valore di una proprietà](media/tutorial-customize-operator/editproperty.png)
 
-1. Per inviare un'impostazione al condizionatore connesso, scegliere **Impostazioni**, modificare il valore di un'impostazione in un riquadro e scegliere **Aggiorna**:
+3. Per inviare un'impostazione al condizionatore connesso, scegliere **Impostazioni**, modificare il valore di un'impostazione in un riquadro e scegliere **Aggiorna**:
 
     ![Inviare un'impostazione al dispositivo](media/tutorial-customize-operator/sendsetting.png)
 
     Quando il dispositivo invia un acknowledgement per il nuovo valore dell'impostazione, quest'ultima viene visualizzata come **sincronizzata** nel riquadro.
 
-1. Gli operatori possono visualizzare il dashboard del dispositivo come configurato dal creatore:
+4. Gli operatori possono visualizzare il dashboard del dispositivo come configurato dal creatore:
 
     ![Visualizzazione dell'operatore del dashboard del dispositivo](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -131,18 +132,18 @@ In **Modalità progettazione** è possibile personalizzare il dashboard e le pag
 
 Quando un creatore o un operatore accede a un'applicazione Azure IoT Central, vedrà l'home page. I creatori possono configurare i contenuti dell'home page in modo che includa quelli più utili per gli operatori.
 
-1. Per personalizzare l'home page predefinita, passare alla pagina **Home** e attivare la **Modalità progettazione** in alto a destra nella pagina. Dopo aver attivato la **Modalità progettazione** verrà visualizzato un pannello dal lato destro con un elenco di oggetti che è possibile aggiungere alla home page.
+1. Per personalizzare l'home page predefinita, passare alla pagina **Home** e attivare la **Modalità progettazione** in alto a destra nella pagina. Dopo avere attivato la **Modalità progettazione**, verrà visualizzato un pannello dal lato destro con un elenco di oggetti che è possibile aggiungere alla home page.
 
     ![Pagina Application Builder (Generatore applicazioni)](media/tutorial-customize-operator/builderhome.png)
 
-1. Per personalizzare l'home page, aggiungere riquadri dalla **Raccolta**. Scegliere **Collegamento** e aggiungere i dettagli del sito Web dell'organizzazione. Quindi scegliere **Salva**:
+2. Per personalizzare l'home page, aggiungere riquadri dalla **Raccolta**. Scegliere **Collegamento** e aggiungere i dettagli del sito Web dell'organizzazione. Quindi scegliere **Salva**:
 
     ![Aggiungere un collegamento all'home page](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > È anche possibile aggiungere collegamenti alle pagine all'interno dell'applicazione Azure IoT Central. Ad esempio, è possibile aggiungere un collegamento al dashboard o alla pagina di impostazioni del dispositivo.
 
-1. Facoltativamente, scegliere **Immagine** e caricare un'immagine da visualizzare nell'home page. Un'immagine può avere un URL a cui essere reindirizzato facendo clic su di essa:
+3. Facoltativamente, scegliere **Immagine** e caricare un'immagine da visualizzare nell'home page. Un'immagine può avere un URL a cui essere reindirizzato facendo clic su di essa:
 
     ![Aggiungere un'immagine all'home page](media/tutorial-customize-operator/addimage.png)
 

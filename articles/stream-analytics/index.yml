@@ -11,21 +11,22 @@ metadata:
   ms.service: stream-analytics
   ms.topic: landing-page
   ms.date: 04/25/2018
-  ms.openlocfilehash: aad76cc87130e66908779c07b03d5db326f726ea
-  ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+  ms.openlocfilehash: 7b69828acf67113d7bdb9b2dfae86bd555d83f6c
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/28/2018
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37028354"
 abstract:
   description: Informazioni su come eseguire analisi Internet delle cose (IoT) nel cloud con analisi di flusso, un motore di elaborazione degli eventi completamente gestito. Esercitazioni e altri documenti in cui viene illustrato come analizzare dati in tempo reale da applicazioni, sensori, dispositivi, social media e altro ancora.
   aside:
     image:
       alt: 
       height: 110
-      src: https://sec.ch9.ms/sessions/connect/T157.png
+      src: ./media/index/streaming-analytics-thumbnail.png
       width: 250
-    title: Analisi in tempo reale in IoT Edge con Analisi di flusso di Azure (8:51)
-    href: https://azure.microsoft.com/en-us/resources/videos/connect-2017-real-time-analytics-on-iot-edge-with-azure-stream-analytics/
+    title: Analisi di flusso in Microsoft Azure. (8:48)
+    href: https://channel9.msdn.com/Events/Connect/2016/161
     width: 250
 sections:
 - title: Guide introduttive di 5 minuti
@@ -43,6 +44,10 @@ sections:
         src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: PowerShell
       href: https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-powershell
+    - image:
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: http://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph

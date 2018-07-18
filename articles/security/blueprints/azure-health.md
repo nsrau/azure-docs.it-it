@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "33894314"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -282,7 +283,7 @@ Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatie
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
 
-**3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
+\*\*3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
 
 **4. Key Vault** restituisce il segreto, in questo caso la stringa di connessione al database SQL.
 

@@ -6,15 +6,15 @@ author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vvasic
-ms.openlocfilehash: e4c3a2c1f21bf14bfc75f20dd18cefca68fd2067
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364472"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646032"
 ---
 # <a name="enable-automatic-tuning"></a>Abilitare l'ottimizzazione automatica
 
@@ -24,36 +24,40 @@ Il database SQL di Azure è un servizio dati gestito automaticamente che esegue 
 A livello di server è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
 
 ### <a name="azure-portal"></a>Portale di Azure
-Per abilitare l'ottimizzazione automatica nel **server** di database SQL di Azure, passare al server nel portale di Azure e quindi selezionare **Ottimizzazione automatica** nel menu. Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **Applica**.
+Per abilitare l'ottimizzazione automatica nel **server** logico del database SQL di Azure, passare al server nel portale di Azure e quindi selezionare **Ottimizzazione automatica** nel menu.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Si noti che l'opzione **DROP_INDEX** al momento non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere attivata in questi casi.
+> Si noti che al momento l'opzione **DROP_INDEX** non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi.
 >
 
-Le opzioni di ottimizzazione automatica nel server vengono applicate a tutti i database nel server. Per impostazione predefinita, tutti i database ereditano la configurazione dal relativo server padre, ma è possibile modificare questa impostazione e specificarla singolarmente per ogni database.
+Selezionare le opzioni di ottimizzazione automatica che si vuole abilitare e selezionare **Applica**.
+
+Le opzioni di ottimizzazione automatica in un server vengono applicate a tutti i database nel server stesso. Per impostazione predefinita, tutti i database ereditano la configurazione dal server padre corrispondente, ma è possibile sostituire questa impostazione e specificarne una distinta per ogni database.
 
 ### <a name="rest-api"></a>API REST
 [Fare clic qui per altre informazioni su come abilitare l'ottimizzazione automatica a livello di server tramite l'API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Abilitare l'ottimizzazione automatica per un database singolo
 
-Il database SQL di Azure consente di specificare singolarmente la configurazione di ottimizzazione automatica per ogni database. A livello di database è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica dal server padre o da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitato), CREATE_INDEX (abilitato) e DROP_INDEX (disabilitato).
+Il database SQL di Azure consente di specificare singolarmente la configurazione di ottimizzazione automatica per ogni database. A livello di database è possibile scegliere di ereditare o meno la configurazione dell'ottimizzazione automatica dal server padre o da "Impostazioni predefinite di Azure". Le impostazioni predefinite di Azure sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 
 > [!NOTE]
-> La raccomandazione generale suggerisce di gestire la configurazione di ottimizzazione automatica a livello del server, in modo che le stesse impostazioni di configurazione possano essere applicate automaticamente in ogni database. Configurare l'ottimizzazione automatica per un singolo database se il database è diverso dagli altri nello stesso server.
+> In genere è consigliabile gestire la configurazione di ottimizzazione automatica a **livello del server**, in modo che le stesse impostazioni di configurazione possano essere applicate automaticamente in ogni database. Configurare l'ottimizzazione automatica in un singolo database solo se è necessario che per tale database le impostazioni siano diverse rispetto ai database che ereditano le impostazioni dallo stesso server.
 >
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per abilitare l'ottimizzazione automatica per un **singolo database**, passare al database nel portale di Azure e quindi selezionare **Ottimizzazione automatica**. È possibile configurare un singolo database in modo che erediti le impostazioni dal server selezionando l'opzione oppure è possibile specificare la configurazione per un database singolarmente.
+Per abilitare l'ottimizzazione automatica per un **singolo database**, passare al database nel portale di Azure e selezionare **Ottimizzazione automatica**.
+
+Singole impostazioni di ottimizzazione automatica possono essere configurate separatamente per ogni database. È possibile configurare manualmente una singola opzione di ottimizzazione automatica o specificare che un'opzione deve ereditare le impostazioni dal server.
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
-Dopo aver selezionato la configurazione appropriata, fare clic su **Applica**.
+Si noti che al momento l'opzione DROP_INDEX non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere abilitata in questi casi.
 
-Si noti che l'opzione DROP_INDEX al momento non è compatibile con applicazioni che usano i cambi di partizione e gli hint di indice e non deve essere attivata in questi casi.
+Dopo aver selezionato la configurazione desiderata, fare clic su **Applica**.
 
 ### <a name="rest-api"></a>API REST
 [Fare clic qui per altre informazioni su come abilitare l'ottimizzazione automatica su un singolo database tramite l'API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)

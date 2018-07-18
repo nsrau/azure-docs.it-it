@@ -9,10 +9,10 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: d586ca18953b12045fbbaa4a656d78a7192eb88e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/02/2018
 ms.locfileid: "34371236"
 ---
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -36,7 +36,7 @@ Creare un hub IoT per connettere l'app per dispositivo simulato. La procedura se
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Finestra delle informazioni di base Hub IoT][2]
+   ![Finestra delle informazioni di base hub IoT][2]
 
 2. Selezionare **Next: Size and scale** (Avanti: Dimensioni e scalabilità) per continuare a creare l'hub IoT. 
 

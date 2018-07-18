@@ -1,0 +1,118 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentazione dei servizi cognitivi
+metadata:
+  title: Documentazione di Servizi cognitivi - Esercitazioni e informazioni di riferimento sulle API
+  description: Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare, comprendere e interpretare le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come usare le API.
+  services: cognitive-services
+  author: cjgronlund
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/29/2018
+  ms.author: cgronlun
+  ms.openlocfilehash: 5ac8d7ca6f607acd54ab40402bb83376fd8b5d63
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39089582"
+abstract:
+  description: Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
+sections:
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Informazioni su come aggiungere intelligenza cognitiva alla prima app:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_Csharp.svg
+      title: C#
+    - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      title: Node.js
+    - image:
+        src: media/index/logo_python.svg
+      title: Python
+    - image:
+        src: media/index/blue_globe_icon.png
+      title: Web
+    rows:
+    - title: Visione artificiale - Analizzare un'immagine
+      values:
+      - href: /azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
+      - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
+      - href: 
+    - title: Servizio di riconoscimento vocale - Riconoscimento vocale
+      values:
+      - href: /azure/cognitive-services/speech-service/quickstart-csharp-windows
+      - href: 
+      - href: 
+      - href: 
+      - href: /azure/cognitive-services/speech-service/get-started
+    - title: Language Understanding - Usare la domotica predefinita
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: /azure/cognitive-services/luis/luis-get-started-create-app
+    - title: Analisi del testo - Rilevare la lingua e analizzare il sentiment
+      values:
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/csharp
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/java
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/nodejs
+      - href: /azure/cognitive-services/Text-Analytics/quickstarts/python
+      - href: 
+    - title: Ricerca Web Bing - Ottenere query Web pertinenti
+      values:
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/java
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-web-search/quickstarts/python
+      - href: 
+    - title: Ricerca Immagini Bing - Ottenere query di immagini pertinenti
+      values:
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/csharp
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/java
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/nodejs
+      - href: /azure/cognitive-services/bing-image-search/quickstarts/python
+      - href: 
+- title: Esercitazioni dettagliate
+  items:
+  - type: paragraph
+    text: 'Informazioni su come compilare app o bot intelligenti:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Rilevare i visi ed evidenziarli con una cornice in un'immagine</a>
+    - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Compilare una pagina Web di Ricerca personalizzata</a>
+    - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Usare Language Understanding (LUIS) in un bot </a>
+    - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Migliorare l'accuratezza della finalità per i comandi di domotica </a>
+- title: API Servizi cognitivi
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Visione
+      html: <p><a class="barLink" href="/azure/cognitive-services/computer-vision/"><img src="../media/index/API_Computer_Vision.svg" alt="" />Visione artificiale</a></p> <p><a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="../media/index/API_Content_Moderator.svg" alt="" />Content Moderator</a></p> <p><a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="../media/index/API_Custom_Vision.svg" alt="" /><span>Servizio visione artificiale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="../media/index/API_Emotion.svg" alt="" /><span>API Emozioni&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/face/"><img src="../media/index/API_Face.svg" alt="" />API Viso</a></p> <p><a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="../media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
+    - title: Sintesi vocale
+      html: <p><a class="barLink" href="/azure/cognitive-services/speech-service"><img src="../media/index/API_Speech_Service.svg" alt="" />Servizio di riconoscimento vocale&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></a></p> <p><a class="barLink" href="/azure/cognitive-services/speech/home"><img src="../media/index/API_Bing_Speech.svg" alt="" />API Sintesi vocale</a></p> <p><a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="../media/index/API_Custom_Speech.svg" alt="" /><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="../media/index/API_Speaker_Recognition.svg" alt="" /><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/translator-speech/"><img src="../media/index/API_TranslatorSpeech.svg" alt="" />Traduzione vocale</a></p>
+    - title: Linguaggio
+      html: <p><a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="../media/index/API_Bing_Spell_Check.svg" alt="" />Controllo ortografico Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/luis/"><img src="../media/index/API_Luis.svg" alt="" /><span>Language Understanding (LUIS)</span></a></p> <p><a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="../media/index/API_LinguisticAnalysis.svg" alt="" /><span>Analisi linguistica&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/text-analytics/"><img src="../media/index/API_TextAnalytics.svg" alt="" />Analisi del testo</a></p> <p><a class="barLink" href="/azure/cognitive-services/translator/"><img src="../media/index/API_TranslatorText.svg" alt="" />Traduzione testuale</a></p> <p><a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="../media/index/API_WebLanguageModel.svg" alt="" /><span>Modelli linguaggio Web&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
+    - title: Conoscenza
+      html: <p><a class="barLink" href="/azure/cognitive-services/custom-decision-service/"><img src="../media/index/API_Custom_Decision_Service.svg" alt="" /><span>Servizio decisionale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p> <p><a class="barLink" href="/azure/cognitive-services/qnamaker/index"><img src="../media/index/API_QnAMaker.svg" alt="" /><span>QnA Maker</span></a></p> <p><a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="../media/index/API_Recommendations.svg" alt="" /><span>Consigli&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
+    - title: Ricerca
+      html: <p><a class="barLink" href="/azure/cognitive-services/bing-news-search/"><img src="../media/index/API_Bing_News_Search.svg" alt="" />Ricerca notizie Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="../media/index/API_Bing_Video_Search.svg" alt="" />Ricerca video Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="../media/index/API_Bing_Web_Search.svg" alt="" />Ricerca Web Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="../media/index/API_Bing_AutoSuggest.svg" alt="" />Suggerimenti automatici Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="../media/index/API_Bing_Custom_Search.svg" alt="" />Ricerca personalizzata Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/bing-entities-search/"><img src="../media/index/API_Bing_Entity_Search.svg" alt="" />Ricerca entità Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/bing-image-search"><img src="../media/index/API_Bing_Image_Search.svg" alt="" />Ricerca immagini Bing</a></p> <p><a class="barLink" href="/azure/cognitive-services/bing-visual-search"><img src="../media/index/API_Bing_Visual_Search.svg" alt="" />Ricerca visiva Bing</a></p>
+    - title: Lab
+      html: <p><a class="barLink" href="https://docs.microsoft.com/gestures/"><img src="../media/index/labs-hand-gesture.svg" alt="" />Project Gesture</a></p> <p><a class="barLink" href="/azure/cognitive-services/project-personality-chat/overview"><img src="media/index/project-personality-chat-icon.svg" alt="" />Project Personality Chat</a></p> <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview"><img src="../media/index/labs-event-tracker.svg" alt="" />Project Event Tracking</a></p> <p><a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="../media/index/API_Know_Academic.svg" alt="" />Progetto Academic Knowledge</a></p> <p><a class="barLink" href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation"><img src="../media/index/labs-local-insight.svg" alt="" />Progetto Local Insights</a></p> <p><a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="../media/index/API_KnowledgeExploration.svg" alt="" /><span>Progetto Knowledge Exploration Service</a></p> <p><a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="../media/index/API_Entity_LinkingIntelligence.svg" alt="" /><span>Progetto Collegamento delle entità</a></p> <p><a class="barLink" href="/azure/cognitive-services/labs/url-preview/overview"><img src="../media/index/API_URL_Preview.svg" alt="" /><span>Progetto Anteprima URL</a></p> <p><a class="barLink" href="/azure/cognitive-services/labs/answer-search/overview"><img src="../media/index/API_Answer_Search.svg" alt="" /><span>Progetto Ricerca di risposte</a></p> <p><a class="barLink" href="/azure/cognitive-services/labs/anomaly-finder/overview"><img src="../media/index/API_Anomaly_Finder.svg" alt="" /><span>Progetto Ricerca di anomalie</a></p> <p><a class="barLink" href="/azure/cognitive-services/labs/conversation-learner/overview"><img src="../media/index/API_Conversation_Learner.svg" alt="" /><span>Progetto Strumento di apprendimento di conversazioni</a></p>

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33882869"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>Introduzione ad Azure Multi-Factor Authentication nel cloud
 Questo articolo illustra come iniziare a usare Azure Multi-Factor Authentication nel cloud.

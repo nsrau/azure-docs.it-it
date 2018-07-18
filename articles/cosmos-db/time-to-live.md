@@ -2,30 +2,27 @@
 title: Impostare come scaduti i dati in Cosmos DB usando la durata (TTL) | Microsoft Docs
 description: Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal sistema dopo un periodo di tempo determinato.
 services: cosmos-db
-documentationcenter: ''
 keywords: Durata (TTL)
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615122"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
-Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
+Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione, è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
 
 Con l'impostazione della durata (TTL), Microsoft Azure Cosmos DB offre la possibilità di eliminare automaticamente i documenti dal database dopo un periodo di tempo determinato. La durata predefinita può essere impostata a livello di raccolta ed è possibile eseguirne l'override in base ai singoli documenti. Quando il valore di TTL è impostato, come impostazione predefinita di una raccolta o a livello di documento, Cosmos DB rimuove automaticamente i documenti esistenti dopo un numero di secondi dall'ultima modifica pari a tale valore.
 
-In Cosmos DB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo usa il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
+In Azure Cosmos DB la durata usa la differenza dall'ora dell'ultima modifica al documento. A tale scopo, viene usato il campo `_ts` che esiste in ogni documento. Il campo _ts è un timestamp Epoch di tipo Unix che rappresenta la data e l'ora e il campo `_ts` viene aggiornato ogni volta che si modifica un documento. 
 
 ## <a name="ttl-behavior"></a>Comportamento di TTL
 La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e a livello di documento. I valori sono espressi in secondi e vengono trattati come differenziale dal `_ts` dell'ultima modifica al documento.
@@ -33,8 +30,8 @@ La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e
 1. DefaultTTL per la raccolta:
    
    * Se non è presente o è impostata su Null, i documenti non vengono eliminati automaticamente.
-   * Se è presente e il valore è "-1" = infinito, i documenti non scadono per impostazione predefinita.
-   * Se è presente e il valore è un numero "n", i documenti scadono "n" secondi dopo l'ultima modifica.
+   * Se è presente e il valore è impostato su "-1" = infinito, i documenti non scadono per impostazione predefinita.
+   * Se è presente e il valore è impostato su un numero "n", i documenti scadono "n" secondi dopo l'ultima modifica.
 2. TTL per i documenti: 
    
    * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
@@ -81,7 +78,7 @@ Per abilitare la durata (TTL) in una raccolta o nei documenti all'interno di una
 
 
 ## <a name="setting-ttl-on-a-document"></a>Impostazione di TTL in un documento
-Oltre al valore TTL predefinito in una raccolta è possibile impostare una durata (TTL) specifica a livello di documento. Questa impostazione esegue l'override dell'impostazione predefinita della raccolta.
+Oltre al valore TTL predefinito in una raccolta, è possibile impostare una durata (TTL) specifica a livello di documento. Questa impostazione esegue l'override dell'impostazione predefinita della raccolta.
 
 * Per impostare la durata (TTL) in un documento, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo, espresso in secondi, per la scadenza del documento dopo l'ultimo timestamp di modifica del documento (`_ts`).
 * Se il documento non ha il campo TTL, viene applicata l'impostazione predefinita della raccolta.

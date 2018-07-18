@@ -1,21 +1,24 @@
 ---
 title: Verificare l'accesso | Microsoft Docs
 description: Verificare l'accesso con Azure Active Directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: 
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 09/19/2017
-ms.author: billmath
-ms.openlocfilehash: ded64234d4b40c594a0b92e15e5a446d4ae176b6
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: rolyon
+ms.reviewer: mwahl
+ms.openlocfilehash: 0ac43637adc91c22aaab78f04732a613c74706d9
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446128"
 ---
 # <a name="review-your-access"></a>Verificare l'accesso
 

@@ -16,19 +16,22 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: c9ebfcba59e3f46fb30f4cd2402ec4ebb606f6d0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, lenalepa
+ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316960"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
+
 In Azure AD ci sono due rappresentazioni delle applicazioni: 
 * [Oggetti applicazione](active-directory-application-objects.md#application-object): anche se ci sono alcune [eccezioni](#notes-and-exceptions), questi oggetti possono essere considerati la definizione di un'applicazione.
 * [Entità servizio](active-directory-application-objects.md#service-principal-object): questi oggetti possono essere considerati un'istanza di un'applicazione. Le entità servizio in genere fanno riferimento a un oggetto applicazione e a ogni oggetto applicazione possono fare riferimento più entità servizio in diverse directory.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Cosa sono gli oggetti applicazione e da dove provengono?
-Gli [oggetti applicazione](active-directory-application-objects.md#application-object) (che è possibile gestire nel portale di Azure tramite l'esperienza [Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)) descrivono l'applicazione ad Azure AD e possono essere considerati la definizione dell'applicazione, che consente al servizio di sapere come rilasciare token per l'applicazione in base alle relative impostazioni. L'oggetto applicazione è disponibile solo nella relativa home directory, anche se si tratta di un'applicazione multi-tenant che supporta entità servizio in altre directory. L'oggetto applicazione può includere gli elementi seguenti (oltre che informazioni aggiuntive non elencate):
+È possibile gestire gli [oggetti applicazione](active-directory-application-objects.md#application-object) nel portale di Azure tramite l'esperienza [Registrazioni per l'app](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Gli oggetti applicazione descrivono l'applicazione ad Azure AD e possono essere considerati la definizione dell'applicazione, che consente al servizio di sapere come rilasciare token per l'applicazione in base alle relative impostazioni. L'oggetto applicazione è disponibile solo nella relativa home directory, anche se si tratta di un'applicazione multi-tenant che supporta entità servizio in altre directory. L'oggetto applicazione può includere gli elementi seguenti (oltre che informazioni aggiuntive non elencate):
 * Nome, logo ed editore
 * URL di risposta
 * Segreti (chiavi simmetriche e/o asimmetriche usate per autenticare l'applicazione)
@@ -47,7 +50,7 @@ Gli [oggetti applicazione](active-directory-application-objects.md#application-o
 * Molti altri modi, tra cui diverse esperienze di sviluppo in Azure ed esperienze di esplorazione API nei centri per sviluppatori
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Cosa sono le entità servizio e da dove provengono?
-Le [entità servizio](active-directory-application-objects.md#service-principal-object) (che è possibile gestire tramite l'esperienza [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)) sono oggetti che effettivamente governano un'applicazione che si connette ad Azure AD e possono essere considerate come l'istanza dell'applicazione nella directory. Per ogni applicazione specifica possono esserci più di un oggetto applicazione (registrato in una "home" directory) e uno o più oggetti entità servizio che rappresentano le istanze dell'applicazione in ogni directory in cui è in funzione. 
+È possibile gestire le [entità servizio](active-directory-application-objects.md#service-principal-object) nel portale di Azure tramite l'esperienza [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Le entità servizio sono oggetti che governano un'applicazione che si connette ad Azure AD e possono essere considerate come l'istanza dell'applicazione nella directory. Per ogni applicazione specifica possono esserci più di un oggetto applicazione (registrato in una "home" directory) e uno o più oggetti entità servizio che rappresentano le istanze dell'applicazione in ogni directory in cui è in funzione. 
 
 L'entità servizio può includere:
 
@@ -107,7 +110,7 @@ Le applicazioni vengono aggiunte ad Azure AD per sfruttare uno o più dei serviz
 * Autenticazione e autorizzazione degli utenti.
 * Accesso SSO tramite federazione o password.
 * Provisioning e sincronizzazione degli utenti.
-* Controllo degli accessi in base al ruolo. È possibile usare la directory per definire i ruoli dell'applicazione per eseguire i controlli di autorizzazione in base ai ruoli in un'applicazione.
+* Controllo degli accessi in base al ruolo. È possibile usare la directory per definire i ruoli dell'applicazione per eseguire i controlli di autorizzazione in base al ruolo in un'applicazione.
 * Servizi di autorizzazione OAuth (usati da Office 365 e altre applicazioni Microsoft per autorizzare l'accesso ad API e risorse).
 * Proxy e pubblicazione dell'applicazione. È possibile pubblicare un'applicazione in Internet da una rete privata.
 
@@ -129,7 +132,8 @@ Se si vuole comunque impedire agli utenti nella directory di registrare le appli
 * Per impedire agli utenti di dare il consenso alle applicazioni per proprio conto:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) in Applicazioni aziendali.
   2. Impostare l'opzione **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su **No**. 
-     *Si noti che se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.*
+      > [!NOTE]
+      > Se si decide di disattivare il consenso dell'utente, un amministratore dovrà fornire il consenso per qualsiasi nuova applicazione che un utente deve usare.    
 * Per impedire agli utenti di registrare le proprie applicazioni:
   1. Nel portale di Azure passare alla sezione [Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) in Azure Active Directory
   2. Impostare l'opzione **Gli utenti possono registrare applicazioni** su **No**.

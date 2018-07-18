@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati'
-description: Esempio di utilizzo di Microsoft come provider di identità basato sul protocollo OpenID Connect (OIDC)
+title: Aggiungere l'account Microsoft (account del servizio gestito) come provider di identità tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+description: Esempio dell'uso di Microsoft come provider di identità tramite il protocollo OpenID Connect (OIDC).
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: a49e9589322eeb90a713321b4fbe4c4820609f7a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449132"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere un account Microsoft come provider di identità tramite criteri personalizzati
 
@@ -150,7 +150,7 @@ Il provider di identità è a questo punto configurato, ma non è disponibile in
 1.  Aprire il file di base dei criteri, ad esempio TrustFrameworkBase.xml.
 2.  Trovare l'elemento `<UserJourneys>` e copiare l'intero contenuto del nodo `<UserJourneys>`.
 3.  Aprire il file di estensione, ad esempio TrustFrameworkExtensions.xml, e trovare l'elemento `<UserJourneys>`. Se l'elemento non esiste, aggiungerne uno.
-4.  Incollare l'intero contenuto del nodo `<UserJournesy>` copiato come figlio dell'elemento `<UserJourneys>`.
+4.  Incollare l'intero contenuto del nodo `<UserJourneys>` copiato come figlio dell'elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
 L'elemento `<ClaimsProviderSelections>` definisce l'elenco delle opzioni di selezione del provider di attestazioni e il relativo ordine.  L'elemento `<ClaimsProviderSelection>` è analogo a un pulsante del provider di identità in una pagina di registrazione/accesso. Se si aggiunge un elemento `<ClaimsProviderSelection>` per l'account Microsoft, viene visualizzato un nuovo pulsante quando un utente apre la pagina. Per aggiungere questo elemento:
@@ -160,7 +160,7 @@ L'elemento `<ClaimsProviderSelections>` definisce l'elenco delle opzioni di sele
 3.  Aggiungere il frammento XML seguente nel nodo `<ClaimsProviderSelections>`:
 
 ```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="MSAExchange" />
+<ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
 ```
 
 ### <a name="link-the-button-to-an-action"></a>Collegare il pulsante a un'azione
@@ -170,7 +170,7 @@ Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. 
 2.  Aggiungere il frammento XML seguente nel nodo `<ClaimsExchanges>`:
 
 ```xml
-<ClaimsExchange Id="MSAExchange" TechnicalProfileReferenceId="MSA-OIDC" />
+<ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
 ```
 
 > [!NOTE]

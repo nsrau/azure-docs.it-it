@@ -1,12 +1,12 @@
 ---
 title: Creare una regola personalizzata in Azure IoT Suite | Documentazione Microsoft
 description: Come creare una regola personalizzata in una soluzione IoT Suite preconfigurata.
-services: 
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bf2a13035de141766fd935966ce18459dccdaab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723353"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>Creare una regola personalizzata nella soluzione di monitoraggio remota preconfigurata
 
@@ -216,7 +217,7 @@ Dopo aver completato la distribuzione, è possibile aggiornare il processo di an
  
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-Modificare l'operatore  **>**  è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
+Modificare l'operatore **>** è più complesso ed esula dalla procedura descritta in questa esercitazione. Mentre è possibile modificare il processo di analisi di flusso perché usi qualsiasi operatore desiderato, riflettere tale operatore nel portale della soluzione è un'attività più complessa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che si è appreso come creare regole personalizzate, è possibile vedere altre informazioni sulle soluzioni preconfigurate:

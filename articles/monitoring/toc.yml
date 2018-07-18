@@ -30,6 +30,12 @@
           href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Raccogliere log tra sottoscrizioni di Azure
           href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=%2fazure%2fmonitoring%2ftoc.json
+- name: Dati di monitoraggio
+  items:
+    - name: Tipi di dati e strumenti di analisi
+      href: monitoring-data-collection.md
+    - name: Origini dei dati di monitoraggio di Azure
+      href: monitoring-data-sources.md
 - name: Monitorare le risorse
   items:
     - name: APPLICAZIONI
@@ -48,7 +54,7 @@
       items:
         - name: Panoramica del monitoraggio dei contenitori
           href: monitoring-container-overview.md
-        - name: Prestazioni dei contenitori del servizio contenitore di Azure
+        - name: Integrità dei contenitori Azure Kubernetes Service
           href: monitoring-container-health.md
         - name: Monitoraggio dei contenitori Docker e Windows
           href: ../log-analytics/log-analytics-containers.md?toc=%2fazure%2fmonitoring%2ftoc.json
@@ -61,19 +67,17 @@
     - name: Macchine virtuali
       items:
         - name: Integrità agente
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: VMWare Analytics
           href: ../log-analytics/log-analytics-vmware.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Elenco dei servizi
           items:
-            - name: Procedura dettagliata
-              href: ../operations-management-suite/operations-management-suite-walkthrough-servicemap.md?toc=%2fazure%2fmonitoring%2ftoc.json
             - name: Uso
-              href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map.md
             - name: Configurare
-              href: ../operations-management-suite/operations-management-suite-service-map-configure.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map-configure.md
             - name: Integrazione con Operations Manager
-              href: ../operations-management-suite/operations-management-suite-service-map-scom.md?toc=%2fazure%2fmonitoring%2ftoc.json
+              href: monitoring-service-map-scom.md
     - name: 'Altre risorse:'
       items:
         - name: Valutazione dell'integrità AD
@@ -81,7 +85,7 @@
         - name: Stato della replica di AD
           href: ../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Office 365
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: ../monitoring/monitoring-solution-office-365.md
         - name: Surface Hub
           href: ../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2fmonitoring%2ftoc.json
     - name: Soluzioni di gestione
@@ -108,3 +112,5 @@
               href: monitoring-solutions-resources-views.md
             - name: Procedure consigliate
               href: monitoring-solutions-best-practices.md
+            - name: Raccogliere i dati di monitoraggio da un runbook
+              href: monitoring-runbook-datacollect.md

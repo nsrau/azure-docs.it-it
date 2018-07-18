@@ -2,7 +2,7 @@
 title: Creare e usare una firma di accesso condiviso (SAS) con Archiviazione BLOB di Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare firme di accesso condiviso da usare con l'archiviazione BLOB e come usarle nelle applicazioni client.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056796"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Firme di accesso condiviso, parte 2: creare e usare una firma di accesso condiviso con l'archiviazione BLOB
 

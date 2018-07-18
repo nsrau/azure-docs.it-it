@@ -1,8 +1,26 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+author: curtand
+ms.service: active-directory
+ms.topic: include
+ms.date: 06/20/2018
+ms.author: curtand
+ms.custom: include file
+ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296533"
+---
 Ecco le limitazioni d'utilizzo e altri limiti di servizio per il servizio Azure Active Directory.
 
 | Categoria | Limiti |
 | --- | --- |
-| Directory |Un singolo utente può essere associato a un massimo di 20 directory di Azure Active Directory.<br />Esempi di combinazioni possibili: <ul> <li>Un singolo utente crea 20 directory.</li><li>Un singolo utente viene aggiunto a 20 directory come membro.</li><li>Un singolo utente crea 10 directory e viene aggiunto in seguito da altri utenti a 10 directory diverse.</li></ul> |
+| Directory |Un utente singolo può essere associato a un massimo di 20 directory di Azure Active Directory.<br />Esempi di combinazioni possibili: <ul> <li>Un singolo utente crea 20 directory.</li><li>Un singolo utente viene aggiunto a 20 directory come membro.</li><li>Un singolo utente crea 10 directory e viene aggiunto in seguito da altri utenti a 10 directory diverse.</li></ul> |
+| Domini | È possibile aggiungere non più di 900 nomi di dominio gestito. Se si intende configurare tutti i domini per la federazione con l'istanza locale di Active Directory, è possibile aggiungere non più di 450 nomi di dominio in ogni directory. |
 | Oggetti |<ul><li>Gli utenti dell'edizione gratuita di Azure Active Directory possono creare fino a 500.000 oggetti in una singola directory.</li><li>Un utente non amministratore può creare al massimo 250 oggetti.</li></ul> |
 | Estensioni dello schema |<ul><li>Le estensioni di tipo stringa possono contenere massimo 256 caratteri. </li><li>Le estensioni di tipo binario sono limitate a 256 byte.</li><li>100 valori di estensione (tra TUTTI i tipi e TUTTE le applicazioni) possono scritti in ogni singolo oggetto.</li><li>Solo le entità "User", "Group", "TenantDetail", "Device", "Application" e "ServicePrincipal" possono essere estese con gli attributi a valore singolo del tipo "String" o "Binary".</li><li>Le estensioni dello schema sono disponibili solo nella versione di anteprima dell'API Graph 1.21. All'applicazione deve essere concesso l'accesso in scrittura per registrare un'estensione.</li></ul> |
 | APPLICAZIONI |Al massimo 100 utenti possono essere proprietari di una singola applicazione. |

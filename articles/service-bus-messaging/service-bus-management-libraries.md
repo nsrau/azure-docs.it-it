@@ -1,12 +1,12 @@
 ---
 title: Librerie di gestione del bus di servizio di Azure | Microsoft Docs
-description: "Gestire entità di messaggistica e spazi dei nomi del bus di servizio da .NET."
+description: Gestire entità di messaggistica e spazi dei nomi del bus di servizio da .NET.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120897"
 ---
 # <a name="service-bus-management-libraries"></a>Librerie di gestione del bus di servizio
 

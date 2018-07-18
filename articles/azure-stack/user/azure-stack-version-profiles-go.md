@@ -18,6 +18,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34010065"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usare i profili di versione API con Vai nello Stack di Azure
 

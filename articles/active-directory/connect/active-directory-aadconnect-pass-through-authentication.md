@@ -4,7 +4,7 @@ description: Questo articolo descrive l'autenticazione pass-through di Azure Act
 services: active-directory
 keywords: cos'è l'autenticazione pass-through di Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 377a8255961a4c7fa55f8bbc5cb98ae4deff3205
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917279"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Accesso utente con l'autenticazione pass-through di Azure Active Directory
 
@@ -47,7 +49,7 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - *Proteggere*
   - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
   - L'agente esegue solo le connessioni in uscita dalla rete. Pertanto, non è necessario installarlo in una rete perimetrale.
-  - Consente di proteggere gli account utente operando senza problemi con [i criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA, Multi-Factor Authentication) e [filtrando gli attacchi di forza bruta alle password](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Consente di proteggere gli account utente operando senza problemi con [i criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA, Multi-Factor Authentication) e [filtrando gli attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
 - *Disponibilità elevata*
   - È possibile installare altri agenti su più server locali per ottenere una disponibilità elevata delle richieste di accesso.
 
@@ -62,12 +64,12 @@ Questa funzionalità è un'alternativa rispetto alla [sincronizzazione dell'hash
 - È possibile abilitarla tramite [Azure AD Connect](active-directory-aadconnect.md).
 - Usa un agente leggero locale che resta in ascolto e risponde alle richieste di convalida delle password.
 - L'installazione di più agenti garantisce la disponibilità elevata di richieste di accesso.
-- [Protegge](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) gli account locali dagli attacchi di forza bruta alle password nel cloud.
+- [Protegge](../authentication/howto-password-smart-lockout.md) gli account locali dagli attacchi di forza bruta alle password nel cloud.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [**Guida introduttiva**](active-directory-aadconnect-pass-through-authentication-quick-start.md): avvio ed esecuzione dell'autenticazione pass-through di Azure AD.
-- [**Blocco intelligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
+- [**Blocco intelligente**](../authentication/howto-password-smart-lockout.md): configurare la funzionalità Blocco intelligente nel tenant per proteggere gli account utente.
 - [**Limitazioni correnti**](active-directory-aadconnect-pass-through-authentication-current-limitations.md): informazioni su quali scenari sono supportati e quali non lo sono.
 - [**Approfondimento tecnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md): informazioni sul funzionamento di questa funzionalità.
 - [**Domande frequenti**](active-directory-aadconnect-pass-through-authentication-faq.md): risposte alle domande più frequenti.

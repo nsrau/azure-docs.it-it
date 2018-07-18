@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945113"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809727"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -59,16 +59,16 @@ Per garantire la migliore esperienza possibile, sono previsti requisiti minimi p
 
 L'agente guest di Windows viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
 
-Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, 'Sistema operativo non supportato'*. Consultare la documentazione della singola estensione per informazioni sul supporto.
+Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
 
 #### <a name="network-access"></a>Accesso alla rete
 
-I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa una versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad Archiviazione di Azure nella regione della macchina virtuale, perché è possibile usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure. Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in quella regione dalla macchina virtuale.
+I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa una versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad Archiviazione di Azure nell'area della macchina virtuale, perché è possibile usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure. Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
 > Se l'accesso a *168.63.129.1* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/del gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del NSG per [Archiviazione](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del NSG per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 L'agente guest di Windows non dispone del supporto del server proxy per il reindirizzamento delle richieste al traffico dell'agente.
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Il comando `Set-AzureRmVMExtension` può essere utilizzato per avviare qualsiasi estensione della macchina virtuale. Per altre informazioni, vedere il [riferimento Set-AzureRmVMExtension](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+Il comando `Set-AzureRmVMExtension` può essere utilizzato per avviare qualsiasi estensione della macchina virtuale. Per altre informazioni, vedere il [riferimento Set-AzureRmVMExtension](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -186,9 +186,9 @@ Per altre informazioni sulla creazione di modelli di Resource Manager, vedere [C
 
 ## <a name="secure-vm-extension-data"></a>Proteggere i dati dell'estensione della macchina virtuale
 
-Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso dell'account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
+Quando si esegue un'estensione macchina virtuale, potrebbe essere necessario includere informazioni riservate, ad esempio credenziali, nomi degli account di archiviazione e chiavi di accesso degli account di archiviazione. Molte estensioni macchina virtuale includono una configurazione protetta, che consente di crittografare dati e di decrittografarli solo all'interno della macchina virtuale di destinazione. Ogni estensione dispone di uno schema di configurazione protetta specifico, descritto in dettaglio nella documentazione specifica dell'estensione.
 
-L'esempio seguente illustra un'istanza dell'estensione Script personalizzato per Windows. Il comando da eseguire include un insieme di credenziali. In questo esempio il comando da eseguire non è crittografato:
+L'esempio seguente illustra un'istanza dell'estensione Script personalizzato per Windows. Il comando da eseguire include un set di credenziali. In questo esempio il comando da eseguire non è crittografato:
 
 ```json
 {
@@ -250,7 +250,7 @@ Lo spostamento della proprietà del **comando da eseguire** nella configurazione
 }
 ```
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>Come vengono aggiornati gli agenti e le estensioni?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Aggiornamento di agenti ed estensioni
 
 Agenti ed estensioni condividono il meccanismo di aggiornamento. Alcuni aggiornamenti non richiedono regole del firewall aggiuntive.
 
@@ -288,7 +288,7 @@ Per verificare la versione in esecuzione, vedere [Detecting installed Windows Gu
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
-Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si esegue il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
+Quando è disponibile l'aggiornamento di un'estensione, l'agente guest di Windows lo scarica e lo installa. Gli aggiornamenti automatici delle estensioni sono *secondari* oppure *aggiornamenti rapidi*. È possibile accettare o rifiutare esplicitamente gli aggiornamenti *secondari* delle estensioni quando si effettua il provisioning dell'estensione. L'esempio seguente mostra come aggiornare automaticamente le versioni secondarie in un modello di Resource Manager con *autoUpgradeMinorVersion": true,'*:
 
 ```json
     "properties": {
@@ -357,7 +357,7 @@ I passaggi seguenti per la risoluzione dei problemi sono validi per tutte le est
 
 ### <a name="common-reasons-for-extension-failures"></a>Motivi comuni che causano errori delle estensioni
 
-1. Il limite di tempo per l'esecuzione delle estensioni è di 20 minuti (fanno eccezione le estensioni Script personalizzato, Chef e DSC che hanno 90 minuti). Se la distribuzione supera questo tempo, viene contrassegnata come timeout. Il problema potrebbe essere causato da macchine virtuali con risorse insufficienti, altre configurazioni di macchine virtuali o attività di avvio che utilizzano grandi quantità di risorse mentre l'estensione sta tentando di eseguire il provisioning.
+1. Il limite di tempo per l'esecuzione delle estensioni è di 20 minuti. Fanno eccezione le estensioni Script personalizzato, Chef e DSC che hanno 90 minuti. Se la distribuzione supera questo tempo, viene contrassegnata come timeout. Il problema potrebbe essere causato da macchine virtuali con risorse insufficienti, altre configurazioni di macchine virtuali o attività di avvio che utilizzano grandi quantità di risorse mentre l'estensione sta tentando di effettuare il provisioning.
 
 2. Prerequisiti minimi non soddisfatti. Alcune estensioni hanno dipendenze negli SKU di macchine virtuali, ad esempio le immagini HPC. Le estensioni possono prevedere determinati requisiti di accesso alla rete, ad esempio la comunicazione con servizi pubblici o Archiviazione di Azure. Altri esempi potrebbero essere l'accesso al repository di pacchetti, l'esaurimento dello spazio su disco o restrizioni di sicurezza.
 
@@ -407,7 +407,7 @@ In alcuni casi potrebbe essere necessario ripetere l'esecuzione della macchina v
 Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-È inoltre possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
+È anche possibile rimuovere un'estensione nel portale di Azure come indicato di seguito:
 
 1. Selezionare una macchina virtuale.
 2. Scegliere **Estensioni**.
@@ -420,7 +420,7 @@ Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -N
 | Estensione Script personalizzato per Windows |Eseguire script su una macchina virtuale di Azure. |[Estensione script personalizzata per Windows](custom-script-windows.md) |
 | Estensione DSC per Windows |Estensione PowerShell DSC (Desired State Configuration) |[Estensione DSC per Windows](dsc-overview.md) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alle macchine virtuali per Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alle macchine virtuali per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

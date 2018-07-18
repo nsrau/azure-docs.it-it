@@ -78,7 +78,7 @@ Il termine aggiornamento indica in genere il passaggio a una versione più recen
 Per informazioni generali sugli strumenti e sui processi per la migrazione a Windows Server, vedere [Migrazione dei ruoli e delle funzionalità a Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Quali sono il nome utente e la password predefiniti per accedere alla macchina virtuale?
-Le immagini fornite da Azure non dispongono di un nome utente e una password predefiniti. Quando si crea la macchina virtuale utilizzando una di queste immagini, è necessario specificare un nome utente e una password, che verranno utilizzati per accedere alla macchina virtuale.
+Le immagini fornite da Azure non dispongono di un nome utente e una password predefiniti. Quando si crea la macchina virtuale usando una di queste immagini, è necessario specificare un nome utente e una password, che verranno usati per accedere alla macchina virtuale.
 
 Se si dimentica il nome utente o la password ed è stato installato l'agente VM, è possibile installare e usare l'estensione [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per risolvere il problema.
 

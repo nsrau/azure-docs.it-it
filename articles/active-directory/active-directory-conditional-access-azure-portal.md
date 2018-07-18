@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 94d34df771334319db36009053a7264f0aeacf46
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248721"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Accesso condizionale in Azure Active Directory
 
@@ -30,6 +32,7 @@ La sicurezza è una priorità assoluta per le organizzazioni che usano il cloud.
 ![Controllo](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Questo articolo offre una panoramica concettuale dell'accesso condizionale in Azure AD.
+
 
 
 ## <a name="common-scenarios"></a>Scenari comuni
@@ -81,32 +84,8 @@ Con l'accesso condizionale di Azure AD è possibile controllare il modo in cui g
 
 Un vantaggio relativo all'uso di un approccio basato su criteri per proteggere l'accesso alle app cloud è dato dal fatto che è possibile iniziare a elaborare i requisiti dei criteri per l'ambiente usando la struttura descritta in questo articolo, senza doversi preoccupare dell'implementazione tecnica. 
 
-## <a name="what-you-need-to-know"></a>Informazioni importanti
 
-### <a name="general-requirements-for-using-conditional-access"></a>Requisiti generali per l'uso dell'accesso condizionale
-
-È possibile usare l'accesso condizionale di Azure AD per proteggere le app cloud quando un tentativo di autenticazione proviene da:
-
-- Un Web browser
-
-- Un'app client che usa l'autenticazione moderna
-
-- Exchange ActiveSync
-
-Per altre informazioni, vedere la sezione relativa alle [app client](active-directory-conditional-access-conditions.md#client-apps).
-
-Alcune [app cloud](active-directory-conditional-access-conditions.md#cloud-apps) supportano anche i protocolli di autenticazione legacy. Questo vale, ad esempio, per SharePoint Online ed Exchange Online. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app cloud, Azure AD non è in grado di applicare criteri di accesso condizionale a questo tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
-
-Tra le app client a cui non è applicabile l'accesso condizionale sono incluse le seguenti:
-
-- Office 2010 e versioni precedenti
-
-- Office 2013 quando l'autenticazione moderna non è abilitata
-
-Per altre informazioni, vedere [Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Requisiti di licenza per l'uso dell'accesso condizionale
+## <a name="license-requirements-for-using-conditional-access"></a>Requisiti di licenza per l'uso dell'accesso condizionale
 
 L'uso dell'accesso condizionale richiede una licenza Azure AD Premium. Per trovare la licenza corretta per le proprie esigenze, vedere [Caratteristiche e funzionalità di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -121,3 +100,5 @@ L'uso dell'accesso condizionale richiede una licenza Azure AD Premium. Per trova
 - Per acquisire familiarità con la configurazione dei criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
+
+- Per un piano di distribuzione dettagliato con i criteri consigliati, vedere il [piano di distribuzione dell'accesso condizionale](http://aka.ms/conditionalaccessdeploymentplan)

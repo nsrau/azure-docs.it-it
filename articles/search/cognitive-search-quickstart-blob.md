@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640262"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -96,6 +97,8 @@ Uno dei vantaggi dell'utilizzo dell'**Importazione guidata dati** è che consent
 
 Successivamente, aggiungere i passaggi di arricchimento alla pipeline di indicizzazione. Nel portale sono disponibili competenze cognitive predefinite per l'analisi delle immagini e l'analisi del testo. Nel portale, un set di competenze agisce su un campo di origine singolo. Ciò potrebbe sembrare una destinazione di piccole dimensioni, ma per i BLOB di Azure il campo `content` contiene la maggior parte del documento BLOB (ad esempio, un documento Word o un di mazzo PowerPoint). Di conseguenza, questo campo è un input ideale perché contiene tutto il contenuto del BLOB.
 
+A volte può essere utile estrarre la rappresentazione testuale da file composti prevalentemente da immagini digitalizzate, ad esempio un file PDF generato da uno scanner. Ricerca di Azure può estrarre automaticamente il contenuto da immagini incorporate nel documento. A tale scopo, selezionare l'opzione **Enable OCR and merge all text into merged_content field** (Abilita OCR e unisci tutto il testo nel campo merged_content). Questo comando creerà automaticamente un campo `merged_content` che contiene sia il testo estratto dal documento che la rappresentazione testuale delle immagini incorporate nel documento. Quando si seleziona questa opzione il campo `Source data field` verrà impostato su `merged_content`.
+
 In **Aggiungi competenze cognitive**, scegliere le competenze che eseguono l'elaborazione del linguaggio naturale. Per questa Guida introduttiva, scegliere il riconoscimento entità per gli utenti, le organizzazioni e i percorsi.
 
 Fare clic su **OK** per accettare la definizione.
@@ -177,7 +180,7 @@ Infine, si è appreso che la visualizzazione dei risultati viene ottenuta esegue
 
 Se l'esplorazione è conclusa, il modo più veloce per pulire le risorse consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure e il servizio BLOB di Azure.  
 
-Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questo esercizio. Nel portale, il nome del gruppo di risorse nella pagina Panoramica di ciascun servizio.
+Supponendo che entrambi i servizi siano stati inseriti nello stesso gruppo, eliminare il gruppo di risorse a questo punto per eliminare definitivamente tutti gli elementi in esso contenuti, inclusi i servizi e qualsiasi contenuto archiviato creato per questo esercizio. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica di ciascun servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,19 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: a9e70ad5296a832e711ebac97302d56429ab5bff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055510"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-use-custom-activities.md)
-> * [Versione 2 - Anteprima](transform-data-using-dotnet-custom-activity.md)
+> * [Versione 1](v1/data-factory-use-custom-activities.md)
+> * [Versione corrente](transform-data-using-dotnet-custom-activity.md)
 
 In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 
@@ -29,10 +30,6 @@ In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 - [Attività di trasformazione dei dati](transform-data.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning. 
 
 Per spostare dati da o verso un archivio dati non supportato da Data Factory oppure per trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un'**attività personalizzata** contenente la logica di spostamento o trasformazione dei dati necessaria e usare tale attività in una pipeline. L'attività personalizzata esegue la logica del codice personalizzata in un pool di **Azure Batch** di macchine virtuali.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività DotNet (personalizzata) in Data Factory versione 1](v1/data-factory-use-custom-activities.md).
- 
 
 Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Batch:
 
@@ -60,10 +57,6 @@ Il codice JSON seguente definisce un servizio collegato Azure Batch di esempio. 
                 "referenceName": "StorageLinkedService",
                 "type": "LinkedServiceReference"
             }
-        }
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
         }
     }
 }
@@ -218,7 +211,7 @@ namespace SampleApp
 
             // From LinkedServices
             dynamic linkedServices = JsonConvert.DeserializeObject(File.ReadAllText("linkedServices.json"));
-            Console.WriteLine(linkedServices[0].properties.typeProperties.connectionString.value);
+            Console.WriteLine(linkedServices[0].properties.typeProperties.accountName);
         }
     }
 }
@@ -291,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione @activity('MyCustomActivity').output.outputs[0]". 
+Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è possibile ottenere il percorso del file stdout.txt nell'espressione "\@activity('MyCustomActivity').output.outputs[0]". 
 
   > [!IMPORTANT]
   > - Activity.json, linkedServices.json e datasets.json vengono archiviati nella cartella di runtime dell'attività Batch. Per questo esempio, the activity.json, linkedServices.json e datasets.json vengono archiviati nel percorso "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/". Se necessario, la pulizia di questi file deve essere eseguita separatamente. 
@@ -310,7 +303,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
   La tabella seguente illustra le differenze tra l'attività personalizzata di Data Factory versione 2 e l'attività DotNet (personalizzata) di Data Factory versione 1: 
 
 
-|Differenze      |Attività personalizzata versione 2      | Attività DotNet (personalizzata) versione 1      |
+|Differenze      | Attività personalizzata      | Attività DotNet (personalizzata) versione 1      |
 | ---- | ---- | ---- |
 |Modalità di definizione della logica personalizzata      |Mediante l'uso di un file eseguibile      |Mediante l'implementazione di un file DLL .Net      |
 |Ambiente di esecuzione della logica personalizzata      |Windows o Linux      |Windows (.Net Framework 4.5.2)      |
@@ -321,7 +314,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
 |Registrazione      |Scrive direttamente in STDOUT      |Implementazione del logger nel file DLL .Net      |
 
 
-  Se si ha a disposizione codice .NET esistente scritto per un'attività DotNet (personalizzata) della versione 1, è necessario modificarlo per consentirne il funzionamento con un'attività personalizzata della versione 2. Aggiornare il codice seguendo queste linee guida generali:  
+  Se si ha a disposizione il codice .NET esistente scritto per un'attività DotNet (personalizzata) della versione 1, è necessario modificarlo per consentirne il funzionamento con la versione corrente di un'attività personalizzata. Aggiornare il codice seguendo queste linee guida generali:  
 
    - Modificare il progetto da una libreria di classi .NET a un'app console. 
    - Avviare l'applicazione con il metodo `Main`. Il metodo `Execute` dell'interfaccia `IDotNetActivity` non è più necessario. 
@@ -330,7 +323,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
    - Il pacchetto NuGet Microsoft.Azure.Management.DataFactories non è più necessario. 
    - Compilare il codice, caricare il file eseguibile e le relative dipendenze in Archiviazione di Azure e definire il percorso nella proprietà `folderPath`. 
 
-Per un'illustrazione completa di come l'esempio end-to-end di DLL e pipeline, descritto nell'articolo relativo a Data Factory versione 1 [Usare attività personalizzate in una pipeline di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities), può essere riscritto come attività personalizzata di Data Factory versione 2, vedere l'[esempio di attività personalizzata di Data Factory versione 2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Per un'illustrazione completa di come l'esempio end-to-end di DLL e pipeline, descritto nell'articolo relativo a Data Factory versione 1 [Usare attività personalizzate in una pipeline di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities), può essere riscritto come attività personalizzata di Data Factory, vedere l'[esempio di attività personalizzata di Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Scalabilità automatica di Azure Batch
 È anche possibile creare un pool di Azure Batch con la funzionalità **Scalabilità automatica** . Ad esempio, è possibile creare un pool di Azure Batch con 0 VM dedicate e una formula di scalabilità basata sul numero di attività in sospeso. 

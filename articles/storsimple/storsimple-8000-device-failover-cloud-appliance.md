@@ -2,11 +2,11 @@
 title: Failover di StorSimple, ripristino di emergenza in un'appliance cloud StorSimple | Microsoft Docs
 description: Informazioni su come eseguire il failover del dispositivo StorSimple serie 8000 su un'appliance cloud.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108329"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Failover nell'appliance cloud StorSimple
 

@@ -32,7 +32,7 @@
   href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: Pianificazione del progetto
   href: team-data-science-process-project-templates.md
-- name: Esecuzione del progetto
+- name: Sviluppo.
   items:
     - name: Sviluppo Agile
       href: agile-development.md
@@ -40,23 +40,31 @@
       href: collaborative-coding-with-git.md
     - name: Eseguire attività di data science
       href: execute-data-science-tasks.md
+    - name: Test del codice
+      href: code-test.md
     - name: Monitorare l'avanzamento
       href: track-progress.md
-- name: Esempi
+- name: Operazionalizzazione
+  items:
+    - name: DevOps - CI/CD
+      href: ci-cd-flask.md
+- name: Esempi dettagliati
   href: walkthroughs.md
   items:
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: Classificazione delle valutazioni
+        - name: Classificazione del sentiment con Keras e Scikit Learn
           href: predict-twitter-sentiment.md
+        - name: Classificazione del sentiment con il pacchetto di analisi del testo AML
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: Classificazione di reddito negli Stati Uniti
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Riconoscimento di entità biomediche
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: Classificazione delle immagini per i tumori della pelle
+        - name: Classificazione di immagini relative ai tumori della pelle con il pacchetto visivo di AML
           href: isic-image-classification.md
           maintainContext: true
     - name: Spark con PySpark e Scala
@@ -76,6 +84,10 @@
       href: walkthroughs-sql-server.md
     - name: T-SQL e Python con SQL DW
       href: walkthroughs-sql-data-warehouse.md
+- name: Utilità e strumenti
+  items:
+    - name: Esplorazione di dati e utilità di modellazione (GitHub)
+      href: 'https://github.com/Azure/Azure-TDSP-Utilities'
 - name: Formazione
   items:
     - name: Per data scientist
@@ -206,8 +218,6 @@
           items:
             - name: Panoramica
               href: create-features.md
-            - name: Usare Pandas
-              href: create-features-blob.md
             - name: Usare SQL e Python
               href: create-features-sql-server.md
             - name: Usare le query Hive
@@ -226,6 +236,8 @@
       href: deploy-models-in-production.md
 - name: Risorse correlate
   items:
+    - name: Azure Machine Learning - AML
+      href: 'https://docs.microsoft.com/en-us/azure/machine-learning/service/'
     - name: Microsoft Cognitive Toolkit - CNTK
       href: 'https://docs.microsoft.com/cognitive-toolkit/'
       maintainContext: true
@@ -249,7 +261,7 @@
               items:
                 - name: Panoramica
                   href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: Architecture
+                - name: Architettura
                   href: cortana-analytics-architecture-predictive-maintenance.md
                 - name: Guida tecnica
                   href: cortana-analytics-technical-guide-predictive-maintenance.md
@@ -263,20 +275,16 @@
                   href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Risorse
   items:
-    - name: Strumenti e utilità TDSP
-      items:
-        - name: Scaricare da GitHub
-          href: 'https://github.com/Azure/Azure-TDSP-Utilities'
-        - name: Utilità di data science v.0.11 per TDSP
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/'
-        - name: Utilità più recenti per TDSP
-          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
     - name: Blog
       items:
         - name: Aggiornamenti più recenti per TDSP
           href: 'https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/'
         - name: Uso di TDSP in Azure Machine Learning
           href: 'https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/'
+        - name: Utilità di data science v.0.11 per TDSP
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/'
+        - name: Utilità più recenti per TDSP
+          href: 'https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/'
         - name: Modello di pianificazione di un progetto di data science
           href: 'https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/'
         - name: Blog su Cortana Intelligence e Machine Learning

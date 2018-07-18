@@ -1,11 +1,11 @@
 ---
-title: "Documentazione di Utilità di pianificazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft"
-description: "Informazioni su come usare Utilità di pianificazione per pianificare e richiamare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine. Esercitazioni, informazioni di riferimento sulle API e altro ancora."
+title: Documentazione di Utilità di pianificazione di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
+description: Informazioni su come usare Utilità di pianificazione per pianificare e richiamare i processi, ad esempio azioni ricorrenti delle applicazioni e manutenzione di routine. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071348"
 ---
 # <a name="scheduler-documentation"></a>Documentazione di Utilità di pianificazione
 

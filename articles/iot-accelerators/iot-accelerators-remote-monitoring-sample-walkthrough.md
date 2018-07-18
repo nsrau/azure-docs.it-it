@@ -1,25 +1,19 @@
 ---
 title: Architettura della soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Descrizione dettagliata dell'architettura dell'acceleratore di soluzioni di monitoraggio remoto.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757434"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Architettura dell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -97,13 +91,13 @@ La soluzione include due microservizi per gestire i dati di telemetria dei dispo
 
 Il microservizio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet):
 
-* Archivia i dati di telemetria in Cosmos DB.
+* Archivia i dati di telemetria in Azure Cosmos DB.
 * Analizza il flusso di dati di telemetria dai dispositivi.
 * Genera allarmi in base alle regole definite.
 
-Gli allarmi vengono archiviati in Cosmos DB.
+Gli allarmi vengono archiviati in Azure Cosmos DB.
 
-Il microservizio `telemetry-agent` consente al portale della soluzione di leggere i dati di telemetria inviati dai dispositivi. Il portale della soluzione usa anche questo servizio per:
+Il microservizio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet)a consente al portale della soluzione di leggere i dati di telemetria inviati dai dispositivi. Il portale della soluzione usa anche questo servizio per:
 
 * Definire regole di monitoraggio, ad esempio le soglie che attivano gli allarmi.
 * Recuperare l'elenco di allarmi passati.
@@ -114,9 +108,9 @@ Usare l'endpoint RESTful fornito da questo microservizio per gestire telemetria,
 
 Il microservizio [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) è un adapter posto davanti al servizio di archiviazione principale usato per l'acceleratore di soluzioni. Fornisce semplice archiviazione di raccolte e coppie chiave-valore.
 
-La distribuzione standard dell'acceleratore di soluzioni usa Cosmos DB come servizio di archiviazione principale.
+La distribuzione standard dell'acceleratore di soluzioni usa Azure Cosmos DB come servizio di archiviazione principale.
 
-Il database Cosmos DB archivia i dati nell'acceleratore di soluzioni. Il microservizio **storage-adapter** funge da adapter per consentire agli altri microservizi nella soluzione di accedere ai servizi di archiviazione.
+Il database di Azure Cosmos DB archivia i dati nell'acceleratore di soluzioni. Il microservizio **storage-adapter** funge da adapter per consentire agli altri microservizi nella soluzione di accedere ai servizi di archiviazione.
 
 ## <a name="presentation"></a>Presentazione
 
@@ -141,6 +135,8 @@ Se si vuole esplorare il codice sorgente e la documentazione per sviluppatori, i
 
 * [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+
+Diagrammi dettagliati delle architetture delle soluzioni:
 * [Acceleratore di soluzioni per l'architettura di monitoraggio remoto](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Customize the solution accelerator](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) (Personalizzare l'acceleratore di soluzioni).

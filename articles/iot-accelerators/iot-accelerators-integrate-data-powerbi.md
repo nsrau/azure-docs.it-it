@@ -1,22 +1,19 @@
 ---
 title: Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure | Microsoft Docs
 description: In questa esercitazione si useranno Power BI Desktop e Cosmos DB per integrare i dati generati da una soluzione di monitoraggio remoto in una visualizzazione personalizzata. In questo modo gli utenti possono compilare dashboard personalizzati e condividerli con gli utenti esterni alla soluzione.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970402"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
@@ -97,9 +94,9 @@ Dopo avere connesso il flusso si è pronti a creare dashboard personalizzati. Di
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Pubblicazione del dashboard e aggiornamento dei dati
 
-Dopo avere creato i dashboard, è consigliabile [pubblicare i dashboard di Power BI](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files) per condividerli con altri utenti.
+Dopo avere creato i dashboard, è consigliabile [pubblicare i dashboard di Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) per condividerli con altri utenti.
 
-È opportuno anche [aggiornare i dati](https://docs.microsoft.com/en-us/power-bi/refresh-data) nel dashboard pubblicato per disporre del set di dati più recente.
+È opportuno anche [aggiornare i dati](https://docs.microsoft.com/power-bi/refresh-data) nel dashboard pubblicato per disporre del set di dati più recente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

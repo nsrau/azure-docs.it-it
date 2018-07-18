@@ -20,9 +20,158 @@
     - name: Esplorazione di Criteri di Azure (laboratori pratici)
       href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Esempi
+  href: json-samples.md
   items:
-    - name: Esempi di Criteri di Azure
-      href: json-samples.md
+    - name: Generale
+      items:
+        - name: Denominazione
+          items:
+            - name: Consentire modelli nome multipli
+              href: scripts/allow-multiple-name-patterns.md
+            - name: Richiedere il modello like
+              href: scripts/enforce-like-pattern.md
+            - name: Richiedere il modello di corrispondenza
+              href: scripts/enforce-match-pattern.md
+            - name: Richiedere il modello di corrispondenza tag
+              href: scripts/enforce-tag-match-pattern.md
+        - name: Tag
+          items:
+            - name: Applicare il tag e il relativo valore predefinito
+              href: scripts/apply-tag-def-val.md
+            - name: Iniziativa relativa ai criteri dei tag di fatturazione
+              href: scripts/billing-tags-policy-init.md
+            - name: Imporre un tag e il relativo valore
+              href: scripts/enforce-tag-val.md
+            - name: Applicare un tag e il relativo valore a gruppi di risorse
+              href: scripts/enforce-tag-rg.md
+        - name: Località
+          items:
+            - name: Percorsi consentiti
+              href: scripts/allowed-locs.md
+        - name: Tipi di risorse
+          items:
+            - name: Tipi di risorse consentiti
+              href: scripts/allowed-res-types.md
+            - name: Tipi di risorse non consentiti
+              href: scripts/not-allowed-res-type.md
+    - name: Calcolo
+      items:
+        - name: Macchine virtuali
+          items:
+            - name: Consentire un'immagine di macchina virtuale personalizzata da un gruppo di risorse
+              href: scripts/allow-custom-vm-image.md
+            - name: SKU consentiti per account di archiviazione e macchine virtuali
+              href: scripts/allowed-skus-storage.md
+            - name: Immagini di macchine virtuali approvate
+              href: scripts/allowed-custom-images.md
+            - name: Controllare se l'estensione non esiste
+              href: scripts/audit-ext-not-exist.md
+            - name: Estensioni di macchine virtuali non consentite
+              href: scripts/not-allowed-vm-ext.md
+        - name: set di scalabilità di macchine virtuali
+          items:
+            - name: Controllare quando la macchina virtuale non usa il disco gestito
+              href: scripts/create-vm-managed-disk.md
+            - name: Creare una macchina virtuale usando un disco gestito
+              href: scripts/use-managed-disk-vm.md
+            - name: Deny hybrid use benefit (Rifiuta vantaggio Hybrid Use)
+              href: scripts/deny-hybrid-use.md
+            - name: Consentire solo una determinata immagine della piattaforma della macchina virtuale
+              href: scripts/allow-certain-vm-image.md
+    - name: Data Lake
+      items:
+        - name: Applicare la crittografia di Data Lake Store
+          href: scripts/enforce-datalakestore-encryption.md
+    - name: Monitoraggio
+      items:
+        - name: Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+          href: scripts/audit-diag-setting.md
+    - name: Rete
+      items:
+        - name: Interfacce di rete
+          items:
+            - name: NSG X in ogni scheda di interfaccia di rete
+              href: scripts/nsg-on-nic.md
+            - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Reti virtuali
+          items:
+            - name: SKU del gateway applicazione consentiti
+              href: scripts/allowed-app-gate-sku.md
+            - name: Nessun peering reti per la rete ER
+              href: scripts/no-peering-er-net.md
+            - name: Nessuna tabella di route definita dall'utente
+              href: scripts/no-user-def-route-table.md
+            - name: NSG X in ogni subnet
+              href: scripts/nsg-on-subnet.md
+            - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Gruppi di sicurezza di rete
+          items:
+            - name: NSG X in ogni scheda di interfaccia di rete
+              href: scripts/nsg-on-nic.md
+            - name: NSG X in ogni subnet
+              href: scripts/nsg-on-subnet.md
+        - name: Istanze di ExpressRoute
+          items:
+            - name: Larghezza di banda di Express Route consentita
+              href: scripts/allowed-er-band.md
+            - name: SKU di Express Route consentiti
+              href: scripts/allowed-er-skus.md
+            - name: Località di peering consentita per Express Route
+              href: scripts/allowed-peering-er.md
+        - name: Network Watcher
+          items:
+            - name: Controllare se Network Watcher non è abilitato per l'area
+              href: scripts/net-watch-not-enabled.md
+        - name: Gateway di applicazione
+          items:
+            - name: SKU del gateway applicazione consentiti
+              href: scripts/allowed-app-gate-sku.md
+    - name: SQL
+      items:
+        - name: Server SQL
+          items:
+            - name: Controlla l'assenza di un amministratore per Azure Active Directory
+              href: scripts/audit-no-aad-admin.md
+            - name: Controllare l'impostazione di rilevamento delle minacce a livello di server
+              href: scripts/audit-sql-ser-threat-det-setting.md
+            - name: Verificare le impostazioni di controllo di SQL Server
+              href: scripts/sql-server-audit.md
+            - name: Controllare l'impostazione di controllo a livello di SQL Server
+              href: scripts/audit-sql-ser-leve-audit-setting.md
+            - name: Richiedere SQL Server versione 12.0
+              href: scripts/req-sql-12.md
+        - name: DATABASE SQL
+          items:
+            - name: SKU del database SQL consentiti
+              href: scripts/allowed-sql-db-skus.md
+            - name: Controllare l'impostazione di rilevamento delle minacce a livello di database SQL
+              href: scripts/audit-db-threat-det-setting.md
+            - name: Controllare la crittografia del database SQL
+              href: scripts/sql-database-encryption-audit.md
+            - name: Controllare l'impostazione di controllo a livello di database SQL
+              href: scripts/audit-sql-db-audit-setting.md
+            - name: Controllare lo stato di Transparent Data Encryption
+              href: scripts/audit-trans-data-enc-status.md
+    - name: Archiviazione
+      items:
+        - name: SKU consentiti per l'account di archiviazione e le macchine virtuali
+          href: scripts/allowed-skus-storage.md
+        - name: SKU degli account di archiviazione consentiti
+          href: scripts/allowed-stor-acct-skus.md
+        - name: Rifiutare la suddivisione in livelli di accesso sporadico per gli account di archiviazione
+          href: scripts/deny-cool-access-tiering.md
+        - name: Assicurare solo traffico HTTPS per un account di archiviazione
+          href: scripts/ensure-https-stor-acct.md
+        - name: Assicurare la crittografia dei file di archiviazione
+          href: scripts/ensure-store-file-enc.md
+        - name: Richiedere la crittografia dell'account di archiviazione
+          href: scripts/req-store-acct-enc.md
 - name: Concetti
   items:
     - name: Struttura delle definizioni di criteri di Azure

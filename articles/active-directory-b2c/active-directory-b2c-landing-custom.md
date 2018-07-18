@@ -1,23 +1,24 @@
 ---
-title: 'Azure Active Directory B2C: pagina di destinazione dei criteri personalizzati | Microsoft Docs'
-description: Sviluppo di applicazioni rivolte agli utenti con Azure Active Directory B2C tramite criteri personalizzati
+title: Criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
+description: Sviluppo di applicazioni rivolte agli utenti con Azure Active Directory B2C tramite criteri personalizzati.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
-ms.openlocfilehash: f3db8c80d6faef3af0909efb7306dd7aa0336ab0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 26469d735d7165e8b21665df6c169bc4668d8a5a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440519"
 ---
-# <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C: iscrizione e accesso degli utenti alle applicazioni tramite criteri personalizzati
+# <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Iscrizione e accesso degli utenti alle applicazioni tramite criteri personalizzati in Azure Active Directory B2C
+
 I criteri personalizzati sono file di configurazione che definiscono il comportamento del tenant di Azure Active Directory B2C. Questi criteri possono essere modificati completamente da uno sviluppatore di identità per completare un numero praticamente illimitato di attività.
 
 ## <a name="how-to-articles"></a>Procedure

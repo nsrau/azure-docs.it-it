@@ -3,23 +3,24 @@ title: Importare un file di Power BI Desktop in Azure Analysis Services | Micros
 description: Viene descritto come importare un file di Power BI Desktop (file con estensione PBIX) tramite il portale di Azure.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35bf2ba85017de43788f802b6244d61ed2bb62df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3dd90fc862e64812c0ba17bef74818d18788f4b5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440989"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importare un file di Power BI Desktop
 
-È possibile creare un nuovo modello in Azure AS importando un DI file Power BI Desktop (file con estensione PBIX). Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni.
+È possibile importare un modello di dati in un file di Power BI Desktop in Azure Analysis Services. Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni. I modelli di dati importati da Power BI Desktop hanno il livello di compatibilità 1400.
 
 **Restrizioni**   
-- Il modello con estensione pbix può connettersi solo alle origini dati di database SQL di Azure e Azure SQL Data Warehouse. 
+- Il modello con estensione pbix può connettersi solo alle origini dati di **database SQL di Azure** e **Azure SQL Data Warehouse**. 
 - Il modello con estensione PBIX non può avere connessioni dinamiche o DirectQuery. 
 - L'importazione potrebbe non riuscire se il modello di dati con estensione PBIX contiene metadati non supportati in Analysis Services.
 

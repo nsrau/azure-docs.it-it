@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361972"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627024"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gestire cluster Hadoop in HDInsight tramite il portale di Azure
 
@@ -62,7 +62,7 @@ Quando si crea un cluster HDInsight, è necessario specificare una sottoscrizion
     1. Accedere al [portale di Azure](https://portal.azure.com).
     2. Fare clic su **Sottoscrizione** dal menu a sinistra. Viene visualizzata un'icona gialla a forma di chiave. Verrà visualizzato un elenco di sottoscrizioni.
     3. Fare clic sulla sottoscrizione che verrà usate per creare l cluster. 
-    4. Fare clic su **Autorizzazioni personali**.  Viene visualizzato il [ruolo](../role-based-access-control/overview.md#built-in-roles) dell'utente nella sottoscrizione. Per creare cluster HDInsight è necessario almeno l'accesso come collaboratore.
+    4. Fare clic su **Autorizzazioni personali**.  Viene visualizzato il [ruolo](../role-based-access-control/built-in-roles.md) dell'utente nella sottoscrizione. Per creare cluster HDInsight è necessario almeno l'accesso come collaboratore.
 
 - Per usare un gruppo di risorse esistente:
 

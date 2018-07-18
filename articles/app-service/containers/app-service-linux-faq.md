@@ -13,19 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/18/2018
+ms.author: msangapu
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222978"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
 Con il lancio del Servizio app in Linux, sono previsti miglioramenti e nuove funzionalità per la piattaforma. Questo articolo fornisce le risposte alle domande che i clienti ci hanno posto di recente.
 
-In caso di domande, scrivere un commento all'articolo; si riceverà una risposta il prima possibile.
+In caso di domande, inviare commenti su questo articolo.
 
 ## <a name="built-in-images"></a>Immagini predefinite
 
@@ -35,7 +36,7 @@ In caso di domande, scrivere un commento all'articolo; si riceverà una risposta
 
 **Quali sono i valori previsti per la sezione relativa al file di avvio quando si configura lo stack di runtime?**
 
-Per Node.js specificare il file di configurazione PM2 o il file script. Per .NET Core specificare il nome del file DLL compilato. Per Ruby è possibile specificare uno script Ruby da usare per l'inizializzazione dell'app.
+Per Node.js specificare il file di configurazione PM2 o il file script. Per .NET Core specificare il nome del file DLL compilato come `dotnet <myapp>.dll`. Per Ruby è possibile specificare uno script Ruby da usare per l'inizializzazione dell'app.
 
 ## <a name="management"></a>Gestione
 
@@ -47,7 +48,7 @@ Questa azione equivale a un riavvio di Docker.
 
 Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgente.
 
-> [!NOTE] 
+> [!NOTE]
 > È anche possibile connettersi al contenitore di app direttamente dal computer di sviluppo locale tramite SSH, SFTP o Visual Studio Code (per eseguire il debug attivo di app Node.js). Per altre informazioni, vedere [Remote debugging and SSH in App Service on Linux](https://aka.ms/linux-debug) (Debug remoto e SHH nel servizio app in Linux).
 >
 
@@ -59,7 +60,7 @@ Sì, è possibile farlo tramite il sito di gestione controllo del codice sorgent
 
 **L'app Web usa ancora un'immagine obsoleta del contenitore Docker dopo l'aggiornamento dell'immagine su DockerHub. È supportata l'integrazione e distribuzione continua di contenitori personalizzati?**
 
-Per configurare l'integrazione o la distribuzione continua per il Registro contenitori di Azure o le immagini di DockerHub, consultare l'articolo [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
+Sì, per configurare l'integrazione o la distribuzione continua per il Registro contenitori di Azure o le immagini di DockerHub, vedere [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md). Per registri privati, è possibile aggiornare il contenitore arrestando e riavviando l'app Web. Oppure è possibile modificare o aggiungere un'impostazione dell'applicazione fittizia per forzare l'aggiornamento del contenitore.
 
 **Gli ambienti di gestione temporanea sono supportati?**
 
@@ -71,13 +72,13 @@ Sì, è necessario impostare `WEBSITE_WEBDEPLOY_USE_SCM` nell'app su *false*.
 
 **La distribuzione in GIT dell'applicazione non riesce quando si usa l'app Web di Linux. Come è possibile risolvere il problema?**
 
-Se la distribuzione in GIT non riesce per l'app Web di Linux, è possibile scegliere le opzioni alternative seguenti per distribuire il codice dell'applicazione:
+Se la distribuzione in GIT non riesce per l'app Web di Linux, scegliere una delle opzioni seguenti per distribuire il codice dell'applicazione:
 
-- Usare la funzionalità Recapito continuo (anteprima): è possibile archiviare il codice sorgente dell'app in un repository GIT di Team Services o un repository di GitHub per usare Recapito continuo di Azure. Per altri dettagli, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
+- Usare la funzionalità Recapito continuo (anteprima): è possibile archiviare il codice sorgente dell'app in un repository GIT di Team Services o un repository di GitHub per usare Recapito continuo di Azure. Per altre informazioni, vedere [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/) (Come configurare Recapito continuo per app Web in Linux).
 
-- Usare l'[API per la distribuzione di ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): per usare questa API, attivare una connessione [SSH nell'app Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e passare alla cartella in cui si vuole distribuire il codice. Eseguire questo comando:
+- Usare l'[API per la distribuzione di ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): per usare questa API, attivare una connessione [SSH nell'app Web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) e passare alla cartella in cui si vuole distribuire il codice. Eseguire il codice seguente:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -85,10 +86,11 @@ Se la distribuzione in GIT non riesce per l'app Web di Linux, è possibile scegl
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-**Esistono impostazioni speciali o configurazioni specifiche da impostare se si desidera usare i WebSocket nell'applicazione Node.js?**
+**Esistono impostazioni speciali o configurazioni specifiche da impostare se si vogliono usare Web Socket nell'applicazione Node.js?**
 
-Sì, disabilitare `perMessageDeflate` nel codice Node.js sul lato server. Ad esempio, se si usa socket.io, eseguire le operazioni seguenti:
-```
+Sì, disabilitare `perMessageDeflate` nel codice Node.js sul lato server. Ad esempio, per socket.io usare il codice seguente:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -100,20 +102,20 @@ Sì.
 
 **È previsto il supporto per lo strumento Composer come gestore delle dipendenze per le app PHP?**
 
-Sì. Durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'applicazione PHP (grazie alla presenza di un file composer.lock) e Kudu attiverà automaticamente l'installazione di Composer.
+Sì, durante una distribuzione Git, Kudu rileverà che si sta distribuendo un'applicazione PHP (grazie alla presenza di un file composer.lock) e Kudu attiverà l'installazione di Composer.
 
 ## <a name="custom-containers"></a>Contenitori personalizzati
 
 **Uso un contenitore personalizzato. Desidero che la piattaforma monti una condivisione SMB nella directory `/home/`.**
 
-È possibile farlo impostando `WEBSITES_ENABLE_APP_SERVICE_STORAGE` dell'app su *true* o rimuovendo l'app completamente l'impostazione. Si tenga presente che questo causerà il riavvio del contenitore quando lo spazio di archiviazione della piattaforma subisce una modifica. 
+È possibile specificare l'impostazione di app `WEBSITES_ENABLE_APP_SERVICE_STORAGE` su *true*. Si tenga presente che questo causerà il riavvio del contenitore quando lo spazio di archiviazione della piattaforma subisce una modifica.
 
 >[!NOTE]
->Se l'impostazione `WEBSITES_ENABLE_APP_SERVICE_STORAGE` è *false*, la directory `/home/` non verrà condivisa tra istanze scalabili e i file che vi sono scritti non verranno mantenuti tra i riavvii.
+>Se l'impostazione `WEBSITES_ENABLE_APP_SERVICE_STORAGE` non è specificata o è *false*, la directory `/home/` non verrà condivisa tra istanze scalabili e i file scritti non verranno mantenuti tra i riavvii.
 
 **L'avvio del contenitore personalizzato richiede molto tempo e la piattaforma riavvia il contenitore prima del completamento di questa operazione. Come si risolve il problema?**
 
-È possibile configurare il tempo di attesa della piattaforma prima del riavvio del contenitore. A tale scopo impostare `WEBSITES_CONTAINER_START_TIME_LIMIT` nell'app sul valore desiderato. Il valore predefinito è 230 secondi e il valore massimo è 600 secondi.
+È possibile configurare il tempo di attesa della piattaforma prima del riavvio del contenitore. A tale scopo impostare `WEBSITES_CONTAINER_START_TIME_LIMIT` nell'app sul valore desiderato. Il valore predefinito è 230 secondi e il valore massimo è 1800 secondi.
 
 **Qual è il formato dell'URL del server del Registro di sistema privato?**
 
@@ -161,6 +163,6 @@ Per le impostazioni dell'applicazione è possibile usare solo lettere (A-Z, a-z)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
-* [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md)
+- [Che cos'è il Servizio app di Azure in Linux?](app-service-linux-intro.md)
+- [Configurare gli ambienti di gestione temporanea nel Servizio app di Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Distribuzione continua con l'app Web per contenitori](./app-service-linux-ci-cd.md)

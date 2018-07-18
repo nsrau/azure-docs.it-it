@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050574"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
-> Questo articolo fa riferimento alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione 2 del servizio Data Factory, disponibile in anteprima, vedere le [Attività personalizzate in Data Factory versione 2](../transform-data-using-dotnet-custom-activity.md).
+> Questo articolo si applica alla versione 1 di Azure Data Factory, disponibile a livello generale. Se si usa la versione corrente del servizio Data Factory, vedere l'articolo relativo alle [attività personalizzate in Data Factory](../transform-data-using-dotnet-custom-activity.md).
 
 Questo articolo descrive l'architettura di una soluzione di esempio che sposta ed elabora set di dati su larga scala in modo automatico e pianificato. Viene descritta anche una procedura dettagliata end-to-end per implementare la soluzione tramite Data Factory e Azure Batch.
 
@@ -78,7 +79,7 @@ Nell'elenco seguente vengono presentati i passaggi di base del processo. La solu
 
 * **Data Factory esegue l'attività personalizzata usando il pool allocato da Batch.** Data Factory può eseguire attività contemporaneamente. Ogni attività elabora una sezione dei dati. I risultati vengono archiviati nella risorsa di archiviazione.
 
-* **Data Factory sposta i risultati finali in un terzo percorso,**per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
+* **Data Factory sposta i risultati finali in un terzo percorso,** per la distribuzione tramite un'app o per una successiva elaborazione con altri strumenti.
 
 ## <a name="implementation-of-the-sample-solution"></a>Implementazione della soluzione di esempio
 La soluzione di esempio è volutamente semplice. È progettata per illustrare come usare Data Factory e Batch insieme ai set di dati di processo. La soluzione conta semplicemente il numero di occorrenze del termine di ricerca ("Microsoft") nei file di input organizzati in una serie temporale. Restituisce quindi il numero in file di output.

@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625798"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Recapito di messaggi di Griglia di eventi e nuovi tentativi 
 
@@ -62,7 +63,7 @@ Griglia di eventi usa criteri per i tentativi di tipo backoff esponenziale per i
 
 Griglia di eventi aggiunge una piccola parte di casualità a tutti gli intervalli tra tentativi. Dopo un'ora, il recapito degli eventi viene ripetuto una volta all'ora.
 
-Per impostazione predefinita, Griglia di eventi fa scadere tutti gli eventi che non vengono recapitati entro 24 ore.
+Griglia di eventi arresta i tentativi si ricapitare tutti gli eventi che non vengono recapitati entro 24 ore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

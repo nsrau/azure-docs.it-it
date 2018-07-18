@@ -1,8 +1,8 @@
 ---
-title: "Spostamento di grandi quantità di dati da e verso l'archiviazione cloud in Azure | Documentazione Microsoft"
+title: Spostamento di grandi quantità di dati da e verso l'archiviazione cloud in Azure | Documentazione Microsoft
 description: Panoramica dei diversi metodi per spostare i dati da e verso Archiviazione di Azure.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984596"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
 Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o viceversa). Quale sia il metodo adatto dipende dallo scenario. Questo articolo offre informazioni generali su diversi scenari e la soluzione appropriata per ciascuno.

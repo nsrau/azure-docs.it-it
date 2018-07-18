@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833764"
 ---
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
@@ -139,7 +141,7 @@ Numero di esempi necessari per questo caso: 1
 Numero di esempi necessari per questo caso: 1
 
 >[!NOTE] 
->In questo esempio, il carattere speciale · rappresenta gli spazi nella colonna di Output.
+>In questo esempio, il carattere speciale · rappresenta gli spazi nella colonna Output.
 
 |Nome|Iniziale del secondo nome|Cognome|Output|
 |:-----|:-----|:-----|:-----|
@@ -389,5 +391,5 @@ Il mapping di un periodo di tempo è stato eseguito tramite trasformazioni diver
 ### <a name="conditional-transformations"></a>Trasformazioni condizionali
 In alcuni casi, è impossibile trovare una trasformazione che soddisfi gli esempi specificati. In questi casi, la trasformazione per derivare una colonna dall'esempio tenta di raggruppare gli input in base a un modello e di apprendere trasformazioni diverse per ogni gruppo. Questa operazione si chiama **trasformazione condizionale**. La **trasformazione condizionale** viene tentata solo per le trasformazioni con una sola colonna di input. 
 
-### <a name="reference"></a>riferimento
+### <a name="reference"></a>Riferimenti
 Altre informazioni sulla tecnologia di trasformazione della stringa dall'esempio sono reperibili in [questa pubblicazione](https://www.microsoft.com/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

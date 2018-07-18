@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 51ed7dbead7f9085de563d2fb20c4e4a08f90bb2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 951ce8947d113eaad2ea0e3b5df5e9714aa33dd8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723188"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Esercitazione: uso di Azure Machine Learning Workbench per la preparazione avanzata dei dati (dati di bike sharing)
 Azure Machine Learning (anteprima) è una soluzione integrata di analisi scientifica dei dati e analisi avanzata end-to-end con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
@@ -253,7 +255,7 @@ La colonna __REPORTTYPE__ non è più necessaria. Fare clic con il pulsante dest
    ![Opzione di rimozione colonna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Modificare i tipi di dati e rimuovere gli errori
-1. È possibile tenere premuto CTRL (COMANDO ⌘ sul Mac) mentre si fa clic sulle intestazioni di colonna per selezionare più colonne contemporaneamente. Usare questa tecnica per selezionare le intestazioni di colonna seguenti:
+1. Premendo CTRL (comando ⌘ su Mac) mentre si selezionano le intestazioni di colonna, è possibile selezionare più colonne contemporaneamente. Usare questa tecnica per selezionare le intestazioni di colonna seguenti:
 
    * **HOURLYDRYBULBTEMPF**
 
@@ -452,7 +454,7 @@ Per la preparazione dei dati sono disponibili utili visualizzazioni dette contro
 1. Selezionare contemporaneamente le colonne **start station latitude** e **start station longitude**. Fare clic con il pulsante destro del mouse su una delle colonne e quindi selezionare **Map** (Mappa).
 
     > [!TIP]
-    > Per abilitare la selezione multipla, tenere premuto il tasto CTRL (COMANDO ⌘ sul Mac) e selezionare l'intestazione di ogni colonna.
+    > Per abilitare la selezione multipla, tenere premuto CTRL (comando ⌘ su Mac) e selezionare l'intestazione di ogni colonna.
 
     ![Visualizzazione mappa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -635,7 +637,7 @@ Per creare un join dei dati meteo e di quelli sulle tratte, usare la procedura s
 
     ![Colonna Period](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Per rimuovere le colonne **Date Hour Range** e **r_Date Hour Range**, premere CTRL (COMANDO ⌘ sul Mac) e selezionare ogni intestazione di colonna. Fare clic con il pulsante destro del mouse e quindi selezionare **Remove Column** (Rimuovi colonna).
+3. Per rimuovere le colonne **Date Hour Range** e **r_Date Hour Range**, premere CTRL (comando ⌘ su Mac) e selezionare ogni intestazione di colonna. Fare clic con il pulsante destro del mouse e quindi selezionare **Remove Column** (Rimuovi colonna).
 
 ## <a name="read-data-from-python"></a>Leggere i dati da Python
 

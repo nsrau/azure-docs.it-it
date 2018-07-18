@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: eaaee36a2f4dd5a313f8871cea5fd885812fe351
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bcb4302c3a237ec75ff670b322c9d068d8700de9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738514"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usare gli strumenti di Analisi di flusso di Azure per Visual Studio
 Sono ora disponibili pubblicamente gli strumenti di Analisi di flusso di Azure per Visual Studio. Questi strumenti consentono agli utenti di sfruttare meglio Analisi di flusso per risolvere i problemi e scrivere query complesse, anche in locale. Consentono anche di esportare un processo di Analisi di flusso in un progetto di Visual Studio.
@@ -28,6 +29,19 @@ Dopo aver completato questa esercitazione, si sarà in grado di:
 * Testare il processo in locale con dati di esempio locali.
 * Usare il monitoraggio per risolvere i problemi.
 * Esportare i processi esistenti nei progetti.
+
+>[!IMPORTANT]
+> Microsoft consiglia di eseguire l'aggiornamento a Strumenti Azure Data Lake per Visual Studio versione 2.3.3000.4 o successiva. Le versioni precedenti non sono più disponibili per il download e sono deprecate. 
+>
+>**Cosa occorre fare?**
+>
+>1. Verificare se si sta usando una versione di Strumenti Analisi di flusso di Azure per Visual Studio precedente alla 2.3.3000.5. 
+>   
+>   ![Controllare la versione degli strumenti](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+> 
+>2. Se la versione è precedente alla 2.3.3000.5, eseguire l'aggiornamento di Strumenti Analisi di flusso di Azure per Visual Studio visitando l'Area download: 
+>    - [Per Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
+>    - [Per Visual Studio 2013 e 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>prerequisiti
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:

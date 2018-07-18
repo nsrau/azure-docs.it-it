@@ -3,7 +3,7 @@ title: Guida introduttiva per gli operatori IT di Azure | Microsoft Docs
 description: Guida introduttiva per gli operatori IT di Azure
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099494"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -60,7 +61,7 @@ Un sistema SaaS (Software as a Service, software come un servizio) è costituito
 
 Microsoft Office 365 è un buon esempio di offerta SaaS. Pagando una quota di sottoscrizione mensile o annuale, i sottoscrittori possono usufruire di Microsoft Exchange, Microsoft OneDrive e delle altre applicazioni della famiglia di prodotti Microsoft Office come servizi. I sottoscrittori hanno sempre a disposizione la versione più recente delle applicazioni e non devono occuparsi della gestione del server di Exchange. Rispetto all'installazione e all'aggiornamento annuale di Office, questa soluzione è più economica e meno impegnativa.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a Service
 
 L'architettura PaaS (Platform as a Service, piattaforma distribuita come servizio) consente di distribuire le applicazioni in un ambiente messo a disposizione dal fornitore del servizio cloud. La gestione dell'infrastruttura viene interamente svolta dal fornitore. È quindi possibile concentrarsi sullo sviluppo di applicazioni.
 
@@ -380,11 +381,11 @@ Gli account di archiviazione di Azure possono essere configurati con diversi liv
 
 -   L'**archiviazione con ridondanza geografica e accesso in lettura** corrisponde all'archiviazione con ridondanza geografica, con in più la possibilità di leggere i dati nell'area secondaria. Questa possibilità rende questa opzione ideale per il ripristino di emergenza parziale. Nel caso di un problema con l'area primaria, è possibile modificare l'applicazione in modo che possa accedere in sola lettura all'area abbinata.
 
-### <a name="use-cases"></a>Casi d'uso 
+### <a name="use-cases"></a>Casi d'uso
 
 Per ogni tipo di archiviazione il caso d'uso è diverso.
 
-**Archiviazione BLOB** 
+**Archiviazione BLOB**
 
 Il termine *BLOB* è l'acronimo di *Binary Large OBject* (oggetto binario di grandi dimensioni). I BLOB sono file non strutturati, come quelli che gli utenti salvano nei loro computer. Archivio BLOB può archiviare qualsiasi tipo di dati di testo o binari, ad esempio un documento, un file multimediale o un programma di installazione di un'applicazione. L'archivio BLOB è anche denominato archivio di oggetti. Archiviazione Blob di Azure contiene anche dischi dati delle macchine virtuali di Azure.
 
@@ -444,7 +445,7 @@ Analogamente, è possibile usare l'interfaccia della riga di comando di Azure pe
 
 ### <a name="access-and-security-for-azure-storage"></a>Accesso e sicurezza per Archiviazione di Azure
 
-È possibile accedere ad Archiviazione di Azure in modi diversi, ad esempio tramite il Portale di Azure, durante la creazione e il funzionamento di VM e dalle librerie client di archiviazione. 
+È possibile accedere ad Archiviazione di Azure in modi diversi, ad esempio tramite il Portale di Azure, durante la creazione e il funzionamento di VM e dalle librerie client di archiviazione.
 
 **Dischi delle macchine virtuali**
 

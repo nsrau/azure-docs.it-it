@@ -1,13 +1,13 @@
 ---
 title: Log di diagnostica di Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log di diagnostica per gli hub eventi in Azure.
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 services: event-hubs
 author: banisadr
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932716"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Log di diagnostica di Hub eventi
 

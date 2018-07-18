@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128398"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Distribuire un servizio Web di Azure Machine Learning
 Azure Machine Learning consente di compilare, testare e distribuire soluzioni di analisi predittiva.
@@ -27,7 +29,7 @@ In generale, questo avviene in tre passaggi:
 
 * **[Creare un esperimento di training]** - Azure Machine Learning Studio è un ambiente di sviluppo visivo di collaborazione che consente di eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti.
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
-* **[Distribuire come servizio Web]** - È possibile distribuire l'esperimento predittivo come servizio Web di Azure [nuovo] o [classico]. Gli utenti possono inviare dati al modello e ricevere le relative stime.
+* **[Distribuire l'esperimento predittivo come servizio Web]** - È possibile distribuire l'esperimento predittivo come servizio Web di Azure [New] o [classico]. Gli utenti possono inviare dati al modello e ricevere le relative stime.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -184,9 +186,9 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 <!-- internal links -->
 [Creare un esperimento di training]: #create-a-training-experiment
 [Eseguire la conversione in un esperimento predittivo]: #convert-the-training-experiment-to-a-predictive-experiment
-[Distribuire come servizio Web]: #deploy-it-as-a-web-service
-[nuovo]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[classico]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Distribuire l'esperimento predittivo come servizio Web]: #deploy-it-as-a-web-service
+[New]: #deploy-the-predictive-experiment-as-a-new-web-service
+[classico]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

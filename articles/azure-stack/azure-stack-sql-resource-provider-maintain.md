@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di database SQL Azure stack | Documenti Microsoft
-description: Informazioni su come distribuire i database SQL come servizio in Azure Stack e la procedura per distribuire l'adapter di provider di risorse di SQL Server.
+title: Mantenere il provider di risorse SQL in Azure Stack | Microsoft Docs
+description: Informazioni su come è possibile gestire il servizio provider di risorse SQL in Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,125 +11,235 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 53436d131672622ae1a72a1bb84d5aa83fdbdc0c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "36300911"
 ---
-# <a name="maintenance-operations"></a>Operazioni di manutenzione 
-Il provider di risorse SQL è un controllo bloccato inattivo macchina virtuale. Aggiornamento della protezione della macchina virtuale la risorsa del provider può essere eseguita tramite l'endpoint di PowerShell Just Enough Administration (JEA) _DBAdapterMaintenance_. Uno script viene fornito con il pacchetto di installazione del componente per semplificare queste operazioni.
+# <a name="sql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse SQL
+
+Il provider di risorse SQL viene eseguito in una macchina virtuale bloccata. Per abilitare le operazioni di manutenzione, è necessario aggiornare la protezione della macchina virtuale. A questo scopo si utilizza il principio del privilegio minimo, è possibile usare [PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Il pacchetto di installazione di provider di risorse include uno script per questa operazione.
 
 ## <a name="patching-and-updating"></a>L'applicazione di patch e aggiornamento
-Il provider di risorse SQL non viene gestito come parte dello Stack di Azure non è un componente aggiuntivo. Microsoft fornirà gli aggiornamenti al provider di risorse SQL in base alle esigenze. Il provider di risorse SQL viene creata un'istanza in un _utente_ macchina virtuale con la sottoscrizione del Provider predefinito. Pertanto, è necessario fornire le patch di Windows, le firme antivirus, e così via. Aggiornamenti di Windows di pacchetti forniti come parte del ciclo di patch e aggiornamento può essere utilizzati per applicare gli aggiornamenti per la macchina virtuale Windows. Quando viene rilasciato un adapter aggiornato, viene fornito uno script per applicare l'aggiornamento. Questo script crea una nuova VM RP e qualsiasi stato che si dispone già di eseguire la migrazione.
 
- ## <a name="backuprestoredisaster-recovery"></a>Backup/Restore/ripristino di emergenza
- Il provider di risorse SQL non è eseguito come parte del processo di Azure Stack BC ripristino di emergenza, è un componente aggiuntivo. Verranno forniti per semplificare gli script:
-- Backup delle informazioni necessarie per lo stato (archiviate in un account di archiviazione di Azure Stack)
-- Ripristino al relying Party non è più necessario un ripristino completo dello stack.
-I server di database devono essere recuperati prima (se necessario), prima che la risorsa viene ripristinato provider.
+Il provider di risorse SQL non è gestito come parte di Azure Stack perché è un componente aggiuntivo. Microsoft fornisce aggiornamenti per il provider di risorse SQL, se necessario. Quando viene rilasciato un aggiornato adapter SQL, viene fornito uno script per applicare l'aggiornamento. Questo script crea un nuovo provider di risorse della macchina virtuale, eseguire la migrazione lo stato del provider precedente della macchina virtuale per la nuova macchina virtuale. Per altre informazioni, vedere [aggiornare il provider di risorse SQL](azure-stack-sql-resource-provider-update.md).
 
-## <a name="updating-sql-credentials"></a>Aggiornamento delle credenziali SQL
-È responsabile per la creazione e gestione di account di amministratore di sistema nel computer SQL Server. Il provider di risorse è necessario un account con i privilegi per gestire i database per conto degli utenti: non è necessario l'accesso ai dati in questi database. Se è necessario aggiornare le password sa di SQL Server, è possibile utilizzare la funzionalità di aggiornamento dell'interfaccia di amministrazione del provider di risorse per modificare la password archiviata utilizzata dal provider di risorse. Queste password sono archiviate in un insieme di credenziali chiave sull'istanza dello Stack di Azure.
+### <a name="provider-virtual-machine"></a>Macchina virtuale del provider
 
-Per modificare le impostazioni, fare clic su **Sfoglia** &gt; **risorse amministrative** &gt; **server di Hosting SQL** &gt; **Account di accesso SQL** e selezionare un nome di account di accesso. La modifica deve essere apportata nell'istanza di SQL prima (e tutte le repliche, se necessario). Nel **impostazioni** pannello, fare clic su **Password**.
+Poiché il provider di risorse viene eseguito su un *utente* macchina virtuale, è necessario applicare le patch necessarie e gli aggiornamenti quando vengono rilasciate. È possibile usare i pacchetti di aggiornamento di Windows che vengono forniti come parte del ciclo di patch e aggiornamento per applicare gli aggiornamenti per la macchina virtuale.
+
+## <a name="backuprestoredisaster-recovery"></a>Backup/Restore/ripristino di emergenza
+
+ Poiché si tratta di un componente aggiuntivo, il provider di risorse SQL non viene eseguito il backup come parte di un processo di Azure Stack Business Continuity ripristino di emergenza (BCDR). Gli script verranno forniti per le operazioni seguenti:
+
+- Backup delle informazioni di stato (archiviate in un account di archiviazione di Azure Stack).
+- Se è necessario un ripristino dello stack completa, il ripristino del provider di risorse.
+
+>[!NOTE]
+>Se è necessario eseguire un ripristino, i server di database devono essere ripristinati prima il provider di risorse viene ripristinato.
+
+## <a name="updating-sql-credentials"></a>L'aggiornamento delle credenziali SQL
+
+Ha la responsabilità per la creazione e gestione degli account sysadmin su SQL Server. Il provider di risorse necessita di un account con tali privilegi per gestire i database per gli utenti, ma non è necessario l'accesso ai dati degli utenti. Se è necessario aggiornare le password sysadmin su SQL Server, è possibile utilizzare l'interfaccia di amministrazione del provider di risorse per modificare una password archiviata. Queste password vengono archiviate in un insieme di credenziali delle chiavi nell'istanza di Azure Stack.
+
+Per modificare le impostazioni, selezionare **esplorare** &gt; **risorse amministrative** &gt; **istanze di SQL Server che ospita** &gt; **Account di accesso SQL** e selezionare un nome utente. La modifica deve essere apportata nell'istanza di SQL prima di tutto (e tutte le repliche, se necessario). Sotto **le impostazioni**, selezionare **Password**.
 
 ![Aggiornare la password dell'amministratore](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
-## <a name="update-the-virtual-machine-operating-system"></a>Aggiornare il sistema operativo della macchina virtuale
-Esistono diversi modi per aggiornare la macchina virtuale di Windows Server:
-* Installare il pacchetto di provider di risorse più recente usando un'immagine di Windows Server 2016 Core attualmente con patch
-* Installa un pacchetto di Windows Update durante l'installazione o aggiornamento del componente
+## <a name="secrets-rotation"></a>Rotazione dei segreti
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aggiornare le definizioni di Windows Defender di macchina virtuale
-Seguire questi passaggi per aggiornare le definizioni di Defender:
+*Queste istruzioni si applicano solo a Azure Stack integrati sistemi versione 1804 e versioni successive. Non provare a eseguire la rotazione dei segreti nelle versioni di pre-1804 Azure Stack.*
 
-1. Download di aggiornare le definizioni di Windows Defender [Windows Defender definizione](https://www.microsoft.com/en-us/wdsi/definitions)
+Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con Azure Stack, è possibile ruotare i segreti dell'infrastruttura (distribuzione) seguenti:
 
-    In questa pagina in "Scaricare e installare manualmente le definizioni" Scarica "Antivirus di Windows Defender per Windows 10 e Windows 8.1" il file a 64 bit. 
-    
-    Collegamento diretto: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+- Certificato SSL esterno [specificato durante la distribuzione](azure-stack-pki-certs.md).
+- Resource provider VM account password dell'amministratore locale specificate durante la distribuzione.
+- Password utente diagnostica (dbadapterdiag) provider di risorse.
 
-2. Creare una sessione di PowerShell all'endpoint di manutenzione della macchina virtuale di SQL RP adapter
-3. Copiare il file di aggiornamento delle definizioni al computer di adapter DB utilizzando la sessione di manutenzione endpoint
-4. Nella pagina Manutenzione PowerShell sessione richiamare il _aggiornamento DBAdapterWindowsDefenderDefinitions_ comando
-5. Dopo l'installazione, è consigliabile rimuovere il file di aggiornamento tra le definizioni. Può essere rimosso della sessione di manutenzione utilizzando la _Remove-ItemOnUserDrive)_ comando.
+### <a name="powershell-examples-for-rotating-secrets"></a>Esempi di PowerShell per la rotazione dei segreti
 
-
-Di seguito è riportato un esempio di script per aggiornare le definizioni di Defender (sostituire l'indirizzo o il nome della macchina virtuale con il valore effettivo):
+**Modificare tutti i segreti nello stesso momento.**
 
 ```powershell
-# Set credentials for the diagnostic user
-$diagPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$diagCreds = New-Object System.Management.Automation.PSCredential `
-    ("dbadapterdiag", $vmLocalAdminPass)$diagCreds = Get-Credential
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    –DiagnosticsUserPassword $passwd `
+    -DependencyFilesLocalPath $certPath `
+    -DefaultSSLCertificatePassword $certPasswd  `
+    -VMLocalCredential $localCreds
+```
 
-# Public IP Address of the DB adapter machine
-$databaseRPMachine  = "XX.XX.XX.XX"
+**Modificare la password dell'utente di diagnostica.**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    –DiagnosticsUserPassword  $passwd
+```
+
+**Modificare la password dell'account amministratore locale della macchina virtuale.**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -VMLocalCredential $localCreds
+```
+
+**Modificare la password del certificato SSL.**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -DependencyFilesLocalPath $certPath `
+    -DefaultSSLCertificatePassword $certPasswd
+```
+
+### <a name="secretrotationsqlproviderps1-parameters"></a>Parametri SecretRotationSQLProvider.ps1
+
+|Parametro|DESCRIZIONE|
+|-----|-----|
+|AzCredential|Credenziale dell'account di Azure Stack amministratore del servizio.|
+|CloudAdminCredential|Azure Stack cloud amministratore dominio credenziale dell'account.|
+|PrivilegedEndpoint|Endpoint il privilegio di accesso Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Password dell'account utente di diagnostica.|
+|VMLocalCredential|Account amministratore locale nella VM MySQLAdapter.|
+|DefaultSSLCertificatePassword|Certificato SSL predefinito (* pfx) la password.|
+|DependencyFilesLocalPath|Percorso locale per i file delle dipendenze.|
+|     |     |
+
+### <a name="known-issues"></a>Problemi noti
+
+**Problema**: i log di rotazione dei segreti.<br>
+I log per la rotazione dei segreti non vengono raccolti automaticamente se lo script personalizzato di rotazione segreta non riesce quando viene eseguito.
+
+**Soluzione alternativa**:<br>
+Usare il cmdlet Get-AzsDBAdapterLogs per raccogliere tutti i log di provider di risorse, ad esempio AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, salvato in C:\Logs.
+
+## <a name="update-the-virtual-machine-operating-system"></a>Aggiornare il sistema operativo della macchina virtuale
+
+Usare uno dei metodi seguenti per aggiornare il sistema operativo della macchina virtuale.
+
+- Installare il pacchetto di provider di risorse più recente usando un'immagine di Windows Server 2016 Core attualmente con patch.
+- Installare un pacchetto di Windows Update durante l'installazione di, o l'aggiornamento a provider di risorse.
+
+## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aggiornare le definizioni di Windows Defender di macchina virtuale
+
+Per aggiornare le definizioni di Windows Defender:
+
+1. Scaricare le definizioni di Windows Defender Aggiorna da [definizione di Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions).
+
+   Per le definizioni di aggiornamento pagina, scorrere verso il basso "Scaricare e installare manualmente le definizioni di". Scaricare il file a 64 bit "Windows Defender Antivirus per Windows 10 e Windows 8.1".
+
+   In alternativa, usare [questo collegamento diretto](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) download/esecuzione file fpam fe.exe.
+
+2. Creare una sessione di PowerShell all'endpoint di manutenzione SQL resource provider della scheda della macchina virtuale.
+
+3. Copiare il file di aggiornamento delle definizioni per la macchina virtuale tramite la sessione di endpoint di manutenzione.
+
+4. Nella sessione di PowerShell di manutenzione, eseguire la *Update-DBAdapterWindowsDefenderDefinitions* comando.
+
+5. Dopo aver installato le definizioni, è consigliabile eliminare il file di aggiornamento delle definizioni usando il *Remove-ItemOnUserDrive* comando.
+
+**Esempio di script di PowerShell per l'aggiornamento delle definizioni.**
+
+È possibile modificare ed eseguire lo script seguente per aggiornare le definizioni di Defender. Sostituire i valori nello script con i valori dell'ambiente.
+
+```powershell
+# Set credentials for local admin on the resource provider VM.
+$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminUser = "<local admin user name>"
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
+    ($vmLocalAdminUser, $vmLocalAdminPass)
+
+# Provide the public IP address for the adapter VM.
+$databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
- 
-# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
-Invoke-WebRequest -Uri https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64 `
-    -Outfile $localPathToDefenderUpdate 
 
-# Create session to the maintenance endpoint
+# Download the Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.
+Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
+    -Outfile $localPathToDefenderUpdate
+
+# Create a session to the maintenance endpoint.
 $session = New-PSSession -ComputerName $databaseRPMachine `
-    -Credential $diagCreds -ConfigurationName DBAdapterMaintenance
-# Copy defender update file to the db adapter machine
+    -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
+# Copy the defender update file to the adapter virtual machine.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
-     -Destination "User:\mpam-fe.exe"
-# Install the update file
+     -Destination "User:\"
+# Install the update definitions.
 Invoke-Command -Session $session -ScriptBlock `
-    {Update-AzSDBAdapterWindowsDefenderDefinitions -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
-# Cleanup the definitions package file and session
+    {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
+# Cleanup the definitions package file and session.
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
 $session | Remove-PSSession
 ```
 
-
 ## <a name="collect-diagnostic-logs"></a>Raccogliere i log di diagnostica
-Il provider di risorse SQL è un controllo bloccato inattivo macchina virtuale. Se è necessario raccogliere i log dalla macchina virtuale, un endpoint di PowerShell Just Enough Administration (JEA) _DBAdapterDiagnostics_ viene fornito a tale scopo. Sono disponibili due comandi tramite questo endpoint:
 
-* Get-AzsDBAdapterLog - prepara un pacchetto zip contenente i registri di diagnostica RP e lo inserisce nell'unità sessione utente. Il comando può essere chiamato senza parametri e raccoglierà le ultime quattro ore dei log.
-* Remove-AzsDBAdapterLog - pulisce i pacchetti di log esistenti nel provider di risorse macchina virtuale
+Per raccogliere i log dalla macchina virtuale bloccata, è possibile usare l'endpoint PowerShell Just Enough Administration (JEA) *DBAdapterDiagnostics*. Questo endpoint fornisce i comandi seguenti:
 
-Un account utente denominato _dbadapterdiag_ viene creato durante la distribuzione di relying Party o aggiornamento per la connessione all'endpoint di diagnostica per l'estrazione dei registri di relying Party. La password dell'account è uguale a quella fornita per l'account amministratore locale durante l'installazione/aggiornamento.
+- **Get-AzsDBAdapterLog**. Questo comando crea un pacchetto con estensione zip dei log di diagnostica del provider di risorse e Salva il file nell'unità utente della sessione. È possibile eseguire questo comando senza parametri e le ultime quattro ore di log vengono raccolti.
+- **Remove-AzsDBAdapterLog**. Questo comando rimuove i pacchetti esistenti di log per il provider di risorse della macchina virtuale.
 
-Per utilizzare questi comandi, è necessario creare una sessione remota di PowerShell per la macchina virtuale del provider di risorse e richiamare il comando. È anche possibile specificare parametri FromDate e ToDate. Se non si specifica una o entrambe queste opzioni, FromDate sarà quattro ore prima dell'ora corrente e il ToDate sarà l'ora corrente.
+### <a name="endpoint-requirements-and-process"></a>Processo e sui requisiti di endpoint
 
-Questo script di esempio viene illustrato l'utilizzo di questi comandi:
+Quando un provider di risorse viene installato o aggiornato, il **dbadapterdiag** account utente viene creato. Si userà questo account per raccogliere i log di diagnostica.
+
+>[!NOTE]
+>La password dell'account dbadapterdiag è uguale a quella usata per l'amministratore locale nella macchina virtuale che viene creata durante un aggiornamento o la distribuzione del provider.
+
+Usare la *DBAdapterDiagnostics* comandi, creare una sessione remota di PowerShell per la macchina virtuale del provider di risorse ed eseguire il **Get-AzsDBAdapterLog** comando.
+
+Impostare l'intervallo di tempo per la raccolta di log utilizzando il **FromDate** e **ToDate** parametri. Se non si specifica uno o entrambi questi parametri, vengono usati i valori predefiniti seguenti:
+
+- FromDate corrisponde a quattro ore prima dell'ora corrente.
+- ToDate è l'ora corrente.
+
+**Esempio di script di PowerShell per la raccolta dei log.**
+
+Lo script seguente illustra come raccogliere i log di diagnostica dai provider di risorse della macchina virtuale.
 
 ```powershell
 # Create a new diagnostics endpoint session.
-$databaseRPMachineIP = '<RP VM IP>'
+$databaseRPMachineIP = '<RP VM IP address>'
 $diagnosticsUserName = 'dbadapterdiag'
-$diagnosticsUserPassword = '<see above>'
+$diagnosticsUserPassword = '<Enter Diagnostic password>'
 
 $diagCreds = New-Object System.Management.Automation.PSCredential `
-        ($diagnosticsUserName, $diagnosticsUserPassword)
+        ($diagnosticsUserName, (ConvertTo-SecureString -String $diagnosticsUserPassword -AsPlainText -Force))
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
-# Sample captures logs from the previous one hour
+# Sample that captures logs from the previous hour.
 $fromDate = (Get-Date).AddHours(-1)
 $dateNow = Get-Date
 $sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
 $logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
 
-# Copy the logs
+# Copy the logs to the user drive.
 $sourcePath = "User:\{0}" -f $logs
 $destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
-# Cleanup logs
+# Cleanup the logs.
 $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
-# Close the session
+# Close the session.
 $session | Remove-PSSession
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Aggiungere i server di hosting SQL Server](azure-stack-sql-resource-provider-hosting-servers.md)
+
+[Aggiungere i server di hosting di SQL Server](azure-stack-sql-resource-provider-hosting-servers.md)

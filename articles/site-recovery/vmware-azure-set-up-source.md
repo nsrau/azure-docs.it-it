@@ -2,17 +2,18 @@
 title: Configurare l'ambiente di origine per la replica da VMware in Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come configurare l'ambiente locale per la replica di macchine virtuali VMware in Azure con Azure Site Recovery.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 1380c1bc820a815fae317a86fcd0ee4f46dd9aa5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952655"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurare l'ambiente di origine per la replica da VMware in Azure
 
@@ -38,12 +39,12 @@ Nell'articolo si presuppone che le seguenti procedure siano già state eseguite:
 
 ## <a name="set-up-the-configuration-server"></a>Configurare il server di configurazione
 
-Il server di configurazione è impostato come una macchina virtuale VMware locale, usando un modello OVF (Open Virtualization Format). [Altre informazioni](concepts-vmware-to-azure-architecture.md) sui componenti che verranno installati nella macchina virtuale VMware. 
+È possibile configurare il server di configurazione come una macchina virtuale VMware locale usando un modello OVA (Open Virtualization Application). [Altre informazioni](concepts-vmware-to-azure-architecture.md) sui componenti che verranno installati nella macchina virtuale VMware.
 
 1. Informazioni sui [prerequisiti](vmware-azure-deploy-configuration-server.md#prerequisites) per la distribuzione del server di configurazione.
 2. [Controllare i valori di capacità](vmware-azure-deploy-configuration-server.md#capacity-planning) per la distribuzione.
-3. [Scaricare](vmware-azure-deploy-configuration-server.md#download-the-template) e [importare](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) il modello OVF (how-to-deploy-configuration-server.md) per configurare una macchina virtuale VMware locale che esegue il server di configurazione.
-4. Attivare la macchina virtuale VMware e [registrarla](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) nell'insieme di credenziali di Servizi di ripristino.
+3. [Scaricare](vmware-azure-deploy-configuration-server.md#download-the-template) e [importare](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) il modello OVA per configurare una macchina virtuale VMware locale che esegue il server di configurazione. La licenza fornita con il modello è una licenza di valutazione ed è valida per 180 giorni. Passato questo periodo, il cliente deve attivare le finestre con una licenza acquistata.
+4. Attivare la macchina virtuale VMware e [registrarla](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) nell'insieme di credenziali di Servizi di ripristino.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>Aggiungere l'account VMware per l'individuazione automatica

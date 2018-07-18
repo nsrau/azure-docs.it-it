@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418843"
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione
 ## <a name="scheduler-entity-hierarchy"></a>Gerarchia di entità dell'Utilità di pianificazione

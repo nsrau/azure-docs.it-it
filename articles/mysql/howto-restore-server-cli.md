@@ -6,15 +6,16 @@ author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: bd4ebbec4506824f00d09a09369ebbeaf9458c19
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319089"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -31,32 +32,6 @@ Per completare questa guida, è necessario:
 
 > [!IMPORTANT]
 > Questa guida dettagliata richiede l'uso dell'interfaccia della riga di comando di Azure 2.0 o versioni successive. Per verificare la versione, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere `az --version`. Per eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Aggiungere l'estensione
-Aggiungere l'estensione di gestione di Database di Azure per MySQL aggiornata con il comando seguente:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Verificare che sia installata la versione dell'estensione corretta. 
-```azurecli-interactive
-az extension list
-```
-
-Il codice JSON restituito includerà gli elementi seguenti: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Se non viene restituita la versione 0.0.5, eseguire questo comando per aggiornare l'estensione: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Impostare la configurazione del backup
 

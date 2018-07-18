@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Esercitazioni
   items:
-    - name: 1 - Registrare le applicazioni
-      href: tutorial-register-applications.md
+    - name: 1 - Creare un tenant B2C
+      href: tutorial-create-tenant.md
     - name: 2 - Eseguire l'autenticazione degli account
       items:
         - name: ASP.NET
@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: Uso del controllo dell'accesso in base all'età
           href: basic-age-gating.md
+        - name: Accesso diretto
+          href: direct-signin.md
     - name: Framework dell'esperienza di gestione delle identità
       items:
         - name: Criteri personalizzati
@@ -187,7 +189,7 @@
                   href: active-directory-b2c-setup-sf-app-custom.md
             - name: Integrare le API RESTful
               items:
-                - name: Convalidare l'input dell'utente
+                - name: Convalidare l'input utente
                   href: active-directory-b2c-rest-api-validation-custom.md
                 - name: Ottenere attestazioni aggiuntive
                   href: active-directory-b2c-rest-api-step-custom.md

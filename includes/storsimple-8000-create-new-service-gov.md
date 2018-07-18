@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
-1. Utilizzare le credenziali dell'account Microsoft per accedere al [portale di Microsoft Azure per enti pubblici](https://portal.azure.us/).
+1. Usare le credenziali dell'account Microsoft per accedere al [portale di Microsoft Azure per enti pubblici](https://portal.azure.us/).
 2. Nel portale per enti pubblici fare clic su **+** e quindi nel marketplace fare clic su **Vedi tutto**. Cercare _StorSimple Physical_ (Dispositivi fisici StorSimple). Selezionare e fare clic su **Serie di dispositivi fisici StorSimple** e quindi fare clic su **Crea**. In alternativa, nel portale per enti pubblici fare clic su **+** e quindi in **Archiviazione** fare clic su **Serie di dispositivi fisici StorSimple**.
 3. Nel pannello **Gestione dispositivi StorSimple** seguire questa procedura:
    

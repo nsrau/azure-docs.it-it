@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334670"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Aggiornare il server Azure Multi-Factor Authentication alla versione più recente
 
@@ -47,21 +48,12 @@ Se si esegue l'aggiornamento dalla versione 6.x o precedente alla versione 7.x o
 
 Se il Portale utenti è su più server, ripetere l'installazione su tutti i server. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Aggiornare il servizio Web app per dispositivi mobili
 
-1. Eseguire il backup del file web.config che si trova nella directory virtuale del percorso di installazione del servizio Web app per dispositivi mobili (ad esempio C:\inetpub\wwwroot\app or C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService).
-2. Copiare il file MultiFactorAuthenticationMobileAppWebServiceSetup64.msi dal percorso di installazione dei server MFA e inserirlo nel server Web di registrazione dell'app per dispositivi mobili.
-3. Eseguire il programma di installazione. 
-
-  Se si verifica un errore che informa che è necessario eseguire l'aggiornamento di Microsoft Visual C++ 2015 Redistributable 1 o di una versione successiva, scaricare e installare il pacchetto di aggiornamento più recente dall'[Area download Microsoft](https://www.microsoft.com/download/). Installare le versioni x86 e x64.
-
-4. Dopo avere installato l'aggiornamento del software per il servizio Web app per dispositivi mobili, confrontare il file web.config di cui è stato eseguito il backup nel passaggio 1 con il nuovo file web.config. Se non sono presenti nuovi attributi nel nuovo file web.config, è possibile ricopiare il file web.config salvato nella directory virtuale e sovrascrivere quello nuovo. È inoltre possibile copiare e incollare i valori appSettings e l'URL di SDK servizio Web dal file di backup in un nuovo file web.config.
-
-Se il servizio Web app per dispositivi mobili è su più server, ripetere l'installazione su tutti i server. 
+> [!NOTE]
+> Quando si esegue l'aggiornamento da una versione del server Azure Multi-Factor Authentication precedente alla 8.0 a una versione successiva, il servizio Web per l'app per dispositivi mobili può essere disinstallato dopo l'aggiornamento
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>Aggiornare le schede AD FS
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>Se MFA viene eseguito su server diversi da AD FS
 

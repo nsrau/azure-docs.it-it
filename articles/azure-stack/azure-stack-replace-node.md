@@ -1,11 +1,11 @@
 ---
-title: "Sostituire un nodo di unità di scala su un sistema integrato dello Stack di Azure | Documenti Microsoft"
-description: "Informazioni su come sostituire un nodo di unità di scala fisico in un sistema integrato dello Stack di Azure."
+title: Sostituire un nodo di unità di scala su un sistema integrato dello Stack di Azure | Documenti Microsoft
+description: Informazioni su come sostituire un nodo di unità di scala fisico in un sistema integrato dello Stack di Azure.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f9434689-ee66-493c-a237-5c81e528e5de
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/05/2018
+ms.locfileid: "27598774"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Sostituire un nodo di unità di scala su un sistema integrato dello Stack di Azure
 

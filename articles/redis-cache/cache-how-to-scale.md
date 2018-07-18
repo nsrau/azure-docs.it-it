@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959383"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -153,7 +154,7 @@ Mentre le cache Standard e Premium dispongono di un contratto di servizio pari a
 * Le cache **Basic** sono offline durante le operazioni di ridimensionamento a dimensioni diverse. Tali cache rimangono disponibili quando si esegue il ridimensionamento da **Basic** a **Standard**, ma possono verificarsi piccoli problemi di connessione. Se si verifica un problema di connessione, i client Redis dovrebbero poter ristabilire la connessione immediatamente.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Limitazioni di ridimensionamento con la replica geografica
+### <a name="scaling-limitations-with-geo-replication"></a>Limitazioni di ridimensionamento con la replica geografica
 
 Dopo aver aggiunto un collegamento di replica geografica tra due cache, non è più possibile eseguire un'operazione di ridimensionamento o modificare il numero di partizioni in un cluster. Per eseguire questi comandi è necessario scollegare la cache. Per altre informazioni, vedere [Configurare la replica geografica](cache-how-to-geo-replication.md).
 

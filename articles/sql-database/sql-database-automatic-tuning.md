@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365968"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646644"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -62,13 +62,15 @@ Per una panoramica del funzionamento dell'ottimizzazione automatica e per gli sc
 ## <a name="automatic-tuning-options"></a>Opzioni di ottimizzazione automatica
 
 Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure sono le seguenti:
- 1. **CREATE INDEX** (Crea indice), che identifica quali sono gli indici in grado di migliorare le prestazioni del carico di lavoro, li crea e verifica automaticamente il miglioramento delle prestazioni delle query. Per questa opzione è abilitata l'impostazione predefinita di Azure.
- 2. **DROP INDEX** (Elimina indice), che identifica gli indici ridondanti e duplicati e gli indici che non sono stati usati per lungo tempo. Si noti che al momento l'opzione è incompatibile con le applicazioni che usano hint di indice e i cambi di partizione. Per questa opzione l'impostazione predefinita di Azure è disabilitata.
- 3. **FORCE LAST GOOD PLAN** (Forza piano valido più recente), che identifica le query SQL che usano un piano di esecuzione, ma che sono più lente rispetto a un piano valido precedente e le query che usano l'ultimo piano valido noto invece del piano con regressione. Per questa opzione è abilitata l'impostazione predefinita di Azure.
+ 1. **CREATE INDEX** (Crea indice), che identifica quali sono gli indici in grado di migliorare le prestazioni del carico di lavoro, li crea e verifica automaticamente il miglioramento delle prestazioni delle query.
+ 2. **DROP INDEX** (Elimina indice), che identifica gli indici ridondanti e duplicati e gli indici che non sono stati usati per lungo tempo. Si noti che questa opzione non è compatibile con le applicazioni che usano cambi di partizione e hint di indice.
+ 3. **FORCE LAST GOOD PLAN** (Forza piano valido più recente), che identifica le query SQL che usano un piano di esecuzione, ma che sono più lente rispetto a un piano valido precedente e le query che usano l'ultimo piano valido noto invece del piano con regressione.
 
-Il database SQL di Azure identifica le raccomandazioni relative a **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che possono ottimizzare il database e le visualizza nel portale di Azure. Per altre informazioni sull'identificazione degli indici che devono essere modificati, vedere [Find index recommendations in Azure portal](sql-database-advisor-portal.md) (Trovare raccomandazioni per gli indici nel portale di Azure). È possibile applicare le raccomandazioni manualmente tramite il portale o lasciare che sia il database SQL di Azure ad applicarle automaticamente, monitorare il carico di lavoro dopo la modifica e verificare che la raccomandazione abbia migliorato le prestazioni del carico di lavoro.
+Il database SQL di Azure identifica le raccomandazioni relative a **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che possono ottimizzare il database e le visualizza nel portale di Azure. Per altre informazioni sull'identificazione degli indici che devono essere modificati, vedere [Find index recommendations in Azure portal](sql-database-advisor-portal.md) (Trovare raccomandazioni per gli indici nel portale di Azure). È possibile applicare le raccomandazioni manualmente tramite il portale o lasciare che sia il database SQL di Azure ad applicarle automaticamente, monitorare il carico di lavoro dopo la modifica e verificare che la raccomandazione abbia migliorato le prestazioni del carico di lavoro. 
 
-Le opzioni di ottimizzazione automatica possono essere attivate o disattivate in modo indipendente per ogni database, oppure possono essere configurate nel server logico e applicate a ogni database che eredita le impostazioni dal server. I server logici possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Il metodo consigliato per la configurazione dell'ottimizzazione automatica è quello che prevede la configurazione delle opzioni di ottimizzazione automatica sul server e l'eredità delle impostazioni nei database presenti nel server, perché semplifica la gestione delle opzioni di ottimizzazione automatica su un numero elevato di database.
+Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server logici e applicate a ogni database che eredita le impostazioni dal server. I server logici possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
+
+Il metodo consigliato per la configurazione dell'ottimizzazione automatica è quello che prevede la configurazione delle opzioni di ottimizzazione automatica in un server e l'eredità delle impostazioni per i database appartenenti al server padre, poiché questo metodo semplifica la gestione delle opzioni di ottimizzazione automatica per un numero elevato di database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

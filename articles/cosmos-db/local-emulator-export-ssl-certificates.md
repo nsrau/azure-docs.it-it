@@ -2,25 +2,22 @@
 title: Esportare i certificati dell'emulatore di Azure Cosmos DB | Microsoft Docs
 description: Quando si effettua lo sviluppo in linguaggi e runtime che non usano l'archivio certificati Windows, sarà necessario esportare e gestire i certificati SSL. Questo post contiene istruzioni dettagliate.
 services: cosmos-db
-documentationcenter: ''
 keywords: Emulatore di Azure Cosmos DB
 author: voellm
 manager: kfile
 editor: ''
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082102"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Esportare i certificati dell'emulatore di Azure Cosmos DB per l'uso con Java, Python e Node.js
 
@@ -102,7 +99,7 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 > * Esportazione del certificato SSL
 > * Uso del certificato in Java, Python e Node.js
 
-È ora possibile passare all'esercitazione Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB.
+È ora possibile passare alla sezione dei concetti per altre informazioni su Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
-> [Creare una funzione di Azure con input da Azure Cosmos DB](tutorial-functions-http-trigger.md) 
+>[Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](../cosmos-db/consistency-levels.md)

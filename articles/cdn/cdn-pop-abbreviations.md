@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057105"
 ---
 # <a name="azure-cdn-pop-locations-by-abbreviation"></a>Località POP della rete CDN di Azure per abbreviazione
 > [!div class="op_single_selector"]

@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097479"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con il servizio di bilanciamento del carico di base sulle VM tramite il portale di Azure
 
@@ -35,18 +36,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-virtual-network"></a>Crea rete virtuale
+## <a name="create-a-virtual-network"></a>Creare una rete virtuale
 1. Nella parte superiore sinistra della schermata fare clic su **Nuovo** > **Rete** > **Rete virtuale** e immettere i valori seguenti per la rete virtuale:
     - *myVnet* come nome della rete virtuale.
     - *myResourceGroupILB* come nome del gruppo di risorse esistente
     - *myBackendSubnet* come nome della subnet.
 2. Fare clic su **Crea** per creare la rete virtuale.
 
+![Creare un servizio di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
 Creare un servizio di bilanciamento del carico di base interno con il portale.
 
-1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Load Balancer**.
-2. Nella pagina **Creare un servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
+1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
+2. Nella pagina **Crea servizio di bilanciamento del carico** immettere questi valori per il bilanciamento del carico:
     - *myLoadBalancer* come nome del servizio di bilanciamento del carico.
     - **Interno** come tipo di bilanciamento del carico.
     - **Di base** come versione SKU.
@@ -56,10 +59,7 @@ Creare un servizio di bilanciamento del carico di base interno con il portale.
     - *myResourceGroupILB* come nome del nuovo gruppo di risorse creato.
 3. Fare clic su **Crea** per creare il servizio di bilanciamento del carico.
    
-    ![Creare un servizio di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>Creare i server back-end
+    ## <a name="create-backend-servers"></a>Creare i server back-end
 
 In questa sezione si creano due macchine virtuali per il pool back-end del servizio di bilanciamento del carico di base e quindi si installa IIS nelle macchine virtuali per testare il servizio di bilanciamento del carico.
 
@@ -73,18 +73,18 @@ In questa sezione si creano due macchine virtuali per il pool back-end del servi
 3. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e fare clic su **Seleziona**.
 4. Immettere i valori seguenti per le impostazioni della macchina virtuale:
     - *myAvailabilitySet* come nome del nuovo set di disponibilità creato.
-    -  *myVNet* - assicurarsi che sia selezionato come rete virtuale.
-    - *myBackendSubnet* - assicurarsi che sia selezionato come subnet.
-    - *myNetworkSecurityGroup* come nome del nuovo gruppo di sicurezza di rete (firewall) che è necessario creare.
+    -  *myVNet*: assicurarsi che sia selezionato come rete virtuale.
+    - *myBackendSubnet*: assicurarsi che sia selezionato come subnet.
+5. In **Gruppo di sicurezza di rete** selezionare **Avanzate**. Quindi, per **Gruppo di sicurezza di rete (firewall)**, selezionare **Nessuno**.
 5. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
 6. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
-7. Seguendo i passaggi da 1 a 6, creare una seconda macchina virtuale denominata *VM2* con *myAvailabilityset* come set di disponibilità, *myVnet* come rete virtuale,  *myBackendSubnet* come subnet e *myNetworkSecurityGroup* come gruppo di sicurezza di rete. 
+7. Seguendo i passaggi da 1 a 6, creare una seconda macchina virtuale denominata *VM2* con *myAvailabilityset* come set di disponibilità, *myVnet* come rete virtuale, *myBackendSubnet* come subnet e selezionare **Nessuno** per **Gruppo di sicurezza di rete (firewall)**. 
 
-### <a name="install-iis-and-customize-the-default-web-page"></a>Installare IIS e personalizzare la pagina web predefinita
+### <a name="install-iis-and-customize-the-default-web-page"></a>Installare IIS e personalizzare la pagina Web predefinita
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su **myVM1**, che si trova nel gruppo di risorse *myResourceGroupILB*.
 2. Nella pagina **Panoramica** fare clic su **Connetti** per connettersi a RDP nella macchina virtuale.
-3. Accedere alla VM.
+3. Accedere alla macchina virtuale.
 4. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Server Manager**.
 5. Avviare Windows PowerShell su VM1 e usare i comandi seguenti per installare il server IIS e aggiornare il file con estensione htm predefinito.
     ```powershell-interactive
@@ -98,34 +98,7 @@ In questa sezione si creano due macchine virtuali per il pool back-end del servi
      Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
     ```
 5. Chiudere la connessione RDP con *myVM1*.
-6. Ripetere i passaggi da 1 a 5 *myVM2* per Installare IIS e personalizzare la pagina web predefinita.
-
-## <a name="create-nsg-rules"></a>Creare le regole NSG
-
-In questa sezione vengono create regole NSG per consentire connessioni in ingresso tramite HTTP ed RDP.
-
-1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi, nell'elenco delle risorse, fare clic su **myNetworkSecurityGroup**, che si trova nel gruppo di risorse **myResourceGroupLB**.
-2. In **Impostazioni** fare clic su **Regole di sicurezza in ingresso** e quindi su **Aggiungi**.
-3. Immettere questi valori per la regola di sicurezza in ingresso denominata *myHTTPRule* per consentire connessioni HTTP in ingresso tramite la porta 80:
-    - *Tag del servizio* come **Origine**
-    - *Internet* come **Tag del servizio di origine**
-    - *80* come **Intervalli di porte di destinazione**
-    - *TCP* come **Protocollo**
-    - *Consenti* come **Azione**
-    - *100* come **Priorità**
-    - *myHTTPRule* come nome
-    - *Consenti HTTP* come descrizione
-4. Fare clic su **OK**.
- 
-5. Ripetere i passaggi da 2 a 4 per creare un'altra regola denominata *myRDPRule* per consentire una connessione RDP in ingresso tramite la porta 3389 con i valori seguenti:
-    - *Tag del servizio* come **Origine**
-    - *Internet* come **Tag del servizio di origine**
-    - *3389* come **Intervalli di porte di destinazione**
-    - *TCP* come **Protocollo**
-    - *Consenti* come **Azione**
-    - *200* come **Priorità**
-    - *myRDPRule* come nome
-    - *Consenti RDP* come descrizione
+6. Ripetere i passaggi da 1 a 5 in *myVM2* per installare IIS e personalizzare la pagina Web predefinita.
 
 ## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio di bilanciamento del carico di base
 
@@ -138,9 +111,9 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
 
 1. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** fare clic su **Pool back-end** e quindi su **Aggiungi**.
-3. Nella pagina **Add a backend pool** (Aggiungi pool back-end) seguire questa procedura:
-    - Digitare *myBackEndPool come nome del pool back-end.
-    - In **Associated to** (Associato a) selezionare **Set di disponibilità** dal menu a discesa.
+3. Nella pagina **Aggiungi pool back-end** seguire questa procedura:
+    - Digitare *myBackEndPool* come nome del pool back-end.
+    - In **Associato a** selezionare **Set di disponibilità** dal menu a discesa.
     - In **Set di disponibilità** fare clic su **myAvailabilitySet**.
     - Fare clic su **Aggiungi una configurazione IP della rete di destinazione** per aggiungere ogni macchina virtuale (*myVM1* & *myVM2*) creata nel pool back-end.
     - Fare clic su **OK**.
@@ -190,13 +163,13 @@ Per testare il servizio di bilanciamento del carico interno, è necessario crear
 2. Fare clic su **OK**.
 3. Selezionare **DS1_V2** come dimensioni per la macchina virtuale e fare clic su **Seleziona**.
 4. Immettere i valori seguenti per le impostazioni della macchina virtuale:
-    -  *myVNet*: assicurarsi che sia stata fatta la selezione come rete virtuale.
-    - *myBackendSubnet*: assicurarsi che sia stata fatta la selezione come subnet.
+    -  *myVNet*: assicurarsi che sia selezionato come rete virtuale.
+    - *myBackendSubnet*: assicurarsi che sia selezionato come subnet.
 5. Fare clic su **Disabilitato** per disabilitare la diagnostica di avvio.
 6. Fare clic su **OK**, verificare le impostazioni nella pagina di riepilogo e quindi fare clic su **Crea**.
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
-1. Nel portale di Azure, individuare l'indirizzo IP pubblico del servizio di bilanciamento del carico nella schermata **Panoramica**. A tale scopo, procedere come segue: Fare clic su **Tutte le risorse** nel menu a sinistra e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
+1. Nel portale di Azure, individuare l'indirizzo IP pubblico del servizio di bilanciamento del carico nella schermata **Panoramica**. A tale scopo: a. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi fare clic su **myLoadBalancer** nell'elenco di risorse.
     b. Nella pagina dei dettagli **Panoramica** copiare l'indirizzo IP privato (in questo esempio, è 10.1.0.7).
 
 2. Creare una connessione remota a *myVMTest* come segue: a. Fare clic su **Tutte le risorse** nel menu a sinistra e quindi nell'elenco delle risorse fare clic su **myVMTest**, che si trova nel gruppo di risorse *myResourceGroupILB*.

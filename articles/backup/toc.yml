@@ -61,15 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: Installare o aggiornare
           items:
-            - name: Preparare i carichi di lavoro del server di Backup di Azure nel portale di Azure
+            - name: Installare il server di Backup di Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Installare il server di Backup di Azure in Azure Stack
-              href: backup-mabs-install-azure-stack.md
-            - name: Aggiungere risorse di archiviazione al server di Backup di Azure
+            - name: Aggiungere le risorse di archiviazione
               href: backup-mabs-add-storage.md
-            - name: Aggiornare il server di Backup di Azure alla versione 2
+            - name: Aggiornamento a v.2
               href: backup-mabs-upgrade-to-v2.md
-            - name: Installazione automatica del server di Backup di Azure
+            - name: Installazione automatica
               href: backup-mabs-unattended-install.md
         - name: Proteggere i carichi di lavoro
           items:
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Proteggere lo stato del sistema e il ripristino bare metal
               href: backup-mabs-system-state-and-bmr.md
-            - name: File e applicazioni in Azure Stack
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Ripristinare i dati da un server di Backup di Azure
           href: backup-azure-alternate-dpm-server.md
+    - name: Server di Backup di Azure in Azure Stack
+      items:
+        - name: Installare il server di Backup di Azure
+          href: backup-mabs-install-azure-stack.md
+        - name: Proteggere file e applicazioni
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: Proteggere una farm SharePoint
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: Proteggere database di SQL Server
+          href: backup-mabs-sql-azure-stack.md
     - name: Condivisioni di File di Azure
       items:
         - name: Eseguire il backup di condivisioni di File di Azure
@@ -199,6 +205,8 @@
           href: backup-azure-mars-troubleshoot.md
         - name: Condivisione file di Azure
           href: troubleshoot-azure-files.md
+        - name: SQL Server
+          href: backup-sql-server-azure-troubleshoot.md
 - name: Riferimenti
   items:
     - name: .NET

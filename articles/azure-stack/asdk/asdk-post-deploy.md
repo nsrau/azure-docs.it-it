@@ -1,6 +1,6 @@
 ---
-title: Registra le configurazioni di distribuzione per Azure Stack Development Kit (ASDK) | Documenti Microsoft
-description: Vengono descritte le modifiche di configurazione consigliata per rendere dopo aver installato il Kit di sviluppo dello Stack di Azure (ASDK).
+title: Registra le configurazioni di distribuzione per Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: Descrive le modifiche alla configurazione consigliata per rendere dopo l'installazione di Azure Stack Development Kit (ASDK).
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,22 +12,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 23d99c498c139da3a145a1df230f419b4591b256
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598442"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Attività post-installazione ASDK configurazione
-Dopo aver [installando il ASDK](asdk-install.md), esistono essere apportate alcune modifiche di configurazione post-installazione consigliata. 
 
-## <a name="install-azure-stack-powershell"></a>Installare PowerShell per Azure Stack 
-Moduli di Azure PowerShell compatibili Stack Azure necessarie per lavorare con lo Stack di Azure.
+Dopo aver [installazione di Azure Stack Development Kit (ASDK)](asdk-install.md), sarà necessario apportare modifiche di una configurazione post-installazione alcuni consigliata.
 
-I comandi di PowerShell per lo Stack di Azure vengono installati tramite PowerShell Gallery. Per registrare il repository PSGallery, aprire una sessione di PowerShell con privilegi elevata ed eseguire il comando seguente:
+## <a name="install-azure-stack-powershell"></a>Installare PowerShell per Azure Stack
+
+Azure Stack compatibile con i moduli Azure PowerShell sono necessari per lavorare con Azure Stack.
+
+I comandi di PowerShell per Azure Stack vengono installati tramite PowerShell Gallery. Per registrare il repository PSGallery, aprire una sessione di PowerShell con privilegi elevata ed eseguire il comando seguente:
 
 ``` Powershell
 Set-PSRepository `
@@ -35,17 +38,17 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
- Moduli di Azure Resource Manager compatibili Stack Azure vengono installati tramite i profili della versione API. Stack di Azure, è necessario il profilo di versione API 2017-03-09-profilo, che è disponibile per l'installazione del modulo AzureRM.Bootstrapper. 
- 
- È possibile installare il modulo PowerShell dello Stack di Azure più recente con o senza connettività a internet per il computer host ASDK:
+È possibile usare i profili delle versioni API per specificare i moduli AzureRM compatibile con Azure Stack.  I profili delle versioni API forniscono un modo per gestire le differenze di versione tra Azure e Azure Stack. Un profilo di versione API è un set di moduli AzureRM di PowerShell con le versioni API specifiche. Il **AzureRM.Bootstrapper** modulo che è disponibile tramite la raccolta di PowerShell fornisce cmdlet di PowerShell necessari per lavorare con i profili della versione API.
+
+È possibile installare il modulo di PowerShell per Azure Stack più recente con o senza connettività Internet per il computer host ASDK:
 
 > [!IMPORTANT]
-> Prima di installare la versione richiesta, assicurarsi che si [disinstallare tutti i moduli PowerShell di Azure esistenti](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell).
+> Prima di installare la versione richiesta, assicurarsi che si [disinstallare tutti i moduli Azure PowerShell esistenti](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-the-azure-stack-powershell-modules).
 
-- **Con una connessione internet** dal computer host ASDK. Eseguire lo script di PowerShell seguente per installare questi moduli nell'installazione kit sviluppo:
+- **Con una connessione internet** dal computer host ASDK. Eseguire lo script di PowerShell seguente per installare i moduli nell'installazione del kit di sviluppo:
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -53,13 +56,14 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.11
-  ```
-  Se l'installazione ha esito positivo, i moduli di Azure Resource Manager e AzureStack vengono visualizzati nell'output.
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
 
-- **Senza una connessione internet** dal computer host ASDK. In uno scenario disconnesso, è necessario prima scaricare i moduli di PowerShell in un computer con connettività internet usando i seguenti comandi PowerShell:
+  ```
+
+  Se l'installazione ha esito positivo, i moduli AzureRM e AzureStack vengono visualizzati nell'output.
+
+- **Senza una connessione internet** dal computer host ASDK. In uno scenario disconnesso, è necessario prima scaricare i moduli di PowerShell in un computer che abbia la connettività internet usando i comandi PowerShell seguenti:
 
   ```PowerShell
   $Path = "<Path that is used to save the packages>"
@@ -78,11 +82,13 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.3.0
   ```
+
   Successivamente, copiare i pacchetti scaricati nel computer ASDK e registrare il percorso come il repository predefinito e installare i moduli AzureRM e AzureStack da questo repository:
 
-    ```PowerShell
+    ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -99,7 +105,8 @@ Set-PSRepository `
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Scaricare gli strumenti di Azure Stack
-[Strumenti di AzureStack](https://github.com/Azure/AzureStack-Tools) è un repository di GitHub che ospita i moduli di PowerShell per la gestione e distribuzione delle risorse allo Stack di Azure. Per ottenere questi strumenti, clonare il repository GitHub o scaricare la cartella Strumenti di AzureStack eseguendo lo script seguente:
+
+[Gli strumenti di AzureStack](https://github.com/Azure/AzureStack-Tools) è un repository di GitHub che ospita i moduli di PowerShell per la gestione e distribuzione delle risorse in Azure Stack. Per ottenere questi strumenti, clonare il repository GitHub o scaricare la cartella Strumenti di AzureStack eseguendo lo script seguente:
 
   ```PowerShell
   # Change directory to the root directory. 
@@ -121,45 +128,45 @@ Set-PSRepository `
   ```
 
 ## <a name="validate-the-asdk-installation"></a>Convalidare l'installazione ASDK
-Per garantire che la distribuzione ASDK avuto esito positivo, è possibile utilizzare il cmdlet Test-AzureStack attenendosi alla procedura seguente:
+Per assicurarsi che la distribuzione ASDK avuto esito positivo, è possibile usare il cmdlet Test-AzureStack seguendo questa procedura:
 
-1. Accedere come AzureStack\CloudAdmin nel computer host ASDK.
+1. Accedere come AzureStack\AzureStackAdmin nel computer host ASDK.
 2. Aprire PowerShell come amministratore (non PowerShell ISE).
 3. Eseguire: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. Eseguire: `Test-AzureStack`
 
-I test richiedere alcuni minuti. Se l'installazione ha esito positivo, l'output simile al seguente:
+Il test richiedere alcuni minuti. Se l'installazione ha esito positivo, l'output simile al seguente:
 
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
-Se si è verificato un errore, seguire i passaggi di risoluzione dei problemi per ottenere la Guida.
+Se si è verificato un errore, seguire i passaggi di risoluzione dei problemi per ottenere assistenza.
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Attivare i portali tenant e di amministratore
-Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i Azure Stack amministratore portali tenant e. Questa attivazione consente che il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.
+Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i portali a amministratore e del tenant di Azure Stack. Questa attivazione dà il consenso a fornendo il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.
 
-- Per il portale dell'amministratore, passare a https://adminportal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su **Accept**. Dopo avere accettato, è possibile aggiungere gli amministratori del servizio non sono anche amministratori di tenant di directory.
+- Per il portale dell'amministratore, passare a https://adminportal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su **Accept**. Dopo aver accettato, è possibile aggiungere gli amministratori del servizio che non sono anche amministratori di tenant di directory.
 
-- Per il portale tenant, passare a https://portal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su **Accept**. Dopo avere accettato, gli utenti nella directory possono accedere al portale tenant. 
+- Per il portale tenant, passare a https://portal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su **Accept**. Dopo aver accettato, gli utenti della directory possono accedere al portale tenant. 
 
 > [!NOTE] 
-> Se non sono attivati i portali, solo l'amministratore di directory può accedere e utilizzare i portali. Se un altro utente accede, essi verrà visualizzato un errore che informa che l'amministratore non dispone di autorizzazioni ad altri utenti. Quando l'amministratore in modo nativo appartiene alla directory registrato in Azure Stack, la directory di Azure Stack deve essere aggiunto all'URL di attivazione. Ad esempio, se Azure Stack è registrato con fabrikam.onmicrosoft.com e l'utente amministratore è admin@contoso.com, passare a https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com per attivare il portale. 
+> Se non sono attivati i portali, solo l'amministratore di directory possa accedere e usare i portali. Se un altro utente esegue l'accesso, si verrà visualizzato un errore che informa che l'amministratore non dispone di autorizzazioni ad altri utenti. Quando l'amministratore in modo nativo non appartengono alla directory di in che Azure Stack è registrato, la directory di Azure Stack deve essere aggiunto all'URL di attivazione. Ad esempio, se Azure Stack è registrato con fabrikam.onmicrosoft.com e l'utente amministratore viene admin@contoso.com, passare a https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com per attivare il portale. 
 
 ## <a name="reset-the-password-expiration-policy"></a>Reimpostare i criteri di scadenza password 
-Per assicurarsi che la password per l'host del kit di sviluppo non scada prima la fine del periodo di valutazione, seguire questi passaggi dopo aver distribuito il ASDK.
+Per assicurarsi che la password per l'host del kit di sviluppo non scada prima della scadenza periodo della valutazione, seguire questi passaggi dopo aver distribuito il ASDK.
 
 ### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Per modificare i criteri di scadenza della password da Powershell:
-In una console di Powershell con privilegi elevata, eseguire il comando:
+Da una console di Powershell con privilegi elevata, eseguire il comando:
 
 ```powershell
 Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
 ```
 
-### <a name="to-change-the-password-expiration-policy-manually"></a>Per modificare manualmente i criteri di scadenza delle password:
-1. Nell'host del kit di sviluppo, aprire **Gestione criteri di gruppo** (Gestione criteri di gruppo. MMC) e passare a **Gestione criteri di gruppo** – **foresta: azurestack.local** – **domini** – **azurestack.local**.
+### <a name="to-change-the-password-expiration-policy-manually"></a>Per modificare manualmente i criteri di scadenza della password:
+1. Nell'host del kit di sviluppo, aprire **Gestione criteri di gruppo** (GPMC. MMC) e passare a **Gestione criteri di gruppo** – **foresta: con azurestack. Local** – **domini** – **con azurestack. Local**.
 2. Fare doppio clic su **criterio dominio predefinito** e fare clic su **modificare**.
-3. In Editor Gestione criteri di gruppo, passare a **configurazione Computer** : **criteri** : **impostazioni di Windows** – **le impostazioni di sicurezza**– **Criteri di account** – **criteri Password**.
-4. Nel riquadro destro fare doppio clic su **validità massima password**.
-5. Nel **validità massima password proprietà** della finestra di dialogo Modifica il **Password scadrà** valore **180**e quindi fare clic su **OK**.
+3. In Editor Gestione criteri di gruppo, passare a **configurazione Computer** – **criteri** – **impostazioni di Windows** – **impostazionidisicurezza**– **Criteri di account** – **criteri Password**.
+4. Nel riquadro di destra, fare doppio clic su **validità massima password**.
+5. Nel **validità massima password proprietà** della finestra di dialogo Modifica il **la Password scadrà** valore **180**e quindi fare clic su **OK**.
 
 ![Console Gestione criteri di gruppo](media/asdk-post-deploy/gpmc.png)
 

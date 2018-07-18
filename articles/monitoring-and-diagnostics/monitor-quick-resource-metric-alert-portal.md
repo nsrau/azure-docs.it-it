@@ -1,20 +1,20 @@
 ---
-title: Ricevere una notifica quando un valore della metrica soddisfa una condizione | Microsoft Docs
+title: Ricevere una notifica quando un valore della metrica soddisfa una condizione
 description: Una guida rapida per consentire agli utenti di creare una metrica per un'app per la logica
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263049"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ricevere una notifica quando un valore della metrica soddisfa una condizione
 
@@ -69,7 +69,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare la scheda **Metriche**, inserire le informazioni in **Sottoscrizione**, **Gruppo di risorse**, **Tipo di risorsa** e **Risorsa** per l'app per la logica.
 
-3. Nell'elenco delle metriche scegliere **Esecuzioni avviate**.
+3. Nell'elenco delle metriche scegliere **Esecuzioni non riuscite**.
 
 4. Modificare l'**intervallo di tempo** del grafico per visualizzare i dati dell'ora precedente.
 

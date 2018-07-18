@@ -4,17 +4,18 @@ description: Informazioni su come eliminare o esportare dati utente in Azure Act
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2018
 ms.author: davidmu
-ms.openlocfilehash: 414221c3e4942801b5792835d520ec936c8c4bbb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: B2C
+ms.openlocfilehash: dacff48be3fbf16fc719f5a0395937b1f5acc979
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33932529"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712539"
 ---
 # <a name="manage-user-data-in-azure-ad-b2c"></a>Gestire i dati utente in Azure Active Directory B2C
 

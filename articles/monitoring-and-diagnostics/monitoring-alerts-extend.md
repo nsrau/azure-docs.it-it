@@ -1,74 +1,64 @@
 ---
-title: Estendere (copiare) avvisi dal portale di OMS ad Azure | Microsoft Docs
-description: Panoramica del processo per la copia di avvisi dal portale di OMS in Avvisi di Azure e informazioni sulle principali preoccupazioni dei clienti.
+title: Estendere (copiare) gli avvisi di Log Analytics in Avvisi di Azure - Panoramica
+description: Panoramica del processo per la copia di avvisi da Log Analytics nel portale OMS in Avvisi di Azure e informazioni sulle principali preoccupazioni dei clienti.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: vinagara
-ms.openlocfilehash: 25dcbad8607a651a7dd4b79f4f418cc473a2bf0e
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.component: alerts
+ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166498"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750273"
 ---
-# <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Estendere (copiare) avvisi dal portale di OMS ad Azure
-Nel portale di Operations Management Suite (OMS) vengono visualizzati solo gli avvisi di Log Analytics.  La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. La nuova esperienza disponibile come **Avvisi** in Monitoraggio di Azure all'interno del portale di Azure contiene avvisi del log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 
-
-
-Alcuni utenti, tuttavia, usano Log Analytics e le funzionalità correlate, come gli avvisi, attraverso il [portale di Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Per consentire loro di gestire facilmente le altre risorse di Azure e al tempo stesso usare Log Analytics, Microsoft ha sempre controllato sistematicamente che le funzionalità del portale di OMS fossero disponibili anche nel portale di Azure. A tale proposito, il servizio Avvisi di Azure consente già agli utenti di gestire gli avvisi basati su query per Log Analytics. Per altre informazioni, vedere [Avvisi del log in Avvisi di Azure](monitor-alerts-unified-log.md). Nel servizio Avvisi disponibile in Monitoraggio di Azure, gli avvisi creati nel portale di OMS sono già elencati nell'area di lavoro appropriata di Log Analytics. Tuttavia, per modificare gli avvisi creati nel portale di OMS, gli utenti devono lasciare Azure e usare il portale di OMS e quindi tornare ad Azure se devono gestire un altro servizio. Per ovviare a questa difficoltà, Microsoft consente ora agli utenti di estendere gli avvisi dal portale di OMS ad Azure.
+# <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estendere gli avvisi di Log Analytics in Avvisi di Azure
+Azure Log Analytics includeva fino a poco tempo fa una propria funzionalità di avviso, in grado di informare l'utente in modo proattivo relativamente ad alcune condizioni in base ai dati di Log Analytics. Le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. È disponibile come **Avvisi** in Monitoraggio di Azure nel portale di Azure e supporta avvisi dei log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Vantaggi offerti dall'estensione degli avvisi
-Oltre a evitare la necessità di uscire dal portale di Azure, l'estensione degli avvisi dal portale di OMS ad Azure offre altri vantaggi rilevanti
+La creazione e la gestione degli avvisi nel portale di Azure offre diversi vantaggi, ad esempio:
 
-- A differenza del portale di OMS, dove possono essere creati e visualizzati solo 250 avvisi, in Avvisi di Azure la limitazione relativa al numero di avvisi non è presente
-- In Avvisi di Azure è possibile gestire, enumerare e visualizzare tutti i tipi di avvisi e non solo gli avvisi di Log Analytics come nel caso del portale di OMS
-- Controllo dell'accesso degli utenti solo per le attività di monitoraggio e invio di avvisi mediante il [ruolo Monitoraggio di Azure](monitoring-roles-permissions-security.md)
-- In Avvisi di Azure vengono usati [gruppi di azioni](monitoring-action-groups.md), che consentono di associare a ogni avviso più azioni, incluse SMS, Chiamata vocale, Runbook di Automazione, Webhook, Connettore di Gestione dei servizi IT e altre ancora. 
+- A differenza del portale di OMS, dove possono essere creati e visualizzati solo 250 avvisi, in Avvisi di Azure questa limitazione non è presente.
+- Avvisi di Azure consente di gestire, enumerare e visualizzare tutti i tipi di avviso. In precedenza, era possibile eseguire queste operazioni solo per gli avvisi di Log Analytics.
+- È possibile controllare l'accesso degli utenti solo per le attività di monitoraggio e invio di avvisi tramite il [ruolo Monitoraggio di Azure](monitoring-roles-permissions-security.md).
+- In Avvisi di Azure, è possibile usare [gruppi di azioni](monitoring-action-groups.md). Ciò consente di eseguire più di un'azione per ogni avviso. È possibile inviare SMS, chiamate vocali, richiamare un runbook di automazione di Azure, richiamare un webhook e configurare un connettore di Gestione dei servizi IT (ITSM). 
 
 ## <a name="process-of-extending-your-alerts"></a>Processo di estensione degli avvisi
-Il processo di estensione degli avvisi dal portale di OMS ad Azure **non** comporta la modifica della definizione, della query o della configurazione degli avvisi. L'unica modifica necessaria è dovuta al fatto che in Azure, tutte le azioni, come la notifica tramite posta elettronica, la chiamata webhook, l'esecuzione del runbook di automazione o la connessione allo strumento Gestione dei servizi IT, vengono eseguite tramite Gruppo di azioni. Pertanto, se l'avviso è associato al gruppo di azioni appropriato, verrà esteso ad Azure.
-
-Poiché il processo di estensione non è distruttivo e non comporta interruzioni, Microsoft estenderà automaticamente gli avvisi creati nel portale di OMS agli avvisi di Azure a partire dal **14 maggio 2018**. Da questa data, Microsoft inizierà a pianificare l'estensione degli avvisi ad Azure e abiliterà gradualmente la gestione degli avvisi presenti anche nel portale di OMS dal portale di Azure. 
+Il processo di estensione degli avvisi da Log Analytics in Azure non comporta la modifica della definizione, della query o della configurazione degli avvisi. L'unica modifica necessaria è che in Azure tutte le azioni vengono eseguite usando un gruppo di azioni. Se i gruppi di azioni sono già associati con l'avviso, questi vengono inclusi durante l'estensione in Azure.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018 Microsoft inizierà il processo di estensione automatica degli avvisi in Azure. Non tutte le aree di lavoro e gli avvisi verranno estesi in quel giorno: Microsoft inizierà a estendere automaticamente gli avvisi in quote nelle prossime settimane. Di conseguenza gli avvisi nel portale di OMS non verranno estesi automaticamente in Azure il 14 maggio 2018 e gli utenti potranno ancora [estendere manualmente gli avvisi](monitoring-alerts-extend-tool.md) durante questo periodo.
+> Microsoft estenderà automaticamente gli avvisi creati in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. 
+> 
 
-Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'area di lavoro di Log Analytics continuano a funzionare, **senza** compromettere in alcun modo le attività di monitoraggio. Se pianificati, gli avvisi possono risultare temporaneamente non disponibili per la modifica, ma in questo breve intervallo è possibile continuare a creare nuovi avvisi in Azure. In questo breve periodo, se gli utenti provano a modificare o creare avvisi dal portale di OMS, hanno la possibilità di proseguire l'operazione in Azure Log Analytics o in Avvisi di Azure.
+Quando vengono pianificati per l'estensione ad Azure, gli avvisi presenti in un'area di lavoro di Log Analytics continuano a funzionare, senza compromettere in alcun modo la configurazione. Se pianificati, gli avvisi possono risultare temporaneamente non disponibili per la modifica, ma in questo intervallo è possibile continuare a creare nuovi avvisi in Azure. Se si tenta di modificare o creare avvisi dal portale di OMS, è possibile continuare la loro creazione dall'area di lavoro di Log Analytics. È anche possibile crearli da Avvisi di Azure nel portale di Azure.
 
- ![Durante il periodo pianificato, le azioni dell'utente sugli avvisi vengono reindirizzate ad Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
-
-> [!NOTE]
-> Per l'estensione degli avvisi dal portale di OMS ad Azure non è previsto alcun addebito e per l'uso di Avvisi di Azure per la generazione di avvisi di Log Analytics basati su query non verranno addebitati costi, purché siano rispettati i limiti e le condizioni indicati in [Prezzi di Monitoraggio di Azure ](https://azure.microsoft.com/pricing/details/monitor/)  
-
-Gli utenti possono usufruire dei vantaggi offerti dall'estensione degli avvisi prima di questa data scegliendo volontariamente di rendere gli avvisi gestibili in Azure.
-
-### <a name="how-to-voluntarily-extending-your-alerts"></a>Come estendere volontariamente gli avvisi
-Per consentire agli utenti di OMS di passare facilmente ad Avvisi di Azure, Microsoft ha creato strumenti per abilitare l'estensione degli avvisi. I clienti del portale di OMS possono estendere i propri avvisi ad Azure usando una procedura guidata nel portale di OMS o adottando un approccio a livello di codice basato su una nuova API. Per altre informazioni, vedere [Estensione degli avvisi ad Azure tramite il portale di OMS e l'API](monitoring-alerts-extend-tool.md).
-
-
-## <a name="usage-after-extending-your-alerts"></a>Uso dopo l'estensione degli avvisi
-Dopo l'estensione ad Azure, gli avvisi creati in Microsoft Operations Management Suite potranno essere gestiti direttamente da Azure, anche se continueranno a essere elencati nella sezione relativa all'impostazione degli avvisi nel portale di OMS, come illustrato di seguito:
-
- ![Avvisi elencati nel portale di OMS dopo l'estensione ad Azure](./media/monitor-alerts-extend/PostExtendList.png)
-
-Per qualsiasi operazione di modifica o creazione degli avvisi nel portale di OMS, gli utenti verranno indirizzati in modo trasparente ad Avvisi di Azure. 
+ ![Schermata dell'opzione per creare avvisi da Log Analytics o da Avvisi di Azure](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Dal momento che gli utenti verranno trasferiti in modo trasparente ad Azure a ogni azione di aggiunta o modifica all'interno di un avviso in OMS, assicurarsi che gli utenti vengano correttamente mappati alle corrispondenti [autorizzazioni per l'uso di Monitoraggio di Azure e Avvisi di Azure](monitoring-roles-permissions-security.md)
+> L'estensione degli avvisi da Log Analytics in Azure non implica alcun addebito sull'account. Per l'utilizzo di Avvisi di Azure per la generazione di avvisi di Log Analytics basati su query non verranno addebitati costi, purché siano rispettati i limiti e le condizioni indicati in [Prezzi di Monitoraggio di Azure ](https://azure.microsoft.com/pricing/details/monitor/).  
 
-Gli avvisi continueranno a essere creati dall'[API di Log Analytics](../log-analytics/log-analytics-api-alerts.md) e dal [Modello di risorsa di Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md) come in precedenza. L'unica piccola differenza è data dal fatto che, dopo l'estensione degli avvisi ad Azure, nella pianificazione è necessario associare i gruppi di azioni.
+
+### <a name="how-to-extend-your-alerts-voluntarily"></a>Come estendere gli avvisi volontariamente
+Per estendere gli avvisi in Avvisi di Azure, è possibile usare una procedura guidata disponibile nel portale di OMS, oppure agire a livello di codice tramite un'API. Per altre informazioni, vedere [Estensione degli avvisi ad Azure tramite il portale di OMS e l'API](monitoring-alerts-extend-tool.md).
+
+## <a name="experience-after-extending-your-alerts"></a>Esperienza dopo l'estensione degli avvisi
+Dopo aver esteso gli avvisi in Avvisi di Azure, questi continuano a essere disponibili per la gestione nel portale di OMS, come prima.
+
+![Schermata del portale di OMS, con elenchi di avvisi](./media/monitor-alerts-extend/PostExtendList.png)
+
+Quando si tenta di modificare un avviso esistente o di creare un nuovo avviso nel portale di OMS, si verrà reindirizzati automaticamente ad Avvisi di Azure.  
+
+> [!NOTE]
+> Assicurarsi che le autorizzazioni assegnate ai singoli utenti che hanno necessità di aggiungere o modificare gli avvisi siano assegnate correttamente in Azure. Per comprendere quali autorizzazioni è necessario concedere vedere le [autorizzazioni per l'uso di Monitoraggio di Azure e Avvisi di Azure](monitoring-roles-permissions-security.md).  
+> 
+
+È possibile continuare a creare avvisi dall'[API di Log Analytics](../log-analytics/log-analytics-api-alerts.md) e dal [modello di risorsa di Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md). Quando si esegue questa operazione, è necessario includere i gruppi di azioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sugli strumenti per [avviare l'estensione degli avvisi da OMS ad Azure](monitoring-alerts-extend-tool.md)
-* Altre informazioni sulla nuova [esperienza degli avvisi di Azure](monitoring-overview-unified-alerts.md)
-* Informazioni sugli [avvisi del log in Avvisi di Azure](monitor-alerts-unified-log.md)
+* Informazioni sugli strumenti per [avviare l'estensione degli avvisi da Log Analytics ad Azure](monitoring-alerts-extend-tool.md).
+* Altre informazioni sull'[esperienza di Avvisi di Azure](monitoring-overview-unified-alerts.md).
+* Informazioni su come creare [avvisi del log in Avvisi di Azure](monitor-alerts-unified-log.md).

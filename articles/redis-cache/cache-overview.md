@@ -14,25 +14,26 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096193"
 ---
 # <a name="what-is-azure-redis-cache"></a>Informazioni su Cache Redis di Azure
 
-Cache Redis di Azure si basa sulla popolare [cache Redis](https://redis.io/)open source. In genere viene usato come cache per aumentare le prestazioni e la scalabilità dei sistemi che si basano su archivi dati back-end. Le prestazioni vengono aumentate copiando temporaneamente i dati usati di frequente all'interno di una risorsa di archiviazione rapida vicina all'applicazione. Con [Cache Redis](https://redis.io/), questa risorsa di archiviazione rapida è situata all'interno della memoria invece di essere caricata dal disco da un database.
+Cache Redis di Azure si basa sulla popolare [cache Redis](https://redis.io/) open source. In genere viene usato come cache per aumentare le prestazioni e la scalabilità dei sistemi che si basano su archivi dati back-end. Le prestazioni vengono aumentate copiando temporaneamente i dati usati di frequente all'interno di una risorsa di archiviazione rapida vicina all'applicazione. Con [Cache Redis](https://redis.io/), questa risorsa di archiviazione rapida è situata all'interno della memoria invece di essere caricata dal disco da un database.
 
 Cache Redis di Azure può essere usato anche come archivio della struttura dei dati interno alla memoria, database non relazionale distribuito e broker di messaggi. Le prestazioni dell'applicazione vengono aumentate grazie alle prestazioni a bassa latenza ed elevata velocità effettiva del motore Redis.
 
-Cache Redis di Azure consente di accedere a una cache Redis sicura e dedicata, gestita da Microsoft, ospitata in Azure e accessibile da qualsiasi applicazione in Azure.
+Cache Redis di Azure consente di accedere a una cache Redis sicura e dedicata, gestita da Microsoft, ospitata in Azure e accessibile dall'interno o dall'esterno di Azure.
 
 ## <a name="why-use-azure-redis-cache"></a>Perché usare Cache Redis di Azure
 
 Esistono numerosi modelli comuni in cui viene usato Cache Redis per supportare l'architettura dell'applicazione o per aumentare le prestazioni dell'applicazione. Alcuni dei più comuni sono:
 
-| Modello      | DESCRIZIONE                                        |
+| Modello      | Descrizione                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache-aside](cache-web-app-cache-aside-leaderboard.md) | Dal momento che un database può essere di dimensioni elevate, il caricamento di un intero database in una cache non è un approccio consigliato. È comune usare il modello [cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) per caricare gli elementi di dati nella cache solo in base alle esigenze. Quando il sistema apporta modifiche ai dati di back-end, può anche aggiornare la cache, che viene distribuita con altri client. Inoltre, il sistema può impostare una scadenza per gli elementi di dati oppure usare criteri di rimozione per fare in modo che gli aggiornamenti di dati vengano ricaricati nella cache.|
 | [Memorizzazione di contenuti nella cache](cache-aspnet-output-cache-provider.md) | La maggior parte delle pagine Web viene generata da modelli con intestazioni, piè di pagina, barre degli strumenti, menu e così via. In realtà queste pagine non cambiano spesso e non devono essere generate in modo dinamico. L'uso di una cache interna alla memoria, come Cache Redis di Azure, fornirà ai server Web l'accesso rapido a questo tipo di contenuti statici rispetto agli archivi dati back-end. Questo modello riduce il tempo di elaborazione e il carico del server che sarebbero necessari per generare i contenuti in modo dinamico. Ciò consente una maggiore reattività dei server Web e può consentire di ridurre il numero di server necessari per gestire i carichi. Cache Redis di Azure fornisce il provider di cache di output per Redis per aiutare a supportare questo modello con ASP.NET.|
@@ -44,7 +45,7 @@ Esistono numerosi modelli comuni in cui viene usato Cache Redis per supportare l
 
 Cache Redis di Azure è disponibile nei livelli seguenti:
 
-| Livello | DESCRIZIONE |
+| Livello | Descrizione |
 |---|---|
 Basic | Una cache con un nodo singolo. Questo livello supporta varie dimensioni di memoria (250 MB - 53 GB). È ideale per sviluppo/test e carichi di lavoro non critici. Il livello Basic non dispone di alcun contratto di servizio |
 | Standard | Una cache replicata in una configurazione a due nodi primario/secondario gestita da Microsoft, con un contratto di servizio che garantisce disponibilità elevata (99,9%) |
@@ -63,7 +64,7 @@ La pagina [Prezzi di Cache Redis](https://azure.microsoft.com/pricing/details/ca
 | Descrizione della funzionalità | Premium | Standard | Basic |
 | ------------------- | :-----: | :------: | :---: |
 | [Contratto di servizio (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
-| [Persistenza dei dati Redis:](cache-how-to-premium-persistence.md) |✔|-|-|
+| [Persistenza dei dati Redis](cache-how-to-premium-persistence.md) |✔|-|-|
 | [Cluster Redis](cache-how-to-premium-clustering.md) |✔|-|-|
 | [Sicurezza tramite le regole del firewall](cache-configure.md#firewall) |✔|✔|✔|
 | [Isolamento e protezione avanzata con rete virtuale](cache-how-to-premium-vnet.md) |✔|-|-|
@@ -76,6 +77,7 @@ La pagina [Prezzi di Cache Redis](https://azure.microsoft.com/pricing/details/ca
 
 * [Guida introduttiva all'app Web ASP.NET](cache-web-app-howto.md): creare una semplice app Web ASP.NET che usa Cache Redis di Azure.
 * [Guida introduttiva a .NET](cache-dotnet-how-to-use-azure-redis-cache.md): creare un'app .NET che usa Cache Redis di Azure.
+* [Guida introduttiva a .NET Core](cache-dotnet-core-quickstart.md): creare un'app .NET Core che usa Cache Redis di Azure.
 * [Guida introduttiva a Node.js](cache-nodejs-get-started.md): creare una semplice app Node.js che usa Cache Redis di Azure.
 * [Guida introduttiva a Java](cache-java-get-started.md): creare una semplice app Java che usa Cache Redis di Azure.
 * [Guida introduttiva a Python](cache-python-get-started.md): creare un'app Python che usa Cache Redis di Azure.

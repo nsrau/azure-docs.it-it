@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/27/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d189af9b08f2b6e9ea194c15bfba683afc75a54
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10774e7ca1168a58e8c8d47e6a7295ff727fa1cd
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801450"
 ---
 # <a name="hybrid-identity-directory-integration-tools-comparison"></a>Confronto degli strumenti di integrazione directory per la soluzione ibrida di gestione delle identità
 Nel corso degli anni gli strumenti di integrazione di directory sono aumentati e si sono evoluti.  Questo documento offre una panoramica consolidata di questi strumenti e un confronto delle funzionalità disponibili in ognuno.
@@ -38,7 +40,7 @@ VF = Versione futura
 AP = Anteprima pubblica  
 
 ## <a name="on-premises-to-cloud-synchronization"></a>Sincronizzazione da locale a cloud
-| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory (AAD Sync) | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory (AAD Sync) - NON PIÙ SUPPORTATI | Strumento di sincronizzazione di Azure Active Directory (DirSync) - NON PIÙ SUPPORTATO | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Connessione a singola foresta AD locale |● |● |● |● |● |
 | Connessione a più foreste AD locali |● |● | |● |● |
@@ -53,7 +55,7 @@ AP = Anteprima pubblica
 
 
 ## <a name="cloud-to-on-premises-synchronization"></a>Sincronizzazione da cloud a locale
-| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory - NON PIÙ SUPPORTATI  | Strumento di sincronizzazione di Azure Active Directory (DirSync) - NON PIÙ SUPPORTATO  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Writeback di dispositivi |● | |● | | |
 | Writeback degli attributi (per una distribuzione ibrida di Exchange) |● |● |● |● |● |
@@ -61,15 +63,17 @@ AP = Anteprima pubblica
 | Writeback delle password (da password reimpostate autonomamente e modificate) |● |● | | | |
 
 ## <a name="authentication-feature-support"></a>Supporto delle funzionalità di autenticazione
-| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory - NON PIÙ SUPPORTATI  | Strumento di sincronizzazione di Azure Active Directory (DirSync) - NON PIÙ SUPPORTATO  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
-| Sincronizzazione delle password per una singola foresta AD locale |● |● |● | | |
-| Sincronizzazione delle password per più foreste AD locali |● |● | | | |
+| Sincronizzazione hash password per una singola foresta AD locale |●|●|● | | |
+| Sincronizzazione hash password per più foreste AD locali |●|● | | | |
+| Autenticazione pass-through per singole foreste AD locali |●| | | | |
 | Single Sign-On con federazione |● |● |● |● |● |
+| Accesso Single Sign-On facile (Seamless SSO)|● |||||
 | Writeback delle password (da password reimpostate autonomamente e modificate) |● |● | | | |
 
 ## <a name="set-up-and-installation"></a>Configurazione e installazione
-| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
+| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory - NON PIÙ SUPPORTATI  | Strumento di sincronizzazione di Azure Active Directory (DirSync) - NON PIÙ SUPPORTATO  | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Supporta l'installazione in un controller di dominio |● |● |● | |
 | Supporta l'installazione con SQL Express |● |● |● | |
@@ -80,7 +84,7 @@ AP = Anteprima pubblica
 | Supporto per Windows Server 2012 e Windows Server 2012 R2 |● |● |● |● |
 
 ## <a name="filtering-and-configuration"></a>Filtro e configurazione
-| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory | Strumento di sincronizzazione di Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
+| Funzionalità | Azure Active Directory Connect | Servizi di sincronizzazione di Azure Active Directory - NON PIÙ SUPPORTATI  | Strumento di sincronizzazione di Azure Active Directory (DirSync) - NON PIÙ SUPPORTATO  | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtro di domini e unità organizzative |● |● |● |● |● |
 | Filtro in base ai valori di attributo degli oggetti |● |● |● |● |● |

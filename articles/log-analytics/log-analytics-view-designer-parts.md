@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: a2573eef3c90c1840c0d53b2f8aa2cfe2d3a7242
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: na
+ms.openlocfilehash: b560022f1f727949021a599e1ab342551f64c084
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129133"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -53,7 +55,7 @@ La parte relativa all'elenco delle query visualizza un elenco di query di ricerc
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
 | **Generale** | |
-| Titolo |Testo visualizzato nella parte superiore della vista. |
+| Title |Testo visualizzato nella parte superiore della vista. |
 | Nuovo gruppo |Selezionare questo collegamento per creare un nuovo gruppo nella vista, partendo dalla vista corrente. |
 | Filtri preselezionati |Elenco delimitato da virgole delle proprietà da includere nel riquadro sinistro del filtro quando si seleziona una query. |
 | Modalità di rendering |Vista iniziale che viene aperta quando si seleziona la query. È possibile selezionare qualsiasi vista disponibile dopo l'apertura della query. |
@@ -212,7 +214,7 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 | Etichetta |Testo del collegamento. |
 | Url |URL del collegamento. |
 | **Elementi informazioni** | |
-| Titolo |Testo che viene visualizzato per il titolo di ogni elemento. |
+| Title |Testo che viene visualizzato per il titolo di ogni elemento. |
 | Content |Testo che viene visualizzato per ogni elemento. |
 
 ## <a name="line-chart-callout-and-list-part"></a>Parte relativa a Grafico a linee, callout ed elenco
@@ -228,7 +230,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
-| Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Title |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |
@@ -268,7 +270,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 | Icona |File di immagine che viene visualizzato accanto al risultato nell'intestazione. |
 | Usa icona |Selezionare questo collegamento per visualizzare l'icona. |
 | **Intestazione** | |
-| Titolo |Testo che viene visualizzato nella parte superiore dell'intestazione. |
+| Title |Testo che viene visualizzato nella parte superiore dell'intestazione. |
 | Sottotitolo |Testo che viene visualizzato sotto il titolo nella parte superiore dell'intestazione. |
 | **Grafico a linee** | |
 | Query |Query da eseguire per il grafico a linee. La prima proprietà è un valore di testo, mentre la seconda è un valore numerico. Questa query usa in genere la parola chiave *measure* per riepilogare i risultati. Se la query usa la parola chiave *interval*, l'asse X del grafico usa questo intervallo di tempo. Se la query non include la parola chiave *interval*, l'asse X usa intervalli orari. |

@@ -1,0 +1,77 @@
+- name: Documentazione di Ricerca visiva Bing
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni sull'API Ricerca visiva Bing
+      href: overview.md
+- name: Guide introduttive per l'API REST
+  expanded: true
+  items:
+    - name: 'Prima query in C#'
+      href: quickstarts/csharp.md
+    - name: Prima query in Java
+      href: quickstarts/java.md
+    - name: Prima di query per Node.js
+      href: quickstarts/nodejs.md
+    - name: Prima query in Python
+      href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+    - name: Panoramica degli esempi di SDK
+      href: sdk.md
+    - name: 'SDK in C#'
+      href: visual-search-sdk-c-sharp.md
+    - name: SDK in Node
+      href: visual-search-sdk-node.md
+    - name: SDK in Python
+      href: visual-search-sdk-python.md
+- name: Esercitazioni
+  items:
+    - name: App Web per il caricamento di immagini
+      href: tutorial-visual-search-image-upload.md
+    - name: App Web a singola pagina
+      href: tutorial-bing-visual-search-single-page-app.md
+    - name: App Web a singola pagina (codice sorgente)
+      href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Area di ritaglio dell'immagine e risultati di Bing Visual Search SDK
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Token di informazioni dettagliate sull'immagine e risultati di Bing Visual Search SDK
+      href: tutorial-visual-search-insights-token.md
+- name: Esempi
+  items:
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+- name: Concetti
+  items:
+    - name: Informazioni dettagliate predefinite sulle immagini
+      href: default-insights-tag.md
+    - name: Uso di informazioni dettagliate Bing
+      href: bing-insights-usage.md
+    - name: Paesi e mercati supportati
+      href: supported-countries-markets.md
+    - name: Analisi per l'API Ricerca visiva
+      href: bing-visual-search-stats.md
+- name: Guide alle procedure
+  items:
+    - name: Ottenere informazioni dettagliate tramite token
+      href: use-insights-token.md
+    - name: Usare e visualizzare i risultati
+      href: use-and-display-requirements.md
+    - name: Ridimensionare e ritagliare le anteprime
+      href: resize-and-crop-thumbnails.md
+- name: Riferimenti
+  expanded: true
+  items:
+    - name: API REST v7
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+- name: Risorse
+  items:
+    - name: Ottenere la chiave di accesso gratuita
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: Prova
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

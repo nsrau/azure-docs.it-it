@@ -5,7 +5,7 @@ documentationcenter: php
 services: app-service\web
 author: allclark
 manager: douge
-editor: 
+editor: ''
 ms.assetid: bac355ac-4c25-42f4-8273-c5112eafa8d4
 ms.service: app-service-web
 ms.workload: na
@@ -14,17 +14,20 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
-ms.openlocfilehash: fd3d28b133ef8e646f5c2f1c1127f654daa61b95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfcf908145e8a384782953e045f9e10fd3c0e8f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639470"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Download di Azure SDK per PHP
+
 ## <a name="overview"></a>Panoramica
+
 Azure SDK per PHP include componenti che consentono di sviluppare, distribuire e gestire applicazioni PHP per Azure. In particolare, Azure SDK per PHP include i seguenti componenti:
 
-* **Librerie client PHP per Azure**. Queste librerie di classi offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud.  
+* **Librerie client PHP per Azure**. Queste librerie di classi offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud.
 * **Interfaccia della riga di comando di Azure per Mac, Linux e Windows** Un insieme di comandi che permette la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali di Azure. L’interfaccia della riga di comando di Azure funziona su qualsiasi piattaforma, incluse le piattaforme Mac, Linux e Windows.
 * **Azure PowerShell (solo Windows)**. Questo insieme di cmdlet di PowerShell consente la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali.
 * **Emulatori di Azure (solo Windows)**. Gli emulatori di calcolo e archiviazione sono emulatori locali di servizi cloud e di gestione dati che consentono di testare un'applicazione in locale. Gli emulatori di Azure funzionano solo su Windows.
@@ -35,32 +38,35 @@ Le istruzioni in questo argomento presuppongono che [PHP][install-php] sia insta
 
 > [!NOTE]
 > È necessario avere PHP 5.5 o versione successiva per usare le librerie client PHP per Azure.
-> 
-> 
+>
+>
 
 ## <a name="php-client-libraries-for-azure"></a>Librerie client PHP per Azure
+
 Le librerie client PHP per Azure offrono un'interfaccia per accedere alle funzionalità di Azure, ad esempio i servizi di gestione dati e i servizi cloud, da qualsiasi sistema operativo. Queste librerie possono essere installate tramite il programma di creazione.
 
 Per informazioni su come usare le librerie client PHP per Azure, vedere [Come usare il servizio BLOB][blob-service], [Come usare il servizio tabelle][table-service] e [Come usare il servizio di accodamento][queue-service].
 
 ### <a name="install-via-composer"></a>Installazione tramite Composer
-1. [Installare Git][install-git].
 
-    > [AZURE.NOTE] In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
+1. [Installare Git][install-git]. In Windows sarà inoltre necessario aggiungere l'eseguibile Git alla variabile di ambiente PATH.
 
-1. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
-   
+2. Creare un file denominato **composer.json** nella radice del progetto, quindi aggiungere nel file il codice seguente:
+
         {
             "require": {
                 "microsoft/windowsazure": "^0.4"
             }
         }
-2. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
-3. Aprire un prompt dei comandi ed eseguire quanto segue nella radice del progetto
-   
+
+3. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
+
+4. Aprire un prompt dei comandi ed eseguire quanto segue nella radice del progetto
+
         php composer.phar install
 
 ## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell ed emulatori di Azure
+
 Azure PowerShell è un insieme di cmdlet di PowerShell per la distribuzione e la gestione di servizi di Azure, come servizi cloud e macchine virtuali. Gli emulatori di Azure sono emulatori di servizi cloud e di gestione dati che consentono di verificare un'applicazione in locale. Questi componenti sono supportati solo in Windows.
 
 È consigliabile installare Azure PowerShell e gli emulatori di Azure tramite l'[Installazione guidata piattaforma Web Microsoft][download-wpi]. Si noti che è inoltre possibile scegliere di installare altri componenti di sviluppo, come PHP, SQL Server, i driver Microsoft per SQL Server per PHP e WebMatrix.
@@ -68,10 +74,12 @@ Azure PowerShell è un insieme di cmdlet di PowerShell per la distribuzione e la
 Per informazioni sull'uso di Azure PowerShell, vedere [Come usare Azure PowerShell][powershell-tools].
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+
 Un’interfaccia della riga di comando di Azure è un insieme di comandi per la distribuzione e la gestione di servizi di Azure, come Siti Web e Macchine virtuali. Per informazioni sull'installazione di Azure CLI, vedere [Installare Azure CLI](cli-install-nodejs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](/develop/php/).
+
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer

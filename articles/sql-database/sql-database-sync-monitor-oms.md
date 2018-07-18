@@ -1,25 +1,26 @@
 ---
-title: Monitorare la sincronizzazione dati SQL di Azure (anteprima) con Log Analytics | Microsoft Docs
-description: Informazioni su come monitorare la sincronizzazione dati SQL di Azure (anteprima) usando Log Analytics
+title: Monitorare sincronizzazione dati SQL di Azure con Log Analytics | Microsoft Docs
+description: Informazioni su come monitorare la sincronizzazione dati SQL di Azure usando Log Analytics
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025415"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL (anteprima) con Log Analytics 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL con Log Analytics 
 
 Per controllare il registro attività di sincronizzazione dati SQL e rilevare gli errori e gli avvisi, in precedenza era necessario verificare manualmente la sincronizzazione dati SQL nel Portale di Azure o usare PowerShell o l'API REST. Per configurare una soluzione personalizzata che migliori l'esperienza di monitoraggio della sincronizzazione dei dati, seguire i passaggi descritti in questo articolo. È possibile personalizzare questa soluzione per adattarla allo scenario specifico.
 
-Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure (anteprima)](sql-database-sync-data.md).
+Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard di monitoraggio per tutti i gruppi di sincronizzazione 
 
@@ -161,7 +162,7 @@ Per configurare la vista di OMS, eseguire le operazioni seguenti:
 
 3.  La vista di esempio è relativa alla gestione di due gruppi di sincronizzazione. Modificare questa vista per adattarla allo scenario. Fare clic su **modifica** e apportare le modifiche seguenti:
 
-    1.  Creare nuovi oggetti "	Grafico ad anello ed elenco" dalla raccolta in base alle esigenze.
+    1.  Creare nuovi oggetti "Donut & List" dalla raccolta in base alle esigenze.
 
     2.  In ogni riquadro aggiornare le query con le informazioni necessarie.
 

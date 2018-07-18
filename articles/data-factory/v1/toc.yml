@@ -1,5 +1,7 @@
 - name: Documentazione di Data Factory versione 1
   href: null
+- name: Passare alla versione corrente della documentazione
+  href: ../introduction.md
 - name: Panoramica
   items:
     - name: Introduzione a Data factory di Azure
@@ -74,7 +76,7 @@
               href: data-factory-azure-blob-connector.md
             - name: Azure Cosmos DB
               href: data-factory-azure-documentdb-connector.md
-            - name: Archivio Azure Data Lake
+            - name: Azure Data Lake Storage Gen1
               href: data-factory-azure-datalake-connector.md
             - name: Ricerca di Azure
               href: data-factory-azure-search-connector.md
@@ -181,7 +183,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: Richiamare pacchetti SSIS tramite attività stored procedure
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: riferimento
+- name: Riferimenti
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'

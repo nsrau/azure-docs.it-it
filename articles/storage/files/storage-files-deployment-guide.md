@@ -2,23 +2,24 @@
 title: Procedura per distribuire File di Azure | Microsoft Docs
 description: Informazioni su come distribuire di File di Azure dall'inizio alla fine.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: c33639723657d3c2875ed9607a887775d558be16
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029782"
 ---
 # <a name="how-to-deploy-azure-files"></a>Come distribuire i file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Questo articolo illustra come distribuire praticamente File di Azure all'interno dell'organizzazione.
@@ -29,23 +30,23 @@ ms.lasthandoff: 01/19/2018
 In questo articolo si presuppone che l'utente abbia già completato i passaggi seguenti:
 
 - Creazione di un account di Archiviazione di Azure con le opzioni di resilienza e crittografia desiderate, nell'area desiderata. Vedere [Creare un account di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per istruzioni dettagliate su come creare un account di archiviazione.
-- Creazione di una condivisione di File di Azure con la quota desiderata nell'account di archiviazione. Vedere [Creare una condivisione file](storage-how-to-create-file-share.md) per istruzioni dettagliate su come creare una condivisione file.
+- Creazione di una condivisione file di Azure con la quota desiderata nell'account di archiviazione. Vedere [Creare una condivisione file](storage-how-to-create-file-share.md) per istruzioni dettagliate su come creare una condivisione file.
 
 ## <a name="transfer-data-into-azure-files"></a>Trasferire i dati in File di Azure
-Se l'utente desidera eseguire la migrazione di condivisioni di file esistenti, ad esempio quelli archiviati in locale, nella nuova condivisione di File di Azure, questa sezione illustra come spostare i dati in una condivisione di File di Azure tramite diversi metodi descritti in dettaglio nella [guida alla pianificazione](storage-files-planning.md#data-transfer-method)
+A volte può essere necessario eseguire la migrazione di condivisioni file esistenti, come quelle archiviate in locale, nella nuova condivisione file di Azure. Questa sezione descrive come spostare i dati in una condivisione file di Azure tramite diversi metodi comuni, presentati in dettaglio nella [guida alla pianificazione](storage-files-planning.md#data-transfer-method)
 
 ### <a name="azure-file-sync-preview"></a>Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
 
-Sincronizzazione file di Azure può essere usato per eseguire la migrazione dei dati in una condivisione file di Azure, anche se il meccanismo di sincronizzazione non è necessario per l'uso a lungo termine. Altre informazioni su come usare Sincronizzazione file di Azure per trasferire dati nella condivisione file di Azure sono disponibili in [Pianificazione della distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+Sincronizzazione file di Azure può essere usato per eseguire la migrazione di dati in una condivisione file di Azure, anche se il meccanismo di sincronizzazione non è necessario per l'uso a lungo termine. Altre informazioni su come usare Sincronizzazione file di Azure per trasferire dati nella condivisione file di Azure sono disponibili in [Pianificazione di una distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Importazione/Esportazione di Azure
-Il servizio Importazione/Esportazione di Azure consente di trasferire in modo sicuro grandi quantità di dati in una condivisione di File di Azure tramite la spedizione delle unità disco rigido a un datacenter di Azure. Per altre informazioni sul servizio vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione di Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Il servizio Importazione/Esportazione di Azure permette di trasferire in tutta sicurezza grandi quantità di dati in una condivisione file di Azure tramite la spedizione di dischi rigidi a un data center di Azure. Per altre informazioni sul servizio vedere [Usare il servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione di Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!Note]  
-> Il servizio Importazione/Esportazione di Azure al momento non supporta l'esportazione dei file da una condivisione di File di Azure.
+> Il servizio Importazione/Esportazione di Azure attualmente non supporta l'esportazione dei file da una condivisione file di Azure.
 
-La procedura seguente importerà i dati da un percorso locale nella condivisione di File di Azure.
+La procedura seguente importerà dati da un percorso locale nella condivisione file di Azure.
 
 1. Ottenere il numero di dischi rigidi richiesto da inviare ad Azure. I dischi rigidi possono avere qualsiasi dimensione, ma devono avere un'unità SSD o HDD di 2,5" o 3,5" che supporti lo standard SATA II o III. 
 
@@ -62,7 +63,7 @@ La procedura seguente importerà i dati da un percorso locale nella condivisione
 
         ![Una schermata della procedura guidata Nuovo volume semplice in MMC di Gestione disco](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 
-4. Creare il file CSV dataset. Il file CSV dataset è un mapping tra il percorso ai dati in locale e la condivisione di File di Azure desiderata in copiare i dati. Ad esempio, il file CSV dataset seguente esegue il mapping di una condivisione file locale, ovvero "F:\shares\scratch", a una condivisione di File di Azure, "MyAzureFileShare":
+4. Creare il file CSV dataset. Il file CSV dataset è un mapping tra il percorso dei dati in locale e la condivisione file di Azure desiderata in cui copiare i dati. Ad esempio, il file CSV dataset seguente esegue il mapping di una condivisione file locale ("F:\shares\scratch") a una condivisione file di Azure ("MyAzureFileShare"):
     
     ```
     BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -82,7 +83,7 @@ La procedura seguente importerà i dati da un percorso locale nella condivisione
     
     Per altre informazioni vedere [Preparare il file CSV driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
-6. Usare lo [strumento WAImportExport](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) per copiare i dati in uno o più dischi rigidi.
+6. Usare lo [strumento WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=55280) per copiare i dati in uno o più dischi rigidi.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
@@ -91,18 +92,18 @@ La procedura seguente importerà i dati da un percorso locale nella condivisione
     > [!Warning]  
     > Non modificare i dati sulle unità disco rigido o sul file journal dopo aver completato la preparazione del disco.
 
-7. [Creare un processo di importazione](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-an-export-job).
+7. [Creare un processo di importazione](../common/storage-import-export-data-to-files.md#step-2-create-an-import-job).
     
 ### <a name="robocopy"></a>Robocopy
 Robocopy è un noto strumento di copia incluso in Windows e Windows Server. Robocopy può essere usato per trasferire i dati in File di Azure montando la condivisione file in locale e quindi usando il percorso montato come destinazione del comando Robocopy. L'uso di Robocopy è piuttosto semplice:
 
-1. [Montare la condivisione di File di Azure](storage-how-to-use-files-windows.md). Per prestazioni ottimali, è consigliabile montare la condivisione di File di Azure in locale nel server locale che contiene i dati. In alcuni casi, ad esempio quando il file server che invia i dati è un dispositivo NAS, potrebbe non essere possibile eseguire questa operazione. In tal caso, è accettabile montare ciascun la condivisione di File di Azure su un PC. In questo esempio `net use` viene usato nella riga di comando per montare la condivisione file:
+1. [Montare la condivisione file di Azure](storage-how-to-use-files-windows.md). Per ottenere prestazioni ottimali, è consigliabile montare la condivisione file di Azure in locale nel server che contiene i dati. In alcuni casi, ad esempio quando il file server che invia i dati è un dispositivo NAS, potrebbe non essere possibile eseguire questa operazione. In questo caso, è perfettamente accettabile montare la condivisione file di Azure in un PC. In questo esempio `net use` viene usato nella riga di comando per montare la condivisione file:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. Usare `robocopy` nella riga di comando per spostare i dati nella condivisione di File di Azure:
+2. Usare `robocopy` nella riga di comando per spostare i dati nella condivisione file di Azure:
 
     ```
     robocopy <path-to-local-share> <path-to-azure-file-share> /E /Z /MT:32
@@ -114,7 +115,7 @@ Robocopy è un noto strumento di copia incluso in Windows e Windows Server. Robo
 AzCopy è un'utilità della riga di comando progettata per copiare i dati da e verso File di Azure, oltre ad Archiviazione BLOB di Azure usando semplici comandi con prestazioni ottimali. Usare AzCopy è semplice:
 
 1. Scaricare la [versione più recente di AzCopy in Windows](http://aka.ms/downloadazcopy) o in [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
-2. Usare `azcopy` nella riga di comando per spostare i dati nella condivisione di File di Azure. La sintassi in Windows è la seguente: 
+2. Usare `azcopy` nella riga di comando per spostare i dati nella condivisione file di Azure. La sintassi in Windows è la seguente: 
 
     ```
     azcopy /Source:<path-to-local-share> /Dest:https://<storage-account>.file.core.windows.net/<file-share>/ /DestKey:<storage-account-key> /S
@@ -132,7 +133,7 @@ AzCopy è un'utilità della riga di comando progettata per copiare i dati da e v
 Per sostituire una condivisione file locale, è utile per pre-montare le condivisioni nei computer su cui verrà usata. Questa operazione può essere eseguita automaticamente in un elenco di computer.
 
 > [!Note]  
-> Il montaggio di una condivisione di File di Azure richiede l'uso della chiave dell'account di archiviazione come password, pertanto è consigliabile montarla solo in ambienti attendibili. 
+> Il montaggio di una condivisione file di Azure richiede l'uso della chiave dell'account di archiviazione come password e di conseguenza è consigliabile montarla solo in ambienti attendibili. 
 
 ### <a name="windows"></a>Windows
 PowerShell può essere usato eseguire il comando di montaggio in più PC. Nell'esempio seguente, `$computers` viene compilato manualmente, ma è possibile generare l'elenco dei computer da montare automaticamente. Ad esempio, è possibile compilare questa variabile con i risultati di Active Directory.

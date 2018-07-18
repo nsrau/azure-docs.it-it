@@ -7,14 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7daaf042d22ba4ac0369b732b586a3760d8cd51c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859575"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo Batch nel portale di Azure
 
@@ -31,7 +32,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 Seguire questa procedura per creare un account Batch di esempio a scopo di test. È necessario un account Batch per creare pool e processi. Come illustrato, è possibile collegare un account di archiviazione di Azure all'account Batch. Anche se non è necessario per questa guida introduttiva, l'account di archiviazione è utile per distribuire applicazioni e archiviare dati di input e output per la maggior parte dei carichi di lavoro concreti.
 
 
-1. Fare clic su **Nuovo** > **Calcolo** > **Servizio Batch**. 
+1. Selezionare **Crea una risorsa** > **Calcolo** > **Servizio Batch**. 
 
   ![Batch in Marketplace][marketplace_portal]
 
@@ -39,7 +40,7 @@ Seguire questa procedura per creare un account Batch di esempio a scopo di test.
 
 3. In **Account di archiviazione** selezionare un account di archiviazione esistente o crearne uno nuovo.
 
-4. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **Crea** per creare l'account.
+4. Mantenere le impostazioni predefinite per le altre opzioni e selezionare **Crea** per creare l'account.
 
   ![Creare un account Batch][account_portal]  
 
@@ -50,7 +51,7 @@ Quando viene visualizzato il messaggio **La distribuzione è riuscita**, passare
 Ora che è disponibile un account Batch, creare un pool di esempio di nodi di calcolo Windows a scopo di test. Il pool per questo esempio rapido è costituito da 2 nodi che eseguono un'immagine di Windows Server 2012 R2 da Azure Marketplace.
 
 
-1. Nell'account Batch fare clic su **Pool** > **Aggiungi**.
+1. Nell'account Batch selezionare **Pool** > **Aggiungi**.
 
 2. Immettere un **ID pool** denominato *mypool*. 
 
@@ -74,21 +75,21 @@ Ora che è disponibile un account Batch, creare un pool di esempio di nodi di ca
 
   ![Selezionare le dimensioni del pool][pool_size] 
 
-5. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **OK** per creare il pool.
+5. Mantenere le impostazioni predefinite per le altre opzioni e selezionare **OK** per creare il pool.
 
 Batch crea immediatamente il pool, ma richiede alcuni minuti per allocare e avviare i nodi di calcolo. In questa fase, lo **stato allocazione** del pool è **Ridimensionamento**. È possibile proseguire e creare un processo e attività durante il ridimensionamento del pool. 
 
 ![Pool nello stato di ridimensionamento][pool_resizing]
 
-Dopo alcuni minuti, lo stato del pool è **Stabile** e i nodi si avviano. Fare clic su **Nodi** per controllare lo stato dei nodi. Quando lo stato di un nodo è **Inattivo**, è pronto per l'esecuzione delle attività. 
+Dopo alcuni minuti, lo stato del pool è **Stabile** e i nodi si avviano. Selezionare **Nodi** per controllare lo stato dei nodi. Quando lo stato di un nodo è **Inattivo**, è pronto per l'esecuzione delle attività. 
 
 ## <a name="create-a-job"></a>Creare un processo
 
 Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un processo Batch è un gruppo logico per una o più attività. Un processo include le impostazioni comuni per le attività, ad esempio la priorità e il pool nel quale eseguire le attività. Inizialmente il processo è privo di attività. 
 
-1. Nella visualizzazione dell'account Batch fare clic su **Processi** > **Aggiungi**. 
+1. Nella visualizzazione dell'account Batch selezionare **Processi** > **Aggiungi**. 
 
-2. Immettere un **ID processo** denominato *myjob*. In **Pool** selezionare *mypool*. Lasciare le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
+2. Immettere un **ID processo** denominato *myjob*. In **Pool** selezionare *mypool*. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
 
   ![Creare un processo][job_create]
 
@@ -102,11 +103,11 @@ Quando si usa Batch, in questa riga di comando si specifica l'app o lo script. B
 
 Per creare la prima attività:
 
-1. Fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi**.
 
 2. Immettere un **ID attività** denominato *mytask*. 
 
-3. In **Riga di comando** immettere `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Lasciare le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
+3. In **Riga di comando** immettere `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
 
   ![Crea un'attività][task_create]
 
@@ -116,7 +117,7 @@ Per creare una seconda attività, tornare al passaggio 1. Immettere un altro **I
 
 ## <a name="view-task-output"></a>Visualizzare l'output dell'attività
 
-Gli esempi di attività precedenti vengono completati in alcuni minuti. Per visualizzare l'output di un'attività completata, fare clic su **File nel nodo** e quindi selezionare il file `stdout.txt`. Questo file visualizza l'output standard dell'attività. Il contenuto è simile al seguente:
+Gli esempi di attività precedenti vengono completati in alcuni minuti. Per visualizzare l'output di un'attività completata, selezionare **File nel nodo** e quindi selezionare il file `stdout.txt`. Questo file visualizza l'output standard dell'attività. Il contenuto è simile al seguente:
 
 ![Visualizzare l'output dell'attività][task_output]
 
@@ -126,9 +127,9 @@ Il contenuto visualizza le variabili di ambiente di Azure Batch impostate nel no
 
 Se si vuole proseguire con le esercitazioni e gli esempi di Batch, usare l'account Batch e l'account di archiviazione collegato creati in questa guida introduttiva. Non è previsto alcun addebito per l'account Batch in sé.
 
-Vengono addebitati i costi del pool mentre i nodi sono in esecuzione, anche se non sono pianificati processi. Quando il pool non è più necessario, eliminarlo. Nella visualizzazione dell'account fare clic su **Pool** e sul nome del pool. Fare quindi clic su **Elimina**.  Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. 
+Vengono addebitati i costi del pool mentre i nodi sono in esecuzione, anche se non sono pianificati processi. Quando il pool non è più necessario, eliminarlo. Nella visualizzazione dell'account selezionare **Pool** e il nome del pool. Selezionare **Elimina**.  Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. 
 
-Quando non sono più necessari, eliminare il gruppo di risorse, l'account Batch e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per l'account Batch e fare clic su **Elimina gruppo di risorse**.
+Quando non sono più necessari, eliminare il gruppo di risorse, l'account Batch e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse per l'account Batch, quindi selezionare **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

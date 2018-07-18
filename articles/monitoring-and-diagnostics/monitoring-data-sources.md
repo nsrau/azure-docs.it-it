@@ -1,24 +1,19 @@
 ---
-title: Uso di dati di monitoraggio in Azure | Microsoft Docs
+title: Origini dei dati di monitoraggio
 description: Informazioni su tutte le origini dati di monitoraggio disponibili in Azure al momento.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/27/2017
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: johnkem
-ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082999"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -33,7 +28,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Metriche personalizzate o dell'applicazione | Metriche | Un'applicazione qualsiasi dotata di Application Insights | <ul><li>**API REST:** [API REST di Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Metriche di archiviazione | Metrica | Archiviazione di Azure | <ul><li>**Tabella di archiviazione:**[Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Dati di fatturazione | Metriche | Tutti i servizi di Azure | <ul><li>**API REST:**[Introduzione all'API di uso delle risorse di Azure e all’API RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Log attività | Eventi | Tutti i servizi di Azure | <ul><li>**API REST:** [API per gli eventi di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Archiviazione BLOB o Hub eventi:** [profilo log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Log attività | Eventi | Tutti i servizi di Azure | <ul><li>**API REST:** [API per gli eventi di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Archiviazione BLOB o Hub eventi:** [profilo log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Log di diagnostica di Monitoraggio di Azure | Eventi | [Vedere l'elenco di seguito](monitoring-diagnostic-logs-schema.md) | <ul><li>**Archiviazione BLOB o Hub eventi:** [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Log del sistema operativo guest di calcolo (ad esempio IIS, ETW, SysLog) | Eventi | Macchine virtuali di [Windows](../virtual-machines-dotnet-diagnostics.md) e Linux (v2), [servizi cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabella di archiviazione o BLOB:**[diagnostica di Azure per Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Hub eventi:**[diagnostica di Azure per Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Log del servizio app | Eventi | Servizi app | <ul><li>**File, tabella o archiviazione BLOB:** [diagnostica app Web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
@@ -45,7 +40,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 | Avvisi delle metriche di Monitoraggio di Azure | Notifiche | [Vedere l'elenco di seguito](monitoring-supported-metrics.md) | <ul><li>**Webhook:** [avvisi delle metriche di Azure](insights-webhooks-alerts.md)</li></ul> |
 | Avvisi di Log attività di Monitoraggio di Azure | Notifiche | Tutti i servizi di Azure | <ul><li>**Webhook:** avvisi di Log attività di Azure</li></ul> |
 | Notifiche relative alla scalabilità automatica | Notifiche | [Vedere l'elenco di seguito](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Webhook:** [schema di payload del webhook di notifica di scalabilità automatica](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:**[Avvisi Log Analytics](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Avvisi di query di ricerca log | Notifiche | Log Analytics | <ul><li>**Webhook:** [Azioni webhook per le regole di avviso relative ai log](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Avvisi relativi alle metriche in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 | Test Web in Application Insights | Notifiche | Application Insights | <ul><li>**Webhook:** [avvisi in Application Insights](../application-insights/app-insights-alerts.md)</li></ul> |
 

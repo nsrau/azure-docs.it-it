@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da Netezza usando Azure Data Factory (beta) | Microsoft Docs
+title: Copiare dati da Netezza usando Azure Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da Netezza in archivi dati di sink supportati usando un'attività di copia in una pipeline di Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -10,25 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
+ms.topic: conceptual
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940138"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055657"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Copiare dati da Netezza usando Azure Data Factory (beta)
+# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory 
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere [Attività di copia nella versione 1](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Questo connettore è attualmente disponibile in versione beta. È possibile provarlo e inviare commenti e suggerimenti. Non usarlo in ambienti di produzione.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
@@ -57,7 +51,7 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. ad esempio `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- Solo non protetto (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente non protetto (preferredUnSecured) (impostazione predefinita)**: se il server fornisce una scelta, il driver non usa SSL. <br/>- **Preferibilmente protetto (preferredSecured)**: se il server fornisce una scelta, il driver usa SSL. <br/>- **Solo protetto (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL | No  |
-| CaCertFile | Il percorso completo per il certificato SSL usato dal server. ad esempio `UseSystemTrustStore=<cert path>;`| Sì, se SSL è abilitato |
+| CaCertFile | Il percorso completo per il certificato SSL usato dal server. ad esempio `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
 
 **Esempio:**
 

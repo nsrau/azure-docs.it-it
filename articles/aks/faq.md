@@ -2,37 +2,36 @@
 title: Domande frequenti relative ad Azure Kubernetes Service
 description: Risposte ad alcune domande comuni su Azure Kubernetes Service.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 6/25/2018
+ms.author: iainfou
+ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096452"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Domande frequenti relative ad Azure Kubernetes Service (AKS)
 
 Questo articolo tratta alcune domande frequenti relative ad Azure Kubernetes Service (AKS).
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) è attualmente disponibile in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
->
-
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Quali aree di Azure forniscono Azure Kubernetes Service (AKS) oggi?
 
+- Australia orientale
 - Canada centrale
 - Canada orientale
 - Stati Uniti centrali
 - Stati Uniti orientali
+- Stati Uniti Orientali 2
+- Europa settentrionale
+- Regno Unito meridionale
 - Europa occidentale
-
-## <a name="when-will-additional-regions-be-added"></a>Quando verranno aggiunte altre aree?
-
-Vengono aggiunte altre aree man mano che la richiesta aumenta.
+- Stati Uniti occidentali
+- Stati Uniti occidentali 2
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Gli aggiornamenti della sicurezza vengono applicati ai nodi agente AKS?
 
@@ -42,40 +41,54 @@ Azure applica automaticamente le patch di sicurezza ai nodi del cluster con una 
 - Aggiornando il cluster AKS. Gli aggiornamenti del cluster [bloccano e svuotano i nodi](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) automaticamente, quindi li riattivano con l'immagine Ubuntu più recente. Aggiornare l'immagine del sistema operativo nei nodi senza modificare le versioni Kubernetes specificando la versione corrente del cluster in `az aks upgrade`.
 - Usando [Kured](https://github.com/weaveworks/kured), un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. Quindi orchestra i riavvii in tutto il cluster, seguendo lo stesso processo di blocco e svuotamento descritto in precedenza.
 
-## <a name="do-you-recommend-customers-use-acs-or-aks"></a>È preferibile usare ACS o AKS?
-
-Mentre AKS è in fase di anteprima, si consiglia di creare i cluster di produzione con ACS-Kubernetes o [acs-engine](https://github.com/azure/acs-engine). Usare AKS per le distribuzioni di modelli di verifica e gli ambienti di sviluppo e test.
-
-## <a name="when-will-acs-be-deprecated"></a>Da quando ACS sarà deprecato?
-
-ACS diventerà deprecato più o meno in corrispondenza della disponibilità generale di AKS. Dopo tale data saranno disponibili 12 mesi per eseguire la migrazione dei cluster ad AKS. Durante il periodo di 12 mesi, è possibile eseguire tutte le operazioni di ACS.
-
 ## <a name="does-aks-support-node-autoscaling"></a>AKS supporta la scalabilità automatica dei nodi?
 
-La scalabilità automatica dei nodi non è supportata, ma lo sarà in futuro. È possibile esaminare questa [implementazione della scalabilità automatica][auto-scaler] open source.
+Sì, la scalabilità automatica è disponibile tramite il [Ridimensionamento automatico di Kubernetes][auto-scaler] a partire da Kubernetes 1.10.
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS supporta il controllo degli accessi in base al ruolo di Kubernetes?
 
-No, il controllo degli accessi in base al ruolo non è attualmente supportato in AKS, ma sarà presto disponibile.
+Sì, RBAC può essere abilitato durante la distribuzione del cluster AKS all'interfaccia della riga di comando di Azure o dal modello di Azure Resource Manager. Questa funzionalità sarà a breve disponibile sul portale di Azure.
+
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Quali controller di ammissione Kubernetes supporta AKS? Può essere configurato?
+
+AKS supporta i seguenti [controller di ammissione][admission-controllers]:
+
+* NamespaceLifecycle
+* LimitRanger
+* ServiceAccount
+* DefaultStorageClass
+* DefaultTolerationSeconds
+* MutatingAdmissionWebhook
+* ValidatingAdmissionWebhook
+* ResourceQuota
+* DenyEscalatingExec
+* AlwaysPullImages
+
+Non è attualmente possibile modificare l'elenco di controller di ammissione in AKS.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>È possibile distribuire AKS nella rete virtuale esistente?
 
-Sì, questa operazione è possibile tramite le [funzionalità della rete avanzata](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+Sì, è possibile distribuire un cluster AKS in una rete virtuale esistente tramite la [funzione di retee virtuale](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault è integrato in AKS?
 
-No, non lo è, ma l'integrazione è pianificata per il futuro. Nel frattempo, provare la soluzione seguente di [Hexadite][hexadite].
+AKS non è attualmente integrato nell'insieme di credenziali delle chiavi di Azure in modo nativo. Tuttavia, sono disponibili soluzioni di community come [l'agente acs-keyvault-agent di Hexadite][hexadite].
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>È possibile eseguire contenitori Windows Server in AKS?
 
-Per eseguire i contenitori di Windows Server, è necessario eseguire nodi basati su Windows Server. I nodi basati su Windows Server sono attualmente in [anteprima privata](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Se è necessario eseguire i contenitori Windows Server in Kubernetes in Azure al di fuori dell’anteprima, vedere la [documentazione per acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Per eseguire i contenitori di Windows Server, è necessario eseguire nodi basati su Windows Server. I nodi basati su server di Windows non sono attualmente disponibili in AKS. Se è necessario eseguire contenitori Windows Server in Kubernetes in Azure, vedere la [documentazione per acs-engine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Perché vengono creati due gruppi di risorse con AKS?
 
-Ogni distribuzione AKS si estende a due gruppi di risorse. Il primo viene creato dall'utente e contiene solo la risorsa AKS. Il provider di risorse AKS crea automaticamente il secondo durante la distribuzione con un nome come *MC_myResourceGRoup_myAKSCluster_eastus*. Il secondo gruppo di risorse contiene tutte le risorse di infrastruttura associate al cluster, ad esempio le VM, le risorse di rete e di archiviazione. Viene creato per semplificare la pulitura delle risorse.
+Ogni distribuzione AKS si estende a due gruppi di risorse. Il primo viene creato dall'utente e contiene solo la risorsa del servizio Kubernetes. Il provider di risorse AKS crea automaticamente il secondo durante la distribuzione con un nome come *MC_myResourceGroup_myAKSCluster_eastus*. Il secondo gruppo di risorse contiene tutte le risorse di infrastruttura associate al cluster, ad esempio le VM, le risorse di rete e di archiviazione. Viene creato per semplificare la pulitura delle risorse.
 
 Se si creano risorse che verranno usate con il cluster AKS, ad esempio account di archiviazione o un indirizzo IP pubblico riservato, è necessario inserirle nel gruppo di risorse generato automaticamente.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre un contratto di servizio?
+
+In un contratto di servizio il provider si impegna a rimborsare il cliente per il costo del servizio, se il livello di servizio pubblicato non viene soddisfatto. Poiché AKS è gratuito, non è esiste un costo da rimborsare e quindi non esiste un contratto di servizio formale. Tuttavia l'obiettivo è quello di mantenere una disponibilità almeno del 99,5% per il server API Kubernetes.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
+[admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/

@@ -1,20 +1,20 @@
 ---
-title: Connettore Spark con database SQL di Azure e SQL Server | Microsoft Docs
+title: Connettore Spark con database SQL di Azure e SQL Server | Documentazione Microsoft
 description: Informazioni su come usare il connettore Spark per Database SQL di Azure e SQL Server
 services: sql-database
 author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: xiwu
-ms.openlocfilehash: 393af463c4145e1d865c14f2ace7d5123ab12cfa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a422f65097466e4bbe5740c449d3ccf88701802b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187386"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650163"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Consente di accelerare il processo di big data analytics in tempo reale con connettore Spark per database SQL di Azure e SQL Server
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794548"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights per le applicazioni web Java che sono già live
-
 
 Se è disponibile un'applicazione Web già in esecuzione nel server J2EE, è possibile avviare il monitoraggio con [Application Insights](app-insights-overview.md) senza dover apportare modifiche al codice o ricompilare il progetto. Con questa opzione è possibile ottenere informazioni sulle richieste HTTP inviate al server, le eccezioni non gestite e i contatori delle prestazioni.
 
@@ -136,4 +136,4 @@ E quando si visualizzano le proprietà di una richiesta, è possibile visualizza
 * [Configurare i test Web](app-insights-monitor-web-app-availability.md) in modo da assicurarsi che l'applicazione sia disponibile e reattiva.
 * [Acquisire le tracce dei log](app-insights-java-trace-logs.md)
 * [Cercare eventi e log](app-insights-diagnostic-search.md) per facilitare la diagnosi dei problemi.
-
+* [Configurare un'app di inizializzazione Spring Boot](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

@@ -1,0 +1,165 @@
+- name: Documentazione di Hub eventi
+  href: ./index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è Hub eventi?
+      href: event-hubs-about.md
+    - name: Confrontare i servizi di messaggistica
+      href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Elaborare flussi di eventi - Portale
+      href: event-hubs-quickstart-portal.md
+    - name: Elaborare flussi di eventi - Interfaccia della riga di comando di Azure
+      href: event-hubs-quickstart-cli.md
+    - name: Elaborare flussi di eventi - Azure PowerShell
+      href: event-hubs-quickstart-powershell.md
+- name: Esercitazioni
+  items:
+    - name: Visualizzare le anomalie dei dati nei flussi di dati di Hub eventi
+      href: event-hubs-tutorial-visualize-anomalies.md
+- name: Esempi
+  href: event-hubs-samples.md
+- name: Concetti
+  items:
+    - name: Panoramica dell'host processore di eventi
+      href: event-hubs-event-processor-host.md
+    - name: Guida alla programmazione
+      href: event-hubs-programming-guide.md
+    - name: Integrazione con Griglia di eventi
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Funzionalità di Hub eventi
+      href: event-hubs-features.md
+    - name: Identità del servizio gestito (anteprima)
+      href: event-hubs-managed-service-identity.md
+    - name: Controllo degli accessi in base al ruolo (anteprima)
+      href: event-hubs-role-based-access-control.md
+    - name: Ripristino di emergenza geografico e replica geografica
+      href: event-hubs-geo-dr.md
+    - name: Hub eventi Dedicato
+      href: event-hubs-dedicated-overview.md
+    - name: Panoramica del modello di autenticazione e sicurezza
+      href: event-hubs-authentication-and-security-model-overview.md
+    - name: Disponibilità e coerenza
+      href: event-hubs-availability-and-consistency.md
+    - name: Ridimensionamento automatico delle unità elaborate
+      href: event-hubs-auto-inflate.md
+    - name: Log di diagnostica
+      href: event-hubs-diagnostic-logs.md
+    - name: Guida al protocollo AMQP 1.0
+      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+      maintainContext: true
+- name: Guide alle procedure
+  items:
+    - name: Creare un hub eventi
+      href: event-hubs-create.md
+    - name: Inviare eventi con .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
+    - name: Ricevere eventi con .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: Hub eventi per Kafka
+      items:
+        - name: Panoramica di Hub eventi per ecosistemi Kafka
+          href: event-hubs-for-kafka-ecosystem-overview.md
+        - name: Creare hub eventi con supporto per Kafka
+          href: event-hubs-create-kafka-enabled.md
+        - name: Eseguire lo streaming in Hub eventi per l'ecosistema Kafka
+          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Esercitazione su Kafka MirrorMaker con Hub eventi
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Esercitazione su Apache Flink con Hub eventi
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Esercitazione su Akka Streams con Hub eventi
+          href: event-hubs-kafka-akka-streams-tutorial.md
+    - name: API disponibili
+      href: event-hubs-api-overview.md
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-api-overview.md
+        - name: .NET Framework
+          href: event-hubs-dotnet-framework-api-overview.md
+    - name: Inviare eventi
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java
+          href: event-hubs-java-get-started-send.md
+        - name: C
+          href: event-hubs-c-getstarted-send.md
+    - name: Ricevere eventi
+      items:
+        - name: .NET Standard
+          href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+        - name: Java
+          href: event-hubs-java-get-started-receive-eph.md
+        - name: Apache Storm
+          href: event-hubs-storm-getstarted-receive.md
+    - name: Acquisire eventi
+      items:
+        - name: Usare il portale di Azure per abilitare Acquisizione di Hub eventi
+          href: event-hubs-capture-enable-through-portal.md
+        - name: Usare un modello di Resource Manager per abilitare Acquisizione di Hub eventi
+          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - name: Gestisci
+      items:
+        - name: Monitorare Hub eventi con Monitoraggio di Azure
+          href: event-hubs-metrics-azure-monitor.md
+        - name: Librerie di gestione di Hub eventi
+          href: event-hubs-management-libraries.md
+        - name: Acquisizione
+          items:
+            - name: Acquisizione di Hub eventi
+              href: event-hubs-capture-overview.md
+            - name: Acquisire i dati di Hub eventi con Python
+              href: event-hubs-capture-python.md
+        - name: Trasmettere dati di Diagnostica di Azure usando Hub eventi
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: Creare e distribuire un hub eventi con un modello di Resource Manager
+          href: event-hubs-resource-manager-namespace-event-hub.md
+- name: Riferimenti
+  items:
+    - name: Java
+      items:
+        - name: com.microsoft.azure.eventhubs
+          href: /java/api/com.microsoft.azure.eventhubs
+        - name: com.microsoft.azure.eventprocessorhost
+          href: /java/api/com.microsoft.azure.eventprocessorhost
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.EventHubs
+          href: /dotnet/api/microsoft.azure.eventhubs
+        - name: Microsoft.Azure.EventHubs.Processor
+          href: /dotnet/api/microsoft.azure.eventhubs.processor
+        - name: Microsoft.ServiceBus.Messaging
+          href: /dotnet/api/microsoft.servicebus.messaging
+        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
+          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+        - name: Microsoft.Azure.Management.EventHub
+          href: /dotnet/api/microsoft.azure.management.eventhub
+    - name: REST
+      href: /rest/api/eventhub
+    - name: Eccezioni
+      href: event-hubs-messaging-exceptions.md
+    - name: Quote
+      href: event-hubs-quotas.md
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: event-hubs-faq.md
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: Percorso di apprendimento
+      href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
+    - name: Calcolatore prezzi
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=event-hubs'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-eventhub'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=event-hubs'

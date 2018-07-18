@@ -1,30 +1,32 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: attività di gestione in Azure | Microsoft Docs"
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: attività di gestione in Azure | Microsoft Docs'
 description: Il controllo di accesso condizionale consente ad Azure Active Directory di controllare le condizioni specifiche definite durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
-documentationcenter: 
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ed683f1b96172b71cc3dfae2511607e50071739f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5fcb229690827c7bd508aa0d27dd68b169b4e25e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801327"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Pianificare il ciclo di vita dell’identità ibrida
-L'identità rappresenta uno degli elementi fondamentali della strategia di mobilità aziendale e di accesso alle applicazioni. Quando si accede a un dispositivo mobile personale o a un'app SaaS, l'identità è la chiave con cui si ottiene l'accesso a tutti i componenti. A livello generale, una soluzione di gestione delle identità prevede il consolidamento e la sincronizzazione degli archivi di identità, nonché l'automazione e la centralizzazione del processo di provisioning delle risorse. La soluzione di identità, inoltre, deve essere un'identità centralizzata in locale e nel cloud e ricorrere a una forma di federazione delle identità per gestire l'autenticazione centralizzata e condividere e collaborare con aziende e utenti esterni in modo totalmente sicuro. Le risorse comprendono i sistemi operativi, le applicazioni e gli utenti appartenenti o affiliati a un'azienda. La struttura aziendale, inoltre, può essere modificata per soddisfare determinati criteri o procedure di provisioning.
+L'identità rappresenta uno degli elementi fondamentali della strategia di mobilità aziendale e di accesso alle applicazioni. Quando si accede a un dispositivo mobile personale o a un'app SaaS, l'identità è la chiave con cui si ottiene l'accesso a tutti i componenti. A livello generale, una soluzione di gestione delle identità prevede il consolidamento e la sincronizzazione degli archivi di identità, che include l'automazione e la centralizzazione del processo di provisioning delle risorse. La soluzione di identità, inoltre, deve essere un'identità centralizzata in locale e nel cloud e ricorrere a una forma di federazione delle identità per gestire l'autenticazione centralizzata e condividere e collaborare con aziende e utenti esterni in modo totalmente sicuro. Le risorse comprendono i sistemi operativi, le applicazioni e gli utenti appartenenti o affiliati a un'azienda. La struttura aziendale, inoltre, può essere modificata per soddisfare determinati criteri o procedure di provisioning.
 
-È importante anche disporre di una soluzione di identità pensata per offrire agli utenti la possibilità di restare produttivi mediante esperienze self-service. La soluzione di identità è più affidabile se consente agli utenti di eseguire un accesso di tipo Single Sign-On a tutte le risorse necessarie e se permette agli amministratori, a tutti i livelli, di usare procedure standard per la gestione delle credenziali utente. È comunque possibile ridurre o eliminare alcuni livelli di amministrazione, in base all'entità della soluzione di gestione dei processi di provisioning. È inoltre possibile distribuire funzionalità di amministrazione in aziende diverse, manualmente o automaticamente e in totale sicurezza. Ad esempio, un amministratore di dominio può gestire solo gli utenti e le risorse presenti nel proprio dominio. In questo caso, l'utente può eseguire attività amministrative e di provisioning, ma non è autorizzato a effettuare attività di configurazione, come la creazione di flussi di lavoro.
+È importante anche disporre di una soluzione di identità pensata per offrire agli utenti la possibilità di restare produttivi mediante esperienze self-service. La soluzione di gestione delle identità è più affidabile se consente agli utenti di avere un singolo punto di accesso a tutte le risorse necessarie. Gli amministratori, a tutti i livelli, possono usare procedure standard per la gestione delle credenziali utente. È comunque possibile ridurre o eliminare alcuni livelli di amministrazione, in base all'entità della soluzione di gestione dei processi di provisioning. È inoltre possibile distribuire funzionalità di amministrazione in aziende diverse, manualmente o automaticamente e in totale sicurezza. Ad esempio, un amministratore di dominio può gestire solo gli utenti e le risorse presenti nel proprio dominio. In questo caso, l'utente può eseguire attività amministrative e di provisioning, ma non è autorizzato a effettuare attività di configurazione, come la creazione di flussi di lavoro.
 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Determinare le attività di gestione di un'identità ibrida
 La distribuzione di attività amministrative all'interno di un'azienda consente un'amministrazione più accurata ed efficiente e permette di bilanciare meglio il carico di lavoro aziendale. Di seguito sono illustrati gli elementi principali che definiscono un sistema di gestione delle identità affidabile.

@@ -1,4 +1,4 @@
-Il tipo di servizio e di sottoscrizione determina il numero di richieste che è possibile effettuare al secondo (QPS) o al mese (QPM). È consigliabile verificare che l'applicazione includa la logica necessaria per rimanere entro la quota. Se si supera il valore QPM, la richiesta ha esito negativo con codice di stato HTTP 403. Se si supera il valore QPS, la richiesta ha esito negativo con codice di stato HTTP 429. La risposta include anche l'intestazione Retry-After, che contiene il numero di secondi di attesa previsti prima dell'invio di un'altra richiesta.  
+Il tipo di servizio e di sottoscrizione determina il numero di query che è possibile effettuare al secondo (QPS). È consigliabile verificare che l'applicazione includa la logica necessaria per rimanere entro la quota. Se si supera il valore QPS, la richiesta ha esito negativo con codice di stato HTTP 429. La risposta include anche l'intestazione Retry-After, che contiene il numero di secondi di attesa previsti prima dell'invio di un'altra richiesta.  
   
 ### <a name="denial-of-service-dos-versus-throttling"></a>Denial of Service (DoS) e limitazione
 

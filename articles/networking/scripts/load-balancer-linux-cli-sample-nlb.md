@@ -1,17 +1,17 @@
 ---
-title: "Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata | Microsoft Docs"
-description: "Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata"
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 services: load-balancer
 documentationcenter: load-balancer
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848305"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Eseguire il bilanciamento del carico per il traffico verso le macchine virtuali per la disponibilità elevata
 

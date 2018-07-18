@@ -1,0 +1,29 @@
+- name: Documentazione dell'API Analisi linguistica
+- name: Panoramica
+  items:
+    - name: Informazioni sull'API Analisi linguistica
+      href: Home.md
+- name: Procedure
+  items:
+    - name: Nomi di analizzatori
+      href: Analyzer-Names.md
+    - name: Analisi sintattica
+      href: Constituency-Parsing.md
+    - name: Tag delle parti del discorso
+      href: POS-tagging.md
+    - name: Frasi e token
+      href: Sentences-and-Tokens.md
+    - name: Metodo analyze
+      href: AnalyzeMethod.md
+    - name: Metodo analyzers
+      href: AnalyzersMethod.md
+- name: Riferimenti
+  items:
+    - name: API Analisi linguistica
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb'
+    - name: Windows SDK
+      href: 'https://github.com/Microsoft/Cognitive-linguisticanalysis-windows'
+- name: Risorse
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555928-linguistic-analysis-api'

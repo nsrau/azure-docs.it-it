@@ -3,7 +3,7 @@ title: "Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della
 description: In questo avvio rapido si apprenderà come usare l'interfaccia della riga di comando di Azure 2.0 per creare una macchina virtuale Linux
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,17 +14,18 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/24/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c45f8f010d69337d21fce327933990a573988a4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6536860bb75d068a96899f2d30ec7a6126a28436
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927632"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli-20"></a>Avvio rapido: Creare una macchina virtuale Linux con l'interfaccia della riga di comando di Azure 2.0
 
-L'interfaccia della riga di comando di Azure 2.0 viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo avvio rapido illustra come usare l'interfaccia della riga di comando di Azure 2.0 per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per visualizzare la macchina virtuale in azione, eseguire una connessione SSH alla macchina virtuale e installare il server Web NGINX.
+L'interfaccia della riga di comando di Azure 2.0 viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. Questo avvio rapido illustra come usare l'interfaccia della riga di comando di Azure 2.0 per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per vedere la macchina virtuale in azione, eseguire SSH nella macchina virtuale e installare il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -70,7 +71,7 @@ La creazione della macchina virtuale e delle risorse di supporto richiede alcuni
 }
 ```
 
-Annotare `publicIpAddress` nell'output della propria macchina virtuale. Questo indirizzo viene usato per l'accesso alla macchina virtuale nei passaggi successivi.
+Si noti `publicIpAddress` nell'output della macchina virtuale. Questo indirizzo viene usato per l'accesso alla macchina virtuale nei passaggi successivi.
 
 ## <a name="open-port-80-for-web-traffic"></a>Aprire la porta 80 per il traffico Web
 
@@ -118,7 +119,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo avvio rapido è stata distribuita una macchina virtuale semplice, è stata aperta una porta di rete per il traffico Web ed è stato installato un server Web di base. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
+In questa guida introduttiva è stata distribuita una macchina virtuale semplice, è stata aperta una porta di rete per il traffico Web ed è stato installato un server Web di base. Per altre informazioni sulle macchine virtuali di Azure, passare all'esercitazione per le VM di Linux.
 
 
 > [!div class="nextstepaction"]

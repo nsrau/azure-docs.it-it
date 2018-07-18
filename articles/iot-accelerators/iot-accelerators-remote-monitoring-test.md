@@ -1,26 +1,23 @@
 ---
 title: Simulazione dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
 description: Questa esercitazione mostra come usare il simulatore di dispositivi con l'acceleratore di soluzioni di monitoraggio remoto.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628260"
 ---
 # <a name="create-a-new-simulated-device"></a>Creare un nuovo dispositivo simulato
 
-Questa esercitazione illustra come personalizzare il microservizio del simulatore di dispositivi nell'acceleratore di soluzioni di monitoraggio remoto. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
+Questa esercitazione mostra come personalizzare il microservizio del simulatore di dispositivi nell'acceleratore di soluzioni di monitoraggio remoto. Per illustrare le funzionalità del simulatore di dispositivi, questa esercitazione usa due scenari nell'applicazione IoT Contoso.
 
 Il video seguente offre una panoramica delle opzioni di personalizzazione del microservizio del simulatore di dispositivi:
 
@@ -82,7 +79,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere un nuovo tipo di dispositivo al dashboard
 > * Inviare dati di telemetria personalizzati da un tipo di dispositivo esistente
 
-Il video seguente illustra una procedura dettagliata di connessione di dispositivi simulati e reali alla soluzione di monitoraggio remoto:
+Il video seguente mostra una procedura dettagliata di connessione di dispositivi simulati e reali alla soluzione di monitoraggio remoto:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -106,7 +103,7 @@ Completare le attività seguenti per preparare l'ambiente di sviluppo per l'aggi
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Configurare l'accesso SSH alla macchina virtuale della soluzione in Azure
 
-Al momento della creazione della soluzione di monitoraggio remoto in [www.azureiotsuite.com](https://www.azureiotsuite.com), è stato scelto un nome per la soluzione. Questo nome diventa il nome del gruppo di risorse di Azure che contiene le varie risorse distribuite che la soluzione usa. I comandi seguenti usano un gruppo di risorse denominato **Contoso-01**. Sostituire **Contoso-01** con il nome del gruppo di risorse da usare.
+Al momento della creazione della soluzione di monitoraggio remoto in [www.azureiotsolutions.com](https://www.azureiotsolutions.com), è stato scelto un nome per la soluzione. Questo nome diventa il nome del gruppo di risorse di Azure che contiene le varie risorse distribuite che la soluzione usa. I comandi seguenti usano un gruppo di risorse denominato **Contoso-01**. Sostituire **Contoso-01** con il nome del gruppo di risorse da usare.
 
 I comandi seguenti usano il comando `az` dell'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). È possibile installare l'interfaccia della riga di comando di Azure 2.0 nel computer di sviluppo oppure usare [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) nel [portale di Azure](http://portal.azure.com). L'interfaccia della riga di comando di Azure 2.0 è preinstallata in Cloud Shell.
 
@@ -484,7 +481,7 @@ A questo punto si è pronti per testare il nuovo tipo di lampadina simulata eseg
 
     ![Numero di dispositivi connessi](./media/iot-accelerators-remote-monitoring-test/connecteddevices.png)
 
-1. Nel browser passare al **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura di tutti i dispositivi simulati viene visualizzata nel grafico:
+1. Nel browser passare alla **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura di tutti i dispositivi simulati viene visualizzata nel grafico:
 
     ![Dati di telemetria sulla temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 
@@ -584,7 +581,7 @@ I passaggi seguenti presuppongono la presenza di un repository denominato **ligh
 
 A questo punto, sono stati completati i passaggi per distribuire una versione aggiornata del servizio di simulazione di dispositivi nella soluzione di monitoraggio remoto.
 
-Nel browser passare al **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura per i due dispositivi simulati viene visualizzata nel grafico:
+Nel browser passare alla **dashboard** per la soluzione di monitoraggio remoto. Nel pannello di telemetria nel **dashboard** selezionare **temperature** (temperatura). La temperatura per i due dispositivi simulati viene visualizzata nel grafico:
 
 ![Dati di telemetria sulla temperatura](./media/iot-accelerators-remote-monitoring-test/telemetry.png)
 

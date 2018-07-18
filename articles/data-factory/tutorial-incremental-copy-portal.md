@@ -3,7 +3,7 @@ title: Eseguire la copia incrementale di una tabella usando Azure Data Factory |
 description: In questa esercitazione si crea una pipeline di Azure Data Factory che copia i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,21 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
-ms.author: shlo
-ms.openlocfilehash: 75d291c10f732f2d18fb78b0262c42052acc713e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: yexu
+ms.openlocfilehash: 6d63a443da0fd331d02039ed3a3715dbc59f273b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406491"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051468"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Caricare i dati in modo incrementale da un database SQL di Azure a un archivio BLOB di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da una tabella di un database SQL di Azure a un archivio BLOB di Azure. 
-
-
-> [!NOTE]
-> Questo articolo è applicabile alla versione 2 di Azure Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione di Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 In questa esercitazione vengono completati i passaggi seguenti:
 
@@ -173,7 +168,7 @@ END
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
         Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2 (anteprima)** per **Versione**.
+4. Selezionare **V2** per la **versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Crea**.      
@@ -303,7 +298,7 @@ In questa esercitazione si crea una pipeline con due attività di ricerca, un'at
 24. Selezionare l'attività **Stored procedure** nella finestra di progettazione della pipeline e modificarne il nome in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Attività stored procedure: nome](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService*\* per **Servizio collegato**. 
+25. Passare alla scheda **Account SQL** e selezionare *AzureSqlDatabaseLinkedService* per **Servizio collegato**. 
 
     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Passare alla scheda **Stored procedure** e seguire questa procedura: 

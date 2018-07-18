@@ -18,6 +18,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753061"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Progetti di esempio per applicazioni gestite di Azure
 

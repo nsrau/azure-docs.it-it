@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574973"
 ---
 Se non si intende continuare a usare l'app, eliminare tutte le risorse create tramite questa guida di avvio rapido eseguendo i passaggi seguenti, per evitare qualsiasi addebito:
 

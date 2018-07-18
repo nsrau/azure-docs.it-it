@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293035"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount può essere l'account del computer SPS o un account del
 
 
 ## <a name="sso-for-non-windows-apps"></a>Accesso Single Sign-On per app non Windows
-Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy dell'applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. Esistono vari protocolli che definiscono la modalità di invio di tali richieste. La maggior parte dei server non Windows prevede l'uso del protocollo Negotiate/SPNego, al momento supportato nel proxy di applicazione di Azure AD.
+
+Il flusso di delega Kerberos nel proxy di applicazione di Azure AD inizia quando Azure AD autentica l'utente nel cloud. Quando la richiesta arriva in locale, il connettore del proxy dell'applicazione di Azure AD rilascia un ticket Kerberos per conto dell'utente tramite l'interazione con Active Directory locale. Questo processo è definito come delega vincolata Kerberos. Nella fase successiva, viene inviata una richiesta all'applicazione back-end con il ticket Kerberos. 
+
+Esistono vari protocolli che definiscono la modalità di invio di tali richieste. La maggior parte dei server non-Windows prevede di negoziare con SPNEGO. Questo protocollo è supportato nell’Azure Active Directory Application Proxy, ma è disabilitato per impostazione predefinita. Un server può essere configurato per SPNEGO o per delega vincolata Kerberos standard, ma non per entrambi.
+
+Se si configura una macchina di connettori per SPNEGO, assicurarsi che tutti gli altri connettori in tale gruppo siano configurati anche con SPNEGO. Le applicazioni previste per delega vincolata Kerberos standard devono essere indirizzate attraverso gli altri connettori che non sono configurati per SPNEGO.
+ 
+
+Per abilitare SPNEGO:
+
+1. Aprire un prompt dei comandi come amministratore.
+2. Dal prompt dei comandi, eseguire i comandi seguenti nei server del connettore che richiedono SPNEGO.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Per altre informazioni su Kerberos, vedere [All you want to know about Kerberos Constrained Delegation (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd) (Tutto quello che si desidera sapere sulla delega vincolata Kerberos (KCD)).
 
@@ -124,7 +141,7 @@ In alcuni casi, tuttavia, la richiesta viene inviata correttamente all'applicazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come configurare un'applicazione proxy di applicazione per l'uso della delega vincolata Kerberos](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [Risolvere i problemi che si verificano con il proxy di applicazione](../active-directory-application-proxy-troubleshoot.md)
+* [Risolvere i problemi che si verificano con il proxy di applicazione](application-proxy-troubleshoot.md)
 
 
 Per le notizie e gli aggiornamenti più recenti, vedere [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

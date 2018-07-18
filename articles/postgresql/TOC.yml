@@ -146,7 +146,21 @@
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Video
-      href: videos.md
+      items:
+        - name: Video sui prodotti
+          href: videos.md
+        - name: Serie di video sulle procedure
+          items:
+            - name: Informazioni sulle funzionalità e sui vantaggi dei prodotti
+              href: 'https://aka.ms/postg-intro-vid'
+            - name: Eseguire la migrazione dell'app PostgreSQL in Azure
+              href: 'https://aka.ms/postg-migrate-vid'
+            - name: Creare app intelligenti con Servizi cognitivi
+              href: 'https://aka.ms/postg-cogsvs-vid'
+            - name: Connettere contenitori con OSBA
+              href: 'https://aka.ms/postg-osba-vid'
+            - name: Connettere i dati dell'app a Power BI
+              href: 'https://aka.ms/postg-powerbi-vid'
     - name: Forum di commenti e suggerimenti
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
     - name: Aree di disponibilità
@@ -155,5 +169,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Casi di successo dei clienti
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: Partner
+      href: partners-migration-postgresql.md
     - name: Guida alla migrazione di database
       href: 'https://datamigration.microsoft.com/'

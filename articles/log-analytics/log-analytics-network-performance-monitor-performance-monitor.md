@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 65497548d0b8066627be25520c28d39491918d09
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 3d51399edbb9679d1cf7b62b075ba34aa5ede42f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131339"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
@@ -38,7 +40,7 @@ Per visualizzare la configurazione di Monitoraggio prestazioni rete, aprire la [
 
 ![Configurare Monitoraggio prestazioni rete](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
-### <a name="create-new-networks"></a>Creare nuove reti
+### <a name="create-new-networks"></a>Creazione di nuove reti
 
 Una rete in Monitoraggio prestazioni rete è un contenitore per subnet. Consente di organizzare il monitoraggio dell'infrastruttura di rete in base alle esigenze specifiche. È possibile creare una rete con un nome descrittivo e aggiungere le subnet in base alla logica di business. Ad esempio, è possibile creare una rete denominata Londra e aggiungere tutte le subnet nel data center Londra. In alternativa, è possibile creare una rete denominata *ContosoFrontEnd* e aggiungervi tutte le subnet denominate Contoso che servono il front-end dell'app. La soluzione crea automaticamente una rete predefinita che contiene tutte le subnet individuate nell'ambiente in uso. 
 

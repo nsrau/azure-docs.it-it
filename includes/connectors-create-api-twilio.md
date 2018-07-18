@@ -16,7 +16,7 @@ Ecco i passaggi per autorizzare l'app per la logica a connettersi all'account Tw
    ![](./media/connectors-create-api-twilio/twilio-0.png)
 2. Se non sono mai state create connessioni a Twilio prima d'ora, verrà chiesto di fornire le credenziali di Twilio. Queste credenziali verranno usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati dell'account Twilio:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. Saranno necessari l'**id dell'account Twilio** e il **token di accesso Twilio** disponibili nel dashboard di Twilio. Accedere ora all'account Twilio per ottenere questi due tipi di informazioni:  
+3. Saranno necessari l'**ID dell'account Twilio** e il **token di accesso Twilio** disponibili nel dashboard di Twilio. Accedere ora all'account Twilio per ottenere questi due tipi di informazioni:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
 4. Twilio e le app per la logica usano diversi nomi per identificare questi due tipi di informazioni. Ecco come eseguirne il mapping alla finestra di dialogo relativa alle app per la logica: ![](./media/connectors-create-api-twilio/twilio-3.png)  
 5. Selezionare il pulsante **Crea connessione**:  

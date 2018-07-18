@@ -15,11 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308537"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Come distribuire l'estensione Pannello di accesso per Internet Explorer con Criteri di gruppo
 Questa esercitazione illustra come usare Criteri di gruppo per installare l'estensione Pannello di accesso per Internet Explorer nei computer degli utenti in modalità remota. Questa estensione è necessaria per gli utenti di Internet Explorer che devono eseguire l'accesso ad app configurate con l' [accesso Single Sign-On basato su password](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -43,7 +44,7 @@ Per prima cosa, salvare il pacchetto del programma di installazione in un percor
    
     ![Apertura di Servizi file e archiviazione](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Completare la **Creazione guidata nuova condivisione** e impostare le autorizzazioni per assicurarsi che i computer degli utenti possano accedervi. [Altre informazioni sulle condivisioni.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Scaricare il pacchetto di Microsoft Windows Installer (file MSI) seguente: [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Scaricare il pacchetto di Microsoft Windows Installer (file MSI) seguente: [Access Panel Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Copiare il pacchetto del programma di installazione nel percorso desiderato nella condivisione.
    
     ![Copiare il file MSI nella condivisione.](./media/active-directory-saas-ie-group-policy/copy-package.png)

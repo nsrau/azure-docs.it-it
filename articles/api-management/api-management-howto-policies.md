@@ -2,10 +2,10 @@
 title: Criteri in Gestione API di Azure | Microsoft Docs
 description: Informazioni su come creare, modificare e configurare criteri in Gestione API.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712869"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 

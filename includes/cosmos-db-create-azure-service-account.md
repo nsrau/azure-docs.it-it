@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431757"
 ---
 È possibile usare tabelle con l'archiviazione tabelle di Azure o con Azure Cosmos DB. Per altre informazioni sulle differenze tra i servizi, vedere [Offerte per tabelle](../articles/cosmos-db/table-introduction.md#table-offerings). Sarà necessario creare un account per il servizio che si intende usare. 
 

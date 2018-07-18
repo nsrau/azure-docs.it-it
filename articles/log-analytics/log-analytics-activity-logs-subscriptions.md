@@ -3,21 +3,23 @@ title: Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni | 
 description: Usare hub eventi e app per la logica per raccogliere dati dal log attività di Azure ed eseguirne l'invio a un'area di lavoro di Azure Log Analytics in un altro tenant.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
-author: richrundmsft
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: c2bb802213d903290a0168623d7e6a302ba0e324
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127442"
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Raccogliere log attività di Azure in Log Analytics tra sottoscrizioni
 
@@ -113,7 +115,7 @@ Prima di creare l'app per la logica, verificare di disporre delle informazioni s
 - ID dell'area di lavoro di Log Analytics
 - Chiave condivisa di Log Analytics
 
-Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i passaggi in [Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione](../connectors/connectors-create-api-azure-event-hubs.md#connect-to-azure-event-hubs).
+Per ottenere la stringa di connessione e il nome dell'hub eventi, seguire i passaggi in [Controllare le autorizzazioni dello spazio dei nomi di Hub eventi e trovare la stringa di connessione](../connectors/connectors-create-api-azure-event-hubs.md#permissions-connection-string).
 
 
 ### <a name="create-a-new-blank-logic-app"></a>Creare una nuova app per la logica vuota

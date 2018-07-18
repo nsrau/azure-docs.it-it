@@ -1,11 +1,11 @@
 ---
 title: Formato dei file manifesto del servizio Importazione/Esportazione di Azure | Documentazione Microsoft
-description: "Informazioni sul formato del file manifesto dell'unità che descrive il mapping tra i BLOB nell'archiviazione BLOB di Azure e i file su un disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione."
+description: Informazioni sul formato del file manifesto dell'unità che descrive il mapping tra i BLOB nell'archiviazione BLOB di Azure e i file su un disco in un processo di importazione o esportazione nel servizio Importazione/Esportazione.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059736"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato del file manifesto del servizio Importazione/Esportazione di Azure
 Il file manifesto dell'unità descrive il mapping tra i BLOB nell'archiviazione Blob di Azure e i file nell'unità che comprende un processo di importazione o esportazione. Per un'operazione di importazione, il file manifesto viene creato come parte del processo di preparazione dell'unità e viene archiviato nell'unità prima che questa venga inviata al data center di Azure. Durante un'operazione di esportazione, il manifesto viene creato e archiviato nell'unità dal servizio Importazione/Esportazione di Azure.  

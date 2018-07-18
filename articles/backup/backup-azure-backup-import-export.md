@@ -1,25 +1,19 @@
 ---
-title: 'Backup di Azure: backup offline o seeding iniziale con il servizio Importazione/Esportazione di Azure | Microsoft Docs'
+title: 'Backup di Azure: backup offline o seeding iniziale con il servizio Importazione/Esportazione di Azure'
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939712"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831457"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
@@ -57,7 +51,7 @@ Le funzionalità o i carichi di lavoro seguenti di Backup di Azure supportano l'
 Prima di avviare il flusso di lavoro del backup offline completare i prerequisiti seguenti: 
 * Creare un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md). Per crearne uno, vedere la procedura descritta in [questo articolo](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Assicurarsi di aver installato solo l'[ultima versione dell'agente di Backup di Azure](https://aka.ms/azurebackup_agent) su Windows Server o nel client Windows, a seconda dei casi, e di aver registrato il computer con l'insieme di credenziali di Servizi di ripristino.
-* Sui computer che eseguono l'agente di Backup di Azure è necessario Azure PowerShell 3.7.0 o una versione successiva. Si consiglia di [installare la versione più recente di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Sui computer che eseguono l'agente di Backup di Azure è necessario usare Azure PowerShell 3.7.0. È consigliabile scaricare e [installare la versione 3.7.0 di Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Nel computer che esegue l'agente di Backup di Azure verificare che siano installati Microsoft Edge o Internet Explorer 11 e che JavaScript sia abilitato. 
 * Creare un account di Archiviazione di Azure nella stessa sottoscrizione dell'insieme di credenziali dei Servizi di ripristino. 
 * Assicurarsi di avere le [autorizzazioni necessarie](../azure-resource-manager/resource-group-create-service-principal-portal.md) per creare l'applicazione Azure Active Directory. Il flusso di lavoro del backup offline crea un'applicazione di Azure Active Directory nella sottoscrizione associata all'account di Archiviazione di Azure. L'obiettivo dell'applicazione consiste nel garantire a Backup di Azure un accesso protetto con ambito al servizio Importazione di Azure, necessario per il flusso di lavoro del backup offline. 
@@ -68,7 +62,7 @@ Prima di avviare il flusso di lavoro del backup offline completare i prerequisit
     4. Nell'elenco dei provider scorrere fino a Microsoft.ImportExport. Se lo stato è NotRegistered fare clic su **Registra**.
     ![Registrazione del provider di risorse](./media/backup-azure-backup-import-export/registerimportexport.png)
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva nel computer, interna o esterna, con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di staging sia di almeno 500 GB. Verrà tuttavia usata una quantità inferiore in virtù della compressione.
-* Quando si inviano i dischi in Azure, usare solo unità SSD da 2,5 pollici o dischi rigidi interni SATA II/III da 2,5 o da 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md#hard-disk-drives).
+* Quando si inviano i dischi in Azure, usare solo unità SSD da 2,5 pollici o dischi rigidi interni SATA II/III da 2,5 o da 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware).
 * Le unità SATA devono essere connesse a un computer, denominato *computer di copia*, da cui vengono copiati i dati di backup del *percorso di gestione temporanea* nell'unità SATA. Verificare che nel *computer di copia* sia abilitato BitLocker.
 
 ## <a name="workflow"></a>Flusso di lavoro
@@ -114,7 +108,7 @@ L'utilità *AzureOfflineBackupDiskPrep* prepara le unità SATA da inviare al dat
 
     * Il percorso di gestione temporanea specificato per il flusso di lavoro del seeding offline è accessibile dal computer di copia usando lo stesso percorso di rete specificato durante il flusso di lavoro di **avvio del backup offline** .
     * Nel computer di copia è abilitato BitLocker.
-    * Sia installato Azure PowerShell 3.7.0 o versioni successive.
+    * Azure PowerShell 3.7.0 è installato.
     * Siano installate le versioni più recenti di browser compatibili, ovvero Edge o Internet Explorer 11, e che JavaScript è abilitato. 
     * Il computer di copia può accedere al portale di Azure. Se necessario, il computer di copia può coincidere con il computer di origine.
     

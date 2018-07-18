@@ -1,6 +1,6 @@
 ---
-title: Registrare i tenant per l'utilizzo di rilevamento nello Stack di Azure | Documenti Microsoft
-description: Informazioni dettagliate sulle operazioni che consente di gestire le registrazioni tenant e la modalità di registrazione dell'utilizzo di tenant nello Stack di Azure.
+title: Registrare i tenant per l'utilizzo di rilevamento in Azure Stack | Microsoft Docs
+description: Informazioni dettagliate sulle operazioni usate per gestire le registrazioni tenant e la modalità di rilevamento di utilizzo dei tenant in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,51 +11,52 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mabrigg
+ms.date: 06/08/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: ef7ca59647a1f8c15d85c809609060a5945bedde
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39093179"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione tenant nello Stack di Azure
+# <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione del tenant in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: i sistemi integrati di Azure Stack*
 
-Questo articolo contiene informazioni dettagliate sulle operazioni che è possibile utilizzare per gestire le registrazioni tenant e la modalità di registrazione dell'utilizzo di tenant. È possibile trovare informazioni dettagliate su come aggiungere, elenco, oppure rimuovere i mapping di tenant. È possibile utilizzare PowerShell o l'endpoint dell'API di fatturazione per gestire l'utilizzo di rilevamento.
+Questo articolo contiene informazioni dettagliate sulle operazioni che è possibile usare per gestire le registrazioni tenant e la modalità di rilevamento di utilizzo dei tenant. È possibile trovare informazioni dettagliate su come aggiungere, elenco, o rimuovere i mapping di tenant. È possibile usare PowerShell o gli endpoint API di fatturazione per gestire l'utilizzo di rilevamento.
 
-## <a name="add-tenant-to-registration"></a>Aggiungere la registrazione di tenant
+## <a name="add-tenant-to-registration"></a>Aggiungere registrazione tenant
 
-Utilizzare questa operazione quando si desidera aggiungere un nuovo tenant per la registrazione, in modo che viene segnalato l'utilizzo in una sottoscrizione di Azure connessa con i relativi tenant di Azure Active Directory (Azure AD).
+Questa operazione è usare quando si desidera aggiungere un nuovo tenant per la registrazione, in modo che il loro utilizzo viene segnalato in una sottoscrizione di Azure connessa con il tenant di Azure Active Directory (Azure AD).
 
-È inoltre possibile utilizzare questa operazione se si desidera modificare la sottoscrizione associata a un tenant, è possibile chiamare PUT/New-AzureRMResource nuovamente. Il mapping precedente viene sovrascritto.
+È anche possibile usare questa operazione se si desidera modificare la sottoscrizione associata a un tenant, è possibile chiamare nuovamente PUT/New-AzureRMResource. Il mapping precedente verrà sovrascritto.
 
-Si noti che solo una sottoscrizione di Azure può essere associata a un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione verrà sovrascrittura. 
+Si noti che una sola sottoscrizione di Azure può essere associata a un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione viene sovrascrittura. 
 
 
 | Parametro                  | DESCRIZIONE |
 |---                         | --- |
-| registrationSubscriptionID | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale. |
-| customerSubscriptionID     | La sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta di Provider del servizio Cloud (CSP). In pratica, ciò significa tramite Partner Center. Se un cliente dispone di più tenant, è necessario creare la sottoscrizione nel tenant che verrà utilizzato per accedere allo Stack di Azure. |
+| registrationSubscriptionID | Sottoscrizione di Azure che è stata usata per la registrazione iniziale. |
+| customerSubscriptionID     | Sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta Cloud Service Provider (CSP). In pratica, ciò significa tramite Centro per i Partner. Se un cliente ha più di un tenant, è necessario creare la sottoscrizione nel tenant che verrà usato per accedere a Azure Stack. |
 | resourceGroup              | Il gruppo di risorse in Azure in cui è archiviata la registrazione. |
-| registrationName           | Il nome della registrazione dello Stack di Azure. È un oggetto archiviato in Azure. Il nome è in genere in CloudID-azurestack modulo, dove CloudID è l'ID di Cloud della distribuzione di Azure Stack. |
+| registrationName           | Il nome della registrazione di Azure Stack. È un oggetto archiviato in Azure. Il nome è in genere in CloudID-azurestack form, in cui CloudID è l'ID Cloud della distribuzione di Azure Stack. |
 
 > [!Note]  
-> I tenant devono essere registrati con ogni utilizzano lo Stack di Azure. Se un tenant utilizza più di uno Stack di Azure, è necessario aggiornare le registrazioni iniziale di ogni distribuzione con la sottoscrizione tenant.
+> I tenant devono essere registrati con ogni Stack di Azure usano. Se un tenant Usa più di uno Stack di Azure, è necessario aggiornare le registrazioni iniziale di ogni distribuzione con la sottoscrizione del tenant.
 
 ### <a name="powershell"></a>PowerShell
 
-Utilizzare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. Accedere a Azure (`Add-AzureRmAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
+Usare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazione. Accedere ad Azure (`Add-AzureRmAccount`) usando l'account usato per la registrazione iniziale. Ecco un esempio di come aggiungere un tenant:
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
 ```
 
-### <a name="api-call"></a>Chiamata API
+### <a name="api-call"></a>Chiamata all'API
 
-**Operazione**: inserire  
+**Operazione**: PUT  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
 {customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **Risposta**: 201 creato  
@@ -66,29 +67,29 @@ Utilizzare il cmdlet New-AzureRmResource per aggiornare la risorsa di registrazi
 Ottenere un elenco di tutti i tenant che sono stati aggiunti a una registrazione.
 
  > [!Note]  
- > Se nessun tenant è stato registrato, si riceverà una risposta.
+ > Se nessun tenant è stato registrato, non viene visualizzato una risposta.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro                  | DESCRIZIONE          |
 |---                         | ---                  |
-| registrationSubscriptionId | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale.   |
+| registrationSubscriptionId | Sottoscrizione di Azure che è stata usata per la registrazione iniziale.   |
 | resourceGroup              | Il gruppo di risorse in Azure in cui è archiviata la registrazione.    |
-| registrationName           | Il nome della registrazione dello Stack di Azure. È un oggetto archiviato in Azure. Il nome è in genere sotto forma di **azurestack**-***CloudID***, dove ***CloudID*** è l'ID Cloud della distribuzione di Azure Stack.   |
+| registrationName           | Il nome della registrazione di Azure Stack. È un oggetto archiviato in Azure. Il nome è in genere nel formato **azurestack**-***CloudID***, dove ***CloudID*** ID Cloud della distribuzione di Azure Stack.   |
 
 ### <a name="powershell"></a>PowerShell
 
-Utilizzare il cmdlet Get-AzureRmResovurce per elencare registrati tutti i tenant. Accedere a Azure (`Add-AzureRmAccount`) utilizzando l'account utilizzato per la registrazione iniziale. Di seguito è riportato un esempio di come aggiungere un tenant:
+Usare il cmdlet Get-AzureRmResovurce per elencare registrati tutti i tenant. Accedere ad Azure (`Add-AzureRmAccount`) usando l'account usato per la registrazione iniziale. Ecco un esempio di come aggiungere un tenant:
 
 ```powershell
   Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
-### <a name="api-call"></a>Chiamata API
+### <a name="api-call"></a>Chiamata all'API
 
-È possibile ottenere un elenco di tutti i mapping di tenant usando l'operazione di recupero
+È possibile ottenere un elenco di tutti i mapping di tenant usando l'operazione GET
 
-**Operazione**: GET  
+**Operazione**: introduzione  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
 /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
 api-version=2017-06-01 HTTP/1.1`  
@@ -116,16 +117,16 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## <a name="remove-a-tenant-mapping"></a>Rimuovere un mapping del tenant
 
-È possibile rimuovere un tenant in cui è stato aggiunto a una registrazione. Se tale tenant continua a usare risorse nello Stack di Azure, viene addebitato il loro utilizzo per la sottoscrizione per la registrazione di Azure Stack iniziale utilizzata.
+È possibile rimuovere un tenant di cui è stato aggiunto a una registrazione. Se tale tenant Usa ancora le risorse in Azure Stack, il loro utilizzo viene addebitato alla sottoscrizione usata per la registrazione iniziale di Azure Stack.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro                  | DESCRIZIONE          |
 |---                         | ---                  |
-| registrationSubscriptionId | ID di sottoscrizione per la registrazione.   |
+| registrationSubscriptionId | ID sottoscrizione per la registrazione.   |
 | resourceGroup              | Il gruppo di risorse per la registrazione.   |
 | registrationName           | Il nome della registrazione.  |
-| customerSubscriptionId     | L'ID sottoscrizione del cliente.  |
+| customerSubscriptionId     | L'ID sottoscrizione cliente.  |
 
 ### <a name="powershell"></a>PowerShell
 
@@ -133,9 +134,9 @@ api-version=2017-06-01 HTTP/1.1`
   Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
-### <a name="api-call"></a>Chiamata API
+### <a name="api-call"></a>Chiamata all'API
 
-È possibile rimuovere i mapping di tenant mediante l'operazione di eliminazione.
+È possibile rimuovere i mapping di tenant tramite l'operazione di eliminazione.
 
 **Operazione**: eliminare  
 **RequestURI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
@@ -146,4 +147,4 @@ api-version=2017-06-01 HTTP/1.1`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Per ulteriori informazioni su come recuperare informazioni sull'utilizzo di risorse dallo Stack di Azure, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Per altre informazioni su come recuperare le informazioni sull'utilizzo di risorse di Azure Stack, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](/azure-stack-billing-and-chargeback.md).

@@ -2,25 +2,23 @@
 title: Procedura per l'esecuzione di query sui dati grafo in SQL in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sull'esecuzione di query sui dati grafo in Azure Cosmos DB
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
 editor: ''
 tags: ''
-ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 449821d6121f8fec40b151ae06f687586133c3d1
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081908"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Esercitazione: Eseguire query nell'API Graph di Azure Cosmos DB con Gremlin
 
@@ -31,9 +29,9 @@ Questo articolo illustra le attività seguenti:
 > [!div class="checklist"]
 > * Esecuzione di query sui dati con Gremlin
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati grafo. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-graph-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-query-graph.md) per creare un account e popolare il database. È possibile eseguire le query seguenti usando la [libreria .NET di grafi di Azure Cosmos DB](graph-sdk-dotnet.md), la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), o il driver Gremlin preferito.
+Per il funzionamento di queste query è necessario disporre di un account Azure Cosmos DB e nel contenitore devono essere presenti dati grafo. Questi requisiti non sono disponibili? Completare la [Guida introduttiva di 5 minuti](create-graph-dotnet.md) o l'[esercitazione per sviluppatori](tutorial-query-graph.md) per creare un account e popolare il database. È possibile eseguire le query seguenti usando la [console Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) o il driver Gremlin preferito.
 
 ## <a name="count-vertices-in-the-graph"></a>Numero di vertici nel grafo
 
@@ -82,7 +80,8 @@ In questa esercitazione sono state eseguite le operazioni seguenti:
 > [!div class="checklist"]
 > * È stato appreso come eseguire una query usando l'API Graph 
 
-È ora possibile passare all'esercitazione successiva per imparare a distribuire i dati a livello globale.
+È ora possibile passare alla sezione Concetti per altre informazioni su Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Distribuire i dati a livello globale](tutorial-global-distribution-graph.md)
+> [Distribuzione globale](distribute-data-globally.md) 
+

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30901810"
 ---
 # <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Creare una VM Linux usando l'interfaccia della riga di comando di Azure 1.0
 

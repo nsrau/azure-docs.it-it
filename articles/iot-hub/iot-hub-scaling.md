@@ -1,25 +1,19 @@
 ---
 title: Ridimensionamento dell'hub IoT di Azure | Microsoft Docs
 description: Come ridimensionare l'hub IoT per supportare la velocità effettiva dei messaggi prevista e le funzionalità desiderate. Include un riepilogo della velocità effettiva supportata per ogni livello e le opzioni per il partizionamento orizzontale.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e7bd4968-db46-46cf-865d-9c944f683832
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 01e6c3a6fb922a649f0ae139af9c8515fcb8b2e0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b4c5bf3b11c2ee661d95dc50f5c93e12fe2d56bf
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901042"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Scegliere il livello di hub IoT più adatto per la soluzione
 
@@ -37,7 +31,7 @@ Ogni livello di hub IoT è disponibile in tre dimensioni, in base alla velocità
 
 Il livello Standard dell'hub IoT supporta tutte le funzionalità ed è necessario per qualsiasi soluzione IoT in cui si vogliano usare le funzionalità di comunicazione bidirezionale. Il livello Basic supporta un subset delle funzionalità ed è destinato alle soluzioni IoT per cui è sufficiente la comunicazione unidirezionale dai dispositivi al cloud. Entrambi i livelli offrono le stesse funzionalità di sicurezza e autenticazione.
 
-Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Basic al livello Standard senza interrompere le operazioni esistenti. Per altre informazioni, vedere [How to upgrade your IoT hub](iot-hub-upgrade.md) (Come eseguire l'aggiornamento dell'hub IoT).
+Dopo aver creato l'hub IoT, è possibile eseguire l'aggiornamento dal livello Basic al livello Standard senza interrompere le operazioni esistenti. Per altre informazioni, vedere [How to upgrade your IoT hub](iot-hub-upgrade.md) (Come eseguire l'aggiornamento dell'hub IoT). Si noti che il limite di partizioni per il livello di base dell'hub IoT è 8. Questo limite rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 | Funzionalità | Livello Basic | Livello Standard |
 | ---------- | ---------- | ------------- |
@@ -59,34 +53,34 @@ La differenza a livello di funzionalità supportate tra i livelli Basic e Standa
 
 | API | Livello Basic | Livello Standard |
 | --- | ---------- | ------------- |
-| [Eliminazione dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/deletedevice) | Sì | Sì |
-| [Recupero dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/getdevice) | Sì | Sì |
+| [Eliminazione dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/deletedevice) | Sì | Sì |
+| [Recupero dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdevice) | Sì | Sì |
 | Eliminazione modulo | Sì | Sì |
 | Recupero modulo | Sì | Sì |
-| [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/rest/api/iothub/deviceapi/getregistrystatistics) | Sì | Sì |
-| [Recupero statistiche dei servizi](https://docs.microsoft.com/rest/api/iothub/deviceapi/getservicestatistics) | Sì | Sì |
+| [Recupero statistiche del Registro di sistema](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Sì | Sì |
+| [Recupero statistiche dei servizi](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Sì | Sì |
 | [Inserimento dispositivo](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Sì | Sì |
 | Inserimento modulo | Sì | Sì |
 | [Query su dispositivi](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Sì | Sì |
 | Query su moduli | Sì | Sì |
-| [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/rest/api/iothub/httpruntime/createfileuploadsasuri) | Sì | Sì |
-| [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/receivedeviceboundnotification) | Sì | Sì |
-| [Invio evento dispositivo](https://docs.microsoft.com/rest/api/iothub/httpruntime/senddeviceevent) | Sì | Sì |
+| [Creazione URI di firma di accesso condiviso per il caricamento di file](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Sì | Sì |
+| [Ricezione notifica di dispositivo associato](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Sì | Sì |
+| [Invio evento dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/senddeviceevent) | Sì | Sì |
 | Invio evento modulo | Sì | Sì |
-| [Aggiornamento stato di caricamento file](https://docs.microsoft.com/rest/api/iothub/httpruntime/updatefileuploadstatus) | Sì | Sì |
-| [Operazioni in blocco su dispositivi](https://docs.microsoft.com/rest/api/iothub/deviceapi/bulkdeviceoperation) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì | 
-| [Eliminazione coda di comandi](https://docs.microsoft.com/rest/api/iothub/deviceapi/purgecommandqueue) |   | Sì |
-| [Recupero dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/getdevicetwin) |   | Sì |
+| [Aggiornamento stato di caricamento file](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/updatefileuploadstatus) | Sì | Sì |
+| [Operazioni in blocco su dispositivi](https://docs.microsoft.com/en-us/rest/api/iot-dps/deviceenrollment/bulkoperation) | Sì, ad eccezione delle funzionalità di IoT Edge | Sì | 
+| [Eliminazione coda di comandi](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/purgecommandqueue) |   | Sì |
+| [Recupero dispositivo gemello](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/gettwin) |   | Sì |
 | Recupero modulo gemello |   | Sì |
-| [Richiamo metodo dispositivo](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/invokedevicemethod) |   | Sì |
-| [Aggiornamento dispositivo gemello](https://docs.microsoft.com/rest/api/iothub/devicetwinapi/updatedevicetwin) |   | Sì | 
+| [Richiamo metodo dispositivo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/invokedevicemethod) |   | Sì |
+| [Aggiornamento dispositivo gemello](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/updatetwin) |   | Sì | 
 | Aggiornamento modulo gemello |   | Sì | 
-| [Abbandono notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/abandondeviceboundnotification) |   | Sì |
-| [Completamento notifica di dispositivo associato](https://docs.microsoft.com/rest/api/iothub/httpruntime/completedeviceboundnotification) |   | Sì |
-| [Annullamento processo](https://docs.microsoft.com/rest/api/iothub/jobapi/canceljob) |   | Sì |
-| [Creazione processo](https://docs.microsoft.com/rest/api/iothub/jobapi/createjob) |   | Sì |
-| [Recupero processo](https://docs.microsoft.com/rest/api/iothub/jobapi/getjob) |   | Sì |
-| [Query sui processi](https://docs.microsoft.com/rest/api/iothub/jobapi/queryjobs) |   | Sì |
+| [Abbandono notifica di dispositivo associato](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/abandondeviceboundnotification) |   | Sì |
+| [Completamento notifica di dispositivo associato](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/completedeviceboundnotification) |   | Sì |
+| [Annullamento processo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/canceljob) |   | Sì |
+| [Creazione processo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/createjob) |   | Sì |
+| [Recupero processo](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getjob) |   | Sì |
+| [Query sui processi](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/queryjobs) |   | Sì |
 
 ## <a name="message-throughput"></a>Velocità effettiva dei messaggi
 

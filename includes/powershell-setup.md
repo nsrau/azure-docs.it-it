@@ -2,13 +2,13 @@
 services: virtual-machines
 title: Configurazione di PowerShell
 author: JoeDavies-MSFT
-solutions: 
+solutions: ''
 manager: timlt
 editor: tysonn
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "26730520"
 ---
 ## <a name="setting-up-powershell"></a>Configurazione di PowerShell
 Prima di usare Azure PowerShell, seguire questi passaggi.

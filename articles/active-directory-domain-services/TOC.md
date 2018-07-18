@@ -1,4 +1,4 @@
-# [Documentazione di Azure AD Domain Services](index.md)
+# [Documentazione di Azure AD Domain Services](index.yml)
 
 # Panoramica
 ## [Informazioni su Azure AD Domain Services](active-directory-ds-overview.md)
@@ -27,7 +27,7 @@
 ### [VM Windows Server da un modello](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Amministrare un dominio gestito
 ### [Amministrare un dominio gestito](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [Attività 3: Abilitare l'accesso LDAP sicuro per il dominio gestito tramite il portale di Azure](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Creare un'unità organizzativa in un dominio gestito](active-directory-ds-admin-guide-create-ou.md)
+### [Creare un account del servizio gestito di gruppo in un dominio gestito](active-directory-ds-create-gmsa.md)
 ### [Amministrare criteri di gruppo in un dominio gestito](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Selezionare una rete virtuale](active-directory-ds-networking.md)
 ## Distribuire applicazioni
@@ -53,13 +54,14 @@
 #### [Ripristinare entità servizio mancanti](active-directory-ds-troubleshoot-service-principals.md)
 #### [Errori relativi a LDAP sicuro](active-directory-ds-troubleshoot-ldaps.md)
 ### [Risolvere gli errori relativi ai tenant non corrispondenti](active-directory-ds-mismatched-tenant-error.md)
+### [Domini sospesi](active-directory-ds-suspension.md)
 
 
 # Riferimenti
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 
 # Risorse correlate
-## [Azure Active Directory](../active-directory/active-directory-whatis.md)
+## [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
 ## [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md)
 

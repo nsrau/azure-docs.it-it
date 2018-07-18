@@ -5,7 +5,7 @@ services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737572"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Sviluppare per File di Azure con C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Informazioni sull'esercitazione
-
 In questa esercitazione verrà illustrato come eseguire operazioni di base in File di Azure. Gli esempi scritti in C++ consentono di apprendere come creare condivisioni e directory, caricare, elencare ed eliminare file. Se non si ha familiarità con File di Azure, leggere le sezioni seguenti per comprendere gli esempi.
-
 
 * Creare ed eliminare condivisioni file di Azure
 * Creare ed eliminare directory
@@ -38,7 +37,7 @@ In questa esercitazione verrà illustrato come eseguire operazioni di base in Fi
 * Creare una firma di accesso condiviso (chiave di firma di accesso condiviso) per un file che usa criteri di accesso condiviso definiti nella condivisione.
 
 > [!Note]  
-> Poiché è possibile accedere a File di Azure tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione di File di Azure usando le classi e le funzioni standard I/O di C++. Questo articolo illustra come scrivere applicazioni che usano l'SDK C++ Archiviazione di Azure che a sua volta usa l'[API REST del servizio file](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con File di Azure.
+> Poiché è possibile accedere a File di Azure tramite SMB, è possibile scrivere semplici applicazioni che accedono alla condivisione file di Azure usando le classi e le funzioni di I/O standard di C++. Questo articolo illustra come scrivere applicazioni che usano l'SDK C++ Archiviazione di Azure che a sua volta usa l'[API REST del servizio file](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) per comunicare con File di Azure.
 
 ## <a name="create-a-c-application"></a>Creazione di un’applicazione C++
 Per compilare gli esempi, è necessario installare la libreria client di archiviazione di Azure 2.4.0 per C++. È inoltre necessario aver creato un account di archiviazione di Azure.
@@ -79,7 +78,7 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
-Tutti i file e le directory nella condivisione di File di Azure si trovano in un contenitore denominato **condivisione**. L'account di archiviazione può disporre del numero di condivisioni consentite dalla capacità dell'account. Per ottenere l'accesso a una condivisione e ai relativi contenuti, è necessario usare un client di File di Azure.
+Tutti i file e le directory nella condivisione file di Azure si trovano in un contenitore denominato **Condivisione**. L'account di archiviazione può disporre del numero di condivisioni consentite dalla capacità dell'account. Per ottenere l'accesso a una condivisione e ai relativi contenuti, è necessario usare un client di File di Azure.
 
 ```cpp
 // Create the Azure Files client.
@@ -182,7 +181,7 @@ for (auto it = directory.list_files_and_directories(); it != end_of_results; ++i
 ```
 
 ## <a name="upload-a-file"></a>Caricare un file
-Una condivisione file di Azure contiene almeno una directory radice in cui possono risiedere i file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
+Una condivisione file di Azure contiene come minimo una directory radice che può contenere file. In questa sezione verrà illustrato come caricare un file dall'archiviazione locale nella directory radice di una condivisione.
 
 Il primo passaggio del caricamento di un file consiste nell'ottenere un riferimento alla directory in cui risiederà. È possibile eseguire questa operazione chiamando il metodo **get_root_directory_reference** dell'oggetto condivisione.
 
@@ -357,6 +356,6 @@ if (share.exists())
 Per altre informazioni su Archiviazione di Azure, vedere le risorse seguenti:
 
 * [Libreria client di archiviazione per C++](https://github.com/Azure/azure-storage-cpp)
-* [Esempi del servizio di archiviazione file di Azure scritti in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Esempi del servizio file di Archiviazione di Azure in C++] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
 * [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)

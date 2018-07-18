@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031108"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -61,7 +62,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="step-up-adaptive-authn"></a>Abilitare l'autenticazione adattiva o incrementale
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -72,7 +73,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="admin-interface-lockdown"></a>Assicurarsi che le interfacce amministrative siano bloccate correttamente
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -83,7 +84,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="forgot-pword-fxn"></a>Implementare in modo sicuro funzionalità per la password dimenticata
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -116,7 +117,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="win-authn-sql"></a>Usare l'autenticazione di Windows per la connessione a SQL Server, se possibile
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -138,7 +139,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="authn-account-pword"></a>Assicurarsi che vengano applicati i criteri di account e password in SQL Server quando viene usata la modalità di autenticazione SQL
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -149,7 +150,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="autn-contained-db"></a>Non usare l'autenticazione SQL in database indipendenti
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Database | 
 | **Fase SDL**               | Compilare |  
@@ -160,7 +161,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="authn-sas-tokens"></a>Usare credenziali di autenticazione per dispositivo con i token di firma di accesso condiviso
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub eventi di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -171,7 +172,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="multi-factor-azure-admin"></a>Abilitare Azure Multi-Factor Authentication per amministratori di Azure
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Azure | 
 | **Fase SDL**               | Distribuzione |  
@@ -182,7 +183,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="anon-access-cluster"></a>Limitare l'accesso anonimo a un cluster di Service Fabric
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Distribuzione |  
@@ -193,7 +194,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="fabric-cn-nn"></a>Assicurarsi che il certificato da client a nodo di Service Fabric sia diverso dal certificato da nodo a nodo
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Distribuzione |  
@@ -204,7 +205,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="aad-client-fabric"></a>Usare Azure Active Directory per autenticare client in cluster di Service Fabric
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Distribuzione |  
@@ -215,7 +216,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="fabric-cert-ca"></a>Assicurarsi che i certificati di Service Fabric vengano ottenuti da un'Autorità di certificazione (CA) approvata
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite di trust di Service Fabric | 
 | **Fase SDL**               | Distribuzione |  
@@ -237,7 +238,7 @@ ms.lasthandoff: 01/24/2018
 
 ## <a id="override-token"></a>Sostituire la cache dei token di Identity Server predefinita con un'alternativa scalabile
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Identity Server | 
 | **Fase SDL**               | Distribuzione |  
@@ -305,7 +306,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | Tipo di credenziali client: nessuno |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Passaggi** | L'assenza di autenticazione indica che tutti possono accedere a questo servizio. Un servizio che non esegue l'autenticazione dei client consente l'accesso a tutti gli utenti. Configurare l'applicazione per l'autenticazione con le credenziali del client. A tale scopo, è possibile impostare il messaggio clientCredentialType su Windows o su Certificate. |
 
 ### <a name="example"></a>Esempio
@@ -315,13 +316,13 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="transport-none"></a>WCF: non impostare il trasporto clientCredentialType su Nessuno
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | Tipo di credenziali client: nessuno |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Passaggi** | L'assenza di autenticazione indica che tutti possono accedere a questo servizio. Un servizio che non esegue l'autenticazione dei client consente a tutti gli utenti di accedere alle funzionalità. Configurare l'applicazione per l'autenticazione con le credenziali del client. A tale scopo, è possibile impostare il trasporto clientCredentialType su Windows o su Certificate. |
 
 ### <a name="example"></a>Esempio
@@ -331,7 +332,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="authn-secure-api"></a>Assicurarsi che vengano usate tecniche di autenticazione standard per proteggere le API Web
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
 | **Fase SDL**               | Compilare |  
@@ -353,7 +354,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 
 ## <a id="adal-scalable"></a>Sostituire la cache dei token di ADAL predefinita con un'alternativa scalabile
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase SDL**               | Compilare |  
@@ -425,7 +426,7 @@ Per verificare l'efficacia di questa configurazione, accedere all'applicazione l
 
 ## <a id="adal-oauth2"></a>Usare librerie ADAL per gestire le richieste di token da client OAuth2 in AAD o in Active Directory locale
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
 | **Fase SDL**               | Compilare |  
@@ -447,7 +448,7 @@ Per verificare l'efficacia di questa configurazione, accedere all'applicazione l
 
 ## <a id="authn-devices-cloud"></a>Assicurarsi che i dispositivi che si connettono al gateway cloud vengano autenticati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway IoT cloud | 
 | **Fase SDL**               | Compilare |  
@@ -558,7 +559,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Assicurarsi che l'accesso in lettura anonimo venga concesso solo ai contenitori e ai BLOB necessari
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  
@@ -569,7 +570,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>Concedere l'accesso limitato agli oggetti in Archiviazione di Azure tramite la firma di accesso condiviso o criteri di accesso archiviati
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Archiviazione di Azure | 
 | **Fase SDL**               | Compilare |  

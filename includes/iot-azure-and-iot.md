@@ -1,4 +1,20 @@
-
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/25/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f27dbf20eab5866ac3061d888c17e970a1d197f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666756"
+---
 # <a name="azure-and-the-internet-of-things"></a>Azure e Internet delle cose
 
 Microsoft Azure e Internet delle cose (IoT) Questo articolo descrive le caratteristiche comuni di una soluzione IoT nel cloud. Le soluzioni IoT richiedono una comunicazione bidirezionale sicura tra dispositivi, possibilmente nell'ordine dei milioni, e un back-end della soluzione. Una soluzione può ad esempio usare l'analisi predittiva e automatizzata per trovare informazioni dettagliate dal flusso di eventi da dispositivo a cloud.
@@ -27,7 +43,7 @@ La connessione sicura e affidabile dei dispositivi è spesso la sfida principale
 * Possono avere risorse di alimentazione e di elaborazione limitate.
 * Possono disporre di una connettività di rete intermittente, lenta o costosa.
 * Possono richiedere protocolli di applicazioni proprietari, personalizzati o specifici del settore.
-* Possono essere create utilizzando un'ampia gamma di piattaforme hardware e software molto comuni.
+* Possono essere creati utilizzando un'ampia gamma di piattaforme hardware e software comuni.
 
 Oltre ai vincoli precedenti, le soluzioni IoT devono essere anche scalabili, sicure e affidabili.
 
@@ -58,14 +74,14 @@ In uno scenario di manutenzione predittiva, ad esempio, il back-end cloud archiv
 
 ### <a name="presentation-and-business-connectivity"></a>Connettività aziendale e di presentazione
 
-Il livello di connettività aziendale e di presentazione consente agli utenti finali di interagire con la soluzione IoT e i dispositivi. Consente anche agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o report di BI che possono mostrare sia i dati cronologici sia i dati quasi in tempo reale. Ad esempio, un operatore può controllare lo stato di determinate stazioni di pompaggio e vedere gli avvisi generati dal sistema. Questo livello consente anche l'integrazione della soluzione back-end IoT con le applicazioni line-of-business esistenti che possono legarsi ai processi o ai flussi di lavoro aziendali. Una soluzione di manutenzione predittiva, ad esempio, può essere integrata con un sistema di pianificazione per prenotare un tecnico per visitare una stazione di pompaggio quando identifica una pompa che richiede manutenzione.
+Il livello di connettività aziendale e di presentazione consente agli utenti finali di interagire con la soluzione IoT e i dispositivi. Consente anche agli utenti di visualizzare e analizzare i dati raccolti dai dispositivi. Queste visualizzazioni possono assumere la forma di dashboard o report di BI che possono mostrare sia i dati cronologici sia i dati quasi in tempo reale. Ad esempio, un operatore può controllare lo stato di determinate stazioni di pompaggio e vedere gli avvisi generati dal sistema. Questo livello consente anche l'integrazione della soluzione back-end IoT con le applicazioni line-of-business esistenti che possono legarsi ai processi o ai flussi di lavoro aziendali. Solution Accelerator per la manutenzione predittiva, ad esempio, può essere integrato con un sistema di pianificazione per prenotare la visita di un tecnico a una stazione di pompaggio quando si identifica una pompa che richiede manutenzione.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-iot-suite]: ../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

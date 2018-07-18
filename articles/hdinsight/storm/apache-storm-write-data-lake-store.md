@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903133"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Scrivere da Apache Storm a HDFS in HDInsight
 
-Informazioni su come usare Storm per scrivere dati in un archivio compatibile con HDFS usato da Apache Storm in HDInsight. HDInsight può usare sia Archiviazione di Azure che Azure Data Lake Store come archivio compatibile con HDFS. Storm offre un componente [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) che scrive i dati in HDFS. Questo documento contiene informazioni su come eseguire operazioni di scrittura da HdfsBolt in entrambi gli archivi. 
+Informazioni su come usare Storm per scrivere dati in un archivio compatibile con HDFS usato da Apache Storm in HDInsight. HDInsight può usare sia Archiviazione di Azure che Azure Data Lake Store come archivio compatibile con HDFS. Storm offre un componente [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) che scrive i dati in HDFS. Questo documento contiene informazioni su come eseguire operazioni di scrittura da HdfsBolt in entrambi gli archivi. 
 
 > [!IMPORTANT]
 > La topologia di esempio usata in questo documento si basa su componenti inclusi con Storm in HDInsight. Può essere necessario apportare delle modifiche per usare Azure Data Lake Store con altri cluster Apache Storm.
@@ -64,11 +65,11 @@ La seguente tabella riporta esempi di utilizzo dello schema di file in diversi s
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | Un account di archiviazione di Azure non predefinito (aggiuntivo) associato al cluster. |
 | `adl://STORENAME/` | La radice di Data Lake Store usata dal cluster. Questo schema permette di accedere ai dati situati all'esterno della directory che contiene il file system del cluster. |
 
-Per altre informazioni, vedere il riferimento [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) su Apache.org.
+Per altre informazioni, vedere il riferimento [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) su Apache.org.
 
 ### <a name="example-configuration"></a>Configurazione di esempio
 
-Il seguente YAML è un estratto del file `resources/writetohdfs.yaml` incluso nell'esempio. Questo file definisce la topologia di Storm usando il framework [Flux](https://storm.apache.org/releases/1.1.0/flux.html) per Apache Storm.
+Il seguente YAML è un estratto del file `resources/writetohdfs.yaml` incluso nell'esempio. Questo file definisce la topologia di Storm usando il framework [Flux](https://storm.apache.org/releases/1.1.2/flux.html) per Apache Storm.
 
 ```yaml
 components:
@@ -132,7 +133,7 @@ Questo YAML definisce i seguenti elementi:
 * `rotationPolicy`: specifica quando ruotare i file. In questo esempio, non viene eseguita alcuna rotazione.
 * `hdfs-bolt`: usa i componenti precedenti come parametri di configurazione per la classe `HdfsBolt`.
 
-Per altre informazioni sul framework Flux, vedere [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Per altre informazioni sul framework Flux, vedere [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="configure-the-cluster"></a>Configurare il cluster
 

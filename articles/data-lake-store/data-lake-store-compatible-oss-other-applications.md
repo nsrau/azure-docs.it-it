@@ -1,25 +1,27 @@
 ---
-title: Applicazioni Big Data compatibili con Data Lake Store | Documentazione Microsoft
-description: Elenco di applicazioni open source di origine che funzionano con Archivio Data Lake di Azure
+title: Applicazioni Big Data compatibili con Data Lake Storage Gen1 | Microsoft Docs
+description: Elenco delle applicazioni open source che sono compatibili con Azure Data Lake Storage Gen1, noto in precedenza come Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 7e8ba230f8f0a21bf98e1bfeb96f7a40a9553de2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 61187a26190e8d449a572e00d5abe8338d9060c2
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029639"
 ---
-# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aprire le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure
-Questo articolo elenca le applicazioni Big Data di origine che funzionano con Archivio Data Lake di Azure Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per sapere quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni del componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Applicazioni Big Data open source compatibili con Data Lake Storage Gen1
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Questo articolo elenca le applicazioni Big Data open source che sono compatibili con Azure Data Lake Store. Per le applicazioni nella tabella seguente, sono supportate solo le versioni disponibili con la distribuzione elencata. Per sapere quali versioni di queste applicazioni sono disponibili con HDInsight, vedere [Controllo delle versioni del componente HDInsight](../hdinsight/hdinsight-component-versioning.md).
 
 | Software Open Source | Distribuzione |
 | --- | --- |
@@ -37,5 +39,5 @@ Questo articolo elenca le applicazioni Big Data di origine che funzionano con Ar
 
 
 ## <a name="see-also"></a>Vedere anche 
-* [Panoramica dell’Archivio Data Lake di Azure](data-lake-store-overview.md)
+* [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 

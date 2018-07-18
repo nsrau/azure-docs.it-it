@@ -2,27 +2,22 @@
 title: Isolamento delle applicazioni del bus di servizio di Azure da interruzioni ed emergenze del servizio | Documentazione Microsoft
 description: Tecniche per proteggere le applicazioni da potenziali interruzioni del bus di servizio.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301717"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedure consigliate per isolare le applicazioni del bus di servizio da interruzioni ed emergenze del servizio
 
-Le applicazioni criciali devono funzionare in modo continuo, anche in presenza di interruzioni impreviste o situazioni di emergenza. Questo argomento descrive le tecniche che è possibile usare per proteggere le applicazioni del bus di servizio da una potenziale emergenza o interruzione del servizio.
+Le applicazioni criciali devono funzionare in modo continuo, anche in presenza di interruzioni impreviste o situazioni di emergenza. Questo articolo descrive le tecniche che è possibile usare per proteggere le applicazioni del bus di servizio da una potenziale emergenza o interruzione del servizio.
 
 Il termine "interruzione" indica la temporanea indisponibilità del bus di servizio di Azure. Un'interruzione può interessare alcuni componenti del bus di servizio, ad esempio un archivio di messaggistica, o anche l'intero data center. Una volta risolto il problema, il bus di servizio torna di nuovo disponibile. In genere, un'interruzione non determina la perdita di messaggi o di altri dati. Un esempio di errore di un componente è la mancata disponibilità di un particolare archivio di messaggistica. Un esempio di interruzione a livello di data center è un'interruzione dell'alimentazione o il guasto di un commutatore di rete. Un'interruzione può durare da pochi minuti ad alcuni giorni.
 
@@ -34,7 +29,9 @@ Il bus di servizio usa più archivi di messaggistica per memorizzare messaggi in
 Tutte le entità del bus di servizio (code, argomenti, inoltri) risiedono in uno spazio dei nomi di servizio che è affiliato a un data center. Il bus di servizio supporta il [*ripristino di emergenza geografico* e la *replica geografica*](service-bus-geo-dr.md) a livello di spazio dei nomi.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protezione di code e argomenti da errori degli archivi di messaggistica
-Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Per altre informazioni sulle entità partizionate, vedere [Code e argomenti partizionati][Partitioned messaging entities].
+Una coda o un argomento non partizionato viene assegnato a un archivio di messaggistica. Se l'archivio di messaggistica in questione non è disponibile, tutte le operazioni eseguite sulla coda o sull'argomento avranno esito negativo. Una coda partizionata, invece, è costituita da più frammenti, ciascuno dei quali memorizzato in un archivio di messaggistica differente. Quando un messaggio viene inviato a una coda o a un argomento partizionato, il bus di servizio assegna il messaggio a uno dei frammenti. Se l'archivio di messaggistica corrispondente non è disponibile, il bus di servizio scrive i messaggi in un frammento diverso, se possibile. Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
+
+Per altre informazioni sulle entità partizionate, vedere le [entità di messaggistica partizionate][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protezione da interruzioni o emergenze dei data center
 Per consentire un failover tra due data center, è possibile creare uno spazio dei nomi servizio del bus di servizio in ogni data center. Ad esempio, lo spazio dei nomi servizio del bus di servizio **contosoPrimary.servicebus.windows.net** potrebbe trovarsi nell'area centro-settentrionale degli Stati Uniti, mentre **contosoSecondary.servicebus.windows.net** potrebbe trovarsi in quella centro-meridionale. Se un'entità di messaggistica del bus di servizio deve rimanere accessibile in caso di interruzione del data center, è possibile creare l'entità in entrambi gli spazi dei nomi.
@@ -81,6 +78,17 @@ L'esempio relativo alla [replica geografica con i messaggi negoziati del bus di 
 
 Il bus di servizio supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. Per altre informazioni, vedere [Ripristino di emergenza geografico per il bus di servizio di Azure](service-bus-geo-dr.md). La funzionalità di ripristino di emergenza, disponibile solo per lo [SKU Premium](service-bus-premium-messaging.md), implementa il ripristino di emergenza dei metadati e si basa sugli spazi dei nomi primari e secondari del ripristino di emergenza.
 
+## <a name="availability-zones-preview"></a>Zone di disponibilità (anteprima)
+
+Lo SKU Premium del bus di servizio supporta le [zone di disponibilità](../availability-zones/az-overview.md) fornendo località con isolamento di errore all'interno di un'area di Azure. 
+
+> [!NOTE]
+> L'anteprima delle zone di disponibilità è supportata solo nelle aree **Stati Uniti centrali**, **Stati Uniti orientali 2** e **Francia centrale**.
+
+Usando il portale di Azure, è possibile abilitare le zone di disponibilità solo negli spazi dei nomi. Il bus di servizio non supporta la migrazione degli spazi dei nomi esistenti. Non è possibile disabilitare la ridondanza della zona dopo che è stata abilitata nello spazio dei nomi.
+
+![1][]
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti:
 
@@ -96,3 +104,5 @@ Per altre informazioni sul ripristino di emergenza, vedere gli articoli seguenti
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

@@ -1,20 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: definizioni ed esempi dei log di controllo'
-description: Guida ed esempi per l'accesso ai log di controllo di Azure AD B2C
+title: Esempi e definizioni di log di controllo in Azure Active Directory B2C | Microsoft Docs
+description: Guida ed esempi per l'accesso ai log di controllo di Azure AD B2C.
 services: active-directory-b2c
-author: sromeroz
-manager: sasubram
-ms.author: sezambra
-ms.service: active-directory-b2c
-ms.topic: article
+author: davidmu1
+manager: mtillman
+ms.service: active-directory
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
-ms.openlocfilehash: 8cc48853b0677230c4e19df4f0ecd93ce88b119d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: davidmu
+ms.component: B2C
+ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206454"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969660"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accesso ai log di controllo di Azure AD B2C
 
@@ -62,7 +63,7 @@ Verrà visualizzato un elenco delle attività registrate negli ultimi sette gior
 - Fare clic su **Scarica** per scaricare le attività come file CSV
 
 ##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accesso ai log di controllo tramite l'API di creazione di report di Azure AD
-I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference). 
+I log di controllo vengono pubblicati nella stessa pipeline delle altre attività di Azure Active Directory e quindi sono accessibili tramite l'[API di creazione di report di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
 ###<a name="prerequisites"></a>prerequisiti
 Per l'autenticazione con l'API di creazione di report di Azure AD, è prima necessario registrare un'applicazione. Assicurarsi di seguire i passaggi nei [prerequisiti per l'accesso alle API per la creazione di report di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).

@@ -1,11 +1,11 @@
 ---
-title: "Aggiungere più connessioni gateway VPN da sito a sito a una rete virtuale: portale di Azure: Resource Manager | Microsoft Docs"
-description: "Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente"
+title: 'Aggiungere più connessioni gateway VPN da sito a sito a una rete virtuale: portale di Azure: Resource Manager | Microsoft Docs'
+description: Come aggiungere più connessioni da sito a sito (S2S) a un gateway VPN con una connessione esistente
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398610"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Aggiungere una connessione da sito a sito a una rete virtuale con una connessione gateway VPN esistente
 

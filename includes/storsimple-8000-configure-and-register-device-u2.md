@@ -9,7 +9,7 @@
 
 3. Verrà richiesto di scegliere la lingua che si desidera impostare per il dispositivo. Specificare la lingua e quindi premere **INVIO**.
 
-4. Nel menu della console seriale che viene visualizzato scegliere l'opzione 1 per eseguire la **Connessione con accesso completo**.
+4. Nel menu della console seriale visualizzato scegliere l'opzione 1, **Log in with full access** (Accedi con accesso completo).
      Completare i passaggi da 5 a 12 per configurare le impostazioni di rete minime richieste per il dispositivo. **È necessario eseguire questa procedura sul controller attivo del dispositivo.** Nel messaggio dell’intestazione del menu della console seriale è indicato lo stato del controller. Se non si è connessi al controller attivo, disconnettersi e quindi connettersi al controller attivo.
 
 5. Al prompt dei comandi, digitare la password. La password predefinita è **Password1**.

@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 70dd61758b30c1c7a89374e708fe37c1443d3a2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303148"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904306"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Esercitazione: Usare l'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
@@ -182,12 +182,9 @@ Usando altre API per il file system di Data Lake Store, è possibile eseguire ag
 
 Congratulazioni! È stata eseguita l'autenticazione al file system di Data Lake Store usando l'identità del servizio gestito per una VM Linux.
 
-## <a name="related-content"></a>Contenuti correlati
+## <a name="next-steps"></a>Passaggi successivi
 
-- Per una panoramica dell'Identità di servizio gestito, vedere [Panoramica dell'Identità di servizio gestito](overview.md).
-- Per le operazioni di gestione, Data Lake Store usa Azure Resource Manager.  Per altre informazioni sull'uso dell'identità del servizio gestito per eseguire l'autenticazione a Resource Manager, vedere [Usare un'identità del servizio gestito per una macchina virtuale Linux per accedere a Resource Manager](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Altre informazioni sull'[autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Altre informazioni sulle [operazioni di file system in Azure Data Lake Store con l'API REST](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) o sulle [API WebHDFS per il file system](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Altre informazioni sul [controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Questa esercitazione ha illustrato come usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Data Lake Store. Per altre informazioni su Azure Data Lake Store, vedere:
 
-Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.
+> [!div class="nextstepaction"]
+>[Archivio Data Lake di Azure](/azure/data-lake-store/data-lake-store-overview)

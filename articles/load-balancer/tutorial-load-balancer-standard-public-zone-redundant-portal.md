@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304461"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Esercitazione - Bilanciare il carico delle macchine virtuali tra zone di disponibilità con un servizio Load Balancer Standard tramite il portale di Azure
 
@@ -37,6 +38,8 @@ Il bilanciamento del carico offre un livello più elevato di disponibilità dist
 > * Visualizzare un bilanciamento del carico in azione
 
 Per altre informazioni sull'uso delle zone di disponibilità con Load Balancer Standard, vedere [Load Balancer Standard e zone di disponibilità](load-balancer-standard-availability-zones.md).
+
+Se si preferisce, è possibile completare questa esercitazione usando l'[interfaccia della riga di comando di Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
@@ -141,18 +144,21 @@ Creare macchine virtuali in zone diverse (area 1, 2 e 3) per l'area che può fun
 1. Scegliere **Tutte le risorse** dal menu a sinistra e quindi nell'elenco di risorse fare clic su **myVM1** nel gruppo di risorse *myResourceGroupLBAZ*.
 2. Nella pagina **Panoramica** fare clic su **Connetti** per connettersi a RDP nella macchina virtuale.
 3. Accedere alla macchina virtuale con nome utente *azureuser*.
-4. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Server Manager**.
-5. Nella pagina di avvio rapido di Server Manager fare clic su **Add Roles and features** (Aggiungi ruoli e funzionalità).
-
-   ![Aggiunta al pool di indirizzi back-end ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. In **Add Roles and Features Wizard** (Aggiunta guidata ruoli e funzionalità) usare i valori seguenti:
-    - Nella pagina **Selezione tipo di installazione** fare clic su **Role-based or feature-based installation** (Installazione basata su ruoli o basata su funzionalità).
-    - Nella pagina **Selezione server di destinazione** fare clic su **myVM1**.
-    - Nella pagina **Selezionare un ruolo server** fare clic su **Server Web (IIS)**.
-    - Seguire le istruzioni per completare il resto della procedura guidata.
-2. Chiudere la sessione RDP con la macchina virtuale: *myVM1*.
-3. Ripetere i passaggi da 1 a 7 per installare IIS nelle macchine virtuali *myVM2* e *myVM3*.
+4. Nel desktop del server passare a **Strumenti di amministrazione Windows**>**Windows PowerShell**.
+5. Nella finestra di PowerShell eseguire i comandi seguenti per installare il server IIS, rimuovere il file predefinito iisstart.htm e aggiungere un nuovo file iisstart.htm che visualizza il nome della macchina virtuale:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. Chiudere la sessione RDP con *myVM1*.
+7. Ripetere i passaggi da 1 a 6 per installare IIS e il file iisstart.htm aggiornato in *myVM2* e *myVM3*.
 
 ## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
@@ -215,7 +221,7 @@ Una regola di bilanciamento del carico consente di definire come il traffico ver
 
 2. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Nel browser verrà visualizzata la pagina predefinita del server Web IIS.
 
-      ![Server Web IIS](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![Server Web IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Per vedere come il servizio di bilanciamento del carico distribuisce il traffico nelle due VM distribuite nell'area, forzare l'aggiornamento del Web browser.
 

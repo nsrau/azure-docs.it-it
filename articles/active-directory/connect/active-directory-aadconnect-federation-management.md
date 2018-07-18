@@ -3,10 +3,10 @@ title: Azure AD Connect - Gestione e personalizzazione di AD FS | Microsoft Docs
 description: Gestione di AD FS con Azure AD Connect e personalizzazione dell'esperienza utente di accesso ad AD FS con Azure AD Connect e PowerShell.
 keywords: AD FS, ADFS, gestione di AD FS, AAD Connect, Connect, accesso, personalizzazione di AD FS, ripristino trust, O365, federazione, relying party
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916997"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -223,7 +225,7 @@ Inoltre, se si usa **add** invece di **issue**, si evita di aggiungere un rilasc
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Questa regola definisce un flag temporaneo denominato **idflag**, che è impostato su **useguid** se non è presente un **ms-ds-concistencyguid** popolato per l'utente. Questo perché secondo la logica di AD FS non sono ammesse attestazioni vuote. Pertanto quando si aggiungono le attestazioni http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid nella regola 1, si ottiene un'attestazione **msdsconsistencyguid** solo se il valore viene popolato per l'utente. Se non è popolato, AD FS rileva che avrà un valore vuoto e lo rimuove immediatamente. Tutti gli oggetti avranno **objectGuid**, quindi l'attestazione sarà sempre presente dopo l'esecuzione della regola 1.
+Questa regola definisce un flag temporaneo denominato **idflag**, che è impostato su **useguid** se non è presente un **ms-ds-concistencyguid** popolato per l'utente. Questo perché secondo la logica di AD FS non sono ammesse attestazioni vuote. Pertanto, quando si aggiungono le attestazioni http://contoso.com/ws/2016/02/identity/claims/objectguid e http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid nella regola 1, si ottiene un'attestazione **msdsconsistencyguid** solo se il valore viene popolato per l'utente. Se non è popolato, AD FS rileva che avrà un valore vuoto e lo rimuove immediatamente. Tutti gli oggetti avranno **objectGuid**, quindi l'attestazione sarà sempre presente dopo l'esecuzione della regola 1.
 
 **Regola 3: Rilasciare ms-ds-consistencyguid come ID non modificabile se presente**
 
@@ -244,31 +246,8 @@ In questa regola si verifica semplicemente il flag temporaneo **idflag**. Decide
 > La sequenza delle regole è importante.
 
 ### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN di sottodominio
-È possibile aggiungere più domini per la federazione usando Azure AD Connect, come descritto in [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain). È necessario modificare l'attestazione basata sul nome dell'entità utente (UPN), in modo che l'ID autorità emittente corrisponda al dominio radice e non al sottodominio, perché il dominio radice federato include anche il dominio figlio.
 
-Per impostazione predefinita, la regola attestazioni per l'ID autorità di certificazione è impostata come:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Attestazione predefinita per l'ID autorità di certificazione](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-La regola predefinita usa semplicemente il suffisso UPN nell'attestazione per l'ID autorità di certificazione. Ad esempio, John è un utente in sub.contoso.com e contoso.com è federato con Azure AD. John immette john@sub.contoso.com come nome utente per accedere ad Azure AD. La regola di attestazione ID autorità emittente predefinita in AD FS gestisce nel modo seguente:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Valore dell'attestazione:** http://sub.contoso.com/adfs/services/trust/
-
-Perché il valore attestazione dell'autorità emittente contenga solo il dominio radice, modificare la regola attestazioni in modo che corrisponda a quanto segue:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+È possibile aggiungere più domini per la federazione usando Azure AD Connect, come descritto in [Aggiungere un nuovo dominio federato](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect versione 1.1.553.0 e successive crea automaticamente la regola di attestazione corretta per issuerID. Se non è possibile usare Azure AD Connect 1.1.553.0 o versione più recente, è consigliabile che venga usato lo strumento delle [regole di attestazioni dell'attendibilità del componente (RPT, Relying Party Trust) di Azure Active Directory](https://aka.ms/aadrptclaimrules) per generare e configurare le regole di attestazioni corrette per il trust della relying party di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni sulle [opzioni di accesso utente](active-directory-aadconnect-user-signin.md).

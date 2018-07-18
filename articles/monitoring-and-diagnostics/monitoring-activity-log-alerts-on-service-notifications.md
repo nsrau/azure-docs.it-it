@@ -1,22 +1,19 @@
 ---
-title: Ricevere gli avvisi del log attività nelle notifiche del servizio di Azure | Microsoft Docs
+title: Ricevere gli avvisi del log attività nelle notifiche del servizio di Azure
 description: Ricevere le notifiche tramite SMS, posta elettronica o webhook nel servizio di Azure.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: alerts
+ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263117"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Creare gli avvisi del log attività per le notifiche del servizio
 ## <a name="overview"></a>Panoramica
@@ -51,17 +48,22 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
     ![Il comando "Create service health alert" (Crea avviso di integrità del servizio)](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Immettere un nome nella casella **Nome avviso del log attività** e specificare una **Descrizione**.
+4. Selezionare la **Sottoscrizione**, i **Servizi** e le **Aree** per cui si vogliono ricevere gli avvisi.
 
-    ![Finestra di dialogo "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group-sh.png)
+    ![Finestra di dialogo "Aggiungi avviso del log attività"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
-5. Nella casella **Sottoscrizione** viene inserita automaticamente la sottoscrizione corrente. Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
+> [!NOTE]
+> Questa sottoscrizione viene usata per salvare l'avviso del log attività. Questa è la sottoscrizione in cui verrà distribuita la risorsa di avviso e in cui verranno monitorati gli eventi nel log attività.
 
-6. Selezionare il **gruppo di risorse** in cui verrà creata la risorsa di avviso. Non è il gruppo di risorse che viene monitorato dall'avviso, ma è quello in cui si trova la risorsa di avviso.
+5. Scegliere i **Tipi di evento** per i quali si vogliono ricevere gli avvisi relativi a: *Problema del servizio*, *Manutenzione pianificata* e *Avvisi di integrità* 
 
-7. La casella **Categoria evento** è impostata automaticamente su **Integrità del servizio**. Facoltativamente, selezionare **Servizio**, **Area** e **Tipo** delle notifiche sull'integrità del servizio che si vuole ricevere.
+6. Definire i dettagli dell'avviso immettendo un **Nome regola di avviso** e una **Descrizione**.
 
-8. In **Avvisi tramite** selezionare il pulsante **Nuovo** gruppo di azione. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Viene fatto riferimento al nome breve nelle notifiche inviate all'attivazione dell'avviso.
+7. Selezionare il **Gruppo di risorse** in cui si vuole che venga salvato l'avviso.
+
+8. Creare un nuovo gruppo di azioni selezionando **Nuovo gruppo di azioni**. Immettere un nome nella casella **Nome gruppo di azione** e un nome nella casella **Nome breve gruppo di azione**. Viene fatto riferimento al nome breve nelle notifiche inviate all'attivazione dell'avviso.
+
+    ![Creare un nuovo gruppo di azioni](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
 9. Definire un elenco di ricevitori specificando i dati seguenti relativi al ricevitore:
 
@@ -71,7 +73,7 @@ Per informazioni su come configurare gli avvisi di notifica sull'integrità del 
 
     c. **Dettagli:** in base al tipo di azione selezionato, immettere un numero di telefono, un indirizzo di posta elettronica, l'URI del webhook, ecc.
 
-10. Fare clic su **OK** per creare l'avviso.
+10. Selezionare **OK** per creare il gruppo di azioni e quindi **Crea regola di avviso** per completare l'avviso.
 
 Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 
@@ -86,9 +88,9 @@ Informazioni su come [configurare le notifiche di webhook per i sistemi di gesti
 
 1. Seguire i passaggi da 1 a 7 nella sezione precedente per creare una notifica sull'integrità del servizio. 
 
-2. In **Avvisi tramite** selezionare il pulsante Gruppo di azione **esistente**. Selezionare il gruppo di azioni appropriato.
+2. In **Definire il gruppo di azioni** fare clic sul pulsante **Seleziona gruppo di azioni**. Selezionare il gruppo di azioni appropriato.
 
-3. Fare clic su **OK** per creare l'avviso.
+3. Selezionare **Aggiungi** per creare il gruppo di azioni e quindi **Crea regola di avviso** per completare l'avviso.
 
 Entro pochi minuti, l'avviso diventa attivo e inizia ad attivarsi in base alle condizioni specificate al momento della creazione.
 

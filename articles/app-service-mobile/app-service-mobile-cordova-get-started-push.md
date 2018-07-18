@@ -1,10 +1,10 @@
 ---
-title: "Aggiungere notifiche push a un'app Apache Cordova con la funzionalità App per dispositivi mobili di Servizio app di Azure | Microsoft Docs"
+title: Aggiungere notifiche push a un'app Apache Cordova con la funzionalità App per dispositivi mobili di Servizio app di Azure | Microsoft Docs
 description: Informazioni su come usare App per dispositivi mobili per inviare notifiche push all'app Apache Cordova.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38547268"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Aggiungere notifiche push all'app Apache Cordova
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Per questa esercitazione si presuppone che sia disponibile un'applicazione Apach
 
 Per completare questa esercitazione, sono necessari:
 
-* Un PC in cui è installato [Visual Studio Community 2015][2] o versione successiva 
+* Un PC in cui è installato [Visual Studio Community 2015][2] o versione successiva
 * [Visual Studio Tools per Apache Cordova][4]
 * Un [account Azure attivo][3]
 * Un progetto di [avvio rapido di Apache Cordova][5] completato
 * (Android) Un [account Google][6] con un indirizzo di posta elettronica verificato
 * (iOS) [Iscrizione all'Apple Developer Program][7] e un dispositivo iOS (il simulatore iOS non supporta le notifiche push)
-* (Windows) Un [account per sviluppatore di Windows Store][8] e un dispositivo Windows 10
+* (Windows) Un [account per sviluppatore di Microsoft Store][8] e un dispositivo Windows 10
 
 ## <a name="configure-hub"></a>Configurare un hub di notifica
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -211,7 +212,7 @@ Il plug-in di push si basa su servizi Google Play Android per notifiche push.
 Le librerie attualmente necessarie sono elencate nella [documentazione relativa all'installazione di phonegap-plugin-push][19].
 
 #### <a name="test-push-notifications-in-the-app-on-android"></a>Testare le notifiche push nell'app in Android
-A questo punto è possibile testare le notifiche push eseguendo l'app ed inserendo elementi nella tabella TodoItem. È possibile eseguire il test dallo stesso dispositivo oppure da un altro dispositivo, purché il back-end sia lo stesso. Testare l'app Cordova sulla piattaforma Android in uno dei modi seguenti:
+A questo punto è possibile testare le notifiche push. È possibile eseguire il test dallo stesso dispositivo oppure da un altro dispositivo, purché il back-end sia lo stesso. Testare l'app Cordova sulla piattaforma Android in uno dei modi seguenti:
 
 * *In un dispositivo fisico:* collegare il dispositivo Android al computer di sviluppo con un cavo USB.  Invece di selezionare **Emulatore Android di Google**, selezionare **Dispositivo**. Visual Studio distribuisce l'applicazione nel dispositivo e quindi la esegue. Sarà quindi possibile interagire con l'applicazione dal dispositivo.
 

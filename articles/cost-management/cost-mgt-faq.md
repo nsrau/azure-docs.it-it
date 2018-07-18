@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302740"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298410"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Domande frequenti su Gestione costi di Azure
 
@@ -72,16 +72,20 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Come si abilitano gli utenti sospesi o bloccati?
 
+Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
+
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. La sua organizzazione è pronta per iniziare a usare Gestione costi.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Gestione costi e accede al portale di Cloudyn, diventa l'*amministratore primario*. Admin1 non crea account utente. ma, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Gestione costi e accedere al portale di Cloudyn.
+
+> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+
+
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
 
 Per attivare l'account utente:
 
 1. Accedere a Cloudyn con l'account utente amministratore di Azure utilizzato per configurare Cloudyn. In alternativa accedere con un account utente a cui è stato concesso l'accesso amministrativo.
-
 2. Selezionare il simbolo a forma di ingranaggio in alto a destra e selezionare **User Management** (Gestione utenti).
-
 3. Trovare l'utente e quindi selezionare il simbolo a forma di matita e modificare l'utente.
-
 4. In **User status** (Stato utente) modificare lo stato da **Suspended** (Sospeso) ad **Active** (Attivo).
 
 Gli account utente Cloudyn si connettono tramite Single Sign-On da Azure. Se un utente digita in modo non corretto la propria password, potrebbe essere bloccato da Cloudyn pur potendo ancora accedere ad Azure.

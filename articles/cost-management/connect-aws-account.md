@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297329"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Connettere un account di Amazon Web Services
 
@@ -33,7 +34,7 @@ Le sezioni seguenti illustrano le procedure per creare un ruolo IAM di sola lett
 
 Per prima cosa, è necessario ottenere dal portale di Gestione costi di Azure la passphrase di connessione univoca che viene usata in AWS come **ID esterno**.
 
-1. Aprire il portale di Cloudyn dal portale di Azure o passare a [https://azure.cloudyn.com](https://azure.cloudyn.com) ed eseguire l'accesso.
+1. Aprire il portale di Cloudyn dal portale di Azure oppure passare a [https://azure.cloudyn.com](https://azure.cloudyn.com) ed eseguire l'accesso.
 2. Fare clic sul simbolo della ruota dentata e quindi selezionare **Cloud Accounts** (Account cloud).
 3. In Accounts Management (Gestione account) selezionare la scheda **AWS Accounts** (Account AWS) e quindi fare clic su **Add new +** (Aggiungi nuovo +).
 4. Nella finestra di dialogo **Add AWS Account** (Aggiungi account AWS) copiare l'**ID esterno** e salvare il valore per usarlo nella procedura di creazione del ruolo AWS nella sezione successiva. L'ID esterno è univoco dell'account. Nell'immagine seguente l'ID esterno di esempio è _Contoso_ seguito da un numero. ma l'ID effettivamente usato sarà diverso.  
@@ -91,7 +92,7 @@ Le sezioni seguenti illustrano le procedure per creare un utente di sola lettura
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>Configurare l'accesso in base all'utente IAM di AWS in Gestione costi
 
-1. Aprire il portale di Cloudyn dal portale di Azure o passare a https://azure.cloudyn.com/ ed eseguire l'accesso.
+1. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com/ ed eseguire l'accesso.
 2. Fare clic sul simbolo della ruota dentata e quindi selezionare **Cloud Accounts** (Account cloud).
 3. In Accounts Management (Gestione account) selezionare la scheda **AWS Accounts** (Account AWS) e quindi fare clic su **Add new +** (Aggiungi nuovo +).
 4. In **Account Name** (Nome account) digitare un nome per l'account.

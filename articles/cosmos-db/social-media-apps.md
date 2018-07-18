@@ -5,27 +5,24 @@ keywords: app di social media
 services: cosmos-db
 author: ealsur
 manager: kfile
-documentationcenter: ''
-ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 53abefd4f3dd1f8da60b8b8efed1e7070b471383
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060404"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
 
 Ingegneri e sviluppatori si sono probabilmente interrogati sulle modalità di archiviazione e interconnessione dei dati in queste reti. Altri potrebbero aver ricevuto l'incarico di creare o progettare un nuovo social network per uno specifico mercato di nicchia. La domanda più importante di tutte è: come vengono archiviati tutti questi dati?
 
-Si supponga di voler creare un nuovo social network, in cui gli utenti possano pubblicare articoli con elementi multimediali correlati, ad esempio immagini, video o musica, La pagina di destinazione principale del sito Web includerà un feed di post che gli utenti possono visualizzare e con cui possono interagire. Inizialmente l'esempio può non sembrare molto complesso. Si potrebbe approfondire l'argomento con feed utente personalizzati condizionati dalle relazioni, ma questo va oltre l'obiettivo di questo articolo.
+Si supponga di voler creare un nuovo social network, in cui gli utenti possano pubblicare articoli con elementi multimediali correlati, ad esempio immagini, video o musica. La pagina di destinazione principale del sito Web includerà un feed di post che gli utenti possono visualizzare e con cui possono interagire. Inizialmente l'esempio può non sembrare molto complesso. Non sembra molto complesso (in un primo momento), ma per semplicità fermiamoci qui (si potrebbe approfondire l'argomento con feed utente personalizzati condizionati dalle relazioni, ma questo va oltre l'obiettivo di questo articolo).
 
 Come e dove archiviare i dati?
 
@@ -37,9 +34,9 @@ Una struttura di dati perfettamente normalizzata... che non supporta la scalabil
 
 I database SQL sono certamente molto utili, ma come ogni modello, procedura e piattaforma software non sono perfetti per tutti gli scenari.
 
-Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della struttura usata, per visualizzare un singolo post in un sito Web o un'applicazione sarebbe necessario eseguire una query con addirittura otto join di tabella. Per un flusso di post caricati in modo dinamico e visualizzati sullo schermo questa struttura risulta quindi poco adatta.
+Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della struttura usata, per visualizzare un singolo post in un sito Web o un'applicazione sarebbe necessario eseguire una query con addirittura otto join di tabella. Otto tabelle di join (!) solo per mostrare un singolo post, immaginiamo allora un flusso di post caricati in modo dinamico e visualizzati sullo schermo: questa struttura risulta quindi poco adatta.
 
-Si potrebbe usare un'istanza di SQL di grandissime dimensioni, con capacità sufficiente per risolvere migliaia di query con un numero di join adatto a rendere disponibile il contenuto, ma esiste una soluzione più semplice.
+Si potrebbe usare un'istanza di SQL di dimensioni enormi, con capacità sufficiente per risolvere migliaia di query con un numero di join adatto a rendere disponibile il contenuto, ma esiste una soluzione più semplice.
 
 ## <a name="the-nosql-road"></a>Approccio NoSQL
 In questo articolo verrà illustrata la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in modo conveniente sfruttando altre funzionalità di Azure Cosmos DB quali l'[API Graph Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -153,7 +150,7 @@ Si prendano ad esempio le informazioni relative a un utente:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -178,7 +175,7 @@ Suddividere i dati dell'utente e archiviare le informazioni in posizioni diverse
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 Un post invece si presenta come segue:
@@ -196,7 +193,7 @@ Un post invece si presenta come segue:
 Quando viene apportata una modifica che influisce su uno degli attributi del blocco, è facile trovare i documenti interessati usando query che puntano agli attributi indicizzati (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") e quindi aggiornare i blocchi.
 
 ## <a name="the-search-box"></a>Casella di ricerca
-Gli utenti generano molti contenuti e devono avere la possibilità di cercare e trovare anche contenuti non presenti direttamente nel proprio flusso di contenuti, perché non seguono gli autori o semplicemente perché si tratta di post vecchi di 6 mesi.
+Gli utenti generano molto contenuto e devono avere la possibilità di cercare e trovare anche contenuti non presenti direttamente nel proprio flusso di contenuti, perché non seguono gli autori o semplicemente perché si tratta di post vecchi di sei mesi.
 
 Grazie ad Azure Cosmos DB è possibile implementare facilmente un motore di ricerca tramite [Ricerca di Azure](https://azure.microsoft.com/services/search/), in breve tempo e senza dover aggiungere altro codice oltre al processo di ricerca e all'interfaccia utente.
 
@@ -215,24 +212,24 @@ Ad esempio, è possibile usare l'[analisi del sentimento](https://en.wikipedia.o
 
 Contrariamente a quanto si potrebbe pensare, non è necessario essere dei matematici per estrapolare questi modelli e informazioni da semplici file e database.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), incluso in[ Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), è un servizio cloud completamente gestito che consente di creare flussi di lavoro tramite algoritmi in una semplice interfaccia basata sul trascinamento. È possibile codificare algoritmi personalizzati in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) o usare alcune delle API già compilate e pronte per l'uso, come [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) o [Recommendations](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), incluso in[ Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), è un servizio cloud completamente gestito che consente di creare flussi di lavoro tramite algoritmi in una semplice interfaccia basata sul trascinamento. È possibile codificare algoritmi personalizzati in [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) o usare alcune delle API già compilate e pronte per l'uso, come [Text Analytics](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), Content Moderator o [Recommendations](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Per ottenere uno di questi scenari di Machine Learning, è possibile usare [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) per inserire le informazioni provenienti da origini diverse e [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) per elaborare le informazioni e generare output che possono poi essere elaborati da Azure Machine Learning.
 
 Un'altra opzione disponibile consiste nell'usare i [servizi cognitivi Microsoft](https://www.microsoft.com/cognitive-services) per analizzare i contenuti per gli utenti; non solo è possibile comprenderli meglio (tramite l'analisi di ciò che gli utenti scrivono con l'[API di analisi del testo](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)), ma è anche possibile rilevare i contenuto indesiderati o per soli adulti e agire di conseguenza per mezzo dell'[API Visione artificiale](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). I servizi cognitivi includono molte delle soluzioni pronte all'uso che non richiedono alcuna conoscenza pregressa di Machine Learning.
 
 ## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
-C'è un ultimo, ma non meno importante, argomento da affrontare: la **scalabilità**. Quando si progetta un'architettura è essenziale che ogni componente possa essere individualmente scalabile, perché è necessario elaborare più dati o perché si desidera disporre di una copertura geografica più ampia o per entrambi i motivi. Per fortuna, il raggiungimento di questo obiettivo così complesso si rivela un'**esperienza chiavi in mano** con Cosmos DB.
+C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità**. Quando si progetta un'architettura è essenziale che ogni componente possa essere individualmente scalabile, perché è necessario elaborare più dati o perché si desidera disporre di una copertura geografica più ampia o per entrambi i motivi. Per fortuna, il raggiungimento di questo obiettivo così complesso si rivela un'**esperienza chiavi in mano** con Cosmos DB.
 
 Cosmos DB supporta il [partizionamento dinamico](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) predefinito mediante la creazione automatica delle partizioni basate su una determinata **chiave di partizione** (definita come uno degli attributi nei documenti). La definizione della chiave di partizione corretta è un'operazione che deve essere eseguita in fase di progettazione e tenendo presente le [procedure consigliate](../cosmos-db/partition-data.md#designing-for-partitioning) disponibili. Nel caso dell'esperienza social, la strategia di partizionamento deve essere allineata con la modalità in cui si esegue una query (è consigliabile eseguire letture all'interno della stessa partizione) e si scrive (evitare "hot spot" distribuendo le scritture in più partizioni). Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), basate sulla categoria del contenuto, sull'area geografica, sull'utente. Tutto dipende in realtà da come si esegue una query sui dati e come la si visualizza nell'esperienza social. 
 
 Un aspetto interessante da sottolineare è che Cosmos DB eseguirà le query (incluse le [aggregazioni](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) in tutte le partizioni in modo trasparente, senza dover aggiungere una logica con l'aumento dei dati.
 
-Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno. La capacità di **ridimensionare la velocità effettiva** è quindi fondamentale. Aumentare le RU è molto semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
+Con il tempo, aumenterà il traffico e di conseguenza aumenterà il consumo di risorse (misurato in [UR](request-units.md) o unità richiesta). Le operazioni di lettura e scrittura verranno eseguite con una frequenza maggiore man mano che cresce la base di utenti e le operazioni di creazione e lettura del contenuto aumenteranno. La capacità di **ridimensionare la velocità effettiva** è quindi fondamentale. Aumentare le RU è semplice: è possibile farlo con pochi clic nel portale di Azure o [inviando i comandi tramite l'API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Aumento delle prestazioni e definizione di una chiave di partizione](./media/social-media-apps/social-media-apps-scaling.png)
 
-Poi le cose migliorano e gli utenti di un'altra area geografica, paese o continente, notano la piattaforma e iniziano a usarla.Che magnifica sorpresa!
+Poi le cose migliorano e gli utenti di un'altra area, paese o continente, notano la piattaforma e iniziano a usarla. Che magnifica sorpresa!
 
 Ma subito dopo ci si accorge che l'esperienza degli utenti con la piattaforma non è ottimale. Sono così lontani dall'area operativa che la latenza è molto elevata. Bisogna evitare che gli utenti abbandonino la piattaforma. Ci vorrebbe un modo semplice per **estendere la portata globale** e infatti il modo esiste.
 

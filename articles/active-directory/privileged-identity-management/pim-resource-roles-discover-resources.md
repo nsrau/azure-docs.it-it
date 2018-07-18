@@ -3,21 +3,22 @@ title: Individuare e gestire le risorse di Azure usando Privileged Identity Mana
 description: Descrive come proteggere le risorse di Azure mediante (Privileged Identity Management) PIM.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rolyon
+ms.openlocfilehash: aca218a33d148e9f53f405f9cda98a701a7443cc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151281"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442526"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Individuare e gestire le risorse di Azure usando Privileged Identity Management
 

@@ -1,9 +1,9 @@
 ---
 title: Funzioni del linguaggio di definizione del flusso di lavoro - App per la logica di Azure | Microsoft Docs
-description: Informazioni sulle funzioni che è possibile usare nelle definizioni del flusso di lavoro delle app per la logica
+description: Informazioni sulle funzioni per la creazione di app per la logica on il linguaggio di definizione del flusso di lavoro
 services: logic-apps
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 0155e35641a0407fe48c4da07400fa188152b0af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182251"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301389"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni del linguaggio di definizione del flusso di lavoro per App per la logica di Azure
 
-Questo articolo descrive le funzioni che è possibile usare quando si creano flussi di lavoro con [App per la logica di Azure](../logic-apps/logic-apps-overview.md). Per altre informazioni sulle definizioni delle app per la logica, vedere [Linguaggio di definizione del flusso di lavoro per App per la logica di Azure](../logic-apps/logic-apps-workflow-definition-language.md). 
+Questo articolo descrive le funzioni che è possibile usare quando si creano flussi di lavoro con [App per la logica di Azure](../logic-apps/logic-apps-overview.md). Per altre informazioni sulle funzioni nelle definizioni delle app per la logica, vedere [Linguaggio di definizione del flusso di lavoro per App per la logica di Azure](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
 
 > [!NOTE]
 > Nella sintassi per le definizioni dei parametri, un punto interrogativo (?) visualizzato dopo un parametro indica che il parametro è facoltativo. Vedere, ad esempio, [getFutureTime()](#getFutureTime).

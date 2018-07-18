@@ -1,39 +1,22 @@
 ---
-title: Avvisi delle metriche più recenti nelle risorse supportate da Monitoraggio di Azure | Microsoft Docs
+title: Risorse supportate per gli avvisi delle metriche di Monitoraggio di Azure più recenti
 description: Informazioni di riferimento sulle metriche e i log di supporto per gli avvisi delle metriche in tempo quasi reale di Azure più recenti.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778114"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264511"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Avvisi delle metriche più recenti per i servizi di Azure nel portale di Azure
-Monitoraggio di Azure supporta ora un nuovo tipo di avviso delle metriche. Gli avvisi più recenti sono diversi dai [normali avvisi delle metriche](insights-alerts-portal.md) per alcuni aspetti:
-
-- **Latenza migliorata**: gli avvisi delle metriche più recenti possono essere eseguiti con una frequenza di un minuto. Gli avvisi metrica meno recenti sono sempre eseguibili con una frequenza di 5 minuti. Gli avvisi del log hanno ancora un ritardo superiore a 1 minuto a causa del tempo necessario per inserire i log. 
-- **Supporto delle metriche multidimensionali**: è possibile inviare un avviso per le metriche multidimensionali, per poter monitorare solo un segmento interessante della metrica. 
-- **Maggiore controllo delle condizioni delle metriche**: è possibile definire regole di avviso più dettagliate. Gli avvisi più recenti supportano il monitoraggio dei valori massimo, minimo, medio e totale delle metriche. 
-- **Monitoraggio combinato di più metriche**: è possibile monitorare più metriche (attualmente un massimo di due) con una singola regola. Viene attivato un avviso se entrambe le metriche violano le rispettive soglie per il periodo di tempo specificato. 
-- **Migliore sistema di notifica**: tutti gli avvisi più recenti usano [gruppi di azioni](monitoring-action-groups.md), ovvero gruppi di azioni e notifiche con nome che possono essere riusati in più avvisi. Al contrario, gli avvisi delle metriche classici e gli avvisi di Log Analytics precedenti non usano gruppi di azioni. 
-- **Metriche dai log** (anteprima pubblica limitata): i dati di log diretti a Log Analytics possono essere ora estratti in metriche di Monitoraggio di Azure e quindi essere oggetto di avvisi come le altre metriche. 
-
-Per informazioni su come creare un avviso metrica più recente sul portale di Azure, vedere [Creare una regola di avviso nel portale di Azure](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Dopo la creazione, è possibile gestire l'avviso seguendo i passaggi descritti in [Gestire gli avvisi nel portale di Azure](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Metriche e metodi di creazione supportati per i nuovi avvisi delle metriche
+Monitoraggio di Azure supporta ora un [nuovo tipo di avvisi delle metriche](monitoring-overview-unified-alerts.md) che presenta vantaggi significativi rispetto agli [avvisi delle metriche classici](insights-alerts-portal.md). Gli avvisi precedenti supportano un [ampio elenco di metriche](monitoring-supported-metrics.md). Gli avvisi più recenti supportano un sottoinsieme (in espansione) di tale elenco più ampio. In questo articolo viene illustrato tale sottoinsieme. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Supporto per il portale, PowerShell, l'interfaccia della riga di comando, REST
 Al momento è possibile creare avvisi metrica più recenti solo nel portale di Azure, nell'[API REST](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) o [Modelli di Resource Manager](monitoring-create-metric-alerts-with-templates.md). Il supporto per la configurazione degli avvisi più recenti con PowerShell, l'interfaccia della riga di comando di Azure (interfaccia della riga di comando di Azure 2.0), sarà presto disponibile.
@@ -57,7 +40,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.DBforMySQL/servers     |   N/D      |[Database per MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/D     | [Database per PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  Sì      |[Hub eventi](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| No  | [Insiemi di credenziali](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
+|Microsoft.KeyVault/vaults| No  | [Vaults](monitoring-supported-metrics.md#microsoftkeyvaultvaults) (Insiemi di credenziali)|
 |Microsoft.Logic/workflows     |     N/D    |[App per la logica](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/D     | [Gateway applicazione](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/dnsZones | N/D| [Zone DNS](monitoring-supported-metrics.md#microsoftnetworkdnszones) |

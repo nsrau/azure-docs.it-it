@@ -3,10 +3,10 @@ title: Configurare il livello PremiumV2 per il servizio app di Azure | Microsoft
 description: Informazioni su migliorare le prestazioni di un'app Web, un'app per dispositivi mobili o un'app per le API nel servizio app di Azure passando al nuovo piano tariffario PremiumV2.
 keywords: servizio app, servizio app di azure, scala, scalabile, piano di servizio app, costo del servizio app
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714562"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
 Il nuovo piano tariffario **PremiumV2** consente di avere processori più veloci e spazio di archiviazione su unità SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi relativi alle prestazioni che ne derivano consentono di eseguire le app con un minor numero di istanze e garantiscono quindi un risparmio economico. Questo articolo illustra come creare un'app nel livello **PremiumV2** o passare un'app al livello **PremiumV2**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per passare un'app Web al livello **PremiumV2**, è necessario avere un'app Web nel servizio app di Azure eseguita su un livello inferiore rispetto a **PremiumV2**.
 
@@ -51,9 +52,9 @@ Il piano tariffario di un'app del servizio app è definito nel [piano di servizi
 
 Durante la configurazione del piano di servizio app nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> selezionare **Piano tariffario**. 
 
-Scegliere una delle opzioni **PremiumV2** e fare clic su **Seleziona**.
+Selezionare **Produzione**, quindi selezionare **P1V2**, **P2V2** o **P3V2** e fare clic su **Applica**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Se le opzioni **P1V2**, **P2V2** e **P3V2** non sono visualizzate, è possibile che **PremiumV2** non sia disponibile nell'area scelta o che si stia configurando un piano di servizio app Linux, che non supporta **PremiumV2**.
@@ -70,7 +71,7 @@ Nel riquadro di spostamento sinistro della pagina dell'app del servizio app sele
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Selezionare una delle dimensioni di **PremiumV2** e quindi fare clic su **Seleziona**.
+Selezionare **Produzione**, quindi selezionare **P1V2**, **P2V2** o **P3V2** e fare clic su **Applica**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

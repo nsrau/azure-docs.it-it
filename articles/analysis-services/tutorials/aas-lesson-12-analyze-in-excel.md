@@ -3,16 +3,17 @@ title: 'Esercitazione su Azure Analysis Services - Lezione 12: Analizzare in Exc
 description: Descrive come usare la funzionalità Analizza in Excel nel progetto per l'esercitazione su Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17dba7be2acab18108dc50a5c16d55e0e720cbcc
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1e487f6778c45e554f95489e62ac2dedd01ee3f0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442958"
 ---
 # <a name="analyze-in-excel"></a>Analizza in Excel
 

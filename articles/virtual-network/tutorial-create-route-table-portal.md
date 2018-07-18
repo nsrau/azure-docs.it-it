@@ -17,11 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344895"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Esercitazione: Instradare il traffico di rete con una tabella di route usando il portale di Azure
 
@@ -52,7 +53,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myRouteTablePublic|
+    |Nome|myRouteTablePublic|
     |Sottoscrizione| Selezionare la propria sottoscrizione.|
     |Gruppo di risorse | Selezionare **Crea nuovo** e immettere *myResourceGroup*.|
     |Località|Stati Uniti orientali|
@@ -85,7 +86,7 @@ Per poter associare una tabella di route a una subnet, è necessario creare una 
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVirtualNetwork|
+    |Nome|myVirtualNetwork|
     |Spazio degli indirizzi| 10.0.0.0/16|
     |Sottoscrizione | Selezionare la propria sottoscrizione.|
     |Gruppo di risorse|Selezionare **Usa esistente** e quindi **myResourceGroup**.|
@@ -102,14 +103,14 @@ Per poter associare una tabella di route a una subnet, è necessario creare una 
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|Privato|
+    |Nome|Privato|
     |Spazio degli indirizzi| 10.0.1.0/24|
 
 7. Completare di nuovo i passaggi 5 e 6, specificando le informazioni seguenti:
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|Rete perimetrale|
+    |Nome|Rete perimetrale|
     |Spazio degli indirizzi| 10.0.2.0/24|
 
 8. La finestra di dialogo **myVirtualNetwork - Subnet** viene visualizzata dopo avere completato il passaggio precedente. In **IMPOSTAZIONI** selezionare **Subnet** e quindi selezionare **Public**.
@@ -127,7 +128,7 @@ Un'appliance virtuale di rete è una macchina virtuale che svolge una funzione d
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVmNva|
+    |Nome|myVmNva|
     |Nome utente|Immettere un nome utente a scelta.|
     |Password|Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Usa esistente** e quindi *myResourceGroup*.|

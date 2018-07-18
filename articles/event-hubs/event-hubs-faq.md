@@ -1,24 +1,20 @@
 ---
-title: Domande frequenti sugli Hub eventi di Azure | Documentazione Microsoft
+title: Domande frequenti sugli Hub eventi di Azure | Microsoft Docs
 description: Domande frequenti sugli Hub eventi di Azure (FAQ)
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235312"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -30,7 +26,7 @@ Il piano Standard di Hub eventi di Azure offre funzionalità superiori a quelle 
 * Periodo di conservazione degli eventi più lungo
 * Connessioni negoziate aggiuntive, con sovrapprezzo per un numero di connessioni superiore a quello incluso
 * Più di un singolo gruppo di consumer
-* [Acquisire](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Acquisire](event-hubs-capture-overview.md)
 
 Per informazioni dettagliate sui piani tariffari, incluso il livello Dedicato di Hub eventi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ Usando la funzionalità [Aumento automatico](event-hubs-auto-inflate.md) è poss
 Sì, purché tutti gli hub eventi si trovino nello stesso spazio dei nomi.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Qual è il periodo di conservazione massimo per gli eventi?
-Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di 7 giorni, abilitando la funzionalità [Acquisizione di Hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) nell'hub eventi viene effettuato il pull dei dati dall'hub all'account di archiviazione o all'account del servizio Azure Data Lake scelto. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
+Il livello Standard di Hub eventi supporta attualmente un periodo di conservazione massimo di 7 giorni. Si noti che gli hub eventi non sono intesi come archivi dati permanenti. Sono previsti periodi di conservazione maggiori di 24 ore per scenari in cui è opportuno riprodurre un flusso di eventi negli stessi sistemi, ad esempio, per la formazione o per verificare un nuovo modello di machine learning sui dati esistenti. Se è necessario conservare i messaggi per più di 7 giorni, abilitando la funzionalità [Acquisizione di Hub eventi](event-hubs-capture-overview.md) nell'hub eventi viene effettuato il pull dei dati dall'hub all'account di archiviazione o all'account del servizio Azure Data Lake scelto. L'abilitazione dell'acquisizione prevede un costo in base alle unità elaborate acquistate.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Dove sono disponibili gli hub eventi di Azure?
+
 Hub eventi di Azure è disponibile in tutte le aree di Azure supportate. Per un elenco, visitare la pagina [Aree di Azure](https://azure.microsoft.com/regions/).  
 
 ## <a name="best-practices"></a>Procedure consigliate
@@ -101,22 +98,27 @@ L'acquisizione usa un account di archiviazione fornito dall'utente, quando la fu
 ## <a name="quotas"></a>Quote
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Sono previste quote associate all'hub eventi?
+
 Per un elenco di tutte le quote dell'hub eventi, vedere [quote](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Quali sono alcune delle eccezioni generate dagli hub eventi e dalle azioni consigliate?
+
 Per un elenco delle possibili eccezioni degli hub eventi, vedere [Eccezioni della messaggistica di Hub eventi](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Log di diagnostica
+
 Hub eventi supporta due tipi di [log di diagnostica](event-hubs-diagnostic-logs.md), i log degli errori di acquisizione e i log operativi, entrambi rappresentati in JSON e attivabili tramite il Portale di Azure.
 
 ### <a name="support-and-sla"></a>Contratto di servizio e supporto
+
 Il supporto tecnico per Hub eventi è disponibile tramite i [forum della community](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Il supporto per fatturazione e gestione delle sottoscrizioni viene fornito gratuitamente.
 
 Per altre informazioni sul Contratto di servizio, visitare la pagina [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/) .
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)

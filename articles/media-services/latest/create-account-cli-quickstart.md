@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un account di Servizi multimediali di Azure con l'interfaccia della riga di comando 2.0 | Microsoft Docs"
+title: "Guida introduttiva: Creare un account di Servizi multimediali di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs"
 description: Seguire i passaggi di questa guida introduttiva per creare un account di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -12,11 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767103"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Guida introduttiva: Creare un account di Servizi multimediali di Azure
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 05/07/2018
 
 Gli sviluppatori o gli autori di contenuti multimediali devono creare un account di Servizi multimediali di Azure per archiviare, crittografare, codificare, gestire ed eseguire lo streaming di contenuti multimediali in Azure. Quando si crea un account di Servizi multimediali, è necessario specificare l'ID di una risorsa dell'account di archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali. Questa risorsa dell'account di archiviazione deve trovarsi nella stessa area geografica dell'account di Servizi multimediali.  
 
-Questa guida introduttiva descrive i passaggi per la creazione di un nuovo account di Servizi multimediali di Azure tramite l'interfaccia della riga di comando 2.0.  
+Questa guida introduttiva descrive i passaggi per la creazione di un nuovo account di Servizi multimediali di Azure tramite l'interfaccia della riga di comando di Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +36,7 @@ Accedere al [portale di Azure](http://portal.azure.com) e avviare **CloudShell**
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Impostare la sottoscrizione di Azure
 

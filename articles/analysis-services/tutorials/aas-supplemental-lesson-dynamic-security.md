@@ -3,16 +3,17 @@ title: "Lezione supplementare dell'esercitazione su Azure Analysis Services: sic
 description: Descrive come usare la sicurezza dinamica tramite filtri di riga nell'esercitazione su Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5084bb0785e22a4b38f7f80f4c3b29a0ad92dadb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f7e5999b2d64c4a9b409fac81841d15f7c6aa5e7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443665"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lezione supplementare: Sicurezza dinamica
 

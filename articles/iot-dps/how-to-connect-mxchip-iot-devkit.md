@@ -1,22 +1,19 @@
 ---
 title: Come usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT | Microsoft Docs
 description: Come usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT.
-services: iot-dps
-keywords: ''
 author: liydu
 ms.author: liydu
 ms.date: 04/04/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 7fe1cd003bd7e6b681989324a42a076f4fd2f7df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-dps
+manager: jeffya
+ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750367"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
@@ -118,6 +115,17 @@ Per salvare un segreto UDS nel DevKit:
    - Lasciare le altre impostazioni sui valori predefiniti e fare clic su **Salva**
 
    ![Caricamento del certificato](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > Se si riceve un errore con questo messaggio:
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > Aprire il file di certificato con estensione **pem** come testo (con Blocco note o qualsiasi editor di testo) ed eliminare le righe:
+  >
+  > `"-----BEGIN CERTIFICATE-----"` e `"-----END CERTIFICATE-----"`.
+  >
+
 
 ## <a name="start-the-devkit"></a>Avviare il DevKit
 

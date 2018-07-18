@@ -5,20 +5,21 @@ services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/6/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: aa75ac48d650f28d4aaeb612f2900d705cf71b5b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38298963"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introduzione agli argomenti del bus di servizio
 
@@ -32,7 +33,7 @@ Questa esercitazione illustra i passaggi seguenti:
 4. Scrivere un'applicazione console .NET Core per inviare un set di messaggi all'argomento.
 5. Scrivere un'applicazione console .NET Core per ricevere tali messaggi dalla sottoscrizione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
@@ -161,7 +162,7 @@ Avviare Visual Studio e creare un nuovo progetto **Console App (.NET Core)** (Ap
     }
     ```
   
-6. Il file Program.cs del mittente sarà simile al seguente:
+6. Il file Program.cs del mittente sarà simile al seguente.
    
     ```csharp
     namespace CoreSenderApp
@@ -424,11 +425,11 @@ Per ricevere i messaggi inviati, creare un'altra applicazione console .NET Core 
    
     ![Lunghezza argomento][topic-message-receive]
 
-Congratulazioni! Usando la libreria .NET Standard sono stati creati un argomento e una sottoscrizione e sono stati inviati 10 messaggi che sono quindi stati ricevuti.
+Congratulazioni. Usando la libreria .NET Standard sono stati creati un argomento e una sottoscrizione e sono stati inviati 10 messaggi che sono quindi stati ricevuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-bus/tree/master/samples) che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio.
+Vedere il [repository GitHub con esempi](https://github.com/Azure/azure-service-bus/tree/master/samples) del bus di servizio che illustrano alcune delle funzionalità più avanzate della messaggistica del bus di servizio.
 
 <!--Image references-->
 

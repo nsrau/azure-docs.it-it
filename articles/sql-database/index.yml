@@ -14,13 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: b7888a2bece1a9b601c3629deb1c1dd1fc5cbbe3
-  ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+  ms.openlocfilehash: 5fcfe7b12acc943224d3c3158f2b39b4c35de1ee
+  ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 04/06/2018
+  ms.lasthandoff: 07/09/2018
+  ms.locfileid: "37916150"
 abstract:
-  description: Il database SQL di Azure è un database come servizio relazionale che usa il motore Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.
+  description: Il database SQL di Azure è un database relazionale gestito come servizio basato sulla versione stabile più recente del motore di database di Microsoft SQL Server. Il database SQL è un database sicuro, affidabile, a prestazioni elevate, che consente di creare applicazioni e siti Web basati sui dati nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Informazioni su come usare il database SQL con le guide rapide, le esercitazioni e gli esempi.
   aside:
     image:
       alt: 
@@ -31,25 +32,103 @@ abstract:
     href: https://azure.microsoft.com/resources/videos/create-sql-database-on-azure/
     width: 250
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/sql-database/sql-database-technical-overview
+      html: <p>Database PaaS <a href="/azure/sql-database/sql-database-high-availability">altamente disponibile</a> sempre in esecuzione nella versione stabile più recente del motore di database di SQL Server e del sistema operativo con patch con <a href="/azure/sql-database/sql-database-automated-backups">backup automatico del database</a>.</p>
+      image:
+        src: media/index/i_managed.svg
+      title: Soluzione completamente gestita
+    - href: /azure/sql-database/sql-database-service-tiers
+      html: <p>È possibile personalizzare il rapporto prezzo/prestazioni in base alle esigenze con <a href="/azure/sql-database/sql-database-service-tiers">livelli di prestazioni flessibili</a> che vanno dai convenienti 5 dollari al mese ai potenti database 80 core.</p>
+      image:
+        src: media/index/i_perftier.svg
+      title: Livelli di prezzo/prestazioni
+    - href: /azure/sql-database/sql-database-scale-resources
+      html: <p>È possibile <a href="/azure/sql-database/sql-database-single-database-scale">aumentare le prestazioni</a>, <a href="/azure/sql-database/sql-database-read-scale-out">aumentare le istanze</a> o partizionare facilmente i database a seconda delle esigenze per migliorare le prestazioni dell'applicazione.</p>
+      image:
+        src: media/index/i_scale.svg
+      title: Scalabilità ed elasticità
+    - href: /azure/sql-database/sql-database-technical-overview#built-in-intelligence
+      html: <p>L'intelligence integrata nel servizio <a href="/azure/sql-database/sql-database-automatic-tuning">ottimizza automaticamente le prestazioni dei database</a> e <a href="/azure/sql-database/sql-advanced-threat-protection">identifica le minacce</a> e le <a href="/azure/sql-database/sql-vulnerability-assessment">vulnerabilità</a> nei database.</p>
+      image:
+        src: media/index/i_intelligence.svg
+      title: Intelligenza incorporata
+    - href: /azure/sql-database/sql-database-servers-databases
+      html: <p>Usare il <a href="/azure/sql-database/sql-database-managed-instance">database singolo ospitato in server logici</a> per le <a href="/azure/sql-database/saas-tenancy-app-design-patterns">applicazioni SaaS</a> e i microservizi che richiedono un database singolo con prestazioni prevedibili.</p>
+      image:
+        src: media/index/i_db.svg
+      title: Database singolo
+    - href: /azure/sql-database/sql-database-managed-instance
+      html: <p>Usare l'<a href="/azure/sql-database/sql-database-managed-instance">Istanza gestita</a> per eseguire in modo semplice la <a href="azure/sql-database/sql-database-managed-instance-migrate">migrazione dei database locali</a> ad Azure PaaS senza modifiche del codice del database oppure con modifiche minime.</p>
+      image:
+        src: media/index/i_mi.svg
+      title: Istanza gestita
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: 'Informazioni su come creare un database SQL, gestirlo con SQL Management Studio e svilupparlo in C#, Java, Python, Node.js e Ruby:'
-  - type: list
-    style: icon48
-    items:
+    text: "Il database SQL di Azure consente di eseguire facilmente attività di gestione di base tramite il portale di Azure, l'interfaccia della riga di comando di Azure e Azure PowerShell. Informazioni su come eseguire attività di gestione di base usando i seguenti esempi introduttivi:"
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Portale di Azure
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
+        src: media/index/portal.svg
+      title: Portale di Azure
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
+        src: media/index/cli.svg
+      title: Interfaccia della riga di comando di Azure
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    - image:
+        src: media/index/logo_arm.svg
+      title: Modello di Azure Resource Manager
+    rows:
+    - title: Creare un singolo database SQL
+      values:
+      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-get-started-cli
+      - href: /azure/sql-database/sql-database-get-started-powershell
+      - href: 
+    - title: Creare un'istanza gestita di SQL
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+      - href: 
+    - title: Creare un pool elastico SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
+    - title: Ridimensionare un singolo database SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+      - href: 
+    - title: Ridimensionare un pool elastico SQL
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+    - title: Ridimensionare un'istanza gestita
+      values:
+      - href: 
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+      - href: 
+    - title: Configurare la rete di Azure per l'istanza gestita
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+      - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
@@ -82,7 +161,7 @@ sections:
     items:
     - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
     - html: <a href="/azure/sql-database/sql-database-cli-samples">Interfaccia della riga di comando di Azure</a>
-- title: riferimento
+- title: Riferimenti
   items:
   - type: list
     style: cards

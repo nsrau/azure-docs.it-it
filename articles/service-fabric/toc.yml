@@ -101,7 +101,7 @@
       href: service-fabric-application-scenarios.md
     - name: Modelli e scenari
       href: service-fabric-patterns-and-scenarios.md
-    - name: Architecture
+    - name: Architettura
       href: service-fabric-architecture.md
     - name: Terminologia
       href: service-fabric-technical-overview.md
@@ -141,7 +141,7 @@
         - name: Reliable Actors
           href: service-fabric-reliable-actors-introduction.md
           items:
-            - name: Architecture
+            - name: Architettura
               href: service-fabric-reliable-actors-platform.md
             - name: Implementazione di funzionalità a livello di servizio
               href: service-fabric-reliable-actors-using.md
@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Manifesti dell'applicazione e del servizio
           href: service-fabric-application-and-service-manifests.md
+        - name: Esempi di manifesti dell'applicazione e del servizio
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Esempi di manifesti dell'applicazione e del servizio per Reliable Services
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Esempi di manifesti dell'applicazione e del servizio per applicazioni multicontenitore
+              href: service-fabric-manifest-example-container-app.md
         - name: Modello di hosting
           href: service-fabric-hosting-model.md
         - name: 'Sicurezza delle applicazioni:'
@@ -208,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: Risorse del servizio
           href: service-fabric-service-manifest-resources.md
+        - name: Backup e ripristino periodici
+          items:
+            - name: Informazioni sulla configurazione del backup periodico
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: Cluster
       href: service-fabric-deploy-anywhere.md
       items:
@@ -226,7 +237,7 @@
         - name: Gestione risorse cluster
           href: service-fabric-cluster-resource-manager-introduction.md
           items:
-            - name: Architecture
+            - name: Architettura
               href: service-fabric-cluster-resource-manager-architecture.md
             - name: Descrivere un cluster
               href: service-fabric-cluster-resource-manager-cluster-description.md
@@ -399,6 +410,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: Creare un servizio ASP.NET Core
           href: service-fabric-add-a-web-frontend.md
+        - name: Creare un contenitore per il server Apache Tomcat in Linux
+          href: service-fabric-get-started-tomcat.md
         - name: Configurare la sicurezza
           items:
             - name: Gestire i segreti dell'applicazione
@@ -419,6 +432,8 @@
               href: service-fabric-securing-containers.md
             - name: Configurare gMSA per i contenitori di Windows
               href: service-fabric-setup-gmsa-for-windows-containers.md
+            - name: Configurare i certificati in Linux
+              href: service-fabric-configure-certificates-linux.md
         - name: Configurare i backup periodici (cluster su Azure)
           href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
         - name: Configurare i backup periodici (cluster autonomi)
@@ -449,6 +464,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: Monitorare e diagnosticare in locale
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Usare un ambiente VS Code
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'Sviluppare applicazioni C# di Service Fabric con VS Code'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: Sviluppare applicazioni Java di Service Fabric con VS Code
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Eseguire la migrazione da Servizi cloud
       items:
         - name: Confrontare Servizi cloud e Service Fabric
@@ -523,17 +545,13 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: Cluster che usa il nome comune del certificato
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Abilitare Crittografia dischi per Windows
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Abilitare Crittografia dischi per Linux
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: Scalabilità
               items:
                 - name: Aumentare manualmente le prestazioni
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Aumentare le prestazioni a livello di programmazione
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Aumentare le prestazioni delle macchine virtuali con tipo di nodo primario
+                - name: Aumentare le prestazioni o eseguire l'aggiornamento delle macchine virtuali con tipo di nodo primario
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: Aggiornamento
               href: service-fabric-cluster-upgrade.md
@@ -551,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: Connessione remota a una VM del nodo cluster
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: Aggiornare/Eseguire la migrazione di VMSS SKU
-              href: service-fabric-update-vmss-sku.md
         - name: Cluster autonomi
           items:
             - name: Create
@@ -601,13 +617,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Diagnostica di Azure per Linux
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: Configurare OMS Log Analytics
+            - name: Configurare Log Analytics
               href: service-fabric-diagnostics-oms-setup.md
-            - name: Monitorare con OMS
+            - name: Monitorare con Log Analytics
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: Monitorare l'infrastruttura
           items:
-            - name: Monitoraggio delle prestazioni con l'agente OMS
+            - name: Monitoraggio delle prestazioni con l'agente di Log Analytics
               href: service-fabric-diagnostics-oms-agent.md
             - name: Monitoraggio delle prestazioni con Diagnostica di Microsoft Azure
               href: service-fabric-diagnostics-perf-wad.md
@@ -623,6 +639,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: Diagnosticare gli scenari comuni
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: Procedure consigliate
+      items:
+        - name: Elenco di controllo per l'idoneità per la produzione
+          href: service-fabric-production-readiness-checklist.md
 - name: Riferimenti
   items:
     - name: Azure PowerShell

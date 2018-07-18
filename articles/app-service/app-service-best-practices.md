@@ -2,7 +2,7 @@
 title: Procedure consigliate per il servizio app di Azure
 description: Informazioni sulle procedure consigliate e la risoluzione dei problemi per il servizio app di Azure.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868319"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 

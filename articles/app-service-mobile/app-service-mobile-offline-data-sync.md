@@ -1,10 +1,10 @@
 ---
 title: Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure | Documentazione Microsoft
-description: "Riferimento concettuale e panoramica della funzionalità di sincronizzazione di dati offline nelle app per dispositivi mobili di Azure"
+description: Riferimento concettuale e panoramica della funzionalità di sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597978"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure
 ## <a name="what-is-offline-data-sync"></a>Che cos'è la sincronizzazione di dati offline?
@@ -52,7 +53,7 @@ Per supportare l'uso offline, l'app deve usare invece le API della *tabella di s
 ## <a name="what-is-a-local-store"></a>Informazioni sull'archivio locale
 Un archivio locale è un livello di persistenza dei dati nel dispositivo client. Gli SDK del client delle app per dispositivi mobili di Azure forniscono un'implementazione predefinita dell'archivio locale. In Windows, Xamarin e Android è basato su SQLite, mentre in iOS è basato su Core Data.
 
-Per usare l'implementazione basata su SQLite in Windows Phone o Windows Store 8.1, è necessario installare un'estensione SQLite. Per altre informazioni, vedere [Abilitare la sincronizzazione offline per l'app di Windows]. Android e iOS includono una versione di SQLite nel sistema operativo stesso del dispositivo, quindi non è necessario fare riferimento a una versione specifica di SQLite.
+Per usare l'implementazione basata su SQLite in Windows Phone o Microsoft Store, è necessario installare un'estensione SQLite. Per altre informazioni, vedere [Abilitare la sincronizzazione offline per l'app di Windows]. Android e iOS includono una versione di SQLite nel sistema operativo stesso del dispositivo, quindi non è necessario fare riferimento a una versione specifica di SQLite.
 
 Gli sviluppatori possono anche implementare il proprio archivio locale. Ad esempio, per archiviare dati in un formato crittografato nel client mobile, è possibile definire un archivio locale che usa SQLCipher per la crittografia.
 

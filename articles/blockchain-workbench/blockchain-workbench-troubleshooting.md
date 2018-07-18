@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8a2715666c4fff490f5184b7b8719b412952b9bf
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 419ed6dc76101366e47ae94067f7b671a10c94e2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196335"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Risoluzione dei problemi relativi ad Azure Blockchain Workbench
 
@@ -49,7 +50,8 @@ Questo script accetta i parametri seguenti:
 |---------|---------|----|
 | SubscriptionID | ID sottoscrizione per creare o individuare tutte le risorse. | Sì |
 | ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Sì |
-| OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No 
+| OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No  |
+| LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No  |
 | OmsSubscriptionId | ID sottoscrizione in cui è distribuito OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
 | OmsResourceGroup |Gruppo di risorse in cui viene distribuito OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
 | OmsWorkspaceName | Nome dell'area di lavoro OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench | No  |
@@ -58,15 +60,17 @@ Questo script accetta i parametri seguenti:
 
 Il file ZIP di output contiene la struttura di cartelle seguente:
 
-| Cartella\File | DESCRIZIONE  |
+| File o cartella | DESCRIZIONE  |
 |---------|---------|
 | \Summary.txt | Riepilogo del sistema |
-| \metrics\blockchain | Metriche relative alla blockchain |
-| \metrics\workbench | Metriche relative a Workbench |
-| \details\blockchain | Log dettagliati relativi alla blockchain |
-| \details\workbench | Log dettagliati relativi a Workbench |
+| \Metrics\blockchain | Metriche relative alla blockchain |
+| \Metrics\Workbench | Metriche relative a Workbench |
+| \Details\Blockchain | Log dettagliati relativi alla blockchain |
+| \Details\Workbench | Log dettagliati relativi a Workbench |
 
 Il file di riepilogo offre uno snapshot dello stato complessivo dell'applicazione e l'integrità dell'applicazione. Il riepilogo indica le azioni consigliate, evidenzia gli errori principali e fornisce i metadati sui servizi in esecuzione.
+
+La cartella **Metrics** contiene le metriche dei vari componenti di sistema nel tempo. Ad esempio, il file di output `\Details\Workbench\apiMetrics.txt` contiene un riepilogo dei diversi codici di risposta e i tempi di risposta per tutto il periodo di raccolta. La cartella **Details** contiene log dettagliati per la risoluzione di problemi specifici relativi a Workbench o alla rete blockchain sottostante. Ad esempio, `\Details\Workbench\Exceptions.csv` contiene un elenco delle eccezioni più recenti che si sono verificate nel sistema, utile per la correzione di errori relativi a contratti intelligenti o interazioni con la blockchain. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

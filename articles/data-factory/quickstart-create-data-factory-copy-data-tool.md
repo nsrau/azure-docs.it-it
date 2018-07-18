@@ -9,26 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: aea76544f244adba8368a1d8fbe268746060b5a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4df392ec7e100ef0efcbb3876079710a6b9ca4fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38623536"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Usare lo strumento Copia dati per copiare i dati 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versione 1 - Disponibilità generale](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [Versione 2 - Anteprima](quickstart-create-data-factory-copy-data-tool.md)
+> * [Versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versione corrente](quickstart-create-data-factory-copy-data-tool.md)
 
 In questa guida introduttiva si userà il portale di Azure per creare una data factory. Viene quindi usato lo strumento Copia dati per creare una pipeline che copia i dati da una cartella dell'archivio BLOB di Azure a un'altra cartella. 
 
 > [!NOTE]
 > Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](data-factory-introduction.md) prima di seguire la guida introduttiva. 
->
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio con disponibilità generale, vedere l'[Introduzione a Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -51,7 +49,7 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
    - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
    Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Per **Versione** selezionare **V2 (anteprima)**.
+4. Per **Versione** selezionare **V2**.
 5. Per **Località** selezionare la località per la data factory. 
 
    L'elenco include solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
@@ -70,69 +68,73 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
 1. Nella pagina **Attività iniziali** selezionare il riquadro **Copia dati** per avviare lo strumento Copia dati. 
 
    ![Riquadro "Copia dati"](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
-2. Nella pagina **Proprietà** dello strumento Copia dati selezionare **Avanti**. È possibile specificare un nome per la pipeline e la rispettiva descrizione in questa pagina. 
+
+2. Nella pagina **Proprietà** dello strumento Copia dati è possibile specificare un nome per la pipeline e la relativa descrizione, quindi selezionare **Avanti**. 
 
    ![Pagina "Proprietà"](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-3. Nella pagina **Source data store** (Archivio dati di origine) selezionare **Archiviazione BLOB di Azure** e quindi selezionare **Avanti**.
+3. Nella pagina **Archivio dati di origine** completare la procedura seguente:
 
-   ![Pagina "Source data store" (Archivio dati di origine)](./media/quickstart-create-data-factory-copy-data-tool/source-data-store-page.png)
-4. Nella pagina **Specify the Azure Blob storage account** (Specificare l'account di archiviazione BLOB di Azure) selezionare l'account di archiviazione nell'elenco **Nome account di archiviazione** e quindi selezionare **Avanti**. 
+    a. Fare clic su **+ Crea nuova connessione** per aggiungere una connessione.
 
-   ![Pagina "Specify the Azure Blob storage account" (Specificare l'account di archiviazione BLOB di Azure)](./media/quickstart-create-data-factory-copy-data-tool/specify-blob-storage-account.png)
-5. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) completare questa procedura:
+    ![Pagina "Source data store" (Archivio dati di origine)](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
-   a. Passare alla cartella **adftutorial/input**.
+    b. Selezionare **Archiviazione BLOB di Azure** dalla raccolta e quindi selezionare **Avanti**.
 
-   b. Selezionare il file **emp.txt**.
+    ![Selezionare l'archiviazione BLOB dalla raccolta](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-   c. Selezionare **Scegli**. È possibile fare doppio clic su **emp.txt** per ignorare questo passaggio.
+    c. Nella pagina **Specify the Azure Blob storage account** (Specificare l'account di archiviazione BLOB di Azure) selezionare l'account di archiviazione nell'elenco **Nome account di archiviazione** e quindi selezionare **Fine**. 
 
-   d. Selezionare **Avanti**. 
+   ![Configurare l'account di archiviazione BLOB di Azure](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-   ![Pagina "Choose the input file or folder" (Scegliere il file o la cartella di input)](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
-6. Nella pagina **File format settings** (Impostazioni di formato file) si noti che lo strumento rileva automaticamente i delimitatori di colonna e di riga, quindi selezionare **Avanti**. È anche possibile visualizzare l'anteprima dei dati e gli schemi dei dati di input in questa pagina. 
+   d. Selezionare il servizio collegato appena creato come origine, quindi fare clic su **Avanti**.
 
-   ![Pagina "File format settings" (Impostazioni di formato file)](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-page.png)
-7. Nella pagina **Destination data store** (Archivio dati di destinazione) selezionare **Archiviazione BLOB di Azure** e quindi selezionare **Avanti**. 
+   ![Selezionare il servizio collegato di origine](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
 
-   ![Pagina "Destination data store" (Archivio dati di destinazione)](./media/quickstart-create-data-factory-copy-data-tool/destination-data-store-page.png)    
-8. Nella pagina **Specify the Azure Blob storage account** (Specificare l'account di archiviazione BLOB di Azure) selezionare l'account di archiviazione BLOB di Azure e quindi selezionare **Avanti**. 
 
-   ![Pagina "Specify the Azure Blob storage account" (Specificare l'account di archiviazione BLOB di Azure)](./media/quickstart-create-data-factory-copy-data-tool/specify-sink-blob-storage-account.png)
-9. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) completare questa procedura: 
+4. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input) completare questa procedura:
 
-   a. Immettere **adftutorial/output** come percorso della cartella.
+   a. Fare clic su **Sfoglia** per passare alla cartella **adftutorial/input**, selezionare il file **emp.txt**, quindi fare clic su **Scegli**. 
 
-   b. Immettere **emp.txt** come nome file.
+   ![Pagina "Choose the input file or folder" (Scegliere il file o la cartella di input)](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 
-   c. Selezionare **Avanti**. 
+   d. Selezionare l'opzione **Binary copy** (Copia binaria) per copiare il file così com'è, quindi selezionare **Avanti**. 
 
-   ![Pagina "Choose the output file or folder" (Scegliere il file o la cartella di output)](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
-10. Nella pagina **File format settings** (Impostazioni di formato file) selezionare **Avanti**. 
+   ![Pagina "Choose the input file or folder" (Scegliere il file o la cartella di input)](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
-    ![Pagina "File format settings" (Impostazioni di formato file)](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-output-page.png)
-11. Nella pagina **Impostazioni** selezionare **Avanti**. 
 
-    ![Pagina "Impostazioni"](./media/quickstart-create-data-factory-copy-data-tool/advanced-settings-page.png)
-12. Verificare tutte le impostazioni nella pagina **Riepilogo** e selezionare **Avanti**. 
+5. Nella pagina **Destination data store** (Archivio dati di destinazione) selezionare il servizio collegato **Archiviazione BLOB di Azure** appena creato e quindi selezionare **Avanti**. 
+
+   ![Pagina "Destination data store" (Archivio dati di destinazione)](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
+
+6. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/output** come percorso della cartella, quindi selezionare **Avanti**. 
+
+   ![Pagina "Choose the output file or folder" (Scegliere il file o la cartella di output)](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
+
+7. Nella pagina **Impostazioni** selezionare **Avanti** per usare le configurazioni predefinite. 
+
+8. Nella pagina **Riepilogo** verificare tutte le impostazioni e selezionare **Avanti**. 
 
     ![Pagina "Riepilogo"](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
-13. Nella pagina **Distribuzione completata** selezionare **Monitoraggio** per monitorare la pipeline creata. 
+
+9. Nella pagina **Distribuzione completata** selezionare **Monitoraggio** per monitorare la pipeline creata. 
 
     ![Pagina "Distribuzione completata"](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
-14. L'applicazione passa alla scheda **Monitoraggio**. In questa scheda viene visualizzato lo stato della pipeline. Selezionare **Aggiorna** per aggiornare l'elenco. 
+
+10. L'applicazione passa alla scheda **Monitoraggio**. In questa scheda viene visualizzato lo stato della pipeline. Selezionare **Aggiorna** per aggiornare l'elenco. 
     
-    ![Scheda per il monitoraggio delle esecuzioni della pipeline, con il pulsante "Aggiorna"](./media/quickstart-create-data-factory-copy-data-tool/monitor-pipeline-runs-page.png)
-15. Selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. La pipeline ha solo un'attività di tipo **Copia**. 
+    ![Monitorare l'esecuzione della pipeline](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 
-    ![Elenco delle esecuzioni di attività](./media/quickstart-create-data-factory-copy-data-tool/activity-runs.png)
-16. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (immagine degli occhiali) nella colonna **Azioni**. Per informazioni dettagliate sulle proprietà, vedere [Panoramica dell'attività Copia](copy-activity-overview.md). 
+11. Selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. La pipeline ha solo un'attività di tipo **Copia**. 
 
-    ![Dettagli dell'operazione di copia](./media/quickstart-create-data-factory-copy-data-tool/copy-operation-details.png)
-17. Verificare che il file **emp.txt** sia stato creato nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
-18. Passare alla scheda **Modifica** per poter modificare i servizi collegati, i set di dati e le pipeline. Per informazioni sulla modifica di questi elementi nell'interfaccia utente di Data Factory, vedere [Creare una data factory con il portale di Azure](quickstart-create-data-factory-portal.md).
+    ![Monitorare l'esecuzione delle attività](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
+    
+12. Per visualizzare informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (immagine degli occhiali) nella colonna **Azioni**. Per informazioni dettagliate sulle proprietà, vedere [Panoramica dell'attività Copia](copy-activity-overview.md).
 
-    ![Scheda Modifica](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
+    ![Dettagli dell'operazione di copia](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
+
+13. Verificare che il file **emp.txt** sia stato creato nella cartella **output** del contenitore **adftutorial**. Se la cartella output non esiste, il servizio Data Factory la crea automaticamente. 
+
+14. Passare alla scheda **Autore** sopra la scheda **Monitoraggio** nel pannello sinistro, per poter modificare i servizi collegati, i set di dati e le pipeline. Per informazioni sulla modifica di questi elementi nell'interfaccia utente di Data Factory, vedere [Creare una data factory con il portale di Azure](quickstart-create-data-factory-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 La pipeline in questo esempio copia i dati da una posizione a un'altra nell'archivio BLOB di Azure. Per informazioni sull'uso di Data Factory in più scenari, vedere le [esercitazioni](tutorial-copy-data-portal.md). 

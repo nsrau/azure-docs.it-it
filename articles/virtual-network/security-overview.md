@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657588"
 ---
 # <a name="network-security"></a>Sicurezza di rete
 
@@ -138,7 +139,7 @@ Non è possibile rimuovere le regole predefinite, ma è possibile eseguirne l'ov
 
 I gruppi di sicurezza delle applicazioni consentono di configurare la sicurezza di rete come un'estensione naturale della struttura di un'applicazione, raggruppando le macchine virtuali e definendo i criteri di sicurezza di rete in base a tali gruppi. Questa funzionalità consente di riusare i criteri di sicurezza su larga scala senza gestire manualmente indirizzi IP espliciti. La piattaforma gestisce la complessità degli indirizzi IP espliciti e di più set di regole, consentendo all'utente di concentrarsi sulla logica di business.
 
-Si può specificare un gruppo di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza. Dopo aver definito i criteri di sicurezza, è possibile creare le macchine virtuali e assegnare le interfacce di rete nella macchina virtuale a un gruppo di sicurezza delle applicazioni. I criteri vengono applicati in base all'appartenenza a gruppi di sicurezza delle applicazioni di ogni interfaccia di rete in una macchina virtuale. L'esempio seguente illustra come è possibile usare un gruppo di sicurezza delle applicazioni per tutti i server Web nella sottoscrizione:
+Si può specificare un unico gruppo di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza. Non è possibile specificare più gruppi di sicurezza dell'applicazione nell'origine e nella destinazione. Dopo aver definito i criteri di sicurezza, è possibile creare le macchine virtuali e assegnare le interfacce di rete nella macchina virtuale a un gruppo di sicurezza delle applicazioni. I criteri vengono applicati in base all'appartenenza a gruppi di sicurezza delle applicazioni di ogni interfaccia di rete in una macchina virtuale. L'esempio seguente illustra come è possibile usare un gruppo di sicurezza delle applicazioni per tutti i server Web nella sottoscrizione:
 
 1. Creare un gruppo di sicurezza delle applicazioni denominato *WebServers*.
 2. Creare un gruppo di sicurezza di rete denominato *MyNSG*.
@@ -152,7 +153,7 @@ Per informazioni sui limiti associati alla creazione di gruppi di sicurezza dell
 I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
 
 -   Tutte le interfacce di rete assegnate a un gruppo di sicurezza delle applicazioni devono esistere nella stessa rete virtuale in cui è inclusa la prima interfaccia di rete assegnata al gruppo di sicurezza delle applicazioni. Ad esempio, se la prima interfaccia di rete assegnata a un gruppo di sicurezza dell'applicazione denominato *ASG1* si trova nella rete virtuale denominata *VNet1*, tutte le interfacce di rete successive assegnate a *ASG1* devono esistere in *VNet1*. Non è possibile aggiungere interfacce di rete da reti virtuali diverse allo stesso gruppo di sicurezza delle applicazioni.
-- Se si specificano gruppi di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola, perché tutte le interfacce di rete devono trovarsi nella rete virtuale 1.
+- Se si specifica un gruppo di sicurezza delle applicazioni come origine e destinazione in una regola di sicurezza, le interfacce di rete in entrambi i gruppi di sicurezza delle applicazioni devono trovarsi nella stessa rete virtuale. Ad esempio, se il gruppo di sicurezza delle applicazioni 1 contiene interfacce di rete che si trovano nella rete virtuale 1 e il gruppo di sicurezza delle applicazioni 2 contiene interfacce di rete che si trovano nella rete virtuale 2, non è possibile assegnare il gruppo di sicurezza delle applicazioni 1 come origine e il gruppo di sicurezza delle applicazioni 2 come destinazione in una regola. Tutte le interfacce di rete devono trovarsi nella rete virtuale 1.
 
 ## <a name="azure-platform-considerations"></a>Considerazioni sulla piattaforma Azure
 

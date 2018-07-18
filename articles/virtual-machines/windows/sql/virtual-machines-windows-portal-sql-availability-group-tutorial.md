@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287804"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -55,9 +56,9 @@ Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Creare il cluster
+## <a name="create-the-cluster"></a>Creare il cluster
 
-Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di un cluster di failover Windows Server con due istanze di SQL Server e un server di controllo.  
+Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di un cluster di failover Windows Server con due istanze di SQL Server e un server di controllo.
 
 1. Stabilire una connessione RDP alla prima istanza di SQL Server usando un account di dominio che sia amministratore in entrambe le istanze di SQL Server e nel server di controllo.
 
@@ -85,7 +86,8 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
 
    ![Proprietà del cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selezionare **Indirizzo IP statico** e nella casella di testo Indirizzo specificare un indirizzo disponibile dalla subnet in cui si trova l'istanza di SQL Server. Fare quindi clic su **OK**.
+3. Selezionare **Indirizzo IP statico** e specificare un indirizzo disponibile dall'intervallo APIPA (Automatic Private IP Addressing) da 169.254.0.1 a 169.254.255.254 nella casella di testo Indirizzo. Per questo esempio è possibile usare qualsiasi indirizzo in tale intervallo. Ad esempio, `169.254.0.1`. Fare quindi clic su **OK**.
+
 4. Nella sezione **Risorse principali del cluster** fare clic con il pulsante destro del mouse sul nome del cluster e scegliere **Porta online**. Attendere finché entrambe le risorse non sono online Quando la risorsa del nome cluster torna online, il server del controller di dominio viene aggiornato con un nuovo account del computer Active Directory. Usare l'account Active Directory per eseguire il servizio del cluster del gruppo di disponibilità in un secondo momento.
 
 ### <a name="addNode"></a>Aggiungere l'altra istanza di SQL Server al cluster
@@ -411,8 +413,8 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
    | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando si è creato il servizio di bilanciamento del carico. |
    | **Protocollo** | Scegliere TCP |TCP |
-   | **Porta** | Usare la porta per l'istanza di SQL Server | 1433 |
-   | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1433 |
+   | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1435 |
+   | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1435 |
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |

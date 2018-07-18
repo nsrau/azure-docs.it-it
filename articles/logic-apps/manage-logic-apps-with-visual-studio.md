@@ -2,7 +2,7 @@
 title: Gestire le app per la logica con Visual Studio - App per la logica di Azure | Microsoft Docs
 description: Gestire le app per la logica e altri asset di Azure con Visual Studio Cloud Explorer
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 7914bce6ca71b1b3f00c69fb6f33154f0f52dc7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362196"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301117"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 

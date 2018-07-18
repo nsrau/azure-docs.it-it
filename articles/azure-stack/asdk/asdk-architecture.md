@@ -2,11 +2,11 @@
 title: Architettura di Kit sviluppo Stack Azure | Documenti Microsoft
 description: Viene descritta l'architettura di Azure Stack Development Kit (ASDK).
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976410"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Architettura del Kit di sviluppo di Microsoft Azure Stack
 Il Kit di sviluppo dello Stack di Azure (ASDK) è una distribuzione a nodo singolo dello Stack di Azure. Tutti i componenti vengono installati nelle macchine virtuali in esecuzione in un computer singolo host. 

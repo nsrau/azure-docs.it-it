@@ -4,8 +4,6 @@ description: Estrarre il testo dai file di immagine in una pipeline di arricchim
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365825"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055686"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
@@ -38,7 +36,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 | Nome parametro     | DESCRIZIONE |
 |--------------------|-------------|
 | detectOrientation | Abilita il rilevamento automatico dell'orientamento dell'immagine. <br/> Valori validi: true / false.|
-|defaultLanguageCode |  Codice lingua del testo di input. Le lingue supportate comprendono: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Se il codice lingua non è specificato o è Null, la lingua viene rilevata automaticamente.|
+|defaultLanguageCode | <p>  Codice lingua del testo di input. Le lingue supportate comprendono: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (ceco) <br/>da (danese) <br/>nl (olandese) <br/>en (inglese) <br/>fi (finlandese)  <br/>fr (francese) <br/>  de (tedesco) <br/>el (greco) <br/> hu (ungherese) <br/> it (italiano) <br/>  ja (giapponese) <br/> ko (coreano) <br/> nb (norvegese) <br/>   pl (polacco) <br/> pt (portoghese) <br/>  ru (russo) <br/>  es (spagnolo) <br/>  sv (svedese) <br/>  tr (turco) <br/> ar (arabo) <br/> ro (romeno) <br/> sr-Cyrl (SerbianCyrillic) <br/> sr-Latn (SerbianLatin) <br/>  sk (slovacco). <br/>  unk (sconosciuto) <br/><br/> Se il codice lingua non è specificato o è Null, la lingua viene rilevata automaticamente. </p> |
 | textExtractionAlgorithm | "stampato" o "scritto a mano". L'algoritmo OCR per il riconoscimento del testo "scritto a mano" è attualmente in anteprima e supportato solo in inglese. |
 
 ## <a name="skill-inputs"></a>Input competenze
@@ -61,7 +59,7 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -201,4 +199,4 @@ Nell'esempio dell'insieme di competenze precedente si suppone l'esistenza di un 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Competenza TextMerger](cognitive-search-skill-textmerger.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Create indexer (REST)](ref-create-indexer.md) (Creare un indicizzatore - REST)
++ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un indicizzatore - REST)

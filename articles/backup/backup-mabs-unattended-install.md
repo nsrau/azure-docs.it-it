@@ -1,22 +1,19 @@
 ---
-title: Installazione invisibile del server di Backup di Azure v2 | Microsoft Docs
-description: "Usare uno script di PowerShell per installare in modo invisibile il server di Backup di Azure v2. Questo tipo di installazione è chiamato anche installazione automatica."
+title: Installazione invisibile all'utente del server di Backup di Azure v2
+description: Usare uno script di PowerShell per installare in modo invisibile il server di Backup di Azure v2. Questo tipo di installazione è chiamato anche installazione automatica.
 services: backup
-documentationcenter: " "
 author: markgalioto
 manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 05/30/2017
-ms.author: markgal;masaran
-ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606410"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Eseguire un'installazione automatica del server di Backup di Azure v2
 
@@ -58,7 +55,7 @@ Questi passaggi non sono applicabili se si installa il server di Backup di Azure
   ```
 
 È possibile usare questi flag per l'installazione:</br>
-**/f**: percorso del file .ini</br>
+**/f**: percorso del file con estensione ini</br>
 **/l**: percorso del log</br>
 **/i**: percorso di installazione</br>
 **/x**: percorso di disinstallazione</br>

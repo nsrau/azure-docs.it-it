@@ -3,22 +3,24 @@ title: Panoramica del Controllo degli accessi in base al ruolo per le risorse di
 description: Panoramica della funzionalità Controllo degli accessi in base al ruolo in PIM, incluse la terminologia e le notifiche
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528621"
 ---
 # <a name="pim-for-azure-resources"></a>PIM per risorse di Azure
 
@@ -57,7 +59,7 @@ Ruoli personali contiene un elenco delle assegnazioni di ruolo attive e idonee d
 
 ## <a name="activate-roles"></a>Attivare i ruoli
 
-L'attivazione dei ruoli per le risorse di Azure introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md).
+L'attivazione dei ruoli per le risorse di Azure introduce una nuova esperienza che consente ai membri dei ruoli idonei di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, configurato dagli amministratori. Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](pim-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -154,7 +156,7 @@ Selezionare Verifica dalla barra delle azioni per visualizzare le verifiche di a
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[Altre informazioni sulle verifiche di accesso](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[Altre informazioni sulle verifiche di accesso](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 Le verifiche sono attualmente supportate solo per risorse di tipo Sottoscrizione.
@@ -194,5 +196,5 @@ Selezionare Ruoli personali dal menu di spostamento a sinistra e scegliere il ru
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ruoli predefiniti per le risorse di Azure](../../role-based-access-control/built-in-roles.md)
-- Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](../active-directory-privileged-identity-management-how-to-activate-role.md)
+- Altre informazioni sull'[attivazione dei ruoli di Azure AD sono disponibili qui](pim-how-to-activate-role.md)
 - [Flussi di lavoro di approvazione PIM](azure-ad-pim-approval-workflow.md)

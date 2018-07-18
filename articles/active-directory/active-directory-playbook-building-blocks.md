@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 48beb0d1c70b0f9c524ba91934a1a0a7b5e8505d
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451700"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -41,10 +42,10 @@ Di seguito sono riportati alcuni prerequisiti necessari per qualsiasi modello di
 | Prerequisito. | Risorse |
 | --- | --- |
 | Tenant di Azure AD definito con una sottoscrizione di Azure valida | [Come ottenere un tenant di Azure Active Directory](active-directory-howto-tenant.md)<br/>**Nota:** se si dispone già di un ambiente con licenze di Azure AD Premium, è possibile ottenere una sottoscrizione gratuita passando a https://aka.ms/accessaad <br/>Altre informazioni su https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
-| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per controllare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](active-directory-self-service-signup.md) |
+| Domini definiti e verificati | [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Nota:** alcuni carichi di lavoro, ad esempio Power BI, possono avere eseguito il provisioning di un tenant di azure AD dietro le quinte. Per controllare se un determinato dominio è associato a un tenant, passare a https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se si ottiene una risposta positiva, il dominio è già assegnato a un tenant e potrebbe essere necessario acquisire la proprietà. In questo caso, contattare Microsoft per le istruzioni. Altre informazioni sulle opzioni di acquisizione della proprietà sono disponibili in: [Informazioni sull'iscrizione self-service per Azure](users-groups-roles/directory-self-service-signup.md) |
 | Versione di valutazione di Azure AD Premium o EMS abilitata | [Azure Active Directory Premium gratis per un mese](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Licenze di Azure AD Premium o EMS assegnate agli utenti dei modelli di verifica | [Concessione di licenze a se stessi e agli utenti in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
-| Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md) |
+| Credenziali di amministratore globale di Azure AD | [Assegnazione dei ruoli di amministratore in Azure Active Directory](users-groups-roles/directory-assign-admin-roles.md) |
 | Facoltativo ma vivamente consigliato: ambiente di laboratorio parallelo come fallback | [Prerequisiti di Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>Sincronizzazione directory: sincronizzazione dell'hash delle password (PHS), nuova installazione
@@ -99,10 +100,10 @@ Tempo previsto per il completamento: 15 minuti
 | Passaggio | Risorse |
 | --- | --- |
 | Accedere al portale di gestione di Azure AD | [Portale di gestione di Azure AD - Informazioni personalizzate distintive dell'azienda](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](customize-branding.md) |
+| Caricare le risorse per la pagina di accesso (logo alto, logo piccolo, etichette e così via). Facoltativamente, se si usa AD FS, allineare le stesse risorse con le pagine di accesso di AD FS | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso: elementi personalizzabili](fundamentals/customize-branding.md) |
 | Attendere un paio di minuti che la modifica diventi effettiva |  |
 | Accedere con le credenziali modello di verifica a https://myapps.microsoft.com |  |
-| Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](customize-branding.md) |
+| Verificare l'aspetto nel browser | [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso e al pannello di accesso](fundamentals/customize-branding.md) |
 | Se necessario, verificare l'aspetto in altri dispositivi |  |
 
 ### <a name="considerations"></a>Considerazioni
@@ -117,18 +118,18 @@ Tempo previsto per il completamento: 10 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Tutti gli utenti dei moduli di verifica fanno parte di un gruppo di sicurezza (cloud o locale) | [Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Tutti gli utenti dei moduli di verifica fanno parte di un gruppo di sicurezza (cloud o locale) | [Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
 | Passare al pannello delle licenze nel portale di gestione di Azure AD | [Portale di gestione di Azure AD: Licenze](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
-| Assegnare le licenze al gruppo di sicurezza con gli utenti dei moduli di verifica. | [Assegnare licenze a un gruppo di utenti in Azure Active Directory](active-directory-licensing-group-assignment-azure-portal.md) |
+| Assegnare le licenze al gruppo di sicurezza con gli utenti dei moduli di verifica. | [Assegnare licenze a un gruppo di utenti in Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>Considerazioni
 
-In caso di problemi, vedere [Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory](active-directory-licensing-group-advanced.md)
+In caso di problemi, vedere [Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory](users-groups-roles/licensing-group-advanced.md)
 
 ## <a name="saas-federated-sso-configuration"></a>SaaS: configurazione SSO federato
 
@@ -139,22 +140,22 @@ Tempo previsto per il completamento: 60 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Ambiente di test dell'applicazione SaaS disponibile. In questa guida viene usato ServiceNow come esempio.<br/>Si consiglia di usare un'istanza di test per ridurre al minimo i possibili problemi quando si esamina la qualità e i mapping dei dati esistenti. | Passare a https://developer.servicenow.com/app.do#!/home per avviare il processo di acquisizione di un'istanza di test |
-| Accesso amministrativo alla console di gestione ServiceNow | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Accesso amministrativo alla console di gestione ServiceNow | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza contenente gli utenti dei moduli di verifica. <br/>Se la creazione del gruppo non è fattibile, assegnare gli utenti direttamente all'applicazione per il modello di verifica | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
-| Condividere l'esercitazione con tutti gli attori dalla documentazione Microsoft  | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Impostare una riunione di lavoro e seguire i passaggi dell'esercitazione con ogni attore. | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](active-directory-saas-servicenow-tutorial.md) |
-| Assegnare l'app al gruppo identificato nei prerequisiti. Se il modello di verifica usa l'accesso condizionale nell'ambito, è possibile rivederlo in un secondo momento e aggiungere l'autenticazione a più fattori e altro ancora. <br/>Tenere presente che in questo modo si avvia il processo di provisioning (se configurato) |  [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Condividere l'esercitazione con tutti gli attori dalla documentazione Microsoft  | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Impostare una riunione di lavoro e seguire i passaggi dell'esercitazione con ogni attore. | [Esercitazione: Integrazione di Azure Active Directory con ServiceNow](saas-apps/servicenow-tutorial.md) |
+| Assegnare l'app al gruppo identificato nei prerequisiti. Se il modello di verifica usa l'accesso condizionale nell'ambito, è possibile rivederlo in un secondo momento e aggiungere l'autenticazione a più fattori e altro ancora. <br/>Tenere presente che in questo modo si avvia il processo di provisioning (se configurato) |  [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Usare il portale di gestione di Azure AD per aggiungere l'applicazione ServiceNow dalla raccolta| [Portale di gestione di Azure AD: applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Novità della gestione delle applicazioni aziendali in Azure Active Directory](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | Nel pannello "Single sign-on" dell'app ServiceNow abilitare "SAML-based Sign-on" (Accesso basato su SAML) |  |
 | Compilare i campi "URL di accesso" e "Identificatore" con l'URL di ServiceNow<br/>Selezionare l'opzione che consente di rendere attivo il nuovo certificato<br/>e salvare le impostazioni |  |
 | Aprire il pannello "Configura ServiceNow" nella parte inferiore del riquadro per visualizzare le istruzioni per la configurazione di ServiceNow |  |
 | Seguire le istruzioni per configurare ServiceNow |  |
-| Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](active-directory-enterprise-apps-manage-provisioning.md) |
+| Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Attendere alcuni minuti il completamento del provisioning.  Nel frattempo, è possibile verificare i report di provisioning |  |
 | Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 | Fare clic sul riquadro per l'applicazione appena creata. Confermare l'accesso |  |
@@ -162,7 +163,7 @@ Tempo previsto per il completamento: 60 minuti
 
 ### <a name="considerations"></a>Considerazioni
 
-1. L'[esercitazione](active-directory-saas-servicenow-tutorial.md) di cui sopra fa riferimento all'esperienza di gestione precedente di Azure AD. Ma il modulo di verifica si basa sull'esperienza di [Avvio rapido](active-directory-enterprise-apps-whats-new-azure-portal.md#quick-start-get-going-with-your-new-application-right-away).
+1. L'[esercitazione](saas-apps/servicenow-tutorial.md) di cui sopra fa riferimento all'esperienza di gestione precedente di Azure AD. Ma il modello di verifica (PoC) si basa sull'esperienza di [avvio rapido](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away).
 2. Se l'applicazione di destinazione non è presente nella raccolta, è possibile usare "Bring your own app". Altre informazioni: [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Aggiungere applicazioni personalizzate da un'unica posizione](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS: configurazione SSO con password
@@ -175,7 +176,7 @@ Tempo previsto per il completamento: 15 minuti
 | --- | --- |
 | Ambiente di test per le applicazioni SaaS. Esempi di SSO con password sono HipChat e Twitter. Per qualsiasi altra applicazione, è necessario l'URL esatto della pagina con modulo di accesso html. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testare gli account per le applicazioni. | [Iscrizione a Twitter](https://twitter.com/signup?lang=en)<br/>[Iscrizione gratuita: HipChat](https://www.hipchat.com/sign_up) |
-| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza che contiene gli utenti. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Definire un set di utenti a cui assegnare l'applicazione. È consigliabile un gruppo di sicurezza che contiene gli utenti. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passaggi
@@ -184,8 +185,8 @@ Tempo previsto per il completamento: 15 minuti
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso |  |
 | Fare clic sul riquadro per l'applicazione appena creata. | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Indicare le credenziali dell'applicazione | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Tempo previsto per il completamento: 30 minuti
 | --- | --- |
 | L'elenco di applicazioni di destinazione e gli URL di accesso esatti in anticipo. Ad esempio, è possibile usare Twitter. | [Twitter in Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Iscrizione a Twitter](https://twitter.com/signup?lang=en) |
 | Credenziali condivise per questa applicazione SaaS. | [Condivisione di account con Azure AD](active-directory-sharing-accounts.md)<br/>[Post sul rollover automatizzato delle password in Azure AD per Facebook, Twitter e LinkedIn ora in anteprima - Blog su Enterprise Mobility e Security] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Credenziali per almeno due membri del team che accedono allo stesso account. Devono fare parte di un gruppo di sicurezza. | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accesso come amministratore locale a un computer per distribuire l'estensione Pannello di accesso per Internet Explorer, Firefox o Chrome | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Passaggi
@@ -219,8 +220,8 @@ Tempo previsto per il completamento: 30 minuti
 | --- | --- |
 | Installare l'estensione browser | [Estensione Pannello di accesso per IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Estensione Pannello di accesso per Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Estensione Pannello di accesso per Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurare l'applicazione dalla raccolta | [Novità della gestione delle applicazioni aziendali in Azure Active Directory: Raccolta di applicazioni con novità e miglioramenti](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: Accesso basato su password](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Assegnare l'app al gruppo identificato nei prerequisiti quando si assegnano le credenziali | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](active-directory-coreapps-assign-user-azure-portal.md) |
+| Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: Accesso basato su password](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Assegnare l'app al gruppo identificato nei prerequisiti quando si assegnano le credenziali | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accedere come utenti diversi che accedono all'app come **stesso account condiviso.**  |  |
 | Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -241,27 +242,27 @@ Tempo previsto per il completamento: 20 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Una sottoscrizione di Microsoft Azure AD Basic o Premium e una directory di Azure AD di cui si è un amministratore globale | [Edizioni di Azure Active Directory](active-directory-editions.md) |
+| Una sottoscrizione di Microsoft Azure AD Basic o Premium e una directory di Azure AD di cui si è un amministratore globale | [Edizioni di Azure Active Directory](fundamentals/active-directory-whatis.md) |
 | Un'applicazione Web ospitata in locale che si vuole configurare per l'accesso remoto |  |
-| Un server che esegue Windows Server 2012 R2 oppure Windows 8.1 o versioni successive in cui poter installare il connettore del proxy dell'applicazione | [Comprendere i connettori del proxy applicazione Azure AD](application-proxy-understand-connectors.md) |
-| Se nel percorso è presente un firewall, verificare che sia aperto in modo che il connettore possa inviare richieste HTTPS (TCP) al proxy dell'applicazione | [Attività iniziali del proxy di applicazione e installazione del connettore: Prerequisiti del proxy dell'applicazione](active-directory-application-proxy-enable.md#application-proxy-prerequisites) |
-| Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post del blog relativo all'uso di server proxy locali esistenti per informazioni dettagliate sulla configurazione | [Usare server proxy locali esistenti](application-proxy-working-with-proxy-servers.md) |
+| Un server che esegue Windows Server 2012 R2 oppure Windows 8.1 o versioni successive in cui poter installare il connettore del proxy dell'applicazione | [Comprendere i connettori del proxy applicazione Azure AD](manage-apps/application-proxy-connectors.md) |
+| Se nel percorso è presente un firewall, verificare che sia aperto in modo che il connettore possa inviare richieste HTTPS (TCP) al proxy dell'applicazione | [Attività iniziali del proxy di applicazione e installazione del connettore: Prerequisiti del proxy dell'applicazione](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
+| Se l'organizzazione usa server proxy per la connessione a Internet, vedere il post del blog relativo all'uso di server proxy locali esistenti per informazioni dettagliate sulla configurazione | [Usare server proxy locali esistenti](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md) |
 
 
 ### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
-| Installare un connettore sul server | [Attività iniziali del proxy di applicazione e installazione del connettore: Installare e registrare un connettore](active-directory-application-proxy-enable.md#install-and-register-a-connector) |
-| Pubblicare l'applicazione locale in Azure AD come applicazione proxy dell'applicazione | [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-publish-azure-portal.md) |
-| Assegnare gli utenti test | [Pubblicare applicazioni mediante il proxy dell'applicazione AD Azure: Aggiungere un utente di test](application-proxy-publish-azure-portal.md#add-a-test-user) |
-| Facoltativamente, configurare un'esperienza Single Sign-On per gli utenti | [Fornire accesso Single Sign-On mediante il proxy dell'applicazione Azure AD](application-proxy-sso-azure-portal.md) |
+| Installare un connettore sul server | [Attività iniziali del proxy di applicazione e installazione del connettore: Installare e registrare un connettore](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
+| Pubblicare l'applicazione locale in Azure AD come applicazione proxy dell'applicazione | [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](manage-apps/application-proxy-publish-azure-portal.md) |
+| Assegnare gli utenti test | [Pubblicare applicazioni mediante il proxy dell'applicazione AD Azure: Aggiungere un utente di test](manage-apps/application-proxy-publish-azure-portal.md#add-a-test-user) |
+| Facoltativamente, configurare un'esperienza Single Sign-On per gli utenti | [Fornire accesso Single Sign-On mediante il proxy dell'applicazione Azure AD](manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md) |
 | Testare l'app effettuando l'accesso al portale di MyApps come utente assegnato | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerazioni
 
-1. Benché sia consigliabile inserire il connettore nella rete aziendale, esistono casi in cui le prestazioni risultano migliori se viene posizionato nel cloud. Altre informazioni: [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](application-proxy-network-topology-considerations.md)
-2. Per informazioni dettagliate sulla sicurezza e su come garantire una soluzione di accesso remoto particolarmente protetta gestendo solo le connessioni in uscita, vedere: [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](application-proxy-security-considerations.md)
+1. Benché sia consigliabile inserire il connettore nella rete aziendale, esistono casi in cui le prestazioni risultano migliori se viene posizionato nel cloud. Altre informazioni: [Considerazioni relative alla topologia di rete quando si usa il proxy di applicazione di Azure Active Directory](manage-apps/application-proxy-network-topology.md)
+2. Per informazioni dettagliate sulla sicurezza e su come garantire una soluzione di accesso remoto particolarmente protetta gestendo solo le connessioni in uscita, vedere: [Considerazioni relative alla sicurezza quando si accede alle app in remoto usando il proxy applicazione di Azure AD](manage-apps/application-proxy-security.md)
 
 ## <a name="generic-ldap-connector-configuration"></a>Configurazione del connettore LDAP generico
 
@@ -305,8 +306,8 @@ Tempo previsto per il completamento: 10 minuti
 | Prerequisito. | Risorse |
 | --- | --- |
 | Applicazione SaaS (SSO federato o con password) già configurata | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
-| Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
-| Sono disponibili le credenziali per il proprietario del gruppo | [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md) |
+| Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Sono disponibili le credenziali per il proprietario del gruppo | [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
 | Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -314,8 +315,8 @@ Tempo previsto per il completamento: 10 minuti
 
 | Passaggio | Risorse |
 | --- | --- |
-| Identificare il gruppo a cui è stato concesso l'accesso all'applicazione e configurare il proprietario di un determinato gruppo| [Gestire le impostazioni per un gruppo in Azure Active Directory](active-directory-groups-settings-azure-portal.md) |
-| Accedere come proprietario del gruppo, visualizzare l'appartenenza al gruppo nella scheda dei gruppi del Pannello di accesso | [Pagina di gestione dei gruppi di Azure Active Directory](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Identificare il gruppo a cui è stato concesso l'accesso all'applicazione e configurare il proprietario di un determinato gruppo| [Gestire le impostazioni per un gruppo in Azure Active Directory](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Accedere come proprietario del gruppo, visualizzare l'appartenenza al gruppo nella scheda dei gruppi del Pannello di accesso | [Pagina di gestione dei gruppi di Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Aggiungere l'Information Worker da testare |  |
 | Accedere come l'Information Worker, verificare che il riquadro è disponibile | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 
@@ -330,7 +331,7 @@ Se per l'applicazione è abilitato il provisioning, può essere necessario atten
 | Prerequisito. | Risorse |
 | --- | --- |
 | Applicazione SaaS (SSO federato o con password) già configurata | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
-| Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](active-directory-groups-create-azure-portal.md) |
+| Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -338,7 +339,7 @@ Se per l'applicazione è abilitato il provisioning, può essere necessario atten
 
 | Passaggio | Risorse |
 | --- | --- |
-| Rimuovere l'utente dal gruppo di cui è assegnata l'applicazione | [Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory](active-directory-groups-members-azure-portal.md) |
+| Rimuovere l'utente dal gruppo di cui è assegnata l'applicazione | [Gestire l'appartenenza al gruppo per gli utenti nel tenant di Azure Active Directory](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Attendere alcuni minuti il completamento del deprovisioning | [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory: Come funziona il provisioning automatizzato?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | In una sessione separata del browser accedere come l'Information Worker al portale delle app personali e verificare se il riquadro è mancante | http://myapps.microsoft.com |
 
@@ -427,7 +428,7 @@ Tempo previsto per il completamento: 10 minuti
 ### <a name="considerations"></a>Considerazioni
 
 1. I passaggi del modello di verifica in questo blocco predefinito consentono di impostare in modo esplicito MFA per un utente per tutti gli accessi. Sono disponibili altri strumenti, ad esempio l'accesso condizionale e la protezione dell'identità, che usano MFA in scenari più specifici. Questo è un aspetto da considerare quando si passa dal modello di verifica alla produzione.
-2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) come secondo fattore.
+2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) come secondo fattore.
 Altre informazioni: documento [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Accesso condizionale MFA per applicazioni SaaS
@@ -467,24 +468,24 @@ Tempo previsto per il completamento: 15 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Identificare l'amministratore globale che farà parte del modello di verifica per PIM | [Iniziare a usare Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) |
-| Identificare l'amministratore globale che diventerà amministratore della sicurezza | [Iniziare a usare Azure AD Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)<br/> [Ruolo amministrativo differente in Azure AD PIM](active-directory-privileged-identity-management-roles.md) |
-| Facoltativo: verificare se gli amministratori globali hanno accesso alla posta elettronica per gestire le notifiche via posta elettronica in PIM | [Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| Identificare l'amministratore globale che farà parte del modello di verifica per PIM | [Iniziare a usare Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
+| Identificare l'amministratore globale che diventerà amministratore della sicurezza | [Iniziare a usare Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Ruolo amministrativo differente in Azure AD PIM](privileged-identity-management/pim-roles.md) |
+| Facoltativo: verificare se gli amministratori globali hanno accesso alla posta elettronica per gestire le notifiche via posta elettronica in PIM | [Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>Passaggi
 
 | Passaggio | Risorse |
 | --- | --- |
-| Accedere a https://portal.azure.com come amministratore globale (GA) e personalizzare il pannello PIM con bootstrap. L'amministratore globale che esegue questo passaggio viene designato amministratore della sicurezza.  In questo esempio sarà l'attore GA1 | [Uso della procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management](active-directory-privileged-identity-management-security-wizard.md) |
-| Identificare l'amministratore globale e trasformarlo da permanente a idoneo. Deve essere un amministratore separato da quello usato nel passaggio 1 per maggiore chiarezza. In questo esempio sarà l'attore GA2 | [Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| Accedere a https://portal.azure.com come amministratore globale (GA) e personalizzare il pannello PIM con bootstrap. L'amministratore globale che esegue questo passaggio viene designato amministratore della sicurezza.  In questo esempio sarà l'attore GA1 | [Uso della procedura guidata relativa alla sicurezza di Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
+| Identificare l'amministratore globale e trasformarlo da permanente a idoneo. Deve essere un amministratore separato da quello usato nel passaggio 1 per maggiore chiarezza. In questo esempio sarà l'attore GA2 | [Azure AD Privileged Identity Management: Come aggiungere o rimuovere un ruolo utente](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Che cos'è Azure AD Privileged Identity Management?: Configurare le impostazioni di attivazione del ruolo](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Accedere come GA2 a https://portal.azure.com e provare a modificare le “Impostazioni utente”. Come si può vedere, alcune opzioni sono disattivate. | |
-| In una nuova scheda e nella stessa sessione del passaggio 3, andare a https://portal.azure.com e aggiungere il pannello PIM alla dashboard. | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Aggiungere l'applicazione Privileged Identity Management](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| Richiedere l'attivazione al ruolo amministratore globale | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Attivare un ruolo](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| In una nuova scheda e nella stessa sessione del passaggio 3, andare a https://portal.azure.com e aggiungere il pannello PIM alla dashboard. | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Aggiungere l'applicazione Privileged Identity Management](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Richiedere l'attivazione al ruolo amministratore globale | [Come attivare o disattivare i ruoli in Azure AD Privileged Identity Management: Attivare un ruolo](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Si noti che se GA2 non si è mai registrato per l'autenticazione a più fattori, sarà necessaria la registrazione per Azure MFA |  |
 | Tornare alla scheda originale del passaggio 3 e fare clic sul pulsante di aggiornamento nel browser. Si noti che ora si ha accesso alle impostazioni utente per la modifica | |
 | Facoltativamente, se gli amministratori globali hanno abilitato la posta elettronica, è possibile controllare la posta in arrivo di GA1 e GA2 e vedere la notifica dell'attivazione del ruolo |  |
-| Controllare la cronologia di controllo e osservare il report per verificare se è visualizzata l'elevazione di GA2. | [Che cos'è Azure AD Privileged Identity Management?: Verificare l'attività del ruolo](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| Controllare la cronologia di controllo e osservare il report per verificare se è visualizzata l'elevazione di GA2. | [Che cos'è Azure AD Privileged Identity Management?: Verificare l'attività del ruolo](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>Considerazioni
 
@@ -552,7 +553,7 @@ Tempo previsto per il completamento: 20 minuti
 | --- | --- |
 | Dispositivo con certificato utente di cui è stato eseguito il provisioning (Windows, iOS o Android) dall'infrastruttura a chiave pubblica aziendale | [Distribuire i certificati utente](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Dominio di Azure AD federato con AD FS | [Azure AD Connect e federazione](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Informazioni generali sui Servizi certificati di Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passaggi
 

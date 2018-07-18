@@ -3,16 +3,17 @@ title: 'Esercitazione su Azure Analysis Services - Lezione 7: Creare indicatori 
 description: Descrive come creare indicatori di prestazioni chiave nel progetto per l'esercitazione su Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8534640822030a7aa93c8eafe2a1b1a4a8bc5bc4
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1f7d54129ef9f85bb4141d26b9be8d4a0652bff8
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448187"
 ---
 # <a name="create-key-performance-indicators"></a>Creare indicatori di prestazioni chiave
 

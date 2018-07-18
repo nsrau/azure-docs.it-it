@@ -1,25 +1,21 @@
 ---
 title: Risolvere i codici di errore per l'estensione NPS MFA di Azure | Microsoft Docs
-description: Informazioni su come risolvere i problemi con l'estensione NPS per Multi-Factor Authentication di Azure con soluzioni specifiche per messaggi di errore comuni
+description: Informazioni sulla risoluzione dei problemi relativi all'estensione del Server dei criteri di rete per Azure Multi-Factor Authentication
 services: multi-factor-authentication
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: authentication
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: mtillman
 ms.reviewer: richagi
-ms.custom: it-pro
-ms.openlocfilehash: c82c96136dc5c1030deeae6a71e196aba2747490
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5f25213d8d1fbc95aa419c86ca5b780f345952ed
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130200"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Risolvere i messaggi di errore dall'estensione NPS per Multi-Factor Authentication di Azure
 
@@ -56,14 +52,14 @@ Se si verificano errori con l'estensione NPS per Multi-Factor Authentication di 
 | Codice di errore | Messaggio di errore | Passaggi per la risoluzione dei problemi |
 | ---------- | ------------- | --------------------- |
 | **AccessDenied** | Caller tenant does not have access permissions to do authentication for the user (Il tenant chiamante non dispone delle autorizzazioni di accesso per eseguire l'autenticazione per l'utente) | Controllare che il dominio del tenant e il dominio del nome dell'entità utente (UPN) corrispondano. Ad esempio, assicurarsi che user@contoso.com stia tentando di eseguire l'autenticazione al tenant di Contoso. L'UPN rappresenta un utente valido per il tenant in Azure. |
-| **AuthenticationMethodNotConfigured** | The specified authentication method was not configured for the user (Il metodo di autenticazione specificato non è stato configurato per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | The specified authentication method was not configured for the user (Il metodo di autenticazione specificato non è stato configurato per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Specified authentication method is not supported. (Il metodo di autenticazione specificato non è supportato.) | Raccogliere tutti i log che includono questo errore e [contattare il supporto tecnico](#contact-microsoft-support). Quando si contatta il supporto tecnico, comunicare il nome utente e il metodo di verifica secondaria che ha generato l'errore. |
-| **BecAccessDenied** | MSODS Bec call returned access denied, probably the username is not defined in the tenant (La chiamata MSODS Bec ha restituito un accesso negato, probabilmente il nome utente non è definito nel tenant) | L'utente è presente in Active Directory locale, ma non è sincronizzato in Azure AD da AD Connect. Oppure manca l'utente per il tenant. Aggiungere l'utente ad Azure AD e richiedergli di aggiungere i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | MSODS Bec call returned access denied, probably the username is not defined in the tenant (La chiamata MSODS Bec ha restituito un accesso negato, probabilmente il nome utente non è definito nel tenant) | L'utente è presente in Active Directory locale, ma non è sincronizzato in Azure AD da AD Connect. Oppure manca l'utente per il tenant. Aggiungere l'utente ad Azure AD e richiedergli di aggiungere i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** o **StrongAuthenticationServiceInvalidParameter** | The phone number is in an unrecognizable format (Il numero di telefono presenta un formato non riconoscibile) | Richiedere all'utente di correggere i numeri di telefono per la verifica. |
 | **InvalidSession** | The specified session is invalid or may have expired (La sessione specificata non è valida o potrebbe essere scaduta) | Il completamente della sessione ha richiesto più di tre minuti. Verificare che l'utente inserisca il codice di verifica o risponda alla notifica app, entro tre minuti dall'avvio della richiesta di autenticazione. Se il problema non viene risolto, verificare che non ci siano latenze di rete tra client, server NAS, server NPS ed endpoint MFA di Azure.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | No default authentication method was configured for the user (Non è stato configurato alcun metodo di autenticazione predefinito per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Verificare che l'utente abbia scelto un metodo di autenticazione predefinito e che questo sia stato configurato per il proprio account. |
+| **NoDefaultAuthenticationMethodIsConfigured** | No default authentication method was configured for the user (Non è stato configurato alcun metodo di autenticazione predefinito per l'utente) | Richiedere all'utente di aggiungere o verificare i metodi di verifica seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Verificare che l'utente abbia scelto un metodo di autenticazione predefinito e che questo sia stato configurato per il proprio account. |
 | **OathCodePinIncorrect** | Wrong code and pin entered. (Codice e pin inseriti non corretti.) | Questo errore non è previsto nell'estensione NPS. Se l'utente rileva questo errore, [contattare il supporto tecnico](#contact-microsoft-support) per la risoluzione del problema. |
-| **ProofDataNotFound** | Proof data was not configured for the specified authentication method. (I dati di prova non sono stati configurati per il metodo di autenticazione specificato.) | Richiedere all'utente provare un metodo di verifica diverso o di aggiungerne uno nuovo seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Se l'errore viene visualizzato ancora anche dopo aver confermato che il metodo di verifica è stato configurato correttamente, [contattare il supporto tecnico](#contact-microsoft-support). |
+| **ProofDataNotFound** | Proof data was not configured for the specified authentication method. (I dati di prova non sono stati configurati per il metodo di autenticazione specificato.) | Richiedere all'utente provare un metodo di verifica diverso o di aggiungerne uno nuovo seguendo le istruzioni in [Gestire le impostazioni per la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Se l'errore viene visualizzato ancora anche dopo aver confermato che il metodo di verifica è stato configurato correttamente, [contattare il supporto tecnico](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Wrong code and pin entered. (Codice e pin inseriti non corretti.) (OneWaySMS) | Questo errore non è previsto nell'estensione NPS. Se l'utente rileva questo errore, [contattare il supporto tecnico](#contact-microsoft-support) per la risoluzione del problema. |
 | **TenantIsBlocked** | Tenant is blocked (Il tenant è bloccato) | [Contattare il supporto tecnico](#contact-microsoft-support) con l'ID directory dalla pagina delle proprietà di Azure AD nel portale di Azure. |
 | **UserNotFound** | The specified user was not found (Impossibile trovare l'utente specificato) | Il tenant non è più visibile in Azure AD come attivo. Verificare che la sottoscrizione sia attiva e che si dispone delle app proprietarie necessarie. Assicurarsi anche che il tenant nel soggetto del certificato sia quello previsto e che il certificato sia ancora valido e registrato nell'entità servizio. |
@@ -86,7 +82,7 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 | ---------- | ------------- |
 | **InvalidParameter** | Request must not be null (La richiesta non deve essere null) |
 | **InvalidParameter** | ObjectId must not be null or empty for ReplicationScope:{0} (ObjectId non deve essere null o vuoto per ReplicationScope: {0}) |
-| **InvalidParameter** | The length of CompanyName \{0}\ is longer than the maximum allowed length {1} (La lunghezza di CompanyName \{0}\ supera la lunghezza massima consentita {1}) |
+| **InvalidParameter** | The length of CompanyName \{0}\ is longer than the maximum allowed length {1} (La lunghezza di CompanyName \{0}\ supera la lunghezza massima consentita { 1 }) |
 | **InvalidParameter** | UserPrincipalName must not be null or empty (UserPrincipalName non deve essere null o vuoto) |
 | **InvalidParameter** | The provided TenantId is not in correct format (Il TenantId inserito non è nel formato corretto) |
 | **InvalidParameter** | SessionId must not be null or empty (SessionId non deve essere null o vuoto) |
@@ -100,7 +96,7 @@ Se si verifica uno di questi errori, è consigliabile [contattare il supporto te
 
 ### <a name="troubleshoot-user-accounts"></a>Risolvere i problemi relativi agli account utente
 
-Se gli utenti hanno [Problemi con la verifica in due passaggi](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi. 
+Se gli utenti hanno [Problemi con la verifica in due passaggi](end-user/current/multi-factor-authentication-end-user-troubleshoot.md) è necessario aiutarli a diagnosticare autonomamente i problemi. 
 
 ### <a name="contact-microsoft-support"></a>Contattare il supporto Microsoft
 

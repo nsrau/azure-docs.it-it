@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d7328ba8403f2415705d049d1fc7947b52aeb5c1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319560"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Perché usare l'endpoint 2.0
 Nella compilazione di applicazioni che si integrano con Azure Active Directory è necessario stabilire se l'endpoint 2.0 e i protocolli di autenticazione rispondono ai requisiti previsti. L'endpoint originale di Azure Active Directory è ancora completamente supportato e, per alcuni aspetti, include più funzionalità della versione 2.0. L'endpoint 2.0 [introduce vantaggi significativi](active-directory-v2-compare.md) per gli sviluppatori.

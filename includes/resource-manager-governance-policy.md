@@ -9,10 +9,11 @@ ms.date: 02/21/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38740558"
 ---
 I [criteri di Azure](/azure/azure-policy/) consentono di verificare che tutte le risorse nella sottoscrizione soddisfino gli standard aziendali. Usare i criteri per ridurre i costi limitando le opzioni di distribuzione solo alle SKU e ai tipi di risorse approvati. È possibile definire regole e azioni per le risorse e tali regole verranno applicate automaticamente durante la distribuzione. È ad esempio possibile controllare i tipi di risorse che vengono distribuiti. In alternativa, è possibile limitare le posizioni approvate per le risorse. Alcuni criteri negano un'azione, mentre altri impostano il controllo di un'azione.
 

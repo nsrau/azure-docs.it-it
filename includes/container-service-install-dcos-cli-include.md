@@ -2,10 +2,10 @@
 title: Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo | Documentazione Microsoft
 description: Installare l'interfaccia della riga di comando del controller di dominio/sistema operativo.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
 keywords: Contenitori, Micro-Service, controller di dominio/sistema operativo, Azure
 ms.service: container-service
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22877256"
 ---
 > [!NOTE]
 > Questa procedura è necessaria per l'uso di cluster ACS basati su controller di dominio/sistema operativo. Non è necessario eseguirla per i cluster ACS basati su Swarm.

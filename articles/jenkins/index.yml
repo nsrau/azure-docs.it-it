@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 11/08/2017
+  ms.locfileid: "24052158"
 abstract:
   description: Usare il server Jenkins open source per compilare le app nel cloud e distribuirle in Azure. Informazioni su come installare, configurare e ridimensionare Jenkins in Azure e configurare l'integrazione continua (CI) per le app con guide introduttive, esercitazioni e pipeline di esempio.
   aside:
@@ -49,7 +50,7 @@ sections:
     items:
     - html: Configurare l'integrazione continua per il <a href="/azure/jenkins/java-deploy-webapp-tutorial">servizio app di Azure</a>, <a href="/azure/container-service/kubernetes/container-service-kubernetes-jenkins">Kubernetes</a> o una <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">VM Linux</a>.
     - html: <a href="/azure/jenkins/execute-cli-jenkins-pipeline">Eseguire il provisioning di risorse in un processo della pipeline</a>.
-    - html: "<a href=\"/azure/jenkins/jenkins-azure-vm-agents\">Scalabilità con gli agenti di macchine virtuali di Azure</a>."
+    - html: <a href="/azure/jenkins/jenkins-azure-vm-agents">Scalabilità con gli agenti di macchine virtuali di Azure</a>.
 - title: Esempi
   items:
   - type: paragraph
@@ -68,4 +69,4 @@ sections:
     - title: Plug-in
       html: <p><a href="https://plugins.jenkins.io/azure-vm-agents">Agenti di macchine virtuali di Azure</a><p><a href="https://plugins.jenkins.io/azure-app-service">Servizio app di Azure</a></p><p><a href="https://plugins.jenkins.io/windows-azure-storage">Archiviazione di Azure</a></p><p><a href="https://plugins.jenkins.io/azure-container-agents">Agenti del servizio contenitore di Azure</a><p><a href="https://plugins.jenkins.io/azure-function">Plug-in di Funzioni di Azure</a><p><a href="https://plugins.jenkins.io/azure-acs">Plug-in del servizio contenitore di Azure</a>
 - type: paragraph
-  text: "<h4>Jenkins® è un marchio registrato di Software in the Public Interest, Inc. Il [logo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) è concesso su licenza con [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) dal [progetto Jenkins](https://jenkins.io).</h4>"
+  text: <h4>Jenkins® è un marchio registrato di Software in the Public Interest, Inc. Il [logo Jenkins®](https://wiki.jenkins.io/display/JENKINS/Logo) è concesso su licenza con [CC BY SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) dal [progetto Jenkins](https://jenkins.io).</h4>

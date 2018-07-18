@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287629"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modalità di rete del contenitore di Service Fabric
 
@@ -230,7 +231,23 @@ Quando un servizio contenitore viene riavviato o spostato in un altro nodo del c
      </Endpoints>
    </Resources>
    ```
+   
+6. Per Windows, un riavvio della macchina virtuale causa una nuova creazione della rete aperta. Questo serve ad attenuare un problema sottostante dello stack di rete. Il comportamento predefinito corrisponde alla nuova creazione della rete. Se questo comportamento deve essere disattivato, è possibile usare la configurazione seguente e quindi un aggiornamento della configurazione.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Informazioni sul modello applicativo di Service Fabric](service-fabric-application-model.md)
 * [Informazioni sulle risorse del manifesto del servizio di Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

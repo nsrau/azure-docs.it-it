@@ -2,21 +2,25 @@
 
 # Panoramica
 ## [Informazioni su Resource Manager](resource-group-overview.md)
-## [Provider e tipi di risorse](resource-manager-supported-services.md)
-## [Distribuzione Resource Manager e classica](resource-manager-deployment-model.md)
-## [Governance per le sottoscrizioni](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [Organizzare le risorse con i gruppi di gestione](management-groups-overview.md)
+## [Resource Manager e distribuzione classica](resource-manager-deployment-model.md)
 
 # Attività iniziali
 ## [Creare e distribuire il modello](resource-manager-create-first-template.md)
 ## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
 ## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# Concetti
+## [Provider e tipi di risorse](resource-manager-supported-services.md)
+## [Gruppi di gestione](management-groups-overview.md)
+## [Governance per le sottoscrizioni](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [Modelli per la coerenza del cloud](templates-cloud-consistency.md)
+
 # Procedure
 ## Creare modelli
 ### [Sezioni di modelli](resource-group-authoring-templates.md)
 #### [Parameters](resource-manager-templates-parameters.md)
 #### [Variabili](resource-manager-templates-variables.md)
+#### [Funzioni](resource-group-authoring-templates.md#functions)
 #### [Risorse](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [Modelli collegati e annidati](resource-group-linked-templates.md)
@@ -47,7 +51,8 @@
 ### [Portale di Azure](resource-group-portal.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
-### [Creare una sottoscrizione EA a livello di programmazione](programmatically-create-subscription.md)
+### [Creare sottoscrizioni EA](programmatically-create-subscription.md)
+### [Concedere l'accesso per la creazione di sottoscrizioni EA](grant-access-to-create-subscription.md)
 ### [Creare gruppi di gestione](management-groups-create.md)
 ### [Gestire i gruppi di gestione](management-groups-manage.md)
 

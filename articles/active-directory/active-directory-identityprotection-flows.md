@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164204"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713409"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Esperienze di accesso con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection è possibile:
@@ -28,9 +29,9 @@ Con Azure Active Directory Identity Protection è possibile:
 * richiedere la registrazione degli utenti per l'autenticazione a più fattori
 * gestire gli accessi rischiosi e gli utenti compromessi
 
-La risposta del sistema a questi problemi ha un impatto sull’esperienza di accesso dell’utente, in quanto non sarà più possibile effettuare l’accesso in modo diretto fornendo semplicemente il nome utente e la password. Saranno necessari passaggi aggiuntivi per consentire all’utente un accesso sicuro al sistema.
+La risposta del sistema a questi problemi ha un impatto sull'esperienza di accesso dell'utente, in quanto non sarà più possibile effettuare l'accesso in modo diretto fornendo semplicemente il nome utente e la password. Saranno necessari passaggi aggiuntivi per consentire all’utente un accesso sicuro al sistema.
 
-Questo argomento presenta una panoramica dell'esperienza di accesso dell'utente per tutti i casi possibili.
+Questo articolo presenta una panoramica dell'esperienza di accesso dell'utente per tutti i casi possibili.
 
 **Autenticazione a più fattori**
 
@@ -57,7 +58,7 @@ Gli amministratori possono impostare criteri che richiedono agli utenti di confi
 1. Nel primo passaggio l'utente riceve una notifica della necessità di impostare l'account per l’autenticazione a più fattori. 
    
     ![Correzione](./media/active-directory-identityprotection-flows/140.png "Correzione")
-2. Per impostare l'autenticazione a più fattori, occorre indicare al sistema in che modo si desidera essere contattati.
+2. Per configurare l'autenticazione a più fattori, occorre indicare al sistema in che modo si vuole essere contattati.
    
     ![Correzione](./media/active-directory-identityprotection-flows/141.png "Correzione")
 3. Il sistema invia una richiesta ed è necessario rispondere.
@@ -65,14 +66,14 @@ Gli amministratori possono impostare criteri che richiedono agli utenti di confi
     ![Correzione](./media/active-directory-identityprotection-flows/142.png "Correzione")
 
 ## <a name="risky-sign-in-recovery"></a>Ripristino di un accesso rischioso
-Se un amministratore ha configurato dei criteri per i rischi di accesso, gli utenti interessati ricevono una notifica quando provano ad accedere. 
+Se un amministratore ha configurato criteri per i rischi di accesso, gli utenti interessati ricevono una notifica quando provano ad accedere. 
 
 **Il flusso per l'accesso rischioso prevede due passaggi:** 
 
 1. L’utente è informato del fatto che qualcosa di insolito è stato rilevato in merito al suo accesso, ad esempio l’accesso da una nuova posizione, dispositivo o app. 
    
     ![Correzione](./media/active-directory-identityprotection-flows/120.png "Correzione")
-2. L'utente deve dimostrare la propria identità rispondendo a una richiesta di sicurezza. Se l'utente è registrato per l'autenticazione a più fattori, deve eseguire il round trip di un codice di sicurezza al proprio numero di telefono. Poiché questo è solo un accesso rischioso e non un account compromesso, l’utente non dovrà cambiare la password in questo flusso. 
+2. L'utente deve dimostrare la propria identità rispondendo a una richiesta di sicurezza. Se l'utente è registrato per l'autenticazione a più fattori, deve eseguire il round trip di un codice di sicurezza al proprio numero di telefono. Poiché questo è solo un accesso rischioso e non un account compromesso, l'utente non dovrà cambiare la password in questo flusso. 
    
     ![Correzione](./media/active-directory-identityprotection-flows/121.png "Correzione")
 
@@ -82,7 +83,7 @@ Gli amministratori possono anche impostare criteri di rischio di accesso per blo
 ![Correzione](./media/active-directory-identityprotection-flows/200.png "Correzione")
 
 ## <a name="compromised-account-recovery"></a>Ripristino di account compromessi
-Dopo che sono stati configurati criteri di sicurezza per il rischio utente, gli utenti che rientrano nel livello di rischio utente specificato nei criteri, e quindi considerati compromessi, devono seguire il flusso di ripristino di utenti compromessi per poter eseguire l'accesso. 
+Dopo che sono stati configurati criteri di sicurezza per il rischio utente, gli utenti che rientrano nel livello di rischio utente specificato nei criteri, e quindi considerati compromessi, devono seguire il flusso di ripristino degli utenti compromessi per poter eseguire l'accesso. 
 
 **Il flusso di ripristino di utenti compromessi è composto da tre passaggi:**
 

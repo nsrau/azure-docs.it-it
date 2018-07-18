@@ -2,15 +2,17 @@
 title: Funzionalità di richiesta dati dei clienti
 author: dominicbetts
 ms.author: dobett
+manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
-ms.openlocfilehash: 28cadac33c4e73e6158f878b3c79ff09b4765fff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+services: iot-dps
+ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361666"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666944"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Riepilogo delle funzionalità di richiesta dati dei clienti
 

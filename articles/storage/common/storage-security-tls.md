@@ -1,0 +1,88 @@
+---
+title: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure | Microsoft Docs
+description: Informazioni su come abilitare TLS 1.2 nel client di Archiviazione di Azure.
+services: storage
+documentationcenter: na
+author: fhryo-msft
+manager: cbrooks
+editor: fhryo-msft
+ms.assetid: ''
+ms.service: storage
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage
+ms.date: 06/25/2018
+ms.author: fryu
+ms.openlocfilehash: 5c21df2b3bdeee6ac7c3956fe1cafa4f947dd6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034865"
+---
+# <a name="enable-secure-tls-for-azure-storage-client"></a>Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
+
+Per il controllo dei servizi di Archiviazione di Azure in base ai requisiti più recenti di conformità e sicurezza, SSL 1.0, 2.0, 3.0 e TLS 1.0 sono riconosciuti come protocolli di comunicazione non conformi.
+
+SSL 1.0, 2.0 e 3.0 sono stati identificati come vulnerabili e non sono più consentiti da RFC. TLS 1.0 è diventato un protocollo non sicuro per l'uso della crittografia a blocchi (DES CBC e RC2 CBC) e di flusso (RC4). Il PCI Council ha anche suggerito la migrazione a versioni più recenti del protocollo TLS. Per informazioni più dettagliate, è possibile vedere [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+
+Archiviazione di Azure ha dismesso SSL 3.0 dal 2015 e usa TLS 1.2 negli endpoint HTTPS pubblici, ma i protocolli TLS 1.0 e TLS 1.1 sono ancora supportati per la compatibilità con le versioni precedenti.
+
+Per essere certi che la connessione ad Archiviazione di Azure sia sicura e conforme, è necessario abilitare TLS 1.2 sul lato client prima di inviare richieste al servizio Archiviazione di Azure.
+
+## <a name="enable-tls-12-in-net-client"></a>Abilitare TLS 1.2 nel client .NET
+
+Per consentire al client di eseguire la negoziazione TLS 1.2, il sistema operativo e la versione di .NET Framework devono entrambi supportare TLS 1.2. Per informazioni più dettagliate, vedere [Supporto per TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
+
+L'esempio seguente mostra come abilitare TLS 1.2 nel client .NET.
+
+```csharp
+
+    static void EnableTls12()
+    {
+        // Enable TLS 1.2 before connecting to Azure Storage
+        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+        // Connect to Azure Storage
+        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName={yourstorageaccount};AccountKey={yourstorageaccountkey};EndpointSuffix=core.windows.net");
+        CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+        CloudBlobContainer container = blobClient.GetContainerReference("foo");
+        container.CreateIfNotExists();
+    }
+
+```
+
+## <a name="enable-tls-12-in-powershell-client"></a>Abilitare TLS 1.2 nel client PowerShell
+
+L'esempio seguente mostra come abilitare TLS 1.2 nel client PowerShell.
+
+```powershell
+
+# Enable TLS 1.2 before connecting to Azure Storage
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
+
+$resourceGroup = "{YourResourceGropuName}"
+$storageAccountName = "{YourStorageAccountNme}"
+$prefix = "foo"
+
+# Connect to Azure Storage
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -Name $storageAccountName
+$ctx = $storageAccount.Context
+$listOfContainers = Get-AzureStorageContainer -Context $ctx -Prefix $prefix
+$listOfContainers
+
+```
+
+## <a name="verify-tls-12-connection"></a>Verificare la connessione TLS 1.2
+
+Per verificare se TLS 1.2 viene effettivamente usato, è possibile usare Fiddler. Aprire Fiddler per iniziare ad acquisire il traffico di rete client e quindi eseguire l'esempio precedente. È quindi possibile trovare la versione TLS nella connessione creata dall'esempio.
+
+La schermata seguente presenta un esempio per la verifica.
+
+![screenshot di verifica della versione TLS in Fiddler](./media/storage-security-tls/storage-security-tls-verify-in-fiddler.png)
+
+## <a name="see-also"></a>Vedere anche 
+
+* [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)

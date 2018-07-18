@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167246"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Uso della macchina virtuale per l'apprendimento avanzato
 

@@ -1,0 +1,63 @@
+- name: Documentazione di mesh Service Fabric
+  href: index.yml
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Informazioni su mesh Service Fabric
+      href: service-fabric-mesh-overview.md
+- name: Guide introduttive
+  items:
+    - name: Distribuire Hello World
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: Creare e distribuire un'applicazione Web
+      href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: Esercitazioni
+  items:
+    - name: Creare e distribuire un'app Web multiservizio
+      items:
+        - name: 1- Creare un'applicazione ASP.NET Core
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2 - Eseguire il debug dell'applicazione
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3 - Distribuire l'applicazione
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: Concetti
+  items:
+    - name: Terminologia
+      href: service-fabric-mesh-terminology.md
+    - name: Risorse di Service Fabric
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: Monitoraggio e diagnostica
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: Stato di archiviazione
+      href: service-fabric-mesh-storing-state.md
+- name: Guide alle procedure
+  items:
+    - name: Configurazione dell'ambiente di sviluppo
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Configurare l'interfaccia della riga di comando di mesh Service Fabric
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: Distribuire un'app di microservizi .NET Core
+      href: service-fabric-mesh-howto-deploy-app-template.md
+    - name: Distribuire un'app da un registro privato
+      href: service-fabric-mesh-howto-deploy-app-private-registry.md
+    - name: Archiviare lo stato con un volume di File di Azure
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: Ridimensionare in modo indipendente i microservizi in un'app
+      href: service-fabric-mesh-howto-app-scale-out.md
+- name: Risorse
+  items:
+    - name: Domande frequenti
+      href: service-fabric-mesh-faq.md
+    - name: Applicazioni di esempio
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: Video
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/regions/services/'

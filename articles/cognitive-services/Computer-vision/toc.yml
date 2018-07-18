@@ -1,0 +1,169 @@
+- name: Documentazione di Visione artificiale
+  href: index.yml
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Informazioni sulla Visione artificiale
+      href: Home.md
+- name: Guide introduttive per le API
+  items:
+    - name: Summary
+      href: QuickStarts/quickstart-summary.md
+    - name: 'C#'
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/CSharp-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/CSharp-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/CSharp-print-text.md
+        - name: Estrarre testo scritto a mano
+          href: QuickStarts/CSharp-hand-text.md
+    - name: cURL
+      items:
+        - name: Analizzare un'immagine remota
+          href: QuickStarts/curl-analyze.md
+        - name: Analizzare un'immagine locale
+          href: QuickStarts/curl-disk.md
+        - name: Generare un'anteprima
+          href: QuickStarts/curl-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/curl-print-text.md
+    - name: Go
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/go-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/go-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/go-print-text.md
+    - name: Java
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/java-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/java-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/java-print-text.md
+        - name: Estrarre testo scritto a mano
+          href: QuickStarts/java-hand-text.md
+    - name: JavaScript
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/javascript-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/javascript-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/javascript-print-text.md
+        - name: Estrarre testo scritto a mano
+          href: QuickStarts/javascript-hand-text.md
+    - name: Node.js
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/node-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/node-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/node-print-text.md
+    - name: PHP
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/php-analyze.md
+        - name: Usare un modello di dominio
+          href: QuickStarts/php-domain.md
+        - name: Generare un'anteprima
+          href: QuickStarts/php-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/php-print-text.md
+    - name: Python
+      items:
+        - name: Analizzare un'immagine remota
+          href: QuickStarts/python-analyze.md
+        - name: Analizzare un'immagine locale
+          href: QuickStarts/python-disk.md
+        - name: Usare un modello di dominio
+          href: QuickStarts/python-domain.md
+        - name: Generare un'anteprima
+          href: QuickStarts/python-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/python-print-text.md
+        - name: Estrarre testo scritto a mano
+          href: QuickStarts/python-hand-text.md
+    - name: Ruby
+      items:
+        - name: Analizzare un'immagine
+          href: QuickStarts/ruby-analyze.md
+        - name: Generare un'anteprima
+          href: QuickStarts/ruby-thumb.md
+        - name: Estrarre testo stampato
+          href: QuickStarts/ruby-print-text.md
+- name: Guide introduttive per SDK
+  items:
+    - name: 'C#'
+      items:
+        - name: Analizzare un'immagine
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: Generare un'anteprima
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: Estrarre testo scritto a mano
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
+- name: Guide alle procedure
+  items:
+    - name: Prime app di Visione artificiale
+      items:
+        - name: 'C#'
+          href: Tutorials/CSharpTutorial.md
+        - name: Java
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: Ottenere chiavi di sottoscrizione
+      href: Vision-API-How-to-Topics/HowToSubscribe.md
+    - name: Chiamare l'API Visione artificiale
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: Analizzare video in tempo reale
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Utilizzo di Visual Studio
+      items:
+        - name: Usare il servizio connesso di Visione artificiale
+          href: vs-computer-vision-connected-service.md
+- name: Riferimenti
+  items:
+    - name: API Visione artificiale v2.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: API Visione artificiale v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: SDK
+      items:
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-vision-windows'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision'
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-vision-android'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
+- name: Risorse
+  items:
+    - name: Esempi
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Domande frequenti
+      href: FAQ.md
+    - name: Prezzi
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Disponibilità internazionale
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Tassonomia delle categorie
+      href: Category-Taxonomy.md

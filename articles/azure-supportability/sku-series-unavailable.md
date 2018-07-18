@@ -2,10 +2,10 @@
 title: Serie di SKU non disponibile | Microsoft Docs
 description: Alcune serie di SKU non sono disponibili per la sottoscrizione selezionata nell'area.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870579"
 ---
 # <a name="region-or-sku-unavailable"></a>Area o SKU non disponibili
 Questo articolo illustra come risolvere il problema di una sottoscrizione di Azure che non ha accesso a un'area o a uno SKU di VM.

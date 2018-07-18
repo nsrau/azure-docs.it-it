@@ -1,6 +1,6 @@
 ---
-title: Installare e configurare PowerShell per l'avvio rapido di Azure Stack | Documenti Microsoft
-description: Informazioni sull'installazione e configurazione di PowerShell per lo Stack di Azure.
+title: Installare e configurare PowerShell per l'avvio rapido di Azure Stack | Microsoft Docs
+description: Informazioni sull'installazione e configurazione di PowerShell per Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 66598bda7ca1fcf5c6e05ab47232236b740177a6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465744"
 ---
-# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Diventare operativi con PowerShell nello Stack di Azure
+# <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Ottieni operatività con PowerShell in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Questa Guida rapida consente di installare e configurare un ambiente dello Stack di Azure con PowerShell. Lo script fornito in questo articolo ha come ambito il **operatore Azure Stack** solo.
+Questa Guida introduttiva illustra come installare e configurare un ambiente Azure Stack con PowerShell. Lo script che viene fornito in questo articolo ha come ambito il **operatore di Azure Stack** solo.
 
-In questo articolo è una versione ridotta dei passaggi descritti nel [installare PowerShell]( azure-stack-powershell-install.md), [scaricare strumenti]( azure-stack-powershell-download.md), e [configurare l'ambiente di PowerShell dell'operatore Azure Stack]( azure-stack-powershell-configure-admin.md) articoli. Utilizzando gli script in questo argomento, è possibile impostare per gli ambienti di Stack di Azure distribuiti con Azure Active Directory o Active Directory Federation Services (ADFS) di PowerShell.  
+Questo articolo è una versione ridotta dei passaggi descritti nel [installare PowerShell]( azure-stack-powershell-install.md), [scaricare strumenti]( azure-stack-powershell-download.md), e [configurare l'ambiente di PowerShell dell'operatore Azure Stack]( azure-stack-powershell-configure-admin.md) articoli. Usando gli script in questo argomento, è possibile configurare PowerShell per gli ambienti Azure Stack che vengono distribuiti con Azure Active Directory o Active Directory Federation Services (ADFS).  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>Configurare PowerShell per le distribuzioni basate su Azure Active Directory
 
-Firmare il Kit di sviluppo dello Stack di Azure o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. Assicurarsi di aggiornare il **TenantName**, **ArmEndpoint**, e **GraphAudience** variabili necessarie per la configurazione dell'ambiente:
+Accedi per il database di Azure Stack Development Kit, o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. Assicurarsi di aggiornare il **Nometenant**, **ArmEndpoint**, e **GraphAudience** variabili in base alle esigenze per la configurazione di ambiente:
 
 ```powershell
 # Specify Azure Active Directory tenant name.
@@ -97,9 +98,9 @@ Import-Module .\Connect\AzureStack.Connect.psm1
     -TenantId $TenantID 
 ```
 
-## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurare PowerShell per le distribuzioni di Active Directory basati su ADFS
+## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>Configurare PowerShell per le distribuzioni basate su ADFS di Active Directory
 
-Se si opera Stack Azure quando si è connessi a internet, è possibile utilizzare lo script seguente. Tuttavia se si opera Stack Azure senza connettività internet, utilizzare il [disconnesso modalità di installazione di PowerShell](azure-stack-powershell-install.md#install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) e i cmdlet per configurare PowerShell rimarrà stessi, come illustrato nello script. Firmare il Kit di sviluppo dello Stack di Azure o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. Assicurarsi di aggiornare il **ArmEndpoint** e **GraphAudience** variabili necessarie per la configurazione dell'ambiente:
+Se si opera Azure Stack quando si è connessi a internet, è possibile usare lo script seguente. Tuttavia se si opera dello Stack di Azure senza connettività internet, usare il [disconnesso modalità di installazione di PowerShell](azure-stack-powershell-install.md) e i cmdlet per configurare PowerShell rimarranno stessi come illustrato in questo script. Accedi per il database di Azure Stack Development Kit, o un client esterno basato su Windows se si è connessi tramite VPN. Aprire una sessione di PowerShell ISE con privilegi elevata e quindi eseguire lo script seguente. Assicurarsi di aggiornare il **ArmEndpoint** e **GraphAudience** variabili in base alle esigenze per la configurazione di ambiente:
 
 ```powershell
 
@@ -165,14 +166,14 @@ Add-AzureRmAccount `
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 
-Dopo aver configurato PowerShell, è possibile testare la configurazione tramite la creazione di un gruppo di risorse:
+Ora che è stato configurato PowerShell, è possibile testare la configurazione tramite la creazione di un gruppo di risorse:
 
 ```powershell
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
 > [!note]  
-> Per specificare un gruppo di risorse, è necessario disporre di un gruppo di risorse nella sottoscrizione. Per ulteriori informazioni sulle sottoscrizioni, vedere [Panoramica su piani, offerta, quote e sottoscrizione](azure-stack-plan-offer-quota-overview.md)
+> Per specificare un gruppo di risorse, è necessario disporre di un gruppo di risorse nella sottoscrizione. Per altre informazioni sulle sottoscrizioni, vedere [Cenni preliminari sul piano, offerta, quote e sottoscrizione](azure-stack-plan-offer-quota-overview.md)
 
 Dopo aver creato il gruppo di risorse, il **lo stato di Provisioning** è impostata su **Succeeded**.
 

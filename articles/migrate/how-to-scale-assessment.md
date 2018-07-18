@@ -3,19 +3,19 @@ title: Individuazione e valutazione della scalabilità tramite Azure Migrate | M
 description: Questo articolo descrive come valutare un elevato numero di computer locali usando il servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365332"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214692"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
-Questo articolo descrive come valutare un elevato numero di macchine virtuali (VM) locali con [Azure Migrate](migrate-overview.md). Azure Migrate valuta i computer per verificarne l'idoneità per la migrazione in Azure. Il servizio valuta il dimensionamento e offre stime dei costi per l'esecuzione dei computer in Azure.
+Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descrive come valutare un elevato numero di macchine virtuali (VM) locali con [Azure Migrate](migrate-overview.md).   
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -24,7 +24,9 @@ Questo articolo descrive come valutare un elevato numero di macchine virtuali (V
 - **Autorizzazioni**: nel server vCenter è necessario disporre delle autorizzazioni per creare una macchina virtuale importando un file in formato OVA.
 - **Impostazioni delle statistiche**: prima di iniziare la distribuzione, è consigliabile impostare le statistiche del server vCenter sul livello 3. Se si imposta un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso, i consigli relativi alle dimensioni si baseranno sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
 
-## <a name="plan-azure-migrate-projects"></a>Pianificare i progetti di Azure Migrate
+## <a name="plan-your-migration-projects-and-discoveries"></a>Pianificare i progetti di migrazione e le individuazioni
+
+Un singolo agente di raccolta Azure Migrate supporta l'individuazione di più server vCenter (uno dopo l'altro) e supporta anche l'individuazione su più progetti di migrazione (uno dopo l'altro). L'agente di raccolta opera in un modello fire-and-forget; una volta fatta l'individuazione, è possibile usare lo stesso agente di raccolta per raccogliere dati da un server vCenter diverso o inviarli a un progetto di migrazione diverso.
 
 Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 
@@ -34,25 +36,35 @@ Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 | Individuazione  | 1.500             |
 | Valutazione | 1.500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>Pianificare più individuazioni
-
-È possibile usare lo stesso agente di raccolta di Azure Migrate per eseguire più individuazioni in uno o più progetti. Tenere presente le considerazioni seguenti sulla pianificazione:
+Tenere presente le considerazioni seguenti sulla pianificazione:
 
 - Quando si esegue un'individuazione tramite l'agente di raccolta di Azure Migrate, è possibile impostare l'ambito di individuazione su una cartella, un data center, un cluster o un host del server vCenter.
 - Per eseguire più individuazioni, verificare nel server vCenter che le macchine virtuali che si vuole individuare siano incluse in cartelle, data center, cluster o host che supportano il limite di 1.500 computer.
 - Ai fini della valutazione, è consigliabile tenere i computer con interdipendenze all'interno dello stesso progetto e della stessa valutazione. Nel server vCenter verificare quindi che i computer dipendenti si trovino nello stesso data center, la stessa cartella o lo stesso cluster per la valutazione.
 
+A seconda dello scenario, è possibile dividere le individuazioni come stabilito di seguito:
 
-## <a name="create-a-project"></a>Creare un progetto
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Più server vCenter con meno di 1500 macchine virtuali
+
+Se si dispone di più server vCenter nell'ambiente e il numero totale di macchine virtuali è inferiore a 1500, è possibile usare un singolo agente di raccolta e un singolo progetto di migrazione per individuare tutte le macchine virtuali in tutti i server vCenter. Poiché l'agente di raccolta consente di individuare un server vCenter alla volta, è possibile eseguire lo stesso agente di raccolta su tutti i server vCenter, uno dopo l'altro e puntare l'agente di raccolta allo stesso progetto di migrazione. Dopo aver completato tutte le individuazioni è possibile creare le valutazioni per i computer.
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Più server vCenter con più di 1500 macchine virtuali
+
+Se si dispone di più server vCenter con meno di 1500 macchine virtuali per ciascun server vCenter, ma più di 1500 macchine virtuali tra tutti i server vCenter, è necessario creare più progetti di migrazione (un progetto di migrazione può contenere solo 1500 macchine virtuali). È possibile ottenere questo risultato creando un progetto di migrazione per server vCenter e suddividere le individuazioni. È possibile usare un singolo agente di raccolta per individuare ciascun server vCenter (uno dopo l'altro). Se si desidera che le individuazioni inizino contemporaneamente, è anche possibile distribuire più appliance ed eseguire le individuazioni in parallelo.
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Più di 1500 macchine in un singolo server vCenter
+
+Se si hanno più di 1500 macchine virtuali in un singolo server vCenter, è necessario suddividere l'individuazione in più progetti di migrazione. Per suddividere le individuazioni, è possibile sfruttare il campo Ambito nell'appliance e specificare l'host, il cluster, la cartella o il data center che si desidera individuare. Ad esempio, se si dispone di due cartelle nel server vCenter, una con 1000 macchine virtuali (Cartella1) e l'altro con 800 macchine virtuali (Cartella2), è possibile usare un singolo agente di raccolta ed eseguire due individuazioni. Nella prima individuazione, è possibile specificare Cartella1 come ambito e indirizzarla al primo progetto di migrazione. Al termine della prima individuazione è possibile usare lo stesso l'agente di raccolta, modificare l'ambito con Cartella2 e i dettagli del secondo progetto di migrazione ed eseguire la seconda individuazione.
+
+### <a name="multi-tenant-environment"></a>Ambienti multi-tenant
+
+Se si dispone di un ambiente condiviso da più tenant e non si desidera individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, è possibile usare il campo Ambito nell'appliance dell'agente di raccolta per impostare l'ambito di individuazione. Se i tenant condividono gli host, creare una credenziale con accesso in sola lettura alle macchine virtuali che appartengono al tenant specifico e quindi usare le credenziali nell'appliance dell'agente di raccolta e specificare Ambito come host per eseguire l'individuazione. In alternativa, è inoltre possibile creare cartelle nel server vCenter (si supponga cartella1 per tenant1 e cartella2 per tenant2), nell'host condiviso, spostare le macchine virtuali per tenant1 nella cartella1 e per tenant2 nella cartella2 e quindi impostare di conseguenza l'ambito delle individuazioni nell'agente di raccolta specificando la cartella appropriata.
+
+## <a name="discover-on-premises-environment"></a>Individuazione dell'ambiente locale
+
+Quando il piano è pronto, è possibile avviare l'individuazione delle macchine virtuali locali:
+
+### <a name="create-a-project"></a>Creare un progetto
 
 Creare un progetto di Azure Migrate in base alle necessità:
 
@@ -62,11 +74,11 @@ Creare un progetto di Azure Migrate in base alle necessità:
 4. Creare un nuovo gruppo di risorse.
 5. Specificare il percorso in cui si vuole creare il progetto e quindi selezionare **Crea**. Si noti che è comunque possibile valutare le macchine virtuali in un percorso di destinazione diverso. Il percorso specificato per il progetto viene usato per archiviare i metadati raccolti da macchine virtuali locali.
 
-## <a name="set-up-the-collector-appliance"></a>Configurare l'appliance dell'agente di raccolta
+### <a name="set-up-the-collector-appliance"></a>Configurare l'appliance dell'agente di raccolta
 
 Azure Migrate crea una macchina virtuale locale definita appliance dell'agente di raccolta. Questa macchina virtuale individua le macchine virtuali VMware locali e invia i relativi metadati al servizio Azure Migrate. Per configurare l'appliance dell'agente di raccolta, si scarica un file con estensione ova e lo si importa nell'istanza del server vCenter locale.
 
-### <a name="download-the-collector-appliance"></a>Scaricare l'appliance dell'agente di raccolta
+#### <a name="download-the-collector-appliance"></a>Scaricare l'appliance dell'agente di raccolta
 
 In presenza di più progetti, occorre scaricare l'appliance dell'agente di raccolta una sola volta nel server vCenter. Dopo avere scaricato e configurato l'appliance, la si esegue per ogni progetto e si specificano la chiave e l'ID di progetto univoci.
 
@@ -75,7 +87,7 @@ In presenza di più progetti, occorre scaricare l'appliance dell'agente di racco
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 
 
-### <a name="verify-the-collector-appliance"></a>Verificare l'appliance dell'agente di raccolta
+#### <a name="verify-the-collector-appliance"></a>Verificare l'appliance dell'agente di raccolta
 
 Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
@@ -121,7 +133,7 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>Creare la macchina virtuale dell'agente di raccolta
+### <a name="create-the-collector-vm"></a>Creare la macchina virtuale dell'agente di raccolta
 
 Importare il file scaricato nel server vCenter:
 
@@ -137,7 +149,7 @@ Importare il file scaricato nel server vCenter:
 7. In **Network Mapping** (Mapping di rete) specificare la rete a cui si connetterà la macchina virtuale dell'agente di raccolta. La rete richiede la connettività Internet per l'invio dei metadati ad Azure.
 8. Rivedere e confermare le impostazioni e quindi selezionare **Fine**.
 
-## <a name="identify-the-id-and-key-for-each-project"></a>Identificare la chiave e l'ID di ogni progetto
+### <a name="identify-the-id-and-key-for-each-project"></a>Identificare la chiave e l'ID di ogni progetto
 
 Se si hanno più progetti, assicurarsi di identificare l'ID e la chiave di ognuno. La chiave è necessaria quando si esegue l'agente di raccolta per individuare le macchine virtuali.
 
@@ -145,7 +157,7 @@ Se si hanno più progetti, assicurarsi di identificare l'ID e la chiave di ognun
 2. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto.
     ![Copiare le credenziali del progetto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>Impostare il livello delle statistiche vCenter
+### <a name="set-the-vcenter-statistics-level"></a>Impostare il livello delle statistiche vCenter
 Di seguito è riportato l'elenco dei contatori delle prestazioni che vengono raccolti durante l'individuazione. Per impostazione predefinita, i contatori sono disponibili a vari livelli nel server vCenter.
 
 È consigliabile impostare il livello comune più alto (livello 3) per le statistiche in modo che tutti i contatori vengano raccolti correttamente. Se vCenter è impostato su un livello inferiore, è possibile che solo alcuni contatori vengano raccolti completamente, mentre i restanti vengono impostati su 0. La valutazione potrebbe di conseguenza generare dati incompleti.
@@ -166,7 +178,7 @@ La tabella seguente indica anche i risultati della valutazione che saranno compr
 > [!WARNING]
 > Se è stato appena impostato un livello più alto per le statistiche, la generazione dei contatori delle prestazioni richiederà fino a un giorno. È quindi consigliabile eseguire l'individuazione dopo un giorno.
 
-## <a name="run-the-collector-to-discover-vms"></a>Eseguire l'agente di raccolta per individuare le macchine virtuali
+### <a name="run-the-collector-to-discover-vms"></a>Eseguire l'agente di raccolta per individuare le macchine virtuali
 
 Per ogni individuazione da eseguire, è necessario eseguire l'agente di raccolta per individuare le macchine virtuali nell'ambito richiesto. Eseguire le individuazioni una di seguito all'altra. Le individuazioni simultanee non sono supportate e per ogni individuazione deve essere definito un ambito diverso.
 
@@ -194,7 +206,7 @@ Per ogni individuazione da eseguire, è necessario eseguire l'agente di raccolta
 7.  In **Visualizzare lo stato di raccolta** monitorare il processo di individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
 
 
-### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
+#### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
 
 Il tempo di individuazione dipende dal numero di macchine virtuali da individuare. L'individuazione di 100 macchine virtuali termina in genere circa un'ora dopo l'esecuzione dell'agente di raccolta.
 

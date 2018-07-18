@@ -1,30 +1,32 @@
 ---
-title: "Azure Active Directory Domain Services: funzionalità | Microsoft Docs"
-description: "Funzionalità di Servizi di dominio Azure Active Directory"
+title: 'Azure Active Directory Domain Services: funzionalità | Microsoft Docs'
+description: Funzionalità di Servizi di dominio Azure Active Directory
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: af0670a44937bb14df9afc206ea4601c0b9289a2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5dd3cde69c6aa36c3d9cb3060dc6deb59ff74a5a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214968"
 ---
 # <a name="azure-ad-domain-services"></a>Servizi di dominio Azure Active Directory
 ## <a name="features"></a>Funzionalità
 Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionalità seguenti.
 
-* **Esperienza di distribuzione semplice:** bastano pochi clic per abilitare Servizi di dominio Azure AD per il tenant di Azure AD. È possibile eseguire velocemente il provisioning del dominio gestito, indipendentemente dal fatto che il tenant di Azure AD sia basato sul cloud o sincronizzato con la directory locale.
+* **Esperienza di distribuzione semplice:** bastano pochi clic per abilitare Azure AD Domain Services per la directory di Azure AD. Il dominio gestito include account utente solo cloud e account utente sincronizzati da una directory locale.
 * **Supporto dell'aggiunta al dominio**: è possibile aggiungere facilmente al dominio i computer nella rete virtuale di Azure in cui è disponibile il dominio gestito. L'esperienza di aggiunta al dominio nei sistemi operativi client e server Windows funziona perfettamente con i domini gestiti da Servizi di dominio Azure AD. È inoltre possibile usare gli strumenti automatizzati per l'aggiunta al dominio per questi domini.
 * **Una sola istanza di dominio per ogni directory di Azure AD:** è possibile creare un singolo dominio di Active Directory per ogni directory di Azure AD.
 * **Creare domini con nomi personalizzati**: è possibile creare domini con nomi personalizzati, ad esempio "contoso100.com", tramite Servizi di dominio Azure AD. È possibile usare i nomi di dominio sia verificati che non verificati. Facoltativamente è possibile anche creare un dominio con il suffisso di dominio predefinito (ovvero "*.onmicrosoft.co") offerto dalla directory di Azure AD.
@@ -36,6 +38,7 @@ Nei domini gestiti di Servizi di dominio Azure AD sono disponibili le funzionali
 * **Criteri di gruppo:** è possibile usare un singolo oggetto Criteri di gruppo predefinito per i contenitori degli utenti e dei computer, in modo da garantire la conformità ai criteri di sicurezza richiesti per gli account utente e per i computer aggiunti al dominio. È anche possibile creare GPO personalizzati e assegnarli all'unità organizzativa personalizzata per [gestire criteri di gruppo](active-directory-ds-admin-guide-administer-group-policy.md).
 * **Gestione DNS**: i membri del gruppo "AAD DC Administrators" possono gestire il sistema DNS per il dominio gestito tramite strumenti di amministrazione DNS noti, come lo snap-in MMC per amministrazione DNS.
 * **Creare unità organizzative (OU) personalizzate**: i membri del gruppo "AAD DC Administrators" possono creare unità organizzative personalizzate nel dominio gestito. A questi utenti vengono concessi privilegi amministrativi completi sulle unità organizzative personalizzate e quindi possono aggiungere e rimuovere account di servizio, computer, gruppi e così via all'interno di queste unità organizzative personalizzate.
-* **Disponibile in più aree di Azure:** per informazioni sulle aree di Azure in cui è disponibile Servizi di dominio Azure Active Directory, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/) .
+* **Disponibile in molte aree globali di Azure:** per informazioni sulle aree di Azure in cui è disponibile Azure AD Domain Services, vedere la pagina [Servizi in base all'area](https://azure.microsoft.com/regions/#services/).
 * **Disponibilità elevata:** Servizi di dominio Azure AD offre un'elevata disponibilità per il dominio. Questa funzionalità garantisce tempi di attività e resilienza agli errori migliori. Il monitoraggio dell'integrità incluso offre funzionalità automatizzate di correzione degli errori, attivando nuove istanze per sostituire quelle in errore e offrire la continuità del servizio per il dominio.
+* **Blocco degli account Active Directory come metodo di protezione:** gli account degli utenti vengono bloccati per 30 minuti se vengono inserite 5 password non valide in 2 minuti. Gli account vengono sbloccati automaticamente dopo 30 minuti.
 * **Usare strumenti di gestione familiari**: è possibile usare strumenti di gestione di Windows Server Active Directory familiari come Centro di amministrazione di Active Directory o Active Directory PowerShell per amministrare i domini gestiti.

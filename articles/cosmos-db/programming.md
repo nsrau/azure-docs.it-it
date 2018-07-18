@@ -3,22 +3,19 @@ title: Programmazione JavaScript lato server per Azure Cosmos DB | Microsoft Doc
 description: Informazioni su come usare Azure Cosmos DB per scrivere stored procedure, trigger del database e funzioni definite dall'utente in JavaScript. Ottenere suggerimenti sulla programmazione di database e altro ancora.
 keywords: Trigger di database, stored procedure, programma database, sproc, Azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: aliuy
 manager: kfile
-ms.assetid: 0fba7ebd-a4fc-4253-a786-97f1354fbf17
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: e6fd51cb2550549e14934c3f4774a40d42281247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42acc1ca00e6805df0bce0ee4fc59180b5beb6db
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34614663"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 
@@ -151,6 +148,21 @@ Nell'esempio precedente il callback genera un errore se l'operazione non è rius
 È possibile modificare questa stored procedure in modo che accetti una matrice di corpi di documenti come input e possa crearli tutti nell'esecuzione della stessa stored procedure, invece di inviare più richieste per crearle individualmente. Questa stored procedure può essere usata per implementare un'efficiente utilità di importazione in blocco per Cosmos DB, di cui si discuterà più avanti in questa esercitazione.   
 
 L'esempio descritto ha dimostrato come usare le stored procedure. I trigger e le funzioni definite dall'utente (UDF) vengono trattati più avanti in questa esercitazione.
+
+### <a name="known-issues"></a>Problemi noti
+
+Quando si definisce una stored procedure usando il portale di Azure, i parametri di input vengono sempre inviati sotto forma di stringa alla stored procedure. Anche se si passa una matrice di stringhe come input, la matrice viene convertita in stringa e inviata alla stored procedure. Per aggirare questo problema, è possibile definire una funzione all'interno della stored procedure che analizzi la stringa come matrice. Il codice riportato di seguito è un esempio di analisi della stringa come matrice: 
+
+``` 
+function sample(arr) {
+    if (typeof arr === "string") arr = JSON.parse(arr);
+    
+    arr.forEach(function(a) {
+        // do something here
+        console.log(a);
+    });
+}
+```
 
 ## <a name="database-program-transactions"></a>Transazioni del programma del database
 Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie ACID**. ACID è un acronimo noto che riassume quattro proprietà: Atomicità, Coerenza, Isolamento e Durabilità.  
@@ -763,12 +775,12 @@ In questo caso, l'input nella stored procedure viene passato al corpo della rich
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of the Patriarch’,
-      id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
+      book: 'Autumn of the Patriarch',
+      id: 'V7tQANV3rAkDAAAAAAAAAA==',
       ts: 1407830727,
-      self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
-      etag: ‘6c006596-0000-0000-0000-53e9cac70000’,
-      attachments: ‘attachments/’,
+      self: 'dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/',
+      etag: '6c006596-0000-0000-0000-53e9cac70000',
+      attachments: 'attachments/',
       Price: 200
     }
 
@@ -781,12 +793,11 @@ A differenza delle stored procedure, non è possibile eseguire direttamente i tr
     x-ms-documentdb-pre-trigger-include: validateDocumentContents 
     x-ms-documentdb-post-trigger-include: bookCreationPostTrigger
 
-
     {
        "name": "newDocument",
-       “title”: “The Wizard of Oz”,
-       “author”: “Frank Baum”,
-       “pages”: 92
+       "title": "The Wizard of Oz",
+       "author": "Frank Baum",
+       "pages": 92
     }
 
 

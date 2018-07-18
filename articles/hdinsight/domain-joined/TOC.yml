@@ -20,6 +20,8 @@
       href: ../spark/apache-spark-intellij-tool-plugin.md
     - name: Usare Eclipse per collegarsi a un cluster aggiunto al dominio
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: Usare Oozie nei cluster aggiunti al dominio
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Protezione dei dati
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -37,13 +39,10 @@
     - name: Replica di cluster HBase nella rete virtuale di Azure
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: Monitoraggio tramite OMS
+- name: Monitoraggio dell'uso di Log Analytics
   items:
     - name: Usare Azure Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Dashboard specifici per i cluster
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Usare query con Log Analytics
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -72,6 +71,10 @@
     - name: Note sulla versione
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: Note sulla versione archiviate
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Ottenere informazioni sui forum

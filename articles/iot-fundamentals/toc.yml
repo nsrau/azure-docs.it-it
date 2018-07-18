@@ -30,3 +30,13 @@
       href: /azure/iot-edge
     - name: IoT SDK per dispositivi
       href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Sicurezza
+  items:
+    - name: Architettura di sicurezza
+      href: iot-security-architecture.md
+    - name: Procedure di sicurezza consigliate
+      href: iot-security-best-practices.md
+    - name: Distribuzione sicura
+      href: iot-security-deployment.md
+    - name: Sicurezza sin dall'inizio
+      href: iot-security-ground-up.md

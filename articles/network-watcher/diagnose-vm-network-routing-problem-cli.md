@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: fcb7ec2e40b5c0e8794d2f4d70395dcbecca019c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182161"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618951"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticare un problema di routing di rete di una macchina virtuale - Interfaccia della riga di comando di Azure
 
@@ -99,7 +99,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-L'output indica che **Nessuno** è **nextHopType** e che **routeTableId** è **System Route**. Questo risultato informa che, benché sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
+L'output indica che **Nessuno** è **nextHopType** e che **routeTableId** è **System Route**. Questo risultato informa che, nonostante sia presente una route di sistema valida per la destinazione, non vi è alcun hop successivo per indirizzare il traffico alla destinazione.
 
 ## <a name="view-details-of-a-route"></a>Visualizzare i dettagli di una route
 

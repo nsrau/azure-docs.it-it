@@ -11,15 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 2780438e715b6f6cb04d820c02d09f14e14b480f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723743"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Instradare gli eventi di Servizi multimediali di Azure verso un endpoint Web personalizzato tramite l'interfaccia della riga di comando
 
-Griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per sottoscrivere eventi di modifica dello stato dei processi di Servizi multimediali e attivare un evento per visualizzarne il risultato. 
+La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per sottoscrivere eventi di modifica dello stato dei processi di Servizi multimediali e attivare un evento per visualizzarne il risultato. 
 
 In genere, si inviano eventi a un endpoint che risponde all'evento, ad esempio un webhook o una funzione di Azure. Questa esercitazione illustra come creare e impostare un webhook.
 
@@ -27,11 +28,11 @@ Al termine della procedura descritta in questo articolo, si potrà notare che i 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere al [portale di Azure](http://portal.azure.com) e avviare **CloudShell** per eseguire i comandi dell'interfaccia della riga di comando, come illustrato nei passaggi seguenti.
+Accedere al [portale di Azure](http://portal.azure.com) e avviare **CloudShell** per eseguire i comandi dell'interfaccia della riga di comando, come illustrato nei passaggi successivi.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessaria l'interfaccia della riga di comando di Azure 2.0 o versione successiva. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
@@ -63,7 +64,7 @@ Dopo aver creato il webhook, copiare l'URL facendo clic sul collegamento *Recupe
 
 ### <a name="validate-the-webhook"></a>Convalidare il webhook
 
-Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata una richiesta POST con un semplice codice di convalida per dimostrare la proprietà dell'endpoint. È necessario che l'app risponda rimandando il codice di convalida. Griglia di eventi non recapita gli eventi agli endpoint di webhook che non hanno superato la convalida. Per altre informazioni, vedere [Sicurezza e autenticazione di Griglia di eventi](https://docs.microsoft.com/azure/event-grid/security-authentication). Questa sezione definisce due parti che è necessario definire per superare la convalida.
+Quando si registra l'endpoint del webhook con Griglia di eventi, viene inviata una richiesta POST con un semplice codice di convalida per dimostrare la proprietà dell'endpoint. È necessario che l'app risponda rimandando il codice di convalida. Griglia di eventi non recapita gli eventi agli endpoint di webhook che non hanno superato la convalida. Per altre informazioni, vedere [Event Grid security and authentication](https://docs.microsoft.com/azure/event-grid/security-authentication) (Sicurezza e autenticazione di Griglia di eventi). Questa sezione definisce due parti che è necessario definire per superare la convalida.
 
 #### <a name="update-the-source-code"></a>Aggiornare il codice sorgente
 
@@ -185,3 +186,7 @@ az group delete --name <resource_group_name>
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Reazione agli eventi](reacting-to-media-services-events.md)
+
+## <a name="see-also"></a>Vedere anche 
+
+[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

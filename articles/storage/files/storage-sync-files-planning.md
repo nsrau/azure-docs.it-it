@@ -4,8 +4,8 @@ description: Informazioni sugli aspetti da considerare quando si pianifica una d
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335840"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -46,7 +47,14 @@ L'agente Sincronizzazione file di Azure è un pacchetto scaricabile che consente
     - C:\Programmi\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
 ### <a name="server-endpoint"></a>Endpoint server
-Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. Non è attualmente possibile creare un endpoint server per la radice di un volume, ad esempio `F:\` o `C:\myvolume`, se il volume è montato come punto di montaggio.
+Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Possono esistere più endpoint server nello stesso volume se i relativi spazi dei nomi non si sovrappongono, ad esempio `F:\sync1` e `F:\sync2`. È possibile configurare criteri di suddivisione in livelli cloud singolarmente per ogni endpoint server. 
+
+È possibile creare un endpoint server tramite un punto di montaggio. Si noti che i punti di montaggio all'interno dell'endpoint server vengono ignorati.  
+
+È possibile creare un endpoint server nel volume di sistema ma esistono due limitazioni per questa operazione:
+* La suddivisione in livelli nel cloud non può essere abilitata.
+* Non viene eseguito il ripristino rapido dello spazio dei nomi (in cui il sistema riduce l'intero spazio dei nomi e quindi avvia il richiamo di contenuto).
+
 
 > [!Note]  
 > Sono supportati solo i volumi non rimovibili.  Le unità di cui è stato eseguito il mapping da una condivisione remota non sono supportate per un percorso dell'endpoint server.  Inoltre, un endpoint server può essere posizionato nel volume di sistema Windows anche se la suddivisione in livelli cloud non è supportata nel volume di sistema.
@@ -105,7 +113,7 @@ Le versioni future di Windows Server verranno aggiunte non appena verranno rilas
 | ~$\*.\* | File temporaneo di Office |
 | \*.tmp | File temporaneo |
 | \*.laccdb | File di blocco dei database di Access|
-| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| 635D02A9D91C401B97884B82B3BCDAEA.* | File di sincronizzazione interno|
 | \\System Volume Information | Cartella specifica del volume |
 | $RECYCLE.BIN| Cartella |
 | \\SyncShareState | Cartella per la sincronizzazione |
@@ -137,6 +145,12 @@ Per il funzionamento side-by-side di Sincronizzazione file di Azure e DFS-R:
 
 Per altre informazioni, vedere la [panoramica di Replica DFS](https://technet.microsoft.com/library/jj127250).
 
+### <a name="sysprep"></a>Sysprep
+L'esecuzione di sysprep in un server in cui è installato l'agente di Sincronizzazione file di Azure non è supportata e può portare a risultati imprevisti. L'installazione dell'agente e la registrazione del server devono avvenire dopo la distribuzione dell'immagine del server e il completamento dell'installazione minima di sysprep.
+
+### <a name="windows-search"></a>Ricerca di Windows
+Se in un endpoint server è abilitata la suddivisione in livelli nel cloud, i file suddivisi in livelli vengono ignorati e non vengono indicizzati dalla ricerca di Windows. I file non suddivisi in livelli vengono indicizzati correttamente.
+
 ### <a name="antivirus-solutions"></a>Soluzioni antivirus
 Un antivirus esegue l'analisi dei file alla ricerca di codice dannoso noto e può quindi causare il richiamo di file archiviati a livelli. Poiché per i file archiviati a livelli è impostato l'attributo "offline", è consigliabile consultare il fornitore del software per sapere come configurare la soluzione in modo che non legga i file offline. 
 
@@ -150,6 +164,11 @@ Le soluzioni seguenti supportano l'esclusione dei file offline:
 
 ### <a name="backup-solutions"></a>Soluzioni di backup
 Come le soluzioni antivirus, le soluzioni di backup possono causare il richiamo di file archiviati a livelli. È consigliabile usare una soluzione di backup nel cloud per eseguire il backup della condivisione file di Azure anziché usare un prodotto di backup locale.
+
+Se si usa una soluzione di backup locale, è necessario eseguire il backup in un server del gruppo di sincronizzazione con la suddivisione in livelli nel cloud disabilitata. Durante il ripristino di file all'interno di percorso dell'endpoint, server, usare l'opzione di ripristino a livello di file. I file ripristinati vengono sincronizzati con tutti gli endpoint del gruppo di sincronizzazione e i file esistenti vengono sostituiti dalla versione ripristinata dal backup.
+
+> [!Note]  
+> Le opzioni di ripristino con riconoscimento dell'applicazione, a livello di volume e bare metal non sono attualmente supportate e possono causare risultati imprevisti. Queste opzioni di ripristino verranno supportate in una versione futura.
 
 ### <a name="encryption-solutions"></a>Soluzioni di crittografia
 Il supporto per le soluzioni di crittografia dipende dal modo in cui sono implementate. Sincronizzazione file di Azure funziona con:
@@ -172,15 +191,17 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Region | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
+| Australia sudorientale | Victoria |
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
 | Stati Uniti centrali | Iowa |
-| Asia orientale | Hong Kong - R.A.S. |
+| Asia orientale | RAS di Hong Kong |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Europa settentrionale | Irlanda |
 | Asia sudorientale | Singapore |
 | Regno Unito meridionale | Londra |
+| Regno Unito occidentale | Cardiff |
 | Europa occidentale | Paesi Bassi |
 | Stati Uniti occidentali | California |
 

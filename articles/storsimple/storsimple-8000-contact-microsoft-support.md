@@ -2,11 +2,11 @@
 title: Creare il ticket di supporto o il case per StorSimple serie 8000 | Microsoft Docs
 description: Informazioni su come registrare una richiesta di supporto e avviare una sessione di supporto nel dispositivo StorSimple serie 8000.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743050"
 ---
 # <a name="contact-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 

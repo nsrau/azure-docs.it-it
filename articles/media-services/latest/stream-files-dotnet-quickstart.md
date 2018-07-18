@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701039"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Guida introduttiva: Eseguire lo streaming di file video - .NET
 
 > [!NOTE]
 > La versione più recente di Servizi multimediali di Azure è disponibile in anteprima e può essere indicata come v3. Per iniziare a usare le API v3, è necessario creare un nuovo account di Servizi multimediali, come descritto in questa guida introduttiva. 
 
-Questa guida introduttiva illustra quanto sia facile iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. 
+Questa guida introduttiva illustra quanto sia facile iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. 
 
 Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un video.  
 
@@ -32,7 +33,7 @@ Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -43,6 +44,18 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+L'esempio è disponibile nella cartella [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).
+
+L'esempio esegue le azioni seguenti:
+
+1. Crea una trasformazione (in primo luogo, controlla se esiste la trasformazione specificata). 
+2. Crea un asset di output usato come output del processo di codifica.
+3. Crea l'input del processo basato su un URL HTTPS.
+4. Invia il processo di codifica usando l'input e l'output creati in precedenza.
+5. Controlla lo stato del processo.
+6. Crea un oggetto StreamingLocator.
+7. Crea gli URL di streaming.
 
 Per una spiegazione delle operazioni eseguite da ogni funzione nell'esempio, esaminare il codice e i commenti in [questo file di origine](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
 
@@ -75,7 +88,7 @@ Per testare lo streaming, in questo articolo viene usato Azure Media Player.
 > Se un lettore è ospitato in un sito https, assicurarsi di aggiornare l'URL impostandolo su "https".
 
 1. Aprire un Web browser e passare [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Nella casella **URL** incollare uno dei valori di URL streaming ottenuto quando si è eseguita l'applicazione. 
+2. Nella casella **URL** incollare uno degli URL di streaming ottenuto quando si è eseguita l'applicazione. 
 3. Scegliere il pulsante **Update Player** (Aggiorna il lettore).
 
 Azure Media Player può essere usato a scopo di test ma non deve essere usato in un ambiente di produzione. 

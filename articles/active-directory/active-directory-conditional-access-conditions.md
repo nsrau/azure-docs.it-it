@@ -1,6 +1,6 @@
 ---
-title: Condizioni nell'accesso condizionale di Azure Active Directory | Microsoft Docs
-description: Informazioni su come vengono usate le assegnazioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
+title: Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? | Microsoft Docs
+description: Informazioni su come vengono usate le condizioni nell'accesso condizionale di Azure Active Directory per attivare un criterio.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
@@ -9,21 +9,22 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770622"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "36232174"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Condizioni nell'accesso condizionale di Azure Active Directory 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quali sono le condizioni dell'accesso condizionale di Azure Active Directory? 
 
 Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Nei criteri di accesso condizionale si definisce la risposta ("fare questo") al motivo che ha attivato i criteri ("quando accade questo"). 
 
@@ -139,7 +140,7 @@ Casi d'uso comuni per questa condizione sono criteri che:
 
 - Bloccano l'accesso per gli utenti che accedono a un servizio da specifici paesi o aree geografiche. 
 
-Per altre informazioni, vedere [Condizioni della posizione nell'accesso condizionale di Azure Active Directory](active-directory-conditional-access-locations.md).
+Per altre informazioni, vedere [Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory?](active-directory-conditional-access-locations.md).
 
 
 ## <a name="client-apps"></a>App client
@@ -149,7 +150,7 @@ La condizione delle app client consente di applicare un criterio a diversi tipi 
 - Servizi e siti Web
 - App per dispositivi mobili e applicazioni desktop 
 
-![Condizioni](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Un'applicazione viene classificata come:
 
@@ -157,7 +158,7 @@ Un'applicazione viene classificata come:
 
 - Un'app per dispositivi mobili o un'applicazione desktop, se usa l'app per dispositivi mobili OpenID Connect per un client nativo.
 
-Per un elenco completo delle app client che è possibile usare nel criterio di accesso condizionale, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Per un elenco completo delle app client che è possibile usare nei criteri di accesso condizionale, vedere [Condizione per le app client](active-directory-conditional-access-technical-reference.md#client-apps-condition) nella documentazione tecnica sull'accesso condizionale di Azure Active Directory.
 
 Casi d'uso comuni per questa condizione sono criteri che:
 
@@ -167,6 +168,20 @@ Casi d'uso comuni per questa condizione sono criteri che:
 
 Oltre a usare i protocolli di autenticazione moderni e SSO Web, è possibile applicare questa condizione alle applicazioni di posta elettronica che usano Exchange ActiveSync, ad esempio le app di posta elettronica native della maggior parte degli smartphone. Attualmente, le app client che usano protocolli legacy devono essere protette con AD FS.
 
+È possibile scegliere questa condizione solo se **Office 365 Exchange Online** è l'unica app cloud selezionata.
+
+![App cloud](./media/active-directory-conditional-access-conditions/32.png)
+
+La selezione di **Exchange ActiveSync** come condizione per le app client è supportata solo se in un criterio non sono presenti altre condizioni configurate. Tuttavia, è possibile limitare l'ambito di questa condizione in modo da applicarla solo alle piattaforme supportate.
+
+ 
+![Piattaforme supportate](./media/active-directory-conditional-access-conditions/33.png)
+
+L'applicazione di questa condizione solo alle piattaforme supportate equivale all'applicazione a tutte le piattaforme di dispositivi per una [condizione per le piattaforme di dispositivi](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Piattaforme supportate](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Per altre informazioni, vedere:
 
 - [Configurare SharePoint Online ed Exchange Online per l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,15 +189,59 @@ Oltre a usare i protocolli di autenticazione moderni e SSO Web, è possibile app
 - [Accesso condizionale basato su app di Azure Active Directory](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Autenticazione legacy  
+
+L'accesso condizionale si applica ora ai client di Office meno recenti che non supportano l'autenticazione moderna, nonché ai client che usano protocolli di posta come POP, IMAP, SMTP e così via. In questo modo, è possibile configurare criteri come il **blocco dell'accesso da altri client**.
+
+
+![Autenticazione legacy](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Problemi noti
+
+- La configurazione di un criterio per **Altri client** blocca l'intera organizzazione per determinati client come SPConnect. Questo è dovuto al fatto che i client meno recenti si autenticano in modi imprevisti. Questo problema non si applica alle principali applicazioni di Office, come i client di Office meno recenti. 
+
+- Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore. 
+
+
+#### <a name="frequently-asked-questions"></a>Domande frequenti
+
+**Servizi Web Exchange viene bloccato?**
+
+Dipende dal protocollo di autenticazione usato da Servizi Web Exchange. Se l'applicazione Servizi Web Exchange usa l'autenticazione moderna, viene gestita dall'app client "App per dispositivi mobili e client desktop". Se l'applicazione Servizi Web Exchange usa l'autenticazione di base, viene gestita dall'app client "Altri client".
+
+
+**Quali controlli è possibile usare per Altri client?**
+
+Per "Altri client" è possibile configurare qualsiasi controllo. Tuttavia, l'esperienza utente finale bloccherà l'accesso per tutti i casi. L'app "Altri client" non supporta controlli come MFA, il dispositivo conforme, l'aggiunta a un dominio e così via. 
+ 
+**Quali condizioni è possibile usare per Altri client?**
+
+Per "Altri client" è possibile configurare qualsiasi condizione.
+
+**Exchange ActiveSync supporta tutte le condizioni e tutti i controlli?**
+
+No. Ecco un riepilogo del supporto di Exchange ActiveSync (EAS):
+
+- EAS supporta solo utenti e gruppi come destinazione. Non supporta guest e ruoli. Se si configura la condizione guest/ruolo, vengono bloccati tutti gli utenti, perché non è possibile determinare se il criterio debba essere applicato o meno all'utente.
+
+- EAS funziona solo con Exchange come app cloud. 
+
+- EAS non supporta alcuna condizione eccetto l'app client stessa.
+
+- EAS può essere configurato con qualsiasi controllo (tutti eccetto la conformità del dispositivo causeranno un blocco).
+
+**I criteri si applicheranno a tutte le app client per impostazione predefinita d'ora in poi?**
+
+No. Non è prevista alcuna modifica al comportamento predefinito dei criteri. I criteri continueranno ad applicarsi ad applicazioni browser e per dispositivi mobili e a client desktop per impostazione predefinita.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

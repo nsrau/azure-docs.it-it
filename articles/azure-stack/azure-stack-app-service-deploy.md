@@ -1,6 +1,6 @@
 ---
-title: 'Distribuire servizi App: Stack Azure | Documenti Microsoft'
-description: Linee guida dettagliate per la distribuzione di servizio App di Azure Stack
+title: 'Distribuire servizi App: Azure Stack | Microsoft Docs'
+description: Indicazioni dettagliate per la distribuzione di servizio App di Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,223 +12,240 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: f44e6e917058306e37b9eb99819afda76a742389
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604268"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342784"
 ---
-# <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App di Azure Stack
+# <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-> [!IMPORTANT]
-> Applicare l'aggiornamento 1804 al sistema Azure Stack integrato o distribuire il kit di sviluppo dello Stack di Azure più recente prima di distribuire Azure App Service 1.2.
->
->
+Usare le indicazioni fornite in questo articolo per distribuire il servizio App in Azure Stack.
 
-Un operatore di cloud di Azure Stack, è possibile assegnare agli utenti la possibilità di creare applicazioni web e API. A tale scopo, è necessario aggiungere il [il provider di risorse di servizio App](azure-stack-app-service-overview.md) alla distribuzione di Azure Stack, come descritto in questo articolo. Dopo aver installato il provider di risorse del servizio App, è possibile includerla nelle offerte e piani. Gli utenti possono eseguire la sottoscrizione per ottenere il servizio e avviare la creazione di applicazioni.
+>[!IMPORTANT]  
+>Applicare l'aggiornamento 1804 per il sistema integrato Azure Stack o distribuire più recente Azure Stack Development Kit (ASDK) prima della distribuzione del servizio App di Azure 1.2.
 
-> [!IMPORTANT]
-> Prima di eseguire il programma di installazione, assicurarsi di aver seguito le istruzioni riportate in [prima di iniziare](azure-stack-app-service-before-you-get-started.md).
->
->
+È possibile concedere agli utenti la possibilità di creare applicazioni web e API. Per consentire agli utenti di creare queste applicazioni, è necessario:
 
-## <a name="run-the-app-service-resource-provider-installer"></a>Eseguire l'installazione di provider di risorse di servizio App
+ - Aggiungere il [provider di risorse del servizio App](azure-stack-app-service-overview.md) per la distribuzione di Azure Stack usando i passaggi descritti in questo articolo.
+ - Dopo aver installato il provider di risorse del servizio App, è possibile includerla in piani e offerte. Gli utenti possono eseguire la sottoscrizione per il servizio e per iniziare la creazione di applicazioni.
 
-L'installazione del provider di risorse di servizio App nel proprio ambiente dello Stack di Azure può richiedere almeno un'ora dipende dal numero di istanze di ruolo si intende distribuire. Durante questo processo, il programma di installazione eseguirà il:
+> [!IMPORTANT]  
+> Prima di eseguire il programma di installazione di provider di risorse, assicurarsi di aver seguito le indicazioni fornite in [prima di iniziare a](azure-stack-app-service-before-you-get-started.md).
 
-* Creare un contenitore blob nell'account di archiviazione di Azure Stack specificato.
-* Creare una zona DNS e le voci per il servizio App.
-* Registrare il provider di risorse del servizio App.
-* Registrare gli elementi della raccolta di servizio App.
+## <a name="run-the-app-service-resource-provider-installer"></a>Eseguire l'installazione di provider risorse servizio App
 
-Per distribuire il provider di risorse di servizio App, seguire questi passaggi:
+L'installazione del provider di risorse del servizio App richiede almeno un'ora. Il periodo di tempo necessita dipende dal ruolo quante istanze è la distribuzione. Durante la distribuzione, il programma di installazione esegue le attività seguenti:
 
-1. Eseguire appservice.exe come amministratore da un computer in grado di raggiungere l'Endpoint di gestione risorse di Azure Azure Stack Admin.
+ - Creare un contenitore blob nell'account di archiviazione di Azure Stack specificato.
+ - Creare una zona DNS e le voci per il servizio App.
+ - Registrare il provider di risorse del servizio App.
+ - Registrare gli elementi della raccolta di servizio App.
 
-2. Fare clic su **distribuzione di servizio App o l'aggiornamento alla versione più recente**.
+Per distribuire il provider di risorse del servizio App, seguire questa procedura:
+
+1. Eseguire appservice.exe come amministratore da un computer che può accedere l'Endpoint di gestione risorse di Azure di Azure Stack Admin.
+
+2. Selezionare **distribuzione servizio App o l'aggiornamento alla versione più recente**.
 
     ![Programma di installazione del servizio App][1]
 
-3. Verificare e accettare le condizioni di licenza Software Microsoft e quindi fare clic su **Avanti**.
+3. Verificare e accettare le condizioni di licenza Software Microsoft e quindi selezionare **successivo**.
 
-4. Verificare e accettare le condizioni di licenza di terze parti e quindi fare clic su **Avanti**.
+4. Verificare e accettare le condizioni di licenza di terze parti e quindi selezionare **successivo**.
 
-5. Assicurarsi che le informazioni di configurazione di servizio App cloud siano corrette. Se si utilizza le impostazioni predefinite durante la distribuzione del Kit di sviluppo dello Stack di Azure, è possibile accettare i valori predefiniti di seguito. Tuttavia, se le opzioni personalizzati quando si distribuito Azure Stack oppure esegue la distribuzione in un sistema integrato, è necessario modificare i valori in questa finestra in modo da riflettere che. Ad esempio, se si utilizza il mycloud.com suffisso di dominio, alla gestione necessario modificare l'endpoint di gestione risorse di Azure Stack Tenant Azure. &lt;area&gt;. mycloud.com. Dopo aver verificato le informazioni, fare clic su **Avanti**.
+5. Assicurarsi che le informazioni di configurazione del servizio App cloud siano corrette. Se si usa le impostazioni predefinite durante la distribuzione di Azure Stack Development Kit (ASDK), è possibile accettare i valori predefiniti. Tuttavia, se le opzioni sono personalizzate quando si è distribuito il ASDK o esegue la distribuzione in un sistema integrato Azure Stack, è necessario modificare i valori in questa finestra in modo da riflettere le differenze.
 
-    ![Programma di installazione del servizio App][2]
+   Ad esempio, se si usa il mycloud.com suffisso di dominio, necessario modificare l'endpoint di Azure Resource Manager di Azure Stack Tenant alla gestione. &lt;regione&gt;. mycloud.com. Esaminare queste impostazioni e quindi selezionare **successivo** per salvare le impostazioni.
 
-6. Nella pagina successiva:
-    1. Fare clic su di **Connetti** accanto al pulsante il **sottoscrizioni di Azure Stack** casella.
-        * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password forniti quando è stato distribuito Azure Stack. Fare clic su **Sign In**.
-        * Se si utilizza Active Directory Federation Services (ADFS), specificare l'account amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e fare clic su **Accedi**.
-    2. Nel **sottoscrizioni di Azure Stack** , quindi selezionare il **predefinito sottoscrizione Provider**.
-    
-    > [!NOTE]
-    > Servizio App può essere distribuito solo nel **sottoscrizione Provider predefinito** in questo momento.  In un futuro aggiornamento servizio App verrà distribuito nella nuova sottoscrizione di misurazione introdotta in Azure Stack 1804 e tutte le distribuzioni esistenti verranno migrate anche a questa nuova sottoscrizione.
-    >
-    >
-    
-    3. Nel **percorsi Stack Azure** , selezionare il percorso che corrisponde all'area in cui esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione al Kit di sviluppo dello Stack di Azure.
+   ![Programma di installazione del servizio App][2]
+
+6. Nella pagina successiva di programma di installazione del servizio App, seguire questa procedura:
+
+    a. Selezionare **Connect** accanto al **sottoscrizioni di Azure Stack**.
+
+     - Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Selezionare **Accedi**.
+     - Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, cloudadmin@azurestack.local. Immettere la password e quindi selezionare **Accedi**.
+
+   b. Nelle **sottoscrizioni di Azure Stack**, selezionare la **sottoscrizione del Provider predefinito**.
+
+     >[!NOTE]
+     >Attualmente, servizio App può essere distribuito solo per i **sottoscrizione del Provider predefinito**.
+
+   c. Nel **località di Azure Stack**, selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
 
     ![Programma di installazione del servizio App][3]
 
-7. È ora possibile distribuire in una rete virtuale esistente, come configurato tramite la procedura [qui](azure-stack-app-service-before-you-get-started.md#virtual-network), o consentire l'installazione di servizio App creare una rete virtuale e subnet associate.
-    1. Selezionare **crea rete virtuale con le impostazioni predefinite**, accettare le impostazioni predefinite e fare clic su **Avanti**, o;
-    2. Selezionare **usare rete virtuale esistente e le subnet**.
-        1. Selezionare il **gruppo di risorse** che contiene la rete virtuale.
-        2. Scegliere il corretto **rete virtuale** nome che si desidera distribuire in;
-        3. Selezionare la cartella **Subnet** valori per ogni subnet ruolo necessari;
-        4. Fare clic su **Avanti**
+7. A questo punto è possibile distribuire in una rete virtuale esistente che è stato configurato [attenendosi alla procedura seguente](azure-stack-app-service-before-you-get-started.md#virtual-network), o lasciare il programma di installazione del servizio App di creare una nuova rete virtuale e subnet. Per creare una rete virtuale, seguire questa procedura:
 
-    ![Programma di installazione del servizio App][4]
+   a. Selezionare **crea rete virtuale con le impostazioni predefinite**, accettare le impostazioni predefinite e quindi selezionare **successivo**.
 
-8. Immettere le informazioni per la condivisione di file e quindi fare clic su **Avanti**. L'indirizzo della condivisione file è necessario utilizzare il nome di dominio completo o indirizzo IP del Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+   b. In alternativa, selezionare **usare rete virtuale esistente e le subnet**. Completare le azioni seguenti:
 
-   > [!NOTE]
-   > Il programma di installazione tenta di verificare la connettività per la condivisione file prima di procedere.  Tuttavia se si è scelto di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi per la condivisione file e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni sulla condivisione file e continuare se sono corrette.
-   >
-   >
+     - Selezionare il **gruppo di risorse** che contiene la rete virtuale.
+     - Scegliere il **rete virtuale** nome che si desidera distribuire.
+     - Selezionare i valori corretti **Subnet** i valori per ogni subnet ruolo richiesto.
+     - Selezionare **Avanti**.
+
+   ![Programma di installazione del servizio App][4]
+
+8. Immettere le informazioni per la condivisione file e quindi selezionare **successivo**. L'indirizzo della condivisione file deve usare il nome di dominio completo (FQDN) o l'indirizzo IP del File Server. Ad esempio, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, o \\\10.0.0.1\websites.
+
+   >[!NOTE]
+   >Il programma di installazione prova a verificare la connettività alla condivisione file prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, potrebbe essere file di questo test di connettività. Si riceve un avviso e un prompt dei comandi per continuare. Se la condivisione file di informazioni siano corrette, continua la distribuzione.
 
    ![Programma di installazione del servizio App][7]
 
-9. Nella pagina successiva:
-    1. Nel **ID applicazione identità** , immettere il GUID per l'applicazione in uso per l'identità (da Azure AD).
-    2. Nel **file di certificato di identità applicazione** casella, immettere (o passare a) il percorso del file di certificato.
-    3. Nel **password certificato di identità applicazione** , immettere la password per il certificato. Questa password è quello che si sia preso nota quando si usa lo script per creare i certificati.
-    4. Nel **file del certificato radice Azure Resource Manager** casella, immettere (o passare a) il percorso del file di certificato.
-    5. Fare clic su **Avanti**.
+9. Nella pagina successiva di programma di installazione del servizio App, seguire questa procedura:
 
-    ![Programma di installazione del servizio App][9]
+   a. Nel **ID applicazione identità** casella, immettere il GUID per l'applicazione in uso per l'identità (da Azure AD).
 
-10. Per ognuna delle tre caselle di file del certificato, fare clic su **Sfoglia** e passare al file di certificato appropriato. È necessario fornire la password per ogni certificato. Questi certificati sono quelli creati nel [passaggio di creazione certificati richiesti](azure-stack-app-service-before-you-get-started.md#get-certificates). Fare clic su **Avanti** dopo aver immesso tutte le informazioni.
+   b. Nel **file di certificato di identità applicazione** casella, immettere (o passare a) il percorso del file del certificato.
+
+   c. Nel **password certificato di identità applicazione** immettere la password per il certificato. Questa password è quella che si sia preso nota quando si usa lo script per creare i certificati.
+
+   d. Nel **file di certificato radice di Azure Resource Manager** casella, immettere (o passare a) il percorso del file del certificato.
+
+   e. Selezionare **Avanti**.
+
+   ![Programma di installazione del servizio App][9]
+
+10. Per ognuna delle caselle tre certificato file, selezionare **esplorare** e passare al file di certificato appropriato. È necessario fornire la password per ogni certificato. Questi certificati sono quelli che è stato creato nel [passaggio di creazione dei certificati richiesti](azure-stack-app-service-before-you-get-started.md#get-certificates). Selezionare **successivo** dopo aver immesso tutte le informazioni.
 
     | Box | Esempio di nome file di certificato |
     | --- | --- |
-    | **File di certificato SSL predefinito di servizio App** | \_.appservice.local.AzureStack.external.pfx |
-    | **File del certificato SSL API del servizio App** | api.appservice.local.AzureStack.external.pfx |
-    | **File del certificato SSL di server di pubblicazione del servizio App** | ftp.appservice.local.AzureStack.external.pfx |
+    | **File certificato SSL predefinito del servizio App** | \_.appservice.local.AzureStack.external.pfx |
+    | **File di certificato SSL di API del servizio App** | api.appservice.local.AzureStack.external.pfx |
+    | **File del certificato SSL del server di pubblicazione servizio App** | ftp.appservice.local.AzureStack.external.pfx |
 
-    Se si usa un suffisso di dominio diverso durante la creazione di certificati, non utilizzare i nomi dei file di certificato *locale. AzureStack.external*. Utilizzare invece le informazioni sul dominio personalizzato.
+    Se si usa un suffisso di dominio diverso durante la creazione di certificati, non usano nomi di file di certificato *locale. AzureStack.external*. In alternativa, usare le informazioni di dominio personalizzato.
 
     ![Programma di installazione del servizio App][10]
 
-11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database di provider di risorse di servizio App e quindi fare clic su **Avanti**. Il programma di installazione convalida le proprietà di connessione SQL.
+11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database del provider risorse servizio App e quindi selezionare **successivo**. Il programma di installazione convalida le proprietà di connessione SQL.
 
     > [!NOTE]
-    > Il programma di installazione tenta di verificare la connettività a SQl Server prima di procedere.  Tuttavia se si è scelto di distribuire in una rete virtuale esistente, il programma di installazione potrebbe non essere in grado di connettersi a SQL Server e viene visualizzato un avviso che chiede se desideri continuare.  Verificare le informazioni di SQL Server e continuare se sono corrette.
-    >
-    >
+    > Il programma di installazione prova a verificare la connettività a SQL Server prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, potrebbe essere file di questo test di connettività. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
 
     ![Programma di installazione del servizio App][11]
 
-12. Esaminare le opzioni di SKU e l'istanza del ruolo. Il numero minimo di istanza e lo SKU minima per ogni ruolo in una distribuzione ASDK inserire i valori predefiniti. Viene fornito un riepilogo dei requisiti di memoria e CPU virtuali per la pianificazione della distribuzione. Dopo aver effettuato le selezioni, fare clic su **Avanti**.
+12. Esaminare l'istanza del ruolo e le opzioni dello SKU. Le impostazioni predefinite popolare con il numero minimo di istanze e lo SKU per ogni ruolo in una distribuzione ASDK minimo. Viene fornito un riepilogo dei requisiti di memoria e vCPU per la pianificazione della distribuzione. Dopo aver effettuato le selezioni effettuate, selezionare **successivo**.
 
-    > [!NOTE]
-    > Per le distribuzioni di produzione, le istruzioni disponibili in [pianificazione della capacità di ruoli del server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).
-    >
-    >
+    >[!NOTE]
+    >Per le distribuzioni di produzione, seguire le istruzioni disponibili nel [pianificazione della capacità per i ruoli server di servizio App di Azure in Azure Stack](azure-stack-app-service-capacity-planning.md).
 
-    | Ruolo | Istanze minima | SKU minimo | Note |
+    | Ruolo | Numero minimo di istanze | SKU minimo | Note |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gestisce e mantiene l'integrità del cloud di servizio App. |
-    | Gestione | 1 | Standard_A2 - (Vcpu 2, 3584 MB) | Gestisce gli endpoint di gestione risorse di Azure App Service e API, estensioni portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze consigliate a 2. |
-    | Editore | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Le richieste vengono indirizzate alle applicazioni di servizio App. |
-    | Lavoro condiviso | 1 | Standard_A1 - (1 CPU virtuale, 1792 MB) | Gli host o applicazioni API App web e le funzioni di Azure. Si potrebbe voler aggiungere più istanze. Un operatore, è possibile definire l'offerta e scegliere il livello di qualsiasi SKU. I livelli è necessario disporre almeno di una CPU virtuali. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | Gestito e mantenuto l'integrità del cloud del servizio App. |
+    | Gestione | 1 | Standard_A2 - (2 Vcpu, 3584 MB) | Gestisce gli endpoint di Azure Resource Manager di App Service e API, le estensioni del portale (amministrazione, tenant, il portale di funzioni) e il servizio dati. Per supportare il failover, aumentare le istanze delle 2 consigliate. |
+    | Editore | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Pubblica il contenuto tramite distribuzione web e FTP. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Indirizza le richieste alle applicazioni di servizio App. |
+    | Ruolo di lavoro condiviso | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Host web o applicazioni API e App di funzioni di Azure. È possibile aggiungere altre istanze. Un operatore, è possibile definire l'offerta e scegliere qualsiasi livello SKU. I livelli devono avere almeno una CPU virtuale. |
 
     ![Programma di installazione del servizio App][13]
 
-    > [!NOTE]
-    > **Windows Server 2016 Core non è un'immagine di piattaforma supportata per l'utilizzo con il servizio App di Azure nello Stack di Azure.  Non utilizzare le immagini di valutazione per le distribuzioni di produzione.**
+    >[!NOTE]
+    >**Windows Server 2016 Core non è un'immagine di piattaforma supportati per l'uso con il servizio App di Azure in Azure Stack.  Non usare le immagini di valutazione per le distribuzioni di produzione.**
 
-13. Nel **selezionare immagine della piattaforma** selezionare l'immagine di macchina virtuale di distribuzione Windows Server 2016 le immagini disponibili nel provider di risorse di calcolo per il cloud di servizio App. Fare clic su **Avanti**.
+13. Nel **Seleziona immagine di piattaforma** , Seleziona immagine di macchina virtuale Windows Server 2016 di distribuzione dalle immagini disponibili nel provider di risorse di calcolo per il cloud del servizio App. Selezionare **Avanti**.
 
-14. Nella pagina successiva:
-     1. Immettere il nome utente amministratore della macchina virtuale ruolo di lavoro e la password.
-     2. Immettere il nome utente amministratore di altri ruoli macchina virtuale e la password.
-     3. Fare clic su **Avanti**.
+14. Nella pagina successiva di programma di installazione del servizio App, seguire questa procedura:
 
-    ![Programma di installazione del servizio App][15]    
+     a. Immettere il nome utente amministratore di macchine virtuali ruolo di lavoro e la password.
 
-15. Nella pagina di riepilogo:
-    1. Verificare le selezioni effettuate. Per apportare modifiche, utilizzare il **precedente** pulsanti a visitare pagine precedenti.
-    2. Se le configurazioni sono corrette, selezionare la casella di controllo.
-    3. Per avviare la distribuzione, fare clic su **Avanti**.
+     b. Immettere il nome utente amministratore di altri ruoli macchina virtuale e la password.
+
+     c. Selezionare **Avanti**.
+
+    ![Programma di installazione del servizio App][15]
+
+15. Nella pagina di riepilogo di programma di installazione del servizio App, seguire questa procedura:
+
+    a. Verificare le selezioni effettuate. Per apportare modifiche, usare il **Previous** pulsanti visitare le pagine precedenti.
+
+    b. Se le configurazioni siano corrette, selezionare la casella di controllo.
+
+    c. Per avviare la distribuzione, selezionare **successivo**.
 
     ![Programma di installazione del servizio App][16]
 
-16. Nella pagina successiva:
-    1. Tenere traccia dello stato di installazione. Servizio App nello Stack di Azure richiede circa 60 minuti per distribuire in base alle selezioni impostazione predefinita.
-    2. Una volta completato correttamente il programma di installazione, fare clic su **uscita**.
+16. Nella pagina successiva di programma di installazione del servizio App, seguire questa procedura:
+
+    a. Monitorare lo stato di installazione. Servizio App in Azure Stack richiede circa 60 minuti per distribuire in base alle selezioni impostazione predefinita.
+
+    b. Dopo che il programma di installazione è stata completata correttamente, selezionare **Exit**.
 
     ![Programma di installazione del servizio App][17]
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Convalidare il servizio App in installazione di Azure Stack
+## <a name="validate-the-app-service-on-azure-stack-installation"></a>Convalidare il servizio App nell'installazione di Azure Stack
 
-1. Nel portale di amministrazione di Stack di Azure, passare a **Amministrazione - servizio App**.
+1. Nel portale di amministrazione di Azure Stack, passare a **Amministrazione - servizio App**.
 
-2. In panoramica in stato, verificare che il **stato** Mostra **tutti i ruoli sono pronti**.
+2. Nella panoramica sotto lo stato, verificare che il **lo stato** Mostra **tutti i ruoli sono pronti**.
 
     ![Gestione del servizio App](media/azure-stack-app-service-deploy/image12.png)
-    
-> [!NOTE]
-> Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno a conenct per il file server, è necessario aggiungere una regola di sicurezza in uscita, abilitare il traffico SMB tra la subnet di lavoro e file server.  A tale scopo, passare al WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
-> * Origine: qualsiasi
-> * Intervallo di porte di origine: *
-> * Destinazione: Indirizzi IP
-> * Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
-> * Intervallo di porte di destinazione: 445
-> * Protocollo: TCP
-> * Azione: Consenti
-> * Priorità: 700
-> * Nome: Outbound_Allow_SMB445
 
-## <a name="test-drive-app-service-on-azure-stack"></a>Test di servizio App di Azure stack
+   >[!IMPORTANT]
+   >Se si distribuisce in una rete virtuale esistente e si usa un indirizzo IP interno per la connessione per il file server, è necessario aggiungere una regola di sicurezza in uscita. Questa regola consente il traffico tra la subnet del ruolo di lavoro e file server SMB.  A tale scopo, passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:<br>
+    >  - Origine: tutti
+    >  - Intervallo di porte di origine: *
+    >  - Destinazione: Gli indirizzi IP
+    >  - Intervallo di indirizzi IP di destinazione: intervallo di indirizzi IP per il file server
+    >  - Intervallo di porte di destinazione: 445
+    >  - Protocollo: TCP
+    >  - Azione: Consenti
+    >  - Priorità: 700
+    >  - Nome: Outbound_Allow_SMB445
 
-Dopo avere distribuito e registrare il provider di risorse del servizio App, testarlo per assicurarsi che gli utenti possono distribuire App web e API.
+## <a name="test-drive-app-service-on-azure-stack"></a>Il test drive di servizio App in Azure Stack
 
-> [!NOTE]
-> È necessario creare un'offerta con lo spazio dei nomi di Microsoft all'interno del piano. Quindi è necessario disporre di una sottoscrizione di tenant che sottoscrive l'offerta. Per ulteriori informazioni, vedere [Crea offerta](azure-stack-create-offer.md) e [crea piano](azure-stack-create-plan.md).
+Dopo che si distribuisce e si registra il provider di risorse del servizio App, testarla per assicurarsi che gli utenti possono distribuire App web e API.
+
+>[!NOTE]
+>È necessario creare un'offerta con lo spazio dei nomi Microsoft. Web nel piano. È anche necessaria una sottoscrizione di tenant che sottoscrive l'offerta. Per altre informazioni, vedere [Crea offerta](azure-stack-create-offer.md) e [crea piano](azure-stack-create-plan.md).
 >
-Si *deve* ha una sottoscrizione tenant a creare applicazioni che utilizzano il servizio App nello Stack di Azure. Le uniche funzionalità che è possibile completare un amministratore del servizio all'interno del portale di amministrazione sono correlate per l'amministrazione del provider di risorse del servizio App. Queste funzionalità includono l'aggiunta di capacità e la configurazione delle origini di distribuzione, SKU e piani di lavoro.
+>Si *necessario* dispone di una sottoscrizione di tenant per creare applicazioni che utilizzano il servizio App in Azure Stack. Le uniche operazioni che possono essere completati un amministratore del servizio nel portale di amministrazione sono correlate per l'amministrazione del provider di risorse del servizio App. Ciò include l'aggiunta di capacità, la configurazione delle origini di distribuzione e l'aggiunta di piani di lavoro e gli SKU.
 >
-Per creare web API e Azure funzioni App, è necessario utilizzare il portale tenant e dispone di una sottoscrizione tenant.
+>Per creare web, API e Azure funzioni delle App, è necessario usare il portale tenant e avere una sottoscrizione tenant.
+>
 
-1. Nel portale tenant di Azure Stack, fare clic su **New** > **Web e dispositivi mobili** > **App Web**.
+Per creare un'app web di test, seguire questa procedura:
 
-2. Nel **App Web** pannello, digitare un nome nella **app Web** casella.
+1. Nel portale tenant di Azure Stack, selezionare **New** > **Web e dispositivi mobili** > **App Web**.
 
-3. In **gruppo di risorse**, fare clic su **New**. Digitare un nome nella **gruppo di risorse** casella.
+2. Sotto **App Web**, immettere un nome nella **app Web**.
 
-4. Fare clic su **Piano di servizio app/Località** > **Crea nuovo**.
+3. Sotto **gruppo di risorse**, selezionare **New**. Immettere un nome per il **gruppo di risorse**.
 
-5. Nel **piano di servizio App** pannello, digitare un nome nella **piano di servizio App** casella.
+4. Selezionare **piano di servizio App/località** > **Crea nuovo**.
 
-6. Fare clic su **tariffario** > **gratuito condiviso** o **condiviso condiviso** > **selezionare**  >   **OK** > **creare**.
+5. Sotto **piano di servizio App**, immettere un nome per il **piano di servizio App**.
 
-7. In meno di un minuto, viene visualizzato un riquadro per la nuova app web nel dashboard. Fare clic sul riquadro.
+6. Selezionare **piano tariffario** > **gratuito condiviso** oppure **Shared-Shared** > **selezionare**  >  **OK** > **creare**.
 
-8. Nel **App Web** pannello, fare clic su **Sfoglia** per visualizzare il sito Web predefinito per questa applicazione.
+7. Nel dashboard viene visualizzato un riquadro per la nuova app web. Selezionare il riquadro.
 
-## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Distribuire un sito Web WordPress, DNN o Django (facoltativo)
+8. Sul **App Web**, selezionare **Sfoglia** per visualizzare il sito Web predefinito per questa app.
 
-1. Nel portale tenant di Azure Stack, fare clic su **+**, passare a Azure Marketplace, distribuire un sito Web Django e attendere il completamento. La piattaforma web Django utilizza un database di sistema basato su file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
+## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Distribuisci un sito Web WordPress, DNN o Django (facoltativo)
 
-2. Se è stato distribuito un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando viene richiesto per i parametri del database, immettere il nome utente come *User1@Server1*, con il nome utente e il nome del server di propria scelta.
+1. Nel portale tenant di Azure Stack, selezionare **+**, aprire il Marketplace di Azure, distribuire un sito Web Django e quindi attendere il completamento della distribuzione. La piattaforma web di Django Usa un database di sistema in base al file. Non richiede alcun provider di risorse aggiuntive, ad esempio SQL o MySQL.
 
-3. Se è stato distribuito un provider di risorse di SQL Server, è possibile distribuire un sito Web Learning Marketplace. Quando viene richiesto per i parametri del database, scegliere un database nel computer che esegue SQL Server è connesso al provider di risorse.
+2. Se è stata distribuita anche un provider di risorse MySQL, è possibile distribuire un sito Web WordPress dal Marketplace. Quando richiesto per i parametri del database, immettere il nome utente *User1@Server1*, con il nome utente e il nome del server di propria scelta.
+
+3. Se è stata distribuita anche un provider di risorse di SQL Server, è possibile distribuire un sito di rete neurale profonda dal Marketplace. Quando richiesto per i parametri del database, scegliere un database in computer che esegue SQL Server che è connesso al provider di risorse.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È anche possibile provare altre [piattaforma come un servizio (PaaS) di servizi](azure-stack-tools-paas-services.md).
+È anche possibile provare altri [piattaforma distribuita come un servizio (PaaS) di servizi](azure-stack-tools-paas-services.md).
 
-- [Provider di risorse di SQL Server](azure-stack-sql-resource-provider-deploy.md)
-- [Provider di risorse MySQL](azure-stack-mysql-resource-provider-deploy.md)
+ - [Provider di risorse di SQL Server](azure-stack-sql-resource-provider-deploy.md)
+ - [Provider di risorse MySQL](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: http://go.microsoft.com/fwlink/?LinkID=717531

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109485"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -82,8 +83,9 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
       -   Informazioni relative al rinnovo, ad esempio 90 giorni prima della scadenza  
 
   - Il processo di creazione di un certificato è in genere asincrono e prevede il polling dell'insieme di credenziali delle chiavi per lo stato dell'operazione di creazione del certificato.  
-[Operazione di recupero del certificato](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) - Stato: operazione completata, non riuscita con informazioni sull'errore o annullata  
-            - A causa del ritardo nella creazione può essere avviata un'operazione di annullamento. L'annullamento può essere applicato o meno.  
+[Operazione di recupero del certificato](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Stato: operazione completata, non riuscita con informazioni sull'errore o annullata  
+      -   A causa del ritardo nella creazione può essere avviata un'operazione di annullamento. L'annullamento può essere applicato o meno.  
 
 ## <a name="import-a-certificate"></a>Importazione di un certificato  
  In alternativa, è possibile importare un certificato, PFX o PEM, in Key Vault.  
@@ -99,7 +101,7 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
 
 -   Se non vengono eseguite altre operazioni, Key Vault per prima cosa invierà un avviso di scadenza. 
 
--   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, ad esempio se non sono presenti informazioni sull'autorità di certificazione.  
+-   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Esempio: se non sono presenti informazioni sull'autorità di certificazione.  
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Creazione di un certificato con una CA non partner di Key Vault  
  Questo metodo consente di usare CA diverse dai provider partner di Key Vault, in modo che l'organizzazione possa avvalersi di una CA di propria scelta.  
@@ -119,5 +121,5 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
   (5) L'applicazione completa la creazione del nuovo certificato con l'unione del certificato X509 proveniente dalla CA.
 
 ## <a name="see-also"></a>Vedere anche
-- [Operazioni relative ai certificati](/rest/api/keyvault/certificate-operations.md)
+- [Operazioni relative ai certificati](/rest/api/keyvault/certificate-operations)
 - [Informazioni su chiavi, segreti e certificati](about-keys-secrets-and-certificates.md)

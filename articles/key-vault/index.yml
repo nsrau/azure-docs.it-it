@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180794"
 abstract:
   description: Informazioni su come usare l'insieme di credenziali delle chiavi per proteggere e gestire le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud. Esercitazioni, informazioni di riferimento sulle API e altri documenti in cui viene illustrato come creare e gestire chiavi in grado di accedere e crittografare risorse e soluzioni.
 sections:

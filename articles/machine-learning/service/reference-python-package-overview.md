@@ -8,11 +8,12 @@ ms.reviewer: jmartens
 ms.author: jmartens
 author: j-martens
 ms.date: 05/07/2018
-ms.openlocfilehash: 7ff80a812ebf704315524ffb5ea518704e472429
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 36322c5fde7c992faa830fe272971b53fbf10211
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37870774"
 ---
 # <a name="python-packages-for-azure-machine-learning"></a>Pacchetti Python per Azure Machine Learning
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031713"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Infrastruttura di sicurezza: gestione delle eccezioni | soluzioni di prevenzione 
 | Prodotto o servizio | Articolo |
@@ -35,7 +36,7 @@ ms.lasthandoff: 01/24/2018
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Passaggi** | I servizi Windows Communication Framework (WCF) possono essere configurati per esporre le informazioni di debug. Le informazioni di debug non devono essere usate in ambienti di produzione. Il tag `<serviceDebug>` definisce se è abilitata la funzionalità di informazioni di debug per un servizio WCF. Se l'attributo includeExceptionDetailInFaults è impostato su true, le informazioni di eccezione dell'applicazione saranno restituite ai client. Gli utenti malintenzionati possono sfruttare le informazioni aggiuntive che acquisiscono dall'output di debug per sferrare attacchi su framework, database o altre risorse usate dall'applicazione. |
 
 ### <a name="example"></a>Esempio
@@ -53,13 +54,13 @@ Disabilitare le informazioni di debug nel servizio. È possibile eseguire questa
 
 ## <a id="servicemetadata"></a>WCF - non includere il nodo serviceMetadata nel file di configurazione
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | Generico, .NET Framework 3 |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Passaggi** | Esponendo pubblicamente informazioni su un servizio è possibile consentire agli hacker di comprendere in che modo possono sfruttare il servizio stesso. Il tag `<serviceMetadata>` abilita la funzionalità di pubblicazione dei metadati. I metadati del servizio potrebbero contenere informazioni riservate che non devono essere accessibili pubblicamente. Come minimo, consentire solo agli utenti attendibili di accedere ai metadati e assicurarsi che le informazioni non necessarie non siano esposte. Ancora meglio, disabilitare completamente la possibilità di pubblicare metadati. Una configurazione di WCF sicura non conterrà il tag `<serviceMetadata>`. |
 
 ## <a id="exception"></a>Assicurare una gestione appropriata delle eccezioni in API Web ASP.NET
@@ -182,7 +183,7 @@ Controllare i collegamenti nella sezione Riferimenti per altre informazioni sull
 
 ## <a id="messages"></a>Non esporre informazioni di sicurezza nei messaggi di errore
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -193,7 +194,7 @@ Controllare i collegamenti nella sezione Riferimenti per altre informazioni sull
 
 ## <a id="default"></a>Implementare la pagina di gestione degli errori predefiniti
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  
@@ -215,7 +216,7 @@ Controllare i collegamenti nella sezione Riferimenti per altre informazioni sull
 
 ## <a id="fail"></a>Le eccezioni devono avere esito negativo in modo sicuro
 
-| Titolo                   | Dettagli      |
+| Title                   | Dettagli      |
 | ----------------------- | ------------ |
 | **Componente**               | Applicazione Web. | 
 | **Fase SDL**               | Compilare |  

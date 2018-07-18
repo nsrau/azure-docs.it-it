@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31515493"
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Catalogo degli avvisi di Azure AD Connect Health 
 

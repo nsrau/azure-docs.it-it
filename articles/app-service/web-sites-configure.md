@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293717"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -45,7 +46,7 @@ Nel pannello **Impostazioni applicazione** le impostazioni sono raggruppate in d
 Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzioni di .NET, PHP e Python.
 
 <a name="platform"></a>
-**Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede la modalità Basic o Standard. Le modalità Gratuito e Condiviso vengono eseguite sempre in un ambiente a 32 bit.
+**Piattaforma**. Scegliere se eseguire l'app Web in un ambiente a 32 bit o a 64 bit. L'ambiente a 64 bit richiede il livello Basic o Standard. I livelli Gratuito e Condiviso vengono eseguiti sempre in un ambiente a 32 bit.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -55,6 +56,13 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 **Always On**. Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. In modalità Basic o Standard è possibile abilitare **Always On** affinché l'app rimanga sempre caricata. Se nell'app vengono eseguiti processi Web continui o processi Web attivati mediante un'espressione CRON è necessario abilitare **Always On**, altrimenti l'esecuzione dei processi Web potrebbe non avvenire in modo affidabile.
 
 **Versione pipeline gestita**. Consente di impostare la [modalità pipeline]IIS. Lasciare questa opzione impostata su Integrato (predefinita), tranne nel caso in cui un'app meno recente richieda una versione precedente di IIS.
+
+**Versione HTTP**. Impostata su **2.0** per abilitare il supporto per il protocollo [HTTPS/2](https://wikipedia.org/wiki/HTTP/2). 
+
+> [!NOTE]
+> I browser più recenti supportano il protocollo HTTP/2 solo su TLS, mentre il traffico non crittografato continua a usare il protocollo HTTP/1.1. Per garantire che i browser client si connettano all'app tramite HTTP/2, [acquistare un certificato del servizio app](web-sites-purchase-ssl-web-site.md) per il dominio personalizzato dell'app o [associare un certificato di terze parti](app-service-web-tutorial-custom-ssl.md).
+
+**Affinità ARR**. In un'applicazione scalata orizzontalmente su più istanze di macchina virtuale, i cookie di affinità ARR garantiscono che il client venga instradato verso la stessa istanza per tutta la durata della sessione. Per migliorare le prestazioni delle applicazioni senza stato, impostare questa opzione su **Disattivata**.   
 
 **Scambio automatico**. Se si abilita l'opzione Scambio automatico per uno slot di distribuzione, il servizio app immette automaticamente l'app Web in produzione quando si esegue un aggiornamento di quello slot. Per altre informazioni, vedere [Eseguire la distribuzione negli slot di memorizzazione temporanea per le app Web nel servizio app di Azure](web-sites-staged-publishing.md).
 
@@ -66,6 +74,8 @@ Questa sezione riporta le coppie nome/valore caricate all'avvio dell'app.
 
 * Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
 * Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING_. Entrambe contengono lo stesso valore.
+
+Le impostazioni dell'app vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
 
 ### <a name="connection-strings"></a>Stringhe di connessione
 Stringhe di connessione per le risorse collegate. 
@@ -80,6 +90,8 @@ Per le applicazioni PHP, Python, Java e Node queste impostazioni saranno disponi
 * Personalizzato: `CUSTOMCONNSTR_`
 
 Ad esempio, se una stringa di connessione MySql venisse denominata `connectionstring1`, l'accesso avverrebbe attraverso la variabile di ambiente`MYSQLCONNSTR_connectionString1`.
+
+Le stringhe di connessione vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).
 
 ### <a name="default-documents"></a>Documenti predefiniti
 Il documento predefinito è rappresentato dalla pagina Web visualizzata nell'URL radice di un sito Web.  Viene utilizzato il primo file corrispondente dell'elenco. 
@@ -163,7 +175,7 @@ Per ulteriori informazioni, vedere [Procedura: monitorare lo stato degli endpoin
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [Configurare un nome di dominio personalizzato nel servizio app di Azure]: ./app-service-web-tutorial-custom-domain.md
 [Configurare ambienti di staging per le app Web nel servizio app di Azure]: ./web-sites-staged-publishing.md
 [Abilitare HTTPS per un'app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md

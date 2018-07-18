@@ -2,23 +2,20 @@
 title: Registrazione diagnostica di Azure Cosmos DB | Microsoft Docs
 description: Questa esercitazione offre un'introduzione alla registrazione di Azure Cosmos DB.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612215"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -47,7 +44,7 @@ Il log attività di Azure è un log delle sottoscrizioni che fornisce informazio
 
 Il log attività è diverso dal log di diagnostica. Il log attività contiene dati relativi alle operazioni su una risorsa esterna (il _piano di controllo_). Nel contesto di Azure Cosmos DB le operazioni a livello di piano di controllo creano raccolte, elencano chiavi, eliminano chiavi, elencano database e così via. I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa (il _piano dati_). Alcuni esempi di operazioni del piano dati nel log di diagnostica sono Delete, Insert e ReadFeed.
 
-I log attività (operazioni a livello di piano di controllo) possono essere più dettagliati e possono includere l'indirizzo di posta elettronica completo del chiamante, l'indirizzo IP del chiamante, il nome della risorsa, il nome dell'operazione, l'ID del tenant e così via. Il log attività contiene alcune [categorie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) di dati. Per informazioni dettagliate sugli schemi di queste categorie, vedere [Schema degli eventi del log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). I log di diagnostica, tuttavia, possono essere restrittivi, perché i dati relativi alle informazioni personali vengono spesso rimossi da tali log. È possibile che sia disponibile l'indirizzo IP del chiamante, ma senza l'ultimo ottetto.
+I log attività (operazioni a livello di piano di controllo) possono essere più dettagliati e possono includere l'indirizzo di posta elettronica completo del chiamante, l'indirizzo IP del chiamante, il nome della risorsa, il nome dell'operazione, l'ID del tenant e così via. Il log attività contiene alcune [categorie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) di dati. Per informazioni dettagliate sugli schemi di queste categorie, vedere [Schema degli eventi del log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). I log di diagnostica, tuttavia, possono essere restrittivi, perché i dati personali vengono spesso rimossi da tali log. È possibile che sia disponibile l'indirizzo IP del chiamante, ma senza l'ultimo ottetto.
 
 ### <a name="azure-metrics"></a>Metriche di Azure
 

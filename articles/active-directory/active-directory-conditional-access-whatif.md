@@ -1,28 +1,30 @@
 ---
-title: Strumento per l'analisi di simulazione dell'accesso condizionale di Azure Active Directory - Anteprima | Microsoft Docs
-description: Informazioni su come testare la configurazione dei criteri di accesso condizionale di Azure Active Directory.
+title: Strumento What If per l'accesso condizionale di Azure Active Directory
+description: Informazioni su come comprendere l'impatto dei criteri di accesso condizionale sull'ambiente in uso.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750083"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Strumento per l'analisi di simulazione dell'accesso condizionale di Azure Active Directory - Anteprima
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Strumento What If per l'accesso condizionale di Azure Active Directory
 
 L'[accesso condizionale](active-directory-conditional-access-azure-portal.md) è una funzionalità di Azure Active Directory (Azure AD) che consente di controllare l'accesso degli utenti autorizzati alle app cloud. Per sapere quale sarà il comportamento dei criteri di accesso condizionale nell'ambiente in uso, è possibile usare lo **strumento per l'analisi di simulazione dell'accesso condizionale**.
 
@@ -119,7 +121,7 @@ Nell'elenco dei criteri che non si applicano all'utente è possibile trovare anc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come configurare criteri di accesso condizionale, vedere [Introduzione all'accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
+- Per informazioni su come configurare criteri di accesso condizionale, vedere [Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory](active-directory-conditional-access-app-based-mfa.md).
 
 - Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere il [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md). 
 

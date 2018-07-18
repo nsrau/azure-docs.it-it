@@ -15,10 +15,11 @@ ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
 ms.openlocfilehash: e7aa675e849fb8c4dac0bfb5a1ae44dd16ca25e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539206"
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Guida introduttiva: Creare un'istanza di Key Vault usando PowerShell
 

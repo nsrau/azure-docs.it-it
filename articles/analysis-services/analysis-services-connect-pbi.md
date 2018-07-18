@@ -3,16 +3,17 @@ title: Connettersi ad Azure Analysis Services con Power BI | Microsoft Docs
 description: Informazioni su come connettersi a un server di Azure Analysis Services usando Power BI.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03e654b3d03564d11db9156e6fd5793bbd78c85d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00a975ae3acb470912c702d8a37717e5c270c9af
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446793"
 ---
 # <a name="connect-with-power-bi"></a>Connettersi con Power BI
 

@@ -3,17 +3,18 @@ title: Guida introduttiva di Azure - Creare un account di archiviazione | Micros
 description: Informazioni su come creare rapidamente un nuovo account di archiviazione usando il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 1dffceb629df5d0197bfc8ac66120df3912d70b1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856529"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -164,7 +165,7 @@ Per creare un account di archiviazione per utilizzo generico v2 nel portale di A
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Tutti i servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 2. Immettere un nome per l'account di archiviazione.
 3. Impostare il campo **Tipologia account** su **StorageV2 (utilizzo generico v2)**.
-4. Lasciare il campo **Replica** impostato su **Archiviazione con ridondanza locale**. In alternativa, è possibile scegliere **Archiviazione con ridondanza della zona (versione in anteprima)**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura**.
+4. Lasciare il campo **Replica** impostato su **Archiviazione con ridondanza locale**. In alternativa, è possibile scegliere **Archiviazione con ridondanza della zona (ZRS)**, **Archiviazione con ridondanza geografica** o **Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)**.
 5. Non modificare i valori predefiniti per questi campi: **Modello di distribuzione**, **Prestazioni**, **Trasferimento sicuro obbligatorio**.
 6. Scegliere la sottoscrizione in cui creare l'account di archiviazione.
 7. Nella sezione **Gruppo di risorse** selezionare **Usa esistente** e quindi scegliere il gruppo di risorse creato nella sezione precedente.
@@ -185,7 +186,7 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazione con ridondanza della zona (versione in anteprima), l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura, sostituire il parametro **SkuName** con il valore desiderato nella tabella seguente. 
+Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazione con ridondanza della zona (ZRS) (anteprima), l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS), sostituire il parametro **SkuName** con il valore desiderato nella tabella seguente. 
 
 |Opzione di replica  |Parametro SkuName  |
 |---------|---------|
@@ -218,13 +219,7 @@ Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazi
 
 ---
 
-> [!NOTE]
-> L'[archiviazione con ridondanza della zona](https://azure.microsoft.com/blog/announcing-public-preview-of-azure-zone-redundant-storage/preview/) è attualmente disponibile in versione di anteprima e solo per le località seguenti:
->    - Stati Uniti orientali 2
->    - Stati Uniti centrali
->    - Francia centrale. Quest'area è attualmente disponibile in anteprima. Per richiedere l'accesso, vedere [Microsoft Azure preview with Azure Availability Zones now open in France](https://azure.microsoft.com/blog/microsoft-azure-preview-with-azure-availability-zones-now-open-in-france) (Anteprima di Microsoft Azure con Zone di disponibilità di Azure ora accessibile in Francia).
-    
-Per altre informazioni sui diversi tipi di replica disponibili, vedere [Replica di Archiviazione di Azure](storage-redundancy.md).
+Per altre informazioni sulle opzioni di replica disponibili, vedere [Opzioni di replica dell'archiviazione](storage-redundancy.md).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>prerequisiti
-* Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un [database SQL di Azure](../articles/sql-database/sql-database-get-started.md) con relative informazioni di connessione, tra cui il nome del server, il nome del database, il nome utente e la password. Queste informazioni sono incluse nella stringa di connessione del database SQL:
-  
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  
-    Altre informazioni sui [database SQL di Azure](https://azure.microsoft.com/services/sql-database).
+---
+title: File di inclusione
+description: File di inclusione
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678267"
+---
+* Se si usa il database SQL di Azure, seguire la procedura descritta in [Connettersi al database SQL di Azure](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Quando si crea un database SQL di Azure, è inoltre possibile creare i database di esempio inclusi in SQL. 
-> 
-> 
+* Se si usa SQL Server, seguire la procedura descritta in [Connettersi a SQL Server](#connect-sql-server).
 
-Prima di utilizzare il database SQL di Azure in un'app per la logica, connettersi al proprio database SQL. È possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.  
+<a name="connect-azure-sql-db"></a>
 
-Connettersi al database SQL di Azure attenendosi alla procedura seguente:  
+### <a name="connect-to-azure-sql-database"></a>Connettersi al database SQL di Azure
 
-1. Creare un'app per la logica. Nella finestra di progettazione App per la logica, aggiungere un trigger e un'azione. Selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere "sql" nella casella di ricerca. Selezionare una delle azioni:  
-   
-    ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Se in precedenza non sono state create connessioni al database SQL, vengono richiesti i dettagli della connessione:  
-   
-    ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. Immettere i dettagli del database SQL. Le proprietà con l'asterisco sono obbligatorie.
-   
-   | Proprietà | Dettagli |
-   | --- | --- |
-   | Connessione tramite gateway |Lasciare deselezionata. Si usa quando ci si connette a un SQL Server locale. |
-   | Nome connessione* |Immettere un nome per la connessione. |
-   | Nome di SQL Server* |Immettere il nome del server, che è simile a *nomeserver.database.windows.net*. Il nome del server è visualizzato nelle proprietà del database SQL nel portale di Azure ed è mostrato anche nella stringa di connessione. |
-   | Nome del database SQL* |Immettere il nome che è stato assegnato al database SQL. Questo nome è riportato nelle proprietà del database SQL nella stringa di connessione: Initial Catalog=*yoursqldbname*. |
-   | Nome utente* |Immettere il nome utente creato quando è stato creato il database SQL. Questo nome è riportato nelle proprietà del database SQL nel portale di Azure. |
-   | Password* |Immettere la password creata quando è stato creato il database SQL. |
-   
-    Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e per l'accesso ai dati SQL. Al termine i dettagli della connessione saranno simili ai seguenti:  
-   
-    ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. Selezionare **Create**. 
-5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: 
-   
-    ![Passaggio di creazione della connessione a SQL Azure](./media/connectors-create-api-sqlazure/table.png)
+1. Quando il trigger o l'azione SQL richiede informazioni di connessione, seguire questa procedura:
 
+   1. Creare un nome per la connessione.
+
+   2. Selezionare il server SQL e quindi selezionare il database. 
+
+      L'elenco dei database viene visualizzatolo solo dopo aver selezionato il server SQL.
+ 
+   3. Specificare nome utente e password per il server.
+
+      È possibile trovare queste informazioni nel portale di Azure tra le proprietà del database SQL o nella stringa di connessione: 
+      
+      "User ID=<*NomeUtente*>"
+      <br>
+      "Password=<*Password*>"
+
+   Questo esempio mostra le informazioni di connessione per un trigger, ma questa procedura è valida anche per le azioni.
+
+   ![Creare una connessione al database SQL di Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Gli asterischi (*) indicano valori obbligatori.
+
+   | Proprietà | Valore | Dettagli | 
+   |----------|-------|---------| 
+   | Connection Name (Nome connessione) | <*my-sql-connection*> | Nome per la connessione | 
+   | Nome server SQL | <*my-sql-server*> | Nome del server SQL |
+   | Nome del database SQL | <*my-sql-database*>  | Nome del database SQL | 
+   | Username | <*my-sql-username*> | Nome utente per l'accesso al database |
+   | Password | <*my-sql-password*> | Password per l'accesso al database | 
+   |||| 
+
+2. Al termine dell'operazione, scegliere **Crea**.
+
+3. Dopo aver creato la connessione, continuare con [Aggiungere un trigger SQL](#add-sql-trigger) oppure [Aggiungere un'azione SQL](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>Connettersi a SQL Server
+
+Prima di poter selezionare il gateway, assicurarsi di avere già [configurato il gateway dati](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). In questo modo, il gateway viene visualizzato nell'elenco dei gateway quando si crea la connessione.
+
+1. Quando il trigger o l'azione SQL richiede informazioni di connessione, seguire questa procedura:
+
+   1. Nel trigger o nell'azione selezionare **Connetti tramite gateway dati locale** in modo che vengano visualizzate le opzioni del server SQL.
+
+   2. Creare un nome per la connessione.
+
+   3. Specificare l'indirizzo per il server SQL e quindi specificare il nome del database.
+   
+      È possibile trovare queste informazioni nella stringa di connessione: 
+      
+      * "Server = <*IndirizzoServer*>"
+      * "Database = <*NomeDatabase*>"
+
+   4. Specificare nome utente e password per il server.
+
+      È possibile trovare queste informazioni nella stringa di connessione: 
+      
+      * "User ID=<*NomeUtente*>"
+      * "Password=<*Password*>"
+
+   5. Se il server SQL usa l'autenticazione di base o di Windows, selezionare il tipo di autenticazione.
+
+   6. Selezionare il nome per il gateway dati locale creato in precedenza.
+   
+      Se il gateway non compare nell'elenco, verificare di avere [configurato il gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection) correttamente.
+
+   Questo esempio mostra le informazioni di connessione per un trigger, ma questa procedura è valida anche per le azioni.
+
+   ![Creare la connessione a SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Gli asterischi (*) indicano valori obbligatori.
+
+   | Proprietà | Valore | Dettagli | 
+   |----------|-------|---------| 
+   | Connetti tramite gateway dati locale | Selezionare prima di tutto questa opzione per le impostazioni di SQL Server. | | 
+   | Connection Name (Nome connessione) | <*my-sql-connection*> | Nome per la connessione | 
+   | Nome server SQL | <*my-sql-server*> | Nome del server SQL |
+   | Nome del database SQL | <*my-sql-database*>  | Nome del database SQL |
+   | Username | <*my-sql-username*> | Nome utente per l'accesso al database |
+   | Password | <*my-sql-password*> | Password per l'accesso al database | 
+   | Tipo di autenticazione | Windows o Di base | Facoltativo: Il tipo di autenticazione usato dal server SQL | 
+   | Gateway | <*my-data-gateway*> | Nome del gateway dati locale | 
+   |||| 
+
+2. Al termine dell'operazione, scegliere **Crea**. 
+
+3. Dopo aver creato la connessione, continuare con [Aggiungere un trigger SQL](#add-sql-trigger) oppure [Aggiungere un'azione SQL](#add-sql-action).

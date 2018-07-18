@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212807"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Riconfigurazione con Azure Service Fabric
 Una *configurazione* è definita come le repliche e i relativi ruoli per una partizione di un servizio con stato.

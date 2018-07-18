@@ -1,76 +1,64 @@
 ---
-title: Come estendere (copiare) avvisi dal portale di OMS ad Azure | Microsoft Docs
-description: I clienti possono eseguire volontariamente l'estensione degli avvisi da OMS ad Avvisi di Azure tramite strumenti e API.
+title: Estendere avvisi da Log Analytics ad Azure
+description: In questo articolo vengono descritti gli strumenti e le API mediante i quali è possibile estendere avvisi da Log Analytics ad Azure.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/04/2018
 ms.author: vinagara
-ms.openlocfilehash: 241ac027a0606f901f51d6a20b9a48a2cf7a9fcf
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.component: alerts
+ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166183"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301032"
 ---
-# <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Come estendere (copiare) avvisi da OMS ad Azure
-A partire dal **14 maggio 2018**, tutti gli avvisi configurati in [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) verranno estesi ad Azure. Gli avvisi estesi ad Azure hanno le stesse caratteristiche degli avvisi di OMS. Le funzionalità di monitoraggio rimangono inalterate. L'estensione degli avvisi creati in OMS ad Azure offre numerosi vantaggi. Per altre informazioni sui vantaggi e sul processo di estensione degli avvisi da OMS ad Azure, vedere [Estendere gli avvisi da OMS ad Azure](monitoring-alerts-extend.md).
+# <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estendere avvisi da Log Analytics ad Avvisi di Azure
+La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi di Azure. Nel quadro della transizione, gli avvisi originariamente configurati in Log Analytics verranno estesi in Azure. Se non si desidera attendere che gli avvisi vengano spostati automaticamente in Azure, è possibile avviare il processo:
+
+- Manualmente, dal portale di Operations Management Suite. 
+- A livello di codice, tramite l'API AlertsVersion.  
 
 > [!NOTE]
-> A partire dal 14 maggio 2018 Microsoft inizierà il processo di estensione automatica degli avvisi in Azure. Non tutte le aree di lavoro e gli avvisi verranno estesi in quel giorno: Microsoft inizierà a estendere automaticamente gli avvisi in quote nelle prossime settimane. Di conseguenza gli avvisi nel portale di OMS non verranno estesi automaticamente in Azure il 14 maggio 2018 e gli utenti potranno ancora estendere manualmente gli avvisi usando le opzioni seguenti.
+> Microsoft estenderà automaticamente gli avvisi creati in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Microsoft pianificherà la migrazione degli avvisi in Azure. Durante la transizione, gli avvisi potranno essere gestiti sia dal portale di Operations Management Suite che dal portale di Azure. Tale processo non provoca né eliminazioni, né interruzioni.  
 
-I clienti che vogliono spostare gli avvisi da OMS ad Azure immediatamente, possono usare una delle opzioni indicate di seguito.
+## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opzione 1: procedere dal portale di Operations Management Suite
+Nei passaggi seguenti viene descritto come estendere gli avvisi per l'area di lavoro dal portale di Operations Management Suite.  
 
-## <a name="option-1---using-oms-portal"></a>Opzione 1: uso del portale OMS
-Per avviare volontariamente l'estensione degli avvisi dal portale di OMS ad Azure, seguire questa procedura.
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
+2. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi selezionare il riquadro **Portale di OMS**.
+![Schermata del riquadro di sottoscrizione di Log Analytics, con il riquadro del portale di OMS evidenziato](./media/monitor-alerts-extend/azure-portal-01.png) 
+3. Dopo il reindirizzamento al portale di Operations Management Suite, selezionare l'icona delle **Impostazioni**.
+![Schermata del portale di Operations Management Suite, con l'icona Impostazioni evidenziata](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+4. Nella pagina **Impostazioni** selezionare **Avvisi**.  
+5. Selezionare **Estendi in Azure**.
+![Schermata della pagina Impostazioni sul portale di Operations Management Suite, con Estendi in Azure evidenziato](./media/monitor-alerts-extend/ExtendInto.png)
+6. Nel riquadro **Avvisi** verrà visualizzata una procedura guidata in tre passaggi. Leggere la panoramica e selezionare **Avanti**.
+![Schermata del passaggio 1 della procedura guidata](./media/monitor-alerts-extend/ExtendStep1.png)  
+7. Nel secondo passaggio viene visualizzato un riepilogo delle modifiche proposte, che elenca i [gruppi di azioni](monitoring-action-groups.md) appropriati per gli avvisi. Se in più avvisi sono presenti azioni simili, la procedura guidata propone di associare a tutte un singolo gruppo di azioni.  La convenzione di denominazione è la seguente: *WorkspaceName_AG_#Number*. Per continuare, selezionare **Avanti**.
+![Schermata del passaggio 2 della procedura guidata](./media/monitor-alerts-extend/ExtendStep2.png)  
+8. Nell'ultimo passaggio della procedura guidata, selezionare **Fine**e confermare quando viene richiesto di avviare il processo. Facoltativamente, è possibile fornire un indirizzo di posta elettronica, in modo da ricevere una notifica quando il processo è terminato e tutti gli avvisi sono stati spostati in Avvisi di Azure.
+![Schermata del passaggio 3 della procedura guidata](./media/monitor-alerts-extend/ExtendStep3.png)
 
-1. Nella pagina Panoramica del portale di OMS passare a Impostazioni e quindi alla sezione Avvisi. Fare clic sul pulsante "Extend into Azure" (Estendi ad Azure), come evidenziato nella figura seguente.
-
-    ![Pagina Impostazioni avvisi del portale di OMS con l'opzione per l' estensione](./media/monitor-alerts-extend/ExtendInto.png)
-
-2. Dopo aver selezionato il pulsante, viene visualizzata una procedura guidata in 3 passaggi. Il primo passaggio fornisce i dettagli del processo. Premere Avanti per continuare.
-
-    ![Estendere avvisi dal portale di OMS ad Azure - Passaggio 1](./media/monitor-alerts-extend/ExtendStep1.png)
-
-3. Nel secondo passaggio il sistema visualizza un riepilogo della modifica proposta, elencando i [Gruppi di azioni](monitoring-action-groups.md) appropriati, per gli avvisi presenti nel portale di OMS. Se in più avvisi sono presenti azioni simili, il sistema propone di associare a tutte un singolo gruppo di azioni.  Il gruppo di azioni proposto segue la convenzione di denominazione: *NomeAreaDiLavoro_GA_#Numero*. Per procedere, fare clic su Avanti.
-Di seguito, una schermata di esempio.
-
-    ![Estendere avvisi dal portale di OMS ad Azure - Passaggio 2](./media/monitor-alerts-extend/ExtendStep2.png)
-
-
-4. Nell'ultimo passaggio della procedura guidata è possibile chiedere al portale di OMS di pianificare l'estensione di tutti gli avvisi ad Azure, creando nuovi gruppi di azioni e associandoli agli avvisi, come illustrato nella schermata precedente. Per continuare, scegliere Fine e confermare al prompt per avviare il processo. Facoltativamente, i clienti possono anche specificare gli indirizzi di posta elettronica a cui il portale di OMS deve inviare un report al termine dell'elaborazione.
-
-    ![Estendere avvisi dal portale di OMS ad Azure - Passaggio 3](./media/monitor-alerts-extend/ExtendStep3.png)
-
-5. Al termine della procedura guidata si viene reindirizzati alla pagina Impostazioni avvisi e l'opzione "Extend into Azure" (Estendi ad Azure) viene rimossa. In background, il portale di OMS pianificherà l'estensione degli avvisi da Log Analytics ad Azure. L'operazione può richiedere alcuni minuti e, una volta avviata, per un breve periodo non sarà possibile apportare modifiche agli avvisi nel portale di OMS. Verrà visualizzato lo stato corrente tramite banner e, se al passaggio 4 sono stati forniti gli indirizzi di posta elettronica, si riceverà una notifica quando il processo in background estende correttamente tutti gli avvisi ad Azure. 
-
-6. Gli avvisi continueranno a essere elencati nel portale di OMS, anche al termine dell'estensione ad Azure.
-
-    ![Dopo l'estensione degli avvisi dal portale di OMS ad Azure](./media/monitor-alerts-extend/PostExtendList.png)
+Quando la procedura guidata è terminata, sulla pagina **Impostazioni avvisi** la possibilità di estendere gli avvisi in Azure viene rimossa. In background, gli avvisi vengono spostati in Azure. Tale operazione può richiedere alcuni minuti. Durante l'operazione, è possibile apportare modifiche agli avvisi dal portale di Operations Management Suite. È possibile visualizzare lo stato corrente dallo striscione nella parte superiore del portale. Se è stato specificato un indirizzo di posta elettronica in precedenza, una volta completato il processo verrà visualizzato un messaggio di posta elettronica.  
 
 
-## <a name="option-2---using-api"></a>Opzione 2: uso dell'API
-Per i clienti che vogliono automatizzare o controllare a livello di codice il processo di estensione degli avvisi dal portale di OMS ad Azure, Microsoft ha rilasciato una nuova API AlertsVersion in Log Analytics.
+Gli avvisi continueranno a essere elencati nel portale di Operations Management Suite, anche dopo essere stati spostati correttamente in Azure.
+![Schermata della pagina Impostazioni avvisi sul portale di Operations Management Suite](./media/monitor-alerts-extend/PostExtendList.png)
 
-L'API AlertsVersion di Log Analytics è RESTful ed è accessibile tramite l'API REST di Azure Resource Manager. In questo documento sono disponibili esempi in cui si accede all'API da una riga di comando di PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento della riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager. L'uso di ARMClient e PowerShell è una delle numerose opzioni di accesso all'API. L'API restituisce i risultati in formato JSON, consentendone l'utilizzo in diversi modi a livello di codice.
 
-Usando GET sull'API, è possibile ottenere il riepilogo della modifica proposta come elenco di [Gruppi di azioni](monitoring-action-groups.md) appropriati per gli avvisi nel portale di OMS, in formato JSON. Se in più avvisi sono presenti azioni simili, il sistema propone di associare a tutte un singolo gruppo di azioni.  Il gruppo di azioni proposto segue la convenzione di denominazione: *NomeAreaDiLavoro_GA_#Numero*.
+## <a name="option-2-use-the-alertsversion-api"></a>Opzione 2: usare l'API AlertsVersion
+È possibile usare l'API AlertsVersion di Log Analytics per estendere avvisi da Log Analytics ad Avvisi di Azure da qualsiasi client in grado di chiamare un'API REST. È possibile accedere all'API da PowerShell tramite [ARMClient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source. È possibile visualizzare i risultati in JSON.  
+
+Per usare l'API, è innanzitutto necessario creare una richiesta GET. Questa valuta e restituisce un riepilogo delle modifiche proposte, prima di tentare l'estensione effettiva in Azure tramite una richiesta POST. L'elenco risultati riporta gli avvisi e un elenco proposto di [gruppi di azioni](monitoring-action-groups.md), in formato JSON. Se in più avvisi sono presenti azioni simili, il servizio propone di associare a tutte un singolo gruppo di azioni. La convenzione di denominazione è la seguente: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
-> [!NOTE]
-> La chiamata GET all'API non comporterà l'estensione degli avvisi dal portale di OMS ad Azure. Si limiterà a fornire come risposta il riepilogo delle modifiche proposte. Per confermare l'esecuzione delle modifiche in modo da estendere gli avvisi ad Azure, è necessario eseguire una chiamata POST all'API.
-
-Se la chiamata GET all'API ha esito positivo, insieme alla risposta 200 OK, verrà fornito un elenco JSON di avvisi insieme ai gruppi di azioni proposti. Di seguito, una risposta di esempio:
+Se la richiesta GET ha esito positivo, viene restituito un codice di stato HTTP 200, assieme a un elenco di avvisi e gruppi di azioni proposti nei dati JSON. Di seguito è riportata una risposta di esempio:
 
 ```json
 {
@@ -127,7 +115,7 @@ Se la chiamata GET all'API ha esito positivo, insieme alla risposta 200 OK, verr
 }
 
 ```
-In caso non siano presenti avvisi nell'area di lavoro specificata, insieme alla risposta 200 OK per l'operazione GET il formato JSON sarà:
+Se l'area di lavoro specificata non dispone di regole di avviso definite, i dati JSON restituiscono quanto segue:
 
 ```json
 {
@@ -136,14 +124,15 @@ In caso non siano presenti avvisi nell'area di lavoro specificata, insieme alla 
 }
 ```
 
-Se tutti gli avvisi nell'area di lavoro specificata, sono già stati estesi ad Azure, la risposta alla chiamata GET sarà:
+Se tutte le regole di avviso nell'area di lavoro specificata sono già state estese ad Azure, la risposta alla richiesta GET sarà:
+
 ```json
 {
     "version": 2
 }
 ```
 
-Per avviare la pianificazione dell'estensione degli avvisi dal portale di OMS ad Azure, eseguire una chiamata POST all'API. L'esecuzione di tale chiamata/comando conferma le finalità dell'utente e l'accettazione dell'estensione degli avvisi dal portale di OMS ad Azure ed esegue le modifiche, come indicato nella risposta della chiamata GET all'API. L'utente può facoltativamente fornire un elenco di indirizzi di posta elettronica a cui il portale di OMS invierà un report al termine del processo in background di estensione degli avvisi dal portale di OMS ad Azure pianificato.
+Per avviare la migrazione degli avvisi in Azure, avviare una risposta POST. La risposta POST conferma la finalità e l'accettazione dell'estensione degli avvisi da Log Analytics ad Avvisi di Azure. L'attività è pianificata e gli avvisi vengono elaborati come indicato, in base ai risultati, quando la risposta GET è stata eseguita in precedenza. È possibile fornire facoltativamente un elenco di indirizzi di posta elettronica a cui Log Analytics invierà un report al termine del processo in background di migrazione degli avvisi. È possibile usare la richiesta di esempio seguente:
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -151,17 +140,17 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Il risultato dell'estensione degli avvisi dal portale di OMS ad Azure può variare rispetto al riepilogo fornito da GET, in base a qualsiasi modifica apportata nel sistema. Dopo aver pianificato l'operazione non sarà più possibile apportare modifiche agli avvisi nel portale di OMS, sebbene sia possibile crearne di nuovi. 
+> Il risultato della migrazione degli avvisi in Avvisi di Azure può variare a seconda del riepilogo fornito dalla risposta GET. Se pianificato, gli avvisi in Log Analytics sono temporaneamente disattivati per la modifica nel portale di Operations Management Suite. Tuttavia, è possibile creare nuovi avvisi. 
 
-Se la chiamata POST ha esito positivo, restituisce una risposta 200 OK insieme a:
+Se la richiesta POST ha esito positivo, restituisce uno stato HTTP 200 OK, assieme alla risposta seguente:
+
 ```json
 {
     "version": 2
 }
 ```
-Tale risposta indica che gli avvisi sono stati estesi ad Azure, come indicato dalla versione 2. Questa versione ha il solo scopo di verificare se gli avvisi sono stati estesi ad Azure e non hanno effetto sull'utilizzo con l'[API di ricerca di Log Analytics](../log-analytics/log-analytics-api-alerts.md). Dopo che gli avvisi sono stati correttamente estesi ad Azure, a tutti indirizzi di posta elettronica forniti durante le operazioni GET verrà inviato un report con i dettagli delle modifiche apportate.
 
-Infine, se tutti gli avvisi nell'area di lavoro specificata sono già stati impostati per l'estensione ad Azure, la risposta a POST sarà 403 Accesso negato. Per visualizzare eventuali messaggi di errore o capire se il processo di estensione è bloccato, l'utente può eseguire una chiamata GET e l'eventuale messaggio di errore verrà restituito insieme al riepilogo.
+Questa risposta indica che gli avvisi sono stati estesi in Avvisi di Azure. Questa proprietà Version ha il solo scopo di verificare se gli avvisi sono stati estesi ad Azure e non ha effetto sull'[API di ricerca di Log Analytics](../log-analytics/log-analytics-api-alerts.md). Una volta estesi correttamente gli avvisi in Azure, viene inviato un report agli eventuali indirizzi di posta elettronica forniti con la richiesta POST. Se tutti gli avvisi nell'area di lavoro specificata sono già stati impostati per l'estensione, la risposta alla richiesta POST sarà di accesso negato (codice di stato 403). Per visualizzare eventuali messaggi di errore o capire se il processo è bloccato, è possibile inviare una richiesta GET. Se è presente un messaggio di errore, questo viene restituito assieme ai dati di riepilogo.
 
 ```json
 {
@@ -224,35 +213,271 @@ Infine, se tutti gli avvisi nell'area di lavoro specificata sono già stati impo
 
 ```
 
+
+## <a name="option-3-use-a-custom-powershell-script"></a>Opzione 3: usare uno script PowerShell personalizzato
+ Se Microsoft non è riuscita a estendere gli avvisi dal portale di Operations Management Suite in Azure, è possibile eseguire questa operazione manualmente fino al 5 luglio 2018. Le due opzioni per l'estensione manuale vengono trattate nelle due sezioni precedenti.
+
+Dopo il 5 luglio 2018, tutti gli avvisi verranno estesi dal portale di Operations Management Suite in Azure. Gli avvisi degli utenti che non hanno eseguito la [procedura di correzione necessaria suggerita](#troubleshooting) saranno eseguiti senza la generazione di azioni o notifiche, a causa della mancanza di [gruppi di azioni](monitoring-action-groups.md) associati. 
+
+Per creare manualmente [gruppi di azioni](monitoring-action-groups.md) per gli avvisi in Log Analytics, usare lo script di esempio seguente:
+```PowerShell
+########## Input Parameters Begin ###########
+
+
+$subscriptionId = ""
+$resourceGroup = ""
+$workspaceName = "" 
+
+
+########## Input Parameters End ###########
+
+armclient login
+
+try
+{
+    $workspace = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/"$workspaceName"?api-version=2015-03-20 | ConvertFrom-Json
+    $workspaceId = $workspace.properties.customerId
+    $resourceLocation = $workspace.location
+}
+catch
+{
+    "Please enter valid input parameters i.e. Subscription Id, Resource Group and Workspace Name !!"
+    exit
+}
+
+# Get Extend Summary of the Alerts
+"`nGetting Extend Summary of Alerts for the workspace...`n"
+try
+{
+
+    $value = armclient get /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview
+
+    "Extend preview summary"
+    "=========================`n"
+
+    $value
+
+    $result = $value | ConvertFrom-Json
+}
+catch
+{
+
+    $ErrorMessage = $_.Exception.Message
+    "Error occured while fetching/parsing Extend summary: $ErrorMessage"
+    exit 
+}
+
+if ($result.version -eq 2)
+{
+    "`nThe alerts in this workspace have already been extended to Azure."
+    exit
+}
+
+$in = Read-Host -Prompt "`nDo you want to continue extending the alerts to Azure? (Y/N)"
+
+if ($in.ToLower() -ne "y")
+{
+    exit
+} 
+
+
+# Check for resource provider registration
+try
+{
+    $val = armclient get subscriptions/$subscriptionId/providers/microsoft.insights/?api-version=2017-05-10 | ConvertFrom-Json
+    if ($val.registrationState -eq "NotRegistered")
+    {
+        $val = armclient post subscriptions/$subscriptionId/providers/microsoft.insights/register/?api-version=2017-05-10
+    }
+}
+catch
+{
+    "`nThe user does not have required access to register the resource provider. Please try with user having Contributor/Owner role in the subscription"
+    exit
+}
+
+$actionGroupsMap = @{}
+try
+{
+    "`nCreating new action groups for alerts extension...`n"
+    foreach ($actionGroup in $result.migrationSummary.actionGroups)
+    {
+        $actionGroupName = $actionGroup.actionGroupName
+        $actions = $actionGroup.actions
+        if ($actionGroupsMap.ContainsKey($actionGroupName))
+        {
+            continue
+        } 
+        
+        # Create action group payload
+        $shortName = $actionGroupName.Substring($actionGroupName.LastIndexOf("AG_"))
+        $properties = @{"groupShortName"= $shortName; "enabled" = $true}
+        $emailReceivers = New-Object Object[] $actions.emailIds.Count
+        $webhookReceivers = New-Object Object[] $actions.webhookActions.Count
+        
+        $count = 0
+        foreach ($email in $actions.emailIds)
+        {
+            $emailReceivers[$count] = @{"name" = "Email$($count+1)"; "emailAddress" = "$email"}
+            $count++
+        }
+
+        $count = 0
+        foreach ($webhook in $actions.webhookActions)
+        {
+            $webhookReceivers[$count] = @{"name" = "$($webhook.name)"; "serviceUri" = "$($webhook.serviceUri)"}
+            $count++
+        }
+
+        $itsmAction = $actions.itsmAction
+        if ($itsmAction.connectionId -ne $null)
+        {
+            $val = @{
+            "name" = "ITSM"
+            "workspaceId" = "$subscriptionId|$workspaceId"
+            "connectionId" = "$($itsmAction.connectionId)"
+            "ticketConfiguration" = $itsmAction.templateInfo
+            "region" = "$resourceLocation"
+            }
+            $properties["itsmReceivers"] = @($val)  
+        }
+
+        $properties["emailReceivers"] = @($emailReceivers)
+        $properties["webhookReceivers"] = @($webhookReceivers)
+        $armPayload = @{"properties" = $properties; "location" = "Global"} | ConvertTo-Json -Compress -Depth 4
+
+    
+        # Azure Resource Manager call to create action group
+        $response = $armPayload | armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroupName/?api-version=2017-04-01
+
+        "Created Action Group with name $actionGroupName" 
+        $actionGroupsMap[$actionGroupName] = $actionGroup.actionGroupResourceId.ToLower()
+        $index++
+    }
+
+    "`nSuccessfully created all action groups!!"
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message
+
+    #Delete all action groups in case of failure
+    "`nDeleting newly created action groups if any as some error happened..."
+    
+    foreach ($actionGroup in $actionGroupsMap.Keys)
+    {
+        $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+    }
+
+    "`nError: $ErrorMessage"
+    "`nExiting..."
+    exit
+}
+
+# Update all alerts configuration to the new version
+"`nExtending OMS alerts to Azure...`n"
+
+try
+{
+    $index = 1
+    foreach ($alert in $result.migrationSummary.alerts)
+    {
+        $uri = $alert.alertId + "?api-version=2015-03-20"
+        $config = armclient get $uri | ConvertFrom-Json
+        $aznsNotification = @{
+            "GroupIds" = @($actionGroupsMap[$alert.actionGroupName])
+        }
+        if ($alert.customWebhookPayload)
+        {
+            $aznsNotification.Add("CustomWebhookPayload", $alert.customWebhookPayload)
+        }
+        if ($alert.customEmailSubject)
+        {
+            $aznsNotification.Add("CustomEmailSubject", $alert.customEmailSubject)
+        }      
+
+        # Update alert version
+        $config.properties.Version = 2
+
+        $config.properties | Add-Member -MemberType NoteProperty -Name "AzNsNotification" -Value $aznsNotification
+        $payload = $config | ConvertTo-Json -Depth 4
+        $response = $payload | armclient put $uri
+    
+        "Extended alert with name $($alert.alertName)"
+        $index++
+    }
+}
+catch
+{
+    $ErrorMessage = $_.Exception.Message   
+    if ($index -eq 1)
+    {
+        "`nDeleting all newly created action groups as no alerts got extended..."
+        foreach ($actionGroup in $actionGroupsMap.Keys)
+        {
+            $response = armclient delete /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.insights/actionGroups/$actionGroup/?api-version=2017-04-01      
+        }
+        "`nDeleted all action groups."  
+    }
+    
+    "`nError: $ErrorMessage"
+    "`nPlease resolve the issue and try extending again!!"
+    "`nExiting..."
+    exit
+}
+
+"`nSuccessfully extended all OMS alerts to Azure!!" 
+
+# Update version of workspace to indicate extension
+"`nUpdating alert version information in OMS workspace..." 
+
+$response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/alertsversion?api-version=2017-04-26-preview&iversion=2"
+
+"`nExtension complete!!"
+```
+
+
+### <a name="about-the-custom-powershell-script"></a>Informazioni sullo script PowerShell personalizzato 
+Di seguito sono riportate importanti informazioni sull'uso dello script:
+- Un prerequisito è rappresentato dall'installazione di [ARMclient](https://github.com/projectkudu/ARMClient), uno strumento da riga di comando open source che semplifica la chiamata dell'API di Azure Resource Manager.
+- Per eseguire lo script, è necessario disporre di un ruolo di proprietario o collaboratore nella sottoscrizione di Azure.
+- È necessario specificare i seguenti parametri:
+    - $subscriptionId: ID sottoscrizione di Azure associato con l'area di lavoro di Log Analytics di Operations Management Suite.
+    - $resourceGroup: gruppo di risorse di Azure per l'area di lavoro di Log Analytics di Operations Management Suite.
+    - $workspaceName: nome dell'area di lavoro di Log Analytics di Operations Management Suite.
+
+### <a name="output-of-the-custom-powershell-script"></a>Output dello script PowerShell personalizzato
+Lo script è dettagliato e restituisce i passaggi durante l'esecuzione: 
+- Visualizza il riepilogo, contenente informazioni sugli avvisi di Log Analytics di Operations Management Suite esistenti nell'area di lavoro. Il riepilogo contiene anche informazioni sui gruppi di azioni di Azure da creare per le azioni associate. 
+- Viene chiesto di procedere con l'estensione o uscire dopo la visualizzazione del riepilogo.
+- Se si procede con l'estensione, vengono creati nuovi gruppi di azioni di Azure e tutti gli avvisi esistenti sono associati ad essi. 
+- Lo script viene chiuso visualizzando il messaggio "Estensione completata". In caso di eventuali errori intermedi, lo script visualizza gli errori successivi.
+
 ## <a name="troubleshooting"></a>risoluzione dei problemi 
-Durante il processo di estensione degli avvisi da OMS in Azure possono verificarsi problemi occasionali che impediscono al sistema di creare i [Gruppi di azioni](monitoring-action-groups.md) necessari. In questi casi verrà visualizzato un messaggio di errore nel portale di OMS sotto forma di un banner nella sezione degli avvisi e in una chiamata GET all'API.
+Durante il processo di estensione degli avvisi, alcuni problemi possono impedire al sistema di creare i [gruppi di azioni](monitoring-action-groups.md) necessari. In questi casi, viene visualizzato un messaggio di errore in uno striscione nella sezione **Avviso** del portale di Operations Management Suite o nella chiamata GET effettuata per l'API.
 
-Di seguito sono elencate le procedure di correzione per ogni errore:
-1. **Error: The subscription is not registered to use the namespace 'microsoft.insights'** (Errore: la sottoscrizione non è registrata per l'uso dello spazio dei nomi 'microsoft.insights'): ![Pagina Impostazioni avvisi del portale di OMS con messaggio di errore di registrazione](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+> [!IMPORTANT]
+> Se non si esegue la procedura di correzione seguente prima del 5 luglio 2018, gli avvisi verranno eseguito in Azure, ma non genereranno alcuna azione o notifica. Per ottenere le notifiche degli avvisi è necessario apportare una modifica manuale aggiungendo [gruppi di azioni](monitoring-action-groups.md), oppure usare il precedente [script PowerShell personalizzato](#option-3---using-custom-powershell-script).
 
-    a. La sottoscrizione associata all'area di lavoro di OMS non è stata registrata per l'uso della funzionalità Monitoraggio di Azure (microsoft.insights). Per questo motivo, OMS non può estendere gli avvisi in Monitoraggio di Azure e Avvisi.
-    
-    b. Per risolvere il problema, registrare l'uso di microsoft.insights (Monitoraggio di Azure e Avvisi) nella sottoscrizione tramite PowerShell, l'interfaccia della riga di comando di Azure o il portale di Azure. Per altre informazioni, vedere l'articolo sulla [risoluzione degli errori durante la registrazione del provider di risorse](../azure-resource-manager/resource-manager-register-provider-errors.md)
-    
-    c. Una volta risolto l'errore in base alla procedura illustrata nell'articolo, OMS estenderà gli avvisi in Azure durante l'esecuzione pianificata del giorno successivo senza bisogno di alcun intervento.
-2. **Error: Scope Lock is present at subscription/resource group level for write operations** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un blocco dell'ambito per le operazioni di scrittura): ![Pagina Impostazioni avvisi del portale di OMS con messaggio di errore di blocco dell'ambito](./media/monitor-alerts-extend/ErrorScopeLock.png)
+Di seguito viene elencata la procedura di correzione per ogni errore:
+- **Error: Scope Lock is present at subscription/resource group level for write operations** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un blocco dell'ambito per le operazioni di scrittura): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di blocco dell'ambito evidenziato](./media/monitor-alerts-extend/ErrorScopeLock.png)
 
-    a. Quando è abilitato il blocco dell'ambito, che limita le nuove modifiche nella sottoscrizione o nel gruppo di risorse contenente l'area di lavoro di Log Analytics (OMS), il sistema non è in grado di estendere (copiare) gli avvisi in Azure e creare i gruppi di azioni necessari.
+    Quando l'ambito del blocco è abilitato, la funzionalità limita qualsiasi nuova modifica alla sottoscrizione o al gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
     
-    b. Per risolvere il problema, eliminare il blocco *ReadOnly* sulla sottoscrizione o il gruppo di risorse che contiene l'area di lavoro usando PowerShell, l'interfaccia della riga di comando di Azure, il portale di Azure o l'API. Per altre informazioni, vedere l'articolo sull'[utilizzo del blocco delle risorse](../azure-resource-manager/resource-group-lock-resources.md). 
+    Per risolvere questo problema, eliminare il blocco *ReadOnly* nella sottoscrizione o nel gruppo di risorse contenenti l'area di lavoro. Questa operazione può essere eseguita nel portale di Azure oppure tramite PowerShell, l'interfaccia della riga di comando di Azure o l'API. Per altre informazioni, vedere l'[uso del Blocco risorsa](../azure-resource-manager/resource-group-lock-resources.md). 
     
-    c. Una volta risolto l'errore in base alla procedura illustrata nell'articolo, OMS estenderà gli avvisi in Azure durante l'esecuzione pianificata del giorno successivo senza bisogno di alcun intervento.
+    Quando si risolve l'errore tramite la procedura illustrata nell'articolo, gli avvisi in Operations Management Suite vengono estesi ad Azure nel quadro dell'esecuzione pianificata per il giorno successivo. Non è necessario intraprendere alcun'altra azione né avviare alcuna operazione.
 
-3. **Error: Policy is present at subscription/resource group level** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un criterio): ![Pagina Impostazioni avvisi del portale di OMS con messaggio di errore di criterio](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Error: Policy is present at subscription/resource group level** (Errore: il criterio è presente a livello di sottoscrizione/gruppo di risorse): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di criterio evidenziato](./media/monitor-alerts-extend/ErrorPolicy.png)
 
-    a. Quando è applicato il [criterio di Azure](../azure-policy/azure-policy-introduction.md), che limita le nuove risorse nella sottoscrizione o nel gruppo di risorse contenente l'area di lavoro di Log Analytics (OMS), il sistema non è in grado di estendere (copiare) gli avvisi in Azure e creare i gruppi di azioni necessari.
+    Quando [Criteri di Azure](../azure-policy/azure-policy-introduction.md) è abilitato, la funzionalità limita qualsiasi nuova risorsa in una sottoscrizione o in un gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
     
-    b. Per risolvere, modificare il criterio che causa l'errore *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*  che impedisce la creazione di nuove risorse nella sottoscrizione o nel gruppo di risorse che contiene l'area di lavoro. Usando il portale di Azure, Powershell, l'interfaccia della riga di comando di Azure o l'API è possibile controllare le azioni per trovare il criterio che provoca l'errore. Per altre informazioni, visualizzare l'articolo sulla [visualizzazione dei log attività per il controllo delle azioni](../azure-resource-manager/resource-group-audit.md). 
+    Per risolvere questo problema, modificare il criterio che causa l'errore *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*  che impedisce la creazione di nuove risorse nella sottoscrizione o nel gruppo di risorse che contiene l'area di lavoro. Questa operazione può essere eseguita nel portale di Azure oppure tramite PowerShell, l'interfaccia della riga di comando di Azure o l'API. È possibile controllare le azioni per trovare i criteri che causano l'errore. Per altre informazioni, vedere la [visualizzazione dei log attività per il controllo delle azioni](../azure-resource-manager/resource-group-audit.md). 
     
-    c. Una volta risolto l'errore in base alla procedura illustrata nell'articolo, OMS estenderà gli avvisi in Azure durante l'esecuzione pianificata del giorno successivo senza bisogno di alcun intervento.
+    Quando si risolve l'errore tramite la procedura illustrata nell'articolo, gli avvisi in Operations Management Suite vengono estesi ad Azure nel quadro dell'esecuzione pianificata per il giorno successivo. Non è necessario intraprendere alcun'altra azione né avviare alcuna operazione.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla nuova [esperienza degli avvisi di Azure](monitoring-overview-unified-alerts.md)
+* Altre informazioni sulla nuova [esperienza degli avvisi di Azure](monitoring-overview-unified-alerts.md).
 * Informazioni sugli [avvisi del log in Avvisi di Azure](monitor-alerts-unified-log.md)

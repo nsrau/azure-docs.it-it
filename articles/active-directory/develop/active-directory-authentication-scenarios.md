@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: f85b97791c9e2d17417f82dae05d27838be63703
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157572"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319014"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scenari di autenticazione per Azure AD
 
@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) semplifica l'autenticazione per gli sviluppato
 
 ## <a name="basics-of-authentication-in-azure-ad"></a>Nozioni di base sull'autenticazione in Azure AD
 
-Se non si ha familiarità con le nozioni di base sull'autenticazione in Azure AD, leggere questa sezione. In caso contrario, è possibile passare alla sezione [Scenari e tipi di applicazione](#application-types-and-scenarios).
+Se non si ha familiarità con i concetti di base dell'autenticazione in Azure AD, leggere questa sezione. In caso contrario, è possibile passare alla sezione [Scenari e tipi di applicazione](#application-types-and-scenarios).
 
 Si consideri lo scenario più semplice in cui è necessaria l'identità: un utente deve eseguire l'autenticazione a un'applicazione Web da un Web browser. Questo scenario è descritto più dettagliatamente nella sezione [Da Web browser ad applicazione Web](#web-browser-to-web-application), ma è un punto di partenza utile per illustrare le funzionalità di Azure AD e definire i concetti relativi al funzionamento dello scenario. Per questo scenario considerare il diagramma seguente:
 
@@ -64,7 +64,7 @@ Dopo aver delineato le nozioni di base, è possibile passare alle sezioni seguen
 
 I token di sicurezza (token di accesso e ID) emessi da Azure AD contengono attestazioni o asserzioni di informazioni sull'oggetto autenticato. L'applicazione può usare tali attestazioni per varie attività. Ad esempio, possono essere usate per convalidare il token, identificare il tenant di directory dell'oggetto, visualizzare informazioni relative all'utente, determinare l'autorizzazione dell'oggetto e così via. Le attestazioni presenti in un determinato token di sicurezza dipendono dal tipo di token, dal tipo di credenziali usate per autenticare l'utente e dalla configurazione dell'applicazione. La tabella seguente fornisce una breve descrizione dei tipi di attestazione generati da Azure AD. Per altre informazioni, fare riferimento a [Token e tipi di attestazioni supportati](active-directory-token-and-claims.md).
 
-| Attestazione | Descrizione |
+| Attestazione | DESCRIZIONE |
 | --- | --- |
 | ID applicazione | Identifica l'applicazione che usa il token. |
 | Audience | Identifica la risorsa di destinazione del token. |
@@ -120,7 +120,7 @@ Tutti gli scenari descritti in questo articolo possono essere sviluppati con var
 Azure AD supporta i cinque scenari di applicazione principali descritti di seguito:
 
 * [Da Web browser ad applicazione Web](#web-browser-to-web-application): un utente deve accedere a un'applicazione Web protetta da Azure AD.
-* [Applicazione a pagina singola](#single-page-application-spa): un utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
+* [Applicazione a pagina singola](#single-page-application-spa): un'utente deve accedere a un'applicazione a pagina singola protetta da Azure AD.
 * [Da applicazione nativa ad API Web](#native-application-to-web-api): un'applicazione nativa in esecuzione su un telefono, tablet o PC deve autenticare un utente per ottenere risorse da un'API Web protetta da Azure AD.
 * [Da applicazione Web ad API Web](#web-application-to-web-api): un'applicazione Web deve ottenere risorse da un'API Web protetta da Azure AD.
 * [Da daemon o applicazione server ad API Web](#daemon-or-server-application-to-web-api): un'applicazione daemon o un'applicazione server priva di interfaccia utente Web deve ottenere risorse da un'API Web protetta da Azure AD.
@@ -138,7 +138,7 @@ Questa sezione descrive un'applicazione che autentica un utente in un Web browse
 1. Quando un utente visita l'applicazione e deve eseguire l'accesso, viene reindirizzato tramite una richiesta di accesso all'endpoint di autenticazione in Azure AD.
 1. L'utente accede nella pagina di accesso.
 1. Se l'autenticazione ha esito positivo, Azure AD crea un token di autenticazione e restituisce una risposta di accesso all'URL di risposta dell'applicazione configurato nel portale di Azure. Per un'applicazione di produzione, questo URL di risposta deve essere HTTPS. Il token restituito include le attestazioni sull'utente e Azure AD richieste dall'applicazione per convalidare il token.
-1. L'applicazione convalida il token usando le informazioni sulla chiave di firma pubblica e sull'autorità emittente disponibili nel documento metadati federazione per Azure AD. Dopo la convalida del token da parte dell'applicazione, Azure AD avvia una nuova sessione con l'utente. La sessione consente all'utente di accedere all'applicazione fino alla scadenza.
+1. L'applicazione convalida il token usando le informazioni sulla chiave di firma pubblica e sull'autorità emittente disponibili nel documento metadati federazione per Azure AD. In seguito alla convalida del token da parte dell’applicazione, inizia una nuova sessione con l'utente. La sessione consente all'utente di accedere all'applicazione fino alla scadenza.
 
 #### <a name="code-samples"></a>Esempi di codice
 

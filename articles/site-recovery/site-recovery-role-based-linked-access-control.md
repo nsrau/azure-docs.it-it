@@ -1,27 +1,22 @@
 ---
 title: Uso del controllo degli accessi in base al ruolo per gestire Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come applicare e usare il controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071606"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919727"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Usare il controllo degli accessi in base al ruolo per gestire le distribuzioni di Azure Site Recovery
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Usare il controllo degli accessi in base al ruolo per gestire l'accesso a Site Recovery
 
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il controllo degli accessi in base al ruolo, è possibile separare le responsabilità all'interno del team e concedere agli utenti solo le autorizzazioni di accesso specifiche necessarie per svolgere il lavoro.
 

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849509"
 ---
 # <a name="asdk-administration-basics"></a>Nozioni fondamentali di amministrazione ASDK 
 Vi sono vari fattori, che è necessario sapere se si ha familiarità con amministrazione Azure Stack Development Kit (ASDK). Questa guida viene fornita una panoramica del ruolo come operatore dello Stack di Azure nell'ambiente di valutazione, e come assicurarsi che gli utenti di prova può diventare rapidamente produttivi.
@@ -64,5 +65,5 @@ Per il kit di sviluppo, l'unica possibilità di supporto consiste nel porre doma
 > Poiché il ASDK è un ambiente di valutazione, non sono supportate ufficiale offerti tramite Microsoft cliente il supporto tecnico clienti Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Distribuire il ASDK](asdk-deploy.md)
+[Distribuire il ASDK](asdk-install.md)
 

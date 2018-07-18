@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021626"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.
@@ -44,7 +45,7 @@ I dati di riferimento in questo esempio mostrano in che modo può essere rappres
 - La regola di esempio viene usata per rappresentare un avviso modificabile quando la CPU supera (la media è maggiore o uguale a) il valore `90` per cento. Il campo `value` è configurabile in base alle esigenze.
 - Si noti che la regola ha un campo **operator**, che viene interpretato successivamente in modo dinamico nella sintassi della query in base a `AVGGREATEROREQUAL`. 
 - La regola filtra i dati in base a una determinata chiave della dimensione `2` con valore `C1`. Gli altri campi sono stringhe vuote, che indicano di non filtrare il flusso di input in base a tali campi evento. È possibile configurare altre regole per la CPU in modo da filtrare altri campi corrispondenti in base alle esigenze.
-- Non tutte le colonne devono essere incluse nell'evento di avviso dell'output. In questo caso, il numero della chiave `2` di `includedDim` è attivato su `TRUE` in modo da rappresentare che tale numero del campo 2 dei dati dell'evento nel flusso verrà incluso negli eventi dell'output idonei. Gli altri campi non sono inclusi nell'output dell'avviso, ma l'elenco dei campi può essere modificato.
+- Non tutte le colonne devono essere incluse nell'evento di avviso dell'output. In questo caso, il numero della chiave `2` di `includedDim` è attivato su `TRUE` in modo da rappresentare che il numero del campo 2 dei dati dell'evento nel flusso verrà incluso negli eventi dell'output idonei. Gli altri campi non sono inclusi nell'output dell'avviso, ma l'elenco dei campi può essere modificato.
 
 
 ```json

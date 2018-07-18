@@ -8,19 +8,20 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: protection
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 475b0229b9e627a56b02d2299ee2e5400aa0ede1
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156110"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449144"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Guida introduttiva: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory 
 
@@ -41,8 +42,18 @@ Per completare lo scenario in questa guida introduttiva, sono necessari gli elem
 
 - **Accesso a un'edizione Azure AD Premium**: l'accesso condizionale di Azure AD è una funzionalità di Azure AD Premium. 
 
-- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](add-users-azure-active-directory.md#add-cloud-based-users).
+- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
 
+
+## <a name="test-your-sign-in"></a>Verificare il proprio accesso
+
+L'obiettivo di questo passaggio è farsi un'idea dell'esperienza di accesso senza un criterio di accesso condizionale.
+
+**Per inizializzare l'ambiente:**
+
+1. Accedere al portale di Azure come Isabella Simonsen.
+
+2. Uscire,
 
 
 ## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale 
@@ -68,7 +79,7 @@ Nei criteri, impostare:
 
 **Per configurare i criteri di accesso condizionale:**
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
+1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale, amministratore della sicurezza o amministratore di accesso condizionale.
 
 2. Sulla barra di spostamento a sinistra nel portale di Azure fare clic su **Azure Active Directory**. 
 
@@ -178,7 +189,7 @@ Per inizializzare lo strumento Valutazioni dei criteri di simulazione, impostare
 
     c. Fare clic su **Seleziona**.
 
-    d. Nella pagina **Seleziona** selezionare Gestione di Microsoft Azure** e quindi fare clic su **Seleziona**.
+    d. Nella pagina **Seleziona** selezionare **Gestione di Microsoft Azure** e quindi fare clic su **Seleziona**.
 
     e. Nella pagina App cloud fare clic su **Fine**.
 
@@ -198,7 +209,7 @@ Per testare i criteri, provare ad accedere al [portale di Azure](https://portal.
 
 Quando non sono più necessari, eliminare l'utente di test e i criteri di accesso condizionale:
 
-- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
 
 - Per eliminare i criteri, selezionarli e quindi fare clic su **Elimina** nella barra di accesso rapido.
 
@@ -207,5 +218,6 @@ Quando non sono più necessari, eliminare l'utente di test e i criteri di access
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'argomento, vedere [Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
-
+> [!div class="nextstepaction"]
+> [Richiedere le condizioni d'uso per essere accettati](./active-directory-conditional-access-tou.md)
+> [Bloccare l'accesso quando viene rilevato un rischio per la sessione](./active-directory-conditional-access-app-sign-in-risk.md)

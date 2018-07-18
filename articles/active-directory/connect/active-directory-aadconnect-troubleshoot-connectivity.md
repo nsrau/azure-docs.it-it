@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: risolvere i problemi di connettività | Microsoft Docs'
+title: 'Azure AD Connect: risolvere i problemi di connettività | Documentazione Microsoft'
 description: Descrive come risolvere i problemi di connettività con Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295397"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Risolvere i problemi di connettività con Azure AD Connect
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -172,7 +174,7 @@ L'autenticazione ha avuto esito positivo, ma Azure AD PowerShell ha un problema 
 L'autenticazione ha avuto esito positivo. L'utente non è un amministratore globale.
 
 ### <a name="privilegedidentitymanagement"></a>Privileged Identity Management
-L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+L'autenticazione ha avuto esito positivo. Privileged Identity Management è abilitata e l'utente attualmente non è un amministratore globale. Per altre informazioni, vedere [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
 ### <a name="companyinfounavailable"></a>Informazioni aziendali non disponibili
 L'autenticazione ha avuto esito positivo. Impossibile recuperare le informazioni aziendali da Azure AD.

@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect: Quando è già presente Azure AD | Documentazione Microsoft"
-description: "Questo argomento illustra come usare Connect quando è presente un tenant Azure AD."
+title: 'Azure AD Connect: Quando è già presente Azure AD | Documentazione Microsoft'
+description: Questo argomento illustra come usare Connect quando è presente un tenant Azure AD.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725208"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect con un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -56,7 +58,7 @@ Per i gruppi abilitati alla posta e ai contatti è possibile eseguire la corrisp
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Creare una nuova istanza di Active Directory locale dai dati di Azure AD
 Alcuni clienti iniziano con una soluzione solo cloud con Azure AD e non hanno un'istanza di AD locale. In un secondo momento intendono usare risorse locali e creare un'istanza di AD locale basata sui dati di Azure AD. Azure AD Connect non potrà essere utile per questo scenario. Non crea gli utenti locali e non può impostare in locale la stessa password di Azure AD.
 
-Se l'unico motivo per cui si prevede di aggiungere un'istanza di AD locale è il supporto di LOB (app line-of-business), forse è opportuno considerare invece l'uso di [Azure AD Domain Services](../../active-directory-domain-services/index.md).
+Se l'unico motivo per cui si prevede di aggiungere un'istanza di AD locale è il supporto di LOB (app line-of-business), forse è opportuno considerare invece l'uso di [Azure AD Domain Services](../../active-directory-domain-services/index.yml).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su [Integrazione delle identità locali con Azure Active Directory](active-directory-aadconnect.md).

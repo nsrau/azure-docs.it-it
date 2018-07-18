@@ -2,23 +2,24 @@
 title: Aggiungere uno script a un piano di ripristino in Azure Site Recovery | Microsoft Docs
 description: Informazioni sui prerequisiti per l'aggiunta di un nuovo script di System Center Virtual Machine Manager (VMM) a un piano di ripristino in Azure.
 services: site-recovery
-documentationcenter: 
-author: ruturaj
-manager: shons
-editor: 
+documentationcenter: ''
+author: rajani-janaki-ram
+manager: rochakm
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2017
-ms.author: ruturaj
-ms.openlocfilehash: 2e00f812fb35ac9a0cb390fc6a3ba40a8678f8dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 07/06/2018
+ms.author: rajanaki
+ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917335"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Aggiungere uno script VMM a un piano di ripristino
 
@@ -77,7 +78,7 @@ Dopo avere aggiunto macchine virtuali o gruppi di replica a un piano di ripristi
 1. Aprire il piano di ripristino.
 2. Nell'elenco **Passaggio** selezionare una voce. Selezionare quindi **Script** o **Azione manuale**.
 3. Specificare se si desidera aggiungere lo script o l’azione prima o dopo l'elemento selezionato. Per spostare lo script verso l'alto o verso il basso nell'elenco, usare i pulsanti **Sposta su** e **Sposta giù**.
-4. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione. Ad esempio, **\RPScripts\RPScript.PS1**.
+4. Se si aggiunge uno script VMM, selezionare **Failover to VMM script** (Failover nello script VMM). In **Percorso script** immettere il percorso relativo della condivisione, Ad esempio, **\RPScripts\RPScript.PS1**.
 5. Se si aggiunge un runbook di automazione di Azure, specificare l'account di Automazione di Azure in cui si trova il runbook e selezionare lo script di runbook di Azure che si desidera usare.
 6. Per verificare che lo script funzioni come previsto, eseguire un failover di prova del piano di ripristino.
 

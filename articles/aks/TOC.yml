@@ -31,6 +31,8 @@
   items:
     - name: Quote e limiti a livello di area
       href: container-service-quotas.md
+    - name: Eseguire la migrazione dal servizio contenitore di Azure ad AKS
+      href: acs-aks-migration.md
 - name: Guide alle procedure
   items:
     - name: Operazioni del cluster
@@ -43,6 +45,13 @@
           href: upgrade-cluster.md
         - name: Eliminare un cluster del servizio contenitore di Azure
           href: delete-cluster.md
+        - name: AKS abilitato per Azure AD
+          href: aad-integration.md
+        - name: Usare Virtual Kubelet
+          href: virtual-kubelet.md
+        - name: Distribuire AKS con Terraform
+          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+          maintainContext: true
     - name: Configurare i volumi di dati
       items:
         - name: Disco di Azure - Configurazione dinamica
@@ -63,6 +72,8 @@
           href: internal-lb.md
         - name: Traffico in ingresso e TLS
           href: ingress.md
+        - name: Traffico in uscita
+          href: egress.md
         - name: Routing di applicazioni HTTP
           href: http-application-routing.md
     - name: Sicurezza e autenticazione
@@ -71,22 +82,35 @@
           href: kubernetes-service-principal.md
         - name: Eseguire l'autenticazione con Registro contenitori di Azure
           href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+    - name: Monitoraggio e registrazione
+      items:
+        - name: Soluzione per l'integrità dei contenitori di Azure
+          href: ../monitoring/monitoring-container-health.md
+          maintainContext: true
     - name: Sviluppare ed eseguire applicazioni
       items:
         - name: Eseguire applicazioni con Helm
           href: kubernetes-helm.md
+        - name: Sviluppare con Dev Spaces
+          href: ../dev-spaces/azure-dev-spaces.md
+          maintainContext: true
         - name: Sviluppare applicazioni con Draft
           href: kubernetes-draft.md
         - name: Open Service Broker for Azure
           href: integrate-azure.md
-        - name: Distribuzione continua di Jenkins
-          href: jenkins-continuous-deployment.md
         - name: Uso di OpenFaaS con il servizio contenitore di Azure
           href: openfaas.md
         - name: Eseguire processi Spark nel servizio contenitore di Azure
           href: spark-job.md
         - name: Uso di GPU nel servizio contenitore di Azure
           href: gpu-cluster.md
+    - name: DevOps in AKS
+      items:
+        - name: Distribuzione continua di Jenkins
+          href: jenkins-continuous-deployment.md
+        - name: Progetto DevOps di Azure per AKS
+          href: ../devops-project/azure-devops-project-aks.md
+          maintainContext: true
     - name: Nozioni di base di Kubernetes
       items:
         - name: Usare il dashboard Kubernetes
@@ -103,6 +127,18 @@
       href: /cli/azure/aks
     - name: REST
       href: /rest/api/aks
+    - name: PowerShell
+      href: '/powershell/module/azurerm.aks#aks'
+    - name: .NET
+      href: /dotnet/api/overview/azure/containerservice
+    - name: Python
+      href: /python/api/overview/azure/containerservice
+    - name: Java
+      href: /java/api/overview/azure/containerservice
+    - name: Node.js
+      href: /javascript/api/overview/azure/container-service
+    - name: Modello di Resource Manager
+      href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Risorse
   items:
     - name: Aree di disponibilità

@@ -1,30 +1,27 @@
 ---
 title: Sicurezza in Azure IoT Edge | Microsoft Docs
 description: Sicurezza, autenticazione e autorizzazione dei dispositivi IoT Edge
-services: iot-edge
-keywords: 
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 8a5bf1f35fcdd779cf27edeba7dfd5705cbae205
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030581"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Sicurezza in Azure IoT Edge - anteprima
+# <a name="securing-azure-iot-edge"></a>Sicurezza in Azure IoT Edge
 
 La sicurezza dei dispositivi perimetrali intelligenti è necessaria per attribuire affidabilità nell'esecuzione di una soluzione IoT end-to-end. Azure IoT Edge è progettato per la sicurezza che può essere estesa a diversi profili di rischi, scenari di distribuzione e offre la stessa protezione che ci si aspetta da tutti i servizi di Azure.
 
 Azure IoT Edge viene eseguito su diversi hardware, supporta sia Windows che Linux ed è applicabile a diversi scenari di distribuzione.  La valutazione del rischio dipende da molte considerazioni che includono la proprietà della soluzione, la geografia di distribuzione, la riservatezza dei dati, la privacy, il segmento verticale dell'applicazione e i requisiti normativi.  Invece di offrire soluzioni concrete per scenari specifici, è opportuno progettare un framework di sicurezza estensibile basato su principi ponderati progettati su larga scala. 
  
 Questo articolo offre una panoramica sul framework di sicurezza. Per altre informazioni, vedere [Securing the intelligent edge][lnk-edge-blog] (Protezione dei dispositivi perimetrali intelligenti).
-
->[!NOTE]
->Il framework di sicurezza descritto di seguito verrà aggiunto al prodotto a breve e sarà disponibile a livello generale con Azure IoT Edge. Il prodotto è attualmente in anteprima pubblica, una versione che consente lo sviluppo e la creazione di prototipi di soluzioni perimetrali, non distribuzioni di produzione complete che richiedono il framework di sicurezza avanzata.   
 
 ## <a name="standards"></a>Standard
 

@@ -1,12 +1,29 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: jboeshart
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jaboes
+ms.custom: include file
+ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269562"
+---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso di Managed Disks nei modelli di Azure Resource Manager
 
-Questo documento descrive le differenze tra dischi gestiti e non gestiti quando si usano i modelli di Azure Resource Manager per eseguire il provisioning di macchine virtuali. Le informazioni sono utili per aggiornare i modelli esistenti con dischi non gestiti per l'uso dei dischi gestiti. A titolo di riferimento, come guida viene usato il modello [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows). Per un eventuale confronto diretto, è possibile visualizzare sia il modello per l'uso di [dischi gestiti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json), sia una versione precedente per [dischi non gestiti](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json).
+Questo documento descrive le differenze tra dischi gestiti e non gestiti quando si usano i modelli di Azure Resource Manager per eseguire il provisioning di macchine virtuali. Gli esempi sono utili per aggiornare i modelli esistenti con dischi non gestiti per l'uso dei dischi gestiti. A titolo di riferimento, come guida viene usato il modello [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows). Per un eventuale confronto diretto, è possibile visualizzare sia il modello per l'uso di [dischi gestiti](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json), sia una versione precedente per [dischi non gestiti](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json).
 
 ## <a name="unmanaged-disks-template-formatting"></a>Formattazione del modello per dischi non gestiti
 
-Per iniziare, viene esaminata la modalità di distribuzione dei dischi non gestiti. Quando si creano dischi non gestiti, è necessario un account di archiviazione in cui salvare i file VHD. È possibile creare un nuovo account di archiviazione o usarne uno già esistente. Questo articolo illustra come creare un nuovo account di archiviazione. A questo scopo, è necessario una risorsa account di archiviazione nel blocco delle risorse, come illustrato di seguito.
+Per iniziare, viene esaminata la modalità di distribuzione dei dischi non gestiti. Quando si creano dischi non gestiti, è necessario un account di archiviazione in cui salvare i file VHD. È possibile creare un nuovo account di archiviazione o usarne uno già esistente. Questo articolo illustra come creare un nuovo account di archiviazione. Creare una risorsa account di archiviazione nel blocco delle risorse, come illustrato di seguito.
 
-```
+```json
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
@@ -20,9 +37,9 @@ Per iniziare, viene esaminata la modalità di distribuzione dei dischi non gesti
 }
 ```
 
-All'interno dell'oggetto macchina virtuale è necessaria una dipendenza dall'account di archiviazione, per assicurarsi che venga creato prima della macchina virtuale. All'interno della sezione `storageProfile` viene quindi specificato l'URI completo del percorso del disco rigido virtuale, che fa riferimento all'account di archiviazione ed è necessario per il disco del sistema operativo e i dischi dati. 
+All'interno dell'oggetto macchina virtuale aggiungere una dipendenza dall'account di archiviazione, per assicurarsi che venga creato prima della macchina virtuale. All'interno della sezione `storageProfile` specificare l'URI completo del percorso del disco rigido virtuale, che fa riferimento all'account di archiviazione ed è necessario per il disco del sistema operativo ed eventuali dischi dati.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
@@ -81,7 +98,7 @@ Con Azure Managed Disks, il disco diventa una risorsa di primo livello e non ric
 
 Per creare una macchina virtuale con dischi gestiti, non è più necessario creare la risorsa account di archiviazione ed è possibile aggiornare la risorsa macchina virtuale come indicato di seguito. Si noti in particolare che `apiVersion` corrisponde a `2017-03-30` e che `osDisk` e `dataDisks` non fanno più riferimento a uno specifico URI per il disco rigido virtuale. Quando si distribuisce senza specificare proprietà aggiuntive, il disco usa l'[archiviazione con ridondanza locale Standard](../articles/storage/common/storage-redundancy.md). Se non si specifica un nome, assume il formato `<VMName>_OsDisk_1_<randomstring>` per il disco del sistema operativo e `<VMName>_disk<#>_<randomstring>` per ogni disco dati. Per impostazione predefinita, la crittografia dischi di Azure è disattivata; la memorizzazione nella cache è impostata su lettura/scrittura per il disco del sistema operativo e disattivata per i dischi dati. Nell'esempio seguente si può osservare che è ancora presente una dipendenza dall'account di archiviazione, ma è solo per l'archiviazione della diagnostica e non è necessaria per l'archiviazione su disco.
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
@@ -122,7 +139,7 @@ Per creare una macchina virtuale con dischi gestiti, non è più necessario crea
 
 Come alternativa alla specifica della configurazione del disco nell'oggetto macchina virtuale, è possibile creare una risorsa disco di primo livello e collegarla nell'ambito della creazione della macchina virtuale. Ad esempio, è possibile creare una risorsa disco come segue per usarla come disco dati.
 
-```
+```json
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
@@ -140,9 +157,9 @@ Come alternativa alla specifica della configurazione del disco nell'oggetto macc
 }
 ```
 
-All'interno dell'oggetto macchina virtuale, è quindi possibile fare riferimento all'oggetto disco da collegare. Specificare l'ID risorsa del disco gestito creato nella proprietà `managedDisk` consente di collegare il disco non appena viene creata la macchina virtuale. Si noti che `apiVersion` per la risorsa della macchina virtuale è impostato su `2017-03-30`. Si noti inoltre che è stata creata una dipendenza dalla risorsa disco per garantire che sia correttamente creata prima della creazione della macchina virtuale. 
+All'interno dell'oggetto macchina virtuale, fare riferimento all'oggetto disco da collegare. Specificare l'ID risorsa del disco gestito creato nella proprietà `managedDisk` consente di collegare il disco non appena viene creata la macchina virtuale. Il valore di `apiVersion` per la risorsa della macchina virtuale viene impostato su `2017-03-30`. Viene aggiunta una dipendenza dalla risorsa disco per garantire che venga correttamente creata prima della creazione della macchina virtuale. 
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
@@ -185,9 +202,9 @@ All'interno dell'oggetto macchina virtuale, è quindi possibile fare riferimento
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti
 
-Per creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti, aggiungere l'oggetto `sku` alla risorsa set di disponibilità e impostare la proprietà `name` su `Aligned`. In questo modo si garantisce che i dischi per ogni macchina virtuale siano sufficientemente isolati tra loro da evitare singoli punti di errore. Si noti anche che `apiVersion` per la risorsa del set di disponibilità è impostato su `2017-03-30`.
+Per creare set di disponibilità gestiti con macchine virtuali che usano dischi gestiti, aggiungere l'oggetto `sku` alla risorsa set di disponibilità e impostare la proprietà `name` su `Aligned`. Questa proprietà garantisce che i dischi per ogni macchina virtuale siano sufficientemente isolati tra loro da evitare singoli punti di guasto. Si noti anche che `apiVersion` per la risorsa del set di disponibilità è impostato su `2017-03-30`.
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
@@ -203,6 +220,29 @@ Per creare set di disponibilità gestiti con macchine virtuali che usano dischi 
 }
 ```
 
+### <a name="standard-ssd-disks"></a>Dischi SSD Standard
+
+Di seguito sono elencati i parametri necessari nel modello di Resource Manager per creare dischi SSD Standard:
+
+* *apiVersion* per Microsoft.Computer deve essere impostato su `2018-04-01` (o versioni successive)
+* Specificare *managedDisk.storageAccountType* come `StandardSSD_LRS`
+
+L'esempio seguente mostra la sezione *properties.storageProfile.osDisk* per una macchina virtuale che usa dischi SSD Standard:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+Per un esempio di modello completo di come creare un disco SSD standard con un modello, vedere [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/) (Creare una macchina virtuale da un'immagine Windows con dischi dati SSD standard).
+
 ### <a name="additional-scenarios-and-customizations"></a>Altri scenari e personalizzazioni
 
 Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazione dell'API REST per la creazione di un disco gestito](/rest/api/manageddisks/disks/disks-create-or-update). La documentazione contiene scenari aggiuntivi e informazioni sui valori predefiniti e accettabili che è possibile inviare all'API tramite distribuzioni di modelli. 
@@ -216,4 +256,4 @@ Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazi
 * Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 * La documentazione di riferimento del modello per le risorse macchina virtuale è disponibile alla pagina [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines).
 * La documentazione di riferimento del modello per le risorse disco è disponibile alla pagina [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks).
-* Per informazioni sull'utilizzo di dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, leggere il documento [Usare dischi di dati con set di scalabilità](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md).
+* Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).

@@ -1,20 +1,20 @@
 ---
-title: Archiviare i dati di monitoraggio di Azure | Microsoft Docs
+title: Archiviare dati di metrica e log di Azure con Archiviazione di Azure
 description: Archiviare i dati di metrica e log generati all'interno di Azure per un account di archiviazione.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918272"
 ---
 # <a name="archive-azure-monitoring-data"></a>Archiviare i dati di monitoraggio di Azure
 
@@ -95,9 +95,9 @@ Ora vengono configurati i dati a livello di risorsa, ovvero le metriche delle ri
 Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di archiviazione.
 
 > [!NOTE]
-> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat.
+> L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
 >
-> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. In caso tuttavia di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
+> *Ad esempio*: la metrica 'Messaggi in ingresso' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica verrà rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 >
 >
 
@@ -136,6 +136,11 @@ Il monitoraggio dei dati nella risorsa viene quindi trasmesso all'account di arc
 Il monitoraggio dei dati nella macchina virtuale viene quindi trasmesso all'account di archiviazione.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visualizzare i dati di monitoraggio nell'account di archiviazione
+
+> [!WARNING]
+> Il formato dei dati di log nell'account di archiviazione verrà modificato a JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 Se è stata seguita la procedura precedente, il processo di trasmissione dei dati all'account di archiviazione è iniziato.
 

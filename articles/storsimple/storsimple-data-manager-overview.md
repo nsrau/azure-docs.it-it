@@ -5,20 +5,21 @@ services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 4d27bc3660035ace25436a4f756c41e88200649d
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652009"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -80,6 +81,10 @@ Questa chiave viene usata per eseguire la trasformazione dalle risorse di calcol
 Se l'area di Data Manager è diversa da quella della definizione del processo, è importante comprendere quali dati o metadati si trovano in ognuna delle aree. Il diagramma seguente illustra l'effetto risultante dalla presenza del servizio Data Manager e della definizione del processo in aree diverse.
 
 ![Servizio e definizione del processo in aree diverse](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
+
+## <a name="managing-personal-information"></a>Gestione dei dati personali
+
+StorSimple Data Manager non raccoglie né visualizza dati personali. Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

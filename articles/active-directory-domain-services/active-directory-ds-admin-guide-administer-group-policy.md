@@ -2,26 +2,30 @@
 title: 'Azure Active Directory Domain Services: amministrare Criteri di gruppo in domini gestiti | Microsoft Docs'
 description: Amministrare Criteri di gruppo in domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 316ddc2cbd67cfafaf44318c5baebcd8da366f93
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331712"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Amministrare Criteri di gruppo in un dominio gestito di Azure AD Domain Services
 Azure Active Directory Domain Services include oggetti Criteri di gruppo (GPO) predefiniti per i contenitori "AADDC Users" e "AADDC Computers". È possibile personalizzare questi oggetti Criteri di gruppo predefiniti per configurare Criteri di gruppo nel dominio gestito. Inoltre, i membri del gruppo "AAD DC Administrators" possono creare le proprie unità organizzative nel dominio gestito. Possono inoltre creare oggetti Criteri di gruppo personalizzati e collegarli a tali unità organizzative. Agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione di Criteri di gruppo nel dominio gestito.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per eseguire le attività elencate in questo articolo sono necessari gli elementi seguenti:

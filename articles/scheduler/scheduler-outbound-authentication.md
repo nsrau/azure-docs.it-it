@@ -1,11 +1,11 @@
 ---
-title: "Autenticazione in uscita dell'Utilità di pianificazione"
-description: "Autenticazione in uscita dell'Utilità di pianificazione"
+title: Autenticazione in uscita dell'Utilità di pianificazione
+description: Autenticazione in uscita dell'Utilità di pianificazione
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040336"
 ---
 # <a name="scheduler-outbound-authentication"></a>Autenticazione in uscita dell'Utilità di pianificazione
 I processi dell'Utilità di pianificazione potrebbero richiedere servizi che necessitano di autenticazione. In questo modo, un servizio richiamato può determinare se l'utilità di pianificazione può accedere alle sue risorse. Alcuni di questi servizi includono altri servizi di Azure, Salesforce.com, Facebook e siti Web custom protetti.

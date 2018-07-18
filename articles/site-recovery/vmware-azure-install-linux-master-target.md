@@ -1,20 +1,17 @@
 ---
 title: Installare un server di destinazione master Linux per il failover da Azure a locale | Microsoft Docs
 description: Prima di eseguire la riprotezione di una macchina virtuale Linux, è necessario dotarsi di un server di destinazione master Linux. Di seguito viene descritto come installarlo.
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4443d8fcbf40240e1a7bd718416e522192b4efb3
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072437"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921070"
 ---
 # <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -243,7 +240,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
 2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione:**multipath -ll**
 
-    ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
     

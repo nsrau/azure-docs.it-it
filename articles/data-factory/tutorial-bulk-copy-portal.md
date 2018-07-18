@@ -11,20 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6079784a21b5dea8929fcfa3d8f296477b3b9520
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083329"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
 
 > [!NOTE]
 > - Se non si ha familiarità con Azure Data Factory, vedere [Introduzione ad Azure Data Factory](introduction.md).
-> - Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 A livello generale, questa esercitazione prevede la procedura seguente:
 
@@ -92,8 +92,8 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
       Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2 (anteprima)** per **Versione**.
-5. Selezionare la **località** per la data factory. Data Factory V2 consente attualmente di creare data factory solo nelle aree Stati Uniti orientali, Stati Uniti orientali 2 ed Europa occidentale. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+4. Selezionare **V2** per **version**.
+5. Selezionare la **località** per la data factory. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, seleziona le aree di interesse nella pagina seguente, quindi espandi **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Crea**.
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
@@ -162,9 +162,9 @@ In questa esercitazione l'archivio BLOB di Azure viene usato come area di stagin
 ## <a name="create-datasets"></a>Creare set di dati
 In questa esercitazione vengono creati i set di dati di origine e sink, che specificano la posizione in cui vengono archiviati i dati. 
 
-Il set di dati di input AzureSqlDatabaseDataset fa riferimento ad AzureSqlDatabaseLinkedService. Il servizio collegato specifica la stringa di connessione per la connessione al database. Il set di dati specifica il nome del database e la tabella che contiene i dati di origine. 
+Il set di dati di input **AzureSqlDatabaseDataset** fa riferimento ad **AzureSqlDatabaseLinkedService**. Il servizio collegato specifica la stringa di connessione per la connessione al database. Il set di dati specifica il nome del database e la tabella che contiene i dati di origine. 
 
-Il set di dati di output AzureSqlDWDataset fa riferimento ad AzureSqlDWLinkedService. Il servizio collegato specifica la stringa di connessione per la connessione al data warehouse. Il set di dati specifica il database e la tabella in cui vengono copiati i dati. 
+Il set di dati di output **AzureSqlDWDataset** fa riferimento ad **AzureSqlDWLinkedService**. Il servizio collegato specifica la stringa di connessione per la connessione al data warehouse. Il set di dati specifica il database e la tabella in cui vengono copiati i dati. 
 
 In questa esercitazione le tabelle SQL di origine e di destinazione non sono hardcoded nelle definizioni del set di dati. L'attività ForEach passa invece il nome della tabella in fase di esecuzione all'attività di copia. 
 
@@ -178,7 +178,6 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
     ![Selezionare il database SQL di Azure](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. Nella finestra delle proprietà nella parte inferiore della schermata immettere **AzureSqlDatabaseDataset** per **Nome**.
 
-    ![Nome del set di dati di origine](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. Passare alla scheda **Connessione** e seguire questa procedura: 
 
     1. Selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
@@ -192,14 +191,21 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
 1. Fare clic su **+ (segno più)** nel riquadro a sinistra e quindi su **Set di dati**. 
 2. Nella finestra **Nuovo set di dati** selezionare **Azure SQL Data Warehouse** e fare clic su **Fine**. Dovrebbe essere visualizzata una nuova scheda intitolata **AzureSqlDWTable1**. 
 3. Nella finestra delle proprietà nella parte inferiore della schermata immettere **AzureSqlDWDataset** per **Nome**.
-4. Passare alla scheda **Connessione** e selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
-5. Passare alla scheda **Parametri** e fare clic su **+ Nuovo**
+5. Passare alla scheda **Parametri**, fare clic su **+ Nuovo** e immettere **DWTableName** come nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** alla fine di **DWTableName**. 
 
-    ![Pagina di connessione al set di dati di origine](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. Immettere **DWTableName** per il nome del parametro. Se si copia/incolla questo nome dalla pagina, assicurarsi che non siano presenti **spazi finali** alla fine di **DWTableName**. 
-7. Nella sezione **Parameterized properties** (Proprietà con parametri) immettere `@{dataset().DWTableName}` per la proprietà **tableName**. La proprietà **tableName** del set di dati è impostata sul valore passato come argomento per il parametro **DWTableName**. L'attività ForEach esegue l'iterazione di un elenco di tabelle e le passa una alla volta all'attività di copia. 
-   
-    ![Nome parametro](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![Pagina di connessione al set di dati di origine](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. Passare alla scheda **Connessione**. 
+
+    a. Selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
+
+    b. Per **Tabella**, selezionare l'opzione **Modifica**, fare clic nella casella di input del nome della tabella, quindi fare clic sul collegamento **Aggiungi contenuto dinamico** sotto. 
+    
+    ![Nome parametro](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    c. Nella pagina **Aggiungi contenuto dinamico** fare clic su **DWTAbleName** sotto **Parametri** per popolare automaticamente la casella di testo dell'espressione `@dataset().DWTableName` nella parte superiore, quindi fare clic su **Fine**. La proprietà **tableName** del set di dati è impostata sul valore passato come argomento per il parametro **DWTableName**. L'attività ForEach esegue l'iterazione di un elenco di tabelle e le passa una alla volta all'attività di copia. 
+
+    ![Generatore di parametri di set di dati](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>Creare le pipeline
 In questa esercitazione vengono create due pipeline: **IterateAndCopySQLTables** e **GetTableListAndTriggerCopyData**. 
@@ -216,63 +222,65 @@ La pipeline **GetTableListAndTriggerCopyData** esegue due passaggi:
 1. Nel riquadro a sinistra fare clic su **+ (segno più)** e quindi su **Pipeline**.
 
     ![Menu per nuova pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. Nella finestra Proprietà cambiare il nome della pipeline in **IterateAndCopySQLTables**. 
+2. Nella scheda **Generale** specificare **IterateAndCopySQLTables** come nome. 
 
-    ![Nome della pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. Passare alla scheda **Parametri** ed eseguire le azioni seguenti: 
 
     1. Fare clic su **+ Nuovo**. 
     2. Immettere **tableList** per il **nome** del parametro.
-    3. Selezionare **Oggetto** per **Tipo**.
+    3. Selezionare **Matrice** per **Tipo**.
 
         ![Parametro della pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. Nella casella degli strumenti **Attività** espandere **Iteration & Conditions** (Iterazione e condizioni) e trascinare l'attività **ForEach** sull'area di progettazione della pipeline. È anche possibile eseguire una ricerca di attività nella casella degli strumenti **Attività**. Nella finestra **Proprietà** nella parte inferiore della schermata immettere **IterateSQLTables** per **Nome**. 
+4. Nella casella degli strumenti **Attività** espandere **Iteration & Conditions** (Iterazione e condizioni) e trascinare l'attività **ForEach** sull'area di progettazione della pipeline. È anche possibile eseguire una ricerca di attività nella casella degli strumenti **Attività**. 
 
-    ![Nome dell'attività ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. Passare alla scheda **Impostazioni** e immettere `@pipeline().parameters.tableList` per **Elementi**.
+    a. Nella scheda **Generale** nella parte inferiore della schermata immettere **IterateSQLTables** per **Nome**. 
+
+    b. Passare alla scheda **Impostazioni** fare clic sulla casella di input per **Elementi**, quindi fare clic sul collegamento **Aggiungi contenuto dinamico**. 
 
     ![Impostazioni dell'attività ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. Per aggiungere un'attività figlio all'attività **ForEach**, **fare doppio clic** sull'attività ForEach oppure fare clic su **Modifica (icona a forma di matita)**. I collegamenti all'azione vengono visualizzati solo quando si seleziona l'azione. 
 
-    ![Nome dell'attività ForEach](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. Nella casella degli strumenti **Attività** espandere **DataFlow** e trascinare l'attività **Copia** nell'area di progettazione della pipeline, quindi cambiare il nome nella finestra Proprietà in **CopyData**. Si noti il menu di navigazione nella parte superiore della schermata. IterateAndCopySQLTable è il nome della pipeline e IterateSQLTables è il nome dell'attività ForEach. La finestra di progettazione rientra nell'ambito dell'attività. Per tornare all'editor di pipeline dall'editor di ForEach, fare clic sul collegamento nel menu di navigazione. 
+    c. Nella pagina **Aggiungi contenuto dinamico** comprimere le sezioni Variabili di sistema e Funzioni, fare clic su **tableList** sotto **Parametri** per popolare automaticamente la casella di testo dell'espressione come `@pipeline().parameter.tableList` nella parte superiore, quindi fare clic su **Fine**. 
+
+    ![Generatore di parametri foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. Passare alla scheda **Attività**, fare clic su **Aggiungi attività** per aggiungere un'attività figlio all'attività**ForEach**.
+
+5. Nella casella degli strumenti **Attività** espandere **DataFlow** e trascinare l'attività **Copia** nell'area di progettazione della pipeline. Si noti il menu di navigazione nella parte superiore della schermata. IterateAndCopySQLTable è il nome della pipeline e IterateSQLTables è il nome dell'attività ForEach. La finestra di progettazione rientra nell'ambito dell'attività. Per tornare all'editor di pipeline dall'editor di ForEach, fare clic sul collegamento nel menu di navigazione. 
 
     ![Copiare in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. Passare alla scheda **Origine** e seguire questa procedura:
+6. Passare alla scheda **Origine** e seguire questa procedura:
 
     1. Selezionare **AzureSqlDatabaseDataset** per **Source Dataset** (Set di dati di origine). 
     2. Selezionare l'opzione **Query** per **Query utente**. 
-    3. Immettere la query SQL seguente per **Query**.
+    3. Fare clic sulla casella di input **Query** -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente per **Query** -> selezionare **Fine**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Copiare le impostazioni di origine](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. Passare alla scheda **Sink** e seguire questa procedura: 
+7. Passare alla scheda **Sink** e seguire questa procedura: 
 
     1. Selezionare **AzureSqlDWDataset** per **Sink Dataset** (Set di dati sink).
+    2. Fare clic sulla casella di input per il VALORE del parametro DWTableName -> selezionare **Aggiungi contenuto dinamico**, immettere l'espressione `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` come script -> selezionare **Fine**.
     2. Espandere **Polybase Settings** (Impostazioni PolyBase) e selezionare **Allow polybase** (Consenti PolyBase). 
     3. Deselezionare l'opzione **Tipo di uso predefinito**. 
-    4. Immettere lo script SQL seguente per **Script di pulizia**. 
+    4. Fare clic sulla casella di input **Script di pulizia** -> selezionare **Aggiungi contenuto dinamico** -> immettere l'espressione seguente come script -> selezionare **Fine**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![Copiare le impostazioni del sink](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. Passare alla scheda **Parametri**, scorrere verso il basso, se necessario, per visualizzare la sezione **Sink Dataset** (Set di dati sink) con il parametro **DWTableName**. Impostare il valore di questo parametro su `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`.
 
-    ![Copiare i parametri del sink](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. Passare alla scheda **Impostazioni** e seguire questa procedura: 
+8. Passare alla scheda **Impostazioni** e seguire questa procedura: 
 
     1. Selezionare **True** per **Enable Staging** (Abilita staging).
     2. Selezionare **AzureStorageLinkedService** per **Staging Account Linked Service** (Servizio collegato dell'account di staging).
 
         ![Abilitare lo staging](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. Per convalidare le impostazioni della pipeline, fare clic su **Convalida**. Verificare che non sia presente alcun errore di convalida. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
 
-    ![Report di convalida della pipeline](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. Per convalidare le impostazioni della pipeline, fare clic su **Convalida** sulla barra degli strumenti superiore. Verificare che non sia presente alcun errore di convalida. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Creare la pipeline GetTableListAndTriggerCopyData
 
@@ -286,7 +294,6 @@ Questa pipeline esegue due passaggi:
     ![Menu per nuova pipeline](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. Nella finestra Proprietà cambiare il nome della pipeline in **GetTableListAndTriggerCopyData**. 
 
-    ![Nome della pipeline](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. Nella casella degli strumenti **Attività** espandere **Generale**, trascinare l'attività **Cerca** nell'area di progettazione della pipeline e seguire questa procedura:
 
     1. Immettere **LookupTableList** per **Nome**. 
@@ -314,7 +321,7 @@ Questa pipeline esegue due passaggi:
     2. Espandere la sezione **Avanzata**. 
     3. Fare clic su **+ Nuovo** nella sezione **Parametri**. 
     4. Immettere **tableList** per il **nome** del parametro.
-    5. Immettere `@activity('LookupTableList').output.value` per il **valore** del parametro. L'elenco dei risultati dall'attività Cerca viene configurato come input per la seconda pipeline. L'elenco dei risultati contiene l'elenco di tabelle i cui dati devono essere copiati nella destinazione. 
+    5. Fare clic sulla casella di input del VALORE -> selezionare **Aggiungi contenuto dinamico** -> immettere `@activity('LookupTableList').output.value` come valore per il nome della tabella -> selezionare **Fine**. L'elenco dei risultati dall'attività Cerca viene configurato come input per la seconda pipeline. L'elenco dei risultati contiene l'elenco di tabelle i cui dati devono essere copiati nella destinazione. 
 
         ![Attività (Esegui pipeline) - Pagina Impostazioni](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. **Connettere** l'attività **Cerca** all'attività **Execute Pipeline** (Esegui pipeline) trascinando la **casella verde** collegata all'attività Cerca a sinistra dell'attività Execute Pipeline (Esegui pipeline).
@@ -322,17 +329,13 @@ Questa pipeline esegue due passaggi:
     ![Connettere le attività Cerca ed Execute Pipeline (Esegui pipeline)](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. Per convalidare la pipeline, fare clic su **Convalida** sulla barra degli strumenti. Verificare che non siano presenti errori di convalida. Per chiudere il **Pipeline Validation Report** (Report di convalida della pipeline) fare clic su **>>**.
 
-    ![Seconda pipeline - Report di convalida](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. Per pubblicare le entità (set di dati, pipeline e così via) nel servizio Data Factory, fare clic su **Pubblica tutti**. Attendere fino al completamento della pubblicazione. 
-
-    ![Pulsante Publish](./media/tutorial-bulk-copy-portal/publish.png)
+9. Per pubblicare le entità (set di dati, pipeline e così via) nel servizio Data Factory, fare clic su **Pubblica tutti** nella parte superiore della finestra. Attendere fino al completamento della pubblicazione. 
 
 ## <a name="trigger-a-pipeline-run"></a>Attivare un'esecuzione della pipeline
 
-1. Confermare che la scheda **GetTableListAndTriggerCopyData** sia attiva. 
-2. Fare clic su **Trigger** e quindi su **Trigger Now** (Attiva adesso). 
+Passare alla pipeline **GetTableListAndTriggerCopyData**, fare clic su **Trigger** e fare clic su **Trigger Now** (Attiva adesso). 
 
-    ![Trigger now (Attiva adesso)](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![Trigger now (Attiva adesso)](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 

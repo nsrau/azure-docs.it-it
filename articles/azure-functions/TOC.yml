@@ -11,12 +11,12 @@
   items:
     - name: 'Creare una funzione: portale'
       href: functions-create-first-azure-function.md
-    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creare una funzione: Visual Studio'
       href: functions-create-your-first-function-visual-studio.md
     - name: Creare una funzione - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 'Creare una funzione: interfaccia della riga di comando di Azure'
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 'Creare una funzione: Linux'
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: Trigger
@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: Ridimensionamento di immagini con Griglia di eventi
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Creare un'applicazione Web senza server con Funzioni come API
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: Creare un'app Web senza server
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: Funzioni in Linux
       items:
         - name: Immagine personalizzata
@@ -97,6 +97,8 @@
       items:
         - name: Panoramica
           href: durable-functions-overview.md
+        - name: Tipi e funzionalità delle funzioni
+          href: durable-functions-types-features-overview.md
         - name: Associazioni
           href: durable-functions-bindings.md
         - name: Checkpoint e riproduzione
@@ -138,9 +140,11 @@
         - name: Test delle funzioni
           href: functions-test-a-function.md
         - name: Sviluppare ed eseguire il debug in locale
-          href: functions-run-local.md
+          href: functions-develop-local.md
         - name: Sviluppo di Visual Studio
           href: functions-develop-vs.md
+        - name: Sviluppo di strumenti di base
+          href: functions-run-local.md
         - name: Gestire le connessioni
           href: manage-connections.md
         - name: Gestione degli errori

@@ -14,11 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: mimig
-  ms.openlocfilehash: 0981d1ef118ff08450b510204447427fc8475327
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: 6b922aa90000fa574c010902c2365e4ddb7035a3
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/10/2018
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37952573"
 abstract:
   description: Azure Cosmos DB è un servizio di database multimodello e distribuito a livello globale. Usare queste guide introduttive, le esercitazioni e gli esempi per sviluppare database di documenti, con coppie chiave-valore, con colonna ampia e con elementi grafici usando le API e i modelli di programmazione più diffusi. È possibile ottenere informazioni su come replicare i dati in qualsiasi area di Azure e ridimensionare la velocità effettiva indipendentemente dalle risorse di archiviazione, sfruttando al tempo stesso i vantaggi dei contratti di servizio completi.
   aside:
@@ -113,7 +114,7 @@ sections:
       - href: /azure/cosmos-db/create-mongodb-flask
       - href: 
       - href: /azure/cosmos-db/create-mongodb-golang
-      - href: 
+      - href: /azure/cosmos-db/create-mongodb-xamarin
     - title: API Gremlin
       values:
       - href: /azure/cosmos-db/create-graph-java
@@ -148,13 +149,12 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Sviluppare un'app con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Graph</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
+    - html: Sviluppare un'app con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/azure/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-develop-table-dotnet">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="https://aka.ms/cassandratutorial">Cassandra</a>
     - html: Importare dati in Azure Cosmos DB&#58; <a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="https://aka.ms/tableapiimporttool">Tabelle</a> | <a href="https://aka.ms/cassandraimport">Cassandra</a>
-    - html: Eseguire query sui dati con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
-    - html: Replica del database globale con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
+    - html: Eseguire query sui dati con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Gremlin</a>
+    - html: Replica del database globale con Azure Cosmos DB&#58; <a href="/azure/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Tabelle</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Gremlin</a>
     - html: <a href="local-emulator">Sviluppare l'applicazione in locale usando l'emulatore</a>
     - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">Creare un trigger HTTP con un'associazione di input di Azure Cosmos DB</a>
-    - html: <a href="https://docs.microsoft.com/learn/build-serverless-app/index">Compilare un'applicazione Web di base per ospitare file statici in Cosmos DB</a>
 - title: Riferimenti
   items:
   - type: list

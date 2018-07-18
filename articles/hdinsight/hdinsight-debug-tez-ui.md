@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406508"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usare l'interfaccia utente di Tez per il debug di processi Tez in HDInsight basato su Windows
 L'interfaccia utente di Tez può essere usata per eseguire il debug di processi Hive che usano Tez come motore di esecuzione. L'interfaccia utente di Tez visualizza il processo come grafico di elementi connessi, consente di eseguire il drill-down in ogni specifico elemento e recuperare statistiche e informazioni di registrazione.

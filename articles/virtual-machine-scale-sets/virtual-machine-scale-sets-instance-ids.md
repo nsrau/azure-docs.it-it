@@ -1,11 +1,11 @@
 ---
-title: "Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure | Microsoft Docs"
-description: "Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure"
+title: Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure | Microsoft Docs
+description: Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742892"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Comprendere gli ID istanza per le macchine virtuali dei set di scalabilità della macchina virtuale di Azure
 Questo articolo descrive gli ID istanza per i set di scalabilità e le diverse modalità di esplorazione.

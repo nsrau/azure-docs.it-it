@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021720"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Esercitazione: Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando il portale di Azure
 
@@ -65,6 +65,8 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 ## <a name="enable-a-service-endpoint"></a>Abilitare un endpoint di servizio
 
+Gli endpoint di servizio sono abilitati per servizio e per subnet. Creare una subnet e abilitare un endpoint di servizio per la subnet.
+
 1. Nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale immettere *myVirtualNetwork*. Selezionare **myVirtualNetwork** quando viene visualizzato nei risultati della ricerca.
 2. Aggiungere una subnet alla rete virtuale. In **IMPOSTAZIONI** selezionare **Subnet** e quindi selezionare **+ Subnet**, come illustrato nell'immagine seguente:
 
@@ -78,11 +80,16 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
     |Intervallo di indirizzi| 10.0.1.0/24|
     |Endpoint di servizio| Selezionare **Microsoft.Storage** in **Servizi**|
 
+> [!CAUTION]
+> Prima di abilitare un endpoint di servizio per una subnet esistente che contiene risorse, vedere [Cambiare le impostazioni della subnet](virtual-network-manage-subnet.md#change-subnet-settings).
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Limitare l'accesso di rete per una subnet
+
+Per impostazione predefinita, tutte le macchine virtuali in una subnet possono comunicare con tutte le risorse. È possibile limitare le comunicazioni verso e da tutte le risorse in una subnet creando un gruppo di sicurezza di rete e associandolo alla subnet.
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 2. Selezionare **Rete** e quindi selezionare **Gruppo di sicurezza di rete**.
-In **Create a network security group** (Crea un gruppo di sicurezza di rete) immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
+3. In **Create a network security group** (Crea un gruppo di sicurezza di rete) immettere o selezionare le informazioni seguenti e quindi selezionare **Crea**:
 
     |Impostazione|Valore|
     |----|----|
@@ -94,7 +101,7 @@ In **Create a network security group** (Crea un gruppo di sicurezza di rete) imm
 4. Dopo che il gruppo di sicurezza di rete è stato creato, immettere *myNsgPrivate* nella casella **Cerca risorse, servizi e documentazione** nella parte superiore del portale. Selezionare **myNsgPrivate** quando viene visualizzato nei risultati della ricerca.
 5. In **IMPOSTAZIONI** selezionare **Regole di sicurezza in uscita**.
 6. Selezionare **+ Aggiungi**.
-7. Creare una regola che consenta l'accesso in uscita agli indirizzi IP pubblici assegnati al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **OK**:
+7. Creare una regola che consenta le comunicazioni in uscita al servizio Archiviazione di Azure. Immettere o selezionare le informazioni seguenti e quindi fare clic su **OK**:
 
     |Impostazione|Valore|
     |----|----|
@@ -107,7 +114,8 @@ In **Create a network security group** (Crea un gruppo di sicurezza di rete) imm
     |Azione|CONSENTI|
     |Priorità|100|
     |NOME|Allow-Storage-All|
-8. Creare una regola che esegua l'override di una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. Completare di nuovo i passaggi 6 e 7, usando i valori seguenti:
+    
+8. Creare una regola che neghi le comunicazioni in uscita verso Internet. Questa regola esegue l'override di una regola predefinita in tutti i gruppi di sicurezza di rete che consente le comunicazioni Internet in uscita. Completare di nuovo i passaggi 6 e 7, usando i valori seguenti:
 
     |Impostazione|Valore|
     |----|----|
@@ -171,9 +179,9 @@ I passaggi necessari per limitare l'accesso di rete alle risorse create tramite 
 4. Immettere *my-file-share* in **Nome** e quindi fare clic su **OK**.
 5. Chiudere la finestra di dialogo **Servizio file**.
 
-### <a name="enable-network-access-from-a-subnet"></a>Abilitare l'accesso di rete da una subnet
+### <a name="restrict-network-access-to-a-subnet"></a>Limitare l'accesso di rete a una subnet
 
-Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete da client di qualsiasi rete. Per consentire l'accesso solo da una subnet specifica e rifiutare l'accesso di rete da tutte le altre reti, seguire questa procedura:
+Per impostazione predefinita, gli account di archiviazione accettano connessioni di rete dai client in qualsiasi rete, inclusa la rete Internet. Negare l'accesso di rete da Internet e da tutte le altre subnet in tutte le reti virtuali, tranne per la subnet *privata* nella rete virtuale *myVirtualNetwork*.
 
 1. In **IMPOSTAZIONI** per l'account di archiviazione selezionare **Firewall e reti virtuali**.
 2. In **Reti virtuali** selezionare **Reti selezionate**.
@@ -256,13 +264,13 @@ La distribuzione della VM richiede alcuni minuti. Non continuare con il passaggi
 
     Il mapping della condivisione file di Azure all'unità Z è stato eseguito correttamente.
 
-7. Verificare che la VM non abbia connettività in uscita ad altri indirizzi IP pubblici da un prompt dei comandi:
+7. Verificare che la VM non abbia connettività Internet in uscita da un prompt dei comandi:
 
     ```
     ping bing.com
     ```
     
-    Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla subnet *privata* non consente l'accesso in uscita a indirizzi IP pubblici diversi dagli indirizzi assegnati al servizio Archiviazione di Azure.
+    Non si ricevono risposte perché il gruppo di sicurezza di rete associato alla subnet *privata* non consente l'accesso in uscita a Internet.
 
 8. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPrivate*.
 
@@ -272,9 +280,9 @@ La distribuzione della VM richiede alcuni minuti. Non continuare con il passaggi
 2. Selezionare **myVmPublic** quando viene visualizzato nei risultati della ricerca.
 3. Completare i passaggi da 1 a 6 di [Verificare che venga consentito l'accesso a un account di archiviazione](#confirm-access-to-storage-account) per la VM *myVmPublic*.
 
-    L'accesso viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* viene distribuita nella subnet *pubblica*. La subnet *Public* non ha un endpoint di servizio abilitato per Archiviazione di Azure e l'account di archiviazione consente l'accesso di rete solo dalla subnet *Private* e non dalla subnet *Public*.
+    L'accesso viene rifiutato e si riceve un errore `New-PSDrive : Access is denied`. L'accesso viene rifiutato perché la VM *myVmPublic* è distribuita nella subnet *Public*. La subnet *pubblica* non ha un endpoint di servizio abilitato per Archiviazione di Azure. L'account di archiviazione consente l'accesso di rete solo dalla subnet *privata* e non dalla subnet *pubblica*.
 
-4. Chiudere la sessione Desktop remoto alla macchina virtuale *myVmPublic*.
+4. Chiudere la sessione Desktop remoto alla VM *myVmPublic*.
 
 5. Dal computer passare al [portale](https://portal.azure.com) di Azure.
 6. Immettere il nome dell'account di archiviazione creato nella casella **Cerca risorse, servizi e documentazione**. Quando il nome dell'account di archiviazione viene visualizzato nei risultati della ricerca, selezionarlo.
@@ -295,7 +303,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che gli endpoint di servizio possono essere abilitati per le risorse distribuite con più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione solo alle risorse in una subnet della rete virtuale. Per altre informazioni sugli endpoint servizio, vedere [Panoramica degli endpoint servizio](virtual-network-service-endpoints-overview.md) e [Gestire le subnet](virtual-network-manage-subnet.md).
+In questa esercitazione è stato abilitato un endpoint di servizio per una subnet della rete virtuale. È stato illustrato che è possibile abilitare gli endpoint di servizio per le risorse distribuite da più servizi di Azure. È stato creato un account di archiviazione di Azure ed è stato limitato l'accesso di rete all'account di archiviazione alle sole risorse in una subnet della rete virtuale. Per altre informazioni sugli endpoint servizio, vedere [Panoramica degli endpoint servizio](virtual-network-service-endpoints-overview.md) e [Gestire le subnet](virtual-network-manage-subnet.md).
 
 Se nell'account sono presenti più reti virtuali, può essere necessario connettere due reti virtuali per consentire alle risorse di ogni rete virtuale di comunicare tra loro. Passare all'esercitazione successiva per informazioni su come connettere le reti virtuali.
 

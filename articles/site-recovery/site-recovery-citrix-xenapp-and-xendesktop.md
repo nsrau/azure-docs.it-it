@@ -2,23 +2,24 @@
 title: Eseguire la replica di una distribuzione Citrix XenDesktop e XenApp con Azure Site Recovery | Microsoft Docs
 description: Questo articolo illustra come proteggere e ripristinare le distribuzioni Citrix XenDesktop e XenApp con Azure Site Recovery.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: b117525a4851dee5366aeda77c8aaefd1fdde375
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917211"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Eseguire la replica di una distribuzione Citrix XenApp e XenDesktop multilivello con Azure Site Recovery
 

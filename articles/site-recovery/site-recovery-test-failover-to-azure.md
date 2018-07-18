@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c173f4f224c7021c0a0db057cb65aa9c6f900528
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915572"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Failover di test in Azure in Site Recovery
 
@@ -40,7 +41,7 @@ Questa procedura descrive come eseguire un failover di test per un piano di ripr
 
     - Site Recovery tenta di creare le macchine virtuali di test in una subnet con lo stesso nome e con lo stesso indirizzo IP specificati nelle impostazioni **Calcolo e rete** della macchina virtuale.
     - Se nella rete virtuale di Azure specificata per il failover di test non è disponibile una subnet con lo stesso nome, la macchina virtuale di test verrà creata nella prima subnet in ordine alfabetico.
-    - Se nella subnet non è disponibile lo stesso indirizzo IP, la macchina virtuale ottiene un altro indirizzo IP disponibile nella subnet. [Altre informazioni](#creating-a-network-for-test-failover).
+    - Se nella subnet non è disponibile lo stesso indirizzo IP, la macchina virtuale ottiene un altro indirizzo IP disponibile nella subnet. [Altre informazioni](#create-a-network-for-test-failover).
 4. Se si esegue il failover in Azure ed è abilitata la crittografia dei dati, in **Chiave di crittografia** selezionare il certificato rilasciato quando è stata abilitata la crittografia durante l'installazione del provider. Se la crittografia non è stata abilitata, è possibile ignorare questo passaggio.
 5. Tenere traccia dello stato di avanzamento del failover nella scheda **Processi** . Nel portale di Azure dovrebbe anche essere possibile vedere la macchina di replica di test.
 6. Per avviare una connessione RDP nella macchina virtuale di Azure, è necessario [aggiungere un indirizzo IP pubblico](https://aka.ms/addpublicip) nell'interfaccia di rete della macchina virtuale sottoposta a failover. 

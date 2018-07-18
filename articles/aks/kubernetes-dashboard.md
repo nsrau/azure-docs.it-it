@@ -2,18 +2,19 @@
 title: Gestire un cluster Azure Kubernetes con l'interfaccia utente Web
 description: Uso del dashboard Kubernetes nel servizio contenitore di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100426"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Dashboard di Kubernetes con Azure Kubernetes Service (AKS)
 
@@ -37,7 +38,7 @@ Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apr
 
 ## <a name="run-an-application"></a>Eseguire un'applicazione
 
-Nel dashboard di Kubernetes fare clic sul pulsante **Create** (Crea) nella finestra in alto a destra. Assegnare il nome `nginx` alla distribuzione e immettere `nginx:latest` per il nome delle immagini. In **Service** (Servizio) selezionare **External** (External) e immettere `80` sia per la porta che per la porta di destinazione.
+Nel dashboard di Kubernetes fare clic sul pulsante **Create** (Crea) nella finestra in alto a destra. Assegnare il nome `nginx` alla distribuzione e immettere `nginx:latest` per il nome dell'immagine contenitore. In **Service** (Servizio) selezionare **External** (External) e immettere `80` sia per la porta che per la porta di destinazione.
 
 Quando si è pronti, fare clic su **Deploy** (Distribuisci) per creare la distribuzione.
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207528"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Panoramica del monitoraggio dei contenitori in Azure
 Con Azure, è possibile monitorare e gestire in modo efficace i carichi di lavoro distribuiti nei contenitori di Azure che eseguono Kubernetes o Docker. È importante conoscere le prestazioni dei contenitori con più applicazioni di microservizi per offrire un servizio Reliable Services su larga scala e supportare il piano di monitoraggio. Questo articolo fornisce una breve panoramica delle funzionalità di gestione e monitoraggio in Azure per poter determinare quelle più appropriate a seconda dei requisiti.

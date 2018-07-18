@@ -2,20 +2,18 @@
 title: Creare criteri a livello di codice e visualizzare i dati di conformità con Criteri di Azure
 description: Questo articolo illustra la creazione a livello di codice e la gestione dei criteri per Criteri di Azure.
 services: azure-policy
-keywords: ''
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
-ms.topic: article
+ms.date: 05/24/2018
+ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: ''
-ms.openlocfilehash: 5737c33fc4c139e3b0a5535d371ef7cc1d11b9e6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a83402316854b23fe85bff813dc9f5665bccd1fb
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937007"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794811"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creare criteri a livello di codice e visualizzare i dati di conformità
 
@@ -115,15 +113,19 @@ Usare la procedura seguente per creare una definizione dei criteri.
   }
   ```
 
-2. Creare la definizione dei criteri usando la chiamata seguente:
+2. Creare la definizione dei criteri usando una delle chiamate seguenti:
 
   ```
-  armclient PUT "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+  # For defining a policy in a subscription
+  armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+
+  # For defining a policy in a management group
+  armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
   ```
 
-  Sostituire il precedente &lt;subscriptionId&gt; con l'ID della sottoscrizione prevista.
+  Sostituire il precedente {subscriptionId} con l'ID della sottoscrizione o il {managementGroupId} con l'ID del [gruppo di gestione](../azure-resource-manager/management-groups-overview.md).
 
-Per altre informazioni sulla struttura della query, vedere [Definizioni dei criteri: creazione o aggiornamento](/rest/api/resources/policydefinitions/createorupdate).
+  Per altre informazioni sulla struttura della query, vedere [Policy Definitions – Create or Update](/rest/api/resources/policydefinitions/createorupdate) (Definizioni dei criteri: creazione o aggiornamento) e [Policy Definitions – Create or Update At Management Group](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) (Definizioni dei criteri: creazione o aggiornamento a livello di gruppo di gestione).
 
 Usare la procedura seguente per creare un'assegnazione dei criteri e assegnare la definizione dei criteri a livello di gruppo di risorse.
 
@@ -202,99 +204,6 @@ L'ID definizione dei criteri per la definizione dei criteri creata dovrebbe esse
 
 Per altre informazioni su come gestire i criteri di risorse con l'interfaccia della riga di comando di Azure, vedere [Criteri di risorse dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest).
 
-## <a name="identify-non-compliant-resources"></a>Identificare le risorse non conformi
-
-In un'assegnazione una risorsa non è conforme se non segue i criteri o le regole delle iniziative. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
-
-| Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
-| --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True  | Non conforme |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Conforme |
-| Nuovo | Audit, AuditIfNotExist\* | True  | Non conforme |
-| Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
-
-\* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE. Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
-
-Per comprendere meglio come le risorse vengano contrassegnate come non conformi, verrà usato l'esempio di assegnazione dei criteri creato sopra.
-
-Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
-
-![Account di archiviazione esposti su reti pubbliche](media/policy-insights/resource-group01.png)
-
-In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Dopo avere creato un'assegnazione dei criteri, questa viene valutata per tutti gli account di archiviazione nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi e di conseguenza ne modifica quindi gli stati impostandoli come **non conformi**.
-
-![Account di archiviazione non conformi controllati](media/policy-insights/resource-group03.png)
-
-Usare la procedura seguente per identificare le risorse di un gruppo di risorse non conformi all'assegnazione di criteri creata. Nell'esempio le risorse sono gli account di archiviazione nel gruppo di risorse ContosoRG.
-
-1. Ottenere l'ID dell'assegnazione dei criteri eseguendo i comandi seguenti:
-
-  ```azurepowershell-interactive
-  $policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.displayName -eq 'Audit Storage Accounts with Open Public Networks' }
-  $policyAssignment.PolicyAssignmentId
-  ```
-
-  Per altre informazioni sull'ID dell'assegnazione dei criteri, vedere [Get-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/Get-AzureRmPolicyAssignment).
-
-2. Eseguire questo comando per copiare gli ID delle risorse non conformi in un file JSON:
-
-  ```
-  armclient POST "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
-  ```
-
-3. Il risultato sarà simile al seguente:
-
-  ```json
-  {
-      "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest",
-      "@odata.count": 3,
-      "value": [{
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount1Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionId>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount2Id>"
-          },
-          {
-              "@odata.id": null,
-              "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyStates/$metadata#latest/$entity",
-              "ResourceId": "/subscriptions/<subscriptionName>/resourcegroups/<rgname>/providers/microsoft.storage/storageaccounts/<storageaccount3ID>"
-          }
-      ]
-  }
-  ```
-
-I risultati sono equivalenti alle informazioni in genere riportate sotto **Risorse non conformi** nella [visualizzazione nel portale di Azure](assign-policy-definition.md#identify-non-compliant-resources).
-
-Attualmente, le risorse non conformi vengono identificate solo usando il portale di Azure con le richieste HTTP. Per altre informazioni sull'esecuzione di query sugli stati dei criteri, vedere l'articolo di riferimento sull'API [Policy State](/rest/api/policy-insights/policystates) (Stato dei criteri).
-
-## <a name="view-policy-events"></a>Visualizzare eventi criteri
-
-Quando si crea o si aggiorna una risorsa, viene generato un risultato di valutazione dei criteri. I risultati sono chiamati _eventi criteri_. Eseguire la query seguente per visualizzare tutti gli eventi dei criteri associati all'assegnazione dei criteri.
-
-```
-armclient POST "/subscriptions/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2017-12-12-preview"
-```
-
-I risultati saranno simili all'esempio seguente:
-
-```json
-{
-    "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default",
-    "@odata.count": 1,
-    "value": [{
-        "@odata.id": null,
-        "@odata.context": "https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.PolicyInsights/policyEvents/$metadata#default/$entity",
-        "NumAuditEvents": 3
-    }]
-}
-```
-
-Come per gli stati dei criteri, è possibile visualizzare gli eventi dei criteri solo con le richieste HTTP. Per altre informazioni sull'esecuzione di query sugli eventi dei criteri, vedere l'articolo di riferimento [Policy Events](/rest/api/policy-insights/policyevents) (Eventi dei criteri).
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Esaminare gli articoli seguenti per altre informazioni sui comandi e sulle query di questo articolo.
@@ -303,3 +212,4 @@ Esaminare gli articoli seguenti per altre informazioni sui comandi e sulle query
 - [Moduli PowerShell RM](/powershell/module/azurerm.resources/#policies)
 - [Comandi dei criteri dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest)
 - [Policy Insights resource provider REST API reference (Informazioni di riferimento sull'API REST del provider di risorse Policy Insights)](/rest/api/policy-insights)
+- [Organizzare le risorse con i gruppi di gestione di Azure ](../azure-resource-manager/management-groups-overview.md)

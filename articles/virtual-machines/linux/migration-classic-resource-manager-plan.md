@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653502"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
 Anche se Azure Resource Manager offre molte funzionalità straordinarie, è fondamentale pianificare la migrazione in modo che avvenga senza problemi. Dedicare tempo alla pianificazione garantisce che non si verifichino problemi durante l'esecuzione delle attività di migrazione. 
 
 > [!NOTE] 
-> Alle linee guida seguenti hanno fornito un importante contributo il team Azure Customer Advisory e gli architetti delle soluzioni cloud che lavorano con i clienti per la migrazione ambienti di grandi dimensioni. È consigliabile controllare questo documento di tanto in tanto perché verrà aggiornato mano a mano che emergeranno nuovi modelli di successo.
+> Alle linee guida seguenti hanno fornito un importante contributo il team Azure Customer Advisory e gli architetti delle soluzioni cloud che lavorano con i clienti per la migrazione di ambienti di grandi dimensioni. È consigliabile controllare questo documento di tanto in tanto perché verrà aggiornato mano a mano che emergeranno nuovi modelli di successo.
 
 Il percorso di migrazione include quattro fasi generali:
 
@@ -79,7 +80,7 @@ I clienti di successo hanno piani dettagliati in cui le domande precedenti sono 
   L'esecuzione di un test di laboratorio dello scenario esatto ossia calcolo, rete e archiviazione è il modo migliore per garantire una migrazione senza problemi. In modo da garantire:
 
   - Un laboratorio completamente separato o un ambiente non di produzione esistente su cui eseguire test. È consigliabile un laboratorio totalmente separato che possa essere migrato ripetutamente e modificato in modo distruttivo.  Gli script per raccogliere/idratare i metadati delle sottoscrizioni reali sono elencati di seguito.
-  - È consigliabile creare il laboratorio in una sottoscrizione separata. Il motivo è che il laboratorio verrà ripetutamente rimosso e avere una sottoscrizione separata riduce il rischio di eliminare accidentalmente componenti reali.
+  - È consigliabile creare il laboratorio in una sottoscrizione separata. Il motivo è che il lab verrà ripetutamente rimosso e avere una sottoscrizione separata riduce il rischio di eliminare accidentalmente componenti reali.
 
   Questa operazione si può fare usando lo strumento AsmMetadataParser. [Per altre informazioni su questo strumento vedere qui](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -110,7 +111,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
 - **Le quote di Azure Resource Manager** - Le aree di Azure hanno di quote/limiti separati per il modello di distribuzione classica e per Azure Resource Manager. Anche se in uno scenario di migrazione non è usato nuovo hardware in quanto *si stanno scambiando macchine virtuali esistenti dalla distribuzione classica ad Azure Resource Manager*, le quote di Azure Resource Manager devono comunque avere una capacità sufficiente prima di avviare la migrazione. Di seguito sono elencati i principali limiti che causano problemi.  Aprire un ticket di supporto di quota per aumentare i limiti. 
 
     > [!NOTE]
-    > Questi limiti devono essere aumentati nella stessa area dell'ambiente da migrare.
+    > Questi limiti devono essere aumentati nella stessa area dell'ambiente di cui eseguire la migrazione.
     >
 
     - Interfacce di rete

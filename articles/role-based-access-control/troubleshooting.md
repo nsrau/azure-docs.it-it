@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure (RBAC) | Microsoft Docs
-description: Assistenza per problemi o domande sulle risorse del controllo degli accessi in base al ruolo.
+title: Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure | Microsoft Docs
+description: Risolvere i problemi relativi al controllo degli accessi in base al ruolo di Azure.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -10,26 +10,27 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e1f9fa8e3abd3eee9d85c241000a07794af9d36b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 186bcf26639f5cff2dcbf1e805913ac7edab7df4
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437367"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Risoluzione dei problemi del controllo degli accessi in base al ruolo di Azure 
+# <a name="troubleshooting-rbac-in-azure"></a>Risoluzione dei problemi relativi al controllo degli accessi in base al ruolo in Azure
 
-Questo articolo contiene le risposte alle domande comuni sui diritti di accesso specifici concessi ai ruoli, in modo da sapere cosa accade quando si usano i ruoli nel Portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
+Questo articolo contiene le risposte alle domande comuni sul controllo degli accessi in base al ruolo, per poter sapere che cosa accade quando si usano i ruoli nel portale di Azure e risolvere i problemi di accesso. Questi tre ruoli coprono tutti i tipi di risorsa:
 
 * Proprietario  
 * Collaboratore  
 * Reader  
 
-Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni dettagliate su come concedere l'accesso, vedere [Controllo degli accessi in base al ruolo di Azure](role-assignments-portal.md) .
+Proprietari e collaboratori hanno accesso completo all'esperienza di gestione, ma il collaboratore non può concedere l'accesso ad altri utenti o gruppi. Il ruolo di lettore è maggiormente articolato e verrà quindi esaminato in maniera più approfondita. Per informazioni su come concedere l'accesso, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md).
 
 ## <a name="app-service"></a>Servizio app
 ### <a name="write-access-capabilities"></a>Funzionalità di accesso in scrittura
@@ -96,9 +97,7 @@ Gli elementi seguenti richiedono accesso **in scrittura** sia alla **macchina vi
 
 Se non è possibile accedere a nessuno di questi riquadri, richiedere all'amministratore l'accesso come Collaboratore al gruppo di risorse.
 
-## <a name="see-more"></a>Altro
-* [Controllo degli accessi in base al ruolo](role-assignments-portal.md): introduzione al controllo degli accessi in base al ruolo nel portale di Azure.
-* [Ruoli predefiniti](built-in-roles.md): informazioni dettagliate sui ruoli predefiniti del controllo degli accessi in base al ruolo.
-* [Ruoli personalizzati nel controllo degli accessi in base al ruolo di Azure](custom-roles.md): informazioni su come creare ruoli personalizzati per esigenze di accesso specifiche.
-* [Creare un report della cronologia delle modifiche relative all'accesso](change-history-report.md): monitoraggio delle modifiche nelle assegnazioni dei ruoli nel controllo degli accessi in base al ruolo.
+## <a name="next-steps"></a>Passaggi successivi
+* [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](role-assignments-portal.md)
+* [Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo](change-history-report.md)
 

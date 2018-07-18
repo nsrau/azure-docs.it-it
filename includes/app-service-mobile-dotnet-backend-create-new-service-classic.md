@@ -18,4 +18,4 @@
    Prima di procedere, attendere alcuni minuti che la distribuzione del database venga completata.
 
 <!-- URLs. -->
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/

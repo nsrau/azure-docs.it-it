@@ -5,7 +5,7 @@ services: azure-container-service
 documentationcenter: na
 author: devinb
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 346f70b9-7b52-4688-a8e8-8f53869618d3
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24002931"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Risoluzione dei problemi di sviluppo di Visual Studio 2017 con Docker
 

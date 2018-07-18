@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652502"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
-Azure PowerShell consente di creare e gestire risorse di Azure dalla riga di comando di PowerShell o negli script. Per Archiviazione di Azure, i cmdlet possono essere suddivisi in due categorie: piano di controllo e piano dati. I cmdlet del piano di controllo consentono di gestire l'account di archiviazione, ovvero creare account di archiviazione, impostare le proprietà, eliminare account di archiviazione, ruotare le chiavi di accesso e così via. I cmdlet del piano dati consentono invece di gestire i dati archiviati *nell'*account di archiviazione, ovvero caricare file BLOB, creare condivisioni file e aggiungere messaggi a una coda.
+Azure PowerShell consente di creare e gestire risorse di Azure dalla riga di comando di PowerShell o negli script. Per Archiviazione di Azure, i cmdlet possono essere suddivisi in due categorie: piano di controllo e piano dati. I cmdlet del piano di controllo consentono di gestire l'account di archiviazione, ovvero creare account di archiviazione, impostare le proprietà, eliminare account di archiviazione, ruotare le chiavi di accesso e così via. I cmdlet del piano dati consentono invece di gestire i dati archiviati *nell'* account di archiviazione, ovvero caricare file BLOB, creare condivisioni file e aggiungere messaggi a una coda.
 
 Questo articolo illustra le operazioni comunemente eseguite quando si usano i cmdlet del piano di gestione per gestire gli account di archiviazione. Si apprenderà come: 
 
@@ -214,7 +215,7 @@ Fino a qui si è appreso come gestire l'account di archiviazione con PowerShell.
 * [Eseguire operazioni in Archiviazione Blob di Azure con Azure PowerShell](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Come usare PowerShell per gestire File di Azure](../files/storage-how-to-use-files-powershell.md)
 * [Eseguire operazioni nell'archivio code di Azure con Azure PowerShell](../queues/storage-powershell-how-to-use-queues.md)
-* [Eseguire operazioni di Archiviazione tabelle di Azure con PowerShell](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [Eseguire operazioni di Archiviazione tabelle di Azure con PowerShell](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 L'API di tabella di Azure Cosmos DB offre funzionalità Premium per l'archiviazione di tabelle, ad esempio distribuzione globale chiavi in mano, operazioni di lettura e scrittura a bassa latenza, indicizzazione secondaria automatica e velocità effettiva dedicata. 
 

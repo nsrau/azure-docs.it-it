@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e3f81a6480e9de55c8f803e2266c4ac6e33c316
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149390"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590539"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Privacy dell'utente e Azure AD Connect 
 
@@ -27,7 +28,7 @@ ms.locfileid: "32149390"
 >[!NOTE] 
 >Il presente articolo affronta Azure AD Connect e la privacy dell'utente.  Per informazioni su Azure AD Connect Health e la privacy dell'utente, vedere l'articolo [qui](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-È possibile ottenere la conformità alla privacy dell'utente per le installazioni di Azure AD Connect in due modi:
+Migliorare la privacy dell’utente per le installazioni Azure AD Connect in due modi:
 
 1.  Qualora richiesto, estrarre i dati per un utente e rimuovere i dati di tale utente dalle installazioni.
 2.  Verificare che nessun dato venga conservato per più di 48 ore.

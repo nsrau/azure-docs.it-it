@@ -1,5 +1,5 @@
 ---
-title: Gestione traffico di Azure - Domande frequenti | Microsoft Docs
+title: Gestione traffico di Azure - Domande frequenti | Documentazione Microsoft
 description: Questo articolo risponde ad alcune domande frequenti su Gestione traffico
 services: traffic-manager
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942357"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301066"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -86,10 +86,18 @@ Quando una query DNS viene ricevuta da Gestione traffico, nella risposta viene i
 
 A livello di singolo profilo, è possibile impostare una durata TTL del DNS minima di 0 secondi e massima di 2.147.483.647 secondi, ovvero l'intervallo massimo conforme a [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ). Una durata TTL pari a 0 indica che i resolver DNS a valle non memorizzano nella cache le risposte alle query; tutte le query vengono ricevute dai server DNS di Gestione traffico per essere risolte.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Come si può verificare il volume delle query destinate al profilo personale? 
+Una delle metriche fornite da Gestione traffico è costituita dal numero di query a cui un profilo risponde. È possibile ottenere queste informazioni tramite un'aggregazione a livello di profilo oppure è possibile suddividerle ulteriormente per visualizzare il volume di query in cui sono stati restituiti endpoint specifici. È anche possibile configurare avvisi per l'invio di notifiche se il volume di risposte delle query soddisfa le condizioni impostate. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Metodi geografico di routing del traffico di Gestione traffico
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Quali sono alcuni casi di uso in cui il routing geografico è utile? 
 Il tipo di routing Geografico può essere usato in qualsiasi scenario in cui un cliente di Azure abbia bisogno di distinguere gli utenti in base alle aree geografiche. Ad esempio, tramite il metodo di routing del traffico Geografico è possibile offrire agli utenti di una determinata area un'esperienza utente diversa rispetto a quelli di altre aree. Un altro esempio è la necessità di garantire la conformità con requisiti dei dati locali che richiedono di servire gli utenti di una determinata area solo con gli endpoint di tale area.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Come si decide se è consigliabile usare il metodo di routing relativo alle prestazioni o geografico? 
+La differenza essenziale tra questi due metodi di routing molto diffusi consiste nel fatto che nel metodo di routing relativo alle prestazioni l'obiettivo principale consiste nell'inviare traffico all'endpoint che può fornire la latenza più bassa al chiamante, mentre nel routing geografico l'obiettivo principale consiste nell'imporre un recinto geografico per i chiamanti, in modo che sia possibile indirizzarli deliberatamente a un endpoint specifico. La sovrapposizione si verifica perché è presente una correlazione tra vicinanza geografica e latenza più bassa, benché ciò non sia sempre vero. È possibile che sia presente un endpoint in un'area geografica diversa che può offrire un'esperienza di latenza migliore per il chiamante e in tale caso il routing relativo alle prestazioni invierà l'utente a tale endpoint, ma il routing geografico lo invierà sempre all'endpoint mappato per la rispettiva area geografica. Per chiarire meglio, si prenda in considerazione l'esempio seguente. Con il routing geografico è possibile creare mapping non comuni, ad esempio inviando tutto il traffico proveniente dall'Asia a endpoint nell'area Stati Uniti e tutto il traffico proveniente dagli Stati Uniti a endpoint in Asia. In tale caso, il routing geografico eseguirà deliberatamente esattamente le operazioni configurate e l'ottimizzazione delle prestazioni non viene presa in considerazione. 
+>[!NOTE]
+>È possibile che in alcuni scenari siano necessarie sia prestazioni ottimali che funzionalità di routing geografico. Per questi scenari è consigliabile usare i profili annidati. È ad esempio possibile configurare un profilo padre con il routing geografico, in cui tutto il traffico proveniente dall'America del Nord viene inviato a un profilo annidato con endpoint negli Stati Uniti e viene usato il routing relativo alle prestazioni per inviare tale traffico all'endpoint migliore entro tale set. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Quali sono le aree supportate da Gestione traffico per il routing geografico? 
 La gerarchia di paese/area geografica utilizzata da Gestione traffico è reperibile [qui](traffic-manager-geographic-regions.md). La pagina viene aggiornata con ogni modifica apportata, ma è possibile recuperare le stesse informazioni anche a livello programmatico usando l'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -331,6 +339,9 @@ Fare clic [qui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azu
 Il numero di controlli di integrità eseguiti da Gestione traffico sull'endpoint dipende dagli elementi seguenti:
 - Il valore impostato per l'intervallo di monitoraggio; un intervallo inferiore indica un maggior numero di richieste che raggiungono l'endpoint in un determinato periodo di tempo.
 - Il numero di posizioni da cui hanno origine i controlli di integrità; gli indirizzi IP da cui possono avere origine tali controlli sono elencati nella domanda precedente.
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Come si possono ricevere notifiche se uno degli endpoint risulta inattivo? 
+Una delle metriche fornite da Gestione traffico è costituita dallo stato di integrità degli endpoint in un profilo. È possibile visualizzare questo scenario come aggregazione di tutti gli endpoint all'interno di un profilo, ad esempio il 75% degli endpoint è integro, oppure a livello di singolo endpoint. Le metriche di Gestione traffico vengono esposte tramite Monitoraggio di Azure ed è possibile usare le rispettive [funzionalità per gli avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) per ottenere notifiche in caso di modifica dello stato di integrità dell'endpoint. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Profili annidati di Gestione traffico
 

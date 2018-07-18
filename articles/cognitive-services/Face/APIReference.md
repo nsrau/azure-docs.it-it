@@ -1,0 +1,32 @@
+---
+title: Informazioni di riferimento sull'API per il servizio API Viso | Microsoft Docs
+titleSuffix: Microsoft Cognitive Services
+description: Le informazioni di riferimento per le API forniscono informazioni sulle API di gestione Person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList e sull'API per l'algoritmo Viso.
+services: cognitive-services
+author: SteveMSFT
+manager: corncar
+ms.service: cognitive-services
+ms.component: face-api
+ms.topic: article
+ms.date: 03/01/2018
+ms.author: sbowles
+ms.openlocfilehash: 94c03d4f07a18c0c63d76965b1b31dce66388843
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "35378076"
+---
+# <a name="api-reference"></a>Informazioni di riferimento sulle API
+
+L'API Viso Microsoft è un'API basata sul cloud che fornisce gli algoritmi più avanzati per il rilevamento e il riconoscimento dei volti.
+
+Le API Viso si applicano alle categorie seguenti:
+
+- [API per l'algoritmo Viso](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236): eseguono funzioni base come il [rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), l'[individuazione di visi simili](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), la [verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), l'[identificazione](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) e il [raggruppamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+- [API di gestione FaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): usate per gestire un oggetto FaceList per la funzione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) (Ricerca di simili).
+- [API di gestione LargePersonGroup Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40): usate per gestire visi LargePersonGroup Person per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [API di gestione LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d): usate per gestire un set di dati LargePersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [API di gestione LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): usate per gestire un oggetto LargeFaceList per la funzione [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) (Ricerca di simili).
+- [API di gestione PersonGroup Person](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): usate per gestire visi di PersonGroup Person per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).
+- [API di gestione PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): usate per gestire un set di dati PersonGroup per la funzione [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) (Identificazione).

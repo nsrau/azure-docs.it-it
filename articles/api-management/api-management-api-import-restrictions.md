@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598471"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Problemi noti e limitazioni dell'importazione dell'API
 ## <a name="about-this-list"></a>Informazioni sull'elenco
 Quando si importa un'API è possibile riscontrare delle restrizioni o identificare dei problemi che è necessario correggere per completare l'importazione. L'articolo illustra questi aspetti, organizzati in base al formato di importazione dell'API.
 
-## <a name="open-api"></a>Aprire l'API/Swagger
-Se si ricevono errori durante l'importazione del documento Open API, assicurarsi che sia stato convalidato: usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Aprire l'editor della specifica API) o usare uno strumento di terze parti come <a href="http://www.swagger.io">Swagger Editor</a>.
+## <a name="open-api"> </a>OpenAPI/Swagger
+Se si ottengono errori durante l'importazione del documento OpenAPI, assicurarsi che sia stato convalidato: usare la finestra di progettazione nel portale di Azure (Progettazione - Front End - Editor della specifica OpenAPI) o usare uno strumento di terze parti come <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * È supportato solo il formato JSON per OpenAPI.
+* I parametri obbligatori per percorso e query devono avere nomi univoci. In OpenAPI un nome di parametro deve essere univoco solo entro la posizione, ad esempio il percorso, la query o l'intestazione.  In Gestione API, invece, le operazioni possono essere discriminate da parametri sia di percorso che di query (cosa che OpenAPI non supporta). Pertanto è necessario che i nomi dei parametri siano univoci all'interno dell'intero modello di URL.
 * Gli schemi a cui viene fatto riferimento tramite le proprietà **$ref** non possono contenere altre proprietà **$ref**.
 * I puntatori **$ref** non possono fare riferimento a file esterni.
 * **x-ms-paths** e **x-servers** sono le uniche estensioni supportate.

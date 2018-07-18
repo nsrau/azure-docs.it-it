@@ -1,28 +1,28 @@
 ---
 title: Comprendere la conservazione dati nell'ambiente Azure Time Series Insights | Microsoft Docs
 description: Questo articolo descrive due impostazioni che consentono di controllare la conservazione dati nell'ambiente Azure Time Series Insights.
-services: time-series-insights
 ms.service: time-series-insights
-author: anshan
+services: time-series-insights
+author: ashannon7
 ms.author: anshan
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 46e0c4fa25c7d8a56763b80bf7de97c775c7ee99
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c8fad0d626fc0b9754f7f04c8000f48976eb766b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293096"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Comprendere la conservazione dati in Time Series Insights
 Questo articolo descrive due impostazioni che influenzano la conservazione dati nell'ambiente Time Series Insights.
 
 Ogni ambiente Time Series Insights dispone di un'impostazione che controlla il **periodo di conservazione dei dati**. Il valore va da 1 a 400 giorni. I dati vengono eliminati in base alla capacità di archiviazione dell'ambiente o alla durata dell'assorbimento, che va da 1 a 400 giorni, a seconda della condizione che si verifica per prima.
 
-Ogni ambiente Time Series Insights dispone di un'impostazione aggiuntiva **Comportamento limite di archiviazione superato**. Questa impostazione controlla il comportamento in ingresso e di pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
+Ogni ambiente TSI dispone di un'impostazione aggiuntiva, **comportamento limite di archiviazione superato**. Questa impostazione controlla il comportamento di traffico in ingresso e pulizia quando viene raggiunta la capacità massima di un ambiente. È possibile scegliere tra due tipi di comportamento:
 - **Eliminare i dati meno recenti** (impostazione predefinita)  
 - **Sospendere il traffico in ingresso**
 

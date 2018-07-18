@@ -5,21 +5,22 @@ metadata:
   title: Documentazione di Backup di Azure - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
   description: Backup di Azure consente di eseguire il backup dei dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.
   services: backup
-  author: czeumault
-  manager: carolz
+  author: markgalioto
+  manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/11/2017
-  ms.author: carolz
-  ms.openlocfilehash: f2654916ee61a548537c8887ff7d1923fb6f29ac
-  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+  ms.date: 05/22/2018
+  ms.author: markgal
+  ms.openlocfilehash: b2907330477c62cce2ee5e9498cc4445580161a2
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 01/12/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34606869"
 abstract:
-  description: Backup di Azure consente di eseguire il backup dei dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.
+  description: Usare Backup di Azure per proteggere i dati per server locali, macchine virtuali, carichi di lavoro virtualizzati, istanze di SQL Server, SharePoint Server e altro ancora. Questo articolo contiene informazioni su come eseguire il backup e ripristino dei dati con guide introduttive, esercitazioni ed esempi.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -47,7 +48,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-backup-vm-at-scale\">Eseguire il backup di più macchine virtuali di Azure</a>"
+    - html: <a href="tutorial-backup-vm-at-scale">Eseguire il backup di più macchine virtuali di Azure</a>
     - html: <a href="tutorial-restore-disk">Ripristinare un disco e creare una macchina virtuale ripristinata</a>
     - html: <a href="tutorial-restore-files">Ripristinare file in una macchina virtuale in Azure</a>
     - html: <a href="tutorial-backup-windows-server-to-azure">Eseguire il backup di Windows Server in Azure</a>
@@ -61,13 +62,15 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/backup/powershell-backup-samples">Azure PowerShell</a>
-- title: Riferimento
+- title: Riferimenti
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Riga di comando
-      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/resourcemanager/azurerm.backup/v2.3.0/azurerm.backup">Azure PowerShell</a></p><p><a href="/cli/azure/backup?view=azure-cli-latest">Interfaccia della riga di comando di Azure</a></p>
     - title: Lingue
       html: <p><a href="/dotnet/api/microsoft.azure.management.backupservices">.NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/backup/">Informazioni di riferimento sull'API di Backup di Azure</a></p>

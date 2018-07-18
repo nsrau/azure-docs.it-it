@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265844"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Eseguire la migrazione del database MySQL nel database di Azure mediante dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MySQL
@@ -44,13 +45,14 @@ Usare utilità e strumenti comuni, come ad esempio MySQL Workbench, mysqldump, T
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 Per ottimizzare le prestazioni, tenere presenti le considerazioni seguenti durante il dump di database di grandi dimensioni:
 -   Usare l'opzione `exclude-triggers` in mysqldump durante il dump dei database. Escludere i trigger dai file di dump per evitare l'attivazione dei comandi di trigger durante il ripristino dei dati. 
--   Usare l'opzione `single-transaction` per impostare la modalità di isolamento della transazione su REPEATABLE READ e inviare un'istruzione SQL START TRANSACTION al server prima di creare un dump dei dati. Il dump di molte tabelle all'interno di una singola transazione causa l'uso di spazio di archiviazione aggiuntivo durante il ripristino. L'opzione `single-transaction` e l'opzione `lock-tables` si escludono a vicenda in quanto LOCK TABLES causa il commit implicito di eventuali transazioni in sospeso. Per eseguire il dump tabelle di grandi dimensioni, combinare l'opzione `single-transaction` con l'opzione `quick`. 
+-   Usare l'opzione `single-transaction` per impostare la modalità di isolamento della transazione su REPEATABLE READ e inviare un'istruzione SQL START TRANSACTION al server prima di creare un dump dei dati. Il dump di molte tabelle all'interno di una singola transazione causa l'uso di spazio di archiviazione aggiuntivo durante il ripristino. Le opzioni `single-transaction` e `lock-tables` si escludono a vicenda in quanto LOCK TABLES causa il commit implicito di eventuali transazioni in sospeso. Per eseguire il dump di tabelle di grandi dimensioni, combinare l'opzione `single-transaction` con l'opzione `quick`. 
 -   Usare la sintassi a più righe `extended-insert` che include vari elenchi VALUES. Ciò consente di ottenere un file di dump più piccolo e di velocizzare gli inserimenti quando il file viene ricaricato.
 -  Usare l'opzione `order-by-primary` in mysqldump durante il dump dei database, in modo che i dati vengano inseriti nello script nell'ordine delle chiavi primarie.
 -   Usare l'opzione `disable-keys` in mysqldump durante il dump dei dati, per disabilitare i vincoli della chiave esterna prima del caricamento. La disabilitazione dei controlli della chiave esterna offre miglioramenti delle prestazioni. Abilitare i vincoli e verificare i dati dopo il caricamento per garantire l'integrità referenziale.
 -   Usare le tabelle partizionate quando appropriato.
 -   Caricare i dati in parallelo. Evitare un eccessivo parallelismo che comporterebbe il raggiungimento del limite di risorse e monitorare le risorse con le metriche offerta nel portale di Azure. 
 -   Usare l'opzione `defer-table-indexes` in mysqlpump durante il dump dei database, in modo che la creazione dell'indice venga eseguita dopo il caricamento dei dati delle tabelle.
+-   Copiare i file di backup in un archivio/BLOB di Azure ed eseguire il ripristino da tale posizione. In questo modo, l'operazione dovrebbe essere eseguita in modo molto più veloce rispetto al ripristino attraverso Internet.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Creare un file di backup dalla riga di comando tramite mysqldump
 Per eseguire il backup di un database MySQL esistente nel server locale o in una macchina virtuale, eseguire il comando seguente: 
@@ -74,7 +76,6 @@ Per selezionare tabelle specifiche nel database di cui si deve eseguire il backu
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Per eseguire il backup di più database contemporaneamente, usare lo switch -database ed elencare i nomi dei database separati da spazi. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>Esportazione mediante PHPMyAdmin
 Per l'esportazione è possibile usare lo strumento comune phpMyAdmin, che potrebbe essere già installato in locale nel proprio ambiente. Per esportare il database MySQL mediante PHPMyAdmin:
-- Aprire phpMyAdmin.
-- Selezionare il database. Fare clic sul nome del database nell'elenco a sinistra. 
-- Fare clic sul collegamento **Export** (Esporta). Viene visualizzata una nuova pagina per eseguire il dump del database.
-- Nell'area Export (Esporta) fare clic sul collegamento **Select All** (Seleziona tutto) per scegliere le tabelle nel database. 
-- Nell'area delle opzioni SQL, fare clic sulle opzioni appropriate. 
-- Fare clic sull'opzione **Save as file** (Salva come file) e sull'opzione di compressione corrispondente e quindi fare clic sul pulsante **Go** (Vai). Verrà visualizzata una finestra di dialogo che richiede di salvare il file in locale.
+1. Aprire phpMyAdmin.
+2. Selezionare il database. Fare clic sul nome del database nell'elenco a sinistra. 
+3. Fare clic sul collegamento **Export** (Esporta). Viene visualizzata una nuova pagina per eseguire il dump del database.
+4. Nell'area Export (Esporta) fare clic sul collegamento **Select All** (Seleziona tutto) per scegliere le tabelle nel database. 
+5. Nell'area delle opzioni SQL, fare clic sulle opzioni appropriate. 
+6. Fare clic sull'opzione **Save as file** (Salva come file) e sull'opzione di compressione corrispondente e quindi fare clic sul pulsante **Go** (Vai). Verrà visualizzata una finestra di dialogo che richiede di salvare il file in locale.
 
 ## <a name="import-using-phpmyadmin"></a>Importazione mediante PHPMyAdmin
 L'importazione del database è simile all'esportazione. Procedere come segue:
-- Aprire phpMyAdmin. 
-- Nella pagina di impostazione di phpMyAdmin fare clic su **Add** (Aggiungi) per aggiungere il database di Azure per il server MySQL. Specificare i dettagli della connessione e le informazioni di accesso.
-- Creare un database denominato in modo appropriato e selezionarlo a sinistra della schermata. Per riscrivere il database esistente, fare clic sul nome del database, selezionare tutte le caselle di controllo accanto ai nomi delle tabelle e selezionare **Drop** (Elimina) per eliminare le tabelle esistenti. 
-- Fare clic sul collegamento **SQL** per visualizzare la pagina in cui è possibile digitare i comandi SQL o caricare il file SQL. 
-- Usare il pulsante **Browse** (Sfoglia) per trovare il file nel database. 
-- Fare clic sul pulsante **Go** (Vai) per esportare il backup, eseguire i comandi SQL e ricreare il database.
+1. Aprire phpMyAdmin. 
+2. Nella pagina di impostazione di phpMyAdmin fare clic su **Add** (Aggiungi) per aggiungere il database di Azure per il server MySQL. Specificare i dettagli della connessione e le informazioni di accesso.
+3. Creare un database denominato in modo appropriato e selezionarlo a sinistra della schermata. Per riscrivere il database esistente, fare clic sul nome del database, selezionare tutte le caselle di controllo accanto ai nomi delle tabelle e selezionare **Drop** (Elimina) per eliminare le tabelle esistenti. 
+4. Fare clic sul collegamento **SQL** per visualizzare la pagina in cui è possibile digitare i comandi SQL o caricare il file SQL. 
+5. Usare il pulsante **Browse** (Sfoglia) per trovare il file nel database. 
+6. Fare clic sul pulsante **Go** (Vai) per esportare il backup, eseguire i comandi SQL e ricreare il database.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Come connettere le applicazioni al database di Azure per MySQL](./howto-connection-string.md)
+- [Connettere le applicazioni a Database di Azure per MySQL](./howto-connection-string.md).
+- Per altre informazioni sulla migrazione dei database in Database di Azure per MySQL, vedere [Database Migration Guide](http://aka.ms/datamigration) (Guida alla migrazione di database).

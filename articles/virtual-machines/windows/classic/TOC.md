@@ -33,7 +33,6 @@
 ### [Gestire le VM con Azure PowerShell](manage-psh-classic.md)
 ### [Informazioni sull'agente e sulle estensioni delle VM](agents-and-extensions-classic.md)
 ### [Gestire le estensioni di VM](manage-extensions-classic.md)
-### [Estensione Script personalizzato per le VM](extensions-customscript-classic.md)
 
 ## Gestire i carichi di lavoro
 ### [High-performance Computing (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)
@@ -53,7 +52,7 @@
 ### [Reimpostare la password RDP](reset-rdp.md)
 ### [Collegare un disco rigido virtuale alla VM di risoluzione dei problemi](troubleshoot-recovery-disks-portal.md)
 
-# riferimento
+# Riferimenti
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/vm)
 ## [Java](/java/api)

@@ -1,19 +1,19 @@
 ---
 title: Connettere un dispositivo DevKit all'applicazione Azure IoT Central | Microsoft Docs
 description: Informazioni su come connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central nello sviluppo di dispositivi.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200742"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261577"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -28,7 +28,9 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 Un'applicazione creata dal modello di applicazione **Sample Devkits** include un modello di dispositivo **MXChip** con le caratteristiche seguenti:
 
-### <a name="telemetry-measurements"></a>Misure di telemetria
+### <a name="measurements"></a>Misure
+
+#### <a name="telemetry"></a>Telemetria 
 
 | Nome campo     | Unità  | Minima | Massima | Cifre decimali |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ Un'applicazione creata dal modello di applicazione **Sample Devkits** include un
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### <a name="states"></a>Stati 
+
+| NOME          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
+
+#### <a name="events"></a>Eventi 
+
+| NOME             | Nome visualizzato      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Pulsante B premuto  | 
+
+
 
 ### <a name="settings"></a>Impostazioni
 
@@ -68,17 +84,6 @@ Impostazioni attivazione/disattivazione
 | Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
 | Text            | Località     | location   | N/D       |
 
-### <a name="states"></a>Stati 
-
-| NOME          | Nome visualizzato   | NORMALE | ATTENZIONE | PERICOLO | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Stato del dispositivo   | Verde  | Arancione  | Rosso    | 
-
-### <a name="events"></a>Eventi 
-
-| NOME             | Nome visualizzato      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Pulsante B premuto  | 
 
 ### <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
 

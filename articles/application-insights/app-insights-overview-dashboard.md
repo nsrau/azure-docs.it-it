@@ -10,29 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356087"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970973"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Dashboard panoramica di Application Insights (anteprima)
+# <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
 Application Insights ha sempre fornito un riquadro riepilogativo per consentire una valutazione rapida e immediata dello stato e delle prestazioni dell'applicazione. Il nuovo dashboard panoramica offre un'esperienza più flessibile e veloce.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>Come testare la nuova esperienza?
 
- In Application Insights in: _Panoramica_, selezionare _Please try new Overview before it becomes the default experience_ (Provare la nuova Panoramica prima che diventi l'esperienza predefinita).
+Il nuovo dashboard panoramica ora avvia per impostazione predefinita:
 
-![Panoramica (anteprima)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-Verrà avviato il nuovo dashboard panoramica predefinito:
-
-![Riquadro della Panoramica (anteprima)](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![Riquadro della Panoramica (anteprima)](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>Migliori prestazioni
 
@@ -40,7 +36,7 @@ La selezione dell'intervallo di tempo è stata semplificata in una semplice inte
 
 ![Intervallo di tempo](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-Le prestazioni complessive sono state notevolmente migliorate. Ciascun riquadro KPI con aggiornamento dinamico predefinito è collegato alla funzionalità Application Insights corrispondente. Ad esempio, selezionando le richieste non riuscite verrà avviato il riquadro _Errori_:
+Le prestazioni complessive sono state notevolmente migliorate. È disponibile l'accesso con un clic a funzionalità comuni, ad esempio **Ricerca** e **Analitica**. Ciascun riquadro KPI con aggiornamento dinamico predefinito fornisce informazioni dettagliate sulle funzionalità Application Insights corrispondenti. Per altre informazioni sulle richieste non riuscite, selezionare **Errori** sotto l'intestazione **Analisi**:
 
 ![Errori](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -56,7 +52,7 @@ Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazi
 
 ![Visualizzazione dashboard](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-Mentre è possibile mantenere la visualizzazione predefinita desiderata, si può anche aggiungere ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
+Se si desidera, è possibile mantenere la visualizzazione predefinita. Oppure è anche possibile aggiungerla ed eliminare dal dashboard per soddisfare al meglio le esigenze del team.
 
 > [!NOTE]
 > Tutti gli utenti con accesso alla risorsa di Application Insights condividono la stessa esperienza di dashboard dell'applicazione. Le modifiche apportate da un utente modificheranno la visualizzazione per tutti gli utenti.

@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968579"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Creare un'app Web PHP in Azure
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 04/18/2018
 
 Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire un'app PHP in un'app Web di Azure. Si creerà l'app Web usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell e si userà Git per distribuire il codice PHP di esempio nell'app Web.
 
-![App di esempio in esecuzione in Azure]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![App di esempio in esecuzione in Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 È possibile eseguire queste procedure con un computer Mac, Windows o Linux. Una volta installati i prerequisiti, sono necessari circa cinque minuti per completare la procedura.
 
@@ -91,6 +92,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mostra un output simile all'esempio seguente:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -103,8 +105,13 @@ Dopo la creazione dell'app Web, l'interfaccia della riga di comando di Azure mos
   < JSON data removed for brevity. >
 }
 ```
+È stata creata una nuova app Web vuota, con la distribuzione Git abilitata.
 
-Passare all'app Web appena creata. Sostituire _&lt;nome app>_ con un nome di app univoco.
+> [!NOTE]
+> L'URL dell'elemento Git remoto è riportato nella proprietà `deploymentLocalGitUrl`, con il formato `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Salvare questo URL, perché è necessario in un secondo momento.
+>
+
+Passare all'app Web appena creata. Sostituire _&lt;app name>_ con il nome app univoco creato nel passaggio precedente.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -186,7 +193,7 @@ Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile esegu
 
 ![Pagina del servizio app nel portale di Azure](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
+Il menu a sinistra fornisce varie opzioni per la configurazione dell'app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

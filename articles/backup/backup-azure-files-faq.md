@@ -7,13 +7,13 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
-ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: c0261b4f89647a8db3b7bf452a8827d40fdc1911
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: de91559d9c3626bdd07c2e497a8aa0b124f00b57
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434841"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Domande sul backup di file di Azure
 Questo articolo risponde a domande comuni sul backup di file di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -23,7 +23,7 @@ Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti r
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Configurazione del processo di backup per i file di Azure
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Perché non vengono visualizzati alcuni degli account di archiviazione da proteggere e che contengono condivisioni file di Azure valide? <br/>
-Durante l'anteprima, il backup per le condivisioni file di Azure non supporta tutti i tipi di account di archiviazione. Vedere l'elenco di account di archiviazione supportati disponibile [qui](troubleshoot-azure-files.md#preview-boundaries). È anche possibile che l'account di archiviazione che si sta cercando sia già protetto o registrato con un altro insieme di credenziali. [Annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dall'insieme di credenziali per individuare l'account di archiviazione in altri insiemi di credenziali per la protezione.
+Durante l'anteprima, il backup per le condivisioni file di Azure non supporta tutti i tipi di account di archiviazione. Vedere l'elenco di account di archiviazione supportati disponibile [qui](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview). È anche possibile che l'account di archiviazione che si sta cercando sia già protetto o registrato con un altro insieme di credenziali. [Annullare la registrazione](troubleshoot-azure-files.md#configuring-backup) dall'insieme di credenziali per individuare l'account di archiviazione in altri insiemi di credenziali per la protezione.
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Perché non vengono visualizzate alcune delle condivisioni file di Azure nell'account di archiviazione quando si prova a configurare il backup? <br/>
 Verificare se la condivisione file di Azure è già protetta nello stesso insieme di credenziali di Servizi di ripristino oppure se è stata eliminata di recente.
@@ -39,21 +39,21 @@ Sì. Sarà tuttavia necessario [interrompere la protezione](backup-azure-files.m
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>In quali aree geografiche è possibile eseguire il backup di condivisioni file di Azure? <br/>
 Il backup di condivisioni file di Azure è attualmente disponibile in anteprima e solo nelle aree geografiche seguenti: 
--   Australia sud-orientale (ASE) 
+-   Australia orientale (AE) 
+- Australia sud-orientale (ASE) 
 - Brasile meridionale (BRS)
 - Canada centrale (CNC)
 -   Canada orientale (CE)
 -   Stati Uniti centrali (CUS)
 -   Asia orientale (EA)
--   Australia orientale (AE) 
 -   Stati Uniti orientali (EUS)
 -   Stati Uniti orientali 2 (EUS2)
 - Giappone orientale (JPE)
 - Giappone occidentale (JPW)
 -   India centrale (INC) 
 - India meridionale (INS)
-- Corea centrale (KRC)
-- Corea meridionale (KRS)
+- Corea del Sud centrale (KRC)
+- Corea del Sud meridionale (KRS)
 -   Stati Uniti centro-settentrionali (NCUS) 
 -   Europa settentrionale (NE) 
 -   Stati Uniti a centro-meridionali (SCUS) 
@@ -68,10 +68,10 @@ Il backup di condivisioni file di Azure è attualmente disponibile in anteprima 
 Inviare un messaggio a [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) se è necessario usare la funzionalità in un'area geografica non indicata nell'elenco.
 
 ### <a name="how-many-azure-file-shares-can-i-protect-in-a-vaultbr"></a>Quante condivisioni file di Azure si possono proteggere in un insieme di credenziali?<br/>
-Durante l'anteprima è possibile proteggere condivisioni file di Azure di un massimo di 25 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali.
+Durante l'anteprima è possibile proteggere condivisioni file di Azure di un massimo di 50 account di archiviazione per ogni insieme di credenziali. È possibile proteggere fino a 200 condivisioni file di Azure in un singolo insieme di credenziali.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>È possibile proteggere due condivisioni file diverse dallo stesso account di archiviazione in insiemi di credenziali diversi?
-di serie Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
+No. Tutte le condivisioni file di un account di archiviazione possono essere protette solo dallo stesso insieme di credenziali.
 
 ## <a name="backup"></a>Backup
 

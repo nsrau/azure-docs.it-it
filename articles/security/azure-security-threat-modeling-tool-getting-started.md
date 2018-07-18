@@ -1,6 +1,6 @@
 ---
 title: 'Introduzione: Microsoft Threat Modeling Tool - Azure | Microsoft Docs'
-description: "Questa è una panoramica più approfondita che descrive Threat Modeling Tool in azione."
+description: Questa è una panoramica più approfondita che descrive Threat Modeling Tool in azione.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754187"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 

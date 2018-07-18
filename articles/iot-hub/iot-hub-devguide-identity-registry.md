@@ -1,25 +1,19 @@
 ---
-title: Informazioni sul registro delle identità dell'hub IoT di Azure | Microsoft Docs
+title: Informazioni sul registro delle identità dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per gli sviluppatori: descrizione del registro delle identità dell'hub IoT e come usarlo per gestire i dispositivi. Include informazioni sull'importazione e sull'esportazione in blocco delle identità dei dispositivi."
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 0706eccd-e84c-4ae7-bbd4-2b1a22241147
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c90bc4945b613f386f98178949e5451e8fe3673
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9a3d3d1c93ce0c8bc782a2634eb7be9b95fcf4b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633571"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
@@ -205,7 +199,7 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 
 ## <a name="module-identity-properties"></a>Proprietà delle identità dei moduli
 
-Le identità dei dispositivi vengono rappresentate da documenti JSON con le proprietà indicate di seguito.
+Le identità dei moduli vengono rappresentate da documenti JSON con le proprietà seguenti:
 
 | Proprietà | Opzioni | DESCRIZIONE |
 | --- | --- | --- |

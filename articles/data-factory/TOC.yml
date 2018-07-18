@@ -1,4 +1,4 @@
-- name: Documentazione di Data Factory versione 2
+- name: Documentazione di Data Factory
   href: index.yml
 - name: Passare alla documentazione della versione 1
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Introduzione al servizio Data factory
       href: introduction.md
-    - name: Confrontare le versioni 1 e 2
+    - name: Confrontare la versione corrente con la versione 1
       href: compare-versions.md
 - name: Guide introduttive
   expanded: true
@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Esercitazioni
   items:
-    - name: 1 - Distribuire i pacchetti SSIS in Azure
+    - name: 1 - Effettuare il provisioning del runtime di integrazione SSIS di Azure
       items:
         - name: Interfaccia utente
           href: tutorial-deploy-ssis-packages-azure.md
@@ -126,161 +126,168 @@
           href: continuous-integration-deployment.md
         - name: Sviluppo e debug iterativi
           href: iterative-development-debugging.md
+    - name: Connettori
+      items:
+        - name: Amazon Marketplace Web Service
+          href: connector-amazon-marketplace-web-service.md
+        - name: Amazon Redshift
+          href: connector-amazon-redshift.md
+        - name: Amazon S3
+          href: connector-amazon-simple-storage-service.md
+        - name: Archiviazione BLOB di Azure
+          href: connector-azure-blob-storage.md
+        - name: Azure Cosmos DB
+          href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake Storage Gen1
+          href: connector-azure-data-lake-store.md
+        - name: Azure Data Lake Storage Gen2
+          href: connector-azure-data-lake-storage.md
+        - name: Database di Azure per MySQL
+          href: connector-azure-database-for-mysql.md
+        - name: Database di Azure per PostgreSQL
+          href: connector-azure-database-for-postgresql.md
+        - name: Archiviazione file di Azure
+          href: connector-azure-file-storage.md
+        - name: Ricerca di Azure
+          href: connector-azure-search.md
+        - name: database SQL di Azure
+          href: connector-azure-sql-database.md
+        - name: Azure SQL Data Warehouse
+          href: connector-azure-sql-data-warehouse.md
+        - name: Archiviazione tabelle di Azure
+          href: connector-azure-table-storage.md
+        - name: Cassandra
+          href: connector-cassandra.md
+        - name: Common Data Service per le app
+          href: connector-dynamics-crm-office-365.md
+        - name: Concur
+          href: connector-concur.md
+        - name: Couchbase
+          href: connector-couchbase.md
+        - name: DB2
+          href: connector-db2.md
+        - name: Drill
+          href: connector-drill.md
+        - name: Dynamics 365
+          href: connector-dynamics-crm-office-365.md
+        - name: Dynamics CRM
+          href: connector-dynamics-crm-office-365.md
+        - name: File system
+          href: connector-file-system.md
+        - name: FTP
+          href: connector-ftp.md
+        - name: GE Historian
+          href: 'connector-odbc.md#ge-historian-source'
+        - name: Google BigQuery
+          href: connector-google-bigquery.md
+        - name: Greenplum
+          href: connector-greenplum.md
+        - name: hbase
+          href: connector-hbase.md
+        - name: HDFS
+          href: connector-hdfs.md
+        - name: Hive
+          href: connector-hive.md
+        - name: HTTP
+          href: connector-http.md
+        - name: HubSpot
+          href: connector-hubspot.md
+        - name: Impala
+          href: connector-impala.md
+        - name: Informix
+          href: 'connector-odbc.md#ibm-informix-source'
+        - name: Jira
+          href: connector-jira.md
+        - name: Magento
+          href: connector-magento.md
+        - name: MariaDB
+          href: connector-mariadb.md
+        - name: Marketo
+          href: connector-marketo.md
+        - name: Microsoft Access
+          href: 'connector-odbc.md#microsoft-access-source'
+        - name: MongoDB
+          href: connector-mongodb.md
+        - name: MySQL
+          href: connector-mysql.md
+        - name: Netezza
+          href: connector-netezza.md
+        - name: OData
+          href: connector-odata.md
+        - name: ODBC
+          href: connector-odbc.md
+        - name: Oracle
+          href: connector-oracle.md
+        - name: Oracle Eloqua
+          href: connector-oracle-eloqua.md
+        - name: Oracle Responsys
+          href: connector-oracle-responsys.md
+        - name: PayPal
+          href: connector-paypal.md
+        - name: Phoenix
+          href: connector-phoenix.md
+        - name: PostgreSQL
+          href: connector-postgresql.md
+        - name: Presto
+          href: connector-presto.md
+        - name: QuickBooks
+          href: connector-quickbooks.md
+        - name: Salesforce
+          href: connector-salesforce.md
+        - name: Salesforce Service Cloud
+          href: connector-salesforce.md
+        - name: Salesforce Marketing Cloud
+          href: connector-salesforce-marketing-cloud.md
+        - name: SAP Business Warehouse
+          href: connector-sap-business-warehouse.md
+        - name: SAP Cloud for Customer
+          href: connector-sap-cloud-for-customer.md
+        - name: SAP ECC
+          href: connector-sap-ecc.md
+        - name: SAP HANA
+          href: connector-sap-hana.md
+        - name: ServiceNow
+          href: connector-servicenow.md
+        - name: SFTP
+          href: connector-sftp.md
+        - name: Shopify
+          href: connector-shopify.md
+        - name: Spark
+          href: connector-spark.md
+        - name: SQL Server
+          href: connector-sql-server.md
+        - name: Square
+          href: connector-square.md
+        - name: Sybase
+          href: connector-sybase.md
+        - name: Teradata
+          href: connector-teradata.md
+        - name: Vertica
+          href: connector-vertica.md
+        - name: Tabella Web
+          href: connector-web-table.md
+        - name: Xero
+          href: connector-xero.md
+        - name: Zoho
+          href: connector-zoho.md
     - name: Copiare i dati
       items:
         - name: Copiare dati con l'attività di copia
           href: copy-activity-overview.md
         - name: Strumento Copia dati
           href: copy-data-tool.md
+          items: null
+        - name: Caricare dati in Data Lake Storage Gen2
+          href: load-azure-data-lake-storage-gen2.md
           items:
-            - name: Caricare dati in Data Lake Store
-              href: load-azure-data-lake-store.md
-            - name: Caricare dati in SQL Data Warehouse
-              href: load-azure-sql-data-warehouse.md
+            - name: Copiare da Data Lake Storage Gen1
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
+        - name: Caricare dati in SQL Data Warehouse
+          href: load-azure-sql-data-warehouse.md
+        - name: Caricare dati in Data Lake Storage Gen1
+          href: load-azure-data-lake-store.md
         - name: Leggere o scrivere dati partizionati
           href: how-to-read-write-partitioned-data.md
-        - name: Connettori
-          items:
-            - name: Amazon Marketplace Web Service
-              href: connector-amazon-marketplace-web-service.md
-            - name: Amazon Redshift
-              href: connector-amazon-redshift.md
-            - name: Amazon S3
-              href: connector-amazon-simple-storage-service.md
-            - name: Archiviazione BLOB di Azure
-              href: connector-azure-blob-storage.md
-            - name: Azure Cosmos DB
-              href: connector-azure-cosmos-db.md
-            - name: Archivio Azure Data Lake
-              href: connector-azure-data-lake-store.md
-            - name: Database di Azure per MySQL
-              href: connector-azure-database-for-mysql.md
-            - name: Database di Azure per PostgreSQL
-              href: connector-azure-database-for-postgresql.md
-            - name: Archiviazione file di Azure
-              href: connector-azure-file-storage.md
-            - name: Ricerca di Azure
-              href: connector-azure-search.md
-            - name: database SQL di Azure
-              href: connector-azure-sql-database.md
-            - name: Azure SQL Data Warehouse
-              href: connector-azure-sql-data-warehouse.md
-            - name: Archiviazione tabelle di Azure
-              href: connector-azure-table-storage.md
-            - name: Cassandra
-              href: connector-cassandra.md
-            - name: Common Data Service per le app
-              href: connector-dynamics-crm-office-365.md
-            - name: Concur
-              href: connector-concur.md
-            - name: Couchbase
-              href: connector-couchbase.md
-            - name: DB2
-              href: connector-db2.md
-            - name: Drill
-              href: connector-drill.md
-            - name: Dynamics 365
-              href: connector-dynamics-crm-office-365.md
-            - name: Dynamics CRM
-              href: connector-dynamics-crm-office-365.md
-            - name: File system
-              href: connector-file-system.md
-            - name: FTP
-              href: connector-ftp.md
-            - name: GE Historian
-              href: 'connector-odbc.md#ge-historian-source'
-            - name: Google BigQuery
-              href: connector-google-bigquery.md
-            - name: Greenplum
-              href: connector-greenplum.md
-            - name: hbase
-              href: connector-hbase.md
-            - name: HDFS
-              href: connector-hdfs.md
-            - name: Hive
-              href: connector-hive.md
-            - name: HTTP
-              href: connector-http.md
-            - name: HubSpot
-              href: connector-hubspot.md
-            - name: Impala
-              href: connector-impala.md
-            - name: Informix
-              href: 'connector-odbc.md#ibm-informix-source'
-            - name: Jira
-              href: connector-jira.md
-            - name: Magento
-              href: connector-magento.md
-            - name: MariaDB
-              href: connector-mariadb.md
-            - name: Marketo
-              href: connector-marketo.md
-            - name: Microsoft Access
-              href: 'connector-odbc.md#microsoft-access-source'
-            - name: MongoDB
-              href: connector-mongodb.md
-            - name: MySQL
-              href: connector-mysql.md
-            - name: Netezza
-              href: connector-netezza.md
-            - name: OData
-              href: connector-odata.md
-            - name: ODBC
-              href: connector-odbc.md
-            - name: Oracle
-              href: connector-oracle.md
-            - name: Oracle Eloqua
-              href: connector-oracle-eloqua.md
-            - name: Oracle Responsys
-              href: connector-oracle-responsys.md
-            - name: PayPal
-              href: connector-paypal.md
-            - name: Phoenix
-              href: connector-phoenix.md
-            - name: PostgreSQL
-              href: connector-postgresql.md
-            - name: Presto
-              href: connector-presto.md
-            - name: QuickBooks
-              href: connector-quickbooks.md
-            - name: Salesforce
-              href: connector-salesforce.md
-            - name: Salesforce Service Cloud
-              href: connector-salesforce.md
-            - name: Salesforce Marketing Cloud
-              href: connector-salesforce-marketing-cloud.md
-            - name: SAP Business Warehouse
-              href: connector-sap-business-warehouse.md
-            - name: SAP Cloud for Customer
-              href: connector-sap-cloud-for-customer.md
-            - name: SAP ECC
-              href: connector-sap-ecc.md
-            - name: SAP HANA
-              href: connector-sap-hana.md
-            - name: ServiceNow
-              href: connector-servicenow.md
-            - name: SFTP
-              href: connector-sftp.md
-            - name: Shopify
-              href: connector-shopify.md
-            - name: Spark
-              href: connector-spark.md
-            - name: SQL Server
-              href: connector-sql-server.md
-            - name: Square
-              href: connector-square.md
-            - name: Sybase
-              href: connector-sybase.md
-            - name: Teradata
-              href: connector-teradata.md
-            - name: Vertica
-              href: connector-vertica.md
-            - name: Tabella Web
-              href: connector-web-table.md
-            - name: Xero
-              href: connector-xero.md
-            - name: Zoho
-              href: connector-zoho.md
         - name: Formato e supporto della compressione
           href: supported-file-formats-and-compression-codecs.md
         - name: Schema e i mapping dei tipi
@@ -312,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Attività dei notebook di Databricks
           href: transform-data-databricks-notebook.md
+        - name: Attività JAR di Databricks
+          href: transform-data-databricks-jar.md
+        - name: Attività Python di Databricks
+          href: transform-data-databricks-python.md
         - name: Attività personalizzata
           href: transform-data-using-dotnet-custom-activity.md
         - name: Servizi collegati di calcolo
@@ -356,13 +367,15 @@
           href: monitor-visually.md
         - name: Monitorare con Monitoraggio di Azure
           href: monitor-using-azure-monitor.md
+        - name: Monitorare con OMS
+          href: data-factory-monitor-oms.md
         - name: Monitorare con SDK
           href: monitor-programmatically.md
         - name: Monitorare il runtime di integrazione
           href: monitor-integration-runtime.md
         - name: Monitorare il runtime di integrazione SSIS di Azure
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Gestire il runtime di integrazione SSIS di Azure
+        - name: Riconfigurare il runtime di integrazione SSIS di Azure
           href: manage-azure-ssis-integration-runtime.md
     - name: Creare il runtime di integrazione
       items:
@@ -374,7 +387,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
+        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
           href: enable-aad-authentication-azure-ssis-ir.md
@@ -398,6 +411,8 @@
           href: how-to-create-schedule-trigger.md
         - name: Creare un trigger di finestra a cascata
           href: how-to-create-tumbling-window-trigger.md
+        - name: Creare un trigger basato su eventi
+          href: how-to-create-event-trigger.md
 - name: Riferimenti
   items:
     - name: .NET

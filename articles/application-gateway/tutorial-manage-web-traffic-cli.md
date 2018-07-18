@@ -7,14 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 5/16/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 60d67693b7fa5a4c806f9fcd0f28506417f4a198
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: eb5a5090c0de56cecab47d05877cf14b56ca5e0c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257389"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Esercitazione: Gestire il traffico Web con un gateway applicazione tramite l'interfaccia della riga di comando di Azure
 
@@ -119,6 +120,8 @@ az vmss create \
 
 ### <a name="install-nginx"></a>Installare NGINX
 
+Ora è possibile installare NGINX nel set di scalabilità di macchine virtuali in modo da potere testare la connettività HTTP al pool back-end.
+
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -126,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione

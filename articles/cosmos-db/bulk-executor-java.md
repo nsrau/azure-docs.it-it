@@ -1,24 +1,25 @@
 ---
-title: Utilizzo della libreria Java BulkExecutor per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
-description: Usare la libreria Java BulkExecutor di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
+title: Utilizzo della libreria Java dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
+description: Usare la libreria Java dell'executor bulk di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
 keywords: Executor in blocco Java
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 648b67f4b782b2a2318170ae2b655af40b7bd2a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300714"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java BulkExecutor per eseguire operazioni in blocco sui dati di Azure Cosmos DB
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in una raccolta di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in una raccolta di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -91,7 +92,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
 ```
-   L'API di importazione in blocco accetta una raccolta di documenti serializzati con JSON e ha la sintassi riportata di seguito; per altre informazioni, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   L'API di importazione in blocco accetta una raccolta di documenti serializzati con JSON e ha la sintassi riportata di seguito; per altre informazioni, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkImportResponse importAll(
@@ -135,9 +136,9 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 ## <a name="bulk-update-data-in-azure-cosmos-db"></a>Aggiornare in blocco i dati in Azure Cosmos DB
 
-È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio impostare il campo del nome su un nuovo valore e rimuovere il campo della descrizione dai documenti esistenti. Per il set completo di operazioni di aggiornamento dei campi supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async). 
+È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio impostare il campo del nome su un nuovo valore e rimuovere il campo della descrizione dai documenti esistenti. Per il set completo di operazioni di aggiornamento dei campi supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor). 
 
-1. Definisce gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In questo esempio si userà SetUpdateOperation per aggiornare il campo del nome e UnsetUpdateOperation per rimuovere il campo della descrizione da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async).  
+1. Definisce gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In questo esempio si userà SetUpdateOperation per aggiornare il campo del nome e UnsetUpdateOperation per rimuovere il campo della descrizione da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor).  
 
    ```java
    SetUpdateOperation<String> nameUpdate = new SetUpdateOperation<>("Name","UpdatedDocValue");
@@ -159,7 +160,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    BulkUpdateResponse bulkUpdateResponse = bulkExecutor.updateAll(updateItems, null)
    ```
 
-   L'API di aggiornamento in blocco accetta una raccolta di elementi da aggiornare. Ogni elemento di aggiornamento specifica l'elenco di operazioni di aggiornamento dei campi da eseguire su un documento identificato da un ID e da un valore di chiave di partizione. Per altri dettagli, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client/async):
+   L'API di aggiornamento in blocco accetta una raccolta di elementi da aggiornare. Ogni elemento di aggiornamento specifica l'elenco di operazioni di aggiornamento dei campi da eseguire su un documento identificato da un ID e da un valore di chiave di partizione. Per altri dettagli, vedere la [documentazione dell'API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java
    public BulkUpdateResponse updateAll(
@@ -196,7 +197,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
 
 ## <a name="performance-tips"></a>Suggerimenti per incrementare le prestazioni 
 
-Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere presente quanto segue:
+Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk tenere presente quanto segue:
 
 * Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 * Per ottenere una velocità effettiva più elevata:  
@@ -210,6 +211,6 @@ Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere
 
     
 ## <a name="next-steps"></a>Passaggi successivi
-* Per i dettagli del pacchetto Maven e le note sulla versione della libreria Java BulkExecutor, vedere i [dettagli su BulkExecutor SDK](sql-api-sdk-bulk-executor-java.md).
+* Per i dettagli del pacchetto Maven e le note sulla versione della libreria Java dell'executor bulk, vedere i [dettagli sull'SDK dell'executor bulk](sql-api-sdk-bulk-executor-java.md).
 
 

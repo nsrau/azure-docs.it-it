@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411217"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Salvare report nelle raccolte di aree di lavoro di Power BI
 

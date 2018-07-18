@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 7d339ba08720d482f622aa9b708d3a6e057eaaa8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 68f42124369194124ae1f8ebb93834a5be4e0128
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287374"
 ---
 # <a name="add-a-header-containing-a-correlation-id"></a>Aggiungere un'intestazione con un ID di correlazione
 
@@ -27,7 +28,7 @@ Questo articolo illustra un esempio di criteri di gestione delle API di Azure ch
 
 Incollare il codice nel blocco **inbound**.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Add correlation id to inbound request.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Add correlation id to inbound request.policy.xml)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

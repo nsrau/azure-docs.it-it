@@ -1,24 +1,25 @@
 ---
-title: Utilizzo della libreria Java BulkExecutor per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
-description: Usare la libreria .NET BulkExecutor di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
+title: Utilizzo della libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
+description: Usare la libreria .NET dell'executor bulk di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
 keywords: Executor in blocco .Net
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e559b7ebb5f9efefed194f87e73219fecd1e6ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300772"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzo della libreria .NET BulkExecutor per eseguire operazioni in blocco in Azure Cosmos DB
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzo della libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nelle raccolte di Azure Cosmos DB usando la libreria .NET BulkExecutor di Azure Cosmos DB. Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in una raccolta di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nelle raccolte di Azure Cosmos DB usando la libreria .NET dell'executor bulk di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in una raccolta di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -165,13 +166,13 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
     
 ## <a name="performance-tips"></a>Suggerimenti per incrementare le prestazioni 
 
-Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere presente quanto segue:
+Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk tenere presente quanto segue:
 
-* Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trova nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
+* Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trovi nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 
-* È consigliabile creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a una specifica raccolta di Cosmos DB.  
+* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a una specifica raccolta di Cosmos DB.  
 
-* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se la chiamata API di una singola operazione in blocco in esecuzione in una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intera raccolta (se la velocità effettiva della raccolta > 1 milione di UR/sec), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazioni in blocco.  
+* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intera raccolta (se la velocità effettiva della raccolta > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.  
 
 * Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni della raccolta di Cosmos DB di destinazione.  
 
@@ -195,4 +196,4 @@ Per ottenere prestazioni migliori, quando si usa la libreria BulkExecutor tenere
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per i dettagli del pacchetto Nuget e le note sulla versione della libreria .Net BulkExecutor, vedere i [dettagli su BulkExecutor SDK](sql-api-sdk-bulk-executor-dot-net.md). 
+* Per i dettagli del pacchetto Nuget e le note sulla versione della libreria .NET dell'executor bulk, vedere i [dettagli sull'SDK dell'executor bulk](sql-api-sdk-bulk-executor-dot-net.md). 

@@ -14,11 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: b97ec4ffacead7630c267284f79f954ef03eff61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448544"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -46,13 +47,13 @@ Gli utenti accedono una volta con l'account aziendale. Si tratta dello stesso ac
 
 Gli account condivisi non solo consentono di aumentare la supervisione e migliorare l'usabilità, ma anche di aumentare la sicurezza. Gli utenti con autorizzazioni per l'uso delle credenziali non visualizzano la password condivisa, ma ottengono autorizzazioni per l'uso della password come parte di un flusso di autenticazione orchestrato. Inoltre, alcune applicazioni con accesso Single Sign-On con password offrono la possibilità di usare Azure AD per eseguire il rollover periodico (aggiornamento) delle password. Il sistema usa le password complesse di grandi dimensioni e ciò incrementa la sicurezza dell'account. L'amministratore può facilmente concedere o revocare l'accesso a un'applicazione e può sapere chi può accedere all'account e chi ha avuto accesso in precedenza.
 
-Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mobility Suite (EMS), Premium o Basic, in tutti i tipi di applicazioni con accesso Single Sign-On basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](active-directory-enterprise-apps-manage-sso.md).
+Azure AD supporta gli account condivisi per gli utenti con licenza Enterprise Mobility Suite (EMS), Premium o Basic, in tutti i tipi di applicazioni con accesso Single Sign-On basato su password. È possibile condividere gli account per una qualsiasi delle numerose applicazioni già integrate nella raccolta e integrare la propria applicazione con autenticazione tramite password in [app personalizzate con accesso Single Sign-On](manage-apps/configure-single-sign-on-portal.md).
 
 Le funzionalità di Azure AD che consentono la condivisione di account includono:
 
 * [Password Single Sign-On](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
 * Agente di password Single Sign-On
-* [Assegnazione di gruppi](active-directory-accessmanagement-self-service-group-management.md)
+* [Assegnazione di gruppi](users-groups-roles/groups-self-service-management.md)
 * App personalizzate basate su password
 * [Dashboard/report sull'utilizzo di app](active-directory-passwords-get-insights.md)
 * Portali di accesso dell'utente finale
@@ -62,15 +63,15 @@ Le funzionalità di Azure AD che consentono la condivisione di account includono
 ## <a name="sharing-an-account"></a>Condivisione di un account
 Per usare Azure AD per la condivisione di un account è necessario:
 
-* Aggiungere un'applicazione alla [raccolta di app](https://azure.microsoft.com/marketplace/active-directory/) o integrarla con un'[applicazione personalizzata](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+* Aggiungere un'applicazione alla [raccolta di app](https://azure.microsoft.com/marketplace/active-directory/) o integrarla con un'[applicazione personalizzata](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurare l'applicazione per l'accesso Single Sign-On basato su password
-* Usare un' [assegnazione basata su gruppi](active-directory-accessmanagement-group-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
-* Facoltativo: in alcune applicazioni, ad esempio Facebook, Twitter o LinkedIn, è possibile abilitare l'opzione per l' [esecuzione automatizzata del rollover delle password di Azure AD](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* Usare un' [assegnazione basata su gruppi](users-groups-roles/groups-saasapps.md) e selezionare l'opzione per immettere le credenziali condivise
+* Facoltativo: in alcune applicazioni, ad esempio Facebook, Twitter o LinkedIn, è possibile abilitare l'opzione per l' [esecuzione automatizzata del rollover delle password di Azure AD](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
-Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite Multi-Factor Authentication (MFA) (altre informazioni sulla [sicurezza delle applicazioni con Azure AD](authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi deve avere accesso all'applicazione mediante la gestione dei gruppi in [modalità self-service di Azure AD](active-directory-accessmanagement-self-service-group-management.md).
+Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite Multi-Factor Authentication (MFA) (altre informazioni sulla [sicurezza delle applicazioni con Azure AD](authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi deve avere accesso all'applicazione mediante la gestione dei gruppi in [modalità self-service di Azure AD](users-groups-roles/groups-self-service-management.md).
 
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
 * [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access-azure-portal.md)
-* [Gestione di gruppi self-service/SSAA](active-directory-accessmanagement-self-service-group-management.md)
+* [Gestione di gruppi self-service/SSAA](users-groups-roles/groups-self-service-management.md)
 

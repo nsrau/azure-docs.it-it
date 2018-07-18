@@ -4,21 +4,22 @@ description: Informazioni su come registrare e annullare la registrazione di Win
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738293"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Gestire i server registrati con Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure (anteprima) consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Annullare la registrazione del server con il servizio di sincronizzazione archiviazione
 Sono necessari alcuni passaggi per annullare la registrazione di un server con un servizio di sincronizzazione archiviazione. Di seguito viene illustrato come annullare correttamente la registrazione di un server.
 
-#### <a name="optional-recall-all-tiered-data"></a>(Facoltativo) Richiamare tutti i dati archiviati a livelli
-Se per un endpoint server è abilitata la suddivisione in livelli cloud, i file verranno *archiviati a livelli* nelle condivisioni file di Azure. Questo consente alle condivisioni di file locali di agire come una cache, anziché una copia completa del set di dati, in modo da ottimizzare l'uso dello spazio nel file server. In caso di rimozione di un endpoint server con file archiviati a livelli ancora presenti in locale nel server, tuttavia, tali file diventeranno inaccessibili. Di conseguenza, per garantire la continuità dell'accesso ai file, è necessario richiamare tutti i file archiviati a livelli da File di Azure prima di procedere con l'annullamento della registrazione. 
+> [!Warning]  
+> Non tentare di risolvere i problemi di sincronizzazione, suddivisione in livelli cloud o qualsiasi altro aspetto di Sincronizzazione file di Azure annullando la registrazione di un server e registrandolo di nuovo oppure rimuovendo e ricreando gli endpoint server, a meno che queste operazioni non siano state esplicitamente indicate da un tecnico Microsoft. L'annullamento della registrazione di un server e la rimozione degli endpoint server sono operazioni distruttive e i file a livelli presenti nei volumi con endpoint server non verranno "riconnessi" ai relativi percorsi nella condivisione file di Azure dopo che il server registrato e gli endpoint server sono stati di nuovo creati, determinando errori di sincronizzazione. Si noti anche che i file a livelli che si trovano all'esterno dello spazio dei nomi di un endpoint server potrebbero andare definitivamente perduti. I file a livelli possono essere presenti all'interno degli endpoint server anche se la funzionalità di suddivisione in livelli cloud non è mai stata abilitata.
 
-Questa operazione può essere eseguita con il cmdlet di PowerShell come illustrato di seguito:
+#### <a name="optional-recall-all-tiered-data"></a>(Facoltativo) Richiamare tutti i dati archiviati a livelli
+Se si vuole che i file attualmente a livelli siano disponibili dopo la rimozione di Sincronizzazione file di Azure, ad esempio in un ambiente di produzione, non di test, richiamare tutti i file presenti in ogni volume contenente endpoint server. Disabilitare la suddivisione in livelli cloud per tutti gli endpoint server e quindi eseguire il cmdlet di PowerShell seguente:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

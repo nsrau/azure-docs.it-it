@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937818"
 ---
 # <a name="azure-stack-validation-report"></a>Report di convalida Azure Stack
 Le convalide che supportano la distribuzione e manutenzione di un ambiente dello Stack di Azure viene eseguito lo strumento di controllo di conformità dello Stack di Azure. Lo strumento scrive i risultati della convalida in un file di report con estensione JSON. Il report visualizza dati modo riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione dello Stack di Azure e su segreti rotazione per le distribuzioni esistenti dello Stack di Azure.  

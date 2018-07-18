@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 03/16/2018
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1437916e62e7c2987c0a1d8c3a5ac4a5f332134d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 69db32698951519c2630a0a8697e4ebe74f69b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303556"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930478"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Scegliere tra i servizi di Azure che recapitano messaggi
 
@@ -60,6 +60,7 @@ Presenta le caratteristiche seguenti:
 * scalabile dinamicamente
 * basso costo
 * senza server
+* recapito at-least-once
 
 ### <a name="event-hubs"></a>Hub eventi
 
@@ -69,6 +70,7 @@ Presenta le caratteristiche seguenti:
 
 * bassa latenza
 * possibilità di ricevere ed elaborare milioni di eventi al secondo
+* recapito at-least-once
 
 ### <a name="service-bus"></a>Bus di servizio
 
@@ -80,6 +82,7 @@ Presenta le caratteristiche seguenti:
 
 * recapito dei messaggi asincrono affidabile (messaggistica aziendale come servizio) che richiede il polling
 * funzionalità di messaggistica avanzate, ad esempio FIFO, invio in batch/sessioni, transazioni, messaggi non recapitabili, controllo temporale, routing e filtri e rilevamento duplicati
+* recapito exactly-once
 
 ## <a name="use-the-services-together"></a>Usare i servizi insieme
 

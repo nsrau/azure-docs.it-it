@@ -2,7 +2,7 @@
 title: Come ridimensionare un'app in un ambiente del servizio app
 description: Ridimensionamento di un'app in un ambiente del servizio app
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986316"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>Ridimensionamento di app in un ambiente del servizio app
 Nel servizio app di Azure è possibile ridimensionare tre aspetti:

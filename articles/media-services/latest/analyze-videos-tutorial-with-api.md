@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362295"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971999"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Esercitazione: Analizzare i video con Servizi multimediali di Azure 
 
@@ -26,14 +26,16 @@ Questa esercitazione illustra come analizzare i video usando Servizi multimedial
 Questa esercitazione illustra come:    
 
 > [!div class="checklist"]
-> * Avviare Azure Cloud Shell
 > * Creare un account di Servizi multimediali
 > * Accedere all'API di Servizi multimediali
 > * Configurare l'app di esempio
-> * Esaminare in dettaglio il codice di esempio
+> * Esaminare il codice che analizza il video specificato
 > * Esecuzione dell'app
 > * Esaminare l'output
 > * Pulire le risorse
+
+> [!Note]
+> Usare il portale di Azure, come descritto in [Ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md), impostare l'account dei servizi multimediali a 10 Media Reserved Unit S3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,23 +51,48 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET usando il co
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+L'esempio si trova nella cartella [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos).
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-sample-code-in-detail"></a>Esaminare in dettaglio il codice di esempio
+## <a name="examine-the-code-that-analyzes-the-specified-video"></a>Esaminare il codice che analizza il video specificato
 
 Questa sezione esamina le funzioni definite nel file [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) del progetto *AnalyzeVideos*.
 
+L'esempio esegue le azioni seguenti:
+
+1. Crea una trasformazione e un processo per analizzare il video.
+2. Crea un asset di input e carica il video al suo interno. L'asset viene usato come input del processo.
+3. Crea un asset di output che archivia l'output del processo. 
+4. Invia il processo.
+5. Controlla lo stato del processo.
+6. Scarica i file risultanti dall'esecuzione del processo. 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 
-Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Prima di tutto è necessario ottenere un token e quindi creare un oggetto **ClientCredential** dal token restituito. Nel codice che è stato clonato all'inizio dell'articolo, per ottenere il token viene usato l'oggetto **ArmClientCredential**.  
+Per iniziare a usare le API di Servizi multimediali con .NET, è necessario creare un oggetto **AzureMediaServicesClient**. Per eseguire questa operazione, specificare le credenziali necessarie per consentire al client di connettersi ad Azure tramite Azure AD. Nel codice clonato all'inizio dell'articolo, la funzione **GetCredentialsAsync** crea l'oggetto ServiceClientCredentials in base alle credenziali fornite nel file di configurazione locale. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>Creare un asset di output per archiviare il risultato di un processo 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creare un asset di input e caricare un file locale nell'asset 
+
+La funzione **CreateInputAsset** crea un nuovo [asset](https://docs.microsoft.com/rest/api/media/assets) di input e carica al suo interno il file video locale specificato. Questo asset viene usato come input per il processo di codifica. In Servizi multimediali v3 l'input di un processo può essere costituito da un asset oppure da contenuti resi disponibili all'account di Servizi multimediali tramite URL HTTPS. Per informazioni su come codificare contenuti da un URL HTTPS, vedere [questo](job-input-from-http-how-to.md) articolo.  
+
+In Servizi multimediali v3 si usano le API di Archiviazione di Azure per caricare i file. Il frammento di codice .NET seguente illustra come eseguire questa operazione.
+
+La funzione esegue queste azioni:
+
+* Crea un asset. 
+* Ottiene un [URL di firma di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) scrivibile al [contenitore nel servizio di archiviazione](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) dell'asset.
+* Carica il file nel contenitore nel servizio di archiviazione usando l'URL di firma di accesso condiviso.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
+### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>Creare un asset di output per archiviare il risultato del processo 
 
 L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo. Il progetto definisce la funzione **DownloadResults** che scarica i risultati dall'asset di output nella cartella "output", consentendo così di visualizzare ciò che si è ottenuto.
 
@@ -85,7 +112,7 @@ Quando si crea un oggetto **Transform**, è necessario verificare se ne esiste g
 
 #### <a name="job"></a>Processo
 
-Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare la posizione del video tramite URL HTTPS, URL di firma di accesso condiviso o asset inclusi nell'account di Servizi multimediali. 
+Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output. È possibile specificare la posizione del video tramite URL HTTPS, URL di firma di accesso condiviso o asset inclusi nell'account di Servizi multimediali. 
 
 In questo esempio, l'input del processo è un video locale.  
 
@@ -93,7 +120,7 @@ In questo esempio, l'input del processo è un video locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendere il completamento del processo
 
-Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](https://docs.microsoft.com/en-us/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling. 
+Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per la generazione di notifiche relative al completamento del [processo](https://docs.microsoft.com/rest/api/media/jobs) sono disponibili varie opzioni. La più semplice, qui illustrata, consiste nell'uso del polling. 
 
 Il polling non è una procedura consigliata per le applicazioni di produzione poiché comporta rischi di latenza. Il polling può essere limitato se usato eccessivamente su un account. In alternativa, è preferibile che gli sviluppatori usino Griglia di eventi.
 

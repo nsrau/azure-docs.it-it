@@ -1,6 +1,6 @@
 ---
 title: Distribuire una macchina virtuale con un certificato archiviato in modo sicuro nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come distribuire una macchina virtuale e push di un certificato su di esso con un insieme di credenziali chiave nello Stack di Azure
+description: Informazioni su come distribuire una macchina virtuale e push di un certificato su di esso con un insieme di credenziali delle chiavi nello Stack di Azure
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108757"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Creare una macchina virtuale e installare un certificato recuperato da un insieme di credenziali delle chiavi di Azure Stack
 
@@ -42,8 +43,8 @@ I passaggi seguenti descrivono il processo necessario effettuare il push di un c
 2. Aggiornare il file azuredeploy.parameters.json.
 3. Distribuire il modello
 
->[!NOTE]
->Se si è connessi tramite VPN, è possibile utilizzare questi passaggi dal Kit di sviluppo dello Stack di Azure o da un client esterno.
+> [!NOTE]
+> Se si è connessi tramite VPN, è possibile utilizzare questi passaggi dal Kit di sviluppo dello Stack di Azure o da un client esterno.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,10 +54,10 @@ I passaggi seguenti descrivono il processo necessario effettuare il push di un c
 
 ## <a name="create-a-key-vault-secret"></a>Creare un insieme di credenziali chiave segreta
 
-Lo script seguente crea un certificato in formato pfx, crea un insieme di credenziali chiave e archivia il certificato nell'insieme di credenziali chiave come chiave privata.
+Lo script seguente crea un certificato in formato pfx, crea un insieme di credenziali delle chiavi e archivia il certificato nell'insieme di credenziali chiave come chiave privata.
 
->[!IMPORTANT]
->È necessario utilizzare il `-EnabledForDeployment` parametro quando si crea l'errore di chiave. Questo parametro assicura che l'insieme di credenziali delle chiavi può far riferimento dai modelli di gestione risorse di Azure.
+> [!IMPORTANT]
+> È necessario utilizzare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali delle chiavi. Questo parametro assicura che l'insieme di credenziali delle chiavi può far riferimento dai modelli di gestione risorse di Azure.
 
 ```powershell
 
@@ -119,9 +120,9 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-Quando si esegue lo script precedente, l'output include l'URI segreta. Prendere nota dell'URI. È necessario farvi riferimento nel [: certificato Push al modello di gestione risorse di Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Scaricare il [modello di macchina virtuale-push-certificato windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) cartella sul computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, sarà necessario nei passaggi successivi.
+Quando si esegue lo script precedente, l'output include l'URI segreta. Prendere nota di questo URI. È necessario farvi riferimento nel [: certificato Push al modello di gestione risorse di Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Scaricare il [modello di macchina virtuale-push-certificato-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) cartella sul computer di sviluppo. Questa cartella contiene il `azuredeploy.json` e `azuredeploy.parameters.json` file, sarà necessario nei passaggi successivi.
 
-Modificare il `azuredeploy.parameters.json` file in base ai valori ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto URI (generati da script precedente). Il file seguente è riportato un esempio di un file di parametro:
+Modificare il `azuredeploy.parameters.json` file in base ai valori di ambiente. I parametri di particolare interesse sono il nome dell'insieme di credenziali, il gruppo di risorse dell'insieme di credenziali e il segreto URI (generati da script precedente). Il file seguente è riportato un esempio di un file dei parametri:
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Aggiornare il file azuredeploy.parameters.json
 
@@ -179,8 +180,8 @@ Quando il modello viene distribuito correttamente, otterrà l'output seguente:
 
 Stack Azure inserisce il certificato nella macchina virtuale durante la distribuzione. Percorso del certificato dipende dal sistema operativo della macchina virtuale:
 
-* In Windows, il certificato viene aggiunto nel percorso certificato LocalMachine, con l'archivio certificati fornito dall'utente.
-* In Linux, il certificato viene inserito nella directory /var/lib/waagent, con il nome del file &lt;UppercaseThumbprint&gt;CRT per X509 file del certificato e &lt;UppercaseThumbprint&gt;.prv per la chiave privata .
+* In Windows, il certificato viene aggiunto per il percorso di certificati LocalMachine, con l'archivio certificati fornito dall'utente.
+* In Linux, il certificato viene inserito nella directory di /var/lib/waagent, con il nome del file &lt;UppercaseThumbprint&gt;CRT per X509 file del certificato e &lt;UppercaseThumbprint&gt;.prv per la chiave privata .
 
 ## <a name="retire-certificates"></a>Ritirare i certificati
 
@@ -195,4 +196,4 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Distribuire una VM con una password dell'insieme di credenziali delle chiavi](azure-stack-kv-deploy-vm-with-secret.md)
-* [Consentire a un'applicazione per l'insieme di credenziali chiave di accesso](azure-stack-kv-sample-app.md)
+* [Consente di accedere a insieme di credenziali chiave](azure-stack-kv-sample-app.md)

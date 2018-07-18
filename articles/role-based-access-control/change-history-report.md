@@ -8,40 +8,48 @@ manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203904"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437650"
 ---
-# <a name="view-activity-logs-for-role-based-access-control-changes"></a>Visualizzare i log di attività per le modifiche del controllo degli accessi in base al ruolo
+# <a name="view-activity-logs-for-rbac-changes"></a>Visualizzare i log attività per le modifiche del controllo degli accessi in base al ruolo
 
-Ogni volta che un utente apporta modifiche alle definizioni di ruolo o alle assegnazioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate nella categoria amministrativa del [Log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
+Talvolta è necessario visualizzare informazioni sul controllo degli accessi in base al ruolo, ad esempio a scopo di controllo o per la risoluzione di problemi. Ogni volta che un utente apporta modifiche alle assegnazioni o alle definizioni di ruolo all'interno delle sottoscrizioni, le modifiche vengono registrate in [Log attività di Azure](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). È possibile visualizzare i log attività per vedere tutte le modifiche apportate al controllo degli accessi in base al ruolo negli ultimi 90 giorni.
 
 ## <a name="operations-that-are-logged"></a>Operazioni registrate
 
 Ecco le operazioni correlate al controllo degli accessi in base al ruolo che vengono registrate nel log attività:
 
-- Crea o aggiorna la definizione del ruolo personalizzata
-- Elimina la definizione del ruolo personalizzata
 - Crea assegnazione ruolo
 - Elimina assegnazione ruolo
+- Crea o aggiorna la definizione del ruolo personalizzata
+- Elimina la definizione del ruolo personalizzata
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Il modo più semplice per iniziare è visualizzare i log attività con il portale di Azure. Lo screenshot seguente mostra un esempio di log attività filtrato in modo da visualizzare la**categoria amministrativa** insieme alle operazioni di definizione e assegnazione di ruolo. Include inoltre un collegamento per scaricare i log in formato CSV.
+Il modo più semplice per iniziare è visualizzare i log attività con il portale di Azure. Lo screenshot seguente mostra un esempio di log attività filtrato in modo da visualizzare le operazioni di definizione e assegnazione di ruolo. Include inoltre un collegamento per scaricare i log in formato CSV.
 
 ![Log attività tramite il portale - screenshot](./media/change-history-report/activity-log-portal.png)
 
-Per altre informazioni, vedere [Visualizzare eventi nel log attività](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Il log attività nel portale include diversi filtri. Di seguito sono elencati i filtri correlati al controllo degli accessi in base al ruolo:
+
+|Filtro  |Valore  |
+|---------|---------|
+|Categoria evento     | <ul><li>Amministrativo</li></ul>         |
+|Operazione     | <ul><li>Crea assegnazione ruolo</li> <li>Elimina assegnazione ruolo</li> <li>Crea o aggiorna la definizione del ruolo personalizzata</li> <li>Elimina la definizione del ruolo personalizzata</li></ul>      |
+
+
+Per altre informazioni sui log attività, vedere [Visualizzare eventi nel log attività](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

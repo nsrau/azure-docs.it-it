@@ -6,13 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 6a8e6e7c6fbdbcbf58557a0896e976a608164041
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 115f4e76630a0ecd659fdd3aec0c6aa67d503817
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920488"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configurare e gestire i criteri per la replica di VMware
 Questo articolo illustra come configurare criteri di replica quando si esegue la replica di macchine virtuali VMware in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).

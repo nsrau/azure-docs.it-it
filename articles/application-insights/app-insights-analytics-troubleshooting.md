@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3ef9150cad62e9f9fc43f7afcbbbc01d89884a12
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936684"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Risoluzione dei problemi di Analytics in Application Insights
 Problemi con [Application Insights Analytics](app-insights-analytics.md)? Inizia da qui. Analytics è l'efficace strumento di ricerca incluso in Application Insights di Azure.
@@ -54,9 +55,9 @@ Si è verificato un errore correlato all'autenticazione (durante l'autenticazion
 2. Il portale Analytics è stato aperto utilizzando preferiti, segnalibri o un collegamento salvato? L'accesso è stato eseguito con credenziali diverse da quelle utilizzate quando è stato salvato il collegamento?
 3. Provare a utilizzare una finestra del browser privata/in incognito (dopo aver chiuso tutte le finestre di questo tipo). Sarà necessario fornire le credenziali. 
 4. Aprire un'altra finestra del browser (normale) e accedere ad [Azure](https://portal.azure.com). Uscire, quindi aprire il collegamento ed effettuare l'accesso con le credenziali corrette.
-5. Gli utenti di Microsoft Edge e Internet Explorer possono ricevere questo errore anche quando le impostazioni delle zone attendibili non sono supportate.
+5. Gli utenti di Edge e Internet Explorer possono ricevere questo errore anche quando le impostazioni delle zone attendibili non sono supportate.
    
-    Verificare che il [portale di Analytics](https://analytics.applicationinsights.io) e il [portale di Azure Active Directory](https://portal.azure.com) si trovino nella stessa area di sicurezza:
+    Verificare che il [portale di Analytics](https://portal.azure.com) e il [portale di Azure Active Directory](https://portal.azure.com) si trovino nella stessa area di sicurezza:
    
    * In Internet Explorer aprire **Opzioni Internet**, **Sicurezza**, **Siti attendibili**, **Siti**:
      

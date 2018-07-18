@@ -1,23 +1,20 @@
 ---
 title: Pianificare processi con l'hub IoT di Azure (Java) | Microsoft Docs
 description: Come pianificare un processo dell'hub IoT di Azure per chiamare un metodo diretto e impostare una proprietà desiderata su più dispositivi. Usare Azure IoT SDK per dispositivi per Java per implementare le app per dispositivi simulate e Azure IoT SDK per servizi per Java per implementare un'app di servizio che esegue il processo.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: b8b0742054b0348ded39b6357d00f6eac3449f99
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299162"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Pianificare e trasmettere processi (Java)
 

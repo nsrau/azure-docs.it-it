@@ -3,7 +3,7 @@ title: Esempi di Azure PowerShell - Abilitare la scalabilità automatica basata 
 description: Esempi di Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: efa608cb1efa3fed48113adea45f15a2cf075439
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ca484a6f1b2dafa3688efe0e50bb2c35f954a8b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697416"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-powershell"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Windows Server 2016 e usa metriche basate su host per la scalabilità automatica in base alle variazioni del carico CPU.

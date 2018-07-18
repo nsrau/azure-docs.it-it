@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
 ms.date: 02/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2f72f2dd3dbaaf17494d09a36159afc464cc64d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6a0f18a47bb50144d0a4d428617e0dc5c7509196
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154291"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442247"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -137,7 +138,7 @@ Per avere a disposizione più backup in data center diversi, è possibile avere 
 
 ## <a name="multiple-azure-ad-tenants"></a>Più tenant di Azure AD
 È consigliabile che in Azure AD sia presente un tenant singolo per un'organizzazione.
-Prima di pianificare di usare più tenant di Azure AD, vedere l'articolo [Gestione delle unità amministrative in Azure AD](../active-directory-administrative-units-management.md) che illustra gli scenari comuni in cui è possibile usare un singolo tenant.
+Prima di pianificare di usare più tenant di Azure AD, vedere l'articolo [Gestione delle unità amministrative in Azure AD](../users-groups-roles/directory-administrative-units.md) che illustra gli scenari comuni in cui è possibile usare un singolo tenant.
 
 ![Topologia per più foreste e più tenant](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 

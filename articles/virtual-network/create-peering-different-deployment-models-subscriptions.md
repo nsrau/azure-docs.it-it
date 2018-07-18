@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012918"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726415"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Creare un peering di rete virtuale: diversi modelli di distribuzione e sottoscrizioni
 
@@ -107,7 +107,7 @@ Questa esercitazione usa account diversi per ogni sottoscrizione. Se si usa un a
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. I passaggi rimanenti devono essere completati con un bash shell con l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive [installato](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) o mediante Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per aprire una Cloud Shell tramite cui è possibile accedere all'account di Azure personale. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando bash nel client Windows, vedere [Esecuzione dell'interfaccia della riga di comando di Azure in Windows](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. I passaggi rimanenti devono essere completati con un bash shell con l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive [installato](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) o mediante Azure Cloud Shell. Azure Cloud Shell è una shell Bash gratuita che può essere eseguita direttamente nel portale di Azure. Include l'interfaccia della riga di comando di Azure preinstallata e configurata per l'uso con l'account. Fare clic sul pulsante **Prova** nello script seguente per aprire una Cloud Shell tramite cui è possibile accedere all'account di Azure personale. Per le opzioni sull'esecuzione di script dell'interfaccia della riga di comando di Azure in un client Windows, vedere [Installare l'interfaccia della riga di comando di Azure in Windows](/cli/azure/install-azure-cli-windows). 
 6. Copiare lo script seguente in un editor di testo nel PC. Sostituire `<SubscriptionB-Id>` con l'ID della sottoscrizione. Se l'ID della sottoscrizione non è noto, immettere il comando `az account show`. Il valore per **id** nell'output è l'ID della sottoscrizione. Copiare lo script modificato, incollarlo nella sessione dell'interfaccia della riga di comando 2.0 e quindi premere `Enter`. 
 
     ```azurecli-interactive

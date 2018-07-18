@@ -2,11 +2,11 @@
 title: Aggiungere l'autenticazione ad API personalizzate - App per la logica di Azure | Microsoft Docs
 description: Configurare l'autenticazione per le chiamate alle API personalizzate da app per la logica
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298550"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Proteggere le chiamate alle API personalizzate da app per la logica
 
@@ -116,7 +117,7 @@ Se l'app Web o l'app per le API è già stata distribuita, è possibile attivare
 
 **Creare l'identità di applicazione e attivare l'autenticazione nel portale di Azure per le app distribuite**
 
-1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") individuare e selezionare l'app Web o app per le API. 
+1. Nel [portale di Azure](https://portal.azure.com "https://portal.azure.com") individuare e selezionare l'app Web o l'app per le API. 
 
 2. In **Impostazioni** scegliere **Autenticazione/Autorizzazione**. In **Autenticazione servizio app** **attivare** l'autenticazione. In **Provider di autenticazione** scegliere **Azure Active Directory**.
 

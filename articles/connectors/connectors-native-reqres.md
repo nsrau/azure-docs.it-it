@@ -1,11 +1,11 @@
 ---
 title: Usare le azioni di richiesta e risposta | Documentazione Microsoft
 description: Panoramica del trigger e dell'azione di richiesta e risposta in un'app per la logica di Azure
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27960562"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.

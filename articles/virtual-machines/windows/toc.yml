@@ -439,7 +439,7 @@
     - name: REST di calcolo
       href: /rest/api/compute
     - name: REST di Managed Disks
-      href: /rest/api/manageddisks
+      href: /rest/api/compute/disks
 - name: Risorse
   items:
     - name: Creare modelli

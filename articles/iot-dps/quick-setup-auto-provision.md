@@ -1,22 +1,20 @@
 ---
 title: Configurare il provisioning di dispositivi nel portale di Azure | Microsoft Docs
 description: Guida introduttiva di Azure - Configurare il servizio Device Provisioning in hub IoT di Azure nel portale di Azure
-services: iot-dps
-keywords: 
 author: dsk-2015
 ms.author: dkshir
 ms.date: 09/05/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e444e46b9044d822731683781112be83c8c6db04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 276bd33f5724db4d67da0cc31b16297915c9a417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629440"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurare il servizio Device Provisioning in hub IoT con il portale di Azure
 
@@ -31,7 +29,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 
 2. Selezionare **Internet delle cose**, **Hub IoT** e quindi fare clic sul pulsante **Crea**. 
 
@@ -44,7 +42,7 @@ Accedere al [Portale di Azure](https://portal.azure.com/).
 
 ## <a name="create-a-new-instance-for-the-iot-hub-device-provisioning-service"></a>Creare una nuova istanza del servizio Device Provisioning in hub IoT
 
-1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
+1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 
 2. *Nel Marketplace* cercare il **servizio Device Provisioning**. Selezionare il servizio **Device Provisioning in hub IoT** e fare clic sul pulsante **Crea**. 
 

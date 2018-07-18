@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30191450"
 ---
 # <a name="get-started-with-azure-dns-private-zones-using-azure-cli-20"></a>Introduzione alle Zone private di DNS di Azure con l'interfaccia della riga di comando di Azure 2.0
 

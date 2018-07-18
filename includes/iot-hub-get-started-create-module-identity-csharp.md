@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666909"
 ---
 ## <a name="create-a-module-identity"></a>Creare un'identità del modulo
 
@@ -43,7 +44,16 @@ In questa sezione si scriverà un'app console .NET che crea un'identità del dis
     const string moduleID = "myFirstModule";
     ```
 
-5. Aggiungere i metodi seguenti alla classe **Program**:
+5. Aggiungere il codice seguente alla classe **Main**.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. Aggiungere i metodi seguenti alla classe **Program**:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ In questa sezione si scriverà un'app console .NET che crea un'identità del dis
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Eseguire l'applicazione e prendere nota della chiave del dispositivo e della chiave del modulo.
+7. Eseguire l'applicazione e prendere nota della chiave del dispositivo e della chiave del modulo.
 
 > [!NOTE]
 > Il registro delle identità dell'hub IoT archivia solo le identità del dispositivo e del modulo per abilitare l'accesso sicuro all'hub. Il registro delle identità archivia gli ID dispositivo e le chiavi da usare come credenziali di sicurezza. Il registro delle identità archivia anche un flag di abilitazione/disabilitazione per ogni dispositivo che consente di disabilitare l'accesso per un dispositivo. Se l'applicazione deve archiviare altri metadati specifici del dispositivo, dovrà usare un archivio specifico dell'applicazione. Non esiste alcun flag abilitato/disabilitato per le identità del modulo. Per altre informazioni, vedere la [Guida per gli sviluppatori dell'hub IoT][lnk-devguide-identity].

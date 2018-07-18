@@ -3,14 +3,14 @@ title: Architettura della replica da VMware ad Azure in Azure Site Recovery | Mi
 description: Questo articolo offre una panoramica dell'architettura e dei componenti usati per la replica di macchine virtuali VMware locali in Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920568"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architettura della replica da VMware ad Azure
 
@@ -41,7 +41,7 @@ Di seguito sono indicati i principali passaggi da eseguire per configurare il ri
 3. **Configurare la replica**. Scegliere l'ambiente di destinazione della replica. Configurare l'ambiente di origine impostando una singola macchina virtuale VMware locale (il server di configurazione) che esegue tutti i componenti locali di Site Recovery necessari. Al termine dell'operazione, registrare il server di configurazione nell'insieme di credenziali di Servizi di ripristino e quindi selezionare le impostazioni di destinazione. [Altre informazioni](vmware-azure-tutorial.md).
 4. **Creare i criteri di replica**. Definire i criteri di replica che specificano la modalità di esecuzione della replica. 
     - **Soglia RPO**: questa impostazione di monitoraggio determina la generazione di un avviso (e, facoltativamente, di un messaggio di posta elettronica) se la replica non viene eseguita entro il tempo specificato. Se ad esempio si imposta la soglia RPO su 30 minuti e un problema impedisce l'esecuzione della replica per 30 minuti, viene generato un evento. Questa impostazione non influisce sulla replica. La replica viene eseguita in modo continuo e i punti di ripristino vengono creati a intervalli di pochi minuti.
-    - **Conservazione**: questa impostazione specifica l'intervallo di tempo in cui devono essere conservati i punti di ripristino in Azure. È possibile impostare un valore tra 0 e 24 ore per l'archiviazione Premium o fino a 72 ore per l'archiviazione Standard. È possibile eseguire il failover nel punto di ripristino più recente o in un punto memorizzato se si imposta un valore maggiore di zero. Al termine del periodo di conservazione, i punti di ripristino vengono eliminati.
+    - **Conservazione**: questa impostazione specifica l'intervallo di tempo in cui devono essere conservati i punti di ripristino in Azure. È possibile impostare un valore tra 0 e 24 ore per l'archiviazione Premium o fino a 72 ore per l'archiviazione Standard. È possibile eseguire il failover nel punto di recupero più recente o in un punto memorizzato se si imposta un valore maggiore di zero. Al termine del periodo di conservazione, i punti di ripristino vengono eliminati.
     - **Snapshot coerenti con l'arresto anomalo del sistema**: per impostazione predefinita, Site Recovery acquisisce snapshot coerenti con l'arresto anomalo del sistema e contemporaneamente crea punti di ripristino a intervalli di pochi minuti. Un punto di ripristino è coerente con l'arresto anomalo del sistema se tutti i componenti dati correlati sono coerenti con l'ordine di scrittura, esattamente come nell'istante in cui è stato creato il punto di ripristino. Per comprendere meglio questo concetto, è possibile pensare allo stato dei dati sul disco rigido del PC dopo un'interruzione dell'alimentazione o un evento simile. Un punto di ripristino coerente con l'arresto anomalo del sistema è in genere sufficiente se l'applicazione è stata progettata per il ripristino da un arresto anomalo senza incoerenze dei dati.
     - **Snapshot coerenti con le app**: se questo valore è diverso da zero, il servizio Mobility in esecuzione sulla macchina virtuale prova a generare snapshot e punti di ripristino coerenti con il file system. Il primo snapshot viene acquisito al termine della replica iniziale. Quelli successivi vengono acquisiti in base alla frequenza specificata. Un punto di ripristino è coerente con le applicazioni se, oltre a essere coerenti con l'ordine di scrittura, le applicazioni in esecuzione completano tutte le operazioni in corso e scaricano i relativi buffer sul disco (disattivazione delle applicazioni). I punti di ripristino coerenti con le app sono consigliati per le applicazioni di database, ad esempio SQL, Oracle ed Exchange. Se è sufficiente uno snapshot coerente con l'arresto anomalo del sistema, questo valore può essere impostato su 0.  
     - **Coerenza di più macchine virtuali**: è possibile creare, facoltativamente, un gruppo di replica. In questo modo, quando si abilita la replica, è possibile raccogliere le macchine virtuali in tale gruppo. Le macchine virtuali in un gruppo di replica vengono replicate tutte insieme e hanno punti di ripristino condivisi coerenti con l'arresto anomalo del sistema e con le app nel caso di un failover. È consigliabile usare questa opzione con cautela poiché può influire sulle prestazioni del carico di lavoro, considerato che gli snapshot devono essere raccolti in più macchine virtuali. Impostarla solo se le macchine virtuali eseguono lo stesso carico di lavoro, devono essere coerenti e hanno varianze simili. È possibile aggiungere un massimo di otto macchine virtuali a un gruppo. 

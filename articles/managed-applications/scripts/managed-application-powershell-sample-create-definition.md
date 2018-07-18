@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636991"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Creare una definizione di applicazione gestita con PowerShell
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783180"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Inviare processi di ritaglio da Azure Media Clipper
 Per gestire l'invio di processi di ritaglio, Azure Media Clipper richiede l'implementazione di un metodo **submitSubclipCallback**. Questa funzione è necessaria per implementare un'operazione POST HTTP per l'output di Clipper in un servizio Web. Nel servizio Web sarà possibile inviare il processo di codifica. L'output di Clipper è un set di impostazioni di codifica di Media Encoder Standard per i processi con rendering o il payload dell'API REST per chiamate di filtri manifesto dinamico. Questo modello pass-through è necessario perché le credenziali dell'account Servizi multimediali non sono sicure nel browser del client.

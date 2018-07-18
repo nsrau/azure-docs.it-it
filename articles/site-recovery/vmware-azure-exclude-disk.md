@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811478"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Escludere dischi dalla replica per lo scenario da VMware ad Azure
 

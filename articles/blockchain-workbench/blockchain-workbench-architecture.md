@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 79059fbd088d15ca62b39dacba766726119e6048
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d37913caa94dc4cf79aef9c2c12a7aacce7c03ce
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076733"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Architettura di Azure Blockchain Workbench
 
@@ -83,7 +84,7 @@ Il consumer di archiviazione riceve messaggi dal bus di servizio e inserisce i d
 
 Se un messaggio nel broker di messaggi in ingresso deve essere scritto nella blockchain, il messaggio verrà elaborato dal consumer DLT. Il consumer DLT è un servizio che recupera il messaggio contenente i metadati per una transazione desiderata da eseguire e quindi invia le informazioni al *generatore e firmatario di transazioni*. Il *generatore e firmatario di transazioni* assembla una transazione blockchain in base ai dati e alla destinazione blockchain desiderata. Una volta assemblata, la transazione viene firmata. Le chiavi private vengono archiviate in Azure Key Vault.
 
-Attualmente Azure Key Vault non supporta la firma software delle transazioni blockchain nel servizio Key Vault stesso. Al contrario, Blockchain Workbench recupera la chiave privata appropriata da Key Vault e firma la transazione esternamente a Key Vault. Una volta firmata, la transazione viene inviata ai libri mastri e ai router di transazioni.
+ Blockchain Workbench recupera la chiave privata appropriata da Key Vault e firma la transazione esternamente a Key Vault. Una volta firmata, la transazione viene inviata ai libri mastri e ai router di transazioni.
 
 ## <a name="transaction-routers-and-ledgers"></a>Libri mastri e router di transazioni
 
@@ -118,4 +119,5 @@ Monitoraggio di Azure fornisce informazioni sull'integrità della rete blockchai
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire Azure Blockchain Workbench](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Distribuire Azure Blockchain Workbench](blockchain-workbench-deploy.md)

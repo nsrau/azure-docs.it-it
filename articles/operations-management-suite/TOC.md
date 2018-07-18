@@ -1,6 +1,5 @@
 # Panoramica
-## [Informazioni su Operations Management Suite](operations-management-suite-overview.md)
-## [Architettura di OMS](operations-management-suite-architecture.md)
+## [Monitoraggio degli agenti](../monitoring/index.md)
 
 # Attività iniziali
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## Analizzare
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Confronto tra i prodotti per il monitoraggio](operations-management-suite-monitoring-product-comparison.md)
-### [Gestire gli avvisi](operations-management-suite-monitoring-alerts.md)
 ## Automatizzare
 ### [Panoramica di Automazione di Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -23,13 +20,12 @@
 ### [Panoramica di Site Recovery](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Proteggere
-### [Monitorare le risorse](oms-security-monitoring-resources.md)
-### [Rispondere agli avvisi di sicurezza](oms-security-responding-alerts.md)
-### [Valutazione di base](oms-security-baseline.md)
-### [Valutazione di malware](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Valutazione dell'aggiornamento del sistema](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Connettere i prodotti per la sicurezza](oms-security-connect-products.md)
-### [Valutazione baseline Web](oms-security-web-baseline-assessment.md)
+### [Monitorare le risorse](../security-center/security-center-monitoring.md)
+### [Rispondere agli avvisi di sicurezza](../security-center/security-center-managing-and-responding-alerts.md)
+### [Valutazione di base](../security-center/security-center-customize-os-security-config.md)
+### [Valutazione di malware](../security-center/security-center-install-endpoint-protection.md)
+### [Connettere i prodotti per la sicurezza](../security-center/quick-security-solutions.md)
+### [Valutazione baseline Web](../security-center/security-center-customize-os-security-config.md)
 
 ## Usare le soluzioni
 ### [Soluzioni di gestione](../monitoring/monitoring-solutions.md)
@@ -46,7 +42,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Analisi di Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Elenco dei servizi
-##### [Procedura dettagliata](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Uso](../monitoring/monitoring-service-map.md)
 ##### [Configura](../monitoring/monitoring-service-map-configure.md)
 ##### [Integrazione con Operations Manager](../monitoring/monitoring-service-map-scom.md)
@@ -70,12 +65,7 @@
 ### [Procedure consigliate](../monitoring/monitoring-solutions-best-practices.md)
 
 ## Scenari di gestione
-### [Raccogliere dati di analisi dal runbook](operations-management-suite-runbook-datacollect.md)
-
-## [Eseguire l'integrazione con OMS](operations-management-suite-integration.md)
-
-# Riferimenti
-## [SDK](operations-management-suite-sdk.md)
+### [Raccogliere dati di analisi dal runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Risorse
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/)

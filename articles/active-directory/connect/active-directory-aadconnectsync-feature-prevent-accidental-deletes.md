@@ -1,11 +1,11 @@
 ---
-title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Microsoft Docs'
-description: "Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect."
+title: 'Servizio di sincronizzazione Azure AD Connect: impedire eliminazioni accidentali | Documentazione Microsoft'
+description: Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 57ce7b2fcece751b1386ef1d57762ad8d1c27c62
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ecec08dcfa251b94ccfd09e87a8499dc03164ea9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595071"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.

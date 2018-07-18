@@ -1,13 +1,13 @@
 ---
 title: Panoramica della cache locale del servizio app di Azure | Microsoft Docs
-description: "Questo articolo descrive come abilitare, ridimensionare ed eseguire query sullo stato della funzionalità relativa alla cache locale del servizio app di Azure"
+description: Questo articolo descrive come abilitare, ridimensionare ed eseguire query sullo stato della funzionalità relativa alla cache locale del servizio app di Azure
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985946"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 Il contenuto delle app Web di Azure viene memorizzato nell'archiviazione di Azure e presentato in modo permanente come condivisione del contenuto. Questa progettazione è concepita per consentire l'interazione con un'ampia gamma di app e ha gli attributi seguenti:  

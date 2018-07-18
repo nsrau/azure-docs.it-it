@@ -1,6 +1,6 @@
 ---
 title: Ruotare i segreti nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come eseguire la rotazione i segreti nello Stack di Azure.
+description: Informazioni su come eseguire la rotazione i propri segreti nello Stack di Azure.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a3dfce6ce1b136e39047cfd47b336b2fb2a35af9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029017"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Ruotare i segreti nello Stack di Azure
 
@@ -78,16 +79,17 @@ Esegue la rotazione secret usando le istruzioni seguenti correggerà questi avvi
 
 ## <a name="pre-steps-for-secret-rotation"></a>Passaggi preliminari per la rotazione dei segreto
 
-1.  Inviare notifiche agli utenti di tutte le operazioni di manutenzione. Pianificare finestre di manutenzione normale, per quanto possibile, durante le ore non lavorative. Sia i carichi di lavoro di utente e le operazioni del portale, possono influire sulle operazioni di manutenzione.
+1.  Inviare notifiche agli utenti di tutte le operazioni di manutenzione. Pianificare finestre di manutenzione normale, per quanto possibile, durante le ore non lavorative. Le operazioni di manutenzione potrebbero influire su entrambi i carichi di lavoro utente e operazioni del portale.
 
     > [!note]  
     > I passaggi successivi si applicano solo quando la rotazione di segreti esterni dello Stack di Azure.
 
-2.  Preparare un nuovo set di sostituzione di certificati esterni. Il nuovo set corrisponde al certificato alle specifiche di [requisiti dei certificati di infrastruttura a chiave pubblica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-3.  Archiviare un backup dei certificati usati per la rotazione in un percorso di backup protetto. Se la rotazione viene eseguita e quindi si verifica un errore, sostituire i certificati nella condivisione di file con le copie di backup prima di eseguire la rotazione. Si noti, mantenere copie di backup nel percorso di backup protetto.
-3.  Creare una condivisione file che è possibile accedere da macchine virtuali ERCS. La condivisione file deve essere leggibile e scrivibile per il **CloudAdmin** identità.
-4.  Aprire una console di PowerShell ISE da un computer in cui si ha accesso alla condivisione file. Passare alla condivisione di file. 
-5.  Eseguire **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** per creare le directory richieste per i certificati esterni.
+2. Assicurarsi di rotazione segreta non è ancora stata eseguita correttamente in ambiente entro il mese scorso. In questo punto nel tempo dello Stack di Azure supporta solo secret rotazione una volta al mese. 
+3. Preparare un nuovo set di sostituzione di certificati esterni. Il nuovo set corrisponde al certificato alle specifiche di [requisiti dei certificati di infrastruttura a chiave pubblica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Archiviare un backup dei certificati usati per la rotazione in un percorso di backup protetto. Se la rotazione viene eseguita e quindi si verifica un errore, sostituire i certificati nella condivisione di file con le copie di backup prima di eseguire la rotazione. Si noti, mantenere copie di backup nel percorso di backup protetto.
+5.  Creare una condivisione file che è possibile accedere da macchine virtuali ERCS. La condivisione file deve essere leggibile e scrivibile per il **CloudAdmin** identità.
+6.  Aprire una console di PowerShell ISE da un computer in cui si ha accesso alla condivisione file. Passare alla condivisione di file. 
+7.  Eseguire **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** per creare le directory richieste per i certificati esterni.
 
 ## <a name="rotating-external-and-internal-secrets"></a>La rotazione dei segreti interni ed esterni
 
@@ -183,11 +185,11 @@ Questo comando consente di ruotare tutti i segreti infrastruttura esposti alla r
 
 ## <a name="update-the-baseboard-management-controller-bmc-password"></a>Aggiornare la password di baseboard management controller (BMC)
 
-Baseboard management controller (BMC) consente di monitorare lo stato dei server fisico. Le istruzioni su come aggiornare la password del BMC specifiche variano in base al fornitore dell'hardware (OEM) original equipment manufacturer. È necessario aggiornare le password per i componenti dello Stack di Azure un cadenza regolare.
+Baseboard management controller (BMC) consente di monitorare lo stato dei server fisico. Le istruzioni su come aggiornare la password del BMC specifiche variano in base al fornitore dell'hardware original equipment manufacturer (OEM). È necessario aggiornare le password per i componenti dello Stack di Azure un cadenza regolare.
 
-1. Aggiornare il BMC su server fisici di Stack Azure seguendo le istruzioni OEM. La password per ciascun BMC nell'ambiente in uso deve essere lo stesso.
+1. Aggiornare il BMC su server fisici del Stack Azure seguendo le istruzioni OEM. La password per ciascun BMC nell'ambiente in uso deve essere lo stesso.
 2. Aprire un endpoint con privilegi in Azure Stack sessioni. Per istruzioni, vedere [utilizzando l'endpoint con privilegi in Azure Stack](azure-stack-privileged-endpoint.md).
-3. Dopo il PowerShell Prompt dei comandi è stato modificato in **[nome indirizzo IP o VM ERCS]: PS >** o **[azs ercs01]: PS >**, a seconda dell'ambiente, eseguire `Set-BmcPassword` eseguendo `invoke-command`. Passare la variabile di sessione con privilegi endpoint come parametro. Ad esempio: 
+3. Dopo il PowerShell prompt è stato modificato in **[nome indirizzo IP o VM ERCS]: PS >** o a **[azs-ercs01]: PS >**, a seconda dell'ambiente, eseguire `Set-BmcPassword` eseguendo `invoke-command`. Passare la variabile di sessione con privilegi endpoint come parametro. Ad esempio: 
 
     ```powershell
     # Interactive Version

@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
-ms.openlocfilehash: 40b409964d139641a06186114fb5e06c19971a36
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b3b26869a84b8519ced19a4c93a6d39d6ed20f9b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887361"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050353"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Attività filtro in Azure Data Factory
 È possibile usare un'attività filtro in una pipeline per applicare un'espressione filtro a una matrice di input. 
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale, vedere la [documentazione su Data Factory versione 1](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sintassi
 
@@ -46,7 +43,7 @@ Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 name | Nome dell'attività `Filter`. | string | Sì
 type | Deve essere impostato su **filter**. | string | Sì
 condition | Condizione da usare per il filtraggio dell'input. | Expression | Sì
-elementi | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
+items | Matrice di input a cui deve essere applicato il filtro. | Expression | Sì
 
 ## <a name="example"></a>Esempio
 

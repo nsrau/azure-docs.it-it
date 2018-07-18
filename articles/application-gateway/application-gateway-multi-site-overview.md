@@ -1,11 +1,11 @@
 ---
-title: "Hosting di più siti in un gateway applicazione di Azure | Microsoft Docs"
-description: "Questa pagina offre una panoramica del supporto di più siti in un gateway applicazione."
+title: Hosting di più siti in un gateway applicazione di Azure | Microsoft Docs
+description: Questa pagina offre una panoramica del supporto di più siti in un gateway applicazione.
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704762"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hosting di più siti in un gateway applicazione
 

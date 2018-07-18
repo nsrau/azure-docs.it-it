@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362312"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261934"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -33,7 +33,7 @@ Load Balancer Standard è un nuovo prodotto Load Balancer per tutte le applicazi
 
 È possibile usare il servizio Load Balancer Standard come servizio di bilanciamento del carico pubblico o interno. E una macchina virtuale può essere connessa a una risorsa Load Balancer interna e pubblica.
 
-Le funzioni della risorsa di Load Balancer sono espresse come un front-end, una regola, una probe di integrità e una definizione di pool back-end.  Una risorsa può contenere più regole. Le macchine virtuali vengono inserite nel pool back-end specificando il pool back-end dalla risorsa di scheda di interfaccia di rete.  Nel caso di un set di scalabilità della macchina virtuale, questo parametro viene passato tramite il profilo di rete ed espanso.
+Le funzioni della risorsa di Load Balancer sono espresse come un front-end, una regola, una probe di integrità e una definizione di pool back-end.  Una risorsa può contenere più regole. Le macchine virtuali vengono inserite nel pool back-end specificando il pool back-end dalla risorsa di scheda di interfaccia di rete.  Se si usa un set di scalabilità della macchina virtuale, questo parametro viene passato tramite il profilo di rete ed espanso.
 
 Un aspetto chiave è l'ambito della rete virtuale per la risorsa.  Mentre Basic Load Balancer esiste all'interno dell'ambito di un set di disponibilità, un Load Balancer Standard è completamente integrato con l'ambito di una rete virtuale e si applicano tutti i concetti di rete virtuale.
 
@@ -72,7 +72,7 @@ Revisionare i [limiti del servizio di Load Balancer](https://aka.ms/lblimits), n
 
 Standard pool back-end di Load Balancer carico si espande a qualsiasi risorsa di macchina virtuale in una rete virtuale.  Può contenere fino a 1000 istanze di back-end.  Un'istanza di back-end è una configurazione IP, che è una proprietà di una risorsa di scheda di rete.
 
-Il pool back-end può contenere le macchine virtuali autonome, set di disponibilità o set di scalabilità di macchine virtuali.  È possibile blend risorse nel pool di back-end e può contenere qualsiasi combinazione di queste risorse fino a 150 totale.
+Il pool back-end può contenere le macchine virtuali autonome, set di disponibilità o set di scalabilità di macchine virtuali.  È anche possibile eseguire unire le risorse nel pool di back-end. È possibile combinare fino a 150 risorse nel pool di back-end per ogni risorsa di Load Balancer.
 
 Quando si considera come progettare il pool back-end, è possibile progettare per il minor numero di singole risorse di pool di back-end per ottimizzare ulteriormente la durata delle operazioni di gestione.  Non vi è alcuna differenza nelle prestazioni del piano dati o la scala.
 
@@ -90,7 +90,7 @@ Consultare [per ulteriori dettagli sulle abilità associate alle zone di disponi
 
 ### <a name="diagnostics"></a> Diagnostica
 
-Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
+Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
 
 | Metrica | DESCRIZIONE |
 | --- | --- |

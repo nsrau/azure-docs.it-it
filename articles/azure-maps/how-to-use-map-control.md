@@ -1,18 +1,19 @@
 ---
 title: Come usare il controllo mappa di Mappe di Azure | Microsoft Docs
 description: Informazioni su come usare la libreria JavaScript lato client del controllo mappa di Mappe di Azure.
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
-ms.openlocfilehash: bbd06aad9052d2a775c35dd08f80462f8ea505a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317965"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Come usare il controllo mappa di Mappe di Azure
 La libreria JavaScript lato client del controllo mappa consente di eseguire il rendering delle mappe e delle funzionalità incorporate di Mappe di Azure nelle applicazioni Web e per dispositivi mobili. 
@@ -47,7 +48,7 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
             var MapsAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
                 "subscription-key": MapsAccountKey,
-                center: [47.59093,-122.33263],
+                center: [-122.33263,47.59093],
                 zoom: 12
             });
         </script>

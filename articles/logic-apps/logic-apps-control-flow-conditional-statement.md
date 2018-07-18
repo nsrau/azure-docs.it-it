@@ -1,29 +1,25 @@
 ---
-title: Istruzioni condizionali - Eseguire i passaggi in base a una condizione - App per la logica di Azure | Microsoft Docs
-description: Eseguire i passaggi nell'app per la logica solo dopo avere soddisfatto una condizione. Creare alberi delle decisioni che eseguono flussi di lavoro in base a condizioni specificate.
+title: Aggiungere la istruzioni condizionali ai flussi di lavoro - App per la logica di Azure | Microsoft Docs
+description: Come creare condizioni che controllano le azioni nei flussi di lavoro nelle App per la logica di Azure
 services: logic-apps
-keywords: Istruzioni condizionali, alberi delle decisioni
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298169"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Istruzioni condizionali: eseguire i passaggi in base a una condizione nelle app per la logica
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Creare istruzioni condizionali che controllano le azioni del flusso di lavoro nelle App per la logica di Azure
 
-Per eseguire i passaggi solo dopo avere passato una condizione specificata, usare un'*istruzione condizionale*. Questa struttura confronta i dati nel flusso di lavoro con valori o campi specifici. È quindi possibile definire passaggi diversi da eseguire a seconda che i dati soddisfino o meno la condizione. È possibile annidare le condizioni all'interno di altre.
+Per eseguire azioni specifiche nell'app per la logica solo dopo il superamento di una condizione specificata, aggiungere un'*istruzione condizionale*. Questa struttura confronta i dati nel flusso di lavoro con valori o campi specifici. È quindi possibile definire azioni diverse da eseguire a seconda che i dati soddisfino o meno la condizione. È possibile annidare le condizioni all'interno di altre.
 
 Si supponga, ad esempio, di avere un'app per la logica che invia troppi messaggi di posta elettronica quando vengono visualizzati nuovi elementi sul feed RSS di un sito Web. È possibile aggiungere un'istruzione condizionale per inviare posta elettronica solo quando il nuovo elemento include una stringa specifica. 
 

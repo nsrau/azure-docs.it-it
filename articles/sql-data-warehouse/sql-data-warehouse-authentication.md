@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793580"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticazione in Azure SQL Data Warehouse
 Informazioni su come eseguire l'autenticazione in Azure SQL Data Warehouse mediante Azure Active Directory (AAD) e SQL Server.

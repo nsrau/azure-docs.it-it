@@ -1,30 +1,27 @@
 ---
 title: Distribuire la soluzione di monitoraggio remoto Java - Azure | Microsoft Docs
-description: Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni per il monitoraggio remoto tramite l'interfaccia della riga di comando.
-services: iot-suite
-suite: iot-suite
+description: Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017510"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni per il monitoraggio remoto tramite l'interfaccia della riga di comando
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
 Questa esercitazione illustra come effettuare il provisioning dell'acceleratore di soluzioni di monitoraggio remoto. Distribuire la soluzione usando l'interfaccia della riga di comando. È anche possibile distribuire la soluzione usando l'interfaccia utente basata sul Web disponibile all'indirizzo azureiotsuite.com. Per informazioni su questa opzione, vedere [Distribuire l'acceleratore di soluzioni per il monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per distribuire l'acceleratore di soluzioni per il monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
+Per distribuire l'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
 Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](http://azure.microsoft.com/pricing/free-trial/).
 
@@ -57,7 +54,7 @@ Quando si distribuisce l'acceleratore di soluzioni, sono disponibili diverse opz
 | SKU    | `basic`, `standard`, `local` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi in più macchine virtuali. Una distribuzione _local_ configura un contenitore Docker per l'esecuzione dei microservizi nel computer locale e usa servizi di Azure, ad esempio l'archiviazione e Cosmos DB, nel cloud. |
 | Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
 
-Per altre informazioni su come usare la distribuzione local, vedere [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) (Esecuzione della soluzione di monitoraggio remota in locale).
+Per altre informazioni su come usare la distribuzione locale, vedere [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) (Esecuzione della soluzione di monitoraggio remota in locale).
 
 ## <a name="basic-vs-standard-deployments"></a>Distribuzioni di base e distribuzioni standard
 
@@ -71,7 +68,7 @@ Quando si crea una soluzione di base, viene effettuato il provisioning dei servi
 | Conteggio | Risorsa                       | type         | Utilizzo |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
-| 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - Livello base | Comunicazione e gestione dei dispositivi |
+| 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |  
 | 1     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
@@ -85,7 +82,7 @@ Quando si crea una soluzione standard, viene effettuato il provisioning dei serv
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Macchine virtuali Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master e 3 agenti per microservizi di hosting con ridondanza |
 | 1     | [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/) |                 | Agente di orchestrazione [Kubernetes](https://kubernetes.io) |
-| 1     | [Hub IoT di Azure][https://azure.microsoft.com/services/iot-hub/]                     | S1 - Livello base | Gestione, comando e controllo dei dispositivi |
+| 1     | [Hub IoT di Azure][https://azure.microsoft.com/services/iot-hub/]                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |
 | 5     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |
 | 1     | [Servizio app](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway applicazione su SSL |
@@ -138,6 +135,6 @@ Questa esercitazione illustra come:
 > * Distribuire l'acceleratore di soluzioni
 > * Accedere all'acceleratore di soluzioni
 
-Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità del dashboard della soluzione](./iot-accelerators-remote-monitoring-deploy.md).
+Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità della dashboard della soluzione](./iot-accelerators-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

@@ -3,17 +3,18 @@ title: Esercitazione Registro contenitori di Azure - Eseguire il push di un'imma
 description: Eseguire il push di un'immagine Docker modificata nel registro contenitori di Azure con replica geografica e quindi visualizzare le modifiche distribuite automaticamente alle app Web in esecuzione in più aree. Terza parte di una serie in tre parti.
 services: container-registry
 author: mmacy
-manager: timlt
+manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: f8eab93d1e6633ae4f17c5bb4836d96629d55cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634088"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Esercitazione: Eseguire il push di un'immagine aggiornata nelle distribuzioni regionali
 
@@ -70,7 +71,7 @@ Il file `Index.cshtml` modificato deve essere simile al seguente:
 
 ## <a name="rebuild-the-image"></a>Ricompilare l'immagine
 
-Dopo aver aggiornato l'applicazione Web, è necessario ricompilare l'immagine del contenitore. Come in precedenza, usare il nome dell'immagine completo, incluso l'URL del server di accesso, per il tag:
+Dopo aver aggiornato l'applicazione Web, è necessario ricompilare l'immagine del contenitore. Come in precedenza, usare il nome dell'immagine completo, incluso il nome di dominio completo (FQDN) del server di accesso, per il tag:
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Eseguire il push dell'immagine in Registro contenitori di Azure
 
-A questo punto, eseguire il push dell'immagine del contenitore aggiornata *acr helloworld* nel registro con replica geografica. In questo caso, viene eseguito un singolo comando `docker push` per distribuire l'immagine aggiornata nelle repliche del registro in entrambe le aree *Stati Uniti occidentali* e *Stati Uniti orientali*.
+In seguito, eseguire il push dell'immagine del contenitore aggiornata *acr helloworld* nel registro con replica geografica. In questo caso, viene eseguito un singolo comando `docker push` per distribuire l'immagine aggiornata nelle repliche del registro in entrambe le aree *Stati Uniti occidentali* e *Stati Uniti orientali*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-L'output sarà simile al seguente:
+L'output `docker push` dovrebbe essere simile al seguente:
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Verificare che l'immagine del contenitore aggiornata sia stata distribuita anche
 
 ![Visualizzazione nel browser dell'app Web modificata in esecuzione nell'area Stati Uniti orientali][deployed-app-eastus-modified]
 
-Con una singola operazione `docker push` sono state aggiornate entrambe le distribuzioni di app Web regionali e Registro contenitori di Azure ha fornito le immagini del contenitore dai repository vicini in rete.
+Con un singolo `docker push`, è stata aggiornata automaticamente l'applicazione Web in esecuzione in entrambe le distribuzioni dell'app Web a livello di area. Inoltre, Registro contenitori di Azure ha servito le immagini del contenitore dai repository più vicini a ogni distribuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro contenitori di Azure inviano una notifica dell'aggiornamento all'app Web per contenitori, che attiva un pull locale delle repliche dei registri.
+In questa esercitazione si è visto come aggiornare il contenitore dell'applicazione Web ed eseguire il push della nuova versione nel registro con replica geografica. I webhook in Registro contenitori di Azure hanno inviato una notifica dell'aggiornamento alle app Web per contenitori, che hanno attivato un pull locale delle repliche dei registri più vicini.
 
-In questa esercitazione, l'ultima parte della serie, sono state completate le attività seguenti:
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: patch e build delle immagini automatizzate
 
-> [!div class="checklist"]
-> * Aggiornamento del codice HTML dell'applicazione Web
-> * Compilazione e aggiunta di tag all'immagine Docker
-> * Push della modifica in Registro contenitori di Azure
-> * Visualizzazione dell'app aggiornata in due aree diverse
+Oltre alla replica geografica, ACR Build è un'altra caratteristica del Registro contenitori di Azure che può aiutare a ottimizzare la pipeline di distribuzione di contenitore. Per avere un'idea delle funzionalità, è consigliabile iniziare con una panoramica di ACR Build:
+
+[Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Build)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

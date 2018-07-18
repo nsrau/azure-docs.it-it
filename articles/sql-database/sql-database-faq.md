@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d77c2dc121d7f291fa755f66d7d9a5d7213bf9f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195431"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309130"
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -24,7 +24,7 @@ La versione corrente del database SQL è V12. La versione V11 è stata ritirata.
 ## <a name="what-is-the-sla-for-sql-database"></a>Qual è il contratto di servizio per il database SQL?
 Microsoft garantisce che per almeno il 99,99% del tempo il cliente disponga della connettività tra il database SQL di Microsoft Azure e il gateway Internet, indipendentemente dal livello di servizio. Per altre informazioni, vedere [Contratto di servizio](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore (anteprima) per il database SQL di Azure?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore (anteprima) per il database SQL di Azure?
 
 Il nuovo modello di acquisto va ad aggiungersi al modello esistente basato su DTU. Il modello basato su vCore è stato creato per garantire ai clienti flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali nel cloud. Il modello consente ai clienti di ridimensionare le risorse di calcolo e di archiviazione in base alle esigenze dei carichi di lavoro. Le opzioni con database singolo e pool elastico che usano il modello vCore possono inoltre usufruire di un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). 
 
@@ -52,7 +52,7 @@ Si può disporre dei diritti di doppio uso della licenza per 180 giorni, per gar
 Microsoft offre oggi ai clienti di SQL Server con Software Assurance vantaggi relativi alla mobilità delle licenze che consentono di riassegnare le licenze a server condivisi di terze parti. Questi vantaggi possono essere usati in IaaS di Azure e EC2 di AWS.
 Il Vantaggio Azure Hybrid per SQL Server differisce dalla mobilità delle licenze per due aspetti principali:
 - Offre vantaggi economici per lo spostamento di carichi di lavoro altamente virtualizzati in Azure. I clienti di SQL EE possono ottenere 4 core in Azure nello SKU del livello Utilizzo generico per ogni core posseduto in locale per le applicazioni altamente virtualizzate. La mobilità delle licenze non offre particolari vantaggi economici per lo spostamento di carichi di lavoro virtualizzati nel cloud.
-- Offre una destinazione PaaS in Azure altamente compatibile con SQL Server in locale, ovvero Istanza gestita di database SQL.
+- Offre una destinazione PaaS in Azure (Istanza gestita di database SQL) altamente compatibile con SQL Server in locale
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quali sono i diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server?
 I clienti di database SQL possono beneficiare dei diritti seguenti associati al Vantaggio Azure Hybrid per SQL Server:
@@ -93,15 +93,15 @@ Il periodo di conservazione dei backup per il ripristino temporizzato può esser
 L'obiettivo è consentire la massima flessibilità, in modo da poter scegliere una configurazione di prestazioni che soddisfi al meglio le esigenze dell'applicazione. La tabella precedente illustra le differenze tra Gen4 e Gen5. In particolare, l'hardware Gen4 offre molta più memoria per ogni vCore. L'hardware Gen5 consente tuttavia di aumentare molto di più le risorse di calcolo. L'obiettivo di Microsoft è rendere chiare queste differenze, in modo che i clienti possano ottenere il miglior rapporto prezzo/prestazioni per l'applicazione.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>È necessario portare offline l'applicazione per eseguire la conversione da un database basato su DTU a un livello di servizio basato su vCore? 
-I nuovi livelli di servizio offrono un semplice metodo di conversione online simile al processo esistente di aggiornamento dei database dal livello di servizio Standard a Premium e viceversa. Questa conversione può essere avviata tramite il portale, Azure Resource Manager, PowerShell, l'interfaccia della riga di comando di Azure o T-SQL. Vedere gli articoli per [gestire database singoli](sql-database-single-database-resources.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
+I nuovi livelli di servizio offrono un semplice metodo di conversione online simile al processo esistente di aggiornamento dei database dal livello di servizio Standard a Premium e viceversa. Questa conversione può essere avviata tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, T-SQL o l'API REST. Vedere gli articoli per [gestire database singoli](sql-database-single-database-scale.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>È possibile convertire un database da un livello di servizio basato su vCore a un livello di servizio basato su DTU? 
-Sì, è possibile convertire facilmente il database a qualsiasi obiettivo di prestazioni supportato tramite il portale oppure a livello di programmazione tramite il portale, Azure Resource Manager, PowerShell, l'interfaccia della riga di comando di Azure o T-SQL. Vedere gli articoli per [gestire database singoli](sql-database-single-database-resources.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
+Sì, è possibile convertire facilmente il database a qualsiasi obiettivo di prestazioni supportato tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, T-SQL o l'API REST. Vedere gli articoli per [gestire database singoli](sql-database-single-database-scale.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>È possibile eseguire l'aggiornamento o il downgrade tra i livelli di servizio Utilizzo generico e Business Critical? 
 Sì, con alcune restrizioni. Lo SKU di destinazione deve soddisfare i requisiti di dimensioni massime del database o del pool elastico configurate per la distribuzione esistente. Se si usa il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md), lo SKU del livello Business Critical è disponibile solo per i clienti con licenze Enterprise Edition. Solo i clienti che hanno eseguito la migrazione dall'ambiente locale al livello Utilizzo generico usando il Vantaggio Azure Hybrid per SQL Server con licenze Enterprise Edition possono eseguire l'aggiornamento al livello Business Critical. Per informazioni dettagliate, vedere l'articolo sui [diritti specifici inclusi nel Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-Questa conversione non comporta tempi di inattività e può essere avviata tramite il portale, Azure Resource Manager, PowerShell, l'interfaccia della riga di comando di Azure o T-SQL. Vedere gli articoli per [gestire database singoli](sql-database-single-database-resources.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
+Questa conversione non comporta tempi di inattività e può essere avviata tramite il portale di Azure, PowerShell, l'interfaccia della riga di comando di Azure, T-SQL o l'API REST. Vedere gli articoli per [gestire database singoli](sql-database-single-database-scale.md) e per [gestire pool elastici](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Se si usa un database Premium RS che non sarà disponibile a livello generale, è possibile aggiornarlo a un nuovo livello e ottenere un vantaggio simile come rapporto prezzo/prestazioni?
 Poiché il modello basato su vCore consente il controllo indipendente sulla quantità di risorse di calcolo e archiviazione di cui è stato eseguito il provisioning, offre la possibilità di gestire in modo più efficace i costi ed è quindi un'opzione interessante per i database Premium RS. Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) offre inoltre uno sconto significativo quando viene usato il modello basato su vCore. 
@@ -193,3 +193,4 @@ Nel [portale di Azure](https://portal.azure.com) fare clic su **Database SQL**, 
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Per spostare un database tra sottoscrizioni
 Nel [portale di Azure](https://portal.azure.com)fare clic su **SQL Server** e quindi selezionare dall'elenco il server che ospita il database. Fare clic su **Sposta**, quindi selezionare le risorse da spostare e la sottoscrizione in cui spostarle.
+

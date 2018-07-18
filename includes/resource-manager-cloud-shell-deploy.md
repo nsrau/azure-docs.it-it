@@ -2,7 +2,7 @@
 
 È possibile usare [Cloud Shell](../articles/cloud-shell/overview.md) per distribuire il modello. Tuttavia, è prima necessario caricare il modello nell'account di archiviazione per Cloud Shell. Per informazioni sulla configurazione di Cloud Shell per il primo utilizzo, vedere [Panoramica di Azure Cloud Shell](../articles/cloud-shell/overview.md).
 
-1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Selezionare il gruppo di risorse di Cloud Shell. Il modello del nome è `cloud-shell-storage-<region>`.
 

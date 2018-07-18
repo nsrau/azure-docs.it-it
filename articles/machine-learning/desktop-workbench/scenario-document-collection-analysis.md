@@ -7,14 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: cbb077796d9f14a7f9d1d00268c7b6889ade8375
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861257"
 ---
 # <a name="document-collection-analysis"></a>Analisi delle raccolta di documenti
 
@@ -73,7 +75,7 @@ Creare un nuovo progetto usando questo esempio come modello:
 
 ## <a name="data-description"></a>Descrizione dei dati
 
-Il set di dati usato in questo scenario contiene riepiloghi di testo e metadati associati per ogni azione legislativa del Congresso degli Stati Uniti. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers/api).
+Il set di dati usato in questo scenario contiene riepiloghi di testo e metadati associati per ogni azione legislativa del Congresso degli Stati Uniti. I dati vengono raccolti da [GovTrack.us](https://www.govtrack.us/) che tiene traccia delle attività del Congresso e aiuta gli americani a partecipare al loro processo legislativo nazionale. I dati in blocco possono essere scaricati tramite [questo collegamento](https://www.govtrack.us/data/congress/) usando uno script manuale, che non è incluso in questo scenario. È possibile trovare i dettagli su come scaricare i dati nella [documentazione dell'API GovTrack](https://www.govtrack.us/developers).
 
 ### <a name="data-source"></a>Origine dati
 

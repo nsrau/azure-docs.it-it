@@ -1,12 +1,12 @@
 ---
 title: Visualizzare e gestire gli avvisi per il dispositivo StorSimple serie 8000 | Microsoft Docs
-description: "Vengono descritte le condizioni di avviso StorSimple e la loro gravità, come configurare le notifiche di avviso e come usare il servizio Gestione dispositivi StorSimple per gestire gli avvisi."
+description: Vengono descritte le condizioni di avviso StorSimple e la loro gravità, come configurare le notifiche di avviso e come usare il servizio Gestione dispositivi StorSimple per gestire gli avvisi.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27745779"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Usare il servizio Gestione dispositivi StorSimple per visualizzare e gestire gli avvisi di StorSimple
 

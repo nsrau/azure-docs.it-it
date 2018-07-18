@@ -1,6 +1,6 @@
 ---
-title: Aggiungere i tenant per l'utilizzo e fatturazione allo Stack di Azure | Documenti Microsoft
-description: I passaggi necessari consente di aggiungere un utente finale dello Stack di Azure gestiti da un Provider di servizi Cloud.
+title: Aggiungere i tenant per l'utilizzo e fatturazione per Azure Stack | Microsoft Docs
+description: I passaggi necessari aggiungono un utente finale ad Azure Stack gestito da un Provider del servizio Cloud (CSP).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,83 +11,85 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: mabrigg
+ms.date: 07/12/2018
+ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089911"
 ---
-# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Aggiunta di un tenant per l'utilizzo e fatturazione allo Stack di Azure
+# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Aggiungere tenant per l'utilizzo e fatturazione per Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi*
+*Si applica a: i sistemi integrati di Azure Stack*
 
-In questo articolo descrive i passaggi necessari aggiungere un utente finale allo Stack di Azure gestiti da un Provider del servizio Cloud (CSP). Quando al nuovo tenant utilizza le risorse, Azure Stack segnalerà utilizzo alla propria sottoscrizione di CSP.
+Questo articolo descrive i passaggi necessari aggiungere un utente finale ad Azure Stack gestito da un Provider del servizio Cloud (CSP). Quando il nuovo tenant Usa le risorse, Azure Stack segnalerà utilizzo alla propria sottoscrizione di CSP.
 
-CSP offrono spesso servizi a più clienti (tenant) nella loro distribuzione dello Stack di Azure. L'aggiunta di tenant per la registrazione dello Stack di Azure garantisce che sull'utilizzo di ogni tenant verrà segnalato e fatturato alla sottoscrizione CSP corrispondente. Se non si completano i passaggi descritti in questo articolo, per la sottoscrizione utilizzata per la registrazione iniziale dello Stack di Azure viene addebitato l'utilizzo di tenant. Prima di poter aggiungere un cliente finale allo Stack di Azure per l'utilizzo di rilevamento e di gestire i tenant, è necessario configurare Azure Stack come un provider CSP. Per procedure e le risorse, vedere [gestire informazioni sull'utilizzo e fatturazione per lo Stack di Azure come Provider di servizi Cloud](azure-stack-add-manage-billing-as-a-csp.md).
+I CSP offrono spesso servizi a più clienti finali (tenant) nella distribuzione di Azure Stack. Aggiunta di tenant per la registrazione di Azure Stack garantisce che verrà segnalato e addebitato alla sottoscrizione di CSP corrispondente sull'utilizzo di ogni tenant. Se non si completano i passaggi descritti in questo articolo, utilizzo dei tenant viene addebitato alla sottoscrizione usata per la registrazione iniziale di Azure Stack. Prima di poter aggiungere un cliente finale ad Azure Stack per monitorare l'utilizzo e per gestire i tenant, è necessario configurare Azure Stack come CSP. Per i passaggi e le risorse, vedere [gestire l'utilizzo e fatturazione per Azure Stack come Provider di servizi Cloud](azure-stack-add-manage-billing-as-a-csp.md).
 
-Nel diagramma seguente vengono illustrati i passaggi che è necessario che un provider CSP per l'abilitazione di un nuovo cliente per utilizzano lo Stack di Azure e per impostare l'utilizzo di rilevamento per il cliente. Aggiungendo gli utenti finali, sarà anche per gestire le risorse nello Stack di Azure. Sono disponibili due opzioni per la gestione delle relative risorse:
+Il diagramma seguente illustra i passaggi da seguire per abilitare un nuovo cliente di usare Azure Stack e configurare l'utilizzo di rilevamento per il cliente sarà necessario un CSP. Quando si aggiungono gli utenti finali, sarà anche per gestire le risorse in Azure Stack. Sono disponibili due opzioni per la gestione delle relative risorse:
 
-1. È possibile mantenere tenant del cliente finale e specificare le credenziali per la sottoscrizione di Azure Stack locale per gli utenti finali.  
-2. O gli utenti finali è possono lavorare con la sottoscrizione in locale e aggiungere il provider CSP come guest con le autorizzazioni del proprietario.  
+1. È possibile mantenere gli utenti finali e specificare le credenziali per la sottoscrizione di Azure Stack locale per il cliente finale.  
+2. Oppure gli utenti finali possono funzionare con l'abbonamento in locale e aggiungere il CSP come guest con le autorizzazioni di proprietario.  
 
 **Passaggi per aggiungere un cliente finale**
 
-![Impostare i Provider di servizi Cloud per rilevamento dell'utilizzo e la gestione dell'account del cliente finale](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![Configurare il Provider di servizi Cloud per monitorare l'utilizzo e per gestire l'account del cliente end](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
 
-## <a name="create-a-new-customer-in-partner-center"></a>Creare un nuovo cliente Partner Center
+## <a name="create-a-new-customer-in-partner-center"></a>Creare un nuovo cliente nel centro per i Partner
 
-Nel centro di Partner, creare una nuova sottoscrizione di Azure per il cliente. Per istruzioni, vedere [aggiungere un nuovo cliente](https://msdn.microsoft.com/partner-center/add-a-new-customer).
+Nel centro per i Partner, creare una nuova sottoscrizione di Azure per il cliente. Per istruzioni, vedere [aggiungere un nuovo cliente](https://msdn.microsoft.com/partner-center/add-a-new-customer).
 
 
 ##  <a name="create-an-azure-subscription-for-the-end-customer"></a>Creare una sottoscrizione di Azure per gli utenti finali
 
-Dopo aver creato un record dei clienti nel centro di Partner, è possibile vendere le sottoscrizioni per i prodotti nel catalogo. Per istruzioni, vedere [Create, sospendere o annullare le sottoscrizioni dei clienti](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
+Dopo aver creato un record del cliente nel centro per i Partner, puoi venderle sottoscrizioni a prodotti nel catalogo. Per istruzioni, vedere [crea, sospendere o annullare le sottoscrizioni dei clienti](https://msdn.microsoft.com/partner-center/create-a-new-subscription).
 
-## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Creare un utente guest nella directory del cliente finale
+## <a name="create-a-guest-user-in-the-end-customer-directory"></a>Creare un utente guest nella directory del cliente end
 
-Se gli utenti finali gestisce il proprio account, creare un utente guest nella propria directory e li inviano le informazioni. L'utente finale verrà quindi aggiungere il guest e l'autorizzazione di guest per elevare **proprietario** all'account Azure Stack CSP.
+Se il cliente finale gestisce il proprio account, creare un utente guest nella propria directory e li invierà tali informazioni. L'utente finale verrà quindi aggiungere l'utente guest ed elevare le autorizzazioni guest per **proprietario** all'account di Azure Stack CSP.
  
-## <a name="update-the-registration-with-the-end-customer-subscription"></a>Aggiornare la registrazione con la sottoscrizione del cliente finale
+## <a name="update-the-registration-with-the-end-customer-subscription"></a>Aggiornare la registrazione con la sottoscrizione del cliente end
 
-Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segnala l'identità del cliente da Partner centrale dell'utilizzo del cliente. Questo passaggio garantisce che l'utilizzo di ciascun cliente viene segnalato nella sottoscrizione CSP singoli quel cliente. Monitoraggio dell'utilizzo di utente e la fatturazione questo rende molto più semplice.
+Aggiornare la registrazione con la nuova sottoscrizione del cliente. Azure segnala l'utilizzo del cliente usando l'identità del cliente dal Partner centrale. Questo passaggio assicura che viene segnalato l'utilizzo di ogni cliente in una singola sottoscrizione di CSP del cliente. Ciò rende molto più semplice tenere traccia dell'utilizzo di utente e la fatturazione.
 
 > [!Note]  
-> Per eseguire questo passaggio, è necessario disporre [registrato Azure Stack](azure-stack-register.md).
+> Per eseguire questo passaggio, è necessario disporre [registrato di Azure Stack](azure-stack-register.md).
 
-1. Aprire Windows PowerShell con un prompt dei comandi con privilegi elevati ed eseguire:  
+1. Aprire Windows PowerShell con privilegi elevati ed eseguire:  
     `Add-AzureRmAccount`
 2. Digitare le credenziali di Azure.
 3. Nella sessione di PowerShell, eseguire:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
-### <a name="new-azurermresource-powershell-parameters"></a>Parametri-AzureRmResource nuovo PowerShell
+### <a name="new-azurermresource-powershell-parameters"></a>PowerShell nuovo-AzureRmResource parametri
 | Parametro | DESCRIZIONE |
 | --- | --- | 
-|registrationSubscriptionID | La sottoscrizione di Azure che è stata utilizzata per la registrazione iniziale dello Stack di Azure. |
-| customerSubscriptionID | La sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta di provider CSP; in pratica, ciò significa tramite Partner Center. Se un cliente ha più di un tenant di Azure Active Directory, è necessario creare la sottoscrizione nel tenant che verrà utilizzato per accedere allo Stack di Azure.
+|registrationSubscriptionID | Sottoscrizione di Azure che è stata usata per la registrazione iniziale di Azure Stack. |
+| customerSubscriptionID | Sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta CSP; in pratica, ciò significa tramite Centro per i Partner. Se un cliente ha più di un tenant di Azure Active Directory, è necessario creare la sottoscrizione nel tenant che verrà usato per accedere a Azure Stack.
 | resourceGroup | Il gruppo di risorse in Azure in cui è archiviata la registrazione. 
-| registrationName | Il nome della registrazione dello Stack di Azure. È un oggetto archiviato in Azure. | 
+| registrationName | Il nome della registrazione di Azure Stack. È un oggetto archiviato in Azure. | 
+| Properties | Specifica le proprietà per la risorsa. Usare questo parametro per specificare i valori delle proprietà specifiche per il tipo di risorsa.
 
 
 > [!Note]  
-> I tenant devono essere registrati con ogni utilizzano lo Stack di Azure. Se si dispone di due distribuzioni di Azure Stack e un tenant è prevede di utilizzare entrambi gli elementi, è necessario aggiornare le registrazioni iniziale di ogni distribuzione con la sottoscrizione tenant.
+> I tenant devono essere registrati con ogni Stack di Azure usano. Se si dispone di due distribuzioni di Azure Stack e un tenant deve utilizzare entrambi i sistemi operativi, è necessario aggiornare le registrazioni iniziale di ogni distribuzione con la sottoscrizione del tenant.
 
-## <a name="onboard-tenant-to-azure-stack"></a>Caricare tenant allo Stack di Azure
+## <a name="onboard-tenant-to-azure-stack"></a>Eseguire l'onboarding tenant per Azure Stack
 
-Configurare lo Stack di Azure per supportare gli utenti da più tenant di Azure AD per utilizzare i servizi nello Stack di Azure. Per istruzioni, vedere [abilitare multi-tenancy nello Stack di Azure](azure-stack-enable-multitenancy.md).
+Configurare Azure Stack per supportare gli utenti da più tenant di Azure AD per usare i servizi in Azure Stack. Per istruzioni, vedere [abilitare la multi-tenancy in Azure Stack](azure-stack-enable-multitenancy.md).
 
 
-## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Creare una risorsa locale nel tenant del cliente finale nello Stack di Azure
+## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Creare una risorsa locale nel tenant del cliente end in Azure Stack
 
-Una volta aggiunto il nuovo oggetto customer allo Stack di Azure, o tenant del cliente finale è abilitato l'account guest con privilegi di proprietario, verificare che è possibile creare una risorsa nel tenant. Ad esempio, è possibile [creare una macchina virtuale Windows con il portale di Azure Stack](user\azure-stack-quick-windows-portal.md).
+Una volta aggiunti i nuovi clienti in Azure Stack, o tenant del cliente end ha abilitato l'account guest con privilegi di proprietario, verificare che è possibile creare una risorsa nel tenant. Ad esempio, è possibile [creare una macchina virtuale Windows con il portale di Azure Stack](user\azure-stack-quick-windows-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Per esaminare i messaggi di errore se l'attivazione del processo di registrazione, vedere [i messaggi di errore di registrazione del Tenant](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Per ulteriori informazioni su come recuperare informazioni sull'utilizzo di risorse dallo Stack di Azure, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](/azure-stack-billing-and-chargeback.md).
- - Per esaminare come cui un cliente finale può aggiungere, come il provider CSP, come la gestione per i relativi Stack di Azure, tenant, vedere [abilitare un Provider di servizi Cloud gestire la sottoscrizione di Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).
+ - Per esaminare i messaggi di errore se vengono attivate nel processo di registrazione, vedere [i messaggi di errore di registrazione del Tenant](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
+ - Per altre informazioni su come recuperare le informazioni sull'utilizzo di risorse di Azure Stack, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Per esaminare come un cliente finale può aggiungere l'utente, come CSP, come la gestione per loro Azure Stack, tenant, vedere [abilitare un Provider di servizi Cloud gestire la sottoscrizione di Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

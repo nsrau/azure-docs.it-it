@@ -1,11 +1,11 @@
 ---
-title: "Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: passaggi successivi | Documentazione Microsoft"
-description: "Riepilogo e passaggi successivi dopo la lettura della guida sulla progettazione dell'identità ibrida"
-documentationcenter: 
+title: 'Considerazioni di progettazione per la soluzione ibrida di gestione delle identità di Azure Active Directory: passaggi successivi | Documentazione Microsoft'
+description: Riepilogo e passaggi successivi dopo la lettura della guida sulla progettazione dell'identità ibrida
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284671"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considerazioni di progettazione dell'identità ibrida di Azure Active Directory - Passaggi successivi
 Dopo aver definito i requisiti ed esaminato tutte le opzioni per la soluzione di gestione dei dispositivi mobili, è possibile eseguire i passaggi successivi per la distribuzione dell'infrastruttura di supporto adatta alle esigenze dell'utente e dell'organizzazione.
@@ -40,7 +42,7 @@ I contenuti concettuali, sulla pianificazione delle procedure, sulla distribuzio
 ## <a name="hybrid-identity-resources"></a>Risorse di identità ibrida
 Il monitoraggio frequente di queste risorse consente di ottenere informazioni sulle notizie più recenti e aggiornamenti relativi alle soluzioni di gestione dei dispositivi mobili:
 
-* [Blog di Microsoft Enterprise Mobility](http://blogs.technet.com/b/enterprisemobility/)
+* [Blog di Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blog di Microsoft In The Cloud](http://blogs.technet.com/b/in_the_cloud/)
 * [Blog di Microsoft Intune](http://blogs.technet.com/b/microsoftintune/)
 * [Blog di Microsoft System Center Configuration Manager](http://blogs.technet.com/b/configurationmgr/)

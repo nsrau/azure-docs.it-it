@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37444243"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -25,7 +26,7 @@ Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio
 È possibile rispondere alle domande seguenti grazie ai report presenti nel [portale di Azure] (https://portal.azure.com/):
 
 > [!NOTE]
-> È necessario essere [un amministratore globale](../active-directory-assign-admin-roles-azure-portal.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda **Creazione report** o i log di controllo. I dati vengono raccolti per l'organizzazione solo dopo questa operazione.
+> È necessario essere [un amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda **Creazione report** o i log di controllo. I dati vengono raccolti per l'organizzazione solo dopo questa operazione.
 >
 
 * Quante persone si sono registrate per la reimpostazione delle password?
@@ -53,25 +54,6 @@ Nel portale di Azure è disponibile un modo migliore per visualizzare la reimpos
 6. Per filtrare questa visualizzazione esclusivamente in base agli eventi correlati alla reimpostazione delle password, selezionare il pulsante **Filtra** nella parte superiore del riquadro.
 7. Dal menu **Filtra** selezionare l'elenco a discesa **Categoria** e impostare l'elemento su **Self-service Password Management** (Gestione delle password self-service).
 8. Facoltativamente, è possibile filtrare ulteriormente l'elenco scegliendo un'attività specifica in **Attività**.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Come recuperare eventi di gestione delle password dall'API relativa a report ed eventi di Azure AD
-
-L'API di creazione di report ed eventi di Azure AD supporta il recupero di tutte le informazioni incluse nei report di reimpostazione delle password e di registrazione per la reimpostazione delle password. Tramite questa API è possibile scaricare eventi singoli di reimpostazione della password e di registrazione per la reimpostazione della password per l'integrazione con la tecnologia di creazione di report in uso.
-
-> [!IMPORTANT]
-> Attualmente, l'API di creazione di report ed eventi di Azure AD recupera fino a *75.000 eventi singoli* del tipo [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) e [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent). L'API copre gli ultimi 30 giorni.
-> 
-> Se è necessario recuperare o archiviare dati oltre questo intervallo, è consigliabile salvarli in modo permanente in un database esterno e usare l'API per eseguire una query sui delta risultanti. È consigliabile iniziare a recuperare i dati quando nell'organizzazione si inizia a usare la funzionalità di reimpostazione delle password self-service. Rendere questi dati persistenti esternamente e quindi continuare a monitorarne i delta.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Come iniziare a usare l'API di creazione report
-
-Per accedere a questi dati, è necessario scrivere una piccola applicazione o uno script per recuperarli dal server. Per altre informazioni, vedere [Introduzione all'API di creazione report di Azure Active Directory](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Dopo aver creato uno script di lavoro, è opportuno esaminare gli eventi di registrazione e di reimpostazione password che è possibile recuperare per soddisfare i requisiti degli scenari in uso:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): elenca le colonne disponibili per gli eventi di reimpostazione delle password.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): elenca le colonne disponibili per gli eventi di registrazione per la reimpostazione delle password.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrizione delle colonne dei report nel portale di Azure
 

@@ -1,30 +1,30 @@
 ---
-title: Personalizzazione dell'interfaccia utente - Azure AD B2C | Microsoft Docs
-description: Argomento che descrive le funzionalità di personalizzazione dell'interfaccia utente in Azure Active Directory B2C
+title: Personalizzazione dell'interfaccia utente in Azure Active Directory B2C | Microsoft Docs
+description: Argomento che descrive le funzionalità di personalizzazione dell'interfaccia utente in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447054"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: personalizzare l'interfaccia utente di Azure AD B2C
 
 L'esperienza utente rappresenta l'aspetto più importante in un'applicazione rivolta ai clienti.  L'utente può accrescere le dimensioni della sua base di clienti grazie alla creazione di esperienze utente con l'aspetto del marchio. Azure Active Directory B2C (Azure AD B2C) permette di personalizzare le pagine di iscrizione, accesso, modifica del profilo e reimpostazione della password con controllo Pixel Perfect.
 
 > [!NOTE]
-> La funzionalità di personalizzazione dell'interfaccia utente delle pagine descritta in questo articolo non si applica al criterio di solo accesso, alla pagina di reimpostazione della password associata e ai messaggi di posta elettronica di verifica.  Queste funzionalità usano invece la [funzionalità di branding aziendale](../active-directory/customize-branding.md).
+> La funzionalità di personalizzazione dell'interfaccia utente delle pagine descritta in questo articolo non si applica al criterio di solo accesso, alla pagina di reimpostazione della password associata e ai messaggi di posta elettronica di verifica.  Queste funzionalità usano invece la [funzionalità di branding aziendale](../active-directory/fundamentals/customize-branding.md).
 >
-> Analogamente, se un utente avvia un criterio di modifica del profilo *prima* dell'accesso, l'utente verrà reindirizzato a una pagina che può essere personalizzata tramite la [funzionalità di branding aziendale](../active-directory/customize-branding.md).
+> Analogamente, se un utente avvia un criterio di modifica del profilo *prima* dell'accesso, l'utente verrà reindirizzato a una pagina che può essere personalizzata tramite la [funzionalità di branding aziendale](../active-directory/fundamentals/customize-branding.md).
 
 Questo articolo include gli argomenti seguenti:
 
@@ -214,7 +214,7 @@ Questa pagina contiene un modulo per eseguire l'iscrizione dell'account locale i
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Frammento inserito nella "Pagina di iscrizione all'account di social networking"
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>Frammento inserito nella "pagina di iscrizione all'account di social network"
 
 Questa pagina potrebbe essere visualizzata quando si effettua l'iscrizione usando un account esistente di un provider di identità basato su social network, ad esempio Facebook o Google+.  Viene utilizzata quando è necessario raccogliere informazioni aggiuntive dall'utente finale con un modulo di iscrizione. Questa pagina è simile alla pagina di iscrizione dell'account locale (mostrata nella sezione precedente), ad eccezione dei campi di immissione della password.
 

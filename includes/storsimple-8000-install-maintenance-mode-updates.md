@@ -6,7 +6,7 @@ Quando si applicano gli aggiornamenti in modalità manutenzione al dispositivo S
 > * Prima di avviare la modalità manutenzione, verificare che entrambi i controller del dispositivo siano integri nel portale di Azure. Se il controller non è integro, [contattare il supporto tecnico Microsoft](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) per i passaggi successivi.
 > * In modalità manutenzione è necessario aggiornare prima un controller e quindi l'altro.
 
-1. Usare PuTTY per connettersi alla console seriale. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**. Selezionare l'opzione 1 per eseguire l'accesso completo al dispositivo.
+1. Usare PuTTY per connettersi alla console seriale. Seguire le istruzioni riportate in [Usare PuTTY per connettersi alla console seriale](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). Al prompt dei comandi, premere **Invio**. Selezionare l'opzione 1, **Accedi con accesso completo**.
 
 2. Per attivare la modalità di manutenzione per il controller, digitare:
     
@@ -14,13 +14,13 @@ Quando si applicano gli aggiornamenti in modalità manutenzione al dispositivo S
 
     Entrambi i controller si riavviano in modalità manutenzione.
 
-3. Installare gli aggiornamenti in modalità manutenzione. Digitare:
+3. Installare gli aggiornamenti in modalità manutenzione. Digitare: 
 
     `Start-HcsUpdate`
 
     Viene chiesto di confermare l'operazione. Dopo la conferma, gli aggiornamenti vengono installati nel controller a cui si è effettuato l'accesso. Dopo l'installazione degli aggiornamenti, il controller viene riavviato.
 
-4. Monitorare lo stato degli aggiornamenti. Accedere al controller peer perché il controller corrente sta eseguendo l'aggiornamento e non può elaborare altri comandi. Digitare:
+4. Monitorare lo stato degli aggiornamenti. Accedere al controller peer perché il controller corrente sta eseguendo l'aggiornamento e non può elaborare altri comandi. Digitare: 
 
     `Get-HcsUpdateStatus`
 

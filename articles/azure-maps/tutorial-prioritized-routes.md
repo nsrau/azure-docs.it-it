@@ -1,22 +1,20 @@
 ---
 title: Più itinerari con Mappe di Azure | Microsoft Docs
 description: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: b45394cedcb7bbcb46b9730b7e445b04c8cf4f18
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601412"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -34,7 +32,7 @@ Prima di procedere eseguire i passaggi della prima esercitazione per [creare l'a
 
 
 ## <a name="create-a-new-map"></a>Creare una nuova mappa 
-La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa di Mappe di Azure. 
+La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa. 
 
 1. Nel computer locale creare un nuovo file con il nome **MapTruckRoute.html**. 
 2. Aggiungere al file i componenti HTML seguenti:

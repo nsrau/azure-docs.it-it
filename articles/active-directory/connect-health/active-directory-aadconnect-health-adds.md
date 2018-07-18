@@ -1,9 +1,9 @@
 ---
 title: Uso di Azure AD Connect Health con Active Directory Domain Services | Documentazione Microsoft
-description: "Questa è la pagina di Azure AD Connect Health che descrive come monitorare Servizi di dominio Active Directory."
+description: Questa è la pagina di Azure AD Connect Health che descrive come monitorare Servizi di dominio Active Directory.
 services: active-directory
-documentationcenter: 
-author: arluca
+documentationcenter: ''
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f30c09e4942cf6992be69d9aedcd5b9b0c02b0a6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886733"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Uso di Azure AD Connect Health con Servizi di dominio Active Directory
 La documentazione seguente è specifica per il monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health. Versioni supportate di AD DS: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
 
 Per altre informazioni sul monitoraggio di AD FS con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con AD FS](active-directory-aadconnect-health-adfs.md). Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](active-directory-aadconnect-health-sync.md).
 
-![Azure AD Connect Health per Servizi di dominio Active Directory](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![Azure AD Connect Health per Servizi di dominio Active Directory](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>Avvisi di Azure AD Connect Health per Servizi di dominio Active Directory
 La sezione Avvisi di Azure AD Connect Health per AD DS offre un elenco di avvisi attivi e risolti relativi ai controller di dominio. Se si seleziona un avviso attivo o risolto, viene visualizzato un nuovo pannello con altre informazioni, oltre ai passaggi per la risoluzione e a collegamenti alla documentazione di supporto. Ogni tipo di avviso può avere una o più istanze, che corrispondono a ogni controller di dominio interessato da quel particolare avviso. Nella parte inferiore del pannello degli avvisi è possibile fare doppio clic su un controller di dominio interessato per aprire un pannello aggiuntivo, che include altri dettagli sull'istanza dell'avviso.

@@ -1,25 +1,19 @@
 ---
 title: Informazioni sugli SDK dell'hub IoT | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: informazioni e collegamenti ai vari Azure IoT SDK per dispositivi e servizi che è possibile usare per compilare app per dispositivo e app back-end.'
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71d02e3f8bf0757d7ea0622e76b95acda1fefc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 718bf82a921ec3b70939b7a70205a4c650702dd0
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823351"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendere e usare gli SDK per l'hub IoT di Azure
 
@@ -61,6 +55,10 @@ Azure IoT Hub SDK per dispositivi per Python:
 * Installare da [pip][lnk-pip-device]
 * [Codice sorgente][lnk-python-sdk]
 
+Azure IoT Hub SDK per dispositivi per iOS: 
+* Installare da [CocoaPod][lnk-cocoa-device]
+* [Esempi][lnk-ios-sample]
+
 > [!NOTE]
 > Vedere i file Leggimi nei repository GitHub per informazioni sull'uso di gestori di pacchetti specifici per piattaforma e linguaggio e installare file binari e dipendenze nel computer di sviluppo.
 > 
@@ -96,6 +94,10 @@ Azure IoT Hub SDK per servizi per Python:
 Azure IoT Hub SDK per servizi per C: 
 * Scaricare da [apt-get, MBED, IDE Arduino o Nuget][lnk-c-package]
 * [Codice sorgente][lnk-c-sdk]
+
+Azure IoT Hub SDK per servizi per iOS: 
+* Installare da [CocoaPod][lnk-cocoa-service]
+* [Esempi][lnk-ios-sample]
 
 > [!NOTE]
 > Vedere i file Leggimi nei repository GitHub per informazioni sull'uso di gestori di pacchetti specifici per piattaforma e linguaggio e installare file binari e dipendenze nel computer di sviluppo.
@@ -145,3 +147,6 @@ Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida p
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-benefits-blog]: https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/
+[lnk-cocoa-device]: https://cocoapods.org/pods/AzureIoTHubClient
+[lnk-ios-sample]: https://github.com/Azure-Samples/azure-iot-samples-ios
+[lnk-cocoa-service]: https://cocoapods.org/pods/AzureIoTHubServiceClient

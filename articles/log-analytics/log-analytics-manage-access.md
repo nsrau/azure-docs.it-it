@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271671"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637532"
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -98,7 +98,7 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 | Azione                                                          | Autorizzazioni di Azure necessarie | Note |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Aggiunta e rimozione di soluzioni di gestione                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Aggiunta e rimozione di soluzioni di gestione                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Queste autorizzazioni devono essere concesse a livello di gruppo di risorse o di sottoscrizione. |
 | Modifica del piano tariffario                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | Visualizzazione dei dati nei riquadri delle soluzioni *Backup* e *Site Recovery* | Amministratore/Coamministratore | Risorse di accesso distribuite usando il modello di distribuzione classica |
 | Creare un'area di lavoro nel portale di Azure                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
-- Leggere tutti i dati di monitoraggio 
-- Creare e configurare account di automazione
-- Aggiungere e rimuovere soluzioni di gestione
-- Leggere le chiavi degli account di archiviazione 
-- Configurare la raccolta di log da Archiviazione di Azure
+- Leggere tutti i dati di monitoraggio  
+- Creare e configurare account di automazione  
+- Aggiunta e rimozione di soluzioni di gestione    
+    > [!NOTE] 
+    > Per eseguire correttamente queste due azioni, questa autorizzazione deve essere concessa a livello di gruppo di risorse o di sottoscrizione.  
+
+- Leggere le chiavi degli account di archiviazione   
+- Configurare la raccolta di log da Archiviazione di Azure  
 - Modificare le impostazioni di monitoraggio per le risorse di Azure, tra cui
   - Aggiunta dell'estensione macchina virtuale alle VM
   - Configurazione della diagnostica di Azure in tutte le risorse di Azure
@@ -157,7 +160,7 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 - Gruppo di risorse: accesso a tutte le aree di lavoro nel gruppo di risorse
 - Risorsa: accesso alla sola area di lavoro specificata
 
-Usare i [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
+È consigliabile eseguire le assegnazioni solo a livello di risorsa (area di lavoro) per assicurare un controllo di accesso accurato.  Usare i [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Ruoli utente di Azure e ruoli utente del portale di Log Analytics
 Se è disponibile almeno l'autorizzazione di lettura di Azure per l'area di lavoro di Log Analytics, è possibile aprire il portale di Log Analytics facendo clic sull'attività **Portale di OMS** quando si visualizza l'area di lavoro di Log Analytics.

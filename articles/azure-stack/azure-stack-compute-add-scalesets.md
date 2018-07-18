@@ -1,86 +1,62 @@
 ---
-title: Scalabilità della macchina virtuale verificare imposta disponibile nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come un operatore cloud aggiungere scalabilità della macchina virtuale di Azure Marketplace Stack
+title: Rendere il set di scalabilità di macchine virtuali disponibili in Azure Stack | Microsoft Docs
+description: Informazioni su come un operatore cloud può aggiungere set di scalabilità di macchine virtuali in Azure Stack Marketplace
 services: azure-stack
 author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 12425ab53ca16bb985a0a8658b5058998565b01a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "34800641"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili nello Stack di Azure
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Rendere il set di scalabilità di macchine virtuali disponibili in Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure Stack. È possibile utilizzare tali per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurati allo stesso set di scalabilità non richiedono pre-provisioning di macchine virtuali. Risulta più semplice compilare servizi su larga scala destinati a una soluzione big compute, dati e i carichi di lavoro nei contenitori.
+Set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure Stack. È possibile utilizzarli per distribuire e gestire un set di macchine virtuali identiche. Con tutte le macchine virtuali configurato allo stesso modo, i set di scalabilità non necessitano di pre-provisioning di macchine virtuali. È più semplice creare servizi su larga scala destinati a big compute, big data e i carichi di lavoro in contenitori.
 
-In questo articolo in modo semplificato il processo per rendere disponibili i set di scalabilità in Azure Marketplace dello Stack. Dopo aver completato questa procedura, è possibile che gli utenti possono aggiungere scalabilità della macchina virtuale imposta per le sottoscrizioni.
+Questo articolo illustra il processo per rendere disponibili i set di scalabilità in Azure Stack Marketplace. Dopo aver completato questa procedura, gli utenti possono aggiungere set di scalabilità di macchine virtuali per le sottoscrizioni.
 
-Set di scalabilità di macchine virtuali nello Stack di Azure sono simili a set di scalabilità di macchine virtuali in Azure. Per ulteriori informazioni, vedere i video seguenti:
+Set di scalabilità di macchine virtuali in Azure Stack sono simili a set di scalabilità di macchine virtuali in Azure. Per altre informazioni, vedere i video seguenti:
 * [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/) (Mark Russinovich illustra i set di scalabilità di Azure)
 * [Set di scalabilità di macchine virtuali con Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Nello Stack di Azure, il set di scalabilità di macchine virtuali non supporta la scalabilità automatica. È possibile aggiungere più istanze di una scala impostata utilizzando il portale di Azure Stack, i modelli di gestione risorse o PowerShell.
+In Azure Stack, il set di scalabilità di macchine virtuali non supporta la scalabilità automatica. È possibile aggiungere più istanze per un set di scalabilità tramite PowerShell, CLI o modelli di Resource Manager.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* **PowerShell e strumenti**
 
-   Installare e PowerShell configurato per lo Stack di Azure e gli strumenti di Azure Stack. Vedere [diventare operativi con PowerShell nello Stack di Azure](azure-stack-powershell-configure-quickstart.md).
+- **Diffusione di Marketplace**  
+    Registrare Azure Stack con Azure globale, per abilitare la diffusione di Marketplace. Seguire le istruzioni in [registrare Azure Stack con Azure](azure-stack-registration.md).
+- **Immagine del sistema operativo**  
+    Se è stata aggiunta un'immagine del sistema operativo per il Marketplace di Azure Stack, vedere [aggiungere un elemento del marketplace Azure Stack da Azure](asdk/asdk-marketplace-item.md).
 
-   Dopo aver installato gli strumenti di Azure Stack, accertarsi di aver importato il modulo di PowerShell seguente (percorso relativo ai. \ComputeAdmin cartella nella cartella AzureStack-strumenti-master):
-  ````PowerShell
-        Import-Module .\AzureStack.ComputeAdmin.psm1
-  ````
+## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il Set di scalabilità di macchine virtuali
 
-* **Immagine del sistema operativo**
+1. Aprire il Marketplace di Azure Stack e connettersi ad Azure. Selezionare **gestione Marketplace**> **+ Aggiungi da Azure**.
 
-   Se è stato aggiunto un'immagine del sistema operativo a Stack Azure Marketplace, vedere [aggiungere l'immagine di macchina virtuale di Windows Server 2016 nel Marketplace Azure Stack](azure-stack-add-default-image.md).
+    ![Gestione di Marketplace](media/azure-stack-compute-add-scalesets/image01.png)
 
-   Per il supporto di Linux, scaricare Ubuntu Server 16.04 e aggiungerlo mediante ```Add-AzsPlatformImage``` con i seguenti parametri: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+2. Aggiungere e scaricare l'elemento del marketplace Set di scalabilità di macchine virtuali.
 
+    ![Set di scalabilità di macchine virtuali](media/azure-stack-compute-add-scalesets/image02.png)
 
-## <a name="add-the-virtual-machine-scale-set"></a>Aggiungere il set di scalabilità della macchina virtuale
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aggiornare le immagini in un Set di scalabilità di macchine virtuali
 
-Modificare lo script di PowerShell seguente per l'ambiente e quindi eseguire il codice per aggiungere un scalabilità della macchina virtuale impostato su Stack Azure Marketplace. 
+Dopo aver creato un set di scalabilità di macchine virtuali, gli utenti possono aggiornare le immagini in set di scalabilità senza dover essere ricreato di set di scalabilità. Il processo per aggiornare un'immagine dipende gli scenari seguenti:
 
-``$User`` è l'account usato per connettere il portale dell'amministratore. Ad esempio, serviceadmin@contoso.onmicrosoft.com.
+1. Modello di distribuzione di set di scalabilità di macchine virtuali **specifica più recente** per *versione*:  
 
-````PowerShell  
-$Arm = "https://adminmanagement.local.azurestack.external"
-$Location = "local"
+   Quando la *versione* viene impostato come **più recente** nel *imageReference* sezione del modello per una scala impostata, scalare le operazioni relative all'utilizzo di set di scalabilità la versione più recente disponibile Imposta le istanze dell'immagine per la scala. Dopo aver completato un scalabilità verticale, è possibile eliminare precedenti istanze di set di scalabilità di macchine virtuali.  (I valori per *server di pubblicazione*, *offrono*, e *sku* restano invariati). 
 
-Add-AzureRMEnvironment -Name AzureStackAdmin -ArmEndpoint $Arm
-
-$Password = ConvertTo-SecureString -AsPlainText -Force "<your Azure Stack administrator password>"
-
-$User = "<your Azure Stack service administrator user name>"
-
-$Creds =  New-Object System.Management.Automation.PSCredential $User, $Password
-
-$AzsEnv = Get-AzureRmEnvironment AzureStackAdmin
-$AzsEnvContext = Add-AzureRmAccount -Environment $AzsEnv -Credential $Creds
-
-Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
-
-Add-AzsVMSSGalleryItem -Location $Location
-````
-
-## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aggiornare le immagini in un set di scalabilità della macchina virtuale 
-Dopo aver creato un set di scalabilità della macchina virtuale, gli utenti possono aggiornare le immagini nella scala dei set senza la scala impostata dover essere ricreato. Il processo di aggiornamento di un'immagine a seconda dei casi nei seguenti scenari:
-
-1. Modello di distribuzione di set di scalabilità della macchina virtuale **specifica più recente** per *versione*:  
-
-   Quando il *versione* viene impostato come **più recente** nel *imageReference* sezione del modello per una scala impostata, applicare la scalabilità verticale operazioni relative all'utilizzo di set di scalabilità della versione disponibile più recente Imposta le istanze dell'immagine per la scala. Una volta completata una scalabilità verticale, è possibile eliminare precedenti istanze set di scalabilità di macchine virtuali.  (I valori per *publisher*, *offrono*, e *sku* rimangono invariati). 
-
-   Ecco un esempio di definizione *più recente*:  
+   Di seguito è riportato un esempio di definizione *più recente*:  
 
     ```Json  
     "imageReference": {
@@ -91,32 +67,32 @@ Dopo aver creato un set di scalabilità della macchina virtuale, gli utenti poss
         }
     ```
 
-   Prima di scalabilità verticale è possibile utilizzare una nuova immagine, è necessario scaricare la nuova immagine:  
+   Prima di aumento delle prestazioni è possibile usare una nuova immagine, è necessario scaricare che la nuova immagine:  
 
-   - Quando l'immagine in Marketplace è una versione più recente rispetto all'immagine nel set di scalabilità: scaricare la nuova immagine che sostituisce l'immagine precedente. Dopo l'immagine viene sostituita, un utente può procedere per la scalabilità verticale. 
+   - Quando l'immagine in Marketplace è una versione più recente rispetto all'immagine del set di scalabilità: scaricare la nuova immagine che sostituisce l'immagine precedente. Dopo la sostituzione dell'immagine, un utente può continuare per aumentare le prestazioni. 
 
-   - Quando la versione dell'immagine in Marketplace è lo stesso come l'immagine nel set di scalabilità: eliminare l'immagine che è in uso nel set di scalabilità e quindi scaricare la nuova immagine. Il tempo intercorso tra la rimozione dell'immagine originale e il download dell'immagine nuova, è possibile scalare in verticale. 
+   - Quando la versione dell'immagine nel Marketplace è quello utilizzato per l'immagine del set di scalabilità: Elimina l'immagine è in uso nel set di scalabilità e quindi scaricare la nuova immagine. Durante l'intervallo tra la rimozione dell'immagine originale e il download della nuova immagine, è possibile scalare in verticale. 
       
      Questo processo è obbligatorio per resyndicate immagini che utilizzano il formato di file sparse, introdotto con la versione 1803. 
  
 
-2. Modello di distribuzione di set di scalabilità della macchina virtuale **specificato non è più recente** per *versione* e specifica invece un numero di versione:  
+2. Modello di distribuzione di set di scalabilità di macchine virtuali **specificato non è più recente** per *versione* e specifica invece un numero di versione:  
 
-     Se si scarica un'immagine con una versione più recente (che modifica la versione disponibile), il set di scalabilità non è possibile scalare in verticale. È per impostazione predefinita la versione dell'immagine specificata nel modello di set di scala deve essere disponibile.  
+    Se si scarica un'immagine con una versione più recente (che cambia la versione disponibile), il set di scalabilità non è possibile aumentare le prestazioni. È per impostazione predefinita la versione dell'immagine specificata nel modello di set di scalabilità deve essere disponibile.  
 
 Per altre informazioni, vedere [dischi del sistema operativo e immagini](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 
-## <a name="remove-a-virtual-machine-scale-set"></a>Rimuovere un set di scalabilità della macchina virtuale
+## <a name="remove-a-virtual-machine-scale-set"></a>Rimuovere un Set di scalabilità di macchine virtuali
 
-Per rimuovere una macchina virtuale elemento della raccolta di set di scalabilità, eseguire il comando PowerShell seguente:
+Per rimuovere una macchina virtuale di elemento della raccolta di set di scalabilità, eseguire il comando PowerShell seguente:
 
 ```PowerShell  
-    Remove-AzsVMSSGalleryItem
+    Remove-AzsGalleryItem
 ````
 
 > [!NOTE]
-> L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che l'elemento viene mostrato come rimossa dal Marketplace.
+> L'elemento della raccolta non può essere rimosso immediatamente. Si potrebbe essere necessario aggiornare il portale più volte prima che l'elemento viene illustrato come rimuovere dal Marketplace.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Domande frequenti per Azure Stack](azure-stack-faq.md)

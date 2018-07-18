@@ -1,29 +1,26 @@
 ---
-title: Automatizzare attività e processi con Visual Studio e App per la logica di Azure | Microsoft Docs
-description: Questa guida introduttiva mostra come creare flussi di lavoro per automatizzare attività e processi con App per la logica di Azure in Visual Studio
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Creare app per la logica per automatizzare flussi di lavoro con Visual Studio - App per la logica di Azure | Microsoft Docs
+description: Questa guida introduttiva mostra come automatizzare attività, processi e flussi di lavoro con App per la logica di Azure in Visual Studio
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300753"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Automatizzare attività e processi con App per la logica di Azure - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare app per la logica per automatizzare flussi di lavoro con App per la logica di Azure - Visual Studio
 
-Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) è possibile creare flussi di lavoro che automatizzano le attività e i processi per l'integrazione di applicazioni, dati, sistemi e servizi tra aziende e organizzazioni. Questa guida introduttiva mostra come progettare e implementare questi flussi di lavoro mediante la creazione di app per la logica in Visual Studio e la distribuzione di tali app in <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> nel cloud. Benché sia possibile eseguire queste attività nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, Visual Studio consente di aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli di Azure Resource Manager per ambienti di distribuzione differenti. 
+Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual Studio è possibile creare flussi di lavoro che automatizzano le attività e i processi per l'integrazione di applicazioni, dati, sistemi e servizi tra aziende e organizzazioni. Questa guida introduttiva mostra come progettare e implementare questi flussi di lavoro mediante la creazione di app per la logica in Visual Studio e la distribuzione di tali app in <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> nel cloud. Benché sia possibile eseguire queste attività nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, Visual Studio consente di aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli di Azure Resource Manager per ambienti di distribuzione differenti. 
 
 Se non si ha familiarità con App per la logica di Azure e si desidera solo comprendere i concetti di base, è preferibile consultare la [guida introduttiva per la creazione di un'app per la logica nel portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md). La finestra Progettazione app per la logica funziona in modo analogo nel portale di Azure e in Visual Studio. 
 
@@ -46,7 +43,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Strumenti App per la logica di Azure per Visual Studio 2017</a> o la <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versione per Visual Studio 2015</a>
   
-    È possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o vedere come <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">installare questa estensione da Visual Studio stesso</a>. 
+    È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">installare questa estensione da Visual Studio</a>. 
     Assicurarsi di riavviare Visual Studio al termine dell'installazione.
 
 * Un account di posta elettronica supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, <a href="https://docs.microsoft.com/connectors/" target="_blank">vedere qui l'elenco dei connettori</a>. Questa app per la logica usa Office 365 Outlook. Se si usa un altro provider, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
@@ -187,4 +184,5 @@ Quando non è più necessario, eliminare il gruppo di risorse contenente l'app p
 In questo articolo è stata creata, distribuita ed eseguita un'app per la logica con Visual Studio. Per altre informazioni sulla gestione e l'esecuzione di distribuzioni avanzate di app per la logica con Visual Studio, vedere questi articoli:
 
 > [!div class="nextstepaction"]
-> [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Gestire app per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Creare modelli di distribuzione per le app per la logica con Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

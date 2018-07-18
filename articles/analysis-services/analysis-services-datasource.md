@@ -3,16 +3,17 @@ title: Origini dati supportate in Azure Analysis Services | Microsoft Docs
 description: Descrive le origini dati supportate per i modelli di dati di Azure Analysis Services.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442390"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -62,7 +63,8 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |Dynamics CRM*     |  
 |Cartella di lavoro di Excel     |  
 |Exchange*     |  
-|Cartella*     | 
+|Cartella*     |
+|IBM Informix* (Beta) |
 |Documento JSON*     |  
 |Righe da file binario*     | 
 |MySQL Database     | 
@@ -70,6 +72,8 @@ La connessione alle origini dati locali da un server Azure Analysis Services ric
 |Query ODBC     | 
 |OLE DB     |   
 |Database PostgreSQL*    | 
+|Oggetti Salesforce* |  
+|Report Salesforce* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

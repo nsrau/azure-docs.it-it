@@ -3,8 +3,8 @@ title: Uso del Mapping dei servizi in Azure | Microsoft Docs
 description: Service Map è una soluzione di Azure che rileva automaticamente i componenti delle applicazioni nei sistemi Windows e Linux e mappa la comunicazione tra i servizi. Questo articolo fornisce informazioni dettagliate su come distribuire Mapping dei servizi nell'ambiente e su come usarlo in svariati scenari.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,19 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751429"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
-Questo articolo fornisce i dettagli su come usare Mapping dei servizi. Per informazioni sulla configurazione di Mapping dei servizi e sugli agenti di caricamento, vedere [Configurare la soluzione di elenco dei servizi in Azure]( monitoring-service-map-configure.md).
+Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. Per informazioni sulla configurazione di Mapping dei servizi e sugli agenti di caricamento, vedere [Configurare la soluzione di elenco dei servizi in Azure]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+
+## <a name="enable-service-map"></a>Abilitare il Mapping dei servizi
+1. Nel portale di Azure fare clic su **+Crea una risorsa**.
+2. Nella barra di ricerca digitare **Mapping dei servizi** e premere **INVIO**.
+3. Nella pagina dei risultati della ricerca nel marketplace selezionare **Mapping dei servizi** dall'elenco.<br><br> ![Selezionare la soluzione Mapping dei servizi dai risultati della ricerca di Azure Marketplace](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. Nel riquadro della panoramica di **Mapping dei servizi** esaminare i dettagli della soluzione e quindi fare clic su **Crea** per avviare il processo di onboarding all'area di lavoro di Log Analytics.<br><br> ![Onboarding della soluzione Mapping dei servizi](./media/monitoring-service-map/service-map-onboard.png).
+5. Nel riquadro **Configure a solution** (Configura soluzione) selezionare un oggetto esistente o creare una nuova area di lavoro di Log Analytics.  Per altre informazioni su come creare una nuova area di lavoro, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md). Immettere le informazioni necessarie e quindi fare clic su **Crea**.  
+
+Per tenere traccia dello stato di avanzamento della verifica delle informazioni e della distribuzione della soluzione, è possibile usare la voce **Notifiche** nel menu. 
+
+È possibile accedere a Mapping dei servizi nel portale di Azure dall'area di lavoro di Log Analytics e selezionare l'opzione **Soluzioni** dal riquadro sinistro.<br><br> ![Selezionare l'opzione Soluzioni nell'area di lavoro](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Dall'elenco delle soluzioni, selezionare **ServiceMap(workspaceName)** e nella pagina della panoramica della soluzione Mapping dei servizi, fare clic sul riquadro di riepilogo di Mapping dei servizi.<br><br> ![Riquadro di riepilogo di Mapping dei servizi](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casi di utilizzo: Riconoscimento delle dipendenze nei processi IT
 
@@ -43,9 +57,10 @@ Se si usa Azure Site Recovery e si necessita di aiuto per definire la sequenza d
 ### <a name="patch-management"></a>Gestione delle patch
 Mapping dei servizi ottimizza l'uso di System Update Assessment mostrando gli altri team e server che dipendono da un servizio, in modo che sia possibile inviare una notifica prima di arrestare i sistemi per l'applicazione di patch. Mapping dei servizi migliora anche la gestione delle patch indicando se i servizi sono disponibili e connessi correttamente dopo l'applicazione delle patch e il riavvio.
 
-
 ## <a name="mapping-overview"></a>Panoramica sui mapping
-Gli agenti di Mapping dei servizi raccolgono informazioni su tutti i processi connessi tramite TCP nel server in cui sono installati e dettagli sulle connessioni in entrata e in uscita di ogni processo. Nell'elenco del riquadro a sinistra è possibile selezionare i computer o i gruppi con gli agenti di Mapping dei servizi per visualizzare le relative dipendenze in un intervallo di tempo specificato. Le mappe delle dipendenze dei computer sono specifiche di un computer e visualizzano tutti i computer che sono client TCP diretti o server del computer specifico.  Le mappe del gruppo di computer mostrano insiemi di server e le relative dipendenze.
+Gli agenti di Mapping dei servizi raccolgono informazioni su tutti i processi connessi tramite TCP nel server in cui sono installati e dettagli sulle connessioni in entrata e in uscita di ogni processo.
+
+Dall'elenco del riquadro a sinistra è possibile selezionare i computer o i gruppi con gli agenti di Mapping dei servizi per visualizzare le relative dipendenze in un intervallo di tempo specificato. Le mappe delle dipendenze dei computer sono specifiche di un computer e visualizzano tutti i computer che sono client TCP diretti o server del computer specifico.  Le mappe del gruppo di computer mostrano insiemi di server e le relative dipendenze.
 
 ![Panoramica di Mapping dei servizi](media/monitoring-service-map/service-map-overview.png)
 
@@ -186,16 +201,13 @@ Il riquadro di **riepilogo del processo** visualizza informazioni aggiuntive sul
 ![Riquadro del riepilogo del processo](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Integrazione degli avvisi
-Gli avvisi integrati in Log Analytics di Mapping dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se ci sono avvisi correnti, viene visualizzata un'icona per il server e nel riquadro degli **avvisi del computer** vengono elencati gli avvisi.
+Gli avvisi Azure integrati in Mapping dei servizi consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se ci sono avvisi correnti, viene visualizzata un'icona per il server e nel riquadro degli **avvisi del computer** vengono elencati gli avvisi.
 
 ![Riquadro degli avvisi del computer](media/monitoring-service-map/machine-alerts.png)
 
 Per abilitare Mapping dei servizi al fine di visualizzare i relativi avvisi, creare una regola di avviso attivata per un computer specifico. Per creare gli avvisi appropriati:
 - Includere una clausola che consenta di raggruppare per computer, ad esempio **per intervallo computer 1 minuto**.
 - Scegliere di impostare un avviso in base alle metriche misurate.
-
-![Configurazione degli avvisi](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Integrazione eventi log
 Mapping dei servizi si integra con ricerca di log per visualizzare un conteggio di tutti gli eventi di log disponibili per il server selezionato durante l'intervallo di tempo selezionato. È possibile fare clic su una riga qualsiasi nell'elenco di conteggi degli eventi per passare alla ricerca log e visualizzare i singoli eventi di log.
@@ -223,7 +235,7 @@ Il riquadro di **rilevamento modifiche del computer** elenca tutte le modifiche 
 
 L'immagine seguente è una vista dettagliata di un evento ConfigurationChange che potrebbe essere visualizzata dopo aver selezionato **Mostra in Ricerca log**.
 
-![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event.png)
+![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Integrazione delle prestazioni
@@ -253,7 +265,6 @@ L'integrazione di sicurezza e controllo in Mapping dei servizi è automatica qua
 Il pannello relativo alla **sicurezza del computer** mostra i dati provenienti dalla soluzione di sicurezza e controllo relativi al server selezionato. Il riquadro elenca un riepilogo dei problemi di sicurezza del server non risolti durante l'intervallo di tempo selezionato. Facendo clic su uno dei problemi di sicurezza, verrà eseguito il drill-down in una ricerca log per ottenerne i dettagli.
 
 ![Riquadro relativo alla sicurezza dei computer](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>Integrazione degli aggiornamenti
 La gestione degli aggiornamenti di Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Anlaytics.

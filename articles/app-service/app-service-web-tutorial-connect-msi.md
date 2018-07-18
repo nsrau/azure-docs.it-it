@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461538"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Esercitazione: Proteggere la connessione al database SQL con un'identità del servizio gestito
 
@@ -32,9 +33,12 @@ Si apprenderà come:
 > * Configurare il codice dell'applicazione per eseguire l'autenticazione al database SQL con l'autenticazione di Azure Active Directory
 > * Concedere privilegi minimi all'identità del servizio nel database SQL
 
+> [!NOTE]
+> L'autenticazione di Azure Active Directory è _diversa_ dall'[autenticazione integrata di Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) in Active Directory locale (AD DS). AD DS e Azure Active Directory usano protocolli di autenticazione completamente diversi. Per altre informazioni, vedere [Differenza tra Windows Server AD DS e Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
+
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Questo articolo riprende come punto di partenza le procedure completate in [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md). Se non si è ancora provveduto, seguire prima tale esercitazione. In alternativa, è possibile adattare le procedure alla propria app ASP.NET con un database SQL.
 
@@ -64,7 +68,7 @@ Di seguito è riportato un esempio dell'output dopo la creazione dell'identità 
 Il valore di `principalId` verrà usato nel passaggio successivo. Per visualizzare i dettagli della nuova identità in Azure Active Directory, eseguire questo comando facoltativo con il valore di `principalId`:
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>Concedere all'identità l'accesso al database
@@ -156,7 +160,7 @@ In Cloud Shell aggiungere l'identità del servizio gestito per l'app a un nuovo 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

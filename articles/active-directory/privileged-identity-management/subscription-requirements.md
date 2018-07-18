@@ -3,23 +3,25 @@ title: Sottoscrizione di Azure Active Directory Privileged Identity Management |
 description: Illustra la sottoscrizione e i requisiti per le licenze per la gestione e l'utilizzo di Azure AD Privileged Identity Management nel tenant
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.assetid: 34367721-8b42-4fab-a443-a2e55cdbf33d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: protection
 ms.date: 06/01/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9e49ddb8fca9ce193c92f27c307942d5f3d3d2fd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548129"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Requisiti di sottoscrizione di Azure Active Directory Privileged Identity Management
 
@@ -36,7 +38,7 @@ Se non si è certi che l'organizzazione disponga di una sottoscrizione di valuta
 2. Immettere `Connect-MsolService` per autenticare un utente nel tenant.
 3. Immettere `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Questo comando Recupera un elenco delle sottoscrizioni nel tenant. Se non vengono restituite righe, è necessario ottenere una versione di valutazione di Azure AD Premium P2 oppure acquistare una sottoscrizione di Azure AD Premium P2 o EMS E5 per usare Azure AD Privileged Identity Management.  Per ottenere una versione di valutazione e iniziare a usare Azure AD Privileged Identity Management, consultare [Introduzione ad Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md).
+Questo comando Recupera un elenco delle sottoscrizioni nel tenant. Se non vengono restituite righe, è necessario ottenere una versione di valutazione di Azure AD Premium P2 oppure acquistare una sottoscrizione di Azure AD Premium P2 o EMS E5 per usare Azure AD Privileged Identity Management.  Per ottenere una versione di valutazione e iniziare a usare Azure AD Privileged Identity Management, consultare [Introduzione ad Azure AD Privileged Identity Management](pim-getting-started.md).
 
 Se questo comando restituisce una riga in cui SkuPartNumber è "AAD_PREMIUM_P2" o "EMSPREMIUM" e IsTrial è "True", nel tenant è presente una versione di valutazione di Azure AD Premium P2.  Se lo stato della sottoscrizione non è abilitato e non si dispone di una sottoscrizione a pagamento ad Azure AD Premium P2 o EMS E5, è necessario acquistare una sottoscrizione di Azure AD Premium P2 o EMS E5 per continuare a usare Azure AD Privileged Identity Management.
 
@@ -59,5 +61,5 @@ Quando scade una sottoscrizione di Azure AD Premium P2 o EMS E5 oppure un'organi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Introduzione ad Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
-- [Ruoli in Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-roles.md)
+- [Introduzione ad Azure AD Privileged Identity Management](pim-getting-started.md)
+- [Ruoli in Azure AD Privileged Identity Management](pim-roles.md)

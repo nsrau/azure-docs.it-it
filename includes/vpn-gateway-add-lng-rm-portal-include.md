@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196906"
 ---
 1. Nel portale fare clic su **+Aggiungi** in **Tutte le risorse**.
 2. Nella casella di ricerca della pagina **Tutto** digitare **Gateway di rete locale** e quindi fare clic per ottenere un elenco di risorse. Fare clic su **Gateway di rete locale** per aprire la pagina e quindi su **Crea** per aprire la pagina **Crea un gateway di rete locale**.

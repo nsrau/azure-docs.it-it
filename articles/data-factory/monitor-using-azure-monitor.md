@@ -10,22 +10,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046548"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>Monitorare le data factory con Monitoraggio di Azure  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
 
-Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, Per informazioni dettagliate, vedere [Panoramica di Monitoraggio](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). I log di diagnostica di Azure sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Data Factory visualizza i log di diagnostica in Monitoraggio di Azure. 
+Attualmente Monitoraggio di Azure offre metriche e log dell'infrastruttura di livello base per la maggior parte dei servizi in Microsoft Azure, Per informazioni dettagliate, vedere [Panoramica di Monitoraggio](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). I log di diagnostica di Azure sono log generati da una risorsa che forniscono dati completi e frequenti sul funzionamento di tale risorsa. Data Factory visualizza i log di diagnostica in Monitoraggio di Azure.
 
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio Data Factory, disponibile a livello generale (GA), vedere [Monitorare e gestire le pipeline di Azure Data Factory con il portale di Azure e PowerShell](v1/data-factory-monitor-manage-pipelines.md).
+## <a name="persist-data-factory-data"></a>Rendere persistenti i dati di Data Factory
+Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. Se si desidera rendere persistenti i dati di esecuzione della pipeline per più di 45 giorni, tramite Monitoraggio di Azure, non è solo possibile inviare i log di diagnostica per l'analisi, ma è anche possibile renderli persistenti in un account di archiviazione in modo da disporre delle informazioni di Data Factory per l'intervallo di tempo desiderato.
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
@@ -100,7 +101,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | Proprietà | type | DESCRIZIONE |
@@ -108,7 +109,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |string | ID risorsa dell'account di archiviazione a cui si vogliono inviare i log di diagnostica |
 | serviceBusRuleId |string | ID regola del bus di servizio dello spazio dei nomi del bus di servizio in cui creare gli hub eventi per il flusso dei log di diagnostica. Il formato dell'ID della regola è: "{ID risorsa bus di servizio}/authorizationrules/{nome chiave}".|
 | workspaceId | Tipo complesso | Matrice di intervalli di tempo di metrica e relativi criteri di conservazione. Questa proprietà è attualmente vuota. |
-|Metriche| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti | 
+|Metriche| Valori di parametri della pipeline eseguita da passare alla pipeline richiamata| Oggetto JSON che esegue il mapping dei nomi di parametro ai valori degli argomenti |
 | logs| Tipo complesso| Nome di una categoria di log di diagnostica per un tipo di risorsa. Per ottenere l'elenco di una categoria di log di diagnostica per una risorsa, eseguire prima un'operazione GET sulle impostazioni di diagnostica. |
 | category| string| Matrice di categorie di log e relativi criteri di conservazione |
 | timeGrain | string | Granularità delle metriche acquisite nel formato di durata ISO 8601. Deve essere PT1M (un minuto)|
@@ -230,14 +231,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Altre informazioni sono disponibili qui](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[Altre informazioni sono disponibili qui](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Schema di log ed eventi
 
 ### <a name="activity-run-logs-attributes"></a>Attributi dei log di esecuzione attività
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -251,7 +252,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -293,7 +294,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>Attributi dei log di esecuzione pipeline
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -306,7 +307,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -339,7 +340,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>Attributi dei log di esecuzione trigger
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -361,7 +362,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -396,7 +397,7 @@ ADFV2 genera le metriche seguenti
 | TriggerSucceededRuns | Succeeded trigger runs metrics (Metrica esecuzioni trigger riuscite)  | Conteggio    | Totale                | Esecuzioni trigger totali riuscite in un minuto   |
 | TriggerFailedRuns    | Failed trigger runs metrics (Metrica esecuzioni trigger non riuscite)     | Conteggio    | Totale                | Esecuzioni trigger totali non riuscite in un minuto      |
 
-Per accedere alle metriche, seguire le istruzioni nell'articolo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Per accedere alle metriche, seguire le istruzioni nell'articolo: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Avvisi
 
@@ -444,4 +445,4 @@ Verrà visualizzata la pagina **Avvisi**.
     ![Gruppo di azioni, schermata 4 di 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere l'articolo [Monitor and manage pipelines programmatically (Monitorare e gestire le pipeline a livello di codice)](monitor-programmatically.md) per informazioni sul monitoraggio e sulla gestione delle pipeline. 
+Vedere l'articolo [Monitor and manage pipelines programmatically (Monitorare e gestire le pipeline a livello di codice)](monitor-programmatically.md) per informazioni sul monitoraggio e sulla gestione delle pipeline.

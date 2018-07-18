@@ -2,23 +2,25 @@
 title: 'Azure Active Directory Domain Services: Introduzione | Microsoft Docs'
 description: Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263976"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Abilitare Azure Active Directory Domain Services tramite il portale di Azure
 
@@ -40,16 +42,19 @@ La procedura guidata crea automaticamente il gruppo amministrativo nella directo
 
 3. Al termine, fare clic su **OK** per passare alla pagina **Riepilogo** della procedura guidata.
 
-4. Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni di configurazione per il dominio gestito. Se necessario, è possibile tornare a qualsiasi passaggio precedente della procedura guidata per eseguire le modifiche desiderate. Al termine, fare clic su **OK** per creare il nuovo dominio gestito.
+
+## <a name="deploy-your-managed-domain"></a>Distribuire il dominio gestito
+
+1. Nella pagina **Riepilogo** della procedura guidata controllare le impostazioni di configurazione per il dominio gestito. Se necessario, è possibile tornare a qualsiasi passaggio precedente della procedura guidata per eseguire le modifiche desiderate. Al termine, fare clic su **OK** per creare il nuovo dominio gestito.
 
     ![Summary](./media/getting-started/domain-services-blade-summary.png)
 
-5. Viene visualizzata una notifica che mostra lo stato di avanzamento della distribuzione di Azure AD Domain Services. Fare clic sulla notifica per visualizzare lo stato di avanzamento dettagliato del processo di distribuzione.
+2. Viene visualizzata una notifica che mostra lo stato di avanzamento della distribuzione di Azure AD Domain Services. Fare clic sulla notifica per visualizzare lo stato di avanzamento dettagliato del processo di distribuzione.
 
     ![Notifica - Distribuzione in corso](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Effettuare il provisioning del dominio gestito
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Verificare lo stato della distribuzione del dominio gestito
 Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
 
 1. Mentre è in corso la distribuzione, è possibile cercare "domain services" nella casella di ricerca **Cerca risorse**. Selezionare **Azure AD Domain Services** dai risultati della ricerca. Nel pannello **Azure AD Domain Services** viene elencato il dominio gestito di cui viene effettuato il provisioning.
@@ -67,6 +72,9 @@ Il processo di provisioning del dominio gestito può richiedere fino a un'ora.
 4. Al termine del provisioning del dominio gestito, nella scheda **Panoramica** il dominio gestito è impostato su **In esecuzione**.
 
     ![Domain Services - Scheda Panoramica al termine del provisioning](./media/getting-started/domain-services-provisioned.png)
+    >[!NOTE]
+    >Durante il processo di provisioning, Azure AD Domain Services crea le applicazioni aziendali "Domain Controller Services" e "AzureActiveDirectoryDomainControllerServices" all'interno della directory dell'organizzazione. Queste applicazioni aziendali sono necessarie per gestire il dominio gestito ed è fondamentale che non vengono eliminate in alcuna circostanza.
+    >
 
 5. Nella scheda **Proprietà** vengono visualizzati i due indirizzi IP in cui sono disponibili i controller di dominio per la rete virtuale.
 

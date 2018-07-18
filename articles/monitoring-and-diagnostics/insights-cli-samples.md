@@ -1,31 +1,26 @@
 ---
-title: Esempi di avvio rapido dell'interfaccia della riga di comando 2.0 per Monitoraggio di Azure. | Microsoft Docs
+title: Esempi di avvio rapido dell'interfaccia della riga di comando di Monitoraggio di Azure
 description: Comandi dell'interfaccia della riga di comando 2.0 di esempio per le funzionalità di Monitoraggio di Azure. Monitoraggio di Azure è un servizio di Microsoft Azure che permette di inviare notifiche di avviso, chiamare URL Web in base ai valori dei dati di telemetria configurati e ridimensionare automaticamente servizi cloud, macchine virtuali e app Web.
-author: kamathashwin
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
-ms.author: ashwink
-ms.openlocfilehash: e429ba460a97daed4a7bdf71895fe24c1619a645
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ''
+ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971646"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Esempi di avvio rapido dell'interfaccia della riga di comando 2.0 per Monitoraggio di Azure
 Questo articolo illustra i comandi dell'interfaccia della riga di comando di esempio per accedere alle funzionalità di Monitoraggio di Azure. Monitoraggio di Azure consente di ridimensionare automaticamente servizi cloud, macchine virtuali e app Web e di inviare notifiche di avviso o chiamare URL Web in base ai valori dei dati di telemetria configurati.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Se l'interfaccia della riga di comando di Azure non è stata ancora installata, vedere le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). È anche possibile usare [Azure Cloud Shell](/azure/cloud-shell) per eseguire l'interfaccia della riga di comando in modalità interattiva nel browser. 
+Se l'interfaccia della riga di comando di Azure non è stata ancora installata, vedere le istruzioni riportate in [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). È anche possibile usare [Azure Cloud Shell](/azure/cloud-shell) per eseguire l'interfaccia della riga di comando in modalità interattiva nel browser. Vedere un riferimento completo di tutti i comandi disponibili nel [riferimento dell'interfaccia della riga di comando di Monitoraggio di Azure](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 Il primo passaggio prevede l'accesso all'account Azure.
@@ -89,18 +84,18 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Usare gli avvisi
+## <a name="work-with-alerts"></a>Usare gli avvisi 
+> [!NOTE]
+> In questa fase sono supportati solo gli avvisi (classici) nell'interfaccia della riga di comando. 
 
-È possibile usare le informazioni della sezione per lavorare con gli avvisi.
-
-### <a name="get-alert-rules-in-a-resource-group"></a>Ottenere regole di avviso in un gruppo di risorse
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Ottenere regole di avviso (classico) in un gruppo di risorse
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Creare una regola di avviso metrica
+### <a name="create-a-metric-alert-classic-rule"></a>Creare una regola di avviso (classico) metrica
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -110,7 +105,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-rule"></a>Eliminare una regola di avviso
+### <a name="delete-an-alert-classic-rule"></a>Eliminare una regola di avviso (classico)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
@@ -206,7 +201,7 @@ az monitor autoscale list --resource-group <group name>
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-auotoscale-settings"></a>Configurare le impostazioni di scalabilità automatica
+### <a name="set-autoscale-settings"></a>Configurare impostazioni di scalabilità automatica
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

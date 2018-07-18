@@ -2,17 +2,18 @@
 title: Configurare un server di elaborazione in Azure per il failback di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback di macchine virtuali di Azure in VMware.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: c6ef0ae663727c519f9b6a8a56027a3dd8a9503d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: raynew
+ms.openlocfilehash: 20c3642bb9f9ad5089c37bb6da8562e570896cb4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308481"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Configurare un server di elaborazione in Azure per il failback
 
@@ -26,10 +27,10 @@ Per altre informazioni, vedere il processo di [riprotezione](vmware-azure-reprot
 
 ## <a name="deploy-a-process-server-in-azure"></a>Distribuire un server di elaborazione in Azure
 
-1. Nell'insieme di credenziali > **Site Recovery Infrastructure** (Infrastruttura di Site Recovery) > **Gestisci** > **Server di configurazione** selezionare il server di configurazione.
+1. Nell'insieme di credenziali > **Infrastruttura di Site Recovery**> **Gestisci** > **Server di configurazione** selezionare il server di configurazione.
 2. Nella pagina del server fare clic su **+ Server di elaborazione**
 3. Nella pagina **Aggiungere il server di elaborazione** selezionare di distribuire il server di elaborazione in Azure.
-4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ognuna di esse.
+4. Specificare le impostazioni di Azure, tra cui la sottoscrizione usata per il failover, un gruppo di risorse, l'area di Azure usata per il failover e la rete virtuale in cui si trovano le macchine virtuali di Azure. Se si usano più reti di Azure, è necessario un server di elaborazione in ciascuna di esse.
 
   ![Elemento della raccolta per l'aggiunta del server di elaborazione](./media/vmware-azure-set-up-process-server-azure/add-ps-page-1.png)
 

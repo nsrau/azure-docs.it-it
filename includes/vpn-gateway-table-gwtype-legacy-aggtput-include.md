@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197179"
 ---
 La tabella seguente illustra i tipi di gateway e la velocità effettiva aggregata stimata per SKU di gateway. La tabella è valida per i modelli di distribuzione classica e di Gestione risorse. 
 

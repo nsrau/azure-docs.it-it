@@ -1,0 +1,28 @@
+- name: Documentazione dell'Anteprima URL progetto
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Informazioni sull'Anteprima URL progetto
+      href: overview.md
+    - name: Endpoint dell'Anteprima URL
+      href: endpoint.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java-quickstart.md
+    - name: JavaScript
+      href: javascript.md
+    - name: Nodo
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Riferimenti
+  expanded: true
+  items:
+    - name: Requisiti per l'uso e la visualizzazione
+      href: use-display-requirements.md
+    - name: Informazioni di riferimento sull'Anteprima URL
+      href: url-preview-reference.md

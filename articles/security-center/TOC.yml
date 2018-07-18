@@ -48,12 +48,14 @@
           href: security-center-customize-os-security-config.md
         - name: Criteri di sicurezza con Criteri di Azure
           href: security-center-azure-policy.md
+        - name: Visibilità a livello di tenant
+          href: security-center-management-groups.md
     - name: Implementare le raccomandazioni sulla sicurezza
       href: security-center-recommendations.md
     - name: Monitorare l'integrità della sicurezza
       href: security-center-monitoring.md
       items:
-        - name: Sicurezza di calcolo
+        - name: Sicurezza delle risorse di calcolo e delle app
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: Applicare Crittografia dischi
@@ -74,6 +76,10 @@
               href: security-center-update-os-version.md
             - name: La valutazione della vulnerabilità non è installata
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: Aggiungere un Web Application Firewall
+              href: security-center-add-web-application-firewall.md
+            - name: Finalizza la protezione dell'applicazione
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Sicurezza di rete
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +100,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: Abilitare Transparent Data Encryption
               href: security-center-enable-transparent-data-encryption.md
-        - name: 'Sicurezza delle applicazioni:'
-          href: security-center-application-recommendations.md
-          items:
-            - name: Aggiungere un Web Application Firewall
-              href: security-center-add-web-application-firewall.md
-            - name: Finalizza la protezione dell'applicazione
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Identità e accesso
           href: security-center-identity-access.md
     - name: Applicare difese cloud
@@ -109,6 +108,8 @@
           href: security-center-just-in-time.md
         - name: Controlli delle applicazioni adattivi
           href: security-center-adaptive-application.md
+        - name: Monitoraggio dell'integrità dei file
+          href: security-center-file-integrity-monitoring.md
     - name: Gestire le soluzioni di sicurezza
       href: security-center-partner-integration.md
       items:
@@ -145,6 +146,8 @@
           href: security-center-threat-intel.md
         - name: Analisi
           href: security-center-investigation.md
+        - name: Gestire i dati utente per l'indagine
+          href: security-center-investigation-user-data.md
     - name: Automatizzare i flussi di lavoro di sicurezza
       items:
         - name: Playbook per app per la logica
@@ -169,6 +172,8 @@
       href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
 - name: Risorse
   items:
+    - name: Gestire i dati utente
+      href: security-center-privacy.md
     - name: Domande frequenti
       href: security-center-faq.md
     - name: Piattaforme supportate

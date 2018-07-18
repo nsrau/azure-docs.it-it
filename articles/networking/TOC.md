@@ -8,6 +8,7 @@
 ### [Procedure consigliate per la sicurezza di rete](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Appliance virtuali di rete a disponibilità elevata](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Combinare i metodi di bilanciamento del carico](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Ripristino di emergenza con DNS di Azure e Gestione traffico](disaster-recovery-dns-traffic-manager.md)
 ## Pianificare e progettare
 ### [Reti virtuali](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettività cross-premise: VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
@@ -52,7 +53,7 @@
 ### [Azure PowerShell](powershell-samples.md)
 
 ## Esercitazioni
-### [Bilanciare il carico delle VM](../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Bilanciare il carico delle VM](../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Connettere un computer a una rete virtuale](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 # Riferimenti

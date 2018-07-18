@@ -3,34 +3,28 @@ title: Trovare i report attività utente di Azure Active Directory nel portale d
 description: Informazioni su dove trovare i report attività utente di Azure Active Directory nel portale di Azure.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231322"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
 In questo articolo viene descritto come trovare i report attività utente di Azure Active Directory nel portale di Azure.
 
-## <a name="whats-new"></a>Novità
-
-I report nel portale di Azure classico sono suddivisi in categorie:
-* Report sulla sicurezza
-* Report sull’attività
-* Report app integrate
-
-### <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
+## <a name="activity-and-integrated-app-reports"></a>Report attività e app integrate
 
 Per i report basati sul contesto nel portale di Azure, i report esistenti vengono uniti in una singola visualizzazione. Una singola API sottostante fornisce i dati alla visualizzazione.
 
@@ -87,7 +81,7 @@ Per visualizzare informazioni dettagliate sull'utilizzo dell'applicazione per tu
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Report di Anomalie dell'attività di Azure AD
 
-I report di sicurezza sulle attività anomale di Azure AD del portale di Azure classico sono stati consolidati per fornire una singola visualizzazione centralizzata. Questa visualizzazione mostra tutti gli eventi di rischio correlati alla sicurezza che Azure AD è in grado di rilevare e segnalare.
+I report di sicurezza sulle attività anomale di Azure AD sono stati consolidati per fornire una singola visualizzazione centralizzata. Questa visualizzazione mostra tutti gli eventi di rischio correlati alla sicurezza che Azure AD è in grado di rilevare e segnalare.
 
 La tabella seguente elenca i report di sicurezza sulle attività anomale di Azure AD e le corrispondenti tipologie degli eventi di rischio nel portale di Azure.
 
@@ -104,8 +98,6 @@ I report di sicurezza sulle attività anomale di Azure AD seguenti non sono incl
 
 * Accessi dopo più errori
 * Accessi da più aree geografiche
-
-Questi report sono ancora disponibili nel portale di Azure classico, ma in futuro saranno deprecati.
 
 Per altre informazioni, vedere [Eventi di rischio di Azure Active Directory](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Per altre informazioni sui report di sicurezza, vedere:
 - [Report degli accessi a rischio nel portale di Azure Active Directory](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Report sulle attività nel portale di Azure classico rispetto al portale di Azure
-
-La tabella in questa sezione elenca i report esistenti nel portale di Azure classico. La tabella descrive anche come ottenere le stesse informazioni nel portale di Azure.
-
-Per visualizzare tutti i dati di controllo, nel pannello **Azure Active Directory**, in **ATTIVITÀ** andare a **Log di controllo**.
-
-![Log di controllo](./media/active-directory-reporting-migration/61.png "Log di controllo")
-
-| portale di Azure classico                 | Nel portale di Azure:                                                         |
-| ---                                  | ---                                                                        |
-| Log di controllo                           | Per **Categoria attività** selezionare **Core directory** (Directory principale).                       |
-| Attività di reimpostazione password              | Per **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service). |
-| Attività di registrazione reimpostazione password | Per **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service).     |
-| Attività dei gruppi self-service         | Per **Categoria attività** selezionare **Gestione gruppi self-service**.        |
-| Attività di provisioning dell'account        | Per **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).         |
-| Stato rollover della password             | Per **Categoria attività** selezionare **Automatic App Password Rollover** (Rollover password app automatico).      |
-| Errori di provisioning dell'account          | Per **Categoria attività** selezionare **Account User Provisioning** (Provisioning dell'utente account).        |
-| Modifiche del nome del gruppo di Office 365         | Per **Categoria attività** selezionare **Self Service Password Management** (Gestione delle password self-service). Per **Activity Resource Type** (Tipo di risorsa attività) selezionare **Gruppo**. Per **Origine attività** selezionare **O365 groups** (Gruppi di O365).|
-
 Per visualizzare il report **Utilizzo applicazioni**, nel pannello **Azure Active Directory**, in **GESTISCI** selezionare **Applicazioni aziendali** e scegliere **Accessi**.
 
 
-![Report degli accessi alle applicazioni aziendali](./media/active-directory-reporting-migration/199.png "Report degli accessi alle applicazioni aziendali")
+![Report degli accessi alle applicazioni aziendali](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

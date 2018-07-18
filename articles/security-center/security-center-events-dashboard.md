@@ -1,11 +1,11 @@
 ---
 title: Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
-description: "Informazioni su come è possibile usare il dashboard di eventi del Centro sicurezza per visualizzare gli eventi di sicurezza da computer che non hanno Azure e dalle macchine virtuali di Azure."
+description: Informazioni su come è possibile usare il dashboard di eventi del Centro sicurezza per visualizzare gli eventi di sicurezza da computer che non hanno Azure e dalle macchine virtuali di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040656"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoraggio ed elaborazione degli eventi di sicurezza nel Centro sicurezza di Azure
 Il dashboard degli eventi offre una panoramica del numero di eventi di sicurezza raccolti nel tempo e un elenco di eventi importanti che potrebbero richiedere l'attenzione dell'utente.  

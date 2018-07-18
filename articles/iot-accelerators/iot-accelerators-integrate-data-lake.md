@@ -1,19 +1,19 @@
 ---
 title: Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store | Microsoft Docs
 description: Informazioni su come integrare la soluzione di monitoraggio remoto con Azure Data Lake Store usando un processo di Analisi di flusso di Azure.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-ms.openlocfilehash: 426ded8079ba5d6de4c186a8d18dd284082b0c1c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971738"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -25,7 +25,7 @@ In questa procedura si userà un processo di Analisi di flusso di Azure per eseg
 
 Per completare questa procedura, è necessario quanto segue:
 
-* [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
+* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
   * La soluzione implementerà l'hub IoT e il processo di Analisi di flusso di Azure usati in questo articolo nella sottoscrizione Azure.
 * [Distribuire un'istanza di Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
   * L'istanza di Data Lake Store deve essere distribuita nella stessa area della soluzione di monitoraggio remoto.
@@ -180,4 +180,4 @@ Analisi di flusso di Azure usa un linguaggio di query simile a SQL per specifica
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per eseguire analisi di Big Data sui set di dati di Data Lake Store è possibile usare Azure Data Lake Analytics. Per altre informazioni, vedere la [documentazione di Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics).
+Per eseguire analisi di Big Data sui set di dati di Data Lake Store è possibile usare Azure Data Lake Analytics. Per altre informazioni, vedere la [documentazione di Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics).

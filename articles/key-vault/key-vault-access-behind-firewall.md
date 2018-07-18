@@ -2,7 +2,7 @@
 title: Accedere a un insieme di credenziali delle chiavi protetto da un firewall | Documentazione Microsoft
 description: Informazioni su come accedere a un insieme di credenziali delle chiavi di Azure da un'applicazione protetta da un firewall
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736249"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>D: L'applicazione client dell'insieme di credenziali delle chiavi deve essere protetta da firewall. Quali porte, host o indirizzi IP è necessario aprire per consentire l'accesso a un insieme di credenziali delle chiavi?
@@ -26,7 +27,7 @@ Per accedere a un insieme di credenziali delle chiavi, l'applicazione client del
 
 * Autenticazione tramite Azure Active Directory (Azure AD).
 * Gestione di Insieme di credenziali delle chiavi di Azure, inclusa la creazione, la lettura, l'aggiornamento, l'eliminazione e l'impostazione dei criteri di accesso tramite Azure Resource Manager.
-* Accesso e gestione di oggetti (chiavi e segreti) archiviati nell'insieme di credenziali delle chiavi eseguiti tramite l'endpoint specifico dell'insieme di credenziali delle chiavi, ad esempio [https://nomeinsiemecredenziali.vault.azure.net](https://yourvaultname.vault.azure.net).  
+* Accesso e gestione di oggetti (chiavi e segreti) archiviati in Key Vault, eseguiti tramite l'endpoint specifico di Key Vault, ad esempio [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net).  
 
 Esistono alcune varianti a seconda della configurazione e dell'ambiente.   
 
@@ -60,7 +61,7 @@ Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segre
 | Operazioni come crittografia sulle chiavi; creazione, lettura, aggiornamento ed eliminazione di chiavi e segreti; impostazione o definizione di tag e altri attributi per gli oggetti dell'insieme di credenziali delle chiavi (chiavi o segreti) |**Globale:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.net:443<br><br> **Azure per la Cina:**<br> &lt;nome-insiemecredenziali&gt;.vault.azure.cn:443<br><br> **Azure per enti pubblici statunitensi:**<br> &lt;nome-insiemecredenziali&gt;.vault.usgovcloudapi.net:443<br><br> **Azure per la Germania:**<br> &lt;nome-insiemecredenziali&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>Intervalli di indirizzi IP
-Il servizio Insieme di credenziali delle chiavi usa altre risorse di Azure come l'infrastruttura PaaS. Non è quindi possibile fornire uno specifico intervallo di indirizzi IP disponibile per gli endpoint del servizio Insieme di credenziali delle chiavi in un determinato momento. Se il firewall supporta solo gli intervalli di indirizzi IP, vedere il documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli di indirizzi IP del data center di Azure). Per l'autenticazione e l'identità (Azure Active Directory), l'applicazione deve potersi connettere agli endpoint descritti in [Authentication and identity addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) (Indirizzi di identità e autenticazione).
+Il servizio Insieme di credenziali delle chiavi usa altre risorse di Azure come l'infrastruttura PaaS. Non è quindi possibile fornire uno specifico intervallo di indirizzi IP disponibile per gli endpoint del servizio Insieme di credenziali delle chiavi in un determinato momento. Se il firewall supporta solo gli intervalli di indirizzi IP, vedere il documento [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli di indirizzi IP del data center di Azure). Autenticazione e identità (Azure Active Directory) è un servizio globale e può eseguire il failover in altre aree o spostare il traffico senza preavviso. In questo scenario, tutti gli intervalli IP elencati in [Indirizzi IP di autenticazione e identità](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) devono essere aggiunti al firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In caso di domande sull'insieme di credenziali delle chiavi, visitare i [forum di Insieme di credenziali delle chiavi di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

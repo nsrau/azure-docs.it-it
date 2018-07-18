@@ -1,40 +1,36 @@
 ---
-title: Gestire Azure Data Lake Analytics con Azure PowerShell | Microsoft Docs
-description: 'Informazioni su come gestire gli account, le origini dati, i processi e gli elementi del catalogo di Data Lake Analytics. '
+title: Gestire Azure Data Lake Analytics tramite Azure PowerShell
+description: Questo articolo descrive come usare Azure PowerShell per gestire utenti, processi, origini dati e account Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/23/2017
+author: matt1883
 ms.author: mahi
-ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+manager: kfile
+editor: jasonwhowell
+ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
+ms.topic: conceptual
+ms.date: 06/02/2018
+ms.openlocfilehash: 560f36dc64480fd6aceaa50226b191ee40d2486f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205245"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959849"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informazioni su come gestire gli account, le origini dati, i processi e gli elementi del catalogo di Azure Data Lake Analytics usando Azure PowerShell. 
+Questo articolo descrive come gestire utenti, processi, origini dati e account Azure Data Lake Analytics tramite Azure PowerShell.
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Durante la creazione di un account di Data Lake Analytics, è necessario sapere:
+Per usare PowerShell con Data Lake Analytics, raccogliere le informazioni seguenti: 
 
-* **ID sottoscrizione**: l'ID di sottoscrizione di Azure in cui risiede l'account di Data Lake Analytics.
+* **ID sottoscrizione**: l'ID della sottoscrizione di Azure in cui è presente l'account Data Lake Analytics.
 * **Gruppo di risorse**: il nome del gruppo di risorse di Azure che contiene l'account di Data Lake Analytics.
-* **Nome dell'account Data Lake Analytics**: il nome dell'account deve contenere solo lettere minuscole e numeri.
-* **Account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito. Questi account devono essere nello stesso percorso.
-* **Posizione**: la posizione dell'account di Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate. Le posizioni supportate possono essere visualizzate nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
+* **Nome dell'account Data Lake Analytics**: il nome dell'account Data Lake Analytics.
+* **Nome dell'account Data Lake Store predefinito**: ogni account Data Lake Analytics ha un account Data Lake Store predefinito.
+* **Posizione**: la posizione dell'account di Data Lake Analytics, ad esempio "Stati Uniti orientali 2" o altre posizioni supportate.
 
 I frammenti di codice di PowerShell in questa esercitazione usano le variabili seguenti per archiviare queste informazioni
 
@@ -46,21 +42,23 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## <a name="log-in"></a>Accesso
+## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accesso con un ID di sottoscrizione.
+### <a name="log-in-using-interactive-user-authentication"></a>Accedere usando l'autenticazione utente interattiva
+
+Accedere usando un ID o un nome di sottoscrizione
 
 ```powershell
+# Using subscription id
 Connect-AzureRmAccount -SubscriptionId $subId
-```
 
-Accesso con un nome di sottoscrizione.
-
-```
+# Using subscription name
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
 
-Il cmdlet `Connect-AzureRmAccount` richiede sempre le credenziali. È possibile evitare tale richiesta usando i cmdlet seguenti:
+## <a name="saving-authenticaiton-context"></a>Salvataggio del contesto di autenticazione
+
+Il cmdlet `Connect-AzureRmAccount` chiede sempre le credenziali. È possibile evitare tale richiesta usando i cmdlet seguenti:
 
 ```powershell
 # Save login session information
@@ -70,29 +68,42 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="manage-accounts"></a>Gestisci account
-
-### <a name="create-a-data-lake-analytics-account"></a>Creare un account di Analisi Data Lake
-
-Se non si ha già un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md#resource-groups) da usare, crearne uno. 
+### <a name="log-in-using-a-service-principal-identity-spi"></a>Accedere usando un'identità dell'entità servizio
 
 ```powershell
-New-AzureRmResourceGroup -Name  $rg -Location $location
+$tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$spi_appname = "appname" 
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+
+$pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
+
+## <a name="manage-accounts"></a>Gestisci account
+
+
+### <a name="list-accounts"></a>Elencare gli account
+
+```powershell
+# List Data Lake Analytics accounts within the current subscription.
+Get-AdlAnalyticsAccount
+
+# List Data Lake Analytics accounts within a specific resource group.
+Get-AdlAnalyticsAccount -ResourceGroupName $rg
+```
+
+### <a name="create-an-account"></a>Creare un account
 
 Per ogni account Data Lake Analytics deve essere configurato un account Data Lake Store che viene usato per l'archiviazione dei log. È possibile riusare un account esistente o creare un account. 
 
 ```powershell
+# Create a data lake store if needed, or you can re-use an existing one
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-Quando sono disponibili un gruppo di risorse e un account Data Lake Store, creare un account Data Lake Analytics.
-
-```powershell
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-acount-information"></a>Ottenere informazioni sull'account
+### <a name="get-account-information"></a>Ottenere le informazioni sull'account
 
 Ottenere dettagli su un account.
 
@@ -100,30 +111,10 @@ Ottenere dettagli su un account.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Verificare l'esistenza di un account specifico di Data Lake Analytics. Il cmdlet restituisce `$true` o `$false`.
+### <a name="check-if-an-account-exists"></a>Verificare l'esistenza di un account
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
-```
-
-Verificare l'esistenza di un account specifico di Data Lake Store. Il cmdlet restituisce `$true` o `$false`.
-
-```powershell
-Test-AdlStoreAccount -Name $adls
-```
-
-### <a name="list-accounts"></a>Elencare gli account
-
-Elencare gli account di Data Lake Analytics all'interno della sottoscrizione corrente.
-
-```powershell
-Get-AdlAnalyticsAccount
-```
-
-Elencare gli account di Data Lake Analytics all'interno di un gruppo di risorse specifico.
-
-```powershell
-Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
 ## <a name="manage-data-sources"></a>Gestire le origini dati
@@ -132,7 +123,7 @@ Azure Data Lake Analytics supporta attualmente le origini dati seguenti:
 * [Archivio Data Lake di Azure](../data-lake-store/data-lake-store-overview.md)
 * [Archiviazione di Azure](../storage/common/storage-introduction.md)
 
-Quando si crea un account di Analytics, è necessario impostare un account di Data Lake Store come origine dati predefinita. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. Dopo aver creato un account di Data Lake Analytics, è possibile aggiungere altri account di Data Lake Store e/o account di archiviazione. 
+Ogni account Data Lake Analytics ha un account Data Lake Store predefinito. L'account di Data Lake Store predefinito viene usato per archiviare i metadati e i log di controllo dei processi. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Trovare l'account di Data Lake Store predefinito
 
@@ -176,7 +167,7 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 
 ## <a name="submit-u-sql-jobs"></a>Inviare processi U-SQL
 
-### <a name="submit-a-string-as-a-u-sql-script"></a>Inviare una stringa come script U-SQL
+### <a name="submit-a-string-as-a-u-sql-job"></a>Inviare una stringa come processo U-SQL
 
 ```powershell
 $script = @"
@@ -197,7 +188,7 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-### <a name="submit-a-file-as-a-u-sql-script"></a>Inviare un file come script U-SQL
+### <a name="submit-a-file-as-a-u-sql-job"></a>Inviare un file come processo U-SQL
 
 ```powershell
 $scriptpath = "d:\test.usql"
@@ -205,9 +196,7 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
-## <a name="list-jobs-in-an-account"></a>Elencare i processi in un account
-
-### <a name="list-all-the-jobs-in-the-account"></a>Elencare tutti i processi nell'account. 
+### <a name="list-jobs"></a>Elencare i processi
 
 L'output include i processi attualmente in esecuzione e quelli completati di recente.
 
@@ -223,7 +212,7 @@ Per impostazione predefinita, l'elenco dei processi viene ordinato in base all'o
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
-### <a name="list-jobs-based-on-the-value-of-job-property"></a>Elencare i processi in base al valore della proprietà processo
+### <a name="list-jobs-by-job-state"></a>Elencare i processi in base allo stato
 
 Uso del parametro `-State`. È possibile combinare questi valori:
 
@@ -248,6 +237,8 @@ Get-AdlJob -Account $adla -State Ended
 Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 ```
 
+### <a name="list-jobs-by-job-result"></a>Elencare i processi in base al risultato
+
 Usare il parametro `-Result` per rilevare se i processi finiti sono stati completati correttamente. Dispone di questi valori:
 
 * Operazione annullata
@@ -263,11 +254,15 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
+### <a name="list-jobs-by-job-submitter"></a>Elencare i processi in base alla persona che invia la richiesta
+
 Il parametro `-Submitter` consente di identificare chi ha inviato un processo.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 ```
+
+### <a name="list-jobs-by-submission-time"></a>Elencare i processi in base all'ora di invio
 
 Il `-SubmittedAfter` è utile per un filtraggio in base a un intervallo di tempo.
 
@@ -282,11 +277,34 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="analyzing-job-history"></a>Analisi della cronologia processo
+### <a name="get-job-status"></a>Ottenere lo stato di processo
+
+Ottenere lo stato di un processo specifico.
+
+```powershell
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
+
+
+### <a name="cancel-a-job"></a>Annullare un processo
+
+```powershell
+Stop-AdlJob -Account $adla -JobID $jobID
+```
+
+### <a name="wait-for-a-job-to-finish"></a>Attendere il completamento di un processo
+
+Anziché ripetere `Get-AdlAnalyticsJob` finché non termina un processo, è possibile usare il cmdlet `Wait-AdlJob` per attendere la fine del processo.
+
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
+
+## <a name="analyzing-job-history"></a>Analisi della cronologia processo
 
 L'uso di Azure PowerShell per analizzare la cronologia dei processi eseguiti in Data Lake Analytics è una tecnica potente. In questo modo, è possibile ottenere informazioni dettagliate sull'utilizzo e sui costi. Per altre informazioni, vedere il [repository di esempio di analisi della cronologia processo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
-## <a name="get-information-about-pipelines-and-recurrences"></a>Ottenere informazioni sulle pipeline e l'intervallo di esecuzione
+## <a name="list-job-pipelines-and-recurrences"></a>Elencare pipeline e ricorrenze dei processi
 
 Utilizzare il cmdlet `Get-AdlJobPipeline` per visualizzare le informazioni di pipeline dei processi inviati in precedenza.
 
@@ -303,39 +321,6 @@ $recurrences = Get-AdlJobRecurrence -Account $adla
 $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
 ```
 
-## <a name="get-information-about-a-job"></a>Ottenere informazioni su un processo
-
-### <a name="get-job-status"></a>Ottenere lo stato di processo
-
-Ottenere lo stato di un processo specifico.
-
-```powershell
-Get-AdlJob -AccountName $adla -JobId $job.JobId
-```
-
-### <a name="examine-the-job-outputs"></a>Esaminare gli output di processo
-
-Al termine del processo, controllare se il file di output esiste elencando i file in una cartella.
-
-```powershell
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-## <a name="manage-running-jobs"></a>Gestire i processi in esecuzione
-
-### <a name="cancel-a-job"></a>Annullare un processo
-
-```powershell
-Stop-AdlJob -Account $adls -JobID $jobID
-```
-
-### <a name="wait-for-a-job-to-finish"></a>Attendere il completamento di un processo
-
-Anziché ripetere `Get-AdlAnalyticsJob` finché non termina un processo, è possibile usare il cmdlet `Wait-AdlJob` per attendere la fine del processo.
-
-```powershell
-Wait-AdlJob -Account $adla -JobId $job.JobId
-```
 
 ## <a name="manage-compute-policies"></a>Gestire i criteri di calcolo
 
@@ -349,21 +334,22 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 
 ### <a name="create-a-compute-policy"></a>Creare un criterio di calcolo
 
-Il cmdlet `New-AdlAnalyticsComputePolicy` crea un nuovo criterio di calcolo per un account Data Lake Analytics. In questo esempio le unità di analisi massime disponibili per l'utente specificato sono 50 e la priorità minima del processo è pari a 250.
+Il cmdlet `New-AdlAnalyticsComputePolicy` crea un nuovo criterio di calcolo per un account Data Lake Analytics. Questo esempio imposta le unità di analisi massime disponibili per l'utente specificato su 50 e la priorità minima del processo su 250.
 
 ```powershell
 $userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
+## <a name="manage-files"></a>Gestire i file
 
-## <a name="check-for-the-existence-of-a-file"></a>Verificare l'esistenza di un file.
+### <a name="check-for-the-existence-of-a-file"></a>Verificare l'esistenza di un file.
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-## <a name="uploading-and-downloading"></a>Caricamento e download
+### <a name="uploading-and-downloading"></a>Caricamento e download
 
 Caricare un file.
 
@@ -392,7 +378,7 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 > [!NOTE]
 > Se il processo di caricamento o download viene interrotto, è possibile tentare di riprendere il processo eseguendo nuovamente il cmdlet con il flag ``-Resume``.
 
-## <a name="manage-catalog-items"></a>Gestire gli elementi del catalogo
+## <a name="manage-the-u-sql-catalog"></a>Gestire il catalogo U-SQL
 
 Il catalogo di U-SQL viene usato per definire la struttura dei dati e del codice in modo da poterli condividere mediante U-SQL. Il catalogo consente di ottenere le migliori prestazioni possibili con i dati in Azure Data Lake. Per altre informazioni, vedere la pagina di [Usare il catalogo di U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
@@ -409,7 +395,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-Elencare tutti gli assembly in tutti i database in un account ADLA.
+### <a name="list-all-the-assemblies-the-u-sql-catalog"></a>Elencare tutti gli assembly nel catalogo U-SQL
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -436,7 +422,7 @@ Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### <a name="create-credentials-in-a-catalog"></a>Creare le credenziali in un catalogo
+### <a name="store-credentials-in-the-catalog"></a>Archiviare le credenziali nel catalogo
 
 All'interno di un database U-SQL creare un oggetto credenziali per un database ospitato in Azure. Attualmente le credenziali di U-SQL sono l'unico tipo di elemento del catalogo che è possibile creare tramite PowerShell.
 
@@ -450,31 +436,6 @@ New-AdlCatalogCredential -AccountName $adla `
           -CredentialName $credentialName `
           -Credential (Get-Credential) `
           -Uri $dbUri
-```
-
-### <a name="get-basic-information-about-an-adla-account"></a>Ottenere le informazioni di base relative all'account ADLA
-
-Dato un nome di account, il codice seguente cerca le informazioni di base sull'account
-
-```
-$adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
-$adla_name = $adla_acct.Name
-$adla_subid = $adla_acct.Id.Split("/")[2]
-$adla_sub = Get-AzureRmSubscription -SubscriptionId $adla_subid
-$adla_subname = $adla_sub.Name
-$adla_defadls_datasource = Get-AdlAnalyticsDataSource -Account $adla_name  | ? { $_.IsDefault } 
-$adla_defadlsname = $adla_defadls_datasource.Name
-
-Write-Host "ADLA Account Name" $adla_name
-Write-Host "Subscription Id" $adla_subid
-Write-Host "Subscription Name" $adla_subname
-Write-Host "Defautl ADLS Store" $adla_defadlsname
-Write-Host 
-
-Write-Host '$subname' " = ""$adla_subname"" "
-Write-Host '$subid' " = ""$adla_subid"" "
-Write-Host '$adla' " = ""$adla_name"" "
-Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
 
 ## <a name="manage-firewall-rules"></a>Gestire le regole del firewall
@@ -495,7 +456,7 @@ $endIpAddress = "<end IP address>"
 Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
 ```
 
-### <a name="change-a-firewall-rule"></a>Modificare una regola del firewall
+### <a name="modify-a-firewall-rule"></a>Modificare una regola del firewall
 
 ```powershell
 Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
@@ -507,7 +468,7 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### <a name="allow-azure-ip-addresses"></a>Consentire gli indirizzi IP di Azure.
+### <a name="allow-azure-ip-addresses"></a>Consentire gli indirizzi IP di Azure
 
 ```powershell
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
@@ -527,7 +488,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Resolve-AzureRmError -Last
 ```
 
-### <a name="verify-if-you-are-running-as-an-administrator"></a>Verificare che il processo sia in esecuzione in modalità amministratore
+### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>Verificare se si sta eseguendo un processo come amministratore nel computer Windows
 
 ```powershell
 function Test-Administrator  
@@ -552,7 +513,7 @@ function Get-TenantIdFromSubcriptionName( [string] $subname )
 Get-TenantIdFromSubcriptionName "ADLTrainingMS"
 ```
 
-Da un ID di sottoscrizione:
+Da un ID sottoscrizione:
 
 ```powershell
 function Get-TenantIdFromSubcriptionId( [string] $subid )
@@ -567,7 +528,6 @@ Get-TenantIdFromSubcriptionId $subid
 
 Da un indirizzo di dominio, ad esempio "contoso.com"
 
-
 ```powershell
 function Get-TenantIdFromDomain( $domain )
 {
@@ -579,7 +539,7 @@ $domain = "contoso.com"
 Get-TenantIdFromDomain $domain
 ```
 
-### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Elencare tutte le sottoscrizioni e i relativi ID tenant
+### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Elencare tutti gli ID di sottoscrizioni e tenant
 
 ```powershell
 $subs = Get-AzureRmSubscription
@@ -593,7 +553,6 @@ foreach ($sub in $subs)
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Creare un account Data Lake Analytics usando un modello
 
 È anche possibile usare un modello di gruppo di risorse di Azure con l'esempio seguente: [Creare un account Data Lake Analytics usando un modello](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)

@@ -1,39 +1,30 @@
 ---
 title: Distribuire Azure Stack - PowerShell | Documenti Microsoft
-description: In questa esercitazione, si installa il ASDK dalla riga di comando.
+description: In questo articolo, si installa il ASDK dalla riga di comando tramite PowerShell.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849958"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Esercitazione: distribuire ASDK dalla riga di comando
-In questa esercitazione, si distribuisce Azure Stack Development Kit (ASDK) dalla riga di comando in un ambiente non di produzione. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Distribuire ASDK dalla riga di comando
 Il ASDK è un ambiente di testing e sviluppo che è possibile distribuire per valutare e illustrano i servizi e le funzionalità dello Stack di Azure. Per ottenerlo attivo e in esecuzione, è necessario preparare l'hardware di ambiente ed eseguire alcuni script (l'operazione richiederà diverse ore). Successivamente, è possibile accedere ai portali amministratore e utente per iniziare a usare Azure Stack.
-
-In questa esercitazione si apprenderà come:
-
-> [!div class="checklist"]
-> * Scaricare ed estrarre il pacchetto di distribuzione
-> * Preparare il computer host kit di sviluppo 
-> * Esegui le configurazioni post-distribuzione
-> * Registrare con Azure
 
 ## <a name="prerequisites"></a>Prerequisiti 
 Preparare il computer host kit di sviluppo. Pianificare l'hardware e software e rete. Il computer che ospita il kit di sviluppo (l'host di kit di sviluppo) deve soddisfare requisiti di rete, hardware e software. È inoltre necessario scegliere tra l'utilizzo di Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS). Assicurarsi di rispettare i prerequisiti prima di avviare la distribuzione in modo che il processo di installazione viene eseguito in modo uniforme. 
@@ -61,7 +52,7 @@ Per configurare il computer host ASDK per l'avvio da CloudBuilder.vhdx:
 
   1. Avviare un prompt dei comandi come amministratore.
   2. Eseguire `bcdedit /copy {current} /d "Azure Stack"`
-  3. Copia (CTRL + C), il valore CLSID restituito, incluse le {obbligatorio} ' s. Questo valore è detto {CLSID} e dovrà essere incollato nel (CTRL + V o destro) negli altri passaggi.
+  3. Copia (CTRL + C), il valore CLSID restituito, tra cui la {}' s. Questo valore è detto {CLSID} e dovrà essere incollato nel (CTRL + V o destro) negli altri passaggi.
   4. Eseguire `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
   5. Eseguire `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
   6. Eseguire `bcdedit /set {CLSID} detecthal on` 
@@ -176,16 +167,5 @@ Dopo aver installato il ASDK, esistono alcuni controlli consigliati di post-inst
 ## <a name="next-steps"></a>Passaggi successivi
 Congratulazioni! Dopo aver completato questi passaggi, sarà necessario un ambiente di kit sviluppo con entrambi [amministratore](https://adminportal.local.azurestack.external) e [utente](https://portal.local.azurestack.external) portali. 
 
-Questa esercitazione illustra come:
-
-> [!div class="checklist"]
-> * Scaricare ed estrarre il pacchetto di distribuzione
-> * Preparare il computer host kit di sviluppo 
-> * Esegui le configurazioni post-distribuzione
-> * Registrare con Azure
-
-Passare alla prossima esercitazione per informazioni su come aggiungere un elemento del marketplace dello Stack di Azure.
-
-> [!div class="nextstepaction"]
-> [Aggiungere un elemento del marketplace Azure Stack](asdk-marketplace-item.md)
+[Attività post-installazione ASDK configurazione](asdk-post-deploy.md)
 

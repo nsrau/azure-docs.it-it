@@ -2,11 +2,11 @@
 title: Azure Stack ha integrato i modelli di connessione di sistemi | Documenti Microsoft
 description: Determinare le decisioni per lo Stack di Azure multi-node la pianificazione della distribuzione.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118789"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack ha integrato i modelli di connessione di sistemi
 Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema rientra in un Data Center. Inoltre, è necessario stabilire esattamente come si integrerà Stack Azure nell'ambiente cloud ibrido. In questo articolo viene fornita una panoramica di queste decisioni principali inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 05/11/2018
 ms.author: danlep
 ms.openlocfilehash: 661b45d9960d8d803f77295ab29cc5e93cac6619
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697433"
 ---
 # <a name="hpc-batch-and-big-compute-solutions-using-azure-vms"></a>Soluzioni HPC, batch e Big Compute con macchine virtuali di Azure
 

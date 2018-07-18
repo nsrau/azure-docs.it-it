@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 00cb6cb59f8144782fdacd8c2f9763c2f7036880
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906837"
 ---
 >[!NOTE]
 > È possibile lasciare commenti in questa pagina oppure nel forum di [commenti e suggerimenti](https://feedback.azure.com/forums/216843-virtual-machines) su Azure tramite #azerrormessage.
@@ -163,7 +164,7 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  OperationNotAllowed  |  Non è possibile ridimensionare la macchina virtuale perché la dimensione richiesta {0} non è disponibile nel cluster in cui la macchina virtuale è attualmente allocata. Per passare a una macchina virtuale di dimensioni {1}, deallocarla (tramite l'operazione Arresta nel portale di Azure) e ripetere l'operazione di ridimensionamento. Leggere altre informazioni sulla strategia di ridimensionamento della macchina virtuale in https://aka.ms/azure-resizevm.  |
 |  OSProvisioningClientError  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è riuscito perché il sistema operativo guest è ancora in fase di provisioning.  |
 |  OSProvisioningClientError  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è riuscito. Dettagli dell'errore: {1} Assicurarsi che l'immagine sia stata preparata correttamente (generalizzata). <ul><li>Istruzioni per Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  La generazione della chiave host SSH non è riuscita. Dettagli dell'errore: {0}. Per risolvere il problema, verificare che l'agente Linux sia stato configurato correttamente. <ul><li>È possibile controllare le istruzioni in: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/ </li></ul> |
+|  OSProvisioningClientError  |  La generazione della chiave host SSH non è riuscita. Dettagli dell'errore: {0}. Per risolvere il problema, verificare che l'agente Linux sia stato configurato correttamente. <ul><li>È possibile controllare le istruzioni in: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
 |  OSProvisioningClientError  |  Il nome utente specificato per la macchina virtuale non è valido per questa distribuzione Linux. Dettagli dell'errore: {0}.  |
 |  OSProvisioningInternalError  |  Il provisioning del sistema operativo non è riuscito per la macchina virtuale '{0}' a causa di un errore interno.  |
 |  OSProvisioningTimedOut  |  Il provisioning del sistema operativo per la macchina virtuale '{0}' non è stato completato nel tempo assegnato. La macchina virtuale può comunque completare il provisioning. Controllare lo stato del provisioning più tardi.  |

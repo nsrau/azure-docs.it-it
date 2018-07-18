@@ -1,11 +1,11 @@
 ---
 title: Aggiungere l'azione di query alle app per la logica | Documentazione Microsoft
 description: Panoramica dell'azione di query per l'esecuzione di azioni come Filtra matrice.
-services: 
-documentationcenter: 
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27962646"
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:

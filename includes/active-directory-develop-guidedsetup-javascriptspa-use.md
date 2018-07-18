@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -120,9 +120,9 @@ L'app a singola pagina generata da questa guida non usa direttamente il token ID
 #### <a name="getting-a-user-token-interactively"></a>Acquisizione di un token utente in modo interattivo
 
 Dopo l'accesso iniziale, per non chiedere agli utenti di ripetere l'autenticazione ogni volta che devono richiedere un token per accedere a una risorsa, si dovrà usare *acquireTokenSilent* per acquisire i token nella maggior parte dei casi. In alcune situazioni, tuttavia, è necessario imporre agli utenti di interagire con l'endpoint di Azure Active Directory v2, ad esempio:
--   Potrebbe essere necessario che gli utenti reimmettano le proprie credenziali perché la password è scaduta
--   L'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente
--   È necessaria l'autenticazione a due fattori
+- Potrebbe essere necessario che gli utenti reimmettano le proprie credenziali perché la password è scaduta
+- L'applicazione richiede l'accesso a una risorsa per cui è necessario il consenso dell'utente
+- È necessaria l'autenticazione a due fattori
 
 Chiamando *acquireTokenRedirect(scope)*, gli utenti vengono reindirizzati all'endpoint di Azure Active Directory v2 (mentre con *acquireTokenPopup(scope)* viene visualizzata una finestra popup) e gli utenti devono interagire confermando le proprie credenziali, dando il consenso per la risorsa necessaria o completando l'autenticazione a due fattori.
 
@@ -204,7 +204,7 @@ Aggiungere il codice seguente al file `app.js`:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

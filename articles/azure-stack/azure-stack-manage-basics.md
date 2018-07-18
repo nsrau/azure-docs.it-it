@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850304"
 ---
 # <a name="azure-stack-administration-basics"></a>Nozioni fondamentali di amministrazione Azure Stack
 Ci sono vari aspetti, che è necessario sapere se si ha familiarità con amministrazione dello Stack di Azure. Questa guida fornisce una panoramica del ruolo operatore di Stack di Azure e cosa è necessario indicare agli utenti per loro di diventare rapidamente produttivi.
@@ -31,7 +32,7 @@ Se si utilizza un sistema integrato dello Stack di Azure, le versioni aggiornate
  
 ### <a name="development-kit"></a>Kit di sviluppo
 
-Se si utilizza il Kit di sviluppo dello Stack di Azure, esaminare il [che cos'è Azure Stack?](.\asdk\asdk-what-is.md) articolo per assicurarsi comprendere lo scopo del kit di sviluppo e le relative limitazioni. È necessario utilizzare il kit di sviluppo come una "sandbox", in cui è possibile valutare Stack di Azure e sviluppare e testare le App in un ambiente non di produzione. (Per informazioni sulla distribuzione, vedere la [distribuzione di Azure Stack Development Kit](.\asdk\asdk-deploy.md) esercitazione.)
+Se si utilizza il Kit di sviluppo dello Stack di Azure, esaminare il [che cos'è Azure Stack?](.\asdk\asdk-what-is.md) articolo per assicurarsi comprendere lo scopo del kit di sviluppo e le relative limitazioni. È necessario utilizzare il kit di sviluppo come una "sandbox", in cui è possibile valutare Stack di Azure e sviluppare e testare le App in un ambiente non di produzione. (Per informazioni sulla distribuzione, vedere la [distribuzione di Azure Stack Development Kit](.\asdk\asdk-install.md) articolo.)
 
 Come Azure, è innovazione rapidamente. Si verrà regolarmente nuovi le build di rilascio. Se si esegue il kit di sviluppo e si desidera spostare la build più recente, è necessario [ridistribuire Azure Stack](.\asdk\asdk-redeploy.md). Non è possibile applicare i pacchetti di aggiornamento. Questo processo richiede tempo, ma il vantaggio è che è possibile provare le funzionalità più recenti. La documentazione del kit di sviluppo del sito riflette la build di versione più recente.
 
@@ -46,7 +47,7 @@ Per impostazione predefinita, Azure Stack include "servizi di base" seguenti qua
 - Calcolo
 - Archiviazione
 - Rete
-- Insieme di credenziali di chiave
+- Key Vault
 
 Con questi servizi fondamentali, è possibile offrire Infrastructure-as-a-Service (IaaS) per gli utenti con la configurazione minima.
 

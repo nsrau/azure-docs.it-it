@@ -17,11 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: be7dec07597b0a82633d330a72274a94dbb9bf67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937139"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -43,7 +44,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 
 **Usare Azure AD per controllare gli utenti che hanno accesso all'applicazione.**  Gli amministratori e i proprietari di applicazioni in Azure AD possono assegnare l'accesso alle applicazioni a utenti e gruppi specifici. L'API Graph consente di leggere l'elenco e usarlo per controllare il provisioning e il deprovisioning delle risorse e gli accessi all'interno dell'applicazione.
 
-**Usare Azure AD per il controllo degli accessi in base al ruolo.**  Gli amministratori e i proprietari di applicazioni possono assegnare utenti e gruppi ai ruoli definiti al momento della registrazione dell'applicazione in Azure AD. Le informazioni sui ruoli vengono inviate all'applicazione in token di accesso e possono essere lette anche tramite l'API Graph. Altre informazioni sull' [uso di Azure AD per l'autorizzazione](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Usare Azure AD per il controllo degli accessi in base al ruolo.**  Gli amministratori e i proprietari di applicazioni possono assegnare utenti e gruppi ai ruoli definiti al momento della registrazione dell'applicazione in Azure AD. Le informazioni sui ruoli vengono inviate all'applicazione in token di accesso e possono essere lette anche tramite l'API Graph. Altre informazioni sull' [uso di Azure AD per l'autorizzazione](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Ottenere l'accesso al profilo, al calendario, alla posta elettronica, ai contatti, ai file dell'utente e altro ancora
 **Azure AD è il server di autorizzazione per Office 365 e altri servizi aziendali Microsoft.**  Se si supporta Azure AD per l'accesso all'applicazione o il collegamento degli account utente correnti agli account utente Azure AD tramite OAuth 2.0, è possibile richiedere l'accesso in lettura e scrittura al profilo, al calendario, alla posta elettronica, ai contatti, ai file dell'utente e ad altre informazioni. In questo modo, è possibile inserire eventi nel calendario dell'utente oppure accedere in lettura e scrittura ai file in OneDrive. Altre informazioni sull' [accesso alle API di Office 365](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).

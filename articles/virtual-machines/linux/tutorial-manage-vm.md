@@ -3,7 +3,7 @@ title: Esercitazione - Creare e gestire macchine virtuali Linux con l'interfacci
 description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure 2.0 per creare e gestire macchine virtuali Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/23/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e7338da637d92520bc5f67de9d3d2bdae3204e35
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930036"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure 2.0
 

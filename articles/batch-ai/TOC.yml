@@ -11,7 +11,11 @@
       href: quickstart-cli.md
     - name: Eseguire un processo di training - Python
       href: quickstart-python.md
-- name: riferimento
+- name: Guide alle procedure
+  items:
+    - name: Eseguire la migrazione all'API aggiornata
+      href: migrate-to-new-api.md
+- name: Riferimenti
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/batchai

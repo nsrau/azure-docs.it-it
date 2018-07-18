@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31606520"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35636853"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classificazione delle immagini con Azure Machine Learning Workbench
 
@@ -235,7 +236,8 @@ Azure Machine Learning Workbench archivia la cronologia di ogni esecuzione in Az
 Nella prima schermata il perfezionamento della rete neurale profonda comporta maggiori precisioni rispetto al training della SVM per tutte le classi. La seconda schermata illustra tutte le metriche tracciate, incluso il classificatore. Questa verifica viene eseguita nello script `5_evaluate.py` chiamando il logger di Azure Machine Learning Workbench. In aggiunta, lo script salva anche la curva ROC e la matrice di confusione nella cartella *outputs*. Questa cartella *outputs* è speciale in quanto il suo contenuto è anche rilevato dalla funzionalità di cronologia di Workbench e quindi è possibile accedere ai file di output in ogni momento, indipendentemente se le copie locali siano state sovrascritte.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
@@ -243,15 +245,20 @@ Nella prima schermata il perfezionamento della rete neurale profonda comporta ma
 
 
 ### <a name="parameter-tuning"></a>Regolazione del parametro
+
 Come per la maggior parte dei progetti di machine learning, ottenere buoni risultati per un nuovo set di dati richiede un'accurata regolazione del parametro, nonché la valutazione di diverse decisioni di progettazione. Per supportare queste attività, sono specificati tutti i parametri importanti, insieme a una breve spiegazione, in un'unica posizione: il file `PARAMETERS.py`.
 
 Le strategie più promettenti per ottenere miglioramenti sono:
 
 - Qualità dei dati: assicura una qualità elevata dei set di training e di test. Ciò significa che le immagini sono annotate correttamente, quelle ambigue vengono rimosse (ad esempio capi di abbigliamento sia a pois che a strisce) e gli attributi si escludono a vicenda (ovvero, sono scelti in modo che ogni immagine appartenga esattamente a un solo attributo).
+
 - Nel caso in cui l'oggetto di interesse all'interno dell'immagine sia di piccole dimensioni, è risaputo che gli approcci di classificazione delle immagini non siano una valida soluzione. In questi casi è consigliabile usare un approccio di rilevamento di oggetti, come descritto in questa [esercitazione](https://github.com/Azure/ObjectDetectionUsingCntk).
 - Perfezionamento della rete neurale profonda: senza dubbio il parametro più importante per un'analisi accurata delle immagini è la velocità di apprendimento `rf_lrPerMb`. Se la precisione del set di training (prima figura nella parte 2) non è compresa tra 0 e 5%, probabilmente si tratta di un errore della velocità di apprendimento. Gli altri parametri che iniziano con `rf_` sono meno importanti. In genere, l'errore di training deve diminuire in modo esponenziale ed essere vicino allo 0% dopo il training.
+
 - Risoluzione di input: la risoluzione predefinita delle immagini è di 224 x 224 pixel. L'uso di una risoluzione delle immagini superiore (parametro: `rf_inputResoluton`), ad esempio, di 448 x 448 o 896 x 896 pixel, spesso comporta un miglioramento significativo della precisione, ma rallenta il perfezionamento della rete neurale profonda. **Una risoluzione superiore delle immagini ha un avvio quasi libero e quasi sempre incrementa la precisione**.
+
 - Overfitting della rete neurale profonda: evitare un ampio divario tra la precisione del training e del test durante il perfezionamento della rete neurale profonda (prima figura nella parte 2). Questo divario può essere ridotto tramite tassi di dropout `rf_dropoutRate` pari a 0,5 o più e aumentando il peso normalizzatore `rf_l2RegWeight`. L'uso di un elevato tasso di dropout può essere particolarmente utile se la risoluzione dell'immagine di input della rete neurale profonda è superiore.
+
 - Provare a usare reti neurali più profonde cambiando `rf_pretrainedModelFilename` da `ResNet_18.model` a `ResNet_34.model` o `ResNet_50.model`. Il modello Resnet-50 non solo è più profondo, ma il suo output del penultimo livello è di 2048 float (contro i 512 float dei modelli ResNet-18 e ResNet 34). Questa maggiore dimensione può essere particolarmente utile durante il training di un classificatore SVM.
 
 ## <a name="part-3---custom-dataset"></a>Parte 3: Set di dati personalizzato

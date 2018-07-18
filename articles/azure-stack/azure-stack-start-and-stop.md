@@ -1,6 +1,6 @@
 ---
-title: Avviare e arrestare dello Stack di Azure | Documenti Microsoft
-description: Informazioni su come avviare e arrestare dello Stack di Azure.
+title: Avviare e arrestare Azure Stack | Microsoft Docs
+description: Informazioni su come avviare e arrestare Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -15,46 +15,50 @@ ms.topic: article
 ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930291"
 ---
 # <a name="start-and-stop-azure-stack"></a>Avviare e arrestare Azure Stack
-È consigliabile seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi Azure Stack correttamente. 
+È necessario seguire le procedure descritte in questo articolo per arrestare e riavviare i servizi di Azure Stack in modo corretto. Arresto verrà fisicamente spegnere l'intero ambiente Azure Stack. Avvio consente il funzionamento in tutti i ruoli di infrastruttura e restituisce le risorse del tenant e lo stato di alimentazione che si trovavano prima dell'arresto.
 
 ## <a name="stop-azure-stack"></a>Arrestare Azure Stack 
 
-Arresto dello Stack di Azure con i passaggi seguenti:
+Arrestare Azure Stack con i passaggi seguenti:
 
-1. Aprire una sessione di Endpoint con privilegi (PEP) da un computer con accesso alla rete per le macchine virtuali di Azure Stack ERCS. Per istruzioni, vedere [utilizzando l'endpoint con privilegi in Azure Stack](azure-stack-privileged-endpoint.md).
+1. Preparare tutti i carichi di lavoro in esecuzione in risorse del tenant dell'ambiente Azure Stack per la chiusura imminente. 
 
-2. Da PEP, eseguire:
+2. Aprire una sessione di Endpoint con privilegi (PEP) da un computer con accesso alla rete alle VM di Azure Stack ERCS. Per istruzioni, vedere [usando l'endpoint con privilegi in Azure Stack](azure-stack-privileged-endpoint.md).
+
+3. Da PEP, eseguire:
 
     ```powershell
       Stop-AzureStack
     ```
 
-3. Attendere che tutti i nodi fisici di Stack di Azure per power off.
+4. Attendere che tutti i nodi di Azure Stack fisici per power off.
 
 > [!Note]  
-> È possibile verificare lo stato di alimentazione di un nodo fisico seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware di Azure Stack. 
+> È possibile verificare lo stato di alimentazione di un nodo fisico, seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware di Azure Stack. 
 
-## <a name="start-azure-stack"></a>Avviare dello Stack di Azure 
+## <a name="start-azure-stack"></a>Avviare Azure Stack 
 
-Avviare dello Stack di Azure con i passaggi seguenti. Seguire questi passaggi indipendentemente dalla modalità di arresto dello Stack di Azure.
+Avviare Azure Stack con i passaggi seguenti. Seguire questi passaggi indipendentemente dal modo in cui Azure Stack arrestato.
 
-1. Risparmio energia in ogni nodo fisico Stack Azure nell'ambiente in uso. Verificare la potenza nelle istruzioni per i nodi fisici seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware per lo Stack di Azure.
+1. Risparmio energia in ogni nodo fisico nell'ambiente Azure Stack. Verificare il risparmio di energia nelle istruzioni per i nodi fisici, seguendo le istruzioni da Original Equipment Manufacturer (OEM) che ha fornito l'hardware per Azure Stack.
 
-2. Attendere fino all'avvio di servizi di infrastruttura di Azure Stack. Servizi di infrastruttura di Azure Stack possono richiedere due ore per terminare il processo di avvio. È possibile verificare lo stato di inizio dello Stack di Azure con il [ **Get ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
+2. Attendere fino all'avvio di servizi di infrastruttura di Azure Stack. Servizi di infrastruttura di Azure Stack possono richiedere due ore per terminare il processo di avvio. È possibile verificare lo stato iniziale di Azure Stack con il [ **Get-ActionStatus** cmdlet](#get-the-startup-status-for-azure-stack).
 
+3. Assicurarsi che tutte le risorse del tenant hanno riportato allo stato in cui che si trovavano prima dell'arresto. I carichi di lavoro in esecuzione in risorse del tenant debba essere riconfigurato dopo l'avvio dal gestore del carico di lavoro.
 
-## <a name="get-the-startup-status-for-azure-stack"></a>Ottenere lo stato di avvio per lo Stack di Azure
+## <a name="get-the-startup-status-for-azure-stack"></a>Ottenere lo stato di avvio per Azure Stack
 
-Ottenere l'avvio della routine di avvio dello Stack di Azure con i passaggi seguenti:
+Ottenere l'avvio per la routine di avvio di Azure Stack con i passaggi seguenti:
 
-1. Aprire una sessione di Endpoint con privilegi da un computer con accesso alla rete per le macchine virtuali di Azure Stack ERCS.
+1. Aprire una sessione di Endpoint con privilegi da un computer con accesso alla rete alle VM di Azure Stack ERCS.
 
 2. Da PEP, eseguire:
 
@@ -62,11 +66,11 @@ Ottenere l'avvio della routine di avvio dello Stack di Azure con i passaggi segu
       Get-ActionStatus Start-AzureStack
     ```
 
-## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Risoluzione dei problemi di avvio e arresto dello Stack di Azure
+## <a name="troubleshoot-startup-and-shutdown-of-azure-stack"></a>Risolvere i problemi di avvio e arresto di Azure Stack
 
-Se i servizi di infrastruttura e del tenant non avviare 2 ore dopo il risparmio di energia nell'ambiente dello Stack di Azure, eseguire la procedura seguente. 
+Eseguire la procedura seguente se i servizi di infrastruttura e del tenant non è stato avviato 2 ore dopo si power nell'ambiente Azure Stack. 
 
-1. Aprire una sessione di Endpoint con privilegi da un computer con accesso alla rete per le macchine virtuali di Azure Stack ERCS.
+1. Aprire una sessione di Endpoint con privilegi da un computer con accesso alla rete alle VM di Azure Stack ERCS.
 
 2. Eseguire: 
 
@@ -74,7 +78,7 @@ Se i servizi di infrastruttura e del tenant non avviare 2 ore dopo il risparmio 
       Test-AzureStack
       ```
 
-3. Esaminare l'output e risolvere eventuali errori di integrità. Per ulteriori informazioni, vedere [eseguire un test di convalida dello Stack di Azure](azure-stack-diagnostic-test.md).
+3. Esaminare l'output e risolvere eventuali errori di integrità. Per altre informazioni, vedere [esegue un test di convalida di Azure Stack](azure-stack-diagnostic-test.md).
 
 4. Eseguire:
 
@@ -82,8 +86,8 @@ Se i servizi di infrastruttura e del tenant non avviare 2 ore dopo il risparmio 
       Start-AzureStack
     ```
 
-5. Se in esecuzione **inizio AzureStack** comporta un errore, contattare il supporto tecnico di servizi Microsoft. 
+5. Se in esecuzione **Start-AzureStack** genera un errore, contattare il supporto di Microsoft Customer Services. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 
-Altre informazioni sullo strumento di diagnostica Azure Stack e rilasciare la registrazione, vedere [strumenti di diagnostica Azure Stack](azure-stack-diagnostics.md).
+Altre informazioni sullo strumento di diagnostica di Azure Stack e rilasciare la registrazione, vedere [strumenti di diagnostica di Azure Stack](azure-stack-diagnostics.md).

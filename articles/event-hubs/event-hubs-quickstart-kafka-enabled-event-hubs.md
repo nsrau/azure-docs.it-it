@@ -5,23 +5,22 @@ services: event-hubs
 documentationcenter: ''
 author: basilhariri
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.author: bahariri
-ms.openlocfilehash: cabbb7ed6157a6c68530ab6b5f405aa67b31a1b2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8ef6240d19ce1ac1b891c95ce525a8bd211a2900
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297224"
 ---
-# <a name="stream-into-event-hubs-for-kafka-ecosystem"></a>Eseguire lo streaming in Hub eventi per l'ecosistema Kafka
+# <a name="stream-into-event-hubs-for-the-kafka-ecosystem"></a>Eseguire lo streaming in Hub eventi per l'ecosistema Kafka
 
 > [!NOTE]
 > Questo esempio è disponibile su [GitHub](https://github.com/Azure/azure-event-hubs)
@@ -30,7 +29,7 @@ Questa guida introduttiva illustra come eseguire lo streaming in un'istanza di H
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Per completare questa guida introduttiva, accertarsi di disporre di quanto segue:
+Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -44,7 +43,7 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
 
 2. Accedere a `azure-event-hubs/samples/kafka/quickstart/producer`.
 
-3. Aggiornare i dettagli di configurazione per il producer in src/main/resources/producer.config, come illustrato di seguito.
+3. Aggiornare i dettagli di configurazione per il producer in `src/main/resources/producer.config` come indicato di seguito:
 
     ```xml
     bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -54,13 +53,13 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
     ```
 4. Eseguire il codice del producer ed eseguire lo streaming nell'istanza di Hub eventi abilitata per Kafka.
    
-    ```java
+    ```shell
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
-5. Passare a azure-event-hubs/samples/kafka/quickstart/consumer.
+5. Accedere a `azure-event-hubs/samples/kafka/quickstart/consumer`.
 
-6. Aggiornare i dettagli di configurazione per il consumer in src/main/resources/consumer.config, come illustrato di seguito.
+6. Aggiornare i dettagli di configurazione per il consumer in `src/main/resources/consumer.config` come indicato di seguito:
    
     ```xml
     bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -69,17 +68,18 @@ Per completare questa guida introduttiva, accertarsi di disporre di quanto segue
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
-7. Eseguire il codice del consumer ed eseguire l'elaborazione dall'istanza di Hub eventi abilitata per Kafka usando i client Kafka.
+7. Eseguire il codice del consumer ed eseguire l'elaborazione dall'istanza di Hub eventi abilitata per Kafka usando i client Kafka:
 
     ```java
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestConsumer"                                    
     ```
 
-Se il cluster Kafka di Hub eventi include eventi accodati dal producer, si dovrebbe ora iniziare a riceverli dal consumer.
+Se il cluster Kafka di Hub eventi include eventi, si dovrebbe ora iniziare a riceverli dal consumer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Leggere le informazioni su Hub eventi per l'ecosistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
-* Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per trasmettere in streaming eventi dall'istanza di Kafka locale all'istanza di Hub eventi abilitata per Kafka nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Leggere le informazioni su Hub eventi per l'ecosistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per lo [streaming di eventi dall'istanza di Kafka locale all'istanza di Hub eventi abilitata per Kafka nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Informazioni su come eseguire lo streaming negli hub eventi abilitati per Kafka usando [Apache Flink](event-hubs-kafka-flink-tutorial.md) o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).

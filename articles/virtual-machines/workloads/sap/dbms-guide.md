@@ -4,7 +4,7 @@ description: Distribuzione di DBMS in macchine virtuali di Azure per SAP NetWeav
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366359"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972445"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione di DBMS in macchine virtuali di Azure per SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34366359"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -540,9 +540,10 @@ Quando un cliente vuole spostare una macchina virtuale distribuita da Archiviazi
 Se si usa Managed Disks, è possibile eseguire la migrazione ad Archiviazione Premium come segue:
 
 1. Deallocare la macchina virtuale
-2. Se necessario, aggiornare la macchina virtuale a dimensioni che supportino Archiviazione Premium (ad esempio, DS o GS)
-3. Modificare il tipo di account Managed Disks in Premium (SSD)
-4. Avviare la macchina virtuale
+1. Se necessario, aggiornare la macchina virtuale a dimensioni che supportino Archiviazione Premium (ad esempio, DS o GS)
+1. Modificare il tipo di account Managed Disks in Premium (SSD)
+1. Modificare la memorizzazione nella cache dei dischi dati come consigliato nel capitolo [Caching per VM e dischi dati][dbms-guide-2.1]
+1. Avviare la macchina virtuale
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Distribuzione di macchine virtuali per SAP in Azure
 Microsoft Azure offre diversi modi per distribuire le VM e i dischi associati. È quindi importante comprendere le differenze, perché le operazioni di preparazione delle VM possono variare in base al metodo di distribuzione. In generale vengono esaminati gli scenari descritti nei capitoli seguenti.

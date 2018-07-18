@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di database SQL Azure stack | Documenti Microsoft
-description: Informazioni su come distribuire i database SQL come servizio in Azure Stack e la procedura per distribuire l'adapter di provider di risorse di SQL Server.
+title: Rimuovere il provider di risorse SQL nello Stack di Azure | Documenti Microsoft
+description: Informazioni su come è possibile rimuovere il provider di risorse SQL dalla distribuzione di Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083041"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Rimuovere il provider di risorse SQL
 
-Per rimuovere il provider di risorse SQL, è necessario innanzitutto rimuovere tutte le dipendenze:
+Prima di rimuovere il provider di risorse SQL, è necessario rimuovere tutte le dipendenze di provider. È necessario anche una copia del pacchetto di distribuzione che è stato utilizzato per installare il provider di risorse.
 
-1. Assicurarsi di disporre il pacchetto di distribuzione originale scaricati per questa versione di adattatore di provider di risorse SQL.
+Esistono diverse attività di pulizia da eseguire prima di eseguire la _DeploySqlProvider.ps1_ script per rimuovere il provider di risorse.
+I tenant sono responsabili per le attività di pulizia seguenti:
 
-2. È necessario eliminare tutti i database utente dal provider di risorse. (L'eliminazione dei database utente non elimina i dati.) Questa attività deve essere eseguita dagli utenti stessi.
+* Eliminare tutti i database dal provider di risorse. (Eliminare i database tenant non eliminare i dati).
+* Annullare la registrazione dallo spazio dei nomi di provider di risorse.
 
-3. L'amministratore deve eliminare il server di hosting dalla scheda provider di risorse di SQL.
+L'amministratore è responsabile per le seguenti attività di pulizia:
 
-4. L'amministratore deve eliminare i piani che fanno riferimento l'adapter di provider di risorse SQL.
+* Elimina il server di hosting dal provider di risorse SQL.
+* Elimina tutti i piani che fanno riferimento a provider di risorse SQL.
+* Elimina le quote che sono associate con il provider di risorse SQL.
 
-5. L'amministratore deve eliminare qualsiasi SKU e quote che sono associate all'adapter di provider di risorse SQL.
+## <a name="to-remove-the-sql-resource-provider"></a>Per rimuovere il provider di risorse SQL
 
-6. Eseguire nuovamente lo script di distribuzione con gli elementi seguenti:
-    - -Disinstallare parametro
-    - Gli endpoint di gestione risorse di Azure
-    - Il DirectoryTenantID
-    - Le credenziali per l'account amministratore del servizio
+1. Verificare di aver rimosso tutte le esistente SQL provider dipendenze della risorsa.
 
+   > [!NOTE]
+   > Disinstallazione del provider di risorse SQL viene continuato anche se le risorse dipendenti utilizzano attualmente il provider di risorse.
+  
+2. Ottenere una copia del provider di risorse SQL binario e quindi eseguire il programma di autoestrazione per estrarre il contenuto in una directory temporanea.
+
+3. Aprire una finestra della console di PowerShell new con privilegi elevata e passare alla directory in cui sono stati estratti i file binari di risorse del provider SQL.
+
+4. Eseguire lo script DeploySqlProvider.ps1 usando i parametri seguenti:
+
+    * **Disinstallare**. Rimuove il provider di risorse e tutte le risorse associate.
+    * **PrivilegedEndpoint**. L'indirizzo IP o nome DNS dell'endpoint con privilegi.
+    * **CloudAdminCredential**. Le credenziali per l'amministratore del cloud, necessaria per accedere all'endpoint con privilegi.
+    * **AzCredential**. Le credenziali per l'account amministratore del servizio Azure Stack. Utilizzare le stesse credenziali utilizzate per la distribuzione dello Stack di Azure.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Servizi App offerta come PaaS](azure-stack-app-service-overview.md)

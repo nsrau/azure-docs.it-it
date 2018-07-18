@@ -12,11 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/14/2018
   ms.author: carolz
-  ms.openlocfilehash: d26c3a94c166a91644397e4a31aeede55ec29284
-  ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+  ms.openlocfilehash: ea8437adf7224c4605f31ccdea281669b89bb7c9
+  ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/10/2018
+  ms.lasthandoff: 07/10/2018
+  ms.locfileid: "37949731"
 abstract:
   description: I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica. Informazioni su come creare, configurare, gestire e ridimensionare automaticamente i set di scalabilità di macchine virtuali con guide introduttive, esercitazioni ed esempi.
 sections:
@@ -51,7 +52,6 @@ sections:
     - html: Usare un'immagine di macchina virtuale personalizzata con l'<a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-cli">interfaccia della riga di comando di Azure 2.0</a> o <a href="/azure/virtual-machine-scale-sets/tutorial-use-custom-image-powershell">Azure PowerShell</a>
     - html: Distribuire app in un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-cli">interfaccia della riga di comando di Azure 2.0</a> o con <a href="/azure/virtual-machine-scale-sets/tutorial-install-apps-powershell">Azure PowerShell</a>
     - html: Ridimensionare automaticamente un set di scalabilità con l'<a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-cli">interfaccia della riga di comando di Azure 2.0</a> o con <a href="/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell">Azure PowerShell</a>
-    - html: <a href="https://docs.microsoft.com/learn/deploy-custom-vmss-app/index">Distribuire le app in un set di scalabilità di macchine virtuali di Azure con un'immagine Packer personalizzata</a>
 - title: Esempi
   items:
   - type: paragraph

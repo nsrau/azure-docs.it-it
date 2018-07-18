@@ -1,0 +1,45 @@
+- name: Documentazione del Servizio decisionale personalizzato
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Che cos'è il Servizio decisionale personalizzato?
+      href: custom-decision-service-overview.md
+    - name: Flusso di lavoro del Servizio decisionale personalizzato
+      href: custom-decision-service-workflow.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: Registrare l'applicazione
+      href: custom-decision-service-get-started-register.md
+    - name: Chiamare l'API da un browser
+      href: custom-decision-service-get-started-browser.md
+    - name: Chiamare l'API da un'app
+      href: custom-decision-service-get-started-app.md
+- name: Esercitazioni
+  items:
+    - name: Personalizzazione degli articoli
+      href: custom-decision-service-tutorial-news.md
+    - name: Machine learning
+      href: custom-decision-service-tutorial-ml.md
+- name: Riferimenti
+  items:
+    - name: API
+      href: custom-decision-service-api-reference.md
+    - name: Sperimentazione
+      href: custom-decision-service-experimentation-reference.md
+    - name: LogDownloader
+      href: custom-decision-service-log-downloader-reference.md
+- name: Risorse
+  items:
+    - name: Disponibilità a livello di area
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
+    - name: Prezzi (gratuito)
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-decision-service/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598138-custom-decision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Knowledge Base
+      href: 'https://cognitive.uservoice.com/knowledgebase'
+    - name: Roadmap per Azure
+      href: 'https://azure.microsoft.com/roadmap/'

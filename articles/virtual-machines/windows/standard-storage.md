@@ -2,7 +2,7 @@
 title: Archiviazione standard per i dischi di VM Windows in Azure | Microsoft Docs
 description: Informazioni sul servizio economicamente conveniente Archiviazione Standard e sui dischi gestiti e non gestiti delle VM Windows.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: aungoo-msft
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23667163"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

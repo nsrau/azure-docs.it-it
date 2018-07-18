@@ -2,49 +2,41 @@
 title: Limiti di Database di Azure per MySQL
 description: Questo articolo descrive i limiti di Database di Azure per MySQL, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311195"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limiti di Database di Azure per MySQL
 Le sezioni seguenti illustrano la capacità, il supporto del motore di archiviazione, dei privilegi e delle istruzioni di gestione dei dati e i limiti funzionali del servizio di database. Vedere anche le [limitazioni generali](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicabili al motore di database MySQL.
 
-## <a name="service-tier-maximums"></a>Valori massimi del livello di servizio
-Database di Azure per MySQL offre più livelli di servizio tra cui è possibile scegliere durante la creazione di un server. Per altre informazioni, vedere [Piano tariffario di Database di Azure per MySQL](concepts-pricing-tiers.md).  
+## <a name="maximum-connections"></a>Numero massimo di connessioni
+Di seguito è indicato il numero massimo di connessioni per ogni piano tariffario e vCore: 
 
-Esiste un numero massimo di connessioni, unità di calcolo e spazio di archiviazione in ogni livello di servizio, come indicato di seguito: 
+|**Piano tariffario**|**vCore**| **Numero massimo di connessioni**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|Utilizzo generico| 2| 300|
+|Utilizzo generico| 4| 625|
+|Utilizzo generico| 8| 1250|
+|Utilizzo generico| 16| 2500|
+|Utilizzo generico| 32| 5000|
+|Con ottimizzazione per la memoria| 2| 600|
+|Con ottimizzazione per la memoria| 4| 1250|
+|Con ottimizzazione per la memoria| 8| 2500|
+|Con ottimizzazione per la memoria| 16| 5000|
 
-|**Piano tariffario**| **Generazione di calcolo**|**vCore**| **Numero massimo di connessioni**|
-|---|---|---|---|
-|Basic| Generazione 4| 1| 50|
-|Basic| Generazione 4| 2| 100|
-|Basic| Generazione 5| 1| 50|
-|Basic| Generazione 5| 2| 100|
-|Utilizzo generico| Generazione 4| 2| 300|
-|Utilizzo generico| Generazione 4| 4| 625|
-|Utilizzo generico| Generazione 4| 8| 1250|
-|Utilizzo generico| Generazione 4| 16| 2500|
-|Utilizzo generico| Generazione 4| 32| 5000|
-|Utilizzo generico| Generazione 5| 2| 300|
-|Utilizzo generico| Generazione 5| 4| 625|
-|Utilizzo generico| Generazione 5| 8| 1250|
-|Utilizzo generico| Generazione 5| 16| 2500|
-|Utilizzo generico| Generazione 5| 32| 5000|
-|Con ottimizzazione per la memoria| Generazione 5| 2| 600|
-|Con ottimizzazione per la memoria| Generazione 5| 4| 1250|
-|Con ottimizzazione per la memoria| Generazione 5| 8| 2500|
-|Con ottimizzazione per la memoria| Generazione 5| 16| 5000|
-
-Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si riceva l'errore seguente:
+Quando le connessioni superano il limite, è possibile che venga visualizzato l'errore seguente:
 > ERROR 1040 (08004): Too many connections (ERRORE 1040 (08004): numero eccessivo di connessioni)
 
 ## <a name="storage-engine-support"></a>Supporto del motore di archiviazione
@@ -68,31 +60,29 @@ Quando viene raggiunto un numero eccessivo di connessioni, è possibile che si r
 ## <a name="data-manipulation-statement-support"></a>Supporto delle istruzioni di gestione dei dati
 
 ### <a name="supported"></a>Supportato
-- LOAD DATA INFILE: istruzione supportata ma deve contenere la specificazione del parametro [LOCAL] indirizzato a un percorso UNC (archiviazione di Azure montata tramite XSMB).
+- L'istruzione `LOAD DATA INFILE` è supportata ma è necessario specificare il parametro `[LOCAL]` che deve essere indirizzato a un percorso UNC (archiviazione di Azure montata tramite SMB).
 
 ### <a name="unsupported"></a>Non supportato
-- SELECT... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
 
 ### <a name="scale-operations"></a>Operazioni di scalabilità
-- Non è attualmente supportata la scalabilità dinamica dei server tra i piani tariffari, ovvero il passaggio tra i piani Basic, Utilizzo generico e Con ottimizzazione per la memoria.
+- Non è attualmente supportata la scalabilità dinamica tra i piani tariffari.
 - La riduzione delle dimensioni di archiviazione del server non è supportato.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
 
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
-- Il ripristino a un livello di servizio diverso e/o a dimensioni delle unità di calcolo e di archiviazione diverse non è consentito.
+- Quando si usa la funzionalità di ripristino temporizzato, il nuovo server viene creato con le stesse configurazioni del server su cui si basa.
 - Il ripristino di un server eliminato non è supportato.
-
-## <a name="functional-limitations"></a>Limitazioni funzionali
 
 ### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico di server creati in precedenza tra le sottoscrizioni e il gruppo di risorse non è attualmente supportato.
 
 ## <a name="current-known-issues"></a>Problemi attualmente noti
-- Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta dell'istanza del server, digitare il comando select version(); al prompt di MySQL.
+- Quando viene stabilita la connessione, l'istanza del server MySQL visualizza una versione di server errata. Per ottenere la versione corretta del motore dell'istanza del server, usare il comando `select version();`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Opzioni e prestazioni disponibili in ogni livello di servizio](concepts-pricing-tiers.md)

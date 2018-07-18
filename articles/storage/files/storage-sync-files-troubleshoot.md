@@ -4,22 +4,21 @@ description: Informazioni sulla risoluzione di problemi comuni di Sincronizzazio
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 8526918630189824e26b95df7f0560c96392e55d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea05c29bb40b595ad32304df55a79a9cf82acc18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213266"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738439"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Risolvere i problemi di Sincronizzazione File di Azure (anteprima)
 È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -30,6 +29,9 @@ L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i p
 2. [Forum di Archiviazione di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+
+## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Si è verificato un problema di Sincronizzazione file di Azure nel server (sincronizzazione, suddivisione in livelli cloud e così via). È consigliabile rimuovere l'endpoint server e ricrearlo?
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="storage-sync-service-object-management"></a>Gestione degli oggetti del Servizio di sincronizzazione archiviazione
 Se si esegue un'operazione di spostamento delle risorse da una sottoscrizione a un'altra sottoscrizione, verrà impedito lo spostamento delle risorse di sincronizzazione dei file (servizio di sincronizzazione archiviazione). 
@@ -155,7 +157,7 @@ Se la sincronizzazione ha esito negativo in un server:
     2. Verificare che il servizio Sincronizzazione file di Azure sia in esecuzione nel server. Aprire a tal fine lo snap-in di MMC di Servizi e verificare se l'agente di sincronizzazione archiviazione (FileSyncSvc) è in esecuzione.
 
 <a id="replica-not-ready"></a>**La sincronizzazione ha esito negativo e viene restituito il messaggio di errore: "0x80c8300f - La replica non è pronta per eseguire l'operazione richiesta"**  
-Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Il processo di rilevamento di modifiche che esegue l'analisi delle modifiche nella Condivisione di file di Azure è pianificato una volta ogni 24 ore.  Il tempo necessario per il complemento dipende dalle dimensioni dello spazio dei nomi nella Condivisione di file di Azure.  Questo errore dovrebbe risolversi al termine del processo.
+Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Il processo di rilevamento di modifiche che esegue l'analisi delle modifiche nella condivisione file di Azure è pianificato per l'esecuzione una volta ogni 24 ore.  Il tempo necessario per il complemento dipende dalle dimensioni dello spazio dei nomi nella condivisione file di Azure.  Questo errore dovrebbe risolversi al termine del processo.
 
 
     > [!NOTE]

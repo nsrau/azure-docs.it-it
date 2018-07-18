@@ -1,11 +1,11 @@
 ---
 title: Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview | Documentazione Microsoft
-description: "È possibile eseguire facilmente la migrazione di app per la logica alla versione più recente dello schema, seguendo questa procedura."
+description: È possibile eseguire facilmente la migrazione di app per la logica alla versione più recente dello schema, seguendo questa procedura.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707125"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Come eseguire la migrazione di app per la logica alla versione dello schema 2015-08-01-preview
 Per spostare le app per la logica esistenti nel nuovo schema, seguire questa procedura:  

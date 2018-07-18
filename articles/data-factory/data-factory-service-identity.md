@@ -9,21 +9,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 06e07d566afe64b55470f73e232cf45feccd47fb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050866"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identità del servizio di Azure Data Factory
 
 Questo articolo consente di capire cos'è l'identità del servizio di data factory e come funziona.
-
-> [!NOTE]
-> Questo articolo si applica alla versione 2 del servizio Data Factory, attualmente in versione di anteprima. Se si usa la versione 1 del servizio di Data Factory, disponibile a livello generale, vedere la [documentazione sulla versione 1 di Data Factory](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Panoramica
 
@@ -38,7 +36,7 @@ L'identità del servizio di data factory offre le due funzioni seguenti:
 
 L'identità del servizio di data factory viene generata come segue:
 
-- Quando si crea una data factory tramite il **portale di Azure o PowerShell**, a partire dall'anteprima pubblica della versione 2 di ADF l'identità del servizio verrà sempre creata automaticamente.
+- Quando si crea la data factory tramite il **portale di Azure o PowerShell**, l'identità del servizio verrà sempre creata automaticamente.
 - Quando si crea la data factory tramite **SDK**, l'identità del servizio verrà creata solo se si specifica "Identity = new FactoryIdentity()" nell'oggetto factory per la creazione. Vedere l'esempio nella [guida introduttiva di .NET per la creazione di una data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Quando si crea la data factory tramite l'**API REST**, l'identità del servizio verrà creata solo se si specifica la sezione "identity" nel corpo della richiesta. Vedere l'esempio nella [guida introduttiva di REST per la creazione di una data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

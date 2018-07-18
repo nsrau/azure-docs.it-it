@@ -4,7 +4,7 @@ description: Questa guida introduttiva illustra come abilitare la rete CDN di Az
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,23 +12,23 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198708"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607872"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure
 In questa guida introduttiva si abilita la rete per la distribuzione di contenuti (rete CDN) di Azure creando un nuovo profilo e un nuovo endpoint della rete CDN. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prerequisiti
-Ai fini di questa guida introduttiva è necessario aver creato un account di archiviazione denominato *mystorageacct123*, che verrà usato per il nome host dell'origine. Per altre informazioni, vedere [Integrare un account di archiviazione di Azure con la rete CDN di Azure](cdn-create-a-storage-account-with-cdn.md)
+## <a name="prerequisites"></a>prerequisiti
+Ai fini di questa guida introduttiva è necessario aver creato un account di archiviazione denominato *mystorageacct123*, che verrà usato per il nome host dell'origine. Per altre informazioni, vedere [Integrare un account di archiviazione di Azure con la rete CDN di Azure](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 Accedere al [portale di Azure](https://portal.azure.com) con il proprio account Azure.
@@ -47,11 +47,9 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
    
     ![Profilo di rete CDN](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    Verrà visualizzata la pagina **Aggiungere un endpoint**.
+    Verrà visualizzato il riquadro **Aggiungi un endpoint**.
 
-    Usare le impostazioni specificate nella tabella disponibile sotto l'immagine.
-   
-    ![Riquadro Aggiungi un endpoint](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. Per le impostazioni dell'endpoint, usare i valori specificati nella tabella seguente:
 
     | Impostazione | Valore |
     | ------- | ----- |
@@ -63,7 +61,9 @@ Dopo aver creato un profilo di rete CDN, è possibile usarlo per creare un endpo
     | **Protocollo** | Lasciare selezionate le opzioni **HTTP** e **HTTPS** predefinite. |
     | **Porta dell'origine** | Lasciare i valori di porta predefiniti. | 
     | **Ottimizzato per** | Lasciare la selezione predefinita, ovvero **Distribuzione Web generale**. |
-    
+
+    ![Riquadro Aggiungi un endpoint](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Selezionare **Aggiungi** per creare il nuovo endpoint.
    
    Dopo la creazione, l'endpoint verrà visualizzato nell'elenco di endpoint per il profilo.

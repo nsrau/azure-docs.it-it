@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842014"
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Eseguire NAMD con Microsoft HPC Pack su nodi di calcolo Linux in Azure
 In questo articolo viene illustrato un modo per eseguire un carico di lavoro high-performance computing (HPC) Linux in macchine virtuali di Azure. Si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) su Azure con nodi di calcolo Linux e si esegue una simulazione [NAMD](http://www.ks.uiuc.edu/Research/namd/) per calcolare e visualizzare la struttura di un sistema biomolecolare di grandi dimensioni.  

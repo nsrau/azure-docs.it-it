@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: eac64a5b456eb040bcb1ac01c3c86dfde0847e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 526021ca238be7bc934e639c34d3e49879279a6a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944923"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127653"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
 L'estensione per script personalizzati versione 1 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -34,7 +34,7 @@ Esistono due estensioni per script personalizzati Linux:
 * Versione 1: Microsoft.OSTCExtensions.CustomScriptForLinux
 * Versione 2: Microsoft.Azure.Extensions.CustomScript
 
-Modificare le distribuzioni nuove ed esistenti per usare la nuova versione ([Microsoft.Azure.Extensions.CustomScript](\custom-script-linux.md)). La nuova versione è stata ideata come soluzione sostitutiva ad alte prestazioni. La migrazione è pertanto semplice quanto la modifica del nome e della versione e non è necessario modificare la configurazione dell'estensione.
+Modificare le distribuzioni nuove ed esistenti per usare la nuova versione ([Microsoft.Azure.Extensions.CustomScript](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux)). La nuova versione è stata ideata come soluzione sostitutiva ad alte prestazioni. La migrazione è pertanto semplice quanto la modifica del nome e della versione e non è necessario modificare la configurazione dell'estensione.
 
  
 

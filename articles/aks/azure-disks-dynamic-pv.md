@@ -2,17 +2,18 @@
 title: Usare un disco di Azure con AKS
 description: Usare Dischi di Azure con il servizio contenitore di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: iainfou
+ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095927"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Volumi permanenti con i dischi di Azure
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Le attestazioni di volumi permanenti sono specificate in GiB, ma i dischi gestiti di Azure vengono fatturati in base al codice SKU per una dimensione specifica. Questi SKU spaziano da 32 GiB per i dischi S4 o P4 a 4 TiB per i dischi S50 o P50. Inoltre, la velocità effettiva e le prestazioni di operazioni di I/O al secondo di un disco gestito Premium dipende sia dal codice SKU sia dalla dimensione dell'istanza dei nodi nel cluster AKS. Vedere [Prezzi per Managed Disks][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
 Un'attestazione di volume permanente viene usata per il provisioning automatico dell'archiviazione in una classe di archiviazione. In tal caso un'attestazione di volume permanente può usare una delle classi di archiviazione create in precedenza per creare un disco gestito di Azure standard o premium.
 
-Creare un file denominato `azure-premimum.yaml` e copiarlo nel manifesto seguente.
+Creare un file denominato `azure-premium.yaml` e copiarlo nel manifesto seguente.
 
 Notare che la classe di archiviazione `managed-premium` viene specificata nell'annotazione e l'attestazione richiede un disco di `5GB` con accesso `ReadWriteOnce`.
 
@@ -63,7 +67,7 @@ spec:
 Creare l'attestazione di volume permanente con il comando [kubectl apply][kubectl-apply].
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Uso del volume permanente
@@ -103,16 +107,17 @@ A questo punto è disponibile un pod in esecuzione con il disco di Azure montato
 Altre informazioni sui volumi permanenti Kubernetes che usano i dischi di Azure.
 
 > [!div class="nextstepaction"]
-> [Plug-in Kubernetes per i dischi di Azure][kubernetes-disk]
+> [Plug-in Kubernetes per i dischi di Azure][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

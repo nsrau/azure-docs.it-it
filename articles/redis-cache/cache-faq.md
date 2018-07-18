@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640473"
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
@@ -135,18 +136,18 @@ Da questa tabella è possibile trarre le seguenti conclusioni:
 | Piano tariffario | Dimensione | Core CPU | Larghezza di banda disponibile | Dimensioni del valore di 1 KB | Dimensioni del valore di 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Dimensioni della cache livello Standard** | | |**Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL** |**Richieste al secondo (RPS) SSL** |
-| C0 |250 MB |Condiviso |100/12,5 |15.000 |7500 |
-| C1 |1 GB |1 |500/62,5 |38.000 |20.720 |
-| C2 |2,5 GB |2 |500/62,5 |41.000 |37.000 |
-| C3 |6 GB |4 |1000/125 |100.000 |90.000 |
-| C4 |13 GB |2 |500/62,5 |60.000 |55.000 |
-| C5 |26 GB |4 |1000/125 |102.000 |93.000 |
-| C6 |53 GB |8 |2000/250 |126.000 |120.000 |
+| C0 |250 MB |Condiviso |100 / 12,5 |15.000 |7.500 |
+| C1 |1 GB |1 |500 / 62,5 |38.000 |20.720 |
+| C2 |2,5 GB |2 |500 / 62,5 |41.000 |37.000 |
+| C3 |6 GB |4 |1000 / 125 |100.000 |90.000 |
+| C4 |13 GB |2 |500 / 62,5 |60.000 |55.000 |
+| C5 |26 GB |4 |1000 / 125 |102.000 |93.000 |
+| C6 |53 GB |8 |2000 / 250 |126.000 |120.000 |
 | **Dimensioni della cache livello Premium** | |**Core CPU per partizione** | **Megabit al secondo (Mb/s) / Megabyte al secondo (MB/s)** |**Richieste al secondo (RPS) non SSL, per partizione** |**Richieste al secondo (RPS) SSL, per partizione** |
-| P1 |6 GB |2 |1500/187,5 |180.000 |172.000 |
-| P2 |13 GB |4 |3000/375 |350.000 |341.000 |
-| P3 |26 GB |4 |3000/375 |350.000 |341.000 |
-| P4 |53 GB |8 |6000/750 |400.000 |373.000 |
+| P1 |6 GB |2 |1500 / 187.5 |180.000 |172.000 |
+| P2 |13 GB |4 |3000 / 375 |350.000 |341.000 |
+| P3 |26 GB |4 |3000 / 375 |350.000 |341.000 |
+| P4 |53 GB |8 |6000 / 750 |400.000 |373.000 |
 
 Per istruzioni sulla configurazione di stunnel o sul download degli strumenti Redis, ad esempio `redis-benchmark.exe`, vedere la sezione [Come si eseguono i comandi Redis?](#cache-commands).
 
@@ -170,7 +171,7 @@ Sì, è possibile usare Cache Redis di Azure con Azure Government Cloud, Azure C
 | Germania | *.redis.cache.cloudapi.de       |
 | Cina   | *.redis.cache.chinacloudapi.cn  |
 
-Per ulteriori informazioni sulle considerazioni relative all’uso di Cache Redis di Azure con altri cloud, vedere i collegamenti seguenti.
+Per altre informazioni sulle considerazioni relative all'uso di Cache Redis di Azure con altri cloud, vedere i collegamenti seguenti.
 
 - [Database di Azure per enti pubblici - Cache Redis di Azure](../azure-government/documentation-government-services-database.md#azure-redis-cache)
 - [Azure China Cloud - Cache Redis di Azure](https://www.azure.cn/documentation/services/redis-cache/)
@@ -183,7 +184,7 @@ Per informazioni sull'uso di Cache Redis di Azure con PowerShell in Azure Govern
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Qual è la funzione delle opzioni di configurazione StackExchange.Redis?
 StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| Opzioni configurazione | DESCRIZIONE | Raccomandazione |
+| Opzioni configurazione | Descrizione | Raccomandazione |
 | --- | --- | --- |
 | AbortOnConnectFail |Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete. |Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente. |
 | ConnectRetry |Numero di nuovi tentativi di connessione durante la connessione iniziale. |Per indicazioni, vedere le note seguenti. |
@@ -201,7 +202,7 @@ Nella maggior parte dei casi sono sufficienti i valori predefiniti del client. �
   * Usare una singola istanza ConnectionMultiplexer per l'applicazione. È possibile usare un valore LazyConnection per creare una singola istanza restituita da una proprietà Connection, come illustrato in [Connettersi alla cache mediante la classe ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
   * Impostare la proprietà `ConnectionMultiplexer.ClientName` su un nome univoco dell'istanza dell'app per finalità di diagnostica.
   * Usare più istanze di `ConnectionMultiplexer` per carichi di lavoro personalizzati.
-      * È possibile seguire questo modello se l'applicazione include carichi variabili. Ad esempio: 
+      * È possibile seguire questo modello se l'applicazione include carichi variabili. Ad esempio:
       * È possibile avere un multiplexer per la gestione di chiavi di grandi dimensioni.
       * È possibile avere un multiplexer per la gestione di chiavi di piccole dimensioni.
       * È possibile impostare valori diversi per i timeout di connessione e la logica di ripetizione dei tentativi per ogni ConnectionMultiplexer usato.
@@ -308,7 +309,7 @@ Per istruzioni sul download degli strumenti Redis, vedere la sezione [Come si es
 * Riutilizzare ConnectionMultiplexer: non creare una nuova istanza per ogni richiesta. È fortemente consigliato usare il modello `Lazy<ConnectionMultiplexer>` [mostrato qui](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 * Redis funziona meglio con valori inferiori, quindi considerare di suddividere i dati più grandi in più chiavi. In [questa discussione di Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb viene considerato grande. Leggere [in questo articolo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) per un problema di esempio che può essere causato da valori di grandi dimensioni.
 * Configurare le [impostazioni ThreadPool](#important-details-about-threadpool-growth) per evitare timeout.
-* Usare almeno il connectTimeout predefinito di 5 secondi. Questo intevallo fornirebbe a StackExchange.Redis tempo sufficiente per ristabilire la connessione, in caso di un problema di rete.
+* Usare almeno il connectTimeout predefinito di 5 secondi. Questo intervallo fornirebbe a StackExchange.Redis tempo sufficiente per ristabilire la connessione, in caso di un problema di rete.
 * Tenere presente i costi delle prestazioni associati a diverse operazioni in esecuzione. Ad esempio, il comando `KEYS` è un'operazione O(n) e deve essere evitato. Il [sito redis.io](http://redis.io/commands/) fornisce i dettagli sulla complessità del tempo per ogni operazione supportata. Fare clic su ogni comando per visualizzare la complessità di ogni operazione.
 
 #### <a name="configuration-and-concepts"></a>Configurazione e concetti
@@ -376,7 +377,7 @@ Se si osserva un messaggio di errore di esempio da StackExchange.Redis, build 1.
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
+Nell'esempio precedente sono presenti 6 thread IOCP occupati e il sistema è configurato per consentire un minimo di 4 thread. In questo caso si verificheranno probabilmente due ritardi di 500 ms, perché 6 > 4.
 
 Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei thread IOCP o WORKER viene limitata.
 
@@ -385,13 +386,13 @@ Si noti che StackExchange.Redis può raggiungere il timeout se la crescita dei t
 
 Come configurare questa impostazione:
 
-* In ASP.NET usare l'impostazione di configurazione ["minIoThreads"]["minIoThreads" configuration setting] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile configurarla a livello di codice, come indicato di seguito, dal metodo Application_Start in global.asax.cs.
+* In ASP.NET usare l'impostazione di configurazione ["minIoThreads" o "minWorkerThreads"]["minIoThreads" configuration setting] nell'elemento di configurazione `<processModel>` in web.config. Se l'esecuzione avviene all'interno di Siti Web di Azure, questa impostazione non viene esposta attraverso le opzioni di configurazione. Dovrebbe tuttavia essere possibile configurarla a livello di codice, come indicato di seguito, dal metodo Application_Start in global.asax.cs.
 
   > [!NOTE] 
   > Il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si dispone di un computer a 4 memorie centrali e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
   >
 
-* Al di fuori di ASP.NET, usare l'API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
+* Al di fuori di ASP.NET, usare l'API [ThreadPool.SetMinThreads(...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx).
 
 <a name="server-gc"></a>
 

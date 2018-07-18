@@ -13,6 +13,8 @@
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Eventi di archiviazione BLOB - PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Eventi di archiviazione BLOB - Portale
+      href: blob-event-quickstart-portal.md
     - name: Eventi personalizzati - Interfaccia della riga di comando di Azure
       href: custom-event-quickstart.md
     - name: Eventi personalizzati - PowerShell
@@ -21,6 +23,8 @@
       href: custom-event-quickstart-portal.md
     - name: Inviare eventi all'archiviazione code
       href: custom-event-to-queue-storage.md
+    - name: Inviare eventi a Hub eventi
+      href: custom-event-to-eventhub.md
 - name: Esercitazioni
   items:
     - name: Inviare un messaggio di posta elettronica quando viene modificata una VM
@@ -47,6 +51,8 @@
       href: powershell-samples.md
     - name: Modelli di Gestione risorse
       href: template-samples.md
+    - name: Esempi di codice
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid'
 - name: Concetti
   items:
     - name: Concetti relativi a Griglia di eventi
@@ -65,6 +71,8 @@
       href: post-to-custom-topic.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
+    - name: Gestire il recapito di eventi
+      href: manage-event-delivery.md
     - name: Monitorare il recapito di eventi
       href: monitor-event-delivery.md
     - name: Eseguire query su sottoscrizioni di eventi
@@ -81,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
+    - name: Risorse del modello
+      items:
+        - name: Sottoscrizioni di eventi
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Argomenti
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
     - name: Schema di sottoscrizione

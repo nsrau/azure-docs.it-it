@@ -1,6 +1,6 @@
 ---
 title: Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: "Informazioni su tutte le funzionalità disponibili in Threat Modeling Tool"
+description: Informazioni su tutte le funzionalità disponibili in Threat Modeling Tool
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754746"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
 

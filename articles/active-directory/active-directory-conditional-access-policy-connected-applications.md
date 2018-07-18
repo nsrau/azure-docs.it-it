@@ -1,6 +1,6 @@
 ---
-title: Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory | Microsoft Docs
-description: Informazioni su come configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory.
+title: "Procedura: Richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale di Azure Active Directory | Microsoft Docs"
+description: Informazioni su come configurare criteri di accesso condizionale basato su dispositivo in Azure Active Directory (Azure AD) in modo da richiedere dispositivi gestiti per l'accesso alle app cloud.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -8,42 +8,53 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930858"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37034790"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Configurare i criteri di accesso condizionale basato su dispositivo di Azure Active Directory
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale
 
-Con l'[accesso condizionale di Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) è possibile controllare il modo in cui gli utenti autorizzati possono accedere alle risorse. Ad esempio, è possibile limitare l'accesso a determinate risorse a dispositivi gestiti. Un criterio di accesso condizionale che richiede un dispositivo gestito è noto anche come criterio di accesso condizionale basato su dispositivo.
+In un mondo in cui i dispositivi mobili e il cloud hanno sempre più importanza, Azure Active Directory (Azure AD) consente ovunque l'accesso Single Sign-On ad app e servizi. Gli utenti autorizzati possono accedere alle app cloud da una vasta gamma di dispositivi, inclusi i dispositivi mobili e quelli personali. In numerosi ambienti, tuttavia, almeno alcune app devono essere accessibili solo da dispositivi che soddisfano determinati standard di sicurezza e conformità. I dispositivi di questo tipo sono noti anche come dispositivi gestiti. 
 
-Questo argomento spiega in che modo è possibile configurare i criteri di accesso condizionale basato su dispositivo per le applicazioni connesse ad Azure AD. 
+Questo articolo spiega come configurare criteri di accesso condizionale in modo da richiedere dispositivi gestiti per l'accesso a determinate app cloud nell'ambiente della propria organizzazione. 
 
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="prerequisites"></a>Prerequisiti
 
-Collegamenti di accesso condizionale basato su dispositivo **Accesso condizionale ad Azure AD** e **Gestione dei dispositivi AD Azure insieme**. Se non si ha ancora familiarità con una di queste aree, è consigliabile leggere innanzitutto gli argomenti seguenti:
+Il requisito d'uso di dispositivi gestiti per l'accesso alle app cloud presuppone la conoscenza dei concetti correlati di **accesso condizionale di Azure AD** e **gestione dei dispositivi di Azure AD**. Se non si ha ancora familiarità con una di queste aree, è consigliabile leggere innanzitutto gli argomenti seguenti:
 
-- **[Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)**: questo argomento offre una panoramica concettuale di accesso condizionale e la terminologia correlata.
+- **[Accesso condizionale in Azure Active Directory](active-directory-conditional-access-azure-portal.md)**: questo articolo offre una panoramica concettuale dell'accesso condizionale e illustra la terminologia correlata.
 
-- **[Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md)**: questo argomento offre una panoramica delle diverse opzioni a disposizione per connettere i dispositivi con Azure AD. 
+- **[Introduzione alla gestione dei dispositivi in Azure Active Directory](device-management-introduction.md)**: questo articolo offre una panoramica delle diverse opzioni che un'organizzazione ha a disposizione per tenere sotto controllo i dispositivi. 
 
+
+## <a name="scenario-description"></a>Descrizione dello scenario
+
+Trovare il giusto equilibrio tra sicurezza e produttività è una vera e propria sfida. L'ampia diffusione dei dispositivi supportati per l'accesso alle risorse cloud offre notevoli vantaggi in termini di produttività degli utenti. In alcuni casi, tuttavia, può essere necessario evitare che alcune risorse dell'ambiente risultino accessibili a dispositivi con un livello di protezione sconosciuto. Per le risorse di questo tipo è opportuno definire un requisito di accessibilità in modo che gli utenti possano accedervi solo tramite un dispositivo gestito. 
+
+Con l'accesso condizionale di Azure AD è possibile soddisfare questo requisito con un criterio singolo che garantisce l'accesso:
+
+- Alle app cloud selezionate
+
+- Per utenti e gruppi selezionati
+
+- Richiesta di un dispositivo gestito
 
 
 ## <a name="managed-devices"></a>Dispositivi gestiti  
 
-In un mondo in cui i dispositivi mobili e il cloud hanno sempre più importanza, Azure Active Directory consente ovunque l'accesso Single Sign-On a dispositivi, app e servizi. Per alcune risorse dell'ambiente, la concessione dell'accesso agli utenti appropriati potrebbe non essere sufficiente. Oltre che dagli utenti appropriati, potrebbe anche essere necessario fare in modo che i tentativi di accesso vengano eseguiti solo usando un dispositivo gestito.
-
-Un dispositivo gestito è un dispositivo che soddisfa gli standard di sicurezza e conformità. In poche parole, i dispositivi gestiti sono dispositivi che ricadono sotto *qualche tipo* di controllo aziendale. In Azure AD il prerequisito per un dispositivo gestito è che sia stato registrato con Azure AD. La registrazione di un dispositivo crea un'identità per il dispositivo sotto forma di oggetto dispositivo. Questo oggetto viene usato da Azure per tenere traccia delle informazioni sullo stato relative a un dispositivo. Gli amministratori di Azure AD possono già usare questo oggetto per alternare (abilitare/disabilitare) lo stato di un dispositivo.
+In poche parole, i dispositivi gestiti sono dispositivi che ricadono sotto *qualche tipo* di controllo aziendale. In Azure AD il prerequisito per un dispositivo gestito è che sia stato registrato con Azure AD. La registrazione di un dispositivo crea un'identità per il dispositivo sotto forma di oggetto dispositivo. Questo oggetto viene usato da Azure per tenere traccia delle informazioni sullo stato relative a un dispositivo. Gli amministratori di Azure AD possono già usare questo oggetto per alternare (abilitare/disabilitare) lo stato di un dispositivo.
   
 ![Condizioni basate sul dispositivo](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -55,10 +66,9 @@ Per registrare un dispositivo con Azure AD, sono disponibili tre opzioni:
 
 - **[Dispositivi aggiunti ad Azure AD ibrido](device-management-introduction.md#hybrid-azure-ad-joined-devices)**: per registrare con Azure AD un dispositivo Windows 10 aggiunto a un'istanza di AD locale.
 
-Per diventare un dispositivo gestito, un dispositivo registrato può essere un dispositivo aggiunto ad Azure AD ibrido o un dispositivo che è stato contrassegnato come conforme.  
+Per risultare gestito, un dispositivo registrato deve essere un **dispositivo aggiunto ad Azure AD ibrido** o un **dispositivo contrassegnato come conforme**.  
 
 ![Condizioni basate sul dispositivo](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Richiedere i dispositivi aggiunti ad Azure AD ibrido
@@ -82,8 +92,8 @@ L'opzione per *richiedere che un dispositivo sia contrassegnato come conforme* �
 
 Questa opzione richiede che un dispositivo venga registrato con Azure AD e anche che venga contrassegnato come conforme da:
          
-- Intune 
-- Un sistema gestito di dispositivi mobili di terze parti che gestisce i dispositivi Windows 10 tramite l'integrazione di Azure AD 
+- Intune.
+- Un sistema di gestione dei dispositivi mobili (MDM) di terze parti che gestisce dispositivi Windows 10 tramite l'integrazione di Azure AD. I sistemi MDM di terze parti per sistemi operativi per dispositivo diversi da Windows 10 non sono supportati.
  
 ![Condizioni basate sul dispositivo](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

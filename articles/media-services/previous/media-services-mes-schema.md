@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783890"
 ---
 # <a name="media-encoder-standard-schema"></a>Schema di Media Encoder Standard
 Questo articolo descrive alcuni elementi e tipi di schema XML su cui si basa il [set di impostazioni di Media Encoder Standard](media-services-mes-presets-overview.md). L'articolo spiega gli elementi e i valori possibili per ognuno.  

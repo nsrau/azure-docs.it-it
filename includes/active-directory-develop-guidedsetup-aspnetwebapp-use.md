@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 4b29d3383d97a6f8e10e4733ffe4b0e896e6cb60
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943590"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Aggiungere un controller per gestire le richieste di accesso e disconnessione
 
@@ -77,7 +78,7 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Guide</title>
+        <title>Sign in with Microsoft Guide</title>
     </head>
     <body>
     @if (!Request.IsAuthenticated)
@@ -113,7 +114,7 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Altre informazioni
-> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Pulsante "Accedi con Microsoft"](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [questa pagina](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
+> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [questa pagina](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Linee guida sulla personalizzazione").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Aggiungere un controller per visualizzare le attestazioni dell'utente
@@ -171,7 +172,7 @@ In Visual Studio creare una nuova visualizzazione per mostrare le attestazioni d
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Sample</title>
+        <title>Sign in with Microsoft Sample</title>
         <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     </head>
     <body style="padding:50px">

@@ -1,34 +1,42 @@
 ---
-title: Configurare un nome di dominio personalizzato per l'endpoint dell'archiviazione BLOB di Azure | Documentazione Microsoft
-description: Usare il portale di Azure per eseguire il mapping del proprio nome canonico (CNAME) all'endpoint di archiviazione BLOB in un account di archiviazione di Azure.
+title: Configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure | Microsoft Docs
+description: Usare il portale di Azure per eseguire il mapping del proprio nome canonico (CNAME) all'endpoint BLOB o Web in un account di Archiviazione di Azure.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017921"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure
 
-È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è `<storage-account-name>.blob.core.windows.net`. Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
+È possibile configurare un nome di dominio personalizzato per l'accesso ai dati BLOB nell'account di archiviazione di Azure. L'endpoint predefinito per l'archiviazione BLOB è `<storage-account-name>.blob.core.windows.net`. È possibile anche usare l'endpoint Web generato come parte della [funzionalità di siti Web statici (anteprima)](storage-blob-static-website.md). Se si esegue il mapping di un dominio personalizzato e di un sottodominio come **www.contoso.com** all'endpoint BLOB o Web per l'account di archiviazione, anche gli utenti potranno accedere ai dati BLOB dell'account di archiviazione usando tale dominio.
 
 > [!IMPORTANT]
 > Archiviazione di Azure non supporta ancora in modo nativo HTTPS con domini personalizzati. Attualmente è possibile [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Gli account di archiviazione attualmente supportano solo un nome di dominio personalizzato per ogni account. Non è quindi possibile eseguire il mapping di un nome di dominio personalizzato agli endpoint sia del servizio BLOB che del servizio Web.
+
 La tabella seguente riporta gli URL di esempio per i dati BLOB presenti in un account di archiviazione denominato **mystorageaccount**. Il dominio personalizzato registrato per l'account di archiviazione è **www.contoso.com**:
 
 | Tipo di risorsa | URL predefinito | URL di dominio personalizzato |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Account di archiviazione | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | BLOB |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Contenitore radice | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob or http://www.contoso.com/$root/myblob |
+| Contenitore radice | http://mystorageaccount.blob.core.windows.net/myblob o http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob o http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] or http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] o http://mystorageaccount.[zone].web.core.windows.net/$web o http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/$web o http://www.contoso.com/ o http://www.contoso.com/$web/[indexdoc] o http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Tutti gli esempi per l'endpoint del servizio BLOB di seguito si applicano anche all'endpoint del servizio Web.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Mapping di dominio diretto e con sottodominio intermedio
 
@@ -157,3 +165,4 @@ Usare il cmdlet di PowerShell [Set-AzureRmStorageAccount](/powershell/module/azu
 ## <a name="next-steps"></a>Passaggi successivi
 * [Eseguire il mapping di un dominio personalizzato a un endpoint della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-map-content-to-custom-domain.md)
 * [Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md)
+* [Hosting di siti Web statici in Archiviazione BLOB di Azure (anteprima)](storage-blob-static-website.md)

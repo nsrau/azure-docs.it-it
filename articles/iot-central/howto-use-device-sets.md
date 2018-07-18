@@ -1,19 +1,19 @@
 ---
 title: Usare i set di dispositivi nell'applicazione Azure IoT Central | Microsoft Docs
 description: Come usare i set di dispositivi nell'applicazione Azure IoT Central in qualità di operatore.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201150"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261679"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usare i set di dispositivi nell'applicazione Azure IoT Central
 
@@ -86,10 +86,40 @@ Dopo aver creato il set di dispositivi è possibile configurare il relativo **Da
 
     > [!NOTE]
     > È possibile aggiungere più immagini, collegamenti e griglie.
-
-1. Disattivare **Design Mode** (Modalità progettazione).
+  
+    1. Disattivare **Design Mode** (Modalità progettazione).
 
     ![Modalità progettazione disattivata](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Configurazione della mappa delle località nel dashboard per il set di dispositivi 
+È possibile aggiungere una mappa delle località per visualizzare la posizione del set di dispositivi in una mappa. 
+
+Per aggiungere una mappa delle località al dashboard per il set di dispositivi è necessario aver configurato la proprietà in Modello di dispositivo, vedere [Creare una proprietà Location con Mappe di Azure](howto-set-up-template.md).
+
+
+1. In Dashboard set di dispositivi, selezionare Mappa nella libreria. 
+
+    ![Mappe del dashboard per il set di dispositivi](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Assegnare un titolo e scegliere la proprietà Location configurata in precedenza come parte della proprietà del dispositivo.
+
+    ![Configurare le mappe del dashboard](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Salvare e nel riquadro della mappa verrà visualizzata la posizione dei dispositivi nel Set di dispositivi.
+
+    ![Salvare le mappe del dashboard](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Quando un operatore visualizza il dashboard per il set di dispositivi, ora verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi!
+
+    ![Vista operatore delle mappe del dashboard](media/howto-use-device-sets/LocationMaps4.png)
+
+    Sarà possibile ridimensionare la mappa alle dimensioni desiderate.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurare l'elenco per il set di dispositivi
 

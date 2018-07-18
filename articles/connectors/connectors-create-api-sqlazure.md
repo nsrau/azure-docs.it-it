@@ -1,36 +1,32 @@
 ---
 title: Connettersi a SQL Server o al database SQL di Azure - App per la logica di Azure | Microsoft Docs
-description: Creare connessioni a SQL Server in locale e al database SQL di Azure nel cloud da App per la logica di Azure
-services: logic-apps
-documentationcenter: ''
+description: Come accedere e gestire database SQL in locale o nel cloud tramite l'automatizzazione dei flussi di lavoro con App per la logica di Azure
 author: ecfan
-manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164799"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38544024"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Connettersi a SQL Server o al database SQL di Azure - App per la logica di Azure
 
-Questo articolo illustra come accedere ai dati del database SQL da un'app per la logica mediante il connettore SQL Server. In questo modo, infatti, è possibile creare app per la logica che automatizzano le attività e i flussi di lavoro per la gestione dei dati. Il connettore può essere usato sia per [SQL Server in locale](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) sia per il [database SQL di Azure nel cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Questo articolo illustra come accedere ai dati del database SQL da un'app per la logica mediante il connettore SQL Server. In questo modo, è possibile automatizzare le attività, i processi e i flussi di lavoro che gestiscono i dati e le risorse SQL tramite la creazione di app per la logica. Il connettore può essere usato sia per [SQL Server in locale](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) sia per il [database SQL di Azure nel cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-È possibile creare app per la logica che vengano attivate da eventi che si verificano nel database SQL o in altri sistemi, ad esempio Dynamics CRM Online. Le app per la logica possono anche ottenere, inserire o eliminare dati ed eseguire query SQL o stored procedure. È possibile, ad esempio, creare un'app per la logica che verifichi automaticamente la presenza di nuovi record in Dynamics CRM Online, che aggiunga elementi al database SQL per ogni nuovo record e che invii avvisi tramite posta elettronica.
+È possibile creare app per la logica che vengono eseguite in seguito all'attivazione da eventi che si verificano nel database SQL o in altri sistemi, ad esempio Dynamics CRM Online. Le app per la logica possono anche recuperare, inserire ed eliminare dati, oltre a eseguire query SQL e stored procedure. È possibile, ad esempio, creare un'app per la logica che verifichi automaticamente la presenza di nuovi record in Dynamics CRM Online, che aggiunga elementi al database SQL per ogni nuovo record e che invii avvisi tramite posta elettronica.
 
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/sql/" target="blank">informazioni di riferimento sul connettore SQL Server</a>.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 * L'app per la logica da cui accedere al database SQL. Per avviare l'app per la logica con un trigger SQL, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 

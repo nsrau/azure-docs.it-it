@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: configurazione di Weibo | Documentazione Microsoft'
+title: Configurazione di Weibo in Azure Active Directory B2C | Microsoft Docs
 description: Fornire l'iscrizione e l'accesso agli utenti con account Weibo nelle applicazioni protette da Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: bfd7dde290bd040f8457e6d095fdf896e802764b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444790"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account Weibo
 
@@ -31,24 +31,24 @@ Per usare Weibo come provider di identità in Azure Active Directory (Azure AD) 
 
 1. Passare al [portale per sviluppatori Weibo](http://open.weibo.com/) e accedere con le credenziali dell'account Weibo.
 2. Dopo l'accesso, fare clic sul nome visualizzato nell'angolo superiore destro.
-3. Nell'elenco a discesa selezionare**编辑开发者信息** (Modifica informazioni per gli sviluppatori).
-4. Immettere le informazioni necessarie nel modulo e fare clic su **下一步** (Invia).
+3. Nell'elenco a discesa selezionare **编辑开发者信息** (modifica le informazioni per sviluppatori).
+4. Immettere le informazioni richieste nel modulo e fare clic su **提交** (invia).
 5. Questa operazione completerà il processo di verifica email.
 6. Andare alla [pagina di verifica dell'identità](http://open.weibo.com/developers/identity/edit).
-7. Immettere le informazioni necessarie nel modulo e fare clic su **下一步** (Invia).
+7. Immettere le informazioni richieste nel modulo e fare clic su **提交** (invia).
 
 ### <a name="register-a-weibo-application"></a>Registrare un'applicazione Weibo
 
 1. Accedere alla [pagina per la registrazione di app Weibo](http://open.weibo.com/apps/new).
 2. Immettere le informazioni sull'applicazione necessarie.
-3. Fare clic su **创建** (Crea).
+3. Fare clic su **创建** (crea).
 4. Copiare i valori della **chiave app** e del **segreto app**. che sarà necessario più avanti.
 5. Caricare le foto necessarie e immettere le informazioni necessarie.
-6. Fare clic su **保存以上信息** (Salva).
-7. Fare clic su **高级信息** (Informazioni avanzate).
-8. Fare clic su **编辑** (Modifica) accanto al campo per OAuth 2.0**授权设置** (URL di reindirizzamento).
-9. Immettere `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` per OAuth 2.0**授权设置** (URL di reindirizzamento). Ad esempio, se `tenant_name` è contoso.onmicrosoft.com, impostare l'URL a `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
-10. Fare clic su **提交** (Invia).  
+6. Fare clic su **保存以上信息** (salva).
+7. Fare clic su **高级信息** (informazioni avanzate).
+8. Fare clic su **编辑** (modifica) accanto al campo per OAuth2.0 **授权设置** (URL di reindirizzamento).
+9. Immettere `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` per OAuth2.0 **授权设置** (URL di reindirizzamento). Ad esempio, se `tenant_name` è contoso.onmicrosoft.com, impostare l'URL a `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+10. Fare clic su **提交** (invia).  
 
 ## <a name="configure-weibo-as-an-identity-provider-in-your-tenant"></a>Configurare Weibo come provider di identità nel tenant
 1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.

@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807534"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -43,12 +44,12 @@ In un piano di servizio app è possibile applicare la scalabilità tra i livelli
 
 ## <a name="consumption-plan"></a>Piano a consumo
 
-Quando si usa un piano a consumo, le istanze dell'host di Funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano a consumo, una funzione può essere eseguita al massimo per 10 minuti. 
+Quando si usa un piano a consumo, le istanze dell'host di Funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile. 
 
 > [!NOTE]
-> Il timeout predefinito per le funzioni in un piano a consumo è di 5 minuti. Il valore può essere aumentato a 10 minuti per l'app per le funzioni modificando la proprietà `functionTimeout` nel file di progetto [host.json](functions-host-json.md#functiontimeout).
+> Il timeout predefinito per le funzioni in un piano a consumo è di 5 minuti. Il valore può essere aumentato per l'app per le funzioni fino a un massimo di 10 minuti modificando la proprietà `functionTimeout` nel file di progetto [host.json](functions-host-json.md#functiontimeout).
 
-La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [pagina relativa ai prezzi per Funzioni di Azure].
+La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [Pagina dei prezzi di Funzioni di Azure].
 
 Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguenti:
 - Addebiti solo quando le funzioni sono in esecuzione.
@@ -90,7 +91,7 @@ Per altre informazioni sui tipi di account di archiviazione, vedere [Introduzion
 
 ## <a name="how-the-consumption-plan-works"></a>Funzionamento del piano a consumo
 
-Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.  Un'istanza dell'host è l'app per le funzioni, vale a dire che tutte le funzioni all'interno di un'app per le funzioni condividono le risorse all'interno di un'istanza e vengono ridimensionate contemporaneamente.
+Nel piano a consumo il controller di scalabilità offre la scalabilità automatica di CPU e delle risorse di memoria aggiungendo altre istanze dell'host di Funzioni di Azure, in base al numero di eventi che attivano le rispettive funzioni. Ogni istanza dell'host di Funzioni è limitata a 1,5 GB di memoria.  Un'istanza dell'host è l'app per le funzioni. In altre parole, tutte le funzioni all'interno di un'app per le funzioni condividono le risorse all'interno di un'istanza e vengono ridimensionate contemporaneamente. Le app per le funzioni che condividono lo stesso piano A consumo vengono ridimensionate in modo indipendente.  
 
 Quando si usa un piano di hosting a consumo, i file di codice delle funzioni vengono archiviati nelle condivisioni di File di Azure nell'account di archiviazione principale della funzione. Quando si elimina l'account di archiviazione principale dell'app per le funzioni, i file di codice delle funzioni vengono eliminati e non possono essere recuperati.
 
@@ -121,8 +122,8 @@ Esistono molti aspetti di un'app per le funzioni che hanno un impatto sull'accur
 
 ### <a name="billing-model"></a>Modello di fatturazione
 
-La fatturazione per il piano a consumo viene illustrata in modo dettagliato nella [pagina relativa ai prezzi per Funzioni di Azure]. L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti: 
+La fatturazione per il piano a consumo viene illustrata in modo dettagliato nella [Pagina dei prezzi di Funzioni di Azure]. L'utilizzo viene aggregato a livello di app per le funzioni e viene calcolato solo il tempo di esecuzione del codice di tale funzione. Per la fatturazione vengono usate le unità seguenti: 
 * **Utilizzo delle risorse in gigabyte al secondo (GB-s)**. Calcolato come combinazione di dimensioni di memoria e tempo di esecuzione per tutte le funzioni in un'app per le funzioni. 
 * **Esecuzioni**. Conteggiate ogni volta che una funzione viene eseguita in risposta a un trigger di evento.
 
-[pagina relativa ai prezzi per Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions
+[Pagina dei prezzi di Funzioni di Azure]: https://azure.microsoft.com/pricing/details/functions

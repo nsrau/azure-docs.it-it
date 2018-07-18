@@ -23,6 +23,8 @@
       href: monitoring-data-sources.md
     - name: Monitoraggio di Azure
       href: monitoring-overview-azure-monitor.md
+    - name: Agents
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: Metriche
       href: monitoring-overview-metrics.md
     - name: Autoscale
@@ -101,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Abilitare le impostazioni di diagnostica con i modelli di Resource Manager
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: Preparazione per il formato dei log di diagnostica JSON Lines
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: Usare log attività
       items:
         - name: Visualizzare eventi nel log attività
@@ -129,6 +133,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Esempi di Azure PowerShell
           href: insights-powershell-samples.md
+        - name: Esempi dell'interfaccia della riga di comando di Azure
+          href: insights-cli-samples.md
     - name: Usare l'estensione di Diagnostica di Azure
       items:
         - name: Inviare ad Archiviazione di Azure

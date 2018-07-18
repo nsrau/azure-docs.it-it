@@ -1,8 +1,8 @@
 ---
 title: Aumentare le prestazioni di un'app in Azure | Documentazione Microsoft
-description: "Informazioni su come aumentare le prestazioni di un'app nel servizio app di Azure per aggiungere capacità e funzionalità."
+description: Informazioni su come aumentare le prestazioni di un'app nel servizio app di Azure per aggiungere capacità e funzionalità.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306434"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Aumentare le prestazioni di un'app in Azure
 
 > [!NOTE]
-> Il nuovo livello **PremiumV2** consente di avere CPU più veloci e spazio di archiviazione SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi di prestazioni che ne derivano consentono di eseguire le app su un minor numero di istanze e garantiscono quindi un risparmio economico. Per passare al livello **PremiumV2**, vedere [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configurare il livello PremiumV2 per il servizio app).
+> Il nuovo livello **PremiumV2** consente di avere CPU più veloci e spazio di archiviazione SSD, nonché di raddoppiare il rapporto tra memoria e core rispetto ai piani tariffari esistenti. I vantaggi relativi alle prestazioni che ne derivano consentono di eseguire le app con un minor numero di istanze e garantiscono quindi un risparmio economico. Per passare al livello **PremiumV2**, vedere [Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md) (Configurare il livello PremiumV2 per il servizio app).
 >
 
 Questo articolo illustra come passare a un piano superiore per un'app nel servizio app di Azure. Sono disponibili due flussi di lavoro per la scalabilità, l'aumento delle prestazioni e l'aumento del numero di istanze. Questo articolo illustra come aumentare le prestazioni.
@@ -50,7 +51,7 @@ Per informazioni sui prezzi e le funzionalità dei singoli piani di servizio app
 2. Nella pagina dell'app del servizio app fare clic su **Tutte le impostazioni** e quindi su **Scale Up** (Aumenta prestazioni).
    
     ![Passare al ridimensionamento di un'app di Azure.][ChooseWHP]
-3. Scegliere il livello e quindi fare clic su **Seleziona**.
+3. Scegliere il livello e quindi fare clic su **Applica**.
    
     Al termine dell'operazione, nella scheda **Notifiche** verrà visualizzata la scritta verde lampeggiante **OPERAZIONE RIUSCITA**.
 
@@ -97,7 +98,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
   
     [Dimensioni delle macchine virtuali e dei servizi cloud per Microsoft Azure][vmsizes]
   
-* Per informazioni sulle procedure consigliate per Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere il post di blog relativo alle [procedure consigliate per le app Web del servizio app di Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* Per informazioni sulle procedure consigliate per Servizio app di Azure, inclusa la creazione di un'architettura scalabile e resiliente, vedere il post di blog relativo alle [procedure consigliate per le app Web del servizio app di Azure](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Per i video sul ridimensionamento delle app del servizio app, vedere le risorse seguenti:
   
   * [Quando è necessario ridimensionare i siti Web di Azure - con Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ Per una tabella dei limiti, delle quote e dei vincoli del servizio e per le funz
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

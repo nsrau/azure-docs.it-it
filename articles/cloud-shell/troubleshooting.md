@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608951"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -43,11 +44,6 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
  - **Risoluzione**: verificare di aver configurato le impostazioni di rete per abilitare l'invio di richieste https e di richieste websocket ai domini in *.console.azure.com.
 
 ## <a name="bash-troubleshooting"></a>Risoluzione dei problemi di Bash
-
-### <a name="cannot-run-az-login"></a>Non è possibile eseguire az login
-
-- **Dettagli**: l'esecuzione di `az login` non funzionerà se l'utente è già autenticato con l'account usato per accedere a Cloud Shell o al portale di Azure.
-- **Risoluzione**: usare l'account usato per accedere o disconnettersi e ripetere l'autenticazione con il proprio account Azure desiderato.
 
 ### <a name="cannot-run-the-docker-daemon"></a>Non è possibile eseguire il daemon Docker
 
@@ -149,7 +145,7 @@ Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'un
 
 Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD` o `Connect-AzureRmAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Conformità al Regolamento generale sulla protezione dei dati (RGPD) per Cloud Shell
+## <a name="gdpr-compliance-for-cloud-shell"></a>Conformità al Regolamento generale sulla protezione dei dati (GDPR) per Cloud Shell
 
 Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati acquisiti e archiviati mediante il servizio Azure Cloud Shell vengono usati per offrire un'esperienza predefinita all'utente, considerando ad esempio l'ultima shell usata, le dimensioni e il tipo di carattere preferiti e i dettagli della condivisione dei file che supportano il clouddrive. Se si desidera esportare o eliminare i dati è possibile fare riferimento alle istruzioni seguenti.
 

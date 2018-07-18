@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301581"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverso in Azure Service Fabric
 Il proxy inverso integrato in Azure Service Fabric consente ai microservizi in esecuzione in un cluster di Service Fabric di rilevare e comunicare con altri servizi che hanno endpoint HTTP.
@@ -56,8 +57,13 @@ Invece di configurare la porta di un singolo servizio in Load Balancer, è possi
 ![Comunicazione esterna][0]
 
 > [!WARNING]
-> Quando si configura la porta del proxy inverso nel servizio Load Balancer, tutti i microservizi nel cluster che espone un endpoint HTTP sono indirizzabili dall'esterno del cluster.
+> Quando si configura la porta del proxy inverso nel servizio Load Balancer, tutti i microservizi nel cluster che espone un endpoint HTTP sono indirizzabili dall'esterno del cluster. Ciò significa che i microservizi concepiti per essere interni potrebbero essere individuati da un utente malintenzionato. Questo presenta potenzialmente delle gravi vulnerabilità che possono essere sfruttate, ad esempio:
 >
+> * Un utente malintenzionato potrebbe attivare un attacco Denial of Service chiamando ripetutamente un servizio interno che non ha una superficie di attacco con protezione avanzata.
+> * Un utente malintenzionato potrebbe distribuire dei pacchetti non validi a un servizio interno che potrebbe causare un comportamento indesiderato.
+> * Un servizio concepito per essere interno potrebbe restituire informazioni private o riservate che non sono destinate a essere esposte ai servizi all'esterno del cluster esponendo quindi le informazioni riservate a un utente malintenzionato. 
+>
+> Assicurarsi di aver compreso completamente e di aver attenuato le potenziali ramificazioni di sicurezza per il cluster e le app in esecuzione su di esso prima di rendere pubblica la porta del proxy inverso. 
 >
 
 

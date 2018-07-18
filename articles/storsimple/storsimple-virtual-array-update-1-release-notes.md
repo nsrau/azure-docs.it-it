@@ -2,11 +2,11 @@
 title: Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple | Microsoft Docs
 description: Vengono illustrati i principali problemi in sospeso e le soluzioni per l'array virtuale StorSimple che esegue l'aggiornamento 1.0.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010864"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Note sulla versione dell'aggiornamento 1.0 per l'array virtuale StorSimple
 

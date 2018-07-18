@@ -1,25 +1,26 @@
 ---
-title: Domande frequenti sulla creazione di report in Azure Active Directory | Microsoft Docs
+title: Domande frequenti sulla creazione di report in Azure Active Directory | Documentazione Microsoft
 description: Domande frequenti sulla creazione di report in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
+ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: markvi
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fa52099f5cf55b78fd2fea407c34f29237939d3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067011"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335058"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Domande frequenti sulla creazione di report in Azure Active Directory
 
@@ -71,7 +72,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Quanti record è possibile scaricare dal portale di Azure?**
 
-**R:** Dal portale di Azure è possibile scaricare fino a 120 KB di record. I record vengono ordinati in base ai *più recenti* e, per impostazione predefinita, vengono visualizzati 120 KB dei record più recenti. 
+**R:** Dal portale di Azure è possibile scaricare fino a 5.000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5.000 record, ordinati partendo dai record *più recenti*.
 
 ---
 
@@ -83,7 +84,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: Come ottenere una licenza Premium?**
 
-**R:** Per la risposta a questa domanda, vedere [Introduzione ad Azure Active Directory Premium](active-directory-get-started-premium.md).
+**R:** Per la risposta a questa domanda, vedere [Introduzione ad Azure Active Directory Premium](fundamentals/active-directory-get-started-premium.md).
 
 ---
 

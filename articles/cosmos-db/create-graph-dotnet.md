@@ -2,23 +2,21 @@
 title: Creare un'applicazione Framework o Core Cosmos DB tramite l'API Graph | Microsoft Docs
 description: Presenta un esempio di codice .NET Framework/Core che permette di connettersi ad Azure Cosmos DB ed eseguire query sul servizio
 services: cosmos-db
-documentationcenter: ''
 author: luisbosquez
 manager: kfile
-ms.assetid: daacbabf-1bb5-497f-92db-079910703046
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: fdd8ee942667a57ccb7c9211e9aa00ee19a9e522
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453417"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Creare un'applicazione .NET Framework o Core tramite l'API Graph
 
@@ -28,7 +26,7 @@ Questa guida introduttiva mostra come creare un account, un database e un grafo 
 
 ## <a name="prerequisites"></a>prerequisiti
 
-Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
 Se si dispone già di Visual Studio 2017 installato, assicurarsi che sia installata la versione [Visual Studio 2017 Update 3](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes).
 
@@ -69,7 +67,7 @@ Clonare ora un'app per le API Graph da GitHub, impostare la stringa di connessio
 5. Ripristinare i pacchetti NuGet nel progetto. Sono inclusi il driver Gremlin.Net e il pacchetto Newtonsoft.Json.
 
 
-6. È anche possibile installare il driver Gremlin.Net manualmente tramite Gestione pacchetti NuGet o l'[utilità della riga di comando NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. È anche possibile installare il driver Gremlin.Net manualmente tramite Gestione pacchetti NuGet o l'[utilità della riga di comando NuGet](https://docs.microsoft.com/en-us/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -88,7 +86,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file Program.cs.
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * I comandi Gremlin da eseguire sono elencati in un dizionario (riga 26):
@@ -177,7 +175,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
     `private static string database = "your-database";`
 
-5. Analogamente, usando le informazioni della raccolta creata in precedenza, incollare il nome della raccolta, che corrisponde al nome del grafico, nella variabile `collection` nella riga 23. 
+5. Analogamente, usando le informazioni del contenitore creato in precedenza, incollare il nome della raccolta, che corrisponde al nome del grafico, nella variabile `collection` nella riga 23. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -195,7 +193,7 @@ Premere CTRL + F5 per eseguire l'applicazione. L'applicazione stamperà i comand
 
 È ora possibile tornare a Esplora dati nel portale di Azure per esplorare i nuovi dati del grafo ed eseguire query su di essi.
 
-1. In Esplora dati il nuovo database viene visualizzato nel riquadro Graph. Espandere il database e i nodi della raccolta e quindi fare clic su **Grafico**.
+1. In Esplora dati il nuovo database viene visualizzato nel riquadro Graph. Espandere il database e i nodi del contenitore e quindi fare clic su **Grafico**.
 
 2. Fare clic sul pulsante **Applica filtro** per usare la query predefinita per visualizzare tutti i vertici nel grafico. I dati generati dall'app di esempio vengono visualizzati nel riquadro Graphs (Grafi).
 

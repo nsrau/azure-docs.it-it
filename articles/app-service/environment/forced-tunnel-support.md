@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114974"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -37,6 +38,7 @@ Per altre informazioni sul routing in una rete virtuale, vedere [Route definite 
 Se non si desidera instradare il traffico in uscita dell'ambiente del servizio app direttamente a Internet ma a una destinazione diversa, le scelte sono:
 
 * Abilitare un accesso a Internet diretto per l'ambiente del servizio di app
+* Configurare la subnet dell'ambiente del servizio app per ignorare le route BGP
 * Configurare la subnet dell'ambiente del servizio app per l'uso degli endpoint servizio di SQL di Azure e Archiviazione di Azure
 * Aggiungere i propri indirizzi IP al firewall SQL di Azure dell'ambiente del servizio app
 
@@ -58,8 +60,22 @@ Se la rete indirizza già il traffico in locale, è necessario creare la subnet 
 
 ![Accesso diretto a Internet][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Configurare la subnet dell'ambiente del servizio app per ignorare le route BGP ## 
+
+Puoi configurare la subnet dell'ambiente del servizio app per ignorare tutte le route BGP.  Quando configurate, l'ambiente del servizio app riesce ad accedere alle relative dipendenze senza problemi.  Dovrai creare route definite dall'utente, tuttavia per abilitare le app accedi alle risorse locali.
+
+Per configurare la subnet dell'ambiente del servizio app al fine di ignorare le route BGP:
+
+* crea una route definita dall'utente e assegnala alla subnet dell'ambiente del servizio app se non ne disponi già.
+* Nel portale di Azure, apri l'interfaccia utente per la tabella di route assegnata alla subnet dell'ambiente del servizio app.  Seleziona Configurazione.  Imposta la propagazione della route BGP su Disabilitata.  Fare clic su Save. La documentazione sulla disabilitazione è consultabile in [Creare una tabella di route][routetable].
+
+Al termine dell'operazione, le app non saranno in grado di raggiungere l'ambiente locale. Per risolvere questo problema, modifica la route definita dall'utente assegnata alla subnet dell'ambiente del servizio app e aggiungi le route per gli intervalli degli indirizzi locali. Il tipo di hop successivo deve essere impostato su Gateway di rete virtuale. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Configurare l'ambiente del servizio app con endpoint servizio ##
+
+ > [!NOTE]
+   > Gli endpoint servizio con SQL non funzionano con l'ambiente del servizio app nelle aree US Government.  Le informazioni seguenti sono valide solo nelle aree pubbliche di Azure.  
 
 Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad eccezione del traffico diretto a SQL di Azure e Archiviazione di Azure, procedere come segue:
 
@@ -141,3 +157,4 @@ Oltre alla semplice interruzione della comunicazione, anche l'introduzione di un
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

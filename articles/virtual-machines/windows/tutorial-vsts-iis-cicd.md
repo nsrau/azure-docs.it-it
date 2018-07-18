@@ -3,7 +3,7 @@ title: 'Esercitazione: Creare una pipeline CI/CD in Azure con Team Services | Mi
 description: In questa esercitazione si apprenderà come creare una pipeline di Visual Studio Team Services per l'integrazione e il recapito continui che distribuisce un'app Web su IIS in una macchina virtuale Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: d017f2453bbd757c16e2df034f5879f24ffe42f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b23cec90573c4be73a73daf0bc0e793da012585c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192221"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932093"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Esercitazione: Creare una pipeline di integrazione continua con Visual Studio Team Services e IIS
 Per automatizzare le fasi di compilazione, test e distribuzione dello sviluppo di un'applicazione, è possibile usare una pipeline per l'integrazione e la distribuzione continui (CI/CD). In questa esercitazione viene creata una pipeline CI/CD tramite Visual Studio Team Services e una macchina virtuale Windows in Azure che esegue IIS. Si apprenderà come:

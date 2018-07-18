@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048503"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning in HDInsight
 
@@ -32,13 +33,13 @@ La libreria di apprendimento automatico Microsoft per Apache Spark è [MMLSpark]
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) è attualmente il linguaggio di programmazione per l'analisi statistica più diffuso al mondo. Si tratta di uno strumento open source di visualizzazione dei dati che vanta una community di oltre 2,5 milioni di utenti, ancora in aumento. Con la sua dinamica base di utenti e oltre 8.000 pacchetti creati dalla community, R è la scelta più probabile per molte società che hanno bisogno di funzionalità di apprendimento automatico. È possibile creare un cluster HDInsight con R Server pronto per l'uso con set di dati e modelli di dimensioni molto grandi. Questa funzionalità offre a data scientist ed esperti di statistica un'interfaccia R familiare e scalabile on demand tramite HDInsight, senza dover eseguire attività aggiuntive di configurazione e manutenzione del cluster.
+[R](https://www.r-project.org/) è attualmente il linguaggio di programmazione per l'analisi statistica più diffuso al mondo. Si tratta di uno strumento open source di visualizzazione dei dati che vanta una community di oltre 2,5 milioni di utenti, ancora in aumento. Con la sua dinamica base di utenti e oltre 8.000 pacchetti creati dalla community, R è la scelta più probabile per molte società che hanno bisogno di funzionalità di apprendimento automatico. È possibile creare un cluster HDInsight con ML Services pronto per l'uso con set di dati e modelli di dimensioni molto grandi. Questa funzionalità offre a data scientist ed esperti di statistica un'interfaccia R familiare e scalabile on demand tramite HDInsight, senza dover eseguire attività aggiuntive di configurazione e manutenzione del cluster.
 
 ![Training per la stima con R Server](./media/hdinsight-machine-learning-overview/r-training.png)
 
 Il nodo perimetrale di un cluster offre una posizione pratica per connettersi al cluster ed eseguire gli script R.  È anche possibile scegliere di eseguire script R tra i nodi del cluster usando contesti di calcolo Hadoop MapReduce o Spark di ScaleR.
 
-Con R Server su HDInsight con Spark, è possibile parallelizzare il training tra i nodi di un cluster usando un contesto di calcolo Spark. È possibile eseguire script R direttamente nel nodo perimetrale usando tutti i core disponibili in parallelo, in base alle esigenze. In alternativa, è possibile eseguire il codice dal nodo perimetrale per avviare l'elaborazione distribuita tra tutti i nodi nel cluster. R Server su HDInsight con Spark permette anche di usare funzioni di parallelizzazione da pacchetti R open source, se lo si desidera.
+Con ML Services su HDInsight con Spark, è possibile parallelizzare il training tra i nodi di un cluster usando un contesto di calcolo Spark. È possibile eseguire script R direttamente nel nodo perimetrale usando tutti i core disponibili in parallelo, in base alle esigenze. In alternativa, è possibile eseguire il codice dal nodo perimetrale per avviare l'elaborazione distribuita tra tutti i nodi nel cluster. ML Services su HDInsight con Spark permette anche di usare funzioni di parallelizzazione da pacchetti R open source, se lo si desidera.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning e Hive
 

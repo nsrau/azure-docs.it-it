@@ -4,21 +4,19 @@ description: Informazioni su come usare il comando COPY di CQL per copiare dati 
 services: cosmos-db
 author: govindk
 manager: kfile
-documentationcenter: ''
-ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-cassandra
+ms.devlang: dotnet
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095673"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: importare i dati di Cassandra
 
@@ -31,7 +29,7 @@ Questa esercitazione illustra le attività seguenti:
 > * Importazione di dati tramite il comando cqlsh COPY
 > * Importazione tramite il connettore Spark 
 
-# <a name="prerequisites"></a>prerequisiti
+# <a name="prerequisites"></a>Prerequisiti
 
 * Installare [Apache Cassandra](http://cassandra.apache.org/download/) e verificare che sia presente *cqlsh*.
 * Aumentare la velocità effettiva: la durata della migrazione dei dati dipende dalla velocità effettiva allocata per le tabelle. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel [portale di Azure](https://portal.azure.com), vedere [Impostare la velocità effettiva per i contenitori di Azure Cosmos DB](set-throughput.md).
@@ -59,9 +57,9 @@ Per importare i dati di Cassandra in Azure Cosmos DB per l'uso con l'API Cassand
 1. Creare prima la tabella e ridimensionarla:
     * Per impostazione predefinita, Azure Cosmos DB effettua il provisioning di una nuova tabella di API Cassandra con 1.000 unità richiesta al secondo (UR/s). Il provisioning per la creazione basata su CQL è pari a 400 UR/s. Prima di iniziare la migrazione tramite cqlsh, creare tutte le tabelle dal [portale di Azure](https://portal.azure.com) o da cqlsh. 
 
-    * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle tabelle dal valore predefinito (400 o 1000 UR/s) a 10.000 UR/sec per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione e completare più rapidamente la migrazione. Con la fatturazione oraria in Azure Cosmos DB, è possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
+    * Nel [portale di Azure](https://portal.azure.com) aumentare la velocità effettiva delle tabelle dal valore predefinito (400 o 1000 UR/s) a 10.000 UR/sec per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. Con la fatturazione oraria in Azure Cosmos DB, è possibile ridurre la velocità effettiva immediatamente dopo la migrazione per ridurre i costi.
 
-2. Determinare l'addebito delle unità richiesta per un'operazione. A tale scopo è possibile usare l'SDK per le API Cassandra di Azure Cosmos DB di propria scelta. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta. 
+2. Determinare l'addebito delle unità richieste per un'operazione. A tale scopo è possibile usare l'SDK per le API Cassandra di Azure Cosmos DB di propria scelta. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta. 
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);

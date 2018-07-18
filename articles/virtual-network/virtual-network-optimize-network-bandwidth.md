@@ -1,12 +1,12 @@
 ---
-title: "Ottimizzare la velocità effettiva di rete della macchina virtuale | Documentazione Microsoft"
-description: "Informazioni su come ottimizzare la velocità effettiva di rete della macchina virtuale di Azure."
+title: Ottimizzare la velocità effettiva di rete della macchina virtuale | Documentazione Microsoft
+description: Informazioni su come ottimizzare la velocità effettiva di rete della macchina virtuale di Azure.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29132892"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Ottimizzare la velocità effettiva di rete per le macchine virtuali di Azure
 

@@ -15,11 +15,12 @@ ms.workload: ''
 ms.date: 11/13/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: feb50d80f8bd68ea3b578f307b20ee45dd26e21f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 61f8c7860a0ee405446fefdc808af0313955e0c8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602867"
 ---
 # <a name="enforce-tag-match-pattern-for-tag-values"></a>Applicare i criteri di corrispondenza tag per i valori dei tag
 
@@ -76,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- I modelli di Criteri di Azure di esempio aggiuntivi sono disponibili nella pagina [Templates for Azure Policy](../json-samples.md) (Modelli per Criteri di Azure).
+- Vedere altri esempi in [Esempi di Criteri di Azure](../json-samples.md).

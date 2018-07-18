@@ -1,0 +1,29 @@
+- name: Documentazione di Ricerca di risposte progetto
+- name: Panoramica
+  expanded: true
+  items:
+    - name: Informazioni su Ricerca di risposte progetto
+      href: overview.md
+- name: Guide introduttive
+  expanded: true
+  items:
+    - name: 'C#'
+      href: c-sharp-quickstart.md
+    - name: Java
+      href: java-quickstart.md
+    - name: Nodo
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Concetti
+  items:
+    - name: Query di fatti
+      href: fact-queries.md
+    - name: Query di entità
+      href: entity-queries.md
+- name: Riferimenti
+  items:
+    - name: Requisiti per l'uso e la visualizzazione
+      href: use-display-requirements.md
+    - name: Informazioni di riferimento su Ricerca di risposte progetto
+      href: reference.md

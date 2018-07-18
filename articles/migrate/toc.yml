@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: Calcoli delle valutazioni
       href: concepts-assessment-calculation.md
-    - name: Visualizzazione delle dipendenze
+    - name: Informazioni sulla visualizzazione delle dipendenze
       href: concepts-dependency-visualization.md
 - name: Guide alle procedure
   items:
@@ -22,12 +22,30 @@
       items:
         - name: 1. Panoramica della migrazione Contoso
           href: contoso-migration-overview.md
-        - name: 2. Contoso - Configurare un'infrastruttura di Azure
+        - name: 2. Contoso - Distribuire un'infrastruttura di Azure
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso - Valutare le risorse locali per la migrazione in Azure
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso - Rehosting in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso - Rehosting di un'app in macchine virtuali di Azure e in Istanza gestita di database SQL di Azure
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso - Rehosting di un'app in macchine virtuali di Azure
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso - Rehosting di un'app in macchine virtuali di Azure e gruppi di disponibilità AlwaysOn di Azure SQL Server
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso - Rehosting di un'app Linux in VM di Azure
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso - Rehosting di un'app Linux in VM di Azure e Azure MySQL
+          href: contoso-migration-rehost-linux-vm-mysql.md
+        - name: 9. Contoso - Refactoring di un'app in App Web di Azure e in un database SQL di Azure
+          href: contoso-migration-refactor-web-app-sql.md
+        - name: 10. Contoso - Refactoring di un'app Linux in App Web di Azure e Azure MySQL
+          href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso - Eseguire la migrazione da TFS a VSTS
+          href: contoso-migration-tfs-vsts.md
+        - name: 12. Contoso - Riprogettare un'app in contenitori di Azure e nel database SQL di Azure
+          href: contoso-migration-rearchitect-container-sql.md
+        - name: 13. Contoso - Ricompilare un'app in Azure
+          href: contoso-migration-rebuild.md
     - name: Individuare e valutare un ambiente di grandi dimensioni
       href: how-to-scale-assessment.md
     - name: Raggruppare i computer
@@ -48,3 +66,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: Domande frequenti
+      href: resources-faq.md

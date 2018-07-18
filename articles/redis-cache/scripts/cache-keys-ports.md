@@ -2,10 +2,10 @@
 title: Esempio di script dell'interfaccia della riga di comando di Azure - Recuperare il nome host, le porte e le chiavi per Cache Redis di Azure | Microsoft Docs
 description: Esempio di script dell'interfaccia della riga di comando di Azure - Recuperare il nome host, le porte e le chiavi per un'istanza di Cache Redis di Azure
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 761eb24e-2ba7-418d-8fc3-431153e69a90
 ms.service: cache-redis
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846452"
 ---
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>Recuperare il nome host, le porte e le chiavi per Cache Redis di Azure
 

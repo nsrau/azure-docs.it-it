@@ -3,22 +3,19 @@ title: Connessione di Apache Spark ad Azure Cosmos DB | Microsoft Docs
 description: Usare questa esercitazione per ottenere informazioni sul connettore Spark per Azure Cosmos DB, che consente di connettere Apache Spark ad Azure Cosmos DB per eseguire attività di data science e aggregazioni distribuite nel sistema di database multi-tenant con distribuzione globale di Microsoft progettato per il cloud.
 keywords: Apache Spark
 services: cosmos-db
-documentationcenter: ''
-author: dennyglee
+author: tknandu
 manager: kfile
-ms.assetid: c4f46007-2606-4273-ab16-29d0e15c0736
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: denlee
-ms.openlocfilehash: e93148a8870a40dbe5d89a2364497c44096eef7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: ramkris
+ms.openlocfilehash: e115c7e18b32630b7331e22a6bdc33338d753fde
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083295"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Velocizzare l'analisi di Big Data in tempo reale con il connettore Spark per Azure Cosmos DB
 
@@ -27,8 +24,6 @@ Il connettore Spark per Azure Cosmos DB consente ad Azure Cosmos DB di fungere d
 Per altre informazioni, vedere questo video con il Principal Program Manager di Azure Cosmos DB, Denny Lee. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T135/player] 
-
-Per usare Spark GraphX e le API Graph Gremlin di Azure Cosmos DB, vedere [Azure Cosmos DB: eseguire analisi dei grafi con Spark e Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## <a name="download"></a>Download
 

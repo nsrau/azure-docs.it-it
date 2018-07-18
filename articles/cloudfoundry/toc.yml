@@ -13,13 +13,15 @@
       href: /azure/virtual-machines/linux/cloudfoundry-get-started
     - name: Distribuire il nozzle di OMS per Cloud Foundry
       href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+    - name: Integrare Cloud Foundry con Azure
+      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Risorse
   items:
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Sito di Cloud Foundry
       href: 'https://docs.cloudfoundry.org/'
-    - name: Installare Cloud Foundry in Azure
+    - name: Installazione di Cloud Foundry in Azure
       href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
     - name: Pivotal e Azure
       href: 'https://pivotal.io/partners/microsoft'

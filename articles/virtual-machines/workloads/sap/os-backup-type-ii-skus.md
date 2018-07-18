@@ -2,32 +2,33 @@
 title: Backup e ripristino del sistema operativo per SKU di tipo II di istanze Large di SAP HANA in Azure | Microsoft Docs
 description: Eseguire il backup e il ripristino del sistema operativo per SKU di tipo II di istanze Large di SAP HANA in Azure
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41349cd7fe3bf39b5b42c44ba47acf980d15ebe7
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063275"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>Backup e ripristino del sistema operativo per SKU di tipo II
 
-In questo documento vengono descritti i passaggi necessari per eseguire il backup e il ripristino del sistema operativo per **SKU di tipo II** di istanze Large di HANA. 
+Questo documento descrive la procedura per eseguire il backup e il ripristino del sistema operativo per **SKU di tipo II** di SAP HANA in istanze Large. 
 
 >[!NOTE]
 >Gli script di backup del sistema operativo usano il software ReaR preinstallato nel server.  
 
-Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning, per impostazione predefinita il server risulta configurato per la pianificazione dell'esecuzione di due backup del sistema operativo completo. È possibile controllare la pianificazione del processo di backup tramite il comando seguente:
+Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning, per impostazione predefinita il server risulta configurato per la pianificazione dell'esecuzione di due backup del sistema operativo a livello di file system. È possibile controllare la pianificazione del processo di backup tramite il comando seguente:
 ```
 #crontab –l
 ```
@@ -37,7 +38,7 @@ Dopo che il team di gestione dei servizi Microsoft ha completato il provisioning
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Esecuzione di un backup manuale
 
-Il backup del sistema operativo viene già pianificato usando un **processo cron**. Tuttavia, è possibile eseguire il backup del sistema operativo anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
+Il backup del file system del sistema operativo viene già pianificato usando un **processo cron**. Tuttavia, è possibile eseguire il backup del sistema operativo a livello di file system anche manualmente. Per eseguire un backup manuale, usare il comando seguente:
 
 ```
 #rear -v mkbackup

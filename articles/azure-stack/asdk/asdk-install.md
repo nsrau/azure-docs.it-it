@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 7b8fe61731a9412c61152bc58e55deebb611d011
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 74a81901c8ad38a84357a9f3c2e1d948aa81e8bc
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084332"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installare il Kit di sviluppo di Azure Stack (ASDK)
 Dopo aver [la preparazione del computer host ASDK](asdk-prepare-host.md), il ASDK può essere distribuito nell'immagine CloudBuilder.vhdx usando la procedura seguente in questo articolo.
@@ -44,11 +45,11 @@ I passaggi descritti in questo articolo mostrano come distribuire ASDK utilizzan
     
     > [!NOTE]
     > Per ottenere risultati ottimali, anche se si desidera utilizzare un ambiente disconnesso Azure Stack mediante ADFS come provider di identità, è consigliabile installare ASDK durante la connessione a internet. In questo modo, è possibile attivare la versione di valutazione di Windows Server 2016 inclusa con l'installazione del kit di sviluppo in fase di distribuzione.
-4. Selezionare una scheda di rete da utilizzare per il kit di sviluppo e quindi fare clic su **Avanti**.
+4. Selezionare una scheda di rete da utilizzare per il kit di sviluppo e quindi fare clic su **successivo**.
 
     ![](media/asdk-install/3.PNG)
 
-5. Selezionare una configurazione di rete statica per la macchina virtuale BGPNAT01 o DHCP.
+5. Selezionare DHCP o configurazione di rete statica per la macchina virtuale BGPNAT01.
     > [!TIP]
     > La macchina virtuale BGPNAT01 è il router perimetrale che offre funzionalità NAT e VPN per lo Stack di Azure.
 
@@ -57,11 +58,11 @@ I passaggi descritti in questo articolo mostrano come distribuire ASDK utilizzan
     - Tipo in un valore valido **ora IP del server** indirizzo. Questa operazione necessaria campo imposta il tempo server da utilizzare con il kit di sviluppo. Questo parametro deve essere fornito come un indirizzo IP del server ora valido. I nomi dei server non sono supportati.
 
       > [!TIP]
-      > Per trovare l'indirizzo IP di un server, visitare [pool.ntp.org](http:\\pool.ntp.org) o time.windows.com ping. 
+      > Per trovare un server di riferimento ora indirizzo IP, visitare [pool.ntp.org](http://pool.ntp.org) o effettuare il ping time.windows.com. 
 
     - **Facoltativamente**, impostare i valori seguenti:
         - **ID VLAN**: imposta l'ID VLAN. Utilizzare questa opzione solo se l'host e AzS BGPNAT01 necessario configurare l'ID VLAN per accedere alla rete fisica (e internet). 
-        - **Server d'inoltro DNS**: un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per la risoluzione dei nomi di fuori l'indicatore, fornire i server di infrastruttura DNS esistente. Il server DNS in timbro inoltra le richieste di risoluzione nome sconosciuto al server.
+        - **Server d'inoltro DNS**: un server DNS viene creato come parte della distribuzione di Azure Stack. Per consentire ai computer all'interno della soluzione per la risoluzione dei nomi di fuori l'indicatore, specificare server di infrastruttura DNS esistente. Il server DNS in timbro inoltra le richieste di risoluzione nome sconosciuto al server.
 
     ![](media/asdk-install/4.PNG)
 
@@ -82,7 +83,7 @@ I passaggi descritti in questo articolo mostrano come distribuire ASDK utilizzan
 
 11. Il processo di distribuzione richiede alcune ore, durante il quale il computer host verrà automaticamente riavviato una sola volta. Se si desidera monitorare lo stato di distribuzione, accedere come azurestack\AzureStackAdmin dopo il riavvio dell'host di kit di sviluppo. Quando la distribuzione ha esito positivo, consente di visualizzare la console di PowerShell: **completa: azione "Distribuzione"**. 
     > [!IMPORTANT]
-    > Se si accede come amministratore locale dopo che è connesso il computer al dominio, non verrà visualizzata l'avanzamento della distribuzione. Non rieseguire la distribuzione, invece Accedi come azurestack\AzureStackAdmin verificare che sia in esecuzione.
+    > Se si accede come amministratore locale dopo che il computer viene aggiunto al dominio, non si vedranno lo stato di distribuzione. Non rieseguire la distribuzione, in alternativa, l'accesso come azurestack\AzureStackAdmin convalidare che venga eseguito.
 
     ![](media/asdk-install/8.PNG)
 

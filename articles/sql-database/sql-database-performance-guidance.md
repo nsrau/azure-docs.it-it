@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
-ms.date: 02/12/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: c84104ac9094980d0e6d16b535dcf13c462a645a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195448"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309215"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ottimizzazione delle prestazioni del database SQL di Azure
 
@@ -25,7 +25,7 @@ Se non sono disponibili suggerimenti applicabili e continuano a verificarsi prob
 - Ottimizzare l'applicazione e applicare alcune procedure consigliate che consentono di migliorare le prestazioni. 
 - Ottimizzare il database modificando gli indici e le query per usare i dati in modo più efficiente.
 
-Questi sono metodi manuali perché è necessario decidere quali [limiti delle risorse del modello basato su DTU](sql-database-dtu-resource-limits.md) e quali [limiti delle risorse del modello basato su vCore (anteprima)](sql-database-vcore-resource-limits.md) sono adatti alle proprie esigenze. In caso contrario, sarà necessario riscrivere il codice dell'applicazione o del database e distribuire le modifiche.
+Questi sono metodi manuali perché è necessario decidere la quantità di risorse adatta alle proprie esigenze. In caso contrario, sarà necessario riscrivere il codice dell'applicazione o del database e distribuire le modifiche.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Aumento del livello di prestazioni del database
 
@@ -271,8 +271,8 @@ Alcune applicazioni comportano un utilizzo elevato di scrittura. È a volte poss
 Alcune applicazioni di database contengono carichi di lavoro con intensa attività di lettura. I livelli di memorizzazione nella cache possono consentire di ridurre il carico nel database e di ridurre il livello di prestazioni necessario per supportare un database usando il database SQL di Azure. La [Cache Redis di Azure](https://azure.microsoft.com/services/cache/), in caso di carico di lavoro con intensa attività di lettura, può consentire di leggere i dati una volta o forse una volta per macchina di livello applicazione, a seconda della relativa configurazione, e di archiviare i dati al di fuori del database SQL. In questo modo è possibile ridurre il carico del database (CPU e I/O letti), ma vi sarà un impatto sulla coerenza transazionale poiché i dati letti dalla cache potrebbero non essere sincronizzati con i dati nel database. Anche se in molte applicazioni è accettabile un livello di incoerenza, ciò non rappresenta una soluzione valida per tutti i carichi di lavoro. È necessario conoscere bene tutti i requisiti delle applicazioni prima di implementare una strategia di caching a livello di applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sui livelli di servizio basati su DTU, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [limiti delle risorse del modello basato su DTU](sql-database-dtu-resource-limits.md)
-* Per altre informazioni sui livelli di servizio basati su vCore, vedere [modello di acquisto basato su vCore (Anteprima) ](sql-database-service-tiers-vcore.md) e [limiti delle risorse del modello basato su vCore (Anteprima)](sql-database-vcore-resource-limits.md)
+* Per altre informazioni sui livelli di servizio basati su DTU, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md).
+* Per altre informazioni sui livelli di servizio basati su vCore, vedere [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
 * Per altre informazioni sui pool elastici, vedere [Informazioni sui pool elastici di Azure](sql-database-elastic-pool.md)
 * Per informazioni sulle prestazioni e sui pool elastici, vedere [Quando usare un pool elastico](sql-database-elastic-pool-guidance.md)
 

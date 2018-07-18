@@ -51,8 +51,6 @@
       href: tutorial-mean-stack.md
     - name: 16 - Proteggere il server Web con SSL
       href: tutorial-secure-web-server.md
-    - name: Distribuire un'immagine Packer e app in un set di scalabilità
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -201,7 +199,13 @@
         - name: Usare Desktop remoto
           href: use-remote-desktop.md
         - name: Aggiungere una macchina virtuale ad Azure Active Directory
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enteprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Accedere con le credenziali di Azure Active Directory
           href: login-using-aad.md
         - name: Aggiornamenti e patch
@@ -222,6 +226,8 @@
           href: scheduled-events.md
         - name: Monitorare i metadati
           href: instance-metadata-service.md
+        - name: Ottenere le metriche di utilizzo con REST
+          href: metrics-vm-usage-rest.md
     - name: Usare immagini
       items:
         - name: Trovare e usare immagini

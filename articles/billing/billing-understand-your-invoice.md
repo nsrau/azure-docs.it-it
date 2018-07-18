@@ -1,5 +1,5 @@
 ---
-title: Comprendere la fattura di Azure
+title: Comprendere la fattura di Azure | Microsoft Docs
 description: Informazioni su come leggere e comprendere l'utilizzo e la fattura per la sottoscrizione di Azure
 services: ''
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 38126e4539719ba56e6e5eac5e860cea9b49d446
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063460"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendere i termini sulla fattura di Microsoft Azure
 

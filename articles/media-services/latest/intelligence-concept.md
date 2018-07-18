@@ -11,11 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331521"
 ---
 # <a name="media-intelligence"></a>Intelligenza dei contenuti multimediali
 
@@ -46,11 +47,11 @@ L'output include un file in formato JSON (insights.json) con tutte le informazio
 
 ### <a name="transcript"></a>transcript
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della riga.|
 |text|Testo della trascrizione.|
-|language|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
+|Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
 Esempio:
@@ -84,12 +85,12 @@ Esempio:
 
 ### <a name="ocr"></a>ocr
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
 |text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
-|language|Lingua del riconoscimento ottico dei caratteri.|
+|Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
 
 ```json
@@ -127,12 +128,12 @@ Esempio:
 
 ### <a name="keywords"></a>keywords
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della parola chiave.|
 |text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
-|language|Lingua della parola chiave, quando tradotta.|
+|Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
 
 ```json
@@ -175,12 +176,12 @@ Esempio:
 
 ### <a name="faces"></a>faces
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID del volto.|
 |name|Nome del volto. Può essere 'Unknown #0', un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
-|description|Nel caso di un personaggio noto, la relativa descrizione, ad esempio "Satya Nadella è nato a...". |
+|description|Nel caso di un personaggio noto, la relativa descrizione. |
 |thumbnalId|ID dell'anteprima del volto.|
 |knownPersonId|Nel caso di una persona nota, il relativo ID interno.|
 |referenceId|Nel caso di un personaggio di Bing, il relativo ID Bing.|
@@ -218,13 +219,13 @@ Esempio:
 }]
 ```
 
-### <a name="labels"></a>labels
+### <a name="labels"></a>Etichette
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dell'etichetta.|
 |name|Nome dell'etichetta, ad esempio 'Computer' o 'TV'.|
-|language|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
+|Linguaggio|Lingua del nome dell'etichetta, quando tradotto. BCP-47|
 |instances|Elenco degli intervalli di tempo in cui è presente l'etichetta. La stessa etichetta può apparire più volte. Ogni istanza ha un campo che indica il grado di attendibilità. |
 
 
@@ -279,7 +280,7 @@ Esempio:
 
 ### <a name="shots"></a>shots
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID dello scatto.|
 |keyFrames|Elenco dei fotogrammi chiave inclusi nello scatto, ciascuno con un ID e un elenco degli intervalli di tempo delle istanze.|
@@ -330,39 +331,12 @@ Esempio:
   ]
 ```
 
-### <a name="audioeffects"></a>audioEffects
-
-|Nome|Descrizione|
-|---|---|
-|id|L'ID dell'effetto audio.|
-|type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
-|instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
-```
-
 
 ### <a name="sentiments"></a>sentiments
 
 Le valutazioni vengono aggregate in base al campo sentimentType (positivo/neutro/negativo), ad esempio 0-0.1, 0.1-0.2.
 
-|Nome|Descrizione|
+|NOME|DESCRIZIONE|
 |---|---|
 |id|ID della valutazione.|
 |averageScore |Media di tutti i punteggi di tutte le istanze di un determinato tipo di valutazione: positivo/neutro/negativo.|

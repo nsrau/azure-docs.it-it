@@ -2,23 +2,20 @@
 title: Partizionamento e aumento del numero di istanze in Azure Cosmos DB | Microsoft Docs
 description: Informazioni sul funzionamento del partizionamento in Azure Cosmos DB, sulla configurazione del partizionamento e delle chiavi di partizione e su come scegliere la chiave di partizione corretta per l'applicazione.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
-documentationcenter: ''
-ms.assetid: cac9a8cd-b5a3-4827-8505-d40bb61b2416
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1976ab5ab0bd0037163b2ad8048fcee10b204ea2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 046e45978d401e05d0ab8154aff994052f5d7717
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960373"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
@@ -50,7 +47,7 @@ In sintesi, il partizionamento in Azure Cosmos DB funziona nel modo seguente:
 
 * Il provisioning di un set di contenitori Azure Cosmos DB viene effettuato con velocità effettiva di **T** UR/s (richieste al secondo).
 * In background Azure Cosmos DB effettua il provisioning delle partizioni fisiche necessarie per gestire **T** richieste al secondo. Se **T** è maggiore della velocità effettiva massima per partizione fisica **t**, Azure Cosmos DB effettua il provisioning di **N = T/t** partizioni fisiche. Il valore della velocità effettiva massima per partizione è configurato da Azure Cosmos DB; questo valore viene assegnato in base alla velocità effettiva totale sottoposta a provisioning e alla configurazione hardware usata. 
-* Azure Cosmos DB alloca lo spazio degli hash delle chiavi di partizione in modo uniforme tra le **N** partizioni fisiche. Ogni partizione fisica ospita quindi **1/N** valori di chiave di partizione (partizioni logiche).
+* Azure Cosmos DB alloca lo spazio degli hash delle chiavi di partizione in modo uniforme tra le **N** partizioni fisiche. Pertanto, il numero di partizioni logiche che ogni partizione fisica ospita corrisponde a **1/N** * numero di valori di chiave di partizione.
 * Quando una partizione fisica **p** raggiunge il limite di archiviazione, Azure Cosmos DB suddivide **p** in due nuove partizioni fisiche, **p1** e **p2**. Distribuisce i valori corrispondenti a circa la metà delle chiavi a ognuna delle nuove partizioni fisiche. Questa operazione di suddivisione è invisibile all'applicazione. Se una partizione fisica raggiunge il limite di archiviazione e tutti i dati della partizione fisica appartengono alla stessa chiave di partizione logica, l'operazione di suddivisione non viene eseguita. Il motivo è che tutti i dati di una singola chiave di partizione logica devono trovarsi nella stessa partizione fisica. In questo caso dovrebbe essere adottata una strategia diversa per la chiave di partizione.
 * Quando si esegue il provisioning di una velocità effettiva superiore a **t*N**, Azure Cosmos DB suddivide una o più partizioni fisiche per supportare la velocità effettiva maggiore.
 
@@ -63,15 +60,24 @@ La semantica delle chiavi di partizione è leggermente diversa in modo da corris
 | Gremlin | Proprietà chiave di partizione personalizzata | `id` fisso | 
 | Tabella | `PartitionKey` fisso | `RowKey` fisso | 
 
-Azure Cosmos DB usa il partizionamento basato su hash. Quando si scrive un elemento, Azure Cosmos DB esegue l'hashing del valore della chiave di partizione e usa il risultato con hash per determinare la partizione in cui archiviare l'elemento. Azure Cosmos DB archivia tutti gli elementi con la stessa chiave di partizione nella stessa partizione fisica. La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. Scegliere un nome proprietà che contenga un'ampia gamma di valori e abbia anche modelli di accesso. Se una partizione fisica raggiunge il limite di archiviazione e i dati nella partizione hanno la stessa chiave di partizione, Azure Cosmos DB restituisce il messaggio *"Partition key reached maximum size of 10 GB"* (La chiave di partizione ha raggiunto la dimensione massima di 10 GB) e la partizione non viene suddivisa. La scelta di una buona chiave di partizione è una decisione molto importante.
+Azure Cosmos DB usa il partizionamento basato su hash. Quando si scrive un elemento, Azure Cosmos DB esegue l'hashing del valore della chiave di partizione e usa il risultato con hash per determinare la partizione in cui archiviare l'elemento. Azure Cosmos DB archivia tutti gli elementi con la stessa chiave di partizione nella stessa partizione fisica. 
 
-> [!NOTE]
-> Una procedura consigliata consiste nello scegliere una chiave di partizione con un numero elevato di valori distinti, ad esempio diverse centinaia o migliaia. In questo modo, è possibile distribuire il carico di lavoro in modo uniforme tra questi valori. Una chiave di partizione ideale appare spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
->
+## <a name="best-practices-when-choosing-a-partition-key"></a>Procedure consigliate per scegliere una chiave di partizione
 
-I contenitori di Azure Cosmos DB possono essere creati come *fissi* o *senza limitazioni* nel portale di Azure. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una chiave di partizione e una velocità effettiva minima di 1.000 UR/s. 
+La scelta della chiave di partizione è una decisione importante da prendere in fase di progettazione. Scegliere un nome proprietà che contenga un'ampia gamma di valori e abbia anche modelli di accesso. Una procedura consigliata consiste nello scegliere una chiave di partizione con un numero elevato di valori distinti, ad esempio diverse centinaia o migliaia. In questo modo, è possibile distribuire il carico di lavoro in modo uniforme tra questi valori. Una chiave di partizione ideale appare spesso come filtro nelle query e ha una cardinalità sufficiente per garantire la scalabilità della soluzione.
 
-I contenitori di Azure DB Cosmos possono anche essere configurati per condividere la velocità effettiva tra un set di contenitori, in cui ogni contenitore deve specificare una chiave partizione e si può espandere senza limiti.
+Se una partizione fisica raggiunge il limite di archiviazione e i dati nella partizione hanno la stessa chiave di partizione, Azure Cosmos DB restituisce il messaggio *"Partition key reached maximum size of 10 GB"* (La chiave di partizione ha raggiunto la dimensione massima di 10 GB) e la partizione non viene suddivisa. La scelta di una buona chiave di partizione è una decisione molto importante. Le partizioni fisiche sono un concetto interno di Azure Cosmos DB e sono temporanee. Con Azure Cosmos DB il numero di partizioni fisiche viene scalato automaticamente in base al carico di lavoro. Pertanto è consigliabile non correlare la progettazione del database al numero di partizioni fisiche mentre bisogna accertarsi di scegliere la chiave di partizione corretta (partizioni logiche). 
+
+Scegliere una chiave di partizione in modo che:
+
+* La distribuzione di archiviazione sia uniforme su tutte le chiavi.
+* La distribuzione del volume di richieste in un determinato punto nel tempo sia uniforme su tutte le chiavi.
+* Le query che vengono richiamate con concorrenza elevata possano essere indirizzate in modo efficiente includendo la chiave di partizione nel predicato del filtro.  
+* La scelta di una chiave di partizione con cardinalità più elevata è in genere preferibile perché solitamente produce distribuzione e scalabilità migliori. Ad esempio, una chiave composta può essere formata dalla concatenazione dei valori di più proprietà per aumentare la cardinalità. 
+
+Quando si sceglie una chiave di partizione tenendo conto delle considerazioni precedenti, non è necessario preoccuparsi del numero di partizioni né della velocità effettiva allocata a ogni partizione fisica in quanto Azure Cosmos DB ridimensiona il numero di partizioni fisiche e può anche scalare le singole partizioni, se necessario.
+
+I contenitori di Azure Cosmos DB possono essere creati come *fissi* o *senza limitazioni* nel portale di Azure. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una chiave di partizione e una velocità effettiva minima di 1.000 UR/s. I contenitori di Azure DB Cosmos possono anche essere configurati per condividere la velocità effettiva tra un set di contenitori, in cui ogni contenitore deve specificare una chiave partizione e si può espandere senza limiti.
 
 È consigliabile controllare il modo in cui i dati vengono distribuiti tra le partizioni. Per controllare la distribuzione dei dati nel portale, accedere al proprio account Azure Cosmos DB e fare clic su **Metriche** nella sezione **Monitoraggio** e quindi fare clic sulla scheda **Archiviazione** per verificare il modo in cui i dati sono partizionati tra partizioni fisiche diverse.
 

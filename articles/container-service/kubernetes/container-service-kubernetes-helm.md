@@ -3,17 +3,18 @@ title: Distribuire contenitori con Helm in Azure Kubernetes
 description: Usare lo strumento di creazione dei pacchetti Helm per distribuire i contenitori in un cluster Kubernetes nel servizio contenitore di Azure
 services: container-service
 author: sauryadas
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: e9e214aeacde2f338d3e59507269d1eb4b689418
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634154"
 ---
 # <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>Usare Helm per distribuire i contenitori in un cluster Kubernetes
 

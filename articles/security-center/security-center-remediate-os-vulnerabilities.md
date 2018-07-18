@@ -5,20 +5,21 @@ services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285917"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -50,7 +51,7 @@ Questo esempio illustra la raccomandazione "Remediate security configurations" (
 
   - **CCEID**: identificatore univoco di CCE per la regola. Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci alle regole di configurazione.
   - **Nome**: nome della regola non riuscita.
-  - **Tipo di regola**: tipo di regola *Chiave del Registro di sistema*, *Criteri di sicurezza* o *Criterio di controllo*.
+  - **Tipo di regola**: *Chiave del Registro di sistema*, *Criteri di sicurezza*, *Criterio di controllo* o *IIS*.
   - **N. di VM e computer**: numero totale di macchine virtuali e computer a cui si applica la regola non riuscita.
   - **Gravità della regola**: valore di CCE *Critico*, *Importante* o *Avviso*.
   - **Stato**: stato attuale della raccomandazione:
@@ -99,10 +100,10 @@ Per esaminare le configurazioni specifiche sottoposte a monitoraggio, vedere l'[
 
 Per altre informazioni sul Centro sicurezza, vedere le risorse seguenti:
 
-* Per un elenco di macchine virtuali Windows e Linux supportate, vedere [Piattaforme supportate nel Centro sicurezza di Azure](security-center-os-coverage.md). 
-* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md). 
-* Per informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md). 
-* Per informazioni su come monitorare l'integrità delle risorse di Azure, vedere [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). 
+* Per un elenco di macchine virtuali Windows e Linux supportate, vedere [Piattaforme supportate nel Centro sicurezza di Azure](security-center-os-coverage.md).
+* Per informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure, vedere [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](security-center-policies.md).
+* Per informazioni sul modo in cui le raccomandazioni semplificano la protezione delle risorse di Azure, vedere [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
+* Per informazioni su come monitorare l'integrità delle risorse di Azure, vedere [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md).
 * Per informazioni su come gestire e rispondere agli avvisi di sicurezza, vedere [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md).
 * Per informazioni su come monitorare l'integrità delle soluzioni dei partner, vedere [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md).
 * Per le risposte alle domande frequenti sull'uso del servizio, vedere [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md).

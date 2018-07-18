@@ -4,8 +4,8 @@ description: La decodifica edifact delle app per la logica di Azure B2B risolve 
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e04e7515a8ddfe512ba2efbbd45c3d1b571c1fd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297948"
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>Come gestire documenti EDIFACT con un segmento UNH2.5
 Quando nel documento EDIFACT è presente un segmento UNH 2.5, viene usato per la ricerca dello schema. 

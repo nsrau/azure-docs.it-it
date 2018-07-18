@@ -1,6 +1,6 @@
 ---
 title: Creare un'API senza server mediante Funzioni di Azure | Documentazione Microsoft
-description: 'Procedura: creare un''API senza server mediante Funzioni di Azure'
+description: "Procedura: creare un'API senza server mediante Funzioni di Azure"
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24811601"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creare un'API senza server mediante Funzioni di Azure
 

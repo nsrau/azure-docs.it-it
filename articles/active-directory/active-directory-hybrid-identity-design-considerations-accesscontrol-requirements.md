@@ -1,35 +1,37 @@
 ---
-title: "Progettazione di una soluzione ibrida di gestione delle identità: requisiti di controllo degli accessi in Azure | Microsoft Docs"
-description: "Illustra gli elementi fondamentali dell'identità e specifica i requisiti di accesso alle risorse previsti per gli utenti in un ambiente ibrido."
-documentationcenter: 
+title: 'Progettazione di una soluzione ibrida di gestione delle identità: requisiti di controllo degli accessi in Azure | Microsoft Docs'
+description: Illustra gli elementi fondamentali dell'identità e specifica i requisiti di accesso alle risorse previsti per gli utenti in un ambiente ibrido.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801219"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti di controllo di accesso per una soluzione di identità ibrida
-Durante la progettazione di una soluzione di identità ibrida, le aziende hanno la possibilità di valutare i requisiti di accesso per le risorse che prevedono di rendere disponibili agli utenti. L'accesso ai dati coinvolge tutti i quattro pilastri dell'identità, ovvero:
+In fase di progettazione di una soluzione di identità ibrida, le aziende hanno la possibilità di valutare i requisiti di accesso per le risorse che prevedono di rendere disponibili agli utenti. L'accesso ai dati coinvolge tutti i quattro pilastri dell'identità, ovvero:
 
 * Administration
 * Authentication
 * Authorization
 * Controllo
 
-La sezione seguente descrive nel dettaglio gli aspetti relativi all'autenticazione e all'autorizzazione, mentre i concetti inerenti alla gestione e al controllo verranno discussi nell'ambito del ciclo di vita delle identità ibride. Per altre informazioni su queste funzionalità, leggere l'articolo sulle modalità per [determinare le attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) .
+Le sezioni seguenti descrivono nel dettaglio gli aspetti relativi all'autenticazione e all'autorizzazione, mentre i concetti inerenti alla gestione e al controllo verranno discussi nell'ambito del ciclo di vita delle identità ibride. Per altre informazioni su queste funzionalità, leggere l'articolo sulle modalità per [determinare le attività di gestione delle identità ibride](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) .
 
 > [!NOTE]
 > Per altre informazioni su ciascuno dei pilastri, leggere l'articolo relativo ai [quattro pilastri dell'identità e alla gestione delle identità nell'era dell'IT ibrido](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) .
@@ -41,7 +43,7 @@ Sono disponibili vari scenari di autenticazione e autorizzazione, ciascuno dei q
 
 * L'azienda intende autenticare e autorizzare solo gli utenti presenti nel proprio sistema di gestione delle identità?
   * È già stato definito un piano per gli scenari B2B?
-  * In caso affermativo, sono già stati stabiliti i protocolli (SAML, OAuth, Kerberos, token o certificati) da usare per le connessioni tra le aziende?
+  * In caso affermativo, sono già stati stabiliti i protocolli (SAML, OAuth, Kerberos o certificati) da usare per le connessioni tra le aziende?
 * La soluzione di identità ibrida che si intende adottare supporta tali protocolli?
 
 Altri aspetti importanti di cui tener conto sono la posizione dell'archivio di autenticazione che verrà usato dagli utenti e dai partner e il modello amministrativo adottato. Valutare i due modelli seguenti:

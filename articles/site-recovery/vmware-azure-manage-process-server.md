@@ -1,19 +1,17 @@
 ---
 title: Gestire un server di elaborazione in Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive la gestione della configurazione di un server di elaborazione per la replica di macchine virtuali VMware e server fisici in Azure Site Recovery.
-services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
-editor: ''
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 096b2890d41402448809ae87759fcd6b67bee2fe
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.topic: conceptual
+ms.date: 06/20/2018
+ms.author: ramamill
+ms.openlocfilehash: df162177c1ff56c1d6fc34d2ce49925a2705a868
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950788"
 ---
 # <a name="manage-process-servers"></a>Gestire server di elaborazione
 

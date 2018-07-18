@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830268"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Trasformazione "Combine Columns by Example" (Combina colonne in base all'esempio)
 Questa trasformazione consente all'utente di aggiungere una nuova colonna combinando i valori di più colonne. L'utente può specificare un separatore o fornire esempi di valori combinati per eseguire questa trasformazione. Quando l'utente fornisce esempi di combinazione, la trasformazione viene gestita dallo stesso motore **By-Example** usato nella trasformazione **Derive Column by Example** (Deriva colonna in base all'esempio).

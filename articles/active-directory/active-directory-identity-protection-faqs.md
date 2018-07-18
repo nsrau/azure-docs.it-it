@@ -2,11 +2,12 @@
 title: Domande frequenti su Azure Active Directory Identity Protection | Microsoft Docs
 description: Domande frequenti su Azure AD Identity Protection
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 102cf0108aeefa255d40bd932e41f1e7b5536205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4637420b712f98c3a8bf9d5965704cd043bb9a1c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713440"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Domande frequenti su Azure Active Directory Identity Protection
 
@@ -27,7 +29,7 @@ Questo articolo include le risposte alle domande frequenti su Azure Active Direc
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>Perché alcuni eventi di rischio hanno lo stato "Closed (system)" (Chiuso (sistema))?
 
-**R:** si tratta di eventi che Azure Active Directory Identity Protection ha rilevato e successivamente chiusi perché gli eventi non venivano più considerati rischiosi. Questi eventi non vengono conteggiati ai fini del livello di rischio dell'utente. 
+**R:** Questi eventi di rischio sono stati rilevati e successivamente chiusi da Identity Protection perché gli eventi non sono più stati considerati rischiosi. Questi eventi non vengono conteggiati ai fini del livello di rischio dell'utente. 
 
 ---
 
@@ -44,6 +46,6 @@ Questo articolo include le risposte alle domande frequenti su Azure Active Direc
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Come è possibile classificare gli utenti come "Utenti contrassegnati per il rischio"?
 
-**R:** Scaricare gli utenti contrassegnati per il report di rischio facendo clic su **Scaricare** in alto nella pagina **Utenti contrassegnati per il rischio**. È quindi possibile ordinare i dati scaricati in base ai campi disponibili, incluso Ultimo aggiornamento (UTC).
+**R:** Scaricare gli utenti contrassegnati per il report di rischio facendo clic su **Download** in alto nella pagina **Utenti contrassegnati per il rischio**. È quindi possibile ordinare i dati scaricati in base ai campi disponibili, incluso Ultimo aggiornamento (UTC).
 
 ---

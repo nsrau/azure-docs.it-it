@@ -6,6 +6,7 @@
       href: service-bus-messaging-overview.md
     - name: Confrontare i servizi di messaggistica
       href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: Guide introduttive
   items:
     - name: Inviare messaggi - PowerShell
@@ -125,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Funzionalità avanzate
           items:
+            - name: Filtri di connessione IP
+              href: service-bus-ip-filtering.md
+            - name: Endpoint del servizio Rete virtuale
+              href: service-bus-service-endpoints.md
             - name: Coda di messaggi non recapitabili
               href: service-bus-dead-letter-queues.md
             - name: Prelettura dei messaggi

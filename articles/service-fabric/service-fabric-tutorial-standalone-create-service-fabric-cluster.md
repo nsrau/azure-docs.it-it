@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211736"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344156"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Esercitazione: Installare e creare cluster di Service Fabric
 
@@ -61,13 +61,7 @@ Dopo l'aggiornamento, i nodi vengono visualizzati come segue:
         }
 ```
 
-È quindi necessario aggiornare un paio delle proprietà.  Alla riga 34, è necessario modificare la stringa di connessione per l'archivio di diagnostica, che dopo la modifica dovrebbe avere questo aspetto, con l'indirizzo IP sostituito in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
-
-Dopo aver aggiornato la stringa di connessione, assicurarsi di creare la cartella.  La cartella verrà creata dal comando seguente; assicurarsi di sostituire l'indirizzo IP di seguito con l'indirizzo IP che è stato inserito nella stringa di connessione:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+È quindi necessario aggiornare un paio delle proprietà.  Alla riga 34 è necessario modificare la stringa di connessione per l'archivio di diagnostica, che dovrebbe avere l'aspetto seguente `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
 Infine, nella sezione `nodeTypes` della configurazione aggiungere una nuova sezione per eseguire il mapping delle porte temporanee che verranno usate da Windows.  Il file di configurazione deve avere un aspetto simile al seguente:
 
@@ -92,7 +86,7 @@ cd .\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json
 ```
 
-Verrà visualizzato un output simile al seguente: Se per il campo in basso "Passed" viene restituito un valore `True`, sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
+Verrà visualizzato un output simile al seguente. Se per il campo in basso "Passed" viene restituito un valore `True`, sono stati superati i controlli di integrità ed è possibile distribuire il cluster in base alla configurazione di input.
 
 ```powershell
 Trace folder already exists. Traces will be written to existing trace folder: C:\Users\Administrator\Desktop\Microsoft.Azure.ServiceFabric.WindowsServer.6.2.274.9494\DeploymentTraces
@@ -147,7 +141,7 @@ Nella seconda parte della serie si è appreso come caricare grandi quantità di 
 
 > [!div class="checklist"]
 > * Configurare la stringa di connessione
-> * Compilare l'applicazione.
+> * Compilare l'applicazione
 > * Eseguire l'applicazione
 > * Convalidare il numero di connessioni
 

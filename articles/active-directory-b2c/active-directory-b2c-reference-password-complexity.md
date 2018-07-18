@@ -1,22 +1,21 @@
 ---
-title: Complessità delle password - Azure AD B2C | Microsoft Docs
-description: Come configurare i requisiti di complessità delle password specificate dagli utenti in Azure Active Directory B2C
+title: Complessità delle password in Azure Active Directory B2C | Microsoft Docs
+description: Come configurare i requisiti di complessità delle password specificate dagli utenti in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 78d90dce350282e4e7671104b5ee8ca9756897c6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200383"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445110"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Configurare i requisiti di complessità delle password
 

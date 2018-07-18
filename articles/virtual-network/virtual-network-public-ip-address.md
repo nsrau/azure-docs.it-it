@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8c052b45a0db42e2220c052b03f53f538de107ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895047"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287069"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creare, modificare o eliminare un indirizzo IP pubblico
 
-Informazioni su un indirizzo IP pubblico e su come crearlo, modificarlo ed eliminarlo. Un indirizzo IP pubblico è una risorsa con impostazioni proprie configurabili. L'assegnazione di un indirizzo IP pubblico ad altre risorse di Azure abilita le funzionalità seguenti:
-- Connettività Internet in ingresso a risorse quali macchine virtuali di Azure, set di scalabilità di macchine virtuali di Azure, gateway VPN di Azure, gateway applicazione e servizi Azure Load Balancer con connessione Internet. Le risorse di Azure non possono ricevere comunicazioni in ingresso da Internet senza un indirizzo IP pubblico assegnato. Mentre alcune risorse di Azure sono intrinsecamente accessibili tramite indirizzi IP pubblici, altre devono avere indirizzi IP pubblici assegnati perché siano accessibili da Internet.
-- Connettività in uscita verso Internet tramite un indirizzo IP prevedibile. Una macchina virtuale può ad esempio comunicare in uscita con Internet senza avere un indirizzo IP pubblico assegnato: il relativo indirizzo sarà l'indirizzo di rete convertito da Azure in un indirizzo pubblico non prevedibile. L'assegnazione di un indirizzo IP pubblico a una risorsa consente di conoscere l'indirizzo IP usato per la connessione in uscita. Anche se prevedibile, l'indirizzo può essere modificato, a seconda del metodo di assegnazione scelto. Per altre informazioni, vedere [Creare un indirizzo IP pubblico](#create-a-public-ip-address). Per altre informazioni sulle connessioni in uscita dalle risorse di Azure, leggere l'articolo [Informazioni sulle connessioni in uscita](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Informazioni su un indirizzo IP pubblico e su come crearlo, modificarlo ed eliminarlo. Un indirizzo IP pubblico è una risorsa con impostazioni proprie configurabili. Assegnazione di un indirizzo IP pubblico a una risorsa di Azure che supporta gli indirizzi IP pubblici consente:
+- Comunicazioni in ingresso da Internet alla risorsa, ad esempio macchine virtuali (VM) di Azure, i gateway applicazione Azure, Azure Load Balancer, i gateway VPN di Azure e altro. È comunque possibile comunicare con alcune risorse, quali le macchine virtuali da Internet se una macchina virtuale non dispone di un indirizzo IP pubblico assegnato, fino a quando la macchina virtuale fa parte di un pool back-end di bilanciamento del carico a cui viene assegnato un indirizzo IP pubblico. Per determinare se a una risorsa per uno specifico servizio in Azure può essere assegnato un indirizzo IP pubblico, o se è possibile comunicare con essa tramite l'indirizzo IP pubblico di una diversa risorsa di Azure, vedere la documentazione relativa al servizio. 
+- Connettività in uscita verso Internet tramite un indirizzo IP prevedibile. Una macchina virtuale può, ad esempio, comunicare in uscita con Internet senza avere un indirizzo IP pubblico assegnato: per impostazione predefinita il relativo indirizzo sarà l'indirizzo di rete convertito da Azure in un indirizzo pubblico non prevedibile. L'assegnazione di un indirizzo IP pubblico a una risorsa consente di conoscere l'indirizzo IP usato per la connessione in uscita. Anche se prevedibile, l'indirizzo può essere modificato, a seconda del metodo di assegnazione scelto. Per altre informazioni, vedere [Creare un indirizzo IP pubblico](#create-a-public-ip-address). Per altre informazioni sulle connessioni in uscita dalle risorse di Azure, vedere [Connessioni in uscita in Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -70,7 +70,7 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Visualizzare un indirizzo IP pubblico, modificarne le impostazioni o eliminarlo
@@ -89,8 +89,18 @@ Anche se il portale consente di creare due risorse indirizzo IP pubblico (IPv4 e
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list) per elencare gli indirizzi IP pubblici, [az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show) per visualizzare le impostazioni; [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete) per eliminare|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) per aggiornare le impostazioni; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) per eliminare|
+|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az-network-public-ip-list) per elencare gli indirizzi IP pubblici, [az network public-ip-show](/cli/azure/network/public-ip#az-network-public-ip-show) per visualizzare le impostazioni; [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) per eliminare|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni, [Set-AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) per aggiornare le impostazioni; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) per eliminare|
+
+## <a name="assign-a-public-ip-address"></a>Assegnare un indirizzo IP pubblico
+
+Informazioni su come assegnare un indirizzo IP pubblico alle risorse seguenti:
+
+- Una macchina virtuale [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creazione) o una [macchina virtuale esistente](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Servizio di bilanciamento del carico con connessione Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Gateway applicazione Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Connessione da sito a sito con gateway VPN di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>Autorizzazioni
 
@@ -107,4 +117,3 @@ Per eseguire attività negli indirizzi IP pubblici, l'account deve essere assegn
 
 - Creare un indirizzo IP pubblico usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Resource Manager](template-samples.md)
 - Creare e applicare i [criteri di Azure](policy-samples.md) per gli indirizzi IP pubblici
-- Assegnare indirizzi IP pubblici durante la creazione di una macchina virtuale di Azure [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), un [Bilanciamento del carico di Azure con connessione Internet Azure](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), un [gateway applicazione di Azure](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), una [connessione da sito a sito tramite un Gateway VPN di Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o un [set di scalabilità della macchina virtuale di Azure](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

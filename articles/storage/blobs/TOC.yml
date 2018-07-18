@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Usare i BLOB - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Usare i BLOB - Java
+    - name: Usare i BLOB - Java (Storage SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Usare i BLOB - Java (Storage SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: Usare i BLOB - Python
       href: storage-quickstart-blobs-python.md
@@ -97,7 +99,7 @@
                 - name: Usare un'identità di Azure AD con l'interfaccia della riga di comando o PowerShell
                   href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Autorizzare con la chiave condivisa
-              href: /rest/api/storageservices/authenticate-with-shared-key
+              href: /rest/api/storageservices/authorize-with-shared-key
             - name: Autorizzare con la firma di accesso condiviso
               href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Accesso anonimo ai BLOB
@@ -188,6 +190,12 @@
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Usare la rete CDN di Azure per accedere ai BLOB con domini personalizzati tramite HTTPS
           href: storage-https-custom-domain-cdn.md
+        - name: Funzionalità di archiviazione non modificabile dell'archivio BLOB di Azure (anteprima)
+          href: storage-blob-immutable-storage.md
+        - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
+          href: ../common/storage-security-tls.md
+        - name: Offerte di conformità
+          href: ../common/storage-compliance-offerings.md
     - name: Monitorare e risolvere i problemi
       items:
         - name: Esercitazione sulla risoluzione dei problemi
@@ -331,6 +339,8 @@
       href: storage-custom-domain-name.md
     - name: Cercare nell'archivio BLOB tramite Ricerca di Azure
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Ospitare un sito Web statico
+      href: storage-blob-static-website.md
     - name: Trasferire i dati
       items:
         - name: AzCopy in Windows
@@ -350,17 +360,17 @@
     - name: .NET
       items:
         - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Spostamento dati
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
         - name: Gestione risorse
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
       items:
-        - name: 'BLOB, code, tabelle e file'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
-        - name: Gestione risorse
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
+        - name: 'BLOB, code, tabelle e file (v7)'
+          href: 'https://docs.microsoft.com/java/api/storage/client?view=azure-java-stable'
+        - name: SDK per BLOB (v10)
+          href: 'https://docs.microsoft.com/java/api/storage/client?view=azure-java-preview'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby

@@ -4,14 +4,14 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203553"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920925"
 ---
 # <a name="assessment-calculations"></a>Calcoli delle valutazioni
 
@@ -58,7 +58,7 @@ Windows Server 2016 e tutti i Service Pack | Azure offre supporto completo. | Id
 Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.| Idoneo per Azure
-Windows Server 2003-2008 R2 | Questi sistemi operativi hanno superato la data di fine supporto e hanno bisogno di un [Contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto di Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
+Windows Server 2003-2008 | Questi sistemi operativi hanno superato la data di fine supporto e hanno bisogno di un [Contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto di Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
 Client Windows 7, 8 e 10 | Azure offre supporto solo con la sottoscrizione di Visual Studio. | Idoneo per Azure con condizioni
 Windows Vista, XP Professional | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
@@ -69,12 +69,12 @@ Sistemi operativi a 32 bit | Il computer può eseguire l'avvio in Azure, ma Azur
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Dopo che un computer è stato contrassegnato come idoneo per Azure, Azure Migrate determina la dimensione della VM e dei relativi dischi per Azure. Se il criterio di determinazione della dimensione specificato nelle proprietà di valutazione è quello basato sulle prestazioni, Azure Migrate prende in considerazione la cronologia delle prestazioni del computer per identificare la dimensione della VM in Azure. Questo metodo è utile in scenari in cui è stata eseguita una sovrallocazione della VM locale ma l'utilizzo è basso e si desidera dimensionare in modo appropriato le VM in Azure per ottimizzare i costi.
+Dopo che un computer è stato contrassegnato come idoneo per Azure, Azure Migrate determina la dimensione della VM e dei relativi dischi per Azure. Se il criterio di ridimensionamento specificato nelle proprietà di valutazione è quello basato sulle prestazioni, Azure Migrate prende in considerazione la cronologia delle prestazioni del computer per identificare le dimensioni della macchina virtuale e il tipo di disco in Azure. Questo metodo è utile in scenari in cui è stata eseguita una sovrallocazione della VM locale ma l'utilizzo è basso e si desidera dimensionare in modo appropriato le VM in Azure per ottimizzare i costi.
 
 > [!NOTE]
 > Azure Migrate raccoglie la cronologia delle prestazioni delle VM locali dal server vCenter. Per garantire una determinazione precisa della dimensione, assicurarsi che l'impostazione delle statistiche nel server vCenter sia pari al livello 3 e attendere almeno un giorno prima di iniziare l'individuazione delle VM locali. Se l'impostazione delle statistiche nel server vCenter è inferiore al livello 3, i dati sulle prestazioni per i dischi e la rete non vengono raccolti.
 
-Se non si vuole considerare la cronologia delle prestazioni per il ridimensionamento della VM e si vuole migrare la VM così com'è in Azure, è possibile specificare il criterio di determinazione della dimensione *come in locale* e Azure Migrate dimensionerà le VM in base alla configurazione locale senza considerare i dati di utilizzo. Il ridimensionamento del disco, in questo caso, sarà comunque basato sui dati delle prestazioni.
+Se non si vuole considerare la cronologia delle prestazioni per il ridimensionamento della VM e si vuole migrare la VM così com'è in Azure, è possibile specificare il criterio di determinazione della dimensione *come in locale* e Azure Migrate dimensionerà le VM in base alla configurazione locale senza considerare i dati di utilizzo. In questo caso il ridimensionamento del disco verrà eseguito in base al tipo di archiviazione specificata nelle proprietà di valutazione, disco Standard o Premium
 
 ### <a name="performance-based-sizing"></a>Dimensioni in base alle prestazioni
 
@@ -103,25 +103,13 @@ Per la determinazione della dimensione in base alle prestazioni, Azure Migrate i
     - Se ci sono più dimensioni di VM di Azure idonee, si consiglia di usare quella con il costo più basso.
 
 ### <a name="as-on-premises-sizing"></a>Determinazione della dimensione come in locale
-Se il criterio di determinazione della dimensione è *come in locale*, Azure Migrate non considera la cronologia delle prestazioni delle VM e le alloca in base alla dimensione allocata in locale. Per il ridimensionamento del disco, tuttavia, prende in considerazione la cronologia delle prestazioni dei dischi per consigliare i dischi Standard o Premium.  
-- **Risorsa di archiviazione**: Azure Migrate esegue il mapping di ciascun disco collegato al computer con un disco in Azure.
-
-    > [!NOTE]
-    > Azure Migrate supporta solo i dischi gestiti per la valutazione.
-
-    - Per ottenere l'I/O su disco al secondo (IOPS) effettivo e la velocità effettiva (MBps), Azure Migrate moltiplica l'IOPS e la velocità effettiva del disco per il fattore di comfort. In base ai valori di IOPS effettivo e velocità effettiva, Azure Migrate determina se è necessario eseguire il mapping del disco con un disco standard o premium in Azure.
-    - Se Azure Migrate non riesce a trovare un disco con i valori di IOPS e velocità effettiva necessari, contrassegna il computer come non idoneo per Azure. [Altre informazioni](../azure-subscription-service-limits.md#storage-limits) sulle limitazioni di Azure per disco e VM.
-    - Se trova un set di dischi adatti, Azure Migrate seleziona quelli che supportano il metodo di ridondanza dell'archiviazione e il percorso specificato nelle impostazioni di valutazione.
-    - Se sono presenti più dischi idonei, viene selezionato quello con il costo più basso.
-    - Se i dati sulle prestazioni per i dischi non sono disponibili, viene eseguito il mappimg di tutti i dischi a dischi standard in Azure.
-- **Rete**: per ogni scheda di rete si consiglia una scheda di rete in Azure.
-- **Calcolo**: Azure Migrate analizza il numero di core e la dimensione della memoria della VM locale e consiglia una VM di Azure con la stessa configurazione. Se ci sono più dimensioni di VM di Azure idonee, si consiglia di usare quella con il costo più basso. I dati di utilizzo di CPU e di memoria non vengono considerati per la determinazione della dimensione come in locale.
+Se il criterio di ridimensionamento è *il ridimensionamento in locale*, Azure Migrate non considera la cronologia delle prestazioni delle macchine virtuali e dei dischi e alloca uno SKUe della macchina virtuale in Azure in base alle dimensioni allocate in locale. Analogamente al ridimensionamento del disco, viene esaminato il tipo di archiviazione specificata nelle proprietà di valutazione, Standard o Premium, e di conseguenza viene consigliato il tipo di disco. Il tipo di archiviazione predefinita dei dischi è Premium.
 
 ### <a name="confidence-rating"></a>Classificazione di attendibilità
 
 Ogni valutazione in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate.
 
-Per un ridimensionamento della macchina virtuale in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria. Per il ridimensionamento di ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo in lettura/scrittura e alla velocità effettiva. Analogamente, per ogni scheda di rete collegata alla VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione della dimensione in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
+La classificazione di attendibilità di una valutazione è più utile per le valutazioni in cui il criterio di ridimensionamento corrisponde alle dimensioni in base alle prestazioni. Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria della macchina virtuale. Per ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco. Analogamente, per ogni scheda di rete collegata a una VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione delle dimensioni in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
 
    **Disponibilità dei punti dati** | **Classificazione di attendibilità**
    --- | ---
@@ -144,7 +132,7 @@ Una valutazione può non avere a disposizione tutti i punti dati a causa di uno 
 
 Dopo aver fornito tutte le indicazioni relative alle dimensioni, Azure Migrate calcola i costi di calcolo e archiviazione post-migrazione.
 
-- **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alla posizione e alla valuta. Per calcolare il costo di calcolo mensile totale vengono aggregati i costi di tutti i computer.
+- **Costo di calcolo**: sulla base delle dimensioni consigliate della macchina virtuale di Azure, Azure Migrate usa l'API di fatturazione per calcolare i costi mensili della macchina virtuale. Per il calcolo vengono prese in considerazione le impostazioni relative al sistema operativo, al programma Software Assurance, alle istanze riservate, al tempo di attività della macchina virtuale, alla posizione e alla valuta. Per calcolare il costo di calcolo mensile totale vengono aggregati i costi di tutti i computer.
 - **Costo di archiviazione**: il costo di archiviazione mensile di un computer viene calcolato aggregando il costo mensile di tutti i dischi collegati al computer. Azure Migrate calcola i costi di archiviazione mensili totali aggregando i costi di archiviazione di tutti i computer. Attualmente, il calcolo non prende in considerazione le offerte specificate nelle impostazioni di valutazione.
 
 I costi vengono visualizzati nella valuta specificata nelle impostazioni di valutazione.

@@ -1,22 +1,19 @@
 ---
 title: Copertura per la geocodifica in Mappe di Azure | Microsoft Docs
 description: Informazioni sulla copertura per la geocodifica in Mappe di Azure
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7dc7a1dbf024b6d334ec374f78d5e912db3835c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6602453abd02bf91b135980b4d2c7f99ba60c236
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600290"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Copertura per la geocodifica in Mappe di Azure
 
@@ -161,7 +158,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Repubblica ceca                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Danimarca                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Estonia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Fær Øer                                       |                 |                |              |      ✓     |          ✓         |
+| Isole Fær Øer                                       |                 |                |              |      ✓     |          ✓         |
 | Finlandia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Francia                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Georgia                                             |                 |                |              |      ✓     |          ✓         |
@@ -230,7 +227,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Repubblica centrafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Côte d’Ivoire (Costa d'Avorio)                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Costa d'Avorio                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo, Repubblica democratica                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Gibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egitto                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -282,7 +279,7 @@ Quando si cerca una posizione con Mappe di Azure, il servizio di ricerca accetta
 | Sudan                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Swaziland                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Siria                                               |                 |                |              |      ✓     |          ✓         |
-| São Tomé e Príncipe, Repubblica democratica       |                 |                |       ✓      |      ✓     |          ✓         |
+| São Tomé e Príncipe, Repubblica democratica di       |                 |                |       ✓      |      ✓     |          ✓         |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Togo                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Tunisia                                             |                 |                |       ✓      |      ✓     |          ✓         |

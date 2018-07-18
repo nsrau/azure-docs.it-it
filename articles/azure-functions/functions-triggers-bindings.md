@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061354"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -45,47 +46,53 @@ Per informazioni sulle associazioni in anteprima o approvate per l'uso in ambien
 
 ## <a name="register-binding-extensions"></a>Registrare le estensioni delle associazioni
 
-Nella versione 2.x del runtime di Funzioni di Azure è necessario registrare in modo esplicito le [estensioni delle associazioni](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) usate nell'app per le funzioni. 
+In alcuni ambienti di sviluppo è necessario *registrare* in modo esplicito un'associazione che si desidera usare. Le estensioni di associazione sono incluse nei pacchetti NuGet e per registrare un'estensione si installa un pacchetto. La tabella seguente indica come e quando registrare le estensioni di associazione.
 
-Le estensioni vengono distribuite come pacchetti NuGet il cui nome inizia in genere con [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  La modalità di installazione e registrazione delle estensioni delle associazioni dipende da come si sviluppano le funzioni: 
+|Ambiente di sviluppo |Registrazione<br/> in Funzioni 1.x  |Registrazione<br/> in Funzioni 2.x  |
+|---------|---------|---------|
+|Portale di Azure|Automatico|[Automatico con prompt](#azure-portal-development)|
+|A livello locale con gli strumenti di base di Funzioni di Azure|Automatico|[Usare i comandi CLI degli strumenti di base](#local-development-azure-functions-core-tools)|
+|Libreria di classi C# usando Visual Studio 2017|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|
+|Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#c-class-library-with-visual-studio-code)|
 
-+ [A livello locale in C# con Visual Studio o VSCode](#local-c-development-using-visual-studio-or-vs-code)
-+ [A livello locale con gli strumenti di base di Funzioni di Azure](#local-development-azure-functions-core-tools)
-+ [Nel portale di Azure](#azure-portal-development) 
-
-Nella versione 2.x è presente un set di associazioni di base che non vengono fornite come estensioni. Non è necessario registrare le estensioni dei trigger e delle associazioni seguenti: HTTP, timer e Archiviazione di Azure. 
-
-Per informazioni su come impostare un'app per le funzioni per l'uso della versione 2.x del runtime di Funzioni, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md). La versione 2.x del runtime di Funzioni è attualmente in anteprima. 
-
-Le versioni dei pacchetti illustrate in questa sezione sono fornite solo a scopo esemplificativo. Controllare il [sito NuGet.org](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) per stabilire quale versione di una determinata estensione è necessaria per le altre dipendenze dell'app per le funzioni.    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Sviluppo in C# a livello locale con Visual Studio o VSCode 
-
-Quando si usa Visual Studio o Visual Studio Code per sviluppare funzioni in C# a livello locale, è sufficiente aggiungere il pacchetto NuGet dell'estensione. 
-
-+ **Visual Studio**: usare gli strumenti di Gestione pacchetti NuGet. Il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) seguente consente di installare l'estensione di Azure Cosmos DB dalla Console di Gestione pacchetti:
-
-    ```
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-+ **Visual Studio Code**: è possibile installare i pacchetti dal prompt dei comandi usando il comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nell'interfaccia della riga di comando di .NET, come indicato di seguito:
-
-    ```
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
-
-### <a name="local-development-azure-functions-core-tools"></a>Sviluppo a livello locale con gli strumenti di base di Funzioni di Azure
-
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+I tipi di associazione seguenti sono eccezioni che non richiedono la registrazione esplicita perché sono registrati automaticamente in tutte le versioni e gli ambienti: HTTP, timer e Archiviazione di Azure (BLOB, code e tabelle). 
 
 ### <a name="azure-portal-development"></a>Sviluppo con il portale di Azure
 
-Quando si crea una funzione o si aggiunge un'associazione a una funzione esistente, viene richiesto quando è necessario registrare l'estensione dell'associazione o del trigger aggiunto.   
+Quando si crea una funzione o si aggiunge un'associazione, compare un avviso quando è necessario registrare l'estensione dell'associazione o del trigger. Rispondere all'avviso facendo clic **Installa** per registrare l'estensione. L'installazione può richiedere fino a 10 minuti in un piano a consumo.
 
-Dopo che è stato visualizzato un avviso relativo alla specifica estensione installata, fare clic su **Installa** per registrare l'estensione. È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. 
+È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. 
 
->[!Note] 
->In un piano a consumo il processo di installazione nel portale può richiedere fino a 10 minuti.
+### <a name="local-development-azure-functions-core-tools"></a>Sviluppo a livello locale con gli strumenti di base di Funzioni di Azure
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Libreria di classi C# con Visual Studio 2017
+
+In **Visual Studio 2017** è possibile installare pacchetti dalla Console di Gestione pacchetti usando il comando [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package), come illustrato nell'esempio seguente:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+Il nome del pacchetto da usare per una determinata associazione è fornito nell'articolo di riferimento per quell'associazione. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
+
+Sostituire `<target_version>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle pagine dei singoli pacchetti in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono al runtime di Funzioni 1.x o 2.x sono specificate nell'articolo di riferimento per l'associazione.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Libreria di classi C# con Visual Studio Code
+
+In **Visual Studio Code** è possibile installare i pacchetti dal prompt dei comandi usando il comando [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) nell'interfaccia della riga di comando di .NET Core, come indicato nell'esempio seguente:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+L'interfaccia della riga di comando di .NET Core può essere usata solo per lo sviluppo di Funzioni di Azure 2.x.
+
+Il nome del pacchetto da usare per una determinata associazione è fornito nell'articolo di riferimento per quell'associazione. Per un esempio, vedere la [sezione sui pacchetti dell'articolo di riferimento sull'associazione del bus di servizio](functions-bindings-service-bus.md#packages---functions-1x).
+
+Sostituire `<target_version>` nell'esempio con una specifica versione del pacchetto, come `3.0.0-beta5`. Le versioni valide sono elencate nelle pagine dei singoli pacchetti in [NuGet.org](https://nuget.org). Le versioni principali che corrispondono al runtime di Funzioni 1.x o 2.x sono specificate nell'articolo di riferimento per l'associazione.
 
 ## <a name="example-trigger-and-binding"></a>Trigger e associazione di esempio
 

@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131129"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute Manager
 
@@ -36,7 +38,7 @@ Per aprire la configurazione per Monitoraggio prestazioni rete, aprire la [soluz
 ### <a name="configure-network-security-group-rules"></a>Configurare le regole del gruppo di sicurezza di rete 
 Per i server in Azure usati per il monitoraggio tramite Monitoraggio prestazioni rete, configurare regole del gruppo di sicurezza di rete per consentire il traffico TCP sulla porta usata da Monitoraggio prestazioni rete per le transazioni sintetiche. Per impostazione predefinita è la porta 8084. Questa configurazione permette all'agente di Operations Management Suite installato nelle macchine virtuali di Azure di comunicare con un agente di monitoraggio locale. 
 
-Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sicurezza di rete](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sicurezza di rete](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Prima di proseguire con questo passaggio, installare l'agente server locale e l'agente server di Azure ed eseguire lo script di PowerShell EnableRules.ps1. 
@@ -55,7 +57,7 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sic
 
     ![Configurazione del monitoraggio di ExpressRoute](media/log-analytics-network-performance-monitor/expressroute-configure.png)
  
- Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente in stato disabilitato. 
+ Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente disabilitato. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Abilitare il monitoraggio delle connessioni peering ExpressRoute 
 

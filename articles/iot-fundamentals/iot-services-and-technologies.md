@@ -1,30 +1,24 @@
 ---
 title: Tecnologie e soluzioni per Internet delle cose (IoT) di Azure
 description: Viene presentata la raccolta di tecnologie e soluzioni PaaS/SaaS disponibili per la creazione di una soluzione IoT di Azure.
-services: iot-hub
-documentationcenter: ''
 author: BryanLa
 manager: timlt
-editor: bryanla; v-clay
-ms.service: iot
-ms.devlang: na
+ms.service: iot-fundamentals
+services: iot-fundamentals
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/30/2018
-ms.author: bryanla; v-clay
-ms.custom: ''
-ms.openlocfilehash: 56410b040ac14a2a46927cac8ed41218fc709888
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 05/18/2018
+ms.author: bryanla
+ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886196"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631412"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Tecnologi e soluzioni di Azure IoT: PaaS e SaaS
 
 Microsoft ha creato un portfolio che supporta le esigenze di tutti i clienti, consentendo a tutti gli utenti di accedere ai vantaggi della trasformazione digitale. Il portfolio di prodotti di Azure IoT offre una panoramica delle tecnologie e delle soluzioni PaaS/SaaS disponibili. Presenta i due percorsi disponibili per la creazione di una soluzione personalizzata:
-- Piattaforma distribuita come servizio, ovvero PaaS: consente di compilare le applicazioni usando [acceleratori di soluzioni Azure IoT](https://www.azureiotsuite.com/), una raccolta di soluzioni preconfigurate di livello aziendale che consentono di velocizzare lo sviluppo di soluzioni IoT personalizzate.
+- Piattaforma distribuita come servizio, ovvero PaaS: consente di compilare le applicazioni usando [acceleratori di soluzioni Azure IoT](https://www.azureiotsolutions.com/), una raccolta di soluzioni preconfigurate di livello aziendale che consentono di velocizzare lo sviluppo di soluzioni IoT personalizzate.
 - Software come un servizio, ovvero SaaS: è una guida introduttiva rapida ad [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), la nuova soluzione SaaS per sviluppare applicazioni IoT senza dover affrontare la complessità delle soluzioni IoT. Se l'organizzazione non dispone di risorse per creare la propria soluzione IoT, Azure IoT Central è una soluzione IoT senza codice che consente di creare modelli di dispositivo, dashboard e regole in pochi minuti.
 
 ![Tecnologi e soluzioni di Azure IoT][img-paas-saas-technologies-solutions]

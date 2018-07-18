@@ -55,8 +55,6 @@
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: Autenticare gli utenti
       href: app-service-web-tutorial-auth-aad.md
-    - name: Distribuire le app nel servizio app di Azure con Visual Studio Team Services e l'integrazione continua/distribuzione continua
-      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: Esempi
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -168,6 +166,8 @@
           href: app-service-configure-premium-tier.md
         - name: Aumentare il numero di istanze
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: Hosting ad alta densità
+          href: app-service-high-density-hosting.md
     - name: Monitorare un'app
       items:
         - name: Quote e avvisi
@@ -276,3 +276,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: Domande frequenti su configurazione e gestione
               href: app-service-web-configuration-and-management-faq.md
+    - name: Modifica degli indirizzi IP
+      items:
+        - name: Indirizzo IP in ingresso
+          href: ip-address-change-inbound.md
+        - name: Indirizzo IP in uscita
+          href: ip-address-change-outbound.md
+        - name: Indirizzo SSL
+          href: ip-address-change-ssl.md

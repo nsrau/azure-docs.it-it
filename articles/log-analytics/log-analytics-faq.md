@@ -3,7 +3,7 @@ title: Domande frequenti su Log Analytics | Documentazione Microsoft
 description: Risposte alle domande frequenti sul servizio Log Analytics di Azure.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128531"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -74,18 +76,21 @@ Log Analytics usa l'ora UTC e ogni giorno inizia a mezzanotte UTC. Se l'area di 
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>D: Come inviare una notifica all'utente quando la raccolta dati si interrompe?
 
-R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la procedura descritta in [Creare una regola di avviso](log-analytics-alerts-creating.md#create-an-alert-rule).
+R: Per ricevere una notifica quando la raccolta dati si interrompe, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 Quando si crea l'avviso per l'interruzione della raccolta dati, applicare le seguenti impostazioni:
-- **Nome** su *Data collection stopped* (Raccolta dati interrotta)
-- **Gravità** su *Avviso*
-- **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Intervallo di tempo** su *30 minuti*.
-- **Frequenza di avviso** ogni *dieci* minuti.
-- **Genera l'avviso in base a** sul *numero di risultati*
-- **Numero di risultati** su *Maggiore di 0*
 
-Questo avviso viene attivato quando la query restituisce risultati solo se manca l'heartbeat per più di 15 minuti.  Seguire la procedura descritta in [Aggiungere azioni alle regole di avviso in Log Analytics](log-analytics-alerts-actions.md) per configurare un'azione di posta elettronica, webhook o runbook per la regola di avviso.
+- Per **Definire la condizione dell'avviso**, specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
+- **Criteri di avviso** consente di specificare quanto segue:
+   - **Nome segnale** selezionare **Ricerca log personalizzata**.
+   - **Query di ricerca** su `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
+   - **Periodo di tempo** di *30* minuti e **Frequenza di avviso** ogni *10* minuti
+- Per **Definire i dettagli dell'avviso** specificare quanto segue:
+   - **Nome** su *Data collection stopped* (Raccolta dati interrotta)
+   - **Gravità** su *Avviso*
+
+Specificare un [gruppo di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) esistente o crearne uno nuovo, in modo che se l'avviso del log corrisponde ai criteri e un heartbeat manca per più di 15 minuti si riceve una notifica.
 
 ## <a name="configuration"></a>Configurazione
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>D: È possibile modificare il nome del contenitore di tabelle/BLOB usato per leggere da Diagnostica di Azure?
@@ -96,7 +101,7 @@ R. No, non è attualmente possibile leggere da tabelle o contenitori arbitrari i
 
 R. Il servizio Log Analytics è basato su Azure. Gli indirizzi IP di Log Analytics si trovano in [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653) (Intervalli di indirizzi IP dei data center di Microsoft Azure).
 
-Quando vengono eseguite distribuzioni di servizi, gli indirizzi IP effettivi del servizio Log Analytics vengono modificati. I nomi DNS da consentire attraverso il firewall sono indicati nei [requisiti di sistema](log-analytics-concept-hybrid.md#prerequisites).
+Quando vengono eseguite distribuzioni di servizi, gli indirizzi IP effettivi del servizio Log Analytics vengono modificati. I nomi DNS da consentire attraverso il firewall sono indicati nei [requisiti di rete](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>D: Si usa ExpressRoute per connettersi ad Azure. Il traffico di Log Analytics userà la connessione ExpressRoute?
 
@@ -130,7 +135,7 @@ Un'icona di avviso gialla indica problemi di comunicazione tra l'agente e Log An
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>D: Come si arresta la comunicazione tra un agente e Log Analytics?
 
 R: In System Center Operations Manager rimuovere il computer dall'elenco di computer gestiti da OMS. Operations Manager aggiorna la configurazione dell'agente affinché non invii altri report a Log Analytics. È possibile impedire la comunicazione degli agenti connessi direttamente a Log Analytics tramite il Pannello di controllo, Sicurezza e impostazioni, **Microsoft Monitoring Agent**.
-In **Analisi dei log di Azure (OMS)**rimuovere tutte le aree di lavoro elencate.
+In **Analisi dei log di Azure (OMS)** rimuovere tutte le aree di lavoro elencate.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>D: Perché viene visualizzato un errore quando si tenta di spostare l'area di lavoro da una sottoscrizione di Azure a un'altra?
 

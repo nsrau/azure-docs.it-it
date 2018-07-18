@@ -1,19 +1,19 @@
 ---
 title: Creare e gestire le regole eventi nell'applicazione Azure IoT Central | Microsoft Docs
 description: Le regole eventi di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201592"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628369"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola eventi e impostare notifiche nell'applicazione Azure IoT Central
 
@@ -27,7 +27,7 @@ Questa sezione descrive come creare una regola eventi. L'esempio usa un disposit
 
 1. Passare alla pagina dei dettagli per il dispositivo a cui si vuole aggiungere la regola.
 
-1. Se non è ancora stata creata nessuna regola, viene visualizzata la schermata seguente:
+1. Se non è ancora stata creata nessuna regola viene visualizzata la schermata seguente:
 
     ![Nessuna regola](media\howto-create-event-rules\image1.png)
 
@@ -64,7 +64,7 @@ Questa sezione descrive come specificare il comportamento della regola mediante 
 
 1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili. L'unica azione supportata per l'anteprima pubblica è **Email** (E-mail).
 
-    ![Aggiungi azione](media\howto-create-event-rules\image5.png)
+    ![Aggiungere un'azione](media\howto-create-event-rules\image5.png)
 
 1. Scegliere l'azione **Email** (E-mail), immettere un indirizzo di posta elettronica valido nel campo **To** (A) e specificare una nota che viene visualizzata nel corpo del messaggio di posta elettronica quando la regola si attiva.
 
@@ -85,11 +85,11 @@ Quando una regola non è più necessaria, eliminarla aprendo la regola e sceglie
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Abilitare o disabilitare una regola per un modello di dispositivo
 
-Passare al dispositivo e scegliere la regola che si vuole abilitare o disabilitare. Attivando e disattivando il pulsante **Enable rule for all devices of this template** (Abilita regola per tutti i dispositivi di questo modello) nella regola si abilita o si disabilita la regola per tutti i dispositivi associati al modello di dispositivo.
+Passare al dispositivo e scegliere la regola che si vuole abilitare o disabilitare. Selezionare o disattivare il pulsante **Enable rule for all devices of this template** (Abilita regola per tutti i dispositivi di questo modello) nella regola per abilitare o disabilitare la regola per tutti i dispositivi associati al modello di dispositivo.
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Abilitare o disabilitare una regola per un dispositivo
 
-Passare al dispositivo e scegliere la regola che si vuole abilitare o disabilitare. Attivare o disattivare il pulsante **Enable rule for this device** (Abilita regola per questo dispositivo) per abilitare o disabilitare la regola per il dispositivo.
+Passare al dispositivo e scegliere la regola che si vuole abilitare o disabilitare. Selezionare o disattivare il pulsante **Enable rule for this device** (Abilita regola per questo dispositivo) per abilitare o disabilitare la regola per il dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

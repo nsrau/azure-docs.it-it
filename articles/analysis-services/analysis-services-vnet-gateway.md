@@ -3,17 +3,17 @@ title: Usare un gateway dati locale per le origini dati di Rete virtuale di Azur
 description: Informazioni su come configurare un server per l'uso di un gateway per le origini dati in una rete virtuale.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7e792114c61c6257f4f5be5bfa65474d595f0d36
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f1cf447f27509bc62cc71a9c64237ff7dc3d7b30
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149579"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446085"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usare il gateway per le origini dati in un'istanza di Rete virtuale di Azure (VNet)
 

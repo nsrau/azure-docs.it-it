@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212671"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642224"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>Creare la prima applicazione Reliable Services con stato C# di Service Fabric
 
@@ -68,12 +68,15 @@ Per una panoramica del contenuto del progetto di servizio, vedere la [Guida intr
 
 Ora che è disponibile un'applicazione, eseguirla, distribuirla ed effettuarne il debug seguendo questa procedura.
 
-1. In Visual Studio premere F5 per distribuire l'applicazione per il debug.
+1. In Visual Studio premere **F5** per distribuire l'applicazione per il debug.  Fare clic su **Sì** se viene visualizzata una finestra di messaggio che richiede di concedere al gruppo "ServiceFabricAllowedUsers" le autorizzazioni di lettura ed esecuzione per la directory del progetto di Visual Studio.
 
     >[!NOTE]
     >La prima volta che si esegue e si distribuisce l'applicazione in locale, Visual Studio crea un cluster locale per il debug. Questa operazione potrebbe richiedere tempo. Lo stato della creazione del cluster verrà visualizzato nella finestra di output di Visual Studio.
-
-    Quando il cluster è pronto, si riceverà una notifica dall'applicazione dell'area di notifica per la gestione del cluster locale che è inclusa nell'SDK.
+    
+     Quando il cluster è pronto, si riceverà una notifica dall'applicazione dell'area di notifica per la gestione del cluster locale che è inclusa nell'SDK.
+     
+    >[!NOTE]
+    >Questo esercizio richiede un cluster a 5 nodi (anziché a un nodo). È possibile verificare questa impostazione come indicato di seguito: avviare lo strumento Service Fabric Explorer facendo clic con il pulsante destro del mouse sull'applicazione **Service Fabric Local Cluster Manager** (Gestione cluster locale di Service Fabric) nell'area di notifica e quindi fare clic su **Switch Cluster Mode** (Cambia modalità cluster). Fare clic su **5 Node** (5 nodi) se attualmente è selezionato 1 Node (1 nodo).
     
     ![Notifica della barra delle applicazioni per il cluster locale][4]
 
@@ -107,7 +110,7 @@ Ora che è disponibile un'applicazione, eseguirla, distribuirla ed effettuarne i
 
     ![Punto di interruzione nel metodo RunAsync del servizio con stato][7]
 
-7. Avviare lo strumento Service Fabric Explorer facendo clic con il pulsante destro del mouse sull'applicazione dell'area di notifica **Local Cluster Manager** (Gestione cluster locale) e quindi scegliendo **Manage Local Cluster** (Gestisci cluster locale).
+7. Avviare lo strumento Service Fabric Explorer facendo clic con il pulsante destro del mouse sull'applicazione **Service Fabric Local Cluster Manager** (Gestione cluster locale di Service Fabric) nell'area di notifica e quindi scegliendo **Manage Local Cluster** (Gestisci cluster locale).
 
     ![Avvio di Service Fabric Explorer da Local Cluster Manager (Gestione cluster locale)][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Ora che è disponibile un'applicazione, eseguirla, distribuirla ed effettuarne i
 
     ![Arresto di un nodo in Service Fabric Explorer][sfx-stop-node]
 
-    Verrà visualizzato il raggiungimento del punto di interruzione in Visual Studio mentre viene effettuato il failover del calcolo eseguito su un nodo in un altro nodo.
+    Verrà visualizzato il raggiungimento del punto di interruzione in Visual Studio mentre viene effettuato il failover del calcolo eseguito su un nodo in un altro nodo. Premere **F5** per continuare.
 
 9. Tornare quindi al visualizzatore eventi di diagnostica e osservare i messaggi. Il contatore ha continuato ad aumentare anche se gli eventi provengono in effetti da un nodo diverso.
 
