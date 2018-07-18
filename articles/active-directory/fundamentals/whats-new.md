@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061678"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920815"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
-> È possibile tenersi aggiornati con le novità di Azure Active Directory (Azure AD) sottoscrivendo il [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+> Per ricevere notifiche in merito a nuovi aggiornamenti da visualizzare nella pagina, sottoscrivere il [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
 
 Azure AD viene regolarmente migliorato. Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
--   Versioni più recenti
--   Problemi noti
--   Correzioni di bug
--   Funzionalità deprecate
--   Modifiche pianificate
+- Versioni più recenti
+- Problemi noti
+- Correzioni di bug
+- Funzionalità deprecate
+- Modifiche pianificate
 
 Questa pagina viene aggiornata ogni mese, si consiglia pertanto di consultarla regolarmente.
 
@@ -40,8 +40,8 @@ Questa pagina viene aggiornata ogni mese, si consiglia pertanto di consultarla r
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Notifica di modifica: correzione della sicurezza per il flusso di autorizzazioni delegate per le app che usano l'API Log attività di Azure AD
 
 **Tipo:** Modifica pianificata  
-**Categoria di servizio:** monitoraggio e creazione di report  
-**Funzionalità del prodotto:** creazione di report
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
 
 A causa dell'applicazione della sicurezza più avanzata, è stato necessario apportare una modifica alle autorizzazioni per le app che usano un flusso di autorizzazioni delegate per accedere alle [API Log attività di Azure AD](https://aka.ms/aadreportsapi). Questa modifica verrà applicata entro il **26 giugno 2018**.
 
@@ -64,7 +64,7 @@ Per altre informazioni, vedere l'area [Concedere le autorizzazioni](https://docs
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Configurare le impostazioni TLS per connettersi ai servizi di Azure AD per la conformità PCI DSS
 
 **Tipo:** Nuova funzionalità  
-**Categoria del servizio:** nuova funzionalità  
+**Categoria di servizio:** N/D  
 **Funzionalità del prodotto:** Piattaforma
 
 Transport Layer Security (TLS) è un protocollo che fornisce riservatezza e integrità dei dati tra due applicazioni in comunicazione ed è il protocollo di sicurezza più usato oggi.
@@ -172,7 +172,8 @@ Per visualizzare la guida alla distribuzione di Multi-Factor Authentication, vis
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>I ruoli di gestione delle app delegati di Azure Active Directory sono in anteprima pubblica
 
 **Tipo:** Nuova funzionalità  
-**Categoria di servizio:** App aziendali **Funzionalità del prodotto:** Controllo di accesso
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Controllo di accesso
 
 Gli amministratori ora possono delegare le attività di gestione delle app senza assegnare il ruolo di amministratore globale. I nuovi ruoli e funzionalità sono:
 

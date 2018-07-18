@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054654"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082506"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -103,7 +103,7 @@ Il diagramma seguente illustra i nodi di calcolo attivo e ridondanti in questo l
 
 Di seguito sono indicate le funzionalità principali del livello di servizio Utilizzo generico:
 
-|Funzionalità | DESCRIZIONE|
+|Funzionalità | Descrizione|
 |---|---|
 | Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40 (Generazione 5)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
@@ -210,7 +210,7 @@ Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud
 - Istanza gestita non consente l'uso di percorsi fisici completi, pertanto tutti gli scenari corrispondenti devono essere supportati in modo diverso: RESTORE DB non supporta WITH MOVE, CREATE DB non consente i percorsi fisici, BULK INSERT funziona solo con i BLOB di Azure e così via. 
 - Istanza gestita supporta l'[autenticazione di Azure AD](sql-database-aad-authentication.md) come alternativa cloud all'autenticazione di Windows. 
 - Istanza gestita gestisce automaticamente filegroup XTP e i file per i database contenenti oggetti di OLTP in memoria
-- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Istanza gestita supporta SQL Server Integration Services e può ospitare il catalogo SSIS, ovvero SSISDB, che archivia i pacchetti SSIS, che però vengono eseguiti in un runtime di integrazione SSIS di Azure gestito in Azure Data Factory, vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Per confrontare le funzionalità SSIS nel database SQL e in Istanza gestita, vedere [Confrontare Database SQL e Istanza gestita (anteprima)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione di Istanza gestita  
 

@@ -1,5 +1,5 @@
 ---
-title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Documentazione Microsoft
+title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs
 description: Utilizzare il backup periodico di Service Fabric e il ripristino di funzionalità per proteggere le applicazioni dalla perdita di dati.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236121"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113990"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 - Sospensione temporanea dei backup
 - Gestione della memorizzazione dei backup (a breve)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Cluster di Service Fabric con Fabric versione 6.2 e successive. Il cluster deve essere installato su Windows Server. Fare riferimento all’[articolo](service-fabric-cluster-creation-via-arm.md) per i passaggi da seguire per la creazione dell'infrastruttura di servizio del cluster utilizzando il modello di risorse di Azure.
 * Certificato X.509 per la crittografia dei dati, necessario per connettersi alla risorsa di archiviazione e archiviare i backup. Fare riferimento all’[articolo](service-fabric-cluster-creation-via-arm.md) per sapere come ottenere o creare un certificato X.509.
 * Applicazione Reliable di Service Fabric con informazioni sullo stato, creata utilizzando Service Fabric SDK versione 3.0 o versione successiva. Per applicazioni destinate a .Net Core 2.0, l'applicazione deve essere sviluppata utilizzando Service Fabric SDK versione 3.1 o versione successiva.

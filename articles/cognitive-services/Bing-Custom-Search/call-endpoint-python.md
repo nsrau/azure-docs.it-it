@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
 ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "35378497"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Chiamare l'endpoint di Ricerca personalizzata Bing (Python)
@@ -27,7 +27,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
 -  [Python](https://www.python.org/) installato.
 
-- Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **API di ricerca Bing**. La [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) è sufficiente per questa guida introduttiva. È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure. 
+- Un [account dell'API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **API di ricerca Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure. 
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

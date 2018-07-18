@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: sngun
-ms.openlocfilehash: 079cbff3a1669efb7ba7cd7a97da9256dbbfe9f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613218"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901120"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Protezione dell'accesso ai dati in Azure Cosmos DB
 Questo articolo offre una panoramica della protezione dell'accesso ai dati archiviati in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -24,7 +24,7 @@ Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire acce
 |Tipo di chiave|Risorse|
 |---|---|
 |[Chiavi master](#master-keys) |Usate per risorse amministrative, ovvero account di database, database, utenti e autorizzazioni|
-|[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero raccolte, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
+|[Token delle risorse](#resource-tokens)|Usati per le risorse dell'applicazione, ovvero contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente|
 
 <a id="master-keys"></a>
 
@@ -32,7 +32,7 @@ Azure Cosmos DB usa due tipi di chiavi per autenticare gli utenti e fornire acce
 
 Le chiavi master consentono di accedere a tutte le risorse amministrative per l'account del database. Chiavi master:  
 - Consentono di accedere ad account, database, utenti e autorizzazioni. 
-- Non possono essere usate per fornire l'accesso granulare a raccolte e documenti.
+- Non possono essere usate per fornire l'accesso granulare a contenitori e documenti.
 - Vengono create durante la creazione di un account.
 - Possono essere rigenerate in qualsiasi momento.
 
@@ -75,7 +75,7 @@ Database database = await client.CreateDatabaseAsync(
 ## <a name="resource-tokens"></a>Token delle risorse
 
 I token delle risorse consentono di accedere alle risorse dell'applicazione all'interno di un database. Token delle risorse:
-- Consentono di accedere a raccolte, chiavi di partizioni, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente.
+- Consentono di accedere a contenitori, chiavi di partizioni, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente.
 - Vengono creati quando a un [utente](#users) vengono concesse [autorizzazioni](#permissions) per una risorsa specifica.
 - Vengono ricreati quando si interviene su una risorsa di autorizzazione tramite chiamata POST, GET o PUT.
 - Usano un token di risorsa hash costruito specificamente per l'utente, la risorsa e l'autorizzazione.
@@ -134,7 +134,7 @@ Sono disponibili due livelli di accesso che possono essere forniti da una risors
 * Lettura: l'utente può solo leggere i contenuti della risorsa, ma non può eseguire operazioni di scrittura, aggiornamento o eliminazione sulla risorsa.
 
 > [!NOTE]
-> Per eseguire le stored procedure di Cosmos DB, l'utente deve avere l'autorizzazione All per la raccolta in cui verrà eseguita la stored procedure.
+> Per eseguire le stored procedure di Cosmos DB, l'utente deve avere l'autorizzazione All per i contenitori in cui verrà eseguita la stored procedure.
 > 
 > 
 
@@ -174,6 +174,11 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="delete-or-export-user-data"></a>Eliminare o esportare i dati utente
+Azure Cosmos DB consente di eseguire la ricerca, selezionare, modificare ed eliminare tutti i dati personali che si trovano nel database o nelle raccolte. Azure Cosmos DB offre API per trovare ed eliminare i dati personali; tuttavia, è necessario usare le API e definire la logica necessaria per cancellare i dati personali. Ogni API multimodello (API SQL, API di MongoDB, API Gremlin, l'API Cassandra, API di tabella) fornisce SDK di lingue diverse che contengono metodi per cercare ed eliminare i dati personali. È inoltre possibile abilitare la funzionalità [time-to live (TTL)](time-to-live.md) per eliminare automaticamente i dati dopo un periodo specificato, senza incorrere in costi aggiuntivi.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per altre informazioni sulla sicurezza dei database Cosmos DB, vedere [Cosmos DB: Database security](database-security.md) (Cosmos DB: sicurezza dei database).

@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030380"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096968"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -40,12 +40,12 @@ Sia l'agente di Edge che l'hub Edge sono moduli, proprio come gli altri moduli i
 L'hub di Edge è uno dei due moduli che costituiscono il runtime di Azure IoT Edge. Opera come un proxy locale per l'hub IoT esponendo gli stessi endpoint del protocollo dell'hub IoT. Questa coerenza implica che i client, siano essi dispositivi o moduli, possono connettersi al runtime di IoT Edge esattamente come si connetterebbero all'hub IoT. 
 
 >[!NOTE]
-> Durante l'anteprima pubblica l'hub di Edge supporta solo i client che si connettono tramite MQTT.
+>L'hub di Edge supporta i client che si connettono tramite MQTT o AMQP. Non supporta i client che usano HTTP. 
 
 L'hub di Edge non è una versione completa dell'hub IoT in esecuzione in locale. Esistono alcune operazioni che l'hub di Edge delega automaticamente all'hub IoT. Ad esempio, l'hub di Edge inoltra le richieste di autenticazione all'hub IoT quando un dispositivo tenta di connettersi per la prima volta. Dopo aver stabilito la prima connessione, le informazioni di sicurezza vengono memorizzate nella cache locale dall'hub di Edge. Le connessioni successive da tale dispositivo vengono consentite senza dover eseguire l'autenticazione nel cloud. 
 
 >[!NOTE]
-> Durante l'anteprima pubblica, il runtime deve essere connesso ogni volta che si tenta di eseguire l'autenticazione di un dispositivo.
+>Il runtime deve essere connesso ogni volta che si prova a eseguire l'autenticazione di un dispositivo.
 
 Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub di Edge ottimizza il numero effettivo di connessioni eseguite nel cloud. L'hub di Edge accetta le connessioni logiche dai client quali moduli o dispositivi foglia e le combina per avere un'unica connessione fisica nel cloud. I dettagli di questo processo sono trasparenti per il resto della soluzione. Ai client sembra di avere ognuno la propria la connessione al cloud ma in realtà usano tutti la stessa connessione. 
 

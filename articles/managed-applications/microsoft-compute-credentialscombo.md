@@ -11,23 +11,35 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 914e354265754a05476e96411d35e6cb04183213
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 183075f7407b0a0ca6ea53871e239ab8c2d89490
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261055"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098621"
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Elemento Microsoft.Compute.CredentialsCombo dell'interfaccia utente
 Si tratta di un gruppo di controlli con convalida predefinita per le chiavi pubbliche SSH e le password di Windows e Linux.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
-![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
+
+Per Windows, gli utenti visualizzeranno:
+
+![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
+
+Per Linux con la password selezionata, gli utenti visualizzeranno:
+
+![Password Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+
+Per Linux con chiave pubblica SSH selezionata, gli utenti visualizzeranno:
+
+![Chiave Microsoft.Compute.CredentialsCombo Linux](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>SCHEMA
-Se `osPlatform` è **Windows**, viene usato lo schema seguente:
+Per Windows, usare il seguente schema:
+
 ```json
 {
   "name": "element1",
@@ -52,7 +64,8 @@ Se `osPlatform` è **Windows**, viene usato lo schema seguente:
 }
 ```
 
-Se `osPlatform` è **Linux**, viene usato lo schema seguente:
+Per **Linux**, usare il seguente schema:
+
 ```json
 {
   "name": "element1",
@@ -84,13 +97,13 @@ Se `osPlatform` è **Linux**, viene usato lo schema seguente:
 
 ## <a name="remarks"></a>Osservazioni
 - È necessario specificare `osPlatform`, che può essere **Windows** o **Linux**.
-- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo le caselle di testo della password o della chiave pubblica SSH devono contenere valori. Il valore predefinito è **true**.
+- Se `constraints.required` è impostato su **true**, perché la convalida abbia esito positivo le caselle di testo della password o della chiave pubblica SSH devono disporre di valori. Il valore predefinito è **true**.
 - Se la proprietà `options.hideConfirmation` è impostata su **true**, la seconda casella di testo per la conferma della password dell'utente è nascosta. Il valore predefinito è **false**.
 - Se `options.hidePassword` è impostato su **true**, l'opzione per l'uso dell'autenticazione della password è nascosta. È possibile usarla solo quando `osPlatform` è **Linux**. Il valore predefinito è **false**.
 - La proprietà `customPasswordRegex` permette di implementare vincoli aggiuntivi sulle password consentite. La stringa in `customValidationMessage` viene visualizzata quando una password non supera la convalida personalizzata. Il valore predefinito per entrambe le proprietà è **null**.
 
 ## <a name="sample-output"></a>Output di esempio
-Se `osPlatform` è **Windows** oppure l'utente ha specificato una password anziché una chiave pubblica SSH, è previsto l'output seguente:
+Se `osPlatform` è **Windows** oppure `osPlatform` è **Linux** e l'utente ha specificato una password anziché una chiave pubblica SSH, il controllo restituisce l'output seguente:
 
 ```json
 {
@@ -99,7 +112,8 @@ Se `osPlatform` è **Windows** oppure l'utente ha specificato una password anzic
 }
 ```
 
-Se l'utente ha specificato una chiave pubblica SSH, è previsto l'output seguente:
+Se `osPlatform` è **Linux** e l'utente ha specificato una chiave pubblica SSH, il controllo restituisce l'output seguente:
+
 ```json
 {
   "authenticationType": "sshPublicKey",

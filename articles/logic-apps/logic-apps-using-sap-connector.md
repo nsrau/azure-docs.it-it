@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a9346092e0a24709a9888937effdf802bf1b09fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3837896911b92361e0a6d0a7166a1b17651d6fe3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300216"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112861"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -30,7 +30,7 @@ I connettori SAP correnti presentano azioni, ma non trigger, pertanto in questo 
 
 Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per proseguire con questo articolo, sono necessari questi elementi:
 
@@ -97,7 +97,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
    **Creare una connessione SAP locale**
 
-   1. Per **Gateway**, selezionare **Connetti tramite gateway dati locale** in modo da visualizzare le proprietà di connessione locale.
+   1. In **Gateway** selezionare **Connetti tramite gateway dati locale**, in modo che vengano visualizzate le proprietà della connessione locale.
 
    2. Specificare le informazioni di connessione per il server SAP. 
    Per la proprietà **gateway**, selezionare il gateway dati creato nel portale di Azure per l'installazione del gateway, ad esempio:
