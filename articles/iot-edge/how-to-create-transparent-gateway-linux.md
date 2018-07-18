@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5a78d6fb8ee52f0daba80a77cc8a5e75c2e5248d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034950"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346060"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creare un dispositivo IoT Edge Linux come gateway trasparente
 
@@ -142,7 +142,11 @@ L'installazione di questo certificato nell'archivio certificati del sistema oper
  
     Verrà visualizzato un messaggio per confermare l'avvenuto aggiornamento dei certificati in /etc/ssl/certs (1 aggiunto, 0 rimossi).
 
-* Windows: [questo](https://msdn.microsoft.com/en-us/library/cc750534.aspx) articolo illustra in dettaglio la procedura da eseguire in un dispositivo Windows tramite l'Importazione guidata certificati. 
+* Windows: l'esempio seguente illustra come installare un certificato della CA in un host Windows.
+  * Nel menu Start digitare Gestisci i certificati computer. Verrà visualizzata un'utilità denominata `certlm`.
+  * Passare a Certificati - Computer locale --> Autorità di certificazione radice attendibile --> Certificati --> fare clic con il pulsante destro del mouse --> Tutte le attività --> Importa per avviare la procedura guidata per l'importazione del certificato.
+  * Seguire i passaggi come indicato e importare il file di certificato $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem.
+  * Al termine, verrà visualizzato il messaggio "Importazione completata".
 
 ### <a name="application-level"></a>Livello applicazione
 Per le applicazioni .NET è possibile aggiungere il frammento di codice seguente per poter considerare attendibile un certificato in formato PEM. Inizializzare la variabile `certPath` con `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.

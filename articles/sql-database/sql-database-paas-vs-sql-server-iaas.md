@@ -1,5 +1,5 @@
 ---
-title: Confronto tra il database SQL (PaaS) e SQL Server nel cloud in VM (IaaS) | Documentazione Microsoft
+title: Confronto tra il database SQL (PaaS) e SQL Server nel cloud in VM (IaaS) | Microsoft Docs
 description: Informazioni su come trovare l'opzione di SQL Server cloud ottimale per l'applicazione, ovvero database SQL di Azure (PaaS) o SQL Server nel cloud su macchine virtuali di Azure.
 services: sql-database, virtual-machines
 keywords: SQL Server cloud, SQL Server nel cloud, database PaaS, cloud SQL Server, DBaaS
@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: a212a595c02a048721f1a8753b437f74f2fc4973
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308955"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114402"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)
 
@@ -124,7 +124,7 @@ Il **database SQL con server logici, pool elastici e database singoli** è la so
 
 **Istanza gestita di database SQL** semplifica notevolmente la migrazione delle applicazioni esistenti al database SQL di Azure, consentendo di immettere sul mercato in Azure in tempi brevi applicazioni di database sottoposte a migrazione.
 
-**SQL Server in macchine virtuali di Azure** è la scelta ideale se le applicazioni nuove o esistenti richiedono database di grandi dimensioni o l'accesso a tutte le funzionalità in SQL Server o in Windows/Linux e si vogliono evitare i tempi e i costi per l'acquisto di nuovo hardware locale. È anche una soluzione appropriata quando si vuole eseguire la migrazione delle applicazioni e dei database locali esistenti in Azure così come sono, nei casi in cui Istanza gestita di database SQL di Azure non sia una scelta indicata. Poiché non è necessario modificare la presentazione, l'applicazione e i livelli dati, si risparmia il tempo e i costi legati a una nuova progettazione dell'architettura della soluzione esistente. È invece possibile concentrarsi sulla migrazione di tutte le soluzioni in Azure e sulle ottimizzazioni delle prestazioni eventualmente richieste dalla piattaforma Azure. Per altre informazioni, vedere [Procedure consigliate per le prestazioni di SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**SQL Server in esecuzione in macchine virtuali di Azure** è la scelta ideale se le applicazioni nuove o esistenti richiedono database di grandi dimensioni o l'accesso a tutte le funzionalità in SQL Server o in Windows/Linux e si vogliono evitare i tempi e i costi per l'acquisto di nuovo hardware locale. È anche una soluzione appropriata quando si vuole eseguire la migrazione delle applicazioni e dei database locali esistenti in Azure così come sono, nei casi in cui Istanza gestita di database SQL di Azure non sia una scelta indicata. Poiché non è necessario modificare la presentazione, l'applicazione e i livelli dati, si risparmia il tempo e i costi legati a una nuova progettazione dell'architettura della soluzione esistente. È invece possibile concentrarsi sulla migrazione di tutte le soluzioni in Azure e sulle ottimizzazioni delle prestazioni eventualmente richieste dalla piattaforma Azure. Per altre informazioni, vedere [Procedure consigliate per le prestazioni di SQL Server nelle macchine virtuali di Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="summary"></a>Summary
 Questo articolo ha illustrato il database SQL e SQL Server nelle macchine virtuali (VM) di Azure, nonché i vantaggi aziendali comuni che possono influire sulla decisione. Ecco un riepilogo dei suggerimenti da tenere presenti:

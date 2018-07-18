@@ -1,5 +1,5 @@
 ---
-title: Creare un cluster di Azure Service Fabric da un modello | Documentazione Microsoft
+title: Creare un cluster di Azure Service Fabric da un modello | Microsoft Docs
 description: Questo articolo descrive come configurare un cluster di Service Fabric sicuro in Azure usando Azure Resource Manager, Azure Key Vault e Azure Active Directory (Azure AD) per l'autenticazione client.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701353"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444362"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Creare un cluster di Service Fabric usando Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Il concetto di creazione di cluster sicuri è lo stesso per i cluster sia Linux 
 Per le operazioni client degli utenti o degli amministratori è possibile specificare un numero qualsiasi di certificati aggiuntivi. Per impostazione predefinita, il certificato del cluster ha privilegi "Client amministratore". Questi certificati client aggiuntivi non devono essere installati nel cluster, ma devono essere semplicemente specificati come consentiti nella configurazione del cluster; tuttavia, è necessario che siano installati nei computer client per connettersi al cluster ed eseguire tutte le operazioni di gestione.
 
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 Il concetto di creazione di cluster sicuri è lo stesso per i cluster sia Linux che Windows. Questa guida illustra l'uso di Azure PowerShell o dell'interfaccia della riga di comando di Azure per creare nuovi cluster. Devono essere soddisfatti i prerequisiti seguenti:
 
 -  [Azure PowerShell 4.1 e versioni successive][azure-powershell] o [interfaccia della riga di comando di Azure 2.0 e versioni successive][azure-CLI].
@@ -115,6 +115,10 @@ Il modello utilizzato è disponibile tra gli [esempi di modelli di Azure Service
 
 I comandi seguenti consentono di creare cluster di Windows e Linux; è sufficiente specificare il sistema operativo appropriato. I comandi di PowerShell e dell'interfaccia della riga di comando restituiscono inoltre il certificato nella cartella CertificateOutputFolder specificata, tuttavia assicurarsi che la cartella del certificato sia già stata creata. Il comando accetta anche altri parametri come VM SKU.
 
+> [!NOTE]
+> Il comando di PowerShell seguente funziona solo con la versione PowerShell 6.1 per Azure Resource Manager. Per controllare la versione corrente di PowerShell per Azure Resource Manager, eseguire il comando di PowerShell "Get-Module AzureRM". Per aggiornare la versione di PowerShell per Azure Resource Manager, seguire questo collegamento. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+>
+>
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"

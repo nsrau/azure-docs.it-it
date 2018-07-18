@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 43f82341a3cc9d2163afd35e42864aaa7866b1b2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035170"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344352"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installare il runtime di Azure IoT Edge in Linux (x64)
 
@@ -49,18 +49,9 @@ sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 # Install Microsoft GPG public key
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
 
-### <a name="debian-9"></a>Debian 9
-
-```cmd/sh
-# Install repository configuration
-curl https://packages.microsoft.com/config/debian/9/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-
-# Install Microsoft GPG public key
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+# Perform apt upgrade
+sudo apt-get upgrade
 ```
 
 ## <a name="install-the-container-runtime"></a>Installare il runtime per contenitori 
@@ -69,10 +60,15 @@ Azure IoT Edge si basa su un runtime per contenitori [compatibile con OCI][lnk-o
 
 Per gli scenari di produzione è consigliabile usare il motore [basato su Moby][lnk-moby] fornito di seguito. È l'unico motore di contenitore supportato ufficialmente con Azure IoT Edge. Le immagini del contenitore Docker CE/EE sono completamente compatibili con il runtime di Moby.
 
-*Le istruzioni riportate di seguito installano sia il motore Moby sia l'interfaccia della riga di comando. L'interfaccia della riga di comando è utile per le attività di sviluppo, ma è facoltativa per le distribuzioni di produzione.*
+Aggiornare apt-get.
 
-```cmd/sh
+```bash
 sudo apt-get update
+```
+
+Installare il motore Moby e l'interfaccia della riga di comando (CLI). Quest'ultima è utile per le attività di sviluppo, ma è facoltativa per le distribuzioni di produzione.*
+
+```bash
 sudo apt-get install moby-engine
 sudo apt-get install moby-cli
 ```
@@ -81,24 +77,48 @@ sudo apt-get install moby-cli
 
 Con i comandi riportati di seguito verrà installata anche la versione standard di **iothsmlib** se non già presente.
 
-```cmd/sh
+```bash
 sudo apt-get update
 sudo apt-get install iotedge
 ```
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurare il daemon di sicurezza di Azure IoT Edge
 
-Il daemon può essere configurato tramite il file di configurazione in `/etc/iotedge/config.yaml`. Il dispositivo Edge può essere configurato <!--[automatically via Device Provisioning Service][lnk-dps] or--> manualmente tramite una [stringa di connessione del dispositivo][lnk-dcs].
+Il daemon può essere configurato usando il file di configurazione in `/etc/iotedge/config.yaml`. Il file è protetto da scrittura per impostazione predefinita e possono essere necessarie autorizzazioni elevate per modificarlo.
 
-Per la configurazione manuale, immettere la stringa di connessione del dispositivo nella sezione **provisioning** di **config.yaml**.
-
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```bash
+sudo nano /etc/iotedge/config.yaml
 ```
 
-*Il file è protetto da scrittura per impostazione predefinita e potrebbe essere necessario usare `sudo` per modificarlo. Ad esempio: `sudo nano /etc/iotedge/config.yaml`*
+Il dispositivo Edge può essere configurato manualmente tramite una [stringa di connessione del dispositivo][lnk-dcs] oppure [automaticamente tramite il servizio di provisioning di dispositivi][lnk-dps].
+
+* Per la configurazione manuale, rimuovere il commento dalla modalità di provisioning **manuale**. Aggiornare il valore di **device_connection_string** con la stringa di connessione del dispositivo IoT Edge.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* Per la configurazione automatica, rimuovere il commento dalla modalità di provisioning **dps**. Aggiornare i valori di **scope_id** e **registration_id** con i valori dell'istanza DPS dell'hub IoT e aggiornare il dispositivo IoT Edge con TPM. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 Dopo aver immesso le informazioni di provisioning nella configurazione, riavviare il daemon:
 
@@ -107,6 +127,8 @@ sudo systemctl restart iotedge
 ```
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
+
+Se è stata usata la **configurazione manuale** nella sezione precedente, il runtime IoT Edge deve essere correttamente sottoposto a provisioning e in esecuzione nel dispositivo. Se è stata usata la **configurazione automatica**, è necessario completare alcuni passaggi aggiuntivi in modo che il runtime possa registrare il dispositivo con l'hub IoT per conto dell'utente. Per i passaggi successivi, vedere [Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in una macchina virtuale Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 È possibile verificare lo stato del daemon IoT Edge con il comando seguente:
 
@@ -123,7 +145,7 @@ journalctl -u iotedge --no-pager --no-full
 Elencare infine i moduli in esecuzione con il comando seguente:
 
 ```cmd/sh
-iotedge list
+sudo iotedge list
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -131,8 +153,8 @@ iotedge list
 In caso di problemi durante l'installazione del runtime di Edge, vedere la pagina relativa alla [risoluzione dei problemi][lnk-trouble].
 
 <!-- Links -->
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725208"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969402"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect con un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -48,6 +48,9 @@ Se Azure AD rileva un oggetto in cui i valori di attributo sono gli stessi per u
 È necessario prendere in considerazione le indicazioni della sezione precedente nella pianificazione. Se in Azure AD sono state apportate molte modifiche che non sono state applicate nell'istanza di Active Directory Domain Services locale, è necessario pianificare come popolare Active Directory Domain Services con i valori aggiornati prima di sincronizzare gli oggetti con Azure AD Connect.
 
 Se gli oggetti sono stati associati con una corrispondenza flessibile, verrà aggiunto **sourceAnchor** all'oggetto in Azure AD e sarà quindi possibile usare una corrispondenza rigida in seguito.
+
+>[!IMPORTANT]
+> Microsoft sconsiglia fortemente la sincronizzazione di account locali con account amministrativi preesistenti in Azure Active Directory.
 
 ### <a name="hard-match-vs-soft-match"></a>Differenza tra corrispondenza rigida e corrispondenza flessibile
 Per una nuova installazione di Connect, non esiste alcuna differenza pratica tra corrispondenza flessibile e corrispondenza rigida. La differenza emerge in una situazione di ripristino di emergenza. Se si è perso il server con Azure AD Connect, è possibile reinstallare una nuova istanza senza perdere i dati. Un oggetto con un attributo sourceAnchor viene inviato a Connect durante l'installazione iniziale. La corrispondenza può quindi essere valutata dal client (Azure AD Connect), che per l'operazione impiega molto meno tempo rispetto ad Azure AD. Una corrispondenza rigida viene valutata sia da Connect che da Azure AD. Una corrispondenza flessibile viene valutata solo da Azure AD.

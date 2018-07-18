@@ -12,15 +12,18 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 78e164b566194fcfe952e3ad59dd3d228f90d193
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674853"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Guida introduttiva: Creare una chat room con il servizio SignalR
+
+Il servizio Microsoft Azure SignalR è attualmente disponibile in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il servizio Azure SignalR è un servizio di Azure che consente agli sviluppatori di compilare facilmente applicazioni Web con funzionalità in tempo reale. Questo servizio è basato su [SignalR per ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
@@ -84,18 +87,18 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
 
 1. Aggiungere un riferimento al pacchetto NuGet `Microsoft.Azure.SignalR` eseguendo il comando seguente:
 
-        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-preview-10007
+        dotnet add package Microsoft.Azure.SignalR -v 1.0.0-*
 
 2. Eseguire il comando seguente per ripristinare i pacchetti per il progetto.
 
         dotnet restore
 
-3. Aggiungere un segreto denominato *Azure:SignalR:ConnectionString* a Secret Manager. Questo segreto conterrà la stringa di connessione per accedere alla risorsa del servizio SignalR. *Azure:SignalR:ConnectionString* è la chiave di configurazione predefinita che SignalR cerca per stabilire una connessione. Sostituire il valore nel comando seguente con la stringa di connessione per la risorsa del servizio SignalR.
+3. Aggiungere un segreto denominato *Azure__SignalR__ConnectionString* a Secret Manager. Questo segreto è un valore di configurazione gerarchica, quindi i due punti (:) potrebbero non funzionare su tutte le piattaforme. Il doppio carattere di sottolineatura (__), come quello usato da questo segreto, è supportato da tutte le piattaforme.  Questo segreto conterrà la stringa di connessione per accedere alla risorsa del servizio SignalR. *Azure__SignalR__ConnectionString* è la chiave di configurazione predefinita che SignalR cerca per stabilire una connessione. Sostituire il valore nel comando seguente con la stringa di connessione per la risorsa del servizio SignalR.
 
     Questo comando deve essere eseguito nella stessa directory del file con estensione *csproj*.
 
     ```
-    dotnet user-secrets set Azure:SignalR:ConnectionString Endpoint=<Your endpoint>;AccessKey=<Your access key>;    
+    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager verrà usato solo per il test dell'app Web mentre è ospitato in locale. In un'esercitazione successiva si distribuirà l'app Web di chat in Azure. Dopo la distribuzione dell'app Web in Azure, sarà possibile usare un'impostazione dell'applicazione invece di archiviare la stringa di connessione con Secret Manager.
@@ -110,7 +113,7 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
     }
     ```
 
-    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita, *Azure:SignalR:ConnectionString*, per la stringa di connessione della risorsa del servizio SignalR.
+    Non passando un parametro a `AddAzureSignalR()`, questo codice usa la chiave di configurazione predefinita, *Azure__SignalR__ConnectionString*, per la stringa di connessione della risorsa del servizio SignalR.
 
 5. Sempre in *Startup.cs*, aggiornare il metodo `Configure` sostituendo la chiamata a `app.UseStaticFiles()` con il codice seguente e salvare il file.
 
@@ -241,16 +244,16 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
 
 Se si proseguirà con l'esercitazione successiva, sarà possibile conservare le risorse create in questa guida introduttiva e riutilizzarle.
 
-In caso contrario, se si è terminato il lavoro con l'applicazione di esempio della guida introduttiva, è possibile eliminare le risorse di Azure create in questa guida per evitare costi correlati. 
+In caso contrario, se si è terminato il lavoro con l'applicazione di esempio della guida di avvio rapido, è possibile eliminare le risorse di Azure create in questa guida di avvio rapido per evitare i costi correlati. 
 
 > [!IMPORTANT]
-> L'eliminazione di un gruppo di risorse è irreversibile e il gruppo di risorse e tutte le risorse in esso contenute verranno eliminati definitivamente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche risorse da conservare, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
+> L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 > 
 > 
 
 Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Per le istruzioni di questa guida introduttiva è stato usato un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** e quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Per le istruzioni di questa guida introduttiva è stato usato un gruppo di risorse denominato *SignalRTestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
 
    
 ![Delete](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
@@ -258,7 +261,7 @@ Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di ri
 
 Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
    
-Dopo qualche istante il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati.
+Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
 
 

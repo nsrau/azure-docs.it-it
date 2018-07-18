@@ -12,17 +12,24 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461504"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Caricare i dati immagine nel cloud con Archiviazione di Azure
 
 Questa è la prima di una serie di esercitazioni. In questa esercitazione viene illustrato come distribuire un'applicazione Web che usa la libreria client di archiviazione di Azure per caricare immagini in un account di archiviazione. Al termine, si avrà un'applicazione Web che archivia e visualizza le immagini da Archiviazione di Azure.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 Nella prima parte della serie si apprenderà come:
 
@@ -53,7 +60,7 @@ az group create --name myResourceGroup --location westcentralus
 L'esempio carica le immagini in un contenitore BLOB in un account di archiviazione di Azure. Un account di archiviazione offre uno spazio dei nomi univoco per archiviare gli oggetti dati di Archiviazione di Azure e accedere a tali oggetti. Creare un account di archiviazione nel gruppo di risorse creato usando il comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB nelle aree Stati Uniti centro-occidentali e Stati Uniti occidentali 2. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.   
+> Nella parte 2 dell'esercitazione vengono usate le sottoscrizioni di eventi per l'archiviazione BLOB. Le sottoscrizioni di eventi sono attualmente supportate solo per gli account di archiviazione BLOB nelle località seguenti: Asia sudorientale, Asia orientale, Australia orientale, Australia sud-orientale, Stati Uniti centrali, Stati Uniti orientali, Stati Uniti orientali 2, Europa occidentale, Europa settentrionale, Giappone orientale, Giappone occidentale, Stati Uniti centro-occidentali, Stati Uniti occidentali e Stati Uniti occidentali 2. A causa di questa limitazione, è necessario creare un account di archiviazione BLOB usato dall'applicazione di esempio per archiviare immagini e anteprime.   
 
 Nel comando seguente sostituire il segnaposto `<blob_storage_account>` con il nome globalmente univoco dell'account di archiviazione BLOB.  
 
@@ -64,7 +71,7 @@ az storage account create --name <blob_storage_account> \
 ``` 
  
 ## <a name="create-blob-storage-containers"></a>Creare contenitori di archiviazione BLOB
- 
+
 L'app usa due contenitori nell'account di archiviazione BLOB. I contenitori sono simili alle cartelle e vengono usati per archiviare BLOB. Il contenitore _images_ è la posizione in cui l'applicazione carica le immagini ad alta risoluzione. In una parte successiva della serie un'app per le funzioni di Azure carica le anteprime delle immagini ridimensionate nel contenitore _thumbnails_. 
 
 Usare il comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) per ottenere le chiavi dell'account di archiviazione. Usare quindi la chiave per creare due contenitori usando il comando [az storage container create](/cli/azure/storage/container#az_storage_container_create).  
@@ -74,7 +81,7 @@ In questo caso, `<blob_storage_account>` è il nome dell'account di archiviazion
 ```azurecli-interactive 
 $blobStorageAccount="<blob_storage_account>"
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \
@@ -111,11 +118,18 @@ Nel comando seguente sostituire `<web_app>` con un nome univoco (i caratteri val
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuire l'app di esempio dal repository GitHub 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>Distribuire l'app di esempio dal repository GitHub
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 Il servizio app offre diversi modi per distribuire contenuto in un'applicazione Web. In questa esercitazione si distribuisce l'app Web da un [repository pubblico di esempio GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Configurare la distribuzione GitHub nell'applicazione Web con il comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
 
 Il progetto di esempio contiene un'app [MVC ASP.NET](https://www.asp.net/mvc) che accetta un'immagine, la salva in un account di archiviazione e visualizza le immagini da un contenitore di anteprime. L'applicazione Web usa gli spazi dei nomi [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) e [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) dalla libreria client di archiviazione di Azure per interagire con Archiviazione di Azure. 
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+Il servizio app offre diversi modi per distribuire contenuto in un'applicazione Web. In questa esercitazione si distribuisce l'app Web da un [repository pubblico di esempio GitHub](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node). Configurare la distribuzione GitHub nell'applicazione Web con il comando [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config). Sostituire `<web_app>` con il nome dell'applicazione Web creata nel passaggio precedente.
+
+---
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -142,6 +156,8 @@ Dopo che l'applicazione Web è stata distribuita e configurata, è possibile tes
 ## <a name="upload-an-image"></a>Caricare un'immagine 
 
 Per testare l'applicazione Web, passare all'URL dell'app pubblicata. L'URL predefinito dell'app Web è `https://<web_app>.azurewebsites.net`. Selezionare l'area **Upload photos** (Carica foto) per selezionare e caricare un file oppure trascinare e rilasciare un file nell'area. Se è stata caricata correttamente, l'immagine scompare.
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![App ImageResizer](media/storage-upload-process-images/figure1.png)
 
@@ -182,6 +198,69 @@ Nell'attività precedente vengono usate le classi e i metodi seguenti:
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+![App per il caricamento di immagini](media/storage-upload-process-images/upload-app-nodejs.png)
+
+Nel codice di esempio la route `post` è responsabile del caricamento dell'immagine in un contenitore BLOB. La route usa i moduli per consentire l'elaborazione del caricamento:
+
+- [multer](https://github.com/expressjs/multer) implementa la strategia di caricamento per il gestore di route
+- [into-stream](https://github.com/sindresorhus/into-stream) converte il buffer in un flusso come richiesto da [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
+
+Quando il file viene inviato alla route, i contenuti del file restano in memoria fino al caricamento del file nel contenitore BLOB.
+
+> [!IMPORTANT]
+> Il caricamento di file di dimensioni molto grandi in memoria può influire negativamente sulle prestazioni dell'applicazione Web. Se si prevede che gli utenti pubblicheranno file di grandi dimensioni, prendere in considerazione la possibilità di inserire temporaneamente i file nel file system del server Web e quindi di pianificare i caricamenti nell'archivio BLOB. Quando i file saranno nell'archivio BLOB, sarà quindi possibile rimuoverli dal file system del server.
+
+```javascript
+const
+      express = require('express')
+    , router = express.Router()
+
+    , multer = require('multer')
+    , inMemoryStorage = multer.memoryStorage()
+    , uploadStrategy = multer({ storage: inMemoryStorage }).single('image')
+
+    , azureStorage = require('azure-storage')
+    , blobService = azureStorage.createBlobService()
+
+    , getStream = require('into-stream')
+    , containerName = 'images'
+;
+
+const handleError = (err, res) => {
+    res.status(500);
+    res.render('error', { error: err });
+};
+
+const getBlobName = originalName => {
+    const identifier = Math.random().toString().replace(/0\./, ''); // remove "0." from start of string
+    return `${originalName}-${identifier}`;
+};
+
+router.post('/', uploadStrategy, (req, res) => {
+
+    const
+          blobName = getBlobName(req.file.originalname)
+        , stream = getStream(req.file.buffer)
+        , streamLength = req.file.buffer.length
+    ;
+
+    blobService.createBlockBlobFromStream(containerName, blobName, stream, streamLength, err => {
+
+        if(err) {
+            handleError(err);
+            return;
+        }
+
+        res.render('success', { 
+            message: 'File uploaded to Azure Blob storage.' 
+        });
+    });
+});
+```
+---
+
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>Verificare che l'immagine venga visualizzata nell'account di archiviazione
 
 Accedere al [portale di Azure](https://portal.azure.com). Nel menu a sinistra selezionare **Account di archiviazione** e quindi selezionare il nome dell'account di archiviazione. In **Panoramica** selezionare il contenitore **images**.
@@ -200,7 +279,13 @@ Scegliere un file usando il selettore di file e selezionare **Carica**.
 
 Tornare all'app per verificare che l'immagine caricata nel contenitore **thumbnails** sia visibile.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+![Visualizzazione del contenitore delle immagini](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 Nel contenitore **thumbnails** nel portale di Azure selezionare l'immagine caricata e quindi selezionare **Elimina** per eliminare l'immagine. Nella seconda parte della serie si automatizza la creazione delle immagini di anteprima, pertanto questa immagine di test non è necessaria.
 

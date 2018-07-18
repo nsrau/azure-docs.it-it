@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912016"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113895"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912016"
 
 In un flusso di dati temporale degli eventi, a ogni evento viene assegnato un timestamp. Analisi di flusso di Azure assegna timestamp a ogni evento usando l'ora di arrivo o il tempo applicazione. La colonna **System.Timestamp** include il timestamp assegnato all'evento. 
 
-L'ora di arrivo viene assegnata nell'origine di input quando l'evento raggiunge l'origine. È possibile accedere all'ora di arrivo usando la proprietà **EventEnqueuedTime** per l'input dell'hub eventi e la proprietà [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) per l'input del BLOB. 
+L'ora di arrivo viene assegnata nell'origine di input quando l'evento raggiunge l'origine. È possibile accedere all'ora di arrivo usando la proprietà **EventEnqueuedUtcTime** per gli input di Hub eventi, la proprietà **IoTHub.EnqueuedTime** per l'hub IoT e la proprietà [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) per l'input del BLOB. 
 
 Il tempo applicazione viene assegnato quando l'evento viene generato e fa parte del payload. Per elaborare gli eventi in base al tempo applicazione, usare la clausola **Timestamp by** nella query di selezione. Se la clausola **Timestamp by** è assente, gli eventi vengono elaborati in base all'ora di arrivo. 
 
@@ -111,7 +111,7 @@ La query non include la clausola **Partition by PartitionId** e sono presenti al
 
 La configurazione è la stessa dell'esempio 2. Tuttavia, l'assenza di dati in una delle partizioni può ritardare l'output di un'ulteriore finestra di tolleranza per arrivo in ritardo.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>Gestione di producer di eventi con sequenze temporali diverse
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>Gestione di producer di eventi con sequenze temporali diverse con "substream"
 Spesso un flusso di eventi di input contiene eventi provenienti da più producer di eventi, ad esempio singoli dispositivi. Questi eventi possono arrivare non in ordine per i motivi descritti in precedenza. In questi scenari, anche se il disordine tra producer di eventi potrebbe essere consistente, il disordine tra gli eventi di un singolo producer è minimo o inesistente.
 
 Analisi di flusso di Azure offre meccanismi generali per la gestione degli eventi non in ordine. Questi meccanismi producono ritardi di elaborazione (nell'attesa che gli eventi non in ordine raggiungano il sistema), eliminazione o modifica degli eventi o entrambi.

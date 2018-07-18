@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053256"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342403"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerazioni sulla sicurezza dello spostamento dei dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -141,11 +141,12 @@ In un'azienda il firewall aziendale viene eseguito nel router centrale dell'orga
 
 La tabella seguente indica la porta in uscita e i requisiti di dominio per i firewall aziendale:
 
-| Nomi di dominio                  | Porte in uscita | DESCRIZIONE                              |
+| Nomi di dominio                  | Porte in uscita | Descrizione                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Richieste dal runtime di integrazione self-hosted per connettersi ai servizi di spostamento dei dati in Data Factory. |
-| `*.core.windows.net`          | 443            | Usata dal runtime di integrazione self-hosted per connettersi all'account di archiviazione di Azure quando si usa la funzionalità di [copia temporanea](copy-activity-performance.md#staged-copy). |
 | `*.frontend.clouddatahub.net` | 443            | Richiesta dal runtime di integrazione self-hosted per connettersi al servizio Data Factory. |
+| `download.microsoft.com`    | 443            | Richiesta dal runtime di integrazione self-hosted per il download degli aggiornamenti. Se è stato disabilitato l'aggiornamento automatico, è possibile ignorare questa impostazione. |
+| `*.core.windows.net`          | 443            | Usata dal runtime di integrazione self-hosted per connettersi all'account di archiviazione di Azure quando si usa la funzionalità di [copia temporanea](copy-activity-performance.md#staged-copy). |
 | `*.database.windows.net`      | 1433           | (Facoltativa) Richiesta quando si esegue la copia da o nel database SQL di Azure o in Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Facoltativa) Richiesta quando si esegue la copia da o in Azure Data Lake Store. |
 

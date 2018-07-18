@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2018
+ms.date: 06/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: f128947cf3ac0a2afab23d41f101c1b0d7624397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 993d5c804490540a9c71647f52692fb55b27c405
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641952"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113300"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparare l'ambiente di sviluppo in Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34641952"
 
 Per compilare ed eseguire [applicazioni di Azure Service Fabric][1] nel computer di sviluppo Windows, installare il runtime di Service Fabric, l'SDK e gli strumenti. È anche necessario [abilitare l'esecuzione di script Windows PowerShell](#enable-powershell-script-execution) inclusi nell'SDK.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 ### <a name="supported-operating-system-versions"></a>Versioni del sistema operativo supportate
 Per lo sviluppo, sono supportati i sistemi operativi seguenti:
 
@@ -64,8 +64,8 @@ Se è necessario solo l'SDK, è possibile installare questo pacchetto:
 * [Installare Microsoft Azure Service Fabric SDK][core-sdk]
 
 Le versioni correnti sono:
-* SDK e strumenti di Service Fabric 3.1.283
-* Runtime di Service Fabric 6.2.283
+* SDK e strumenti di Service Fabric 3.1.301
+* Runtime di Service Fabric 6.2.301
 * Strumenti di Service Fabric per Visual Studio 2015 2.1.20180510.2
 * Visual Studio 2017 15.7 include Strumenti di Service Fabric per Visual Studio 2.1.20180423.1 
 

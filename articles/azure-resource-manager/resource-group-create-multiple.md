@@ -1,49 +1,30 @@
 ---
-title: Distribuire più istanze delle risorse di Azure | Microsoft Docs
+title: Distribuire più istanze delle risorse di Azure | Documentazione Microsoft
 description: Usare l'operazione di copia e le matrici in un modello di Gestione risorse di Azure per eseguire più iterazioni durante la distribuzione delle risorse.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: ''
-ms.assetid: 94d95810-a87b-460f-8e82-c69d462ac3ca
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2018
+ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: ee32f6459cf7673f6bb633e12776ec3c40eb13e1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 25488295ec046eb0ca7473af76e4618eacb1155d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753422"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38600771"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Distribuire più istanze di una risorsa o di una proprietà nei modelli di Azure Resource Manager
-Questo articolo illustra come eseguire una distribuzione condizionale di una risorsa e come eseguire l'iterazione nel modello di Azure Resource Manager per creare più istanze di una risorsa.
 
-## <a name="conditionally-deploy-resource"></a>Distribuire una risorsa in modo condizionale
-
-Quando durante la distribuzione occorre decidere se creare o meno un'istanza di una risorsa, usare l'elemento `condition`. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene distribuita. Quando il valore è false, la risorsa non viene distribuita. Per indicare, ad esempio, se viene distribuito un nuovo account di archiviazione o se ne viene usato uno esistente, specificare:
-
-```json
-{
-    "condition": "[equals(parameters('newOrExisting'),'new')]",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[variables('storageAccountName')]",
-    "apiVersion": "2017-06-01",
-    "location": "[resourceGroup().location]",
-    "sku": {
-        "name": "[variables('storageAccountType')]"
-    },
-    "kind": "Storage",
-    "properties": {}
-}
-```
+In questo articolo viene illustrato come eseguire un'iterazione del modello di Azure Resource Manager per creare più istanze di una risorsa. Se è necessario specificare se una risorsa viene distribuita, vedere l'[elemento condizionale](resource-manager-templates-resources.md#condition).
 
 ## <a name="resource-iteration"></a>Iterazione delle risorse
+
 Quando durante la distribuzione occorre decidere se creare una o più istanze di una risorsa, aggiungere un elemento `copy` al tipo di risorsa. Nell'elemento copy si specifica il numero di iterazioni e un nome per questo ciclo. Il valore del conteggio deve essere un numero intero positivo e non può essere maggiore di 800. 
 
 La risorsa da ricreare più volte assume il formato seguente:
@@ -456,7 +437,6 @@ Gli esempi seguenti mostrano alcuni scenari comuni per la creazione di più riso
 |[Copia risorsa di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Distribuisce più account di archiviazione con un numero di indice nel nome. |
 |[Copia seriale risorse di archiviazione](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Distribuisce più account di archiviazione uno alla volta. Il nome include il numero di indice. |
 |[Copia risorsa di archiviazione con matrice](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Distribuisce più account di archiviazione. Il nome include un valore di una matrice. |
-|[VM con valori nuovi o esistenti per Rete virtuale, Archiviazione e IP pubblico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Distribuisce in modo condizionale risorse nuove o esistenti con una macchina virtuale. |
 |[Distribuzione VM con un numero variabile di dischi dati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuisce più dischi dati con una macchina virtuale. |
 |[Copia variabili](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Mostra le diverse modalità di iterazione delle variabili. |
 |[Più regole di sicurezza](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuisce più regole di sicurezza a un gruppo di sicurezza di rete. Costruisce le regole di sicurezza da un parametro. Per il parametro, vedere il [file di parametri NSG multipli](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |

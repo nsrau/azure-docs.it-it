@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060087"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100454"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
 
@@ -97,9 +97,7 @@ Per spostare il circuito, modificare ed eseguire il frammento seguente:
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> Nella modalità classica di un circuito ExpressRoute non esiste il concetto di vincolo a un'area. In Resource Manager (ARM) tutte le risorse devono essere mappate rispetto a un'area di Azure. L'area specificata nel cmdlet Move-AzureRmExpressRouteCircuit tecnicamente può essere un'area qualsiasi. A fini organizzativi, è possibile scegliere un'area che rappresenta in modo affidabile il percorso di peering.
-> 
+Nella modalità classica di un circuito ExpressRoute non esiste il concetto di vincolo a un'area. In Resource Manager, tuttavia, ogni risorsa deve essere mappata a un'area di Azure. L'area specificata nel cmdlet Move-AzureRmExpressRouteCircuit tecnicamente può essere un'area qualsiasi. A fini organizzativi, è possibile scegliere un'area che rappresenta in modo affidabile il percorso di peering.
 
 > [!NOTE]
 > Al termine dello spostamento, il nuovo nome elencato nel cmdlet precedente verrà usato per fare riferimento alla risorsa. Il circuito verrà essenzialmente rinominato.

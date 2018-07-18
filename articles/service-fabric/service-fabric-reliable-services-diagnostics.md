@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
+ms.date: 6/28/2018
 ms.author: dekapur
-ms.openlocfilehash: 268ec61515f438fb7f98b6cef7a8ec60ba22e23f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212637"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110873"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -50,16 +50,19 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
 
-| Categoria | DESCRIZIONE |
+| Categoria | Descrizione |
 | --- | --- |
 | Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
+| Service Fabric TStore |Contatori specifici di Azure Service Fabric TStore |
 
-Replicatore transazionale di Service Fabric viene usato da [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) per replicare le transazioni all'interno di un determinato set di [repliche](service-fabric-concepts-replica-lifecycle.md). 
+Replicatore transazionale di Service Fabric viene usato da [Reliable State Manager](service-fabric-reliable-services-reliable-collections-internals.md) per replicare le transazioni all'interno di un determinato set di [repliche](service-fabric-concepts-replica-lifecycle.md).
+
+Service Fabric TStore è un componente usato nelle raccolte [Reliable Collections](service-fabric-reliable-services-reliable-collections-internals.md) per archiviare e recuperare le coppie chiave-valore.
 
 L'applicazione [Performance Monitor di Windows](https://technet.microsoft.com/library/cc749249.aspx) , disponibile per impostazione predefinita nel sistema operativo Windows, può essere usata per raccogliere e visualizzare i dati dei contatori delle prestazioni. [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) rappresenta una valida alternativa per la raccolta di tali dati e il relativo caricamento nelle tabelle di Azure.
 
 ### <a name="performance-counter-instance-names"></a>Nomi delle istanze dei contatori delle prestazioni
-Un cluster con un numero elevato di servizi Reliable Services o di partizioni di servizi Reliable Services disporrà di un numero considerevole di istanze di contatori delle prestazioni di Replicatore transazionale. I nomi delle istanze possono facilitare l'identificazione della specifica [partizione](service-fabric-concepts-partitioning.md) e replica del servizio a cui l'istanza è associata.
+Un cluster con un numero elevato di servizi Reliable Services o di partizioni di servizi Reliable Services disporrà di un numero considerevole di istanze di contatori delle prestazioni di Replicatore transazionale. Questo avviene anche per i contatori delle prestazioni TStore, ma viene moltiplicato anche per il numero di oggetti Reliable Dictionaries e Reliable Queues usati. I nomi delle istanze dei contatori delle prestazioni consentono di identificare la [partizione](service-fabric-concepts-partitioning.md), la replica del servizio e lo stato del provider specifici nel caso di TStore, a cui l'istanza del contatore delle prestazioni è associata.
 
 #### <a name="service-fabric-transactional-replicator-category"></a>Categoria Replicatore transazionale di Service Fabric
 Per la categoria `Service Fabric Transactional Replicator`, i nomi delle istanze dei contatori sono nel formato seguente:
@@ -76,11 +79,30 @@ Di seguito è riportato un esempio di un nome di istanza per un contatore appart
 
 Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric e `131652217797162571` è l'ID replica.
 
+#### <a name="service-fabric-tstore-category"></a>Categoria Service Fabric TStore
+Per la categoria `Service Fabric TStore`, i nomi delle istanze dei contatori sono nel formato seguente:
+
+`ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
+
+*ServiceFabricPartitionId* è la rappresentazione sotto forma di stringa dell'ID partizione di Service Fabric a cui è associata l'istanza del contatore delle prestazioni. L'ID partizione è un GUID e la relativa rappresentazione di stringa viene generata tramite [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) con l'identificatore di formato "D".
+
+*ServiceFabricReplicaId* è l'ID associato a una determinata replica di un servizio Reliable Services. L'ID replica viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altre istanze di contatori delle prestazioni generate dalla stessa partizione. Informazioni dettagliate sulle repliche e il relativo ruolo nei servizi Reliable Services sono disponibili [qui](service-fabric-concepts-replica-lifecycle.md).
+
+*ServiceFabricStateProviderId* è l'ID associato a un provider di stato all'interno di un servizio Reliable Services. L'ID del provider di stato è incluso nel nome dell'istanza del contatore delle prestazioni per differenziare un TStore da un altro.
+
+*PerformanceCounterInstanceDifferentiator* è un ID di differenziazione associato a un'istanza del contatore delle prestazioni all'interno di un provider di stato. Il differenziatore viene incluso nel nome dell'istanza del contatore delle prestazioni per assicurarne l'univocità ed evitare conflitti con altre istanze di contatori delle prestazioni generate dallo stesso provider di stato.
+
+Di seguito è riportato un esempio di un nome di istanza per un contatore appartenente alla categoria `Service Fabric TStore`:
+
+`00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
+
+Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresentazione in formato stringa dell'ID della partizione di Service Fabric, `131652217797162571` è l'ID della replica, `142652217797162571` è l'ID del provider di stato e `1337` è il differenziatore dell'istanza del contatore delle prestazioni.
+
 ### <a name="transactional-replicator-performance-counters"></a>Contatori delle prestazioni di Replicatore transazionale
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric Transactional Replicator`
 
- Nome contatore | DESCRIZIONE |
+ Nome contatore | Descrizione |
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
@@ -88,6 +110,14 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 | Operazioni limitate/sec | Numero di operazioni rifiutate al secondo da Replicatore transazionale a causa della limitazione. |
 | Avg. transazione/commit (ms) | Latenza media commit per transazione in millisecondi |
 | Avg. media flush (ms) | Durata media delle operazioni di flush su disco avviate da Replicatore transazionale in millisecondi |
+
+### <a name="tstore-performance-counters"></a>Contatori delle prestazioni di TStore
+
+Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric TStore`
+
+ Nome contatore | Descrizione |
+| --- | --- |
+| Item Count | Numero di chiavi nell'archivio.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

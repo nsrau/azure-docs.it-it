@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2018
+ms.date: 06/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6af1a6612360c2433c05a7add79d2e7b3b9d754
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cff9be3b074dde4a0335675663133a8df81ae62d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658261"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114593"
 ---
 # <a name="operating-system-upgrade"></a>Aggiornamento del sistema operativo
 Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo nelle istanze HANA Large.
@@ -29,33 +29,10 @@ Questo documento descrive i dettagli sugli aggiornamenti del sistema operativo n
 
 Al momento del provisioning dell'unità HLI, il team di Microsoft Operations installa il sistema operativo. È necessario mantenere il sistema operativo nel tempo (ad esempio applicando patch, eseguendo ottimizzazioni, applicando aggiornamenti e così via) nell'unità HLI.
 
-Prima di apportare modifiche importanti al sistema operativo (ad esempio prima di aggiornarlo), **è necessario** controllare la seguente matrice di compatibilità. Prima di avviare attività importanti del sistema operativo come l'aggiornamento, **è necessario** anche consultare il team di Microsoft Operations aprendo un ticket di supporto.
+Prima di apportare importanti modifiche al sistema operativo, come l'aggiornamento da SP1 a SP2, è necessario anche consultare il team di Microsoft Operations aprendo un ticket di supporto.
+
 
 Per la matrice di supporto delle diverse versioni di SAP HANA con le varie versioni di Linux, vedere la [nota SAP 2235581](https://launchpad.support.sap.com/#/notes/2235581).
-
-La compatibilità seguente è stata testata per le unità HLI. Se il server HLI non rientra nella matrice di compatibilità, contattare il supporto di Microsoft Operations.
-
-## <a name="for-type-i-class-sku-category"></a>Per la categoria SKU classe di tipo I
-
-| Configurazione | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Firmware del server | 3.1(2b) | 3.1(2b) | 3.1(2b) | 3.1(2b) |
-| Versione ENIC | 2.3.0.44 | 2.3.0.44 | 2.3.0.30 | 2.3.0.44 |
-| Versione FNIC | 1.6.0.34 | 1.6.0.34 | 1.6.0.27 | 1.6.0.36 |
-| EDAC | Disabled | Disabled | Disabled | Disabled |
-| Versione del kernel | 4.4.21-69-default | 3.12.49-11-default | 3.10.0-327.el7.x86_64 | 3.10.0-693.17.1 |
-
-
-## <a name="for-type-ii-class-sku-category"></a>Per la categoria SKU classe di tipo II
-
-| Configurazione | SUSE12 SP1 | SUSE12 SP2 | RHEL 7.2 | RHEL 7.3|
-| --- | --- | --- | --- | --- |
-| Versione firmware RMC | 1.1.121  | 1.1.121  | 1.1.121  | 1.1.121 |
-| Versione firmware BMC | 1.0.43   | 1.0.43   | 1.0.43   | 1.0.43  |
-| Versione Software Foundation Server (SFS) | 2.16    | 2.16    | 2.14/2.16   | 2.16   |
-| BIOS | 5.2.6    | 5.2.6    | 5.2.6    | 5.2.6   |
-| Versione i40e    | 2.0.19     | 2.0.19     | 1.5.10-k    | 1.5.10-k   |
-| Versione del kernel    | 3.12.49-11.1     | 4.4.21-69.1     | 3.10.0-327    | 3.10.0-693.17.1   |
 
 
 ## <a name="known-issues"></a>Problemi noti

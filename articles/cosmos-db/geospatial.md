@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74824af6f17a6c1d2638c8604edd38ffa419d607
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611368"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858120"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Uso dei dati geospaziali e dei dati località GeoJSON in Azure Cosmos DB
 Questo articolo offre un'introduzione alla funzionalità geospaziale in [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
@@ -100,7 +100,7 @@ Poiché la forma della terra è irregolare, le coordinate dei dati geospaziali s
 Il più diffuso CRS attualmente in uso è il World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Dispositivi GPS e molti servizi di mapping, tra cui Google Maps e le API di Bing Maps, utilizzano WGS-84. Azure Cosmos DB supporta l'indicizzazione e l'esecuzione di query di dati geospaziali usando solo il CRS WGS-84. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Creazione di documenti con dati spaziali
-Quando si creano documenti che contengono valori GeoJSON, essi vengono indicizzati automaticamente con un indice spaziale in base al criterio di indicizzazione della raccolta. Se si usa un SDK di Azure Cosmos DB in un linguaggio tipizzato in modo dinamico come Python o Node.js, è necessario creare un GeoJSON valido.
+Quando si creano documenti che contengono valori GeoJSON, essi vengono indicizzati automaticamente con un indice spaziale in base al criterio di indicizzazione del contenitore. Se si usa un SDK di Azure Cosmos DB in un linguaggio tipizzato in modo dinamico come Python o Node.js, è necessario creare un GeoJSON valido.
 
 **Creare documenti con i dati geospaziali in Node.js**
 

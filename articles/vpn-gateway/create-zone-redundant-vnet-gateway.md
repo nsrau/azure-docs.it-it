@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096234"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952556"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Creare un gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure - Anteprima
 
@@ -207,10 +207,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 Creare il gateway di rete virtuale.
 
->[!NOTE]
->In questo momento, è possibile specificare la SKU del gateway. La SKU viene impostata automaticamente sul valore ErGw1AZ per ExpressRoute e VpnGw1AZ per Gateway VPN.
->
-
 ### <a name="for-expressroute"></a>Per ExpressRoute
 
 ```azurepowershell-interactive
@@ -236,6 +232,10 @@ I commenti e i suggerimenti degli utenti sono molto apprezzati. Inviare un messa
 ### <a name="what-will-change-when-i-enroll"></a>Cosa comporta la registrazione?
 
 Nella versione di anteprima è possibile distribuire i gateway con ridondanza della zona. Pertanto, tutte le istanze dei gateway verranno distribuite nelle zone di disponibilità di Azure e ogni zona di disponibilità avrà un dominio di aggiornamento e di errore differente. In questo modo, i gateway saranno più affidabili, disponibili e resilienti agli errori di zona.
+
+### <a name="can-i-use-the-azure-portal"></a>Posso usare il portale di Azure?
+
+Sì, è possibile usare il portale di Azure per l'anteprima. Tuttavia, è comunque necessario registrarsi tramite PowerShell o non sarà possibile usare il portale durante l'anteprima.
 
 ### <a name="what-regions-are-available-for-the-preview"></a>Quali aree sono disponibili nella versione di anteprima?
 

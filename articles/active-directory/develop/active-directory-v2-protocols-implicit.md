@@ -1,5 +1,5 @@
 ---
-title: Proteggere le applicazioni a singola pagina usando il flusso implicito 2.0 di Azure AD | Microsoft Docs
+title: Proteggere le applicazioni a singola pagina usando il flusso implicito 2.0 di Azure AD | Documentazione Microsoft
 description: Compilazione di applicazioni Web con l'implementazione della versione 2.0 del flusso implicito per le app a singola pagina definita in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07fbda30cdc76e5e4e82b79954d0b0a56e032b50
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 676e23f3136836975616865a9b9dc97605a97929
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158388"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866254"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 Con l'endpoint v2.0 è possibile far accedere gli utenti alle app a singola pagina con account Microsoft sia personali che aziendali o dell'istituto di istruzione. Le app a pagina singola e le altre app JavaScript che vengono eseguite soprattutto in un browser presentano alcune problematiche interessanti nell'ambito dell'autenticazione:

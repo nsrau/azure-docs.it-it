@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360241"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929679"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funzioni di matrice e oggetto per i modelli di Azure Resource Manager 
 
@@ -77,7 +77,7 @@ Il [modello di esempio](https://github.com/Azure/azure-docs-json-samples/blob/ma
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -108,7 +108,7 @@ L'output dell'esempio precedente con i valori predefiniti è il seguente:
 | NOME | type | Valore |
 | ---- | ---- | ----- |
 | intOutput | Array | [1] |
-| stringOutput | Array | ["a"] |
+| stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
 Per distribuire questo modello di esempio con l'interfaccia della riga di comando di Azure, usare:

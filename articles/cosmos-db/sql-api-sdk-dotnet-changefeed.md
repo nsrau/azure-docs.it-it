@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937418"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113718"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937418"
 
 ## <a name="release-notes"></a>Note sulla versione
 
-### <a name="stable-builds"></a>Build stabili
+### <a name="v2-builds"></a>Build della seconda versione
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* Aggiunta di maggiore registrazione.
-* Correzione di un problema DocumentClient quando si chiama più volte la stima del lavoro in sospeso.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Correzioni per la stima del lavoro in sospeso.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Miglioramenti della stabilità.
-  * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
-* Supporto per la creazione di checkpoint manuale.
-* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* Aggiunge il supporto per .NET Standard 2.0. Il pacchetto ora supporta i moniker framework `netstandard2.0` e `net451`.
-* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 e versioni successive.
-* Compatibile con [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 e versioni successive.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Correzione di un problema relativo al calcolo della stima del lavoro rimanente quando il feed di modifiche è vuoto o non ci sono lavori in sospeso.
-* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed delle modifiche.
-* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * SDK con disponibilità generale
-* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e versioni precedenti.
-
-### <a name="pre-release-builds"></a>Build preliminari
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>Versione provvisoria 2.0.3
 * Sono stati corretti i problemi seguenti:
@@ -108,6 +79,39 @@ ms.locfileid: "36937418"
 * 100% compatibile con l'API v1.
 * Nuova codebase.
 * Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 e versioni successive.
+
+### <a name="v1-builds"></a>Build della prima versione
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Aggiunta di maggiore registrazione.
+* Correzione di un problema DocumentClient quando si chiama più volte la stima del lavoro in sospeso.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* Correzioni per la stima del lavoro in sospeso.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* Miglioramenti della stabilità.
+  * Correzione per la gestione del problema delle attività annullate che potrebbe comportare l'arresto degli osservatori in alcune partizioni.
+* Supporto per la creazione di checkpoint manuale.
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 e versioni successive.
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Aggiunge il supporto per .NET Standard 2.0. Il pacchetto ora supporta i moniker framework `netstandard2.0` e `net451`.
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 e versioni successive.
+* Compatibile con [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 e versioni successive.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Correzione di un problema relativo al calcolo della stima del lavoro rimanente quando il feed di modifiche è vuoto o non ci sono lavori in sospeso.
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* Aggiungere un metodo per ottenere una stima di quanto resta da elaborare nel feed delle modifiche.
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 e versioni successive.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* SDK con disponibilità generale
+* Compatibile con [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.14.1 e versioni precedenti.
+
 
 ## <a name="release--retirement-dates"></a>Date di rilascio e di ritiro
 Microsoft invierà una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.

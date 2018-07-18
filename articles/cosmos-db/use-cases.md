@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2af77cacced7a6905c4ed7393569949b2eac1906
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113120"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859667"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casi d'uso comuni di Azure Cosmos DB
 Questo articolo fornisce una panoramica di diversi casi d'uso comuni per Azure Cosmos DB.  I consigli forniti sono un punto di partenza per sviluppare applicazioni con Cosmos DB.   
@@ -47,7 +47,7 @@ I casi di utilizzo IoT condividono di solito alcuni modelli di inserimento, elab
 
 ![Architettura di riferimento di IoT per Azure Cosmos DB](./media/use-cases/iot.png)
 
-Grandi quantità di dati possono essere acquisite da Hub eventi di Azure che consente di inserire i dati con una velocità effettiva elevata e una bassa latenza. I dati inseriti che devono essere elaborati per ottenere informazioni in tempo reale possono essere incanalati in Analisi di flusso di Azure per l'analisi in tempo reale. I dati possono essere caricati in Azure Cosmos DB per l'esecuzione di query ad hoc. Una volta caricati in Azure Cosmos DB, i dati sono pronti per l'esecuzione delle query. Inoltre, i nuovi dati e le modifiche ai dati esistenti possono essere letti nel feed di modifica. Il feed di modifica è un log permanente che consente solo l'aggiunta di dati e archivia le modifiche apportate alle raccolte di Cosmos DB in ordine sequenziale. Tutti i dati o solo le modifiche ai dati in Azure Cosmos DB possono essere usati come dati di riferimento nell'ambito di analisi in tempo reale. Inoltre, possono essere ulteriormente affinati ed elaborati connettendo i dati di Azure Cosmos DB a HDInsight per processi Pig, Hive o MapReduce.  I dati affinati vengono quindi ricaricati in Azure Cosmos DB per la creazione di report.   
+Grandi quantità di dati possono essere acquisite da Hub eventi di Azure che consente di inserire i dati con una velocità effettiva elevata e una bassa latenza. I dati inseriti che devono essere elaborati per ottenere informazioni in tempo reale possono essere incanalati in Analisi di flusso di Azure per l'analisi in tempo reale. I dati possono essere caricati in Azure Cosmos DB per l'esecuzione di query ad hoc. Una volta caricati in Azure Cosmos DB, i dati sono pronti per l'esecuzione delle query. Inoltre, i nuovi dati e le modifiche ai dati esistenti possono essere letti nel feed di modifica. Il feed di modifica è un log permanente che consente solo l'aggiunta di dati e archivia le modifiche apportate ai contenitori di Cosmos DB in ordine sequenziale. Tutti i dati o solo le modifiche ai dati in Azure Cosmos DB possono essere usati come dati di riferimento nell'ambito di analisi in tempo reale. Inoltre, possono essere ulteriormente affinati ed elaborati connettendo i dati di Azure Cosmos DB a HDInsight per processi Pig, Hive o MapReduce.  I dati affinati vengono quindi ricaricati in Azure Cosmos DB per la creazione di report.   
 
 Per una soluzione IoT di esempio con Azure Cosmos DB, EventHubs e Storm, vedere l'[archivio hdinsight-storm-examples su GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 

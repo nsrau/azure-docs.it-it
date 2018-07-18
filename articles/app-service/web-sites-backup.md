@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e8e41c51b6df9962e561d56be75108ba9cd76377
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751514"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901620"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](app-service-web-overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione. 
@@ -53,6 +53,10 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
   Il livello **Premium** consente un maggior numero di backup giornalieri rispetto al livello **Standard**.
 * Sono necessari un account di archiviazione e un contenitore di Azure nella stessa sottoscrizione dell'applicazione di cui si desidera eseguire il backup. Per altre informazioni sugli account di archiviazione di Azure, vedere i [collegamenti](#moreaboutstorage) al termine di questo articolo.
 * È possibile eseguire il backup di un massimo di 10 GB di contenuto del database e dell'app. Se la dimensione del backup supera questo limite, verrà visualizzato un messaggio di errore.
+* Il backup di Database di Azure per MySQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* Il backup di Database di Azure per PostgreSQL abilitato per SSL non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+* L'uso di un account di archiviazione abilitato per un firewall come destinazione per i backup non è supportato. Se è configurato un backup, si otterranno i backup non riusciti.
+
 
 <a name="manualbackup"></a>
 
