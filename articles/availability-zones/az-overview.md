@@ -1,4 +1,4 @@
----
+﻿---
 title: Informazioni sulle zone di disponibilità di Azure | Microsoft Docs
 description: Per creare applicazioni resilienti e a disponibilità elevata in Azure, le zone di disponibilità offrono posizioni fisicamente separate che è possibile usare per eseguire le risorse.
 services: ''
