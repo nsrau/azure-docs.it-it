@@ -1,28 +1,35 @@
-### <a name="prerequisites"></a>prerequisiti
-* Un account Azure, che è possibile [creare gratuitamente](https://azure.microsoft.com/free)
-* Un [account di archiviazione BLOB di Azure](../articles/storage/common/storage-create-storage-account.md), inclusi il nome dell'account di archiviazione e la relativa chiave di accesso. Queste informazioni sono riportate nelle proprietà dell'account di archiviazione nel portale di Azure. Altre informazioni sull'[archiviazione di Azure](../articles/storage/common/storage-introduction.md).
+---
+title: File di inclusione
+description: File di inclusione
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/21/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 6e95d456c5eb981a29400057cfd58faa419060fc
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34677917"
+---
+1. Quando viene chiesto di immettere le informazioni di connessione, specificare questi dettagli:
 
-Prima di utilizzare l'account di archiviazione Blob di Azure in app per la logica, connettersi all'account di archiviazione Blob di Azure. È possibile eseguire questa operazione in modo facile dalla propria app per la logica nel portale di Azure.  
+   *Obbligatorio*
 
-Connettersi all'account di archiviazione Blob di Azure attenendosi alla procedura seguente:  
+   | Proprietà | Valore | Descrizione | 
+   |----------|-------|-------------| 
+   | Connection Name | <*connection-name*> | Nome creato per la connessione | 
+   | Storage Account | <*storage-account*> | Selezionare l'account di archiviazione dall'elenco. | 
+   ||| 
 
-1. Creare un'app per la logica. Nella finestra di progettazione App per la logica, aggiungere un trigger e un'azione. Selezionare **Mostra API gestite da Microsoft** nell'elenco a discesa, quindi immettere "blob" nella casella di ricerca. Selezionare una delle azioni:  
-   
-    ![Passaggio per la creazione della connessione ad archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-1.png)  
-2. Se in precedenza non sono state create connessioni all'archiviazione di Azure, vengono richiesti i dettagli della connessione:   
-   
-    ![Passaggio per la creazione della connessione ad archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/connection-details.png)  
-3. Immettere i dettagli dell'account di archiviazione. Le proprietà con un asterisco sono obbligatorie.
-   
-   | Proprietà | Dettagli |
-   | --- | --- |
-   | Nome connessione * |Immettere un nome per la connessione. |
-   | Nome dell'account di archiviazione di Azure * |Immettere il nome dell'account di archiviazione, Il nome dell'account di archiviazione viene visualizzato nelle proprietà di archiviazione nel portale di Azure. |
-   | Chiave di accesso dell'account di archiviazione di Azure * |Immettere la chiave dell'account di archiviazione. La chiave di accesso viene visualizzata nelle proprietà di archiviazione nel portale di Azure. |
-   
-    Queste credenziali vengono usate per autorizzare l'app per la logica a connettersi e ad accedere ai dati. 
-4. Selezionare **Create**.
-5. La connessione è stata creata. A questo punto, procedere con gli altri passaggi nell'app per la logica: 
-   
-    ![Passaggio per la creazione della connessione ad archiviazione BLOB di Azure](./media/connectors-create-api-azureblobstorage/azureblobstorage-3.png)  
+   Ad esempio: 
+
+   ![Creare la connessione](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+
+2. Al termine dell'operazione, scegliere **Crea**.
+
+3. Dopo aver creato la connessione, continuare con [Aggiungere un trigger](#add-trigger) oppure [Aggiungere un'azione](#add-action).
 

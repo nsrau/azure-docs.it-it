@@ -88,5 +88,30 @@ Il listener del gruppo di disponibilità è un nome di rete e indirizzo IP sul q
 
     b. Impostare i parametri del cluster eseguendo lo script di PowerShell in uno dei nodi del cluster.  
 
+Ripetere i passaggi precedenti per impostare i parametri del cluster per l'indirizzo IP del cluster WSFC.
+
+1. Ottenere il nome dell'indirizzo IP del cluster WSFC. In **Gestione cluster di failover** in **Risorse principali del cluster** individuare **Nome server**.
+
+1. Fare clic con il pulsante destro del mouse su **Indirizzo IP** e scegliere **Proprietà**.
+
+1. Copiare il **nome** dell'indirizzo IP. Potrebbe essere `Cluster IP Address`. 
+
+1. <a name="setwsfcparam"></a>Impostare i parametri del cluster in PowerShell.
+    
+    a. Copiare lo script di PowerShell seguente in una delle istanze di SQL Server. Aggiornare le variabili per l'ambiente.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    b. Impostare i parametri del cluster eseguendo lo script di PowerShell in uno dei nodi del cluster.  
+
     > [!NOTE]
     > Se le istanze di SQL Server sono in aree separate, è necessario eseguire lo script di PowerShell due volte. La prima volta usare i parametri `$ILBIP` e `$ProbePort` della prima area. La seconda volta usare i parametri `$ILBIP` e `$ProbePort` della seconda area. Il nome della rete del cluster e il nome della risorsa IP del cluster coincidono. 

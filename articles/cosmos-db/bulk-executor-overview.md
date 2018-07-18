@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303992"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096176"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
@@ -33,7 +33,7 @@ La libreria dell'executor bulk aiuta a sfruttare il livello elevatissimo di velo
  
 * Riduce in modo significativo le risorse di calcolo del lato client necessarie per saturare la velocità effettiva allocata a un contenitore. Un'applicazione a thread singolo che scrive i dati usando che l'API di importazione in blocco raggiunge una velocità effettiva di scrittura 10 volte maggiore rispetto a un'applicazione a thread multipli che scrive i dati in parallelo mentre satura il CPU del computer del client.  
 
-* Evita le attività faticose di scrittura dell'applicazione per la logica al fine di gestire la limitazione delle richieste, i timeout di richiesta e altre eccezioni temporanee gestendoli in modo efficiente all'interno della libreria.  
+* Evita le tediose attività di scrittura della logica delle applicazioni per gestire la limitazione della frequenza delle richieste, i timeout delle richieste e altre eccezioni temporanee consentendo di controllare queste condizioni in modo efficiente all'interno della libreria.  
 
 * Fornisce un meccanismo semplificato per le applicazioni che eseguono operazioni bulk per la scalabilità orizzontale. Una singola istanza dell'executor bulk in esecuzione in una macchina virtuale di Azure può usare più di 500 K UR/sec ed è possibile ottenere una velocità effettiva superiore tramite l'aggiunta di istanze aggiuntive nel client di singole macchine virtuali.  
  
@@ -47,7 +47,7 @@ Quando un'operazione in blocco per importare o aggiornare i documenti viene atti
 
 ![Architettura dell'executor Bulk](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-La libreria dell'Executor Bulk garantisce di usare drasticamente la velocità effettiva allocata a una raccolta. Usa un  [meccanismo di controllo della congestione in stile AIMD](https://tools.ietf.org/html/rfc5681) per ogni intervallo della chiave di partizione di Azure Cosmos per gestire in modo efficiente la limitazione delle richieste e i timeout. 
+La libreria dell'Executor Bulk garantisce di usare drasticamente la velocità effettiva allocata a una raccolta. Usa un  [meccanismo di controllo della congestione in stile AIMD](https://tools.ietf.org/html/rfc5681) per ogni intervallo di chiavi di partizione di Azure Cosmos DB per gestire in modo efficiente la limitazione della frequenza delle richieste e i timeout. 
 
 ## <a name="next-steps"></a>Passaggi successivi 
   

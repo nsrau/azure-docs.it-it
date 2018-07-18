@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 6b47e54e56b12a2975c44ab3b87b023d20a769c3
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960128"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436165"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Analizzare i dati di Twitter con Hive in HDInsight
 I siti Web di social networking rappresentano una delle principali forze trainanti per l'adozione di Big Data. Le API pubbliche offerte da siti quali Twitter costituiscono un'utile origine di dati per l'analisi e la comprensione delle tendenze più popolari.
@@ -27,7 +27,7 @@ In questa esercitazione si userà l'API di streaming di Twitter per ricevere twe
 > [!IMPORTANT]
 > I passaggi descritti in questo documento richiedono un cluster HDInsight basato su Windows. Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Per passaggi specifici di un cluster basato su Linux, vedere [Analizzare i dati di Twitter con Hive in HDInsight (Linux)](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una workstation** in cui sia stato installato e configurato Azure PowerShell.
@@ -99,7 +99,7 @@ In questa esercitazione si usa Windows PowerShell per effettuare la chiamata al 
 
 **Per ricevere tweet**
 
-1. Aprire Windows PowerShell Integrated Scripting Environment (ISE). Nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere [Start Windows PowerShell on Windows 8 and Windows][powershell-start] (Avviare Windows PowerShell in Windows 8 e Windows).
+1. Aprire Windows PowerShell Integrated Scripting Environment (ISE). Nella schermata Start di Windows 8 digitare **PowerShell_ISE** e quindi fare clic su **Windows PowerShell ISE**. Vedere [Start Windows PowerShell on Windows 8 and Windows](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6) (Avviare Windows PowerShell in Windows 8 e Windows).
 2. Copiare lo script seguente nel riquadro di script:
 
     ```powershell

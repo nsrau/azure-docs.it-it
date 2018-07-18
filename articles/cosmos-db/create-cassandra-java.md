@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 886756718a4e55638d641adc12cd628f7d13521d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e0344aadbbf263fa3c84ee37f2527eb41b19b7d8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798407"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629088"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-and-azure-cosmos-db"></a>Guida introduttiva: Creare un'app Cassandra con Java e Azure Cosmos DB
 
@@ -220,7 +220,7 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB, un database Cassandra e una raccolta usando Esplora dati e come eseguire un'app per ottenere lo stesso risultato a livello di codice. È ora possibile importare dati aggiuntivi nella raccolta di Azure Cosmos DB. 
+In questa guida introduttiva si è appreso come creare un account Azure Cosmos DB, un database Cassandra e un contenitore usando Esplora dati e come eseguire un'app per ottenere lo stesso risultato a livello di codice. È ora possibile importare dati aggiuntivi nel contenitore di Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Importare i dati di Cassandra in Azure Cosmos DB](cassandra-import-data.md)

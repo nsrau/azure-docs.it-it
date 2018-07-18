@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ce20ae800887d8c9e865ecec46d0cf9a49fb7c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631626"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928750"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud
 
@@ -285,7 +285,7 @@ In Visual Studio Code attenersi alla procedura seguente per aprire e configurare
 L'applicazione di esempio viene eseguita correttamente quando vengono visualizzati i risultati seguenti:
 
 * Serial Monitor (Monitoraggio seriale) visualizza le stesse informazioni presenti nel contenuto nella schermata seguente.
-* Il LED sul DevKit di IoT MXChip lampeggia.
+* Il LED RGB sul DevKit di IoT MXChip lampeggia.
 
 ![Output finale in Visual Studio Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

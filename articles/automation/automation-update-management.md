@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063511"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345383"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -35,9 +35,9 @@ Il diagramma seguente offre una visualizzazione concettuale del comportamento e 
 
 ![Flusso del processo di Gestione aggiornamenti](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ad Azure Log Analytics. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita. 
+Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ad Azure Log Analytics. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
 
-Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti in caso di riavvio di MMA e prima e dopo l'installazione degli aggiornamenti. 
+Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti in caso di riavvio di MMA e prima e dopo l'installazione degli aggiornamenti.
 
 Per un computer Linux, l'analisi della conformità viene eseguita ogni 3 ore per impostazione predefinita. Se l'agente MMA viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
@@ -86,7 +86,7 @@ Gli agenti Windows devono essere configurati per comunicare con un server WSUS o
 
 #### <a name="linux"></a>Linux
 
-Per Linux, il computer deve avere accesso a un repository degli aggiornamenti. Il repository degli aggiornamenti può essere privato o pubblico. Un agente di Operations Management Suite (OMS) per Linux configurato per l'invio di report a più aree di lavoro di Log Analytics non è supportato con questa soluzione.
+Per Linux, il computer deve avere accesso a un repository degli aggiornamenti. Il repository degli aggiornamenti può essere privato o pubblico. Per interagire con Gestione aggiornamenti è necessario TLS 1.1 o TLS 1.2. Un agente di Operations Management Suite (OMS) per Linux configurato per l'invio di report a più aree di lavoro di Log Analytics non è supportato con questa soluzione.
 
 Per informazioni su come installare l'agente di OMS per Linux e scaricare la versione più recente, vedere l'[agente di Operations Management Suite per Linux](https://github.com/microsoft/oms-agent-for-linux). Per informazioni su come installare l'agente OMS per Windows, vedere l'[agente Operations Management Suite per Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -115,6 +115,9 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 * Update Deployment MP
 
 Per altre informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
+
+> [!NOTE]
+> Nei sistemi con l'agente di Operations Manager, quest'ultimo deve essere aggiornato a Microsoft Monitoring Agent per essere gestito completamente da Gestione aggiornamenti. Per informazioni su come aggiornare l'agente, vedere [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents.md) (Come aggiornare un agente di Operations Manager).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Verificare l'onboarding di computer non di Azure
 
@@ -260,6 +263,8 @@ I seguenti indirizzi sono necessari e specifici per Gestione aggiornamenti. La c
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 Per altre informazioni sulle porte richieste dal ruolo di lavoro ibrido per runbook, vedere [Porte del ruolo di lavoro ibrido](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+È consigliabile usare gli indirizzi elencati quando si definiscono eccezioni. Per gli indirizzi IP è possibile scaricare gli [intervalli di indirizzi IP dei data center di Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Questo file viene aggiornato ogni settimana con gli intervalli attualmente distribuiti e le eventuali modifiche imminenti agli intervalli IP.
 
 ## <a name="search-logs"></a>Eseguire ricerche nei log
 

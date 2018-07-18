@@ -1,5 +1,5 @@
 ---
-title: Accedere all'API di Servizi multimediali - Interfaccia della riga di comando 2.0 | Microsoft Docs
+title: Accedere all'API di Servizi multimediali - Interfaccia della riga di comando di Azure | Microsoft Docs
 description: Seguire i passaggi di questa procedura per accedere all'API di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639776"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723693"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando 2.0
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accedere all'API di Servizi multimediali di Azure usando l'interfaccia della riga di comando di Azure
  
 È necessario usare l'autenticazione dell'entità servizio di Azure AD per connettersi all'API di Servizi multimediali di Azure. L'applicazione deve richiedere un token di Azure AD che abbia i seguenti parametri:
 
@@ -28,7 +28,7 @@ ms.locfileid: "34639776"
 * URI di risorsa per Servizi multimediali REST
 * Valori dell'applicazione Azure AD: ID client e Segreto client
 
-Questo articolo illustra come usare l'interfaccia della riga di comando 2.0 per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) e ottenere i valori necessari per accedere alle risorse di Servizi multimediali di Azure.
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un'applicazione e un'entità servizio di Azure Active Directory (Azure AD) e ottenere i valori necessari per accedere alle risorse di Servizi multimediali di Azure.
 
 ## <a name="prerequisites"></a>prerequisiti 
 
@@ -40,7 +40,7 @@ Accedere al [portale di Azure](http://portal.azure.com) e avviare **CloudShell**
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Interfaccia della riga di comando 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

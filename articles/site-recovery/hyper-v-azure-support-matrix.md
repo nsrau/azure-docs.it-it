@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266962"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923469"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice di supporto per la replica Hyper-V in Azure
 
@@ -33,7 +33,7 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-Hyper-V (in esecuzione senza Virtual Machine Manager) | Windows Server 2016, Windows Server 2012 R2 con gli aggiornamenti più recenti | Quando si configura un sito Hyper-V in Site Recovery, la combinazione di host che eseguono Windows Server 2016 e 2012 R2 non è supportata.<br/><br/> Per le VM situate in un host che esegue Windows Server 2016, non è supportato il ripristino in un percorso alternativo.
+Hyper-V (in esecuzione senza Virtual Machine Manager) | Windows Server 2016 (tra cui installazione server core), Windows Server 2012 R2 con gli aggiornamenti più recenti | Quando si configura un sito Hyper-V in Site Recovery, la combinazione di host che eseguono Windows Server 2016 e 2012 R2 non è supportata.<br/><br/> Per le VM situate in un host che esegue Windows Server 2016, non è supportato il ripristino in un percorso alternativo.
 Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/> Non è attualmente supportato un cloud Virtual Machine Manager con una combinazione di host Hyper-V che eseguono Windows Server 2016 e 2012 R2.<br/><br/> Non sono supportati gli ambienti che includono un aggiornamento di un server di Virtual Machine Manager 2012 R2 esistente alla versione 2016.
 
 

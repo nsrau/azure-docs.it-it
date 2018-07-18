@@ -3,7 +3,7 @@ title: Usare Desktop remoto per una macchina virtuale Linux di Azure| Documentaz
 description: Informazioni sull'installazione e la configurazione di Desktop remoto (xrdp) per collegarsi a una macchina virtuale Linux di Azure usando strumenti grafici
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716619"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934213"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure
 Le macchine virtuali Linux (VM) di Azure in genere vengono gestite dalla riga di comando tramite una connessione secure shell (SSH). Quando si è nuovi a Linux, o per scenari di risoluzione dei problemi rapidi, l'uso di desktop remoto potrebbe risultare più facile. Questo articolo illustra come installare e configurare un ambiente desktop ([xfce](https://www.xfce.org)) e desktop remoto ([xrdp](http://www.xrdp.org)) per VM Linux usando il modello di distribuzione Resource Manager.
@@ -101,6 +101,8 @@ Aprire il client di Desktop remoto locale e connettersi all'indirizzo IP o nome 
 Dopo l'autenticazione, l'ambiente desktop xfce verrà caricato e apparirà come nell'esempio seguente:
 
 ![ambiente desktop xfce tramite xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+Se il client RDP locale usa l'autenticazione di livello di rete (NLA), potrebbe essere necessario disattivare questa impostazione di connessione. XRDP attualmente non supporta NLA. È anche possibile considerare soluzione RDP alternative che supportano NLA, come [FreeRDP](http://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Risolvere problemi

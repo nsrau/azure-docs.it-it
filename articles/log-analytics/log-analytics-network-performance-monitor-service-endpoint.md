@@ -1,6 +1,6 @@
 ---
 title: Soluzione di monitoraggio delle prestazioni di rete in Azure Log Analytics | Microsoft Docs
-description: La funzionalità di gestione degli endpoint di servizio in Monitoraggio prestazioni rete consente di monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta.
+description: Usare la funzionalità Monitoraggio connettività servizio in Monitoraggio prestazioni rete per monitorare la connettività di rete a qualsiasi endpoint con una porta TCP aperta.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030710"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434920"
 ---
 # <a name="service-connectivity-monitor"></a>Monitoraggio connettività servizio
 
@@ -78,7 +79,7 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 10. Scegliere le condizioni di monitoraggio. È possibile impostare soglie personalizzate per la generazione di eventi di integrità immettendo valori di soglia. Ogni volta che il valore della condizione supera la soglia selezionata per la coppia di rete/subnet selezionata, viene generato un evento di integrità. 
 11. Selezionare **Salva** per salvare la configurazione. 
 
-    ![Configurazioni di test di Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configurazioni di test di Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ Iniziare a creare i test per monitorare la connettività di rete agli endpoint d
 
 Passare alla vista dashboard di Monitoraggio prestazioni rete. Per un riepilogo dell'integrità per i diversi test creati, vedere la pagina **Monitoraggio connettività servizio**. 
 
-![Pagina Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Pagina Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 Selezionare il riquadro per visualizzare i dettagli dei test nella pagina **Test**. Nella tabella a sinistra è possibile visualizzare l'integrità in un determinato momento e il valore del tempo di risposta, della latenza di rete e della perdita di pacchetti del servizio per tutti i test. Usare il controllo di registrazione dello stato di rete per visualizzare lo snapshot della rete in un altro momento nel passato. Selezionare il test nella tabella che si vuole esaminare. Nei grafici nel riquadro a destra è possibile visualizzare la tendenza cronologica relativa ai valori di perdita, latenza e tempo di risposta. Selezionare il collegamento **Dettagli test** per visualizzare le prestazioni di ogni nodo.
 
-![Test di Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Test di Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 Nella visualizzazione **Nodi test** è possibile osservare la connettività di rete da ogni nodo. Selezionare il nodo che presenta una riduzione del livello delle prestazioni. Si tratta del nodo in cui si osserva il rallentamento dell'esecuzione dell'applicazione.
 
@@ -98,15 +99,15 @@ Determinare se le prestazioni dell'applicazione non soddisfacenti sono dovute al
 
 * **Problema dell'applicazione:** se si verifica un picco nel tempo di risposta, ma la coerenza nella latenza di rete indica che la rete funziona correttamente, il problema potrebbe essere dovuto all'applicazione. 
 
-    ![Problema dell'applicazione in Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Problema dell'applicazione in Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **Problema di rete:** un picco nel tempo di risposta con un picco corrispondente nella latenza di rete indica che l'aumento nel tempo di risposta potrebbe essere dovuto a un aumento nella latenza di rete. 
 
-    ![Problema di rete in Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Problema di rete in Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 Dopo avere determinato che il problema è causato dalla rete, selezionare il collegamento della visualizzazione **Topologia** per identificare l'hop problematico nella mappa della topologia. Nell'immagine seguente è illustrato un esempio. Dei 105 ms di latenza totale tra il nodo e l'endpoint applicazione, 96 ms sono dovuti all'hop contrassegnato in rosso. Dopo avere identificato l'hop problematico, è possibile adottare un'azione correttiva. 
 
-![Test di Monitoraggio endpoint di servizio](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Test di Monitoraggio connettività servizio](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostica 
 

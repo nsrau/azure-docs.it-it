@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d1a6ff8dbd17d2792709a1ce065bcf793154e585
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943267"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37780673"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migrazione di risorse IaaS supportata dalla piattaforma dal modello di distribuzione classica ad Azure Resource Manager
 L'articolo descrive come eseguire la migrazione di risorse di infrastruttura distribuita come servizio (IaaS) dai modelli di distribuzione classica ad Azure Resource Manager e illustra in modo dettagliato come collegare le risorse da due modelli di distribuzione che coesistono nella sottoscrizione con gateway da sito a sito di rete virtuale. Altre informazioni su [funzionalità e vantaggi di Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -27,8 +27,8 @@ In Azure Resource Manager sono supportate quasi tutte le funzionalità del model
 Durante la migrazione sono supportate queste risorse IaaS classiche
 
 * Macchine virtuali
-* SET DI DISPONIBILITÀ
-* Servizi cloud
+* Set di disponibilità
+* Servizi cloud con Macchine virtuali
 * Account di archiviazione
 * Reti virtuali
 * Gateway VPN
@@ -100,7 +100,7 @@ Le seguenti funzionalità non sono attualmente supportate. È possibile rimuover
 ### <a name="unsupported-configurations"></a>Configurazioni non supportate
 Le seguenti configurazioni non sono attualmente supportate.
 
-| Service | Configurazione | Raccomandazione |
+| Servizio | Configurazione | Raccomandazione |
 | --- | --- | --- |
 | Gestione risorse |Controllo degli accessi in base al ruolo (RBAC) per le risorse classiche |Poiché l'URI delle risorse viene modificato dopo la migrazione, è consigliabile pianificare gli aggiornamenti dei criteri RBAC che devono essere eseguiti dopo la migrazione. |
 | Calcolo |Più subnet associate a una macchina virtuale |Aggiornare la configurazione delle subnet in modo che faccia riferimento solo a una subnet. Ciò potrebbe richiedere la rimozione di una scheda di interfaccia di rete secondaria (che fa riferimento a un'altra subnet) dalla macchina virtuale e quindi il suo ricollegamento al termine della migrazione. |

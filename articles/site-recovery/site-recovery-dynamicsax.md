@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: b390f6c62a6ddf8c800f79b42a36dac2c4f4c908
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876957"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919564"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione Dynamics AX multilivello usando Azure Site Recovery
 
@@ -114,7 +114,7 @@ Per le macchine virtuali AOS (Application Object Server) e il client AX, configu
 
     ![Crea piano di ripristino](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
-4. Selezionare il server AOS (Application Object Server) e le VM client per il piano di ripristino e quindi selezionare ✓.
+4. Selezionare Application Object Server e le macchine virtuali del client per il piano di ripristino, quindi ✓.
 
     ![Selezionare gli elementi](./media/site-recovery-dynamics-ax/selectvms.png)
 
@@ -164,7 +164,7 @@ Per altre informazioni sull'esecuzione di un failover di test, vedere [Failover 
 
 3. Selezionare **Failover** e quindi **Failover**.
 
-4. Selezionare la rete di destinazione e quindi **✓** per avviare il processo di failover.
+4. Selezionare la rete di destinazione e quindi fare clic su **✓** per avviare il processo di failover.
 
 Per altre informazioni sull'esecuzione di un failover, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
@@ -182,7 +182,7 @@ Per altre informazioni relative a SQL Server durante il failback, vedere come [e
 
 5. Selezionare le opzioni appropriate: sincronizzazione dei dati e creazione di VM.
 
-6. Selezionare **✓** per avviare il processo di failback.
+6. Fare clic su **✓** per avviare il processo di failback.
 
 
 Per altre informazioni sull'esecuzione di un failback, vedere [Eseguire il failback di una macchina virtuale VMware da Azure al sito locale](site-recovery-failback-azure-to-vmware.md).

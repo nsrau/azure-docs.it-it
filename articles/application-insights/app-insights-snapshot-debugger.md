@@ -9,15 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: mbullwin; pharring
-ms.openlocfilehash: 66339e5f5d2cc7447df0f8faf70d2d9fd45db738
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: pharring
+ms.author: mbullwin
+ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159136"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115506"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Snapshot di debug per le eccezioni nelle app .NET
 
@@ -265,9 +266,9 @@ Tuttavia, in Servizi app di Azure, l'agente di raccolta snapshot può deottimizz
 > [!TIP]
 > Installare l'estensione del sito Application Insights nel servizio app per ottenere supporto per la deottimizzazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
-Questi suggerimenti consentono di risolvere i problemi relativi al Snapshot Debugger.
+Questi suggerimenti consentono di risolvere i problemi relativi al debugger di snapshot.
 
 ### <a name="use-the-snapshot-health-check"></a>Usare il controllo integrità dello snapshot
 Alcuni problemi comuni riguardano la mancata visualizzazione di Apri snapshot di debug. Ad esempio, se si usa un agente di raccolta snapshot obsoleto, se si raggiunge il limite giornaliero di caricamento o se il caricamento dello snapshot richiede molto tempo. Per la risoluzione di problemi comuni, usare il controllo integrità dello snapshot.
@@ -406,7 +407,7 @@ Seguire questi passaggi per configurare il ruolo del servizio cloud con una riso
 Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata, quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights. Usando **Cerca** in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-2. Fare clic su **Cerca**.
+2. Fare clic su **Search**(Cerca).
 3. Digitare `ai.snapshot.id` nella casella di testo di ricerca e premere INVIO.
 
 ![Cercare i dati di telemetria con i ID snapshot nel portale](./media/app-insights-snapshot-debugger/search-snapshot-portal.png)

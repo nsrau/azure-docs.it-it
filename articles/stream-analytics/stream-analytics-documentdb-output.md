@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907117"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112752"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Output di Analisi di flusso di Azure in Azure Cosmos DB  
 L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) per l'output JSON, consentendo l'esecuzione di query di archiviazione dei dati e a bassa latenza su dati JSON non strutturati. Questo documento descrive alcune procedure consigliate per l'implementazione di questa configurazione.
@@ -22,47 +22,40 @@ L'analisi di flusso può usare [Azure Cosmos DB](https://azure.microsoft.com/ser
 Se non si ha familiarità con Cosmos DB, vedere l'articolo che descrive il [percorso di apprendimento di Azure Cosmos DB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) per un’introduzione. 
 
 > [!Note]
-> Ad oggi, Analisi di flusso di Azure supporta la connessione a CosmosDB solo tramite l'**API SQL**.
+> Ad oggi, Analisi di flusso di Azure supporta solo la connessione ad Azure Cosmos DB tramite l'**API SQL**.
 > Altre API di Azure Cosmos DB non sono ancora supportate. Se Analisi di flusso di Azure punta agli account Azure Cosmos DB creati con altre API, i dati potrebbero non essere archiviati correttamente. 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>Nozioni di base di Cosmos DB come destinazione di output
-L'output di Azure Cosmos DB nell'analisi di flusso consente la scrittura dei risultati di elaborazione del flusso come output JSON nelle raccolte di Cosmos DB. Analisi di flusso non crea raccolte nel database, ma ne richiede la creazione anticipata da parte dell'utente. In questo modo, i costi di fatturazione delle raccolte di Cosmos DB sono trasparenti per l'utente ed è possibile ottimizzare direttamente le prestazioni, la coerenza e la capacità delle raccolte usando le [API di Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx). È consigliabile usare un database di Cosmos DB per ogni processo di streaming, per separare in modo logico le raccolte per un processo di streaming.
+L'output di Azure Cosmos DB nell'analisi di flusso consente la scrittura dei risultati di elaborazione del flusso come output JSON nelle raccolte di Cosmos DB. Analisi di flusso di Azure non crea raccolte nel database, ma ne richiede la creazione anticipata da parte dell'utente. In questo modo, i costi di fatturazione delle raccolte di Cosmos DB vengono controllati dall'utente ed è possibile ottimizzare direttamente le prestazioni, la coerenza e la capacità delle raccolte usando le [API di Cosmos DB](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
 
 Di seguito sono descritte alcune delle opzioni per le raccolte di Cosmos DB.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Ottimizzare coerenza, disponibilità e latenza
-In base ai requisiti dell'applicazione, Cosmos DB consente di ottimizzare il database e le raccolte e di bilanciare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di Cosmos DB. Per altre informazioni, rivedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md).
+In base ai requisiti dell'applicazione, Azure Cosmos DB consente di ottimizzare il database e le raccolte e di bilanciare coerenza, disponibilità e latenza. A seconda dei livelli di coerenza di lettura richiesti dello scenario rispetto alla latenza di lettura e scrittura, è possibile scegliere un livello di coerenza per l'account del database. Per impostazione predefinita, Azure Cosmos DB consente anche l'indicizzazione sincrona per ogni operazione CRUD nella raccolta. Si tratta di un'altra opzione utile per controllare le prestazioni di lettura/scrittura di Azure Cosmos DB. Per altre informazioni, rivedere l'articolo relativo a come [modificare i livelli di coerenza del database e delle query](../cosmos-db/consistency-levels.md).
 
 ## <a name="upserts-from-stream-analytics"></a>Upsert di Analisi di flusso
-L'integrazione dell'analisi di flusso con Cosmos DB consente di inserire o aggiornare i record nella raccolta di Cosmos DB in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.
+L'integrazione di Analisi di flusso di Azure con Azure Cosmos DB consente di inserire o aggiornare i record nella raccolta in base a una determinata colonna ID documento. Questa implementazione è detta anche *upsert*.
 
-Analisi di flusso usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Questo aggiornamento viene eseguito da Analisi di flusso come PATCH, consentendo aggiornamenti parziali al documento, ad esempio l'aggiunta di nuove proprietà o la sostituzione di una proprietà esistente eseguita in modo incrementale. Le modifiche ai valori delle proprietà di matrice nel documento JSON comporta la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice.
+Analisi di flusso di Azure usa un approccio upsert ottimistico in cui gli aggiornamenti vengono eseguiti solo quando l'inserimento non riesce a causa di un conflitto di ID documento. Questo aggiornamento viene eseguito come PATCH, consentendo aggiornamenti parziali al documento, ad esempio l'aggiunta di nuove proprietà o la sostituzione di una proprietà esistente eseguita in modo incrementale. Le modifiche apportate ai valori delle proprietà di matrice nel documento JSON comportano, tuttavia, la sovrascrittura dell'intera matrice, ovvero non viene eseguito il merge della matrice.
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partizionamento dei dati in Cosmos DB
-Le [raccolte partizionate](../cosmos-db/partition-data.md) di Cosmos DB sono l'approccio consigliato per il partizionamento dei dati. 
+Azure Cosmos DB con partizionamento [senza limiti](../cosmos-db/partition-data.md) costituisce l'approccio consigliato per il partizionamento dei dati, in quanto Azure Cosmos DB ridimensiona le partizioni automaticamente in base al carico di lavoro. Durante la scrittura in contenitori senza limiti, Analisi di flusso di Azure usa un numero di writer paralleli uguale a quello usato nel passaggio di query precedente o nello schema di partizionamento di input.
 
-Per le raccolte Cosmos DB singole, l'analisi di flusso consente di partizionare i dati in base ai modelli di query e alle esigenze dell'applicazione in termini di prestazioni. Ogni raccolta può contenere fino a 10 GB di dati (massimo) e attualmente non è possibile aumentare una raccolta o eseguirne l'overflow. Per la scalabilità orizzontale, Analisi di flusso consente di scrivere in più raccolte con un determinato prefisso. Vedere i dettagli di utilizzo di seguito. Per partizionare i record di output, Analisi di flusso usa la strategia coerente del [resolver di partizionamento hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basata sulla colonna PartitionKey indicata dall'utente. Il numero di raccolte con il prefisso specificato all'avvio del processo di streaming viene usato come conteggio delle partizioni di output in cui il processo scrive in parallelo (raccolte di Cosmos DB = partizioni di output). Per una singola raccolta con indicizzazione differita che esegue solo inserimenti, è prevedibile una velocità effettiva di scrittura di 0,4 MB/s. L'uso di più raccolte può consentire di ottenere una maggiore capacità e una velocità effettiva più elevata.
+Per le raccolte di Azure Cosmos DB fisse, Analisi di flusso di Azure non consente alcuna possibilità di ridimensionamento se le raccolte sono al completo. Tali raccolte hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR al secondo.  Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore senza limiti, ad esempio con una velocità effettiva di almeno 1000 UR al secondo e una chiave di partizione, è necessario usare l'[utilità di migrazione dati](../cosmos-db/import-data.md) o la [libreria di feed di modifiche](../cosmos-db/change-feed.md).
 
-Se si prevede di aumentare il numero di partizioni in futuro, potrebbe essere necessario arrestare il processo, ripartizionare i dati dalle raccolte esistenti in nuove raccolte e quindi riavviare il processo di Analisi di flusso. Altre informazioni sull'uso di PartitionResolver e sul ripartizionamento, con codice di esempio, saranno incluse in un post di approfondimento. Anche l'articolo [Partizionamento e scalabilità in Cosmos DB](../cosmos-db/sql-api-partition-data.md) include informazioni dettagliate sull'argomento.
+La scrittura in più contenitori fissi verrà deprecata e non costituisce l'approccio consigliato per il ridimensionamento del processo di Analisi di flusso di Azure. Per altre informazioni, vedere [Partizionamento e scalabilità in Cosmos DB](../cosmos-db/sql-api-partition-data.md).
 
 ## <a name="cosmos-db-settings-for-json-output"></a>Impostazioni di Cosmos DB per l'output JSON
 La creazione di Cosmos DB come output nell'analisi di flusso genera una richiesta di informazioni, come illustrato di seguito. Questa sezione fornisce una spiegazione della definizione delle proprietà.
 
-Raccolta partizionata | Più raccolte a partizione singola
----|---
-![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
+![documentdb analisi di flusso schermata di output](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-  
-> [!NOTE]
-> Lo scenario con **più raccolte a partizione singola** richiede una chiave di partizione ed è una configurazione supportata. 
-
-* **Alias di output** : alias per fare riferimento a questo output nella query ASA.  
-* **Nome account**: nome o URI endpoint dell'account Cosmos DB.  
-* **Chiave account** : chiave di accesso condiviso per l'account Cosmos DB.  
-* **Database**: nome del database Cosmos DB.  
-* **Modello del nome di raccolta**: nome della raccolta o modello per le raccolte da usare. Il formato del nome di raccolta può essere costruito utilizzando il token {partizione} facoltativo, dove le partizioni iniziano da 0. Di seguito sono riportati input di esempio validi:  
-  1\) MyCollection: deve essere presente una raccolta denominata "MyCollection".  
-  2\) MyCollection{partizione}: devono essere presenti le raccolte "MyCollection0", "MyCollection1", "MyCollection2" e così via.  
-* **Chiave di partizione**: valore facoltativo. È necessario solo se si usa un token {partition} nel modello del nome di raccolta. Il nome del campo negli eventi di output utilizzato per specificare la chiave per il partizionamento di output nelle raccolte. Per l'output di una singola raccolta si può usare qualsiasi colonna di output arbitraria, ad esempio PartitionId.  
-* **ID documento** : valore facoltativo. Il nome del campo negli eventi di output usato per specificare la chiave primaria su cui si basano le operazioni di inserimento o aggiornamento.  
+Campo           | Descrizione 
+-------------   | -------------
+Alias di output    | Alias per fare riferimento a questo output nella query ASA   
+Nome account    | Nome o URI endpoint dell'account Azure Cosmos DB 
+Chiave account     | Chiave di accesso condiviso per l'account Azure Cosmos DB
+Database        | Nome del database Azure Cosmos DB
+Nome raccolta | Nome di raccolta per le raccolte da usare. `MyCollection` è un esempio di input valido. Una raccolta denominata `MyCollection` deve essere presente.  
+ID documento     | Facoltativo. Nome della colonna negli eventi di output usato come chiave univoca su cui devono basarsi le operazioni di inserimento o aggiornamento. Se lasciato vuoto, tutti gli eventi verranno inseriti senza alcuna opzione di aggiornamento.

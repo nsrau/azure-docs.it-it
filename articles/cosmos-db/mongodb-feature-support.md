@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796356"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928692"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>Supporto dell'API MongoDB per le funzionalità e la sintassi MongoDB
 
@@ -23,14 +23,19 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 
 Usando l'API MongoDB di Azure Cosmos DB è possibile sfruttare i noti vantaggi delle API MongoDB con tutte le funzionalità aziendali offerte da Azure Cosmos DB: [distribuzione globale](distribute-data-globally.md), [partizionamento orizzontale automatico](partition-data.md), garanzie di disponibilità e latenza, indicizzazione automatica di ogni campo, crittografia di dati inattivi, backup e molto altro.
 
+## <a name="mongodb-protocol-support"></a>Supporto dei protocolli per MongoDB
+
+Per impostazione predefinita, l'API di MongoDB in Azure Cosmos DB è compatibile con la versione **3.2**. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. Le funzionalità o gli operatori di query aggiunti nella versione **3.4** di MongoDB sono attualmente disponibili come funzionalità in anteprima. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi a Cosmos DB usando l'API di MongoDB.
+
+La [pipeline di aggregazione di MongoDB](#aggregation-pipeline) è attualmente disponibile come funzionalità in anteprima separata.
+
 ## <a name="mongodb-query-language-support"></a>Supporto del linguaggio di query MongoDB
 
 L'API MongoDB di Azure Cosmos DB offre il supporto completo dei costrutti del linguaggio di query MongoDB. Di seguito è possibile trovare l'elenco dettagliato di operazioni, operatori, fasi, comandi e opzioni attualmente supportati.
 
-
 ## <a name="database-commands"></a>Comandi del database
 
-Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account API di MongoDB. 
+Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account API di MongoDB.
 
 ### <a name="query-and-write-operation-commands"></a>Comandi per le operazioni di query e scrittura
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Non supportati. In alternativa, usare $regex 
+$text |  | Non supportati. In alternativa, usare $regex.
+
+## <a name="unsupported-operators"></a>Operatori non supportati
+
+Gli operatori ```$where``` e ```$eval``` non sono supportati da Azure Cosmos DB.
 
 ### <a name="methods"></a>Metodi
 
@@ -316,6 +325,10 @@ Azure Cosmos DB non supporta ancora utenti e ruoli. Azure Cosmos DB supporta il 
 ## <a name="replication"></a>Replica
 
 Azure Cosmos DB supporta la replica automatica e nativa ai livelli più bassi. Questa logica viene estesa per ottenere anche una replica globale a bassa latenza. Azure Cosmos DB non supporta comandi di replica manuali.
+
+## <a name="write-concern"></a>Write concern
+
+Alcune API di MongoDB supportano la possibilità di specificare un [write concern](https://docs.mongodb.com/manual/reference/write-concern/) che definisce il numero di risposte necessarie durante un'operazione di scrittura. A causa della modalità in cui Cosmos DB gestisce la replica in background, per impostazione predefinita tutte le operazioni di scrittura sono automaticamente Quorum. Qualsiasi write concern specificato dal codice client viene ignorato. Per altre informazioni, vedere [Uso dei livelli di coerenza per ottimizzare la disponibilità e le prestazioni](consistency-levels.md).
 
 ## <a name="sharding"></a>Partizionamento orizzontale
 

@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 7cd652231b461236510a1a4fc35734afdb06e501
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c92b1c0b2977ca15b82a0884870d78d895a761
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798152"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38543773"
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Creare un'applicazione Node.js tramite l'API Graph
 
@@ -176,7 +176,7 @@ module.exports = config;
 
 È ora possibile tornare a Esplora dati nel portale di Azure per visualizzare, modificare e usare i nuovi dati del grafo ed eseguire query su di essi.
 
-In Esplora dati il nuovo database viene visualizzato nel riquadro **Graph**. Espandere il database e la raccolta, quindi fare clic su **Graph**.
+In Esplora dati il nuovo database viene visualizzato nel riquadro **Graph**. Espandere il database e il contenitore, quindi fare clic su **Graph**.
 
 I dati generati dall'app di esempio vengono visualizzati nel riquadro successivo nella scheda **Graph** quando si fa clic su **Applica filtro**.
 

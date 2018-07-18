@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 27dfdec4e833a2f30963157ba2f4d95232e21270
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267333"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922739"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Proteggere una distribuzione di applicazioni SAP NetWeaver multilivello usando Site Recovery
 
@@ -83,7 +83,7 @@ Per implementare una soluzione a disponibilità elevata, può essere usato un cl
 
 Per supportare l'ambiente cluster di failover, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) svolge la funzione di volume condiviso del cluster replicando i dischi indipendenti di proprietà dei nodi del cluster. Azure non supporta in modo nativo i dischi condivisi e di conseguenza richiede soluzioni fornite da SIOS. 
 
-Un altro modo di gestire il clustering consiste nell'implementare un cluster di condivisioni file. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha di recente modificato il modello di distribuzione di Central Services in modo da permettere l'accesso alle directory globali /sapmnt tramite un percorso UNC. Questa modifica elimina il requisito relativo a SIOS o ad altre soluzioni con dischi condivisi nelle macchine virtuali di Central Services. È comunque consigliabile assicurarsi che la condivisione UNC /sapmnt abbia disponibilità elevata. A questo scopo, nell'istanza di Central Services usare Windows Server Failover Cluster con File server di scalabilità orizzontale e la funzionalità Storage Spaces Direct in Windows Server 2016. 
+Un altro modo di gestire il clustering consiste nell'implementare un cluster di condivisioni file. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ha di recente modificato il modello di distribuzione di Central Services in modo da permettere l'accesso alle directory globali /sapmnt tramite un percorso UNC. È comunque consigliabile assicurarsi che la condivisione UNC/sapmnt abbia disponibilità elevata. A questo scopo, nell'istanza di Central Services usare Windows Server Failover Cluster con File server di scalabilità orizzontale e la funzionalità Storage Spaces Direct in Windows Server 2016. 
  > [!NOTE]
  > Attualmente il supporto di Azure Site Recovery arresta solo la replica del punto consistente delle macchine virtuali tramite gli spazi di archiviazione diretti 
 

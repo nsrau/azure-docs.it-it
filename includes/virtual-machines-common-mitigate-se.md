@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34677360"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138178"
 ---
 **Ultimo aggiornamento del documento**: 21 maggio 2018 15.00 PST.
 
@@ -28,7 +28,7 @@ Il 21 maggio 2018, Google Project Zero e Microsoft hanno annunciato una nuova so
 >
 > A fine febbraio 2018 Intel Corporation ha pubblicato la versione aggiornata del documento [Microcode Revision Guidance](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) sullo stato delle versioni del microcodice, che migliorano la stabilità e riducono le vulnerabilità rilevate dal team [Project Zero di Google](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). I metodi di attenuazione dei rischi implementati da Azure il [3 gennaio 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) non sono interessati dall'aggiornamento del microcodice Intel. Microsoft ha già implementato soluzioni complesse di mitigazione dei rischi per proteggere i clienti di Azure dalle altre macchine virtuali di Azure.  
 >
-> Il microcodice Intel è in grado di gestire la variante 2 della vulnerabilità Spectre ([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) o inserimento destinazione diramazione) per proteggere i sistemi da attacchi efficaci solo in caso di esecuzione di carichi di lavoro condivisi o non attendibili all'interno di macchine virtuali in Azure. I tecnici stanno testando la stabilità per ridurre al minimo l'impatto sulle prestazioni del microcodice prima di renderlo disponibile ai clienti di Azure.  Dal momento che pochissimi clienti eseguono carichi di lavoro non affidabili nelle rispettive macchine virtuali, la maggior parte dei clienti non dovrà abilitare questa funzionalità dopo il relativo rilascio. 
+> Il microcodice Intel è in grado di gestire la variante 2 della vulnerabilità Spectre ([CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) o inserimento destinazione diramazione) per proteggere i sistemi da attacchi efficaci solo in caso di esecuzione di carichi di lavoro condivisi o non attendibili all'interno di macchine virtuali in Azure. I tecnici stanno testando la stabilità per ridurre al minimo l'impatto sulle prestazioni del microcodice prima di renderlo disponibile ai clienti di Azure.  Dal momento che pochissimi clienti eseguono carichi di lavoro non affidabili nelle rispettive macchine virtuali, la maggior parte dei clienti non dovrà abilitare questa funzionalità dopo il relativo rilascio. 
 >
 > Questa pagina verrà aggiornata non appena saranno disponibili altre informazioni.  
 

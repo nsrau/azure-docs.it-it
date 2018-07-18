@@ -1,5 +1,5 @@
 ---
-title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Documentazione Microsoft
+title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs
 description: Utilizzare il backup periodico di Service Fabric e il ripristino di funzionalità per proteggere le applicazioni dalla perdita di dati.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: cfbc0e6ca255bd005bb6e4cc381a9121347fe227
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206046"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114528"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 - Sospensione temporanea dei backup
 - Gestione della memorizzazione dei backup (a breve)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Cluster di Service Fabric con Fabric versione 6.2 e successive. Il cluster deve essere installato su Windows Server. Fare riferimento all’[articolo](service-fabric-cluster-creation-for-windows-server.md) per i passaggi scaricare il pacchetto richiesto.
 * Certificato X.509 per la crittografia dei segreti necessari per connettersi allo storage per archiviare i backup. Fare riferimento all’[articolo](service-fabric-windows-cluster-x509-security.md) per sapere come acquisire o come creare un certificato X.509 autofirmato.
 * L’applicazione Reliable con stato di Service Fabric generata utilizzando Service Fabric SDK versione 3.0 o successiva. Per applicazioni destinate a .net Core 2.0, l'applicazione deve essere generata utilizzando Service Fabric SDK versione 3.1 o successiva.

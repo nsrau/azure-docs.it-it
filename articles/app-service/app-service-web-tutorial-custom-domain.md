@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714516"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461640"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Esercitazione: Eseguire il mapping di un nome DNS personalizzato esistente ad app Web di Azure
 
@@ -35,12 +35,8 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il mapping di un sottodominio (ad esempio, `www.contoso.com`) usando un record CNAME
 > * Eseguire il mapping di un dominio radice (ad esempio, `contoso.com`) usando un record A
 > * Eseguire il mapping di un dominio con caratteri jolly (ad esempio, `*.contoso.com`) usando un record CNAME
+> * Reindirizzare l'URL predefinito a una directory personalizzata
 > * Automatizzare il mapping dei domini con script
-
-È possibile utilizzare un **record CNAME** o un **record A** per eseguire il mapping di un nome DNS personalizzato con un servizio app. 
-
-> [!NOTE]
-> È consigliabile usare un record CNAME per tutti i nomi DNS personalizzati tranne il dominio radice (ad esempio, `contoso.com`).
 
 Per eseguire la migrazione di un sito in tempo reale e del relativo nome di dominio DNS al servizio app, vedere [Migrare un nome DNS attivo nel servizio app di Azure](app-service-custom-domain-name-migrate.md).
 
@@ -104,13 +100,26 @@ La visualizzazione della notifica seguente indica che l'operazione di passaggio 
 
 <a name="cname"></a>
 
-## <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
+## <a name="map-your-domain"></a>Eseguire il mapping del dominio
+
+È possibile utilizzare un **record CNAME** o un **record A** per eseguire il mapping di un nome DNS personalizzato con un servizio app. Seguire la procedura corrispondente:
+
+- [Esecuzione del mapping di un record CNAME](#map-a-cname-record)
+- [Esecuzione del mapping di un record A](#map-an-a-record)
+- [Esecuzione del mapping di un dominio con caratteri jolly usando un record CNAME](#map-a-wildcard-domain)
+
+> [!NOTE]
+> Usare un record CNAME per tutti i nomi DNS personalizzati tranne i domini radice (ad esempio, `contoso.com`). Per i domini radice, usare i record A.
+
+### <a name="map-a-cname-record"></a>Esecuzione del mapping di un record CNAME
 
 nell'esempio dell'esercitazione si aggiunge un record CNAME per il sottodominio `www`, ad esempio `www.contoso.com`.
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
 
-### <a name="create-the-cname-record"></a>Creazione di un record CNAME
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
 Aggiungere un record CNAME per eseguire il mapping di un sottodominio al nome host predefinito dell'app (`<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app).
 
@@ -120,7 +129,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/cname-record.png)
 
-### <a name="enable-the-cname-record-mapping-in-azure"></a>Abilitare il mapping dei record CNAME in Azure
+#### <a name="enable-the-cname-record-mapping-in-azure"></a>Abilitare il mapping dei record CNAME in Azure
 
 Nel riquadro di spostamento a sinistra della pagina dell'app nel portale di Azure selezionare **Domini personalizzati**. 
 
@@ -136,7 +145,7 @@ Digitare il nome di dominio completo per il quale è stato aggiunto un record CN
 
 Selezionare **Convalida**.
 
-Viene attivato il pulsante **Aggiungi il nome host**. 
+Viene visualizzata la pagina **Aggiungi il nome host**. 
 
 Assicurarsi che **Tipo di record del nome host** sia impostato su **CNAME (www.example.com o qualsiasi sottodominio)**.
 
@@ -148,19 +157,22 @@ La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** de
 
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
+> [!NOTE]
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
 ![Errore di verifica](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
 <a name="a"></a>
 
-## <a name="map-an-a-record"></a>Esecuzione del mapping di un record A
+### <a name="map-an-a-record"></a>Esecuzione del mapping di un record A
 
 Nell'esempio dell'esercitazione si aggiunge un record A per il dominio radice, ad esempio `contoso.com`. 
 
 <a name="info"></a>
 
-### <a name="copy-the-apps-ip-address"></a>Copiare l'indirizzo IP dell'app
+#### <a name="copy-the-apps-ip-address"></a>Copiare l'indirizzo IP dell'app
 
 Per eseguire il mapping di un record A, è necessario l'indirizzo IP esterno dell'app. È possibile trovare questo indirizzo IP nella pagina **Domini personalizzati** dell'app nel portale di Azure.
 
@@ -172,9 +184,11 @@ Nella pagina **Domini personalizzati**, copiare l'indirizzo IP dell'applicazione
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
 
-### <a name="create-the-a-record"></a>Creazione di un record A
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-a-record"></a>Creazione di un record A
 
 Per eseguire il mapping di un record A a un'app, il servizio app richiede **due** record DNS:
 
@@ -194,7 +208,7 @@ Dopo aver aggiunto i record, la pagina dei record DNS è simile all'esempio segu
 
 <a name="enable-a"></a>
 
-### <a name="enable-the-a-record-mapping-in-the-app"></a>Abilitare il mapping del record A nell'app
+#### <a name="enable-the-a-record-mapping-in-the-app"></a>Abilitare il mapping del record A nell'app
 
 Nella pagina **Domini personalizzati** dell'app nel portale di Azure aggiungere il nome DNS personalizzato completo, ad esempio `contoso.com`, all'elenco.
 
@@ -206,7 +220,7 @@ Digitare il nome di dominio completo per il quale è stato configurato il record
 
 Selezionare **Convalida**.
 
-Viene attivato il pulsante **Aggiungi il nome host**. 
+Viene visualizzata la pagina **Aggiungi il nome host**. 
 
 Assicurarsi che **Tipo di record del nome host** sia impostato su **Record A (esempio.com)**.
 
@@ -218,19 +232,24 @@ La visualizzazione del nuovo nome host nella pagina **Domini personalizzati** de
 
 ![Record A aggiunto](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
+> [!NOTE]
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+
 Se è stato saltato un passaggio o è stato inserito un errore di digitazione, nella parte inferiore della pagina viene visualizzato un errore di verifica.
 
 ![Errore di verifica](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
 <a name="wildcard"></a>
 
-## <a name="map-a-wildcard-domain"></a>Esecuzione del mapping di un dominio con caratteri jolly
+### <a name="map-a-wildcard-domain"></a>Esecuzione del mapping di un dominio con caratteri jolly
 
 Nell'esempio dell'esercitazione si esegue il mapping di un [nome DNS con caratteri jolly](https://en.wikipedia.org/wiki/Wildcard_DNS_record), ad esempio `*.contoso.com`, all'app del servizio app aggiungendo un record CNAME. 
 
-[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
+#### <a name="access-dns-records-with-domain-provider"></a>Accedere ai record DNS con il provider di dominio
 
-### <a name="create-the-cname-record"></a>Creazione di un record CNAME
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
+
+#### <a name="create-the-cname-record"></a>Creazione di un record CNAME
 
 Aggiungere un record CNAME per eseguire il mapping di un nome con caratteri jolly al nome host predefinito dell'app (`<app_name>.azurewebsites.net`).
 
@@ -240,7 +259,7 @@ Dopo aver aggiunto il record CNAME, la pagina dei record DNS è simile all'esemp
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)
 
-### <a name="enable-the-cname-record-mapping-in-the-app"></a>Abilitare il mapping dei record CNAME nell'app
+#### <a name="enable-the-cname-record-mapping-in-the-app"></a>Abilitare il mapping dei record CNAME nell'app
 
 È ora possibile aggiungere qualsiasi sottodominio che corrisponde al nome con caratteri jolly nell'app, ad esempio `sub1.contoso.com` e `sub2.contoso.com` corrispondono a `*.contoso.com`. 
 
@@ -268,13 +287,16 @@ Fare di nuovo clic sull'icona **+** per aggiungere un altro nome host corrispond
 
 ![Record CNAME aggiunto](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
+> [!NOTE]
+> Per aggiungere un binding SSL, vedere [Associare un certificato SSL personalizzato esistente ad app Web di Azure](app-service-web-tutorial-custom-ssl.md).
+
 ## <a name="test-in-browser"></a>Prova nel browser
 
 Passare al nome o ai nomi DNS configurati in precedenza, ad esempio `contoso.com`,  `www.contoso.com`, `sub1.contoso.com` e `sub2.contoso.com`.
 
 ![Passaggio all'app di Azure nel portale](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-error-web-site-not-found"></a>Risolvere l'errore 404 "Sito Web non trovato"
+## <a name="resolve-404-not-found"></a>Risolvere l'errore 404 "Non trovato"
 
 Se si riceve un errore HTTP 404 (non trovato) quando si seleziona l'URL del dominio personalizzato, verificare che il dominio venga risolto nell'indirizzo IP dell'app usando <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. In caso contrario, il problema può essere dovuto a una delle cause seguenti:
 
@@ -283,7 +305,7 @@ Se si riceve un errore HTTP 404 (non trovato) quando si seleziona l'URL del domi
 
 <a name="virtualdir"></a>
 
-## <a name="direct-default-url-to-a-custom-directory"></a>Indirizzare l'URL predefinito a una directory personalizzata
+## <a name="redirect-to-a-custom-directory"></a>Reindirizzare a una directory personalizzata
 
 Per impostazione predefinita, il servizio app indirizza le richieste Web alla directory radice del codice dell'app. Alcuni framework Web, tuttavia, non vengono avviati nella directory radice. Ad esempio, [Laravel](https://laravel.com/) viene avviato nella sottodirectory `public`. Per continuare l'esempio relativo al DNS `contoso.com`, un'app di questo tipo sarebbe accessibile all'indirizzo `http://contoso.com/public`, ma sarebbe di gran lunga preferibile indirizzare l'URL `http://contoso.com` alla directory `public`. Questa operazione non interessa la risoluzione del DNS, ma implica la personalizzazione della directory virtuale.
 
@@ -333,6 +355,7 @@ Questa esercitazione illustra come:
 > * Eseguire il mapping di un sottodominio usando un record CNAME
 > * Eseguire il mapping di un dominio radice usando un record A
 > * Eseguire il mapping di un dominio con caratteri jolly usando un record CNAME
+> * Reindirizzare l'URL predefinito a una directory personalizzata
 > * Automatizzare il mapping dei domini con script
 
 Passare all'esercitazione successiva per apprendere come associare un certificato SSL personalizzato a un'app Web.

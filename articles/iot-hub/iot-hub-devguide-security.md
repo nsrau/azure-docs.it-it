@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808775"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444396"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -36,13 +36,16 @@ Questo articolo descrive:
 Per concedere le [autorizzazioni](#iot-hub-permissions) è possibile procedere nei modi seguenti:
 
 * **Criteri di accesso condivisi a livello di hub IoT**. I criteri di accesso condiviso possono concedere qualsiasi combinazione di [autorizzazioni](#iot-hub-permissions). È possibile definire i criteri nel [portale di Azure][lnk-management-portal] o a livello di codice usando le [API REST del provider di risorse dell'hub IoT][lnk-resource-provider-apis]. Un hub IoT appena creato ha i criteri predefiniti seguenti:
+  
+  | Criterio di accesso condiviso | Autorizzazioni |
+  | -------------------- | ----------- |
+  | iothubowner | Tutte le autorizzazioni |
+  | service | Autorizzazioni **ServiceConnect** |
+  | device | Autorizzazioni **DeviceConnect** |
+  | registryRead | Autorizzazioni **RegistryRead** |
+  | registryReadWrite | Autorizzazioni **RegistryRead** e **RegistryWrite** |
 
-  * **iothubowner**: criteri con tutte le autorizzazioni.
-  * **service**: criteri con autorizzazione **ServiceConnect**.
-  * **device**: criteri con autorizzazione **DeviceConnect**.
-  * **registryRead**: criteri con autorizzazione **RegistryRead**.
-  * **registryReadWrite**: criteri con autorizzazioni **RegistryRead** e RegistryWrite.
-  * **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità][lnk-identity-registry]. Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
+* **Credenziali di sicurezza specifiche del dispositivo**. Ogni hub IoT contiene un [registro delle identità][lnk-identity-registry]. Per ogni dispositivo presente in questo registro delle identità è possibile configurare credenziali di sicurezza che concedono autorizzazioni **DeviceConnect** con ambito agli endpoint di dispositivo corrispondenti.
 
 Ad esempio, in una soluzione IoT tipica:
 
@@ -127,7 +130,7 @@ Il token di sicurezza ha il formato seguente:
 
 I valori previsti sono i seguenti:
 
-| Valore | DESCRIZIONE |
+| Valore | Descrizione |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256 nel formato: `{URL-encoded-resourceURI} + "\n" + expiry`. **Importante**: la chiave viene decodificata dalla codifica Base64 e usata come chiave per eseguire il calcolo di HMAC-SHA256. |
 | {resourceURI} |Prefisso URI (per segmento) degli endpoint a cui è possibile accedere tramite questo token e che inizia con il nome host dell'hub IoT senza il protocollo. Ad esempio: `myHub.azure-devices.net/devices/device1` |
@@ -462,7 +465,7 @@ Per provare alcuni dei concetti descritti in questo articolo, vedere le esercita
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

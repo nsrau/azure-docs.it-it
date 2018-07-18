@@ -3,25 +3,25 @@ title: Creazione di report in Azure Active Directory | Microsoft Docs
 description: Offre una panoramica generale della creazione di report in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 816caf0e65520c1f6fede55b522681ae0a46f955
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588557"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868559"
 ---
 # <a name="azure-active-directory-reporting"></a>Creazione di report in Azure Active Directory
 

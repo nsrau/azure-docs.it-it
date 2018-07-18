@@ -14,16 +14,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 557f071e2cd8d4f639c881274e6e74a8fb745859
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 2be04c7037dd26755300cf8b7794678a6a958278
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290227"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488461"
 ---
-# <a name="azure-functions-runtime-overview"></a>Panoramica di Runtime di Funzioni di Azure
+# <a name="azure-functions-runtime-overview-preview"></a>Panoramica di runtime di Funzioni di Azure (anteprima)
 
-Il runtime di Funzioni di Azure offre un nuovo modo per sfruttare la semplicità e la flessibilità del modello di programmazione di Funzioni di Azure in locale. Con la stessa base open source di Funzioni di Azure, il runtime di Funzioni di Azure viene distribuito in locale per fornire un'esperienza di sviluppo quasi identica al servizio cloud.
+Il runtime di Funzioni di Azure (anteprima) offre un nuovo modo per sfruttare la semplicità e la flessibilità del modello di programmazione di Funzioni di Azure in locale. Con la stessa base open source di Funzioni di Azure, il runtime di Funzioni di Azure viene distribuito in locale per fornire un'esperienza di sviluppo quasi identica al servizio cloud.
 
 ![Anteprima del runtime di Funzioni di Azure - Portale][1]
 

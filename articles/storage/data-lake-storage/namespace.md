@@ -1,6 +1,6 @@
 ---
-title: Anteprima di Azure Data Lake Storage Gen2 - Spazio dei nomi gerarchico
-description: Descrive la nozione di spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
+title: Versione di anteprima di Azure Data Lake Storage Gen2 - Spazio dei nomi gerarchico
+description: Descrive la nozione di spazio dei nomi gerarchico per la versione di anteprima di Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
 manager: twooley
@@ -9,25 +9,25 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061221"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114368"
 ---
-# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per Anteprima di Azure Data Lake Storage Gen2
+# <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Spazio dei nomi gerarchico per la versione di anteprima di Azure Data Lake Storage Gen2
 
-Meccanismo chiave che consente ad Anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, Data Lake Storage Gen2 offre scalabilità ed efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
+Meccanismo chiave che consente alla versione di anteprima di Azure Data Lake Storage Gen2 di fornire prestazioni del file system scalabili in base all'archiviazione di oggetti e ai prezzi tramite l'aggiunta di uno **spazio dei nomi gerarchico**. Consente la raccolta di oggetti o file all'interno di un account per organizzarli in una gerarchia di directory e sottodirectory annidate allo stesso modo in cui sono organizzate nel file system o sul computer. Con lo spazio dei nomi gerarchico abilitato, Data Lake Storage Gen2 offre scalabilità ed efficacia di archiviazione di oggetti, con la semantica del file system già nota ai motori e ai framework di analisi.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Vantaggi dello spazio dei nomi gerarchico
 
 > [!NOTE]
-> Durante l'anteprima pubblica di Azure Data Lake Storage Gen2, alcune delle funzionalità elencate di seguito possono variare in termini di disponibilità. Poiché le aree e le nuove funzionalità vengono rilasciate durante il programma di anteprima, queste informazioni verranno comunicate più avanti tramite il nostro gruppo Yammer dedicato.  
+> Durante la versione di anteprima pubblica di Azure Data Lake Storage Gen2, alcune delle funzionalità elencate di seguito possono variare in termini di disponibilità. Poiché le aree e le nuove funzionalità vengono rilasciate durante il programma di anteprima, queste informazioni verranno comunicate più avanti tramite il nostro gruppo Yammer dedicato.  
 
 I file system che implementano uno spazio dei nomi gerarchico per i dati BLOB godono dei seguenti vantaggi:
 
-- **Modifica della directory atomica:** gli archivi di oggetti simulano una gerarchia di directory adottando una convenzione che prevede l'inserimento di slash (/) nel nome oggetto per indicare i segmenti di tracciato. Quando questa convenzione viene usata in modo soddisfacente per organizzare gli oggetti, la convenzione non prevede alcuna assistenza per le azioni quali lo spostamento, la ridenominazione o l'eliminazione di directory. Senza directory reali, le applicazioni devono elaborare potenzialmente milioni di singoli BLOB per offrire attività a livello di directory. Al contrario, lo spazio dei nomi gerarchico elabora queste attività mediante l'aggiornamento di una singola voce (la directory principale). 
+- **Modifica della directory atomica:** gli archivi di oggetti simulano una gerarchia di directory adottando una convenzione che prevede l'inserimento di slash (/) nel nome oggetto per indicare i segmenti di tracciato. Quando questa convenzione viene usata per organizzare gli oggetti, non prevede alcuna assistenza per le azioni quali lo spostamento, la ridenominazione o l'eliminazione di directory. Senza directory reali, le applicazioni devono elaborare potenzialmente milioni di singoli BLOB per offrire attività a livello di directory. Al contrario, lo spazio dei nomi gerarchico elabora queste attività mediante l'aggiornamento di una singola voce (la directory principale). 
 
     Questa ottimizzazione significativa è particolarmente importante per molti framework di analisi dei Big Data. Strumenti quali Hive, Spark e altri ancora scrivono spesso l'output su percorsi temporanei, per poi rinominare il percorso al termine del processo. Senza lo spazio dei nomi gerarchico, la ridenominazione spesso può richiedere più tempo del processo di analisi stesso. Una latenza di processo più bassa implica una riduzione del costo totale di proprietà (TCO) per i carichi di lavoro analitici.
 

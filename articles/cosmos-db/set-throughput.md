@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285774"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444266"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Impostare e ottenere la velocità effettiva per i contenitori e il database Azure Cosmos DB
 
-È possibile impostare la velocità effettiva per un contenitore o un set di contenitori di Azure Cosmos DB usando il portale di Azure o gli SDK client. Quando si effettua il provisioning della velocità effettiva per un set di contenitori, tutti questi contenitori condividono la velocità effettiva di cui è stato effettuato il provisioning. Il provisioning della velocità effettiva per i singoli contenitori assicurerà la prenotazione della velocità effettiva per il contenitore specifico. Il provisioning della velocità effettiva per un set di contenitori permette d'altra parte di condividere la velocità effettiva tra i contenitori che appartengono a tale database. Nel database Azure Cosmos DB è possibile avere un set di contenitori che condividono la velocità effettiva e contenitori con una velocità effettiva dedicata. 
+È possibile impostare la velocità effettiva per un contenitore o un set di contenitori di Azure Cosmos DB usando il portale di Azure o gli SDK client. 
 
-In base alla velocità effettiva con provisioning, Azure Cosmos DB allocherà partizioni fisiche per ospitare il contenitore e suddividerà/ribilancerà la crescita dei dati nelle partizioni.
+**Effettuare il provisioning della velocità effettiva per un singolo contenitore:** quando si effettua il provisioning della velocità effettiva per un set di contenitori, tutti questi contenitori condividono la velocità effettiva di cui è stato effettuato il provisioning. Il provisioning della velocità effettiva per i singoli contenitori assicurerà la prenotazione della velocità effettiva per il contenitore specifico. Quando si assegnano UR/sec a livello di singolo contenitore, i contenitori possono essere creati come *fissi* oppure *senza limiti*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore senza limiti, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di contenitori/tabelle/grafi e richieste in Azure Cosmos DB. 
 
-Quando si assegnano UR/sec a livello di singolo contenitore, i contenitori possono essere creati come *fissi* oppure *senza limiti*. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore senza limiti, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Dal momento che i dati potrebbero essere stati suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). La selezione di una chiave di partizione con molti valori distinti garantisce la scalabilità uniforme di contenitori/tabelle/grafi e richieste in Azure Cosmos DB. 
+**Effettuare il provisioning della velocità effettiva per un set di contenitori o per un database:** il provisioning della velocità effettiva per un set di contenitori consente di condividere la velocità effettiva tra i contenitori che appartengono a tale database. Nel database Azure Cosmos DB è possibile avere un set di contenitori che condividono la velocità effettiva e contenitori con una velocità effettiva dedicata. Quando si assegnano UR/sec in un set di contenitori, i contenitori che appartengono a questo set sono considerati *senza limiti* ed è necessario specificare una chiave di partizione.
 
-Quando si assegnano UR/sec in un set di contenitori, i contenitori che appartengono a questo set sono considerati *senza limiti* ed è necessario specificare una chiave di partizione.
+In base alla velocità effettiva con provisioning, Azure Cosmos DB allocherà partizioni fisiche per ospitare il contenitore e suddividerà/ribilancerà la crescita dei dati nelle partizioni. Il provisioning della velocità effettiva a livello di contenitore e di database costituisce due offerte separate e il passaggio tra le due richiede la migrazione dei dati dall'origine alla destinazione. È quindi necessario creare un nuovo database o una nuova raccolta e quindi eseguire la migrazione dei dati tramite la [libreria dell'executor bulk](bulk-executor-overview.md) oppure [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md). L'immagine seguente illustra il provisioning della velocità effettiva a diversi livelli:
 
 ![Provisioning di unità richiesta per singoli contenitori e set di contenitori](./media/request-units/provisioning_set_containers.png)
 
-Questo articolo illustra in dettaglio i passaggi necessari per configurare la velocità effettiva a livelli diversi di un account Azure Cosmos DB. 
+Le sezioni seguenti illustrano i passaggi necessari per configurare la velocità effettiva ai vari livelli di un account Azure Cosmos DB. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Effettuare il provisioning della velocità effettiva usando il portale di Azure
 
@@ -88,7 +88,9 @@ Questo articolo illustra in dettaglio i passaggi necessari per configurare la ve
 
 Di seguito sono riportate alcune considerazioni utili per decidere una strategia di prenotazione della velocità effettiva.
 
-Si prenda in considerazione il provisioning della velocità effettiva a livello di database, ovvero per i set di contenitori, nei casi seguenti:
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>Considerazioni durante il provisioning della velocità effettiva a livello di database
+
+Si prenda in considerazione il provisioning della velocità effettiva a livello di database, ovvero per un set di contenitori, nei casi seguenti:
 
 * Se è disponibile almeno una decina di contenitori che possono condividere la velocità effettiva tra alcuni o tutti i contenitori.  
 
@@ -97,6 +99,8 @@ Si prenda in considerazione il provisioning della velocità effettiva a livello 
 * Se si vuole tenere in considerazione i picchi imprevisti nei carichi di lavoro usando la velocità effettiva in pool a livello di database.  
 
 * Anziché impostare la velocità effettiva per un singolo contenitore, si è interessati a ottenere la velocità effettiva aggregata in un set di contenitori all'interno del database.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>Considerazioni durante il provisioning della velocità effettiva a livello di contenitore
 
 Tenere in considerazione il provisioning della velocità effettiva in un singolo contenitore nei seguenti casi:
 
@@ -135,6 +139,7 @@ La tabella seguente elenca la velocità effettiva disponibile per i contenitori:
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>Impostare la velocità effettiva usando l'API SQL per .NET
 
+### <a name="set-throughput-at-the-container-level"></a>Impostare la velocità effettiva a livello di contenitore
 Ecco un frammento di codice per la creazione di un contenitore con 3000 unità richiesta al secondo per singolo contenitore .NET SDK dell'API SQL:
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Impostare la velocità effettiva a livello di set di contenitori o di database
 
 Ecco un frammento di codice per il provisioning di 100.000 unità richiesta al secondo per un set di contenitori usando .NET SDK dell'API SQL:
 

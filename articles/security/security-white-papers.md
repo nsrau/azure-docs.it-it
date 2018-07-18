@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/19/2018
 ms.author: tomsh
-ms.openlocfilehash: 29a479ffee3488768f1882c0938b0ecfdd55218b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 63f892dfdade3c61c2adf84f86cdcaff1fb1cb5c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186046"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126993"
 ---
 # <a name="azure-security-white-papers"></a>White paper sulla sicurezza di Azure
 | | |
@@ -29,12 +29,15 @@ ms.locfileid: "32186046"
 |[Crittografia dei dati inattivi di Azure](azure-security-encryption-atrest.md)|Incentrato sulle modalità di protezione dei dati inattivi in Azure e sui diversi componenti attivi nell'implementazione della protezione dei dati. Prende in esame i pro e i contro dei diversi approcci principali alla gestione della protezione.|
 |[Registrazione e controllo di Azure](azure-log-audit.md)|Offre informazioni introduttive per la generazione, la raccolta e l'analisi dei log di protezione da servizi ospitati in Azure. Questi log consentono di acquisire informazioni sulla sicurezza delle distribuzioni di Azure. |
 |[Sicurezza della rete di Azure](azure-network-security.md)|Presenta l'ampia gamma di controlli di rete che è possibile configurare per migliorare la sicurezza delle soluzioni distribuite in Azure. Al centro dell'attenzione si trovano i controlli di sicurezza di rete rivolti ai clienti.|
+|[Funzioni di Azure e sicurezza della piattaforma senza server](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Questo white paper scaricabile illustra i vantaggi dell'elaborazione senza server fornendo mitigazioni e considerazioni sulla sicurezza nel contesto di Azure. | 
 |[Sicurezza operativa di Azure](azure-operational-security.md)|Offre una panoramica completa delle tecnologie e dei servizi operativi destinati ai clienti disponibili in Azure.|
 |[Funzionalità tecniche per la sicurezza di Azure](azure-security-technical-capabilities.md)|Incentrato sulle caratteristiche e sulle funzionalità che supportano Archiviazione di Azure, il database SQL di Azure e il modello di macchina virtuale di Azure, nonché gli strumenti e l'infrastruttura che ne consentono la gestione.|
 |[Guida alla sicurezza di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Offre una panoramica di ognuna delle funzionalità di sicurezza che possono essere usate con Archiviazione di Azure. Tratta la sicurezza del piano di gestione e dei dati del piano, la crittografia di dati inattivi e in esecuzione e l'analisi dell'archiviazione.|
-|[Classificazione dei dati in preparazione al cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03) |Questo documento scaricabile presenta le nozioni di base della classificazione dei dati e del loro valore nel contesto del cloud computing. Questo documento può essere utile soprattutto alle organizzazioni che stanno valutando l'uso futuro del cloud computing o a quelle che già usano servizi cloud e sono alla ricerca di modi per ottimizzare la gestione dei dati.|
+|[Classificazione dei dati in preparazione al cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Questo documento scaricabile presenta le nozioni di base della classificazione dei dati e del loro valore nel contesto del cloud computing. Questo documento può essere utile soprattutto alle organizzazioni che stanno valutando l'uso futuro del cloud computing o a quelle che già usano servizi cloud e sono alla ricerca di modi per ottimizzare la gestione dei dati.|
 |[Governance in Azure](governance-in-azure.md)|Illustra le funzionalità di sicurezza e governance incorporate in Azure. I problemi principali di governance trattati sono: criteri, processi e procedure di implementazione per gli obiettivi dell'organizzazione; sicurezza e conformità continua agli standard dell'organizzazione; avvisi e monitoraggio.
 |[Isolamento nel cloud pubblico di Azure](azure-isolation.md)|Descrive in che modo Azure garantisce l'isolamento dagli utenti malintenzionati e non. Funge da guida per la progettazione di soluzioni cloud, offrendo agli architetti diverse opzioni di isolamento. L'argomento principale sono i controlli di sicurezza destinati ai clienti. Non tratta contratti di servizio, modelli tariffari e attività DevOps.|
 |[Panoramica della conformità di Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Questo documento scaricabile illustra le offerte di conformità di Azure, tra cui certificazioni formali, attestazioni, convalide, autorizzazioni e valutazioni generate da società di revisione indipendenti di terze parti, nonché modifiche contrattuali, autovalutazioni e documenti sussidiari per i clienti prodotti da Microsoft. <br/> La descrizione di ogni offerta dichiara quali servizi di Azure rivolti ai clienti rientrano nell'ambito della valutazione e offre collegamenti a risorse scaricabili per facilitare ai clienti l'adempimento dei propri obblighi in termini di conformità.|
 |[Gestione della sicurezza in Azure](azure-security-management.md)|Illustra i problemi di accesso remoto alle risorse di Azure. La natura del cloud richiede attività di amministrazione tramite accesso remoto, pertanto la sicurezza ha un'importanza fondamentale. Il documento offre indicazioni generali di protezione, nonché procedure e principi operativi sulla configurazione client e sulle procedure consigliate. |
+
+
 

@@ -1,23 +1,20 @@
 ---
 title: Ottimizzare le configurazioni cluster con Ambari - Azure HDInsight | Microsoft Docs
 description: Usare l'interfaccia utente Web Ambari per configurare e ottimizzare i cluster HDInsight.
-documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406184"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951217"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -245,9 +242,9 @@ Hive consente di creare partizioni dinamiche quando si inseriscono i record in u
 
 2. Impostare la modalità di partizione dinamica su *strict*. Nella modalità strict almeno una partizione deve essere statica per impedire query senza il filtro per la partizione nella clausola WHERE. *strict* impedisce infatti le query che analizzano tutte le partizioni. Passare alla scheda **Configs** (Configurazioni) di Hive e quindi impostare `hive.exec.dynamic.partition.mode` su **strict**. Il valore predefinito è **nonstrict**.
  
-3. Per limitare il numero di partizioni dinamiche da creare, modificare il parametro ``hive.exec.max.dynamic.partitions`. Il valore predefinito è 5.000.
+3. Per limitare il numero di partizioni dinamiche da creare, modificare il parametro `hive.exec.max.dynamic.partitions`. Il valore predefinito è 5000.
  
-4. Per limitare il numero totale di partizioni dinamiche per nodo, modificare `hive.exec.max.dynamic.partitions.pernode`. Il valore predefinito è 2.000.
+4. Per limitare il numero totale di partizioni dinamiche per nodo, modificare `hive.exec.max.dynamic.partitions.pernode`. Il valore predefinito è 2000.
 
 ### <a name="enable-local-mode"></a>Abilitare la modalità locale
 

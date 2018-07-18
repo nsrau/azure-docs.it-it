@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c4cc8035e83ca97971050a5b6ced5bbc912ac791
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028949"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928319"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory? 
 
@@ -111,7 +111,7 @@ Nell'accesso condizionale è possibile creare controlli personalizzati che compo
 
 ## <a name="custom-controls"></a>Controlli personalizzati
 
-I controlli personalizzati sono una funzionalità dell'edizione Azure Active Directory Premium P2. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale.
+I controlli personalizzati sono una funzionalità dell'edizione Azure Active Directory Premium P1. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale.
 
 Questi controlli consentono l'utilizzo di determinati servizi esterni o personalizzati come controlli di accesso condizionale e, in genere, estendono le funzionalità dell'accesso condizionale.
 

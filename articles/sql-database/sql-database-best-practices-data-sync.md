@@ -2,18 +2,18 @@
 title: Procedure consigliate per la sincronizzazione dati SQL di Azure | Microsoft Docs
 description: Informazioni sulle procedure consigliate per la configurazione e l'esecuzione della sincronizzazione dati SQL di Azure.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025351"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445161"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -85,6 +85,7 @@ Per quanto riguarda il provisioning automatico, la sincronizzazione dati SQL pre
 -   Non viene eseguito il provisioning dei vincoli CHECK.  
 -   Non viene eseguito il provisioning dei trigger esistenti nelle tabelle di origine.  
 -   Non vengono create viste e stored procedure nel database di destinazione.
+-   Le azioni ON UPDATE CASCADE e ON DELETE CASCADE su vincoli di chiave esterna non vengono ricreate nelle tabelle di destinazione.
 
 #### <a name="recommendations"></a>Raccomandazioni
 

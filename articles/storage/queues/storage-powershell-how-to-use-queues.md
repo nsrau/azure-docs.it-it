@@ -1,6 +1,6 @@
 ---
-title: Eseguire operazioni nell'archivio code di Azure con PowerShell | Microsoft Docs
-description: Come eseguire operazioni nell'archivio code di Azure con PowerShell
+title: Eseguire operazioni in Archiviazione code di Azure con PowerShell | Microsoft Docs
+description: Come eseguire operazioni in Archiviazione code di Azure con PowerShell
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: bad9f1f3fd5737e865a8f4d1d15ab3d5eb68b4cb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603014"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115596"
 ---
-# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
+# <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni in Archiviazione code di Azure con Azure PowerShell
 
-Il servizio di archiviazione di accodamento di Azure consente di archiviare grandi quantità di messaggi ai quali è possibile accedere da qualsiasi parte del mondo mediante chiamate autenticate tramite HTTP o HTTPS. Per informazioni dettagliate, vedere [Introduzione alle code di Azure](storage-queues-introduction.md). Questa procedura illustra le operazioni più comuni nell'archivio code. Si apprenderà come:
+Archiviazione code di Azure è un servizio che consente di archiviare grandi quantità di messaggi a cui è possibile accedere da qualsiasi parte del mondo tramite HTTP o HTTPS. Per informazioni dettagliate, vedere [Introduzione alle code di Azure](storage-queues-introduction.md). Questa procedura illustra le operazioni più comuni nell'archivio code. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una coda
@@ -144,22 +144,22 @@ Nell'esempio seguente vengono letti i tre messaggi in coda, seguiti da 10 second
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queueMessage 
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
-$ queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$ queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
+$queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Eliminare una coda
