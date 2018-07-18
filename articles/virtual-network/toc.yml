@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: Concetti
   items:
-    - name: Sicurezza
+    - name: Gruppi di sicurezza
       href: security-overview.md
     - name: Routing.
       href: virtual-networks-udr-overview.md
@@ -215,7 +215,7 @@
       items:
         - name: Creare e gestire una rete virtuale
           items:
-            - name: Crea rete virtuale
+            - name: Creare una rete virtuale
               href: create-virtual-network-classic.md
               items:
                 - name: Portale di Azure

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/29/2018
   ms.author: cgronlun
-  ms.openlocfilehash: 314e756981076468056dd691bce7d24073d6ff4b
-  ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+  ms.openlocfilehash: 5ac8d7ca6f607acd54ab40402bb83376fd8b5d63
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/06/2018
-  ms.locfileid: "37865022"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39089582"
 abstract:
   description: Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
 sections:
@@ -47,7 +47,7 @@ sections:
     rows:
     - title: Visione artificiale - Analizzare un'immagine
       values:
-      - href: /azure/cognitive-services/Computer-vision/Quickstarts/CSharp-analyze
+      - href: /azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/java-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/node-analyze
       - href: /azure/cognitive-services/Computer-vision/Quickstarts/python-analyze
@@ -94,6 +94,7 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Rilevare i visi ed evidenziarli con una cornice in un'immagine</a>
     - html: <a href="/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page">Compilare una pagina Web di Ricerca personalizzata</a>
     - html: <a href="/azure/cognitive-services/luis/luis-nodejs-tutorial-build-bot-framework-sample">Usare Language Understanding (LUIS) in un bot </a>
     - html: <a href="/azure/cognitive-services/luis/luis-tutorial-batch-testing">Migliorare l'accuratezza della finalità per i comandi di domotica </a>
