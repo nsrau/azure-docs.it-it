@@ -9,18 +9,21 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe263346d8794b3dc85b6420d8b9b02efa5f9684
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193506"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929033"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Come aggiornare i moduli di Azure PowerShell in Automazione di Azure
 
-I moduli di Azure PowerShell più comuni sono forniti per impostazione predefinita in ogni account di Automazione. Il team di Azure aggiorna regolarmente i moduli di Azure. Pertanto, l'account di Automazione prevede una modalità di aggiornamento dei moduli non appena nel portale sono disponibili nuove versioni.  
+I moduli di Azure PowerShell più comuni sono forniti per impostazione predefinita in ogni account di Automazione. Il team di Azure aggiorna regolarmente i moduli di Azure. Pertanto, l'account di Automazione prevede una modalità di aggiornamento dei moduli non appena nel portale sono disponibili nuove versioni.
 
 Poiché i moduli vengono aggiornati regolarmente dal gruppo di prodotto, possono essere eseguite modifiche con i cmdlet inclusi, che potrebbero influire negativamente sui runbook a seconda del tipo di modifica, ad esempio ridenominando un parametro o deprecando completamente un cmdlet. Per evitare conseguenze sui runbook e sui processi che vengono automatizzati, si consiglia di eseguire un test e di convalidare prima di procedere. Se non si dispone di un account di automazione dedicato a questo scopo, è consigliabile crearne uno in modo da poter testare numerosi scenari e permutazioni diverse durante lo sviluppo dei runbook, oltre a poter eseguire modifiche iterative, ad esempio l'aggiornamento dei moduli PowerShell. Dopo aver convalidato i risultati e applicato le modifiche necessarie, procedere coordinando la migrazione di tutti i runbook modificati ed eseguire l'aggiornamento di seguito come descritto nella produzione.
+
+> [!NOTE]
+> Un nuovo account di automazione potrebbe non contenere i moduli più recenti.
 
 ## <a name="updating-azure-modules"></a>Aggiornamento dei moduli di Azure
 
@@ -44,7 +47,7 @@ Poiché i moduli vengono aggiornati regolarmente dal gruppo di prodotto, possono
 > [!NOTE]
 > Quando viene eseguito un nuovo processo pianificato, Automazione di Azure usa i moduli più recenti nell'account di automazione.    
 
-Se si usano i cmdlet di questi moduli di Azure PowerShell nei runbook, si potrebbe voler eseguire il processo di aggiornamento all'incirca ogni mese per assicurarsi di disporre dei moduli più recenti.
+Se si usano i cmdlet di questi moduli di Azure PowerShell nei runbook, si potrebbe voler eseguire il processo di aggiornamento all'incirca ogni mese per assicurarsi di disporre dei moduli più recenti. Automazione di Azure usa la connessione AzureRunAsConnection per eseguire l'autenticazione quando si aggiornano i moduli, se l'entità servizio è scaduta o non esiste più nel livello di sottoscrizione, l'aggiornamento dei moduli non verrà eseguito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

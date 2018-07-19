@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/23/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309580"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859936"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Scelta del livello di servizio vCore e delle risorse di calcolo, memoria, archiviazione e I/O
 
@@ -25,8 +25,8 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 ||**Utilizzo generico**|**Business Critical**|
 |---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione scalabili e bilanciate a prezzi convenienti.|Applicazioni aziendali con requisiti di I/O elevati. Offre massima resilienza agli errori tramite diverse repliche isolate.|
-|Calcolo|Da 1 a 80 vCore, di generazione 4 e 5 |Da 1 a 80 vCore, di generazione 4 e 5|
-|Memoria|7 GB per core |7 GB per core |
+|Calcolo|vCore da 1 a 80, 4° e 5° generazione |vCore da 1 a 80, 4° e 5° generazione|
+|Memoria|4° generazione: 7 GB per core<br>5° generazione: 5,5 GB per core | 4° generazione: 7 GB per core<br>5° generazione: 5,5 GB per core |
 |Archiviazione|Archiviazione remota Premium, da 5 GB a 4 TB|Archiviazione SSD locale, da 5 GB - 4 TB|
 |Velocità effettiva di I/O (approssimativa)|500 operazioni di I/O al secondo per vCore fino a un massimo di 7000|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 replica per [scalabilità in lettura](sql-database-read-scale-out.md), disponibilità elevata con ridondanza della zona|

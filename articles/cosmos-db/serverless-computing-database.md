@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613966"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858807"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
@@ -27,8 +27,8 @@ Grazie all'integrazione nativa tra [Azure Cosmos DB](https://azure.microsoft.com
 Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app senza server nei modi seguenti:
 
 * Creare un **trigger di Azure Cosmos DB** guidato dagli eventi in una funzione di Azure. Questo trigger si basa sui flussi dei [feed di modifiche](change-feed.md) per monitorare le modifiche del contenitore di Azure Cosmos DB. Quando vengono apportate delle modifiche a un contenitore, il flusso del feed di modifiche viene inviato al trigger, che richiama la funzione di Azure.
-* In alternativa, è possibile associare una funzione di Azure a una raccolta di Azure Cosmos DB usando un'**associazione di input**. Le associazioni di input leggono i dati dal contenitore quando viene eseguita una funzione.
-* Associare una funzione di Azure a una raccolta di Azure Cosmos DB usando un'**associazione di output**. Le associazioni di output scrivono i dati in un contenitore al termine di una funzione.
+* In alternativa, è possibile associare una funzione di Azure a un contenitore di Azure Cosmos DB usando un'**associazione di input**. Le associazioni di input leggono i dati dal contenitore quando viene eseguita una funzione.
+* Associare una funzione di Azure a un contenitore di Azure Cosmos DB usando un'**associazione di output**. Le associazioni di output scrivono i dati in un contenitore al termine di una funzione.
 
 > [!NOTE]
 > Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Graph.
@@ -58,7 +58,7 @@ Nelle implementazioni IoT, è possibile richiamare una funzione quando viene mos
 4. Il trigger viene richiamato per ogni modifica di dati effettuata sulla raccolta di dati del sensore, poiché tutte le modifiche vengono trasmesse tramite il feed di modifiche.
 5. Nella funzione viene usata una condizione di soglia per inviare i dati del sensore al reparto di garanzia.
 6. Se la temperatura supera un determinato valore, viene inviato un avviso anche al proprietario.
-7. L'**associazione di output** nella funzione aggiorna il record dell'auto in un'altra raccolta di Azure Cosmos DB per archiviare le informazioni relative all'evento del motore di controllo.
+7. L'**associazione di output** nella funzione aggiorna il record dell'auto in un altro contenitore di Azure Cosmos DB per archiviare le informazioni relative all'evento del motore di controllo.
 
 La figura seguente mostra il codice scritto nel portale di Azure per questo trigger.
 
@@ -95,7 +95,7 @@ Nei giochi, quando viene creato un nuovo utente è possibile cercare altri utent
 
 Nelle implementazioni della vendite al dettaglio, quando un utente aggiunge un elemento al carrello, è ora possibile creare e richiamare funzioni per i componenti di pipeline aziendali facoltativi.
 
-**Implementazione:** più trigger di Azure Cosmos DB in ascolto in una raccolta
+**Implementazione:** più trigger di Azure Cosmos DB in ascolto in un contenitore
 
 1. È possibile creare più funzioni di Azure aggiungendo a ognuna trigger di Azure Cosmos DB, tutti in ascolto dello stesso feed di modifiche dei dati del carrello. Si noti che quando più funzioni sono in ascolto dello stesso feed di modifiche, è necessaria una nuova raccolta di lease per ogni funzione. Per altre informazioni sulle raccolte di lease, vedere [Informazioni sulla libreria del processore dei feed delle modifiche](change-feed.md#understand-cf).
 2. Ogni volta che viene aggiunto un nuovo elemento a un carrello dell'utente, ogni funzione viene richiamata in modo indipendente dal feed di modifiche dal contenitore del carrello.
@@ -130,7 +130,7 @@ Azure Cosmos DB è il database consigliato per l'architettura di elaborazione se
 
 * **Senza schema**. Azure Cosmos DB è senza schema, quindi è in grado di gestire in modo univoco qualsiasi output di dati di una funzione di Azure. Questo approccio di "gestione di tutti gli elementi" rende più semplice creare una vasta gamma di funzioni inviate tutte ad Azure Cosmos DB.
 
-* **Velocità effettiva scalabile**. La velocità effettiva può essere immediatamente aumentata o ridotta in Azure Cosmos DB. Se si dispone di centinaia o migliaia di funzioni che eseguono query e scrivono nella stessa raccolta, è possibile aumentare le [UR/sec](request-units.md) per gestire il carico. Tutte le funzioni possono operare in parallelo usando l'UR/sec allocata e viene garantita la [coerenza](consistency-levels.md) dei dati.
+* **Velocità effettiva scalabile**. La velocità effettiva può essere immediatamente aumentata o ridotta in Azure Cosmos DB. Se si dispone di centinaia o migliaia di funzioni che eseguono query e scrivono nello stesso contenitore, è possibile aumentare le [UR/sec](request-units.md) per gestire il carico. Tutte le funzioni possono operare in parallelo usando l'UR/sec allocata e viene garantita la [coerenza](consistency-levels.md) dei dati.
 
 * **Replica globale**. È possibile replicare i dati di Azure Cosmos DB [in tutto il mondo](distribute-data-globally.md) per ridurre la latenza, geo-localizzando i dati più vicini agli utenti. Come avviene per tutte le query di Azure Cosmos DB, i dati dei trigger guidati dagli eventi sono dati in lettura del database di Azure Cosmos DB più vicino all'utente.
 

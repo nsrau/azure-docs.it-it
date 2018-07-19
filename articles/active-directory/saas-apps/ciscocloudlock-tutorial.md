@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 5f469269d88320a41551fc86168debcd8fe43f7f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318246"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Esercitazione: Integrazione di Azure Active Directory con The Cloud Security Fabric
 
@@ -33,7 +33,7 @@ L'integrazione di The Cloud Security Fabric con Azure AD offre i vantaggi seguen
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 Per configurare l'integrazione di Azure AD con The Cloud Security Fabric, sono necessari gli elementi seguenti:
 
@@ -166,7 +166,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>Creare un utente di test di The Cloud Security Fabric
 
-In questa sezione viene creato un utente chiamato Britta Simon in The Cloud Security Fabric. Con l'aiuto del [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com), aggiungere gli utenti nella piattaforma di The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
+In questa sezione viene creato un utente chiamato Britta Simon in The Cloud Security Fabric. Con l'aiuto del [team di supporto di The Cloud Security Fabric](mailto:support@cloudlock.com), aggiungere gli utenti alla piattaforma di The Cloud Security Fabric. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

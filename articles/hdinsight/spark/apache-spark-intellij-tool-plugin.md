@@ -2,7 +2,6 @@
 title: 'Azure Toolkit for IntelliJ: Creare applicazioni Spark per un cluster HDInsight | Microsoft Docs'
 description: Usare il Toolkit di Azure per IntelliJ per sviluppare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/25/2017
-ms.author: maxluk,jejiang
-ms.openlocfilehash: cb78808b515bb3385f7cf56725441a2b228f0aba
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: maxluk
+ms.openlocfilehash: a537fc044361ab90a198a528d382a0f85cad5d0a
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164891"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952352"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight
 
@@ -72,11 +70,13 @@ Per iniziare è possibile [accedere alla sottoscrizione di Azure](#sign-in-to-yo
    
     ![Nodo di tipo nome del cluster espanso](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">Collegare un cluster</h2>
-È possibile collegare un cluster normale usando un nome utente Ambari gestito e anche collegare un cluster Hadoop di sicurezza usando un nome utente di dominio (ad esempio: user1@contoso.com). 
-1. Fare clic su **Link a cluster** (Collega un cluster) in **Azure Explorer** (Esplora Azure).
+## <a name="link-a-cluster"></a>Collegare un cluster
+Puoi collegare un normale cluster HDInsight usando lo username gestito di Ambari. Analogamente, è possibile collegare un cluster HDInsight aggiunto al dominio tramite il dominio e il nome utente, come user1@contoso.com.
+
+1. Fare clic su **Collega un cluster** in **Esplora Azure**.
 
    ![Menu di scelta rapida per collegare un cluster](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
+
 
 2. Immettere i valori nei campi **Cluster Name** (Nome cluster), **User Name** (Nome utente) e **Password**. Se viene restituito un errore di autenticazione, è necessario verificare il nome utente e la password. Facoltativamente, aggiungere l'account di archiviazione e la chiave di archiviazione e quindi selezionare un contenitore dal contenitore di archiviazione. Le informazioni di archiviazione vengono specificate per Storage Explorer nella struttura ad albero a sinistra.
    

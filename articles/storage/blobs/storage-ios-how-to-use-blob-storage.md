@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420779"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718914"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Come usare l'archivio BLOB da iOS
 
@@ -87,7 +87,7 @@ Se si usa Swift, è necessario creare un'intestazione provvisoria e importare <A
 1. Creare un file di intestazione `Bridging-Header.h` e aggiungere l'istruzione di importazione precedente.
 2. Passare alla scheda *Build Settings* (Impostazioni compilazione) e cercare *Objective-C Bridging Header* (Intestazione provvisoria Objective-C).
 3. Fare doppio clic nel campo di *Objective-C Bridging Header* (Intestazione provvisoria Objective-C) e aggiungere il percorso al file di intestazione: `ProjectName/Bridging-Header.h`
-4. Creare il progetto (⌘+B) per verificare che l'intestazione provvisoria sia stata prelevata da Xcode.
+4. Compilare il progetto (⌘ + B) per verificare che l'intestazione provvisoria sia stata selezionata da Xcode.
 5. È possibile iniziare a usare la libreria direttamente in qualsiasi file Swift, in quanto non è necessario importare istruzioni.
 
 [!INCLUDE [storage-mobile-authentication-guidance](../../../includes/storage-mobile-authentication-guidance.md)]

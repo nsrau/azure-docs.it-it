@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209832"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922749"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility in una replica di Azure
 
@@ -29,6 +29,11 @@ Quando si consente a Site Recovery di gestire gli aggiornamenti, viene distribui
 
 > [!NOTE]
 > Per abilitare gli aggiornamenti automatici non è necessario riavviare le macchine virtuali di Azure e la replica in corso non subisce alcun impatto.
+
+> [!NOTE]
+> La fatturazione per i processi usati dall'account di automazione è basata sul numero di minuti di esecuzione del processo usati in quel mese; per impostazione predefinita 500 minuti sono inclusi come unità gratuite per un account di automazione. L'esecuzione dei processi giornalieri va da **alcuni secondi a circa un minuto**; sono previsti **crediti gratuiti**.
+
+UNITÀ GRATUITE INCLUSE (AL MESE)**   PREZZO tempo di esecuzione del processo    500 minuti a ₹ 0,14/minuto
 
 ## <a name="enable-automatic-updates"></a>Abilitare gli aggiornamenti automatici
 
@@ -64,7 +69,7 @@ In caso di problemi con gli aggiornamenti automatici, verrà visualizzata una no
 Se si tenta di abilitare gli aggiornamenti automatici e l'operazione non dà esito positivo, vedere di seguito per la risoluzione dei problemi.
 
 **Errore**: non si hanno le autorizzazioni per creare un account RunAs di Azure (entità servizio) e concedere il ruolo di collaboratore all'entità servizio. 
-- Azione consigliata: verificare che all'account connesso sia assegnato il ruolo di collaboratore e ripetere l'operazione.
+- Azione consigliata: verificare che all'account connesso sia assegnato il ruolo di collaboratore e ripetere l'operazione. Fare riferimento a [questo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) documento per altre informazioni sull'assegnazione delle autorizzazioni appropriate.
  
 Quando gli aggiornamenti automatici sono attivati, la maggior parte dei problemi può essere risolta dal servizio Site Recovery e richiede di fare clic sul pulsante **Ripara**.
 

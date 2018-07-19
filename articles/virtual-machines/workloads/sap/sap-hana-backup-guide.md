@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9346ed6b26b4fa4a7875354153b6847938253d1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657010"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867002"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Guida del backup di SAP HANA in macchine virtuali di Azure
 
@@ -33,7 +33,7 @@ Questo articolo illustra le due principali opzioni di backup per SAP HANA in mac
 
 SAP HANA offre un'API di backup, che consente agli strumenti di backup di terze parti di integrarsi direttamente con SAP HANA (questo argomento non è compreso nella presente guida). Al momento non è prevista alcuna integrazione diretta di SAP HANA con il servizio di Backup di Azure basato su tale API.
 
-SAP HANA è ufficialmente supportato nel tipo di VM di Azure GS5 come singola istanza con un vincolo aggiuntivo sui carichi di lavoro OLAP (vedere [Find Certified IaaS Platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) (Trova piattaforme IaaS certificate) sul sito Web di SAP). Questo articolo verrà aggiornato non appena saranno disponibili nuove offerte per SAP HANA in Azure.
+SAP HANA è ufficialmente supportato in vari tipi di macchine virtuali di Azure, ad esempio Azure di serie M. Per un elenco completo di macchine virtuali di Azure certificate SAP HANA, consultare [Trova piattaforme IaaS certificate](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Questo articolo verrà aggiornato non appena saranno disponibili nuove offerte per SAP HANA in Azure.
 
 Azure offre anche una soluzione ibrida SAP HANA, in cui SAP HANA viene eseguito in modo non virtualizzato su server fisici. La presente guida del backup di SAP HANA in Azure descrive un ambiente di Azure genuino in cui SAP HANA viene eseguito in una VM di Azure, non su &quot;istanze di grandi dimensioni&quot;. Vedere [SAP HANA (large instances) overview and architecture on Azure](hana-overview-architecture.md) (Panoramica e architettura di SAP HANA (istanze di grandi dimensioni) in Azure) per altre informazioni su questa soluzione di backup per &quot;istanze di grandi dimensioni&quot; basate su snapshot di archiviazione.
 
@@ -175,7 +175,7 @@ Un'altra opzione è quella di gestire la macchina virtuale di SAP HANA e i relat
 
 ### <a name="test-virtual-machine-on-azure"></a>Eseguire il test della macchina virtuale in Azure.
 
-Per i test di backup e ripristino seguenti è stata usata un'installazione di SAP HANA in una macchina virtuale GS5 Azure.
+A scopo di test, è stata usata un'installazione di SAP HANA in una macchina virtuale GS5 Azure relativamente ai test di backup e ripristino seguenti. I principi sono gli stessi delle macchine virtuali di serie M.
 
 ![In questa figura viene illustrata parte della panoramica del portale di Azure per le macchine virtuali del test HANA](media/sap-hana-backup-guide/image007.png)
 

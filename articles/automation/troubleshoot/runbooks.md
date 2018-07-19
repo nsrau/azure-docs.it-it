@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064533"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929350"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -204,6 +204,20 @@ Un runbook può essere sospeso per una serie di motivi. Le sospensioni si verifi
 #### <a name="resolution"></a>Risoluzione
 
 La soluzione documentata per evitare questo problema consiste nell'usare i checkpoint in un flusso di lavoro. Per altre informazioni, vedere [Informazioni sul flusso di lavoro di Windows PowerShell](../automation-powershell-workflow.md#checkpoints). Una spiegazione più completa della "condivisione equa" e dei checkpoint è disponibile nell'articolo del blog dedicato all'[uso dei checkpoint nei runbook](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
+
+### <a name="long-running-runbook"></a>Scenario: un runbook a esecuzione prolungata non viene completato
+
+#### <a name="issue"></a>Problema
+
+Si tratta di un comportamento previsto nei sandbox di Azure, causato dalla "condivisione equa" del monitoraggio dei processi in Automazione di Azure, che prevede la sospensione automatica di un runbook se viene eseguito per più di tre ore.
+
+#### <a name="cause"></a>Causa
+
+L'esecuzione del runbook supera il limite di 3 ore consentito dalla condivisione equa in una sandbox di Azure
+
+#### <a name="resolution"></a>Risoluzione
+
+La soluzione consigliata consiste nell'eseguire il runbook su un [ruolo di lavoro ibrido per runbook](../automation-hrw-run-runbooks.md). I ruoli di lavoro ibridi non sono limitati dal massimo di 3 ore del runbook per la [condivisione equa](../automation-runbook-execution.md#fair-share) rispetto a come vengono eseguiti nelle sandbox di Azure.
 
 ## <a name="common-errors-when-importing-modules"></a>Errori comuni durante l'importazione di moduli
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195421"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930053"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -137,7 +137,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scaricherà temporaneamente qualsiasi processo in esecuzione da tre ore. Durante questo periodo, i processi per [runbook basati su PowerShell](automation-runbook-types.md#powershell-runbooks) vengono arrestati e non devono essere riavviati. Lo stato processo visualizza **Arrestato**. Questo tipo di runbook viene sempre riavviato dall'inizio perché non supporta i checkpoint.
 
-I [runbook basati su Flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) vengono ripresi a partire dall'ultimo [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Dopo essere eseguito tre ore, il processo del runbook verrà sospeso dal servizio e il relativo stato visualizza **In esecuzione, in attesa delle risorse**. Quando un sandbox diventa disponibile, il runbook viene riavviato automaticamente dal servizio di Automazione di Azure e l'esecuzione viene ripresa a partire dall'ultimo checkpoint. Questo è il comportamento normale di Workflow-PowerShell per sospendere/riavviare. Se il runbook supera nuovamente tre ore di runtime, il processo viene ripetuto fino a tre volte. Dopo il terzo riavvio, se il runbook ancora non è stato completato in tre ore, allora il processo di runbook non ha esito positivo, e lo stato del processo visualizza **Non riuscito, in attesa di risorse**. In tal caso, l'operazione avrà esito negativo e si riceve un'eccezione che indica quanto segue.
+I [runbook basati su Flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) vengono ripresi a partire dall'ultimo [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Dopo essere in esecuzione per tre ore, il processo del runbook verrà sospeso dal servizio e il relativo stato visualizza **In esecuzione, in attesa delle risorse**. Quando un sandbox diventa disponibile, il runbook viene riavviato automaticamente dal servizio di Automazione di Azure e l'esecuzione viene ripresa a partire dall'ultimo checkpoint. Questo è il comportamento normale di Workflow-PowerShell per sospendere/riavviare. Se il runbook supera nuovamente tre ore di runtime, il processo viene ripetuto fino a tre volte. Dopo il terzo riavvio, se il runbook ancora non è stato completato in tre ore, allora il processo di runbook non ha esito positivo, e lo stato del processo visualizza **Non riuscito, in attesa di risorse**. In tal caso, l'operazione avrà esito negativo e si riceve un'eccezione che indica quanto segue.
 
 *L'esecuzione del processo non può continuare perché il processo è stato rimosso ripetutamente dallo stesso checkpoint. Verificare che il runbook non esegua operazioni di lunga durata senza rendere persistente il proprio stato.*
 
@@ -145,7 +145,9 @@ Questo avviene per impedire che nel servizio i runbook vengano eseguiti all'infi
 
 Se il runbook non dispone di alcun checkpoint o non ha raggiunto il primo checkpoint prima di essere scaricato, viene riavviato dall'inizio.
 
-Quando si crea un runbook, è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Può essere necessario aggiungere checkpoint al runbook per assicurarsi che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo viene scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
+Per le attività che richiedono una lunga esecuzione, è consigliabile un [ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md#job-behavior). I ruoli di lavoro ibrido per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook.
+
+Se si utilizza un runbook del flusso di lavoro di PowerShell in Azure, al momento della sua creazione è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Può essere necessario aggiungere checkpoint al runbook per assicurarsi che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo viene scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

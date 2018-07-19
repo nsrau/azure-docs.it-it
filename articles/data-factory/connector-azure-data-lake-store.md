@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da/in Azure Data Lake Store usando Data Factory | Microsoft Docs
+title: Copiare dati da/in Azure Data Lake Storage di 1° generazione usando Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da archivi dati di origine supportati ad Azure Data Lake Store o da Data Lake Store ad archivi di sink supportati usando Data Factory.
 services: data-factory
 author: linda33wj
@@ -12,19 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a3df91adf7c35343dc890dc734ec052f1aa97134
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049299"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860249"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Store usando Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copiare dati da e in Azure Data Lake Storage di 1° generazione usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](v1/data-factory-azure-datalake-connector.md)
 > * [Versione corrente](connector-azure-data-lake-store.md)
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure Data Lake Store. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in Azure Data Lake Storage di 1° generazione (noto precedentemente come Azure Data Lake Store). Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
