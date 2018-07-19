@@ -9,11 +9,11 @@ ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6e0d2b881e00acc6b1fccd3196187309fc36cba2
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568144"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755713"
 ---
 #### <a name="expressroute-limits"></a>Limiti di ExpressRoute
 Le seguenti limitazioni si applicano alle risorse di ExpressRoute per ogni sottoscrizione.

@@ -9,17 +9,17 @@ ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
 ms.openlocfilehash: b4062aab5a453505ef4586f422a124d4bbf715cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30844071"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38755933"
 ---
 L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *numero massimo* di indici, documenti o altre risorse di alto livello, a seconda di quale venga raggiunto per primo. Nella tabella seguente vengono documentati i limiti relativi all'archiviazione. Per i limiti massimi relativi a indici, documenti e altri oggetti, vedere la sezione sui [limiti per singola risorsa](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Risorsa | Gratuito | Base&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
+| Risorsa | Gratuito | Basic&nbsp;<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>2</sup> |
 | -------- | --- | --- | --- | --- | --- | --- |
-| Contratto di servizio <sup>3</sup>  |No  |Sì |Sì |Sì |Sì |Sì |
+| Contratto di servizio <sup>3</sup>  |No  |sì |sì |sì |sì |sì |
 | Archiviazione per partizione |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Partizioni per servizio |N/D |1 |12 |12 |12 |3 |
 | Dimensioni della partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |

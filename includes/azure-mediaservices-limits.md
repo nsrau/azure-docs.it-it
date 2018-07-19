@@ -24,18 +24,18 @@
 
 <sup>2</sup> Questo numero include i processi in coda, terminati, attivi e annullati. Non include invece i processi eliminati. È possibile eliminare i processi obsoleti usando **IJob.Delete** o la richiesta HTTP **DELETE**.
 
-A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto [qui](../articles/media-services/media-services-dotnet-manage-entities.md).
+A partire dal 1° aprile 2017, tutti i record di processo presenti nell'account e più vecchi di 90 giorni verranno eliminati automaticamente, insieme ai record attività associati, anche se il numero totale di record è inferiore alla quota massima. Se è necessario archiviare le informazioni sul processo o sull'attività, è possibile usare il codice descritto [qui](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
 <sup>3</sup> L'elenco di entità Job restituite può includere al massimo 1.000 voci per richiesta. Per tenere traccia di tutte le entità Job inviate, si possono usare le opzioni top/skip descritte nell'argomento [Opzioni query di sistema OData](http://msdn.microsoft.com/library/gg309461.aspx).
 
-<sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [questa](../articles/media-services/media-services-content-protection-overview.md) sezione.
+<sup>4</sup> I localizzatori non sono progettati per gestire il controllo di accesso per utente. Per assegnare a singoli utenti diritti di accesso diversi, è possibile usare soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [questa](../articles/media-services/previous/media-services-content-protection-overview.md) sezione.
 
 <sup>5</sup> Gli account di archiviazione devono appartenere alla stessa sottoscrizione di Azure.
 
 <sup>6</sup> È previsto un limite di 1.000.000 criteri per i diversi criteri di servizi multimediali di Azure (ad esempio, per i criteri Locator o ContentKeyAuthorizationPolicy). 
 
 >[!NOTE]
-> Se si utilizzano sempre gli stessi giorni, autorizzazioni di accesso e così via, è necessario utilizzare lo stesso ID criterio. Per informazioni e un esempio, vedere [questa](../articles/media-services/media-services-dotnet-manage-entities.md#limit-access-policies) sezione.
+> Se si utilizzano sempre gli stessi giorni, autorizzazioni di accesso e così via, è necessario utilizzare lo stesso ID criterio. Per informazioni e un esempio, vedere [questa](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies) sezione.
 
 <sup>7</sup>Se si caricano contenuti in un asset in Servizi multimediali di Azure per elaborarli con uno dei processori di contenuti multimediali del servizio, ad esempio codificatori come Media Encoder Standard e il flusso di lavoro Premium del codificatore multimediale oppure motori di analisi come Face Detector, è necessario essere consapevoli dei vincoli relativi alle dimensioni massime dei file supportate. 
 

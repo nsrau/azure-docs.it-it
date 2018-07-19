@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 97404421a48d15339fdecf23a951a64d975da577
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088448"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090347"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 ## <a name="overview"></a>Panoramica
@@ -57,12 +57,12 @@ Prima di iniziare a integrare applicazioni con Azure AD, è importante avere un 
 
 È possibile che non siano immediatamente disponibili le risposte a tutte queste domande.  Questa guida è utile per rispondere ad alcune domande e prendere decisioni informate.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure e una directory di Azure Active Directory.  Se non si ha ancora una sottoscrizione di Azure, è possibile ottenere una versione di prova gratuita di Azure per 30 giorni. [provarlo,](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integrazione delle applicazioni con Azure AD
 ### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Ricerca di applicazioni cloud non approvate con Cloud Discovery
-Come indicato in precedenza, è possibile che alcune applicazioni non siano state gestite dall'organizzazione fino a oggi.  Come parte del processo di inventario, è possibile individuare applicazioni cloud non approvate. Vedere [Configurare Cloud Discovery](/cloud-app-security/set-up-cloud-discovery.md).
+Come indicato in precedenza, è possibile che alcune applicazioni non siano state gestite dall'organizzazione fino a oggi.  Come parte del processo di inventario, è possibile individuare applicazioni cloud non approvate. Vedere [Configurare Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ### <a name="authentication-types"></a>Tipi di autenticazione
 È possibile che ogni applicazione abbia requisiti di autenticazione diversi. Con Azure AD la firma dei certificati può essere usata con applicazioni che usano i protocolli di connessione SAML 2.0, WS-Federation oppure OpenID, oltre a Password Single Sign-On. Per altre informazioni sui tipi di autenticazione per le applicazioni che possono essere usati con Azure AD, vedere [Gestione di certificati per Single Sign-On federato in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) e [Accesso Single Sign-On basato su password](what-is-single-sign-on.md).
