@@ -62,7 +62,7 @@
       href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
     - name: Determinare la forma JSON per le query
       href: how-to-shape-query-json.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API di query
       href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
@@ -101,7 +101,7 @@
     - name: Richieste di dati del cliente
       href: time-series-insights-customer-data-requests.md
     - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: Calcolatore prezzi

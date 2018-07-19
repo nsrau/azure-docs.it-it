@@ -135,7 +135,7 @@
         - name: Backup del database
           href: sql-database-automated-backups.md
         - name: Conservazione del backup a lungo termine
-          itmes:
+          items:
             - name: Conservazione del backup a lungo termine
               href: sql-database-long-term-retention.md
             - name: Configurare la conservazione del backup a lungo termine - Archiviazione SQL
@@ -508,7 +508,7 @@
               href: saas-multitenantdb-schema-management.md
             - name: ETL per l'analisi
               href: saas-multitenantdb-tenant-analytics.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'

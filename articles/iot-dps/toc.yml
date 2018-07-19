@@ -125,7 +125,7 @@
       href: use-hsm-with-sdk.md
     - name: Usare gli strumenti SDK per lo sviluppo
       href: how-to-use-sdk-tools.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: REST
       href: /rest/api/iot-dps
@@ -176,7 +176,7 @@
     - name: Richieste di dati del cliente
       href: iot-dps-customer-data-requests.md
     - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Strumento Device Explorer
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Strumento iothub-diagnostics
