@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800725"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084723"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinare i requisiti per la soluzione ibrida di gestione delle identità
 Il primo passaggio della progettazione di una soluzione ibrida di gestione delle identità consiste nel determinare i requisiti per l'organizzazione che userà la soluzione.  La gestione ibrida delle identità nasce come un ruolo di supporto (supporta tutte le altre soluzioni cloud fornendo l'autenticazione) che può in seguito offrire funzionalità nuove e interessanti per i carichi di lavoro degli utenti.  I carichi di lavoro o i servizi che verranno adottati per gli utenti determinano i requisiti per la progettazione della soluzione ibrida di gestione delle identità.  Questi servizi e carichi di lavoro dovranno usare la soluzione ibrida di gestione delle identità sia in locale che nel cloud.  
@@ -58,7 +58,7 @@ Ora che ci si è fatti un'idea sui requisiti aziendali, è necessario valutare l
 * Questa integrazione è già presente nell'ambiente di produzione o si tratta di un progetto pilota?
 
 > [!NOTE]
-> Se non si dispone di una mappatura accurata di tutte le app e i servizi cloud nell'ambiente, è possibile usare lo strumento Cloud App Discovery. Questo strumento fornisce al reparto IT la visibilità necessaria su tutte le app cloud, aziendali e non, usate nell'organizzazione. In questo modo si semplifica l'individuazione di sistemi e soluzioni IT non autorizzati e l'acquisizione di schemi di utilizzo e di informazioni sugli utenti che accedono alle applicazioni cloud. Per un'introduzione, vedere [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+> Cloud Discovery analizza i log del traffico a fronte del catalogo di app cloud di Microsoft Cloud App Security, contenente oltre 16.000 app cloud classificate e valutate in base a più di 70 fattori di rischio, per fornire visibilità continua sull'uso del cloud, su Shadow IT e sul rischio a cui Shadow IT può esporre l'organizzazione. Per iniziare consultare [Configurare Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

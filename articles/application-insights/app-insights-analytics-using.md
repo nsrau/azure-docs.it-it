@@ -2,22 +2,24 @@
 title: 'Uso di Analytics: il potente strumento di ricerca di Azure Application Insights | Microsoft Docs'
 description: 'Utilizzare Analytics: lo strumento di ricerca diagnostica incluso in Application Insights '
 services: application-insights
-documentationcenter: 
-author: danhadari
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: c3b34430-f592-4c32-b900-e9f50ca096b3
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 03/14/2017
-ms.author: danha; mbullwin
-ms.openlocfilehash: 0ca5c8b19f4699548a8551ec673e4a067d4e5fad
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.topic: conceptual
+ms.date: 07/02/2018
+ms.reviewer: danha
+ms.author: mbullwin
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341563"
 ---
 # <a name="using-analytics-in-application-insights"></a>Uso di Analytics in Application Insights
 L'[analisi](app-insights-analytics.md) è lo strumento di ricerca avanzato incluso in [Application Insights](app-insights-overview.md). Queste pagine descrivono il linguaggio di query di Log Analytics.
@@ -143,13 +145,13 @@ Ciò significa che, quando si crea un dashboard per monitorare le prestazioni o 
 È possibile aggiungere una tabella al dashboard se contiene un massimo di quattro colonne. Verranno visualizzate solo le prime sette righe.
 
 ### <a name="dashboard-refresh"></a>Aggiornamento del dashboard
-Il grafico aggiunto al dashboard viene aggiornato automaticamente rieseguendo la query ogni due ore circa. È possibile anche fare clic sul pulsante Aggiorna.
+Il grafico aggiunto al dashboard viene aggiornato automaticamente rieseguendo la query ogni ora circa. È possibile anche fare clic sul pulsante Aggiorna.
 
 ### <a name="automatic-simplifications"></a>Semplificazioni automatiche
 
 Quando si aggiunge a un grafico al dashboard, vengono applicate al grafico determinate semplificazioni.
 
-**Restrizione di orario:** le query vengono automaticamente limitate agli ultimi 14 giorni. Si tratta dello stesso effetto che si ottiene quando la query include `where timestamp > ago(14d)`.
+**Restrizione di orario:** le query vengono automaticamente limitate agli ultimi 30 giorni. Si tratta dello stesso effetto che si ottiene quando la query include `where timestamp > ago(30d)`.
 
 **Restrizione al numero di bin:** se si visualizza un grafico con numerosi bin discreti, in genere un grafico a barre, i bin meno popolati vengono automaticamente raggruppati in un unico bin "altri". Ad esempio, questa query:
 
@@ -205,7 +207,7 @@ Ad esempio, se nei dati di telemetria vengono identificati utenti autenticati tr
 ### <a name="define-your-data-schema"></a>Definire lo schema dei dati
 
 1. Fare clic su **Impostazioni** (in alto a sinistra) e quindi su **Origini dati**. 
-2. Aggiungere un'origine dati, seguendo le istruzioni. Viene chiesto di fornire un esempio dei dati che deve includere almeno dieci righe. È quindi possibile correggere lo schema.
+2. Aggiungere un'origine dati, seguendo le istruzioni. Viene chiesto di fornire un esempio dei dati che deve includere almeno 10 righe. È quindi possibile correggere lo schema.
 
 Lo schema definisce un'origine dati che sarà possibile usare per importare le singole tabelle.
 

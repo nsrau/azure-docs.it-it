@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936398"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39063106"
 ---
 ### <a name="run-the-service"></a>Eseguire il servizio
 
 1. Premere F5 (o digitare `azds up` nella finestra del terminale) per eseguire il servizio. Il servizio verrà automaticamente eseguito nello spazio appena selezionato `default/scott`. 
-1. È possibile confermare che il servizio è in esecuzione nel proprio spazio eseguendo nuovamente `azds list`. In primo luogo, si noterà che è in esecuzione un'istanza di `mywebapi` nello spazio `default/scott` (la versione in esecuzione in `default` è ancora in esecuzione ma non è elencata). In secondo luogo, l'URL del punto di accesso `webfrontend` è preceduto dal prefisso "scott.s". Questo URL è univoco per lo spazio `default/scott`. Questo URL speciale indica che le richieste inviate a "URL scott" tenteranno prima di instradarsi ai servizi nello spazio `default/scott` ma, in caso di esito negativo, verrà eseguito il fallback ai servizi nello spazio `default`.
+1. È possibile confermare che il servizio è in esecuzione nel proprio spazio eseguendo nuovamente `azds list-up`. In primo luogo, si noterà che è in esecuzione un'istanza di `mywebapi` nello spazio `default/scott` (la versione in esecuzione in `default` è ancora in esecuzione ma non è elencata). In secondo luogo, l'URL del punto di accesso `webfrontend` è preceduto dal prefisso "scott.s". Questo URL è univoco per lo spazio `default/scott`. Questo URL speciale indica che le richieste inviate a "URL scott" tenteranno prima di instradarsi ai servizi nello spazio `default/scott` ma, in caso di esito negativo, verrà eseguito il fallback ai servizi nello spazio `default`.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

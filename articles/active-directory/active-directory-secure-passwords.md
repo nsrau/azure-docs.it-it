@@ -3,31 +3,31 @@ title: Sicurezza delle password a più livelli di Azure AD | Microsoft Docs
 description: Questo articolo spiega in che modo Azure AD applica le password complesse e protegge le password degli utenti dai criminali informatici.
 services: active-directory
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 08/28/2017
-ms.author: barlan
-ms.openlocfilehash: 04e437eb5a040f418df22e0857cb96d7ef99bbbb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: lizross
+ms.openlocfilehash: e3e97a5a9b768b3b9d4a36627d28955be1f3d9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586375"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056920"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Approccio multilivello alla sicurezza delle password di Azure AD
 
 Questo articolo illustra alcune procedure consigliate che è possibile seguire come utente o amministratore per proteggere il proprio account Azure Active Directory (Azure AD) o Microsoft.
 
  > [!NOTE]
- > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** [seguire questa procedura per cambiare e reimpostare la password](active-directory-passwords-update-your-own-password.md).
+ > **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** [seguire questa procedura per cambiare e reimpostare la password](user-help/active-directory-passwords-update-your-own-password.md).
  >
- > Gli amministratori di Azure Active Directory possono reimpostare le password degli utenti seguendo le indicazioni fornite nell'articolo [Reimpostare la password per un utente in Azure Active Directory](active-directory-users-reset-password-azure-portal.md).
+ > Gli amministratori di Azure Active Directory possono reimpostare le password degli utenti seguendo le indicazioni fornite nell'articolo [Reimpostare la password per un utente in Azure Active Directory](fundamentals/active-directory-users-reset-password-azure-portal.md).
  >
 
 ## <a name="password-requirements"></a>Requisiti delle password
@@ -38,7 +38,7 @@ Azure AD adotta i seguenti approcci comuni per la protezione delle password:
 * Requisiti di complessità delle password
 * Scadenza regolare e periodica delle password
 
-Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords-update-your-own-password.md).
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](user-help/active-directory-passwords-update-your-own-password.md).
 
 ## <a name="azure-ad-password-protections"></a>Protezione delle password di Azure AD
 
@@ -75,7 +75,7 @@ Per altri account Microsoft, la schermata sarà simile alla seguente:
 
   ![Bloccato da un account Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](active-directory-passwords-update-your-own-password.md).
+Per informazioni sulla reimpostazione delle password in Azure Active Directory, vedere l'argomento [Reimpostazione self-service delle password di Azure AD per i professionisti IT](user-help/active-directory-passwords-update-your-own-password.md).
 
   >[!NOTE]
   >Se si è amministratori di Azure AD è consigliabile usare [Windows Hello](https://www.microsoft.com/windows/windows-hello) per evitare che gli utenti creino password tradizionali.
@@ -83,6 +83,6 @@ Per informazioni sulla reimpostazione delle password in Azure Active Directory, 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Come aggiornare la password](active-directory-passwords-update-your-own-password.md)
+* [Come aggiornare la password](user-help/active-directory-passwords-update-your-own-password.md)
 * [Concetti fondamentali sulla gestione delle identità di Azure](fundamentals-identity.md)
 * [Rapporto sull'attività di reimpostazione password](authentication/howto-sspr-reporting.md)

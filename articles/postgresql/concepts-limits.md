@@ -2,19 +2,19 @@
 title: Limiti del Database di Azure per PostgreSQL
 description: Questo articolo descrive i limiti di Database di Azure per PostgreSQL, ad esempio il numero di connessioni e le opzioni del motore di archiviazione.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757417"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343302"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limiti del Database di Azure per PostgreSQL
 Nelle sezioni seguenti vengono descritti i limiti delle capacità e funzionali nel servizio del database.
@@ -43,8 +43,8 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 
 ## <a name="functional-limitations"></a>Limitazioni funzionali
 ### <a name="scale-operations"></a>Operazioni di scalabilità
-1.  Non è attualmente supportata la scalabilità dinamica dei server tra i piani tariffari, ovvero il passaggio tra i piani Basic, Utilizzo generico o Con ottimizzazione per la memoria.
-2.  La riduzione delle dimensioni di archiviazione del server non è attualmente supportata.
+- Non è attualmente supportata la scalabilità dinamica tra i piani tariffari.
+- La riduzione delle dimensioni di archiviazione del server non è attualmente supportata.
 
 ### <a name="server-version-upgrades"></a>Aggiornamenti della versione dei server
 - La migrazione automatica tra le versioni del motore del database principale non è attualmente supportata.
@@ -52,9 +52,12 @@ Il sistema Azure richiede cinque connessioni per il monitoraggio del server di D
 ### <a name="subscription-management"></a>Gestione sottoscrizioni
 - Lo spostamento dinamico dei server tra le sottoscrizioni e i gruppi di risorse non è attualmente supportato.
 
+### <a name="vnet-service-endpoints"></a>Endpoint del servizio di rete virtuale
+- Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
+
 ### <a name="point-in-time-restore-pitr"></a>Ripristino temporizzato
-1.  Quando si usa la funzionalità di ripristino temporizzato, il nuovo server viene creato con le stesse configurazioni del server su cui si basa.
-2.  Il ripristino di un server eliminato non è supportato.
+- Quando si usa la funzionalità di ripristino temporizzato, il nuovo server viene creato con le stesse configurazioni del server su cui si basa.
+- Il ripristino di un server eliminato non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni sulle [opzioni e prestazioni disponibili in ogni piano tariffario](concepts-pricing-tiers.md)

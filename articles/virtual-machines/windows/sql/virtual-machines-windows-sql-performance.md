@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/19/2018
 ms.author: jroth
-ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798156"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888909"
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Procedure consigliate per le prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -39,7 +39,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 
 | Area | Ottimizzazioni |
 | --- | --- |
-| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3](../sizes-general.md) o superiore per SQL Enterprise.<br/><br/>[DS2](../sizes-general.md) o superiore per SQL Standard Edition e Web Edition. |
+| [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3_v2](../sizes-general.md) o superiore per SQL Enterprise Edition.<br/><br/>[DS2_v2](../sizes-general.md) o superiore per SQL Standard Edition e Web Edition. |
 | [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
 | [Dischi](#disks-guidance) |Usare minimo 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log e 1 per i file di dati e TempDB oppure usare due o più dischi in striping e archiviare tutti i file in un singolo volume).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
 | [I/O](#io-guidance) |Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare il percorso predefinito del file di backup e del file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server. |
@@ -49,10 +49,12 @@ Per altre informazioni su *come* e *perché* eseguire queste ottimizzazioni, ved
 
 ## <a name="vm-size-guidance"></a>Linee guida per le dimensioni delle VM
 
-Per le applicazioni sensibili alle prestazioni, è consigliabile usare le seguenti [dimensioni per le macchine virtuali](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json):
+Per le applicazioni sensibili alle prestazioni, è consigliabile usare le seguenti [dimensioni per le macchine virtuali](../sizes.md):
 
-* **SQL Server Enterprise Edition**: DS3 o superiore
-* **SQL Server Standard e Web Edition**: DS2 o superiore
+* **SQL Server Enterprise Edition**: DS3_v2 o superiore
+* **SQL Server Standard e Web Edition**: DS2_v2 o superiore
+
+Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) supportano l'archiviazione premium, consigliata per prestazioni ottimali. Le dimensioni consigliate di seguito sono di base, ma le dimensioni effettive della macchina dipendono dalle esigenze del carico di lavoro richiesto. Le macchine virtuali della serie DSv2 sono macchine virtuali per utilizzo generico, adatte per un'ampia gamma di carichi di lavoro, mentre altre dimensioni delle macchine sono ottimizzate per carichi di lavoro specifici. Ad esempio, la [serie M](../sizes-memory.md#m-series) offre il maggior numero di vCPU e memoria per i carichi di lavoro più grandi di SQL Server. La [serie GS](../sizes-memory.md#gs-series) e la [serie DSv2 11-15](../sizes-memory.md#dsv2-series-11-15) sono ottimizzate per i requisiti di memoria di grandi dimensioni. Entrambe le serie sono disponibili anche in [dimensioni core vincolate](../../windows/constrained-vcpu.md), consentendo di risparmiare denaro per i carichi di lavoro con inferiori richieste di calcolo. Le macchine [serie Ls](../sizes-storage.md) sono ottimizzate per elevata velocità effettiva del disco e I/O. È importante prendere in considerazione il carico di lavoro specifico di SQL Server per la selezione della serie e delle dimensioni della macchina virtuale.
 
 ## <a name="storage-guidance"></a>Linee guida per l'archiviazione
 

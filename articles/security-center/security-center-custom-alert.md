@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 326b07a18b07f15850e0283ad51a05b42c1ef0ab
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284778"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341314"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Regole di avviso personalizzate nel Centro sicurezza di Azure (anteprima)
 Questo documento consente di creare regole di avviso personalizzate nel Centro sicurezza di Azure.
@@ -31,7 +31,7 @@ Il Centro sicurezza include un set di [avvisi di sicurezza](https://docs.microso
 Le regole di avviso personalizzate nel Centro sicurezza consentono di definire nuovi avvisi di sicurezza in base ai dati già raccolti dall'ambiente. È possibile creare query e usare i risultati di tali query come criteri per la regola personalizzata, che viene eseguita in caso di corrispondenza con i criteri. Per creare le query personalizzate, è possibile usare gli eventi di sicurezza dei computer, i log delle soluzioni di sicurezza dei partner o i dati inseriti tramite API.
 
 > [!NOTE]
-> È necessaria l'autorizzazione di scrittura nell'area di lavoro che si seleziona per archiviare l'avviso personalizzato.
+> Gli avvisi personalizzati non sono supportati nelle [funzionalità di indagine](security-center-investigation.md) del Centro sicurezza.
 >
 >
 
@@ -52,7 +52,14 @@ Aprire il dashboard **Centro sicurezza** e seguire questa procedura per creare u
 5.  Immettere una breve descrizione che rispecchia la finalità della regola nel campo **Descrizione**.
 6.  Selezionare il livello di gravità (Alta, Media, Bassa) in base alle esigenze specifiche nel campo **Gravità**.
 7.  Selezionare la sottoscrizione in cui è applicabile questa regola nel campo **Sottoscrizione**.
-8.  Selezionare l'area di lavoro da monitorare con questa regola nel campo **Area di lavoro** e quindi nel campo **Query di ricerca** selezionare la query che si desidera usare per ottenere i risultati. È necessaria l'autorizzazione di scrittura nell'area di lavoro che si seleziona per archiviare l'avviso personalizzato. Il risultato della query attiva l'avviso. Si noti che quando si immette una query valida viene visualizzato un segno di spunta verde nell'angolo destro del campo:
+8.  Selezionare l'area di lavoro da monitorare con questa regola nel campo **Area di lavoro** e quindi nel campo **Query di ricerca** selezionare la query che si desidera usare per ottenere i risultati.
+
+    > [!NOTE]
+    > È necessaria l'autorizzazione di scrittura nell'area di lavoro che si seleziona per archiviare l'avviso personalizzato.
+    >
+    >
+
+    Il risultato della query attiva l'avviso. Si noti che quando si immette una query valida viene visualizzato un segno di spunta verde nell'angolo destro del campo:
 
     ![Query](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 

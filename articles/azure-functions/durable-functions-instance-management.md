@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287749"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341093"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gestire le istanze in Funzioni permanenti (Funzioni di Azure)
 
@@ -81,6 +81,7 @@ Il metodo [GetStatusAsync](https://azure.github.io/azure-functions-durable-exten
 * **CustomStatus**: stato personalizzato dell'orchestrazione in formato JSON. 
 * **Output**: l'output della funzione come valore JSON (se la funzione è stata completata). Se l'esecuzione della funzione dell'agente di orchestrazione non è riuscita, questa proprietà include i dettagli dell'errore. Se la funzione dell'agente di orchestrazione è stata terminata, questa proprietà include il motivo dell'interruzione (se presente).
 * **RuntimeStatus**: uno dei valori seguenti:
+    * **In sospeso**: l'istanza è stata pianificata ma non è ancora iniziata l'esecuzione.
     * **Running**: l'istanza ha iniziato l'esecuzione.
     * **Completed**: l'istanza è stata completata normalmente.
     * **ContinuedAsNew**: l'istanza si è riavviata con una nuova cronologia. Si tratta di uno stato temporaneo.

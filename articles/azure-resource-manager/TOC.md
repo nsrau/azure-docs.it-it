@@ -4,10 +4,10 @@
 ## [Informazioni su Resource Manager](resource-group-overview.md)
 ## [Resource Manager e distribuzione classica](resource-manager-deployment-model.md)
 
-# Attività iniziali
-## [Creare e distribuire il modello](resource-manager-create-first-template.md)
-## [Estensione di Visual Studio Code per i modelli](resource-manager-vscode-extension.md)
-## [Visual Studio con Resource Manager](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+# Guide introduttive
+## [Creare modelli - Portale](resource-manager-quickstart-create-templates-use-the-portal.md)
+## [Creare modelli - Visual Studio Code](resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+## [Creare modelli - Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # Concetti
 ## [Provider e tipi di risorse](resource-manager-supported-services.md)
@@ -48,7 +48,7 @@
 ## Gestisci
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Interfaccia della riga di comando di Azure](xplat-cli-azure-resource-manager.md)
-### [Portale di Azure](resource-group-portal.md)
+### [portale di Azure](resource-group-portal.md)
 ### [Usare tag per organizzare le risorse](resource-group-using-tags.md)
 ### [Spostare le risorse in un nuovo gruppo o sottoscrizione](resource-group-move-resources.md)
 ### [Creare sottoscrizioni EA](programmatically-create-subscription.md)
@@ -60,7 +60,7 @@
 ### Creare un'entità servizio
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Portale di Azure](resource-group-create-service-principal-portal.md)
+#### [portale di Azure](resource-group-create-service-principal-portal.md)
 ### [API di autenticazione per accedere alle sottoscrizioni](resource-manager-api-authentication.md)
 ### [Bloccare le risorse](resource-group-lock-resources.md)
 
@@ -84,7 +84,7 @@
 ### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### [Problemi di distribuzione di Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
 
-# Riferimenti
+# riferimento
 ## [Formato del modello](/azure/templates/)
 ## [Funzioni di modello](resource-group-template-functions.md)
 ### [Matrici e funzioni oggetto](resource-group-template-functions-array.md)

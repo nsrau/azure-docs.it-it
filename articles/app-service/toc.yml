@@ -165,7 +165,7 @@
         - name: Configurare il livello PremiumV2
           href: app-service-configure-premium-tier.md
         - name: Aumentare il numero di istanze
-          href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
         - name: Hosting ad alta densità
           href: app-service-high-density-hosting.md
     - name: Monitorare un'app
@@ -198,7 +198,7 @@
           href: webjobs-sdk-get-started.md
         - name: Usare WebJobs SDK
           href: webjobs-sdk-how-to.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice

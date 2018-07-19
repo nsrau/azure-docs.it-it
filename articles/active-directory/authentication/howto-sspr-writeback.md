@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fce92845591f20f7f2e9cff1a856e0904629255b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868826"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054795"
 ---
 # <a name="password-writeback-overview"></a>Panoramica del writeback delle password
 
-Con il writeback delle password è possibile configurare Azure Active Directory (Azure AD) in modo che scriva le password nuovamente in Active Directory locale. Il writeback delle password evita di dover configurare e gestire una complessa soluzione di reimpostazione password self-service (SSPR) locale e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Il writeback delle password è un componente di [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) che può essere abilitato e usato dagli attuali sottoscrittori di [Edizioni di Azure Active Directory](../active-directory-whatis.md) Premium.
+Con il writeback delle password è possibile configurare Azure Active Directory (Azure AD) in modo che scriva le password nuovamente in Active Directory locale. Il writeback delle password evita di dover configurare e gestire una complessa soluzione di reimpostazione password self-service (SSPR) locale e offre agli utenti un modo pratico e basato sul cloud per reimpostare le password locali ovunque essi si trovino. Il writeback delle password è un componente di [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) che può essere abilitato e usato dagli attuali sottoscrittori di [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md) Premium.
 
 Il writeback delle password offre le funzionalità seguenti:
 
@@ -129,7 +129,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
-Per informazioni sulle licenze, vedere [Licenze richieste per il writeback delle password](concept-sspr-licensing.md#licenses-required-for-password-writeback) o i siti seguenti:
+Per informazioni sulle licenze, vedere [Licenze richieste per il writeback delle password](concept-sspr-licensing.md) o i siti seguenti:
 
 * [Sito sui prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -216,8 +216,8 @@ La dimensione di ogni messaggio illustrato in precedenza è in genere inferiore 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md).
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)

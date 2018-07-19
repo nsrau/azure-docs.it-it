@@ -9,17 +9,17 @@
   items:
     - name: Distribuire Hello World
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: Creare e distribuire un'applicazione Web
+    - name: Creare e distribuire un'app Web in mesh Azure Service Fabric
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: Esercitazioni
   items:
-    - name: Creare e distribuire un'app Web multiservizio
+    - name: 'Creare, eseguire il debug e distribuire un''app Web mesh Service Fabric multiservizio'
       items:
-        - name: 1- Creare un'applicazione ASP.NET Core
+        - name: 1- Creare un'app Web mesh Service Fabric
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2 - Eseguire il debug dell'applicazione
+        - name: 2- Eseguire il debug di un'app Web mesh Service Fabric
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3 - Distribuire l'applicazione
+        - name: 3- Distribuire un'app Web mesh Service Fabric
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: Concetti
   items:

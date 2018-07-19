@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932716"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435032"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Log di diagnostica di Hub eventi
 
@@ -31,7 +31,7 @@ ms.locfileid: "28932716"
 
 ## <a name="enable-diagnostic-logs"></a>Abilitare i log di diagnostica
 
-I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica:
+I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire i passaggi seguenti:
 
 1.  Nel [portale di Azure](https://portal.azure.com) in **Monitoraggio + Gestione** fare clic su **Log di diagnostica**.
 

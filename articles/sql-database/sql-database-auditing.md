@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751044"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081456"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
@@ -62,20 +62,18 @@ I criteri di controllo possono essere definiti per un database specifico o come 
 Nella sezione seguente è descritta la configurazione del controllo mediante il portale di Azure.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare al pannello **Impostazioni** del database o del server SQL che si vuole controllare. Nel pannello **Impostazioni** selezionare **Controllo e rilevamento minacce**.
+2. Passare a **Controllo** nell'intestazione Sicurezza nel riquadro del database SQL o del server.
 
     <a id="auditing-screenshot"></a>![Riquadro di spostamento][1]
 3. Se si preferisce configurare un criterio di controllo del server, è possibile selezionare il collegamento **Visualizza impostazioni del server** nel pannello relativo al controllo del database. Si possono quindi visualizzare o modificare le impostazioni di controllo del server. I criteri di controllo del server si applicano a tutti i database esistenti e ai nuovi database creati in questo server.
 
     ![Riquadro di spostamento][2]
-4. Se si preferisce abilitare il controllo BLOB a livello di database, per **Controllo** selezionare **Sì** e per **Tipo di controllo** selezionare **BLOB**.
+4. Se si preferisce abilitare il controllo a livello di database, impostare **Controllo** su **ATTIVA**.
 
-    Se il controllo BLOB del server è abilitato, il controllo configurato del database coesisterà con il controllo BLOB del server.
+    Se il controllo del server è abilitato, il controllo configurato del database coesisterà con il controllo del server.
 
     ![Riquadro di spostamento][3]
 5. Per aprire il pannello **Archiviazione dei log di controllo** selezionare **Dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. I log meno recenti verranno eliminati. Fare quindi clic su **OK**.
-    >[!TIP]
-    >Per sfruttare al massimo i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
     <a id="storage-screenshot"></a>![Riquadro di spostamento][4]
 6. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
@@ -102,7 +100,8 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
     Verrà aperto il pannello **Record di controllo**, da cui sarà possibile visualizzare i log.
 
     - È possibile visualizzare date specifiche facendo clic su **Filtro** nella parte superiore del pannello **Record di controllo**.
-    - È possibile passare dai record di controllo creati dai criteri del server a quelli creati dai criteri del database e viceversa.
+    - È possibile passare da un record di controllo all'altro creato dai *criteri di controllo del server*  e dai *criteri di controllo del database* attivando o disattivando **Origine controllo**.
+    - È possibile visualizzare solo i record di controllo correlati a SQL injection selezionando la casella di controllo **Visualizza solo i record di controllo per SQL injection**.
 
        ![Riquadro di spostamento][8]
 
@@ -147,8 +146,8 @@ Con i database con replica geografica, quando si abilita il controllo nel databa
 * A livello di server (**consigliato**): attivare il controllo sia nel **server primario** che nel **server secondario**. I database primari e secondari saranno controllati in modo indipendente in base ai rispettivi criteri a livello di server.
 
 * A livello di database: il controllo a livello di database per i database secondari può essere configurato solo mediante le impostazioni di controllo del database primario.
-   * Il controllo BLOB deve essere abilitato nello *stesso database primario* e non nel server.
-   * Dopo che il controllo BLOB è stato abilitato nel database primario, verrà abilitato anche nel database secondario.
+   * Il controllo deve essere abilitato nello *stesso database primario* e non nel server.
+   * Dopo che il controllo è stato abilitato nel database primario, verrà abilitato anche nel database secondario.
 
     >[!IMPORTANT]
     >In caso di controllo a livello di database, le impostazioni di archiviazione per il database secondario sono identiche a quelle del database primario, e causano traffico tra le aree. È consigliabile abilitare solo il controllo a livello di server e lasciare disabilitato il controllo a livello di database per tutti i database.
@@ -204,7 +203,6 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 * [Creare o aggiornare i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Ottenere i criteri controllo BLOB del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Ottenere i criteri controllo BLOB del server](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [Ottenere il risultato dell'operazione di controllo BLOB del server](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Criteri estesi con il supporto della clausola WHERE per altri filtri:
 * [Creare o aggiornare*i criteri controllo BLOB estesi*del database](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166370"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036490"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ Configurare un computer client locale per l'invio di processi a un cluster [Micr
 
 ![Invio di un processo a un cluster in Azure][jobsubmit]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Nodo head HPC Pack distribuito in una VM di Azure**: si consiglia l'uso di strumenti automatizzati, ad esempio un [modello di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) per distribuire il nodo head e il cluster. Per completare la procedura descritta in questo articolo, sono necessari il nome DNS del nodo head e le credenziali di un amministratore del cluster.
 * **Computer client** : è necessario un computer client Windows o Windows server in grado di eseguire le utilità client di HPC Pack (vedere i [requisiti di sistema](https://technet.microsoft.com/library/dn535781.aspx)). Se si prevede di inviare i processi solo tramite il portale Web di HPC Pack o l'API REST, è possibile usare un computer client qualsiasi.
 * **Supporto di installazione di HPC Pack** : per installare il client di HPC Pack, è disponibile gratuitamente il pacchetto di installazione dell'ultima versione di HPC Pack è disponibile per il download nell' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Verificare di avere scaricato la stessa versione di HPC Pack installata nella VM del nodo head.
@@ -90,7 +90,7 @@ Per usare gli strumenti client di HPC Pack per inviare processi alla VM del nodo
 
 1. Nel nodo head aggiungere lo snap-in Certificati a Microsoft Management Console per l'account computer locale. Per la procedura che illustra come aggiungere lo snap-in, vedere [Aggiungere lo snap-in Certificati a MMC](https://technet.microsoft.com/library/cc754431.aspx).
 2. Nell'albero della console espandere **Certificati – Computer locale** > **Personale**, quindi fare clic su **Certificati**.
-3. Individuare il certificato configurato per i componenti Web di HPC Pack in [Passaggio 1: installare e configurare i componenti Web nel nodo head](#step-1:-install-and-configure-the-web-components-on-the-head-node) (ad esempio, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. Individuare il certificato configurato per i componenti Web di HPC Pack in [Passaggio 1: installare e configurare i componenti Web nel nodo head](#step-1-install-and-configure-the-web-components-on-the-head-node) (ad esempio, CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **All Tasks** (Tutte le attività) > **Esporta**.
 5. In Esportazione guidata certificati fare clic su **Avanti**, quindi assicurarsi che l'opzione **Non esportare la chiave privata** sia selezionata.
 6. Seguire i passaggi rimanenti della procedura guidata per esportare il certificato nel formato binario codificato DER X.509 (.CER).

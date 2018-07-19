@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 19f61893eb9250fbd5bbf930e98aa89ac74fd0c3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028737"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859201"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup online automatico e ripristino con Azure Cosmos DB
 Azure Cosmos DB esegue automaticamente il backup di tutti i dati a intervalli regolari. I backup automatici vengono eseguiti senza impatto sulle prestazioni o sulla disponibilità delle operazioni del database. Tutti i backup vengono archiviati separatamente in un altro servizio di archiviazione, oltre a essere replicati a livello globale per garantire la resilienza in caso di emergenze locali. I backup automatici sono destinati agli scenari in cui si elimina involontariamente il contenitore Cosmos DB e in un secondo momento è necessario il ripristino dei dati o una soluzione di ripristino di emergenza.  
@@ -45,7 +45,7 @@ L'immagine di seguito illustra i backup completi periodici di tutte le entità d
 ![Backup completi periodici di tutte le entità di Cosmos DB nell'archiviazione con ridondanza geografica di Azure](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Periodo di conservazione dei backup
-Come descritto sopra, Azure Cosmos DB crea snapshot dei dati ogni quattro ore a livello di partizione. In qualsiasi momento risultano disponibili solo gli ultimi due snapshot. Tuttavia, se il database/raccolta viene eliminato, Azure Cosmos DB conserva per 30 giorni gli snapshot esistenti per tutte le partizioni eliminate all'interno del database/raccolta specificato.
+Come descritto sopra, Azure Cosmos DB crea snapshot dei dati ogni quattro ore a livello di partizione. In qualsiasi momento risultano disponibili solo gli ultimi due snapshot. Tuttavia, se il database/contenitore viene eliminato, Azure Cosmos DB conserverà per 30 giorni gli snapshot esistenti per tutte le partizioni eliminate all'interno del database/contenitore specificato.
 
 Per l'API SQL, se si vuole mantenere gli snapshot, è possibile usare l'opzione di esportazione in JSON nello [strumento di migrazione dei dati](import-data.md#export-to-json-file) di Azure Cosmos DB per pianificare backup aggiuntivi.
 
@@ -55,21 +55,21 @@ Per l'API SQL, se si vuole mantenere gli snapshot, è possibile usare l'opzione 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Ripristino di un database da un backup online
 
-Se si elimina involontariamente il database o la raccolta, è possibile [creare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Il supporto di Azure è disponibile solo per piani selezionati, ad esempio Standard e Developer. Il supporto non è disponibile per il piano Basic. Per altre informazioni su piani di supporto diversi, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/). 
+Se si elimina accidentalmente il database o il contenitore, è possibile [inviare un ticket di supporto](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) o [contattare il supporto di Azure](https://azure.microsoft.com/support/options/) per ripristinare i dati dall'ultimo backup automatico. Il supporto di Azure è disponibile solo per piani selezionati, ad esempio Standard e Developer. Il supporto non è disponibile per il piano Basic. Per altre informazioni su piani di supporto diversi, vedere la pagina [Piani di supporto per Azure](https://azure.microsoft.com/support/plans/). 
 
-Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, inclusa l'eliminazione di documenti contenuti in una raccolta, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati sovrascrivano i backup esistenti. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
+Se è necessario ripristinare il database a causa di un problema di danneggiamento dei dati, inclusa l'eliminazione di documenti contenuti in un contenitore, vedere [Gestione del danneggiamento dei dati](#handling-data-corruption) perché è necessario eseguire passaggi aggiuntivi per evitare che i dati danneggiati sovrascrivano i backup esistenti. Per il ripristino di uno snapshot specifico del backup, Cosmos DB richiede che i dati siano stati disponibili per la durata del ciclo di backup per tale snapshot.
 
 ## <a name="handling-data-corruption"></a>Gestione del danneggiamento dei dati
 
 Azure Cosmos DB conserva gli ultimi due backup di ogni partizione nell'account del database. Questo modello è ideale quando un contenitore (raccolta di documenti, grafo, tabella) o un database viene eliminato involontariamente perché consente di ripristinare una delle versioni più recenti. Se tuttavia gli utenti causano un problema di danneggiamento dei dati, Azure Cosmos DB potrebbe non rilevare il danneggiamento dei dati, che potrebbero quindi aver sovrascritto i dati nei backup esistenti. 
 
-Non appena viene rilevato il danneggiamento, contattare il supporto tecnico con le informazioni sull'account e sulla raccolta e indicare il momento approssimativo in cui si è verificato il problema. Un'altra azione che l'utente può eseguire in caso di danneggiamento dei dati (eliminazione/aggiornamento)è quella di eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati.  
+Non appena viene rilevato il danneggiamento, contattare il supporto tecnico con le informazioni sull'account del database e sul contenitore e indicare il momento approssimativo in cui si è verificato il problema. Un'altra azione che l'utente può eseguire in caso di danneggiamento dei dati (eliminazione/aggiornamento)è quella di eliminare il contenitore danneggiato (raccolta/grafo/tabella) in modo che i backup siano protetti e non vengano sovrascritti con i dati danneggiati.  
 
 L'immagine seguente illustra la creazione di una richiesta di supporto per il ripristino di un contenitore (raccolta/grafo/tabella) tramite il portale di Azure a causa dell'eliminazione o dell'aggiornamento accidentale dei dati all'interno di un contenitore.
 
-![Ripristinare una raccolta a causa di un errore di aggiornamento o cancellazione dei dati in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
+![Ripristinare un contenitore a causa di un errore di aggiornamento o cancellazione dei dati in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Quando il ripristino viene eseguito per questo tipo di scenari, i dati vengono ripristinati in un altro account (con suffisso "-restored") e un'altra raccolta. Questo ripristino non viene eseguito in sostituzione del precedente per consentire al cliente di eseguire la convalida dei dati e spostare i dati in base alle esigenze. La raccolta ripristinata si trova nella stessa area con gli stessi criteri di indicizzazione e UR. 
+Quando il ripristino viene eseguito per questo tipo di scenari, i dati vengono ripristinati in un altro account (con suffisso "-restored") e in un altro contenitore. Questo ripristino non viene eseguito in sostituzione del precedente per consentire al cliente di eseguire la convalida dei dati e spostare i dati in base alle esigenze. Il contenitore ripristinato si trova nella stessa area con gli stessi criteri di indicizzazione e UR. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

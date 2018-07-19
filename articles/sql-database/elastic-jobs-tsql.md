@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: fb6e4ebd635d8afa8e679ee5bb0f5646f28f887b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311405"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126426"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -80,7 +80,7 @@ Connettersi al [*database dei processi*](elastic-jobs-overview.md#job-database) 
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group = N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup'
 GO
 
 -- Add a server target member
@@ -396,7 +396,7 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](elasti
 
 
 
-|Stored procedure  |Descrizione  |
+|Stored procedure  |DESCRIZIONE  |
 |---------|---------|
 |[sp_add_job](#spaddjob)     |     Aggiunge un nuovo processo.    |
 |[sp_update_job ](#spupdatejob)    |      Aggiorna un processo esistente.   |
@@ -1183,7 +1183,7 @@ GO
 Le viste seguenti sono disponibili nel [database dei processi](elastic-jobs-overview.md#job-database).
 
 
-|Vista  |Descrizione  |
+|Visualizza  |DESCRIZIONE  |
 |---------|---------|
 |[jobs_executions](#jobsexecutions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
 |[jobs](#jobs-view)     |   Mostra tutti i processi.      |
@@ -1201,7 +1201,7 @@ Le viste seguenti sono disponibili nel [database dei processi](elastic-jobs-over
 Mostra la cronologia di esecuzione dei processi.
 
 
-|Nome colonna|   Tipo di dati   |Descrizione|
+|Nome colonna|   Tipo di dati   |DESCRIZIONE|
 |---------|---------|---------|
 |**job_execution_id**   |uniqueidentifier|  ID univoco di un'istanza di un'esecuzione di un processo.
 |**job_name**   |nvarchar(128)  |Nome del processo.
@@ -1229,7 +1229,7 @@ Mostra la cronologia di esecuzione dei processi.
 
 Mostra tutti i processi.
 
-|Nome colonna|   Tipo di dati|  Descrizione|
+|Nome colonna|   Tipo di dati|  DESCRIZIONE|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
 |**job_id**|    uniqueidentifier    |ID univoco del processo.|
@@ -1247,7 +1247,7 @@ Mostra tutti i processi.
 
 Mostra tutte le versioni dei processi.
 
-|Nome colonna|   Tipo di dati|  Descrizione|
+|Nome colonna|   Tipo di dati|  DESCRIZIONE|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nome del processo.|
 |**job_id**|    uniqueidentifier    |ID univoco del processo.|
@@ -1260,7 +1260,7 @@ Mostra tutte le versioni dei processi.
 
 Mostra tutti i passaggi nella versione corrente di ogni processo.
 
-|Nome colonna    |Tipo di dati| Descrizione|
+|Nome colonna    |Tipo di dati| DESCRIZIONE|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nome del processo.|
 |**job_id** |uniqueidentifier   |ID univoco del processo.|
@@ -1301,7 +1301,7 @@ Mostra tutti i passaggi in tutte le versioni di ogni processo. Lo schema è iden
 
 Elenca tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| Descrizione|
+|Nome colonna|Tipo di dati| DESCRIZIONE|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Nome del gruppo di destinazione, una raccolta di database. 
 |**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.
@@ -1312,7 +1312,7 @@ Elenca tutti i gruppi di destinazione.
 
 Mostra tutti i membri di tutti i gruppi di destinazione.
 
-|Nome colonna|Tipo di dati| Descrizione|
+|Nome colonna|Tipo di dati| DESCRIZIONE|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|Nome del gruppo di destinazione, una raccolta di database. |
 |**target_group_id**    |uniqueidentifier   |ID univoco del gruppo di destinazione.|

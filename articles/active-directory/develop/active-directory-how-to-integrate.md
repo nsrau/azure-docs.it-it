@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937139"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054638"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrazione con Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -52,7 +52,7 @@ Per eseguire l'integrazione con Azure AD, sono disponibili diversi modi. Fare ri
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promuovere l'applicazione nei Marketplace di Azure e Office 365
 **Promuovere l'applicazione per farla conoscere a milioni di organizzazioni che usano già Azure AD.**  Gli utenti che esplorano questi Marketplace usano già uno o più servizi cloud, di conseguenza rappresentano il pubblico di destinazione ideale per l'applicazione. Altre informazioni sulla promozione dell'applicazione in [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.**  Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [pannello di accesso di Azure AD](../active-directory-saas-access-panel-introduction.md).
+**Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.**  Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [pannello di accesso di Azure AD](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicazione da dispositivo a servizio e da servizio a servizio sicura
 **L'uso di Azure AD per la gestione delle identità di servizi e dispositivi riduce le attività di scrittura di codice e consente al reparto IT di gestire gli accessi.**  I servizi e i dispositivi ricevono token tramite OAuth da Azure AD e li usano per accedere alle API Web. L'uso di Azure AD consente di evitare la scrittura di codice di autenticazione complesso. Poiché le identità di servizi e dispositivi sono archiviate in Azure AD, il reparto IT può gestire le chiavi e le revoche in una posizione centralizzata, anziché in una posizione separata all'interno dell'applicazione.

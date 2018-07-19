@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 841176d8c5f215d18edf25b1f191792b37555fa9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318120"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718958"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -26,7 +26,7 @@ Per informazioni sul ruolo del server di configurazione nell'ambito dell'archite
 
 Il server di configurazione deve essere configurato come macchina virtuale VMware a disponibilità elevata con determinati requisiti hardware e di dimensione. Per facilitare la distribuzione, Site Recovery fornisce un modello OVA (Open Virtualization Application) scaricabile che consente di configurare il server di configurazione conformemente a tutti i requisiti obbligatori elencati di seguito.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 
 I requisiti hardware minimi per un server di configurazione sono riepilogati nella tabella seguente.
 
@@ -99,8 +99,10 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 1. Nella procedura guidata per la gestione del server di configurazione selezionare **Configura la connettività** e quindi la scheda di interfaccia di rete utilizzata dal server di elaborazione per ricevere il traffico di replica. Selezionare quindi **Salva**. Una volta configurata, questa impostazione non può essere modificata.
 2. In **Seleziona l'insieme di credenziali di Servizi di ripristino** accedere a Microsoft Azure, selezionare la sottoscrizione di Azure e quindi il gruppo di risorse e l'insieme di credenziali pertinenti.
-    >[!NOTE]
+
+    > [!NOTE]
     > Dopo la registrazione, non è più possibile cambiare l'insieme di credenziali di Servizi di ripristino.
+    
 3. In **Installa software di terze parti**
 
     |Scenario   |Procedura da seguire  |
@@ -117,11 +119,27 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="faq"></a>Domande frequenti
 
-1. È possibile usare la macchina virtuale in cui è installato il server di configurazione per scopi diversi? **No**, il server di configurazione deve essere un server dedicato e il suo utilizzo come server condiviso non è supportato.
-2. È possibile sostituire l'insieme di credenziali già registrate nel server di configurazione con un insieme di credenziali nuovo? **No**, una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
-3. È possibile usare lo stesso server di configurazione per proteggere sia i computer fisici che le macchine virtuali? **Sì**, lo stesso server di configurazione può essere usato per la replica di computer fisici e macchine virtuali. Non è però supportato il failback a un computer fisico.
-4. Dove verrà usato il server di configurazione? Per altre informazioni sul server di configurazione e sulle sue funzionalità, fare riferimento all'architettura di Azure Site Recovery [qui](vmware-azure-architecture.md).
-5. Dove è possibile trovare la versione più recente del server di configurazione? Può essere scaricata direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver). Vedere l'[articolo](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) che illustra la procedura di aggiornamento del server di configurazione.
+1. È possibile usare la macchina virtuale in cui è installato il server di configurazione per scopi diversi?
+
+    **No**, è consigliabile usare la macchina virtuale solo per il server di configurazione. Assicurarsi di seguire tutte le specifiche indicate nella [sezione precedente](vmware-azure-deploy-configuration-server.md#Prerequisites) per una gestione efficiente del ripristino di emergenza.
+2. È possibile sostituire l'insieme di credenziali già registrate nel server di configurazione con un insieme di credenziali nuovo?
+
+    **No**, una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
+3. È possibile usare lo stesso server di configurazione per proteggere sia i computer fisici che le macchine virtuali?
+
+    **Sì**, lo stesso server di configurazione può essere usato per la replica di computer fisici e macchine virtuali. Tuttavia, è possibile eseguire il failback del computer fisico solo in una macchina virtuale VMware.
+4. Qual è lo scopo di un server di configurazione e dove viene usato?
+
+    Per altre informazioni sul server di configurazione e sulle sue funzionalità, fare riferimento all'architettura di Azure Site Recovery [qui](vmware-azure-architecture.md).
+5. Dove è possibile trovare la versione più recente del server di configurazione?
+
+    Vedere l'articolo che illustra la procedura di aggiornamento del server di configurazione [tramite il portale](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Può essere inoltre scaricata direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
+6. Dove è possibile scaricare la passphrase per il server di configurazione?
+
+    Fare riferimento a [questo articolo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) per scaricare la passphrase.
+7. Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
+
+    Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 

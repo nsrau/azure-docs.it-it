@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6470bb5b7b5b8404683d1ae6fd4f16f0436982ef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377673"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126559"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>Uso di un token di informazioni dettagliate per ottenere informazioni dettagliate su un'immagine
 
@@ -62,18 +62,19 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 Per esempi che usano il token di informazioni dettagliate, vedere [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python).
 
-<a name="csharp" />
+<a name="using-csharp" />
+
 ## <a name="using-c"></a>Uso di C#
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. (La Community Edition funzionerà.)
 
-Per questo Avvio rapido, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-Per eseguire l'applicazione seguire questa procedura:
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. Creare una nuova soluzione di Console in Visual Studio.
 1. Sostituire il contenuto di `Program.cs` con il codice illustrato in questo Avvio rapido.
@@ -237,25 +238,24 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-
-
+<a name="using-java" />
 
 ## <a name="using-java"></a>Uso di Java
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
 
-Per questo Avvio rapido, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-Per eseguire l'applicazione seguire questa procedura:
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. Scaricare o installare la [libreria gson](https://github.com/google/gson). È anche possibile ottenerla tramite Maven.
-2. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito.
+2. Creare un nuovo progetto Java nell'IDE o nell'editor preferito.
 3. Aggiungere il codice fornito in un file denominato `VisualSearch.java`.
-4. Sostituire il valore `subscriptionKey` con la chiave di sottoscrizione.
+4. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -357,17 +357,18 @@ public class InsightsToken {
 
 
 <a name="using-nodejs" />
+
 ## <a name="using-nodejs"></a>Uso di Node.js
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Node.js 6](https://nodejs.org/en/download/).
 
-Per questo Avvio rapido, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
+Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 
 ## <a name="running-the-application"></a>Esecuzione dell'applicazione
 
-Per eseguire l'applicazione seguire questa procedura:
+Per eseguire l'applicazione, seguire questa procedura:
 
 1. Creare una cartella del progetto (o usare l'ambiente di sviluppo integrato o l'editor preferito).
 2. Da un terminale o un prompt dei comandi passare alla cartella appena creata.
@@ -380,7 +381,7 @@ Per eseguire l'applicazione seguire questa procedura:
   npm install form-data  
   ```  
 4. Creare un file denominato GetVisualInsights.js e aggiungervi il codice seguente.
-5. Sostituire il valore `subscriptionKey` con la chiave di sottoscrizione.
+5. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
 7. Eseguire il programma.  
   ```
   node GetVisualInsights.js
@@ -422,12 +423,12 @@ function requestCallback(err, res, body) {
 ```
 
 
-
+<a name="using-python" />
 
 ## <a name="using-python"></a>Uso di Python
 
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Python 3](https://www.python.org/).
 
@@ -439,7 +440,7 @@ Per eseguire l'applicazione seguire questa procedura:
 
 1. Creare un nuovo progetto Python nell'ambiente di sviluppo integrato o nell'editor preferito.
 2. Creare un file denominato visualsearch.py e aggiungere il codice illustrato in questo Avvio rapido.
-3. Sostituire il valore `SUBSCRIPTION_KEY` con la chiave di sottoscrizione.
+3. Sostituire il valore di `SUBSCRIPTION_KEY` con la chiave di sottoscrizione.
 4. Eseguire il programma.
 
 
@@ -494,5 +495,5 @@ if __name__ == '__main__':
 [Esercitazione sull'app a singola pagina di Ricerca visiva Bing](tutorial-bing-visual-search-single-page-app.md)  
 [Panoramica di Ricerca visiva Bing](overview.md)  
 [Prova](https://aka.ms/bingvisualsearchtryforfree)  
-[Ottenere una chiave di accesso gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Riferimenti dell'API Ricerca visiva Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Ottenere una chiave di accesso per la versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Informazioni di riferimento sull'API Ricerca visiva Bing](https://aka.ms/bingvisualsearchreferencedoc)

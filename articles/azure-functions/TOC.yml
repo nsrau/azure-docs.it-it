@@ -145,6 +145,8 @@
           href: functions-develop-vs.md
         - name: Sviluppo di strumenti di base
           href: functions-run-local.md
+        - name: Sviluppo di IntelliJ IDEA
+          href: functions-create-maven-intellij.md
         - name: Gestire le connessioni
           href: manage-connections.md
         - name: Gestione degli errori
@@ -199,7 +201,7 @@
           href: durable-functions-event-publishing.md
         - name: Usare WebJobs SDK
           href: durable-functions-webjobs-sdk.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Associazioni
       items:

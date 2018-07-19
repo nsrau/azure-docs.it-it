@@ -41,6 +41,8 @@
           href: automation-update-management.md
         - name: Gestire gli aggiornamenti per più macchine virtuali
           href: manage-update-multi.md
+        - name: Eseguire la migrazione delle distribuzioni aggiornate di OMS in Azure
+          href: migrate-oms-update-deployments.md
         - name: Integrare SCCM con Gestione aggiornamenti
           href: oms-solution-updatemgmt-sccmintegration.md
     - name: Change Tracking
@@ -207,7 +209,7 @@
           href: troubleshoot/hybrid-runbook-worker.md
         - name: Gestione degli aggiornamenti
           href: troubleshoot/update-management.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Azure PowerShell
       href: /powershell/module/azurerm.automation

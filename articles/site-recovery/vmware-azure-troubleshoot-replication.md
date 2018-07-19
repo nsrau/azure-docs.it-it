@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951649"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126018"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Risolvere i problemi di replica per macchine virtuali VMware e server fisici
 
@@ -74,25 +74,7 @@ Se non si riesce a connettersi, verificare se il problema di accesso è causato 
 
 * **Controllare che l'accesso non sia bloccato da un firewall basato su URL nel server di elaborazione**: se si usano regole del firewall basate su URL nel server, assicurarsi di aggiungere gli URL seguenti alla configurazione del firewall.
 
-  `*.accesscontrol.windows.net:`, usato per il controllo di accesso e la gestione delle identità.
-
-  `*.backup.windowsazure.com:`, usato per l'orchestrazione e il trasferimento dei dati di replica.
-
-  `*.blob.core.windows.net:`, usato per l'accesso all'account di archiviazione in cui sono archiviati i dati replicati.
-
-  `*.hypervrecoverymanager.windowsazure.com:`, usato per l'orchestrazione e le operazioni di gestione della replica.
-
-  `time.nist.gov` e `time.windows.com`, usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-
-URL per il **cloud di Azure per enti pubblici**:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **Controllare che le impostazioni del proxy nel server di elaborazione non blocchino l'accesso**.  Se si usa un server proxy, assicurarsi che il nome del server proxy venga risolto dal server DNS.
 Per controllare le impostazioni specificate al momento dell'installazione del server di configurazione. Passare alla chiave del Registro di sistema

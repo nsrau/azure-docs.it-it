@@ -4,7 +4,7 @@
 ## [Che cos'è Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Attività iniziali
-## [Portale di Azure](data-lake-analytics-get-started-portal.md)
+## [portale di Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -59,12 +59,15 @@
 #### [Codice personalizzato](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [Esecuzione e debug locale](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## Pianificare i processi U-SQL
+### [Pianificare i processi con SSIS](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## Integrazione continua e distribuzione continua
 ### [Overview](data-lake-analytics-cicd-overview.md)
 ### [Configurare i test](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)

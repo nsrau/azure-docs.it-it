@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757157"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345712"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Avviare un runbook di Automazione di Azure con un webhook
 
@@ -86,11 +86,11 @@ Un'altra strategia consiste nel fare in modo che il Runbook esegua la convalida 
 
 Seguire questa procedura per creare un nuovo webhook collegato a un Runbook nel portale di Azure.
 
-1. Nella pagina **Runbook** nel portale di Azure fare clic sul runbook che verrà avviato dal webhook per visualizzare la pagina dei dettagli.
-1. Fare clic su **Webhook** nella parte superiore della pagina per aprire la pagina **Aggiungi webhook**.
-1. Fare clic su **Creare un nuovo webhook** per aprire la pagina **Crea webhook**.
-1. Specificare un valore per **Nome** e **Data scadenza** per il webhook e indicare se deve essere abilitato. Per altre informazioni su queste proprietà, vedere [Informazioni dettagliate sui webhook](#details-of-a-webhook) .
-1. Fare clic sull'icona di copia e premere CTRL+C per copiare l'URL del webhook. Annotarlo in un luogo sicuro. **Dopo aver creato il webhook, non è possibile recuperare di nuovo l'URL.**
+1. Nella pagina **Runbook** nel portale di Azure fare clic sul runbook che verrà avviato dal webhook per visualizzare la pagina dei dettagli. Verificare che lo **stato** del runbook sia **Pubblicato**.
+2. Fare clic su **Webhook** nella parte superiore della pagina per aprire la pagina **Aggiungi webhook**.
+3. Fare clic su **Creare un nuovo webhook** per aprire la pagina **Crea webhook**.
+4. Specificare un valore per **Nome** e **Data scadenza** per il webhook e indicare se deve essere abilitato. Per altre informazioni su queste proprietà, vedere [Informazioni dettagliate sui webhook](#details-of-a-webhook) .
+5. Fare clic sull'icona di copia e premere CTRL+C per copiare l'URL del webhook. Annotarlo in un luogo sicuro. **Dopo aver creato il webhook, non è possibile recuperare di nuovo l'URL.**
 
    ![URL webhook](media/automation-webhooks/copy-webhook-url.png)
 

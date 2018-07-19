@@ -26,6 +26,10 @@
   items:
     - name: Panoramica dell'host processore di eventi
       href: event-hubs-event-processor-host.md
+    - name: Filtri di connessione IP
+      href: event-hubs-ip-filtering.md
+    - name: Endpoint del servizio Rete virtuale
+      href: event-hubs-service-endpoints.md
     - name: Guida alla programmazione
       href: event-hubs-programming-guide.md
     - name: Integrazione con Griglia di eventi
@@ -119,7 +123,7 @@
           href: event-hubs-streaming-azure-diags-data.md
         - name: Creare e distribuire un hub eventi con un modello di Resource Manager
           href: event-hubs-resource-manager-namespace-event-hub.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Java
       items:
@@ -150,7 +154,7 @@
     - name: Domande frequenti
       href: event-hubs-faq.md
     - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: Prezzi

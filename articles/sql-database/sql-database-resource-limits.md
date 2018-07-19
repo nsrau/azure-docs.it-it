@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750952"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345720"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Panoramica dei limiti delle risorse di Database SQL Azure 
 
@@ -27,10 +27,11 @@ Questo articolo riporta una panoramica dei limite delle risorse del Database SQL
 | Database per server | 5000 |
 | Numero predefinito di server per sottoscrizione in ogni area | 20 |
 | Numero massimo di server per sottoscrizione in ogni area | 200 |
+| Quota DTU/eDTU per server | 54.000 |
 |||
 
 > [!NOTE]
-> Per ottenere una quota del server superiore alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota".
+> Per ottenere una quota di DTU/eDTU maggiore o più server rispetto alla quantità predefinita, è possibile inviare una nuova richiesta di supporto nel portale di Azure per la sottoscrizione con il tipo di problema "Quota". La quota di DTU/eDTU e il limite di database per server limita il numero di pool elastici per ogni server. 
 
 > [!IMPORTANT]
 > Poiché il numero di database si avvicina al limite per ogni server, può verificarsi quanto segue:

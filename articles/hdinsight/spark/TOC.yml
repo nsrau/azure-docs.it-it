@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: Eseguire un processo di streaming
       href: apache-spark-eventhub-streaming.md
-    - name: Creare un'applicazione di Machine Learning
+    - name: Creare un'app Machine Learning
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: Creare un'applicazione Spark con IntelliJ
+    - name: Creare un'app Spark in IntelliJ
       href: apache-spark-create-standalone-application.md
 - name: Procedure
   items:
@@ -402,7 +402,7 @@
         - name: Monitorare le prestazioni di un cluster
           href: ../hdinsight-key-scenarios-to-monitor.md
           maintainContext: true
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight'

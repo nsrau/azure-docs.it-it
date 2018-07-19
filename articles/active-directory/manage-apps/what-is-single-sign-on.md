@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: a6f116842ce61585feda8f20e204e0751a360036
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311165"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081507"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
@@ -40,12 +40,13 @@ L'architettura dell'integrazione è costituita dai quattro principali blocchi pr
 * Segnalazione e monitoraggio unificati delle attività dell'utente in Azure AD
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Come funziona Single Sign-On con Azure Active Directory (PHP)?
-Quando un utente accede a un'applicazione, passa attraverso un processo di autenticazione in cui viene richiesto di dimostrare di essere chi dice di essere. Senza Single Sign-On, questo processo di autenticazione viene in genere eseguito immettendo una password archiviata nell'applicazione e gli utenti sono tenuti a conoscere la password.
+Quando gli utenti accedono a un'applicazione, passano attraverso un processo di autenticazione in cui viene richiesto di dimostrare di essere chi dicono di essere. Senza Single Sign-On, questo processo di autenticazione viene in genere eseguito immettendo una password archiviata nell'applicazione e gli utenti sono tenuti a conoscere la password.
 
 Azure AD supporta tre modi diversi per accedere alle applicazioni:
 
 * **Single Sign-On federato** consente alle applicazioni di reindirizzare ad Azure AD per l'autenticazione dell’utente anziché richiedere la propria password. L'accesso Single Sign-On federato è supportato per le applicazioni che supportano protocolli quali SAML 2.0, WS-Federation oppure OpenID Connect ed è la modalità più ricca di Single Sign-On.
-* **Single Sign-On basato su password** consente l’archiviazione e la riproduzione delle password delle applicazioni protette utilizzando un'estensione del browser Web o un’app mobile. L'accesso Single Sign-On basato su password sfrutta il processo di accesso esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password e non richiede all'utente di conoscerle.
+* **Single Sign-On basato su password** consente l’archiviazione e la riproduzione delle password delle applicazioni protette utilizzando un'estensione del browser Web o un’app mobile. Single Sign-On basato su password utilizza il 
+*  processo esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password e non richiede all'utente di conoscerle.
 * **Single Sign-On esistente** consente ad Azure AD di sfruttare qualunque Single Sign-On esistente configurato per l'applicazione, ma consente a queste applicazioni di essere collegate ai portali del pannello di accesso di Office 365 o di Azure AD e abilita il reporting aggiuntivo in Azure AD quando le applicazioni vengono avviate da questa posizione.
 
 Una volta che un utente è stato autenticato con un'applicazione, deve disporre anche di un record di account con provisioning all'applicazione che indica all'applicazione dove si trovano le autorizzazioni e il livello di accesso all'interno dell'applicazione. Il provisioning di questo record di account può verificarsi automaticamente o può essere effettuato manualmente da un amministratore prima che all'utente venga fornito l'accesso Single Sign-On.
@@ -64,7 +65,7 @@ Vedere anche: [Gestione dei certificati per Single Sign-On federato](manage-cert
 ### <a name="password-based-single-sign-on"></a>Single Sign-On basato su password
 La configurazione di Single Sign-On basato su password consente agli utenti dell'organizzazione di accedere automaticamente a un'applicazione SaaS di terze parti tramite Azure AD utilizzando le informazioni dell’account utente dall’applicazione SaaS di terze parti. Quando si abilita questa funzionalità, Azure AD raccoglie e archivia in modo sicuro le informazioni sull'account utente e la relativa password.
 
-Azure AD supporta Single Sign-On basato su password per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. Utilizzando un plug-in del browser personalizzato, AAD automatizza il processo di accesso dell’utente recuperando in modo sicuro le credenziali dell'applicazione come il nome utente e la password dalla directory e immettendole nella pagina di accesso dell’applicazione per conto dell'utente. Esistono due casi di utilizzo:
+Azure AD supporta Single Sign-On basato su password per qualunque applicazione basata su cloud con pagina di accesso basata su HTML. Utilizzando un plug-in del browser personalizzato, AAD automatizza il processo di accesso recuperando in modo sicuro le credenziali dell'applicazione come il nome utente e la password dalla directory e immettendole nella pagina di accesso dell'applicazione per conto dell'utente. Esistono due casi di utilizzo:
 
 1. **L’amministratore gestisce le credenziali** : gli amministratori possono creare e gestire le credenziali dell'applicazione e assegnare le credenziali a utenti o gruppi che devono accedere all'applicazione. In questi casi, l'utente finale non deve necessariamente conoscere le credenziali, ma comunque ottiene l’accesso Single Sign-On all'applicazione semplicemente facendo clic su di esso nel proprio pannello di accesso o tramite un collegamento fornito. Questo processo consente sia la gestione del ciclo di vita delle credenziali da parte dell'amministratore, che la comodità per gli utenti finali che non devono necessariamente ricordare o gestire le password specifiche dell'app. Le credenziali vengono nascoste all'utente finale durante il processo di accesso automatico; tuttavia, esse sono tecnicamente individuabili dall'utente utilizzando strumenti di debug Web; gli utenti e gli amministratori devono seguire gli stessi criteri di sicurezza utilizzati se le credenziali fossero presentate direttamente all'utente. Le credenziali fornite dall’amministratore sono utili quando si fornisce un accesso all'account condiviso tra più utenti, ad esempio i social media o applicazioni di condivisione dei documenti.
 2. **L’utente gestisce le credenziali** : gli amministratori possono assegnare le applicazioni agli utenti finali o ai gruppi e consentire agli utenti finali di immettere le proprie credenziali direttamente quando accedono all'applicazione per la prima volta nel proprio pannello di accesso. Questo crea una comodità per gli utenti finali poiché essi non devono immettere continuamente le password specifiche delle applicazioni ogni volta che accedono ad esse. Gli utenti possono continuare a gestire le password aggiornandole o eliminandole in base alle proprie esigenze. Questo caso di utilizzo può essere usato anche come tappa della gestione amministrativa delle credenziali, poiché l'amministratore può impostare nuove credenziali per l'applicazione in un secondo momento senza modificare l'esperienza di accesso dell'utente finale all’app.
@@ -133,7 +134,8 @@ Le attività amministrative tipiche per un'applicazione SaaS di terze parti sono
 
 * Abilitazione di Single Sign-On con Azure AD, utilizzando Single Sign-On con password o, se disponibile per il SaaS di destinazione, Single Sign-On federato
 * Facoltativamente, abilitare il provisioning e deprovisioning per l'utente (gestione del ciclo dell’identità)
-* Per le applicazioni in cui il provisioning dell'utente è abilitato, selezionare gli utenti che hanno accesso all'applicazione
+* Per le applicazioni 
+* in cui il provisioning dell'utente è abilitato, selezionare gli utenti che hanno accesso all'applicazione
 
 Per le applicazioni della raccolta che supportano Single Sign-On federato, la configurazione in genere richiede di fornire impostazioni di configurazione aggiuntive, ad esempio certificati e metadati per creare una relazione di trust federativa tra l'applicazione di terze parti e Azure AD. La configurazione guidata illustra i dettagli e fornisce l’accesso facile ai dati specifici dell'applicazione SaaS e istruzioni.
 
@@ -192,7 +194,7 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell'accesso c
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Ricerca di applicazioni cloud non autorizzate con Cloud App Discovery](cloud-app-discovery.md)
+* [Configurare Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
 * [Introduzione alla gestione dell'accesso alle app](what-is-access-management.md)
 * [Confronto tra le funzionalità per la gestione di identità esterne con Azure AD](../active-directory-b2b-compare-b2c.md)
 

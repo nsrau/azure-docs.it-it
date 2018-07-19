@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900464"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035242"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurare un'identità del servizio gestita (MDI) in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal
 > [!NOTE]
 > Attualmente le operazioni di identità assegnate dall'utente non sono supportate tramite il portale di Azure. Ricontrollare in seguito per aggiornamenti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md).
@@ -56,7 +56,7 @@ Per abilitare l'identità assegnata dal sistema in una macchina virtuale di cui 
 
 3. Abilitare l'identità assegnata dal sistema nella macchina virtuale selezionando l'opzione "Sì" in "Identità del servizio gestita", quindi fare clic su **Salva**. Il completamento di questa operazione può richiedere circa 60 secondi:
 
-   [![Screenshot della pagina Configurazione](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![Screenshot della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere l'identità del servizio gestita da un set di scalabilità di macchine virtuali di Azure
 
@@ -68,7 +68,7 @@ Se si dispone di un set di scalabilità di macchine virtuali per cui non è più
 
 3. Disabilitare l'identità assegnata dal sistema nella macchina virtuale selezionando l'opzione "No" in "Identità del servizio gestita", quindi fare clic su Salva. Il completamento di questa operazione può richiedere circa 60 secondi:
 
-   ![Schermata della pagina Configurazione](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![Schermata della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>Contenuti correlati
 

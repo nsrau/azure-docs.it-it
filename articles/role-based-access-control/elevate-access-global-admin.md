@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266505"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445212"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale in Azure Active Directory
 
-In alcune occasioni un [amministratore globale](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator) in Azure Active Directory (Azure AD) potrebbe avere bisogno di eseguire le operazioni seguenti:
+In alcune occasioni un [amministratore globale](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) in Azure Active Directory (Azure AD) potrebbe avere bisogno di eseguire le operazioni seguenti:
 
 - Ottenere nuovamente l'accesso a una sottoscrizione di Azure quando un utente ha perso l'accesso
 - Concedere a un altro utente o a se stesso l'accesso a una sottoscrizione di Azure
@@ -37,7 +37,7 @@ Questa elevazione dei privilegi dovrebbe essere temporanea ed eseguita solo quan
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale tramite il portale di Azure
+## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Eseguire con privilegi elevati l'accesso per un amministratore globale usando il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com) o all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com).
 
@@ -88,9 +88,9 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
   -RoleDefinitionName "User Access Administrator" -Scope "/"
 ```
 
-## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale tramite l'API REST
+## <a name="elevate-access-for-a-global-administrator-using-the-rest-api"></a>Eseguire con privilegi elevati l'accesso per l'amministratore globale usando l'API REST
 
-Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso per l'amministratore globale tramite l'API REST.
+Usare la procedura di base seguente per eseguire con privilegi elevati l'accesso per l'amministratore globale usando l'API REST.
 
 1. Usando REST, chiamare `elevateAccess`, che concede all'utente il ruolo Amministratore Accesso utenti all'ambito radice (`/`).
 
@@ -220,4 +220,5 @@ Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Controllo degli accessi in base al ruolo con REST](role-assignments-rest.md)
-- [Gestire le assegnazioni di accesso](role-assignments-users.md)
+- [Gestire l'accesso alle risorse di Azure con Privileged Identity Management](pim-azure-resource.md)
+- [Gestire l'accesso alla gestione di Azure con accesso condizionale](conditional-access-azure-management.md)

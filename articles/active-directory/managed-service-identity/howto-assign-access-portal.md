@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929773"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036446"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Assegnare a un'Identità del servizio gestito l'accesso a una risorsa tramite il portale di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "33929773"
 
 Dopo aver configurato una risorsa di Azure con un'Identità del servizio gestito (MSI), è possibile concedere all'identità del servizio gestito l'accesso a un'altra risorsa, analogamente a qualsiasi entità di sicurezza. Questo articolo illustra come concedere a un'identità del servizio gestito della macchina virtuale di Azure o di un set di scalabilità di macchine virtuali di Azure l'accesso a un account di archiviazione di Azure tramite il portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,20 +41,20 @@ Dopo aver abilitato l'identità del servizio gestito in una risorsa di Azure, ad
 
 3. Per una macchina virtuale di Azure selezionare la pagina **Controllo di accesso (IAM)** della risorsa e quindi **+ Aggiungi**. Specificare quindi il **ruolo**, **assegnare l'accesso a una macchina virtuale** e specificare il **gruppo di risorse** e la **sottoscrizione** corrispondente in cui risiede la risorsa. Nell'area per i criteri di ricerca viene visualizzata la risorsa. Selezionare la risorsa e premere **Salva**. 
 
-   ![Screenshot della pagina Controllo di accesso (IAM)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![Screenshot della pagina Controllo di accesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    Per un set di scalabilità di macchine virtuali di Azure selezionare la pagina **Controllo di accesso (IAM)** della risorsa e quindi **+ Aggiungi**. Specificare un **ruolo** e **assegnare l'accesso**. Nell'area dei criteri di ricerca cercare il set di scalabilità di macchine virtuali. Selezionare la risorsa e premere **Salva**.
    
-   ![Schermata del Controllo di accesso (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![Schermata del Controllo di accesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. Si apre di nuovo la pagina principale **Controllo di accesso (IAM)** in cui viene visualizzata una nuova voce per l'Identità del servizio gestito della risorsa.
 
     Macchina virtuale di Azure:
 
-   ![Schermata del Controllo di accesso (IAM)](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![Schermata del Controllo di accesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Set di scalabilità di macchine virtuali di Azure:
 
-    ![Schermata del Controllo di accesso (IAM)](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![Schermata del Controllo di accesso (IAM)](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

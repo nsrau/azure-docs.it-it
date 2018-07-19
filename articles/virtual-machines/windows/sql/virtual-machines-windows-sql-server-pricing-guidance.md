@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/02/2018
+ms.date: 07/02/2018
 ms.author: jroth
-ms.openlocfilehash: 71c86af9d4dcdf1026b4f539574b9932ef1cfc89
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767801"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345278"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Guida ai prezzi per le VM di SQL Server in Azure
 
@@ -66,7 +66,7 @@ Sono disponibili due possibilità per il pagamento delle licenze di SQL Server p
 
 **Pagamento della licenza di SQL Server in base all'utilizzo** significa che il costo al secondo per l'esecuzione della macchina virtuale di Azure include il costo della licenza di SQL Server. È possibile vedere i prezzi delle diverse edizioni di SQL Server (Web, Standard, Enterprise) nella pagina dei prezzi delle VM di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) o [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
-Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di core della macchina virtuale, che è standard per le licenze di SQL Server.
+Il costo è lo stesso per tutte le versioni di SQL Server, dalla 2012 SP3 alla 2017. Il costo della licenza al secondo dipende dal numero di CPU virtuali della macchina virtuale.
 
 Il pagamento della licenze di SQL Server in base all'utilizzo è consigliato per:
 
@@ -128,7 +128,7 @@ Per evitare i costi non necessari, scegliere una dimensione di macchina virtuale
 
 ### <a id="machinesize"></a> Gestisce correttamente le dimensioni della macchina virtuale
 
-I costi di licenza di SQL Server sono direttamente correlati al numero di core. Scegliere le dimensioni della macchina virtuale che soddisfano le esigenze previste per CPU, memoria, archiviazione e della larghezza di banda di I/O. Per un elenco completo delle opzioni relative alle dimensioni del computer, vedere [Dimensioni per le macchine virtuali Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [Dimensioni per le macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+I costi di licenza di SQL Server sono direttamente correlati al numero di CPU virtuali. Scegliere le dimensioni della macchina virtuale che soddisfano le esigenze previste per CPU, memoria, archiviazione e della larghezza di banda di I/O. Per un elenco completo delle opzioni relative alle dimensioni del computer, vedere [Dimensioni per le macchine virtuali Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [Dimensioni per le macchine virtuali Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Sono disponibili nuove dimensioni per i computer che funzionano bene con determinati tipi di carichi di lavoro di SQL Server. Queste dimensioni di computer mantengono livelli elevati di memoria, archiviazione e larghezza di banda di I/O, ma hanno un basso numero di core virtualizzati. Ad esempio, si consideri l'esempio seguente:
 
@@ -140,7 +140,7 @@ Sono disponibili nuove dimensioni per i computer che funzionano bene con determi
 > [!IMPORTANT]
 > Questo è un esempio temporizzato. Per le specifiche tecniche più recenti, vedere gli articoli sulle dimensioni per i computer e la pagina dei prezzi di Azure per [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-Nell'esempio precedente è possibile vedere che le specifiche per **Standard_DS14v2** e **Standard_DS14-4v2** sono identiche ad eccezione di quelle per la CPU virtuale. Il suffisso **-4v2** alla fine della dimensione del computer **Standard_DS14-4v2** indica il numero di CPU virtuali attive. Poiché i costi di licenza di SQL Server sono collegati al numero di core, questo riduce notevolmente il costo della macchina virtuale in scenari in cui non sono necessari. CPU virtuali aggiuntive. Questo è un esempio, ma ci sono diverse dimensioni per i computer con CPU virtuali vincolate identificate con questo modello di suffisso. Per altre informazioni, vedere il post di blog [Annuncio delle nuove dimensioni per le macchine virtuali di Azure per operazioni sul database più convenienti](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+Nell'esempio precedente è possibile vedere che le specifiche per **Standard_DS14v2** e **Standard_DS14-4v2** sono identiche ad eccezione di quelle per la CPU virtuale. Il suffisso **-4v2** alla fine della dimensione del computer **Standard_DS14-4v2** indica il numero di CPU virtuali attive. Poiché i costi di licenza di SQL Server sono collegati al numero di CPU virtuali, questo riduce notevolmente il costo della macchina virtuale in scenari in cui non sono necessarie CPU virtuali aggiuntive. Questo è un esempio, ma ci sono diverse dimensioni per i computer con CPU virtuali vincolate identificate con questo modello di suffisso. Per altre informazioni, vedere il post di blog [Annuncio delle nuove dimensioni per le macchine virtuali di Azure per operazioni sul database più convenienti](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 ### <a name="shut-down-your-vm-when-possible"></a>Arrestare la macchina virtuale quando possibile
 

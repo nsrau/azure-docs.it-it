@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344217"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068574"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -115,5 +115,5 @@ Se in qualsiasi momento si desidera modificare il nome o la descrizione del mode
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-- [Riconoscimento vocale in C#](quickstart-csharp-windows.md)
+- [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
 - [Dati di esempio in Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

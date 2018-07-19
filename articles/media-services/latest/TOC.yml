@@ -77,7 +77,9 @@
       items:
         - name: Con AES-128 - .NET
           href: protect-with-aes128.md
-- name: Riferimenti
+        - name: Con DRM - .NET
+          href: protect-with-drm.md
+- name: riferimento
   items:
     - name: Specifica OpenAPI (Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'

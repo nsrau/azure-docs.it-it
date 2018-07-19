@@ -17,7 +17,7 @@
      ![Firewall](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. In **Controllo dei prerequisiti** il programma di installazione esegue un controllo per assicurarsi che sia possibile eseguire l'installazione. Se viene visualizzato un avviso relativo al **Global time sync check** (Controllo della sincronizzazione ora globale), verificare che l'ora del clock di sistema, nelle impostazioni di **Data e ora**, corrisponda al fuso orario.
 
-    ![prerequisiti](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+    ![Prerequisiti](./media/site-recovery-add-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)

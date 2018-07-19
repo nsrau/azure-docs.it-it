@@ -2,19 +2,19 @@
 title: Usare Draft con il servizio contenitore di Azure e con Registro contenitori di Azure
 description: Usare Draft con il servizio contenitore di Azure e con Registro contenitori di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257316"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130244"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con Azure Kubernetes Service (AKS)
 
@@ -58,11 +58,11 @@ Draft compila le immagini dei contenitori in locale e quindi le distribuisce dal
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>Creare una relazione di trust tra il cluster del servizio contenitore di Azure e Registro contenitori di Azure
 
-Per stabilire questa relazione di trust, è necessario modificare l'entità servizio di Azure Active Directory usata con il servizio contenitore di Azure aggiungendo a tale entità il ruolo di collaboratore con l'ambito del repository di Registro contenitori di Azure. A tale scopo, eseguire i comandi seguenti, sostituendo _&lt;aks-rg-name&gt;_ e _&lt;aks-cluster-name&gt;_ con il nome del gruppo di risorse e il nome del cluster del servizio contenitore di Azure e _&lt;acr-rg-nam&gt;_ e _&lt;acr-repo-name&gt;_ con il nome del gruppo di risorse e il nome del repository di Registro contenitori di Azure con il quale si vuole stabilire la relazione di trust.
+Per stabilire questa relazione di trust, è necessario modificare l'entità servizio di Azure Active Directory usata con il servizio contenitore di Azure aggiungendo all'entità il ruolo di collaboratore con l'ambito dell'istanza di Registro contenitori di Azure. A tale scopo, eseguire i comandi seguenti, sostituendo _&lt;aks-rg-name&gt;_ e _&lt;aks-cluster-name&gt;_ con il nome del gruppo di risorse e il nome del cluster del servizio contenitore di Azure e _&lt;acr-rg-nam&gt;_ e _&lt;acr-registry-name&gt;_ con il nome del gruppo di risorse e il nome dell'istanza di Registro contenitori di Azure con la quale si vuole stabilire la relazione di trust.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

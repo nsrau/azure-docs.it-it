@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: abd44fd0c9cbfab2365b1552e3cd90e84a5348d7
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: bcd570d5fd2bdcf6cd344f5c81902420163b87ae
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2017
-ms.locfileid: "25957528"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434542"
 ---
 # <a name="available-event-hubs-apis"></a>API di Hub eventi disponibili
 
@@ -27,9 +27,9 @@ Questo articolo descrive il set di client API disponibili che è possibile usare
 
 ## <a name="runtime-apis"></a>API di runtime
 
-Di seguito vengono descritti tutti i client di runtime di Hub eventi di Azure attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono [librerie specifiche](#management-apis) dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di inviare e ricevere messaggi da un hub eventi.
+La sezione seguente illustra tutti i client di runtime di Hub eventi di Azure attualmente disponibili. Sebbene alcune di queste librerie includano anche la funzionalità di gestione limitata, esistono [librerie specifiche](#management-apis) dedicate alle operazioni di gestione. L'obiettivo principale di queste librerie è di inviare e ricevere messaggi da un hub eventi.
 
-Sono disponibili [altre informazioni](#additional-information) per trovare più dettagli sullo stato corrente di tutte le librerie di runtime.
+Per altre informazioni sullo stato attuale di ogni libreria di runtime, vedere [Informazioni aggiuntive](#additional-information).
 
 | Linguaggio/Piattaforma | Pacchetto client | Pacchetto EventProcessorHost | Repository |
 | --- | --- | --- | --- |
@@ -42,15 +42,16 @@ Sono disponibili [altre informazioni](#additional-information) per trovare più 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
 #### <a name="net"></a>.NET
-I runtime in un ecosistema .NET sono vari, pertanto sono presenti più librerie .NET per gli Hub eventi. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per altre informazioni su .NET Framework, vedere le [versioni del framework](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
+
+L'ecosistema .NET include molteplici runtime. Per Hub eventi sono pertanto disponibili più librerie .NET. La libreria .NET Standard può essere eseguita usando .NET Core o .NET Framework, mentre la libreria .NET Framework può essere eseguita solo in un ambiente .NET Framework. Per altre informazioni sulle versioni di .NET Framework, vedere le [versioni del framework](https://docs.microsoft.com/dotnet/articles/standard/frameworks#framework-versions).
 
 #### <a name="node"></a>Nodo
 
-La libreria Node.js è attualmente in anteprima e viene gestita come progetto a parte da dipendenti Microsoft e collaboratori esterni. Tutti i contributi compreso il codice sorgente sono graditi e verranno presi in esame.
+La [libreria Node.js](https://github.com/Azure/azure-event-hubs-node) è attualmente in anteprima e viene gestita come progetto a parte da dipendenti Microsoft e collaboratori esterni. Tutti i contributi compreso il codice sorgente sono graditi e verranno presi in esame.
 
 ## <a name="management-apis"></a>API di gestione
 
-Di seguito è riportato un elenco di tutte le librerie di gestione specifiche attualmente disponibili. Nessuna di loro include operazioni di runtime e le librerie hanno il solo scopo di gestire le entità di Hub eventi.
+Nella tabella seguente sono elencate tutte le librerie specifiche per la gestione attualmente disponibili. Nessuna di loro include operazioni di runtime e le librerie hanno il solo scopo di gestire le entità di Hub eventi.
 
 | Linguaggio/Piattaforma | Pacchetto di gestione | Repository |
 | --- | --- | --- | --- |

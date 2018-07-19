@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048789"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341580"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Come creare e configurare il runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per fornire le funzionalità di integrazione di dati in diversi ambienti di rete. Per informazioni dettagliate sul runtime di integrazione, vedere [Integration Runtime Overview](concepts-integration-runtime.md) (Panoramica del runtime di integrazione).
@@ -140,6 +140,7 @@ Nomi di dominio | Porte | DESCRIZIONE
 *.servicebus.windows.net | 443, 80 | Utilizzato per la comunicazione con il backend Data Movement Service
 *.core.windows.net | 443 | Utilizzato per la copia di staging mediante il BLOB di Azure (se configurata)
 *.frontend.clouddatahub.net | 443 | Utilizzato per la comunicazione con il backend Data Movement Service
+download.microsoft.com | 443 | Utilizzato per il download di aggiornamenti
 
 A livello di **Windows Firewall** (a livello di computer) queste porte in uscita sono generalmente abilitate. In caso contrario, è possibile configurare le porte e i domini nel modo appropriato nel computer del runtime di integrazione self-hosted.
 

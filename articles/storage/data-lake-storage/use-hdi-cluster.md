@@ -1,6 +1,6 @@
 ---
-title: Usare l'anteprima di Azure Data Lake Storage Gen2 con cluster Azure HDInsight
-description: Informazioni su come eseguire query sui dati dall'anteprima di Azure Data Lake Storage Gen2 e archiviare i risultati dell'analisi.
+title: Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight
+description: Informazioni su come eseguire query sui dati dall'anteprima di Archiviazione di Azure Data Lake Gen2 e archiviare i risultati dell'analisi.
 keywords: HDFS, dati strutturati, dati non strutturati, Data Lake Store, input Hadoop, output Hadoop, archivio Hadoop, input HDFS, output HDFS, archivio HDFS, WASB in Azure
 services: hdinsight,storage
 documentationcenter: ''
@@ -8,7 +8,7 @@ tags: azure-portal
 author: jamesbak
 manager: jahogg
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -16,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e9fd28ac21ce843655697c5d58849d940e305fce
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344955"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136690"
 ---
-# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usare l'anteprima di Azure Data Lake Storage Gen2 con cluster Azure HDInsight
+# <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Usare l'anteprima di Archiviazione di Azure Data Lake Gen2 con cluster Azure HDInsight
 
-Per analizzare i dati nei cluster HDInsight, è possibile archiviare i dati in qualsiasi combinazione di Archiviazione di Azure, Azure Data Lake Storage Gen1 o anteprima di Azure Data Lake Storage Gen2. Tutte le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight utilizzati per i calcoli, senza perdita di dati utente.
+Per analizzare i dati nei cluster HDInsight, è possibile archiviare i dati in qualsiasi combinazione di Archiviazione di Azure, Archiviazione di Azure Data Lake Gen1 o anteprima di Archiviazione di Azure Data Lake Gen2. Tutte le opzioni di archiviazione consentono l'eliminazione sicura dei cluster HDInsight utilizzati per i calcoli, senza perdita di dati utente.
 
-Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure o Azure Data Lake Storage come file system predefinito. In alternativa, con HDInsight 3.5 è possibile selezionare Archiviazione di Azure o Azure Data Lake Storage come file system predefinito con alcune eccezioni.
+Hadoop supporta una nozione del file system predefinito. Il file system predefinito implica uno schema e un'autorità predefiniti e può essere usato anche per risolvere percorsi relativi. Durante il processo di creazione del cluster HDInsight è possibile specificare un contenitore BLOB in Archiviazione di Azure o Archiviazione di Azure Data Lake come file system predefinito. In alternativa, con HDInsight 3.5 è possibile selezionare Archiviazione di Azure o Archiviazione di Azure Data Lake come file system predefinito con alcune eccezioni.
 
-Questo articolo illustra come funziona Azure Data Lake Storage Gen2 con i cluster HDInsight. Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Configurare i cluster di HDInsight usando Azure Data Lake Storage con Hadoop, Spark, Kafka e altro](quickstart-create-connect-hdi-cluster.md).
+Questo articolo illustra come funziona Archiviazione di Azure Data Lake Gen2 con i cluster HDInsight. Per altre informazioni sulla creazione di un cluster HDInsight, vedere [Configurare i cluster di HDInsight usando Archiviazione di Azure Data Lake con Hadoop, Spark, Kafka e altro](quickstart-create-connect-hdi-cluster.md).
 
-Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. HDInsight può usare Azure Data Lake Storage come file system predefinito per il cluster. Attraverso un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui file in Azure Data Lake Storage.
+Archiviazione di Azure è una soluzione di archiviazione affidabile, con finalità generali che si integra facilmente con HDInsight. HDInsight può usare Archiviazione di Azure Data Lake come file system predefinito per il cluster. Attraverso un'interfaccia HDFS (Hadoop Distributed File System), tutti i componenti disponibili in HDInsight possono agire direttamente sui file in Archiviazione di Azure Data Lake.
 
 Non è consigliabile usare il file system predefinito per l'archiviazione dei dati aziendali. È consigliabile eliminare il file system predefinito dopo ogni utilizzo per ridurre i costi di archiviazione. Si noti che il contenitore predefinito include registri di sistema e applicazioni. Assicurarsi di recuperare i registri prima di eliminare il contenitore.
 
@@ -47,7 +47,7 @@ HDInsight offre accesso al file system distribuito collegato localmente ai nodi 
 
     hdfs://<NAME_NODE_HOST>/<PATH>
 
-HDInsight consente anche di accedere ai dati archiviati in Azure Data Lake Storage. La sintassi è:
+HDInsight consente anche di accedere ai dati archiviati in Archiviazione di Azure Data Lake. La sintassi è:
 
     abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<path>
 
@@ -93,7 +93,7 @@ Alcuni pacchetti e processi MapReduce possono creare risultati intermedi che non
 
 Per usare il file system, è necessario creare innanzitutto un [account di Archiviazione di Microsoft Azure][azure-storage-create]. Come parte della procedura, si deve specificare l'area di Azure in cui viene creato l'account di archiviazione. L'account di archiviazione deve trovarsi nella stessa area del cluster. Il database SQL Server del metastore Hive, inoltre, deve trovarsi nella stessa area del database SQL Server del metastore Oozie.
 
-Ovunque si trovi, ogni oggetto BLOB creato appartiene a un file system presente nell'account di Azure Data Lake Storage. 
+Ovunque si trovi, ogni oggetto BLOB creato appartiene a un file system presente nell'account di Archiviazione di Azure Data Lake. 
 
 Il file system predefinito di Archiviazione di Data Lake archivia informazioni specifiche del cluster come i log e la cronologia processo. Non condividere un file system predefinito di Archiviazione di Data Lake con più cluster HDInsight. Questa operazione potrebbe danneggiare la cronologia processo. È consigliabile usare un file system diverso per ogni cluster e inserire i dati condivisi in un account di archiviazione collegato specificato nella distribuzione di tutti i cluster interessati, anziché l'account di archiviazione predefinito. Per altre informazioni sulla configurazione degli account di archiviazione collegati, vedere [Creare cluster HDInsight][hdinsight-creation]. È comunque possibile riutilizzare un file system di archiviazione predefinito dopo l'eliminazione del cluster HDInsight originale. Per i cluster HBase è possibile mantenere i dati e lo schema della tabella HBase creando un nuovo cluster HBase tramite il contenitore BLOB predefinito usato da un cluster HBase eliminato.
 
@@ -141,7 +141,7 @@ Se [Azure PowerShell è stato installato e configurato][powershell-install], è 
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> La creazione di un contenitore equivale alla creazione di un file system in Azure Data Lake Storage.
+> La creazione di un contenitore equivale alla creazione di un file system in Archiviazione di Azure Data Lake.
 
 ### <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 
@@ -173,7 +173,7 @@ Per creare un contenitore, usare il comando seguente:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> La creazione di un contenitore equivale alla creazione di un file system in Azure Data Lake Storage.
+> La creazione di un contenitore equivale alla creazione di un file system in Archiviazione di Azure Data Lake.
 
 ## <a name="address-files-in-azure-storage"></a>Accedere ai file in Archiviazione di Azure
 
@@ -213,10 +213,10 @@ In questo articolo è stato descritto come usare una risorsa di archiviazione di
 
 Per altre informazioni, vedere:
 
-* [Il driver di file System Hadoop ABFS per Azure Data Lake Storage Gen2](abfs-driver.md)
-* [Introduzione ad Azure Data Lake Storage](introduction.md)
-* [Configurare i cluster di HDInsight usando Azure Data Lake Storage con Hadoop, Spark, Kafka e altro](quickstart-create-connect-hdi-cluster.md)
-* [Inserire dati in Azure Data Lake Storage usando distcp](use-distcp.md)
+* [Il driver di file System Hadoop ABFS per Archiviazione di Azure Data Lake Gen2](abfs-driver.md)
+* [Introduzione ad Archiviazione di Azure Data Lake](introduction.md)
+* [Configurare i cluster di HDInsight usando Archiviazione di Azure Data Lake con Hadoop, Spark, Kafka e altro](quickstart-create-connect-hdi-cluster.md)
+* [Inserire dati in Archiviazione di Azure Data Lake usando distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

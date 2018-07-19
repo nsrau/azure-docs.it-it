@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903958"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056175"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Esercitazione: usare un'identità gestita per una macchina virtuale Windows per accedere ad Archiviazione di Azure
 
@@ -37,7 +37,7 @@ Questa esercitazione illustra come abilitare l'identità gestita per una macchin
 > [!NOTE]
 > L'autenticazione di Azure Active Directory per l'Archiviazione di Azure è disponibile come anteprima pubblica.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -58,7 +58,7 @@ In questa sezione, si crea una macchina virtuale Windows a cui, in un secondo mo
 5.  Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6.  Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-managed-identity-on-your-vm"></a>Abilitare l'identità gestita nella VM
 
@@ -80,7 +80,7 @@ In questa sezione, si crea un account di archiviazione.
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
 6. Fare clic su **Crea**.
 
-    ![Creare un nuovo account di archiviazione](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Creare un nuovo account di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creare un contenitore BLOB e caricare un file nell'account di archiviazione
 
@@ -91,12 +91,12 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 3. Nella parte superiore della pagina fare clic su **+ Contenitore**.
 4. In **Nuovo contenitore**, immettere il nome del contenitore e in **Livello di accesso pubblico** mantenere il valore predefinito.
 
-    ![Creare un contenitore di archiviazione](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Creare un contenitore di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Utilizzando un editor di propria scelta, creare un file denominato *hello world.txt* nel computer locale.  Aprire il file e aggiungere il testo (senza virgolette) "Hello world! :)"e quindi salvare il file. 
 6. Per caricare un file nel nuovo contenitore creato, fare clic sul nome del contenitore, quindi fare clic su **Carica**
 7. Nel riquadro **Caricamento BLOB**, in **File**, fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica**.
-    ![Caricare un file di testo](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Caricare un file di testo](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure 
 

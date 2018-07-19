@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901358"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035942"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite il portale di Azure
 
@@ -32,7 +32,7 @@ Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal
 > [!NOTE]
 > Attualmente le operazioni di identità assegnate dall'utente non sono supportate tramite il portale di Azure. Ricontrollare in seguito per aggiornamenti. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
@@ -59,7 +59,7 @@ Per abilitare l'identità assegnata dal sistema in una macchina virtuale di cui 
     > [!NOTE]
     > Attualmente le operazioni di aggiunta di identità assegnate dall'utente a una macchina virtuale non sono supportate tramite il portale di Azure.
 
-   ![Schermata della pagina Configurazione](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Schermata della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Rimuovere l'identità del servizio gestita da una macchina virtuale di Azure
 
@@ -74,7 +74,7 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'identit
     > [!NOTE]
     > Attualmente le operazioni di aggiunta di identità assegnate dall'utente a una macchina virtuale non sono supportate tramite il portale di Azure.
 
-   ![Schermata della pagina Configurazione](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![Schermata della pagina Configurazione](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>Contenuti correlati
 

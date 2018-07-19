@@ -1,23 +1,25 @@
 ---
 title: Portali per la creazione e la modifica di ricerche log in Azure Log Analytics | Microsoft Docs
-description: "Questo articolo descrive i portali che è possibile usare in Azure Log Analytics per la creazione e la modifica di ricerche log."
+description: Questo articolo descrive i portali che è possibile usare in Azure Log Analytics per la creazione e la modifica di ricerche log.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133348"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portali per la creazione e la modifica di ricerche log in Azure Log Analytics
 
@@ -37,9 +39,16 @@ Il portale Advanced Analytics è un portale dedicato che offre funzionalità ava
 ![Portale Advanced Analytics](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-Il portale Advanced Analytics offre funzionalità avanzate e viene per questo di solito usato come strumento principale per la creazione e la modifica delle query.  Dopo aver determinato che la query funziona come previsto, sarà possibile copiarla e incollarla in altre posizioni, ad esempio la pagina Ricerca log o Progettazione viste.  Dato che il portale Advanced Analytics supporta anche query con più righe, tuttavia, è necessario tenere conto di quanto segue quando si copia una query da questo portale.
+Il portale Advanced Analytics offre funzionalità avanzate e viene per questo di solito usato come strumento principale per la creazione e la modifica delle query.  Dopo aver determinato che la query funziona come previsto, sarà possibile copiarla e incollarla in altre posizioni, ad esempio la pagina Ricerca log o Progettazione viste.  
 
-- È necessario rimuovere i commenti dalla query prima di copiarla e incollarla in un'altra posizione.  È possibile impostare una riga come commento anteponendovi due barre (//).  Quando si incolla una query con più righe su una riga singola, le interruzioni di riga vengono rimosse.  Se sono inclusi commenti, tutti i caratteri dopo il primo commento sono considerati parte del commento.
+### <a name="firewall-requirements"></a>Requisiti del firewall
+Il browser richiede l'accesso agli indirizzi seguenti per accedere al portale avanzato di Analytics.  Se il browser accede al portale di Azure attraverso un firewall, è necessario abilitare l'accesso a questi indirizzi.
+
+| Uri | IP | Porte |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinamico | 80,443 |
+| api.loganalytics.io    | Dinamico | 80,443 |
+| docs.loganalytics.io   | Dinamico | 80,443 |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066085"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39029993"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architettura di sicurezza di Internet delle cose
 
@@ -176,7 +176,7 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo es
 
 | **Componente** | **Minaccia** | **Attenuazione** | **Rischio** | **Implementazione** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
+| Dispositivo |S |Assegnazione dell'identità al dispositivo e autenticazione del dispositivo |Sostituzione del dispositivo o di parte dello stesso con un altro dispositivo Come stabilire se si sta comunicando con il dispositivo giusto? |Autenticazione del dispositivo con Transport Layer Security (TLS) o IPSec. L'infrastruttura deve supportare l'uso di una chiave precondivisa (PSK) nei dispositivi che non riescono a gestire la crittografia asimmetrica completa. Usare Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
 || TRID |Applicare meccanismi a prova di manomissione al dispositivo, ad esempio rendendo molto difficile, se non impossibile, estrarre chiavi e altro materiale crittografico dallo stesso. |Il rischio esiste se un utente sta manomettendo il dispositivo (intromissione fisica). Come è possibile accertarsi che il dispositivo non sia stato manomesso. |La soluzione più efficace è una funzionalità TPM (Trusted Platform Module) che consente l'archiviazione delle chiavi in speciali circuiti su chip da cui non è possibile leggerle, ma solo usarle per le operazioni di crittografia che le adoperano, senza mai divulgarle. Crittografia della memoria del dispositivo. Gestione delle chiavi per il dispositivo. Firma del codice. | |
 || E |Avere il controllo di accesso del dispositivo. Schema di autorizzazione. |Se il dispositivo consente di eseguire singole azioni in base ai comandi da un'origine esterna o persino a sensori compromessi, l'attacco può eseguire operazioni non altrimenti accessibili. |Avere uno schema di autorizzazione per il dispositivo | |
 | Gateway sul campo |S |Autenticazione del gateway sul campo al gateway cloud (basata sul certificato, PSK o basata su attestazione). |Se qualcuno riesce a effettuare lo spoofing del gateway sul campo, questo potrà presentarsi come qualsiasi dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Tutti gli stessi principali problemi di archiviazione e attestazione dei dispositivi in generale: il miglior caso è l'uso di TPM. Estensione 6LowPAN per IPSec per supportare le reti WSN (Wireless Sensor Network). |

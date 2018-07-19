@@ -7,14 +7,14 @@ author: v-jaswel
 ms.service: cognitive-services
 ms.component: translator-speech
 ms.topic: article
-ms.date: 3/5/2018
+ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 29722b3fa7fe61aff0b2406002453020d999ea41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 40535f400bc5359019e89320489721bf481c1210
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373817"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124828"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con Python 
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/dow
 
 È necessario installare il [pacchetto websocket-client](https://pypi.python.org/pypi/websocket-client) per Python.
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file dall'[API Traduzione testuale con sintesi vocale](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -37,7 +37,7 @@ Il codice seguente traduce il parlato da una lingua a un'altra.
 
 1. Creare un nuovo progetto Python nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```python

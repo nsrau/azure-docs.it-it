@@ -3,36 +3,41 @@ title: Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azu
 description: Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: bab7b64a1635639991d639fb838b7118e234aa5b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/29/2018
+ms.author: terrylan
+ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776483"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340791"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Analizzare gli eventi imprevisti e gli avvisi nel Centro sicurezza di Azure (anteprima)
 Questo documento illustra come usare la funzionalità di indagine nel Centro sicurezza di Azure per analizzare gli eventi imprevisti e gli avvisi relativi alla sicurezza.
 
 ## <a name="what-is-investigation-in-security-center"></a>Informazioni sull'indagine nel Centro sicurezza
 La funzionalità Indagine del Centro sicurezza consente di valutare, determinare l'ambito e individuare la causa radice di un potenziale [evento imprevisto relativo alla sicurezza](https://docs.microsoft.com/azure/security-center/security-center-incident).
- 
+
 L'obiettivo consiste nel semplificare il processo di indagine collegando tutte le entità ([avvisi di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), utenti, computer ed eventi imprevisti) correlate all'evento imprevisto analizzato.  Il Centro sicurezza può ottenere questo risultato correlando i dati rilevanti con tutte le entità interessate ed esponendo tale correlazione tramite un grafico in tempo reale che consente di spostarsi tra gli oggetti e visualizzare informazioni rilevanti.
+
+> [!NOTE]
+> Gli [avvisi personalizzati](security-center-custom-alert.md) non sono supportati nelle funzionalità di indagine del Centro sicurezza.
+>
+>
 
 
 ## <a name="how-investigation-works"></a>Funzionamento della funzionalità Indagine
 La funzionalità Indagine è costituita da un grafico che occupa l'area centrale del dashboard corrispondente. Il grafico è sempre incentrato su un'entità specifica e presenta le entità correlate a essa. Un'entità può essere un avviso di sicurezza, un utente, un computer o un evento imprevisto.
- 
+
 ![Mappa](./media/security-center-investigation/security-center-investigation-fig1.png)
 
 L'utente può passare da un'entità all'altra selezionandole nel grafico. Il grafico viene incentrato automaticamente sull'entità selezionata e sulle rispettive entità correlate. È possibile che le entità non più rilevanti vengano rimosse dal grafico.
@@ -43,7 +48,7 @@ Quando l'utente si sposta tra entità diverse, il percorso di indagine consente 
 ![path](./media/security-center-investigation/security-center-investigation-fig2.png)
 
 ### <a name="general-information"></a>Informazioni generali
-Quando un'entità viene presentata nel grafico, le schede mostrano informazioni aggiuntive sull'entità. La scheda **Info** presenta informazioni generali sull'entità da diverse origini di informazioni disponibili. 
+Quando un'entità viene presentata nel grafico, le schede mostrano informazioni aggiuntive sull'entità. La scheda **Info** presenta informazioni generali sull'entità da diverse origini di informazioni disponibili.
 
 ![Informazioni generali](./media/security-center-investigation/security-center-investigation-fig3.png)
 
@@ -71,7 +76,7 @@ La scheda **Esplorazione** consente al responsabile dell'indagine di esaminare i
 
 ### <a name="timeline"></a>Sequenza temporale
 
-La maggior parte dei dati presentati nel grafico e nelle diverse schede è rilevante per un periodo di tempo specifico. L'ambito temporale viene configurato tramite il selettore corrispondente, disponibile sul lato superiore sinistro del grafico. Il responsabile dell'indagine può selezionare l'ambito temporale in diversi modi. 
+La maggior parte dei dati presentati nel grafico e nelle diverse schede è rilevante per un periodo di tempo specifico. L'ambito temporale viene configurato tramite il selettore corrispondente, disponibile sul lato superiore sinistro del grafico. Il responsabile dell'indagine può selezionare l'ambito temporale in diversi modi.
 
 ![Sequenza temporale](./media/security-center-investigation/security-center-investigation-fig7.png)
 
@@ -103,7 +108,7 @@ Gli elementi seguenti vengono presentati indipendentemente dall'ambito temporale
 
     ![Dashboard Indagine](./media/security-center-investigation/security-center-investigation-fig9.png)
 
-A partire da questo punto è possibile esplorare le entità interessate dall'evento imprevisto ed esplorare altri dettagli su ogni entità. 
+A partire da questo punto è possibile esplorare le entità interessate dall'evento imprevisto ed esplorare altri dettagli su ogni entità.
 
 ## <a name="see-also"></a>Vedere anche 
 In questo documento è stato descritto come usare la funzionalità Indagine nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
@@ -111,7 +116,6 @@ In questo documento è stato descritto come usare la funzionalità Indagine nel 
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
-* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza. 
+* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
-

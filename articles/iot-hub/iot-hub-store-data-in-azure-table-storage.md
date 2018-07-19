@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 678c538a5d672826f74235d4ac415fccf5de13fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84355453a5cb8d8f42abdcbde5432651c9c035b0
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635679"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856291"
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-blob-storage"></a>Salvare i messaggi dell'hub IoT che contengono dati di sensori nel servizio Archiviazione BLOB di Azure
 
-![Diagramma end-to-end](media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
+![Diagramma end-to-end](./media/iot-hub-store-data-in-azure-table-storage/1_route-to-storage.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione
 
-Si apprenderà come creare un account di archiviazione di Azure e un'app per le funzioni di Azure per archiviare i messaggi dell'hub IoT nell'archiviazione BLOB.
+Si apprenderà come creare un account di archiviazione di Azure e un'app per le funzioni di Azure per archiviare i messaggi dell'hub IoT nell'archiviazione Blob di Azure.
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
 - Creare un account di archiviazione di Azure
-- Preparare l'hub IoT per il routing dei messaggi nel servizio di archiviazione.
+- Configurare l'hub IoT per il routing dei messaggi del servizio di archiviazione.
 
 ## <a name="what-you-need"></a>Elementi necessari
 
@@ -41,13 +41,25 @@ Si apprenderà come creare un account di archiviazione di Azure e un'app per le 
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione** > **Crea**.
+1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** >  **Archiviazione** > **Account di archiviazione**.
 
 2. Immettere le informazioni necessarie per l'account di archiviazione:
 
-   ![Creare un account di archiviazione nel portale di Azure](media\iot-hub-store-data-in-azure-table-storage\1_azure-portal-create-storage-account.png)
+   ![Creare un account di archiviazione nel portale di Azure](./media/iot-hub-store-data-in-azure-table-storage/1_azure-portal-create-storage-account.png)
 
    * **Nome**: nome dell'account di archiviazione. Il nome deve essere univoco a livello globale.
+
+   * **Tipo di account**: scegliere `Storage (general purpose v1)`.
+
+   * **Posizione**: scegliere la stessa posizione che usa l'hub IoT.
+
+   * **Replica**: scegliere `Locally-redundant storage (LRS)`.
+
+   * **Prestazioni**: scegliere `Standard`.
+
+   * **Trasferimento sicuro obbligatorio**: scegliere `Disabled`.
+
+   * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
 
    * **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
 
@@ -61,15 +73,25 @@ L'hub IoT supporta a livello nativo il routing dei messaggi nel servizio di arch
 
 ### <a name="add-storage-as-a-custom-endpoint"></a>Aggiungere risorse di archiviazione come endpoint personalizzato
 
-Passare all'hub IoT nel portale di Azure. Fare clic su **Endpoint** > **Aggiungi**. Assegnare un nome all'endpoint e selezionare **Contenitore di archiviazione di Azure** come tipo di endpoint. Utilizzare la selezione per selezionare l'account di archiviazione creato nella sezione precedente. Creare un contenitore di archiviazione, selezionarlo e quindi fare clic su **OK**.
+1. Passare all'hub IoT nel portale di Azure. 
 
-  ![Creare un endpoint personalizzato nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\2_custom-storage-endpoint.png)
+2. Fare clic su **Endpoint** > **Aggiungi**. 
+
+3. Assegnare un nome all'endpoint e selezionare **Contenitore di archiviazione di Azure** come tipo di endpoint. 
+
+4. Utilizzare la selezione per selezionare l'account di archiviazione creato nella sezione precedente. Creare un contenitore di archiviazione, selezionarlo e quindi fare clic su **OK**.
+
+   ![Creare un endpoint personalizzato nell'hub IoT](./media/iot-hub-store-data-in-azure-table-storage/2_custom-storage-endpoint.png)
 
 ### <a name="add-a-route-to-route-data-to-storage"></a>Aggiungere una route per eseguire il routing dei dati alla risorsa di archiviazione
 
-Fare clic su **Route** > **Aggiungi** e quindi immettere il nome della route. Selezionare **Messaggi del dispositivo** come origine dati e selezionare l'endpoint della risorsa di archiviazione creata come endpoint nella route. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
+1. Fare clic su **Route** > **Aggiungi** e quindi immettere il nome della route. 
 
-  ![Creare una route nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\3_create-route.png)
+2. Selezionare **Messaggi del dispositivo** come origine dati e selezionare l'endpoint della risorsa di archiviazione creata come endpoint nella route. 
+
+3. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
+
+   ![Creare una route nell'hub IoT](./media/iot-hub-store-data-in-azure-table-storage/3_create-route.png)
   
 ### <a name="add-a-route-for-hot-path-telemetry-optional"></a>Aggiungere una route per i dati di telemetria con percorso prioritario (facoltativo)
 
@@ -78,9 +100,13 @@ Per impostazione predefinita, l'hub IoT esegue il routing all'endpoint predefini
 > [!NOTE]
 > Se non vengono eseguite altre operazioni di elaborazione dei messaggi relativi ai dati di telemetria, è possibile ignorare questo passaggio.
 
-Fare clic su **Aggiungi** nel riquadro Route e immettere un nome per la route. Selezionare **Messaggi del dispositivo** come origine dei dati ed **venti** come endpoint. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
+1. Fare clic su **Aggiungi** nel riquadro Route e immettere un nome per la route. 
 
-  ![Creare una route con percorso prioritario nell'hub IoT](media\iot-hub-store-data-in-azure-table-storage\4_hot-path-route.png)
+2. Selezionare **Messaggi del dispositivo** come origine dei dati ed **venti** come endpoint. 
+
+3. Immettere `true` come stringa di query e quindi fare clic su **Salva**.
+
+  ![Creare una route con percorso prioritario nell'hub IoT](./media/iot-hub-store-data-in-azure-table-storage/4_hot-path-route.png)
 
 ## <a name="verify-your-message-in-your-storage-container"></a>Verificare il messaggio nel contenitore di archiviazione
 
@@ -93,6 +119,41 @@ Fare clic su **Aggiungi** nel riquadro Route e immettere un nome per la route. S
 4. Fare clic sulla sottoscrizione di Azure in uso > **Account di archiviazione** > account di archiviazione in uso > **contenitori BLOB** > contenitore BLOB in uso.
 
    Nel contenitore BLOB saranno visibili i messaggi inviati dal dispositivo all'hub IoT.
+
+## <a name="clean-up-resources"></a>Pulire le risorse 
+
+In questa esercitazione è stato aggiunto un account di archiviazione e in seguito il routing per i messaggi dall'hub IoT per essere scritti nell'account di archiviazione. Per pulire le risorse create, rimuovere le informazioni di routing e quindi eliminare l'account di archiviazione. 
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+
+2. Fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse che è stato utilizzato. Viene visualizzato l'elenco delle risorse nel gruppo. 
+
+   > [!NOTE]
+   > Se si desidera rimuovere tutte le risorse nel gruppo di risorse, fare clic su **Elimina** per eliminare il gruppo di risorse, quindi seguire le istruzioni. In questo modo verranno rimossi tutti gli elementi nel gruppo di risorse e la pulitura risulterà terminata, quindi sarà possibile passare alla sezione successiva.
+
+3. Fare clic sull'hub IoT che è stato usato per questa esercitazione. 
+
+4. Nel riquadro dell'hub IoT, fare clic su **Route**. Selezionare la casella di controllo accanto alla regola di routing che è stata aggiunta, quindi fare clic su **Elimina**. Quando viene richiesto se si è certi di voler eliminare tale route, fare clic su **Sì**.
+
+   ![Rimuovere la regola di routing](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-routing.png)
+
+   Chiudere il riquadro di routing. Tornare al riquadro del gruppo di risorse.
+
+5. Fare nuovamente clic sull'hub IoT. 
+
+6. Nel riquadro dell'hub IoT fare clic su **Endpoint**. Selezionare la casella di controllo accanto all'endpoint che è stato aggiunto per il contenitore di archiviazione, quindi fare clic su **Elimina**. Quando viene richiesto se si è certi di voler eliminare tale route, fare clic su **Sì**.
+
+    ![Rimuovere endpoint](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-endpoint.png)
+
+    Chiudere il riquadro Endpoint. Tornare al riquadro del gruppo di risorse. 
+
+7.  Fare clic sull'account di archiviazione impostato per questa esercitazione. 
+
+8.  Nel riquadro account di archiviazione, fare clic su **Elimina** per rimuovere l'account di archiviazione. Viene visualizzato il riquadro **Elimina account di archiviazione**.
+
+   ![Rimuovere account di archiviazione](./media/iot-hub-store-data-in-azure-table-storage/cleanup-remove-storageaccount.png)
+
+8.  Digitare il nome dell'account di archiviazione, quindi fare clic su **Elimina** nella parte inferiore del riquadro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

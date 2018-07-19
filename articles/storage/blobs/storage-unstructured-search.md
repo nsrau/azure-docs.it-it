@@ -2,19 +2,19 @@
 title: Cercare dati non strutturati nell'archiviazione cloud di Azure
 description: Ricerca di dati non strutturati tramite Ricerca di Azure.
 author: roygara
-manager: timlt
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/12/2017
-ms.author: rogara
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 930b735eb03aea6ce701b694ca527049b4c3f24d
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: e50ff3b3a53a13d1604fcb7872853d758259ff9f
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23451638"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136537"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>Cercare dati non strutturati nell'archiviazione cloud
 

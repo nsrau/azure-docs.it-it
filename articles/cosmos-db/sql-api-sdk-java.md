@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/16/2018
-ms.author: khdang
+ms.date: 06/29/2018
+ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62555d3ba3513ce7183e24506530edcf78368247
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798628"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344938"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Java SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name11621162"></a><a name="1.16.2"/>1.16.2
+* Aggiunta del supporto del failover dello streaming.
+* Aggiunta del supporto per i metadati personalizzati.
+* Logica di gestione delle sessioni migliorata.
+* Correzione di un bug nella cache dell'intervallo di chiavi di partizione.
+* Correzione di un bug NPE in modalità diretta.
 
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * Aggiunta del supporto per indice univoco.
@@ -150,7 +157,7 @@ SQL API Java SDK supporta operazioni sincrone. Per il supporto di operazioni asi
 * IPartitionResolver basato su codice di partizionamento personalizzato è stato deprecato. Usare le raccolte partizionate per un'archiviazione e una velocità effettiva superiori.
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
-* Aggiunta del supporto per il criterio di ripetizione per la limitazione.  
+* Aggiunta del supporto dei criteri per i tentativi per la limitazione di velocità.  
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
 * Aggiunta del supporto per la durata (TTL) relativa ai documenti.
@@ -198,6 +205,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.16.2](#1.16.2) |29 giugno 2018 |--- |
 | [1.16.1](#1.16.1) |16 maggio 2018 |--- |
 | [1.16.0](#1.16.0) |15 marzo 2018 |--- |
 | [1.15.0](#1.15.0) |14 novembre 2017 |--- |

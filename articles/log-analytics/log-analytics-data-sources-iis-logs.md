@@ -1,24 +1,26 @@
 ---
 title: Log IIS in Azure Log Analytics | Microsoft Docs
-description: "Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nell'area di lavoro di Log Analytics."
+description: Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  Questo articolo descrive come configurare una raccolta di log di IIS e i dettagli dei record creati nell'area di lavoro di Log Analytics.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133546"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log di IIS in Log Analytics
 Internet Information Services (IIS) archivia le attività dell'utente in file log che possono essere raccolti da Log Analytics.  
@@ -33,10 +35,10 @@ Log Analytics non raccoglie log in formato nativo NCSA o IIS.
 
 Configurare i log di IIS in Log Analytics dal [menu Dati in Impostazioni di Log Analytics](log-analytics-data-sources.md#configuring-data-sources).  Non occorre selezionare nessuna impostazione oltre a **Raccogli i file di log IIS in formato W3C**.
 
-Quando è abilitata la raccolta di log IIS, si consiglia di configurare l'impostazione di rollover dei log IIS su ciascun server.
 
 ## <a name="data-collection"></a>Raccolta dei dati
-Log Analytics raccoglie le voci dei log di IIS da ogni origine connessa a intervalli di circa 15 minuti.  L'agente registra la propria posizione in ogni registro eventi da cui esegue la raccolta.  Se l'agente passa alla modalità offline, Log Analytics raccoglie gli eventi dal momento in cui è stato interrotto, anche se gli eventi sono stati creati mentre l'agente era offline.
+Log Analytics raccoglie le voci di log IIS da ogni agente ogni volta che il log viene chiuso e ne viene creato uno nuovo. Questa frequenza è controllata dall'impostazione **Log File Rollover Schedule** (Pianificazione di rollover dei file di log) per il sito IIS che è una volta al giorno per impostazione predefinita. Ad esempio se l'impostazione è **ogni ora**, Log Analytics raccoglierà i log ogni ora.  Se l'impostazione è **ogni giorno**, Log Analytics raccoglierà i log ogni 24 ore.
+
 
 ## <a name="iis-log-record-properties"></a>Proprietà dei record del log di IIS
 I record dei log di IIS sono di tipo **W3CIISLog**; la tabella seguente descrive le loro proprietà:

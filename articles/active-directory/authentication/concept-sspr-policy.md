@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5952d0b1568e2554f53797515cde5cb23ad95a9b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867443"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054761"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -146,8 +146,8 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 Gli articoli seguenti offrono altre informazioni sull'uso della reimpostazione della password con Azure AD:
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md).
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)

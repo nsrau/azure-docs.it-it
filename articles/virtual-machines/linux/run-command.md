@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334874"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342692"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -36,6 +36,7 @@ Di seguito c'è un elenco di restrizioni che sono presenti quando si usa l'esecu
 * Gli script che richiedono informazioni (modalità interattiva) non sono supportati.
 * Non è possibile annullare l'esecuzione di uno script
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
+* La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

@@ -230,7 +230,7 @@ items:
                     href: odbc-driver.md
                   - name: Usare Spring Boot Starter con le API SQL
                     href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
-          - name: Riferimenti
+          - name: riferimento
             items:
               - name: Async Java
                 href: sql-api-sdk-async-java.md
@@ -380,7 +380,7 @@ items:
                 href: table-storage-how-to-use-python.md
               - name: Ruby
                 href: table-storage-how-to-use-ruby.md
-          - name: Riferimenti
+          - name: riferimento
             items:
               - name: .NET
                 href: table-sdk-dotnet.md
@@ -412,38 +412,50 @@ items:
                 href: cassandra-import-data.md
   - name: Guide pratiche
     items:
-      - name: Chiavi e coerenza
-        href: manage-account.md
-      - name: Velocità effettiva
-        href: set-throughput.md
-      - name: Supporto del firewall
-        href: firewall-support.md
-      - name: Configurare l'endpoint del servizio di rete virtuale
-        href: vnet-service-endpoint.md
-      - name: Metriche
-        href: use-metrics.md
-      - name: Monitorare i contratti di servizio
-        href: monitor-accounts.md
-      - name: Eseguire il backup e il ripristino
-        href: online-backup-and-restore.md
-      - name: Failover a livello di area
-        href: regional-failover.md
-      - name: Registrazione diagnostica
-        href: logging.md
-      - name: 'Stored procedure, trigger e UDF'
-        href: programming.md
-      - name: Panoramica di BulkExecutor
+      - name: Gestisci
+        items:
+          - name: Gestire usando PowerShell
+            href: manage-account-with-powershell.md
+          - name: Gestire con Storage Explorer
+            href: storage-explorer.md
+          - name: Gestire con Esplora dati
+            href: data-explorer.md
+          - name: Gestire le chiavi e i livelli di coerenza
+            href: manage-account.md
+          - name: Velocità effettiva
+            href: set-throughput.md
+          - name: Scadenza automatica dei dati
+            href: time-to-live.md
+          - name: Registrazione diagnostica
+            href: logging.md
+      - name: Proteggere i dati
+        items:
+          - name: Supporto del firewall
+            href: firewall-support.md
+          - name: Configurare l'endpoint del servizio di rete virtuale
+            href: vnet-service-endpoint.md
+      - name: Monitorare
+        items:
+          - name: Monitorare con le metriche
+            href: use-metrics.md
+          - name: Monitorare i contratti di servizio
+            href: monitor-accounts.md
+      - name: Backup e ripristino
+        items:
+          - name: Backup e ripristino online
+            href: online-backup-and-restore.md
+          - name: Failover a livello di area
+            href: regional-failover.md
+      - name: Automatizzare
+        items:
+          - name: 'Stored procedure, trigger e UDF'
+            href: programming.md
+          - name: Configurazione a più master
+            href: multi-master-workaround.md
+      - name: Libreria Bulk Executor
         href: bulk-executor-overview.md
       - name: Operazioni di lettura e scrittura convenienti
         href: key-value-store-cost.md
-      - name: Scadenza automatica dei dati
-        href: time-to-live.md
-      - name: Gestire usando PowerShell
-        href: manage-account-with-powershell.md
-      - name: Gestire con Storage Explorer
-        href: storage-explorer.md
-      - name: Configurazione a più master
-        href: multi-master-workaround.md
   - name: Risorse
     items:
       - name: Foglio informativo sulle query

@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870023"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057362"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Distribuzione rapida della reimpostazione della password self-service di Azure AD
 
 > [!IMPORTANT]
-> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** vedere [Password di Azure AD dimenticata](../active-directory-passwords-update-your-own-password.md).
+> **Se si sta visualizzando questa pagina perché si riscontrano problemi nell'accesso** vedere [Password di Azure AD dimenticata](../user-help/active-directory-passwords-update-your-own-password.md).
 
 La reimpostazione self-service della password (SSPR) offre agli amministratori IT una modalità semplice per consentire agli utenti di reimpostare o sbloccare le password o gli account. Il sistema include report dettagliati per tenere traccia del momento in cui gli utenti accedono al sistema, oltre a notifiche per segnalare usi impropri.
 
-Questa guida presuppone che sia già disponibile un tenant di valutazione o con licenza di Azure Active Directory (Azure AD). Per informazioni sulla configurazione di Azure AD, vedere l'[introduzione ad Azure AD](../get-started-azure-ad.md).
+Questa guida presuppone che sia già disponibile un tenant di valutazione o con licenza di Azure Active Directory (Azure AD). Per informazioni sulla configurazione di Azure AD, vedere l'[introduzione ad Azure AD](../fundamentals/get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Abilitare la reimpostazione della password self-service per il tenant di Azure AD
 
@@ -62,7 +62,7 @@ Questa guida presuppone che sia già disponibile un tenant di valutazione o con 
    * Inviare notifiche agli utenti al momento della reimpostazione della password.
    * Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password.
 
-A questo punto è stata configurata la reimpostazione password self-service per il tenant di Azure AD. Gli utenti possono ora usare le istruzioni disponibili negli articoli [Eseguire la registrazione per la reimpostazione password self-service](../active-directory-passwords-reset-register.md) e [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md) per aggiornare la password senza l'intervento dell'amministratore. È possibile interrompere la procedura se si usa solo il cloud oppure passare alla sezione successiva per configurare la sincronizzazione delle password con un dominio Active Directory locale.
+A questo punto è stata configurata la reimpostazione password self-service per il tenant di Azure AD. Gli utenti possono ora usare le istruzioni disponibili negli articoli [Eseguire la registrazione per la reimpostazione password self-service](../user-help/active-directory-passwords-reset-register.md) e [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md) per aggiornare la password senza l'intervento dell'amministratore. È possibile interrompere la procedura se si usa solo il cloud oppure passare alla sezione successiva per configurare la sincronizzazione delle password con un dominio Active Directory locale.
 
 > [!TIP]
 > Testare la reimpostazione password self-service con un utente e non con un amministratore, perché Microsoft applica requisiti di autenticazione avanzata per gli account di tipo amministratore di Azure. Per altre informazioni sui criteri delle password amministratore, vedere l'[articolo sui criteri delle password](concept-sspr-policy.md#administrator-password-policy-differences).
@@ -95,8 +95,8 @@ La disabilitazione della reimpostazione password self-service è un'operazione s
 Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD:
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md)
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
