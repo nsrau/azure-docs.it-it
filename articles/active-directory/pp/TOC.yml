@@ -1,4 +1,0 @@
-- name: Usare un'identità del servizio gestito della VM per accedere ad Archiviazione di Azure
-  items:
-    - name: Da una VM Linux usando una chiave di accesso
-      href: msi-tutorial-linux-vm-access-storage.md
