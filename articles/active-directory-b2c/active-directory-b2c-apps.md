@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710084"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442067"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: tipi di applicazioni
 Azure Active Directory (Azure AD) B2C supporta l'autenticazione per un'ampia gamma di architetture di app moderne. Tutte le architetture sono basate sui protocolli standard [OAuth 2.0](active-directory-b2c-reference-protocols.md) o [OpenID Connect](active-directory-b2c-reference-protocols.md). Questo documento descrive brevemente i tipi di app che è possibile compilare, indipendente dal linguaggio o dalla piattaforma preferita. Illustra anche gli scenari generali per [iniziare a compilare applicazioni](active-directory-b2c-overview.md).
@@ -38,8 +38,7 @@ L'interazione di ogni app segue un modello generale simile al seguente:
 5. Il server delle risorse convalida il token di sicurezza per verificare che sia possibile concedere l'accesso.
 6. L'app aggiorna periodicamente il token di sicurezza.
 
-<!-- TODO: Need a page for libraries to link to -->
-Questi passaggi possono presentare lievi differenze a seconda del tipo di applicazione che si sta compilando.
+<!-- TODO: Need a page for libraries to link to --> Questi passaggi possono presentare lievi differenze a seconda del tipo di applicazione che si sta compilando.
 
 ## <a name="web-apps"></a>App Web
 Per app Web (ad esempio .NET, PHP, Java, Ruby, Python e Node.js) ospitate in un server e accessibili tramite un browser, Azure AD B2C supporta [OpenID Connect](active-directory-b2c-reference-protocols.md) per tutte le esperienze utente, inclusa la gestione dell'iscrizione, dell'accesso e del profilo utente. Nell'implementazione di OpenID Connect in Azure AD B2C l'app Web avvia queste esperienze utente inviando richieste di autenticazione ad Azure AD. Il risultato della richiesta è un `id_token`. Questo token di sicurezza rappresenta l'identità dell'utente e fornisce informazioni sull'utente sotto forma di attestazioni:

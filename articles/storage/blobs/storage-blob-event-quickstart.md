@@ -8,12 +8,12 @@ ms.author: cbrooks
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
-ms.openlocfilehash: e2f6f2cbf843c6c3b0202a2ef59f6b8e16291f54
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: a554c3beb9ed0428dd4ccf3c9d8e9490adab9ac5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869249"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072181"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Indirizzare gli eventi di archiviazione BLOB a un endpoint Web personalizzato con l'interfaccia della riga di comando di Azure
 
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westcentralus
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazione BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
+Per usare eventi di archiviazione BLOB, è necessario un [account di archiviazione BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) o un [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2-accounts). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi quelli relativi a BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
 
 > [!NOTE]
 > La disponibilità degli eventi di archiviazione è legata alla [disponibilità](../../event-grid/overview.md) di Griglia di eventi. Gli eventi di archiviazione saranno disponibili nelle aree geografiche in cui si renderà disponibile Griglia di eventi.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738531"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342727"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -51,9 +51,17 @@ L'agente Sincronizzazione file di Azure non presenta alcun requisito in merito a
 Sincronizzazione file di Azure interagisce con qualsiasi mezzo disponibile che consenta di accedere ad Azure adattandosi automaticamente alle varie caratteristiche di rete, come la latenza e la larghezza di banda, e offrendo il controllo amministrativo per l'ottimizzazione. Non sono ancora disponibili tutte le funzionalità. Per configurare un comportamento specifico, è possibile usare [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
 ## <a name="proxy"></a>Proxy
-Sincronizzazione file di Azure supporta attualmente impostazioni proxy a livello di computer. Questo tipo di impostazioni del proxy è trasparente per l'agente Sincronizzazione file di Azure poiché tutto il traffico diretto al server viene instradato tramite il proxy.
+Sincronizzazione file di Azure supporta impostazioni proxy a livello di computer specifiche per l'app.
 
-Impostazioni proxy specifiche per le app sono attualmente in fase di sviluppo e saranno supportate in una versione futura dell'agente Sincronizzazione file di Azure. Consentiranno di configurare il proxy in modo specifico per il traffico di Sincronizzazione file di Azure.
+Le impostazioni proxy a livello di computer sono trasparenti per l'agente Sincronizzazione file di Azure poiché tutto il traffico diretto al server viene instradato tramite il proxy.
+
+Le impostazioni proxy a livello di computer consentono di configurare il proxy in modo specifico per il traffico di Sincronizzazione file di Azure. Sono supportate nella versione 3.0.12.0 o versioni successive dell'agente e possono essere configurate durante l'installazione dell'agente oppure usando il cmdlet Set-StorageSyncProxyConfiguration di PowerShell.
+
+Comandi di PowerShell per configurare le impostazioni proxy specifiche dell'app:
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## <a name="firewall"></a>Firewall
 Come indicato in una sezione precedente, la porta 443 deve essere aperta in uscita. In base ai criteri definiti a livello di data center, ramo o area geografica, è possibile che sia necessario o preferibile limitare il traffico su questa porta a domini specifici.

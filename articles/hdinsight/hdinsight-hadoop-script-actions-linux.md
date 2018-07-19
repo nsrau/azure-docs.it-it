@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018383"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098261"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -284,7 +284,7 @@ Gli script usati per la personalizzazione di un cluster devono essere archiviati
 
 * __URI leggibile pubblicamente__, ad esempio un URL per accedere ai dati archiviati in OneDrive, Dropbox o altri servizi di hosting di file.
 
-* __Account Azure Data Lake Store__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Store con HDInsight, vedere [Creare un cluster HDInsight con Data Lake Store](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* __Account Azure Data Lake Store__ associato al cluster HDInsight. Per altre informazioni sull'uso di Azure Data Lake Store con HDInsight, vedere [Guida introduttiva: impostare i cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > L'entità servizio usata da HDInsight per accedere a Data Lake Store deve avere accesso in lettura allo script.

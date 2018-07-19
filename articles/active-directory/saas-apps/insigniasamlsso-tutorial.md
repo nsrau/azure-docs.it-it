@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 04b9a34c355041b2c8e5ec0dcdb614fb2c713fee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 652462d78608abcb551673d1d4fdcf3f56a20a6d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217715"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Insignia SAML SSO
 
@@ -34,7 +34,7 @@ L'integrazione di Insignia SAML SSO con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Insignia SAML SSO, sono necessari gli elementi seguenti:
 
@@ -212,7 +212,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Insignia SAML SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Insignia SAML SSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

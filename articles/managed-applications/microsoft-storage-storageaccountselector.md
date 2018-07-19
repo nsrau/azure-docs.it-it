@@ -11,22 +11,30 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4a18d629b959e4f1abf4ec2df28a31180efec89f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261038"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112287"
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento Microsoft.Storage.StorageAccountSelector dell'interfaccia utente
 Controllo per la selezione di un account di archiviazione nuovo o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
+
+Il controllo visualizza il valore predefinito.
+
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
+Il controllo consente all'utente di creare un nuovo account di archiviazione o di selezionarne uno esistente.
+
+![Nuovo Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+
 ## <a name="schema"></a>SCHEMA
+
 ```json
 {
   "name": "element1",
@@ -51,12 +59,11 @@ Controllo per la selezione di un account di archiviazione nuovo o esistente.
 ## <a name="remarks"></a>Osservazioni
 - L'unicità di `defaultValue.name`, se specificato, viene convalidata automaticamente. Se il nome dell'account di archiviazione non è univoco, l'utente deve specificare un nome diverso o scegliere un account di archiviazione esistente.
 - Il valore predefinito per `defaultValue.type` è **Premium_LRS**.
-- I tipi non specificati in `constraints.allowedTypes` vengono nascosti e i tipi non specificati in `constraints.excludedTypes` vengono visualizzati.
-`constraints.allowedTypes` e `constraints.excludedTypes` sono entrambi facoltativi, ma non possono essere usati contemporaneamente.
+- I tipi non specificati in `constraints.allowedTypes` vengono nascosti e i tipi non specificati in `constraints.excludedTypes` vengono visualizzati. `constraints.allowedTypes` e `constraints.excludedTypes` sono entrambi facoltativi, ma non possono essere usati contemporaneamente.
 - Se `options.hideExisting` è **true**, l'utente non può scegliere un account di archiviazione esistente. Il valore predefinito è **false**.
 
-
 ## <a name="sample-output"></a>Output di esempio
+
 ```json
 {
   "name": "storageaccount01",

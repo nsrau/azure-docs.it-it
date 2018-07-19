@@ -3,7 +3,7 @@ title: Guida introduttiva a Node.js
 description: Informazioni su come creare una semplice applicazione Web Node.js e distribuirla in un servizio cloud di Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 50951a87-fed4-48e0-bcfa-453b9e50452e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 5d69f83aed9160f94260b71e60fcf0e15b435569
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011680"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003453"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Creazione e distribuzione di un'applicazione Node.js a un servizio cloud di Azure
 
@@ -36,7 +36,7 @@ L'applicazione è una semplice applicazione "hello world":
 
 ![Finestra del browser in cui è visualizzata la pagina Web Hello World][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 > [!NOTE]
 > Questa esercitazione usa Azure PowerShell, che richiede Windows.
 
@@ -160,7 +160,7 @@ Dopo aver distribuito l'applicazione, è possibile disabilitarla per evitare cos
    > L'eliminazione del servizio non comporta l'eliminazione dell'account di archiviazione creato quando il servizio è stato pubblicato e lo spazio di archiviazione usato continuerà a essere addebitato. Se nient'altro sta usando lo spazio di archiviazione, è possibile eliminarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
+Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node. js].
 
 <!-- URL List -->
 
@@ -171,7 +171,7 @@ Per ulteriori informazioni, vedere il [Centro per sviluppatori di Node.js].
 [Connettere PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
 [nodejs.org]: http://nodejs.org/
 [Creazione di un servizio ospitato per Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
-[Centro per sviluppatori di Node.js]: https://azure.microsoft.com/develop/nodejs/
+[Centro per sviluppatori di Node. js]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
 

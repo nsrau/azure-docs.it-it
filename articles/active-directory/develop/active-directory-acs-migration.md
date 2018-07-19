@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/14/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 0b3e7d9b7a01767e44c7c59c7250808290a03c30
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 803dd69aed91f6e33c354d01d3f5419597d98de9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319225"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115885"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
@@ -57,7 +57,7 @@ Per usare questi componenti, è necessario creare uno o più spazi dei nomi di C
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-Tutte le comunicazioni con il servizio token di sicurezza e tutte le operazioni di gestione vengono eseguite in corrispondenza di questo URL. Si utilizzano percorsi diversi per scopi diversi. Per determinare se le applicazioni o i servizi usano Controllo di accesso, monitorare la presenza di qualsiasi tipo di traffico verso l'indirizzo https://<namespace>.accesscontrol.windows.net. Il traffico verso questo URL è gestito da Controllo di accesso e deve essere sospeso. 
+Tutte le comunicazioni con il servizio token di sicurezza e tutte le operazioni di gestione vengono eseguite in corrispondenza di questo URL. Si utilizzano percorsi diversi per scopi diversi. Per determinare se le applicazioni o i servizi in uso utilizzano Controllo di accesso, verificare la presenza di qualsiasi tipo di traffico a https://&lt;spaziodeinomi&gt;.accesscontrol.windows.net. Il traffico verso questo URL è gestito da Controllo di accesso e deve essere sospeso. 
 
 A questo fa eccezione il traffico verso l'indirizzo `https://accounts.accesscontrol.windows.net`, che è già gestito da un servizio diverso e **non è** interessato dal ritiro di Controllo di accesso. 
 

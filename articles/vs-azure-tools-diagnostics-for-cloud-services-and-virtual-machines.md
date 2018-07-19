@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 06/28/2018
 ms.author: mikejo
-ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2ff2a619dabd7dfabf89361172557efa4884ba12
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30292541"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110488"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Configurare la diagnostica per i servizi cloud e le macchine virtuali di Azure
 Per risolvere gli errori di un servizio cloud o di una macchina virtuale di Azure, è possibile usare Visual Studio per configurare con maggiore facilità Diagnostica di Azure. Diagnostica di Azure acquisisce i dati di sistema e i dati di registrazione nelle macchine virtuali e nelle istanze di macchine virtuali che eseguono il servizio cloud. I dati di diagnostica vengono trasferiti all'account di archiviazione scelto. Per altre informazioni sulla registrazione diagnostica in Azure, vedere [Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure](app-service/web-sites-enable-diagnostic-log.md).
@@ -87,7 +87,11 @@ In Visual Studio è possibile raccogliere i dati di diagnostica per i ruoli eseg
    * Se si seleziona **Sottoscrizione**, è possibile selezionare la sottoscrizione di Azure che si vuole usare e immettere un nome di account. Per gestire le sottoscrizioni di Azure, selezionare **Gestisci account**.
    * Se si seleziona **Credenziali immesse manualmente**, immettere il nome e la chiave dell'account di Azure che si vuole usare.
 5. Per visualizzare la finestra di dialogo **Configurazione di diagnostica**, selezionare **Configura**. Ad eccezione di **Generale** e **Directory log**, ogni scheda rappresenta un'origine di dati di diagnostica che è possibile raccogliere. La scheda predefinita, **Generale**, offre le opzioni di raccolta di dati di diagnostica seguenti: **Solo errori**, **Tutte le informazioni** e **Personalizza piano**. L'opzione predefinita, **Solo errori**, richiede la quantità minima di spazio di archiviazione, perché non trasferisce messaggi di avviso o di traccia. L'opzione **Tutte le informazioni** trasferisce la quantità più elevata di informazioni e usa la quantità maggiore di spazio di archiviazione, quindi è l'opzione più costosa.
-   
+
+   > [!NOTE]
+   > La dimensione minima supportata per "Quota disco in MB" è 4 GB. Se tuttavia si raccolgono i dump di memoria, aumentare questo valore, ad esempio a 10 GB.
+   >
+  
     ![Abilitare la diagnostica e la configurazione di Azure](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. Per questo esempio selezionare l'opzione **Personalizza piano** , in modo da poter personalizzare i dati raccolti.
 7. Nella casella **Quota disco in MB** è possibile specificare la quantità di spazio da allocare nell'account di archiviazione per i dati di diagnostica. È possibile modificare o accettare il valore predefinito.

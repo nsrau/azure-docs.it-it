@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025320"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131610"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hosting di siti Web statici in Archiviazione di Azure (anteprima)
 Archiviazione di Azure offre ora l'hosting di siti Web statici (anteprima), consentendo di distribuire applicazioni Web moderne, economiche e scalabili in Azure. In un sito Web statico, le pagine Web hanno contenuti statici e JavaScript o altro codice lato client. Al contrario, i siti Web dinamici dipendono dal codice lato server e possono essere ospitati usando le [App Web di Azure](/app-service/app-service-web-overview.md).
@@ -43,6 +43,9 @@ Per avviare l'hosting dell'applicazione Web su Archiviazione di Azure è possibi
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 Caricare gli asset Web nel contenitore "$web" creato come parte dell'abilitazione del sito Web statico. È possibile farlo direttamente nel portale di Azure oppure è possibile sfruttare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare le strutture di directory complete. Assicurarsi di includere un documento di indice con il nome che è stato configurato. In questo esempio, il nome del documento è "index.html".
+
+> [!NOTE]
+> Il nome del documento fa distinzione tra maiuscole e minuscole e deve pertanto corrispondere esattamente al nome del file nell'archiviazione.
 
 Infine, passare all'endpoint Web per testare il sito Web.
 

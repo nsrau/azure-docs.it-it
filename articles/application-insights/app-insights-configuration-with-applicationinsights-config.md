@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2017
+ms.date: 07/05/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 664f31d64ac037acea2fb45a8d8b813da52b6da5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9e53fa896f1d958e505d26af430b262be9195605
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294701"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859684"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](http://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare parametri per alcuni di essi.
@@ -133,7 +133,7 @@ Gli inizializzatori standard sono tutti impostati dal Web o dai pacchetti NuGet 
 * `WebTestTelemetryInitializer` imposta l'id utente, l'id di sessione e le proprietà di origine sintetica per le richieste HTTP che provengono da [test di disponibilità](app-insights-monitor-web-app-availability.md).
   `<Filters>` imposta le proprietà di identificazione delle richieste.
 
-Per le applicazioni .NET in esecuzione in Service Fabric, è possibile includere il pacchetto NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Questo pacchetto include `FabricTelemetryInitializer`, che aggiunge le proprietà di Service Fabric per gli elementi di telemetria. Per ulteriori informazioni, vedere la [pagina GitHub](https://go.microsoft.com/fwlink/?linkid=848457) sulle proprietà aggiunte dal pacchetto NuGet.
+Per le applicazioni .NET in esecuzione in Service Fabric, è possibile includere il pacchetto NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Questo pacchetto include `FabricTelemetryInitializer`, che aggiunge le proprietà di Service Fabric per gli elementi di telemetria. Per ulteriori informazioni, vedere la [pagina GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sulle proprietà aggiunte dal pacchetto NuGet.
 
 ## <a name="telemetry-processors-aspnet"></a>Processori di telemetria (ASP.NET)
 I processori di telemetria possono filtrare e modificare ciascun elemento di telemetria prima di inviarlo dal SDK al portale.
@@ -317,7 +317,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 Si tratta di un provider statico che si basa sulle coppie di chiave di strumentazione/ID applicazione configurate.
 
-Questa classe ha una proprietà `Defined` che corrisponde a un oggetto Dictionary<stringa,stringa> di coppie di chiave di strumentazione/ID applicazione configurate.
+Questa classe ha una proprietà `Defined` che corrisponde a un oggetto Dictionary<stringa,stringa> di coppie di chiave di strumentazione/ID applicazione.
 
 Questa classe ha una proprietà `Next` facoltativa che può essere usata per configurare un altro provider da usare quando viene richiesta una chiave di strumentazione che non esiste nella configurazione.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e8873a15653bfaca5ea4da8fecf0edcd7b6f8af
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1f337f453a5721792527d5494e8faf9ba47437f7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212315"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Esercitazione: Integrazione di Azure Active Directory con Yonyx Interactive Guides
 
@@ -34,7 +34,7 @@ L'integrazione di Yonyx Interactive Guides con Azure AD offre i vantaggi seguent
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Yonyx Interactive Guides, sono necessari gli elementi seguenti:
 
@@ -212,7 +212,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando si fa clic sul riquadro Yonyx Interactive Guides nel pannello di accesso, si accederà automaticamente all'applicazione Yonyx Interactive Guides.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

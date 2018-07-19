@@ -1,6 +1,6 @@
 ---
-title: Come usare le proprietà nei criteri di Gestione API di Azure
-description: Informazioni su come usare le proprietà nei criteri di Gestione API di Azure
+title: Come usare i valori denominati nei criteri di Gestione API di Azure
+description: Informazioni su come usare i valori denominati nei criteri di Gestione API di Azure.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: e0559380f6d686a4e559779c4271ea85106558d6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 829d6bc6cb3f8e78d065d7aaca4937634e7349c8
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197113"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437066"
 ---
-# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Come usare le proprietà nei criteri di Gestione API di Azure
-I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Per creare istruzioni dei criteri è possibile usare valori di testo, espressioni di criteri e proprietà. 
+# <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
+I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati. 
 
-Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore globali per l'istanza stessa. Queste proprietà possono essere usate per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni proprietà può avere gli attributi seguenti:
+Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di coppie chiave/valore, chiamate valori denominati, globali per l'istanza del servizio. Questi valori denominati possono essere usati per gestire i valori stringa costanti all'interno dell'intera configurazione e di tutti i criteri delle API. Ogni proprietà può avere gli attributi seguenti:
 
 | Attributo | type | DESCRIZIONE |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ I valori delle proprietà possono contenere stringhe letterali ed [espressioni d
 2. Selezionare **Valori denominati**.
 3. Premere **+Aggiungi**.
 
-  Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare le proprietà e quindi fare clic su Salva.
+  Nome e Valore sono obbligatori. Se il valore della proprietà è un segreto, selezionare la casella di controllo Questo è un segreto. Immettere uno o più tag facoltativi per organizzare i valori denominati e quindi fare clic su Salva.
 4. Fare clic su **Crea**.
 
 Dopo aver creato la proprietà, è possibile modificarla facendo clic sulla proprietà. Se si modifica il nome della proprietà, tutti i criteri che fanno riferimento a tale proprietà vengono aggiornati automaticamente con il nuovo nome.
@@ -68,11 +68,11 @@ Per eliminare una proprietà, fare clic su **Delete** accanto alla proprietà da
 
 Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
 
-## <a name="to-search-and-filter-properties"></a>Per cercare e filtrare proprietà
+## <a name="to-search-and-filter-named-values"></a>Per cercare e filtrare valori denominati
 
-La scheda **Valori denominati** include funzionalità di ricerca e filtro che consentono di gestire le proprietà. Per filtrare l'elenco delle proprietà in base al nome di queste, immettere un termine di ricerca nella casella di testo di **ricerca di proprietà** . Per visualizzare tutte le proprietà, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
+La scheda **Valori denominati** include funzionalità di ricerca e filtro che consentono di gestire i valori denominati. Per filtrare l'elenco delle proprietà in base al nome di queste, immettere un termine di ricerca nella casella di testo di **ricerca di proprietà** . Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **ricerca di proprietà** e premere INVIO.
 
-Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno o più tag nella casella di testo di **filtro in base ai tag** . Per visualizzare tutte le proprietà, cancellare il contenuto della casella di testo di **filtro in base ai tag** e premere INVIO.
+Per filtrare l'elenco delle proprietà in base al valore dei tag, immettere uno o più tag nella casella di testo di **filtro in base ai tag** . Per visualizzare tutti i valori denominati, cancellare il contenuto della casella di testo di **filtro in base ai tag** e premere INVIO.
 
 ## <a name="to-use-a-property"></a>Per usare una proprietà
 
@@ -86,9 +86,9 @@ Per usare una proprietà di un criterio, inserire il nome della proprietà all'i
 
 In questo esempio, la proprietà `ContosoHeader` viene usata come nome di un'intestazione in un criterio `set-header` e la proprietà `ContosoHeaderValue` viene usata come valore di tale intestazione. Quando questo criterio viene valutato durante una richiesta o una risposta al gateway di Gestione API, `{{ContosoHeader}}` e `{{ContosoHeaderValue}}` vengono sostituiti dai valori delle rispettive proprietà.
 
-Le proprietà possono essere usate come valori completi di attributo o di elemento, come illustrato nell'esempio precedente, ma possono anche essere inserite all'interno di un'espressione di testo o combinate con una parte di un'espressione di testo, come illustrato nell'esempio seguente: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
+I valori denominati possono essere usati come valori completi di attributo o di elemento, come illustrato nell'esempio precedente, ma possono anche essere inseriti all'interno di un'espressione di testo o combinati con una parte di un'espressione di testo, come illustrato nell'esempio seguente: `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
-Le proprietà possono anche contenere espressioni di criteri. Nell'esempio seguente viene usata la proprietà `ExpressionProperty` .
+I valori denominati possono anche contenere espressioni di criteri. Nell'esempio seguente viene usata la proprietà `ExpressionProperty` .
 
 ```xml
 <set-header name="CustomHeader" exists-action="override">
@@ -98,15 +98,15 @@ Le proprietà possono anche contenere espressioni di criteri. Nell'esempio segue
 
 Quando questo criterio viene valutato, `{{ExpressionProperty}}` viene sostituito dal valore corrispondente: `@(DateTime.Now.ToString())`. Poiché il valore è un'espressione di criteri, l'espressione viene valutata e il criterio passa alla fase di esecuzione.
 
-È possibile eseguire un test nel portale per sviluppatori chiamando un'operazione il cui ambito contiene un criterio con proprietà. Nell'esempio seguente viene chiamata un'operazione che contiene i due criteri di esempio precedenti `set-header` con proprietà. Si noti che la risposta contiene due intestazioni personalizzate configurate tramite criteri con proprietà.
+È possibile eseguirne i test nel portale per sviluppatori chiamando un'operazione il cui ambito contiene criteri con valori denominati. Nell'esempio seguente viene chiamata un'operazione che contiene i due criteri di esempio precedenti `set-header` con valori denominati. La risposta contiene due intestazioni personalizzate che vengono configurate tramite criteri con valori denominati.
 
 ![Portale per sviluppatori][api-management-send-results]
 
-Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.md) relativa a una chiamata che include i due criteri con proprietà degli esempi precedenti, è possibile vedere i due criteri `set-header` con i valori delle proprietà inseriti, nonché la valutazione delle espressioni dei criteri per la proprietà che contiene l'espressione.
+Se si osserva la [traccia di Controllo API](api-management-howto-api-inspector.md) relativa a una chiamata che include i due criteri con valori denominati degli esempi precedenti, è possibile vedere i due criteri `set-header` con i valori delle proprietà inseriti, nonché la valutazione delle espressioni dei criteri per la proprietà che contiene l'espressione.
 
 ![Traccia di Controllo API][api-management-api-inspector-trace]
 
-Sebbene i valori delle proprietà possano contenere espressioni di criteri, non possono contenere altre proprietà. Se il testo che contiene un riferimento a una proprietà viene usato come valore di una proprietà, ad esempio `Property value text {{MyProperty}}`, tale riferimento alla proprietà non viene sostituito e viene incluso come parte del valore della proprietà.
+Sebbene i valori delle proprietà possano contenere espressioni di criteri, non possono contenere altri valori denominati. Se il testo che contiene un riferimento a una proprietà viene usato come valore di una proprietà, ad esempio `Property value text {{MyProperty}}`, tale riferimento alla proprietà non viene sostituito e viene incluso come parte del valore della proprietà.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull'uso dei criteri

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904306"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004881"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Esercitazione: Usare l'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Concedere alla VM l'accesso ad Azure Data Lake Store.
 > * Ottenere un token di accesso usando l'identità della VM e usarlo per accedere ad Azure Data Lake Store.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentono di eseguire l'accesso alla macchina virtuale.
 
-   ![Riquadro "Informazioni di base" per la creazione di una macchina virtuale](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Riquadro "Informazioni di base" per la creazione di una macchina virtuale](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Nell'elenco **Sottoscrizione** selezionare una sottoscrizione per la macchina virtuale.
 5. Per selezionare un nuovo gruppo di risorse in cui creare la macchina virtuale, selezionare **Gruppo di risorse** > **Crea nuovo**. Al termine, selezionare **OK**.
@@ -65,7 +65,7 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 1. Per **Macchina virtuale** selezionare la macchina virtuale in cui si vuole abilitare l'identità del servizio gestito.
 2. Nel riquadro sinistro selezionare **Configurazione**.
 3. Verrà visualizzata l'opzione **Identità del servizio gestito**. Per registrare e abilitare l'identità del servizio gestito, selezionare **Sì**. Per disabilitarla, selezionare **No**.
-   ![Selezione per "Registra con Azure Active Directory"](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Selezione per "Registra con Azure Active Directory"](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. Selezionare **Salva**.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store

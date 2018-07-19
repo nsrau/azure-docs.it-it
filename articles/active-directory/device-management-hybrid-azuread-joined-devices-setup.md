@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261186"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868436"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -57,8 +57,8 @@ Per una migliore leggibilità delle descrizioni, in questo articolo viene usata 
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://aka.ms/hybrid/sso). 
-- Le registrazione di dispositivi legacy di Windows **non è** supportata quando si usa l'autenticazione pass-through di Azure AD.
+- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- Le registrazione di dispositivi Windows di livello inferiore **non è** supportata quando si usa l'autenticazione pass-through di Azure AD senza accesso ininterrotto Single Sign-On.
 - Le registrazione di dispositivi legacy di Windows **non è** supportata per i dispositivi che utilizzano profili di roaming. In caso di roaming delle impostazioni o dei profili, usare Windows 10.
 
 
@@ -92,8 +92,6 @@ Se questa operazione non è già stata eseguita, il servizio token di sicurezza 
 Se l'organizzazione prevede di usare l'SSO facile, gli URL seguenti devono essere raggiungibili dai computer all'interno dell'organizzazione e devono anche essere aggiunti all'area Intranet locale dell'utente:
 
 - https://autologon.microsoftazuread-sso.com
-
-- https://aadg.windows.net.nsatc.net
 
 - Inoltre, è necessario abilitare l'impostazione seguente nell'area Intranet dell'utente: "Consenti aggiornamenti alla barra di stato tramite script".
 
@@ -179,7 +177,6 @@ In una configurazione a più foreste, è consigliabile usare lo script seguente 
 
     $de = New-Object System.DirectoryServices.DirectoryEntry
     $de.Path = "LDAP://CN=Services," + $configNC
-
     $deDRC = $de.Children.Add("CN=Device Registration Configuration", "container")
     $deDRC.CommitChanges()
 
@@ -272,7 +269,7 @@ La definizione consente di verificare se i valori sono presenti o devono essere 
  
 ### <a name="issue-objectsid-of-the-computer-account-on-premises"></a>Rilasciare l'attestazione objectSID dell'account computer locale
 
-**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`**: questa attestazione deve contenere il valore di **objectSID** dell'account computer locale. In AD FS, è possibile aggiungere una regola di trasformazione rilascio simile alla seguente:
+**`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`** - Questa attestazione deve contenere il valore **objectSid** dell'account del computer locale. In AD FS, è possibile aggiungere una regola di trasformazione rilascio simile alla seguente:
 
     @RuleName = "Issue objectSID for domain-joined computers"
     c1:[
@@ -504,7 +501,7 @@ Lo script seguente semplifica la creazione delle regole di trasformazione rilasc
 
 ## <a name="step-3-enable-windows-down-level-devices"></a>Passaggio 3: Abilitare dispositivi Windows di livello inferiore
 
-Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi Windows di livello inferiore, è necessario eseguire queste operazioni:
+Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello inferiore di Windows, è necessario:
 
 - Impostare un criterio in Azure AD per consentire agli utenti di registrare i dispositivi.
  
@@ -572,7 +569,7 @@ Al termine dei passaggi necessari, i dispositivi aggiunti a un dominio sono pron
 
 ### <a name="remarks"></a>Osservazioni
 
-- Per controllare l'implementazione della registrazione automatica dei computer Windows 10 e Windows Server 2016 aggiunti al dominio, è possibile usare un oggetto Criteri di gruppo. **Se non si vuole che tali dispositivi vengano registrati automaticamente in Azure AD o se si vuole controllare la registrazione**, è necessario implementare i criteri di gruppo disabilitando la registrazione automatica per tutti questi dispositivi prima di eseguire gli altri passaggi di configurazione. Dopo avere completato la configurazione, quando si è pronti a eseguire il test, è necessario implementare i criteri di gruppo abilitando la registrazione automatica solo per i dispositivi di test e quindi per gli altri dispositivi di propria scelta.
+- È possibile usare un oggetto Criteri di gruppo o l'impostazione System Center Configuration Manager client per controllare l'implementazione della registrazione automatica dei computer Windows 10 e Windows Server 2016 aggiunti al dominio. **Se non si desidera questi dispositivi per la registrazione automatica con Azure AD o si vuole controllare la registrazione**, prima di tutto è necessario implementare i criteri di gruppo disabilitando la registrazione automatica per tutti questi dispositivi oppure, se si usa Configuration Manager, è necessario configurare il client in servizi Cloud -> "No" su Registra automaticamente nuovi dispositivi Windows 10 aggiunti a un dominio con Azure Active Directory, prima di iniziare con uno qualsiasi dei passaggi di configurazione. Dopo avere completato la configurazione, quando si è pronti a eseguire il test, è necessario implementare i criteri di gruppo abilitando la registrazione automatica solo per i dispositivi di test e quindi per gli altri dispositivi di propria scelta.
 
 - Per implementare i computer Windows di livello inferiore, è possibile distribuire un [pacchetto di Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nei computer selezionati.
 

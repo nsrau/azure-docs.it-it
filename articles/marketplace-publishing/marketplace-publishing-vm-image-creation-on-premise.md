@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 6b927ce6032092ce258eeebca49da0571439dbfb
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 58be44e05a0b293b1f8f200cb01b4a483bae10b2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29944432"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006513"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Sviluppare l'immagine di una macchina virtuale in locale per Azure Marketplace
 Si consiglia di sviluppare i dischi rigidi virtuali (VHD, Virtual Hard Disk) di Azure direttamente nel cloud utilizzando Remote Desktop Protocol. Tuttavia, se necessario, è possibile scaricare un VHD e svilupparlo utilizzando l'infrastruttura locale.  
@@ -117,7 +117,7 @@ Usando PowerShell, creare un account di archiviazione con il cmdlet [New-AzureSt
 
         New-AzureStorageAccount -StorageAccountName “mystorageaccount” -Location “West US”
 
-Sarà quindi possibile creare un contenitore in tale account di archiviazione usando il cmdlet [NewAzureStorageContainer](http://msdn.microsoft.com/library/dn495291.aspx) .
+Sarà quindi possibile creare un contenitore in tale account di archiviazione usando il cmdlet [NewAzureStorageContainer](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) .
 
         New-AzureStorageContainer -Name “containername” -Permission “Off”
 

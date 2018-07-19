@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333913"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109743"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Proteggere l'accesso a un account Azure Cosmos DB usando l'endpoint di servizio di Rete virtuale di Azure
 
@@ -249,9 +249,9 @@ Per altre informazioni sui tag NSG, vedere l'articolo sui [tag di servizio delle
 
 Queste due funzionalità si completano reciprocamente per assicurare l'isolamento degli asset Azure Cosmos DB e la protezione. L'utilizzo del firewall IP garantisce che gli indirizzi IP statici possano accedere all'account Azure Cosmos DB.  
 
-### <a name="can-an-on-premise-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>L'indirizzo IP del dispositivo locale che è connesso tramite il gateway di rete virtuale (VPN) di Azure o il gateway ExpressRoute può accedere a un account Azure DB Cosmos?  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>L'indirizzo IP del dispositivo locale che è connesso tramite il gateway di rete virtuale (VPN) di Azure o il gateway ExpressRoute può accedere a un account Azure DB Cosmos?  
 
-L'indirizzo IP del dispositivo locale o l'intervallo di indirizzi IP deve essere aggiunto all'elenco di IP statici per accedere all'account Azure Cosmos DB.  
+Per accedere all'account Azure Cosmos DB, l'indirizzo IP del dispositivo locale o l'intervallo di indirizzi IP deve essere aggiunto all'elenco di IP statici.  
 
 ### <a name="what-happens-if-you-delete-a-virtual-network-that-has-service-endpoint-setup-for-azure-cosmos-db"></a>Cosa accade se si elimina una rete virtuale con un endpoint di servizio configurato per Azure Cosmos DB?  
 

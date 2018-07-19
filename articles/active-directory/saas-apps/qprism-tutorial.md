@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b46eaa83e8e3fab7ca4e2755c48074db1559760
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9b37c6d1c1c2e7ec002ac1b4ea5768c8972dd9e8
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226970"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39039990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Esercitazione: Integrazione di Azure Active Directory con QPrism
 
@@ -34,7 +34,7 @@ L'integrazione di QPrism con Azure AD offre i vantaggi seguenti:
 
 Per altre dettagli sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con QPrism, sono necessari gli elementi seguenti:
 
@@ -152,7 +152,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Crea**.
  
 ### <a name="create-a-qprism-test-user"></a>Creare un utente test QPrism
 
@@ -193,7 +193,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si seleziona il riquadro QPrism nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione QPrism.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

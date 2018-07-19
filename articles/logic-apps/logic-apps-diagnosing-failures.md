@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298791"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441533"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Risoluzione dei problemi e diagnostica degli errori delle app per la logica
 
@@ -105,15 +105,15 @@ Ogni trigger attivato avvia un'esecuzione del flusso di lavoro. È possibile esa
 
 ## <a name="perform-runtime-debugging"></a>Eseguire il debug al runtime
 
-Per facilitare il debug, è possibile aggiungere passaggi di diagnostica a un flusso di lavoro, oltre a esaminare il trigger e la cronologia delle esecuzioni. Ad esempio, è possibile aggiungere passaggi che usano il servizi [RequestBin](http://requestb.in), in modo da poter controllare le richieste HTTP e determinare la loro esatta dimensione, forma e formato.
+Per facilitare il debug, è possibile aggiungere passaggi di diagnostica a un flusso di lavoro, oltre a esaminare il trigger e la cronologia delle esecuzioni. È possibile ad esempio aggiungere passaggi che usano il servizio [Webhook Tester](https://webhook.site/), in modo da poter controllare le richieste HTTP e determinare dimensione, forma e formato esatti.
 
-1. Creare un RequestBin, che è possibile rendere privato e visualizzabile solo nel browser.
+1. Visitare [Webhook Tester](https://webhook.site/) e copiare l'URL univoco creato
 
 2. Nell'app per la logica aggiungere un'azione HTTP POST con qualsiasi contenuto del corpo da verificare, ad esempio un'espressione o l'output di un altro passaggio.
 
-3. Incollare l'URL per il RequestBin nell'azione HTTP POST.
+3. Incollare l'URL per Webhook Tester nell'azione HTTP POST.
 
-4. Per esaminare in che modo viene formata una richiesta quando è generata dal motore di App per la logica, eseguire l'app per la logica e aggiornare il RequestBin.
+4. Per esaminare in che modo viene formata una richiesta quando è generata dal motore di App per la logica di Azure, eseguire l'app per la logica e aggiornare Webhook Tester.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

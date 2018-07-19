@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4f1d21be3c19dfbc764485fea47b6d4cb2171b3c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941229"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442128"
 ---
 # <a name="create-kafka-enabled-event-hubs"></a>Creare Hub eventi con supporto per Kafka
 
@@ -23,7 +23,7 @@ Hub eventi di Azure è una piattaforma come servizio (PaaS, Platform as a Servic
 
 Hub eventi di Azure per ecosistemi Kafka fornisce un endpoint che consente allo spazio dei nomi di Hub eventi di comprendere in modo nativo il protocollo del messaggio e le API [Apache Kafka](https://kafka.apache.org/intro). Con questa funzionalità è possibile comunicare con gli Hub eventi come si farebbe con gli argomenti Kafka senza modificare i client del protocollo o eseguire i propri cluster. Gli Hub eventi per l'ecosistema Kafka supportano [Apache Kafka versione 1.0.](https://kafka.apache.org/10/documentation.html) e successive.
 
-In questo articolo viene descritto come creare uno spazio dei nomi di Hub eventi e ottenere la stringa di connessione necessaria per connettere le applicazioni Kafka agli Hub eventi con supporto per Kafka.
+Questo articolo descrive come creare uno spazio dei nomi di Hub eventi e ottenere la stringa di connessione necessaria per connettere le applicazioni Kafka agli Hub eventi con supporto per Kafka.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -37,11 +37,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     
     ![Cercare Hub eventi nel portale](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. **Creare spazio dei nomi** fornendo un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Crea**.
+3. Specificare un nome univoco e abilitare Kafka nello spazio dei nomi. Fare clic su **Crea**.
     
     ![Creare uno spazio dei nomi](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Dopo aver creato lo spazio dei nomi, nella scheda **Impostazioni**, fare clic su **Criteri di accesso condivisi** per ottenere la stringa di connessione.
+4. Dopo aver creato lo spazio dei nomi, nella scheda **Impostazioni** fare clic su **Criteri di accesso condivisi** per ottenere la stringa di connessione.
 
     ![Fare clic su Criteri di accesso condivisi](./media/event-hubs-create/create-event-hub7.png)
 

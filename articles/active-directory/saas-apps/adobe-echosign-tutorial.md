@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a1a1f1a1866e5221775d583a9bafe86eef17131
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d5cdc2ec0c6cfcf52f84629485d0dd879fbf6fa2
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221224"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Sign
 
@@ -33,7 +33,7 @@ L'integrazione di Adobe Sign con Azure AD offre i vantaggi seguenti:
 
 Per altre dettagli sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Adobe Sign, sono necessari gli elementi seguenti:
 
@@ -196,7 +196,7 @@ L'obiettivo di questa sezione consiste nel creare l'utente di test denominato Br
 
     c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Crea**.
  
 ### <a name="create-an-adobe-sign-test-user"></a>Creare un utente di test di Adobe Sign
 
@@ -252,7 +252,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
-Quando si fa clic sul riquadro Adobe Sign nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Adobe Sign. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro Adobe Sign nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Adobe Sign. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

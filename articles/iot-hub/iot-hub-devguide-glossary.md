@@ -1,5 +1,5 @@
 ---
-title: Glossario dei termini dell'hub IoT di Azure | Microsoft Docs
+title: Glossario dei termini dell'hub IoT di Azure | Documentazione Microsoft
 description: Guida per sviluppatori - Glossario dei termini comuni relativi all'hub IoT di Azure.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960492"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125920"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
@@ -121,7 +121,7 @@ La gestione dei dispositivi comprende il ciclo di vita completo associato alla g
 L'[hub IoT](#iot-hub) abilita modelli di gestione dei dispositivi comuni, inclusi riavvio, esecuzione di ripristini delle impostazioni predefinite ed esecuzione di aggiornamenti del firmware nei dispositivi.
 
 ## <a name="device-rest-api"></a>API REST dei dispositivi
-È possibile usare l'[API REST dei dispositivi](https://docs.microsoft.com/rest/api/iothub/device/device) da un dispositivo per l'invio da dispositivo a cloud di messaggi a un hub IoT e per la ricezione da [cloud a dispositivo](#cloud-to-device) di messaggi da un hub IoT. In genere è consigliabile usare uno degli [SDK per dispositivi](#azure-iot-device-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
+È possibile usare l'[API REST dei dispositivi](https://docs.microsoft.com/rest/api/iothub/device) da un dispositivo per l'invio da dispositivo a cloud di messaggi a un hub IoT e per la ricezione da [cloud a dispositivo](#cloud-to-device) di messaggi da un hub IoT. In genere è consigliabile usare uno degli [SDK per dispositivi](#azure-iot-device-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
 
 ## <a name="device-provisioning"></a>Provisioning di dispositivi
 Il [provisioning di dispositivi](#device-data) è il processo di aggiunta dei dati iniziali dei dispositivi agli archivi nella soluzione. Per abilitare un nuovo dispositivo per la connessione all'hub è necessario aggiungere un ID dispositivo e le relative chiavi al [registro delle identità](#identity-registry) di Hub IoT. Come parte del processo di provisioning, può essere necessario inizializzare i dati specifici del dispositivo in altri archivi di soluzioni.
@@ -225,7 +225,7 @@ Configurare le [regole di routing](iot-hub-devguide-messages-read-custom.md) nel
 SASL PLAIN è un protocollo usato dal protocollo [AMQP](#advanced-message-queue-protocol) per trasferire i token di sicurezza.
 
 ## <a name="service-rest-api"></a>API REST del servizio
-È possibile usare l'[API REST del servizio](https://docs.microsoft.com/rest/api/iothub/service/service) dalla soluzione di back-end per gestire i dispositivi gemelli. L'API consente di recuperare e aggiornare le proprietà del [dispositivo gemello](#device-twin), di invocare [metodi diretti](#direct-method) e pianificare i [processi](#job). In genere è consigliabile usare uno degli [SDK per servizi](#azure-iot-service-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
+È possibile usare l'[API REST del servizio](https://docs.microsoft.com/rest/api/iothub/service) dalla soluzione di back-end per gestire i dispositivi gemelli. L'API consente di recuperare e aggiornare le proprietà del [dispositivo gemello](#device-twin), di invocare [metodi diretti](#direct-method) e pianificare i [processi](#job). In genere è consigliabile usare uno degli [SDK per servizi](#azure-iot-service-sdks) di livello superiore, come illustrato nelle esercitazioni su Hub IoT.
 
 ## <a name="shared-access-signature"></a>Firma di accesso condiviso
 Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. L'autenticazione della firma di accesso condiviso presenta due componenti: i _criteri di accesso condiviso_ e una _firma di accesso condiviso_, che viene spesso chiamata token. Un dispositivo usa la firma di accesso condiviso per l'autenticazione con un hub IoT. Anche le [app back-end](#back-end-app) usano la firma di accesso condiviso per l'autenticazione con gli endpoint per il servizio in un hub IoT. In genere si include il token di firma di accesso condiviso nella [stringa di connessione](#connection-string) usata da un'app per stabilire una connessione a un hub IoT.

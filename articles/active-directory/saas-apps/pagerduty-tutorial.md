@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 2ac5dee8fe9a27ffeed717e010cade522b9fefc0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317983"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Esercitazione: integrazione di Azure Active Directory con PagerDuty
 
@@ -33,7 +33,7 @@ L'integrazione di PagerDuty con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con PagerDuty, sono necessari gli elementi seguenti:
 
@@ -253,7 +253,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando si fa clic sul riquadro PagerDuty nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PagerDuty.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

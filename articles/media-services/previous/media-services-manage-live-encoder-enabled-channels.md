@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 07/02/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639436"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436192"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -52,7 +52,7 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 ## <a name="billing-implications"></a>Implicazioni relative alla fatturazione
 Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API.   È possibile visualizzare lo stato del canale nel portale di Azure o nello strumento Explorer di Servizi multimediali di Azure (http://aka.ms/amse).
 
-La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale di Azure. È possibile che gli stati visualizzati nell'API risultino leggermente diversi da quelli dell'interfaccia del portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure, viene attivata la fatturazione.
+La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale di Azure. Gli stati sono leggermente diversi tra l'API e il portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure, viene attivata la fatturazione.
 Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure.
 È l'utente ad essere responsabile dell'interruzione dei canali al termine dell'utilizzo del canale di codifica live.  La mancata interruzione del canale di codifica comporta infatti il proseguimento della fatturazione.
 
@@ -88,7 +88,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live in cui u
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.
 
 > [!NOTE]
-> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per lunghi periodi di tempo, contattare amslived@microsoft.com. Tenere presente che la codifica live è soggetta a un costo e che se si lascia un canale di codifica live impostato sullo stato "In esecuzione" vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
+> Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com. La codifica live è soggetta a un costo e se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
 > 
 > 
 
@@ -169,7 +169,7 @@ Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'ut
 È possibile inserire un flusso live MP4 frammentato (Smooth Streaming) tramite una connessione SSL. Per l'inserimento tramite SSL, assicurarsi di aggiornare l'URL di inserimento a HTTPS. Si noti che attualmente AMS non supporta SSL con domini personalizzati.  
 
 ### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
-È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)'.
+È possibile definire gli indirizzi IP autorizzati a pubblicare video in questo canale. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo di indirizzi IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo di indirizzi IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').
 
 Se non viene specificato alcun indirizzo IP e non è presente una definizione della regola, non sarà consentito alcun indirizzo IP. Per consentire qualsiasi indirizzo IP, creare una regola e impostare 0.0.0.0/0.
 
@@ -182,12 +182,12 @@ I canali forniscono anche un endpoint di anteprima (URL di anteprima) che consen
 Una volta che il canale inizia a inserire i dati, è possibile visualizzare in anteprima il flusso.
 
 > [!NOTE]
-> Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato. È possibile usare il lettore [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) per testare Smooth Streaming. Per visualizzare il flusso, è possibile anche usare un lettore ospitato nel portale di Azure classico.
+> Attualmente il flusso di anteprima può essere distribuito solo in formato MP4 frammentato (Smooth Streaming), indipendentemente dal tipo di input specificato.  Per visualizzare il flusso, è possibile usare un lettore ospitato nel portale di Azure.
 > 
 > 
 
 ### <a name="allowed-ip-addresses"></a>Indirizzi IP consentiti
-È possibile definire gli indirizzi IP autorizzati a connettersi all'endpoint di anteprima. Se non viene specificato alcun indirizzo IP, sarà consentito qualsiasi indirizzo IP. Gli indirizzi IP consentiti possono essere specificati come un singolo indirizzo IP, ad esempio '10.0.0.1', come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask CIDR, ad esempio '10.0.0.1/22' o come un intervallo di indirizzi IP usando un indirizzo IP e una subnet mask decimale puntata, ad esempio '10.0.0.1(255.255.252.0)').
+È possibile definire gli indirizzi IP autorizzati a connettersi all'endpoint di anteprima. Se non viene specificato alcun indirizzo IP, sarà consentito qualsiasi indirizzo IP. È possibile specificare gli indirizzi IP consentiti come un singolo indirizzo IP (ad esempio '10.0.0.1'), un intervallo di indirizzi IP con un indirizzo IP e una subnet mask CIDR (ad esempio '10.0.0.1/22') o un intervallo di indirizzi IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio, '10.0.0.1(255.255.252.0)').
 
 ## <a name="live-encoding-settings"></a>Impostazioni per la codifica live
 Questa sezione descrive come è possibile modificare le impostazioni del codificatore live all'interno del canale, quando **Tipo di codifica** di un canale è impostato su **Standard**.

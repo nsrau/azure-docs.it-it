@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265284"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111524"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 | Partner |  |  |
@@ -90,7 +90,7 @@ LogicMonitor® è la più importante piattaforma di monitoraggio delle prestazio
 Moogsoft AIOps accelera la trasformazione del business agile.
 
 Gli strumenti di automazione e controllo di Microsoft Azure forniscono una finestra in tempo reale sullo stato delle applicazioni e dei microservizi distribuiti in Azure e consentono di coordinare le funzionalità di diagnostica e i runbook per velocizzare le operazioni di correzione.
-Altri strumenti di terze parti forniscono una finestra sullo stato dell'infrastruttura e delle applicazioni locali.
+Altri strumenti di terze parti offrono una finestra sullo stato dell'infrastruttura e sulle applicazioni locali.
 
 Moogsoft AIOps automatizza il flusso di lavoro relativo agli eventi da correggere senza modificare i processi esistenti e la struttura organizzativa. 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308609"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040705"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Esercitazione: Integrazione di Azure Active Directory con Tangoe Command Premium Mobile
 
@@ -34,7 +34,7 @@ L'integrazione di Tangoe Command Premium Mobile con Azure AD offre i vantaggi se
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Tangoe Command Premium Mobile, sono necessari gli elementi seguenti:
 
@@ -210,7 +210,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Tangoe Command Premium Mobile nel pannello di accesso, viene effettuato automaticamente l'accesso all'applicazione Tangoe Command Premium Mobile. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Quando si fa clic sul riquadro Tangoe Command Premium Mobile nel pannello di accesso, viene effettuato automaticamente l'accesso all'applicazione Tangoe Command Premium Mobile. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

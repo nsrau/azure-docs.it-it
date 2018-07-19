@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
-ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724731"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723433"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -30,7 +30,7 @@ Griglia di eventi è un servizio di Azure che consente di inviare richieste HTTP
 
 I *gestori* di eventi ricevono ed elaborano gli eventi. Funzioni di Azure è uno dei vari [servizi di Azure con supporto incorporato per la gestione degli eventi di Griglia di eventi](../event-grid/overview.md#event-handlers). In questo articolo viene spiegato come usare un trigger Griglia di eventi per richiamare una funzione quando Griglia di eventi riceve un evento.
 
-Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di Griglia di eventi. Per informazioni, vedere [Usare un trigger HTTP come un trigger Griglia di eventi](#use-an-http-trigger-as-an-event-grid-trigger) più avanti in questo articolo.
+Se si preferisce, è possibile usare un trigger HTTP per gestire gli eventi di Griglia di eventi. Per informazioni, vedere [Usare un trigger HTTP come un trigger Griglia di eventi](#use-an-http-trigger-as-an-event-grid-trigger) più avanti in questo articolo. Attualmente non è possibile usare un trigger Griglia di eventi per un'app di Funzioni di Azure quando l'evento è nello [schema CloudEvents](../event-grid/cloudevents-schema.md). È necessario usare invece un trigger HTTP.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -331,45 +331,44 @@ Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-htt
 
 In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il valore della chiave autonomamente.
 
-## <a name="local-testing-with-requestbin"></a>Test locale con RequestBin
-
-> [!NOTE]
-> Il sito RequestBin non è attualmente disponibile, ma è comunque possibile usare questo approccio con https://hookbin.com. Se tale sito è inattivo, è possibile usare [ngrok](#local-testing-with-ngrok).
+## <a name="local-testing-with-viewer-web-app"></a>Test locale con l'app visualizzatore Web
 
 Per testare un trigger Griglia di eventi in locale, è necessario ottenere le richieste HTTP di Griglia di eventi inviate dalla rispettiva origine nel cloud al computer locale. A tale scopo, è possibile acquisire le richieste online e rinviarle manualmente al computer locale:
 
-2. [Creare un endpoint RequestBin](#create-a-RequestBin-endpoint).
-3. [Creare una sottoscrizione di Griglia di eventi](#create-an-event-grid-subscription) per inviare gli eventi all'endpoint RequestBin.
-4. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dal sito RequestBin.
+2. [Creare un'app visualizzatore Web](#create-a-viewer-web-app) che acquisisce i messaggi di evento.
+3. [Creare una sottoscrizione di Griglia di eventi](#create-an-event-grid-subscription) per inviare gli eventi all'app visualizzatore.
+4. [Generare una richiesta](#generate-a-request) e copiare il corpo della richiesta dall'app visualizzatore.
 5. [Inviare manualmente la richiesta](#manually-post-the-request) all'URL localhost della funzione trigger Griglia di eventi.
 
 Al termine del test, è possibile usare la stessa sottoscrizione per scopi di produzione aggiornando l'endpoint. Usare il comando dell'interfaccia della riga di comando di Azure [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
 
-### <a name="create-a-requestbin-endpoint"></a>Creare un endpoint RequestBin
+### <a name="create-a-viewer-web-app"></a>Creare un'app visualizzatore Web
 
-RequestBin è uno strumento open source che accetta le richieste HTTP e visualizza il corpo di tali richieste. Griglia di eventi di Azure riserva all'URL http://requestb.in un trattamento speciale. Per facilitare il test, Griglia di eventi invia gli eventi all'URL RequestBin senza richiedere una risposta corretta alle richieste di convalida della sottoscrizione. Anche a un altro strumento di test viene riservato lo stesso trattamento: http://hookbin.com.
+Per semplificare l'acquisizione di messaggi di evento, è possibile distribuire un'[app Web preesistente](https://github.com/dbarkol/azure-event-grid-viewer) che visualizza i messaggi di evento. La soluzione distribuita include un piano di servizio app, un'app Web del servizio app e codice sorgente da GitHub.
 
-RequestBin non è destinato all'utilizzo con velocità effettiva elevata. Se si esegue il push di più di un evento alla volta, è possibile che non vengano visualizzati tutti gli eventi nello strumento.
+Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
 
-Creare un endpoint.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-![Creare l'endpoint RequestBin](media/functions-bindings-event-grid/create-requestbin.png)
+Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 
-Copiare l'URL dell'endpoint.
+Viene visualizzato il sito, ma nessun evento è ancora stato pubblicato.
 
-![Copiare l'endpoint RequestBin](media/functions-bindings-event-grid/save-requestbin-url.png)
+![Visualizzare il nuovo sito](media/functions-bindings-event-grid/view-site.png)
 
 ### <a name="create-an-event-grid-subscription"></a>Creare una sottoscrizione di Griglia di eventi
 
-Creare una sottoscrizione di Griglia di eventi del tipo che si vuole testare e assegnare a tale sottoscrizione l'endpoint RequestBin. Per informazioni su come creare una sottoscrizione, vedere [Creare una sottoscrizione](#create-a-subscription) più indietro in questo articolo.
+Creare una sottoscrizione di Griglia di eventi della tipologia da testare e assegnargli l'URL dall'app Web come endpoint per la notifica degli eventi. L'endpoint per l'app Web deve includere il suffisso `/api/updates/`. Pertanto, l'URL completo è `https://<your-site-name>.azurewebsites.net/api/updates`
+
+Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure, vedere [Creare eventi personalizzati con il portale di Azure](../event-grid/custom-event-quickstart-portal.md) nella documentazione relativa a Griglia di eventi.
 
 ### <a name="generate-a-request"></a>Generare una richiesta
 
-Attivare un evento che genera traffico HTTP nell'endpoint RequestBin.  Ad esempio, se è stata creata una sottoscrizione di archiviazione BLOB, caricare o eliminare un BLOB. Quando nella pagina RequestBin viene visualizzata una richiesta, copiare il corpo della richiesta.
+Attivare un evento che genera traffico HTTP nell'app Web.  Ad esempio, se è stata creata una sottoscrizione di archiviazione BLOB, caricare o eliminare un BLOB. Quando nell'app Web viene visualizzata una richiesta, copiare il corpo della richiesta.
 
 Si riceverà prima la richiesta di convalida della sottoscrizione. Ignorare tutte le richieste di convalida e copiare la richiesta di evento.
 
-![Copiare il corpo della richiesta da RequestBin](media/functions-bindings-event-grid/copy-request-body.png)
+![Copiare il corpo della richiesta dall'app Web](media/functions-bindings-event-grid/view-results.png)
 
 ### <a name="manually-post-the-request"></a>Inviare manualmente la richiesta
 
@@ -467,14 +466,18 @@ La funzione trigger Griglia di eventi viene eseguita e vengono visualizzati log 
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>Usare un trigger HTTP come trigger Griglia di eventi
 
-Poiché gli eventi di Griglia di eventi vengono ricevuti come richieste HTTP, è possibile gestire tali eventi usando un trigger HTTP anziché un trigger Griglia di eventi. Un possibile vantaggio offerto da questa scelta è un maggiore controllo sull'URL dell'endpoint che richiama la funzione. 
+Poiché gli eventi di Griglia di eventi vengono ricevuti come richieste HTTP, è possibile gestire tali eventi usando un trigger HTTP anziché un trigger Griglia di eventi. Un possibile vantaggio offerto da questa scelta è un maggiore controllo sull'URL dell'endpoint che richiama la funzione. Un altro possibile vantaggio si ha quando è necessario ricevere eventi nello [schema CloudEvents](../event-grid/cloudevents-schema.md). Attualmente, il trigger Griglia di eventi non supporta lo schema CloudEvents. Gli esempi di questa sezione illustrano soluzioni per lo schema di Griglia di eventi e lo schema di CloudEvents.
 
 Se si usa un trigger HTTP, è necessario scrivere il codice per le operazioni che il trigger Griglia di eventi esegue automaticamente:
 
 * Invia una risposta di convalida a una [richiesta di convalida della sottoscrizione](../event-grid/security-authentication.md#webhook-event-delivery).
 * Richiama la funzione per ogni elemento della matrice di eventi contenuta nel corpo della richiesta.
 
-Il codice C# di esempio seguente relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi:
+Per informazioni sull'URL da usare per richiamare la funzione in locale o quando è in esecuzione in Azure, vedere la [documentazione di riferimento relativa alle associazioni del trigger HTTP](functions-bindings-http-webhook.md).
+
+### <a name="event-grid-schema"></a>Schema di Griglia di eventi
+
+Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi. Usare questo esempio per gli eventi nello schema Griglia di eventi.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -512,7 +515,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-Il codice JavaScript di esempio seguente relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi:
+Il seguente codice JavaScript di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi. Usare questo esempio per gli eventi nello schema Griglia di eventi.
 
 ```javascript
 module.exports = function (context, req) {
@@ -522,10 +525,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -540,7 +545,70 @@ module.exports = function (context, req) {
 
 Il codice di gestione degli eventi si inserisce all'interno di un ciclo attraverso la matrice `messages`.
 
-Per informazioni sull'URL da usare per richiamare la funzione in locale o quando è in esecuzione in Azure, vedere la [documentazione di riferimento relativa alle associazioni del trigger HTTP](functions-bindings-http-webhook.md). 
+### <a name="cloudevents-schema"></a>Schema di CloudEvents
+
+Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi.  Usare questo esempio per gli eventi nello schema CloudEvents.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+Il seguente codice JavaScript di esempio relativo a un trigger HTTP simula il comportamento del trigger Griglia di eventi. Usare questo esempio per gli eventi nello schema CloudEvents.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

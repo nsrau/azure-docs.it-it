@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984987"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860038"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>Inviare eventi a Hub eventi di Azure usando .NET Framework
-
-## <a name="introduction"></a>Introduzione
 
 Hub eventi è un servizio che consente di elaborare grandi quantità di dati di telemetria sugli eventi da applicazioni e dispositivi connessi. Dopo aver raccolto i dati in Hub eventi, è possibile archiviarli usando un cluster di archiviazione o trasformarli usando un provider di analisi in tempo reale. Questa funzionalità di elaborazione e raccolta di eventi su vasta scala rappresenta un componente chiave delle moderne architetture di applicazioni, tra cui Internet delle cose (IoT).
 
@@ -31,7 +29,7 @@ Questa esercitazione illustra come usare il [portale di Azure](https://portal.az
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* [Microsoft Visual Studio 2015 o versione successiva](http://visualstudio.com). Gli screenshot in questa esercitazione illustrano Visual Studio 2017.
+* [Microsoft Visual Studio 2017 o versione successiva](http://visualstudio.com).
 * Un account Azure attivo. Se non si ha un account, è possibile crearne uno gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
@@ -60,8 +58,8 @@ In questa sezione si scrive un'app console Windows che invia eventi all'hub even
 5. Aggiungere i campi seguenti alla classe **Program**, sostituendo i valori segnaposto con il nome dell'hub eventi creato nella sezione precedente e la stringa di connessione a livello di spazio dei nomi salvata in precedenza.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. Aggiungere il metodo seguente alla classe **Program** :
    
@@ -103,6 +101,7 @@ In questa sezione si scrive un'app console Windows che invia eventi all'hub even
 Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Ora che è stata creata un'applicazione funzionante che crea un hub eventi e invia dati, è possibile passare agli scenari seguenti:
 
 * [Receive events using the Event Processor Host](event-hubs-dotnet-framework-getstarted-receive-eph.md) (Ricevere eventi usando l'host processore di eventi)

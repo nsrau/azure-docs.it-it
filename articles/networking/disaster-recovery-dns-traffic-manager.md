@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248992"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112987"
 ---
-# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con Gestione traffico e DNS di Azure
+# <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
 
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Per scegliere una soluzione di ripristino di emergenza, i proprietari di aziende e tecnologia devono prima di tutto determinare il livello di funzionalità richiesto durante un'emergenza, ad esempio mancanza totale di disponibilità, disponibilità parziale con funzionalità ridotta, disponibilità ritardata o disponibilità completa.
 La maggior parte dei clienti aziendali sceglie un'architettura distribuita su più aree per garantire resilienza in caso di failover a livello di applicazione o infrastruttura. I clienti possono adottare diversi approcci per ottenere failover e disponibilità elevata tramite un'architettura ridondante. Ecco alcuni degli approcci più diffusi:
@@ -59,7 +59,7 @@ DNS è uno dei meccanismi più efficienti per deviare il traffico di rete poich�
 
 È importante comprendere alcuni concetti relativi a DNS che vengono ampiamente usati in questo articolo per illustrare le soluzioni disponibili:
 - **Record A DNS**: i record A sono puntatori che consentono di configurare un dominio in modo che punti a un indirizzo IPv4. 
-- **CNAME o nome canonico**: questo tipo di record viene usato per puntare a un altro record DNS. CNAME non risponde con una risposta IP ma con il puntatore al record che contiene l'indirizzo IP. 
+- **CNAME o nome canonico**: questo tipo di record viene usato per puntare a un altro record DNS. CNAME non risponde con un indirizzo IP ma con il puntatore al record che contiene l'indirizzo IP. 
 - **Routing di tipo Ponderato**: è possibile scegliere di associare un peso agli endpoint del servizio e quindi distribuire il traffico in base ai pesi assegnati. Questo metodo di routing è uno dei quattro meccanismi di routing del traffico disponibili in Gestione traffico. Per altre informazioni, vedere [Metodo di routing del traffico Ponderato](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Routing di tipo Priorità**: questo metodo è basato sui controlli di integrità degli endpoint. Per impostazione predefinita, Gestione traffico di Azure invia tutto il traffico all'endpoint con priorità più elevata e, in caso di errore o di emergenza, indirizza il traffico all'endpoint secondario. Per altre informazioni, vedere [Metodo di routing del traffico Priorità](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

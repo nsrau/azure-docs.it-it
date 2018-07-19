@@ -3,7 +3,7 @@ title: Come monitorare e ridurre la limitazione in Azure Time Series Insights | 
 description: Questo articolo illustra come monitorare, diagnosticare e attenuare i problemi di prestazioni che causano latenza e limitazione in Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: jasonwhowell
+author: ashannon7
 ms.author: jasonh
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: 9a7720934870818a4e13d3d6b5d391d9bd3cddcd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 35860838d03d61e1145d35fd2516c1688c3bb64f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653672"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130581"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorare e ridurre la limitazione per evitare la latenza in Azure Time Series Insights
 Quando la quantità di dati in ingresso è superiore alla configurazione dell'ambiente, in Azure Time Series Insights si può verificare una latenza o una limitazione.
@@ -52,15 +52,15 @@ A questo punto è possibile configurare avvisi usando le metriche seguenti:
 |**Ingress Received Messages** (Messaggi ricevuti in ingresso)   | Numero dei messaggi letti da tutte le origini eventi di hub eventi o hub IoT.        |
 |**Ingress Stored Bytes** (Byte archiviati in ingresso)     | Dimensioni totali degli eventi archiviati e disponibili per le query. Le dimensioni sono calcolate solo sul valore delle proprietà.        |
 |**Ingress Stored Events** (Eventi archiviati in ingresso)     |   Numero di eventi bidimensionali archiviati e disponibili per le query.      |
-|**Ingress Received Message Time Lag** (Tempo di ritardo messaggi ricevuti in ingresso)    |  Differenza tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.      |
-|**Ingress Received Message Count Lag** (Differenza numero messaggi ricevuti in ingresso)    |  Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso.      |
+|**Ingress Received Message Time Lag** (Tempo di ritardo messaggi ricevuti in ingresso)    |  Differenza in secondi tra l'ora in cui il messaggio viene accodato nell'origine eventi e l'ora di elaborazione in ingresso.      |
+|**Ingress Received Message Count Lag** (Ritardo numero di messaggi ricevuti in ingresso)    |  Differenza tra il numero di sequenza dell'ultimo messaggio accodato nella partizione di origine eventi e il numero di sequenza del messaggio elaborato in ingresso.      |
 
 
 ![Latenza](media/environment-mitigate-latency/latency.png)
 
-In presenza di limitazioni, verrà visualizzato un valore per *Ingress Received Message Time Lag* (Tempo di ritardo messaggi ricevuti in ingresso) che indica il numero di minuti di ritardo di Time Series Insights rispetto all'ora di arrivo effettiva del messaggio all'origine eventi, escluso il tempo di indicizzazione di circa 30-60 secondi.  Anche per *Ingress Received Message Count Lag* (Differenza numero messaggi ricevuti in ingresso) deve essere disponibile un valore, che consente di determinare di quanti messaggi si è in ritardo.  Il modo più semplice per mettersi in pari consiste nell'aumentare la capacità dell'ambiente fino a dimensioni che consentono di recuperare la differenza.  
+In presenza di limitazioni, verrà visualizzato un valore per *Ingress Received Message Time Lag* (Tempo di ritardo messaggi ricevuti in ingresso) che indica il numero di secondi di ritardo di Time Series Insights rispetto all'ora di arrivo effettiva del messaggio all'origine eventi, escluso il tempo di indicizzazione di circa 30-60 secondi.  Anche per *Ingress Received Message Count Lag* (Differenza numero messaggi ricevuti in ingresso) deve essere disponibile un valore, che consente di determinare di quanti messaggi si è in ritardo.  Il modo più semplice per mettersi in pari consiste nell'aumentare la capacità dell'ambiente fino a dimensioni che consentono di recuperare la differenza.  
 
-Ad esempio, se è disponibile un ambiente S1 a singola unità e si riscontra un ritardo di cinque milioni di messaggi, è possibile aumentare le dimensioni dell'ambiente a sei unità per circa un giorno per mettersi in pari.  È possibile aumentare ulteriormente per recuperare più velocemente.  Si tratta di una situazione comune durante il provisioning iniziale di un ambiente, in particolare quando lo si connette a un'origine eventi che già include eventi oppure quando si esegue un caricamento in blocco di molti dati cronologici.
+Ad esempio, se è disponibile un ambiente S1 a singola unità e si riscontra un ritardo di cinque milioni di messaggi, è possibile aumentare le dimensioni dell'ambiente a sei unità per circa un giorno per mettersi in pari.  È possibile aumentare ulteriormente per recuperare più velocemente.  Il periodo di recupero è una situazione comune durante il provisioning iniziale di un ambiente, in particolare quando lo si connette a un'origine eventi che già include eventi oppure quando si esegue un caricamento in blocco di molti dati cronologici.
 
 Un'altra tecnica consiste nell'impostare un avviso **Ingress Stored Events** (Eventi archiviati in ingresso) per un valore maggiore o uguale a una soglia leggermente inferiore alla capacità totale dell'ambiente per un periodo di 2 ore.  Questo avviso consentirà di comprendere se si raggiunge costantemente la capacità e la probabilità di latenza è quindi elevata.  
 

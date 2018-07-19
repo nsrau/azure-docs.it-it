@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c2c93b8f6b4f8c4d888f7105f09e96dd9df7b574
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 72452382c4fd2f9c1acb0d773da5c7ed014f9bda
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902623"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001933"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a SQL di Azure
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come usare un'identità del servizio gestito per u
 > * Concedere l'accesso della macchina virtuale a un server SQL Azure
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per eseguire query su un server SQL di Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 5.  Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6.  Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nella pagina delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
@@ -63,7 +63,7 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Concedere l'accesso della macchina virtuale a un database in un server SQL di Azure
 

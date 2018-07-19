@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f3c3c8db93ae638cfc0bf82ee26ff2e26646d49
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220275"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Esercitazione: Integrazione di Azure Active Directory con SAP Cloud Platform
 
@@ -34,14 +34,14 @@ L'integrazione di SAP Cloud Platform con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con SAP Cloud Platform, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
 - Sottoscrizione di SAP Cloud Platform abilitata per l'accesso Single Sign-On
 
-Al termine dell'esercitazione, gli utenti di Azure AD assegnati a SAP Cloud Platform saranno in grado di eseguire l'accesso Single Sign-On all'applicazione seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Al termine dell'esercitazione, gli utenti di Azure AD assegnati a SAP Cloud Platform saranno in grado di eseguire l'accesso Single Sign-On all'applicazione seguendo le istruzioni riportate in [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 >[!IMPORTANT]
 >È necessario distribuire l'applicazione o la sottoscrizione a un'applicazione per l'account di SAP Cloud Platform per testare l'accesso Single Sign-On. In questa esercitazione, viene distribuita un'applicazione nell'account.

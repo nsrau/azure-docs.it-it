@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: d80d7d9c54bad12a4d26d8623eeccdf9bc2a743a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fab76467025518bc455295da681d0b0127a9cbfe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059796"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098730"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Come inviare messaggi di posta elettronica usando SendGrid da Java in una distribuzione Azure
 L'esempio seguente illustra come è possibile usare SendGrid per inviare messaggi di posta elettronica da una pagina Web ospitata in Azure. L'applicazione risultante chiederà all'utente di inserire i valori relativi al messaggio di posta elettronica, come illustrato nella schermata seguente.
@@ -32,7 +32,7 @@ Il messaggio di posta elettronica finale dovrebbe essere simile a quello riporta
 
 Per usare il codice in questo argomento è necessario eseguire le operazioni seguenti:
 
-1. Ottenere i file JAR di javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail/index.html>.
+1. Ottenere i file JAR javax.mail, ad esempio da <http://www.oracle.com/technetwork/java/javamail/index.html>.
 2. Aggiungere i file JAR al percorso di compilazione Java.
 3. Se si usa Eclipse per creare l'applicazione Java, è possibile includere le librerie SendGrid nel file di distribuzione dell'applicazione (WAR) usando l'assembly di distribuzione di Eclipse. Se non si usa Eclipse per creare l'applicazione Java, verificare che le librerie siano incluse nello stesso ruolo di Azure dell'applicazione Java e che sia stato aggiunto al percorso della classe dell'applicazione.
 
@@ -213,7 +213,7 @@ Distribuire l'applicazione sull'emulatore di calcolo e, dall'interno di un brows
 
 Questo codice ha lo scopo di illustrare come usare SendGrid con Java in Azure. Prima di eseguire la distribuzione in Azure in produzione, può essere necessario aggiungere ulteriori funzionalità per la gestione degli errori o per altri scopi. Ad esempio:  
 
-* Anziché usare un modulo Web, è possibile usare l'archiviazione BLOB o un database SQL di Azure per l'archiviazione di indirizzi e messaggi di posta elettronica. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Per informazioni sull'uso dei database SQL in Java, vedere [Uso di database SQL in Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* Anziché usare un modulo Web, è possibile usare l'archiviazione BLOB o un database SQL di Azure per l'archiviazione di indirizzi e messaggi di posta elettronica. Per informazioni sull'uso dei BLOB di archiviazione di Azure in Java, vedere [Come usare il servizio di archiviazione BLOB da Java](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). Per informazioni sull'uso dei database SQL in Java, vedere [Uso di database SQL in Java](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-java).
 * È possibile usare `RoleEnvironment.getConfigurationSettings` per recuperare il nome utente e la password di SendGrid dalle impostazioni di configurazione della distribuzione, anziché usare il modulo Web per recuperare questi valori. Per informazioni sulla classe `RoleEnvironment`, vedere [Uso della libreria di runtime del servizio Azure in JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) e la documentazione sul pacchetto della libreria di runtime del servizio Azure all'indirizzo <http://dl.windowsazure.com/javadoc>.
 * Per altre informazioni sull'uso di SendGrid in Java, vedere [Come inviare messaggi di posta elettronica usando SendGrid da Java](store-sendgrid-java-how-to-send-email.md).
 

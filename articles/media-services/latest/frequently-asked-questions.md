@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659575"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110421"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Domande frequenti su Servizi multimediali di Azure v3 (anteprima)
 
@@ -30,7 +30,7 @@ Per il momento no. È possibile usare uno degli SDK supportati. Vedere le eserci
 
 Il team di Servizi multimediali sta eliminando le unità riservate nella versione v3. Tuttavia le operazioni necessarie non sono state completate. Fino ad allora, i clienti dovranno usare il portale di Azure o le API di AMS v2 per impostare le unità riservate, come in [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md). 
 
-Le unità riservate S3 sono necessarie per i set di impostazioni **VideoAnalyzerPreset** e **AudioAnalyzerPreset** della versione v3.
+Quando si usa **VideoAnalyzerPreset** e/o **AudioAnalyzerPreset**, impostare l'account dei Servizi multimediali di Azure su 10 unità riservate di codifica S3.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>Per gli asset nella versione 3 non esiste il concetto di AssetFile?
 

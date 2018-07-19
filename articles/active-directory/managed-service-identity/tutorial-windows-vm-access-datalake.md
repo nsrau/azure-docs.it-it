@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904289"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007968"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Esercitazione: usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come usare un'identità del servizio gestito per u
 > * Concedere alla VM l'accesso a un'istanza di Azure Data Lake Store
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per accedere a un'istanza di Azure Data Lake Store
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6. Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nella pagina delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-   ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
@@ -63,11 +63,11 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
-   ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
 
-   ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+   ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Concedere alla VM l'accesso ad Azure Data Lake Store
 

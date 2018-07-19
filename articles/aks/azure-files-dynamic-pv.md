@@ -2,19 +2,19 @@
 title: Usare File di Azure con il servizio contenitore di Azure
 description: Usare Dischi di Azure con il servizio contenitore di Azure
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597502"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098346"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumi permanenti con i file di Azure
 
@@ -24,7 +24,7 @@ Per altre informazioni sui volumi Kubernetes permanenti, comrpesa la creazione s
 
 ## <a name="create-storage-account"></a>Crea account di archiviazione
 
-Quando si crea in modo dinamico una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione purché si trovi nel gruppo di risorse del **nodo** AKS. Ottenere il nome del gruppo di risorse con il comando [az resource show][az-resource-show].
+Quando si crea in modo dinamico una condivisione di file di Azure come volume Kubernetes, è possibile usare qualsiasi account di archiviazione purché si trovi nel gruppo di risorse del **nodo** AKS. In questo caso si tratta di quello con il prefisso `MC_`, creato con il provisioning delle risorse per il cluster AKS. Ottenere il nome del gruppo di risorse con il comando [az resource show][az-resource-show].
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ Aggiornare `--resource-group` con il nome del gruppo di risorse ottenuto nell'ul
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> File di Azure attualmente funziona solo con l'archiviazione standard. Se si usa un tipo di archiviazione Premium, il volume non riuscirà a effettuare il provisioning.
+
 ## <a name="create-storage-class"></a>Creazione della classe di archiviazione
 
 Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nella classe è possibile indicare un account di archiviazione specifico. Se non si specifica alcun account di archiviazione, è necessario specificare un valore per `skuName` e `location`. Vengono quindi valutati tutti gli account di archiviazione nel gruppo di risorse associato per trovare una corrispondenza.
 
 Per altre informazioni sulle classi di archiviazione Kubernetes per file di Azure, vedere [Kubernetes Storage Classes][kubernetes-storage-classes] (Classi di archiviazione Kubernetes).
 
-Creare un file denominato `azure-file-sc.yaml` e copiarlo nel manifesto seguente. Aggiornare `storageAccount` con il nome dell'account di archiviazione di destinazione.
+Creare un file denominato `azure-file-sc.yaml` e copiarlo nel manifesto seguente. Aggiornare `storageAccount` con il nome dell'account di archiviazione di destinazione. Vedere la sezione [Opzioni di montaggio] per altre informazioni su `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Creare la classe di archiviazione con il comando [kubectl apply][kubectl-apply].
@@ -206,3 +213,4 @@ Altre informazioni sui volumi Kubernetes che usano File di Azure.
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

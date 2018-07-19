@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725092"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096510"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -63,7 +63,7 @@ Verranno illustrate ora le procedure iniziali riguardanti il driver ODBC.
 4. Fare clic sul pulsante **Test** per assicurarsi che sia possibile connettersi all'account di Azure Cosmos DB. 
 5. Fare clic su **Opzioni avanzate** e impostare i valori seguenti:
     - **Coerenza delle query**: selezionare il [livello di coerenza](consistency-levels.md) per le operazioni. Il valore predefinito è Session.
-    - **Numero di tentativi**: immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione del servizio.
+    - **Numero di tentativi**: immettere il numero di tentativi di un'operazione se la richiesta iniziale non viene completata a causa della limitazione di velocità.
     - **File di schema**: si dispone di una serie di opzioni.
         - Per impostazione predefinita, lasciando vuota questa voce, il driver analizzerà i dati nella prima pagina per tutte le raccolte per individuare lo schema di ciascuna raccolta. L'operazione è definita Mapping raccolta. Senza un file di schema definito, il driver deve eseguire l'analisi per ogni sessione di driver. Possono quindi verificarsi tempi di avvio più elevati per un'applicazione che usa DSN. È consigliabile associare sempre un file di schema per un DSN.
         - Se si dispone già di un file di schema, probabilmente creato con l'[Editor schema](#schema-editor), è possibile fare clic su **Sfoglia**, selezionare il file, fare clic su **Salva** e quindi su **OK**.

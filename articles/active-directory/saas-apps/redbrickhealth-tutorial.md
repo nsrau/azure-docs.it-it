@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: c30da2ecebd7c46e8396351f7e7c5ee69c130e29
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d852b30568acff4f1d56a1e208528e8c90b5b1f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217035"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051779"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Esercitazione: Integrazione di Azure Active Directory con RedBrick Health
 
@@ -34,7 +34,7 @@ L'integrazione di RedBrick Health con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con RedBrick Health, sono necessari gli elementi seguenti:
 
@@ -242,7 +242,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro RedBrick Health nel pannello di accesso, verrà eseguito automaticamente l'accesso all'applicazione RedBrick Health.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

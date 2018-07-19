@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b097a85ee97fb815106803ab95f3e4f6edde4896
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050574"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136673"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Elaborare set di dati su larga scala con Data Factory e Batch
 > [!NOTE]
@@ -86,7 +86,7 @@ La soluzione di esempio è volutamente semplice. È progettata per illustrare co
 
 **Tempo**: se si ha familiarità con le nozioni di base di Azure, di Data Factory e di Batch e sono stati completati i prerequisiti elencati di seguito, si stima che il completamento di questa soluzione richieda 1-2 ore.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 #### <a name="azure-subscription"></a>Sottoscrizione di Azure
 Se non si dispone di una sottoscrizione di Azure, è possibile creare un account di valutazione gratuita. Per altre informazioni, vedere [Valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -975,7 +975,7 @@ Dopo l'elaborazione dei dati, è possibile usarli con strumenti online come Powe
   * [Nozioni di base di Batch](../../batch/batch-technical-overview.md)
   * [Cenni preliminari sulle funzionalità di Batch](../../batch/batch-api-basics.md)
   * [Creare e gestire un account di Batch nel portale di Azure](../../batch/batch-account-create-portal.md)
-  * [Introduzione alla libreria client di Batch per .NET](../../batch/batch-dotnet-get-started.md)
+  * [Introduzione alla libreria client di Batch per .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

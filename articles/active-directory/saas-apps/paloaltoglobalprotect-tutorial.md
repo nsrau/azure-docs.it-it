@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jeedes
-ms.openlocfilehash: e840a8cbcbf03bf6a658047686f4d4a29994af09
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6f395897687235f0956928fd0a5dccf00d4c7d12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219935"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---globalprotect"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks - GlobalProtect
 
@@ -34,7 +34,7 @@ L'integrazione di Palo Alto Networks - GlobalProtect con Azure AD offre i vantag
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Palo Alto Networks - GlobalProtect, sono necessari gli elementi seguenti:
 
@@ -243,7 +243,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Palo Alto Networks - GlobalProtect nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Palo Alto Networks - GlobalProtect.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

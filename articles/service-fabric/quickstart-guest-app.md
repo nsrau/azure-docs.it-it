@@ -3,7 +3,7 @@ title: Distribuire rapidamente un'app esistente in un cluster di Azure Service F
 description: Usare un cluster di Azure Service Fabric per ospitare un'applicazione Node.js esistente con Visual Studio.
 services: service-fabric
 documentationcenter: nodejs
-author: thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: adegeo
-ms.openlocfilehash: 3cb7fdf309c935c21f4e80c1d1ba529838935acc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: ryanwi
+ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213011"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005295"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Ospitare un'applicazione Node.js in Azure Service Fabric
 
 Questa guida introduttiva illustra come distribuire un'applicazione esistente, in questo esempio Node.js, in un cluster di Service Fabric in esecuzione in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di avere [configurato l'ambiente di sviluppo](service-fabric-get-started.md). Ciò include l'installazione di Service Fabric SDK e Visual Studio 2017 o 2015.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735645"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128759"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Note sulla versione dell'agente Sincronizzazione file di Azure (anteprima)
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,8 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Status |
 |----|----------------------|--------------|------------------|
-| Aggiornamento 2 | 3.0.12.0 | 22 maggio 2018 | Supportato (versione consigliata) |
+| Aggiornamento cumulativo di giugno | 3.0.13.0 | 29 giugno 2018 | Supportato (versione consigliata) |
+| Aggiornamento 2 | 3.0.12.0 | 22 maggio 2018 | Supportato |
 | Aggiornamento cumulativo di aprile | 2.3.0.0 | 8 maggio 2018 | Supportato |
 | Aggiornamento cumulativo di marzo | 2.2.0.0 | 12 marzo 2018 | Supportato |
 | Aggiornamento cumulativo di febbraio | 2.1.0.0 | 28 febbraio 2018 | Supportato |
@@ -37,6 +38,12 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>Agente versione 3.0.13.0
+Le note seguenti sulla versione si riferiscono alla versione 3.0.13.0 dell'agente di Sincronizzazione file di Azure (data di rilascio 29 giugno 2018). Queste note si aggiungono a quelle elencate per la versione 3.0.12.0.
+
+Questa versione include la correzione seguente:
+- La sincronizzazione ha esito negativo se si aggiunge un server a un gruppo di sincronizzazione esistente quando nel percorso dell'endpoint del server esistono reparse point.
 
 ## <a name="agent-version-30120"></a>Agente versione 3.0.12.0
 Le note sulla versione seguenti si riferiscono alla versione 3.0.12.0 dell'agente di Sincronizzazione file di Azure (data di rilascio 22 maggio 2018).

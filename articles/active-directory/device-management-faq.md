@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311115"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901137"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -86,11 +86,18 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 3.  Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`.
 
 ---
-**D: Come si separa un dispositivo aggiunto ad Azure AD in locale nel dispositivo?
+**D: In che modo è possibile separare un dispositivo aggiunto da Azure AD in locale sul dispositivo?**
+
 **R:** 
 - Per i dispositivi aggiunti all'identità ibrida di Azure AD, disattivare le registrazione automatica in modo che l'attività pianificata non registri nuovamente il dispositivo. A questo punto, aprire il prompt dei comandi come amministratore e digitare `dsregcmd.exe /debug /leave`. In alternativa, è possibile eseguire il comando come script tra più dispositivi per eseguire la separazione in blocco.
 
 - Per i dispositivi puri aggiunti ad Azure AD, assicurarsi di avere un account amministratore locale offline o crearne uno poiché non sarà possibile accedere con le credenziali di un utente Azure AD. A questo punto, passare a **Impostazioni** > **Account** > **Accedi all'azienda o all'istituto di istruzione**. Selezionare l'account e fare clic su **Disconnetti**. Seguire le istruzioni e, quando richiesto, fornire le credenziali di amministratore locale. Riavviare il dispositivo per completare il processo di separazione.
+
+---
+
+**D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa a partire dai dispositivi aggiunti ad Azure AD?**
+
+**R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
 
 ---
 
@@ -124,6 +131,11 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 ---
 
+**D: Perché alcuni dei miei utenti non ottengono richieste di autenticazione a più fattori sui dispositivi aggiunti ad Azure AD?**
+
+**R:** Se l'utente viene aggiunto o registra un dispositivo con Azure AD usando la Multi-Factor Authentication, il dispositivo stesso diventerà un secondo fattore attendibile per tale utente. Successivamente, ogni volta che lo stesso utente esegue l'accesso al dispositivo e a un'applicazione, Azure AD considera il dispositivo come secondo fattore e consente all'utente di accedere facilmente alle applicazioni senza ulteriori richieste di autenticazione a più fattori. Questa procedura non è applicabile a nessun altro utente che accede a tale dispositivo, in modo tale che a tutti gli altri utenti verrà comunque richiesta un'autenticazione a più fattori prima di accedere alle applicazioni che richiedono l'autenticazione.
+
+---
 
 **D: Il record del dispositivo è presente nelle informazioni UTENTE nel portale di Azure e viene indicato come registrato nel dispositivo. La configurazione è corretta per l'uso dell'accesso condizionale?**
 
@@ -173,5 +185,6 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 
 - [Risoluzione dei problemi di registrazione automatica di computer aggiunti al dominio di Azure AD per client di livello inferiore di Windows](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

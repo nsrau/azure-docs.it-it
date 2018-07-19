@@ -3,17 +3,16 @@ title: Pianificare la capacità e la scalabilità per la replica VMware con Azur
 description: Consultare questo articolo per pianificare la capacità e la scalabilità quando si esegue la replica delle macchine virtuali VMware in Azure con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.date: 07/06/2018
+ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692199"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920798"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery
 
@@ -108,24 +107,10 @@ Dopo aver usato lo [strumento di pianificazione della distribuzione](site-recove
 
 ## <a name="deploy-additional-process-servers"></a>Distribuire server di elaborazione aggiuntivi
 
-Se è necessario ridimensionare la distribuzione oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Seguire queste istruzioni per configurare il server di elaborazione. Dopo aver configurato il server è possibile eseguire la migrazione dei computer di origine per usarlo.
-
-1. In **Site Recovery servers** (Server di Site Recovery) fare clic sul server di configurazione e quindi su **Server di elaborazione**.
-
-    ![Screenshot dell'opzione relativa ai server Site Recovery da aggiungere a un server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. In **Tipo di server** fare clic su **Process server (on-premises)** (Server di elaborazione (locale)).
-
-    ![Screenshot della finestra di dialogo Server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. Scaricare il file per l'Installazione unificata di Site Recovery ed eseguirlo per installare il server di elaborazione e registrarlo nell'insieme di credenziali.
-4. In **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
-5. Completare la procedura guidata come per la [configurazione](#step-2-set-up-the-source-environment) del server di configurazione.
-
-    ![Screenshot della procedura guidata per l'installazione unificata di Azure Site Recovery](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. In **Dettagli del server di configurazione** specificare l'indirizzo IP del server di configurazione e la passphrase. Per ottenere la passphrase, eseguire **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n** nel server di configurazione.
-
-    ![Screenshot della pagina dei dettagli del server di configurazione](./media/site-recovery-vmware-to-azure/add-ps2.png)
+Se è necessario ridimensionare la distribuzione oltre 200 computer di origine oppure la varianza totale giornaliera è superiore a 2 TB, sono necessari server di elaborazione aggiuntivi per gestire il volume di traffico. Per configurare il server di elaborazione, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-scale.md). Dopo aver configurato il server è possibile eseguire la migrazione dei computer di origine per usarlo.
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Eseguire la migrazione dei computer per usare il nuovo server di elaborazione
+
 1. In **Impostazioni** > **Server di Site Recovery** fare clic sul server di configurazione e quindi espandere **Server di elaborazione**.
 
     ![Screenshot della finestra di dialogo Server di elaborazione](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
@@ -134,6 +119,30 @@ Se è necessario ridimensionare la distribuzione oltre 200 computer di origine o
     ![Screenshot della finestra di dialogo Server di configurazione](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. In **Selezionare il server di elaborazione di destinazione** selezionare il nuovo server di elaborazione da usare e le macchine virtuali che dovranno essere gestite dal server. Fare clic sull'icona informazioni per ottenere informazioni sul server. Per consentire di prendere le decisioni relative al carico, viene visualizzato lo spazio medio necessario per replicare ogni macchina virtuale selezionata nel nuovo server di elaborazione. Fare clic sul segno di spunta per avviare la replica nel nuovo server di elaborazione.
 
+## <a name="deploy-additional-master-target-servers"></a>Distribuire server di destinazione master aggiuntivi
+
+Il server di destinazione master aggiuntivo è necessario durante gli scenari seguenti
+
+1. Se si sta provando a proteggere una macchina virtuale basata su Linux.
+2. Se il server di destinazione master disponibile nel server di configurazione non ha accesso all'archivio dati della macchina virtuale.
+3. Se il numero totale di dischi nel server di destinazione master (n. dei dischi locali nel server+ dischi da proteggere) supera i 60 dischi.
+
+Per aggiungere un nuovo server di destinazione master per **macchina virtuale basata su Linux**, [fare clic qui](vmware-azure-install-linux-master-target.md).
+
+Per la **macchina virtuale basata su Windows**, seguire le istruzioni fornite di seguito.
+
+1. Passa a **credenziali di Servizi di ripristino**,  > **Infrastruttura di Site Recovery** > **Server di configurazione**.
+2. Fare clic sul server di configurazione necessario > **+ Server di destinazione master**.![add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. Scaricare la configurazione unificata ed eseguirla nella macchina virtuale per impostare i server di destinazione master.
+4. Scegliere **Installare la destinazione master** > **Avanti**. ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. Scegliere il percorso di installazione predefinito > fare clic su **Installa**. ![Installazione di MT](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. Fare clic su **Procedi alla configurazione** per registrare i server di destinazione master con server di configurazione. ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. Inserire l'indirizzo IP del server di configurazione e passphrase. [Fare clic qui](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) per informazioni su come generare una passphrase.![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. Fare clic su **Registra** e dopo la registrazione fare clic su **Fine**.
+9. Al termine della registrazione, questo server è elencato nel portale sotto **Credenziali per i Servizi di ripristino** > **Infrastruttura di Site Recovery** > **Configurazione server** > server di destinazione master di server di configurazione pertinente.
+
+ >[!NOTE]
+ >È anche possibile scaricare la versione più recente della configurazione unificata di server di destinazione master per Windows [qui](https://aka.ms/latestmobsvc).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

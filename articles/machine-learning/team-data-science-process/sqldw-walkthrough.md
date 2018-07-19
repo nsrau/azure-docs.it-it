@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 12eb182c859617139fce6553496c6aa6e9bcdc98
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839062"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004371"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -887,7 +887,7 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
 •    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•    [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+•    [Ricerche e statistiche su NYC Taxi and Limousine Commission](http://www.nyc.gov/html/tlc/html/technology/aggregated_data.shtml)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

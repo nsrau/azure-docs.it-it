@@ -4,27 +4,34 @@ description: Viene illustrato come passare una chiave privata da un insieme di c
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359095"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598408"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione
 
-Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md). Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. Non è necessario immettere manualmente il valore segreto ogni volta che si distribuisce le risorse. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa rispetto al gruppo di risorse in cui si sta eseguendo la distribuzione. Quando si fa riferimento all'insieme di credenziali delle chiavi, includere l'ID sottoscrizione.
+Quando è necessario passare un valore protetto (ad esempio una password) come parametro durante la distribuzione, è possibile recuperare il valore da [Azure Key Vault](../key-vault/key-vault-whatis.md). Il valore viene recuperato facendo riferimento all'insieme di credenziali delle chiavi e alla chiave privata nel file dei parametri. Il valore non viene mai esposto, in quanto si fa riferimento solo all'ID dell'insieme di credenziali chiave. L'insieme di credenziali delle chiavi può essere presente in una sottoscrizione diversa rispetto al gruppo di risorse in cui si sta eseguendo la distribuzione.
 
-Quando di crea l'insieme di credenziali delle chiavi, impostare la proprietà *enabledForTemplateDeployment* su *true*. Impostando questo valore su true, si consente l'accesso dai modelli di Resource Manager durante la distribuzione.
+## <a name="enable-access-to-the-secret"></a>Abilitare l'accesso alla chiave privata
+
+Esistono due condizioni importanti che devono essere presenti per l'accesso a un insieme di credenziali delle chiavi durante la distribuzione del modello:
+
+1. La proprietà dell'insieme di credenziali delle chiavi `enabledForTemplateDeployment` deve essere `true`.
+2. L'utente che distribuisce il modello deve avere accesso alla chiave privata. L'utente deve disporre dell'autorizzazione `Microsoft.KeyVault/vaults/deploy/action` per l'insieme di credenziali delle chiavi. Entrambi i ruoli [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso.
+
+Quando si usa un insieme di credenziali chiave con il modello per una [Applicazione gestita](../managed-applications/overview.md), è necessario concedere l'accesso all'entità servizio **Provider di risorse di Appliance**. Per altre informazioni, vedere [Segreto di accesso di Key Vault quando si distribuiscono Applicazioni gestite di Azure](../managed-applications/key-vault-access.md).
+
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Distribuire un insieme di credenziali chiave e una chiave privata
 
@@ -60,10 +67,6 @@ New-AzureRmKeyVault `
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
-
-## <a name="enable-access-to-the-secret"></a>Abilitare l'accesso alla chiave privata
-
-Indipendentemente dal fatto che si usi un insieme di credenziali delle chiavi nuovo o già esistente, assicurarsi che l'utente che distribuisce il modello possa accedere alla chiave privata. L'utente che distribuisce un modello che fa riferimento a una chiave privata deve disporre dell'autorizzazione `Microsoft.KeyVault/vaults/deploy/action` per l'insieme di credenziali delle chiavi. Entrambi i ruoli [Proprietario](../role-based-access-control/built-in-roles.md#owner) e [Collaboratore](../role-based-access-control/built-in-roles.md#contributor) possono concedere l'accesso.
 
 ## <a name="reference-a-secret-with-static-id"></a>Fare riferimento a un segreto con un ID statico
 

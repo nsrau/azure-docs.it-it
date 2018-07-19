@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b5826fd3067ac337808b9e27040dee808cd6a01c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301141"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Esercitazione: Integrazione di Azure Active Directory con Shmoop For Schools
 
@@ -34,7 +34,7 @@ L'integrazione di Shmoop For Schools con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Shmoop For Schools, sono necessari gli elementi seguenti:
 
@@ -182,7 +182,7 @@ L'obiettivo di questa sezione consiste nel creare l'utente di test "Britta Simon
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Crea**.
  
 ### <a name="create-a-shmoop-for-schools-test-user"></a>Creare un utente test di Shmoop For Schools
 
@@ -227,7 +227,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando si seleziona **Shmoop For Schools** nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Shmoop For Schools.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

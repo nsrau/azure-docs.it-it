@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
-ms.openlocfilehash: b077c5529f08151359a3344ed2f983323fb7e14a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ae91c1e07d3a41558bd15bc92d05d20ef552f6a3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218578"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Esercitazione: Integrazione di Azure Active Directory con LINE WORKS
 
@@ -34,7 +34,7 @@ L'integrazione di LINE WORKS con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con LINE WORKS, sono necessari gli elementi seguenti:
 
@@ -206,7 +206,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro LINE WORKS nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione LINE WORKS.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

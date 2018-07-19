@@ -1,20 +1,17 @@
 ---
 title: Continuità aziendale e ripristino di emergenza nelle aree abbinate di Azure | Microsoft Docs
 description: Informazioni sulle coppie di aree di Azure per assicurare la resilienza delle applicazioni in caso di errori del data center.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302679"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436910"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -30,10 +27,10 @@ Figura 1: coppie di aree di Azure
 
 | Area geografica | Aree abbinate |  |
 |:--- |:--- |:--- |
-| Asia |Asia orientale |Asia sudorientale |
-| Australia |Australia orientale |Australia sudorientale |
-| Australia |Australia centrale |Australia centrale (2) |
-| Brasile |Brasile meridionale (2) |Stati Uniti centro-meridionali |
+| Asia |Asia orientale |Asia sud-orientale |
+| Australia |Australia orientale |Australia sud-orientale |
+| Australia |Australia centrale |Australia centrale 2 |
+| Brasile |Brasile meridionale 2 |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
 | Europa |Europa settentrionale |Europa occidentale |
@@ -47,10 +44,10 @@ Figura 1: coppie di aree di Azure
 | America del Nord |Stati Uniti centro-settentrionali |Stati Uniti centro-meridionali |
 | America del Nord |Stati Uniti occidentali 2 |Stati Uniti centro-occidentali 
 | Regno Unito |Regno Unito occidentale |Regno Unito meridionale |
-| Dipartimento della difesa degli Stati Uniti |Dipartimento della difesa Stati Uniti orientali |Dipartimento della difesa Stati Uniti centrali |
-| Governo degli Stati Uniti |Governo degli Stati Uniti - Arizona |Governo degli Stati Uniti - Texas |
+| Dipartimento della difesa degli Stati Uniti |US DoD (area orientale) |US DoD (area centrale) |
+| Governo degli Stati Uniti |US Gov Arizona |US Gov Texas |
 | Governo degli Stati Uniti |US Gov Iowa (3) |US Gov Virginia |
-| Governo degli Stati Uniti |US Gov Virginia (4) |Governo degli Stati Uniti - Texas |
+| Governo degli Stati Uniti |US Gov Virginia (4) |US Gov Texas |
 
 Tabella 1 - Mapping di coppie di aree di Azure
 

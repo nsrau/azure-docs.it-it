@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 6e0d8c5c178afc63c9c177d31d0a14104b127941
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 71b9b54e3b8eef1be9f6da7fa812bd8f9d246f47
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213339"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proxyclick"></a>Esercitazione: integrazione di Azure Active Directory con Proxyclick
 
@@ -34,7 +34,7 @@ L'integrazione di Proxyclick con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Proxyclick, sono necessari gli elementi seguenti:
 
@@ -256,7 +256,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro di Proxyclick nel riquadro di accesso, si dovrebbe accedere automaticamente all'applicazione Proxyclick.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

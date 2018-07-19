@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6c9c4b7db93810cac4518885eb86572b2be7ca05
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 91436af0aa26c079d5cd2cc19d16a1ff0354e860
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915341"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126593"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS
 
@@ -60,7 +60,7 @@ Nella sessione di Azure AD PowerShell seguire questa procedura: connettersi all'
     Connect-MsolService
 Convertire il dominio gestito fabrikam.com in federato:
 
-    Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
+    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
  
 L'operazione riportata sopra eseguirà la federazione del dominio fabrikam.com con la stessa istanza di AD FS. È possibile verificare le impostazioni di dominio usando Get-MsolDomainFederationSettings per entrambi i domini.
 

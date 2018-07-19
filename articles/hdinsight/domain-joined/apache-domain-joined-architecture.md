@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: omidm
-ms.openlocfilehash: f4380f5d6ec379d5807f697294623a672bd270ae
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8503534031dc5774e64c58edd3e158162a5a6aee
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715242"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110455"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Pianificare cluster Hadoop aggiunti a un dominio di Azure in HDInsight
 
@@ -50,7 +50,7 @@ Lo screenshot seguente mostra un'unità organizzativa creata in contoso.com. Nel
 HDInsight attualmente supporta solo AAD-DS come controller di dominio principale con cui il cluster comunicherà per l'autenticazione Kerberos. Sono tuttavia possibili anche altre configurazioni complesse di AD, purché comportino l'abilitazione di AAD-DS per l'accesso HDI.
 
 - **[Azure Active Directory Domain Services (AAD-DS)](../../active-directory-domain-services/active-directory-ds-overview.md)**: questo servizio fornisce un dominio gestito che è completamente compatibile con Windows Server Active Directory. Microsoft si occupa della gestione, dell'applicazione di patch e del monitoraggio del dominio AD in una configurazione a disponibilità elevata. È possibile distribuire il cluster senza doversi preoccupare di gestire i controller di dominio. Utenti, gruppi e password vengono sincronizzati da Azure Active Directory (AAD) [Sincronizzazione unidirezionale da AAD ad AAD-DS], per consentire agli utenti di accedere al cluster usando le stesse credenziali aziendali. Per altre informazioni, vedere l'articolo su [come configurare i cluster HDInsight aggiunti al dominio con AAD-DS](./apache-domain-joined-configure-using-azure-adds.md).
-- **AD in locale o AD in macchine virtuali IaaS**: se si dispone di Active Directory in locale o di altre configurazioni AD più complesse per il dominio, è possibile sincronizzare le identità in AAD mediante AD Connect e quindi abilitare AAD-DS su tale tenant AD. Poiché Kerberos si basa sugli hash delle password, sarà necessario [abilitare la sincronizzazione degli hash delle password in AAD-DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se si usa la federazione con Active Directory Federation Services (ADFS), è possibile configurare facoltativamente la sincronizzazione degli hash delle password come backup, nel caso si verifichi un errore dell'infrastruttura ADFS. Per altre informazioni, vedere l'articolo su come [abilitare la sincronizzazione degli hash delle password con la sincronizzazione di AAD Connect](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). L'uso di AD in locale o AD in macchine virtuali IaaS senza AAD e AAD-DS non è una configurazione supportata per l'aggiunta al dominio del cluster HDI.
+- **AD in locale o AD in macchine virtuali IaaS**: se si dispone di Active Directory in locale o di altre configurazioni AD più complesse per il dominio, è possibile sincronizzare le identità in AAD mediante AD Connect e quindi abilitare AAD-DS su tale tenant AD. Poiché Kerberos si basa sugli hash delle password, sarà necessario [abilitare la sincronizzazione degli hash delle password in AAD-DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Se si usa la federazione con Active Directory Federation Services (ADFS), è possibile configurare facoltativamente la sincronizzazione degli hash delle password come backup, nel caso si verifichi un errore dell'infrastruttura ADFS. Per altre informazioni, vedere l'articolo su come [abilitare la sincronizzazione degli hash delle password con la sincronizzazione di AAD Connect](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). L'uso di AD in locale o di AD in macchine virtuali IaaS senza AAD e AAD-DS non è una configurazione supportata per l'aggiunta al dominio del cluster HDI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Configurare i cluster HDInsight aggiunti al dominio](apache-domain-joined-configure-using-azure-adds.md).

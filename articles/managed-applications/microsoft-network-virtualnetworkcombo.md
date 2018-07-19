@@ -11,23 +11,26 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5d806afbfd74d68d139f494c7a5a6e871a7dae36
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 2c2553d9ffb1dfbe032385fb77e234a8b96cb239
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260595"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110066"
 ---
 # <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Elemento Microsoft.Network.VirtualNetworkCombo dell'interfaccia utente
 Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
 
 ## <a name="ui-sample"></a>Esempio di interfaccia utente
-![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
+Quando l'utente seleziona una nuova rete virtuale, può personalizzare il nome di ogni subnet e il prefisso dell'indirizzo. La configurazione delle subnet è facoltativa.
 
-- Nel wireframe in alto l'utente ha selezionato una nuova rete virtuale, quindi può personalizzare il nome e il prefisso dell'indirizzo di ogni subnet. In questo caso la configurazione delle subnet è facoltativa.
-- Nel wireframe in basso l'utente ha selezionato una rete virtuale esistente, quindi deve eseguire il mapping di ogni subnet necessaria per il modello di distribuzione a una subnet esistente. In questo caso la configurazione delle subnet è obbligatoria.
+![Nuovo Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-new.png)
+
+Quando l'utente seleziona una rete virtuale esistente, deve eseguire il mapping di ogni subnet richiesta dal modello di distribuzione a una subnet esistente. In questo caso la configurazione delle subnet è obbligatoria.
+
+![Microsoft.Network.VirtualNetworkCombo esistente](./media/managed-application-elements/microsoft.network.virtualnetworkcombo-existing.png)
 
 ## <a name="schema"></a>SCHEMA
 ```json
@@ -88,12 +91,12 @@ Gruppo di controlli per la selezione di una rete virtuale nuova o esistente.
 - Specificare `constraints.minAddressPrefixSize`. Le reti virtuali esistenti con uno spazio indirizzi inferiore al valore specificato non sono disponibili per la selezione.
 - Specificare `subnets` e specificare `constraints.minAddressPrefixSize` per ogni subnet.
 - Quando si crea una nuova rete virtuale, il prefisso dell'indirizzo di ogni subnet viene calcolato automaticamente in base al prefisso dell'indirizzo della rete virtuale e al rispettivo `addressPrefixSize`.
-- Quando si usa una rete virtuale esistente, le subnet di dimensioni inferiori al rispettivo `constraints.minAddressPrefixSize` non sono disponibili per la selezione. Inoltre, se specificato, le subnet che non contengono almeno `minAddressCount` indirizzi disponibili non sono disponibili per la selezione.
-Il valore predefinito è **0**. Per assicurarsi che gli indirizzi disponibili siano contigui, specificare **true** per `requireContiguousAddresses`. Il valore predefinito è **true**.
+- Quando si usa una rete virtuale esistente, le subnet di dimensioni inferiori al rispettivo `constraints.minAddressPrefixSize` non sono disponibili per la selezione. Se specificato, le subnet che non contengono almeno `minAddressCount` indirizzi disponibili non sono disponibili per la selezione. Il valore predefinito è **0**. Per assicurarsi che gli indirizzi disponibili siano contigui, specificare **true** per `requireContiguousAddresses`. Il valore predefinito è **true**.
 - La creazione di subnet in una rete virtuale esistente non è supportata.
 - Se `options.hideExisting` è **true**, l'utente non può scegliere una rete virtuale esistente. Il valore predefinito è **false**.
 
 ## <a name="sample-output"></a>Output di esempio
+
 ```json
 {
   "name": "vnet01",

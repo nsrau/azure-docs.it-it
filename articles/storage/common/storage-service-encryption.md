@@ -6,14 +6,14 @@ author: lakasa
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 06/12/2018
 ms.author: lakasa
-ms.openlocfilehash: 5e4df176104111f44ca95df2b2d5d1c81ed3a4e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d469dfb5092f1269a6600ee8ee2f81778fd83b96
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525081"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449061"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -41,7 +41,7 @@ Per visualizzare le impostazioni di Crittografia del servizio di archiviazione, 
 
 **D: Con un account di archiviazione classico è possibile abilitare Crittografia del servizio di archiviazione?**
 
-R: La funzionalità Crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti gli account di archiviazione (classici e di Resource Manager).
+R: La funzionalità Crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione, sia quelli classici sia quelli di Resource Manager.
 
 **D: Come si crittografano i dati nell'account di archiviazione classico?**
 
@@ -53,7 +53,7 @@ R: La funzionalità Crittografia del servizio di archiviazione è abilitata per 
 
 **D: In che modo vengono crittografati i dati in un account di archiviazione di Resource Manager?**
 
-R: Crittografia del servizio di archiviazione è abilitato per impostazione predefinita per tutti gli account di archiviazione, classici e Resource Manager. Tutti i file esistenti nell'account di archiviazione creati prima dell'abilitazione della crittografia vengono crittografati retroattivamente tramite un processo di crittografia in background.
+R: La funzionalità Crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione, sia quelli classici sia quelli di Resource Manager. Tutti i file esistenti nell'account di archiviazione creati prima dell'abilitazione della crittografia vengono crittografati retroattivamente tramite un processo di crittografia in background.
 
 **D: È possibile creare account di archiviazione con la funzionalità Crittografia del servizio di archiviazione abilitata usando Azure PowerShell e l'interfaccia della riga di comando di Azure?**
 
@@ -73,7 +73,7 @@ R: Sì, se si [usano le proprie chiavi di crittografia](storage-service-encrypti
 
 **D: Crittografia del servizio di archiviazione è abilitata per impostazione predefinita quando si crea un account di archiviazione?**
 
-R: Sì, la crittografia del servizio di archiviazione è abilitata per impostazione predefinita per tutti gli account di archiviazione e per tutti i servizi di archiviazione di Azure.
+R: Sì, la funzionalità Crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione e per tutti i servizi di archiviazione di Azure.
 
 **D: Quali sono le differenze rispetto alla Crittografia dischi di Azure?**
 
@@ -93,7 +93,11 @@ R: La crittografia è abilitata per impostazione predefinita e non ne è previst
 
 **D: Crittografia del servizio di archiviazione è consentita solo in aree specifiche?**
 
-R: La funzionalità Crittografia del servizio di archiviazione è disponibile in tutte le aree per tutti i servizi. 
+R: La funzionalità Crittografia del servizio di archiviazione è disponibile in tutte le aree per tutti i servizi.
+
+**D: La funzionalità Crittografia del servizio di archiviazione è conforme a FIPS 140-2?**
+
+R: Sì, la funzionalità Crittografia del servizio di archiviazione è conforme a FIPS 140-2.
 
 **D: In che modo è possibile contattare il personale addetto in caso di problemi o se si vogliono inviare commenti?**
 

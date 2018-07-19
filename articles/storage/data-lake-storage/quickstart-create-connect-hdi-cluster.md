@@ -2,24 +2,24 @@
 title: Impostazione del cluster per Hadoop, Spark, Kafka, HBase o R Server - Azure HDInsight
 description: Imposta i cluster Hadoop, Kafka, Spark, HBase, R Server o Storm per HDInsight da un browser, dall'interfaccia della riga di comando di Azure, da Azure PowerShell, REST o SDK.
 keywords: impostazione del cluster hadoop, impostazione del cluster kafka, impostazione del cluster spark, caratteristiche del cluster in hadoop
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346587"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136639"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Avvio rapido: impostazione dei cluster in HDInsight
 
@@ -38,7 +38,7 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 
 | Cluster creati con | Web browser | Riga di comando | API REST | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Portale di Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [portale di Azure](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Interfaccia della riga di comando di Azure versione 1.0](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -56,7 +56,7 @@ Seguire le istruzioni sullo schermo per eseguire una configurazione base del clu
 * [Nome del gruppo di risorse](#resource-group-name)
 * [Tipi di cluster e configurazione](#cluster-types) 
 * [Account di accesso del cluster e nome utente SSH](#cluster-login-and-ssh-user-name)
-* [Località](#location)
+* [Posizione](#location)
 
 > [!IMPORTANT]
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere [Ritiro di HDInsight 3.3](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).

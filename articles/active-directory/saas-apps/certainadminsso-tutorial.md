@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
-ms.openlocfilehash: cf23620eb3a3b0a9cb8e5877f517281a9c21809c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: e465518f5526dcf581afab77e30d0af33aaae88e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323436"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054040"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certain-admin-sso"></a>Esercitazione: Integrazione di Azure Active Directory con Certain Admin SSO
 
@@ -199,7 +199,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro Certain Admin SSO nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Certain Admin SSO.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

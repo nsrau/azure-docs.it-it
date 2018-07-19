@@ -2,25 +2,22 @@
 title: "Azure Active Directory Connect: risolvere i problemi relativi all'accesso Single Sign-On facile | Microsoft Docs"
 description: Questo argomento descrive come risolvere i problemi dell'accesso Single Sign-On (SSO) facile di Azure Active Directory
 services: active-directory
-keywords: che cos'è Azure AD Connect, installare Active Directory, componenti richiesti per Azure AD, SSO, Single Sign-On
-documentationcenter: ''
-author: swkrish
+author: billmath
+ms.reviewer: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 06/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 205df47c36cb1d6925e232f06c0f1355c40ae973
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592229"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110890"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -84,6 +81,7 @@ Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenc
 - Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.
 - Verificare che il dispositivo sia connesso alla rete aziendale.
 - Verificare che l'ora del dispositivo sia sincronizzata con quella di Active Directory e dei controller di dominio e che si discosti al massimo di 5 minuti dalle stesse.
+- Assicurarsi che l'account di computer `AZUREADSSOACCT` sia presente e attivato in ogni foresta di AD per la quale si desidera che sia attivato il Single Sign-On facile. 
 - Indicare i ticket Kerberos presenti nel dispositivo usando il comando `klist` da un prompt dei comandi. Verificare se sono presenti i ticket emessi per l'account del computer `AZUREADSSOACCT`. I ticket Kerberos degli utenti sono in genere validi per 10 ore. È possibile che siano in uso impostazioni diverse in Active Directory.
 - Se si è disabilitato e abilitato di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache.
 - Eliminare i ticket Kerberos dal dispositivo usando il comando `klist purge` e riprovare.

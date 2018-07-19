@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401962"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100505"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Creare cluster basati su Linux in HDInsight tramite il portale di Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ Il portale di Azure espone la maggior parte delle proprietà del cluster. Con il
 
     * Fare clic su **Avanti**.
 
-4. Per **Archiviazione** specificare se si desidera impostare Archiviazione di Azure (WASB) o Data Lake Store come risorsa di archiviazione predefinita. Per altre informazioni, vedere la tabella di seguito.
+4. Per **Archiviazione** specificare se si desidera impostare Archiviazione di Azure (WASB) o Azure Data Lake Store come risorsa di archiviazione predefinita. Per altre informazioni, vedere la tabella di seguito.
 
     ![Creazione di un nuovo cluster nel portale di Azure](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Creazione di un nuovo cluster nel portale di Azure")
 
     | Archiviazione                                      | DESCRIZIONE |
     |----------------------------------------------|-------------|
-    | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni relative all'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure.</li><li>Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Account archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** fare clic su **Aggiungi una chiave di archiviazione**. Sarà quindi possibile fornire un account di archiviazione da sottoscrizioni Azure o da altre sottoscrizioni (fornendo la chiave di accesso all'account di archiviazione).</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Accesso a Data Lake Store** per specificare Azure Data Lake Store come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Data Lake Store** e quindi fare riferimento all'articolo [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) per le istruzioni. |
+    | **BLOB del servizio di archiviazione di Azure come risorsa di archiviazione predefinita**   | <ul><li>Per **Tipo di archiviazione primario** selezionare **Archiviazione di Azure**. Successivamente, per **Metodo di selezione**, è possibile scegliere **Sottoscrizioni personali** se si desidera specificare un account di archiviazione che fa parte della sottoscrizione Azure e quindi selezionare l'account di archiviazione. In caso contrario, fare clic su **Chiave di accesso** e fornire le informazioni relative all'account di archiviazione che si desidera scegliere all'esterno della sottoscrizione Azure.</li><li>Per **Contenitore predefinito**, è possibile scegliere di usare il nome del contenitore predefinito suggerito dal portale oppure specificarne uno personale.</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Account archiviazione aggiuntivi** per specificare gli account di archiviazione aggiuntivi da associare al cluster. Per **Chiavi di archiviazione di Azure** fare clic su **Aggiungi una chiave di archiviazione**. Sarà quindi possibile fornire un account di archiviazione da sottoscrizioni Azure o da altre sottoscrizioni (fornendo la chiave di accesso all'account di archiviazione).</li><li>Se si usa WASB come risorsa di archiviazione predefinita, è possibile (facoltativamente) fare clic su **Accesso a Data Lake Store** per specificare Azure Data Lake Store come risorsa di archiviazione aggiuntiva. Per altre informazioni, vedere [Guida introduttiva: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Azure Data Lake Store come risorsa di archiviazione predefinita** | Per **Tipo di archiviazione primario** selezionare **Azure Data Lake Storage Gen1** o **Azure Data Lake Storage Gen2 (anteprima)** e quindi fare riferimento all'articolo [Guida introduttiva: impostazione dei cluster in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) per le istruzioni. |
     | **Metastore esterni**                      | È possibile, facoltativamente, specificare un database SQL per salvare i metadati Hive e Oozie associati al cluster. Per **Seleziona un database SQL per Hive**, selezionare un database SQL e quindi specificare il nome utente e la password per il database stesso. Ripetere questi passaggi per i metadati Oozie.<br><br>Alcune considerazioni durante l'utilizzo del database SQL di Azure per metastore. <ul><li>Il database SQL di Azure usato per il metastore deve consentire la connettività ad altri servizi di Azure, incluso Azure HDInsight. Sul lato destro del dashboard del database SQL di Azure fare clic sul nome del server, cioè il server in cui è in esecuzione l'istanza di database SQL. Nella visualizzazione server fare clic su **Configura**, quindi per **Servizi di Microsoft Azure** fare clic su **Sì** e infine su **Salva**.</li><li>Quando si crea un metastore personalizzato, non utilizzare un nome di database che contiene trattini o segni meno, poiché il processo di creazione del cluster non andrebbe a buon fine.</li></ul> |
 
     Fare clic su **Avanti**. 

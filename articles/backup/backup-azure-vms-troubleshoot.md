@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
 ms.author: trinadhk
-ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5828b4e4f42c349246845bd003e874fb0352bae
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607260"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008077"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Risolvere i problemi relativi al backup delle macchine virtuali di Azure
 È possibile risolvere gli errori rilevati durante l'uso di Backup di Azure con le informazioni elencate nella tabella seguente.
@@ -139,7 +139,7 @@ Dopo la corretta risoluzione dei nomi, sarà necessario fornire anche l'accesso 
 
 1. Aggiungere all'elenco elementi consentiti gli intervalli IP dei data center di Azure.
    * Ottenere l'elenco di [IP dei data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) da aggiungere all'elenco di IP consentiti.
-   * Sbloccare gli IP mediante il cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Eseguire questo cmdlet all’interno della macchina virtuale di Azure, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
+   * Sbloccare gli IP mediante il cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) . Eseguire questo cmdlet all’interno della macchina virtuale di Azure, in una finestra di PowerShell con privilegi elevati, eseguita come amministratore.
    * Aggiungere regole al gruppo di sicurezza di rete (se esistente) per consentire l'accesso agli indirizzi IP.
 2. Creare un percorso per il flusso del traffico HTTP
    * Se si dispone di alcune limitazioni di rete (un gruppo di sicurezza di rete, ad esempio) distribuire un server proxy HTTP per indirizzare il traffico. I passaggi per distribuire un server proxy HTTP sono reperibili [qui](backup-azure-arm-vms-prepare.md#establish-network-connectivity).

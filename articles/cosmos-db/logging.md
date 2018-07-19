@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612215"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857100"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -42,7 +42,7 @@ Questo articolo è incentrato sui log attività di Azure, i log di diagnostica d
 
 Il log attività di Azure è un log delle sottoscrizioni che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Il log attività segnala eventi a livello di piano di controllo per le sottoscrizioni sotto la categoria amministrativa. È possibile usare il log attività per acquisire informazioni dettagliate su qualsiasi operazione di scrittura (PUT, POST, DELETE) sulle risorse nella sottoscrizione. Consente inoltre di comprendere lo stato dell'operazione e altre proprietà specifiche. 
 
-Il log attività è diverso dal log di diagnostica. Il log attività contiene dati relativi alle operazioni su una risorsa esterna (il _piano di controllo_). Nel contesto di Azure Cosmos DB le operazioni a livello di piano di controllo creano raccolte, elencano chiavi, eliminano chiavi, elencano database e così via. I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa (il _piano dati_). Alcuni esempi di operazioni del piano dati nel log di diagnostica sono Delete, Insert e ReadFeed.
+Il log attività è diverso dal log di diagnostica. Il log attività contiene dati relativi alle operazioni su una risorsa esterna (il _piano di controllo_). Nel contesto di Azure Cosmos DB le operazioni a livello di piano di controllo includono crea raccolte, elenca chiavi, elimina chiavi, elenca database e così via. I log di diagnostica vengono generati da una risorsa e contengono informazioni sul funzionamento di tale risorsa (il _piano dati_). Alcuni esempi di operazioni del piano dati nel log di diagnostica sono Delete, Insert e ReadFeed.
 
 I log attività (operazioni a livello di piano di controllo) possono essere più dettagliati e possono includere l'indirizzo di posta elettronica completo del chiamante, l'indirizzo IP del chiamante, il nome della risorsa, il nome dell'operazione, l'ID del tenant e così via. Il log attività contiene alcune [categorie](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) di dati. Per informazioni dettagliate sugli schemi di queste categorie, vedere [Schema degli eventi del log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). I log di diagnostica, tuttavia, possono essere restrittivi, perché i dati personali vengono spesso rimossi da tali log. È possibile che sia disponibile l'indirizzo IP del chiamante, ma senza l'ultimo ottetto.
 
@@ -446,7 +446,7 @@ La tabella seguente descrive il contenuto di ogni voce di log.
 | **properties** | n/d | Il contenuto di questo campo è descritto nelle righe seguenti. |
 | **activityId** | **activityId_g** | GUID univoco per l'operazione registrata. |
 | **userAgent** | **userAgent_s** | Stringa che specifica l'agente utente del client che esegue la richiesta. Il formato è {nome agente utente}/{versione}.|
-| **resourceType** | **ResourceType** | Tipo di risorsa di accesso. Questo valore può essere uno dei tipi di risorsa seguenti: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction oppure Offer. |
+| **resourceType** | **ResourceType** | Tipo di risorsa di accesso. Questo valore può essere uno dei seguenti tipi di risorsa: Database, Collection, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction oppure Offer. |
 | **statusCode** | **statusCode_s** | Stato di risposta dell'operazione. |
 | **requestResourceId** | **ResourceId** | ID risorsa relativo alla richiesta. Il valore può puntare a databaseRid, collectionRid o documentRid a seconda dell'operazione eseguita.|
 | **clientIpAddress** | **clientIpAddress_s** | Indirizzo IP del client. |

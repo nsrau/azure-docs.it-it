@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e27bc853db6236165d77f2fb3418bab1170400b2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c126b3bf08174886b3668cd54c76b72d113ba76
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227704"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Esercitazione: Integrazione di Azure Active Directory con ForeSee CX Suite
 
@@ -34,7 +34,7 @@ L'integrazione di ForeSee CX Suite con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con ForeSee CX Suite, sono necessari gli elementi seguenti:
 
@@ -211,7 +211,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro ForeSee CX Suite nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione ForeSee CX Suite.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
