@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4444e83adecdc1afa170a184705b9be3be67c026
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 003335aad0452e7a2dbfff49ed29a6b99b5d54d2
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26774372"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089630"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con l'API REST
 
 > [!div class="op_single_selector"]
-> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [portale di Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Interfaccia della riga di comando 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [Interfaccia della riga di comando 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.
@@ -190,7 +189,7 @@ L'esempio seguente riporta la risposta restituita:
 
 ## <a name="download-a-flow-log"></a>Scaricare un log di flusso
 
-Il percorso di archiviazione di un log di flusso viene definito al momento della creazione. Uno strumento utile per accedere ai log di flusso salvati in un account di archiviazione è Esplora archivi di Microsoft Azure, disponibile qui: http://storageexplorer.com/
+Il percorso di archiviazione di un log di flusso viene definito al momento della creazione. Uno strumento utile per accedere ai log di flusso salvati in un account di archiviazione è Microsoft Azure Storage Explorer, disponibile qui: http://storageexplorer.com/
 
 Se viene specificato un account di archiviazione, i file di acquisizione di pacchetti vengono salvati in un account di archiviazione nel percorso seguente:
 

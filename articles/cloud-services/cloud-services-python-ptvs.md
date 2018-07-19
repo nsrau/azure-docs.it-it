@@ -3,7 +3,7 @@ title: Introduzione a Python e Servizi cloud di Azure | Documentazione Microsoft
 description: Panoramica dell'uso di Python Tools per Visual Studio per creare servizi cloud di Azure, inclusi ruoli Web e ruoli di lavoro.
 services: cloud-services
 documentationcenter: python
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5489405d-6fa9-4b11-a161-609103cbdc18
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 7465d355b31c495049167c652a2a7e1512827d8d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: jeconnoc
+ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111236"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003643"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
 
 Questo articolo offre una panoramica dell'uso dei ruoli Web e di lavoro Phyton con [Python Tools for Visual Studio][Python Tools for Visual Studio]. Informazioni su come usare Visual Studio per creare e distribuire un servizio cloud di base che usa Python.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * [Visual Studio 2013, 2015 o 2017](https://www.visualstudio.com/)
 * [Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Strumenti di Azure SDK per VS 2013][Azure SDK Tools for VS 2013] o  

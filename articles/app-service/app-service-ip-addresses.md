@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
-ms.openlocfilehash: 906a5d511615c57b6ff807ac240a838c63917e66
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 752f9d82afafaf7324c0c63c0d7377b952fe0716
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788077"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003147"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Indirizzi IP in ingresso e in uscita in Servizio app di Azure
 
@@ -67,4 +67,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 Apprendere come limitare il traffico in ingresso tramite indirizzi IP di origine.
 
 > [!div class="nextstepaction"]
-> [Limitazioni relative agli indirizzi IP statici](app-service-ip-addresses.md)
+> [Limitazioni relative agli indirizzi IP statici](app-service-ip-restrictions.md)

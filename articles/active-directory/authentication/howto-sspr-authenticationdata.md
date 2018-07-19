@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5409bf198d0e3f6537619ef4698d9f2e31bd27c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257589"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044176"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -155,8 +155,8 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md)
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
 * [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)

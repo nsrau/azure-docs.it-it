@@ -15,19 +15,19 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0192b2d89b5e97c7f23b5394106853ddf83ddaf4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751395"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044010"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
 Informazioni su come individuare e correggere i problemi di [accesso Single Sign-On](../manage-apps/what-is-single-sign-on.md) per applicazioni in Azure Active Directory (Azure AD) che supportano [Security Assertion Markup Language (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-È consigliabile installare l'[estensione My Apps Secure Sign-in](../active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Questa estensione di browser semplifica la raccolta delle informazioni relative alle richieste e alle risposte SAML necessarie per risolvere i problemi con l'accesso Single Sign-On. Nel caso non sia possibile installare l'estensione, questo articolo descrive come risolvere i problemi anche senza l'estensione installata.
+È consigliabile installare l'[estensione My Apps Secure Sign-in](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Questa estensione di browser semplifica la raccolta delle informazioni relative alle richieste e alle risposte SAML necessarie per risolvere i problemi con l'accesso Single Sign-On. Nel caso non sia possibile installare l'estensione, questo articolo descrive come risolvere i problemi anche senza l'estensione installata.
 
 Per scaricare e installare l'estensione My Apps Secure Sign-in, usare uno dei collegamenti seguenti.
 

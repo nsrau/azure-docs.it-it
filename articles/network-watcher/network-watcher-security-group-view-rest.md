@@ -14,19 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 0eec45630fe3467db26620787038f6dd5a05cc72
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0fd96f9bd3027568e81e9c56ddb095297c699683
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23036876"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089775"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con l'API REST
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Interfaccia della riga di comando 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [Interfaccia della riga di comando 2.0](network-watcher-security-group-view-cli.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-security-group-view-cli.md)
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di sicurezza di rete configurate ed effettive applicate a una macchina virtuale. Questa funzionalità è utile per controllare e diagnosticare i gruppi di sicurezza di rete e le regole configurate in una macchina virtuale per verificare che il traffico viene consentito o negato in modo corretto. Questo articolo illustra come recuperare le regole di sicurezza effettive ed applicate a una macchina virtuale tramite l'API REST

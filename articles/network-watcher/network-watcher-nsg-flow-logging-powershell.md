@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f0ffdb9127555ecfdd37a399335335885a10a6ea
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0b0516eb079dc45c46ce56bd9d2522fc66d45548
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204176"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089860"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [portale di Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [Interfaccia della riga di comando 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [Interfaccia della riga di comando 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
 
 I log di flusso del gruppo di sicurezza di rete sono una funzionalità di Network Watcher che consente di visualizzare le informazioni sul traffico IP in entrata e in uscita tramite un gruppo di sicurezza di rete. Sono scritti in formato JSON e mostrano i flussi in ingresso e in uscita in base a regole, scheda di rete a cui si applica il flusso, informazioni su 5 tuple relative al flusso (IP di origine/destinazione, porta di origine/destinazione, protocollo), e se il traffico è consentito o meno.

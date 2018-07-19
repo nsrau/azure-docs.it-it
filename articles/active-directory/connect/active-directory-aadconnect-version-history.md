@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2a830fa873f7277440d1baa9049a9c8eafcbf55
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261781"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049518"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Cronologia delle versioni
 Il team di Azure Active Directory (Azure AD) aggiorna regolarmente Azure AD Connect con nuove funzionalità. Le nuove funzionalità potrebbero non essere disponibili in tutti i paesi.
@@ -917,7 +917,7 @@ Data di rilascio: novembre 2015
 **Nuove funzionalità di anteprima:**
 
 * [Azure AD Connect Health per la sincronizzazione](../connect-health/active-directory-aadconnect-health-sync.md).
-* Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](../active-directory-passwords-update-your-own-password.md)
+* Supporto per la sincronizzazione della password dei [Servizi di dominio di Azure AD](../user-help/active-directory-passwords-update-your-own-password.md)
 
 **Nuovo scenario supportato:**
 

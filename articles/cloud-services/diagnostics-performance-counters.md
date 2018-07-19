@@ -3,7 +3,7 @@ title: Raccogliere dati con i contatori delle prestazioni in Servizi cloud di Az
 description: Informazioni su come individuare, usare e creare contatori delle prestazioni in Servizi cloud con Diagnostica di Azure e Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
-ms.author: adegeo
-ms.openlocfilehash: 3e0af48c172fa912f0ac9e05b7b761dd7eaad795
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29134048"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001464"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Raccogliere dati con i contatori delle prestazioni per il servizio cloud di Azure
 

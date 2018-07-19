@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 2f5c657bb80ad0788bcc3dd19d962b3f21afa4a8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20f4186426152d2dc9b445981a69881c35587eb6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359000"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005782"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Schema del ruolo di configurazione di Servizi cloud di Azure
 

@@ -3,7 +3,7 @@ title: Cosa sono un modello del servizio cloud e un pacchetto | Documentazione M
 description: Descrive il modello del servizio cloud (csdef, cscfg) e il pacchetto (cspkg) in Azure
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 0589f2efeaaafc35bcb9d869c391a0533fe6e502
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: jeconnoc
+ms.openlocfilehash: 90d810916599db50249a3e2ec677046c5af42a09
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876560"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005850"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Cos'è il modello del servizio cloud e come è possibile crearne il pacchetto?
 Un servizio cloud viene creato da tre componenti: la definizione del servizio *(.csdef)*, la configurazione del servizio *(.cscfg)* e un pacchetto servizio *(.cspkg)*. Entrambi i file **ServiceDefinition.csdef** e **ServiceConfig.cscfg** sono basati su XML e descrivono la struttura e la configurazione del servizio cloud. Insieme costituiscono il modello. **ServicePackage.cspkg** è un file ZIP generato da **ServiceDefinition.csdef** e contiene, oltre ad altri elementi, tutte le dipendenze necessarie basate su file binari. Azure crea un servizio cloud sia da **ServicePackage.cspkg** che da **ServiceConfig.cscfg**.

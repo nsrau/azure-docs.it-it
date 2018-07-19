@@ -3,7 +3,7 @@ title: Ridimensionare un cluster di Service Fabric in Azure | Microsoft Docs
 description: In questa esercitazione si apprenderà come ridimensionare rapidamente un cluster di Service Fabric in Azure.
 services: service-fabric
 documentationcenter: .net
-author: Thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/06/2018
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 83f7a03744e7e8819d71eae81ed8e497797bef62
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0c5081960345e84cf48cb1ec07713cdaec8833a5
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109410"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008026"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
 
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -253,7 +253,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Leggere il conteggio dei nodi del cluster

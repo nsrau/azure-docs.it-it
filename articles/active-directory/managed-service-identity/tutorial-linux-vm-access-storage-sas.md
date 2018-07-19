@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: cbb56ce6befaaa6a5d38cc6afbad0ba6db259711
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: adf3df6dd9163ef40b4f953c07fce6a18b5ab30f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901603"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044275"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite una credenziale di firma di accesso condiviso
 
@@ -35,7 +35,7 @@ La firma di accesso condiviso del servizio offre la possibilità di concedere ac
 > * Concedere alla macchina virtuale l'accesso alla firma di accesso condiviso dell'account di archiviazione in Resource Manager 
 > * Ottenere un token di accesso tramite l'identità della macchina virtuale e usarlo per recuperare la firma di accesso condiviso da Resource Manager 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -53,7 +53,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Linux, ma è anc
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentono di eseguire l'accesso alla macchina virtuale.
 
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Dall'elenco a discesa **Sottoscrizione** selezionare una sottoscrizione per la macchina virtuale.
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
@@ -68,7 +68,7 @@ Un'identità del servizio gestito per una macchina virtuale consente di ottenere
 3. Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No.
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
 
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
@@ -81,7 +81,7 @@ Se non ne è già disponibile uno, creare un account di archiviazione.  È anche
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
 6. Fare clic su **Crea**.
 
-    ![Creare un nuovo account di archiviazione](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Creare un nuovo account di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-in-the-storage-account"></a>Creare un contenitore BLOB nell'account di archiviazione
 
@@ -92,7 +92,7 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 3. Fare clic su **+ Contenitore** nella parte superiore della pagina e verrà visualizzato il pannello "Nuovo contenitore".
 4. Assegnare un nome al contenitore, selezionare un livello di accesso, quindi fare clic su **OK**. Il nome specificato verrà usato più avanti nell'esercitazione. 
 
-    ![Creare un contenitore di archiviazione](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Creare un contenitore di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vms-msi-access-to-use-a-storage-sas"></a>Concedere l'identità del servizio gestito della macchina virtuale per usare una firma di accesso condiviso di archiviazione 
 
@@ -106,7 +106,7 @@ Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su "Tutti i gruppi di risorse".  
 7. In **Seleziona** scegliere infine la macchina virtuale Linux nell'elenco a discesa e quindi fare clic su **Salva**.  
 
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Testo immagine alt](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
 ## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager
 

@@ -3,7 +3,7 @@ title: Comunicazione per i ruoli in servizi Cloud | Documentazione Microsoft
 description: Le istanze del ruolo in servizi Cloud possono avere endpoint (http, https, tcp, udp) definiti appositamente che comunicano con l'esterno oppure tra le altre istanze del ruolo.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: adegeo
-ms.openlocfilehash: 96ca9bb2d7a9f30a7d6492be43bfb44edc02fd93
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.author: jeconnoc
+ms.openlocfilehash: 9d6cc542b6af0b508529c1392e16df93e1ba084d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27701891"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005945"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Abilitare la comunicazione delle istanze del ruolo in azure
 I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.

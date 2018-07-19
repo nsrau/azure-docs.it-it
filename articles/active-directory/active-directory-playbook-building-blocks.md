@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451700"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049470"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Playbook dei modelli di verifica di Azure Active Directory: blocchi predefiniti
 
@@ -157,7 +157,7 @@ Tempo previsto per il completamento: 60 minuti
 | Seguire le istruzioni per configurare ServiceNow |  |
 | Nel pannello "Provisioning" dell'applicazione ServiceNow abilitare il provisioning automatico | [Gestione del provisioning degli account utente per app aziendali nel nuovo portale di Azure](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Attendere alcuni minuti il completamento del provisioning.  Nel frattempo, è possibile verificare i report di provisioning |  |
-| Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
+| Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso | [Che cos'è il pannello di accesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Fare clic sul riquadro per l'applicazione appena creata. Confermare l'accesso |  |
 | Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Tempo previsto per il completamento: 15 minuti
 | Configurare l'accesso SSO con password | [Gestione dell'accesso Single Sign-On per app aziendali nel nuovo portale di Azure: accesso basato su password](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | Assegnare l'app al gruppo identificato nei prerequisiti | [Assegnare un utente o un gruppo a un'app aziendale in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Accedere a https://myapps.microsoft.com/ come un utente di prova autorizzato all’accesso |  |
-| Fare clic sul riquadro per l'applicazione appena creata. | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| Indicare le credenziali dell'applicazione | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Fare clic sul riquadro per l'applicazione appena creata. | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| Indicare le credenziali dell'applicazione | [Che cos'è il pannello di accesso?: Single Sign-On basato su password senza provisioning delle identità](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Chiudere il browser e ripetere l'accesso. Questa volta l'utente ottiene l'accesso all'applicazione in modo trasparente. |  |
 | Facoltativamente, è possibile controllare i report sull'utilizzo dell'applicazione. Si noti che esiste una certa latenza, quindi è necessario attendere un certo tempo per vedere il traffico nei report. | [Report delle attività di accesso nel portale di Azure Active Directory: Utilizzo di applicazioni gestite](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Tempo previsto per il completamento: 10 minuti
 | Applicazione SaaS (SSO federato o con password) già configurata | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
 | Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Sono disponibili le credenziali per il proprietario del gruppo | [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](fundamentals/active-directory-manage-groups.md) |
-| Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
+| Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Passaggi
@@ -318,7 +318,7 @@ Tempo previsto per il completamento: 10 minuti
 | Identificare il gruppo a cui è stato concesso l'accesso all'applicazione e configurare il proprietario di un determinato gruppo| [Gestire le impostazioni per un gruppo in Azure Active Directory](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Accedere come proprietario del gruppo, visualizzare l'appartenenza al gruppo nella scheda dei gruppi del Pannello di accesso | [Pagina di gestione dei gruppi di Azure Active Directory](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Aggiungere l'Information Worker da testare |  |
-| Accedere come l'Information Worker, verificare che il riquadro è disponibile | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
+| Accedere come l'Information Worker, verificare che il riquadro è disponibile | [Che cos'è il pannello di accesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>Considerazioni
 
@@ -332,7 +332,7 @@ Se per l'applicazione è abilitato il provisioning, può essere necessario atten
 | --- | --- |
 | Applicazione SaaS (SSO federato o con password) già configurata | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) |
 | Il gruppo cloud a cui è assegnato l'accesso all'applicazione in 1 è identificato | Blocco predefinito: [SaaS: configurazione SSO federato](#saas-federated-sso-configuration) <br/>[Creare un gruppo e aggiungere membri in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
-| Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](active-directory-saas-access-panel-introduction.md) |
+| Identificate le credenziali per gli Information Worker che accedono all'app | [Che cos'è il pannello di accesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>Passaggi
@@ -380,7 +380,7 @@ Tempo previsto per il completamento: 15 minuti
 
 | Prerequisito. | Risorse |
 | --- | --- |
-| Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](active-directory-passwords-update-your-own-password.md) |
+| Abilitare la gestione delle password self-service nel tenant. | [Reimpostazione delle password in Azure Active Directory per gli amministratori IT](user-help/active-directory-passwords-update-your-own-password.md) |
 | Abilitare il writeback delle password per gestire le password in locale. Si noti che questa operazione richiede versioni specifiche di Azure AD Connect | [Prerequisiti per il writeback delle password](authentication/howto-sspr-writeback.md) |
 | Identificare gli utenti del modello di verifica che useranno questa funzionalità e verificare che siano membri di un gruppo di sicurezza. Gli utenti devono essere non amministratori per presentare completamente la funzionalità | [Personalizzare: Gestione delle password di Azure Active Directory: Limitare l'accesso per la reimpostazione delle password](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Tempo previsto per il completamento: 15 minuti
 | Specificare i dati di reimpostazione self-service delle password come indicato per il passaggio 2 | https://aka.ms/ssprsetup |
 | Chiudere il browser |  |
 | Ripetere la procedura di accesso come l'Information Worker usato nel passaggio 4 |  |
-| Reimpostare la password | [Aggiornare la password: Reimpostare la password](active-directory-passwords-update-your-own-password.md) |
+| Reimpostare la password | [Aggiornare la password: Reimpostare la password](user-help/active-directory-passwords-update-your-own-password.md) |
 | Provare ad accedere con la nuova password ad Azure AD e anche alle risorse locali |  |
 
 ### <a name="considerations"></a>Considerazioni
@@ -428,7 +428,7 @@ Tempo previsto per il completamento: 10 minuti
 ### <a name="considerations"></a>Considerazioni
 
 1. I passaggi del modello di verifica in questo blocco predefinito consentono di impostare in modo esplicito MFA per un utente per tutti gli accessi. Sono disponibili altri strumenti, ad esempio l'accesso condizionale e la protezione dell'identità, che usano MFA in scenari più specifici. Questo è un aspetto da considerare quando si passa dal modello di verifica alla produzione.
-2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) come secondo fattore.
+2. I passaggi del modello di verifica in questo blocco predefinito per comodità usano in modo esplicito le chiamate telefoniche come metodo MFA. Quando si passa dal modello di verifica all'ambiente di produzione, si consiglia di usare il più possibile applicazioni come [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) come secondo fattore.
 Altre informazioni: documento [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>Accesso condizionale MFA per applicazioni SaaS
@@ -553,7 +553,7 @@ Tempo previsto per il completamento: 20 minuti
 | --- | --- |
 | Dispositivo con certificato utente di cui è stato eseguito il provisioning (Windows, iOS o Android) dall'infrastruttura a chiave pubblica aziendale | [Distribuire i certificati utente](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Dominio di Azure AD federato con AD FS | [Azure AD Connect e federazione](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Informazioni generali sui Servizi certificati di Active Directory](https://technet.microsoft.com/library/hh831740.aspx)|
-| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| Per i dispositivi iOS l'app Microsoft Authenticator deve essere installata | [Introduzione all'app Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Passaggi
 

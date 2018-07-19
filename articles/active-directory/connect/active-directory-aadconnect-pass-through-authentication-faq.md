@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e62117ee98b1d47600141249dcd3b17ec58a9654
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918156"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048969"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -60,7 +60,7 @@ Per il corretto funzionamento di questa funzionalità è necessario disporre del
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Cosa accade se la password dell'utente è scaduta e l'utente prova ad accedere usando l'autenticazione pass-through?
 
-Se è stato configurato il [writeback delle password](../active-directory-passwords-update-your-own-password.md) per un utente specifico e se l'utente esegue l'accesso usando l'autenticazione pass-through, la password può essere modificata o reimpostata. Le password vengono riscritte in Active Directory locale come previsto.
+Se è stato configurato il [writeback delle password](../user-help/active-directory-passwords-update-your-own-password.md) per un utente specifico e se l'utente esegue l'accesso usando l'autenticazione pass-through, la password può essere modificata o reimpostata. Le password vengono riscritte in Active Directory locale come previsto.
 
 Se non è stato configurato il writeback delle password per un utente specifico o se l'utente non dispone di una licenza di Azure AD valida, la password non può essere aggiornata nel cloud neanche se è scaduta. L'utente vedrà un messaggio simile a questo: "L'organizzazione non consente l'aggiornamento della password in questo sito. Aggiornare la password usando il metodo consigliato dall'organizzazione oppure contattare l'amministratore per chiedere assistenza". L'utente o l'amministratore deve reimpostare la password in Active Directory locale.
 

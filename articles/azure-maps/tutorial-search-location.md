@@ -1,20 +1,20 @@
 ---
 title: Eseguire ricerche con Mappe di Azure | Microsoft Docs
 description: Eseguire ricerche vicino a un punto di interesse con Mappe di Azure
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601786"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988875"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -46,7 +46,7 @@ Creare un nuovo account di Mappe con i passaggi seguenti:
     - Il nome del *gruppo di risorse* per l'account. Per il gruppo di risorse è possibile selezionare l'opzione *Crea nuovo* o *Usa esistente*.
     - Selezionare la *località del gruppo di risorse*.
     - Leggere la *Licenza* e l'*Informativa sulla Privacy* e selezionare la casella di controllo per accettare le condizioni. 
-    - Selezionare il pulsante **Create** .
+    - Fare clic sul pulsante **Create** (Crea).
    
     ![Creare account di Mappe nel portale](./media/tutorial-search-location/create-account.png)
 
@@ -256,7 +256,7 @@ La mappa creata finora analizza solo i dati di latitudine e longitudine per i ri
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare un account con Mppe di Azure

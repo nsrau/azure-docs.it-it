@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 71fa305c0151ba2ff319694cdd3df55bf351e0c5
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946271"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044369"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Eseguire la migrazione ad Azure di app locali di AD FS 
 
@@ -202,7 +202,7 @@ Per assegnare utenti nel portale di Azure AD, passare alla pagina dell'app SaaS 
 
 ![Riquadro "Aggiungi assegnazione"](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-Ai fini della verifica dell'accesso, l'app SaaS dovrebbe essere visualizzata nel [pannello di accesso](../active-directory-saas-access-panel-introduction.md) degli utenti quando questi accedono. Il pannello di accesso è disponibile all'indirizzo http://myapps.microsoft.com. In questo esempio, a un utente è stato assegnato correttamente l'accesso sia a Salesforce che a ServiceNow.
+Ai fini della verifica dell'accesso, l'app SaaS dovrebbe essere visualizzata nel [pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md) degli utenti quando questi accedono. Il pannello di accesso è disponibile all'indirizzo http://myapps.microsoft.com. In questo esempio, a un utente è stato assegnato correttamente l'accesso sia a Salesforce che a ServiceNow.
 
 ![Pannello di accesso di esempio con le app Salesforce e ServiceNow](media/migrate-adfs-apps-to-azure/migrate8.png)
 

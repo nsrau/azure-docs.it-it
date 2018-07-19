@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7466c3ca87ed47b6d7dfe3d725197d3a6027fdf9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006965"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Gestione risorse
 
@@ -32,7 +32,7 @@ Questa esercitazione illustra come abilitare l'Identità del servizio gestito (M
 > * Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Azure Resource Manager 
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -52,7 +52,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 5.  Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6.  Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nella pagina delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
@@ -62,7 +62,7 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 2.  Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Concedere alla macchina virtuale l'accesso a un gruppo di risorse in Gestione risorse
 Usando identità del servizio gestito, il codice può ottenere i token di accesso per autenticarsi alle risorse che supportano l'autenticazione di Azure AD.  Azure Resource Manager supporta l'autenticazione di Azure AD.  In primo luogo, è necessario concedere all'identità della macchina virtuale l'accesso a una risorsa di Gestione risorse, in questo caso al gruppo di risorse che contiene la macchina virtuale.  
@@ -75,7 +75,7 @@ Usando identità del servizio gestito, il codice può ottenere i token di access
 6.  Verificare quindi che nell'elenco a discesa **Sottoscrizione** sia elencata la sottoscrizione corretta. In **Gruppo di risorse** selezionare **Tutti i gruppi di risorse**. 
 7.  Scegliere infine la macchina virtuale Windows nell'elenco a discesa **Seleziona** e fare clic su **Salva**.
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
+    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-permissions.png)
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per chiamare Azure Resource Manager 
 

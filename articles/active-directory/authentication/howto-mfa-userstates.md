@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 6945966d4a701ea6e2684b7da766c8b6c9f9a283
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099610"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049049"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Come richiedere la verifica in due passaggi per un utente o un gruppo
 
@@ -71,7 +71,7 @@ Per accedere alla pagina in cui è possibile visualizzare e gestire gli stati ut
 
 5. Confermare la selezione nella finestra popup che viene visualizzata. 
 
-È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Informarli anche che verrà chiesto loro di eseguire la registrazione al successivo accesso e che, se l'organizzazione usa app non basate su browser che non supportano l'autenticazione moderna, devono creare password per l'app. È possibile anche includere un collegamento alla [guida dell'utente finale ad Azure MFA](end-user/current/multi-factor-authentication-end-user.md) con informazioni utili per iniziare.
+È consigliabile inviare una notifica tramite posta elettronica agli utenti dopo averli abilitati. Informarli anche che verrà chiesto loro di eseguire la registrazione al successivo accesso e che, se l'organizzazione usa app non basate su browser che non supportano l'autenticazione moderna, devono creare password per l'app. È possibile anche includere un collegamento alla [guida dell'utente finale ad Azure MFA](../user-help/multi-factor-authentication-end-user.md) con informazioni utili per iniziare.
 
 ### <a name="use-powershell"></a>Usare PowerShell
 Per modificare lo stato dell'utente usando [Azure AD PowerShell](/powershell/azure/overview), modificare `$st.State`. Esistono tre possibili stati:

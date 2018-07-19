@@ -3,12 +3,12 @@ La sezione della struttura nei set di dati JSON è una sezione **facoltativa** p
 
 Ogni colonna contiene le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatorio |
+| Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| name |Nome della colonna. |Sì |
-| type |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |No |
-| culture |Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "en-us". |No |
-| format |Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. |No |
+| name |Nome della colonna. |sì |
+| type |Tipo di dati della colonna. Vedere la sezione sulle conversioni del tipo di seguito per altre informazioni su quando specificare le informazioni sul tipo |No  |
+| culture |Cultura basata su .NET da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. Il valore predefinito è "en-us". |No  |
+| format |Stringa di formato da usare quando il tipo è specificato e corrisponde al tipo .NET Datetime o Datetimeoffset. |No  |
 
 L'esempio seguente mostra la sezione di struttura JSON per una tabella con tre colonne: userid, name e lastlogindate.
 
@@ -38,10 +38,10 @@ Data factory supporta i valori di tipo basati su .NET conformi a CLS per specifi
 * Int64
 * Single
 * Double
-* Decimale
+* Decimal
 * Byte[]
 * Booleano
-* String 
+* string 
 * Guid
 * Datetime
 * Datetimeoffset

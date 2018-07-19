@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098006"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049066"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrare l'infrastruttura Gateway Desktop remoto con Azure MFA usando l'estensione NPS (Network Policy Server, Server dei criteri di rete) e Azure AD
 
@@ -54,7 +54,7 @@ Quando l'estensione NPS per Azure è integrata con Server dei criteri di rete e 
 6. Il Server dei criteri di rete in cui è installata l'estensione invia un messaggio di autorizzazione di accesso RADIUS per i criteri di autorizzazione connessioni Desktop remoto al server Gateway Desktop remoto.
 7. All'utente viene concesso l'accesso alla risorsa di rete richiesta tramite Gateway Desktop remoto.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa sezione illustra in modo dettagliato i prerequisiti necessari per l'integrazione di Azure MFA con Gateway Desktop remoto. Prima di iniziare, è necessario che siano soddisfatti i prerequisiti seguenti.  
 
 * Infrastruttura Servizi Desktop remoto
@@ -95,7 +95,7 @@ Per informazioni su come abilitare MFA per gli utenti di Azure AD, seguire i pas
 ### <a name="configure-accounts-for-two-step-verification"></a>Configurare gli account per la verifica in due passaggi
 Dopo aver abilitato un account per MFA, è possibile accedere alle risorse governate dai criteri MFA solo dopo aver configurato correttamente un dispositivo attendibile da usare per il secondo fattore di autenticazione e averlo autenticato con la verifica in due passaggi.
 
-Per comprendere al meglio e configurare correttamente i dispositivi per MFA con il proprio account utente, seguire i passaggi descritti in [Quali sono i vantaggi di Azure Multi-Factor Authentication?](end-user/current/multi-factor-authentication-end-user.md).
+Per comprendere al meglio e configurare correttamente i dispositivi per MFA con il proprio account utente, seguire i passaggi descritti in [Quali sono i vantaggi di Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user.md).
 
 ## <a name="install-and-configure-nps-extension"></a>Installare e configurare l'estensione NPS
 Questa sezione fornisce istruzioni per configurare l'infrastruttura Servizi Desktop remoto per l'uso di Azure MFA per l'autenticazione client con Gateway Desktop remoto.

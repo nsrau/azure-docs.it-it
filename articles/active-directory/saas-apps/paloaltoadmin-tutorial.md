@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a296c1e358bffa70ed88ba40380266e8731afd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211588"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046672"
 ---
 # <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Integrare Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -34,7 +34,7 @@ L'integrazione di Azure AD con Palo Alto Networks - Admin UI offre i vantaggi se
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Palo Alto Networks - Admin UI, sono necessari gli elementi seguenti:
 
@@ -269,7 +269,7 @@ In questa sezione si crea un utente di test Britta Simon nel portale di Azure se
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Selezionare **Create**.
+    d. Selezionare **Crea**.
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Creare un utente di test di Palo Alto Networks - Admin UI
 
@@ -309,7 +309,7 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Quando seleziona il riquadro Palo Alto Networks - Admin UI nel pannello di accesso, viene automaticamente eseguito l'accesso all'applicazione Palo Alto Networks - Admin UI.
 
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

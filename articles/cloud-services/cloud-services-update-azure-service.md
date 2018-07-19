@@ -3,7 +3,7 @@ title: Come aggiornare un servizio cloud | Documentazione Microsoft
 description: Informazioni su come aggiornare i servizi cloud in Azure. Informazioni su come viene eseguito un aggiornamento in un servizio cloud per assicurare la disponibilità.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 36d4ee9dabd39f4103d17455e47521b378af6ebb
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: 2f5a82fac18ab34bfa9d6b46f553227ed44a994a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24860672"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008094"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Come aggiornare un servizio cloud
 
@@ -54,18 +54,18 @@ La tabella seguente mostra le modifiche consentite a un servizio durante un aggi
 
 | Modifiche consentite a hosting, servizi e ruoli | Aggiornamento sul posto | Gestione temporanea (scambio indirizzi VIP) | Eliminazione e ridistribuzione |
 | --- | --- | --- | --- |
-| Versione del sistema operativo |Sì |Sì |Sì |
-| Livello di attendibilità .NET |Sì |Sì |Sì |
-| Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |Sì |Sì |
-| Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |Sì |Sì |
-| Aggiungere o rimuovere ruoli in un servizio |Sì |Sì |Sì |
-| Numero di istanze di un particolare ruolo |Sì |Sì |Sì |
-| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No  |Sì |
-| Nomi e i valori delle impostazioni di configurazione |Sì |Sì |Sì |
-| Valori (ma non nomi) delle impostazioni di configurazione |Sì |Sì |Sì |
-| Aggiungere nuovi certificati |Sì |Sì |Sì |
-| Modificare i certificati esistenti |Sì |Sì |Sì |
-| Distribuire nuovo codice |Sì |Sì |Sì |
+| Versione del sistema operativo |sì |sì |sì |
+| Livello di attendibilità .NET |sì |sì |sì |
+| Dimensioni macchina virtuale<sup>1</sup> |Sì<sup>2</sup> |sì |sì |
+| Impostazioni di archiviazione locali |Solo aumento<sup>2</sup> |sì |sì |
+| Aggiungere o rimuovere ruoli in un servizio |sì |sì |sì |
+| Numero di istanze di un particolare ruolo |sì |sì |sì |
+| Numero o tipo di endpoint per un servizio |Sì<sup>2</sup> |No  |sì |
+| Nomi e i valori delle impostazioni di configurazione |sì |sì |sì |
+| Valori (ma non nomi) delle impostazioni di configurazione |sì |sì |sì |
+| Aggiungere nuovi certificati |sì |sì |sì |
+| Modificare i certificati esistenti |sì |sì |sì |
+| Distribuire nuovo codice |sì |sì |sì |
 
 <sup>1</sup> Modifica delle dimensioni limitata al sottoinsieme di dimensioni disponibili per il servizio cloud.
 

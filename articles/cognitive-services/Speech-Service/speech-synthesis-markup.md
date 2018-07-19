@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d955e7fd7805688ba103897c0d900c44f16514f8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4074ba91f5029d6c132982d1d81a4888a5e42721
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376841"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071216"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
@@ -79,4 +79,4 @@ Gli esempi seguenti illustrano come usare SSML per esigenze di sintesi vocale co
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

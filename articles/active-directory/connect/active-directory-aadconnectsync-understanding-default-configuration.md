@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7be5569654cb537260117ecd452e58cff9824a88
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595309"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044775"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Questo articolo illustra anche la configurazione predefinita del servizio di sincronizzazione Azure AD Connect. Scopo dell'articolo è spiegare con un esempio reale il funzionamento del modello di configurazione, detto provisioning dichiarativo. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -77,9 +77,9 @@ Un oggetto contatto deve soddisfare i seguenti requisiti per essere sincronizzat
 
 * Il contatto deve essere abilitato alla posta elettronica. Viene verificato tramite le regole seguenti:
   * `IsPresent([proxyAddresses]) = True)`. L'attributo proxyAddresses deve essere compilato.
-  * Un indirizzo di posta elettronica principale è disponibile nell'attributo proxyAddresses o nell'attributo mail. La presenza di un simbolo @ consente di verificare che il contenuto sia un indirizzo di posta elettronica. Una di queste due regole deve restituire True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. È presente una voce con "SMTP:" e, in caso affermativo, è presente un simbolo @ nella stringa?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L'attributo mail è compilato e, in tal caso, è presente un simbolo @ nella stringa?
+  * Un indirizzo di posta elettronica principale è disponibile nell'attributo proxyAddresses o nell'attributo mail. La presenza di un simbolo \@ consente di verificare che il contenuto sia un indirizzo di posta elettronica. Una di queste due regole deve restituire True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. È presente una voce con "SMTP:" e, in caso affermativo, è presente un simbolo \@ nella stringa?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. L'attributo mail è compilato e, in tal caso, è presente un simbolo \@ nella stringa?
 
 Gli oggetti contatto seguenti **non** vengono sincronizzati con Azure AD:
 

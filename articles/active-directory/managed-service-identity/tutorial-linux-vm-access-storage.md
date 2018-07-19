@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: fb67d1eea588d96129c4b58a8c1b2f569c9663bf
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904408"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049338"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Esercitazione: usare un'identità gestita di una macchina virtuale Linux per accedere ad Archiviazione di Azure 
 
@@ -38,7 +38,7 @@ Questa esercitazione illustra come creare e usare un'identità gestita per una m
 > [!NOTE]
 > L'autenticazione di Azure Active Directory per l'Archiviazione di Azure è disponibile come anteprima pubblica.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com) prima di continuare.
 
@@ -61,7 +61,7 @@ In questa sezione si crea una macchina virtuale Linux a cui, in un secondo momen
 2. Selezionare **Calcolo** e quindi **Ubuntu Server 16.04 LTS**.
 3. Immettere le informazioni relative alla macchina virtuale. In **Tipo di autenticazione** selezionare **Chiave pubblica SSH** o **Password**. Le credenziali create consentono di eseguire l'accesso alla macchina virtuale.
 
-   ![Riquadro "Informazioni di base" per la creazione di una macchina virtuale](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![Riquadro "Informazioni di base" per la creazione di una macchina virtuale](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. Nell'elenco **Sottoscrizione** selezionare una sottoscrizione per la macchina virtuale.
 5. Per selezionare un nuovo gruppo di risorse in cui creare la macchina virtuale, selezionare **Gruppo di risorse** > **Crea nuovo**. Al termine, selezionare **OK**.
@@ -87,7 +87,7 @@ In questa sezione, si crea un account di archiviazione.
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
 6. Fare clic su **Crea**.
 
-    ![Creare un nuovo account di archiviazione](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![Creare un nuovo account di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Creare un contenitore BLOB e caricare un file nell'account di archiviazione
 
@@ -98,14 +98,14 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 3. Nella parte superiore della pagina fare clic su **+ Contenitore**.
 4. In **Nuovo contenitore**, immettere il nome del contenitore e in **Livello di accesso pubblico** mantenere il valore predefinito.
 
-    ![Creare un contenitore di archiviazione](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![Creare un contenitore di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Utilizzando un editor di propria scelta, creare un file denominato *hello world.txt* nel computer locale.  Aprire il file e aggiungere il testo (senza virgolette) "Hello world! :)"e quindi salvare il file. 
 
 6. Per caricare un file nel nuovo contenitore creato, fare clic sul nome del contenitore, quindi fare clic su **Carica**
 7. Nel riquadro **Caricamento BLOB**, in **File**, fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica**.
 
-    ![Caricare un file di testo](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![Caricare un file di testo](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure 
 

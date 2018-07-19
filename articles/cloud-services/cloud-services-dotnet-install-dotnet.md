@@ -3,7 +3,7 @@ title: Installare .NET nei ruoli di Servizi cloud di Azure | Microsoft Docs
 description: Questo articolo illustra come installare manualmente .NET Framework nei ruoli Web e di lavoro del servizio cloud
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
-ms.author: adegeo
-ms.openlocfilehash: 8bd146f5265e499c38b016ea8d8cb00685867cd3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: jeconnoc
+ms.openlocfilehash: 80f525f3c7b71c2d5d1fdbd415c298452ab75423
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034763"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004830"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installare .NET nei ruoli di Servizi cloud di Azure
 Questo articolo illustra come installare versioni di .NET Framework non incluse nel sistema operativo guest di Azure. È possibile usare .NET nel sistema operativo guest per configurare i ruoli Web e di lavoro del servizio cloud.

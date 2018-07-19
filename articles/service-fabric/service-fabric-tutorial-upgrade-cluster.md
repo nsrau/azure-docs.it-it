@@ -3,7 +3,7 @@ title: Aggiornare il runtime Service Fabric in Azure | Microsoft Docs
 description: In questa esercitazione si apprenderà come usare PowerShell per aggiornare il runtime di un cluster di Service Fabric ospitato in Azure.
 services: service-fabric
 documentationcenter: .net
-author: Thraka
+author: rwike77
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
-ms.author: adegeo
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7e7304b259931c5196a4865383cf0b4ace4c4398
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 367528353d5849a64ed1924d1b1e02a9b2c38252
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109767"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007934"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: aggiornare il runtime di un cluster di Service Fabric in Azure
 
@@ -44,7 +44,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Aggiornare il runtime di un cluster
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -197,7 +197,7 @@ sfctl cluster upgrade-status
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Ottenere la versione del runtime del cluster

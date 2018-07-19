@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 81509108060b636e47154a8c375f5569cac73648
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902735"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048739"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Esercitazione: usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -35,7 +35,7 @@ Si apprenderà come:
 > * Concedere alla macchina virtuale l'accesso a un segreto archiviato in un insieme di credenziali delle chiavi 
 > * Ottenere un token di accesso usando l'identità  della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è a
 5.  Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6.  Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nel pannello delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
@@ -67,7 +67,7 @@ Un'identità del servizio gestito per una macchina virtuale consente di ottenere
 3.  Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4.  Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
 
-    ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Concedere alla macchina virtuale l'accesso a un segreto archiviato nell'insieme di credenziali delle chiavi 
  
@@ -84,7 +84,7 @@ In primo luogo, è necessario creare un insieme di credenziali delle chiavi e co
 7. Fare clic su **OK** per terminare l'aggiunta dei nuovi criteri di accesso e su **OK** per completare la selezione dei criteri di accesso. 
 8. Fare clic su **Crea** per completare la creazione dell'insieme di credenziali delle chiavi. 
 
-    ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![Testo immagine alt](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
 Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, in modo che in un secondo momento sia possibile recuperare il segreto mediante il codice in esecuzione nella macchina virtuale: 

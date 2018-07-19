@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 42833323cbebf25ce2ca14e6ab7ec4fa5adbfd15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206945"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044578"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Panoramica del ciclo di vita di Reliable Services
 > [!div class="op_single_selector"]
@@ -79,7 +79,10 @@ I servizi con stato hanno un modello simile ai servizi senza stato, con poche mo
     - Se il servizio è attualmente di tipo primario, viene chiamato il metodo `StatefulServiceBase.RunAsync()` del servizio.
 4. Dopo che tutte le chiamate di `OpenAsync()` del listener della replica vengono completate e dopo la chiamata di `RunAsync()`, viene chiamato `StatefulServiceBase.OnChangeRoleAsync()`. L'override della chiamata nel servizio non è comune.
 
-Analogamente ai servizi senza stato, non c'è alcun collegamento tra l'ordine in cui i listener vengono creati e aperti e il momento in cui viene chiamato **RunAsync**. Se è necessario che queste operazioni siano coordinate, le soluzioni sono perlopiù simili. C'è un caso aggiuntivo per il servizio con stato. Si supponga che le chiamate in arrivo ai listener di comunicazione richiedano informazioni conservate in alcune [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md). Poiché i listener di comunicazione potrebbero venire aperti prima che le raccolte Reliable Collections possano essere lette o scritte e prima dell'avvio di **RunAsync**, è necessario un po' di coordinamento aggiuntivo. La soluzione più semplice e più comune è che i listener di comunicazione restituiscano un codice di errore che il client usa per ripetere la richiesta.
+Analogamente ai servizi senza stato, non c'è alcun collegamento tra l'ordine in cui i listener vengono creati e aperti e il momento in cui viene chiamato **RunAsync**. Se è necessario che queste operazioni siano coordinate, le soluzioni sono perlopiù simili. C'è un caso aggiuntivo per il servizio con stato. Si supponga che le chiamate in arrivo ai listener di comunicazione richiedano informazioni conservate in alcune [raccolte Reliable Collections](service-fabric-reliable-services-reliable-collections.md).
+
+   > [!NOTE]  
+   > Poiché i listener di comunicazione potrebbero venire aperti prima che le raccolte Reliable Collections possano essere lette o scritte e prima dell'avvio di **RunAsync**, è necessario un po' di coordinamento aggiuntivo. La soluzione più semplice e più comune è che i listener di comunicazione restituiscano un codice di errore che il client usa per ripetere la richiesta.
 
 ## <a name="stateful-service-shutdown"></a>Arresto di un servizio con stato
 Analogamente ai servizi senza stato, gli eventi del ciclo di vita durante l'arresto corrispondono a quelli durante l'avvio, ma invertiti. Quando viene arrestato un servizio con stato, si verificano gli eventi seguenti:

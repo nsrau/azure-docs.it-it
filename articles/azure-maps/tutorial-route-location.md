@@ -1,20 +1,20 @@
 ---
 title: Trovare un percorso con Mappe di Azure | Microsoft Docs
 description: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fc5dfafec303a439d8a1092771fd2247ab305172
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09828fade464c3b7b5f6eedaa16513e9eab49467
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601344"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989643"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
 
@@ -25,7 +25,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del se
 > * Impostare le coordinate di un indirizzo
 > * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di procedere, seguire i passaggi dell'esercitazione precedente per [creare l'account Mappe di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey). 
 
@@ -200,7 +200,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione percorso
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa

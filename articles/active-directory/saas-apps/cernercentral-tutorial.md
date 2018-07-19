@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: e14a9fc822fa42ec12390d1ed4540b246802a990
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 77cd9f90de1d50e91061a6a7222d01c72aadf3f3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226375"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cerner-central"></a>Esercitazione: Integrazione di Azure Active Directory con Central Desktop
 
@@ -33,7 +33,7 @@ L'integrazione di Cerner Central con Azure AD offre i vantaggi seguenti:
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare l'integrazione di Azure AD con Cerner Central, sono necessari gli elementi seguenti:
 
@@ -169,7 +169,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ### <a name="creating-a-cerner-central-test-user"></a>Creazione di un utente test di Cerner Central
 
-L'applicazione **Cerner Central** consente l'autenticazione da qualsiasi provider di identità federato. Se un utente è in grado di accedere alla home page dell'applicazione, viene federato e non è più necessario il provisioning manuale. È possibile scoprire più dettagli [qui](cernercentral-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+L'applicazione **Cerner Central** consente l'autenticazione da qualsiasi provider di identità federato. Se un utente è in grado di accedere alla home page dell'applicazione, viene federato e non è più necessario il provisioning manuale. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](cernercentral-provisioning-tutorial.md).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
@@ -205,7 +205,7 @@ In questa sezione si abilita Britta Simon per l'uso dell'accesso Single Sign-On 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Cerner Central nel pannello di accesso, si accede automaticamente all'applicazione Cerner Central. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md).
+Quando si fa clic sul riquadro Cerner Central nel pannello di accesso, si accede automaticamente all'applicazione Cerner Central. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

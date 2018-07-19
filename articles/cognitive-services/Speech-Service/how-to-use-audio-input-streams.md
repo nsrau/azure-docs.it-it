@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: fmegen
-ms.openlocfilehash: 528356473c4221a815fa68cbec3426866c4cbd23
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0eafa7e88df5d00a67646ca7f82ca027602a40b3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35378988"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071447"
 ---
 # <a name="about-the-audio-input-stream-api"></a>Informazioni sull’API del flusso di input audio
 
@@ -142,4 +142,4 @@ In generale, quando si utilizzano flussi di ingresso audio, sono necessari i pas
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: ed1aff411ae5446688fe717ddc4570ea756c4c1e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904272"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005646"
 ---
 # <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Questa esercitazione illustra come creare e usare un'identità del servizio gest
 > * Ottenere un token di accesso usando l'identità del servizio gestito della macchina virtuale Windows per chiamare Azure Resource Manager
 > * Ottenere le chiavi di accesso da Azure Resource Manager per eseguire le chiamate a Cosmos DB
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -56,7 +56,7 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 5. Per selezionare un nuovo **Gruppo di risorse** in cui creare la macchina virtuale, scegliere **Crea nuovo**. Al termine fare clic su **OK**.
 6. Selezionare la dimensione della macchina virtuale. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). Nella pagina delle impostazioni mantenere le impostazioni predefinite e fare clic su **OK**.
 
-   ![Testo immagine alt](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+   ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
 
@@ -66,7 +66,7 @@ Un'identità del servizio gestito per una macchina virtuale consente di ottenere
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
 3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
-   ![Testo immagine alt](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB 
 

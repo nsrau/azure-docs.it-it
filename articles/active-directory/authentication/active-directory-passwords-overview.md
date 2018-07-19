@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866669"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049022"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>Reimpostazione self-service delle password di Azure AD per i professionisti IT
 
@@ -65,5 +65,5 @@ Informazioni più dettagliate su licenze, prezzi e piani futuri sono disponibili
 
 * Quando si è pronti per iniziare a usare la reimpostazione della password self-service, vedere [Configurare la reimpostazione self-service della password di Azure AD](quickstart-sspr.md).
 * Pianificare la distribuzione della reimpostazione self-service della password seguendo le istruzioni disponibili nella [Guida all'implementazione](howto-sspr-deployment.md).
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md).
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md).
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md).
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md).

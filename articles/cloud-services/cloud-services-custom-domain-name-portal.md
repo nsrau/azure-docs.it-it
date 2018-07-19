@@ -3,7 +3,7 @@ title: Configurare un nome di dominio personalizzato nei servizi cloud | Microso
 description: Informazioni su come esporre i dati su internet o l'applicazione Azure in un dominio personalizzato configurando le impostazioni DNS.  Questi esempi utilizzano il portale di Azure.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: adegeo
-ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: jeconnoc
+ms.openlocfilehash: 43a3458ba0f08d73931b5ecddf6a2c7b1ae259f4
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "25946775"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044816"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
@@ -124,7 +124,7 @@ Il record A seguente, ad esempio, inoltra tutto il traffico da **contoso.com** a
 
 | Nome host/Sottodominio | Indirizzo IP |
 | --- | --- |
-| @ |137.135.70.239 |
+| \@ |137.135.70.239 |
 
 In questo esempio viene illustrata la creazione di un record A per il dominio radice. Se si vuole creare una voce con caratteri jolly per tutti i sottodomini, immettere '*****' come sottodominio.
 

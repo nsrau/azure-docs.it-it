@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: ebe81b2e4dea347eb22b173ff1e9baf1ee6bb75d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ed071d1da30a598eef830b4485c246ffae09c950
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359646"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004115"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schema Config NetworkConfiguration dei Servizi cloud di Microsoft Azure
 

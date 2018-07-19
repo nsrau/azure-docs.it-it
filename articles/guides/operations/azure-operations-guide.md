@@ -3,7 +3,7 @@ title: Guida introduttiva per gli operatori IT di Azure | Microsoft Docs
 description: Guida introduttiva per gli operatori IT di Azure
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
-ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099494"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072335"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introduzione al cloud computing e a Microsoft Azure
 
@@ -141,13 +141,11 @@ Per la documentazione dettagliata sui servizi di Azure, vedere la [documentazion
 
 ### <a name="datacenters-and-regions"></a>Centri dati e aree
 
-
 Azure è una piattaforma cloud globale disponibile a livello generale in molte aree del mondo. Quando si esegue il provisioning di un servizio, di un'applicazione o di una macchina virtuale in Azure, viene chiesto di selezionare un'area. L'area selezionata rappresenta un data center specifico in cui viene eseguita l'applicazione. Per altre informazioni, vedere [Aree di Azure](https://azure.microsoft.com/regions/).
 
 Uno dei vantaggi dell'uso di Azure è la possibilità di distribuire le applicazioni in più centri dati in tutto il mondo. La scelta dell'area può influire sulle prestazioni dell'applicazione. La scelta ottimale corrisponde all'area più vicina alla maggior parte dei clienti, per ridurre la latenza nelle richieste di rete. È anche possibile selezionare un'area in base ai requisiti legali per la distribuzione dell'app in determinati paesi.
 
 ### <a name="azure-portal"></a>Portale di Azure
-
 
 Il portale di Azure è un'applicazione basata sul Web che può essere usata per creare, gestire e rimuovere risorse e servizi di Azure. Il portale di Azure si trova in https://portal.azure.com. include un dashboard personalizzabile e gli strumenti per la gestione delle risorse di Azure e fornisce le informazioni relative alla fatturazione e alla sottoscrizione. Per altre informazioni, vedere [Panoramica del portale di Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) e [Gestire le risorse di Azure mediante il portale](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
@@ -165,7 +163,6 @@ Un modello di Azure Resource Manager è un file JSON (JavaScript Object Notation
 
 ### <a name="automation"></a>Automazione
 
-
 Oltre alla creazione, alla gestione e all'eliminazione di risorse tramite il Portale di Azure, è possibile automatizzare queste attività tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
 **Azure PowerShell**
@@ -178,9 +175,7 @@ L'interfaccia della riga di comando di Azure è uno strumento con cui è possibi
 
 Le **API REST** di Azure si basano su un set di API REST che supportano l'interfaccia utente del Portale di Azure. La maggior parte di queste API REST è supportata anche per consentire il provisioning e la gestione a livello di codice delle risorse e delle app di Azure da qualsiasi dispositivo abilitato per Internet. Per altre informazioni, vedere [Azure REST SDK Reference](https://docs.microsoft.com/rest/api/index) (Informazioni di riferimento per Azure REST SDK).
 
-
 ## <a name="azure-subscriptions"></a>Sottoscrizioni Azure
-
 
 Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite Controllo degli accessi in base al ruolo.
 
@@ -200,10 +195,7 @@ Se si supera il credito disponibile, il servizio viene disabilitato fino all'ini
 
 **Contratti Enterprise**: con un contratto Enterprise ci si impegna a usufruire di un certo numero di servizi di Azure nel corso di un anno e si paga la tariffa corrispondente in anticipo. L'impegno preso verrà utilizzato nel corso dell'anno. Se si supera l'importo concordato, è possibile pagare l'eccedenza in ritardo. A seconda dell'importo dell'impegno, si ottiene un certo sconto sui servizi di Azure.
 
-
-
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Concedere l'accesso amministrativo a una sottoscrizione di Azure
-
 
 Sono disponibili più ruoli di amministratore account, che possono essere modificati in qualsiasi momento. Due ruoli chiave sono:
 
@@ -215,13 +207,11 @@ Per altre informazioni, vedere [Come aggiungere o modificare i ruoli di amminist
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visualizzare le informazioni di fatturazione nel Portale di Azure
 
-
 Un aspetto importante dell'uso di Azure è la possibilità di visualizzare le informazioni di fatturazione. Il Portale di Azure fornisce una visualizzazione dettagliata delle informazioni di fatturazione di Azure.
 
 Per altre informazioni, vedere [Come scaricare la fattura e i dati di utilizzo giornalieri di Azure](../../billing/billing-download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Ottenere le informazioni di fatturazione dalle API di fatturazione
-
 
 Oltre a visualizzare la fatturazione nel portale, è possibile accedere alle informazioni di fatturazione tramite uno script o un programma che usi le API REST di fatturazione di Azure:
 
@@ -262,7 +252,6 @@ Gestione risorse offre numerosi vantaggi:
 -   Visualizzando i costi di un gruppo di risorse che condividono lo stesso tag si possono ottenere informazioni dettagliate sulla fatturazione per l'organizzazione.
 
 ### <a name="tips-for-creating-resource-groups"></a>Suggerimenti per la creazione di un gruppo di risorse
-
 
 Al momento di prendere decisioni relative ai gruppi di risorse, tenere presenti questi suggerimenti:
 
@@ -347,7 +336,6 @@ Poiché le macchine virtuali di Azure consentono il controllo completo della con
 Per la distribuzione di una macchina virtuale tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile selezionare molte immagini di sistemi operativi diversi con configurazioni diverse. Tutti i requisiti di archiviazione e di rete vengono configurati durante la distribuzione. Per altre informazioni, vedere "Creare una macchina virtuale nel Portale di Azure" per [Windows](../../virtual-machines/windows/quick-create-portal.md) e [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 Oltre alle macchine virtuali, dal Portale di Azure è possibile distribuire modelli di Azure Resource Manager. Questa operazione consente di distribuire e configurare tutte le risorse definite nel modello. Per altre informazioni, vedere [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 
 **PowerShell**
 

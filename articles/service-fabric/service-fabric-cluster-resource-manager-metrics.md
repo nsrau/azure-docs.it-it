@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643339"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006285"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestione dell'utilizzo delle risorse e del carico in Service Fabric con le metriche
 Con *metriche* si intendono le risorse rilevanti per i servizi, che sono fornite dai nodi nel cluster. Una metrica è un qualsiasi elemento che si vuole gestire per controllare o migliorare le prestazioni dei servizi. Ad esempio, è possibile osservare il consumo di memoria per capire se il servizio è sovraccarico. Le metriche possono essere usate per determinare se il servizio può essere spostato in un'altra posizione con memoria meno vincolata, per ottenere prestazioni migliori.
@@ -35,9 +35,9 @@ Si supponga che si desideri iniziare a scrivere e a distribuire il servizio. Anc
 
 | Metrica | Carico di istanza senza stato | Carico secondario con stato | Carico primario con stato | Peso |
 | --- | --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |0 |
-| ReplicaCount |0 |1 |1 |0 |
-| Conteggio |1 |1 |1 |0 |
+| PrimaryCount |0 |0 |1 |Alto |
+| ReplicaCount |0 |1 |1 |Media |
+| Conteggio |1 |1 |1 |Basso |
 
 
 Per i carichi di lavoro di base, le metriche predefinite forniscono una distribuzione ragionevole del lavoro nel cluster. L'esempio seguente illustra che cosa accade quando si creano due servizi e ci si affida alle metriche predefinite per il bilanciamento. Il primo è un servizio con stato con tre partizioni e dimensioni del set di repliche di destinazione pari a tre. Il secondo è un servizio senza stato con una partizione e un numero di istanze pari a tre.

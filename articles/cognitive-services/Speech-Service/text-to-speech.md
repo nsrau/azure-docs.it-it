@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855941"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071131"
 ---
 # <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
 
@@ -42,4 +42,4 @@ Se si vuole usare una voce particolare per l'applicazione, è possibile creare [
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
-* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-windows.md)
+* [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

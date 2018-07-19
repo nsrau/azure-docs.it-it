@@ -1,20 +1,20 @@
 ---
 title: Più itinerari con Mappe di Azure | Microsoft Docs
 description: Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ea68c70befde1922fc30d06386a2ae326460c722
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ca46ecb8f0cce2ff8c749016eb3ad1ac7df7cf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601412"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988970"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Trovare gli itinerari per diverse modalità di trasporto tramite Mappe di Azure
 
@@ -26,7 +26,7 @@ Questa esercitazione illustra come usare l'account Mappe di Azure e il servizio 
 > * Creare query di itinerario che dichiarano la modalità di viaggio
 > * Visualizzare più itinerari sulla mappa
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di procedere eseguire i passaggi della prima esercitazione per [creare l'account Mappe di Azure](./tutorial-search-location.md#createaccount) e [ottenere la chiave di sottoscrizione per l'account](./tutorial-search-location.md#getkey). 
 
@@ -283,7 +283,7 @@ Questa sezione illustra come usare l'API del servizio di pianificazione itinerar
     L'itinerario per gli autocarri è blu e più è spesso, mentre l'itinerario per le auto è viola e più sottile. L'itinerario per le auto passa attraverso Washington Lake tramite la I-90, che attraversa i tunnel sotto le zone residenziali e pertanto è interdetto ai carichi di rifiuti pericolosi. L'itinerario per gli autocarri, che specifica il tipo di carico USHazmatClass2, suggerisce correttamente di usare un'autostrada diversa. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa

@@ -10,15 +10,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 85368e4e-a0db-4c02-8dbc-8e2928fa6091
 caps.latest.revision: 60
-author: thraka
-ms.author: adegeo
+author: jpconnock
+ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 6db3edef937dc0b5cdd805d0045897e02b985e7b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360343"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002314"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Schema WebRole di definizione di Servizi cloud di Azure
 Il ruolo Web di Azure è un ruolo che viene personalizzato per la programmazione di applicazioni Web supportata da IIS 7, ad esempio ASP.NET, PHP, Windows Communication Foundation e FastCGI.
@@ -150,7 +150,7 @@ Il file di definizione del servizio include questi elementi, descritti in dettag
 
 [Startup](#Startup)
 
-[Task](#Task)
+[Attività](#Task)
 
 [Contents](#Contents)
 

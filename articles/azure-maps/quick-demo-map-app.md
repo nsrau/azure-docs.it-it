@@ -1,20 +1,20 @@
 ---
 title: Ricerca interattiva nelle mappe con Mappe di Azure | Microsoft Docs
 description: Guida introduttiva di Azure - Avviare una demo di una ricerca interattiva sulla mappa con Mappe di Azure
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 002d9820cb4414d8f33cdd362e28f31e7e8b6273
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599763"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989555"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Avviare una mappa per la ricerca interattiva con Mappe di Azure
 

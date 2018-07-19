@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a973b248022cf3c0497f72bc2fcdd45a6527e65
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115590"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090232"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM Edge in Windows
 
@@ -58,7 +58,7 @@ Dopo aver creato la singola registrazione, salvare il valore di **ID registrazio
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Nei dispositivi che eseguono Windows, è possibile scegliere se usare contenitori Windows o Linux. Scegliere il tipo di contenitori da usare e seguire la procedura. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale. 
+Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Nei dispositivi che eseguono Windows, è possibile scegliere se usare contenitori Windows o Linux. Scegliere il tipo di contenitori da usare e seguire la procedura. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale. 
 
 Seguire le istruzioni per installare il runtime IoT Edge nel dispositivo che esegue il dispositivo TPM simulato della sezione precedente. 
 
@@ -87,12 +87,6 @@ Stop-Service iotedge -NoWait
 sleep 5
 Start-Service iotedge
 ```
-
-Verificare che il runtime IoT Edge sia in esecuzione. 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
 
 ## <a name="verify-successful-installation"></a>Verificare l'esito positivo dell'installazione
 

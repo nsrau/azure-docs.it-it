@@ -1,9 +1,9 @@
 ---
-title: Connettere un servizio cloud a un controller di dominio personalizzato | Microsoft Docs
+title: Connettere un servizio cloud a un controller di dominio personalizzato | Documentazione Microsoft
 description: Informazioni su come connettere i ruoli Web/di lavoro a un dominio personalizzato di AD usando PowerShell e l'estensione di dominio di AD
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 4a50ae5e19ff9bf79b7f5361e5a274a2aba350f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.author: jeconnoc
+ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29845656"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004916"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Connessione dei ruoli dei Servizi cloud di Azure a un controller di dominio personalizzato di AD ospitato in Azure
 È prima di tutto necessario configurare una rete virtuale (VNet) in Azure e quindi aggiungere a tale VNet un controller di dominio di Active Directory ospitato in una macchina virtuale di Azure. I ruoli del servizio cloud esistente verranno quindi aggiunti alla rete virtuale creata in precedenza e connessi al controller di dominio.

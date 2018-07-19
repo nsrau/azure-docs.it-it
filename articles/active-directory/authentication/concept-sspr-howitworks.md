@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869008"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048880"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
 
@@ -248,8 +248,8 @@ Per testare questo scenario, passare a http://passwordreset.microsoftonline.com 
 Gli articoli seguenti forniscono altre informazioni sull'uso della reimpostazione della password con Azure AD:
 
 * [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
-* [Reimpostare o modificare la password](../active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../active-directory-passwords-reset-register.md)
+* [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
+* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
 * [Domande sulle licenze](concept-sspr-licensing.md)
 * [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
 * [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
