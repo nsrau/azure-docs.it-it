@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969579"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005833"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
 
@@ -51,13 +51,21 @@ Non appena il file arriva nel percorso di archiviazione e viene creato il BLOB c
 
 ![Selezionare il tipo di trigger come evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>Eseguire il mapping di proprietà di un trigger ai parametri della pipeline
+
+Quando un trigger di evento viene generato per un blob specifico, l'evento acquisisce il nome file e il percorso della cartella del blob nelle proprietà `@triggerBody().folderPath` e `@triggerBody().fileName`. Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline.parameters.parameterName` attraverso la pipeline.
+
+![Mapping di proprietà di un trigger ai parametri della pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Ad esempio, nella schermata precedente. il trigger viene configurato per essere attivato quando viene creato un percorso blob che termina con `.csv` nell'Account di archiviazione. Di conseguenza, quando un blob con estensione `.csv` viene creato in un punto qualsiasi nell'Account di archiviazione, le proprietà `folderPath` e `fileName` acquisiscono la posizione del nuovo blob. Ad esempio, `@triggerBody().folderPath` ha un valore pari a `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` ha un valore pari a `filename.csv`. Il mapping di questi valori viene eseguito secondo i parametri della pipeline `sourceFolder` e `sourceFile`. È possibile usarli attraverso tutta la pipeline come `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` rispettivamente.
+
 ## <a name="json-schema"></a>Schema JSON
 
 La tabella seguente offre una panoramica degli elementi dello schema correlati ai trigger basati su elenchi:
 
 | **Elemento JSON** | **Descrizione** | **Tipo** | **Valori consentiti** | **Obbligatorio** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | ID risorsa di Azure Resource Manager dell'account di archiviazione. | string | ID Azure Resource Manager | Sì |
+| **scope** | ID risorsa di Azure Resource Manager dell'account di archiviazione. | string | ID Azure Resource Manager | sì |
 | **eventi** | Tipo di eventi che provocano l'attivazione del trigger. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sì, qualsiasi combinazione. |
 | **blobPathBeginsWith** | Il percorso del BLOB deve iniziare con il modello fornito per l'attivazione del trigger. Ad esempio, '/records/blobs/december/' attiva solo il trigger per i BLOB nella cartella december all'interno del contenitore records. | string   | | È necessario specificare almeno una di queste proprietà: blobPathBeginsWith, blobPathEndsWith. |
 | **blobPathEndsWith** | Il percorso del BLOB deve terminare con il modello fornito per l'attivazione del trigger. Ad esempio, 'december/boxes.csv' attiva solo il trigger per i BLOB denominati boxes in una cartella december. | string   | | È necessario specificare almeno una di queste proprietà: blobPathBeginsWith, blobPathEndsWith. |
@@ -75,14 +83,6 @@ Questa sezione contiene alcuni esempi di impostazioni di trigger basati su event
 
 > [!NOTE]
 > È necessario includere il segmento `/blobs/` del percorso ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>Eseguire il mapping di proprietà di un trigger ai parametri della pipeline
-
-Quando un trigger di evento viene generato per un blob specifico, l'evento acquisisce il nome file e il percorso della cartella del blob nelle proprietà `@triggerBody().folderPath` e `@triggerBody().fileName`. Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline.parameters.parameterName` attraverso la pipeline.
-
-![Mapping di proprietà di un trigger ai parametri della pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-Ad esempio, nella schermata precedente. il trigger viene configurato per essere attivato quando viene creato un percorso blob che termina con `.csv` nell'Account di archiviazione. Di conseguenza, quando un blob con estensione `.csv` viene creato in un punto qualsiasi nell'Account di archiviazione, le proprietà `folderPath` e `fileName` acquisiscono la posizione del nuovo blob. Ad esempio, `@triggerBody().folderPath` ha un valore pari a `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` ha un valore pari a `filename.csv`. Il mapping di questi valori viene eseguito secondo i parametri della pipeline `sourceFolder` e `sourceFile`. È possibile usarli attraverso tutta la pipeline come `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` rispettivamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).
