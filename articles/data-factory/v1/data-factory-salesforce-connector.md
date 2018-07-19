@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 98f7494c87683eda858da5970e12073ce2204303
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a9dba65591479033a892615ff053eebd0862851e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048288"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125671"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,7 +37,7 @@ Attualmente Azure Data Factory supporta solo lo spostamento di dati da Salesforc
 ## <a name="supported-versions"></a>Versioni supportate
 Questo connettore supporta le edizioni di Salesforce seguenti: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition. Supporta anche la copia dall'ambiente di produzione, dalla sandbox e dal dominio personalizzato di Salesforce.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * È necessario abilitare l'autorizzazione API. Vedere [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Per copiare dati da Salesforce in archivi dati locali, è necessario che nell'ambiente locale sia installato almeno Gateway di gestione dati 2.0.
 
@@ -71,11 +71,11 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà type deve essere impostata su **Salesforce**. |Sì |
+| type |La proprietà type deve essere impostata su **Salesforce**. |sì |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> - Il valore predefinito è "https://login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No  |
 | username |Specificare un nome utente per l'account utente. |Sì |
-| password |Specificare la password per l'account utente. |Sì |
-| securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |Sì |
+| password |Specificare la password per l'account utente. |sì |
+| securityToken |Specificare un token di sicurezza per l'account utente. Per istruzioni su come ottenere o reimpostare un token di sicurezza, vedere [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Ottenere un token di sicurezza). Per informazioni generali sui token di sicurezza, vedere [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sicurezza e API). |sì |
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati in Azure Data Factory](data-factory-create-datasets.md) . Le sezioni come struttura, disponibilità e criteri di un set di dati JSON sono simili per tutti i tipi di set di dati, ad esempio Azure SQL, BLOB di Azure, tabelle di Azure e così via.
@@ -289,15 +289,15 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 | --- | --- |
 | Numero automatico |string |
 | Casella di controllo |boolean |
-| Valuta |Double |
+| Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
 | Email |string |
 | ID |string |
 | Relazione di ricerca |string |
 | Elenco a discesa seleziona multipla |string |
-| Number |Double |
-| Percentuale |Double |
+| Number |Decimal |
+| Percentuale |Decimal |
 | Telefono |string |
 | Elenco a discesa |string |
 | Text |string |

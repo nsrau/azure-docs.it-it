@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 07/18/2018
 ms.author: jingwang
-ms.openlocfilehash: c139b68421061362f40856af55ad0338118ab49a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051883"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125249"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -302,15 +302,15 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 |:--- |:--- |
 | Numero automatico |string |
 | Casella di controllo |boolean |
-| Valuta |Double |
+| Valuta |Decimal |
 | Data |Datetime |
 | Data/ora |Datetime |
 | Email |string |
 | ID |string |
 | Relazione di ricerca |string |
 | Elenco a discesa seleziona multipla |string |
-| Number |Double |
-| Percentuale |Double |
+| Number |Decimal |
+| Percentuale |Decimal |
 | Telefono |string |
 | Elenco a discesa |string |
 | Text |string |
