@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c9a1d605f6cf2ef9dae3a5549e3848931d508394
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723253"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082744"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurare l'attestazione basata su ruolo rilasciata nel token SAML per applicazioni aziendali in Azure Active Directory
 
 Usando Azure Active Directory (Azure AD), è possibile personalizzare il tipo di attestazione per l'attestazione basata su ruolo nel token di risposta ricevuto dopo aver autorizzato un'app.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>prerequisiti
 - Una sottoscrizione di Azure AD con la directory installata.
 - Sottoscrizione con Single Sign-On (SSO) abilitato. È necessario configurare SSO con l'applicazione.
 
@@ -56,7 +56,7 @@ Se l'applicazione prevede che vengano passati ruoli personalizzati in una rispos
 
     ![Pagina Proprietà](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e completare questi passaggi:
+6. Aprire [Microsoft Graph explorer](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra e completare questi passaggi:
 
     a. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 
@@ -208,7 +208,7 @@ Per aggiornare un ruolo esistente, completare questi passaggi:
 
 Per eliminare un ruolo esistente, completare questi passaggi:
 
-1. Aprire [Graph explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
+1. Aprire [Graph Explorer di Azure AD](https://developer.microsoft.com/graph/graph-explorer) in un'altra finestra.
 
 2. Accedere al sito Graph explorer usando le credenziali di amministratore o coamministratore globale per il tenant.
 

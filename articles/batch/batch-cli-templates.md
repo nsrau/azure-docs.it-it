@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608648"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130853"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usare il trasferimento di file e i modelli dell'interfaccia della riga di comando di Azure Batch (anteprima)
 
@@ -258,7 +258,7 @@ I modelli di processo e di pool consentono di specificare che i file archiviati 
 
 Il supporto per i modelli e il trasferimento di file è stato attualmente aggiunto solo all'interfaccia della riga di comando di Azure. L'obiettivo è quello di allargare il numero di utenti che possono usare Batch, consentendone l'utilizzo anche a ricercatori, utenti IT e così via che non hanno la necessità di sviluppare codice usando le API di Batch. Senza dover scrivere il codice, gli utenti che conoscono Azure Batch e le applicazioni che devono essere eseguite da Batch possono creare modelli per la creazione di pool e processi. Con i parametri dei modelli, gli utenti che non hanno una conoscenza approfondita di Batch e delle applicazioni possono usare i modelli.
 
-Provare l'estensione Batch per l'interfaccia della riga di comando di Azure e fornire feedback o suggerimenti nella sezione Commenti dell'articolo o tramite il [forum di Azure Batch](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch).
+Provare l'estensione Batch per l'interfaccia della riga di comando di Azure e inviare feedback o suggerimenti nella sezione Commenti dell'articolo o tramite il [repository della community di Batch](https://github.com/Azure/Batch).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

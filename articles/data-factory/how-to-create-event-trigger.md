@@ -10,20 +10,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/10/2018
 ms.author: douglasl
-ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062122"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969579"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
 
 Questo articolo descrive i trigger basati su eventi che è possibile creare nelle pipeline di Data Factory.
 
 Un'architettura guidata dagli eventi è un comune modello di integrazione dei dati che implica produzione, rilevamento, utilizzo e risposta agli eventi. Negli scenari di integrazione dei dati è spesso necessario che i clienti di Data Factory attivino pipeline in base agli eventi. Data Factory è ora integrato con [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/), che consente di attivare pipeline su un evento.
+
+> [!NOTE]
+> L'integrazione descritta in questo articolo dipende dalla [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/). Verificare che la sottoscrizione sia registrata con il provider di risorse di Griglia di eventi. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/resource-manager-supported-services.md#portal).
 
 ## <a name="data-factory-ui"></a>Interfaccia utente di Data Factory
 
@@ -36,17 +39,17 @@ Un tipico evento è costituito dall'arrivo di un file o dall'eliminazione di un 
 
 ![Creare un nuovo trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image1.png)
 
-### <a name="select-the-event-trigger-type"></a>Selezionare il tipo di trigger di evento
-
-Non appena il file arriva nel percorso di archiviazione e viene creato il BLOB corrispondente, questo evento attiva ed esegue la pipeline di Data Factory. È possibile creare un trigger che risponde a un evento di creazione di BLOB, a un evento di eliminazione di BLOB oppure a entrambi nelle pipeline di Data Factory.
-
-![Selezionare il tipo di trigger come evento](media/how-to-create-event-trigger/event-based-trigger-image2.png)
-
 ### <a name="configure-the-event-trigger"></a>Configurare il trigger di evento
 
 Con le proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con** è possibile specificare i contenitori, le cartelle e i nomi di BLOB per cui si vuole ricevere eventi. È possibile usare svariati modelli per le due proprietà **Percorso BLOB inizia con** e **Percorso BLOB termina con**, come mostrato negli esempi più avanti in questo articolo. Almeno una di queste due proprietà è obbligatoria.
 
-![Configurare il trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
+![Configurare il trigger di evento](media/how-to-create-event-trigger/event-based-trigger-image2.png)
+
+### <a name="select-the-event-trigger-type"></a>Selezionare il tipo di trigger di evento
+
+Non appena il file arriva nel percorso di archiviazione e viene creato il BLOB corrispondente, questo evento attiva ed esegue la pipeline di Data Factory. È possibile creare un trigger che risponde a un evento di creazione di BLOB, a un evento di eliminazione di BLOB oppure a entrambi nelle pipeline di Data Factory.
+
+![Selezionare il tipo di trigger come evento](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
 ## <a name="json-schema"></a>Schema JSON
 
@@ -73,11 +76,13 @@ Questa sezione contiene alcuni esempi di impostazioni di trigger basati su event
 > [!NOTE]
 > È necessario includere il segmento `/blobs/` del percorso ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file.
 
-## <a name="using-blob-events-trigger-properties"></a>Uso delle proprietà del trigger di eventi BLOB
+## <a name="map-trigger-properties-to-pipeline-parameters"></a>Eseguire il mapping di proprietà di un trigger ai parametri della pipeline
 
-Quando viene attivato un trigger di eventi BLOB, rende disponibili due variabili disponibili per la pipeline: *folderPath* e *fileName*. Per accedere a queste variabili, usare le espressioni `@triggerBody().fileName` o `@triggerBody().folderPath`.
+Quando un trigger di evento viene generato per un blob specifico, l'evento acquisisce il nome file e il percorso della cartella del blob nelle proprietà `@triggerBody().folderPath` e `@triggerBody().fileName`. Per usare i valori di queste proprietà in una pipeline, è necessario mappare le proprietà per i parametri della pipeline. Dopo il mapping delle proprietà per i parametri, è possibile accedere ai valori acquisiti dal trigger attraverso l'espressione `@pipeline.parameters.parameterName` attraverso la pipeline.
 
-Ad esempio, si consideri un trigger configurato per l'attivazione quando viene creato un BLOB con `.csv` come valore di `blobPathEndsWith`. Quando viene rilasciato un file con estensione .csv nell'account di archiviazione, *folderPath* e *fileName* descrivono il percorso del file CSV. Ad esempio *folderPath* ha il valore `/containername/foldername/nestedfoldername` e *fileName* ha il valore `filename.csv`.
+![Mapping di proprietà di un trigger ai parametri della pipeline](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+Ad esempio, nella schermata precedente. il trigger viene configurato per essere attivato quando viene creato un percorso blob che termina con `.csv` nell'Account di archiviazione. Di conseguenza, quando un blob con estensione `.csv` viene creato in un punto qualsiasi nell'Account di archiviazione, le proprietà `folderPath` e `fileName` acquisiscono la posizione del nuovo blob. Ad esempio, `@triggerBody().folderPath` ha un valore pari a `/containername/foldername/nestedfoldername` e `@triggerBody().fileName` ha un valore pari a `filename.csv`. Il mapping di questi valori viene eseguito secondo i parametri della pipeline `sourceFolder` e `sourceFile`. È possibile usarli attraverso tutta la pipeline come `@pipeline.parameters.sourceFolder` e `@pipeline.parameters.sourceFile` rispettivamente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).

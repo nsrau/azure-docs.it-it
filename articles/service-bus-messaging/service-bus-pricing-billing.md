@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159787"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448408"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Informazioni sul prezzo e la fatturazione del Bus di servizio
 
@@ -39,7 +39,10 @@ Il livello **Standard** introduce prezzi progressivi per le operazioni eseguite 
 
 Il livello **Premium** fornisce l'isolamento delle risorse a livello di CPU e memoria in modo che ogni carico di lavoro del cliente venga eseguito in isolamento. Questo contenitore di risorse viene chiamato *unità di messaggistica*. Ad ogni spazio dei nomi Premium viene allocata almeno un'unità di messaggistica. È possibile acquistare 1, 2 o 4 unità di messaggistica per ogni spazio dei nomi Premium del bus di servizio. Un singolo carico di lavoro o un'entità può estendersi su più unità di messaggistica e il numero di unità di messaggistica può essere modificato in base alle esigenze, anche se la fatturazione prevede un addebito a frequenza giornaliera o a 24 ore. Ne risultano prestazioni prevedibili e ripetibili per la soluzione basata sul bus di servizio. Non solo le prestazioni sono più prevedibili e disponibili, ma anche più veloci.
 
-Si noti che il costo di base del livello Standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che, dopo avere creato uno spazio dei nomi del bus di servizio di livello Standard, è possibile creare tutti gli spazi dei nomi di livello Standard desiderati nella stessa sottoscrizione di Azure senza incorrere in altri addebiti di base.
+> [!NOTE]
+> Gli argomenti e le sottoscrizioni sono disponibili solo nei piani tariffari Standard o Premium; il livello Basic supporta solo le code.
+
+Il costo di base del livello Standard viene addebitato una sola volta al mese per ogni sottoscrizione di Azure. Ciò significa che, dopo avere creato uno spazio dei nomi del bus di servizio di livello Standard, è possibile creare tutti gli spazi dei nomi di livello Standard desiderati nella stessa sottoscrizione di Azure senza incorrere in altri addebiti di base.
 
 La tabella [Prezzi di Bus di servizio](https://azure.microsoft.com/pricing/details/service-bus/) riepiloga le differenze funzionali tra i livelli Standard e Premium.
 

@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235747"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036803"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Integrazione log di Azure con la registrazione di Diagnostica di Azure e inoltro di eventi di Windows
 
@@ -47,7 +47,7 @@ Un computer fisico può essere eseguito in locale o in un sito host. Se si scegl
 
 La macchina fisica o virtuale che esegue il servizio Integrazione log di Azure richiede la connettività di rete per il cloud pubblico di Azure. Questo articolo fornisce informazioni dettagliate sulla configurazione necessaria.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per installare Integrazione log di Azure, sono necessari almeno gli elementi seguenti:
 
@@ -111,7 +111,7 @@ Il processo di installazione è illustrato nel video seguente:<br /><br />
 Dopo aver completato la configurazione di base, si può procedere con i passaggi successivi all'installazione e di convalida:
 
 1. Aprire PowerShell come amministratore. Andare quindi alla directory C:\Programmi\Integrazione log di Microsoft Azure.
-2. Importare i cmdlet di Integrazione log di Azure. Per importare i cmdlet, eseguire lo script `LoadAzlogModule.ps1`. Immettere `.\LoadAzlogModule.ps1`, e quindi premere INVIO Si noti che in questo comando si usa **.\\**. Verrà visualizzata una schermata simile alla figura seguente:
+2. Importare i cmdlet di Integrazione log di Azure. Per importare i cmdlet, eseguire lo script `LoadAzlogModule.ps1`. Immettere `.\LoadAzlogModule.ps1` e quindi premere INVIO. Si noti che in questo comando si usa **.\\** Verrà visualizzata una schermata simile alla figura seguente:
 
   ![Screenshot dell'output del comando LoadAzlogModule.ps1](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Configurare quindi Integrazione log di Azure per l'uso di un ambiente di Azure specifico. *Ambiente di Azure* è il tipo di data center del cloud di Azure che si vuole usare. Anche se esistono diversi ambienti di Azure, le opzioni attualmente pertinenti sono **AzureCloud** o **AzureUSGovernment**. Eseguendo PowerShell come amministratore, verificare di essere in C:\Programmi\Integrazione log di Microsoft Azure\. Eseguire quindi questo comando:
@@ -229,6 +229,7 @@ Il log attività di Azure è un log delle sottoscrizioni che fornisce informazio
     ```Azlog.exe authorize subscriptionId``` Esempio:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.  Verificare che siano stati creati i file JSON del log di controllo di Azure Active Directory nelle cartelle seguenti:
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD
