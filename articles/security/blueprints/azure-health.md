@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
-ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33894314"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113232"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -278,12 +278,12 @@ La funzione di Azure è stata inoltre progettata per leggere e proteggere i dati
 
 **2. Ricovero di nuovi pazienti**
 
-Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a **distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
+Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a** ** distribuzione ed esecuzione della demo, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
 **1. Funzione di Azure** attivata e la funzione richiede un [token di connessione](/rest/api/) da Azure Active Directory.
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
 
-\*\*3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
+**3. I ruoli di Azure convalidano la richiesta e autorizzano la richiesta di accesso a Key Vault.
 
 **4. Key Vault** restituisce il segreto, in questo caso la stringa di connessione al database SQL.
 
