@@ -20,7 +20,7 @@
       href: public-preview.md
     - name: Eseguire la distribuzione usando un modello
       href: deploy-template.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/network
@@ -40,6 +40,8 @@
       href: ../azure-resource-manager/resource-group-overview.md
 - name: Risorse
   items:
+    - name: Domande frequenti
+      href: firewall-faq.md
     - name: Creare modelli
       href: ../azure-resource-manager/resource-group-authoring-templates.md
     - name: Roadmap per Azure

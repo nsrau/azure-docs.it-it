@@ -6,12 +6,12 @@ description: Informazioni su come compilare e gestire applicazioni avanzate usan
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7ee5d5a3f177352c2ae2ba9692e795e4dae7b357
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 6f1378116ce41646a0d94f1b6f010e1010d9c507
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136826"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145520"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -5895,7 +5895,7 @@ SDK e strumenti di Service Fabric </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/database-migration.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">

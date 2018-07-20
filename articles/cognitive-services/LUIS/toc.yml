@@ -230,9 +230,9 @@
     - name: Trovare l'area a livello di codice
       items:
         - name: 'Uso di C#'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Uso di Node.js
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: riferimento
   items:
     - name: Privacy dell'utente
