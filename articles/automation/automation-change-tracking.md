@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867954"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069448"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
 Questo articolo spiega come usare la soluzione Rilevamento modifiche per identificare facilmente le modifiche nell'ambiente. La soluzione rileva le modifiche apportate al software Windows e Linux, ai file di Windows e Linux, alle chiavi del Registro di sistema di Windows, ai servizi di Windows e ai daemon Linux. Rilevando le modifiche alla configurazione è possibile localizzare eventuali problemi operativi.
 
 Le modifiche al software installato, ai servizi di Windows, ai file e al Registro di sistema di Windows e ai daemon Linux nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione. Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud. Usando le informazioni nel dashboard Change Tracking, è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
+
+## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
+
+Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate per l'agente Windows:
+
+* Windows Server 2008 Service Pack 1 (SP1) o versione successiva
+* Windows 7 SP1 e versioni successive.
+
+## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
+
+Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.  
+
+* Amazon Linux da 2012.09 a 2015.09 (x86/x64)
+* CentOS Linux 5, 6 e 7 (x86/x64)  
+* Oracle Linux 5, 6 e 7 (x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
+* Debian GNU/Linux 6, 7 e 8 (x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
+* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
@@ -57,7 +76,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento.<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento.<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del contenuto restituito.     |
-|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file nelle modifiche di cui si è tenuta traccia. Opzioni disponibili: **True** o **False**.|
+|Caricare il contenuto del file per tutte le impostazioni| Attivare o disattivare il caricamento del contenuto del file per le modifiche rilevate. Opzioni disponibili: **True** o **False**.|
 
 > [!NOTE]
 > Questa opzione dei collegamenti "Gestisci" non è consigliata. Il recupero del contenuto del file non è supportato.
