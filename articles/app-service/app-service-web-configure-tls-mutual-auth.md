@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857640"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056209"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Come configurare l'autenticazione reciproca TLS per un'app Web
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ Assicurarsi di modificare il valore di "posizione" con la posizione in cui si tr
 
 È anche possibile usare https://resources.azure.com per capovolgere la proprietà `clientCertEnabled` tramite in `true`.
 
-> **Nota:** se si esegue ARMClient da Powershell, è necessario eseguire l'escape del simbolo @ per il file JSON con un apice inverso `.
+> **Nota:** se si esegue ARMClient da Powershell, è necessario eseguire l'escape del simbolo \@ per il file JSON con un apice inverso `.
 > 
 > 
 
