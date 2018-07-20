@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264552"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917228"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schema degli eventi del log attività di Azure
-Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati.
+Il **log attività di Azure** fornisce informazioni approfondite sugli eventi a livello di sottoscrizione che si sono verificati in Azure. Questo articolo descrive lo schema degli eventi per ogni categoria di dati. Lo schema dei dati varia a seconda che si stiano leggendo i dati nel portale, in PowerShell, nell'interfaccia della riga di comando o direttamente tramite l'API REST rispetto allo [streaming dei dati nella risorsa di archiviazione o in Hub eventi usando un profilo di log](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Gli esempi seguenti mostrano lo schema reso disponibile tramite il portale, PowerShell, l'interfaccia della riga di comando e l'API REST. Un mapping di queste proprietà allo [schema di log di diagnostica di Azure](./monitoring-diagnostic-logs-schema.md) è disponibile alla fine dell'articolo.
 
 ## <a name="administrative"></a>Amministrativo
 Questa categoria contiene il record di tutte le operazioni di creazione, aggiornamento, eliminazione e azione eseguite tramite Resource Manager. Tra gli esempi dei tipi di eventi visualizzati in questa categoria sono inclusi "create virtual machine" e "delete network security group". Ogni azione eseguita da un utente o da un'applicazione usando Resource Manager viene modellata come operazione in un determinato tipo di risorsa. Se l'operazione è di tipo scrittura, eliminazione o azione, i record di avvio e riuscita o di non riuscita di tale operazione vengono registrati nella categoria amministrativa. La categoria amministrativa include anche eventuali modifiche al controllo degli accessi in base al ruolo in una sottoscrizione.
@@ -115,7 +115,7 @@ Questa categoria contiene il record di tutte le operazioni di creazione, aggiorn
 | autorizzazione |BLOB delle proprietà RBAC dell'evento. In genere include le proprietà "action", "role" e "scope". |
 | caller |Indirizzo di posta elettronica dell'utente che ha eseguito l'operazione, attestazione UPN o attestazione SPN, a seconda della disponibilità. |
 | channels |Uno dei valori seguenti: "Admin" o "Operation". |
-| claims |Token JWT usato da Active Directory per autenticare l'utente o l'applicazione per eseguire questa operazione in Resource Manager. |
+| claims |Token JWT usato da Active Directory per l'autenticazione dell'utente o dall'applicazione per eseguire questa operazione in Resource Manager. |
 | correlationId |In genere un GUID in formato stringa. Gli eventi che condividono un elemento correlationId appartengono alla stessa azione. |
 | Description |Testo statico che descrive un evento. |
 | eventDataId |Identificatore univoco di un evento. |
@@ -469,7 +469,7 @@ Questa categoria contiene il record degli avvisi generati dal Centro sicurezza d
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per il Centro sicurezza di Azure. Sempre "Microsoft.Security". |
 | resourceType |Il tipo di risorsa che ha generato l'evento di sicurezza, ad esempio "Microsoft.Security/locations/alerts" |
-| ResourceId |Id risorsa dell'avviso di sicurezza. |
+| ResourceId |ID risorsa dell'avviso di sicurezza. |
 | operationId |GUID condiviso tra gli eventi che corrispondono a una singola operazione. |
 | operationName |Nome dell'operazione. |
 | properties |Set di coppie `<Key, Value>`, ovvero un dizionario, che descrive i dettagli dell'evento. Queste proprietà variano a seconda del tipo di avviso di sicurezza. Vedere [questa pagina](../security-center/security-center-alerts-type.md) per una descrizione dei tipi di avvisi provenienti da Centro sicurezza. |
@@ -550,7 +550,7 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | resourceGroupName |Nome del gruppo di risorse della risorsa. |
 | resourceProviderName |Nome del provider di risorse per la risorsa a cui si applica la raccomandazione, ad esempio "MICROSOFT.COMPUTE" |
 | resourceType |Nome del tipo di risorsa per la risorsa a cui si applica la raccomandazione, ad esempio "MICROSOFT.COMPUTE/virtualmachines" |
-| ResourceId |ID risorsa della risorsa a cui si applica la raccomandazione |
+| ResourceId |ID risorsa della risorsa a cui si applica l'elemento consigliato. |
 | status | Sempre "Active" |
 | submissionTimestamp |Timestamp del momento in cui l'evento è diventato disponibile per l'esecuzione di query. |
 | subscriptionId |ID sottoscrizione di Azure. |
@@ -560,6 +560,30 @@ Questa categoria include il record di tutte le nuove raccomandazioni che vengono
 | properties.recommendationImpact| Impatto della raccomandazione. I valori possibili sono "High", "Medium", "Low" |
 | properties.recommendationRisk| Rischio della raccomandazione. I valori possibili sono "Error", "Warning", "None" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>Mapping allo schema di log di diagnostica
+
+Quando si esegue lo streaming del log attività di Azure a un account di archiviazione o a uno spazio dei nomi di Hub eventi, i dati seguono lo [schema di log di diagnostica di Azure](./monitoring-diagnostic-logs-schema.md). Di seguito è riportato il mapping delle proprietà dallo schema riportato sopra allo schema di log di diagnostica:
+
+| Proprietà dello schema di log di diagnostica | Proprietà dello schema API REST del log attività | Note |
+| --- | --- | --- |
+| time | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId, resourceType, resourceGroupName sono tutti dedotti da resourceId. |
+| operationName | operationName.value |  |
+| category | Parte del nome dell'operazione | Suddivisione del tipo di operazione - "Write"/"Delete"/"Action" |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | description |  |
+| durationMs | N/D | Sempre 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| correlationId | correlationId |  |
+| identity | attestazioni e proprietà di autorizzazione |  |
+| Level | Level |  |
+| location | N/D | Posizione in cui è stato elaborato l'evento. *Non si tratta del percorso della risorsa, ma piuttosto della posizione in cui è stato elaborato l'evento. Questa proprietà verrà rimossa in un aggiornamento futuro.* |
+| Properties | properties.eventProperties |  |
+| properties.eventCategory | category | Se properties.eventCategory non è presente, la categoria è "amministrativa" |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

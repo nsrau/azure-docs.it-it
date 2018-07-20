@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b584dfa49c42328a44fff0645dcdec2504abaa2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656884"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904221"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Creare, modificare o eliminare un'interfaccia di rete
 
@@ -62,7 +62,7 @@ Quando si crea una macchina virtuale tramite il portale di Azure, il portale cre
 
 Il portale non prevede la possibilità di assegnare un indirizzo IP pubblico all'interfaccia di rete in fase di creazione, anche se il portale crea un indirizzo IP pubblico e lo assegna a un'interfaccia di rete quando si crea una macchina virtuale tramite il portale. Per informazioni su come aggiungere un indirizzo IP pubblico all'interfaccia di rete dopo averla creata, vedere [Gestire gli indirizzi IP](virtual-network-network-interface-addresses.md). Se si desidera creare un'interfaccia di rete con un indirizzo IP pubblico, è necessario usare l'interfaccia della riga di comando o PowerShell per creare l'interfaccia di rete.
 
-Il portale non offre la possibilità di assegnare l'interfaccia di rete ai gruppi di sicurezza dell'applicazione, mentre l’interfaccia della riga di comando di Azure e PowerShell offrono questa opportunità. Per altre informazioni sui gruppi di sicurezza delle applicazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups).
+Il portale non offre la possibilità di assegnare l'interfaccia di rete ai gruppi di sicurezza delle applicazioni quando si crea un'interfaccia di rete, mentre l'interfaccia della riga di comando di Azure e PowerShell offrono questa opportunità. È possibile assegnare un'interfaccia di rete esistente a un gruppo di sicurezza delle applicazioni tramite il portale, purché l'interfaccia di rete sia collegata a una macchina virtuale. Per informazioni su come assegnare un'interfaccia di rete a un gruppo di sicurezza delle applicazioni, vedere [Aggiunta o rimozione dai gruppi di sicurezza dell'applicazione](#add-to-or-remove-from-application-security-groups).
 
 >[!Note]
 > Azure assegna un indirizzo MAC all'interfaccia di rete solo dopo che quest'ultima viene collegata a una macchina virtuale e la macchina virtuale viene avviata per la prima volta. Non è possibile specificare l'indirizzo MAC che Azure assegna all'interfaccia di rete. L'indirizzo MAC rimarrà assegnato all'interfaccia di rete finché l'interfaccia non viene eliminata oppure non viene modificato l'indirizzo IP privato assegnato alla configurazione IP primaria dell'interfaccia di rete primaria. Per altre informazioni sugli indirizzi IP e le configurazioni IP, vedere [Gestire gli indirizzi IP](virtual-network-network-interface-addresses.md)
@@ -161,7 +161,10 @@ L'impostazione deve essere abilitata per ogni interfaccia di rete collegata alla
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Aggiunta o rimozione dai gruppi di sicurezza dell'applicazione
 
-Il portale non offre la possibilità di assegnare l'interfaccia di rete ai gruppi di sicurezza dell'applicazione o di rimuovere un’interfaccia di rete da questi gruppi, mentre l’interfaccia della riga di comando di Azure e PowerShell offrono questa opportunità. Per altre informazioni sui gruppi di sicurezza delle applicazioni, vedere [Gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups) e [Creazione di un gruppo di sicurezza delle applicazioni](#create-an-application-security-group).
+È possibile aggiungere o eliminare un'interfaccia di rete da un gruppo di sicurezza delle applicazioni tramite il portale solo se l'interfaccia di rete è collegata a una macchina virtuale. È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per aggiungere o eliminare un'interfaccia di rete da un gruppo di sicurezza delle applicazioni sia che l'interfaccia di rete sia collegata a una macchina virtuale o meno. Altre informazioni sui [gruppi di sicurezza delle applicazioni](security-overview.md#application-security-groups) e su come [creare un gruppo di sicurezza delle applicazioni](manage-network-security-group.md#create-an-application-security-group).
+
+1. Nella casella *Cerca risorse, servizi e documentazione* nella parte superiore del portale iniziare a digitare il nome di una macchina virtuale con un'interfaccia di rete che si vuole aggiungere o eliminare da un gruppo di sicurezza delle applicazioni. Quando il nome della VM compare nei risultati della ricerca, selezionarlo.
+2. In **IMPOSTAZIONI** selezionare **Rete**.  Selezionare **Configura i gruppi di sicurezza delle applicazioni**, selezionare i gruppi di sicurezza delle applicazioni a cui si vuole aggiungere l'interfaccia di rete o deselezionare i gruppi di sicurezza delle applicazioni da cui si vuole eliminare l'interfaccia di rete, quindi selezionare **Salva**. Solo le interfacce di rete della stessa rete virtuale possono essere aggiunte allo stesso gruppo di sicurezza delle applicazioni. Il gruppo di sicurezza delle applicazioni deve trovarsi nella stessa posizione dell'interfaccia di rete.
 
 **Comandi**
 
@@ -264,6 +267,6 @@ Per eseguire attività nelle interfacce di rete, l'account deve essere assegnato
 
 - Creare una macchina virtuale con più schede di interfaccia di rete usando l'[interfaccia della riga di comando di Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Creare una VM con una singola scheda di interfaccia di rete e più indirizzi IPv4 usando l'[interfaccia della riga di comando di Azure](virtual-network-multiple-ip-addresses-cli.md) o [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-- Creare una VM con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (protetta da Azure Load Balancer) usando l'[interfaccia della riga di comando di Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o il [modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+- Creare una VM con una singola scheda di interfaccia di rete con un indirizzo IPv6 privato (protetta da Azure Load Balancer) usando l'[interfaccia della riga di comando di Azure](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o il [modello di Azure Resource Manager](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Creare un'interfaccia di rete usando gli script di esempio di [PowerShell](powershell-samples.md) o dell'[interfaccia della riga di comando di Azure](cli-samples.md) oppure i [modelli di Azure Resource Manager](template-samples.md)
 - Creare e applicare i [criteri di Azure](policy-samples.md) per le reti virtuali

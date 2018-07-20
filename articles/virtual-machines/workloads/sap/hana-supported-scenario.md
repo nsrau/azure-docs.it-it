@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063630"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859953"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenari supportati nelle istanze Large di HANA
 Questo documento descrive gli scenari supportati e i dettagli delle relative architettura per istanze Large di HANA (HLI).
@@ -54,10 +54,11 @@ In questo documento vengono descritti i dettagli dei due componenti in ognuna de
 
 ### <a name="ethernet"></a>Ethernet
 
-Ogni server fornito è preconfigurato con i set Ethernet. Di seguito i dettagli delle interfacce Ethernet configurate in ogni unità HLI.
+Ogni server fornito è preconfigurato con i set di interfacce Ethernet. Di seguito i dettagli delle interfacce Ethernet configurate in ogni unità HLI.
 
 - **A**: interfaccia usata per/dall'accesso al client.
-- **B**: interfaccia usata per la comunicazione da nodo a nodo. Configurata in tutti i server, indipendentemente dalla topologia richiesta, ma usata solo per gli scenari di scalabilità orizzontale.
+- **B**: interfaccia usata per la comunicazione da nodo a nodo. Questa interfaccia è configurata in tutti i server, indipendentemente dalla topologia richiesta, ma è utilizzata solo per gli 
+- scenari scale-out.
 - **C**: interfaccia usata per il nodo di connettività dell'archiviazione.
 - **D**: interfaccia usata per il nodo di connessione del dispositivo ISCSI per l'installazione STONITH. Questa interfaccia viene configurata solo quando è richiesta l'installazione HSR.  
 
@@ -81,17 +82,17 @@ Se necessario, l'utente può definire altre schede di rete. Tuttavia, la configu
 
 La distribuzione per le unità con due indirizzi IP assegnati dovrebbe appare come segue:
 
-A Ethernet "A" deve essere assegnato un indirizzo IP non compreso nell'intervallo di indirizzi del pool di indirizzi IP del server inviati a Microsoft. Questo indirizzo IP deve essere usato per la gestione in /etc/hosts del sistema operativo.
+- A Ethernet "A" deve essere assegnato un indirizzo IP non compreso nell'intervallo di indirizzi del pool di indirizzi IP del server inviati a Microsoft. Questo indirizzo IP deve essere usato per la gestione in /etc/hosts del sistema operativo.
 
-A Ethernet "B" deve essere assegnato un indirizzo IP usato per la comunicazione con NFS. Pertanto, tali indirizzi **NON** devono essere gestiti in etc/hosts per consentire il traffico da istanza a istanza nel tenant.
+- A Ethernet "C" deve essere assegnato un indirizzo IP utilizzato per la comunicazione con NFS. Pertanto, tali indirizzi **NON** devono essere gestiti in etc/hosts per consentire il traffico da istanza a istanza nel tenant.
 
 Una configurazione del pannello con due indirizzi IP assegnati non è appropriata per i casi di distribuzione di tipo replica del sistema HANA o di HANA con scalabilità orizzontale. Se sono stati assegnati solo due indirizzi IP e si vuole distribuire una configurazione di questo tipo, contattare SAP HANA in Azure Service Management per ottenere un terzo indirizzo IP in una terza VLAN assegnata. Per le unità di istanza Large di HANA con tre indirizzi IP assegnati alle tre porte NIC, si applicano le regole di utilizzo seguenti:
 
 - A Ethernet "A" deve essere assegnato un indirizzo IP non compreso nell'intervallo di indirizzi del pool di indirizzi IP del server inviati a Microsoft. Questo indirizzo, pertanto, IP deve non essere usato per la gestione in /etc/hosts del sistema operativo.
 
-- A Ethernet "B" deve essere assegnato un indirizzo IP usato per la comunicazione con l'archiviazione NFS. Questo tipo di indirizzi, quindi, non deve essere conservato in etc/host.
+- Ethernet "B" deve essere utilizzata esclusivamente in etc/hosts per la comunicazione tra istanze diverse. Questi indirizzi corrispondono agli indirizzi IP da mantenere nelle configurazioni HANA con scalabilità orizzontale come indirizzi IP usati da HANA per la configurazione tra nodi.
 
-- Ethernet "C" deve essere usata esclusivamente in etc/hosts per la comunicazione tra istanze diverse. Questi indirizzi corrispondono agli indirizzi IP da mantenere nelle configurazioni HANA con scalabilità orizzontale come indirizzi IP usati da HANA per la configurazione tra nodi.
+- A Ethernet "C" deve essere assegnato un indirizzo IP utilizzato per la comunicazione con l'archiviazione NFS. Questo tipo di indirizzi, quindi, non deve essere conservato in etc/host.
 
 - Ethernet "D" deve essere usata esclusivamente per accedere al dispositivo STONITH per pacemaker. Questa interfaccia è necessaria per la configurazione di HSR (HANA System Replication) e per realizzare il failover automatico sul sistema operativo usando un dispositivo basato su SBD.
 
@@ -118,9 +119,9 @@ L'elenco seguente mostra gli scenari supportati:
 5. HSR con STONITH
 6. HSR con ripristino di emergenza (normale/multifunzione) 
 7. Failover automatico dell'host (1+1) 
-8. Scalabilità orizzontale con standby
-9. Scalabilità orizzontale senza standby
-10. Scalabilità orizzontale con ripristino di emergenza
+8. Scale-out con standby
+9. Scale-out senza standby
+10. Scale-out con ripristino di emergenza
 
 
 
@@ -236,7 +237,7 @@ I punti di montaggio seguenti sono preconfigurati:
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 - Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Consultare [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) per maggiori dettagli.
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
 
@@ -285,13 +286,13 @@ I punti di montaggio seguenti sono preconfigurati:
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 - Per MCOS: la distribuzione delle dimensioni del volume è basata sulle dimensioni del database in memoria. Consultare la sezione [Panoramica e architettura](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) per conoscere quali dimensioni del database in memoria sono supportate in un ambiente multisid.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Consultare [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) per maggiori dettagli. 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Nel ripristino di emergenza: i dati, i backup dei file di log, i log e i volumi condivisi per QA, contrassegnati come “QA Instance installation” (Installazione dell'istanza QA) sono configurati per l'installazione dell'istanza QA.
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR con STONITH
  
-Questa topologia supporta due nodi per la configurazione HSR (HANA System Replication). 
+Questa topologia supporta due nodi per la configurazione HSR (HANA System Replication). Questa configurazione è supportata solo per singole istanze HANA in un nodo. Gli scenari MCOS NON sono supportati.
 
 **A partire da ora, questa architettura è supportata solo per il sistema operativo SUSE.**
 
@@ -340,7 +341,7 @@ I punti di montaggio seguenti sono preconfigurati:
 
 ## <a name="6-hsr-with-dr"></a>6. HSR con ripristino di emergenza
  
-Questa topologia supporta due nodi per la configurazione HSR (HANA System Replication). È supportato sia il ripristino di emergenza normale che multifunzione. 
+Questa topologia supporta due nodi per la configurazione HSR (HANA System Replication). È supportato sia il ripristino di emergenza normale che multifunzione. Queste configurazioni sono supportate solo per singole istanze HANA in un nodo. Pertanto gli scenari MCOS non sono supportati con queste configurazioni.
 
 Nel diagramma è illustrato lo scenario multifunzione nel sito di ripristino di emergenza dove l'unità HLI viene utilizzata per l'istanza QA mentre le operazioni di produzione vengono eseguite nel sito primario. Al momento del failover del ripristino di emergenza (o test di failover), l'istanza QA del sito di ripristino di emergenza viene disattivata. 
 
@@ -394,7 +395,7 @@ I punti di montaggio seguenti sono preconfigurati:
 - STONITH: per l'installazione STONITH è configurato un SBD. Tuttavia, l'uso di STONITH è facoltativo.
 - Nel di ripristino di emergenza: **sono necessari due gruppi di volumi di archiviazione** per la replica del nodo primario e secondario.
 - Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Consultare [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) per maggiori dettagli. 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Nel ripristino di emergenza: i dati, i backup dei file di log, i log e i volumi condivisi per QA, contrassegnati come “QA Instance installation” (Installazione dell'istanza QA) sono configurati per l'installazione dell'istanza QA.
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
@@ -441,9 +442,9 @@ I punti di montaggio seguenti sono preconfigurati:
 - In standby: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA nell'unità standby.
  
 
-## <a name="8-scale-out-with-standby"></a>8. Scalabilità orizzontale con standby
+## <a name="8-scale-out-with-standby"></a>8. Scale-out con standby
  
-Questa topologia supporta più nodi in una configurazione di scalabilità orizzontale. È presente un nodo con ruolo master, uno o più nodi con ruolo di lavoro e uno o più nodi di standby. In ogni dato momento è tuttavia ammesso un solo nodo master.
+Questa topologia supporta più nodi in una configurazione scale-out. È presente un nodo con ruolo master, uno o più nodi con ruolo di lavoro e uno o più nodi di standby. Tuttavia, in ogni dato momento, è ammesso un solo nodo master.
 
 
 ### <a name="architecture-diagram"></a>Diagramma dell'architettura  
@@ -476,9 +477,9 @@ I punti di montaggio seguenti sono preconfigurati:
 |/hana/logbackups/SID | Log di rollforward per SID di produzione |
 
 
-## <a name="9-scale-out-without-standby"></a>9. Scalabilità orizzontale senza standby
+## <a name="9-scale-out-without-standby"></a>9. Scale-out senza standby
  
-Questa topologia supporta più nodi in una configurazione di scalabilità orizzontale. È presente un nodo con ruolo di master e uno o più nodi con ruolo di lavoro. Tuttavia, in ogni dato momento, è ammesso un solo nodo master.
+Questa topologia supporta più nodi in una configurazione scale-out. È presente un nodo con ruolo di master e uno o più nodi con ruolo di lavoro. Tuttavia, in ogni dato momento, è ammesso un solo nodo master.
 
 
 ### <a name="architecture-diagram"></a>Diagramma dell'architettura  
@@ -515,9 +516,9 @@ I punti di montaggio seguenti sono preconfigurati:
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 
-## <a name="10-scale-out-with-dr"></a>10. Scalabilità orizzontale con ripristino di emergenza
+## <a name="10-scale-out-with-dr"></a>10. Scale-out con ripristino di emergenza
  
-Questa topologia supporta più nodi in una configurazione di scalabilità orizzontale con ripristino di emergenza. È supportato sia il ripristino di emergenza normale che multifunzione. Nel diagramma è illustrato solo il ripristino di emergenza normale. Questa topologia può essere richiesta con o senza il nodo standby.
+Questa topologia supporta più nodi in una configurazione scale-out con ripristino di emergenza. È supportato sia il ripristino di emergenza normale che multifunzione. Nel diagramma è illustrato solo il ripristino di emergenza normale. Questa topologia può essere richiesta con o senza il nodo standby.
 
 
 ### <a name="architecture-diagram"></a>Diagramma dell'architettura  
@@ -558,7 +559,7 @@ I punti di montaggio seguenti sono preconfigurati:
 ### <a name="key-considerations"></a>Considerazioni sulle chiavi
 - /usr/SAP/SID è un collegamento simbolico a /hana/shared/SID.
 -  Nel ripristino di emergenza: i volumi e i punti di montaggio sono configurati, vale a dire contrassegnati come "Required for HANA installation" (Obbligatori per l'installazione HANA) per l'installazione dell'istanza HANA di produzione nell'unità HLI di ripristino di emergenza. 
-- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Consultare [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) per maggiori dettagli. 
+- Nel ripristino di emergenza: i dati, i backup dei file di log e i volumi condivisi, contrassegnati come "Replica di archiviazione", vengono replicati tramite snapshot dal sito di produzione. Questi volumi sono montati solo durante il tempo di failover. Per altre informazioni, leggere il documento [Procedura di failover di ripristino di emergenza](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Il volume di avvio della **classe SKU di Tipo I** è replicato nel nodo ripristino di emergenza.
 
 

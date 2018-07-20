@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611450"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856641"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Come distribuire i dati a livello globale con Azure Cosmos DB
 Azure è ovunque, offre una copertura globale in oltre 50 aree geografiche ed è in continua espansione. Ciò consente ad Azure di offrire in esclusiva agli sviluppatori la possibilità di creare, distribuire e gestire applicazioni distribuite a livello globale con la massima semplicità. 
@@ -22,7 +22,7 @@ Azure è ovunque, offre una copertura globale in oltre 50 aree geografiche ed è
 [Azure Cosmos DB](../cosmos-db/introduction.md) è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni cruciali. Azure Cosmos DB offre distribuzione globale chiavi in mano, [scalabilità elastica in termini di archiviazione e velocità effettiva](../cosmos-db/partition-data.md) ovunque nel mondo, latenze pari a singole unità di millisecondi al 99° percentile, [cinque modelli di coerenza ben definiti](consistency-levels.md) e disponibilità elevata garantita, il tutto supportato da [contratti di servizio completi leader del settore](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [indicizza automaticamente tutti i dati](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) senza che sia necessario gestire manualmente indici o schemi. Si tratta di un servizio multimodello che supporta modelli di dati basati su documenti, coppie chiave-valore, grafi e famiglie di colonne. In quanto originato in modalità nativa nel servizio cloud, Azure Cosmos DB è stato accuratamente progettato fin dall'inizio per gestire multi-tenancy e distribuzione globale.
 
 
-![Raccolta di Azure Cosmos DB partizionata e distribuita tra tre aree](./media/distribute-data-globally/global-apps.png)
+![Contenitore di Azure Cosmos DB partizionato e distribuito tra tre aree](./media/distribute-data-globally/global-apps.png)
 
 **Un singolo contenitore di Azure Cosmos DB partizionato e distribuito tra più aree di Azure**
 
@@ -92,7 +92,7 @@ Attualmente le funzionalità di failover automatico e manuale sono esposte al li
 ### <a id="MultiHomingAPIs"></a>Multihosting in Azure Cosmos DB
 Azure Cosmos DB consente di interagire con un database tramite endpoint *logici* (indipendenti dall'area) o *fisici* (specifici dell'area). L'uso di endpoint logici garantisce che l'applicazione possa usufruire del multihosting in modo trasparente in caso di failover. Un endpoint fisico, invece, offre all'applicazione un controllo con granularità fine per reindirizzare le letture e le scritture ad aree specifiche.
 
-Informazioni su come configurare le preferenze di lettura per le [API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), [API Gremlin](../cosmos-db/tutorial-global-distribution-graph.md), [API Table](../cosmos-db/tutorial-global-distribution-table.md) e [API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) sono disponibili in questi articoli.
+Informazioni su come configurare le preferenze di lettura per l'[API SQL](../cosmos-db/tutorial-global-distribution-sql-api.md), l'[API Table](../cosmos-db/tutorial-global-distribution-table.md) e l'[API MongoDB](../cosmos-db/tutorial-global-distribution-mongodb.md) sono disponibili in questi articoli.
 
 ### <a id="TransparentSchemaMigration"></a>Migrazione di indici e di schemi del database trasparente e coerente 
 Azure Cosmos DB è completamente [indipendente dallo schema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). La struttura esclusiva del motore di database consente ad Azure Cosmos DB di indicizzare automaticamente e in modo sincrono tutti i dati in fase di inserimento senza richiedere all'utente schemi o indici secondari. In questo modo è possibile iterare rapidamente l'applicazione distribuita a livello globale senza preoccuparsi della migrazione dell'indice o dello schema del database o del coordinamento di implementazioni di modifiche dello schema dell'applicazione in più fasi. Azure Cosmos DB garantisce che qualsiasi modifica ai criteri di indicizzazione eseguita dall'utente non comporti un calo significativo di prestazioni o disponibilità.  
@@ -187,7 +187,7 @@ Poiché l'implementazione di un modello di coerenza specifico dipende dalla scel
 ## <a id="ThroughputGuarantees"></a>Garanzie di velocità effettiva 
 Azure Cosmos DB consente di ridimensionare la velocità effettiva e lo spazio di archiviazione in modo elastico su un numero qualsiasi di aree a seconda delle esigenze o della domanda. 
 
-![Raccolte di Azure Cosmos DB partizionate e distribuite](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Contenitori di Azure Cosmos DB partizionati e distribuiti](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **Un singolo contenitore di Azure Cosmos DB con partizionamento orizzontale (su tre partizioni di risorse all'interno di un'area) distribuito a livello globale su tre aree di Azure**
 

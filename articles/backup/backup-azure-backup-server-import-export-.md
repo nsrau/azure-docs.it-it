@@ -1,25 +1,19 @@
 ---
-title: Backup di Azure - Backup offline per DPM e server di Backup di Azure | Microsoft Docs
+title: Backup di Azure - Backup offline per DPM e server di Backup di Azure
 description: Informazioni sull'uso di Backup di Azure per l'invio di dati offline tramite il servizio Importazione/Esportazione di Azure. Questo articolo illustra il seeding offline dei dati del backup iniziale tramite il servizio Importazione/Esportazione di Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: e3f7ae187bee8680fbff7e5c78c666a0bda7e48f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: saurse
+ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941259"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34606478"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Backup di Azure comprime i backup iniziali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati compressi dei backup iniziali.
@@ -64,7 +58,7 @@ Verificare che i seguenti prerequisiti siano soddisfatti prima di avviare il flu
  ![Creazione di un account di archiviazione classico](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
 
 * Viene creato un percorso di gestione temporanea, che può essere una condivisione di rete o qualsiasi unità aggiuntiva nel computer, interna o esterna, con spazio su disco sufficiente per contenere la copia iniziale. Se ad esempio si prevede di eseguire il backup di un file server da 500 GB, verificare che la dimensione dell'area di staging sia di almeno 500 GB. Verrà tuttavia usata una quantità inferiore in virtù della compressione.
-* Per quanto riguarda i dischi che verranno spediti a Azure, assicurarsi che vengano usate solo unità SSD da 2,5 pollici o unità disco rigido interne SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md#hard-disk-drives).
+* Per quanto riguarda i dischi che verranno spediti a Azure, assicurarsi che vengano usate solo unità SSD da 2,5 pollici o unità disco rigido interne SATA II/III da 2,5 o 3,5 pollici. È possibile usare dischi rigidi fino a 10 TB. Per informazioni sul set più recente di unità supportato dal servizio, vedere la [documentazione del servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-requirements.md#supported-hardware).
 * Le unità SATA devono essere connesse a un computer (denominato *computer di copia*) da cui vengono copiati i dati di backup del *percorso di gestione temporanea* nell'unità SATA. Verificare che nel *computer di copia* sia abilitato BitLocker 
 
 ## <a name="workflow"></a>Flusso di lavoro
@@ -203,7 +197,7 @@ Attenersi alla procedura seguente per controllare lo stato del processo di impor
 
     ![Controllo dello stato del processo di importazione](./media/backup-azure-backup-import-export/importjobstatusreporting.png)<br/>
 
-Per altre informazioni sui diversi stati del processo di importazione di Azure, vedere [questo articolo](../storage/common/storage-import-export-service.md#how-does-the-azure-importexport-service-work)
+Per altre informazioni sui diversi stati del processo di importazione di Azure, vedere [questo articolo](../storage/common/storage-import-export-view-drive-status.md)
 
 ### <a name="complete-the-workflow"></a>Completare il flusso di lavoro
 Al termine del processo di importazione, i dati del backup iniziale saranno disponibili nell'account di archiviazione. In occasione del backup pianificato successivo, Backup di Azure copia il contenuto dei dati dall'account di archiviazione all'insieme di credenziali di Servizi di ripristino, come illustrato di seguito: 

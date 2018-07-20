@@ -1,6 +1,6 @@
 ---
 title: Soluzione di monitoraggio delle prestazioni di rete in Azure Log Analytics | Microsoft Docs
-description: Usare la funzionalità di gestione di ExpressRoute in Monitoraggio prestazioni rete per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute.
+description: Usare la funzionalità Monitoraggio di ExpressRoute in Monitoraggio prestazioni rete per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131129"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633350"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
-È possibile usare la funzionalità di gestione di Azure ExpressRoute in [Monitoraggio prestazioni rete](log-analytics-network-performance-monitor.md) per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute. I vantaggi chiave sono: 
+È possibile usare la funzionalità Monitoraggio di ExpressRoute di Azure in [Monitoraggio prestazioni rete](log-analytics-network-performance-monitor.md) per monitorare la connettività end-to-end e le prestazioni tra le proprie succursali e Azure tramite Azure ExpressRoute. I vantaggi chiave sono: 
 
 - Rilevamento automatico dei circuiti ExpressRoute associati alla sottoscrizione.
 - Rilevamento di utilizzo della larghezza di banda, perdita e latenza nel circuito, peering e livello di rete virtuale di Azure per ExpressRoute.

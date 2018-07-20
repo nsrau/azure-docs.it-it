@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8675223162527cc5b2bc45dc5521aac07edaf36c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195982"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906337"
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività (anteprima) in Automazione di Azure
 
-La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività avvia e arresta le macchine virtuali di Azure in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite Azure Log Analytics e invia messaggi di posta elettronica facoltativi usando [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview). Supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari.
+La soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività avvia e arresta le macchine virtuali di Azure in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite Azure Log Analytics e invia messaggi di posta elettronica facoltativi usando [gruppi di azione](../monitoring-and-diagnostics/monitoring-action-groups.md). Supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari.
 
 Questa soluzione fornisce un'opzione di automazione decentralizzata per gli utenti che vogliono ridurre i costi usando risorse senza server a basso costo. Con questa soluzione, è possibile:
 
@@ -34,16 +34,6 @@ Questa soluzione fornisce un'opzione di automazione decentralizzata per gli uten
 
   > [!NOTE]
   > I runbook che gestiscono la pianificazione delle macchine virtuali possono essere usati in qualsiasi area.
-
-* Per inviare notifiche tramite posta elettronica quando l'avvio e l'arresto dei runbook delle macchine virtuali finiscono, durante l'onboarding da Azure Marketplace selezionare **Sì** per la distribuzione di SendGrid.
-
-  > [!IMPORTANT]
-  > SendGrid è un servizio di terze parti. Per il supporto, contattare [SendGrid](https://sendgrid.com/contact/).
-
-  Le limitazioni con SendGrid sono:
-
-  * Un massimo di un account SendGrid per utente per ogni sottoscrizione.
-  * Un massimo di due account SendGrid per ogni sottoscrizione.
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
@@ -79,8 +69,8 @@ Seguire questa procedura per aggiungere la soluzione Avvio/Arresto di macchine v
    In questo caso, viene chiesto di:
    * Specificare i **nomi dei gruppi di risorse di destinazione**. Si tratta di nomi di gruppi di risorse contenenti le macchine virtuali che devono essere gestite da questa soluzione. È possibile immettere più nomi, separati da una virgola. I valori non fanno distinzione tra maiuscole e minuscole. Per specificare come destinazione le macchine virtuali in tutti i gruppi di risorse della sottoscrizione, è possibile usare un carattere jolly. Questo valore viene archiviato nelle variabili **External_Start_ResourceGroupNames** ed **External_Stop_ResourceGroupnames**.
    * Specificare l'**elenco di esclusione delle VM (stringa)**. Si tratta del nome di una o più macchine virtuali dal gruppo di risorse di destinazione. È possibile immettere più nomi, separati da una virgola. I valori non fanno distinzione tra maiuscole e minuscole. I caratteri jolly sono supportati. Questo valore viene archiviato nella variabile **External_ExcludeVMNames**.
-   * Selezionare una **pianificazione**. Si tratta di una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione. Per impostazione predefinita, la pianificazione è configurata per il fuso orario UTC. Non è possibile selezionare un'altra area. Per configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere [Modifica della pianificazione di avvio e arresto](#modify-the-startup-and-shutdown-schedule).
-   * Per ricevere **notifiche tramite posta elettronica** da SendGrid, accettare il valore predefinito **Sì** e fornire un indirizzo di posta elettronica valido. Se si seleziona **No**, ma in seguito si decide di voler ricevere le notifiche tramite posta elettronica, è possibile aggiornare la variabile **External_EmailToAddress** con gli indirizzi di posta elettronica validi separati da virgola e quindi modificare la variabile **External_IsSendEmail** con il valore **Sì**.
+   * Selezionare una **pianificazione**. Si tratta di una data e un'ora ricorrenti per l'avvio e l'arresto delle macchine virtuali nei gruppi di risorse di destinazione. Per impostazione predefinita, la pianificazione è configurata per 30 minuti a partire da adesso. Non è possibile selezionare un'altra area. Per configurare la pianificazione per il fuso orario specifico dopo aver configurato la soluzione, vedere [Modifica della pianificazione di avvio e arresto](#modify-the-startup-and-shutdown-schedule).
+   * Per ricevere **notifiche tramite posta elettronica** da un gruppo di azione, accettare il valore predefinito **Sì** e fornire un indirizzo di posta elettronica valido. Se si seleziona **No** ma in un secondo momento si decide che si desidera ricevere notifiche tramite posta elettronica, è possibile aggiornare il [gruppo di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md) che viene creato con gli indirizzi di posta elettronica validi separati da una virgola.
 
     > [!IMPORTANT]
     > Il valore predefinito per i **nomi dei gruppi di risorse di destinazione** è **&ast;**, destinato a tutte le macchine virtuali in una sottoscrizione. Se non si vuole che la soluzione interessi tutte le macchine virtuali nella sottoscrizione, questo valore deve essere aggiornato con un elenco di nomi di gruppi di risorse prima di abilitare le pianificazioni.
@@ -134,7 +124,7 @@ In un ambiente che include due o più componenti su più macchine virtuali che s
 2. Eseguire il runbook **SequencedStartStop_Parent** con il parametro ACTION impostato su **start**, aggiungere un elenco separato da virgole delle macchine virtuali nel parametro *VMList* e quindi impostare il parametro WHATIF su **True**. Visualizzare in anteprima le modifiche.
 3. Configurare il parametro **External_ExcludeVMNames** con un elenco separato da virgole delle macchine virtuali (VM1,VM2,VM3).
 4. Questo scenario non rispetta le variabili **External_Start_ResourceGroupNames** ed **External_Stop_ResourceGroupnames**. Per questo scenario, è necessario creare la propria pianificazione di Automazione. Per informazioni dettagliate, vedere [Pianificazione di un runbook in Automazione di Azure](../automation/automation-schedules.md).
-5. Visualizzare in anteprima l'azione e apportare le modifiche necessarie prima dell'implementazione nelle VM di produzione. Quando si è pronti, è possibile eseguire manualmente il runbook con il parametro impostato su **False** o lasciare che le pianificazioni di Automazione **Sequenced-StartVM** e **Sequenced-StopVM** vengano eseguite automaticamente dopo la pianificazione prescritta.
+5. Visualizzare in anteprima l'azione e apportare le modifiche necessarie prima dell'implementazione nelle VM di produzione. Quando si è pronti, è possibile eseguire manualmente il runbook monitoring-and-diagnostics/monitoring-action-groups con il parametro impostato su **False** o lasciare che le pianificazioni di Automazione **Sequenced-StartVM** e **Sequenced-StopVM** vengano eseguite automaticamente dopo la pianificazione prescritta.
 
 ### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>Scenario 3: automatizzare l'avvio/arresto in base all'utilizzo della CPU
 
@@ -163,8 +153,8 @@ Per impostazione predefinita, la soluzione è stata preconfigurata per valutare 
 
 Dopo aver creato una pianificazione per arrestare le macchine virtuali in base all'utilizzo della CPU, è necessario abilitare una delle pianificazioni seguenti per avviarle.
 
-* Specificare la destinazione dell'azione di avvio in base a una sottoscrizione e un gruppo di risorse. Vedere i passaggi descritti nello [Scenario 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups) per testare e abilitare la pianificazione **Scheduled-StartVM**.
-* Specificare la destinazione dell'azione di avvio in base a una sottoscrizione, un gruppo di risorse e un tag. Vedere i passaggi descritti nello [Scenario 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags) per testare e abilitare la pianificazione **Sequenced-StartVM**.
+* Specificare la destinazione dell'azione di avvio in base a una sottoscrizione e un gruppo di risorse. Vedere i passaggi descritti nello [Scenario 1](#scenario-1-startstop-vms-on-a-schedule) per testare e abilitare la pianificazione **Scheduled-StartVM**.
+* Specificare la destinazione dell'azione di avvio in base a una sottoscrizione, un gruppo di risorse e un tag. Vedere i passaggi descritti nello [Scenario 2](#scenario-2-startstop-vms-in-sequence-by-using-tags) per testare e abilitare la pianificazione **Sequenced-StartVM**.
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
@@ -202,19 +192,13 @@ La tabella seguente elenca le variabili create nell'account di Automazione. È c
 |External_AutoStop_Threshold | Soglia per la regola di avviso di Azure specificata nella variabile *External_AutoStop_MetricName*. I valori di percentuale possono variare da 1 a 100.|
 |External_AutoStop_TimeAggregationOperator | Operatore dell'aggregazione temporale che viene applicato alle dimensioni della finestra selezionata per valutare la condizione. I valori possibili sono: **Average**, **Minimum**, **Maximum**, **Total** e **Last**.|
 |External_AutoStop_TimeWindow | Dimensioni della finestra durante le quali Azure analizza le metriche selezionate per l'attivazione di un avviso. Questo parametro accetta l'input nel formato timespan. I valori possibili sono compresi tra 5 minuti e 6 ore.|
-|External_EmailFromAddress | Specifica il mittente del messaggio di posta elettronica.|
-|External_EmailSubject | Specifica il testo per la riga dell'oggetto del messaggio di posta elettronica.|
-|External_EmailToAddress | Specifica i destinatari del messaggio di posta elettronica. Separare i nomi usando una virgola.|
 |External_ExcludeVMNames | Immettere i nomi delle macchine virtuali da escludere, separandoli usando una virgola senza spazi.|
-|External_IsSendEmail | Specifica l'opzione per inviare la notifica tramite posta elettronica al termine dell'operazione. Specificare **Sì** o **No** per non inviare il messaggio di posta elettronica. Questa opzione deve essere **No** se non sono state abilitate le notifiche tramite posta elettronica durante la distribuzione iniziale.|
 |External_Start_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di avvio.|
 |External_Stop_ResourceGroupNames | Specifica uno o più gruppi di risorse, separando i valori con una virgola, destinati alle azioni di arresto.|
 |Internal_AutomationAccountName | Specifica il nome dell'account di Automazione.|
 |Internal_AutoSnooze_WebhookUri | Specifica l'URI del Webhook chiamato per lo scenario AutoStop.|
 |Internal_AzureSubscriptionId | Specifica l'ID sottoscrizione di Azure.|
 |Internal_ResourceGroupName | Specifica il nome del gruppo di risorse dell'account di Automazione.|
-|Internal_SendGridAccountName | Specifica il nome dell'account di SendGrid.|
-|Internal_SendGridPassword | Specifica la password dell'account di SendGrid.|
 
 In tutti gli scenari le variabili **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames** ed **External_ExcludeVMNames** sono necessarie per definire la destinazione delle macchine virtuali, con l'eccezione di fornire un elenco separato da virgole delle macchine virtuali per i runbook **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** e **ScheduledStartStop_Parent**. In altre parole, le macchine virtuali devono risiedere nei gruppi di risorse di destinazione perché si verifichino le azioni di avvio e arresto. La logica funziona in modo simile ai criteri di Azure perché è possibile specificare come destinazione la sottoscrizione o il gruppo di risorse e lasciare che le azioni vengano ereditate dalle nuove macchine virtuali create. Questo approccio evita di dover mantenere una pianificazione separata per ogni macchina virtuale e di gestire gli avvii e gli arresti in scala.
 
@@ -299,11 +283,21 @@ Da qui è possibile eseguire un'analisi aggiuntiva dei record dei processi facen
 
 ## <a name="configure-email-notifications"></a>Configurare le notifiche di posta elettronica
 
-Per configurare le notifiche tramite posta elettronica dopo la distribuzione della soluzione, modificare le tre variabili seguenti:
+Per modificare le notifiche di posta elettronica dopo la distribuzione della soluzione, modificare il gruppo di azioni che è stato creato durante la distribuzione.  
 
-* External_EmailFromAddress: specificare l'indirizzo di posta elettronica del mittente.
-* External_EmailToAddress: specificare un elenco separato da virgole di indirizzi di posta elettronica (user@hotmail.com, user@outlook.com) per ricevere notifiche tramite posta elettronica.
-* External_IsSendEmail: impostare su **Sì** per ricevere i messaggi di posta elettronica. Per disabilitare le notifiche tramite posta elettronica, impostare il valore su **No**.
+Nel portale di Azure, passare a monitoraggio -> gruppi di azioni. Selezionare il gruppo di azione intitolato **StartStop_VM_Notication**.
+
+![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/azure-monitor.png)
+
+Nella pagina **StartStop_VM_Notification**, fare clic su **Modifica dettagli** in **Dettagli**. Questo apre la pagina **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce). Aggiornare l'indirizzo di posta elettronica e fare clic su **OK** per salvare le modifiche.
+
+![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/change-email.png)
+
+In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md)
+
+Di seguito è riportato un messaggio di posta elettronica di esempio che viene inviato quando la soluzione arresta macchine virtuali.
+
+![Pagina della soluzione Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/email.png)
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>Modificare le pianificazioni di avvio e arresto
 

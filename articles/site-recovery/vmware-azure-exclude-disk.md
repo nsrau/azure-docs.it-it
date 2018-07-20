@@ -1,20 +1,17 @@
 ---
 title: Escludere dischi dalla protezione tramite Azure Site Recovery | Microsoft Docs
 description: Descrive perché e come escludere dalla replica dischi di VM per scenari da VMware ad Azure.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 71d49ee07c0ccc7641941aea4f688b9700c39a57
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29811478"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921281"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>Escludere dischi dalla replica per lo scenario da VMware ad Azure
 
@@ -53,7 +50,7 @@ Per proteggere una macchina virtuale dal portale di Azure Site Recovery, seguire
 
 >[!NOTE]
 >
-> * È possibile escludere solo i dischi in cui è già installato il servizio Mobility. È necessario installare manualmente il servizio Mobility perché questo servizio viene installato tramite il meccanismo di push solo dopo l'abilitazione della replica.
+> * È possibile escludere solo i dischi delle macchine virtuali in cui è già installato il servizio Mobility. È necessario installare manualmente il servizio Mobility perché viene installato solo tramite il meccanismo di push dopo l'abilitazione della replica.
 > * Solo i dischi di base possono essere esclusi dalla replica. Non è possibile escludere dischi del sistema operativo o dinamici.
 > * Dopo aver abilitato la replica, non è più possibile aggiungere o rimuovere dischi da replicare. Se si vuole aggiungere o escludere un disco, è necessario disabilitare la protezione per il computer e quindi riabilitarla.
 > * Se si esclude un disco necessario per il funzionamento di un'applicazione, dopo il failover in Azure è necessario crearlo manualmente in Azure per consentire l'esecuzione dell'applicazione replicata. In alternativa, è possibile integrare Automazione di Azure in un piano di ripristino per creare il disco durante il failover del computer.

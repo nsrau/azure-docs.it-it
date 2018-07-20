@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dell'architettura per la repli
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894297"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919649"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>Replica Hyper-V in un sito secondario
 
@@ -37,8 +37,8 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 1. Quando viene attivata la replica iniziale, viene acquisito uno [snapshot della macchina virtuale Hyper-V](https://technet.microsoft.com/library/dd560637.aspx).
 2. I dischi rigidi virtuali nella macchina virtuale vengono replicati uno per volta nel sito secondario.
-3. Se mentre è in corso la replica iniziale vengono apportate modifiche ai dischi, 
-4. Al termine della replica iniziale, viene avviata la replica differenziale. Hyper-V Replica Replication Tracker tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (HRL). Questi file di log si trovano nella stessa cartella dei dischi. A ogni disco è associato un file HRL, che viene inviato al sito secondario. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
+3. Se vengono apportate modifiche ai dischi mentre è in corso la replica iniziale, Hyper-V Replica Replication Tracker tiene traccia delle modifiche sotto forma di log di replica di Hyper-V (HRL). Questi file di log si trovano nella stessa cartella dei dischi. A ogni disco è associato un file HRL, che viene inviato al sito secondario. Si noti che lo snapshot e i file di log usano risorse del disco durante l'esecuzione della replica iniziale.
+4. Al termine della replica iniziale, lo snapshot della macchina virtuale viene eliminato e viene avviata la replica differenziale.
 5. Nel log le modifiche differenziali al disco vengono sincronizzate e unite al disco padre.
 
 

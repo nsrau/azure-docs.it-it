@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267558"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856417"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -30,7 +30,7 @@ Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice ch
 Condizioni per l'utilizzo di Azure AD consente di eseguire le operazioni seguenti:
 - Fare accettare le condizioni per l'utilizzo ai dipendenti o agli ospiti prima dell'accesso.
 - Presentare condizioni per l'utilizzo generali per tutti gli utenti dell'organizzazione.
-- Presentare condizioni per l'utilizzo specifiche basate sugli attributi di un utente (ad esempio, medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](active-directory-groups-dynamic-membership-azure-portal.md)).
+- Presentare condizioni per l'utilizzo specifiche basate sugli attributi di un utente (ad esempio, medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](users-groups-roles/groups-dynamic-membership.md)).
 - Presentare condizioni per l'utilizzo specifiche al momento dell'accesso ad applicazioni a elevato impatto aziendale, come Salesforce.
 - Presentare condizioni per l'utilizzo in lingue diverse.
 - Elencare gli utenti hanno accettato o rifiutato le condizioni per l'utilizzo.
@@ -98,7 +98,7 @@ Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti
     ![Evento di controllo](media/active-directory-tou/accepted-tou.png)
 
 ## <a name="view-audit-logs"></a>Visualizzare i log di controllo
-Se si vuole visualizzare attività aggiuntive, Condizioni per l'utilizzo di Azure Active Directory include log di controllo. Ogni consenso dell'utente genera un evento nei log di controllo, che vengono conservati per 30 giorni. È possibile visualizzare questi log nel portale o scaricarli come file CSV.
+Se si vuole visualizzare attività aggiuntive, Condizioni per l'utilizzo di Azure Active Directory include log di controllo. Ogni consenso dell'utente genera un evento nei log di controllo che viene conservato per 30 giorni. È possibile visualizzare questi log nel portale o scaricarli come file CSV.
 
 Per iniziare a usare i log di controllo, seguire questa procedura:
 
@@ -167,10 +167,10 @@ I criteri di accesso condizionale diventano effettivi immediatamente. In questo 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **D: come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**</br>
-R: è possibile fare clic sul numero sotto Accettato accanto alle condizioni per l'utilizzo.  Per altre informazioni, vedere [Visualizzare gli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined).  Gli utenti che accettano le condizioni per l'utilizzo vengono inoltre riportati nel log di controllo. È quindi possibile ottenere le informazioni desiderate cercando nel log di controllo di Azure AD.  
+R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo. Per altre informazioni, vedere [Visualizzare gli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo](#view-audit-logs).
 
-**D: se i termini delle condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
-R: sì, un amministratore può modificare le condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione.
+**D: Se i termini delle Condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
+R: Sì, un amministratore può modificare le Condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione da parte degli utenti.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**</br>
 A: Sì.  L'amministratore può attualmente configurare 18 lingue diverse per singole condizioni per l'utilizzo. 
@@ -179,13 +179,16 @@ A: Sì.  L'amministratore può attualmente configurare 18 lingue diverse per sin
 R: le condizioni per l'utilizzo vengono attivate durante l'accesso.
 
 **D: a quali altre applicazioni è possibile applicare le condizioni per l'utilizzo?**</br>
-R: è possibile creare un criterio di accesso condizionale per le applicazioni aziendali utilizzando l'autenticazione moderna.  Per altre informazioni, vedere le [applicazioni aziendali](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal).
+R: è possibile creare un criterio di accesso condizionale per le applicazioni aziendali utilizzando l'autenticazione moderna.  Per altre informazioni, vedere le [applicazioni aziendali](./manage-apps/view-applications-portal.md).
 
 **D: è possibile aggiungere più condizioni per l'utilizzo a un utente o a un'app specifici?**</br>
 R: sì, mediante la creazione di più criteri di accesso condizionale destinati a tali gruppi o applicazioni. Se un utente rientra nell'ambito di più condizioni per l'utilizzo, accetta una condizione alla volta.
  
 **D: cosa accade se un utente rifiuta le condizioni per l'utilizzo?**</br>
 R: ne viene bloccato l'accesso all'applicazione. L'utente deve accedere nuovamente e accettare le condizioni.
+ 
+**D: È possibile annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza?**</br>
+R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza](#how-users-can-review-their-terms-of-use), ma attualmente non esiste un modo per farlo.
  
 **D: per quanto tempo sono archiviate le informazioni?**</br>
 R: i conteggi e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle condizioni per l'utilizzo. I log di controllo vengono archiviati per 30 giorni.

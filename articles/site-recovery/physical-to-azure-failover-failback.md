@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: d58dfd482b66d90748f0ca661e56fa281c14598a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29876011"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918238"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Failover e failback dei server fisici replicati in Azure
 
@@ -70,7 +70,7 @@ Il server di elaborazione riceve i dati dalla macchina virtuale di Azure e li in
 Per impostazione predefinita, il server di destinazione master riceve i dati di failback. Viene eseguito sul server di configurazione locale.
 
 - Se la VM VMware di cui si esegue il failback si trova in un host ESXi gestito da un server VMware vCenter è necessario che il server di destinazione master abbia accesso all'archivio dati della VM (VMDK) per poter scrivere i dati replicati nei dischi della VM. Verificare che l'archivio dati della macchina virtuale sia montato nell'host del server di destinazione master con accesso in lettura/scrittura.
-- Se la macchina virtuale si trova in un host ESXi non gestito da un server vCenter, il servizio Site Recovery crea una nuova VM durante la riprotezione. La VM viene creata nell'host ESX in cui si crea la VM di destinazione master. Il disco rigido della macchina virtuale deve trovarsi in un archivio dati accessibile dall'host in cui viene eseguito il server di destinazione master.
+- Se la macchina virtuale si trova in un host ESXi non gestito da un server vCenter, il servizio Site Recovery crea una nuova VM durante la riprotezione. La VM viene creata nell'host ESX in cui si crea la VM di destinazione master. Il disco rigido della macchina virtuale deve trovarsi in un archivio dati accessibile dall'host in cui è in esecuzione il server di destinazione master.
 - Per le macchine fisiche di cui si esegue il failback è necessario completare l'individuazione dell'host in cui viene eseguito il server di destinazione master prima di riproteggere la macchina.
 - Un'altra opzione, in presenza della VM locale per il failback, consiste nell'eliminarla prima di eseguire un failback. Il failback crea quindi una nuova macchina virtuale nello stesso host dell'host ESX di destinazione master. Quando si esegue il failback in una posizione alternativa, i dati vengono ripristinati nello stesso archivio dati e nello stesso host ESX usati dal server di destinazione master locale.
 - Non è possibile usare Storage vMotion nel server di destinazione master. Se lo si usa, il failback non funzionerà perché i dischi non risulteranno disponibili. Escludere i server di destinazione master dall'elenco vMotion.

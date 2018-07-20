@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831576"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674156"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Domande frequenti su Azure Machine Learning
 
@@ -30,7 +30,7 @@ Archiviazione BLOB di Azure e Registro contenitori di Azure vengono usati da Azu
 
 **Qual è la relazione tra Azure Machine Learning e i Servizi di Microsoft Machine Learning in SQL Server 2017?**   
 
-Servizi di Machine Learning in SQL Server 2017 è una piattaforma estendibile e scalabile che consente di integrare le attività di machine learning nei flussi di lavoro database. È adatta negli casi in cui è necessaria una soluzione locale, dove, ad esempio, lo spostamento dei dati è dispendioso o insostenibile. I carichi di lavoro cloud o ibridi sono invece una valida soluzione per i nuovi servizi di Azure. 
+Servizi di Machine Learning in SQL Server 2017 è una piattaforma estendibile e scalabile che consente di integrare le attività di machine learning nei flussi di lavoro database. È adatta nei casi in cui è necessaria una soluzione locale, dove, ad esempio, lo spostamento dei dati è dispendioso o insostenibile. I carichi di lavoro cloud o ibridi sono invece una valida soluzione per i nuovi servizi di Azure. 
 
 **Il prodotto supporta sia Python sia R? Supporta anche altri linguaggi di programmazione, come C++?**
 
@@ -113,11 +113,11 @@ Azure Machine Learning Workbench è un'applicazione complementare progettata per
 
 **Machine Learning Workbench è un ambiente di sviluppo integrato?**
 
-di serie Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. Può anche essere utile provare gli strumenti [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
+No. Machine Learning Workbench è stato progettato come complemento per gli ambienti di sviluppo integrato (IDE) più diffusi, ad esempio Notebook di Jupyter, PyCharm e Visual Studio Code, ma non si tratta di un IDE completamente funzionale. È dotato di alcune funzionalità di base per l'editing di testo, ma non supporta altre funzionalità IDE quali debug, intellisense e altre comunemente usate. È consigliabile usare l'IDE preferito per lo sviluppo di codice, la modifica e il debug. Può anche essere utile provare gli strumenti [Visual Studio Code Tools for AI](https://www.visualstudio.com/downloads/ai-tools-vscode).
 
 **È previsto un addebito per l'utilizzo di Azure Machine Learning Workbench?**
 
-di serie Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
+No. Azure Machine Learning Workbench è un'applicazione gratuita. È possibile scaricarla nel numero di computer e per il numero di utenti necessario. Per usare Azure Machine Learning Workbench, è necessario disporre di un account di Sperimentazione. .  
 
 **Sono supportate le funzionalità dell'interfaccia della riga di comando?**
 
@@ -172,4 +172,4 @@ I prodotti e i servizi in anteprima includono il meglio della community open sou
 
 **Qual è la relazione tra Azure Machine Learning e Microsoft Cognitive Toolkit?**
 
-Il [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) è uno dei tanti framework supportati dai nuovi strumenti e servizi. È costituito da un toolkit di apprendimento avanzato unificato che consente di usare e combinare i modelli di machine learning più diffusi, tra cui reti neurali feed-forward, reti convoluzionali, sequenziali e ricorsive. Per altre informazioni su Microsoft Cognitive Toolkit, visitare la [documentazione del prodotto](https://docs.microsoft.com/cognitive-toolkit/). 
+Il [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) è uno dei tanti framework supportati dai nuovi strumenti e servizi. È costituito da un toolkit di apprendimento avanzato unificato che consente di usare e combinare i modelli di machine learning più diffusi, tra cui reti neurali feed-forward, reti convoluzionali, sequenziali e ricorsive. Per altre informazioni su Microsoft Cognitive Toolkit, visitare la [documentazione del prodotto](https://docs.microsoft.com/cognitive-toolkit/). 

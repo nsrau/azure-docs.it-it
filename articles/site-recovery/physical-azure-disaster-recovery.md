@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643312"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704901"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurare il ripristino di emergenza in Azure per server fisici locali
 
@@ -124,19 +124,25 @@ Configurare il server di configurazione, registrarlo nell'insieme di credenziali
 
 Prima di iniziare procedere come segue: 
 
-- Nel server di configurazione verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
-- Assicurarsi che il computer possa accedere a questi URL:       [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>Verificare l'accuratezza dell'ora
+Nel server di configurazione verificare che il clock di sistema sia sincronizzato con un [server di riferimento ora](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service). Deve corrispondere. Se è avanti o indietro di 15 minuti, l'installazione potrebbe avere esito negativo.
 
-- Se sono presenti regole del firewall basate sull'indirizzo IP, verificare che consentano la comunicazione con Azure.
-- Consentire gli [intervalli IP del data center di Azure ](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443).
-- Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione e per gli Stati Uniti occidentali (usati per il controllo di accesso e la gestione delle identità).
+#### <a name="verify-connectivity"></a>Verificare la connettività
+Assicurarsi che la macchina possa accedere a questi URL in base all'ambiente: 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+Le regole del firewall basate sull'indirizzo IP dovrebbero consentire la comunicazione con tutti gli URL di Azure elencati in precedenza tramite la porta HTTPS (443). Per semplificare e limitare gli intervalli IP, è consigliabile eseguire il filtraggio degli URL.
+
+- **IP commerciali**: è necessario consentire gli [intervalli IP del data center di Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e la porta HTTPS (443). Consentire gli intervalli di indirizzi IP per l'area di Azure della sottoscrizione per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
+- **IP di enti pubblici**: consentire gli [intervalli IP del data center di Azure per enti pubblici](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e la porta HTTPS (443) per tutte le aree US Gov (Virginia, Texas, Arizona e Iowa) per supportare gli URL di Azure Active Directory, backup, replica e archiviazione.  
+
+#### <a name="run-setup"></a>Eseguire l'installazione.
 Eseguire l'installazione unificata come amministratore locale per installare il server di configurazione. Per impostazione predefinita, sul server di configurazione vengono installati anche il server di elaborazione e il server di destinazione master.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 Al termine della registrazione, il server di configurazione viene visualizzato sulla pagina **Impostazioni** > **Server** nell'insieme di credenziali.
-
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 

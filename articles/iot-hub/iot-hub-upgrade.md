@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637277"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903065"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Come aggiornare l'hub IoT
 
@@ -45,7 +45,7 @@ Questi esempi consentono di comprendere come regolare l'hub IoT in base ai cambi
 4. Per modificare il numero di unità nell'hub, immettere un nuovo valore in **Unità di hub IoT**. 
 5. Fare clic su **Salva** per salvare le modifiche. 
 
-L'hub IoT viene ora regolato e le configurazioni rimangono invariate. 
+L'hub IoT viene ora regolato e le configurazioni rimangono invariate. Si noti che il limite di partizioni per il livello di base dell'hub IoT è 8. Questo limite rimarrà invariato con la migrazione dal livello di base al livello standard.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

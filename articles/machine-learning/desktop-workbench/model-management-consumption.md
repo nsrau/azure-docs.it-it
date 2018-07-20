@@ -7,23 +7,24 @@ ms.author: raymondl
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: f87f865ef6d2c3403903a1bdcc402c01c3e9f939
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831990"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973173"
 ---
 # <a name="consuming-web-services"></a>Uso dei servizi Web
 Dopo aver distribuito un modello come un servizio Web in tempo reale è possibile inviare dati e ottenere stime da un'ampia gamma di piattaforme e applicazioni. Il servizio Web in tempo reale espone un'API REST per l'ottenimento delle stime. È possibile inviare dati al servizio Web nel formato di riga singola o multipla per ottenere una o più stime contemporaneamente.
 
 Con il [servizio Web di Azure Machine Learning](model-management-service-deploy.md) un'applicazione esterna comunica con un modello predittivo in modo sincrono effettuando una chiamata HTTP POST all'URL del servizio. Per chiamare un servizio Web, l'applicazione client deve specificare la chiave API che viene creata quando si distribuisce una stima e si inseriscono i dati della richiesta nel corpo della richiesta POST.
 
-Si noti che le chiavi API sono disponibili solo in modalità di distribuzione di cluster. I servizi Web locali non dispongono di chiavi.
+> [!NOTE]
+> Si noti che le chiavi API sono disponibili solo in modalità di distribuzione di cluster. I servizi Web locali non dispongono di chiavi.
 
 ## <a name="service-deployment-options"></a>Opzioni di distribuzione di servizi
 I servizi Web di Machine Learning di Azure possono essere distribuiti ai cluster basati sul cloud per gli scenari di produzione e di test e alle workstation locali usando il motore Docker. La funzionalità del modello predittivo in entrambi i casi rimane invariata. La distribuzione basata su cluster fornisce una soluzione scalabile ed efficiente basata sui servizi contenitore di Azure mentre la distribuzione locale può essere usata per il debug. 
@@ -72,11 +73,11 @@ Usare l'URL del servizio per inviare una richiesta da un'applicazione Console C#
 1. In Visual Studio creare una nuova applicazione Console: 
     * Nel menu fare clic su File > Nuovo > Progetto
     * In Visual Studio C#, fare clic su Windows Class Desktop (Desktop Windows Class) e selezionare l'applicazione Console.
-2. Immettere _MyFirstService_ come nome del progetto e fare clic su OK.
-3. In Riferimenti al progetto impostare i riferimenti su _System.Net_ e _System.Net.Http_.
-4. Fare clic su Strumenti -> Gestione pacchetti NuGet -> Console di gestione pacchetti, quindi installare il pacchetto Microsoft.AspNet.WebApi.Client.
-5. Aprire il file Program.cs e sostituire il codice con il codice seguente:
-6. Aggiornare i parametri _SERVICE_URL_ e _API_KEY_ parametri con le informazioni del servizio Web.
+2. Immettere `MyFirstService` come nome del progetto e fare clic su OK.
+3. In Riferimenti al progetto impostare i riferimenti su `System.Net` e `System.Net.Http`.
+4. Fare clic su Strumenti -> Gestione pacchetti NuGet -> Console di gestione pacchetti, quindi installare il pacchetto **Microsoft.AspNet.WebApi.Client**.
+5. Aprire il file **Program.cs** e sostituire il codice con il codice seguente:
+6. Aggiornare i parametri `SERVICE_URL` e `API_KEY` con le informazioni del servizio Web.
 7. Eseguire il progetto.
 
 ```csharp

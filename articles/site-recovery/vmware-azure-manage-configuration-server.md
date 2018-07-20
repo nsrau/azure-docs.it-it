@@ -3,15 +3,15 @@ title: Gestire il server di configurazione per il ripristino di emergenza di VMw
 description: Questo articolo descrive come gestire un server di configurazione esistente per il ripristino di emergenza di VMware in Azure con Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287406"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916911"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>Gestire il server di configurazione per le macchine virtuali VMware
 
@@ -96,21 +96,18 @@ Per aggiornare il server, seguire questa procedura:
 
 1. Nell'insieme di credenziali passare a **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 2. Se è disponibile un aggiornamento, verrà visualizzato un collegamento nella colonna **Versione agente**.
-
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
+3. Scaricare il file del programma di installazione dell'aggiornamento nel server di configurazione.
 
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Fare doppio clic per eseguire il programma di installazione.
-2. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento. 
-3. Al termine dell'aggiornamento viene convalidata la configurazione del server.
+5. Il programma di installazione rileva la versione corrente in esecuzione nel computer. Fare clic su **Sì** per avviare l'aggiornamento.
+6. Al termine dell'aggiornamento viene convalidata la configurazione del server.
 
     ![Aggiornamento](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. Fare clic su **Fine** per chiudere il programma di installazione.
-
+    
+7. Fare clic su **Fine** per chiudere il programma di installazione.
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Eliminare o annullare la registrazione di un server di configurazione
 
@@ -150,7 +147,12 @@ Facoltativamente, è possibile eliminare il server di configurazione usando Powe
 > [!NOTE]
 > È possibile usare l'opzione **-Force** in Remove-AzureRmSiteRecoveryFabric per l'eliminazione forzata del server di configurazione.
  
+## <a name="generate-configuration-server-passphrase"></a>Generare il passphrase del server di configurazione
 
+1. Accedere al server di configurazione e quindi aprire una finestra del prompt dei comandi come amministratore.
+2. Per modificare la directory nella cartella cestino, eseguire il comando **cd %ProgramData%\ASR\home\svsystems\bin**
+3. Per generare il file della passphrase, eseguire **genpassphrase.exe -v > MobSvc.passphrase**.
+4. La passphrase sarà archiviata nel file che si trova in **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
 ## <a name="renew-ssl-certificates"></a>Rinnovare i certificati SSL
 

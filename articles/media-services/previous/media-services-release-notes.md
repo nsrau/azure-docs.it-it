@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018539"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671426"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
@@ -366,7 +366,7 @@ Le seguenti correzioni di bug sono state introdotte per lo strumento per la crea
 
 ## <a id="may_changes_14"></a>Versione di maggio 2014
 ### <a id="may_14_changes"></a>Aggiornamenti generali di Servizi multimediali
-È ora possibile usare la [creazione dinamica dei pacchetti] per lo streaming HLS versione 3. A tale scopo, aggiungere il formato seguente al percorso del localizzatore di origine: * .ism/manifest(format=m3u8-aapl-v3). Per altre informazioni, vedere [questo blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+È ora possibile usare la [creazione dinamica dei pacchetti] per lo streaming HLS versione 3. A tale scopo, aggiungere il formato seguente al percorso del localizzatore di origine: * .ism/manifest(format=m3u8-aapl-v3). Per altre informazioni, vedere questo [forum](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 La creazione dinamica dei pacchetti supporta attualmente la distribuzione di HLS (versione 3 e versione 4) con crittografia PlayReady basata sulla funzionalità Smooth Streaming crittografata staticamente con PlayReady. Per informazioni su come crittografare Smooth Streaming con PlayReady, vedere come [proteggere Smooth Streaming con PlayReady](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 
@@ -396,7 +396,7 @@ Le modifiche apportate alle versioni 3.0.0.1 e 3.0.0.2 includono:
 * Sono stati corretti i problemi correlati all'uso di query LINQ con istruzioni OrderBy.
 * Le soluzioni di test in [GitHub] sono state divise in test basati su unità e test basati su scenario.
 
-Per altre informazioni su queste modifiche, vedere: [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/) (Azure Media Services .NET SDK versioni 3.0.0.1 e 3.0.0.2).
+Per altre informazioni su queste modifiche, vedere: [Azure Media Services .NET SDK 3.0.0.1 and 3.0.0.2 releases](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html) (Azure Media Services .NET SDK versioni 3.0.0.1 e 3.0.0.2).
 
 Nella versione 3.0.0.3 sono state apportate le modifiche seguenti:
 

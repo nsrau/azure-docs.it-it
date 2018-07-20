@@ -3,7 +3,7 @@ title: Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB | 
 description: Usare le metriche in Azure Cosmos DB per eseguire il debug di problemi comuni e monitorare il database.
 keywords: Metriche
 services: cosmos-db
-author: gnot
+author: kanshiG
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615642"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858664"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 
@@ -33,13 +33,13 @@ Questo articolo illustra dettagliatamente i casi d'uso comuni e come usare le me
 
 Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello trovare il grafico **Numero di richieste che hanno superato la capacità per 1 minuto**. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per altre informazioni sui codici di stato HTTP, vedere [HTTP Status Codes for Azure Cosmos DB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) (Codici di stato HTTP per Azure Cosmos DB).
 
-Il codice di stato di errore più comune è 429 relativo ai limiti, che indica che le richieste inviate ad Azure Cosmos DB superano la velocità effettiva di provisioning. La soluzione più comune consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
+Il codice di stato di errore più comune è 429 relativo a limitazione della frequenza e o limitazione delle richieste, che indica che le richieste inviate ad Azure Cosmos DB superano la velocità effettiva di provisioning. La soluzione più comune consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
 
 ![Numero di richieste al minuto](media/use-metrics/metrics-12.png)
 
 ## <a name="determining-the-throughput-distribution-across-partitions"></a>Determinare la distribuzione della velocità effettiva tra le partizioni
 
-Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di una raccolta partizionata suddivisa dalle partizioni, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica**. Il grafico seguente illustra un esempio di distribuzione ridotta dei dati come evidenziato dalla partizione decrescente all'estrema sinistra. 
+Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica**. Il grafico seguente illustra un esempio di distribuzione ridotta dei dati come evidenziato dalla partizione decrescente all'estrema sinistra. 
 
 ![Partizione singola che mostra un uso intenso alle 15:05](media/use-metrics/metrics-17.png)
 
@@ -47,7 +47,7 @@ Una distribuzione non uniforme della velocità effettiva può generare partizion
 
 ## <a name="determining-the-storage-distribution-across-partitions"></a>Determinare la distribuzione dell'archiviazione tra le partizioni
 
-Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di una raccolta partizionata suddivisa dalle partizioni, passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Velocità effettiva la scomposizione di archiviazione viene mostrata nel grafico Numero massimo di unità richiesta al secondo usate da ogni partizione fisica. Il grafico seguente illustra una distribuzione ridotta dei dati come evidenziato dalla partizione decrescente all'estrema sinistra. 
+Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Velocità effettiva la scomposizione di archiviazione viene mostrata nel grafico Numero massimo di unità richiesta al secondo usate da ogni partizione fisica. Il grafico seguente illustra una distribuzione ridotta dei dati come evidenziato dalla partizione decrescente all'estrema sinistra. 
 
 ![Esempio di distribuzione dei dati ridotta](media/use-metrics/metrics-07.png)
 
@@ -55,7 +55,7 @@ Avere una buona cardinalità della partizione è essenziale per qualsiasi applic
 
 ![Chiave di partizione che riduce la distribuzione](media/use-metrics/metrics-05.png)
 
-Dopo aver identificato la chiave di partizione che riduce la distribuzione, è possibile che sia necessario ripartizionare la raccolta con una chiave di partizione più distribuita. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partition-data.md).
+Dopo aver identificato la chiave di partizione che riduce la distribuzione, è possibile che sia necessario ripartizionare il contenitore con una chiave di partizione più distribuita. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partition-data.md).
 
 ## <a name="comparing-data-size-against-index-size"></a>Confronto tra dimensioni dei dati e dimensioni dell'indice
 

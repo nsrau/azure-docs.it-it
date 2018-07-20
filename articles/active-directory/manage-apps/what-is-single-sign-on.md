@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081507"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091834"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
@@ -45,8 +45,7 @@ Quando gli utenti accedono a un'applicazione, passano attraverso un processo di 
 Azure AD supporta tre modi diversi per accedere alle applicazioni:
 
 * **Single Sign-On federato** consente alle applicazioni di reindirizzare ad Azure AD per l'autenticazione dell’utente anziché richiedere la propria password. L'accesso Single Sign-On federato è supportato per le applicazioni che supportano protocolli quali SAML 2.0, WS-Federation oppure OpenID Connect ed è la modalità più ricca di Single Sign-On.
-* **Single Sign-On basato su password** consente l’archiviazione e la riproduzione delle password delle applicazioni protette utilizzando un'estensione del browser Web o un’app mobile. Single Sign-On basato su password utilizza il 
-*  processo esistente fornito dall'applicazione, ma consente all'amministratore di gestire le password e non richiede all'utente di conoscerle.
+* **Single Sign-On basato su password** consente l’archiviazione e la riproduzione delle password delle applicazioni protette utilizzando un'estensione del browser Web o un’app mobile. L'accesso Single Sign-On basato su password sfrutta il processo di accesso esistente fornito dall'applicazione, ma consente a un amministratore di gestire le password e non richiede all'utente di conoscerla.
 * **Single Sign-On esistente** consente ad Azure AD di sfruttare qualunque Single Sign-On esistente configurato per l'applicazione, ma consente a queste applicazioni di essere collegate ai portali del pannello di accesso di Office 365 o di Azure AD e abilita il reporting aggiuntivo in Azure AD quando le applicazioni vengono avviate da questa posizione.
 
 Una volta che un utente è stato autenticato con un'applicazione, deve disporre anche di un record di account con provisioning all'applicazione che indica all'applicazione dove si trovano le autorizzazioni e il livello di accesso all'interno dell'applicazione. Il provisioning di questo record di account può verificarsi automaticamente o può essere effettuato manualmente da un amministratore prima che all'utente venga fornito l'accesso Single Sign-On.
@@ -158,7 +157,7 @@ Il pannello di accesso disponibile all'indirizzo https://myapps.microsoft.com è
 
 Il riquadro di accesso non fa parte del portale di Azure e non richiede agli utenti di avere una sottoscrizione per Azure o Office 365.
 
-Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione al riquadro di accesso](../active-directory-saas-access-panel-introduction.md).
+Per altre informazioni sul riquadro di accesso di Azure AD, vedere [Introduzione al riquadro di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Applicazione di avvio di Office 365
 Per le organizzazioni che hanno distribuito Office 365, le applicazioni assegnate agli utenti con Azure AD vengono visualizzate anche nel portale di Office 365 all'indirizzo https://portal.office.com/myapps. Questo rende facile e comodo per gli utenti all’interno di un'organizzazione avviare le proprie applicazioni senza dover utilizzare un secondo portale ed è la soluzione di avvio delle applicazioni consigliata per le organizzazioni che utilizzano Office 365.
@@ -194,7 +193,7 @@ Questi collegamenti utilizzano gli stessi meccanismi di controllo dell'accesso c
 ## <a name="related-articles"></a>Articoli correlati
 * [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
-* [Configurare Cloud Discovery](/cloud-app/security/set-up-cloud-discovery)
+* [Configurare Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduzione alla gestione dell'accesso alle app](what-is-access-management.md)
 * [Confronto tra le funzionalità per la gestione di identità esterne con Azure AD](../active-directory-b2b-compare-b2c.md)
 

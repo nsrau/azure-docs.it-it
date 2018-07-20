@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263531"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481991"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
@@ -77,7 +78,8 @@ I log seguenti sono supportati per i gateway applicazione:
 * ApplicationGatewayPerformanceLog
 * ApplicationGatewayFirewallLog
 
-Le metriche seguenti sono supportate per i gateway applicazione:
+La metriche seguente è supportata per i gateway applicazione:
+
 
 * Velocità effettiva di 5 minuti
 
@@ -140,6 +142,12 @@ In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Soluzione di analisi del gruppo di sicurezza di rete di Azure in Log Analytics
 
 ![Simbolo di Analisi gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> La soluzione Analisi gruppo di sicurezza di rete sta per essere destinata al supporto della community in quanto la relativa funzionalità è stata sostituita da [Analisi del traffico](../network-watcher/traffic-analytics.md).
+> - La soluzione è ora disponibile in [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/) e presto non sarà più disponibile in Azure Marketplace.
+> - Per i clienti esistenti che hanno già aggiunto la soluzione all'area di lavoro, questa continuerà a funzionare senza modifiche.
+> - Microsoft continuerà a supportare l'invio di log di diagnostica dei gruppi di sicurezza di rete all'area di lavoro usando Impostazioni di diagnostica.
 
 I log seguenti sono supportati per i gruppi di sicurezza di rete:
 

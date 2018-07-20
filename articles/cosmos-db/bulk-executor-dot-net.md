@@ -1,6 +1,6 @@
 ---
 title: Utilizzo della libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB | Microsoft Docs
-description: Usare la libreria .NET dell'executor bulk di Azure Cosmos DB per importare e aggiornare in blocco i documenti nelle raccolte di Azure Cosmos DB.
+description: Usare la libreria .NET dell'executor bulk di Azure Cosmos DB per importare e aggiornare in blocco i documenti nei contenitori di Azure Cosmos DB.
 keywords: Executor in blocco .Net
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300772"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857277"
 ---
 # <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzo della libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
-Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nelle raccolte di Azure Cosmos DB usando la libreria .NET dell'executor bulk di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in una raccolta di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
+Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti nei contenitori di Azure Cosmos DB usando la libreria .NET dell'executor bulk di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). Questa esercitazione illustrerà in dettaglio un'applicazione .NET di esempio che importa in blocco i documenti generati in modo casuale in un contenitore di Azure Cosmos DB. Dopo l'importazione illustra come è possibile aggiornare in blocco i dati importati specificando le patch come operazioni da eseguire su campi di documenti specifici.
 
 ## <a name="prerequisites"></a>prerequisiti
 
@@ -170,11 +170,11 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
 
 * Per prestazioni ottimali eseguire l'applicazione da una macchina virtuale Azure che si trovi nella stessa area in cui si trova l'area di scrittura dell'account Cosmos DB.  
 
-* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a una specifica raccolta di Cosmos DB.  
+* Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a uno specifico contenitore di Cosmos DB.  
 
-* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intera raccolta (se la velocità effettiva della raccolta > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.  
+* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.  
 
-* Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni della raccolta di Cosmos DB di destinazione.  
+* Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni del contenitore di Cosmos DB di destinazione.  
 
 * In App.Config dell'applicazione verificare che **gcServer** sia abilitato per assicurare prestazioni migliori.
   ```xml  
