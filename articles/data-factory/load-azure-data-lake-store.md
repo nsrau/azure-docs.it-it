@@ -1,6 +1,6 @@
 ---
-title: Caricare dati in Azure Data Lake Store tramite Azure Data Factory | Microsoft Docs
-description: Usare Azure Data Factory per copiare dati in Azure Data Lake Store
+title: Caricare dati in Azure Data Lake Storage Gen1 tramite Azure Data Factory | Microsoft Docs
+description: Usare Azure Data Factory per copiare dati in Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055520"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857202"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Caricare dati in Azure Data Lake Store tramite Azure Data Factory
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen1 tramite Azure Data Factory
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md) è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Azure Data Lake consente di acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento. I dati vengono acquisiti in una singola posizione per le analisi esplorative e operative.
+[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) (in precedenza noto come Azure Data Lake Store) è un repository su vasta scala a livello aziendale per carichi di lavoro di analisi di Big Data. Azure Data Lake consente di acquisire dati di qualsiasi dimensione, tipo e velocità di inserimento. I dati vengono acquisiti in una singola posizione per le analisi esplorative e operative.
 
 Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usare il servizio per popolare il lake con i dati dal sistema esistente e risparmiare tempo durante la compilazione di soluzioni di analisi.
 
@@ -71,7 +71,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 2. Nella pagina **Proprietà** specificare **CopyFromAmazonS3ToADLS** per il campo **Nome attività**, quindi selezionare **Avanti**:
 
     ![Pagina Proprietà](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione**:
+3. Nella pagina **Archivio dati di origine** fare clic su **+ Crea nuova connessione**:
 
     ![Pagina Archivio dati di origine](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
     

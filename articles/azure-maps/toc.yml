@@ -82,6 +82,8 @@
           href: supported-search-categories.md
     - name: REST
       items:
+        - name: Servizio di georilevazione
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
         - name: Servizio di rendering
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Servizio di pianificazione percorso

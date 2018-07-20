@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22985766"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857640"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Come configurare l'autenticazione reciproca TLS per un'app Web
 ## <a name="overview"></a>Panoramica
@@ -32,7 +32,7 @@ ms.locfileid: "22985766"
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="configure-web-app-for-client-certificate-authentication"></a>Configurare l'app Web per l'autenticazione del certificato client
-Per configurare l'app Web per richiedere certificati client, è necessario aggiungere l'impostazione del sito clientCertEnabled per l'app Web e impostarla su true. Questa impostazione non è attualmente disponibile tramite l'esperienza di gestione nel portale e si dovrà usare l'API REST a questo scopo.
+Per configurare l'app Web per richiedere certificati client, è necessario aggiungere l'impostazione del sito clientCertEnabled per l'app Web e impostarla su true. Questa impostazione può anche essere configurata nel portale di Azure nel pannello dei certificati SSL.
 
 Per semplificare la definizione della chiamata all'API REST, è possibile usare lo [strumento ARMClient](https://github.com/projectkudu/ARMClient) . Dopo l'accesso con lo strumento, sarà necessario eseguire il comando seguente:
 
@@ -49,7 +49,7 @@ sostituire tutti gli elementi tra {} con le informazioni per l'app Web e la crea
 
 Assicurarsi di modificare il valore di "posizione" con la posizione in cui si trova l'app Web, ad esempio Stati Uniti centro-settentrionali o Stati Uniti occidentali e così via.
 
-È anche possibile usare https://resources.azure.com per impostare la proprietà `clientCertEnabled` su `true`.
+È anche possibile usare https://resources.azure.com per capovolgere la proprietà `clientCertEnabled` tramite in `true`.
 
 > **Nota:** se si esegue ARMClient da Powershell, è necessario eseguire l'escape del simbolo @ per il file JSON con un apice inverso `.
 > 

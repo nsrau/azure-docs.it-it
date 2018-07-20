@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e60a69e69f13dd6b8b34fafaa384f032f2ece11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20edcd5e8e3ec3a9d3d294f7a81a2e97b4958f50
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611824"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857185"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB
 Azure Cosmos DB è stato progettato da zero pensando alla distribuzione globale di tutti i modelli di dati. È pensato per offrire garanzie di bassa latenza stimabile e più modelli di coerenza meno rigidi e ben definiti. Azure Cosmos DB offre attualmente cinque livelli di coerenza: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. I modelli di coerenza con obsolescenza associata, sessione, finale e con prefisso coerente vengono definiti "modelli di coerenza meno rigidi" in quanto forniscono un livello di coerenza inferiore alla coerenza assoluta, ovvero il modello di coerenza massima disponibile. 
@@ -58,7 +58,7 @@ Il 99,99% dei [contratti di servizio](https://azure.microsoft.com/support/legal/
 L'ambito di granularità della coerenza è limitato alla richiesta del singolo utente. Una richiesta di scrittura può corrispondere a un'operazione di inserimento, sostituzione, upsert o eliminazione. Come per le operazioni di scrittura, anche per una transazione di lettura/query l'ambito equivale alla richiesta del singolo utente. Potrebbe essere chiesto all'utente di scorrere le pagine di un ampio set di risultati, che occupa varie partizioni, ma ciascuna transazione di lettura ha come ambito una singola pagina ed è servita dall'interno di una singola partizione.
 
 ## <a name="consistency-levels"></a>Livelli di coerenza
-È possibile configurare un livello di coerenza predefinito per l'account del database che si applica a tutte le raccolte e in tutti i database nel proprio account di Cosmos DB. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account del database. È possibile ridurre il livello di coerenza di una richiesta di lettura/query specifica usato in ognuna delle API supportate. Esistono cinque tipi di livelli di coerenza supportati dal protocollo di replica di Azure Cosmos DB che offrono un chiaro compromesso tra garanzie di coerenza specifiche e prestazioni, come descritto in questa sezione.
+È possibile configurare un livello di coerenza predefinito per l'account del database che si applica a tutti i contenitori e in tutti i database nel proprio account di Cosmos DB. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite sulle risorse definite dall'utente useranno il livello di coerenza predefinito che è stato specificato nell'account del database. È possibile ridurre il livello di coerenza di una richiesta di lettura/query specifica usato in ognuna delle API supportate. Esistono cinque tipi di livelli di coerenza supportati dal protocollo di replica di Azure Cosmos DB che offrono un chiaro compromesso tra garanzie di coerenza specifiche e prestazioni, come descritto in questa sezione.
 
 <a id="strong"></a>
 **Assoluta**: 
@@ -112,7 +112,7 @@ L'ambito di granularità della coerenza è limitato alla richiesta del singolo u
     ![Schermata con icona Impostazioni e opzione Uniformità predefinita](./media/consistency-levels/database-consistency-level-1.png)
 
 ## <a name="consistency-levels-for-queries"></a>Livelli di coerenza per le query
-Per impostazione predefinita, per le risorse definite dall'utente, il livello di coerenza per le query è identico a quello delle letture. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un elemento nel contenitore di Cosmos DB. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di punti. Benché Azure Cosmos DB sia ottimizzato per la scrittura e supporti volumi elevati di scritture, la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinate raccolte per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco quando un carico di lavoro presenta principalmente un'intensa attività di lettura.  
+Per impostazione predefinita, per le risorse definite dall'utente, il livello di coerenza per le query è identico a quello delle letture. Per impostazione predefinita, l'indice è aggiornato in modo sincrono a ogni inserimento, sostituzione o eliminazione di un elemento nel contenitore di Cosmos DB. Ciò permette alle query di rispettare lo stesso livello di coerenza delle letture di punti. Benché Azure Cosmos DB sia ottimizzato per la scrittura e supporti volumi elevati di scritture, la manutenzione sincrona dell'indice e la gestione di query coerenti, è possibile configurare determinati contenitori per l'aggiornamento differito dell'indice. L'indicizzazione differita migliora ulteriormente le prestazioni di scrittura ed è ideale per scenari di inserimento in blocco quando un carico di lavoro presenta principalmente un'intensa attività di lettura.  
 
 | Modalità di indicizzazione | Letture | Query |
 | --- | --- | --- |

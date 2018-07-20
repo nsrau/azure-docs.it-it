@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: e361259bc5ce2dd946d3ea8bc1e69f743a40c6df
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264402"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918741"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -41,7 +41,12 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica d
 È possibile usare un account di archiviazione o uno spazio dei nomi di Hub eventi che non si trovi nella stessa sottoscrizione della risorsa che crea i log. L'utente che configura l'impostazione deve disporre dell'accesso RBAC appropriato a entrambe le sottoscrizioni.
 
 > [!NOTE]
->  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro a una rete virtuale protetta.
+>  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
+
+> [!WARNING]
+> Il formato dei dati di log nell'account di archiviazione verrà modificato a JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 ## <a name="resource-diagnostic-settings"></a>Impostazioni di diagnostica di risorsa
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046167"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857379"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Attività IfCondition in Azure Data Factory
 L'attività IfCondition svolge la stessa funzione dell'istruzione If nei linguaggi di programmazione. Valuta un set di attività se la condizione restituisce `true` e un altro set di attività se la condizione restituisce `false`. 
@@ -69,9 +69,9 @@ Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
 -------- | ----------- | -------------- | --------
 name | Nome dell'attività if-condition. | string | Sì
 type | Deve essere impostata su **IfCondition** | string | Sì
-expression | Espressione che deve restituire true o false | Sì
-ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Sì
-ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Sì
+expression | Espressione che deve restituire true o false | Espressione con tipo di risultato booleano | Sì
+ifTrueActivities | Set di attività che vengono eseguite quando l'espressione restituisce `true`. | Array | Sì
+ifFalseActivities | Set di attività che vengono eseguite quando l'espressione restituisce `false`. | Array | Sì
 
 ## <a name="example"></a>Esempio
 La pipeline in questo esempio copia i dati da una cartella di input a una cartella di output. La cartella di output è determinata dal valore del parametro di pipeline routeSelection. Se il valore di routeSelection è true, i dati vengono copiati in outputPath1. E se il valore di routeSelection è false, i dati vengono copiati in outputPath2. 

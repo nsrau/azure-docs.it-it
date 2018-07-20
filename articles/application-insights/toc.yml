@@ -164,6 +164,8 @@
               href: app-insights-proactive-application-security-detection-pack.md
             - name: Servizi cloud di Azure
               href: app-insights-proactive-cloud-services.md
+            - name: Gestire le regole di rilevamento intelligente
+              href: app-insights-proactive-arm-config.md
         - name: Creare una risorsa
           href: app-insights-create-new-resource.md
     - name: Analizzare
@@ -294,7 +296,7 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=application-insights&sort=0'
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Linguaggio di query di Analytics
       href: 'https://docs.loganalytics.io/'

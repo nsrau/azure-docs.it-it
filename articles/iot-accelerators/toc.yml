@@ -8,13 +8,13 @@
       href: about-iot-accelerators.md
 - name: Guide introduttive
   items:
-    - name: Distribuire una soluzione di monitoraggio remoto
+    - name: Provare una soluzione di monitoraggio remoto
       href: quickstart-remote-monitoring-deploy.md
-    - name: Distribuire una soluzione di fabbrica connessa
+    - name: Provare una soluzione di fabbrica connessa
       href: quickstart-connected-factory-deploy.md
-    - name: Distribuire una soluzione di manutenzione predittiva
+    - name: Provare una soluzione di manutenzione predittiva
       href: quickstart-predictive-maintenance-deploy.md
-    - name: Distribuire una soluzione Simulazione dispositivi
+    - name: Provare una soluzione di simulazione dei dispositivi
       href: quickstart-device-simulation-deploy.md
 - name: Esercitazioni
   items:
@@ -137,10 +137,6 @@
               href: ../iot-suite/iot-suite-v1-custom-rule.md
             - name: Informazioni sui dispositivi nella soluzione di monitoraggio remoto
               href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
-    - name: Manutenzione predittiva
-      items:
-        - name: Distribuire un acceleratore di soluzioni
-          href: iot-accelerators-predictive-overview.md
     - name: Connected Factory
       items:
         - name: Usare il dashboard
@@ -159,7 +155,7 @@
           href: iot-accelerators-device-simulation-choose-hub.md
         - name: Usare un modello di dispositivo personalizzato
           href: iot-accelerators-device-simulation-custom-model.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Guida di riferimento per gli sviluppatori
       href: 'https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide'

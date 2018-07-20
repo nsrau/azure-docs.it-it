@@ -1,5 +1,5 @@
 ---
-title: Copiare dati da/verso Oracle con Data Factory | Microsoft Docs
+title: Copiare dati da o verso Oracle con Data Factory | Microsoft Docs
 description: Informazioni su come copiare dati da e verso database Oracle locali tramite Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046714"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856842"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiare dati da/verso un database Oracle locale con Azure Data Factory
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>Copiare dati da o verso un database Oracle locale con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-onprem-oracle-connector.md)
 > * [Versione 2 (corrente)](../connector-oracle.md)
@@ -100,9 +100,13 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 | type |La proprietà type deve essere impostata su: **OnPremisesOracle** |Sì |
 | driverType | Specificare il driver da usare per copiare i dati da/verso il database Oracle. I valori consentiti sono **Microsoft** o **ODP** (impostazione predefinita). Per informazioni dettagliate sui driver, vedere la sezione [Versione e installazione supportate](#supported-versions-and-installation). | No  |
 | connectionString | Specificare le informazioni necessarie per connettersi all'istanza del database Oracle per la proprietà connectionString. | Sì |
-| gatewayName | Nome del gateway usato per connettersi al server Oracle locale |Sì |
+| gatewayName | Nome del gateway utilizzato per connettersi al server Oracle locale |Sì |
 
 **Esempio: mediante il driver Microsoft:**
+
+>[!TIP]
+>Se si trova l'errore che indica "ORA 01025:UPI parameter out of range" e la versione Oracle è la 8i, aggiungere `WireProtocolMode=1` alla stringa di connessione e riprovare.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",
