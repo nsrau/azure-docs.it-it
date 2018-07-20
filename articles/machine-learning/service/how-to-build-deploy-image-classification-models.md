@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637736"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888433"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di classificazione delle immagini con Azure Machine Learning
 
@@ -34,7 +34,7 @@ Quando si compila e si distribuisce questo modello con Azure Machine Learning Pa
 7. Distribuzione del servizio Web
 8. Test di carico del servizio Web
 
-Viene usato [CNTK](https://www.microsoft.com/cognitive-toolkit/) come framework di Deep Learning, il training viene eseguito localmente in un computer con tecnologica GPU, ad esempio la [VM per l'analisi scientifica dei dati di Deep Learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e la distribuzione usa l'interfaccia della riga di comando di operazionalizzazione di Azure Machine Learning.
+Viene usato [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) come framework di Deep Learning, il training viene eseguito localmente in un computer con tecnologica GPU, ad esempio la [VM per l'analisi scientifica dei dati di Deep Learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e la distribuzione usa l'interfaccia della riga di comando di operazionalizzazione di Azure Machine Learning.
 
 Vedere la [documentazione di riferimento del pacchetto](https://aka.ms/aml-packages/vision) per informazioni dettagliate su ogni modulo e classe.
 
@@ -66,12 +66,6 @@ L'esempio seguente usa un set di dati costituito da 63 immagini di articoli per 
 
 ![Set di dati di Azure Machine Learning](media/how-to-build-deploy-image-classification-models/recycling_examples.jpg)
 
-## <a name="storage-context"></a>Contesto di archiviazione
-
-Il contesto di archiviazione viene usato per determinare dove verranno archiviati diversi file di output, ad esempio immagini di realtà aumentata o file di modello DNN. Per altre informazioni sui contesti di archiviazione, vedere la [documentazione di StorageContext](https://review.docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-python&branch=smoke-test). 
-
-Non è generalmente necessario impostare il contenuto di archiviazione in modo esplicito. Per evitare tuttavia il limite di 25 MB applicato da Azure Machine Learning Workbench per le dimensioni del progetto, impostare la directory di output di Azure Machine Learning Package per Visione artificiale su un percorso esterno al progetto di Azure Machine Learning ("../../../../cvtk_output"). Rimuovere la directory "cvtk_output" quando non è più necessaria.
-
 
 ```python
 import warnings
@@ -84,29 +78,19 @@ from sklearn import svm
 from cvtk import ClassificationDataset, CNTKTLModel, Context, Splitter, StorageContext
 from cvtk.augmentation import augment_dataset
 from cvtk.core.classifier import ScikitClassifier
-from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix, basic_plot
+from cvtk.evaluation import ClassificationEvaluation, graph_roc_curve, graph_pr_curve, graph_confusion_matrix
 import matplotlib.pyplot as plt
+
+from classification.notebook.ui_utils.ui_annotation import AnnotationUI
+from classification.notebook.ui_utils.ui_results_viewer import ResultsUI
+from classification.notebook.ui_utils.ui_precision_recall import PrecisionRecallUI
+
 %matplotlib inline
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
-
-# Set storage context.
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
 ```
-
-
-
-
-    {
-        "storage": {
-            "outputs_path": "../../../cvtk_output",
-            "persistent_path": "../../../cvtk_output",
-            "temp_path": "../../../cvtk_output"
-        }
-    }
 
 
 
@@ -125,8 +109,8 @@ Il training di un modello di classificazione delle immagini per un set di dati d
 
 
 ```python
-# Root image directory 
-dataset_location = os.path.abspath(os.path.join(os.getcwd(), "../sample_data/imgs_recycling"))
+# Root image directory
+dataset_location = os.path.abspath("classification/sample_data/imgs_recycling")
 
 dataset_name = 'recycling'
 dataset = ClassificationDataset.create_from_dir(dataset_name, dataset_location)
@@ -182,7 +166,6 @@ Se si verifica l'errore "Widget Javascript not detected" (Javascript widget non 
 
 
 ```python
-from ui_utils.ui_annotation import AnnotationUI
 annotation_ui = AnnotationUI(dataset, Context.get_global_context())
 display(annotation_ui.ui)
 ```
@@ -407,7 +390,6 @@ labels = [l.name for l in dataset.labels]
 pred_scores = ce.scores #classification scores for all images and all classes
 pred_labels = [labels[i] for i in np.argmax(pred_scores, axis=1)]
 
-from ui_utils.ui_results_viewer import ResultsUI
 results_ui = ResultsUI(test_set, Context.get_global_context(), pred_scores, pred_labels)
 display(results_ui.ui)
 ```
@@ -420,7 +402,6 @@ display(results_ui.ui)
 precisions, recalls, thresholds = ce.compute_precision_recall_curve() 
 thresholds = list(thresholds)
 thresholds.append(thresholds[-1])
-from ui_utils.ui_precision_recall import PrecisionRecallUI
 pr_ui = PrecisionRecallUI(100*precisions[::-1], 100*recalls[::-1], thresholds[::-1])
 display(pr_ui.ui) 
 ```
@@ -433,7 +414,7 @@ L'operazionalizzazione è il processo di pubblicazione di modelli e codice come 
 
 Dopo aver eseguito il training del modello, è possibile distribuire tale modello per l'utilizzo come servizio Web tramite l'[interfaccia della riga di comando di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). I modelli possono essere distribuiti nel computer locale o in un cluster del servizio contenitore di Azure (ACS). Con il servizio contenitore di Azure è possibile ridimensionare il servizio Web manualmente oppure usare la funzionalità di scalabilità automatica.
 
-**Accedere con l'interfaccia della riga di comando di Azure**
+**Accedere tramite l'interfaccia della riga di comando di Azure**
 
 Usando un account di [Azure](https://azure.microsoft.com/) con una sottoscrizione valida, accedere con il seguente comando dell'interfaccia della riga di comando:
 <br>`az login`

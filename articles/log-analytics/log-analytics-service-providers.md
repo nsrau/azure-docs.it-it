@@ -1,9 +1,9 @@
 ---
-title: Funzionalità di Log Analytics per i provider di servizi | Documentazione Microsoft
+title: Log Analytics per provider di servizi | Microsoft Docs
 description: Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -11,72 +11,73 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 07/05/2018
+ms.author: meirm
+ms.component: na
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593050"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931991"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>Funzionalità di Log Analytics per i provider di servizi
+# <a name="log-analytics-for-service-providers"></a>Log Analytics per provider di servizi
 Log Analytics aiuta i provider dei servizi gestiti (MSP), le aziende di grandi dimensioni, i fornitori di software indipendenti (ISV) e i provider di servizi di hosting a gestire e monitorare i server nell'infrastruttura cloud o locale del cliente. 
 
 Le aziende di grandi dimensioni hanno molti punti in comune con i provider di servizi, soprattutto quando c'è un team IT centralizzato che si occupa della gestione dell'IT per molte business unit diverse tra loro. Per semplicità, in questo documento si usa il termine *provider di servizi* ma la stessa funzionalità è disponibile anche per le aziende e gli altri clienti.
 
-## <a name="cloud-solution-provider"></a>Provider di soluzioni cloud
 Per i partner e i provider di servizi che fanno parte del programma [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview), Log Analytics è uno dei servizi di Azure disponibili in una [sottoscrizione di Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-Per Log Analytics, le seguenti funzionalità sono abilitate nelle sottoscrizioni *Provider di soluzioni cloud*.
+## <a name="architectures-for-service-providers"></a>Architetture per i provider di servizi
 
-In qualità di *Provider di soluzioni cloud* è possibile:
+Le aree di lavoro di Log Analytics consentono all'amministratore di controllare il flusso e l'isolamento dei log e di creare un'architettura di log in grado di soddisfare le esigenze aziendali specifiche. [Questo articolo](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) descrive le considerazioni generali per la gestione dell'area di lavoro. Per i provider di servizi possono essere presenti considerazioni aggiuntive.
 
-* Creare le aree di lavoro di Log Analytics in una sottoscrizione di un tenant (cliente).
-* Accedere alle aree di lavoro create dai tenant. 
-* Aggiungere e rimuovere l'accesso utente all'area di lavoro usando la gestione utente di Azure. Quando in un'area di lavoro del tenant nel portale di OMS la pagina di gestione degli utenti in Impostazioni non è disponibile
-  * Log Analytics non supporta ancora l'accesso basato sui ruoli, concedendo a un utente `reader` nel portale di Azure l'autorizzazione ad apportare modifiche alla configurazione nel portale di OMS
+Esistono tre possibili architetture relative alle aree di lavoro di Log Analytics:
 
-Per accedere alla sottoscrizione del tenant è necessario specificare l'identificatore del tenant. L'identificatore del tenant corrisponde spesso all'ultima parte dell'indirizzo di posta elettronica con cui si esegue l'accesso.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Distribuita - I log vengono archiviati nelle aree di lavoro che si trovano nel tenant del cliente 
 
-* Nel portale di OMS, aggiungere `?tenant=contoso.com` nell'URL per il portale. Ad esempio: `mms.microsoft.com/?tenant=contoso.com`
-* In PowerShell, usare il parametro `-Tenant contoso.com` quando si usa il cmdlet `Connect-AzureRmAccount`
-* L'identificatore del tenant viene aggiunto automaticamente quando si usa il collegamento `OMS portal` dal portale di Azure per aprire e accedere al portale di OMS per l'area di lavoro selezionata
+In questa architettura l'area di lavoro viene distribuita nel tenant del cliente usato per tutti i log del cliente stesso. Agli amministratori del provider di servizi viene concesso l'accesso all'area di lavoro tramite le autorizzazioni di [utenti guest di Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Per accedere a tali aree di lavoro, l'amministratore del provider di servizi deve passare alla directory del cliente nel portale di Azure.
 
-In qualità di *cliente* di un provider di soluzioni cloud è possibile:
+I vantaggi di questa architettura sono i seguenti:
+* Il cliente può gestire l'accesso ai log tramite il proprio [accesso basato sui ruoli](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Ogni cliente può definire impostazioni diverse per la propria area di lavoro, ad esempio in termini di conservazione e di limitazione sull'uso dei dati.
+* Isolamento tra i clienti in termini di normative e conformità.
+* Il costo per ogni area di lavoro viene addebitato nella sottoscrizione del cliente.
+* I log possono essere raccolti da tutti i tipi di risorse, non solo in base all'agente. È possibile usare, ad esempio, il controllo di Azure.
 
-* Creare le aree di lavoro di Log Analytics in una sottoscrizione CSP
-* Accedere alle aree di lavoro create dal CSP
-  * Usare il collegamento `OMS portal` dal portale di Azure per aprire e accedere al portale di OMS per l'area di lavoro selezionata
-* Visualizzare e usare la pagina di gestione degli utenti in Impostazioni nel portale di OMS
+Gli svantaggi di questa architettura sono i seguenti:
+* È più difficile per il provider di servizi gestire contemporaneamente un numero elevato di tenant dei clienti.
+* Gli amministratori del provider di servizi devono eseguire il provisioning per la directory dei clienti.
+* Il provider di servizi non può analizzare i dati dei clienti.
 
-> [!NOTE]
-> Le soluzioni di backup e Site Recovery incluse per Log Analytics non possono connettersi a un insieme di credenziali di Servizi di ripristino e non possono essere configurate in una sottoscrizione CSP. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. Centrale - I log vengono archiviati nell'area di lavoro che si trova nel tenant del provider di servizi
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Gestione di più clienti che usano Log Analytics
-È consigliabile creare un'area di lavoro Log Analytics per ogni cliente gestito. Un'area di lavoro di Log Analytics offre:
+In questa architettura i log non vengono archiviati nel tenant del cliente, ma solo in una posizione centrale nell'ambito di una sottoscrizione del provider di servizi. Gli agenti installati su macchine virtuali del cliente sono configurati per inviare i log all'area di lavoro tramite l'ID e la chiave privata dell'area di lavoro.
 
-* Una posizione geografica per archiviare i dati. 
-* Granularità per la fatturazione 
-* Isolamento dei dati 
-* Configurazione univoca
+I vantaggi di questa architettura sono i seguenti:
+* Facilità di gestione di un numero elevato di clienti e di integrarli in diversi sistemi back-end.
+* Il provider di servizi dispone della proprietà completa dei log e dei diversi elementi, ad esempio funzioni e query salvate.
+* Il provider di servizio può eseguire funzioni di analisi su tutti i clienti.
 
-Tramite la creazione di un'area di lavoro per cliente, è possibile mantenere separati i dati di ciascun cliente e di tenere traccia dell'uso di ogni cliente.
+Gli svantaggi di questa architettura sono i seguenti:
+* Questa architettura è applicabile solo ai dati di macchine virtuale basati su agenti e non può essere usata con origini dati PaaS, SaaS e dell'infrastruttura di Microsoft Azure.
+* Potrebbe essere difficile separare i dati tra i clienti quando sono uniti in una singola area di lavoro. L'unico metodo per eseguire questa operazione è quello di usare il nome di dominio completo del computer (FQDN) o l'ID sottoscrizione di Azure. 
+* Tutti i dati di tutti i clienti verranno archiviati nella stessa area con un'unica fattura e con le stesse impostazioni di conservazione e di configurazione.
+* Per i servizi PaaS e di infrastruttura di Microsoft Azure, ad esempio Diagnostica di Azure e il controllo di Azure, l'area di lavoro deve essere nello stesso tenant della risorsa in modo che i logo non vengano inviati all'area di lavoro centrale.
+* Tutti gli agenti di macchine virtuali di tutti i clienti vengono autenticati nell'area di lavoro centrale usando lo stesso ID e la stessa chiave dell'area di lavoro. Non esiste alcun metodo per bloccare i log di un cliente specifico senza interrompere l'attività di altri clienti.
 
-Per altre informazioni su quando e perché creare più aree di lavoro, vedere [Gestire l'accesso a Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
-Le operazioni di creazione e configurazione delle aree di lavoro del cliente possono essere automatizzate tramite [PowerShell](log-analytics-powershell-workspace-configuration.md), i [Modelli di Resource Manager](log-analytics-template-workspace-configuration.md) o tramite l'[API REST](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Ibrida - I log vengono archiviati nell'area di lavoro che si trova nel tenant del cliente e per alcuni viene eseguito il pull in una posizione centrale.
 
-L'uso dei modelli di Resource Manager per la configurazione dell'area di lavoro consente di usare una configurazione principale per creare e configurare le aree di lavoro. È possibile essere certi che le aree di lavoro create per i clienti vengono configurate automaticamente in base ai requisiti. Quando si aggiornano i requisiti, il modello viene aggiornato a sua volta e riapplicato alle aree di lavoro esistenti. Questo processo assicura che le aree di lavoro esistenti siano conformi ai nuovi standard.    
+La terza architettura è una combinazione delle due opzioni. Tale architettura si basa su quella distribuita in cui i log sono locali per ogni cliente, usando tuttavia un meccanismo per creare un repository centrale di log. Per una parte dei log viene eseguito il pull in una posizione centrale per la creazione di report e analitica. Questa parte può essere costituita da un numero ridotto di tipi di dati o da un riepilogo dell'attività, ad esempio statistiche giornaliere.
 
-Quando si gestiscono più aree di lavoro di Log Analytics, si consiglia di integrare ogni area di lavoro con il sistema basato su ticket esistente o con la console operatore mediante la funzionalità [Avvisi](log-analytics-alerts.md). Grazie all'integrazione con i sistemi esistenti, il personale di supporto può continuare a seguire i processi abituali. Log Analytics controlla regolarmente ogni area di lavoro in base ai criteri di avviso specificati e genera un avviso quando si richiede di eseguire un'azione.
+Per implementare la posizione centrale in Log Analytics, sono disponibili due opzioni:
 
-Per ottenere visualizzazioni personalizzate dei dati, usare la funzionalità [dashboard](../azure-portal/azure-portal-dashboards.md) nel portale di Azure.  
+1. Area di lavoro centrale: il provider di servizi può creare un'area di lavoro nel proprio tenant e usare uno script che usi l'[API di query](https://dev.loganalytics.io/) con l'[API di raccolta dati](log-analytics-data-collector-api.md) per spostare i dati dalle diverse aree di lavoro nella posizione centrale. Un'alternativa all'uso degli script consiste nell'usare l'[app per la logica di Azure](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-Per i report a livello esecutivo che riepilogano i dati nelle aree di lavoro è possibile usare l'integrazione tra Log Analytics e [PowerBI](log-analytics-powerbi.md). Se si richiede l'integrazione con un altro sistema di reporting, è possibile usare l'API di ricerca (tramite PowerShell o [REST](log-analytics-log-search-api.md)) per eseguire le query ed esportare i risultati della ricerca.
+2. Power BI come posizione centrale: Power BI può agire come posizione centrale quando le diverse aree di lavoro esportano i dati tramite l'integrazione tra Log Analytics e [Power BI](log-analytics-powerbi.md). 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Automatizzare la creazione e la configurazione delle aree di lavoro usando i [modelli di Resource Manager](log-analytics-template-workspace-configuration.md)

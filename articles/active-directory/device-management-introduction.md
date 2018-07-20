@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850009"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970901"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introduzione alla gestione dei dispositivi in Azure Active Directory
 
@@ -75,8 +75,8 @@ L'obiettivo dei dispositivi aggiunti ad Azure AD è di semplificare:
 ![Dispositivi registrati in Azure AD](./media/device-management-introduction/02.png)
 
 È possibile distribuire Aggiunta ad Azure AD usando uno dei metodi seguenti: 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Distribuzione in blocco](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Distribuzione in blocco](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Esperienza self-service](device-management-azuread-joined-devices-frx.md) 
 
 L'**aggiunta ad Azure AD** è destinata alle organizzazioni che mirano a usare prima di tutto il cloud, vale a dire che usano principalmente servizi cloud con lo scopo di ridurre l'uso di un'infrastruttura locale, o a usare esclusivamente il cloud, ovvero senza un'infrastruttura locale. Non vi è alcuna restrizione sulle dimensioni o sul tipo di organizzazioni che possono distribuire l'aggiunta ad Azure AD. L'aggiunta ad Azure AD funziona correttamente anche in un ambiente ibrido e può consentire l'accesso alle app e alle risorse sia su cloud sia locali.
@@ -93,7 +93,7 @@ L'implementazione di dispositivi aggiunti ad Azure AD offre i vantaggi seguenti:
 
 - **Limitazione dell'accesso** alle app solo dai dispositivi che soddisfano i criteri di conformità.
 
-- **L'accesso ottimizzato alle risorse locali** quando il dispositivo dispone della visibilità per il controller di dominio locale. 
+- **Accesso ottimizzato alle risorse locali** quando il dispositivo dispone della visibilità per il controller di dominio locale. 
 
 
 Anche se l'aggiunta ad Azure AD è destinata soprattutto alle organizzazioni prive di un'infrastruttura Active Directory di Windows Server locale, è ovviamente possibile usarla in scenari in cui:

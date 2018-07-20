@@ -5,14 +5,14 @@ services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 07/06/2018
 ms.author: anoopkv
-ms.openlocfilehash: 580d32a51f6b38916ddccd46784b80b1179c29c4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598864"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951177"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -37,7 +37,7 @@ La tabella riepiloga i prerequisiti per la distribuzione del server di configura
 | IIS | - Nessun sito Web predefinito preesistente <br> - Abilitare l'[autenticazione anonima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Abilitare l'impostazione di [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)  <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443<br>|
 | Tipo di scheda di interfaccia di rete | VMXNET3 (quando distribuito come macchina virtuale VMware) |
 | Tipo di indirizzo IP | statico |
-| Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (non necessario per i server di elaborazione scale-out) <br> - time.nist.gov <br> - time.windows.com |
+| Accesso a Internet | Il server deve poter accedere a questi URL: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (non necessario per i server di elaborazione scale-out) <br> - time.nist.gov <br> - time.windows.com |
 | Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)|
 
 ## <a name="download-the-latest-installation-file"></a>Scaricare il file di installazione più recente
@@ -98,7 +98,7 @@ Eseguire il file di installazione come segue:
 
 ### <a name="sample-usage"></a>Esempio di utilizzo
   ```
-  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
   ```

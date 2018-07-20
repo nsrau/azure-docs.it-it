@@ -1,11 +1,11 @@
 ---
 title: Domande frequenti sul Servizio app di Azure in Linux |Microsoft Docs
 description: Domande frequenti sul Servizio app di Azure in Linux.
-keywords: Servizio app di Azure, app Web, domande frequenti, Linux, OSS
+keywords: Servizio app di Azure, app Web, domande frequenti, linux, oss, app Web per contenitori, multi-contenitore, più contenitori
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222978"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916857"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -66,7 +66,7 @@ Sì, per configurare l'integrazione o la distribuzione continua per il Registro 
 
 Sì.
 
-**È possibile usare *Distribuzione Web* per distribuire l'app Web?**
+**È possibile usare *WebDeploy/MSDeploy* per distribuire l'app Web?**
 
 Sì, è necessario impostare `WEBSITE_WEBDEPLOY_USE_SCM` nell'app su *false*.
 
@@ -144,6 +144,35 @@ Il sito SCM viene eseguito in un contenitore separato. Non è possibile controll
 **È necessario implementare HTTPS nel contenitore personalizzato?**
 
 No, la piattaforma gestisce l'interruzione HTTPS a livello dei server front-end condivisi.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Più contenitori con Docker Compose e Kubernetes
+
+**Come si configura Registro contenitori di Azure da usare con più contenitori?**
+
+Per usare Registro contenitori di AZURE con più contenitori, **tutte le immagini del contenitore** devono essere ospitate nello stesso server di Registro contenitori di Azure. Quando sono nello stesso server del registro contenitori, è necessario creare le impostazioni dell'applicazione e quindi aggiornare il file di configurazione di Kubernetes o Docker Compose per includere il nome dell'immagine di Registro contenitori di AZURE.
+
+Definire le impostazioni dell'applicazione seguenti:
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL (URL completo, ad esempio: https://<nome-server>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD (abilitare l'accesso di amministratore nelle impostazioni di Registro contenitori di Azure)
+
+Nel file di configurazione fare riferimento all'immagine di Registro contenitori di Azure come nell'esempio seguente:
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**Come è possibile sapere quale il contenitore è accessibile tramite Internet?**
+
+- Solo un contenitore può essere aperto per l'accesso
+- Solo le porte 80 e 8080 sono accessibili (porte esposte)
+
+Di seguito vengono indicate le regole per determinare quale contenitore è accessibile (in ordine di precedenza):
+
+- Impostazione dell'applicazione `WEBSITES_WEB_CONTAINER_NAME` definita sul nome del contenitore
+- Il primo contenitore definito dalla porta 80 o 8080
+- Se nessuna delle condizioni precedenti è soddisfatta, il primo contenitore definito nel file sarà accessibile (esposto)
 
 ## <a name="pricing-and-sla"></a>Prezzi e contratto di servizio
 

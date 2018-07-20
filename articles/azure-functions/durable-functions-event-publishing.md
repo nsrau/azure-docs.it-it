@@ -14,20 +14,20 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/20/2018
 ms.author: tdykstra
-ms.openlocfilehash: 50e517e5719fb102fd91072abe59d3908176278e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 020a775c45ef3c46f9dfc5da7d4a7e470def4705
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762463"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969912"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Pubblicazione di Funzioni durevoli in Griglia di eventi di Azure (anteprima)
 
-Questo articolo illustra come configurare Funzioni durevoli di Azure per pubblicare eventi del ciclo di vita di orchestrazione (ad esempio "creato", "completato" e "non riuscito") in un [argomento personalizzato di Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Questo articolo illustra come configurare Funzioni durevoli di Azure per pubblicare eventi del ciclo di vita di orchestrazione (ad esempio "creato", "completato" e "non riuscito") in un [argomento personalizzato di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/overview). 
 
 Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 
-* **Scenari DevOps come le distribuzioni Blue/Green**: può essere opportuno sapere se sono presenti attività in esecuzione prima di implementare la [strategia di distribuzione side-by-side](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **Scenari DevOps come le distribuzioni Blue/Green**: può essere opportuno sapere se sono presenti attività in esecuzione prima di implementare la [strategia di distribuzione side-by-side](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
 
 * **Supporto di monitoraggio e diagnostica avanzati**: è possibile tenere traccia delle informazioni sullo stato dell'orchestrazione in un archivio esterno ottimizzato per le query, ad esempio database SQL o CosmosDB.
 
@@ -36,19 +36,19 @@ Di seguito sono indicati alcuni scenari in cui questa funzionalità è utile:
 ## <a name="prerequisites"></a>prerequisiti
 
 * Installare [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 1.3.0-rc o versione successiva nel progetto Funzioni durevoli.
-* Installare l'[emulatore di archiviazione di Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-* Installare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)
+* Installare l'[emulatore di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-use-emulator).
+* Installare l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) oppure usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)
 
 ## <a name="create-a-custom-event-grid-topic"></a>Creare un argomento personalizzato di Griglia di eventi
 
 Creare un argomento di Griglia di eventi per l'invio di eventi da Funzioni durevoli. Le istruzioni seguenti illustrano come creare un argomento tramite l'interfaccia della riga di comando di Azure. Per informazioni su come eseguire questa operazione tramite PowerShell o il portale di Azure, vedere gli articoli seguenti:
 
-* [Guide introduttive di Griglia di eventi: Creare un evento personalizzato - PowerShell](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-powershell)
-* [Guide introduttive di Griglia di eventi: Creare un evento personalizzato - Portale di Azure](https://docs.microsoft.com/en-us/azure/event-grid/custom-event-quickstart-portal)
+* [Guide introduttive di Griglia di eventi: Creare un evento personalizzato - PowerShell](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [Guide introduttive di Griglia di eventi: Creare un evento personalizzato - Portale di Azure](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando `az group create`. Griglia di eventi non supporta attualmente tutte le aree. Per informazioni sulle aree supportate, vedere la [Panoramica di Griglia di eventi](https://docs.microsoft.com/en-us/azure/event-grid/overview). 
+Creare un gruppo di risorse con il comando `az group create`. Griglia di eventi non supporta attualmente tutte le aree. Per informazioni sulle aree supportate, vedere la [Panoramica di Griglia di eventi](https://docs.microsoft.com/azure/event-grid/overview). 
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -93,8 +93,12 @@ Aggiungere `EventGridTopicEndpoint` e `EventGridKeySettingName` in una propriet�
 }
 ```
 
-* **EventGridTopicEndpoint**: endpoint dell'argomento di Griglia di eventi.
+Le proprietà di configurazione di Griglia di eventi di Azure sono le seguenti:
+
+* **EventGridTopicEndpoint**: endpoint dell'argomento di Griglia di eventi. La sintassi *%AppSettingName%* può essere usata per risolvere questo valore dalle impostazioni dell'applicazione o dalle variabili di ambiente.
 * **EventGridKeySettingName**: chiave dell'impostazione applicazione nella funzione di Azure. Funzioni durevoli otterrà la chiave dell'argomento di Griglia di eventi dal valore.
+* **EventGridPublishRetryCount**: [facoltativo] numero di tentativi se la pubblicazione nell'argomento di Griglia di eventi ha esito negativo.
+* **EventGridPublishRetryInterval**: [facoltativo] intervallo di tentativi di pubblicazione in Griglia di eventi di Azure nel formato *hh:mm:ss*. Se non specificato, l'intervallo di ripetizione dei tentativi predefinito è 5 minuti.
 
 Dopo aver configurato il file `host.json`, il progetto Funzioni durevoli inizia a inviare gli eventi del ciclo di vita all'argomento di Griglia di eventi. Questa operazione funziona nell'esecuzione nell'app per le funzioni e in locale.
 
@@ -111,7 +115,7 @@ Definire l'impostazione dell'app per la chiave dell'argomento nell'app per le fu
 }
 ```
 
-Assicurarsi che l'[emulatore di archiviazione](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) sia in esecuzione. È consigliabile usare il comando `AzureStorageEmulator.exe clear all` prima dell'esecuzione.
+Assicurarsi che l'[emulatore di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) sia in esecuzione. È consigliabile usare il comando `AzureStorageEmulator.exe clear all` prima dell'esecuzione.
 
 ## <a name="create-functions-that-listen-for-events"></a>Creare funzioni che ascoltano gli eventi
 
@@ -143,7 +147,7 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-Selezionare `Add Event Grid Subscription`. Questa operazione aggiunge una sottoscrizione di Griglia di eventi per l'argomento di Griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/en-us/azure/event-grid/concepts).
+Selezionare `Add Event Grid Subscription`. Questa operazione aggiunge una sottoscrizione di Griglia di eventi per l'argomento di Griglia di eventi creato. Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/concepts).
 
 ![Selezionare il collegamento del trigger di Griglia di eventi.](media/durable-functions-event-publishing/eventgrid-trigger-link.png)
 
@@ -258,10 +262,10 @@ L'elenco seguente spiega lo schema degli eventi del ciclo di vita:
 * **id**: identificatore univoco dell'evento di Griglia di eventi.
 * **subject**: percorso dell'oggetto dell'evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` saranno `Running`, `Completed`, `Failed` e `Terminated`.  
 * **data**: parametri specifici di Funzioni durevoli.
-    * **hubName**: nome [TaskHub](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-task-hubs).
+    * **hubName**: nome [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs).
     * **functionName**: nome della funzione dell'agente di orchestrazione.
     * **instanceId**: ID istanza di Funzioni durevoli.
-    * **reason**: dati aggiuntivi associati all'evento di rilevamento. Per altre informazioni, vedere [Diagnostica in Funzioni durevoli (Funzioni di Azure)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-diagnostics)
+    * **reason**: dati aggiuntivi associati all'evento di rilevamento. Per altre informazioni, vedere [Diagnostica in Funzioni durevoli (Funzioni di Azure)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
     * **runtimeStatus**: stato di runtime dell'orchestrazione. Running (In esecuzione), Completed (Completato), Failed (Non riuscito), Canceled (Annullato). 
 * **eventType**: "orchestratorEvent"
 * **eventTime**: ora dell'evento (UTC).

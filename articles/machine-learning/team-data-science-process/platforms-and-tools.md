@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838477"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951142"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Piattaforme e strumenti per i progetti team di data science
 
@@ -102,9 +102,9 @@ Per i progetti di data science risulta particolarmente utile la possibilità di 
 
 R Services (In-Database) offre una piattaforma per lo sviluppo e la distribuzione di applicazioni intelligenti che consentono di individuare nuove informazioni approfondite. È possibile usare il linguaggio R potente e ricco di funzionalità, inclusi i numerosi pacchetti offerti dalla community di R, per creare modelli e generare stime tramite i dati di SQL Server. Poiché R Services (In-Database) integra il linguaggio R con SQL Server, le analisi vengono eseguite in prossimità dei dati, eliminando in tal modo i rischi di sicurezza e i costi associati allo spostamento dei dati.
 
-R Services (In-Database) supporta il linguaggio R open source grazie a un set completo di strumenti e tecnologie di SQL Server, in grado di offrire prestazioni, sicurezza, affidabilità e gestibilità migliori. È possibile distribuire soluzioni R con strumenti semplici e familiari. Le applicazioni di produzione possono chiamare il runtime di R e recuperare stime e oggetti visivi tramite Transact-SQL. È anche possibile usare le librerie ScaleR per migliorare la scalabilità e le prestazioni delle soluzioni R. Per altre informazioni, vedere [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx)
+R Services (In-Database) supporta il linguaggio R open source grazie a un set completo di strumenti e tecnologie di SQL Server, in grado di offrire prestazioni, sicurezza, affidabilità e gestibilità migliori. È possibile distribuire soluzioni R con strumenti semplici e familiari. Le applicazioni di produzione possono chiamare il runtime di R e recuperare stime e oggetti visivi tramite Transact-SQL. È anche possibile usare le librerie ScaleR per migliorare la scalabilità e le prestazioni delle soluzioni R. Per altre informazioni, vedere [R Services per SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
-Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](https://msdn.microsoft.com/library/mt612857.aspx). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://msdn.microsoft.com/library/mt683480.aspx) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
+Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end che illustrano come compilare soluzioni di data science in SQL Server 2016 R Services, una per i programmatori R e una per gli sviluppatori SQL. Per i **programmatori R**, vedere [Procedura dettagliata di analisi scientifica dei dati end-to-end per R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Per gli **sviluppatori SQL**, vedere [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers) (Esercitazione sull'analisi avanzata In-Database per sviluppatori SQL).
 
 
 ## <a name="appendix"></a>Appendice - Strumenti per configurare progetti di data science

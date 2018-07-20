@@ -8,27 +8,27 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659696"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969154"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code. Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'identità di Azure AD, all'identità viene concesso l'accesso a queste risorse, in base all'ambito specificato. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. È possibile assegnare diritti di accesso per risorse di Archiviazione di Azure tramite il portale di Azure, strumenti da riga di comando di Azure e API di gestione di Azure. 
 
-Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'*identità del servizio gestita*. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità del servizio gestita](../../active-directory/managed-service-identity/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/en-us/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
+Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'*identità del servizio gestita*. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità del servizio gestita](../../active-directory/managed-service-identity/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
 
 ## <a name="rbac-roles-for-azure-storage"></a>Ruoli di controllo degli accessi in base al ruolo per Archiviazione di Azure
 
 Archiviazione di Azure supporta ruoli di controllo degli accessi in base al ruolo predefiniti e personalizzati. Archiviazione di Azure offre i ruoli predefiniti seguenti da usare con Azure AD:
 
-- [Collaboratore ai dati del BLOB di archiviazione (anteprima)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Lettore dei dati dei BLOB di archiviazione (anteprima)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Collaboratore ai dati della coda di archiviazione (anteprima)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Lettore dei dati della coda di archiviazione (anteprima)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Collaboratore ai dati del BLOB di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
+- [Lettore dei dati dei BLOB di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Collaboratore ai dati della coda di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+- [Lettore dei dati della coda di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
 Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti per Archiviazione di Azure, vedere [Informazioni sulle definizioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
@@ -61,7 +61,7 @@ Le sezioni seguenti mostrano come assegnare un ruolo con ambito a livello di acc
 
 Per assegnare un ruolo predefinito che concede l'accesso a tutti i contenitori o le code nell'account di archiviazione tramite il portale di Azure:
 
-1. Nel [portale di Azure](https://azure.portal.com/) passare all'account di archiviazione.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 2. Selezionare l'account di archiviazione, quindi selezionare **Controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'account. Fare clic sul pulsante **Aggiungi** per aggiungere un nuovo ruolo.
 
     ![Screenshot che mostra le impostazioni di controllo di accesso per l'archiviazione](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Per assegnare un ruolo predefinito che concede l'accesso a tutti i contenitori o
 
 I passaggi per l'assegnazione di un ruolo predefinito con ambito a livello di singolo contenitore o coda sono simili. La procedura descritta qui assegna un ruolo con ambito a livello di singolo contenitore, ma è possibile seguire gli stessi passaggi per assegnare un ruolo con ambito a livello di singola coda: 
 
-1. Nel [portale di Azure](https://azure.portal.com/) passare all'account di archiviazione e visualizzare la sezione **Panoramica** per l'account.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione e visualizzare la sezione **Panoramica** per l'account.
 2. In Servizio BLOB selezionare **Esplora BLOB**. 
 3. Individuare il contenitore per il quale si vuole assegnare un ruolo e visualizzare le impostazioni del contenitore. 
 4. Selezionare **Controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per il contenitore.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186292"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917534"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Monitoraggio e risoluzione dei problemi di Azure Site Recovery
 
@@ -146,7 +146,7 @@ Una visualizzazione dell'infrastruttura nell'ambito del contesto di un singolo c
 **R.** La funzionalità di visualizzazione dell'infrastruttura è disponibile solo per le macchine virtuali che eseguono la replica in Azure. La funzionalità non è attualmente disponibile per le macchine virtuali che eseguono la replica tra siti locali.
 
 **D.** Perché il conteggio delle macchine virtuali nella visualizzazione dell'infrastruttura dell'insieme di credenziali è diverso dal conteggio totale visualizzato nel grafico ad anello degli elementi replicati?</br>
-**R.** L'ambito della visualizzazione dell'infrastruttura nell'insieme di credenziali viene definito dagli scenari di replica. Solo le macchine virtuali che fanno parte dello scenario di replica attualmente selezionato sono incluse nel conteggio delle macchine virtuali presenti nella visualizzazione dell'infrastruttura. Inoltre, per lo scenario selezionato, solo le macchine virtuali attualmente configurate per la replica in Azure vengono incluse nel conteggio delle macchine virtuali presenti nella visualizzazione dell'infrastruttura. Ad esempio, le macchine virtuali di cui è stato effettuato il failover e le macchine virtuali che eseguono la replica in un sito locale non vengono incluse nella visualizzazione dell'infrastruttura.
+**R.** L'ambito della visualizzazione dell'infrastruttura nell'insieme di credenziali viene definito dagli scenari di replica. Solo le macchine virtuali che fanno parte dello scenario di replica attualmente selezionato sono incluse nel conteggio delle macchine virtuali presenti nella visualizzazione dell'infrastruttura. Per tale scenario solo le macchine virtuali attualmente configurate per la replica in Azure vengono incluse nel conteggio delle macchine virtuali presenti nella visualizzazione dell'infrastruttura. Ad esempio, le macchine virtuali di cui è stato effettuato il failover e le macchine virtuali che eseguono la replica in un sito locale non vengono incluse nella visualizzazione dell'infrastruttura.
 
 **D.** Perché il conteggio degli elementi replicati visualizzato nel menu Informazioni di base nella pagina di panoramica è diverso dal conteggio totale degli elementi replicati visualizzato nel grafico ad anello nel dashboard?</br>
 **R.** Solo le macchine virtuali per cui la replica iniziale è stata completata vengono incluse nel conteggio visualizzato nel menu Informazioni di base. Il totale del grafico ad anello degli elementi replicati include tutte le macchine virtuali nell'insieme di credenziali, inclusi i server per cui la replica iniziale è attualmente in corso.

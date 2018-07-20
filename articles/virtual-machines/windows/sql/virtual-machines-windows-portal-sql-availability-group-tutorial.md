@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287804"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531580"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
@@ -86,7 +86,7 @@ Dopo avere completato i prerequisiti, il primo passaggio prevede la creazione di
 
    ![Proprietà del cluster](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Selezionare **Indirizzo IP statico** e specificare un indirizzo disponibile dall'intervallo APIPA (Automatic Private IP Addressing) da 169.254.0.1 a 169.254.255.254 nella casella di testo Indirizzo. Per questo esempio è possibile usare qualsiasi indirizzo in tale intervallo. Ad esempio, `169.254.0.1`. Fare quindi clic su **OK**.
+3. Selezionare **Indirizzo IP statico** e specificare un indirizzo disponibile dalla stessa subnet delle macchine virtuali.
 
 4. Nella sezione **Risorse principali del cluster** fare clic con il pulsante destro del mouse sul nome del cluster e scegliere **Porta online**. Attendere finché entrambe le risorse non sono online Quando la risorsa del nome cluster torna online, il server del controller di dominio viene aggiornato con un nuovo account del computer Active Directory. Usare l'account Active Directory per eseguire il servizio del cluster del gruppo di disponibilità in un secondo momento.
 
@@ -341,7 +341,7 @@ A questo punto, è presente un gruppo di disponibilità con repliche in due ista
 
 ## <a name="create-an-azure-load-balancer"></a>Creare un servizio di bilanciamento del carico di Azure
 
-Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico contiene l'indirizzo IP per il listener del gruppo di disponibilità. Questa sezione è un riepilogo della creazione del servizio di bilanciamento del carico nel portale di Azure.
+Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede un servizio di bilanciamento del carico. Il servizio di bilanciamento del carico contiene gli indirizzi IP per i listener del gruppo di disponibilità e per il cluster di failover di Windows Server. Questa sezione è un riepilogo della creazione del servizio di bilanciamento del carico nel portale di Azure.
 
 1. Nel portale di Azure andare al gruppo di risorse in cui si trovano le istanze di SQL Server e fare clic su **+ Aggiungi**.
 2. Cercare **Servizio di bilanciamento del carico**. Scegliere il servizio di bilanciamento del carico pubblicato da Microsoft.
@@ -370,7 +370,7 @@ Nelle macchine virtuali di Azure un gruppo di disponibilità SQL Server richiede
 
 Per configurare il servizio di bilanciamento del carico, è necessario creare un pool back-end e un probe e impostare le regole di bilanciamento del carico. Eseguire queste operazioni nel portale di Azure.
 
-### <a name="add-backend-pool"></a>Aggiungere un pool back-end
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>Aggiungere pool di back-end per il listener del gruppo di disponibilità
 
 1. Nel portale di Azure andare al gruppo di disponibilità. Potrebbe essere necessario aggiornare la visualizzazione per vedere il servizio di bilanciamento del carico appena creato.
 
@@ -416,6 +416,46 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
    | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 1435 |
    | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 1435 |
    | **Probe** |Il nome specificato per il probe | SQLAlwaysOnEndPointProbe |
+   | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
+   | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
+   | **IP mobile (Direct Server Return)** | |Attivato |
+
+   > [!WARNING]
+   > Direct Server Return viene impostato durante la creazione. Non può essere modificato.
+
+1. Fare clic su **OK** per impostare le regole di bilanciamento del carico.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Aggiungere l'indirizzo IP front-end per il servizio WSFC
+
+L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento del carico. 
+
+1. Nel portale aggiungere una nuova configurazione IP front-end per il servizio WSFC. Usare l'indirizzo IP configurato per il servizio WSFC nelle risorse principali del cluster. Impostare l'indirizzo IP come statico. 
+
+1. Fare clic sul servizio di bilanciamento del carico, quindi su **Probe integrità** e infine su **+Aggiungi**.
+
+1. Impostare il probe di integrità nel modo seguente:
+
+   | Impostazione | DESCRIZIONE | Esempio
+   | --- | --- |---
+   | **Nome** | Text | WSFCEndPointProbe |
+   | **Protocollo** | Scegliere TCP | TCP |
+   | **Porta** | Qualsiasi porta non usata | 58888 |
+   | **Interval**  | Intervallo di tempo tra i tentativi del probe, in secondi |5 |
+   | **Soglia non integra** | Numero di errori consecutivi del probe che devono verificarsi per considerare non integra una macchina virtuale  | 2 |
+
+1. Fare clic su **OK** per impostare il probe di integrità.
+
+1. Impostare le regole di bilanciamento del carico. Fare clic su **Regole di bilanciamento del carico** e quindi fare clic su **+Aggiungi**.
+
+1. Impostare le regole di bilanciamento del carico come segue.
+   | Impostazione | DESCRIZIONE | Esempio
+   | --- | --- |---
+   | **Nome** | Text | WSFCPointListener |
+   | **Indirizzo IP front-end IP** | Scegliere un indirizzo |Usare l'indirizzo creato quando è stato configurato l'indirizzo IP del servizio WSFC. |
+   | **Protocollo** | Scegliere TCP |TCP |
+   | **Porta** | Usare la porta per il listener del gruppo di disponibilità | 58888 |
+   | **Porta back-end** | Questo campo non viene usato quando l'indirizzo IP mobile è impostato per Direct Server Return | 58888 |
+   | **Probe** |Il nome specificato per il probe | WSFCEndPointProbe |
    | **Persistenza della sessione** | Elenco a discesa | **Nessuno** |
    | **Timeout di inattività** | Minuti in cui tenere aperta una connessione TCP | 4 |
    | **IP mobile (Direct Server Return)** | |Attivato |

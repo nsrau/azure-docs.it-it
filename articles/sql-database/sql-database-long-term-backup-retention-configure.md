@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 0ce22cae50e70ca7232e025d4009b23d62f6a198
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f7125a18aa2496ebe8367443a67502a7a7dbac02
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649228"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969188"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -83,8 +83,10 @@ Visualizzare i backup conservati per un database specifico con i criteri di cons
 Le sezioni seguenti illustrano come usare PowerShell per configurare la conservazione a lungo termine dei backup, visualizzare i backup nella risorsa di archiviazione di Azure SQL ed eseguire il ripristino da un backup nella risorsa di archiviazione di Azure SQL.
 
 > [!IMPORTANT]
-> Deve essere usata la versione più recente di PowerShell AzureRM per configurare i criteri di conservazione a lungo termine V2. La versione corrente è [AzureRM 4.5.0-preview](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0-preview). Trattandosi di una versione di anteprima, usare questo comando per installarla: `Install-Module -Name AzureRM.Sql -AllowPrerelease -Force`.
-> Per il materiale sussidiario relativo all'installazione della versione preliminare, vedere [Ottenere il modulo PowerShellGet](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget). Il rilascio della versione di PowerShell AzureRM di maggio 2018 è previsto per il 18/5/2018; è possibile ignorare l'opzione -AllowPrerelease quando si installa la versione di rilascio quando diventa disponibile e usare il comando seguente `Install-Module -Name AzureRM.Sql -Force`.
+> L'API di conservazione a lungo termine V2 è supportata nelle versioni di PowerShell seguenti:
+- [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) o successiva
+- [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) o successiva
+> 
 
 ### <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
 

@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: c3402c824b70d357b68e71ed7cb5783a7489b2b0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837379"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934193"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Eseguire analisi avanzate con Azure Machine Learning usando i dati di un database SQL Server locale
-
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 In molti casi, le aziende che si avvalgono di dati locali vogliono sfruttare la scalabilità e l'agilità del cloud per i propri carichi di lavoro di Machine Learning. Non intendono tuttavia abbandonare i carichi di lavoro e i processi aziendali correnti spostando nel cloud tutti i propri dati locali. Azure Machine Learning supporta ora la lettura dei dati da un database SQL Server locale e, successivamente, il processo di formazione e assegnazione di punteggi a un modello avvalendosi di questi dati. Non è più necessario copiare e sincronizzare manualmente i dati tra il cloud e il server locale. Il modulo **Import Data** (Importazione dati) di Azure Machine Learning Studio, infatti, è in grado di leggere i dati direttamente dal server SQL Server locale per i processi di formazione e assegnazione dei punteggi.
@@ -39,44 +38,46 @@ Questo articolo fornisce una panoramica di come inserire dati locali di SQL Serv
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="install-the-microsoft-data-management-gateway"></a>Installare Gateway di gestione dati di Microsoft
-Per accedere a un database SQL Server locale in Azure Machine Learning è necessario scaricare e installare Gateway di gestione dati di Microsoft. Quando si configura la connessione del gateway in Machine Learning Studio, è possibile scaricare e installare il gateway usando la finestra di dialogo **Download and register data gateway** (Scarica e registra il gateway dati) descritta di seguito.
+## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Installare il runtime di integrazione self-hosted di Data Factory
+Per accedere a un database SQL Server locale in Azure Machine Learning, è necessario scaricare e installare il runtime di integrazione self-hosted Data Factory, noto in precedenza come Gateway di gestione dati di Microsoft. Quando si configura la connessione in Machine Learning Studio, è possibile scaricare e installare il runtime di integrazione (IR) usando la finestra di dialogo **Scarica e registra il gateway dati** descritta di seguito.
 
-È possibile installare Gateway di gestione dati anche in anticipo scaricando ed eseguendo il pacchetto di installazione con estensione msi dall' [Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=39717).
-Scegliere la versione più recente e selezionare 32 bit o 64 bit, in base al tipo di computer in uso. Il pacchetto con estensione msi può essere usato anche per aggiornare un'applicazione Gateway di gestione dati esistente alla versione più recente mantenendo tutte le impostazioni.
 
-Il gateway presenta i prerequisiti seguenti:
+È anche possibile installare il runtime di integrazione in anticipo scaricando ed eseguendo il pacchetto di installazione MSI dal [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Il file MSI è anche utilizzabile per eseguire l'aggiornamento di un runtime di integrazione esistente alla versione più recente conservando tutte le impostazioni.
 
-* Sono supportati i sistemi operativi Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2
-* La configurazione consigliata per il computer gateway è di almeno 2 GHz, 4 core, 8 GB di RAM e un disco da 80 GB.
-* Se il computer host entra in stato di ibernazione, il gateway non risponde alle richieste di dati. Quindi, configurare una combinazione per il risparmio di energia appropriata nel computer prima di installare il gateway. L'installazione del gateway visualizza un messaggio se il computer è configurato per l'ibernazione.
+Il runtime di integrazione self-hosted di Data Factory prevede i prerequisiti seguenti:
+
+* L'integrazione self-hosted di Data Factory richiede un sistema operativo a 64 bit con .NET Framework 4.6.1 o versioni successive.
+* Sono supportati i sistemi operativi Windows 10, Windows 2012, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016. 
+* La configurazione consigliata per la machine IR è di almeno 2 GHz, CPU 4 core, 8 GB di RAM e un disco da 80 GB.
+* Se il computer host entra in stato di ibernazione, il runtime di integrazione non risponde alle richieste di dati. Pertanto, configurare una combinazione per il risparmio di energia appropriata nel computer prima di installare il runtime di integrazione. L'installazione del runtime di integrazione visualizza un messaggio se il computer è configurato per l'ibernazione.
 * Poiché le attività di copia seguono una frequenza specifica, l'utilizzo delle risorse nel computer (CPU e memoria) segue lo stesso ciclo costituito da periodi di massimo utilizzo alternati a periodi di inattività. L'utilizzo delle risorse dipende molto anche dalla quantità di dati da spostare. Quando sono in corso più processi di copia, l'utilizzo delle risorse aumenta durante i periodi di picco. Sebbene la configurazione minima sopra elencata sia tecnicamente sufficiente, a seconda del carico previsto per lo spostamento dei dati è possibile adottare una configurazione con più risorse rispetto alla configurazione minima.
 
-È opportuno considerare quanto segue durante l'installazione e l'uso di Gateway di gestione dati:
+Tenere presente quanto segue durante l'installazione e l'uso di un runtime di integrazione self-hosted di Data Factory:
 
-* In un computer può essere installata una sola istanza di Gateway di gestione dati.
-* È possibile usare un singolo gateway per più origini dati locali.
-* Alla stessa origine dati locale è possibile collegare più gateway presenti su computer diversi.
-* È possibile configurare un gateway per una sola area di lavoro alla volta. Attualmente i gateway non possono essere condivisi tra più aree di lavoro.
-* È possibile configurare più gateway per una singola area di lavoro. Può essere utile, ad esempio, usare un gateway connesso alle origini dati di test in fase di sviluppo e un gateway di produzione quando si è pronti per essere operativi.
-* Il gateway non deve necessariamente trovarsi sullo stesso computer dell'origine dati. Tuttavia, se i gateway sono posizionati in prossimità dell'origine dati, il tempo necessario alla connessione del gateway all'origine dati si riduce. Si consiglia di installare il gateway in un computer diverso da quello che ospita l'origine dati locale in modo che il gateway non si contenda le risorse con l'origine dati.
-* Se nel computer è già installato un gateway per uno scenario Power BI o Azure Data Factory, installare un gateway separato per Azure Machine Learning in un altro computer.
+* In un computer può essere installata una sola istanza di IR.
+* È possibile usare un singolo runtime di integrazione per più origini dati locali.
+* Alla stessa origine dati locale è possibile collegare più runtime di integrazione su computer diversi.
+* È possibile configurare un runtime di integrazione per una sola area di lavoro alla volta. Attualmente i runtime di integrazione non possono essere condivisi tra più aree di lavoro.
+* È possibile configurare più runtime di integrazione per una singola area di lavoro. Può essere utile, ad esempio, usare un runtime di integrazione connesso alle origini dati di test in fase di sviluppo e un runtime di integrazione di produzione quando si è pronti per essere operativi.
+* Il runtime di integrazione non deve trovarsi sullo stesso computer dell'origine dati. Tuttavia, se i gateway sono posizionati in prossimità dell'origine dati, il tempo necessario alla connessione del gateway all'origine dati si riduce. Si consiglia di installare il runtime di integrazione in un computer diverso da quello che ospita l'origine dati locale in modo che il gateway non si contenda le risorse con l'origine dati.
+* Se nel computer è già installato un runtime di integrazione per uno scenario Power BI o Azure Data Factory, installare un runtime di integrazione separato per Azure Machine Learning in un altro computer.
 
   > [!NOTE]
-  > Non è possibile eseguire Gateway di gestione dati e Power BI Gateway nello stesso computer.
+  > Non è possibile eseguire runtime di integrazione self-hosted di Data Factory e Power BI Gateway nello stesso computer.
   >
   >
-* È necessario usare Gateway di gestione dati per Azure Machine Learning anche se si sta usando Azure ExpressRoute per altri dati. Considerare l'origine dati come origine dati locale, ovvero protetta da firewall, anche quando si usa ExpressRoute. Usare il gateway di gestione dati per stabilire la connettività tra Machine Learning e l'origine dati.
+* È necessario usare il runtime di integrazione self-hosted Data Factory per Azure Machine Learning anche se si sta usando Azure ExpressRoute per altri dati. Considerare l'origine dati come origine dati locale, ovvero protetta da firewall, anche quando si usa ExpressRoute. Usare il runtime di integrazione self-hosted Data Factory per stabilire la connettività tra Machine Learning e l'origine dati.
 
-Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nell'articolo [Data Management Gateway](../../data-factory/v1/data-factory-data-management-gateway.md) (Gateway di gestione dati).
+Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nell'articolo [Runtime di integrazione in Data Factory](../../data-factory/concepts-integration-runtime.md).
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Inserire dati del database SQL Server locale in Azure Machine Learning
-In questa procedura dettagliata si installerà Gateway di gestione dati in un'area di lavoro di Azure Machine Learning, lo si configurerà e quindi si leggeranno i dati da un database SQL Server locale.
+In questa procedura dettagliata si installerà un runtime di integrazione di Data Factory in un'area di lavoro di Azure Machine Learning, lo si configurerà e quindi si leggeranno i dati da un database SQL Server locale.
 
 > [!TIP]
 > Prima di iniziare, disabilitare il blocco popup del browser per `studio.azureml.net`. Se si usa il browser Google Chrome, scaricare e installare uno dei diversi plug-in disponibili nella sezione dell' [estensione per app ClickOnce](https://chrome.google.com/webstore/search/clickonce?_category=extensions)in Google Chrome WebStore.
 >
->
+> [!NOTE]
+> Il runtime di integrazione self-hosted Data Factory di Azure era conosciuto in precedenza come Gateway di gestione dati. L'esercitazione dettagliata continuerà a indicarlo come gateaway.  
 
 ### <a name="step-1-create-a-gateway"></a>Passaggio 1: Creare un gateway
 Il primo passaggio consiste nel creare e configurare il gateway per accedere al database SQL locale.
@@ -92,7 +93,7 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 5. Nella finestra di dialogo Download and register data gateway (Scarica e registra il gateway dati) copiare negli Appunti il valore del campo GATEWAY REGISTRATION KEY (CHIAVE REGISTRAZIONE GATEWAY).
 
     ![Scaricare e registrare il gateway dati](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway**(Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+6. <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway**(Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Dopo aver installato il gateway, verrà aperto Gestione configurazione di Gateway di gestione dati e verrà visualizzata la finestra di dialogo **Registra gateway** . Incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **Registra**.
 8. Se si dispone già di un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati. Fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** copiata negli Appunti nel passaggio precedente e fare clic su **OK**.
 9. Al termine dell'installazione verrà visualizzata la finestra di dialogo **Registra gateway** di Gestione configurazione di Gateway di gestione dati. Incollare la CHIAVE DI REGISTRAZIONE DEL GATEWAY copiata negli Appunti e fare clic su **Registra**.
@@ -123,7 +124,7 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 Il processo di configurazione del gateway in Azure Machine Learning è ora completato.
 ed è quindi possibile iniziare a usare i dati locali.
 
-In Studio è possibile creare e configurare più gateway per ogni area di lavoro. Può essere utile, ad esempio, creare un gateway da connettere alle origini dati di test in fase di sviluppo e un gateway per le origini dati di produzione. Azure Machine Learning offre la possibilità di configurare più gateway in base al tipo di ambiente aziendale. Attualmente, tuttavia, non è possibile condividere un gateway tra più aree di lavoro e in un computer è possibile installare un solo gateway. Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md).
+In Studio è possibile creare e configurare più gateway per ogni area di lavoro. Può essere utile, ad esempio, creare un gateway da connettere alle origini dati di test in fase di sviluppo e un gateway per le origini dati di produzione. Azure Machine Learning offre la possibilità di configurare più gateway in base al tipo di ambiente aziendale. Attualmente, tuttavia, non è possibile condividere un gateway tra più aree di lavoro e in un computer è possibile installare un solo gateway. Per altre informazioni, vedere [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md).
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>Passaggio 2: Usare il gateway per leggere dati da un'origine dati locale
 Dopo aver configurato il gateway è possibile aggiungere un modulo **Import Data** (Importa dati) a un esperimento in cui si inseriscono i dati letti dal database SQL Server locale.
