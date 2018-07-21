@@ -6,19 +6,19 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: f40fe3da6874d8656c9c0a0ddce9fed602cb25f9
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083992"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091916"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Modelli di acquisto e risorse del database SQL di Azure | Microsoft Docs 
 
-I server logici nel [database SQL di Azure](sql-database-technical-overview.md) offre due modelli di acquisto per le risorse di calcolo, archiviazione e I/O basati rispettivamente su DTU e su vCore (anteprima). 
+I server logici nel [database SQL di Azure](sql-database-technical-overview.md) offrono due modelli di acquisto per le risorse di calcolo, archiviazione e I/O basati rispettivamente su DTU e su vCore. 
 
 > [!NOTE]
 > Le [istanze gestite](sql-database-managed-instance.md) nel database SQL di Azure offrono solo il modello di acquisto basato sui vCore.
@@ -26,7 +26,7 @@ I server logici nel [database SQL di Azure](sql-database-technical-overview.md) 
 La tabella e il grafico seguenti mettono a confronto questi due modelli.
 
 > [!IMPORTANT]
-> Per informazioni sul modello di acquisto basato su vCore (anteprima), vedere [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+> Per informazioni sul modello di acquisto basato su vCore, vedere [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)
 
 |**Modello di acquisto**|**Descrizione**|**Ideale per**|
 |---|---|---|
@@ -36,13 +36,13 @@ La tabella e il grafico seguenti mettono a confronto questi due modelli.
 
 ![modello di prezzi](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model--preview"></a>Modello di acquisto basato su vCore (anteprima)
+## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore 
 
-Un vCore, o memoria centrale virtuale, rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Il modello di acquisto basato su vCore (anteprima) offre flessibilità, controllo, trasparenza nell'utilizzo individuale delle risorse e un metodo diretto per convertire i requisiti dei carichi di lavoro locali nel cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Nel modello di acquisto basato su vCore (anteprima) i clienti possono scegliere tra livelli di servizio Utilizzo generico e business critical (anteprima) sia per [database singoli](sql-database-single-database-scale.md) sia per [pool elastici](sql-database-elastic-pool.md). 
+Un vCore, o memoria centrale virtuale, rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Il modello di acquisto basato su vCore offre flessibilità, controllo, trasparenza nell'utilizzo individuale delle risorse e un metodo diretto per convertire i requisiti dei carichi di lavoro locali nel cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Nel modello di acquisto basato su vCore i clienti possono scegliere tra livelli di servizio utilizzo generico e business critical sia per [database singoli](sql-database-single-database-scale.md) sia per [pool elastici](sql-database-elastic-pool.md). 
 
-Il modello di acquisto basato su vCore (anteprima) consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Se il database o il pool elastico utilizza più di 300 DTU, la conversione a vCore può consentire di ridurre i costi. È possibile eseguire questa conversione usando l'API preferita o il portale di Azure, senza tempi di inattività. La conversione non è tuttavia obbligatoria. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo. Se si decide di eseguire la conversione dal modello basato su DTU a quello basato su vCore, selezionare il livello di prestazioni usando la regola empirica seguente: è necessario almeno 1 vCore nel livello per utilizzo generico per ogni 100 DTU nel livello Standard; per ogni 125 DTU nel livello Premium è necessario almeno 1 vCore nel livello business critical.
+Il modello di acquisto basato su vCore consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi. Se il database o il pool elastico utilizza più di 300 DTU, la conversione a vCore può consentire di ridurre i costi. È possibile eseguire questa conversione usando l'API preferita o il portale di Azure, senza tempi di inattività. La conversione non è tuttavia obbligatoria. Se il modello di acquisto basato su DTU soddisfa i requisiti aziendali e di prestazioni, è consigliabile continuare a usarlo. Se si decide di eseguire la conversione dal modello basato su DTU a quello basato su vCore, selezionare il livello di prestazioni usando la regola empirica seguente: è necessario almeno 1 vCore nel livello per utilizzo generico per ogni 100 DTU nel livello Standard; per ogni 125 DTU nel livello Premium è necessario almeno 1 vCore nel livello business critical.
 
-Nel modello di acquisto basato su vCore (anteprima) i clienti pagano per le risorse seguenti:
+Nel modello di acquisto basato su vCore i clienti pagano per le risorse seguenti:
 - Calcolo (livello di servizio + numero di vCore + generazione di hardware)*
 - Tipo e quantità di risorse di archiviazione per dati e log 
 - Numero di operazioni di I/O**
@@ -54,7 +54,7 @@ Nel modello di acquisto basato su vCore (anteprima) i clienti pagano per le riso
 
 > [!IMPORTANT]
 > I costi delle risorse di calcolo, I/O e archiviazione di dati e log vengono addebitati per database singolo o pool elastico. Il costo delle risorse di archiviazione per i backup viene addebitato per ogni database. Per informazioni dettagliate sull'addebito dei costi di Istanza gestita, vedere la sezione relativa all'[istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
-> **Limitazioni regionali:** Il modello di acquisto basato sui vCore (anteprima) non è disponibile nelle seguenti regioni: Europa occidentale, Francia centrale, Regno Unito meridionale, Regno Unito occidentale e Australia sud-orientale.
+> **Limitazioni regionali:** il modello di acquisto basato su vCore non è disponibile nelle seguenti regioni: Europa occidentale, Francia centrale, Regno Unito meridionale, Regno Unito occidentale e Australia sud-orientale.
 
 ## <a name="dtu-based-purchasing-model"></a>modello di acquisto basato su DTU
 
@@ -189,5 +189,5 @@ La metrica di base del benchmark è rappresentata dalla velocità effettiva e da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni sul modello di acquisto basato su vCore (anteprima), vedere [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+- Per informazioni sul modello di acquisto basato su vCore, vedere [Modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md)
 - Per il modello di acquisto basato su DTU, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md).

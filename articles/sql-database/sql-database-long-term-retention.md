@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648293"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092817"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
 Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. La funzionalità di conservazione a lungo termine consente di archiviare i backup completi del database SQL in una risorsa di archiviazione BLOB [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) fino a un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
-
-> [!IMPORTANT]
-> La conservazione a lungo termine è attualmente in fase di anteprima. Per i backup esistenti archiviati nell'insieme di credenziali di Servizi di ripristino di Azure come parte della precedente anteprima della funzionalità viene eseguita la migrazione all'archiviazione di SQL Azure.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine del database SQL
 
@@ -34,7 +30,6 @@ Esempi:
 -  W = 0, M = 0, Y = 5, WeekOfYear = 3
 
    Il terzo backup completo di ogni anno verrà conservato per 5 anni.
-
 - W = 0, M = 3, Y = 0
 
    Il primo backup completo di ogni mese verrà conservato per 3 mesi.
@@ -61,6 +56,14 @@ Se fosse necessario modificare i criteri sopra riportati e impostare W=0 (nessun
 1. Le copie per la conservazione a lungo termine vengono create dal servizio di archiviazione di Azure in modo che il processo di copia non abbia alcun impatto sulle prestazioni del database esistente.
 2. Il criterio si applica ai backup futuri. ad esempio Se il criterio WeekOfYear specificato è nel passato quando il viene configurato, il primo backup per la conservazione a lungo termine verrà creato l'anno successivo. 
 3. Per ripristinare un database dalla risorsa di archiviazione per la conservazione a lungo termine, selezionare un backup specifico in base al relativo timestamp.   Il database può essere ripristinato in qualsiasi server esistente all'interno della stessa sottoscrizione del database originale. 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>Conservazione backup a lungo termine e replica geografica
+
+Se si usano i gruppi di failover o di replica geografica attivi come soluzione di continuità aziendale, è necessario prepararsi per un eventuale failover e configurare gli stessi criteri di conservazione a lungo termine nel database di replica geografica secondaria. Ciò non aumenterà i costi di archiviazione di conservazione a lungo termine poiché i backup non vengono generati da repliche secondarie. Solo quando il database secondario diventa primario viene creato il backup. In questo modo verrà garantita la generazione non interrotta di backup di conservazione a lungo termine nel momento in cui viene attivato il failover e il database primario si sposta nell'area secondaria. 
+
+> [!NOTE]
+Quando viene ripristinato il database primario originale dopo l'interruzione del servizio che ne ha causato il failover, questo diventerà un nuovo database secondario. Pertanto, la creazione del backup non riprenderà e i criteri di conservazione a lungo termine esistenti non saranno attivi fino a quando il database diventerà nuovamente primario. 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurare la conservazione del backup a lungo termine

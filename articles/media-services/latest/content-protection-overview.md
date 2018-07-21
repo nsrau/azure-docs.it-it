@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: juliako
-ms.openlocfilehash: 2f0996482c599a664d02e172dcb20cda4e039af5
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341665"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115231"
 ---
 # <a name="content-protection-overview"></a>Panoramica della protezione del contenuto
 
@@ -45,8 +45,11 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
   > [!NOTE]
   > È possibile crittografare ogni asset con più tipi di crittografia (AES-128, PlayReady, Widevine, FairPlay). Per informazioni su come combinarli efficacemente, vedere [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types) (Protocolli di streaming e tipi di crittografia).
   
-  L'articolo seguente mostra i passaggi per la crittografia dei contenuti con AES: [Proteggere i contenuti con la crittografia AES](protect-with-aes128.md)
- 
+  L'articolo seguente mostra i passaggi per la crittografia dei contenuti con AES e/o DRM: 
+  
+  * [Proteggere i contenuti con la crittografia AES](protect-with-aes128.md)
+  * [Proteggere con DRM](protect-with-drm.md)
+
 2. Lettore con un client DRM o AES. Un'app lettore video basata su un SDK per lettori, nativa o basata su browser, deve soddisfare i requisiti seguenti:
   * L'SDK per lettori supporta i client DRM necessari
   * L'SDK per lettori supporta i protocolli di streaming necessari: Smooth, DASH e HLS
@@ -54,7 +57,7 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
   
     È possibile creare un lettore usando l'[API di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/). Usare l'[API ProtectionInfo di Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) per specificare la tecnologia DRM da usare in varie piattaforme DRM.
 
-    Per testare contenuto crittografato con AES o CENC (Widevine + PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Advanced options" (Opzioni avanzate), controllare AES e fornire il token.
+    Per testare il contenuto crittografato con AES o CENC (Widevine e/o PlayReady), è possibile usare [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Assicurarsi di fare clic su "Opzioni avanzate" e controllare le opzioni d crittografia.
 
     Se si vuole testare il contenuto crittografato di FairPlay, usare [questo lettore di test](http://aka.ms/amtest). Il lettore supporta Widevine, PlayReady e DRM FairPlay oltre alla crittografia AES-128 a chiave non crittografata. È necessario scegliere il browser giusto per testare DRM diversi: Opera/Chrome o Firefox per Widevine, MS Edge/Internet Explorer 11 per PlayReady, Safari su maOS per FairPlay.
 
@@ -90,7 +93,7 @@ Per completare la progettazione del sistema o dell'applicazione con "protezione 
 
 In Servizi multimediali versione 3 una chiave simmetrica è associata a StreamingLocator: vedere [questo esempio](protect-with-aes128.md). Se si usa il servizio di distribuzione delle chiavi di Servizi multimediali, si deve generare automaticamente la chiave simmetrica. È necessario generare la chiave simmetrica autonomamente se si usa un servizio di distribuzione delle chiavi o se è necessario gestire uno scenario di disponibilità elevata in cui occorre avere la stessa chiave simmetrica in due data center.
 
-Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la chiave non crittografata AES o la crittografia DRM. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi di Servizi multimediali o il servizio di distribuzione delle chiavi specificato. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati.
+Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente i contenuti mediante la chiave non crittografata AES o la crittografia DRM. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi di Servizi multimediali o il servizio di distribuzione delle chiavi specificato. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 
 ## <a name="aes-128-clear-key-vs-drm"></a>Chiave non crittografata AES-128 e DRM
 
@@ -122,22 +125,13 @@ Con i criteri di chiave simmetrica con restrizione token, la chiave simmetrica v
 
 Quando si configurano i criteri di restrizione del token, è necessario specificare i parametri primary verification key, issuer e audience. Il parametro primary verification key include la chiave usata per firmare il token. Il parametro issuer è il servizio token di sicurezza che rilascia il token. Il parametro audience (talvolta denominato scope) descrive l'ambito del token o la risorsa a cui il token autorizza l'accesso. Il servizio di distribuzione delle chiavi di Servizi multimediali verifica che i valori nel token corrispondano ai valori nel modello.
 
-## <a name="streaming-urls"></a>URL di streaming
-
-Se l'asset è stato crittografato con più sistemi DRM, usare un tag di crittografia nell'URL di streaming (format='m3u8-aapl', encryption='xxx').
-
-Si applicano le considerazioni seguenti:
-
-* Il tipo di crittografia non deve essere specificato nell'URL se all'asset è stata applicata una sola crittografia.
-* Il tipo di crittografia non fa distinzione tra maiuscole e minuscole.
-* Possono essere specificati i seguenti tipi di crittografia:
-  * **cenc**: per PlayReady o Widevine (crittografia comune)
-  * **cbcs-aapl**: per FairPlay (crittografia CBC AES)
-  * **cbc**: per la crittografia della busta AES
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Come proteggere i dati con la crittografia AES in Servizi multimediali versione 3](protect-with-aes128.md)
+Vedere gli articoli seguenti:
+
+  * [Proteggere i contenuti con la crittografia AES](protect-with-aes128.md)
+  * [Proteggere con DRM](protect-with-drm.md)
 
 Altre informazioni sono reperibili nell'articolo sulla [progettazione e l'implementazione di DRM](../previous/media-services-cenc-with-multidrm-access-control.md)
 

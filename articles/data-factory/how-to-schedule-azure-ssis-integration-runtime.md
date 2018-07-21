@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050608"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113995"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Come avviare e arrestare il runtime di integrazione Azure SSIS in base a una pianificazione
 Questo articolo descrive come pianificare l'avvio e l'arresto di un runtime di integrazione SSIS di Azure usando Automazione di Azure e Azure Data Factory. Eseguire un runtime di integrazione SSIS (SQL Server Integration Services) di Azure ha un costo. Di conseguenza, in genere è opportuno eseguire il runtime di integrazione solo quando si devono eseguire pacchetti SSIS in Azure e arrestarlo quando non è necessario. Per [avviare o arrestare manualmente un runtime di integrazione SSIS di Azure](manage-azure-ssis-integration-runtime.md), è possibile usare l'interfaccia utente di Data Factory o Azure PowerShell.
@@ -34,7 +34,7 @@ Di seguito sono riportate le procedure generali descritte in questo articolo:
 3. **Creare due webhook per il runbook**, uno per l'operazione START e l'altro per l'operazione STOP. Gli URL di questi webhook vengono usati quando si configurano attività Web in una pipeline di Data Factory. 
 4. **Creare una pipeline di Data Factory**. La pipeline che si crea è costituita da tre attività. La prima attività **Web** richiama il primo webhook per l'avvio del runtime di integrazione SSIS di Azure. L'attività **Stored procedure** esegue uno script SQL per eseguire il pacchetto SSIS. La seconda attività **Web** arresta il runtime di integrazione SSIS di Azure. Per altre informazioni sulla chiamata di un pacchetto SSIS da una pipeline di Data Factory usando l'attività Stored procedure, vedere [Chiamare un pacchetto SSIS](how-to-invoke-ssis-package-stored-procedure-activity.md). Successivamente, è necessario creare un trigger per pianificare l'esecuzione della pipeline con una frequenza specificata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Se non è stato ancora eseguito il provisioning di un runtime di integrazione SSIS di Azure, eseguire questa operazione seguendo le istruzioni visualizzate nell'[esercitazione](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-test-an-azure-automation-runbook"></a>Creare e testare un runbook di Automazione di Azure
@@ -60,7 +60,7 @@ Se non si ha un account di Automazione di Azure, crearne uno seguendo le istruzi
     4. Selezionare una **località** per l'account di Automazione. 
     5. Verificare che **Crea un account RunAs di Azure** sia impostato su **Sì**. In Azure Active Directory viene creata un'entità servizio e aggiunta al ruolo **Collaboratore** della sottoscrizione di Azure.
     6. Selezionare **Aggiungi al dashboard** in modo da visualizzare l'entità nel dashboard del portale. 
-    7. Selezionare **Create**. 
+    7. Selezionare **Crea**. 
 
         ![Nuovo -> Monitoraggio e gestione -> Automazione](./media/how-to-schedule-azure-ssis-integration-runtime/add-automation-account-window.png)
 3. Lo **stato della distribuzione** verrà visualizzato nel dashboard e nelle notifiche. 
@@ -94,7 +94,7 @@ La procedura seguente descrive le operazioni necessarie per creare un runbook Po
 
     1. In **Nome** digitare **StartStopAzureSsisRuntime**.
     2. In **Tipo di runbook** selezionare **PowerShell**.
-    3. Selezionare **Create**.
+    3. Selezionare **Crea**.
     
         ![Pulsante Aggiungi runbook](./media/how-to-schedule-azure-ssis-integration-runtime/add-runbook-window.png)
 3. Copiare e incollare lo script seguente nella finestra di script del runbook. Salvare e pubblicare il runbook usando i pulsanti **Salva** e **Pubblica** sulla barra degli strumenti. 
@@ -186,7 +186,7 @@ Nella sezione precedente è stato creato un runbook di Automazione di Azure capa
     4. Nella sezione **Inizia**, relativa alla data e all'ora, specificare un valore di pochi minuti successivo alla data e all'ora correnti. 
     5. In **Ricorrenza** selezionare **Ricorrente**. 
     6. Nella sezione **Ricorre ogni** selezionare **Giorno**. 
-    7. Selezionare **Create**. 
+    7. Selezionare **Crea**. 
 
         ![Pianificazione per l'avvio del runtime di integrazione SSIS di Azure](./media/how-to-schedule-azure-ssis-integration-runtime/new-schedule-start.png)
 3. Passare alla scheda **Parametri e impostazioni di esecuzione**. Specificare il nome del gruppo di risorse, il nome della data factory e il nome del runtime di integrazione SSIS di Azure. In **OPERATION** immettere **START**. Selezionare **OK**. Selezionare nuovamente **OK** per visualizzare la pianificazione nella pagina **Pianificazioni** del runbook. 
@@ -230,7 +230,7 @@ La pipeline che si crea è costituita da tre attività.
 
 Dopo aver creato e testato la pipeline, è necessario creare un trigger di pianificazione e associarlo alla pipeline. Questo trigger definisce una pianificazione per la pipeline. Si supponga di creare un trigger la cui esecuzione è pianificata ogni giorno alle 23. Il trigger esegue la pipeline ogni giorno alle 23. La pipeline avvia il runtime di integrazione SSIS di Azure, esegue il pacchetto SSIS e quindi arresta il runtime. 
 
-### <a name="create-a-data-factory"></a>Creare un'istanza di Data factory
+### <a name="create-a-data-factory"></a>Creare una data factory
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).    
 2. Scegliere **Nuovo** dal menu a sinistra, fare clic su **Dati e analisi** e quindi fare clic su **Data factory**. 
@@ -249,8 +249,8 @@ Dopo aver creato e testato la pipeline, è necessario creare un trigger di piani
       - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
       - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-      Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Selezionare **V2** per la **versione**.
+      Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Crea**.
@@ -373,15 +373,40 @@ Ora che la pipeline funziona come previsto, è possibile creare un trigger per l
 5. Pubblicare la soluzione in Data Factory facendo clic su **Pubblica tutti** nel riquadro a sinistra. 
 
     ![Pubblica tutti](./media/how-to-schedule-azure-ssis-integration-runtime/publish-all.png)
-6. Per monitorare le esecuzioni di trigger e pipeline, usare la scheda **Monitoraggio** a sinistra. Per informazioni dettagliate sulla procedura, vedere [Monitorare la pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
+
+### <a name="monitor-the-pipeline-and-trigger-in-the-azure-portal"></a>Monitorare la pipeline e il trigger nel portale di Azure
+
+1. Per monitorare le esecuzioni di trigger e pipeline, usare la scheda **Monitoraggio** a sinistra. Per informazioni dettagliate sulla procedura, vedere [Monitorare la pipeline](quickstart-create-data-factory-portal.md#monitor-the-pipeline).
 
     ![Esecuzioni di pipeline](./media/how-to-schedule-azure-ssis-integration-runtime/pipeline-runs.png)
-7. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verranno visualizzate le tre esecuzioni di attività associate a ogni attività della pipeline (prima attività Web, attività Stored procedure e seconda attività Web). Per visualizzare nuovamente le esecuzioni di pipeline, fare clic sul collegamento **Pipeline** in alto.
+2. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, fare clic sul primo collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verranno visualizzate le tre esecuzioni di attività associate a ogni attività della pipeline (prima attività Web, attività Stored procedure e seconda attività Web). Per visualizzare nuovamente le esecuzioni di pipeline, fare clic sul collegamento **Pipeline** in alto.
 
     ![Esecuzioni attività](./media/how-to-schedule-azure-ssis-integration-runtime/activity-runs.png)
-8. È anche possibile visualizzare le esecuzioni di trigger selezionando **Trigger runs** (Esecuzioni di trigger) nell'elenco a discesa accanto all'opzione **Pipeline Runs** (Esecuzioni di pipeline) in alto. 
+3. È anche possibile visualizzare le esecuzioni di trigger selezionando **Trigger runs** (Esecuzioni di trigger) nell'elenco a discesa accanto all'opzione **Pipeline Runs** (Esecuzioni di pipeline) in alto. 
 
     ![Esecuzioni di trigger](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
+
+### <a name="monitor-the-pipeline-and-trigger-with-powershell"></a>Monitorare la pipeline e il trigger con PowerShell
+
+Usare gli script, come negli esempi seguenti per monitorare la pipeline e il trigger.
+
+1. Visualizzare lo stato di esecuzione di una pipeline.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $myPipelineRun
+  ```
+
+2. Ottenere informazioni relative al trigger.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name  "myTrigger"
+  ```
+
+3. Visualizzare lo stato di esecuzione di un trigger.
+
+  ```powershell
+  Get-AzureRmDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "myTrigger" -TriggerRunStartedAfter "2018-07-15" -TriggerRunStartedBefore "2018-07-16"
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere il post di blog seguente:

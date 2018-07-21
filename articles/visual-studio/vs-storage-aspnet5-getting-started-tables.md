@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: e53e8ed27cfc048f24bda4ef92fcd2a50a85ed07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb2e04d788bce2d3a5f6bc46632b9ae18b6467f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794117"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112917"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
 
@@ -36,49 +36,51 @@ Per accedere alle tabelle nei progetti ASP.NET Core, è necessario includere gli
 
 1. Aggiungere le necessarie istruzioni `using`:
 
-    ```cs
-    using Microsoft.Framework.Configuration;
+    ```csharp
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Table;
     using System.Threading.Tasks;
-    using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Ottenere un oggetto `CloudStorageAccount` che rappresenta le informazioni sull'account di archiviazione. Usare il codice seguente per ottenere la stringa di connessione di archiviazione e le informazioni sull'account di archiviazione dalla configurazione del servizio di Azure:
+1. Ottenere un oggetto `CloudStorageAccount` che rappresenta le informazioni sull'account di archiviazione. Utilizzare il codice seguente, usando il nome dell'account di archiviazione e la chiave dell'account, che si trovano nella stringa di connessione di archiviazione in appSettings.json:
 
-    ```cs
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+        CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+                "<name>", "<account-key>"), true);
     ```
 
 1. Ottenere un oggetto `CloudTableClient` per fare riferimento agli oggetti delle tabelle nell'account di archiviazione:
 
-    ```cs
+    ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
 1. Ottenere un oggetto `CloudTable` per fare riferimento a una tabelle specifica e alle relative entità:
 
-    ```cs
+    ```csharp
     // Get a reference to a table named "peopleTable"
     CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## <a name="create-a-table-in-code"></a>Creazione di una tabella in codice
 
-Per creare la tabella di Azure, chiamare ``CreateIfNotExistsAsync()`:
+Per creare la tabella di Azure, creare un metodo asincrono e all'interno di esso, chiamare `CreateIfNotExistsAsync()`:
 
-```cs
-// Create the CloudTable if it does not exist
-await peopleTable.CreateIfNotExistsAsync();
+```csharp
+async void CreatePeopleTableAsync()
+{
+    // Create the CloudTable if it does not exist
+    await peopleTable.CreateIfNotExistsAsync();
+}
 ```
-
+    
 ## <a name="add-an-entity-to-a-table"></a>Aggiungere un'entità a una tabella
 
 Per aggiungere un'entità a una tabella, creare una classe che definisca le proprietà dell'entità. Il codice seguente definisce una classe di entità denominata `CustomerEntity` che utilizza il nome e il cognome del cliente rispettivamente come chiave di riga e chiave di partizione.
 
-```cs
+```csharp
 public class CustomerEntity : TableEntity
 {
     public CustomerEntity(string lastName, string firstName)
@@ -97,7 +99,7 @@ public class CustomerEntity : TableEntity
 
 Per eseguire operazioni su tabelle che interessano le entità, viene usato l'oggetto `CloudTable`creato in precedenza nella sezione [Accesso alle tabelle nel codice](#access-tables-in-code). L'oggetto `TableOperation` rappresenta l'operazione da eseguire. L'esempio di codice seguente mostra come creare un oggetto `CloudTable` e un oggetto `CustomerEntity`. Per preparare l'operazione, viene creato un oggetto `TableOperation` per inserire l'entità customer nella tabella. Infine, per eseguire l'operazione viene chiamato `CloudTable.ExecuteAsync`.
 
-```cs
+```csharp
 // Create a new customer entity.
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
@@ -114,7 +116,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 È possibile inserire più entità in una tabella in una singola operazione di scrittura. L'esempio di codice seguente crea due oggetti entità ("Jeff Smith" e "Ben Smith"), li aggiunge a un oggetto `TableBatchOperation` usando il metodo `Insert` e quindi avvia l'operazione chiamando `CloudTable.ExecuteBatchAsync`.
 
-```cs
+```csharp
 // Create the batch operation.
 TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -140,7 +142,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 Per eseguire una query su una tabella e recuperare tutte le entità di una partizione, usare un oggetto `TableQuery`. Nell'esempio di codice seguente viene specificato un filtro per le entità in cui la chiave di partizione è 'Smith'. Questo esempio consente di stampare sulla console i campi di ogni entità inclusa nei risultati della query.
 
-```cs
+```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
@@ -163,7 +165,7 @@ do
 
 È possibile scrivere una query per ottenere una singola entità specifica. Il codice seguente usa un oggetto `TableOperation` per specificare un cliente denominato 'Ben Smith'. Questa procedura restituisce una sola entità anziché una raccolta e il valore restituito in `TableResult.Result` è un oggetto `CustomerEntity`. Il modo più rapido per recuperare una singola entità dal servizio `Table` è quello di specificare in una query sia la chiave di partizione che quella di riga.
 
-```cs
+```csharp
 // Create a retrieve operation that takes a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -181,12 +183,12 @@ else
 
 È possibile eliminare un'entità dopo averla individuata. Il codice seguente cerca ed elimina un'entità customer denominata "Ben Smith":
 
-```cs
+```csharp
 // Create a retrieve operation that expects a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
 // Execute the operation.
-TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
+TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 
 // Assign the result to a CustomerEntity object.
 CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;

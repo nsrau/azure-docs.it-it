@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750083"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113029"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Strumento What If per l'accesso condizionale di Azure Active Directory
 
@@ -50,6 +50,10 @@ Come passaggio successivo, è possibile avviare una simulazione per valutare le 
 
 
 Al termine della valutazione, lo strumento genera un report dei criteri interessati.
+
+
+> [!NOTE]
+> Attualmente, lo strumento What If non supporta i gruppi nidificati. Se un utente fa parte di un gruppo e tale gruppo è membro di un altro gruppo che viene usato in un criterio di accesso condizionale, lo strumento What if non consente la corretta visualizzazione dell'effetto di tale criterio rispetto all'utente. 
 
 
 ## <a name="running-the-tool"></a>Esecuzione dello strumento

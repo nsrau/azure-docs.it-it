@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645498"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092529"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
 
@@ -207,5 +207,5 @@ I seguenti errori non rientrano nelle categorie precedenti.
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulle [funzionalità di database SQL di Azure](sql-database-features.md).
 * Altre informazioni sul [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md).
-* Altre informazioni sul [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
+* Altre informazioni sul [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309334"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091605"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -59,8 +59,9 @@ Se si prevede di distribuire più istanze gestite all'interno della subnet ed è
 
 - Cinque indirizzi IP nella subnet sono dedicati ad Azure 
 - Ogni istanza per utilizzo generico necessita di due indirizzi 
+- Ogni istanza business critical richiede quattro indirizzi
 
-**Esempio**: si prevede di distribuire otto istanze gestite. Questo significa che sono necessari 5 + 8 * 2 = 21 indirizzi IP. Poiché gli intervalli IP sono definiti in potenza di 2, è necessario l'intervallo IP di 32 (2^5) indirizzi IP. Pertanto è necessario riservare la subnet con subnet mask /27. 
+**Esempio**: si prevede di avere tre istanze gestite di utilizzo generico e due di business critical. Questo significa che sono necessari 5 + 3 * 2 + 2 * 4 = 19 indirizzi IP. Poiché gli intervalli IP sono definiti in potenza di 2, è necessario l'intervallo IP di 32 (2^5) indirizzi IP. Pertanto è necessario riservare la subnet con subnet mask /27. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>Creare una nuova rete virtuale per le istanze gestite 
 

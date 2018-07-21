@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446878"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092011"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server 
 
@@ -267,7 +267,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di
 
 ### <a name="replication"></a>Replica 
  
-La replica non è ancora supportata. Per informazioni sulla replica, vedere [Replica di SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication).
+La replica è supportata in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Istruzione RESTORE 
  
@@ -371,11 +371,11 @@ Per informazioni su SQL Server Agent, vedere [SQL Server Agent](https://docs.mic
 Le tabelle seguenti non sono supportate: 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 Per informazioni sulla creazione e la modifica di tabelle, vedere [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) e [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
- 
+
 ## <a name="Changes"></a> Modifiche nel comportamento 
  
 Le variabili, funzioni e viste seguenti restituiscono risultati diversi:  

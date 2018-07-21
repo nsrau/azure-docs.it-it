@@ -4,21 +4,21 @@ description: Informazioni su come monitorare diversi tipi di runtime di integraz
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045246"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113258"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitoraggio di un runtime di integrazione in Azure Data Factory  
 Il **runtime di integrazione** è l'infrastruttura di calcolo usata da Azure Data Factory per fornire varie funzionalità di integrazione di dati in diversi ambienti di rete. Esistono tre tipi di runtime di integrazione offerti da Data Factory:
@@ -192,6 +192,24 @@ Il runtime di integrazione Azure-SSIS è un cluster completamente gestito di mac
 | Started | I nodi del runtime di integrazione SSIS di Azure sono stati allocati/preparati e sono pronti per poter distribuire o eseguire pacchetti SSIS. |
 | Stopping  | I nodi del runtime di integrazione SSIS di Azure vengono rilasciati. |
 | Arrestato | L’allocazione/preparazione dei nodi del runtime di integrazione SSIS di Azure è stata eseguita e la fatturazione è stata avviata. |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorare il runtime di integrazione SSIS di Azure nel portale di Azure
+
+Le schermate seguenti illustrano come selezionare il runtime di integrazione SSIS di Azure per monitorare e fornire un esempio delle informazioni visualizzate.
+
+![Selezionare il runtime di integrazione SSIS di Azure da monitorare](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Vedere le informazioni sul runtime di integrazione SSIS di Azure](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>Monitorare il runtime di integrazione SSIS di Azure con PowerShell
+
+Usare uno script simile a quello dell'esempio seguente per verificare lo stato del runtime di integrazione SSIS di Azure.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Altre informazioni sul runtime di integrazione di Azure-SSIS
 
 Vedere gli articoli seguenti per ulteriori informazioni sul runtime di integrazione SSIS di Azure:
 

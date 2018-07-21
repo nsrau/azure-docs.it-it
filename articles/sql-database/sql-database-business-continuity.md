@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084961"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092291"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -38,7 +38,7 @@ La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di ser
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Usare il ripristino temporizzato per recuperare un database
 
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Se si usa il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), questi backup vengono archiviati nel servizio di archiviazione RA-GRS per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-single-database-scale.md). Se si usa il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup è configurabile fino a 35 giorni nei livelli di servizio Utilizzo generico e Business critical (anteprima). I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
+Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. Se si usa il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), questi backup vengono archiviati nel servizio di archiviazione RA-GRS per 35 giorni per i database dei livelli di servizio Standard e Premium e per 7 giorni per il database del livello Basic. Se il periodo di memorizzazione per il livello di servizio non soddisfa i requisiti aziendali, è possibile aumentare il periodo di memorizzazione [modificando il livello di servizio](sql-database-single-database-scale.md). Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup è configurabile fino a 35 giorni nei livelli di servizio utilizzo generico e business critical. I backup completi e differenziali del database vengono replicati anche su un [data center abbinato](../best-practices-availability-paired-regions.md) per la protezione da un'interruzione del data center. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md).
 
 Se il periodo di conservazione massimo point-in-time restore supportato del ripristino temporizzato non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [i backup automatizzati](sql-database-automated-backups.md) e [conservazione backup a lungo termine](sql-database-long-term-retention.md).
 
@@ -57,19 +57,19 @@ Usare i backup automatici come meccanismo di continuità e ripristino aziendale,
 
 Se è necessario un ripristino più veloce, usare la [Replica geografica attiva](sql-database-geo-replication-overview.md) (più avanti). Se è necessario essere in grado di ripristinare i dati da un periodo antecedente a 35 giorni, usare la [conservazione a lungo termine](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usare la replica geografica attiva e i gruppi di failover automatico (in anteprima) per ridurre il tempo di recupero e limitare la perdita di dati associata a un ripristino
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Usare la replica geografica attiva e i gruppi di failover automatico per ridurre il tempo di recupero e limitare la perdita di dati associata a un ripristino
 
 Oltre a usare i backup del database per il ripristino del database se si verifica un'interruzione aziendale, è possibile usare la [replica geografica attiva](sql-database-geo-replication-overview.md) per configurare un database in modo da avere fino a 4 database secondari leggibili nelle aree scelte. Questi database secondari vengono mantenuti sincronizzati con il database primario tramite un meccanismo di replica asincrona. Questa funzionalità viene usata per la protezione da interruzioni delle attività aziendali se si verifica un'interruzione del data center o durante un aggiornamento dell'applicazione. La replica geografica attiva può anche essere usata per offrire agli utenti situati in aree geografiche diverse prestazioni migliori per le query di sola lettura.
 
-Per abilitare il failover automatico e trasparente è necessario organizzare i database replicati geograficamente in gruppi tramite la funzionalità [auto-failover group](sql-database-geo-replication-overview.md) del database SQL (in anteprima).
+Per abilitare il failover automatico e trasparente è necessario organizzare i database replicati geograficamente in gruppi tramite la funzionalità [gruppo con failover automatico](sql-database-geo-replication-overview.md) del database SQL.
 
-Se il database primario viene portato offline in modo imprevisto o è necessario portarlo online per attività di manutenzione, è possibile convertire rapidamente un database secondario perché diventi il database primario (detto anche failover) e configurare le applicazioni per la connessione al database primario alzato di livello. Se l'applicazione si connette ai database tramite il listener del gruppo di failover, non è necessario modificare la configurazione della stringa di connessione SQL dopo il failover. Con un failover pianificato, non si verificano perdite di dati. Con un failover non pianificato, potrebbero verificarsi piccole perdite di dati per le transazioni molto recenti a causa della natura di replica asincrona. Con l'uso di gruppi con failover automatico (in anteprima), è possibile personalizzare i criteri di failover per ridurre al minimo la perdita di dati. Dopo un failover, è possibile eseguire un failback sulla base di un piano o del momento in cui il data center ritorna online. In tutti i casi, gli utenti riscontrano un breve tempo di inattività e devono eseguire nuovamente la connessione.
+Se il database primario viene portato offline in modo imprevisto o è necessario portarlo online per attività di manutenzione, è possibile convertire rapidamente un database secondario perché diventi il database primario (detto anche failover) e configurare le applicazioni per la connessione al database primario alzato di livello. Se l'applicazione si connette ai database tramite il listener del gruppo di failover, non è necessario modificare la configurazione della stringa di connessione SQL dopo il failover. Con un failover pianificato, non si verificano perdite di dati. Con un failover non pianificato, potrebbero verificarsi piccole perdite di dati per le transazioni molto recenti a causa della natura di replica asincrona. Con l'uso di gruppi con failover automatico, è possibile personalizzare i criteri di failover per ridurre al minimo la perdita di dati. Dopo un failover, è possibile eseguire un failback sulla base di un piano o del momento in cui il data center ritorna online. In tutti i casi, gli utenti riscontrano un breve tempo di inattività e devono eseguire nuovamente la connessione.
 
 > [!IMPORTANT]
-> Per usare la replica geografica attiva e i gruppi di failover automatico (in anteprima), è necessario essere il proprietario della sottoscrizione o disporre delle autorizzazioni di amministrazione in SQL Server. È possibile configurare ed eseguire il failover tramite il portale di Azure, PowerShell o l'API REST usando le autorizzazioni della sottoscrizione o usando Transact-SQL con le autorizzazioni di SQL Server.
+> Per usare la replica geografica attiva e i gruppi di failover automatico, è necessario essere il proprietario della sottoscrizione o disporre delle autorizzazioni di amministrazione in SQL Server. È possibile configurare ed eseguire il failover tramite il portale di Azure, PowerShell o l'API REST usando le autorizzazioni della sottoscrizione o usando Transact-SQL con le autorizzazioni di SQL Server.
 > 
 
-Usare la replica geografica attiva e i gruppi con failover automatico (in anteprima) se l'applicazione soddisfa qualcuno dei criteri seguenti:
+Usare la replica geografica attiva e i gruppi con failover automatico se l'applicazione soddisfa qualsiasi tra i criteri seguenti:
 
 * È considerata cruciale.
 * Ha un contratto di servizio che non consente più di 24 ore di inattività.
@@ -126,7 +126,7 @@ Indipendentemente dalla funzionalità di continuità aziendale in uso, è necess
 Se non ci si prepara adeguatamente al ripristino, riportare online le applicazioni dopo un failover o un ripristino del database richiederà ulteriore tempo e probabilmente la risoluzione di problemi aggiuntivi in un momento di stress: una combinazione da evitare.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Failover a un database secondario con replica geografica
-Se si usa la replica geografica attiva e i gruppi con failover automatico (in anteprima) come meccanismo di ripristino, è possibile configurare i criteri di failover automatico o usare il [failover manuale](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se si usa la replica geografica attiva e i gruppi con failover automatico come meccanismo di ripristino, è possibile configurare i criteri di failover automatico o usare il [failover manuale](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Una volta avviato, il failover fa sì che il database secondario venga alzato di livello come nuovo database primario e sia pronto per registrare nuove transazioni e rispondere a tutte le query, con una perdita di dati minima per i dati non ancora replicati. Per informazioni su come progettare il processo di failover, vedere [Progettare un'applicazione per il ripristino di emergenza cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando il data center ritorna in linea, i database primari precedenti si ricollegano automaticamente al nuovo database primario e diventano database secondari. Se si desidera spostare di nuovo il database primario nell'area originale è possibile avviare manualmente un failover pianificato (failback). 

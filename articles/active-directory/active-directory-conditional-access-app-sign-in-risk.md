@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449147"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113377"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Guida introduttiva: bloccare l'accesso quando viene rilevato un rischio per la sessione con l'accesso condizionale di Azure Active Directory  
 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 Per completare lo scenario in questa esercitazione, sono necessari gli elementi seguenti:
 
@@ -62,7 +62,7 @@ L'obiettivo di questo passaggio è assicurarsi che l'account di test possa acced
 
 ## <a name="create-your-conditional-access-policy"></a>Creare i criteri di accesso condizionale 
 
-Lo scenario di questa guida introduttiva sfrutta un accesso da un Tor Browser per generare un evento di rischio rilevato da **accessi provenienti da indirizzi IP anonimi**. Il livello di rischio di questo evento di rischio è medio.   
+Lo scenario di questa guida introduttiva sfrutta un accesso da un Tor Browser per generare un evento di rischio rilevato da **accessi provenienti da indirizzi IP anonimi**. Il livello di rischio di questo evento di rischio è medio. Per rispondere a questo evento di rischio, impostare la condizione di rischio di accesso su medio. In un ambiente di produzione, è necessario impostare la condizione di rischio di accesso sia su elevato sia su medio ed elevato.     
 
 Questa sezione illustra come creare i criteri di accesso condizionale necessari. Nei criteri, impostare:
 
@@ -70,10 +70,11 @@ Questa sezione illustra come creare i criteri di accesso condizionale necessari.
 |---     | --- |
 | Utenti e gruppi | Alain Charon  |
 | App cloud | Tutte le app cloud |
+| Rischio di accesso | Media |
 | Concessione | Blocca accesso |
  
 
-![Crea criteri](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![Crea criteri](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -125,6 +126,26 @@ Questa sezione illustra come creare i criteri di accesso condizionale necessari.
     a. Fare clic su **Tutte le app cloud**.
 
     b. Fare clic su **Done**.
+
+10. Fare clic su **Condizioni**. 
+
+    ![Controlli di accesso](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. Nella pagina **Condizioni**:
+
+    ![Livello di rischio di un accesso](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. Fare clic su **Rischio di accesso**.
+ 
+    b. In **Configura** fare clic su **Sì**.
+
+    c. Selezionare **Medio** come livello di rischio di accesso.
+
+    d. Fare clic su **Seleziona**.
+
+    e. Nella pagina **Condizioni** fare clic su **Fatto**.
+
+
 
 10. Nella sezione **Controlli di accesso** fare clic su **Concedi**.
 

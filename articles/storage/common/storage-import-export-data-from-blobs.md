@@ -2,29 +2,36 @@
 title: Uso di Importazione/Esportazione di Azure per esportare dati da BLOB di Azure | Microsoft Docs
 description: Informazioni su come creare processi di esportazione nel portale di Azure per trasferire dati da BLOB di Azure.
 author: alkohli
-manager: jeconnoc
+manager: twooley
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: eb41708c7446b3139758678c9247ffbb11da8b40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eb714086a0142d9780bd018d77dc880a430f240e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969266"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113759"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di creare un processo di esportazione per trasferire dati da Archiviazione BLOB di Azure, esaminare attentamente e soddisfare l'elenco seguente di prerequisiti per questo servizio. È necessario:
 
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
+- Avere un account FedEx o DHL.  
+    - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
+    - Generare un numero di tracciabilità per il processo di esportazione.
+    - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati. 
+    - Se non si dispone di un account del vettore, passare a:
+        - [Creare un account FedEX](https://www.fedex.com/en-us/create-account.html), o 
+        - [Creare un account DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passaggio 1: Creare un processo di esportazione
 
@@ -52,7 +59,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     
 3. In **Dettagli processo**:
 
-    - Selezionare l'account di archiviazione in cui si trovano i dati da esportare. 
+    - Selezionare l'account di archiviazione in cui si trovano i dati da esportare. Usare un account di archiviazione vicino rispetto a dove ci si trova.
     - La località di consegna viene immessa automaticamente in base all'area dell'account di archiviazione selezionato. 
     - Specificare i dati BLOB da esportare dall'account di archiviazione in una o più unità vuote. 
     - Scegliere **Esporta tutti** per i dati BLOB nell'account di archiviazione.
@@ -78,11 +85,18 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
     - Selezionare il vettore nell'elenco a discesa.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. 
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
+
+        > [!TIP] 
+        > Anziché specificare un indirizzo di posta elettronica per un singolo utente, fornire un indirizzo di posta elettronica di gruppo. Ciò garantisce la ricezione di notifiche anche se non c'è più un amministratore.
    
 5. In **Riepilogo**:
 
     - Esaminare i dettagli del processo.
-    - Notare il nome del processo e le informazioni sul mittente della spedizione per spedire i dischi ad Azure. 
+    - Annotare il nome del processo e le informazioni sul mittente della spedizione per spedire i dischi ad Azure. 
+
+        > [!NOTE] 
+        > Inviare sempre i dischi al data center indicato nel portale di Azure. Se i dischi vengono spediti al data center errato, non verrà elaborato il processo.
+
     - Fare clic su **OK** per completare la creazione del processo di esportazione.
 
 ## <a name="step-2-ship-the-drives"></a>Passaggio 2: Spedire le unità

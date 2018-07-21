@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060518"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090963"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -27,7 +27,7 @@ Azure Batch consente di eseguire e ridimensionare numerosi processi di batch com
 
 L'uso dei contenitori consente di eseguire le attività Batch in modo semplice senza dover gestire un ambiente e le dipendenze per eseguire le applicazioni. I contenitori distribuiscono le applicazioni come unità leggere, portatili e autosufficienti che possono essere eseguite in più ambienti diversi. Ad esempio, è possibile compilare e testare in locale un contenitore, quindi caricare l'immagine del contenitore in un registro di Azure o altrove. Il modello di distribuzione del contenitore assicura che l'ambiente di runtime dell'applicazione venga sempre installato e configurato correttamente, ovunque si ospiti l'applicazione. Le attività basate sul contenitore in Batch traggono vantaggio anche dalle funzionalità di attività non del contenitore, inclusi i pacchetti dell'applicazione e la gestione dei file di risorse e di output. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Versioni di SDK**: gli SDK di Batch supportano le immagini del contenitore nelle versioni seguenti:
     * API REST di Batch, versione: 2017-09-01.6.0
@@ -42,7 +42,9 @@ L'uso dei contenitori consente di eseguire le attività Batch in modo semplice s
 
 ### <a name="limitations"></a>Limitazioni
 
-* Batch offre supporto RDMA solo per i contenitori in esecuzione nei pool di Linux.
+* Batch offre supporto RDMA solo per i contenitori in esecuzione nei pool di Linux
+
+* Per i carichi di lavoro di contenitori Windows, è consigliabile scegliere una dimensione di macchina virtuale multicore per il pool
 
 ## <a name="supported-virtual-machine-images"></a>Immagini di macchine virtuali supportate
 

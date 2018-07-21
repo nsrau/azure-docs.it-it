@@ -1,5 +1,5 @@
 ---
-title: Confronto tra il database SQL (PaaS) e SQL Server nel cloud in VM (IaaS) | Microsoft Docs
+title: Confronto tra il database SQL (PaaS) e SQL Server nel cloud in VM (IaaS) | Documentazione Microsoft
 description: Informazioni su come trovare l'opzione di SQL Server cloud ottimale per l'applicazione, ovvero database SQL di Azure (PaaS) o SQL Server nel cloud su macchine virtuali di Azure.
 services: sql-database, virtual-machines
 keywords: SQL Server cloud, SQL Server nel cloud, database PaaS, cloud SQL Server, DBaaS
@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114402"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091865"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Scegliere un'opzione di SQL Server cloud: database SQL di Azure (PaaS) o SQL Server in VM di Azure (IaaS)
 
@@ -76,7 +76,7 @@ Una startup con pochi fondi o un team di un'azienda consolidata con vincoli di b
 
 #### <a name="billing-and-licensing-basics"></a>Nozioni di base su fatturazione e licenze
 
-Attualmente il **database SQL** viene venduto come servizio ed è disponibile in livelli di servizio differenti con prezzi diversi per le risorse, la cui fatturazione viene applicata su base oraria a una tariffa fissa, a seconda dei livelli di servizio e delle prestazioni scelti. Con Istanza gestita di database SQL di Azure, è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. È possibile modificare in modo dinamico i livelli di servizio e delle prestazioni per soddisfare le diverse esigenze di velocità effettiva dell'applicazione. Per le informazioni più aggiornate sui livelli di servizio attualmente supportati, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). È anche possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse tra le istanze del database per ridurre i costi e far fronte ai picchi di utilizzo.
+Attualmente il **database SQL** viene venduto come servizio ed è disponibile in livelli di servizio differenti con prezzi diversi per le risorse, la cui fatturazione viene applicata su base oraria a una tariffa fissa, a seconda dei livelli di servizio e delle prestazioni scelti. Con Istanza gestita di database SQL di Azure, è anche possibile scegliere l'opzione Bring Your Own License (BYOL). Per altre informazioni sulla funzionalità Bring Your Own License, vedere [Mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/). Viene inoltre fatturato il traffico Internet in uscita a una [velocità di trasferimento dati](https://azure.microsoft.com/pricing/details/data-transfers/)normale. È possibile modificare in modo dinamico i livelli di servizio e delle prestazioni per soddisfare le diverse esigenze di velocità effettiva dell'applicazione. Per le informazioni più aggiornate sui livelli di servizio attualmente supportati, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). È anche possibile creare [pool elastici](sql-database-elastic-pool.md) per condividere le risorse tra le istanze del database per ridurre i costi e far fronte ai picchi di utilizzo.
 
 Con il **database SQL**, Microsoft configura automaticamente il software del database, applica le patch ed esegue l'aggiornamento, riducendo quindi i costi amministrativi. Le funzionalità di [backup predefinite](sql-database-automated-backups.md) consentono anche di ottenere una significativa riduzione dei costi, specialmente per un numero elevato di database. 
 

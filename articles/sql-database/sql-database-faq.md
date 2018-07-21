@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309130"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092070"
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -24,9 +24,9 @@ La versione corrente del database SQL è V12. La versione V11 è stata ritirata.
 ## <a name="what-is-the-sla-for-sql-database"></a>Qual è il contratto di servizio per il database SQL?
 Microsoft garantisce che per almeno il 99,99% del tempo il cliente disponga della connettività tra il database SQL di Microsoft Azure e il gateway Internet, indipendentemente dal livello di servizio. Per altre informazioni, vedere [Contratto di servizio](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore (anteprima) per il database SQL di Azure?
+## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Qual è il nuovo modello di acquisto basato su vCore per il database SQL di Azure?
 
-Il nuovo modello di acquisto va ad aggiungersi al modello esistente basato su DTU. Il modello basato su vCore è stato creato per garantire ai clienti flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali nel cloud. Il modello consente ai clienti di ridimensionare le risorse di calcolo e di archiviazione in base alle esigenze dei carichi di lavoro. Le opzioni con database singolo e pool elastico che usano il modello vCore possono inoltre usufruire di un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). 
+Il nuovo modello di acquisto va ad aggiungersi al modello esistente basato su DTU. Il modello basato su vCore è stato creato per garantire ai clienti flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali nel cloud. Il modello consente ai clienti di ridimensionare le risorse di calcolo e di archiviazione in base alle esigenze dei carichi di lavoro. Le opzioni con database singolo e pool elastico che usano il modello vCore possono inoltre usufruire di un risparmio fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). 
 
 ## <a name="what-is-a-vcore"></a>Che cos'è un vCore? 
 Un vCore, o memoria centrale virtuale, rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Le CPU logiche di quarta generazione sono basate su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz e le CPU logiche di quinta generazione sono basate su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz.
@@ -38,11 +38,11 @@ In molti casi le applicazioni possono sfruttare la semplicità di un bundle di r
 
 I modelli basati su vCore e DTU continueranno a coesistere. Microsoft sta introducendo il modello basato su vCore in risposta alle richieste dei clienti per una maggiore trasparenza relativa alle risorse del database e per la possibilità di ridimensionare in modo separato le risorse di calcolo e archiviazione. Il modello basato su vCore consente anche risparmi aggiuntivi per i clienti con licenza Software Assurance attiva tramite il Vantaggio Azure Hybrid per SQL Server.
 
-## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>In base a quali criteri scegliere tra il modello di acquisto basato su DTU e quello basato su vCore (anteprima)? 
+## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>In base a quali criteri scegliere tra il modello di acquisto basato su DTU e quello basato su vCore? 
 La DTU (Database Transaction Unit) è basata su una misura combinata di CPU, memoria, operazioni di lettura e operazioni di scrittura. I livelli di prestazioni basati su DTU rappresentano bundle preconfigurati di risorse per ottenere diversi livelli di prestazioni delle applicazioni. Il modello basato su DTU può essere più adatto alle esigenze dei clienti che non vogliono occuparsi delle risorse sottostanti e preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile. Per i clienti a cui invece servono informazioni dettagliate aggiuntive sulle risorse sottostanti o che devono ridimensionarle in modo indipendente per ottenere prestazioni ottimali, il modello basato su vCore sarà la scelta ideale.  I clienti con una licenza Software Assurance attiva per SQL Server possono inoltre sfruttare i vantaggi dei loro investimenti esistenti e risparmiare fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Le opzioni presenti in ciascun modello di acquisto offrono i vantaggi di un servizio completamente gestito, come i backup automatizzati, gli aggiornamenti software e le patch. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Che cos'è il Vantaggio Azure Hybrid per SQL Server? 
-Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) consente di massimizzare il valore degli investimenti correnti per la licenza e accelerare la migrazione nel cloud. Il Vantaggio Azure Hybrid per SQL Server è un vantaggio basato su Azure che consente di usare le licenze di SQL Server con Software Assurance per pagare una tariffa ridotta ("tariffa di base") per il database SQL. Il Vantaggio Azure Hybrid per SQL Server è disponibile come anteprima pubblica del modello di acquisto basato su vCore (anteprima) per i pool elastici e i database singoli del database SQL. È possibile applicare questo vantaggio anche se lo SKU è attivo, ma è opportuno notare che la tariffa di base viene applicata a partire dal momento della selezione nel portale di Azure. Non verranno rilasciati crediti retroattivamente.
+Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) consente di massimizzare il valore degli investimenti correnti per la licenza e accelerare la migrazione nel cloud. Il Vantaggio Azure Hybrid per SQL Server è un vantaggio basato su Azure che consente di usare le licenze di SQL Server con Software Assurance per pagare una tariffa ridotta ("tariffa di base") per il database SQL. Il Vantaggio Azure Hybrid per SQL Server è disponibile come anteprima pubblica del modello di acquisto basato su vCore per i pool elastici e i database singoli del database SQL. È possibile applicare questo vantaggio anche se lo SKU è attivo, ma è opportuno notare che la tariffa di base viene applicata a partire dal momento della selezione nel portale di Azure. Non verranno rilasciati crediti retroattivamente.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Il Vantaggio Azure Hybrid per SQL Server include diritti di doppio uso della licenza?
 Si può disporre dei diritti di doppio uso della licenza per 180 giorni, per garantire che le migrazioni vengano eseguite senza problemi. Al termine di questo periodo, la licenza di SQL Server può essere usata solo nel database SQL sul cloud e non prevede diritti di doppio uso in locale e nel cloud.
@@ -144,7 +144,7 @@ I pool elastici vengono fatturati in base alle caratteristiche seguenti:
 * Se viene ridimensionato, un pool elastico non viene fatturato in base al nuovo numero di risorse fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database singoli.
 * Il prezzo di un pool elastico è basato sul numero di risorse del pool. Il prezzo di un pool elastico è indipendente dal numero e dall'uso dei database elastici in esso contenuti.
 
-Per altri dettagli, vedere [Prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/), [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
+Per altri dettagli, vedere [Prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/), [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 ## <a name="how-does-the-vcore-based-usage-show-up-in-my-bill"></a>Come viene indicato in fattura l'utilizzo del modello basato su vCore? 
 Nel modello basato su vCore il servizio viene fatturato in base a una tariffa oraria prevedibile basata sul livello di servizio, le risorse di calcolo sottoposte a provisioning in vCore, i GB di risorse di archiviazione sottoposte a provisioning al mese e le risorse di archiviazione dei backup utilizzate. Se le risorse di archiviazione dei backup superano le dimensioni totali del database, ovvero il 100% delle dimensioni del database, verranno addebitati costi aggiuntivi. Le ore di vCore, le risorse di archiviazione dei database configurate, le operazioni di I/O utilizzate e le risorse di archiviazione dei backup sono elencate chiaramente nella fattura, facilitando così la lettura dei dettagli delle risorse usate. Il prezzo delle risorse di archiviazione dei backup fino al 100% delle dimensioni massime del database è incluso. Oltre tale valore vengono addebitati i GB utilizzati ogni mese.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360020"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091323"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -104,7 +104,21 @@ Selezionare il messaggio per avere altre informazioni. Nella figura seguente vie
 
 ### <a name="deployment-errors"></a>Errori di distribuzione
 
-Quando l'operazione supera la convalida, ma non esegue correttamente la distribuzione, viene visualizzato l'errore nelle notifiche. Selezionare la notifica.
+Quando l'operazione supera la convalida, ma non esegue correttamente la distribuzione, viene visualizzato un errore di distribuzione.
+
+Per visualizzare i codici di errore di distribuzione e i messaggi con PowerShell, usare:
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Per visualizzare i codici di errore di distribuzione e i messaggi con l'interfaccia della riga di comando di Azure, usare:
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+Dal portale, selezionare la notifica.
 
 ![Notifica di errore](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ Viene visualizzato il messaggio di errore e i codici di errore. Si noti che sono
 
 ## <a name="enable-debug-logging"></a>Abilitazione della registrazione di debug
 
-In alcuni casi sono necessarie maggiori informazioni sulla richiesta e sulla risposta per conoscere la causa dell'errore. Con PowerShell o l'interfaccia della riga di comando di Azure è possibile richiedere la registrazione di informazioni aggiuntive durante la distribuzione.
+In alcuni casi sono necessarie maggiori informazioni sulla richiesta e sulla risposta per conoscere la causa dell'errore. Durante la distribuzione è possibile richiedere la registrazione di informazioni aggiuntive durante la distribuzione. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   In PowerShell impostare il parametro **DeploymentDebugLogLevel** su All, ResponseContent o RequestContent.
+In PowerShell impostare il parametro **DeploymentDebugLogLevel** su All, ResponseContent o RequestContent.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   Esaminare il contenuto della richiesta con il cmdlet seguente:
+Esaminare il contenuto della richiesta con il cmdlet seguente:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   In alternativa, esaminare il contenuto della risposta con:
+In alternativa, esaminare il contenuto della risposta con:
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   Queste informazioni consentono di stabilire se nel modello sia impostato un valore errato.
+Queste informazioni consentono di stabilire se nel modello sia impostato un valore errato.
 
-- Interfaccia della riga di comando di Azure
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-   Esaminare le operazioni di distribuzione con il comando seguente:
+Attualmente, l'interfaccia della riga di comando di Azure non supporta l'attivazione della registrazione di debug, ma è possibile recuperare la registrazione di debug.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+Esaminare le operazioni di distribuzione con il comando seguente:
 
-- Modello annidato
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   Per registrare le informazioni di debug relative a un modello nidificato, usare l'elemento **debugSetting**.
+Esaminare il contenuto della richiesta con il comando seguente:
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+Esaminare il contenuto della risposta con il comando seguente:
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>Modello annidato
+
+Per registrare le informazioni di debug relative a un modello nidificato, usare l'elemento **debugSetting**.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>Creare un modello per la risoluzione dei problemi
 
