@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 07/17/2018
 ms.author: mazha
-ms.openlocfilehash: 5634ecdec04f023d9eb901c4ad0fb21b13bcfdc1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592430"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114073"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gestire la rete CDN di Azure con PowerShell
 PowerShell offre uno dei metodi più flessibili per gestire i profili e gli endpoint della rete CDN.  È possibile usare PowerShell in modo interattivo o scrivendo script per automatizzare le attività di gestione.  Questa esercitazione illustra alcune delle attività più comuni che è possibile eseguire con PowerShell per gestire i profili e gli endpoint della rete CDN di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare PowerShell per gestire i profili e gli endpoint della rete CDN di Azure, è necessario avere il modulo Azure PowerShell installato.  Per informazioni su come installare Azure PowerShell e connettersi ad Azure usando il cmdlet `Connect-AzureRmAccount`[Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
@@ -107,7 +107,7 @@ Get-AzureRmCdnProfile
 Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 
 # Return only **Azure CDN from Verizon** profiles.
-Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
+Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "Standard_Verizon" }
 ```
 
 È anche possibile restituire un solo profilo specificando il gruppo di risorse e il nome del profilo.
@@ -139,17 +139,25 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>Creazione dei profili e degli endpoint della rete CDN
-`New-AzureRmCdnProfile` e `New-AzureRmCdnEndpoint` vengono usati per creare profili ed endpoint della rete CDN.
+`New-AzureRmCdnProfile` e `New-AzureRmCdnEndpoint` vengono usati per creare profili ed endpoint della rete CDN. Sono supportati i seguenti tipi SKU:
+- Standard_Verizon
+- Premium_Verizon
+- Custom_Verizon
+- Standard_Akamai
+- Standard_ChinaCdn
+
+> [!NOTE]
+> Lo SKU Standard_Microsoft non è supportato, sebbene lo sia in anteprima.
 
 ```powershell
 # Create a new profile
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US"
 
 # Create a new endpoint
 New-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Location "Central US" -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 # Create a new profile and endpoint (same as above) in one line
-New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku StandardAkamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
+New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku Standard_Akamai -Location "Central US" | New-AzureRmCdnEndpoint -EndpointName cdnposhdoc -OriginName "Contoso" -OriginHostName "www.contoso.com"
 
 ```
 

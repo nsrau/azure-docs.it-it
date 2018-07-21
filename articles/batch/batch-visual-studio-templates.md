@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128861"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114097"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usare i modelli di progetto di Visual Studio per avviare rapidamente le soluzioni Batch
 
 I modelli di Visual Studio **Gestore di processi** e **Task Processor** (Elaboratore di attività) per Batch forniscono il codice per implementare ed eseguire i carichi di lavoro a elevato utilizzo di calcolo in Batch con il minimo sforzo. Questo documento illustra tali modelli e fornisce le linee guida per usarli.
 
 > [!IMPORTANT]
-> Questo articolo illustra solo le informazioni applicabili a questi due modelli e presuppone che si abbia familiarità con il servizio Batch e con i concetti chiave correlati: pool, nodi di calcolo, processi e attività, attività del gestore di processi, variabili di ambiente e altre informazioni pertinenti. È possibile trovare altre informazioni in [Nozioni di base su Azure Batch](batch-technical-overview.md), [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md) e [Introduzione alla libreria di Azure Batch per .NET](batch-dotnet-get-started.md).
+> Questo articolo illustra solo le informazioni applicabili a questi due modelli e presuppone che si abbia familiarità con il servizio Batch e con i concetti chiave correlati: pool, nodi di calcolo, processi e attività, attività del gestore di processi, variabili di ambiente e altre informazioni pertinenti. È possibile trovare altre informazioni in [Nozioni di base su Azure Batch](batch-technical-overview.md) e [Panoramica delle funzionalità di Batch per sviluppatori](batch-api-basics.md).
 > 
 > 
 
@@ -52,7 +52,7 @@ Come illustrato nel diagramma seguente, un processo di calcolo che usa questi mo
 
 ![Diagramma che illustra come il codice client interagisce con il servizio Batch][diagram01]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare i modelli di Batch, sarà necessario quanto segue:
 
 * Un computer in cui è installato Visual Studio 2015. I modelli di Batch sono attualmente supportati solo per Visual Studio 2015.

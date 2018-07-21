@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ab3982c85cfb008bde08495f8cb8aa86d066d8c0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901212"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114855"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>Configurare un'Identità del servizio gestito di un set di scalabilità di macchine virtuali tramite un modello
 
@@ -31,7 +31,7 @@ Questo articolo illustra come eseguire le seguenti operazioni di identità del s
 - Abilitare e disabilitare l'identità assegnata dal sistema in un VMSS di Azure
 - Aggiungere e rimuovere un'identità assegnata dall'utente in un VMSS di Azure
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
@@ -55,7 +55,7 @@ In questa sezione, si abiliterà e disabiliterà il sistema di identità assegna
 
 1. Caricare il modello in un editor, individuare la risorsa interessata `Microsoft.Compute/virtualMachineScaleSets` all'interno della sezione `resources`. Quelle in uso potrebbero avere un aspetto leggermente diverso da quelle mostrate nella schermata seguente, a seconda dell'editor usato o del fatto che si stia modificando un modello per una distribuzione nuova o esistente.
    
-   ![Schermata del modello - individuare la macchina virtuale](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![Schermata del modello - individuare la macchina virtuale](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
 2. Per abilitare l'identità assegnata dal sistema, aggiungere la proprietà `"identity"` allo stesso livello della proprietà `"type": "Microsoft.Compute/virtualMachineScaleSets"`. Usare la sintassi seguente:
 
@@ -91,7 +91,7 @@ In questa sezione, si abiliterà e disabiliterà il sistema di identità assegna
 
 4. Al termine il modello dovrebbe essere simile al seguente:
 
-   ![Schermata del modello dopo l'aggiornamento](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![Schermata del modello dopo l'aggiornamento](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Disabilitare un'identità assegnata dal sistema da un set di scalabilità di macchine virtuali di Azure
 
@@ -113,6 +113,9 @@ In questa sezione si assegna un'identità assegnata dall'utente a un set di scal
 
 1. Nell'elemento `resources`, aggiungere la voce seguente per assegnare un'identità assegnata dall'utente al set di scalabilità di macchine virtuali.  Assicurarsi di sostituire `<USERASSIGNEDIDENTITY>` con il nome dell'identità assegnata dall'utente creata.
 
+   > [!Important]
+   > Il valore `<USERASSIGNEDIDENTITYNAME>` mostrato nell'esempio seguente deve essere archiviato in una variabile.  Inoltre, per l'implementazione attualmente supportata di assegnazione di identità assegnate all'utente in una macchina virtuale di un modello di Gestione risorse, la versione dell'api deve corrispondere alla versione nell'esempio seguente. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -121,7 +124,7 @@ In questa sezione si assegna un'identità assegnata dall'utente a un set di scal
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

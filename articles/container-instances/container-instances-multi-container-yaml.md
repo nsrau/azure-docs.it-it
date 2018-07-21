@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: 5dfee15e978d2dba0f50d1dc4b78953698389950
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d1885112b8e7f7b1e187073c86d561eb57fd23f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851132"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114464"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>Distribuire un gruppo di contenitori con più contenitori con YAML
 
@@ -35,7 +35,7 @@ Per distribuire un gruppo di contenitori con più contenitori con il comando [az
 
 Per iniziare, copiare il file YAML seguente in un nuovo file denominato **deploy-aci.yaml**.
 
-Questo file YAML definisce un gruppo di contenitori con due contenitori, un indirizzo IP pubblico e due porte esposte. Il primo contenitore nel gruppo esegue un'applicazione Web con connessione Internet. Il secondo contenitore, quello collaterale, esegue periodicamente le richieste HTTP per l'applicazione Web in esecuzione nel primo contenitore tramite la rete locale del gruppo di contenitori.
+Questo file YAML definisce un gruppo di contenitori chiamato "myContainerGroup" con due contenitori, un indirizzo IP pubblico e due porte esposte. Il primo contenitore nel gruppo esegue un'applicazione Web con connessione Internet. Il secondo contenitore, quello collaterale, esegue periodicamente le richieste HTTP per l'applicazione Web in esecuzione nel primo contenitore tramite la rete locale del gruppo di contenitori.
 
 ```YAML
 apiVersion: 2018-06-01
@@ -83,7 +83,7 @@ az group create --name myResourceGroup --location eastus
 Distribuire il gruppo di contenitori con il comando [az container create][az-container-create], passando il file YAML come argomento:
 
 ```azurecli-interactive
-az container create --resource-group myResourceGroup --name myContainerGroup -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --file deploy-aci.yaml
 ```
 
 Entro pochi secondi si dovrebbe ricevere una risposta iniziale da Azure.
@@ -200,14 +200,15 @@ Utile per mantenere la configurazione di un gruppo di contenitori, l'esportazion
 Esportare la configurazione per il gruppo di contenitori creato in precedenza eseguendo il comando [az container export][az-container-export] seguente:
 
 ```azurecli-interactive
-az container export --resource-group rg604 --name myContainerGroup --file deployed-aci.yaml
+az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
 ```
 
 Se il comando ha esito positivo non genera output, ma è possibile visualizzare il contenuto del file per visualizzare il risultato. Ad esempio, le prime righe con `head`:
 
 ```console
 $ head deployed-aci.yaml
-apiVersion: 2018-02-01-preview
+additional_properties: {}
+apiVersion: '2018-06-01'
 location: eastus
 name: myContainerGroup
 properties:
@@ -216,11 +217,7 @@ properties:
     properties:
       environmentVariables: []
       image: microsoft/aci-helloworld:latest
-      ports:
 ```
-
-> [!NOTE]
-> A partire dalla versione 2.0.34 dell'interfaccia della riga di comando di Azure, esiste un [problema noto][cli-issue-6525] a causa del quale i gruppi di contenitori esportati specificano una versione precedente dell'API **2018-02-01-preview** (come si è visto nell'esempio di output JSON precedente). Se si vuole ripetere la distribuzione usando il file YAML esportato, è possibile aggiornare in modo sicuro il valore `apiVersion` nel file YAML esportato specificando **2018-06-01**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
