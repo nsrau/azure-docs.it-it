@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866128"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068628"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Linux
 
@@ -101,7 +101,7 @@ MaintenanceRedeployStatus restituisce i valori seguenti:
 La chiamata seguente avvia la manutenzione in una macchina virtuale se `IsCustomerInitiatedMaintenanceAllowed` è impostata su true.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -160,7 +160,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [Regions and availab
 
 **D: Qual è l'esperienza nel caso di set di scalabilità di macchine virtuali?**
 
-**R:** La manutenzione pianificata è ora disponibile per il set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione self-service, vedere la sezione "Procedure -> Gestisci -> Manutenzione pianificata" nella documentazione relativa ai set di scalabilità di macchine virtuali.
+**R:** La manutenzione pianificata è ora disponibile per il set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione self-service, vedere il documento [manutenzione pianificata per il set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **D: Qual è l'esperienza nel caso di Servizi cloud (ruolo Web o di lavoro) e Service Fabric?**
 

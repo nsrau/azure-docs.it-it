@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: fb987c95afc0f77386f4f78c44f3c6825f86ee43
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fa6fb4ffe1eea98392b2199f379431b0dffc6774
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232223"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006567"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: valutare i carichi di lavoro in locale per la migrazione ad Azure
 
@@ -23,13 +23,18 @@ Questo documento è il terzo di una serie di articoli che descrivono come la soc
 **Articolo** | **Dettagli** | **Status**
 --- | --- | ---
 [Articolo 1: Panoramica](contoso-migration-overview.md) | Offre una panoramica della strategia di migrazione di Contoso e presenta la serie di articoli e le app di esempio usate. | Disponibile
-[Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Descrive in che modo Contoso prepara l'infrastruttura locale e di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli scenari di migrazione Contoso. | Disponibile
-Articolo 3: Valutare le risorse locali (questo articolo)  | Spiega in che modo Contoso esegue una valutazione dell'app locale a due livelli locale SmartHotel in esecuzione in VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponibile
-[Articolo 4: Eseguire il rehosting in VM di Azure e in un'istanza gestita di SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel ad Azure. Esegue la migrazione della macchina virtuale front-end dell'app mediante [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) e del database dell'app mediante il servizio [Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) per la migrazione a un'istanza gestita di SQL. | Disponibile
-[Articolo 5: Eseguire il rehosting in macchine virtuali di Azure](contoso-migration-rehost-vm.md) | Spiega in che modo Contoso esegue la migrazione delle macchine virtuali dell'app SmartHotel solo con Site Recovery.
-[Articolo 6: Eseguire il rehosting nelle macchine virtuali di Azure e nei gruppi di disponibilità di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. Usa Site Recovery per eseguire la migrazione delle macchine virtuali dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un gruppo di disponibilità di SQL Server. | Disponibile
-[Articolo 7: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue la migrazione dell'app Linux osService usando Azure Site Recovery.
-[Articolo 8: Eseguire il rehosting di un'app Linux nelle macchine virtuali di Azure e in Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Spiega in che modo Contoso esegue la migrazione dell'app osService di Linux usando Site Recovery per la migrazione delle macchine virtuali, nonché MySQL Workbench per la migrazione a un'istanza di Azure MySQL Server. | Disponibile
+[Articolo 2: Distribuire un'infrastruttura di Azure](contoso-migration-infrastructure.md) | Descrive in che modo Contoso prepara l'infrastruttura locale e di Azure per la migrazione. La stessa infrastruttura viene usata per tutti gli articoli relativi alla migrazione. | Disponibile
+Articolo 3: Valutare le risorse locali per la migrazione in Azure  | Spiega in che modo Contoso esegue una valutazione dell'app SmartHotel a due livelli locale in esecuzione su VMware. Valuta le VM dell'app con il servizio [Azure Migrate](migrate-overview.md) e il database SQL Server dell'app con [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Questo articolo.
+[Articolo 4: Eseguire il rehosting di un'app in VM di Azure e in un'istanza gestita di SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Spiega in che modo Contoso esegue una migrazione ad Azure in modalità lift-and-shift per l'app SmartHotel locale. usando [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) per la migrazione della VM front-end dell'app e il [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview) per la migrazione del database dell'app a un'istanza gestita di SQL. | Disponibile
+[Articolo 5: Eseguire il rehosting di un'app in VM di Azure](contoso-migration-rehost-vm.md) | Spiega in che modo Contoso esegue la migrazione delle VM dell'app SmartHotel alle VM di Azure usando il servizio Site Recovery. | Disponibile
+[Articolo 6: Eseguire il rehosting di un'app in VM di Azure e nel gruppo di disponibilità AlwaysOn di SQL Server](contoso-migration-rehost-vm-sql-ag.md) | Spiega in che modo Contoso esegue la migrazione dell'app SmartHotel. usando Site Recovery per la migrazione delle VM dell'app e il Servizio Migrazione del database per la migrazione del database dell'app a un cluster di SQL Server protetto da un gruppo di disponibilità AlwaysOn. | Disponibile
+[Articolo 7: Eseguire il rehosting di un'app Linux in VM di Azure](contoso-migration-rehost-linux-vm.md) | Spiega in che modo Contoso esegue una migrazione in modalità lift-and-shift dell'app osTicket di Linux alle VM di Azure usando Site Recovery. | Disponibile
+[Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Spiega in che modo Contoso esegue la migrazione dell'app osTicket di Linux alle VM di Azure usando Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
+[Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure, e come esegue la migrazione del database di app per istanza del Server SQL di Azure | Disponibile
+[Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app osTicket Linux alle app Web di Azure in più siti, integrati con GitHub per il recapito continuo. Il database di app viene fatto migrare a un'istanza di MySQL di Azure. | Disponibile
+[Articolo 11: Eseguire il refactoring di TFS in Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Viene illustrato come Contoso esegue la migrazione della distribuzione di Team Foundation Server (TFS) locale eseguendo la migrazione a Visual Studio Team Services (VSTS) in Azure. | Disponibile
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Viene illustrato come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
+[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Viene illustrato come Contoso ricompila le app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app di Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
 
 
 ## <a name="overview"></a>Panoramica
@@ -98,7 +103,7 @@ In questo scenario, si scarica e si esegue DMA per valutare il database di SQL S
 
 ![Architettura per la valutazione della migrazione](./media/contoso-migration-assessment/migration-assessment-architecture.png)
 
-- Contoso è un nome fittizio che rappresenta una organizzazione aziendale tipica. 
+- Contoso è un nome fittizio che rappresenta una organizzazione aziendale tipica.
 - Contoso possiede un data center locale (**contoso-datacenter**) con controller di dominio locali (CONTOSODC1, CONTOSODC2).
 - Le macchine virtuali VMware si trovano in host ESXI VMware che eseguono la versione 6.5. Host: **contosohost1**, **contosohost2**
 - L'ambiente VMware viene gestito dal server vCenter 6.5 (**vcenter**) in esecuzione in una macchina virtuale.
@@ -113,10 +118,10 @@ In questo scenario, si scarica e si esegue DMA per valutare il database di SQL S
     - La macchina virtuale OSTICKETWEB esegue Apache 2 e PHP 7.0.
     - La macchina virtuale OSTICKETMYSQL esegue MySQL 5.7.22.
 
-![Architecture](./media/contoso-migration-assessment/architecture.png)
+![Architettura](./media/contoso-migration-assessment/architecture.png)
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Di seguito vengono indicati i requisiti necessari a Contoso per la valutazione:
 
@@ -161,7 +166,7 @@ Di seguito vengono descritti i passaggi della valutazione in Contoso:
 Si può ora eseguire una valutazione per analizzare il server SQL locale per l'app SmartHotel.
 
 1. In Database Migration Assistant, si fa clic su **New** (Nuova), si seleziona **Assessment** (Valutazione) e si assegna alla valutazione il nome di progetto **SmartHotel**.
-2. In **Tipo del server di origine** si seleziona **SQL Server on Azure Virtual Machines** (SQL Server in macchine virtuali di Azure). 
+2. In **Tipo del server di origine** si seleziona **SQL Server on Azure Virtual Machines** (SQL Server in macchine virtuali di Azure).
 
     ![Selezionare l'origine](./media/contoso-migration-assessment/dma-assessment-1.png)
 
@@ -181,7 +186,7 @@ Si può ora eseguire una valutazione per analizzare il server SQL locale per l'a
 
 3. In **Aggiungi origine** si aggiunge il database da valutare e si fa clic su **Avanti** per avviare la valutazione.
 4. Viene creata la valutazione.
-    
+
     ![Creare la valutazione](./media/contoso-migration-assessment/dma-assessment-4.png)
 
 5. In **Verifica risultati** è possibile visualizzare i risultati della valutazione.
@@ -223,7 +228,7 @@ In Contoso occorre creare un account VMware che verrà usato da Azure Migrate pe
 
 ### <a name="set-up-a-vmware-account"></a>Configurare un account VMware
 
- L'individuazione delle macchine virtuali richiede un account di sola lettura in vCenter, con le proprietà seguenti: 
+ L'individuazione delle macchine virtuali richiede un account di sola lettura in vCenter, con le proprietà seguenti:
 
 - Tipo di utente: almeno un utente di sola lettura.
 - Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura).
@@ -232,7 +237,7 @@ In Contoso occorre creare un account VMware che verrà usato da Azure Migrate pe
 
 ### <a name="verify-permissions-to-create-a-vm"></a>Verificare le autorizzazioni per creare una VM
 
-Il team di Contoso verifica di avere le autorizzazioni per creare una macchina virtuale importando un file in formato OVA. [Altre informazioni](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
+Il team di Contoso verifica di avere le autorizzazioni per creare una macchina virtuale importando un file in formato .OVA. [Altre informazioni](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
 
 ### <a name="verify-ports"></a>Verificare le porte
 
@@ -294,14 +299,13 @@ Prima di distribuire la macchina virtuale, si verifica che il file con estension
 2. Si esegue il comando riportato di seguito per generare il valore hash per il file con estensione ova:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Il valore hash generato deve corrispondere a queste impostazioni (versione 1.0.9.7).
+3. Il valore hash generato deve corrispondere a queste impostazioni (versione 1.0.9.12)
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
 ### <a name="create-the-collector-appliance"></a>Creare l'appliance dell'agente di raccolta
 
@@ -346,7 +350,7 @@ Si esegue a questo punto l'agente di raccolta per individuare le macchine virtua
 
 7. In **Visualizza lo stato della raccolta** è possibile monitorare l'individuazione e verificare che i metadati raccolti dalle macchine virtuali siano inclusi nell'ambito. L'agente di raccolta indica un tempo di individuazione approssimativo.
 
-    ![Raccolta in corso](./media/contoso-migration-assessment/collector-collection-process.png) 
+    ![Raccolta in corso](./media/contoso-migration-assessment/collector-collection-process.png)
 
 
 
@@ -396,8 +400,8 @@ Si esegue l'installazione in ogni macchina virtuale.
 2. In **Opzioni di installazione dell'agente** si seleziona **Connect the agent to Azure Log Analytics** (Connetti l'agente ad Azure Log Analytics) > **Avanti**.
 
     ![Installazione di MMA](./media/contoso-migration-assessment/mma-install.png)
-    
-5. In **Azure Log Analytics** si incollano l'ID e la chiave dell'area di lavoro copiati dal portale. 
+
+5. In **Azure Log Analytics** si incollano l'ID e la chiave dell'area di lavoro copiati dal portale.
 
     ![Installazione di MMA](./media/contoso-migration-assessment/mma-install2.png)
 
@@ -428,7 +432,7 @@ Si esegue l'installazione in ogni macchina virtuale.
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
- 
+
 
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Installare Dependency Agent nelle VM Linux

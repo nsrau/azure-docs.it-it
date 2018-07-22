@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35636319"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136605"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
@@ -26,7 +26,7 @@ Il database SQL crea automaticamente i backup del database e usa l'archiviazione
 
 ## <a name="what-is-a-sql-database-backup"></a>Informazioni sul backup del database SQL
 
-Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](http://msdn.microsoft.com/library/ms175526.aspx) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti e tale frequenza è determinata dal livello di prestazioni e dalla quantità delle attività del database. I backup del log delle transazioni, con backup completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
+Il database SQL usa la tecnologia di SQL Server per creare backup [completi](https://msdn.microsoft.com/library/ms186289.aspx), [differenziali](http://msdn.microsoft.com/library/ms175526.aspx) e del [log delle transazioni](https://msdn.microsoft.com/library/ms191429.aspx) ai fini del ripristino temporizzato. I backup del log delle transazioni vengono eseguiti in genere ogni 5-10 minuti mentre i backup differenziali ogni 12 ore, tale frequenza è determinata dal livello di prestazioni e dalla quantità delle attività del database. I backup del log delle transazioni, con backup completi e differenziali, consentono di ripristinare un database a un punto specifico nel tempo nello stesso server che ospita il database. Quando si ripristina un database, il servizio individua i backup completi, differenziali e del log delle transazioni da ripristinare.
 
 
 È possibile usare questi backup per:
@@ -42,7 +42,7 @@ Il database SQL usa la tecnologia di SQL Server per creare backup [completi](htt
 > 
 
 ## <a name="how-long-are-backups-kept"></a>Per quanto tempo sono conservati i backup?
-Ogni backup del database SQL ha un periodo di conservazione predefinito basato sul livello di servizio e distingue tra il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md). È possibile aggiornare il periodo di conservazione dei backup per un database. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
+Ogni backup del database SQL ha un periodo di conservazione predefinito basato sul livello di servizio e distingue tra il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). È possibile aggiornare il periodo di conservazione dei backup per un database. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
 
 Se si elimina un database, il database SQL manterrà i backup come farebbe con un database online. Ad esempio, se si elimina un database Basic con un periodo di conservazione di sette giorni, un backup di quattro giorni viene salvato per altri tre giorni.
 
@@ -62,14 +62,9 @@ Se si riduce il periodo di conservazione per ripristino temporizzato corrente, t
 
 Se si aumenta il periodo di conservazione per ripristino temporizzato corrente, SQL Database manterrà i backup esistenti fino al raggiungimento del periodo di conservazione più lungo.
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>Conservazione per ripristino temporizzato per i livelli di servizio basati su vCore (anteprima)
-
-Durante l'anteprima, il periodo di conservazione per ripristino temporizzato per i database creati utilizzando il modello di acquisto basato su vCore è impostato su 7 giorni. La risorsa di archiviazione associata è inclusa gratuitamente.    
-
-
 ## <a name="how-often-do-backups-happen"></a>Con quale frequenza si verificano i backup?
 ### <a name="backups-for-point-in-time-restore"></a>Backup per il ripristino temporizzato
-Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup di database completi vengono creati settimanalmente, i backup differenziali di solito vengono creati a intervalli di poche ore e i backup del log delle transazioni ogni 5-10 minuti. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema.
+Database SQL supporta la funzionalità self-service per il ripristino temporizzato (PITR) mediante la creazione automatica di backup completi, backup differenziali e backup del log delle transazioni. I backup completi del database vengono creati ogni settimana, i backup differenziali del database vengono creati generalmente ogni 12 ore e i backup del log delle transazioni vengono creati in genere ogni 5-10 minuti, con la frequenza in base al livello di prestazioni e quantità di attività del database. Il primo backup completo viene pianificato subito dopo la creazione di un database. Il completamento richiede in genere 30 minuti, ma potrebbe richiedere più tempo se le dimensioni del database sono elevate. Il backup iniziale, ad esempio, può richiedere più tempo in un database ripristinato o in una copia del database. Dopo il primo backup completo, l'esecuzione di tutti i successivi backup è pianificata e gestita automaticamente in background. Il momento esatto per l'esecuzione dei backup di database è determinato dal servizio SQL Database in modo da bilanciare il carico di lavoro complessivo del sistema.
 
 I backup di ripristino temporizzato sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -88,12 +83,12 @@ Se il database è crittografato con TDE, i backup vengono crittografati automati
 
 ## <a name="how-do-automated-backups-impact-my-compliance"></a>In che modo i backup automatici influiscono sulla conformità?
 
-Quando si migra il database da un livello di servizio basato su DTU con una conservazione di ripristino temporizzato predefinita di 35 giorni a un livello di servizio basato sulla memoria centrale virtuale, la conservazione di ripristino temporizzato viene preservata per garantire che la policy di ripristino dei dati dell'applicazione non venga compromessa. Se il periodo di conservazione predefinito non soddisfa i requisiti di conformità, è possibile modificare il periodo di conservazione di ripristino temporizzato utilizzando PowerShell o API REST. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
+Quando si migra il database da un livello di servizio basato su DTU con una conservazione di ripristino temporizzato predefinita di 35 giorni a un livello di servizio basato sulla vCore, la conservazione di ripristino temporizzato viene preservata per garantire che il criterio di ripristino dei dati dell'applicazione non venga compromesso. Se il periodo di conservazione predefinito non soddisfa i requisiti di conformità, è possibile modificare il periodo di conservazione di ripristino temporizzato utilizzando PowerShell o API REST. Visualizzare [Modifica del periodo di conservazione backup](#how-to-change-backup-retention-period) per ulteriori dettagli.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup
-È possibile modificare il periodo di conservazione predefinito utilizzando l'API REST o PowerShell. I valori supportati sono 7, 14, 21, 28 o 35 giorni: gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni. 
+È possibile modificare il periodo di conservazione predefinito utilizzando l'API REST o PowerShell. I valori supportati sono: 7, 14, 21, 28 e 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni. 
 
 > [!NOTE]
 > Queste API avranno un impatto solo sul periodo di conservazione di ripristino temporizzato. Se è configurata una conservazione a lungo termine per il database, questo non sarà interessato. Vedere [Conservazione del backup a lungo termine](sql-database-long-term-retention.md) per maggiori dettagli su come modificare i periodi di conservazione a lungo termine.
