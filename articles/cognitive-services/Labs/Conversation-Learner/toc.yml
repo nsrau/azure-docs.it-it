@@ -2,7 +2,7 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Informazioni sullo Strumento di apprendimento di conversazioni
+    - name: Informazioni su Conversation Learner
       href: overview.md
     - name: Lingue supportate
       href: languages-supported.md
@@ -48,6 +48,8 @@
       href: tutorials/15-branching-and-undo.md
     - name: Assegnazione di tag e controllo delle versioni
       href: tutorials/16-versioning-and-tagging.md
+    - name: Bot ibridi
+      href: tutorials/17-hybrid-bots.md
     - name: Demo - Reimpostazione della password
       href: tutorials/demo-password-reset.md
     - name: Demo - Ordinazione pizza

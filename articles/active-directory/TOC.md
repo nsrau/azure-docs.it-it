@@ -82,7 +82,7 @@
 
 ## [Gestire i gruppi e i membri](fundamentals/active-directory-manage-groups.md)
 ### Gestire i gruppi
-#### [Portale di Azure](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [portale di Azure](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph (v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [Gestire i membri dei gruppi](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +103,7 @@
 ### [Ripristinare un gruppo eliminato di Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Gestire le impostazioni dei gruppi](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Creare regole avanzate
-#### [Portale di Azure](users-groups-roles/groups-dynamic-membership.md)
+#### [portale di Azure](users-groups-roles/groups-dynamic-membership.md)
 ### [Configurare i gruppi self-service](users-groups-roles/groups-self-service-management.md)
 ### [Risolvere i problemi](users-groups-roles/groups-troubleshooting.md)
 
@@ -119,7 +119,7 @@
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
 #### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
-### Riferimenti
+### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Informazioni di riferimento sulle attività di controllo](active-directory-reporting-activity-audit-reference.md)
@@ -140,33 +140,13 @@
 #### [Esempi di accesso](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Uso dei certificati](active-directory-reporting-api-with-certificates.md)
 
-## Gestire le password
-### [Panoramica delle password](authentication/active-directory-passwords-overview.md)
+## Gestire le password(active-directory/authentication/concept-sspr-howitworks.md)
 ### Documenti degli utenti
 #### [Reimpostare o modificare la password](user-help/active-directory-passwords-update-your-own-password.md)
 #### [Procedure consigliate per le password](active-directory-secure-passwords.md)
 #### [Registrarsi per la reimpostazione della password self-service](user-help/active-directory-passwords-reset-register.md)
-### [Funzionamento di SSPR](authentication/concept-sspr-howitworks.md)
-### [Guida alla distribuzione di SSPR](authentication/howto-sspr-deployment.md)
-### [SSPR e Windows 10](authentication/tutorial-sspr-windows.md)
-### [Criteri di SSPR](authentication/concept-sspr-policy.md)
-### [Personalizzazione di SSPR](authentication/concept-sspr-customization.md)
-### [Requisiti relativi ai dati di SSPR](authentication/howto-sspr-authenticationdata.md)
-### [Creazione di report di SSPR](authentication/howto-sspr-reporting.md)
-### [Blocco intelligente](authentication/howto-password-smart-lockout.md)
-### [Eliminare le password vulnerabili](authentication/concept-password-ban-bad.md)
-### [Configurare l'elenco di password escluse](authentication/howto-password-ban-bad.md)
-### [Integrazione locale](authentication/concept-password-ban-bad-on-premises.md)
-### [Distribuire la protezione delle password di Azure AD](authentication/howto-password-ban-bad-on-premises.md)
-### [Configurare la protezione delle password di Azure AD](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Monitorare la protezione delle password di Azure AD](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### Amministratori IT: reimpostare le password
-#### [Portale di Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Concedere in licenza SSPR](authentication/concept-sspr-licensing.md)
-### [Writeback delle password](authentication/howto-sspr-writeback.md)
-### [Risolvere i problemi](authentication/active-directory-passwords-troubleshoot.md)
-### [DOMANDE FREQUENTI](authentication/active-directory-passwords-faq.md)
-
+#### [portale di Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
 
 ## Gestire i dispositivi
 ### [Introduzione](device-management-introduction.md)
@@ -404,7 +384,7 @@
 
 ## Proteggere le identità
 ### [Accesso condizionale](active-directory-conditional-access-azure-portal.md)
-#### [Attività iniziali](active-directory-conditional-access-azure-portal-get-started.md)
+#### [Introduzione](active-directory-conditional-access-azure-portal-get-started.md)
 #### Guide introduttive
 ##### [Configurare l'autenticazione a più fattori per singole app cloud](active-directory-conditional-access-app-based-mfa.md)
 ##### [Richiedere l'accettazione delle condizioni per l'utilizzo](active-directory-conditional-access-tou.md)
@@ -465,7 +445,7 @@
 ### [Studio del modello di verifica: blocchi predefiniti](active-directory-playbook-building-blocks.md)
 
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)
