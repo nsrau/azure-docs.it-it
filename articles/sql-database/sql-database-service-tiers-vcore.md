@@ -1,20 +1,20 @@
 ---
 title: Servizio del database SQL di Azure - vCore| Microsoft Docs
-description: Il modello di acquisto basato su vCore (anteprima) consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi.
+description: Il modello di acquisto basato su vCore consente di ridimensionare le risorse di calcolo e archiviazione in modo indipendente, soddisfare le esigenze di prestazioni locali e ottimizzare i costi.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859936"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091493"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Scelta del livello di servizio vCore e delle risorse di calcolo, memoria, archiviazione e I/O
 
@@ -30,11 +30,9 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 |Archiviazione|Archiviazione remota Premium, da 5 GB a 4 TB|Archiviazione SSD locale, da 5 GB - 4 TB|
 |Velocità effettiva di I/O (approssimativa)|500 operazioni di I/O al secondo per vCore fino a un massimo di 7000|5000 operazioni di I/O al secondo per core fino a un massimo di 200.000|
 |Disponibilità|1 replica, senza scalabilità in lettura|3 repliche, 1 replica per [scalabilità in lettura](sql-database-read-scale-out.md), disponibilità elevata con ridondanza della zona|
-|Backup|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)*|
+|Backup|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)|RA-GRS, da 7 a 35 giorni (7 giorni per impostazione predefinita)|
 |In memoria|N/D|Supportato|
 |||
-
-\* Durante l'anteprima, il periodo di conservazione dei backup non è configurabile e ha una durata fissa di 7 giorni.
 
 > [!IMPORTANT]
 > Se per la capacità di calcolo è necessario meno di un vCore, usare il modello di acquisto basato su DTU.
@@ -67,7 +65,7 @@ Le risorse di archiviazione per i backup di database vengono allocate per suppor
 
 ## <a name="azure-hybrid-use-benefit"></a>Vantaggio Azure Hybrid Use
 
-Nel modello di acquisto basato su vCore (anteprima) è possibile scambiare le licenze esistenti con tariffe scontate per il database SQL tramite il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
+Nel modello di acquisto basato su vCore è possibile scambiare le licenze esistenti con tariffe scontate per il database SQL tramite il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Questo vantaggio di Azure consente di risparmiare fino al 30% sul costo del database SQL di Azure usando le licenze locali di SQL Server con Software Assurance.
 
 ![prezzi](./media/sql-database-service-tiers/pricing.png)
 

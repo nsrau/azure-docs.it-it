@@ -1,6 +1,6 @@
 ---
-title: Gestire le acquisizioni di pacchetti con Azure Network Watcher - Interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
+title: Gestire le acquisizioni di pacchetti con Azure Network Watcher - Interfaccia della riga di comando di Azure | Documentazione Microsoft
+description: Questa pagina illustra come gestire la funzionalità di acquisizione di pacchetti di Network Watcher usando l'interfaccia della riga di comando di Azure
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c0b65411e9846077036e16204b7a407c6c7ee9e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9b40a85cf3c4edd26f2fc15045f3d6862d4ac1ff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261770"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090487"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando l'interfaccia della riga di comando di Azure 2.0
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](network-watcher-packet-capture-manage-portal.md)
+> - [portale di Azure](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Interfaccia della riga di comando 1.0](network-watcher-packet-capture-manage-cli-nodejs.md)
-> - [Interfaccia della riga di comando 2.0](network-watcher-packet-capture-manage-cli.md)
+> - [Interfaccia della riga di comando di Azure](network-watcher-packet-capture-manage-cli.md)
 > - [API REST di Azure](network-watcher-packet-capture-manage-rest.md)
 
 Il servizio di acquisizione di pacchetti di Network Watcher consente di creare sessioni di acquisizione per registrare il traffico da e verso una macchina virtuale. Sono disponibili filtri per la sessione di acquisizione per garantire che venga acquisito solo il traffico desiderato. Il servizio di acquisizione di pacchetti consente di individuare eventuali anomalie di rete in modo proattivo e reattivo. Altri utilizzi comprendono la raccolta di statistiche di rete, informazioni sulle intrusioni nella rete, debug delle comunicazioni client-server e molto altro ancora. La possibilità di attivare da remoto l'acquisizione di pacchetti evita di dover eseguire manualmente questa operazione sul computer desiderato, consentendo un notevole risparmio di tempo.

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082506"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091994"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Informazioni su Istanza gestita (anteprima)
 
@@ -64,13 +64,13 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 | --- | --- |
 |Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>Disponibilità elevata incorporata <br>Dati protetti con backup automatici <br>Periodo di conservazione dei backup configurabile dal cliente (fissato a 7 giorni nell'anteprima pubblica) <br>Backup avviati dall'utente <br>Funzionalità di ripristino temporizzato di un database |
 |**Sicurezza e conformità** | **Gestione**|
-|Ambiente isolato (integrazione della rete virtuale, servizio a tenant singolo, calcolo e archiviazione dedicati <br>Crittografia dei dati in transito <br>Autenticazione di Azure AD, supporto di Single Sign-On <br>Soddisfa gli standard di conformità del database SQL di Azure <br>Controllo SQL <br>Introduzione al rilevamento delle minacce |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati 
+|Ambiente isolato (integrazione della rete virtuale, servizio a tenant singolo, calcolo e archiviazione dedicati) <br>Transparent Data Encryption<br>Autenticazione di Azure AD, supporto di Single Sign-On <br>Soddisfa gli standard di conformità del database SQL di Azure <br>Controllo SQL <br>Introduzione al rilevamento delle minacce |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati 
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>Modello di acquisto basato su vCore (anteprima)
+## <a name="vcore-based-purchasing-model"></a>Modello di acquisto in base ai vCore
 
-Il modello di acquisto basato su vCore (anteprima) offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% sul [Vantaggio Azure Hybrid Use per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Il modello di acquisto in base ai vCore offre flessibilità, controllo e trasparenza, consentendo di convertire con facilità i requisiti dei carichi di lavoro locali per il cloud. Questo modello consente di ridimensionare le risorse di calcolo, memoria e archiviazione in base ai requisiti dei carichi di lavoro. Il modello in base ai vCore dà anche diritto a un risparmio fino al 30% sul [Vantaggio Azure Hybrid Use per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware diverse.
 - Le CPU logiche Generazione 4 si basano su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz.
@@ -81,13 +81,20 @@ La tabella seguente aiuta a capire come selezionare la configurazione ottimale d
 ||Generazione 4|Generazione 5|
 |----|------|-----|
 |Hardware|Processori Intel E5-2673 v3 (Haswell) a 2,4 GHz, con unità vCore SSD = 1 PP (core fisico)|Processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz, unità SSD eNVM veloce, vCore = 1 LP (hyperthread)|
-|Livelli di prestazioni|8, 16, 24 vCore|8, 16, 24, 32, 40 vCore|
+|Livelli di prestazioni|8, 16, 24 vCore|8, 16, 24, 32, 40, 64, 80 vCore|
 |Memoria|7 GB per vCore|5,5 GB per vCore|
 ||||
 
-## <a name="managed-instance-service-tier"></a>Livello di servizio di Istanza gestita
+## <a name="managed-instance-service-tiers"></a>Livelli di servizio di Istanza gestita
 
-Istanza gestita è inizialmente disponibile con un livello di servizio singolo, Utilizzo generico, progettato per le applicazioni con disponibilità tipica e requisiti di latenza di I/O comuni.
+Istanza gestita è disponibile in due livelli di servizio:
+- **Utilizzo generico**: progettato per applicazioni con disponibilità tipica e requisiti di latenza di I/O comuni.
+- **Business critical**: progettato per applicazioni con disponibilità elevata e requisiti di latenza di I/O bassi.
+ 
+> [!IMPORTANT]
+> La modifica del livello di servizio da utilizzo generico a business critical o viceversa non è supportata in anteprima pubblica. Se si desidera eseguire la migrazione dei database a un'istanza in un livello di servizio diverso, è possibile creare una nuova istanza, ripristinare i database con ripristino temporizzato dall'istanza originale e quindi rilasciare l'istanza originale se non è più necessaria. 
+
+### <a name="general-purpose-service-tier"></a>Livello di servizio Utilizzo generico
 
 L'elenco seguente descrive le caratteristiche principali del livello di servizio Utilizzo generico: 
 
@@ -101,28 +108,57 @@ Il diagramma seguente illustra i nodi di calcolo attivo e ridondanti in questo l
  
 ![Livello di servizio Utilizzo generico](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-Di seguito sono indicate le funzionalità principali del livello di servizio Utilizzo generico:
+L'elenco seguente descrive le caratteristiche principali del livello di servizio per utilizzo generico:
 
-|Funzionalità | Descrizione|
+|Funzionalità | DESCRIZIONE|
 |---|---|
-| Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40 (Generazione 5)|
+| Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40, 64, 80 (5° generazione)|
 | Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
 | Dimensione minima archiviazione | 32 GB |
 | Dimensione massima archiviazione | 8 TB |
-| Quantità massima di risorse di archiviazione per database | 8 TB |
+| Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza |
 | Archiviazione IOPS prevista | 500-7500 IOPS per ogni file di dati (dipende dal file di dati). Vedere [Archiviazione Premium](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Numero di file di dati (RIGHE) per il database | Multipli | 
 | Numero di file di log (LOG) per il database | 1 | 
-| Backup automatici gestiti | Sì |
+| Backup automatici gestiti | sì |
 | DISPONIBILITÀ ELEVATA | Basata sull'archiviazione remota e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Monitoraggio predefinito e metriche dell'istanza e del database | Sì |
-| Applicazione automatica di patch software | Sì |
-| Rete virtuale: distribuzione di Azure Resource Manager | Sì |
+| Monitoraggio predefinito e metriche dell'istanza e del database | sì |
+| Applicazione automatica di patch software | sì |
+| Rete virtuale: distribuzione di Azure Resource Manager | sì |
 | Rete virtuale: modello di distribuzione classica | No  |
-| Supporto del portale | Sì|
+| Supporto del portale | sì|
 |||
 
 \* La memoria centrale virtuale rappresenta la CPU logica offerta con la possibilità di scegliere tra generazioni di hardware. Le CPU logiche di quarta generazione sono basate su processori Intel E5-2673 v3 (Haswell) a 2,4 GHz e le CPU logiche di quinta generazione sono basate su processori Intel E5-2673 v4 (Broadwell) a 2,3 GHz. 
+
+### <a name="business-critical-service-tier"></a>Livello di servizio business critical
+
+Il livello di servizio business critical è progettato per applicazioni con requisiti I/O elevati. Offre la massima resilienza agli errori tramite diverse repliche Always On isolate. Il diagramma seguente illustra l'architettura sottostante del livello di servizio:
+
+![Livello di servizio business critical](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+L'elenco seguente descrive le caratteristiche principali del livello di servizio per business critical: 
+-   Progettato per applicazioni aziendali con le prestazioni e i requisiti di disponibilità più elevati 
+-   Viene fornito con l'archiviazione SSD estremamente rapida (fino a 1 TB nella 4° generazione e fino a 4 TB nella 5° generazione). Supporta fino a 100 database per ogni istanza 
+
+|Funzionalità | DESCRIZIONE|
+|---|---|
+| Numero di vCore* | 8, 16, 24 (Generazione 4)<br>8, 16, 24, 32, 40, 64, 80 (5° generazione)|
+| Versione/build di SQL Server | SQL Server (versione più recente disponibile) |
+| Funzionalità aggiuntive | [OLTP in memoria](sql-database-in-memory.md)<br> 1 replica di sola lettura ([scalabilità in lettura](sql-database-read-scale-out.md))
+| Dimensione minima archiviazione | 32 GB |
+| Dimensione massima archiviazione | 4° generazione: 1 TB (tutte le dimensioni vCore)<br> 5° generazione:<ul><li>1 TB per 8, 16 vCore</li><li>2 TB per 24 vCore</li><li>4 TB per 40, 60, 80 vCore</ul>|
+| Quantità massima di risorse di archiviazione per database | Determinata dalla dimensione massima di archiviazione per ogni istanza |
+| Numero di file di dati (RIGHE) per il database | Multipli | 
+| Numero di file di log (LOG) per il database | 1 | 
+| Backup automatici gestiti | sì |
+| DISPONIBILITÀ ELEVATA | In base ai [gruppi di disponibilità AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) e [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Monitoraggio predefinito e metriche dell'istanza e del database | sì |
+| Applicazione automatica di patch software | sì |
+| Rete virtuale: distribuzione di Azure Resource Manager | sì |
+| Rete virtuale: modello di distribuzione classica | No  |
+| Supporto del portale | sì|
+|||
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate 
 
@@ -134,9 +170,15 @@ Istanza gestita offre isolamento di sicurezza aggiuntivo dagli altri tenant nel 
 - L'endpoint SQL viene esposto solo tramite un indirizzo IP privato, che consente la connettività sicura da reti private di Azure o ibride
 - Tenant singolo con infrastruttura sottostante dedicata (calcolo, archiviazione)
 
-Il diagramma seguente illustra la progettazione dell'isolamento: 
+Il diagramma seguente illustra diverse opzioni di connettività per le applicazioni: 
 
 ![disponibilità elevata](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+Per altre informazioni dettagliate sull'integrazione della rete virtuale e sull'applicazione di criteri di rete a livello di subnet, vedere [Configurare una rete virtuale per Istanza gestita di database SQL di Azure](sql-database-managed-instance-vnet-configuration.md) e [Connettere l'applicazione a Istanza gestita di database SQL di Azure](sql-database-managed-instance-connect-app.md). 
+
+> [!IMPORTANT]
+> Inserire più istanze gestite nella stessa subnet, ogniqualvolta tale operazione è consentita dai requisiti di sicurezza, in quanto comporterà vantaggi aggiuntivi. La collocazione di istanze nella stessa subnet semplificherà notevolmente la manutenzione dell'infrastruttura di rete e ridurrà il tempo di provisioning dell'istanza, poiché una durata prolungata di provisioning è associata al costo della distribuzione di una prima istanza gestita in una subnet.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>Controllo per conformità e sicurezza 
 
@@ -147,6 +189,11 @@ Il [controllo di Istanza gestita](sql-database-managed-instance-auditing.md) tie
 Istanza gestita protegge i dati fornendo la crittografia per i dati in transito tramite Transport Layer Security.
 
 Oltre alla sicurezza a livello di trasporto, Istanza gestita di database SQL offre protezione per i dati sensibili in movimento, inattivi e durante l'elaborazione di query con [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted è una tecnologia leader del settore che offre un livello di sicurezza dei dati senza uguali, per la protezione da violazioni che implicano il furto di dati critici. Con Always Encrypted, ad esempio, i numeri delle carte di credito sono sempre archiviati in forma crittografata nel database, anche durante l'elaborazione di query, e la decrittografia è consentita nella posizione di utilizzo da parte di personale o applicazioni autorizzati che devono elaborare tali dati. 
+
+### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi 
+La funzione [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) esegue la crittografia dei file di dati delle istanze gestite SQL di Azure, note anche come dati inattivi crittografati. TDE esegue la crittografia e la decrittografia delle operazioni di I/O di file di dati e log in tempo reale. La crittografia usa una chiave di crittografia del database (DEK) che viene archiviata nel record di avvio del database per la disponibilità durante il ripristino. È possibile proteggere tutti i database nell'istanza gestita con la crittografia dei dati trasparente. TDE è la tecnologia di crittografia dei dati inattivi collaudata di SQL, richiesta da molti standard di conformità per la protezione in caso di furto di supporti di archiviazione. Durante l'anteprima pubblica, il modello di gestione automatica delle chiavi è supportato (eseguito dalla piattaforma PaaS). 
+
+La migrazione di un database crittografato in Istanza gestita SQL è supportata tramite il servizio Migrazione del database di Azure(DMS) o il ripristino nativo. Se si decide di eseguire la migrazione del database crittografato tramite ripristino nativo, la migrazione del certificato TDE esistente dal server SQL locale o dalla macchina virtuale del server SQL a Istanza gestita è un passaggio necessario. Per altre informazioni sui vari metodi di migrazione, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](sql-database-managed-instance-migrate.md).
 
 ### <a name="dynamic-data-masking"></a>Maschera dati dinamica 
 
@@ -225,3 +272,4 @@ Istanza gestita consente all'amministratore di sistema di concentrarsi sugli asp
 - Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale per Istanza gestita](sql-database-managed-instance-vnet-configuration.md).
 - Per un'esercitazione sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md).
 - Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).
+- Per informazioni sui prezzi, vedere [Prezzi di Istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

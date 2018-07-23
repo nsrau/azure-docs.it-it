@@ -11,25 +11,25 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: juliako
-ms.openlocfilehash: 0da5bbee6d0d6401a35c301a8b35dc0efa77da7d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133354"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114794"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 
-È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare un asset, è necessario associare la chiave di crittografia a StreamingLocator e anche configurare i criteri di chiave simmetrica. Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
+È possibile usare Servizi multimediali per distribuire flussi HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming crittografati con AES usando chiavi di crittografia a 128 bit. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. Per consentire a Servizi multimediali di crittografare un asset, è necessario associare la chiave di crittografia a StreamingLocator e anche configurare i criteri di chiave simmetrica. Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 
-L'articolo si basa sull'esempio [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES). L'esempio illustra come creare una trasformazione di codifica che usa un set di impostazioni integrato per la codifica bitrate adattiva e inserisce un file direttamente da un [URL di origine HTTPS](job-input-from-http-how-to.md). L'asset di output viene quindi pubblicato usando la crittografia AES (ClearKey). L'output dell'esempio è un URL di Azure Media Player che include sia il manifesto DASH che il token AES necessari per riprodurre il contenuto. L'esempio imposta la scadenza del token JWT su 1 ora. È possibile aprire un browser e incollare l'URL risultante per avviare la pagina della demo di Azure Media Player con l'URL e il token già inseriti (nel formato seguente: ``` https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```).
+L'articolo si basa sull'esempio [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES). L'esempio illustra come creare una trasformazione di codifica che usa un set di impostazioni integrato per la codifica bitrate adattiva e inserisce un file direttamente da un [URL di origine HTTPS](job-input-from-http-how-to.md). L'asset di output viene quindi pubblicato usando la crittografia AES (ClearKey). L'output dell'esempio è un URL di Azure Media Player che include sia il manifesto DASH che il token AES necessari per riprodurre il contenuto. L'esempio imposta la scadenza del token JWT su 1 ora. È possibile aprire un browser e incollare l'URL risultante per avviare la pagina della demo di Azure Media Player con l'URL e il token già inseriti nel formato seguente: ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
 > È possibile crittografare ogni asset con più tipi di crittografia (AES-128, PlayReady, Widevine, FairPlay). Per informazioni su come combinarli efficacemente, vedere [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types) (Protocolli di streaming e tipi di crittografia).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione è necessario quanto segue.
 
@@ -40,7 +40,7 @@ Per completare l'esercitazione è necessario quanto segue.
 
 ## <a name="download-code"></a>Scaricare il codice
 
-Clonare nel computer un repository GitHub contenente l'esempio .NET completo trattato in questo argomento usando il comando seguente:
+Clonare nel computer un repository GitHub contenente l'esempio .NET completo trattato in questo articolo usando il comando seguente:
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -59,7 +59,7 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ## <a name="create-an-output-asset"></a>Creare un asset di output  
 
-L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo di codifica. Dopo che la codifica è stata eseguita, l'asset di output viene pubblicato usando la crittografia AES (ClearKey).  
+L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia il risultato del processo di codifica.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateOutputAsset)]
  
@@ -87,27 +87,22 @@ L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Q
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkey-policy"></a>Creare criteri ContentKey
+## <a name="create-a-contentkeypolicy"></a>Creare un ContentKeyPolicy
 
-Una chiave simmetrica consente l'accesso sicuro alle entità Asset. È necessario creare un criterio di chiave simmetrica che consente di configurare la modalità in cui la chiave simmetrica viene distribuita per i client finali. La chiave simmetrica è associata a StreamingLocator. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. 
+Una chiave simmetrica consente l'accesso sicuro alle entità Asset. È necessario creare un **ContentKeyPolicy** che consente di configurare la modalità in cui la chiave simmetrica viene distribuita per i client finali. La chiave simmetrica è associata a **StreamingLocator**. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. 
 
-Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto, in questo caso mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per determinare se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di autorizzazione specificati per la chiave.
+Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto, in questo caso mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="get-a-token"></a>Acquisizione di un token
-        
-In questa esercitazione si specifica una restrizione token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) e saranno configurati in questo modo nell'esempio.
-
-In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che il token presentato al servizio di distribuzione delle chiavi deve contenere l'identificatore dell'entità ContentKey. Nell'esempio non si specifica una chiave simmetrica quando si crea StreamingLocator, ma il sistema crea un valore casuale. Per generare il token di test, è necessario ottenere il ContentKeyId da inserire nell'attestazione ContentKeyIdentifierClaim.
-
-[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
-
 ## <a name="create-a-streaminglocator"></a>Creare un StreamingLocator
 
-Al termine della codifica, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. È possibile eseguire questa operazione in due passaggi: creare prima un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) e dopo gli URL di streaming che possono essere usati dai client. 
+Quando la codifica è terminata e i criteri della chiave simmetrica sono stati impostati, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. Eseguire questa operazione in due passaggi: 
 
-Il processo di creazione di un oggetto **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
+1. Creare un [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Compilare l'URL di streaming che i client possono usare. 
+
+Il processo di creazione dell'oggetto **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
 Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questa esercitazione si usa uno dei PredefinedStreamingPolicies che indica come pubblicare il contenuto per lo streaming di servizi multimediali di Azure. In questo esempio si applica la crittografia AES Envelope, nota anche come crittografia ClearKey perché la chiave viene distribuita al client di riproduzione tramite HTTPS e non una licenza DRM.
 
@@ -115,6 +110,14 @@ Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Evitare quindi di creare un nuovo oggetto StreamingPolicy per ogni StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#CreateStreamingLocator)]
+
+## <a name="get-a-test-token"></a>Ottenere un token di test
+        
+In questa esercitazione si specifica una restrizione token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) e saranno configurati in questo modo nell'esempio.
+
+In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che il token presentato al servizio di distribuzione delle chiavi deve contenere l'identificatore dell'entità ContentKey. Nell'esempio non si specifica una chiave simmetrica quando si crea StreamingLocator, ma il sistema crea un valore casuale. Per generare il token di test, è necessario ottenere il ContentKeyId da inserire nell'attestazione ContentKeyIdentifierClaim.
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#GetToken)]
 
 ## <a name="build-a-dash-streaming-url"></a>Creare un URL di streaming DASH
 
@@ -130,4 +133,4 @@ Normalmente è necessario pulire tutti gli oggetti tranne quelli che si prevede 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](content-protection-overview.md)
+Scoprire come [proteggere con DRM](protect-with-drm.md)
