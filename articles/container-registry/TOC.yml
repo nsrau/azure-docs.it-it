@@ -67,9 +67,9 @@
           href: container-registry-auth-service-principal.md
         - name: Istanze di contenitore di Azure
           href: container-registry-auth-aci.md
-        - name: Servizio contenitore di Azure
+        - name: Azure Kubernetes Service (AKS)
           href: container-registry-auth-aks.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/acr

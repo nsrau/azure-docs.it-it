@@ -19,6 +19,8 @@
       href: quickstart-nodejs.md
     - name: Creare un'app Java
       href: quickstart-java.md
+    - name: Creare un'app Python
+      href: quickstart-python.md
     - name: Creare un'app Ruby
       href: quickstart-ruby.md
     - name: Creare un'app Docker/Go
@@ -151,7 +153,7 @@
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Spostare le risorse
           href: '../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/appservice

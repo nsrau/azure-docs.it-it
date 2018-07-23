@@ -12,12 +12,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/14/2018
   ms.author: sethm
-  ms.openlocfilehash: 481a11b284f0bfba73fe8a44b640eac0cdc6f833
-  ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+  ms.openlocfilehash: 84ef019b64bba2d5b581593ae293ea612ecb4bc4
+  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 07/02/2018
-  ms.locfileid: "37344064"
+  ms.lasthandoff: 07/20/2018
+  ms.locfileid: "39170933"
 abstract:
   description: Hub eventi di Azure è una piattaforma di streaming di dati e un servizio di elaborazione di eventi in grado di ricevere ed elaborare milioni di eventi al secondo. Il servizio supporta i protocolli HTTPS e AMQP 1.0 e l'ecosistema Apache Kafka per la pubblicazione di eventi.
   aside:
@@ -56,7 +56,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://review.docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies?branch=release-mvc-event-hubs">Leggere un flusso di dati di Hub eventi con Analisi di flusso di Azure e visualizzare le anomalie</a>
+    - html: <a href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-tutorial-visualize-anomalies">Leggere un flusso di dati di Hub eventi con Analisi di flusso di Azure e visualizzare le anomalie</a>
 - title: Video di formazione gratuiti su PluralSight
   items:
   - type: list
@@ -78,7 +78,7 @@ sections:
     items:
     - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Azure PowerShell</a>
     - html: <a href="https://github.com/Azure/azure-event-hubs/tree/master/samples/Management">Interfaccia della riga di comando di Azure</a>
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards

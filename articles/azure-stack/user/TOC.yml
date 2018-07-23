@@ -23,9 +23,9 @@
   items:
     - name: Distribuire app in Azure Stack e Azure
       href: azure-stack-solution-pipeline.md
-    - name: Configurare l'identità cloud ibrida
+    - name: Configurare l'identità del cloud ibrido
       href: azure-stack-solution-hybrid-identity.md
-    - name: Configurare la connettività di cloud ibrido
+    - name: Configurare la connettività cloud ibrida
       href: azure-stack-solution-hybrid-connectivity.md
     - name: Sottoscrivere un'offerta
       href: azure-stack-subscribe-services.md
@@ -35,13 +35,13 @@
   items:
     - name: Usare il portale di Azure Stack
       href: azure-stack-use-portal.md
-    - name: Utilizzare l'API dello Stack di Azure
+    - name: Usare l'API di Azure Stack
       href: azure-stack-rest-api-use.md
     - name: Sicurezza e conformità
       items:
         - name: Usare il controllo degli accessi in base al ruolo
           href: azure-stack-manage-permissions.md
-        - name: Utilizzare le entità servizio
+        - name: Usare le entità servizio
           href: Azure-stack-create-service-principals.md
     - name: Usare i servizi
       items:
@@ -55,11 +55,11 @@
               href: azure-stack-vm-considerations.md
             - name: Dimensioni delle macchine virtuali
               href: azure-stack-vm-sizes.md
-            - name: Gestire i dischi di macchina virtuale
+            - name: Gestire i dischi delle macchine Virtuali
               href: azure-stack-manage-vm-disks.md
             - name: Proteggere le macchine virtuali
               href: azure-stack-manage-vm-protect.md
-            - name: Considerazioni sulla macchina virtuale SQL Server
+            - name: Considerazioni sulle VM di SQL Server
               href: azure-stack-sql-server-vm-considerations.md
         - name: Archiviazione
           items:
@@ -110,14 +110,15 @@
         - name: Configurare l'ambiente di sviluppo
           items:
             - name: Installare PowerShell per Azure Stack
-              href: 'https://docs.microsoft.com/azure/azure-stack/user/azure-stack-powershell-install'
-            - name: Scaricare strumenti di Azure Stack
+              href: ../azure-stack-powershell-install.md
+              maintainContext: true
+            - name: Scarica gli strumenti di Azure Stack
               href: azure-stack-powershell-download.md
             - name: Configurare PowerShell - Utente
               href: azure-stack-powershell-configure-user.md
             - name: Installazione di Visual Studio
               href: azure-stack-install-visual-studio.md
-            - name: Utilizzo dei profili versione API
+            - name: Usando i profili delle versioni API
               href: azure-stack-version-profiles.md
               items:
                 - name: PowerShell
@@ -160,15 +161,15 @@
   items:
     - name: Documentazione dell'operatore di Azure Stack
       href: /azure/azure-stack/
-    - name: Documentazione ASDK
+    - name: Documentazione di ASDK
       href: /azure/azure-stack/asdk/
 - name: Risorse
   items:
-    - name: Guida di orientamento per Azure Stack
+    - name: Roadmap per Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
     - name: Forum MSDN di Stack di Azure
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Suggerimenti sulla documentazione dello Stack di Azure
+    - name: Suggerimenti sulla documentazione di Stack di Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informazioni sui prezzi
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

@@ -81,7 +81,7 @@
       href: input-mappings.md
     - name: Usare lo schema CloudEvents
       href: cloudevents-schema.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/eventgrid
@@ -89,14 +89,6 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST
       href: /rest/api/eventgrid
-    - name: Risorse del modello
-      items:
-        - name: Sottoscrizioni di eventi
-          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-        - name: Argomenti
-          href: /azure/templates/microsoft.eventgrid/topics
-    - name: SDK
-      href: sdk-overview.md
     - name: Schema di sottoscrizione
       href: subscription-creation-schema.md
     - name: Schema di eventi
@@ -106,6 +98,8 @@
           href: event-schema-subscriptions.md
         - name: Archiviazione BLOB
           href: event-schema-blob-storage.md
+        - name: Registro di sistema del contenitore
+          href: event-schema-container-registry.md
         - name: Hub eventi
           href: event-schema-event-hubs.md
         - name: Hub IoT
@@ -116,6 +110,14 @@
           href: event-schema-resource-groups.md
         - name: Bus di servizio
           href: event-schema-service-bus.md
+    - name: Risorse del modello
+      items:
+        - name: Sottoscrizioni di eventi
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: Argomenti
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: SDK
+      href: sdk-overview.md
 - name: Risorse
   items:
     - name: Roadmap per Azure
