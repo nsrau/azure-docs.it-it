@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176789"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112723"
 ---
 # <a name="understand-load-balancer-probes"></a>Informazioni sui probe del servizio di bilanciamento del carico
 
-Azure Load Balancer usa i probe di integrità per determinare quale istanza del pool back-end deve ricevere nuovi flussi. Se un probe di integrità ha esito negativo, Load Balancer interrompe l'invio di nuovi flussi alla rispettiva istanza danneggiata, mentre i flussi esistenti su tale istanza non subiscono alcuna variazione.  Se i probe hanno esito negativo su tutte le istanze del pool back-end, si verificherà il timeout di tutti i flussi esistenti su tutte le istanze del pool.
+Azure Load Balancer usa i probe di integrità per determinare quale istanza del pool back-end deve ricevere nuovi flussi.   È possibile utilizzare i probe di integrità per rilevare l'errore di un'applicazione in un'istanza di back-end.  È anche possibile usare la risposta del probe di integrità dall'applicazione per segnalare a Load Balancer se si desidera continuare ad inviare nuovi flussi o arrestare l'invio di nuovi flussi a un'istanza di back-end per gestire carico o tempi di inattività pianificati.
 
-I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe di integrità personalizzati TCP o HTTP devono essere configurati quando si usano macchine virtuali dietro Load Balancer.
+I probe di integrità determinano quali nuovi flussi vengono stabiliti per le istanze back-end integre. Se il probe di integrità non riesce, Load Balancer interrompe l'invio di nuovi flussi alla rispettiva istanza non integra.  Le connessioni TCP stabilite continuano dopo l'errore di probe di integrità.  I flussi esistenti UDP passeranno dall'istanza del tipo non integro a un'altra istanza integra nel pool di back-end.
+
+Se tutti i probe per un pool di back-end hanno esito negativo, Load Balancer Basic terminerà tutti i flussi TCP esistenti per il pool di back-end, mentre Load Balancer Standard permetterà al flussi TCP stabiliti di continuare; non verranno inviati nuovi flussi per il pool di back-end.  Tutti i flussi UDP esistenti verranno interrotti per Load Balancer Standard e Basic quando tutti i probe per un pool di back-end hanno esito negativo.
+
+I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe di integrità personalizzati TCP o HTTP devono essere configurati quando si usano Servizi cloud con macchine virtuali dietro Load Balancer.
 
 ## <a name="understand-probe-count-and-timeout"></a>Informazioni su conteggio e timeout dei probe
 
