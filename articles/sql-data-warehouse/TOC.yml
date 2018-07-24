@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: Note sulla versione
   items:
+    - name: Luglio 2018
+      href: release-notes-july-2018.md
     - name: Giugno 2018
       href: release-notes-june-2018.md
     - name: Maggio 2018
@@ -239,7 +241,7 @@
       items:
         - name: Automatizzare i livelli di calcolo
           href: manage-compute-with-azure-functions.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: T-SQL
       items:
