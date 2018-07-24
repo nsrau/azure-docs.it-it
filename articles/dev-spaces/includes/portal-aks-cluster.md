@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 6d2940712f8a76173de47badd45d7c7f0f0be05c
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825477"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967868"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
 
@@ -25,10 +25,10 @@ ms.locfileid: "34825477"
    Completare i passaggi seguenti in ogni intestazione del modulo per la creazione di un cluster del servizio contenitore di Azure.
 
     - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
-    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere EastUS, WestEurope o CanadaEast), versione e prefisso del nome DNS per il cluster AKS.
+    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere Stati Uniti orientali, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Canada centrale o Canada orientale), versione e prefisso del nome DNS per il cluster nel servizio contenitore di Azure.
     - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente AKS e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster AKS. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster AKS è possibile facilmente creare un nuovo cluster AKS con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
 
-   Assicurarsi di scegliere Kubernetes versione 1.9.6 o versioni successive.
+   Assicurarsi di scegliere Kubernetes versione 1.10.3 o successive.
 
    ![Impostazioni di configurazione di Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
@@ -40,5 +40,9 @@ ms.locfileid: "34825477"
 
     > [!IMPORTANT]
     > È necessario assicurarsi di abilitare il routing dell'applicazione Http quando si crea il cluster AKS. Non è possibile modificare questa impostazione in un secondo momento.
+
+1. Scegliere l'impostazione desiderata per il controllo degli accessi in base al ruolo. Azure Dev Spaces supporta i cluster con il controllo degli accessi in base al ruolo abilitato o disabilitato.
+
+    ![Impostazione del controllo degli accessi in base al ruolo](../media/common/k8s-RBAC.PNG)
 
 1. Al termine dell'operazione, selezionare **Review + create** (Esamina + crea) e quindi **Create** (Crea).
