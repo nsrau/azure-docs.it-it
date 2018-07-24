@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916603"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990864"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicare una macchina virtuale di Azure in un'altra area di Azure
 
@@ -34,7 +34,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 1. Nel portale di Azure fare clic su **Macchine virtuali** e selezionare la macchina virtuale che si vuole replicare.
 
-2. In **Impostazioni** fare clic su **Ripristino di emergenza**.
+2. In **Operazioni** fare clic su **Ripristino di emergenza**.
 3. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 4. Per questa guida introduttiva, accettare le altre impostazioni predefinite.
 5. Fare clic su **Abilitazione della replica**. Verrà avviato un processo per abilitare la replica per la macchina virtuale.

@@ -1,29 +1,29 @@
 ---
-title: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Databricks usando Spark | Microsoft Docs
-description: Illustra come eseguire query Spark in un cluster Databricks per accedere ai dati in un account di archiviazione di Azure Data Lake Storage Gen2.
+title: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark | Microsoft Docs
+description: Informazioni su come eseguire query Spark in un cluster di Azure Databricks per accedere ai dati in un account di archiviazione Azure Data Lake Storage Gen2.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096917"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136404"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Databricks usando Spark
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati della versione di anteprima di Azure Data Lake Storage Gen2 con Azure Databricks usando Spark
 
-In questa esercitazione si apprenderà come eseguire query Spark in un cluster Databricks per eseguire query sui dati in un account con supporto della versione di anteprima di Azure Data Lake Storage Gen2.
+Questa esercitazione illustra come eseguire query Spark in un cluster di Azure Databricks per eseguire query sui dati in un account con supporto della versione di anteprima di Azure Data Lake Storage Gen2.
 
 > [!div class="checklist"]
-> * Creare un cluster Databricks
+> * Creare un cluster di Databricks
 > * Inserire dati non strutturati in un account di archiviazione
 > * Attivare una funzione di Azure per elaborare i dati
 > * Esecuzione di analisi sui dati nell'archiviazione BLOB
@@ -47,11 +47,11 @@ Per iniziare, creare un nuovo [account di Azure Data Lake Storage Gen2](quicksta
 
 Per i passaggi successivi di questa esercitazione sono richiesti sia il nome dell'account che la chiave. Aprire un editor di testo e tenere da parte il nome dell'account e la chiave per riferimento futuro.
 
-## <a name="create-a-databricks-cluster"></a>Creare un cluster Databricks
+## <a name="create-a-databricks-cluster"></a>Creare un cluster di Databricks
 
-Il passaggio successivo consiste nel creare un [cluster Databricks](https://docs.azuredatabricks.net/) per creare un'area di lavoro di dati.
+Il passaggio successivo consiste nel creare un [cluster di Databricks](https://docs.azuredatabricks.net/) per creare un'area di lavoro dati.
 
-1. Creare un [servizio Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) e denominarlo **myFlightDataService** (assicurarsi di selezionare la casella di controllo *Aggiungi al dashboard* durante la creazione del servizio).
+1. Creare un [servizio Databricks](https://ms.portal.azure.com/#create/Microsoft.Databricks) e denominarlo **myFlightDataService**. Mentre si crea il servizio, assicurarsi di selezionare la casella di controllo *Aggiungi al dashboard*.
 2. Fare clic su **Avvia area di lavoro** per aprire l'area di lavoro in una nuova finestra del browser.
 3. Fare clic su **Cluster** nella barra di spostamento a sinistra.
 4. Fare clic su **Crea cluster**.
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Usare il notebook di Databricks per convertire il formato CSV in Parquet
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Usare un notebook di Databricks per convertire il formato CSV in Parquet
 
-Aprire nuovamente Databricks nel browser ed eseguire i passaggi seguenti:
+Aprire nuovamente Databricks nel browser ed eseguire questa procedura:
 
 1. Selezionare **Azure Databricks** in alto a sinistra nella barra di spostamento.
 2. Selezionare **Notebook** nella sezione **Nuovo** nella parte inferiore della pagina.

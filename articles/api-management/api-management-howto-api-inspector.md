@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934691"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057328"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Eseguire il debug delle API con la traccia delle richieste
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 ![Controllo API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -44,6 +44,12 @@ In questa esercitazione si apprenderà come:
 3. Selezionare l'operazione **GetSpeakers**.
 4. Passare alla scheda **Test**.
 5. Includere un'impostazione HTTP denominata **Ocp-Apim-Trace** con valore impostato su **true**.
+
+    ![Intestazione per la traccia delle API](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > Se l'intestazione Ocp-Apim-Subscription-Key non viene popolata automaticamente, può essere recuperata passando al portale per sviluppatori ed esponendo le chiavi nella pagina del profilo.
+
 6. Fare clic su **"Invia"** per effettuare una chiamata API. 
 7. Attendere il completamento della chiamata. 
 8. Passare alla scheda **Traccia** della **console API**. Fare clic su uno dei collegamenti seguenti per visualizzare informazioni di traccia dettagliate: **inbound**, **backend**, **outbound**.
@@ -59,7 +65,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Tenere traccia di una chiamata

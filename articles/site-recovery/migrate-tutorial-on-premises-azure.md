@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919122"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070678"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -38,9 +38,12 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 Prima di iniziare è utile esaminare le architetture [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md) per il ripristino di emergenza.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-I dispositivi esportati da driver paravirtualizzati non sono supportati.
+- I dispositivi esportati da driver paravirtualizzati non sono supportati.
+ 
+> [!WARNING]
+> È possibile eseguire la migrazione di VM in piattaforme di virtualizzazione diverse da VMware o Hyper-V, ad esempio XenServer, gestendo le VM come server fisici. Questo approccio, tuttavia, non è stato testato e convalidato da Microsoft e potrebbe non funzionare. Le VM in esecuzione nella piattaforma XenServer, ad esempio, potrebbero non essere eseguite in Azure a meno che i driver di rete e di archiviazione paravirtualizzati e gli strumenti di XenServer non vengano disinstallati dalle VM prima di avviare la migrazione.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
@@ -109,7 +112,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 1. In **Impostazioni** > **Elementi replicati** fare clic su computer > **Failover**.
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino.
 3. L'impostazione della chiave di crittografia non è rilevante per questo scenario.
-4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare le macchine virtuali di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
+4. Selezionare **Arrestare la macchina prima di iniziare il failover**. Site Recovery proverà ad arrestare le macchine virtuali prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 5. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
 6. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
 
@@ -124,7 +127,7 @@ In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata eseguita la migrazione dalle macchine virtuali locali alle macchine virtuali di Azure. Ora è possibile configurare il ripristino di emergenza per le macchine virtuali di Azure.
-
-> [!div class="nextstepaction"]
-> [Configurare il ripristino di emergenza](azure-to-azure-replicate-after-migration.md) per le macchine virtuali di Azure dopo la migrazione da un sito locale.
+In questa esercitazione è stata eseguita la migrazione dalle macchine virtuali locali alle macchine virtuali di Azure. Dopo aver completato la migrazione delle VM:
+- [Configurare il ripristino di emergenza](azure-to-azure-replicate-after-migration.md) per le VM di cui è stata eseguita la migrazione.
+- Sfruttare le funzionalità di [protezione e gestione ottimale del cloud](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) di Azure per gestire le VM in Azure.
+  

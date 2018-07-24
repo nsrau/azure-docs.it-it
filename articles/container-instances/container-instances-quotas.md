@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163368"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115276"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di contenitore di Azure
 
@@ -31,6 +31,7 @@ Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti 
 | -------- | -- | :---: | :-----------: |
 | Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale | Linux | 4 | 14 |
 | Stati Uniti occidentali 2, Asia sud-orientale | Linux | 2 | 7 |
+| Australia orientale, Stati Uniti orientali 2, Stati Uniti centrali | Linux | 1 | 1,5 |
 | Stati Uniti occidentali, Stati Uniti orientali, Europa occidentale, Europa settentrionale | Windows | 4 | 14 |
 | Stati Uniti occidentali 2, Asia sud-orientale | Windows | 2 | 3,5 |
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 484f04dc2ed523d3f979b0ba857c92f90d9d32ad
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069860"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215811"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti nella panoramica di Azure Stack
 
 *Si applica a: i sistemi integrati di Azure Stack*
 
-I pacchetti di aggiornamento di Microsoft per Azure Stack in genere i sistemi integrati di una versione per il quarto martedì di ogni mese. Chiedere l'OEM sul processo di notifica specifici per garantire le notifiche di aggiornamento raggiungano l'organizzazione. È inoltre possibile controllare in questa libreria della documentazione in sotto **Overview** > **note sulla versione** per informazioni sulle versioni che sono in supporto attivo. 
+I pacchetti di aggiornamento di Microsoft per Azure Stack in genere i sistemi integrati di una versione per il quarto martedì di ogni mese. Chiedere l'OEM sul processo di notifica specifici per garantire le notifiche di aggiornamento raggiungano l'organizzazione. È inoltre possibile controllare in questa libreria della documentazione sotto **Overview** > **note sulla versione** per informazioni sulle versioni che sono in supporto attivo. 
 
 Ogni versione di aggiornamenti software Microsoft viene incluso come un singolo pacchetto di aggiornamento. Un operatore di Azure Stack, è possibile importare, install e monitorare lo stato dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 

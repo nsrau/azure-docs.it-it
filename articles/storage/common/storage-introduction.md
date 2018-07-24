@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653655"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001542"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -140,6 +140,7 @@ Sono disponibili due tipi di crittografia di base per i servizi di archiviazione
 
 Crittografia del servizio di archiviazione di Azure per dati inattivi (SSE) consente di proteggere e salvaguardare i dati, in modo da soddisfare i criteri di sicurezza e conformità dell'organizzazione. Questa funzionalità consente ad Archiviazione di Azure di crittografare automaticamente i dati prima della persistenza nella risorsa di archiviazione e di decrittografarli prima del recupero. La crittografia, la decrittografia e la gestione delle chiavi sono completamente trasparenti per gli utenti.
 
+
 La crittografia del servizio di archiviazione crittografa automaticamente i dati in tutti i livelli di prestazioni (Standard e Premium), tutti i modelli di distribuzione (distribuzione classica e Azure Resource Manager) e tutti i servizi di Archiviazione di Azure (BLOB, code, tabelle e file). La crittografia del servizio di archiviazione non influisce sulle prestazioni di Archiviazione di Azure.
 
 Per altre informazioni sulla crittografia SSE dei dati inattivi, vedere [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md).
@@ -168,6 +169,8 @@ Per informazioni sul ripristino di emergenza, vedere [Cosa fare se si verifica u
 AzCopy si basa sulla [libreria di spostamento dei dati di Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), attualmente disponibile in anteprima.
 
 Il servizio Importazione/Esportazione di Azure può essere usato per importare o esportare quantità elevate di dati di BLOB verso o dall'account di archiviazione. È possibile preparare e inviare più dischi rigidi a un data center di Azure, in cui i dati verranno trasferiti verso/dai dischi rigidi e i dischi rigidi verranno restituiti all'utente. Per altre informazioni sul servizio di importazione/esportazione, vedere [Usare il servizio di importazione/esportazione di Microsoft Azure per trasferire dati nell'archivio BLOB](../storage-import-export-service.md).
+
+Per importare quantità elevate di dati di BLOB nell'account di archiviazione in modo veloce, economico e affidabile, è anche possibile usare Azure Data Box Disk. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con capacità di 40 TB al data center del cliente tramite un corriere regionale. È quindi possibile configurare i dischi, copiarvi i dati tramite una connessione USB e rispedirli ad Azure rapidamente. Nel data center di Azure, i dati vengono caricati automaticamente dalle unità al cloud. Per altre informazioni su questa soluzione, vedere la [panoramica di Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="pricing"></a>Prezzi
 

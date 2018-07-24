@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970245"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070009"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Funzionalità di archiviazione non modificabile dell'archivio BLOB di Azure (anteprima)
 
@@ -178,11 +178,11 @@ La funzionalità di archiviazione non modificabile per i BLOB può essere usata 
 
 **Che cosa accade se si tenta di eliminare un contenitore con un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
-L'operazione di eliminazione del contenitore avrà esito negativo se è presente almeno un BLOB con un criterio di conservazione basato sul tempo bloccato o un blocco a fini giudiziari. L'operazione di eliminazione del contenitore verrà completata se non è presente alcun BLOB con un intervallo di conservazione attivo e non sono impostati blocchi a fini giudiziari. È necessario eliminare i BLOB prima di poter eliminare il contenitore.
+L'operazione di eliminazione del contenitore avrà esito negativo se è presente almeno un BLOB con un criterio di conservazione basato sul tempo bloccato o un blocco a fini giudiziari, anche in caso di [eliminazione temporanea](storage-blob-soft-delete.md) dei dati. L'operazione di eliminazione del contenitore verrà completata se non sono presenti BLOB con un intervallo di conservazione attivo né blocchi a fini giudiziari. È necessario eliminare i BLOB prima di poter eliminare il contenitore. 
 
 **Che cosa accade se si tenta di eliminare un account di archiviazione con un contenitore WORM che dispone di un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
-L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore WORM con un blocco a fini giudiziari o un BLOB con un intervallo di conservazione attivo.  È necessario eliminare tutti i contenitori WORM prima di poter eliminare l'account di archiviazione.  Vedere la domanda 2 per informazioni sull'eliminazione del contenitore.
+L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore WORM con un blocco a fini giudiziari o un BLOB con un intervallo di conservazione attivo.  È necessario eliminare tutti i contenitori WORM prima di poter eliminare l'account di archiviazione.  Per informazioni sull'eliminazione di contenitori, vedere la domanda precedente.
 
 **È possibile spostare i dati tra i diversi livelli BLOB (ad accesso frequente, ad accesso sporadico e archivio) quando il BLOB è in stato non modificabile?**
 

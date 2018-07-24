@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b82eeb43c29fd52f4df2d453bb24bb2b3bd581ad
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030516"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125943"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Esercitazione: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi
 
@@ -128,8 +128,8 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 3. Selezionare la casella di controllo accanto alla casella di ricerca. **Includi versione preliminare**
 4. Cercare i due pacchetti NuGet elencati di seguito e confermarne l'aggiunta alla soluzione:
 
-    * [Microsoft.Azure.Services.AppAuthentication (anteprima)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Semplifica il recupero dei token di accesso per gli scenari di autenticazione da servizio a servizio di Azure. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - Contiene i metodi per interagire con Key Vault.
+    * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Semplifica il recupero dei token di accesso per gli scenari di autenticazione da servizio a servizio di Azure. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - Contiene i metodi per interagire con Key Vault.
 
 5. Usare Esplora soluzioni per aprire `Program.cs` e sostituire il contenuto del file Program.cs con il codice seguente. Sostituire ```<YourKeyVaultName>``` con il nome dell'insieme di credenziali delle chiavi:
 
@@ -142,37 +142,36 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureKeyVault;
     
-        namespace WebKeyVault
-        {
-        public class Program
-        {
-        public static void Main(string[] args)
-        {
-        BuildWebHost(args).Run();
-        }
-    
-            public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((ctx, builder) =>
-                {
-                    var keyVaultEndpoint = GetKeyVaultEndpoint();
-                    if (!string.IsNullOrEmpty(keyVaultEndpoint))
-                    {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                            keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
-                    }
-                }
-             )
-                .UseStartup<Startup>()
-                .Build();
-    
-            private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
-        }
-        }
+    namespace WebKeyVault
+    {
+       public class Program
+       {
+           public static void Main(string[] args)
+           {
+               BuildWebHost(args).Run();
+           }
+
+           public static IWebHost BuildWebHost(string[] args) =>
+           WebHost.CreateDefaultBuilder(args)
+               .ConfigureAppConfiguration((ctx, builder) =>
+               {
+                   var keyVaultEndpoint = GetKeyVaultEndpoint();
+                   if (!string.IsNullOrEmpty(keyVaultEndpoint))
+                   {
+                       var azureServiceTokenProvider = new AzureServiceTokenProvider();
+                       var keyVaultClient = new KeyVaultClient(
+                           new KeyVaultClient.AuthenticationCallback(
+                               azureServiceTokenProvider.KeyVaultTokenCallback));
+                       builder.AddAzureKeyVault(
+                           keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                   }
+               }
+            ).UseStartup<Startup>()
+             .Build();
+
+           private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
+         }
+    }
     ```
 
 6. Usare Esplora soluzioni per passare alla sezione **Pagine** e aprire `About.cshtml`. Sostituire il contenuto di **About.cshtml.cs** con il codice seguente:
@@ -206,14 +205,15 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 7. Dal menu principale scegliere **Debug** > **Avvia senza eseguire debug**. Quando viene visualizzato il browser, passare alla pagina **About**. Viene visualizzato il valore per AppSecret.
 
 >[!IMPORTANT]
-> Se viene visualizzato un messaggio di errore HTTP 502.5 - Errore del processo, verificare il nome dell'insieme di credenziali delle chiavi specificato in `Program.cs`
+> Se viene visualizzato un errore HTTP 502.5 - Messaggio di errore del processo
+> > Verificare quindi il nome dell'istanza di Key Vault specificata in `Program.cs`
 
 ## <a name="publish-the-web-application-to-azure"></a>Pubblicare l'applicazione Web in Azure
 
 1. Sopra l'editor selezionare **WebKeyVault**.
 2. Selezionare **Publish** (Pubblica), quindi **Start** (Inizia).
 3. Creare un nuovo **servizio app** e selezionare **Publish**.
-4. Selezionare **Create**.
+4. Selezionare **Crea**.
 
 >[!IMPORTANT]
 > Verrà visualizzata una finestra del browser con un messaggio di errore 502.5 - Errore del processo. Si tratta di un comportamento previsto. Sarà necessario concedere i diritti di identità di applicazione per leggere i segreti dall'insieme di credenziali delle chiavi.

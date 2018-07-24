@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809870"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112964"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
@@ -21,7 +21,7 @@ Le aree di lavoro di Log Analytics offrono una posizione centralizzata per l'arc
 
 Per inviare i dati delle istanze di contenitore a Log Analytics, è necessario creare un gruppo di contenitori usando l'interfaccia della riga di comando di Azure (o Cloud Shell) e un file YAML. Le sezioni seguenti descrivono la creazione di un gruppo di contenitori abilitato per la registrazione e l'esecuzione di query sui log.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per abilitare la registrazione nelle istanze di contenitore, è necessario quanto segue:
 
@@ -43,9 +43,26 @@ Per ottenere l'ID e la chiave primaria dell'area di lavoro di Log Analytics:
 
 ## <a name="create-container-group"></a>Creare un gruppo di contenitori
 
-Dopo aver ottenuto l'ID e la chiave primaria dell'area di lavoro di Log Analytics, è possibile procedere con la creazione di un gruppo di contenitori abilitato per la registrazione. L'esempio seguente crea un gruppo di contenitori con un singolo contenitore [fluentd][fluentd]. Il contenitore Fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro di Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
+Dopo aver ottenuto l'ID e la chiave primaria dell'area di lavoro di Log Analytics, è possibile procedere con la creazione di un gruppo di contenitori abilitato per la registrazione.
 
-In primo luogo, copiare il codice YAML seguente, che definisce un gruppo di contenitori con un singolo contenitore, in un nuovo file. Sostituire `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` con i valori ottenuti nel passaggio precedente e quindi salvare il file come **deploy-aci.yaml**.
+Gli esempi seguenti illustrano due modi per creare un gruppo di contenitori con un unico contenitore [fluentd][fluentd]: interfaccia della riga di comando di Azure e interfaccia della riga di comando di Azure con un modello YAML. Il contenitore Fluentd produce più righe di output nella configurazione predefinita. Dato che questo output viene inviato all'area di lavoro di Log Analytics, è adatto per dimostrare le funzionalità di visualizzazione ed esecuzione di query per i log.
+
+### <a name="deploy-with-azure-cli"></a>Distribuire con l'interfaccia della riga di comando di Azure
+
+Per eseguire la distribuzione con l'interfaccia della riga di comando di Azure, specificare i parametri `--log-analytics-workspace` e `--log-analytics-workspace-key` nel comando [az container create][az-container-create]. Sostituire i due valori dell'area di lavoro con i valori ottenuti nel passaggio precedente (e aggiornare il nome del gruppo di risorse) prima di eseguire il comando seguente.
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>Distribuire con YAML
+
+Usare questo metodo se si preferisce distribuire gruppi di contenitori con YAML. Il codice YAML seguente definisce un gruppo di contenitori con un singolo contenitore. Copiare il codice YAML in un nuovo file e quindi sostituire `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` con i valori ottenuti nel passaggio precedente. Salvare il file come **deploy-aci.yaml**.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 Successivamente, eseguire il comando seguente per distribuire il gruppo di contenitori. Sostituire `myResourceGroup` con un gruppo di risorse nella sottoscrizione oppure creare prima un gruppo di risorse denominato "myResourceGroup":
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco dopo aver eseguito il comando.
@@ -135,3 +152,4 @@ Per informazioni sul monitoraggio delle risorse di CPU e memoria per l'istanza d
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

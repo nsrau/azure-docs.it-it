@@ -1,6 +1,6 @@
 ---
-title: Panoramica della sicurezza di rete di Azure | Microsoft Docs
-description: Informazioni sulle opzioni di sicurezza per il controllo del flusso del traffico di rete tra le risorse di Azure.
+title: Panoramica dei gruppi di sicurezza di Azure | Microsoft Docs
+description: Informazioni sui gruppi di sicurezza di rete e delle applicazioni. I gruppi di sicurezza consentono di filtrare il traffico di rete tra le risorse di Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e43f476c6f816a912e5739d5e2c13676cd1ca3e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657588"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092672"
 ---
-# <a name="network-security"></a>Sicurezza di rete
+# <a name="network-and-application-security-groups"></a>Gruppi di sicurezza di rete e delle applicazioni
 
-È possibile limitare il traffico di rete verso le risorse in una rete virtuale usando un gruppo di sicurezza di rete. Un gruppo di sicurezza di rete contiene un elenco di regole di sicurezza che consentono o impediscono il traffico di rete in ingresso o in uscita in base all'indirizzo IP di origine o di destinazione, alla porta e al protocollo. 
+È possibile limitare il traffico di rete verso le risorse in una rete virtuale usando gruppi di sicurezza di rete e delle applicazioni. Un gruppo di sicurezza di rete contiene un elenco di regole di sicurezza che consentono o impediscono il traffico di rete in ingresso o in uscita in base all'indirizzo IP di origine o di destinazione, alla porta e al protocollo. Un gruppo di sicurezza delle applicazioni consente di raggruppare le macchine virtuali con funzioni simili, ad esempio i server Web. È possibile specificare un gruppo di sicurezza delle applicazioni come origine o destinazione in una regola del gruppo di sicurezza di rete.
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
 
-A ogni interfaccia di rete è associato un gruppo di sicurezza di rete oppure nessuno. Ogni interfaccia di rete si trova in una subnet di [rete virtuale](virtual-networks-overview.md). Anche a una subnet può essere associato un gruppo di sicurezza di rete oppure nessuno. 
+A ogni interfaccia di rete è associato un gruppo di sicurezza di rete oppure nessuno. Ogni interfaccia di rete si trova in una subnet di [rete virtuale](virtual-networks-overview.md). Anche a una subnet può essere associato un gruppo di sicurezza di rete oppure nessuno.
 
 Se applicate a una subnet, le regole di sicurezza si applicano a tutte le risorse nella subnet. In aggiunta alle interfacce di rete, nella subnet possono essere distribuite istanze di altri servizi di Azure, ad esempio HDInsight, set di scalabilità di macchine virtuali e ambienti del servizio app.
 
@@ -167,10 +167,10 @@ I gruppi di sicurezza delle applicazioni hanno i vincoli seguenti:
 
      - **Enterprise Agreement**: la comunicazione in uscita sulla porta 25 è consentita. È possibile inviare messaggi di posta elettronica in uscita direttamente dalle macchine virtuali a provider di posta elettronica esterni, senza restrizioni dalla piattaforma Azure. 
      - **Pagamento in base al consumo:** la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Se è necessario inviare posta elettronica direttamente da un macchina virtuale a provider di posta elettronica esterni, senza un inoltro SMTP autenticato, è necessario richiedere la rimozione della restrizione. Le richieste vengono esaminate e approvate a discrezione di Microsoft e vengono soddisfatte solo in seguito a controlli anti-frode. Per effettuare una richiesta, aprire un caso di supporto con il tipo di problema *Tecnico*, *Virtual Network Connectivity* (Connettività di rete virtuale), *Cannot send e-mail (SMTP/Port 25)* (Impossibile inviare posta elettronica - SMTP/porta 25). Nel caso di supporto includere informazioni dettagliate sui motivi per cui è necessario inviare posta elettronica dalla sottoscrizione a provider di posta direttamente anziché tramite un inoltro SMTP autenticato. Se la sottoscrizione viene esentata, potranno comunicare in uscita sulla porta 25 solo le macchine virtuali create dopo la data di esenzione.
-     - **Provider di servizi cloud, MSDN, Azure Pass, Azure in Open, Education, BizSpark e versione di valutazione gratuita**: la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Non è possibile richiedere la rimozione della restrizione, perché le richieste non verranno soddisfatte. Se è necessario inviare posta elettronica dalla macchina virtuale, si deve usare un servizio di inoltro SMTP.
+     - **MSDN, Azure Pass, Azure in Open, Education, BizSpark e versione di prova gratuita**: la comunicazione in uscita sulla porta 25 è bloccata per tutte le risorse. Non è possibile richiedere la rimozione della restrizione, perché le richieste non verranno soddisfatte. Se è necessario inviare posta elettronica dalla macchina virtuale, si deve usare un servizio di inoltro SMTP.
+     - **Provider di servizi cloud**: i clienti che utilizzano le risorse di Azure tramite un provider di servizi cloud possono creare un caso di supporto presso tale provider e richiedergli di creare un caso di sblocco per loro conto, se non può essere usato un inoltro SMTP sicuro.
 
-  Se Azure consente di inviare posta elettronica sulla porta 25, Microsoft non può garantire che i provider di posta elettronica accetteranno i messaggi in ingresso provenienti dalla macchina virtuale. Se un provider specifico rifiuta i messaggi di posta elettronica dalla macchina virtuale, è necessario rivolgersi direttamente al provider per risolvere i problemi di recapito dei messaggi o di filtro della posta indesiderata oppure usare un servizio di inoltro SMTP autenticato. 
-
+  Se Azure consente di inviare posta elettronica sulla porta 25, Microsoft non può garantire che i provider di posta elettronica accetteranno i messaggi in ingresso provenienti dalla macchina virtuale. Se un provider specifico rifiuta i messaggi di posta elettronica dalla macchina virtuale, è necessario rivolgersi direttamente al provider per risolvere i problemi di recapito dei messaggi o di filtro della posta indesiderata oppure usare un servizio di inoltro SMTP autenticato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

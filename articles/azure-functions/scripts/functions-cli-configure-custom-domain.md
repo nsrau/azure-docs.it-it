@@ -13,19 +13,21 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 06/26/2018
+ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 7d3fc71bc53e85fa7555dbee5ee79b3f06f27fe8
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 0650fffeb54ebc4390c82fb2711d7c89e0ac4572
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960339"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989419"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Esegue il mapping di un dominio personalizzato a un'app per le funzioni
 
-Questo script di esempio crea un'app per le funzioni con le relative risorse e quindi esegue il mapping di `www.<yourdomain>` a essa. Quando l'app per le funzioni è ospitata in un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME.
+Questo script di esempio crea un'app per le funzioni in un piano di servizio app e quindi ne esegue il mapping a un dominio personalizzato specificato. Quando l'app per le funzioni è ospitata in un [piano di servizio app](../functions-scale.md#app-service-plan), è possibile eseguire il mapping di un dominio personalizzato tramite un record CNAME o A. Per le app per le funzioni in un [piano a consumo](../functions-scale.md#consumption-plan), è supportata solo l'opzione CNAME. Questo esempio crea un piano di servizio app e richiede un record A per il mapping del dominio. 
+
+Per eseguire questo script di esempio, è necessario che nel dominio personalizzato sia già configurato un record A che punta al nome di dominio predefinito dell'app Web. Per altre informazioni, vedere le [istruzioni per il mapping di un dominio personalizzato per il servizio app di Azure](https://aka.ms/appservicecustomdns). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,14 +48,14 @@ Lo script usa i seguenti comandi: ogni comando della tabella include collegament
 
 | Comando | Note |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione necessario per l'app per le funzioni. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Crea un piano di servizio app necessario per eseguire il mapping di un dominio personalizzato. |
-| [az functionapp create]() | Creare un'app per le funzioni. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | Esegue il mapping di un dominio personalizzato a un'app per le funzioni. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione necessario per l'app per le funzioni. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | Crea un piano di servizio app necessario per eseguire il mapping di un dominio personalizzato. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | Crea un'app per le funzioni nel piano di servizio app. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | Esegue il mapping di un dominio personalizzato a un'app per le funzioni. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure).
 
-Altri esempi di script dell'interfaccia della riga di comando di Funzioni di Azure sono disponibili nella [documentazione di Funzioni di Azure]().
+Altri esempi di script dell'interfaccia della riga di comando di Funzioni di Azure sono disponibili nella [documentazione di Funzioni di Azure](../functions-cli-samples.md).

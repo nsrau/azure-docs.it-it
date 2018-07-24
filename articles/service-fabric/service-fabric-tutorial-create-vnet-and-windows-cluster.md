@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114276"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068904"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 
@@ -45,7 +45,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Aggiornare il runtime di un cluster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Distribuire Gestione API e Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -97,7 +97,7 @@ Viene distribuito un cluster Windows con le caratteristiche seguenti.
 * [Proxy inverso](service-fabric-reverseproxy.md) abilitato
 * [Servizio DNS](service-fabric-dnsservice.md) abilitato
 * [Livello di durabilità](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Bronzo (configurabile nei parametri del modello)
-* [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello)
+ * [Livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Argento (configurabile nei parametri del modello)
 * Endpoint di connessione client: 19000 (configurabile nei parametri del modello)
 * Endpoint del gateway HTTP: 19080 (configurabile nei parametri del modello)
 
@@ -139,9 +139,9 @@ Nel file dei parametri [vnet-cluster.parameters.json][parameters] vengono dichia
 
 |Parametro|Valore di esempio|Note|
 |---|---||
-|adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. |
-|adminPassword|Password#1234| Password amministratore per le VM del cluster.|
-|clusterName|mysfcluster123| Nome del cluster. |
+|adminUserName|vmadmin| Nome utente amministratore per le VM del cluster. [Requisiti dei nomi utente per le VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| Password amministratore per le VM del cluster. [Requisiti delle password per le VM](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| Nome del cluster. Può contenere solo lettere e numeri. La lunghezza deve essere compresa tra 3 e 23 caratteri.|
 |location|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3"</p>. |
 |certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato. </p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, Ad esempio, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
@@ -257,7 +257,7 @@ Remove-AzureRmResourceGroup -Name $vaultgroupname -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale in Azure usando PowerShell

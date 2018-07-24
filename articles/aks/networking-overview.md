@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311095"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115796"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configurazione della rete in Azure Kubernetes Service (AKS)
 
@@ -27,8 +27,7 @@ I nodi in un cluster AKS configurato per la rete di base usano il plug-in Kubern
 
 ## <a name="advanced-networking"></a>Rete avanzata
 
-La rete **avanzata** inserisce i pod in una rete virtuale di Azure configurata, fornendo la connettività automatica alle risorse della rete virtuale e l'integrazione con il set completo di funzionalità offerto dalle reti virtuali.
-La rete avanzata è disponibile quando si distribuiscono i cluster AKS con il [portale di Azure][portal], l'interfaccia della riga di comando di Azure o con un modello di Resource Manager.
+La rete **avanzata** inserisce i pod in una rete virtuale di Azure configurata, fornendo la connettività automatica alle risorse della rete virtuale e l'integrazione con il set completo di funzionalità offerto dalle reti virtuali. La rete avanzata è disponibile quando si distribuiscono i cluster AKS con il [portale di Azure][portal], l'interfaccia della riga di comando di Azure o con un modello di Resource Manager.
 
 I nodi in un cluster AKS configurato per la rete avanzata usano il plug-in Kubernetes [Azure Container Networking Interface (CNI)][cni-networking].
 
@@ -45,9 +44,6 @@ La rete avanzata offre i vantaggi seguenti:
 * I pod in una subnet con endpoint di servizio abilitati possono connettersi in modo sicuro ai servizi di Azure, ad esempio Archiviazione di Azure e il database SQL.
 * Usare route definite dall'utente per instradare il traffico dai pod a un'appliance virtuale di rete.
 * I pod possono accedere alle risorse su Internet pubblico. Questa è anche una funzionalità della rete di base.
-
-> [!IMPORTANT]
-> Ogni nodo in un cluster AKS configurato per la rete avanzata può ospitare un massimo di **30 pod** se la configurazione è stata eseguita con il portale di Azure.  È possibile cambiare il valore massimo solo modificando la proprietà maxPods quando si distribuisce un cluster con un modello di Resource Manager. Ogni rete virtuale di cui viene effettuato il provisioning per l'uso con il plug-in Azure CNI è limitata a **4096 indirizzi IP** configurati.
 
 ## <a name="advanced-networking-prerequisites"></a>Prerequisiti per reti avanzate
 
@@ -67,19 +63,36 @@ Il piano di indirizzo IP per un cluster AKS è costituito da una rete virtuale, 
 
 | Intervallo di indirizzi / Risorsa di Azure | Limiti e dimensioni |
 | --------- | ------------- |
-| Rete virtuale | La rete virtuale di Azure può arrivare alle dimensioni /8, ma può avere solo 4096 indirizzi IP configurati. |
-| Subnet | Deve essere sufficientemente grande da contenere i nodi e i pod. Per calcolare le dimensioni minime della subnet: (numero di nodi) + (numero di nodi * pod per ogni nodo). Per un cluster da 50 nodi: (50) + (50 * 30) = 1.550, la subnet dovrà essere /21 o più grande. |
+| Rete virtuale | La rete virtuale di Azure può arrivare alle dimensioni /8, ma può avere solo 16.000 indirizzi IP configurati. |
+| Subnet | Deve essere sufficientemente grande da contenere i nodi, i pod e tutte le risorse Kubernetes e Azure che potrebbero essere sottoposte a provisioning nel cluster. Ad esempio, se si distribuisce un Azure Load Balancer interno, i relativi indirizzi IP front-end vengono allocati dalla subnet del cluster, ma non gli indirizzi IP pubblici. <p/>Per calcolare le dimensioni *minime* della subnet: `(number of nodes) + (number of nodes * pods per node)` <p/>Esempio relativo a un cluster a 50 nodi: `(50) + (50 * 30) = 1,550` (/21 o più grande) |
 | Intervallo di indirizzi del servizio Kubernetes | Questo intervallo non deve essere usato da nessun elemento della rete che si trova su questa rete virtuale o è connesso a essa. Il CIDR dell'indirizzo del servizio deve essere più piccolo di /12. |
 | Indirizzo IP del servizio DNS Kubernetes | Indirizzo IP compreso nell'intervallo di indirizzi del servizio Kubernetes che verrà usato dall'individuazione del servizio cluster (kube-dns). |
 | Indirizzo del bridge Docker | Indirizzo IP (in notazione CIDR) utilizzato come indirizzo IP del bridge Docker nei nodi. Il valore predefinito è 172.17.0.1/16. |
 
-Come accennato in precedenza, ogni rete virtuale di cui viene effettuato il provisioning per l'uso con il plug-in Azure CNI è limitata a **4096 indirizzi IP** configurati. Ogni nodo in un cluster configurato per la rete avanzata può ospitare un massimo di **30 pod**.
+Ogni rete virtuale di cui viene effettuato il provisioning per l'uso con il plug-in CNI di Azure è limitata a **16.000 indirizzi IP** configurati.
+
+## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
+
+Il numero massimo predefinito di pod per ogni nodo in un cluster AKS varia tra la rete di base e avanzata, e il metodo di distribuzione del cluster.
+
+### <a name="default-maximum"></a>Massimo predefinito
+
+* Rete di base: **110 pod per nodo**
+* Rete avanzata: **30 pod per nodo**
+
+### <a name="configure-maximum"></a>Configurare il massimo
+
+A seconda del metodo di distribuzione, è possibile modificare il numero massimo di pod per nodo in un cluster AKS.
+
+* **Azure CLI**: specificare l'`--max-pods`argomento quando si distribuisce un cluster con il comando [az aks create] [ az-aks-create].
+* **Modello di Gestione risorse**: specificare la `maxPods` proprietà nell'oggetto [ManagedClusterAgentPoolProfile] quando si distribuisce un cluster con un modello di Gestione risorse.
+* **Portale di Azure**: non è possibile modificare il numero massimo di pod per ogni nodo quando si distribuisce un cluster con il portale di Azure. I cluster di rete avanzata sono limitati a 30 pod per ogni nodo quando sono distribuiti nel portale di Azure.
 
 ## <a name="deployment-parameters"></a>Parametri di distribuzione
 
 Quando si crea un cluster AKS, i parametri seguenti sono configurabili per la rete avanzata:
 
-**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*.
+**Rete virtuale**: rete virtuale in cui si vuole distribuire il cluster Kubernetes. Per creare una nuova rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una rete virtuale*. La rete virtuale è limitata a 16.000 indirizzi IP configurati.
 
 **Subnet**: subnet nella rete virtuale in cui si vuole distribuire il cluster. Per creare una nuova subnet nella rete virtuale per il cluster, selezionare *Crea nuova* e seguire i passaggi della sezione *Creare una subnet*.
 
@@ -125,10 +138,6 @@ Lo screenshot seguente dal portale di Azure illustra un esempio di configurazion
 
 Le domande e le risposte seguenti si applicano alla configurazione della rete**avanzata**.
 
-* *È possibile configurare la rete avanzata con l'interfaccia della riga di comando di Azure?*
-
-  No. La rete avanzata è attualmente disponibile solo quando si distribuiscono i cluster AKS nel portale di Azure o con un modello di Resource Manager.
-
 * *È possibile distribuire le VM nella subnet del cluster?*
 
   No. La distribuzione di macchine virtuali nella subnet usata per il cluster Kubernetes non è supportata. Le macchine virtuali possono essere distribuite nella stessa rete virtuale, ma in una subnet diversa.
@@ -139,7 +148,7 @@ Le domande e le risposte seguenti si applicano alla configurazione della rete**a
 
 * *Il numero massimo di pod distribuibili in un nodo è configurabile?*
 
-  Per impostazione predefinita, ogni nodo può ospitare un massimo di 30 pod. È possibile cambiare il valore massimo solo modificando la proprietà `maxPods` quando si distribuisce un cluster con un modello di Gestione risorse.
+  Sì, quando si distribuisce un cluster con l'interfaccia della riga di comando di Azure o un modello di Gestione risorse. Consultare [Numero massimo di pod per nodo](#maximum-pods-per-node).
 
 * *Come si configurano altre proprietà per la subnet creata durante la creazione del cluster AKS? Ad esempio, gli endpoint di servizio.*
 
@@ -177,3 +186,4 @@ I cluster Kubernetes creati con ACS Engine supportano entrambi i plug-in [kubene
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
