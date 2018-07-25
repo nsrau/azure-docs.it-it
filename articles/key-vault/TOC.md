@@ -7,7 +7,7 @@
 ## [Creare un'istanza di Key Vault - Interfaccia della riga di comando](quick-create-cli.md)
 ## [Creare un'istanza di Key Vault - PowerShell](quick-create-powershell.md)
 ## [Creare un'istanza di Key Vault - Portale](quick-create-portal.md)
-
+## [Eseguire la lettura da Key Vault - .NET](quick-create-net.md)
 # Esercitazioni
 ## [Leggere un segreto da Key Vault](tutorial-web-application-keyvault.md)
 ## [Introduzione all'insieme di credenziali delle chiavi](key-vault-get-started.md)
@@ -38,7 +38,7 @@
 ## Automatizzare
 ### [Automazione di Azure](automation-manage-key-vault.md)
 
-# Riferimenti
+# riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Interfaccia della riga di comando di Azure](/cli/azure/keyvault)
 ## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)

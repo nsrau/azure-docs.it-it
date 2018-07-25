@@ -99,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: Integrazione del controllo del codice sorgente
           href: automation-source-control-integration.md
+        - name: Creare runbook con l'SDK per runbook grafici
+          href: graphical-runbook-sdk.md
     - name: Automatizzare
       items:
         - name: Avviare un runbook

@@ -53,6 +53,8 @@
           href: howto-create-telemetry-rules.md
         - name: Creare una regola eventi
           href: howto-create-event-rules.md
+        - name: Creare azioni webhook per le regole
+          href: howto-create-webhooks.md
         - name: Creare flussi di lavoro in Microsoft Flow
           href: howto-add-microsoft-flow.md
         - name: Configurare la home page
