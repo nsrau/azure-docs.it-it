@@ -7,24 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 3671f63b9e27cb6af55c31e3e61dc6d19932f54c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972914"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001128"
 ---
-# <a name="quickstart-deploy-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Guida introduttiva: Distribuire una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
 
-Questa guida introduttiva illustra come distribuire l'acceleratore della soluzione di manutenzione predittiva IoT di Azure da usare come soluzione di manutenzione predittiva basata sul cloud per i dispositivi IoT. Dopo aver distribuito l'acceleratore della soluzione, si usa la pagina **Dashboard** della soluzione per eseguire una simulazione usando i dati sui motori di aeromobili.
+Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Manutenzione predittiva di Azure IoT per eseguire una simulazione di manutenzione predittiva basata sul cloud. Dopo aver distribuito l'acceleratore di soluzione, si usa la pagina **Dashboard** della soluzione per eseguire una simulazione di manutenzione predittiva usando i dati da un motore di aeromobile simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
-Fabrikam è una compagnia aerea locale che si concentra sulle esperienze eccezionali dei clienti a prezzi competitivi. Una causa di ritardi dei voli sono i problemi di manutenzione e la manutenzione dei motori degli aeromobili è particolarmente complessa. Fabrikam deve evitare a tutti i costi i guasti dei motori durante il volo, quindi controlla regolarmente i motori e pianifica la manutenzione in base a un programma. Tuttavia, i motori non sempre si usurano allo stesso modo. Sui motori viene eseguita manutenzione superflua. Ancora più importante, si verificano problemi che possono forzare a terra un aereo fino a quando non viene eseguita la manutenzione. Se un aereo si trova in un luogo in cui tecnici esperti o parti di ricambio non sono disponibili, questi problemi possono essere particolarmente costosi.
+In questa simulazione, Fabrikam è una compagnia aerea locale dedicata a offrire esperienze eccezionali ai clienti a prezzi competitivi. Una causa di ritardi dei voli sono i problemi di manutenzione e la manutenzione dei motori degli aeromobili è particolarmente complessa. Fabrikam deve evitare a tutti i costi i guasti dei motori durante il volo, quindi controlla regolarmente i motori e pianifica la manutenzione in base a un programma. Tuttavia, i motori non sempre si usurano allo stesso modo. Sui motori viene eseguita manutenzione superflua. Ancora più importante, si verificano problemi che possono forzare a terra un aereo fino a quando non viene eseguita la manutenzione. Se un aereo si trova in un luogo in cui tecnici esperti o parti di ricambio non sono disponibili, questi problemi possono essere particolarmente costosi.
 
 I motori degli aeromobili Fabrikam sono instrumentati con sensori che controllano le condizioni del motore durante il volo. Dopo aver accumulato anni di dati operativi e sui guasti dei motori, i ricercatori di dati di Fabrikam hanno sviluppato un modello per prevedere la vita utile rimanente (RUL) di un motore di aeromobile. Il modello usa una correlazione tra i dati provenienti da quattro dei sensori del motore e l'usura del motore che conduce a un eventuale guasto. Mentre Fabrikam continua a eseguire controlli periodici per garantire la sicurezza, ora può usare i modelli per calcolare il valore RUL per ogni motore dopo ogni volo. Fabrikam può ora prevedere i futuri punti di errore e pianificare la manutenzione per ridurre al minimo il tempo di fermo a terra e ridurre i costi operativi, garantendo la sicurezza dei passeggeri e dell'equipaggio.
-
-## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva, è necessaria una sottoscrizione di Azure attiva.
 
@@ -40,9 +38,9 @@ Fare clic su **Prova adesso** nel riquadro **Manutenzione predittiva**.
 
 ![Scegliere Manutenzione predittiva](./media/quickstart-predictive-maintenance-deploy/predictivemaintenance.png)
 
-Nella pagina **Crea soluzione Manutenzione predittiva** immettere un valore univoco per **Nome soluzione** per l'acceleratore della soluzione di manutenzione predittiva.
+Nella pagina **Crea soluzione Manutenzione predittiva** immettere un valore univoco per **Nome soluzione** per l'acceleratore della soluzione di manutenzione predittiva. Per questa guida introduttiva viene usato il nome **MyPredictiveMaintenance**.
 
-Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
+Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** e **Stati Uniti orientali**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
 Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
 
@@ -50,7 +48,7 @@ Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione.
 
 ## <a name="sign-in-to-the-solution"></a>Accedere alla soluzione
 
-Al termine della distribuzione della sottoscrizione di Azure, è possibile accedere al dashboard dell'acceleratore della soluzione di manutenzione predittiva.
+Al termine della distribuzione nella sottoscrizione di Azure, verrà visualizzato un segno di spunta verde e la dicitura **Pronto** nel riquadro della soluzione. È ora possibile accedere al dashboard dell'acceleratore di soluzione Manutenzione predittiva.
 
 Nella pagina **Soluzioni di cui è stato effettuato il provisioning** fare clic sul nuovo acceleratore della soluzione di manutenzione predittiva. È possibile visualizzare informazioni sull'acceleratore della soluzione nel pannello visualizzato. Scegliere **Dashboard soluzione** per visualizzare l'acceleratore della soluzione di manutenzione predittiva:
 
@@ -78,7 +76,7 @@ La simulazione viene eseguita sul set di dati completo per 148 cicli e si stabil
 
 Se si prevede di esplorare la soluzione ulteriormente, lasciare distribuito l'acceleratore della soluzione di manutenzione predittiva.
 
-Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) selezionandolo e facendo clic su **Elimina soluzione**:
 
 ![Eliminare la soluzione](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 
@@ -86,7 +84,7 @@ Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagin
 
 In questa guida introduttiva è stato distribuito l'acceleratore della soluzione di manutenzione predittiva ed è stata eseguita una simulazione.
 
-Per altre informazioni sull'acceleratore della soluzione, vedere l'articolo.
+Per altre informazioni sull'acceleratore di soluzione e i motori di aeromobili simulati, continuare con l'articolo seguente.
 
 > [!div class="nextstepaction"]
 > [Panoramica dell'acceleratore di soluzioni di manutenzione predittiva](iot-accelerators-predictive-walkthrough.md)
