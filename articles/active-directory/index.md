@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
-ms.openlocfilehash: b39c3c47325b7bca4e9bc1e68024fb9c04fabea3
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.author: mtillman
+ms.openlocfilehash: 452c8104f4f5abd5730126fbe2a5755564d37d16
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171841"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226068"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentazione di Azure Active Directory
 
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity Protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Accesso condizionale</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>
