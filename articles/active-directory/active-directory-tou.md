@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856417"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136656"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
@@ -36,7 +36,7 @@ Condizioni per l'utilizzo di Azure AD consente di eseguire le operazioni seguent
 - Elencare gli utenti hanno accettato o rifiutato le condizioni per l'utilizzo.
 - Visualizzare un log di controllo delle attività di Condizioni per l'utilizzo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare e configurare Condizioni per l'utilizzo di Azure AD, è necessario disporre di:
 
 - Una sottoscrizione di Azure AD Premium P1, P2, EMS E3 o EMS E5.
@@ -86,7 +86,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
     ![Aggiungere le condizioni per l'utilizzo](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>Visualizzare gli utenti che hanno accettato e rifiutato
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Visualizzare il report degli utenti che hanno accettato e rifiutato
 Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti che hanno accettato e rifiutato. Questi conteggi e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle condizioni per l'utilizzo.
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [ https://aka.ms/catou ](https://aka.ms/catou).
@@ -97,10 +97,10 @@ Nel pannello delle condizioni per l'utilizzo è visualizzato il numero di utenti
 
     ![Evento di controllo](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>Visualizzare i log di controllo
+## <a name="view-azure-ad-audit-logs"></a>Visualizzare i log di controllo di Azure AD
 Se si vuole visualizzare attività aggiuntive, Condizioni per l'utilizzo di Azure Active Directory include log di controllo. Ogni consenso dell'utente genera un evento nei log di controllo che viene conservato per 30 giorni. È possibile visualizzare questi log nel portale o scaricarli come file CSV.
 
-Per iniziare a usare i log di controllo, seguire questa procedura:
+Per iniziare a usare i log di controllo di Azure AD, seguire questa procedura:
 
 1. Accedere ad Azure e passare a **Condizioni per l'utilizzo** all'indirizzo [ https://aka.ms/catou ](https://aka.ms/catou).
 
@@ -167,10 +167,19 @@ I criteri di accesso condizionale diventano effettivi immediatamente. In questo 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **D: come posso sapere se un utente ha accettato le condizioni per l'utilizzo?**</br>
-R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo. Per altre informazioni, vedere [Visualizzare gli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo](#view-audit-logs).
+R: Nel pannello Condizioni per l'utilizzo fare clic sul numero sotto **Accettato**. È anche possibile visualizzare o cercare l'attività accettata nei log di controllo di Azure AD. Per altre informazioni, vedere [Visualizzare il report degli utenti che hanno accettato e rifiutato](#view-who-has-accepted-and-declined) e [Visualizzare i log di controllo di Azure AD](#view-azure-ad-audit-logs).
+ 
+**D: per quanto tempo sono archiviate le informazioni?**</br>
+R: i conteggi inclusi nel report delle Condizioni per l'utilizzo e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle Condizioni per l'utilizzo. I log di controllo di Azure AD vengono archiviati per 30 giorni.
 
-**D: Se i termini delle Condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
+**D: perché viene visualizzato un numero diverso di consensi nel report delle Condizioni per l'utilizzo rispetto ai log di controllo di Azure AD?**</br>
+R: il report delle Condizioni per l'utilizzo viene archiviato per la durata di tale Condizioni per l'utilizzo, mentre i log di controllo di Azure AD vengono archiviati per 30 giorni. Inoltre, i report delle Condizioni per l'utilizzo mostrano solo lo stato di consenso corrente degli utenti. Ad esempio, se un utente rifiuta e in seguito accetta, il report delle Condizioni per l'utilizzo mostrerà solo quest'ultima azione dell'utente. Se è necessario visualizzare la cronologia, è possibile usare i log di controllo di Azure AD.
+
+**D: se i termini delle Condizioni per l'utilizzo vengono modificati, è necessario che gli utenti le accettino di nuovo?**</br>
 R: Sì, un amministratore può modificare le Condizioni per l'utilizzo rendendone nuovamente necessaria l'accettazione da parte degli utenti.
+
+**D: se sono presenti collegamenti ipertestuali nel documento PDF delle Condizioni per l'utilizzo, gli utenti finali possono selezionarli?**</br>
+R: viene eseguito il rendering predefinito del file PDF in formato JPEG, in modo che i collegamenti ipertestuali non siano selezionabili. Gli utenti hanno la possibilità di selezionare **In caso di problemi di visualizzazione fare clic qui** per eseguire il rendering PDF in modo nativo in cui sono supportati i collegamenti ipertestuali.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**</br>
 A: Sì.  L'amministratore può attualmente configurare 18 lingue diverse per singole condizioni per l'utilizzo. 
@@ -189,6 +198,7 @@ R: ne viene bloccato l'accesso all'applicazione. L'utente deve accedere nuovamen
  
 **D: È possibile annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza?**</br>
 R: È possibile [annullare l'accettazione di Condizioni per l'utilizzo accettate in precedenza](#how-users-can-review-their-terms-of-use), ma attualmente non esiste un modo per farlo.
- 
-**D: per quanto tempo sono archiviate le informazioni?**</br>
-R: i conteggi e gli utenti che hanno accettato o rifiutato vengono archiviati per tutta la durata delle condizioni per l'utilizzo. I log di controllo vengono archiviati per 30 giorni.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](active-directory-conditional-access-best-practices.md)
