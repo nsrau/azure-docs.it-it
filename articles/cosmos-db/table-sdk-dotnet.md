@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
-ms.openlocfilehash: 391948af7fe00e0a5e6171d5322c09c05fcd1cc3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798475"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126712"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET di tabella di CosmosDB di Azure: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -37,6 +37,10 @@ ms.locfileid: "34798475"
 >
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+* Dipendenze risolte dei pacchetti Nuget in Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
+* Correzioni di bug nella serializzazione di tabella quando JsonConvert.DefaultSettings è configurato.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * È stata aggiunta la convalida per ETag in formato non valido in modalità diretta.
@@ -65,6 +69,7 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |17 luglio 2018|--- |
 | [1.1.1](#1.1.1) |26 marzo 2018|--- |
 | [1.1.0](#1.1.0) |21 febbraio 2018|--- |
 | [1.0.0](#1.0.0) |15 novembre 2017|--- |

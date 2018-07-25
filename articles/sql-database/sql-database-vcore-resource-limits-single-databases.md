@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 1a14e1a7c50f458067491a8605a0518056ac0aa8
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311155"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126409"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database-preview"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo (anteprima)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su vCore.
 
@@ -34,13 +34,13 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Supporto per columnstore|sì|sì|sì|sì|sì|sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|3072|4096|4096|
 |Dimensioni massime dei log|307|307|461|922|1229|1229|
-|Dimensioni di TempDB (database)|32|64|128|256|384|384|
+|Dimensioni di TempDB (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|7000|7000|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
@@ -56,13 +56,13 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
+|Supporto per columnstore|sì|sì|sì|sì|sì|sì|sì|sì|
 |Archiviazione OLTP in memoria (GB)|N/D|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
 |Tipo di archiviazione|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|Archiviazione (remota) Premium|
 |Latenza di I/O (approssimativa)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|5-7 ms (scrittura)<br>5-10 ms (lettura)|
 |Dimensioni massime dei dati (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Dimensioni massime dei log|307|307|461|614|1229|1229|1229|1229|
-|Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
+|Dimensioni di TempDB (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -80,19 +80,19 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
 |Memoria (GB)|7|14|28|56|112|168|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|
+|Supporto per columnstore|sì|sì|sì|sì|sì|sì|
 |Archiviazione OLTP in memoria (GB)|1|2|4|8|20|36|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|1024|1024|
 |Dimensioni massime dei log|307|307|307|307|307|307|
-|Dimensioni di TempDB (database)|32|64|128|256|384|384|
+|Dimensioni di TempDB (GB)|32|64|128|256|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|80000|120000|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|3|3|3|3|3|3|
 |Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
-|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
+|Scalabilità orizzontale in lettura|sì|sì|sì|sì|sì|sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
@@ -102,13 +102,13 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
 |Memoria (GB)|11|22|44|88|132|176|220|440|
-|Supporto per columnstore|Sì|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
+|Supporto per columnstore|sì|sì|sì|sì|sì|sì|sì|sì|
 |Archiviazione OLTP in memoria (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |Tipo di archiviazione|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|SSD locale|
 |Latenza di I/O (approssimativa)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|1-2 ms (scrittura)<br>1-2 ms (lettura)|
 |Dimensioni massime dei dati (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Dimensioni massime dei log|307|307|307|307|614|1229|1229|1229|
-|Dimensioni di TempDB (database)|64|128|256|384|384|384|384|384|
+|Dimensioni di TempDB (GB)|64|128|256|384|384|384|384|384|
 |Target IOPS (64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Numero massimo di ruoli di lavoro simultanei (richieste)|200|400|800|1600|2400|3200|4000|8000|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|30000|

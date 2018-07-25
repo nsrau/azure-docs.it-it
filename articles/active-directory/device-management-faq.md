@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 10d6b81915432d9f41c0d4751f98cbf380ff2d13
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901137"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136571"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
+**D: È possibile registrare dispositivi Android o iOS in modalità BYOD?**
 
+**R:** Sì, ma solo con il servizio di registrazione dispositivo di Azure e per clienti che usano ambienti ibridi. La modalità BYOD non è supportata con il servizio di registrazione dispositivo locale in AD FS.
 
 **D: Come si registra un dispositivo macOS?**
 
@@ -98,6 +100,11 @@ Per le versioni di sistemi operativi Windows di livello inferiore aggiunti a un 
 **D: Gli utenti non possono eseguire la ricerca delle stampanti da dispositivi aggiunti ad Azure AD. In che modo è possibile abilitare la stampa a partire dai dispositivi aggiunti ad Azure AD?**
 
 **R:** Per la distribuzione delle stampanti nei dispositivi aggiunti ad Azure AD, vedere [Stampa di cloud ibrido](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). È necessario un Server Windows locale per la distribuzione della stampa di cloud ibrido. Il servizio di stampa basato sul cloud non è attualmente disponibile. 
+
+---
+
+**D: Come è possibile connettersi a un dispositivo aggiunto a un'istanza remota di Azure AD?**
+**R:** Per i dettagli, vedere l'articolo https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 

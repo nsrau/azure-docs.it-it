@@ -1,15 +1,24 @@
-
-<!--
-includes/sql-database-include-connection-string-20-portalshots.md
-
-Latest Freshness check:  2015-09-02 , GeneMi.
-
-## Connection string
--->
-
-
+---
+title: Ottenere la stringa di connessione dal portale di Azure
+description: Ottenere la stringa di connessione dal portale di Azure
+keywords: connessione SQL, stringa di connessione
+services: sql-database
+author: dalechen
+manager: craigg
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+ms.date: 07/13/2018
+ms.author: ninarn
+ms.openlocfilehash: dab7623c86bea4e562313e618f238b9b33c0fdc5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39117291"
+---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Ottenere la stringa di connessione dal portale di Azure
-Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il database SQL di Azure. 
+Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa di connessione necessaria al programma client per interagire con il database SQL di Azure.
 
 1. Selezionare **Tutti i servizi** > **Database SQL**.
 
@@ -17,14 +26,17 @@ Usare il [portale di Azure](https://portal.azure.com/) per ottenere la stringa d
 
 3. Selezionare la riga per il database.
 
-4. Quando viene visualizzato il pannello del database, per una visualizzazione più chiara selezionare i pulsanti **Riduci a icona** per comprimere i pannelli usati per la ricerca e il filtro del database. 
-   
+4. Quando viene visualizzato il pannello del database, per una visualizzazione più chiara selezionare i pulsanti **Riduci a icona** per comprimere i pannelli usati per la ricerca e il filtro del database.
+
 5. Nel pannello del database selezionare **Mostra stringhe di connessione del database**.
 
-6. Se si prevede di utilizzare la libreria di connessione ADO.NET, copiare la stringa di etichetta **ADO**. 
-   
+6. Copiare la stringa di connessione appropriata. Se ad esempio si prevede di usare la libreria di connessione ADO.NET, copiare la stringa appropriata dalla scheda **ADO.NET**.
+
     ![Copiare la stringa di connessione ADO per il database][20-CopyAdoConnectionString]
-7. In un formato o un altro, incollare le informazioni sulla stringa di connessione nel codice del programma client.
+
+7. Modificare la stringa di connessione in base alle esigenze. Inserire la password nella stringa di connessione o rimuovere "@&lt;servername&gt;" dal nome utente se il nome utente o il nome server è troppo lungo.
+
+8. In un formato o un altro, incollare le informazioni sulla stringa di connessione nel codice del programma client.
 
 Per altre informazioni, vedere [Stringhe di connessione e file di configurazione](http://msdn.microsoft.com/library/ms254494.aspx).
 

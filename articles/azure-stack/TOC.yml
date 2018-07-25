@@ -12,12 +12,10 @@
           href: azure-stack-update-1804.md
         - name: aggiornamento 1803
           href: azure-stack-update-1803.md
-        - name: aggiornamento 1802
-          href: azure-stack-update-1802.md
 - name: Guide introduttive
   expanded: true
   items:
-    - name: Valutare Azure Stack
+    - name: Valuta Azure Stack
       href: azure-stack-deploy-overview.md
 - name: Esercitazioni
   items:
@@ -31,11 +29,11 @@
   items:
     - name: Integrazione di Datacenter
       items:
-        - name: Considerazioni relative all'integrazione generale Azure Stack
+        - name: Considerazioni relative all'integrazione di Azure Stack generale
           href: azure-stack-datacenter-integration.md
-        - name: Modelli di connessione di distribuzione di Azure Stack
+        - name: Modelli di Azure Stack distribuzione connessione
           href: azure-stack-connection-models.md
-        - name: Considerazioni sulla distribuzione connesso
+        - name: Considerazioni sulla distribuzione connessi
           href: azure-stack-connected-deployment.md
         - name: Considerazioni sulla distribuzione disconnesso
           href: azure-stack-disconnected-deployment.md
@@ -43,37 +41,37 @@
           items:
             - name: Integrazione della rete
               href: azure-stack-network.md
-            - name: Connettività di bordo
+            - name: Connettività del bordo
               href: azure-stack-border-connectivity.md
-            - name: Integrazione di DNS
+            - name: Integrazione DNS
               href: azure-stack-integrate-dns.md
             - name: Integrazione con firewall
               href: azure-stack-firewall.md
               items:
                 - name: Pubblicare endpoint
                   href: azure-stack-integrate-endpoints.md
-        - name: Integrazione di identità
+        - name: Integrazione delle identità
           items:
             - name: Scegliere un provider di identità
               href: azure-stack-integrate-identity.md
             - name: Convalidare l'identità di Azure
               href: azure-stack-validate-identity.md
-        - name: Requisiti per Azure Stack distribuzione PKI
+        - name: Requisiti di infrastruttura a chiave pubblica di Azure Stack deployment
           href: azure-stack-pki-certs.md
           items:
             - name: Generare i certificati PKI
               href: azure-stack-get-pki-certs.md
             - name: Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack
               href: azure-stack-prepare-pki-certs.md
-            - name: Convalida dei certificati di infrastruttura a chiave pubblica
+            - name: Convalidare i certificati PKI
               href: azure-stack-validate-pki-certs.md
             - name: Monitora e aggiorna i certificati PKI
               href: azure-stack-remediate-certs.md
-        - name: Risorse sulla distribuzione
+        - name: Risorse per la distribuzione
           items:
-            - name: Sulle reti di distribuzione
+            - name: Informazioni sulle reti di distribuzione
               href: deployment-networking.md
-        - name: Convalidare una registrazione di Azure
+        - name: Convalidare la registrazione di Azure
           href: azure-stack-validate-registration.md
           items:
             - name: Riferimento ai cmdlet Start-AzsReadiness
@@ -128,7 +126,7 @@
           href: azure-stack-monitor-health.md
         - name: Gestire le risorse di rete
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Proprietario della sottoscrizione modifica utente
+        - name: Modifica proprietario di sottoscrizione utente
           href: azure-stack-change-subscription-owner.md
         - name: Avviare e arrestare Azure Stack
           href: azure-stack-start-and-stop.md
@@ -144,7 +142,7 @@
           items:
             - name: Azioni del nodo
               href: azure-stack-node-actions.md
-            - name: Sostituire nodo
+            - name: Sostituire il nodo
               href: azure-stack-replace-node.md
             - name: Sostituire il disco
               href: azure-stack-replace-disk.md
@@ -153,15 +151,15 @@
         - name: Eseguire il backup di Azure Stack
           href: azure-stack-backup-infrastructure-backup.md
           items:
-            - name: Abilitare il Backup per lo Stack di Azure dalla console di amministrazione
+            - name: Abilitare il Backup per Azure Stack dalla console di amministrazione
               href: azure-stack-backup-enable-backup-console.md
-            - name: Abilitare il Backup per lo Stack di Azure con PowerShell
+            - name: Abilitare il Backup per Azure Stack con PowerShell
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Eseguire il backup di Azure Stack
               href: azure-stack-backup-back-up-azure-stack.md
             - name: Eseguire il backup di file e applicazioni in Azure Stack
               href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
-            - name: Recupero dalla perdita di dati irreversibile
+            - name: Ripristino da una grave perdita dei dati
               href: azure-stack-backup-recover-data.md
             - name: Backup e le procedure consigliate
               href: azure-stack-backup-best-practices.md
@@ -175,7 +173,7 @@
           items:
             - name: Panoramica dell'identità
               href: azure-stack-identity-overview.md
-            - name: Architettura di identità
+            - name: Architettura Identità
               href: azure-stack-identity-architecture.md
             - name: Gestire il controllo degli accessi in base al ruolo
               href: azure-stack-manage-permissions.md
@@ -187,7 +185,7 @@
               href: Azure-stack-create-service-principals.md
             - name: Abilitare il multi-tenancy
               href: azure-stack-enable-multitenancy.md
-        - name: Ruotare i segreti
+        - name: Rotazione dei segreti
           href: azure-stack-rotate-secrets.md
         - name: Aggiornare antivirus
           href: azure-stack-security-av.md
@@ -201,7 +199,7 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: Creare un piano
               href: azure-stack-create-plan.md
-            - name: Creare un piano del componente aggiuntivo
+            - name: Creare un piano aggiuntivo
               href: create-add-on-plan.md
             - name: Creare un'offerta
               href: azure-stack-create-offer.md
@@ -251,23 +249,23 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Prima di iniziare
               href: azure-stack-app-service-before-you-get-started.md
-            - name: Come ridistribuire il servizio App di Azure nello Stack di Azure nei domini di errore
+            - name: Come ridistribuire il servizio App di Azure in Azure Stack nei domini di errore
               href: azure-stack-app-service-fault-domain-update.md
             - name: Distribuire un provider di risorse del servizio app
               href: azure-stack-app-service-deploy.md
             - name: Distribuire il servizio app offline
               href: azure-stack-app-service-deploy-offline.md
-            - name: Aggiornare il servizio App
+            - name: Aggiornamento del servizio App
               href: azure-stack-app-service-update.md
-            - name: Servizio App di aggiornamento Offline
+            - name: Aggiornamento del servizio App Offline
               href: azure-stack-app-service-update-offline.md
             - name: Aggiungere altri ruoli di lavoro Web
               href: azure-stack-app-service-add-worker-roles.md
             - name: Configurare le origini di distribuzione
               href: azure-stack-app-service-configure-deployment-sources.md
-            - name: Servizio app di note sulla versione 1 di aggiornamento dello Stack di Azure
+            - name: Servizio App in Azure Stack update note sulla versione 1
               href: azure-stack-app-service-release-notes-update-one.md
-            - name: Servizio app di note sulla versione di Azure Stack update 2
+            - name: Servizio App in note sulla versione update 2 di Azure Stack
               href: azure-stack-app-service-release-notes-update-two.md
         - name: Distribuire Ethereum
           href: azure-stack-ethereum.md
@@ -277,39 +275,39 @@
               href: azure-stack-marketplace.md
             - name: Scaricare elementi di Marketplace
               href: azure-stack-download-azure-marketplace-item.md
-            - name: Elementi del Marketplace per Azure per lo Stack di Azure
+            - name: Elementi di Azure Marketplace per Azure Stack
               href: azure-stack-marketplace-azure-items.md
             - name: Creare e pubblicare un elemento di Marketplace
               href: azure-stack-create-and-publish-marketplace-item.md
-            - name: Utilizzare lo strumento di distribuzione di marketplace
+            - name: Usare lo strumento di pubblicazione del marketplace
               href: azure-stack-marketplace-publisher.md
-            - name: Sistemi operativi guest supportati per lo Stack di Azure
+            - name: Sistemi operativi supportati per Azure Stack
               href: azure-stack-supported-os.md
             - name: Aggiungere un'immagine di macchina virtuale personalizzata
               href: azure-stack-add-vm-image.md
-            - name: Offrono un set di scalabilità della macchina virtuale
+            - name: Offre un set di scalabilità di macchine virtuali
               href: azure-stack-compute-add-scalesets.md
-            - name: Offrire le macchine virtuali Linux
+            - name: Offrire macchine virtuali Linux
               href: azure-stack-linux.md
             - name: Aggiungere una macchina virtuale Red Hat
               href: azure-stack-redhat-create-upload-vhd.md
-            - name: Offrono un Cluster Kubernetes
+            - name: Offrire un Cluster Kubernetes
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Utilizzo e fatturazione
           href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Gestire l'utilizzo e fatturazione come un provider CSP
+            - name: Gestire l'utilizzo e fatturazione come CSP
               href: azure-stack-add-manage-billing-as-a-csp.md
               items:
-                - name: Aggiungere ai tenant l'utilizzo e sulla fatturazione
+                - name: Aggiungere i tenant per l'utilizzo e fatturazione
                   href: azure-stack-csp-howto-register-tenants.md
-                - name: Gestire la registrazione tenant
+                - name: Gestire la registrazione del tenant
                   href: azure-stack-csp-ref-operations.md
-            - name: Informazioni sull'utilizzo e fatturazione di riferimento
+            - name: Utilizzo e fatturazione di riferimento
               items:
                 - name: Creazione di report sui dati di utilizzo
                   href: azure-stack-usage-reporting.md
-                - name: Utilizzo di reporting dell'infrastruttura per i provider di servizi Cloud
+                - name: Utilizzo di segnalazione dell'infrastruttura per i provider di servizi Cloud
                   href: azure-stack-csp-ref-infrastructure.md
                 - name: API di utilizzo del provider
                   href: azure-stack-provider-resource-api.md
@@ -321,7 +319,7 @@
           items:
             - name: Connessione tramite VPN
               href: azure-stack-connect-vpn.md
-            - name: Sul gateway VPN
+            - name: Informazioni sul gateway VPN
               href: azure-stack-vpn-gateway-about-vpn-gateways.md
             - name: Impostazioni del gateway VPN
               href: azure-stack-vpn-gateway-settings.md
@@ -333,7 +331,7 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnostica in Azure Stack
           href: azure-stack-diagnostics.md
-        - name: Convalida per lo Stack di Azure
+        - name: Convalida per Azure Stack
           href: azure-stack-diagnostic-test.md
 - name: Riferimenti
   items:
@@ -343,15 +341,15 @@
   items:
     - name: Documentazione dell'utente di Azure Stack
       href: /azure/azure-stack/user/
-    - name: Documentazione ASDK
+    - name: Documentazione di ASDK
       href: /azure/azure-stack/asdk/
 - name: Risorse
   items:
-    - name: Guida di orientamento per Azure Stack
+    - name: Roadmap per Azure Stack
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Forum di MSDN Stack Azure
+    - name: Forum MSDN di Stack di Azure
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Suggerimenti sulla documentazione dello Stack di Azure
+    - name: Suggerimenti sulla documentazione di Stack di Azure
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: Informazioni sui prezzi
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

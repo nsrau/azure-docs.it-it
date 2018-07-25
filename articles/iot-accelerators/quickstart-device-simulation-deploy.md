@@ -9,18 +9,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: f3a252d6f7c49a65e0c548599b1958825b134ee8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967016"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005034"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>Guida introduttiva: Distribuire ed eseguire una soluzione di simulazione dei dispositivi basata sul cloud
 
 Questa guida introduttiva illustra come distribuire l'acceleratore della soluzione Simulazione dispositivi di Azure IoT da usare per testare la soluzione IoT. Dopo aver distribuito l'acceleratore della soluzione, si usa la pagina **Simulation** (Simulazione) per creare ed eseguire una simulazione.
-
-## <a name="prerequisites"></a>prerequisiti
 
 Per completare questa guida introduttiva, è necessaria una sottoscrizione di Azure attiva.
 
@@ -88,7 +86,7 @@ Fare clic su **Avvia simulazione**. La simulazione viene eseguita per la durata 
 
 Se si prevede di esplorare la soluzione ulteriormente, lasciare distribuito l'acceleratore della soluzione Simulazione dispositivi.
 
-Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard):
+Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) selezionandolo e facendo clic su **Elimina soluzione**:
 
 ![Eliminare la soluzione](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -96,7 +94,7 @@ Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagin
 
 In questa guida introduttiva è stato distribuito l'acceleratore della soluzione Simulazione dispositivi ed è stata eseguita una simulazione di un dispositivo IoT.
 
-Per informazioni su come usare un hub IoT esistente in una simulazione, vedere la guida pratica:
+Per informazioni su come usare un hub IoT esistente in una simulazione, vedere la guida pratica seguente:
 
 > [!div class="nextstepaction"]
 > [Use an existing IoT hub with the Device Simulation solution accelerator (Usare un hub IoT esistente con l'acceleratore della soluzione Simulazione dispositivi)](iot-accelerators-device-simulation-choose-hub.md)

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 2/13/2018
+ms.date: 7/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7e600f55b9eeb2682b005b8c84c74ec25e054c36
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 155cdaf51ac5725a315259a0d809ba644f64110c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447252"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048917"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Guida introduttiva: Configurare l'accesso per un'app a singola pagina tramite Azure Active Directory B2C
 
@@ -25,11 +25,11 @@ In questa guida introduttiva si usa un'app a singola pagina di esempio abilitata
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il carico di lavoro **Sviluppo ASP.NET e Web**.
 * Installare [Node.js](https://nodejs.org/en/download/)
-* Un account di social networking di Facebook, Google, Microsoft o Twitter.
+* Un account di Facebook.
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -63,21 +63,17 @@ Passare all'URL `http://localhost:6420` dell'app in un Web browser.
 
 Fare clic su **Accedi** per avviare il flusso di lavoro **Iscrizione o accesso** di Azure AD B2C basato su un criterio di Azure AD B2C. 
 
-L'esempio supporta alcune opzioni di iscrizione, tra cui l'uso di un provider di identità di social networking o la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di provider di identità basato su social network, ovvero un account di Facebook, Google, Microsoft o Twitter. 
+L'esempio è progettato per supportare diverse opzioni di iscrizione, inclusa la creazione di un account locale tramite un indirizzo di posta elettronica. Per questa guida introduttiva, usare un account di Facebook. 
 
 ### <a name="sign-up-using-a-social-identity-provider"></a>Iscriversi usando un provider di identità basato su social network
 
 Azure AD B2C presenta una pagina di accesso personalizzata per un marchio fittizio denominato Wingtip Toys per l'app Web di esempio. 
 
-1. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità che si vuole usare.
-
-    ![Provider di accesso o di iscrizione](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+1. Per iscriversi usando un provider di identità basato su social network, fare clic sul pulsante del provider di identità Facebook.
 
     Per leggere le informazioni dell'account di social networking, eseguire l'autenticazione (accesso) tramite le credenziali di tale account e autorizzare l'applicazione. Dopo la concessione dell'accesso, l'applicazione può recuperare le informazioni sul profilo dall'account, ad esempio il nome e la città dell'utente. 
 
-2. Completare il processo di accesso per il provider di identità. Se ad esempio si è scelto Twitter, immettere le credenziali di Twitter e fare clic su **Sign in** (Accedi).
-
-    ![Eseguire l'autenticazione e l'autorizzazione tramite un account di social networking](media/active-directory-b2c-quickstarts-spa/twitter-authenticate-authorize-spa.png)
+2. Completare il processo di accesso per il provider di identità immettendo le credenziali.
 
     I dettagli del nuovo profilo dell'account sono già popolati con informazioni derivate dall'account di social networking. 
 

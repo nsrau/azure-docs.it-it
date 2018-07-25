@@ -1,19 +1,19 @@
 ---
-title: Informazioni sui metodi diretti dell'hub IoT di Azure | Documentazione Microsoft
+title: Informazioni sui metodi diretti dell'hub IoT di Azure | Microsoft Docs
 description: "Guida per gli sviluppatori: usare metodi diretti per richiamare il codice nei dispositivi da un'app di servizio."
 author: nberdy
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 881262816fc8bd634b7f577fd05aa0c8c062e4ca
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736678"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126525"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendere e richiamare metodi diretti dall'hub IoT
 L'hub IoT offre la possibilità di richiamare metodi diretti nei dispositivi dal cloud. I metodi diretti rappresentano un'interazione di tipo richiesta-risposta con un dispositivo simile a una chiamata HTTP, dato che dopo il timeout specificato dall'utente l'esito positivo o negativo viene comunicato immediatamente. Questo approccio è utile per gli scenari in cui la linea di condotta immediata è diversa a seconda che il dispositivo sia in grado di rispondere o meno,
@@ -46,7 +46,12 @@ Il payload per le richieste e le risposte del metodo è un documento JSON con di
 ### <a name="method-invocation"></a>Chiamata al metodo
 Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono:
 
-* *URI* specifico del dispositivo (`{iot hub}/twins/{device id}/methods/`)
+* *URI della richiesta* specifico del dispositivo con la [versione dell'API](/rest/api/iothub/service/invokedevicemethod):
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * *Metodo* POST
 * *Intestazioni* contenenti l'autorizzazione, l'ID richiesta, il tipo di contenuto e la codifica del contenuto
 * *Corpo* JSON trasparente nel formato seguente:
@@ -63,6 +68,25 @@ Le chiamate a metodi diretti in un dispositivo sono chiamate HTTPS che includono
     ```
 
 Il timeout è espresso in secondi. Se il timeout non è impostato, il valore predefinito è 30 secondi.
+
+#### <a name="example"></a>Esempio
+
+Vedere di seguito un semplice esempio che usa `curl`. 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### <a name="response"></a>Risposta
 L'app back-end riceve una risposta che include:

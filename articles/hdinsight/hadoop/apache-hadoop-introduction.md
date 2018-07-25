@@ -1,25 +1,22 @@
 ---
-title: Informazioni su HDInsight e sullo stack di tecnologie Hadoop e Spark - Azure | Microsoft Docs
+title: Informazioni su HDInsight e sullo stack di tecnologie Hadoop e Spark - Azure
 description: Introduzione a HDInsight e allo stack di tecnologie Hadoop e Spark con i relativi componenti, tra cui Kafka, Hive, Storm e HBase, per l'analisi dei Big Data.
 keywords: azure hadoop, hadoop azure, introduzione hadoop, intro hadoop, stack di tecnologie hadoop, intro a hadoop, introduzione a hadoop, informazioni sul cluster hadoop, info sul cluster hadoop, uso di hadoop
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051383"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115342"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Informazioni su Azure HDInsight e sullo stack di tecnologie Hadoop
 
@@ -89,9 +86,9 @@ HDInsight consente di compilare applicazioni che estraggono informazioni critich
 ## <a name="cluster-types-in-hdinsight"></a>Tipi di cluster in HDInsight
 HDInsight include tipi di cluster specifici e funzionalità di personalizzazione dei cluster, ad esempio la possibilità di aggiungere componenti, utilità e linguaggi. HDInsight offre i seguenti tipi di cluster:
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: un framework che usa [HDFS](#hdfs), la gestione risorse [YARN](#yarn) e un semplice modello di programmazione [MapReduce](#mapreduce) per elaborare e analizzare i dati batch in parallelo.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: un framework che usa HDFS, la gestione risorse YARN e un semplice modello di programmazione MapReduce per elaborare e analizzare i dati batch in parallelo.
 
-* **[Apache Spark](http://spark.apache.org/)** è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Vedere [Informazioni su Apache Spark in HDInsight](../spark/apache-spark-overview.md)
+* **[Apache Spark](http://spark.apache.org/)** è un framework open source di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni analitiche di Big Data. Vedere [Informazioni su Apache Spark in HDInsight](../spark/apache-spark-overview.md).
 
 * **[Apache HBase](http://hbase.apache.org/)**: un database NoSQL basato su Hadoop che fornisce accesso casuale e coerenza assoluta per quantità elevate di dati non strutturati e semistrutturati. Può gestire potenzialmente milioni di righe e colonne. Vedere [Informazioni su HBase in HDInsight](../hbase/apache-hbase-overview.md)
 

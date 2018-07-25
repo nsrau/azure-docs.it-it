@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/30/2018
+ms.date: 07/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0faed5d72002f24d7be7602c5f16c18e66a0089e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308614"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115207"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Esercitazione: Eseguire il caricamento, la codifica e lo streaming di video con REST
 
@@ -40,7 +40,7 @@ Questa esercitazione illustra come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
@@ -77,16 +77,17 @@ Questa sezione consente di configurare Postman.
     > [!Note]
     > Aggiornare le variabili di accesso con i valori ottenuti dalla sezione **Accedere all'API di Servizi multimediali** precedente.
 
-7. Chiudere la finestra di dialogo.
-8. Selezionare l'ambiente **Azure Media Service v3 Environment** nell'elenco a discesa.
+7. Fare doppio clic sul file selezionato e immettere i valori ottenuti seguendo la procedura per l'[accesso all'API](#access-the-media-services-api).
+8. Chiudere la finestra di dialogo.
+9. Selezionare l'ambiente **Azure Media Service v3 Environment** nell'elenco a discesa.
 
     ![Scegliere l'ambiente](./media/develop-with-postman/choose-env.png)
    
 ### <a name="configure-the-collection"></a>Configurare la raccolta
 
 1. Fare clic su **Import** (Importa) per importare il file di raccolta.
-1. Individuare il file `Media Services v3 (2018-03-30-preview).postman_collection.json` scaricato quando è stato clonato `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`.
-3. Scegliere il file **Media Services v3 (2018-03-30-preview).postman_collection.json**.
+1. Individuare il file `Media Services v3.postman_collection.json` scaricato quando è stato clonato `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`.
+3. Scegliere il file **Media Services v3.postman_collection.json**.
 
     ![Importare un file](./media/develop-with-postman/postman-import-collection.png)
 
@@ -128,11 +129,21 @@ L'[asset](https://docs.microsoft.com/rest/api/media/assets) di output archivia i
 2. Selezionare quindi "Create or update an Asset" (Crea o aggiorna un asset).
 3. Fare clic su **Invia**.
 
-    Viene inviata l'operazione **PUT** seguente.
+    * Viene inviata l'operazione **PUT** seguente:
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/assets/:assetName?api-version={{api-version}}
+        ```
+    * Il corpo dell'operazione è il seguente:
+
+        ```json
+        {
+        "properties": {
+            "description": "My Asset",
+            "alternateId" : "some GUID"
+         }
+        }
+        ```
 
 ### <a name="create-a-transform"></a>Creare una trasformazione
 
@@ -149,11 +160,30 @@ Quando si crea una nuova istanza dell'oggetto [Transform](https://docs.microsoft
 2. Selezionare quindi "Create Transform" (Crea trasformazione).
 3. Fare clic su **Invia**.
 
-    Viene inviata l'operazione **PUT** seguente.
+    * Viene inviata l'operazione **PUT** seguente.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
+        ```
+    * Il corpo dell'operazione è il seguente:
+
+        ```json
+        {
+            "properties": {
+                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "outputs": [
+                    {
+                    "onError": "StopProcessingJob",
+                "relativePriority": "Normal",
+                    "preset": {
+                        "@odata.type": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+                        "presetName": "AdaptiveStreaming"
+                    }
+                    }
+                ]
+            }
+        }
+        ```
 
 ### <a name="create-a-job"></a>Creare un processo
 
@@ -165,13 +195,34 @@ In questo esempio, l'input del processo si basa su un URL HTTPS ("https://nimbus
 2. Selezionare quindi "Create or Update Job" (Crea o aggiorna il processo).
 3. Fare clic su **Invia**.
 
-    Viene inviata l'operazione **PUT** seguente.
+    * Viene inviata l'operazione **PUT** seguente.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
+        ```
+    * Il corpo dell'operazione è il seguente:
 
-Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per visualizzare lo stato di avanzamento del processo, è consigliabile usare Griglia di eventi. Si tratta di un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi.  Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
+        ```json
+        {
+        "properties": {
+            "input": {
+            "@odata.type": "#Microsoft.Media.JobInputHttp",
+            "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
+            "files": [
+                    "Ignite-short.mp4"
+                ]
+            },
+            "outputs": [
+            {
+                "@odata.type": "#Microsoft.Media.JobOutputAsset",
+                "assetName": "testAsset1"
+            }
+            ]
+        }
+        }
+        ```
+
+Il completamento del processo richiede tempo e al termine dell'elaborazione può essere opportuno ricevere una notifica. Per visualizzare lo stato del processo, è consigliabile usare Griglia di eventi. Si tratta di un servizio progettato per garantire disponibilità elevata, coerenza nelle prestazioni e scalabilità dinamica. Con Griglia di eventi, le app possono rimanere in ascolto e reagire agli eventi praticamente da tutti i servizi di Azure, oltre che da origini personalizzate. Questo semplice servizio di gestione degli eventi, reattivo e basato su HTTP, consente di creare soluzioni efficienti tramite funzioni intelligenti di filtraggio e routing di eventi.  Vedere [Instradare gli eventi verso un endpoint Web personalizzato](job-state-events-cli-how-to.md).
 
 L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Queued**, **Processing**, **Finished** (lo stato finale). Se nel corso del processo si verifica un errore, viene restituito lo stato **Error**. Se il processo è in fase di annullamento, vengono restituiti lo stato **Canceling** e, al termine, lo stato **Canceled**.
 
@@ -189,14 +240,24 @@ Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api
 L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Evitare quindi di creare un nuovo oggetto StreamingPolicy per ogni StreamingLocator.
 
 1. Nella finestra a sinistra di Postman selezionare "Streaming Policies" (Criteri di streaming).
-2. Selezionare quindi "Create a Streaming Policy" (Crea criteri di streaming).
+2. Selezionare quindi "Create a Streaming Locator" (Crea un localizzatore di streaming).
 3. Fare clic su **Invia**.
 
-    Viene inviata l'operazione **PUT** seguente.
+    * Viene inviata l'operazione **PUT** seguente.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        ```
+    * Il corpo dell'operazione è il seguente:
+
+        ```json
+        {
+            "properties":{
+            "assetName": "{{assetName}}",
+            "streamingPolicyName": "{{streamingPolicyName}}"
+            }
+        }
+        ```
 
 ### <a name="list-paths-and-build-streaming-urls"></a>Elencare i percorsi e generare gli URL di streaming
 
@@ -208,40 +269,40 @@ Ora che è stato creato l'oggetto [StreamingLocator](https://docs.microsoft.com/
 2. Selezionare quindi "List Paths" (Elenca percorsi).
 3. Fare clic su **Invia**.
 
-    Viene inviata l'operazione **POST** seguente.
+    * Viene inviata l'operazione **POST** seguente.
 
-    ```
-    https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
-    ```
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName/listPaths?api-version={{api-version}}
+        ```
+        
+    * L'operazione è senza corpo:
+        
 4. Prendere nota di uno dei percorsi che si vuole usare per lo streaming. Verrà usato nella sezione successiva. In questo caso, sono stati restituiti i percorsi seguenti:
     
     ```
-    {
-        "streamingPaths": [
-            {
-                "streamingProtocol": "Hls",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)"
-                ]
-            },
-            {
-                "streamingProtocol": "Dash",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=mpd-time-csf)"
-                ]
-            },
-            {
-                "streamingProtocol": "SmoothStreaming",
-                "encryptionScheme": "NoEncryption",
-                "paths": [
-                    "/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest"
-                ]
-            }
-        ],
-        "downloadPaths": []
-    }
+    "streamingPaths": [
+        {
+            "streamingProtocol": "Hls",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)"
+            ]
+        },
+        {
+            "streamingProtocol": "Dash",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=mpd-time-csf)"
+            ]
+        },
+        {
+            "streamingProtocol": "SmoothStreaming",
+            "encryptionScheme": "NoEncryption",
+            "paths": [
+                "/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest"
+            ]
+        }
+    ]
     ```
 
 #### <a name="build-the-streaming-urls"></a>Creare gli URL di streaming
@@ -253,16 +314,27 @@ In questa sezione verrà creato un URL di streaming HLS. Gli URL sono costituiti
     > [!NOTE]
     > Se un lettore è ospitato in un sito https, assicurarsi di aggiornare l'URL impostandolo su "https".
 
-2. Nome host di StreamingEndpoint. In questo caso, il nome è "amsaccount-usw22.streaming.media.azure.net"
-3. Un percorso ottenuto nella sezione precedente.  
+2. Nome host di StreamingEndpoint. In questo caso, il nome è "amsaccount-usw22.streaming.media.azure.net".
+
+    Per ottenere il nome host è possibile usare l'operazione GET seguente:
+    
+    ```
+    https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
+    ```
+    
+3. Un percorso ottenuto nella sezione precedente (Elencare i percorsi).  
 
 L'URL HLS generato risultante è il seguente:
 
 ```
-https://amsaccount-usw22.streaming.media.azure.net/fd384f76-2d23-4e50-8fad-f9b3ebcd675b/Ignite-short.ism/manifest(format=m3u8-aapl)
+https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
 ## <a name="test-the-streaming-url"></a>Testare l'URL di streaming
+
+
+> [!NOTE]
+> Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia in esecuzione.
 
 Per testare lo streaming, in questo articolo viene usato Azure Media Player. 
 

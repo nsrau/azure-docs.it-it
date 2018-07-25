@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349070"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049865"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Integrazione di Automazione di Azure con Griglia di eventi e Microsoft Teams
 
@@ -34,18 +34,21 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, è necessario un [account di Automazione di Azure](../automation/automation-offering-get-started.md) per contenere il runbook che viene attivato dalla sottoscrizione Griglia di eventi di Azure.
 
+* Il modulo `AzureRM.Tags` deve essere caricato nell'Account di automazione. Vedere [Come aggiornare i moduli di Azure PowerShell in Automazione di Azure](../automation/automation-update-azure-modules.md) per informazioni su come importare i moduli in Automazione di Azure.
+
 ## <a name="import-an-event-grid-sample-runbook"></a>Importare un runbook di esempio della griglia di eventi
+
 1. Aprire l'account di Automazione e fare clic sulla pagina **Runbook**.
 
    ![Selezionare i runbook](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. Selezionare il pulsante **Sfoglia raccolta**.
 
-3. Cercare **Griglia di eventi**e selezionare **Integrating Azure Automation with Event grid** (Integrazione di Automazione di Azure con griglia di eventi). 
+3. Cercare **Griglia di eventi**e selezionare **Integrating Azure Automation with Event grid** (Integrazione di Automazione di Azure con griglia di eventi).
 
     ![Importare il runbook della raccolta](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -53,7 +56,11 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
 
 5. Una volta importato, selezionare **Modifica** per visualizzare l'origine runbook. Fare clic sul pulsante **Pubblica**.
 
+> [!NOTE]
+> La riga 74 nello script deve essere modificata in `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. Il parametro `-Tags` è ora `-Tag`.
+
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Creare un webhook Microsoft Teams facoltativo
+
 1. In Microsoft Teams, selezionare **Opzioni** accanto al nome del canale, quindi fare clic su **Connettori**.
 
     ![Connessioni Microsoft Teams](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
@@ -67,6 +74,7 @@ Per completare questa esercitazione, è necessario un [account di Automazione di
 5. Selezionare **Operazione completata** per salvare il webhook.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Creare un webhook per il runbook
+
 1. Aprire il runbook Watch-VMWrite.
 
 2. Selezionare **Webhook**e selezionare il pulsante **Aggiungi webhook**.

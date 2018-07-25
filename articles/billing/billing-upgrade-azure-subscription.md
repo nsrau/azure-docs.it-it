@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86c733f138e9926fb13c2c1cb404cc9b61f4780e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 089bb6f3fd187a56495dfd353ee89086e6bea120
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32769172"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124984"
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo
 
@@ -37,3 +37,8 @@ Aggiornare la [versione di valutazione gratuita](https://azure.microsoft.com/fre
     ![Schermata che mostra gli elementi da selezionare per confermare che si desidera aggiornare la sottoscrizione](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
  Quando si esegue l'aggiornamento da una sottoscrizione di prova gratuita, conservare il credito rimanente per 30 giorni dopo la creazione della sottoscrizione. Si dispone inoltre dell'accesso ai servizi gratuiti per 12 mesi.
+ 
+ Se si vuole [trasferire la sottoscrizione](billing-subscription-transfer.md) dopo l'aggiornamento, è necessario attendere fino a quando l'ID dell'offerta di sottoscrizione non viene modificato in **MS-AZR-003P**. L'ID dell'offerta viene modificato nei casi seguenti:
+
+* È stato utilizzato tutto il credito rimanente oppure
+* Sono trascorsi 30 giorni dall'avvio della versione di valutazione gratuita

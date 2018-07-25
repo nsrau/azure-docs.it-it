@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798071"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116164"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
@@ -29,7 +29,7 @@ Le attività di analisi scientifica dei dati illustrate in questa procedura dett
 
 Questa procedura dettagliata illustra il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Si tratta di un set di messaggi di posta elettronica contrassegnati come posta indesiderata o ham, ovvero non indesiderata. Il set contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica che verranno illustrate più avanti in questa procedura dettagliata.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di usare una macchina virtuale Linux per l'analisi scientifica dei dati, è necessario avere a disposizione quanto segue:
 
 * Una **sottoscrizione di Azure**. Se non è già disponibile, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
@@ -42,7 +42,7 @@ Prima di usare una macchina virtuale Linux per l'analisi scientifica dei dati, �
 Il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) è un set di dati relativamente piccolo che contiene solo 4601 esempi. Grazie alle dimensioni ridotte può essere usato per dimostrare alcune delle funzionalità principali della macchina virtuale per l'analisi scientifica dei dati, perché i requisiti in termini di risorse rimangono contenuti.
 
 > [!NOTE]
-> Questa procedura dettagliata è stata creata in una macchina virtuale Linux per l'analisi scientifica dei dati di dimensioni D2 v2. Le dimensioni della DSVM permettono di gestire le procedure descritte in questa procedura dettagliata.
+> Questa procedura guidata è stata creata in una Data Science Virtual Machine di Linux di dimensioni D2 v2 (CentOS Edition). Le dimensioni della DSVM permettono di gestire le procedure descritte in questa procedura dettagliata.
 >
 >
 
@@ -77,12 +77,8 @@ Per ottenere copie degli esempi di codice usati in questa procedura dettagliata,
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Aprire una finestra del terminale e avviare una nuova sessione di R con la console interattiva di R.
+Aprire una finestra del terminale e avviare una nuova sessione di R con la console interattiva di R o usare l'istanza di RStudio preinstallata nella macchina.
 
-> [!NOTE]
-> Per le procedure seguenti è possibile usare anche RStudio. Per installare RStudio, eseguire questo comando a un terminale: `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 Per importare i dati e configurare l'ambiente, eseguire:
 
@@ -193,6 +189,7 @@ Selezionare **Authorization Tokens** (Token di autorizzazione) dal menu in alto 
 
 Caricare il pacchetto di **Azure ML** e quindi impostare i valori delle variabili con il token e l'ID area di lavoro nella sessione di R nella DSVM:
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -207,29 +204,28 @@ Il modello viene semplificato per agevolare l'implementazione di questa dimostra
 
 È necessaria una funzione di previsione che usa le funzionalità come input e restituisce i valori previsti:
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 Pubblicare la funzione predictSpam in Azure ML usando la funzione **publishWebService** :
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 Questa funzione accetta la funzione **predictSpam**, crea un servizio Web denominato **spamWebService** con gli input e gli output definiti e restituisce informazioni relative al nuovo endpoint.
 
-Per visualizzare i dettagli del servizio Web pubblicato, inclusi l'endpoint API e le chiavi di accesso, usare il comando:
+Per visualizzare i dettagli del servizio Web pubblicato più recente, inclusi l'endpoint API e le chiavi di accesso, usare questo comando:
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 Per fare una prova sulle prime dieci righe del set di test, eseguire:
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>Usare altri strumenti disponibili
@@ -285,7 +281,7 @@ Per eseguire previsioni, usare:
 
 Per illustrare la pubblicazione di un endpoint di Azure ML viene creato un modello più semplice con tre variabili, come si è fatto in precedenza per la pubblicazione del modello R.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)

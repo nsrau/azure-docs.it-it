@@ -1,21 +1,21 @@
 ---
-title: Cercare dati semistrutturati nell'archiviazione cloud di Azure
-description: Ricerca di dati BLOB semistrutturati tramite Ricerca di Azure.
-author: roygara
+title: Esercitazione per la ricerca di dati semistrutturati dall'archiviazione cloud di Azure in Ricerca di Azure | Microsoft Docs
+description: Questa esercitazione descrive come cercare dati BLOB di Azure semistrutturati tramite Ricerca di Azure.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795042"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005078"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>Parte 2: Cercare dati semistrutturati nell'archiviazione cloud
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Esercitazione: Cercare dati semistrutturati nell'archiviazione cloud di Azure
 
 In una serie di esercitazioni in due parti si scoprirà come eseguire la ricerca di dati semistrutturati e non strutturati tramite la ricerca di Azure. Durante la [parte 1](../storage/blobs/storage-unstructured-search.md) è stata illustrata la procedura dettagliata per la ricerca di dati non strutturati e sono stati forniti i requisiti importanti per questa esercitazione, ad esempio la creazione di account di archiviazione. 
 
@@ -28,14 +28,16 @@ Nella parte 2 si apprenderà come:
 > * Creare e popolare un indicizzatore e un indice di Ricerca di Azure per effettuare una ricerca per indicizzazione nel contenitore ed estrarre i contenuti disponibili per la ricerca
 > * Eseguire una ricerca nell'indice che appena creato
 
-> [!NOTE]
-> Questa esercitazione si basa sul supporto della matrice JSON, che è attualmente una anteprima funzionalità di Ricerca di Azure. Non è disponibile nel portale di Azure. Per questo motivo, si usano l'API REST in anteprima che fornisce questa funzionalità e uno strumento client REST per chiamare l'API.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completamento dell'[esercitazione precedente](../storage/blobs/storage-unstructured-search.md), durante la quale vengono forniti l'account di archiviazione e il servizio di ricerca.
 
 * Installazione di un client REST e raccolta di informazioni su come costruire una richiesta HTTP. Per gli scopi di questa esercitazione viene usato [Postman](https://www.getpostman.com/). Ritenersi liberi di usare un altro client REST con cui si ha già familiarità.
+
+> [!NOTE]
+> Questa esercitazione si basa sul supporto della matrice JSON, che è attualmente una anteprima funzionalità di Ricerca di Azure. Non è disponibile nel portale di Azure. Per questo motivo, si usano l'API REST in anteprima che fornisce questa funzionalità e uno strumento client REST per chiamare l'API.
 
 ## <a name="set-up-postman"></a>Configurare Postman
 
@@ -55,9 +57,9 @@ Per le chiamate REST illustrate in questa esercitazione, la chiave API per la ri
 
 L'esempio contiene file JSON di esempio, ovvero file di testo ottenuti originariamente da [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results). Questi file sono stati convertiti in formato JSON per comodità.
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al [Portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](http://portal.azure.com).
 
 ## <a name="upload-the-sample-data"></a>Caricare i dati di esempio
 
@@ -277,15 +279,13 @@ Un esempio di query più complessa può essere `$filter=MinimumAge ge 30 and Max
 
 Il parametro `$filter` funziona solo con i metadati contrassegnati come filtrabili al momento della creazione dell'indice.
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come eseguire una ricerca di dati semistrutturati tramite Ricerca di Azure, ad esempio come:
-
-> [!div class="checklist"]
-> * Creare un servizio di ricerca di Azure con l'API REST
-> * Usare il servizio Ricerca di Azure per eseguire una ricerca nel contenitore
-
-Seguire questo collegamento per altre informazioni sulla ricerca.
+È possibile collegare gli algoritmi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
 
 > [!div class="nextstepaction"]
 > [Indicizzazione di documenti in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)

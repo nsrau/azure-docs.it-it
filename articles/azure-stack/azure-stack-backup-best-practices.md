@@ -3,7 +3,7 @@ title: Infrastruttura del servizio Backup le procedure consigliate per Azure Sta
 description: È possibile seguire le procedure consigliate quando si distribuisce e Gestisci Azure Stack nel tuo Data Center per aiutare a ridurre la perdita di dati se si verifica un errore irreversibile.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 221FDE40-3EF8-4F54-A075-0C4D66EECE1A
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2018
-ms.author: jeffgilb
+ms.date: 4/20/2017
+ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 0b6153a863b0637f314b4f333b255ec8d24b5b0c
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a0166856cf4d3f91c6cadf3e71f93000fbf158d
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136435"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242972"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedure consigliate per il servizio Backup di infrastruttura
 
@@ -34,7 +34,7 @@ ms.locfileid: "39136435"
 
 ### <a name="deployment"></a>Distribuzione
 
-Abilitare il Backup dell'infrastruttura dopo la distribuzione di ogni Stack di Cloud di Azure. Tramite PowerShell per Azure Stack è possibile pianificare i backup da qualsiasi client/server con accesso all'endpoint dell'API di gestione di operatore.
+Abilitare il Backup dell'infrastruttura dopo la distribuzione di ogni Stack di Cloud di Azure. Con AzureStack-strumenti, è possibile pianificare i backup da qualsiasi client/server con accesso all'endpoint dell'API di gestione di operatore.
 
 ### <a name="networking"></a>Rete
 

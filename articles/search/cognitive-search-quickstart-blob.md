@@ -3,16 +3,17 @@ title: 'Guida introduttiva: Creare una pipeline di ricerca cognitiva in Ricerca 
 description: Estrazione dei dati, linguaggio naturale ed esempio di capacità di elaborazione delle immagine nel portale di Azure usando dati di esempio.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640262"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003697"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guida introduttiva: Creare una pipeline di ricerca cognitiva con competenze e dati di esempio
 
@@ -32,7 +33,7 @@ In questa Guida introduttiva è possibile provare la pipeline di arricchimento n
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ["Che cos'è la ricerca cognitiva?"](cognitive-search-concept-intro.md) introduce l'architettura e i componenti dell'arricchimento. 
 
@@ -123,7 +124,7 @@ Poiché è stato definito n set di competenze, la procedura guida presume che si
 
 In **Personalizza indice** esaminare gli attributi nei campi per vedere come vengono utilizzati in un indice. Ricercabile indica un campo in cui è possibile eseguire ricerche. Recuperabile significa che può essere restituito nei risultati. 
 
-Provare a cancellare Recuperabile dal campo `content`. Nei BLOB questo campo può essere eseguito in migliaia di righe, difficili da leggere in uno strumento come **Esplora ricerche**.
+Provare a cancellare Recuperabile dal campo `content`. Nei BLOB questo campo può estendersi a migliaia di righe, difficili da leggere in uno strumento come **Esplora ricerche**.
 
 Fare clic su **OK** per accettare la definizione dell'indice.
 
@@ -148,9 +149,9 @@ L'indicizzazione e l'arricchimento possono richiedere tempo, per questo motivo s
 
 ## <a name="query-in-search-explorer"></a>Eseguire query in Esplora ricerche
 
-Dopo aver creato un indice, è possibile inviare query per la restituzione di documenti dall'indice. Nel portale, usare **Esplora ricerche** per eseguire query e visualizzare i risultati. 
+Dopo aver creato un indice, è possibile inviare query per la restituzione di documenti dall'indice. Nel portale usare **Esplora ricerche** per eseguire query e visualizzare i risultati. 
 
-1. Nella pagina dashboard del servizio di ricerca, fare clic su **Esplora ricerche** sulla barra dei comandi.
+1. Nella pagina del dashboard del servizio di ricerca fare clic su **Esplora ricerche** sulla barra dei comandi.
 
 1. Selezionare **Cambia indice** in alto per selezionare l'indice creato.
 

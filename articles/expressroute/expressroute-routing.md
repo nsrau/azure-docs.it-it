@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930529"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072147"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -222,7 +222,7 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>Supporto della Community BGP nei cloud nazionali (anteprima)
+### <a name="bgp-community-support-in-national-clouds"></a>Supporto di community BGP nei cloud nazionali
 
 | **Area di Azure per cloud nazionali**| **Valore della community BGP** |
 | --- | --- |

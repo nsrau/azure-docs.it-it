@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: ccd55633f71be172edc330459bf8610f2146ad8d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386385"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991624"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
@@ -23,7 +23,7 @@ Con Azure Application Insights, è possibile monitorare facilmente la disponibil
 
 Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.Net Core esistente. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -33,7 +33,7 @@ Per completare questa guida introduttiva:
 - [Installare .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Saranno necessarie una sottoscrizione di Azure e un'applicazione Web .NET Core esistente.
 
-Se non si ha un'applicazione Web ASP.NET Core, è possibile crearne una seguendo le istruzioni della [guida per creare un'app Web ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs).
+Se non si ha un'applicazione Web ASP.NET Core, è possibile usare la guida dettagliata per [creare un'app ASP.NET Core e aggiungere Application Insights](app-insights-asp-net-core.md).
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -77,25 +77,25 @@ Application Insights può raccogliere dati di telemetria da un'applicazione conn
 
 1. È ora possibile riaprire la pagina **Panoramica** di Application Insights nel portale di Azure, selezionando **Progetto** > **Application Insights** > **Apri portale Application Insights**, per visualizzare informazioni dettagliate sull'applicazione attualmente in esecuzione.
 
-   ![Menu della panoramica di Application Insights](./media/app-insights-dotnetcore-quick-start/004-Black.png)
+   ![Menu della panoramica di Application Insights](./media/app-insights-dotnetcore-quick-start/overview-001.png)
 
-2. Fare clic su **Mappa app** per ottenere un layout visivo delle relazioni di dipendenza tra i componenti dell'applicazione. Ogni componente mostra indicatori KPI come carico, prestazioni, errori e avvisi.
+2. Fare clic su **Mappa delle applicazioni** per ottenere un layout visivo delle relazioni di dipendenza tra i componenti dell'applicazione. Ogni componente mostra indicatori KPI come carico, prestazioni, errori e avvisi.
 
-   ![Mappa delle applicazioni](./media/app-insights-dotnetcore-quick-start/0002-dc.png)
+   ![Mappa delle applicazioni](./media/app-insights-dotnetcore-quick-start/application-map.png)
 
 3. Fare clic sull'icona di **App Analytics** ![Icona Mappa app](./media/app-insights-dotnetcore-quick-start/006.png).  Verrà aperta la finestra **Application Insights - Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. In questo caso viene generata una query che esegue il rendering del conteggio delle richieste sotto forma di grafico. È possibile scrivere query personalizzate per analizzare altri dati.
 
    ![Grafico di analisi delle richieste di un utente in un periodo di tempo](./media/app-insights-dotnetcore-quick-start/0007-dc.png)
 
-4. Tornare alla pagina **Panoramica** ed esaminare **Integrità - Panoramica sequenza temporale**.  Questo dashboard fornisce statistiche relative all'integrità dell'applicazione, ad esempio il numero di richieste in ingresso, la durata delle richieste ed eventuali errori che si sono verificati. 
+4. Tornare alla pagina **Panoramica** ed esaminare i dashboard degli indicatori KPI.  Questo dashboard fornisce statistiche relative all'integrità dell'applicazione, ad esempio il numero di richieste in ingresso, la durata delle richieste ed eventuali errori che si sono verificati. 
 
-   ![Grafici Integrità - Panoramica sequenza temporale](./media/app-insights-dotnetcore-quick-start/0008-dc.png)
+   ![Grafici Integrità - Panoramica sequenza temporale](./media/app-insights-dotnetcore-quick-start/overview-graphs.png)
 
    Per abilitare la popolazione del grafico **Tempo di caricamento della visualizzazione pagina** con i dati di **telemetria lato client**, aggiungere questo script a ogni pagina da verificare:
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

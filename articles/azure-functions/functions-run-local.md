@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083070"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126215"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -62,7 +62,7 @@ La versione 2.x degli strumenti usa il runtime di Funzioni di Azure 2.x basata s
 
 I passaggi seguenti usano npm per installare gli strumenti di base in Windows. È anche possibile usare [Chocolatey](https://chocolatey.org/). Per altre informazioni, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installare [.NET Core 2.0 per Windows](https://www.microsoft.com/net/download/windows).
+1. Installare [.NET Core 2.1 per Windows](https://www.microsoft.com/net/download/windows).
 
 2. Installare [Node.js], che include npm. Per la versione 2.x degli strumenti, sono supportate solo le versioni Node.js 8.5 e successive.
 
@@ -76,7 +76,7 @@ I passaggi seguenti usano npm per installare gli strumenti di base in Windows. �
 
 I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS.
 
-1. Installare [.NET Core 2.0 per macOS](https://www.microsoft.com/net/download/macos).
+1. Installare [.NET Core 2.1 per macOS](https://www.microsoft.com/net/download/macos).
 
 2. Installare [Homebrew](https://brew.sh/), se non è già installato.
 
@@ -91,7 +91,7 @@ I passaggi seguenti usano Homebrew per installare gli strumenti di base su macOS
 
 La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli strumenti di base nella distribuzione Ubuntu/Debian Linux. Per altre distribuzioni Linux, vedere il [file leggimi degli strumenti di base](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installare [.NET Core 2.0 per Linux](https://www.microsoft.com/net/download/linux)
+1. Installare [.NET Core 2.1 per Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registrare il codice Product Key di Microsoft come attendibile:
 
@@ -121,7 +121,7 @@ La procedura seguente usa [APT](https://wiki.debian.org/Apt) per installare gli 
 
 ## <a name="create-a-local-functions-project"></a>Creare un progetto Funzioni locale
 
-Una directory del progetto funzioni contiene i file [host. JSON](functions-host-json.md) e [local.settings.json](#local-settings-file), nelle sottocartelle che contengono il codice per le singole funzioni. Questa directory è l'equivalente di un'app per le funzioni in Azure. Per altre informazioni sulla struttura delle cartelle di Funzioni, vedere la [Guida per sviluppatori di Funzioni di Azure](functions-reference.md#folder-structure).
+Una directory del progetto Funzioni contiene i file [host.json](functions-host-json.md) e [local.settings.json](#local-settings-file) nonché le sottocartelle che includono il codice per le singole funzioni. Questa directory è l'equivalente di un'app per le funzioni in Azure. Per altre informazioni sulla struttura delle cartelle di Funzioni, vedere la [Guida per sviluppatori di Funzioni di Azure](functions-reference.md#folder-structure).
 
 La versione 2.x richiede la selezione di una lingua predefinita per il progetto quando esso viene inizializzato e tutte le funzioni aggiunte usano modelli di lingua predefiniti. Nella versione 1.x, specificare la lingua ogni volta che si crea una funzione.
 
@@ -137,6 +137,7 @@ Nella versione 2.x, quando si esegue il comando è necessario scegliere un runti
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 Usare le frecce su/giù per scegliere una lingua, quindi premere INVIO. L'output ha un aspetto simile all'esempio seguente per un progetto JavaScript:
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 Per creare il progetto senza un archivio Git locale, utilizzare l’opzione `--no-source-control [-n]`.
+
+> [!IMPORTANT]
+> Per impostazione predefinita, la versione 2.x degli strumenti di base crea progetti di app per le funzioni per il runtime .NET come [progetti di classe C#](functions-dotnet-class-library.md) (file con estensione csproj). Tali progetti C#, che possono essere usati con Visual Studio 2017 o Visual Studio Code, vengono compilati durante la fase di test e la pubblicazione in Azure. Se invece si prevede di creare e usare gli stessi file di script C# (con estensione csx) creati nella versione 1.x e nel portale, è necessario includere il parametro `--csx` quando si creano e si distribuiscono funzioni.
 
 ## <a name="register-extensions"></a>Registrare le estensioni
 
@@ -177,7 +181,7 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
 | **Host** | Le impostazioni in questa sezione consentono di personalizzare il processo host di Funzioni durante l'esecuzione in locale. |
 | **LocalHttpPort** | Consente di impostare la porta predefinita usata durante l'esecuzione nell'host locale di Funzioni, ovvero `func host start` e `func run`. L'opzione `--port` della riga di comando ha la precedenza su questo valore. |
 | **CORS** | Definisce le origini consentite per la [condivisione di risorse tra le origini (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Le origini sono elencate in un elenco delimitato dalla virgola senza spazi. È supportato il valore del carattere jolly (\*) che consente le richieste di qualsiasi origine. |
-| **ConnectionStrings** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo dai Framework che devono ottenere le stringhe di connessione dalla sezione **ConnectionStrings** ad una configurazione del file, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere in modo esplicito questi valori per la sezione **Stringhe di connessione** delle **Impostazioni dell'applicazione** per l'app di funzione. |
+| **ConnectionStrings** | Non usare questa raccolta per le stringhe di connessione usate per l'associazione di funzione. Questa raccolta viene usata solo dai framework che in genere ottengono le stringhe di connessione dalla sezione **ConnectionStrings** di un file di configurazione, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Le stringhe di connessione in questo oggetto vengono aggiunte all'ambiente con il tipo di provider di [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Gli elementi in questa raccolta non vengono pubblicati in Azure con altre impostazioni di app. È necessario aggiungere questi valori in modo esplicito alla raccolta di **stringhe di connessione** delle impostazioni dell'app per le funzioni. Se si crea una connessione [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni. |
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
 
@@ -270,9 +274,10 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 | Argomento     | DESCRIZIONE                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x, non usare questa opzione o scegliere la lingua predefinita del progetto. |
-| **`--template -t`** | Il nome del modello, che può essere uno dei valori:<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--language -l`**| Il linguaggio di programmazione del modello, come C#, F# o JavaScript. Questa opzione è necessaria nella versione 1.x. Nella versione 2.x, non usare questa opzione o scegliere il linguaggio predefinito del progetto. |
+| **`--template -t`** | Usare il comando `func templates list` per visualizzare l'elenco completo dei modelli disponibili per ogni linguaggio supportato.   |
 | **`--name -n`** | Il nome della funzione. |
+| **`--csx`** | (Versione 2.x) Genera gli stessi modelli script C# (con estensione csx) usati nella versione 1.x e nel portale. |
 
 Ad esempio, per creare un trigger HTTP JavaScript in un singolo comando, eseguire:
 
@@ -433,5 +438,5 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 <!-- LINKS -->
 
 [Strumenti di base di Funzioni di Azure]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portale di Azure]: https://portal.azure.com 
+[portale di Azure]: https://portal.azure.com 
 [Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

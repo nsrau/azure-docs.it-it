@@ -1,20 +1,20 @@
 ---
-title: 'Esercitazione: Chiamare le API di ricerca cognitiva in Ricerca di Azure | Microsoft Docs'
-description: Esempio di estrazione dei dati, linguaggio naturale ed elaborazione AI delle immagini nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati.
+title: Esercitazione per chiamare le API di ricerca cognitiva in Ricerca di Azure | Microsoft Docs
+description: In questa esercitazione verrà illustrato in dettaglio un esempio di estrazione dei dati, linguaggio naturale ed elaborazione AI delle immagini nell'indicizzazione di Ricerca di Azure per l'estrazione e la trasformazione dei dati.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757571"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991920"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Esercitazione: Informazioni su come chiamare le API di ricerca cognitiva (anteprima)
 
@@ -23,8 +23,8 @@ In questa esercitazione vengono illustrati i meccanismi di programmazione dell'a
 In questa esercitazione verranno eseguite chiamate API REST per eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare una pipeline di indicizzazione per l'arricchimento dei dati di origine nel percorso verso un indice
-> * Usare le competenze predefinite di riconoscimento delle entità, rilevamento della lingua, modifica del testo ed estrazione delle frasi chiave su un set di dati di esempio
+> * Creare una pipeline di indicizzazione per l'arricchimento dei dati di esempio nel percorso verso un indice
+> * Applicare le competenze predefinite: riconoscimento delle entità, rilevamento della lingua, modifica del testo ed estrazione delle frasi chiave
 > * Informazioni su come concatenare le competenze eseguendo il mapping di input a output in un set di competenze
 > * Eseguire le richieste ed esaminare i risultati
 > * Reimpostare l'indice e gli indicizzatori per ulteriore sviluppo
@@ -33,7 +33,7 @@ L'output è un indice di ricerca full-text in Ricerca di Azure. È possibile mig
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se la ricerca cognitiva è una novità, è possibile leggere ["What is cognitive search?"](cognitive-search-concept-intro.md) (Che cos'è la ricerca cognitiva) per acquisire familiarità oppure provare la [guida introduttiva del portale](cognitive-search-quickstart-blob.md) per un'introduzione ai concetti importanti.
 

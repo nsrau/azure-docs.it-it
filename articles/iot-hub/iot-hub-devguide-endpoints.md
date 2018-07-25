@@ -1,19 +1,19 @@
 ---
-title: Conoscere gli endpoint di Azure IoT Hub | Documentazione Microsoft
+title: Conoscere gli endpoint di Azure IoT Hub | Microsoft Docs
 description: "Guida per gli sviluppatori: informazioni di riferimento sugli endpoint dell'hub IoT per dispositivi e per servizi."
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 37e1bd0b479e27f0d871495c0725fc865cbb8572
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf23046b8a80b02bc1667f647cb1d475503a8feb
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632578"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125777"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -21,7 +21,7 @@ ms.locfileid: "34632578"
 
 ## <a name="iot-hub-names"></a>Nomi dell'hub IoT
 
-È possibile trovare il nome dell'hub IoT che ospita gli endpoint nel portale sul pannello **Panoramica**. Per impostazione predefinita, il nome DNS di un hub IoT è simile al seguente: `{your iot hub name}.azure-devices.net`.
+È possibile trovare il nome host dell'hub IoT che ospita gli endpoint nel portale nella pagina **Panoramica** dell'hub. Per impostazione predefinita, il nome DNS di un hub IoT è simile al seguente: `{your iot hub name}.azure-devices.net`.
 
 È possibile usare il DNS di Azure per creare un nome DNS personalizzato per l'hub IoT. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../dns/dns-custom-domain.md).
 

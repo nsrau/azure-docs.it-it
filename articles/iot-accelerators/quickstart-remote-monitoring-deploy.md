@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088038"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004319"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: distribuire una soluzione di monitoraggio remoto basata sul cloud
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
-Questa guida introduttiva illustra come distribuire l'acceleratore della soluzione di monitoraggio remoto IoT di Azure da usare come soluzione di monitoraggio remoto basata sul cloud per i dispositivi IoT. Dopo aver distribuito l'acceleratore della soluzione, la pagina **Dashboard** della soluzione viene utilizzata per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) risponde a un avviso di pressione da un dispositivo refrigeratore simulato.
+Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure per eseguire una simulazione del monitoraggio remoto basata sul cloud. Dopo aver distribuito l'acceleratore della soluzione, la pagina **Dashboard** della soluzione viene utilizzata per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) risponde a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
-La distribuzione predefinita configura l'acceleratore della soluzione di monitoraggio remoto per una società denominata Contoso. Contoso gestisce una selezione di diversi tipi di dispositivi, ad esempio refrigeratori, distribuiti in ambienti fisici diversi. Un dispositivo refrigeratore invia temperatura, umidità e dati di telemetria sulla pressione all'acceleratore della soluzione di monitoraggio remoto.
-
-## <a name="prerequisites"></a>prerequisiti
+La distribuzione iniziale configura l'acceleratore di soluzione Monitoraggio remoto per una società denominata Contoso. Contoso gestisce una selezione di diversi tipi di dispositivi, ad esempio refrigeratori, distribuiti in ambienti fisici diversi. Un dispositivo refrigeratore invia temperatura, umidità e dati di telemetria sulla pressione all'acceleratore della soluzione di monitoraggio remoto.
 
 Per completare questa guida introduttiva, è necessaria una sottoscrizione di Azure attiva.
 
@@ -42,9 +40,9 @@ Nella pagina **Create Remote Monitoring solution** (Creare soluzione di monitora
 
 Scegliere **.NET** come linguaggio. Le implementazioni di Java e .NET hanno caratteristiche identiche.
 
-Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto.
+Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto. Per questa guida introduttiva usare il nome **contoso-rm2**.
 
-Selezionare **Subscription** (Sottoscrizione) e **Region** (Regione) da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
+Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** ed **Europa occidentale**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
 Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
 
@@ -52,7 +50,7 @@ Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione.
 
 ## <a name="sign-in-to-the-solution"></a>Accedere alla soluzione
 
-Al termine della distribuzione della sottoscrizione di Azure, è possibile accedere al dashboard dell'acceleratore della soluzione di monitoraggio remoto.
+Al termine della distribuzione nella sottoscrizione di Azure, verrà visualizzato un segno di spunta verde e la dicitura **Pronto** nel riquadro della soluzione. È ora possibile accedere al dashboard dell'acceleratore di soluzione Monitoraggio remoto.
 
 Nella pagina **Provisioned solutions** (Soluzioni di cui è stato effettuato il provisioning), fare clis sul nuovo acceleratore della soluzione di monitoraggio remoto:
 
@@ -68,7 +66,7 @@ Fare clic su **Accept** (Accetta) per accettare la richiesta di autorizzazioni; 
 
 ## <a name="view-your-devices"></a>Visualizzare i dispositivi
 
-Il dashboard della soluzione mostra le informazioni seguenti sui dispositivi di Contoso:
+Il dashboard della soluzione mostra le informazioni seguenti sui dispositivi simulati di Contoso:
 
 * **Device statistics** (Statistiche dispositivo): mostra le informazioni di riepilogo sugli avvisi e il numero totale di dispositivi. Nella distribuzione predefinita, Contoso dispone di 10 dispositivi simulati di tipi diversi.
 
@@ -110,7 +108,7 @@ Per intervenire sul refrigeratore, scorrere a **Related information** (Informazi
 
 [![Selezionare il dispositivo e pianificare un'azione](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-Nel pannello **Jobs** (Processi) scegliere **Run method** (Metodo di esecuzione) e il metodo **EmergencyValveRelease**, aggiungere il nome del processo **ChillerPressureRelease** e fare clic su **Apply** (Applica). Queste impostazioni creano un processo che viene eseguito immediatamente.
+Nel pannello **Jobs** (Processi) scegliere **Run method** (Esegui metodo) e quindi il metodo **EmergencyValveRelease**. Aggiungere il nome del processo **ChillerPressureRelease** e fare clic su **Applica**. Queste impostazioni creano un processo che viene eseguito immediatamente.
 
 Per visualizzare lo stato del processo, tornare alla pagina **Maintenance** (Manutenzione) e visualizzare l'elenco di processi nella visualizzazione **Jobs** (Processi). Possono essere necessari alcuni secondi prima di vedere che il processo è stato eseguito per rilasciare la pressione della valvola sul refrigeratore:
 
@@ -132,7 +130,7 @@ Il valore nella colonna stato viene modificato in **Closed** (Chiuso).
 
 Se si intende passare alle esercitazioni, lasciare l'acceleratore della soluzione di monitoraggio remoto distribuito.
 
-Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagina [Provisioned solutions](https://www.azureiotsolutions.com/Accelerators#dashboard) (Soluzioni di cui è stato effettuato il provisioning):
+Se l'acceleratore di soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard) selezionandolo e facendo clic su **Elimina soluzione**:
 
 ![Eliminare la soluzione](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagin
 
 In questa guida introduttiva, è stato distribuito l'acceleratore della soluzione di monitoraggio remoto e completata un'attività di monitoraggio con i dispositivi simulati nella distribuzione di Contoso predefinita.
 
-Per informazioni su come aggiornare il firmware nei dispositivi connessi e organizzare le risorse nell'acceleratore della soluzione, passare all'esercitazione successiva.
+Per altre informazioni sull'acceleratore di soluzione con dispositivi simulati, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: monitorare i dispositivi IoT](iot-accelerators-remote-monitoring-monitor.md)

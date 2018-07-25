@@ -1,22 +1,22 @@
 ---
 title: Esercitazione per l'indicizzazione dei database SQL di Azure SQL in Ricerca di Azure | Microsoft Docs
-description: Effettuare una ricerca per indicizzazione in un database SQL di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
+description: In questa esercitazione verrà eseguita la ricerca per indicizzazione in un database SQL di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799516"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988796"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Come effettuare una ricerca per indicizzazione in un database SQL di Azure usando gli indicizzatori di Ricerca di Azure
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione: Eseguire la ricerca per indicizzazione in un database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 
 Questa esercitazione mostra come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 
@@ -33,9 +33,9 @@ In questa esercitazione vengono usate le [librerie client .NET di Ricerca di Azu
 > * Eseguire ricerche nell'indice
 > * Visualizzare la configurazione dell'indicizzatore nel portale
 
-## <a name="prerequisites"></a>prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-* Un account Azure attivo. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/). 
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un servizio di Ricerca di Azure. Per informazioni sulla configurazione, vedere [Creare un servizio di ricerca](search-create-service-portal.md).
 
@@ -269,21 +269,14 @@ Tutti gli indicizzatori, incluso quello appena creato a livello di codice, vengo
 
   ![Riquadri dell'indicizzatore e dell'origine dati](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non si prevede di continuare a usare questi servizi, seguire questa procedura per eliminare tutte le risorse create da questa esercitazione nel portale di Azure. 
-
-1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata. 
-2. Nella pagina del gruppo di risorse fare clic su **Elimina gruppo di risorse**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni e attività specifiche per altre origini dati supportate, vedere gli articoli seguenti:
+È possibile collegare gli algoritmi basati su intelligenza artificiale alla pipeline di un indicizzatore. Come passaggio successivo, continuare con l'esercitazione seguente.
 
-* [Database SQL di Azure o SQL Server in una macchina virtuale di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
-* [Archivio BLOB di Azure](search-howto-indexing-azure-blob-storage.md)
-* [Indicizzazione di BLOB CSV con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-csv-blobs.md)
-* [Indicizzazione di BLOB JSON con l'indicizzatore di BLOB di Ricerca di Azure](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Indicizzazione di documenti in Archiviazione BLOB di Azure](search-howto-indexing-azure-blob-storage.md)

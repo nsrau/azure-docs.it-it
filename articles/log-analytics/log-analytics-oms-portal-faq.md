@@ -11,20 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/17/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6479db44681071932ff92ee17ea0aec6518dc74e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128640"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116045"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
 
 In questo articolo vengono offerte risposte alle domande frequenti degli utenti interessati da questa transizione.  Gli utenti abituati a usare Log Analytics nel portale di OMS troveranno indicazioni utili su come eseguire le stesse attività nel portale di Azure.
+
+## <a name="do-i-need-to-migrate-anything"></a>È necessario eseguire la migrazione di eventuali elementi?
+No. Non sono presenti modifiche da apportare a Log Analytics, pertanto non è necessario eseguire la migrazione di alcun elemento. L'unico elemento modificato è l'interfaccia usata per l'accesso. È ora possibile, infatti, usare il portale di Azure per accedere alle stesse aree di lavoro, soluzioni, viste e ricerche log usate attualmente nel portale di OMS.
 
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Come trovare Log Analytics in Azure?
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).  Fare clic su **Tutti i servizi** e nell'elenco di risorse digitare **Log Analytics**. Selezionare **Log Analytics** e selezionare l'area di lavoro. Viene visualizzata la pagina di riepilogo dell'area di lavoro.

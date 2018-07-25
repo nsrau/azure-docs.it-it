@@ -1,124 +1,124 @@
 ---
-title: Integrazione di Azure Data Center di Stack - identità
-description: Apprendere come integrare Azure Stack AD FS con AD FS Data Center
+title: Integrazione di Data Center Azure Stack - identità
+description: Descrive come integrare Azure Stack AD FS con il tuo Data Center AD FS
 services: azure-stack
 author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
+ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801474"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39242938"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Azure Data Center di Stack - identità
-È possibile distribuire Azure Stack usando Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS), i provider di identità. È necessario adottare la scelta prima di distribuire Azure Stack. Distribuzione tramite ADFS viene detta anche la distribuzione di Azure Stack in modalità disconnessa.
+# <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
+È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
 
-Nella tabella seguente vengono illustrate le differenze tra le scelte di due identità:
+Nella tabella seguente illustra le differenze tra le scelte di due identità:
 
 ||Disconnesso da internet|Connesso a internet|
 |---------|---------|---------|
-|Fatturazione|Deve essere capacità<br> Enterprise Agreement (EA)|Capacità o retribuzione come-si-utilizzo<br>EA o Provider di soluzioni Cloud (CSP)|
-|Identità|È necessario AD FS|Azure Active Directory o AD FS|
-|Diffusione di Marketplace|Supportato<br>BYOL licenze|Supportato<br>BYOL licenze|
-|Registrazione|Consigliata, è necessario un supporto rimovibile<br> e un dispositivo connesso distinto.|Automatico|
-|Patch e aggiornamenti|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso distinto.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet allo Stack di Azure.|
+|Fatturazione|Deve essere la capacità<br> Enterprise Agreement (EA)|Come è a pagamento o la capacità<br>Contratto Enterprise o Cloud Solution Provider (CSP)|
+|Identità|Deve essere ADFS|Azure AD o AD FS|
+|Diffusione di Marketplace|Supportato<br>Gestione delle licenze BYOL|Supportato<br>Gestione delle licenze BYOL|
+|Registrazione|Consigliato, richiede un supporto rimovibile<br> e un dispositivo connesso separato.|Automatizzato|
+|Aggiornamenti e patch|Obbligatorio, è necessario un supporto rimovibile<br> e un dispositivo connesso separato.|Pacchetto di aggiornamento può essere scaricato direttamente<br> da Internet ad Azure Stack.|
 
 > [!IMPORTANT]
-> È possibile passare il provider di identità senza ridistribuire l'intera soluzione Azure Stack.
+> È possibile passare al provider di identità senza ridistribuire l'intera soluzione di Azure Stack.
 
 ## <a name="active-directory-federation-services-and-graph"></a>Grafico e active Directory Federation Services
 
-Distribuzione con AD FS consente alle identità in una foresta di Active Directory esistente per l'autenticazione con le risorse nello Stack di Azure. Questa foresta di Active Directory esistente è necessaria una distribuzione di ADFS per consentire la creazione di un trust federativo AD FS.
+La distribuzione con AD FS consente le identità in una foresta di Active Directory esistente per l'autenticazione con le risorse in Azure Stack. Questa foresta di Active Directory esistente richiede una distribuzione di AD FS per consentire la creazione di un trust federativo AD FS.
 
-L'autenticazione è una parte dell'identità. Per gestire basato sui ruoli accesso controllo (RBAC) nello Stack di Azure, il componente grafico deve essere configurato. Quando l'accesso a una risorsa viene delegata, il componente grafico Cerca l'account utente nella foresta Active Directory esistente tramite il protocollo LDAP.
+L'autenticazione è una parte dell'identità. Per gestire basato su accesso controllo ruoli (RBAC) in Azure Stack, il componente grafico deve essere configurato. Quando l'accesso a una risorsa viene delegata, il componente grafico Cerca l'account utente nella foresta Active Directory esistente tramite il protocollo LDAP.
 
-![Architettura dello Stack ADFS Azure](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Architettura di Azure Stack AD FS](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
-L'istanza di ADFS esistente è l'account servizio token di sicurezza (STS) che invia attestazioni per AD FS dello Stack di Azure (la risorsa servizio token di sicurezza). Nello Stack di Azure, automazione crea il trust del provider di attestazioni con l'endpoint dei metadati per l'istanza di ADFS esistente.
+L'istanza di ADFS esistente è l'account servizio token di sicurezza (STS) che invia le attestazioni per AD FS Azure Stack (la risorsa servizio token di sicurezza). In Azure Stack, automazione crea la relazione di trust di provider di attestazioni con l'endpoint dei metadati per l'istanza di ADFS esistente.
 
-In ADFS esistente, è necessario configurare un trust della relying party. Questo passaggio non viene eseguito per l'automazione e deve essere configurato dall'operatore. L'endpoint dei metadati di Azure Stack è documentato nel file AzureStackStampDeploymentInfo.JSON o tramite l'endpoint con privilegi eseguendo il comando `Get-AzureStackInfo`.
+In AD FS esistente, è necessario configurare un trust della relying party. Questo passaggio non viene eseguito per l'automazione e deve essere configurato dall'operatore. L'endpoint dei metadati di Azure Stack è documentato nel file AzureStackStampDeploymentInfo.JSON o tramite l'endpoint con privilegi eseguendo il comando `Get-AzureStackInfo`.
 
 La configurazione del trust della relying party richiede anche di configurare le regole di trasformazione di attestazioni che sono fornite da Microsoft.
 
-Per la configurazione del grafico, un account del servizio deve essere purché disponga dell'autorizzazione in Active Directory esistente. Questo account è necessario come input per l'automazione abilitare scenari RBAC.
+Per la configurazione per i grafi, deve essere un account di servizio purché disponga dell'autorizzazione in Active Directory esistente lettura. Questo account è necessario come input per l'automazione abilitare scenari di RBAC.
 
-Per l'ultimo passaggio, un nuovo proprietario è configurato per la sottoscrizione di provider predefinito. Questo account disponga dell'accesso completo a tutte le risorse quando accedono al portale di amministrazione di Azure Stack.
+Per l'ultimo passaggio, un nuovo proprietario è configurato per la sottoscrizione del provider predefinito. Questo account ha accesso completo a tutte le risorse quando l'accesso al portale di amministrazione di Azure Stack.
 
 Requirements:
 
 
 |Componente|Requisito|
 |---------|---------|
-|Grafico|Microsoft Active Directory 2012 o 2012 R2/2016|
-|AD FS|Windows Server 2012 o 2012 R2/2016|
+|Grafico|Microsoft Active Directory 2012 o 2012 R2 o 2016|
+|AD FS|Windows Server 2012 o 2012 R2 o 2016|
 
-## <a name="setting-up-graph-integration"></a>Impostazione dell'integrazione di Graph
+## <a name="setting-up-graph-integration"></a>Configurazione di integrazione di Graph
 
-Graph supporta solo l'integrazione con una singola foresta di Active Directory. In presenza di più foreste, solo la foresta specificata nella configurazione verrà utilizzata per recuperare gli utenti e gruppi.
+Graph supporta solo l'integrazione con una singola foresta di Active Directory. Se sono presenti più foreste, solo la foresta specificata nella configurazione da utilizzare per recuperare gli utenti e gruppi.
 
 Le informazioni seguenti sono necessari come input per i parametri di automazione:
 
 
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Nome di dominio completo della destinazione di foresta di Active Directory<br>che si desidera integrare con|Contoso.com|
+|CustomADGlobalCatalog|Nome di dominio completo della destinazione di foresta di Active Directory<br>che si vuole integrare con|Contoso.com|
 |CustomADAdminCredentials|Un utente con autorizzazioni di lettura LDAP|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Creare account utente in Active Directory esistente (facoltativo)
 
-Facoltativamente, è possibile creare un account per il servizio di grafico in Active Directory esistente. Eseguire questo passaggio se non hai già un account che si desidera utilizzare.
+Facoltativamente, è possibile creare un account per il servizio Graph in Active Directory esistente. Eseguire questo passaggio se si ha già un account che si desidera utilizzare.
 
 1. In Active Directory esistente, creare l'account utente seguenti (consigliato):
    - **Nome utente**: graphservice
-   - **Password**: utilizzare una password complessa<br>Configurare password senza scadenza.
+   - **Password**: usare una password complessa<br>Configurare la password senza scadenza.
 
-   Non è necessario alcun autorizzazioni speciali o l'appartenenza.
+   È richiesto alcun autorizzazioni speciali o l'appartenenza.
 
-#### <a name="trigger-automation-to-configure-graph"></a>Automazione di trigger per configurare grafico
+#### <a name="trigger-automation-to-configure-graph"></a>Attivare l'automazione per configurare graph
 
-Per questa procedura, utilizzare un computer della rete di Data Center in grado di comunicare con l'endpoint con privilegi nello Stack di Azure.
+Per questa procedura, utilizzare un computer nella rete datacenter in grado di comunicare con l'endpoint con privilegi in Azure Stack.
 
-2. Aprire una sessione di Windows PowerShell con privilegi elevata (Esegui come amministratore) e connettersi all'indirizzo IP dell'endpoint con privilegi. Utilizzare le credenziali per **CloudAdmin** per l'autenticazione.
+2. Aprire una sessione di Windows PowerShell con privilegi elevata (Esegui come amministratore) e connettersi all'indirizzo IP dell'endpoint con privilegi. Usare le credenziali per **CloudAdmin** per eseguire l'autenticazione.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente: 
+3. Ora che ci si connette all'endpoint con privilegi, eseguire il comando seguente: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
-   Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio di grafico (ad esempio graphservice). L'input per il cmdlet Register-DirectoryService deve essere il nome della foresta / root dominio nella foresta anziché qualsiasi altro dominio nella foresta.
+   Quando richiesto, specificare le credenziali per l'account utente che si desidera utilizzare per il servizio Graph (ad esempio graphservice). L'input per il cmdlet Register-DirectoryService deve essere il nome della foresta / root dominio nella foresta anziché qualsiasi altro dominio nella foresta.
 
    > [!IMPORTANT]
-   > Attendere che le credenziali a comparsa (Get-Credential non è supportato nell'endpoint con privilegi) e immettere le credenziali dell'Account di servizio grafico.
+   > Attendere che le credenziali a comparsa (Get-Credential non è supportato nell'endpoint con privilegi) e immettere le credenziali dell'Account di servizio Graph.
 
-#### <a name="graph-protocols-and-ports"></a>Grafico protocolli e porte
+#### <a name="graph-protocols-and-ports"></a>Porte e protocolli di Graph
 
-Servizio Graph nello Stack di Azure Usa le seguenti porte e protocolli per comunicare con un scrivibile Server (catalogo globale) e il centro distribuzione chiavi (KDC) in grado di elaborare le richieste di accesso nella foresta Active Directory di destinazione.
+Servizio Graph nello Stack di Azure Usa i seguenti protocolli e porte per comunicare con un scrivibile globali Server di catalogo e il centro distribuzione chiavi (KDC) in grado di elaborare le richieste di accesso nella foresta di Active Directory di destinazione.
 
 Servizio Graph nello Stack di Azure Usa i seguenti protocolli e porte per comunicare con Active Directory di destinazione:
 
 |type|Porta|Protocollo|
 |---------|---------|---------|
-|LDAP|389|TCP / UDP|
+|LDAP|389|TCP E UDP|
 |LDAP SSL|636|TCP|
 |LDAP GC|3268|TCP|
-|LDAP GC SSL|3269|TCP|
+|CATALOGO GLOBALE LDAP SSL|3269|TCP|
 
-## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Configurazione dell'integrazione di AD FS di scaricando i metadati della federazione
+## <a name="setting-up-ad-fs-integration-by-downloading-federation-metadata"></a>Impostazione dell'integrazione di AD FS, scaricare i metadati della federazione
 
-Sono necessarie le seguenti informazioni come input per i parametri di automazione:
+Le informazioni seguenti sono necessarie come input per i parametri di automazione:
 
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
@@ -126,9 +126,9 @@ Sono necessarie le seguenti informazioni come input per i parametri di automazio
 |CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automazione di trigger per configurare l'attendibilità di provider di attestazioni nello Stack di Azure
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Attivare l'automazione per configurare i trust del provider di attestazioni in Azure Stack
 
-Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoint con privilegi nello Stack di Azure. È previsto che il certificato utilizzato dall'account **STS AD FS** è considerato attendibile da Stack di Azure.
+Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoint con privilegi in Azure Stack. È previsto che il certificato usato dall'account **servizio token di sicurezza AD FS** è considerato attendibile da Azure Stack.
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata e connettersi all'endpoint con privilegi.
 
@@ -137,7 +137,7 @@ Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoi
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente utilizzando i parametri appropriati per l'ambiente:
+2. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente usando i parametri appropriati per l'ambiente:
 
    ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
@@ -149,24 +149,24 @@ Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoi
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
-## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Configurazione dell'integrazione di AD FS di fornendo il file di metadati di federazione
+## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>Impostazione dell'integrazione di AD FS, fornendo il file di metadati di federazione
 
-Utilizzare questo metodo se una delle seguenti condizioni sono vere:
+Usare questo metodo se una delle condizioni seguenti sono vere:
 
-- La catena di certificati è diversa per AD FS rispetto a tutti gli altri endpoint nello Stack di Azure.
-- Vi è connettività di rete del server ADFS esistente dall'istanza di AD FS Azure dello Stack.
+- La catena di certificati è diversa per AD FS rispetto a tutti gli altri endpoint in Azure Stack.
+- Non è disponibile connettività di rete nel server AD FS esistente dall'istanza di AD FS di Azure Stack.
 
-Sono necessarie le seguenti informazioni come input per i parametri di automazione:
+Le informazioni seguenti sono necessarie come input per i parametri di automazione:
 
 
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni. Viene visualizzato in questo modo nella pagina di destinazione AD FS.|Contoso|
-|CustomADFSFederationMetadataFile|File di metadati di federazione|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomADFSFederationMetadataFileContent|Contenuto dei metadati|$using: federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>Creare il file di metadati di federazione
 
-Per la procedura seguente, è necessario utilizzare un computer con connettività di rete per la distribuzione di ADFS esistente, che diventa l'account del servizio token di sicurezza. Inoltre, i certificati necessari devono essere installati.
+Per la procedura seguente, è necessario usare un computer con connettività di rete per la distribuzione di AD FS esistente, che diventa l'account del servizio token di sicurezza. Inoltre, i certificati necessari devono essere installati.
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente, usando i parametri appropriati per l'ambiente:
 
@@ -176,41 +176,36 @@ Per la procedura seguente, è necessario utilizzare un computer con connettivit�
    $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
-2. Copiare il file di metadati in una condivisione accessibile dall'endpoint con privilegi.
+2. Copiare il file di metadati in un computer in grado di comunicare con l'endpoint con privilegi.
 
+### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Attivare l'automazione per configurare i trust del provider di attestazioni in Azure Stack
 
-### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Automazione di trigger per configurare l'attendibilità di provider di attestazioni nello Stack di Azure
+Per questa procedura, usare un computer in cui può comunicare con l'endpoint con privilegi in Azure Stack e ha accesso al file dei metadati che è stato creato nel passaggio precedente.
 
-Per questa procedura, utilizzare un computer in grado di comunicare con l'endpoint con privilegi nello Stack di Azure.
-
-1. Aprire una sessione di Windows PowerShell con privilegi elevata e connettersi all'endpoint con privilegi.
+1. Aprire una sessione di Windows PowerShell con privilegi elevata.
 
    ```PowerShell  
+   $federationMetadataFileContent = get-content c:\metadata.cml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Ora che si è connessi all'endpoint con privilegi, eseguire il comando seguente utilizzando i parametri appropriati per l'ambiente:
-
-   ```PowerShell  
-   Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
-   ```
-
-3. Eseguire il comando seguente per aggiornare il proprietario della sottoscrizione del provider predefinito, utilizzando i parametri appropriati per l'ambiente:
+2. Eseguire il comando seguente per aggiornare il proprietario della sottoscrizione del provider predefinito, utilizzando i parametri appropriati per l'ambiente:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
-## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurare una relying party nella distribuzione di ADFS esistente (account del servizio token di sicurezza)
+## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurare una relying party nella distribuzione di AD FS esistente (account del servizio token di sicurezza)
 
-Microsoft fornisce uno script che configura il trust della relying party, comprese le regole di trasformazione di attestazioni. È possibile eseguire manualmente i comandi usando lo script è facoltativo.
+Microsoft fornisce uno script che configura il trust della relying party, comprese le regole di trasformazione di attestazioni. Usando lo script è facoltativo in quanto è possibile eseguire i comandi manualmente.
 
-È possibile scaricare lo script di supporto dal [strumenti di Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) su Github.
+È possibile scaricare lo script helper [strumenti di Azure Stack](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) su Github.
 
-Se si decide di eseguire manualmente i comandi, seguire questi passaggi:
+Se si decide di eseguire manualmente i comandi, seguire questa procedura:
 
-1. Copiare il contenuto seguente in un file con estensione txt (ad esempio, salvato come c:\ClaimRules.txt) nel membro di istanza o una farm di ADFS del Data Center:
+1. Copiare il contenuto seguente in un file con estensione txt (ad esempio, salvato come c:\ClaimRules.txt) nel membro di istanza o una farm AD FS del tuo Data Center:
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -243,13 +238,13 @@ Se si decide di eseguire manualmente i comandi, seguire questi passaggi:
    => issue(claim = c);
    ```
 
-2. Per abilitare l'autenticazione basata su Windows Form, aprire una sessione di Windows PowerShell come un utente con privilegi elevato ed eseguire il comando seguente:
+2. Per abilitare l'autenticazione basata su form di Windows, aprire una sessione di Windows PowerShell come utente con privilegi elevato ed eseguire il comando seguente:
 
    ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
-3. Per aggiungere il trust della relying party, eseguire il comando seguente di Windows PowerShell all'istanza di AD FS o un membro di farm. Assicurarsi di aggiornare l'endpoint ADFS e puntare al file creato nel passaggio 1.
+3. Per aggiungere il trust della relying party, eseguire il comando Windows PowerShell seguente istanza di AD FS o un membro di farm. Assicurarsi di aggiornare l'endpoint di AD FS e puntare al file creato nel passaggio 1.
 
    **Per AD FS 2016**
 
@@ -264,18 +259,18 @@ Se si decide di eseguire manualmente i comandi, seguire questi passaggi:
    ```
 
    > [!IMPORTANT]
-   > È necessario utilizzare lo snap-in ADFS di MMC per configurare le regole di autorizzazione rilascio quando si utilizza Windows Server 2012 o 2012 R2 AD FS.
+   > Configurare le regole di autorizzazione rilascio quando si usa Windows Server 2012 o 2012 R2 AD ADFS, è necessario utilizzare lo snap-in MMC di AD FS.
 
-4. Quando si utilizza Internet Explorer o il browser Microsoft Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro della farm, eseguire il comando seguente:
+4. Quando si utilizza Internet Explorer o il browser Microsoft Edge per accedere allo Stack di Azure, è necessario ignorare associazioni dei token. In caso contrario, i tentativi di accesso esito negativo. L'istanza di AD FS o un membro di farm, eseguire il comando seguente:
 
    > [!note]  
-   > Questo passaggio non è applicabile quando si utilizza Windows Server 2012 o 2012 R2 AD FS. È possibile ignorare questo comando e continuare con l'integrazione.
+   > Questo passaggio non è applicabile quando si usa Windows Server 2012 o 2012 R2 AD ADFS. È possibile ignorare questo comando e continuare con l'integrazione.
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. I portali di Stack di Azure e strumenti (Visual Studio) richiedono i token di aggiornamento. Sarà necessario configurarle basandosi sulle attendibilità. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente:
+5. I portali di Azure Stack e gli strumenti (Visual Studio) richiedono i token di aggiornamento. Sarà necessario configurarle basandosi sull'attendibilità di terze parti. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire il comando seguente:
 
    ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
@@ -285,23 +280,23 @@ Se si decide di eseguire manualmente i comandi, seguire questi passaggi:
 
 Esistono molti scenari che richiedono l'uso di un nome dell'entità servizio (SPN) per l'autenticazione. Di seguito sono riportati alcuni esempi:
 
-- Utilizzo CLI con la distribuzione di ADFS dello Stack di Azure
+- Utilizzo dell'interfaccia della riga con la distribuzione di ADFS di Azure Stack
 - System Center Management Pack per Azure Stack quando distribuito con AD FS
-- Provider di risorse nello Stack di Azure quando distribuito con AD FS
-- Varie applicazioni
-- È necessario un account di accesso non interattivo
+- Provider di risorse in Azure Stack quando distribuito con AD FS
+- Diverse applicazioni
+- È necessario un account di accesso interattivo
 
 > [!Important]  
-> ADFS supporta solo le sessioni di accesso interattivo. Se è necessario un account di accesso non interattivo per uno scenario automatizzato, è necessario utilizzare un nome SPN.
+> ADFS supporta solo le sessioni di accesso interattivo. Se è necessario un account di accesso interattivo per uno scenario automatizzato, è necessario usare un nome SPN.
 
-Per ulteriori informazioni sulla creazione di un nome SPN, vedere [creare l'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
+Per altre informazioni sulla creazione di un nome SPN, vedere [creare un'entità servizio per AD FS](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-ad-fs).
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 ### <a name="configuration-rollback"></a>Rollback di configurazione
 
-Se si verifica un errore che lascia l'ambiente in uno stato in cui è non possibile non è più eseguire l'autenticazione, è disponibile un'opzione di rollback.
+Se si verifica un errore che lascia l'ambiente in uno stato in cui è non è più possibile l'autenticazione, è disponibile un'opzione di rollback.
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i comandi seguenti:
 
@@ -316,10 +311,10 @@ Se si verifica un errore che lascia l'ambiente in uno stato in cui è non possib
    Reset-DatacenterIntegationConfiguration
    ```
 
-   Dopo aver eseguito l'azione di rollback, tutte le modifiche di configurazione il rollback. Solo l'autenticazione con l'elemento predefinito **CloudAdmin** utente è possibile.
+   Dopo aver eseguito l'azione di rollback, tutte le modifiche di configurazione il rollback. Solo l'autenticazione con le funzionalità integrate **CloudAdmin** utente è possibile.
 
    > [!IMPORTANT]
-   > È necessario configurare il proprietario originale della sottoscrizione del provider predefinito
+   > È necessario configurare il proprietario della sottoscrizione del provider predefinito originale
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
@@ -327,7 +322,7 @@ Se si verifica un errore che lascia l'ambiente in uno stato in cui è non possib
 
 ### <a name="collecting-additional-logs"></a>La raccolta dei log aggiuntivi
 
-Se uno dei cmdlet non riesce, è possibile raccogliere i log usando il `Get-Azurestacklogs` cmdlet.
+Se uno dei cmdlet non riesce, è possibile raccogliere log aggiuntivi usando il `Get-Azurestacklogs` cmdlet.
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i comandi seguenti:
 
@@ -345,4 +340,4 @@ Se uno dei cmdlet non riesce, è possibile raccogliere i log usando il `Get-Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Integrare le soluzioni di monitoraggio esterne](azure-stack-integrate-monitor.md)
+[Integrare soluzioni di monitoraggio esterne](azure-stack-integrate-monitor.md)

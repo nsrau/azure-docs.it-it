@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cea83fbe9c60bab687eb3d43fc269fa9f6bea325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630460"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091085"
 ---
 # <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT con Java Service SDK
 
@@ -54,7 +54,12 @@ Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il po
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Scaricare e modificare il codice di esempio Java
 
-Questa sezione illustra come aggiungere i dettagli del provisioning del dispositivo X.509 al codice di esempio. 
+In questa sezione viene usato un certificato X.509 autofirmato. È importante tenere presente quanto segue:
+
+* I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
+* La data di scadenza predefinita per un certificato autofirmato è 1 anno.
+
+La procedura seguente illustra come aggiungere i dettagli del provisioning del dispositivo X.509 al codice di esempio. 
 
 1. Aprire un prompt dei comandi. Clonare il repository GitHub per l'esempio di codice di registrazione del dispositivo usando Java Service SDK:
     

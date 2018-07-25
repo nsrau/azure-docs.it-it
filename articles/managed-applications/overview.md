@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 04/13/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639208"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990515"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -41,7 +41,7 @@ Per i team IT, le applicazioni gestite consentono di offrire soluzioni approvate
 
 ### <a name="service-catalog"></a>Catalogo di servizi
 
-Il catalogo di servizi è un catalogo interno di soluzioni approvate per gli utenti in un'organizzazione. Il catalogo può essere usato per garantire la conformità a determinati standard aziendali e offrire al contempo soluzioni ottimali per l'organizzazione. I dipendenti lo usano per trovare facilmente la vasta gamma di applicazioni consigliate e approvate dai reparti IT o per visualizzare le applicazioni gestite che altri utenti dell'organizzazione hanno condiviso con loro.
+Il catalogo di servizi è un catalogo interno di soluzioni approvate per gli utenti in un'organizzazione. Il catalogo può essere usato per garantire la conformità a determinati standard aziendali e offrire al contempo soluzioni ottimali per l'organizzazione. I dipendenti lo usano per trovare facilmente le applicazioni consigliate e approvate dai reparti IT o per visualizzare le applicazioni gestite che altri utenti dell'organizzazione hanno condiviso con loro.
 
 Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di servizi, vedere [Creare un'applicazione del catalogo di servizi](publish-service-catalog-app.md).
 
@@ -70,6 +70,10 @@ Il consumer ha accesso completo al gruppo di risorse e lo usa per gestire il cic
 Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse.
 
 Quando il consumer elimina l'applicazione gestita, viene eliminato anche il gruppo di risorse gestite.
+
+## <a name="azure-policy"></a>Criteri di Azure
+
+È possibile applicare [criteri di Azure](../azure-policy/azure-policy-introduction.md) all'applicazione gestita. L'applicazione di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare criteri per verificare che sia abilitata la crittografia dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
