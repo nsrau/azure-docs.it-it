@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001508"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258434"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -106,7 +106,7 @@ Usare la proprietà tags dai dispositivi per selezionare i dispositivi specifici
 Dato che più distribuzioni potrebbero avere come destinazione lo stesso dispositivo, è necessario assegnare a ogni distribuzione un numero di priorità. In caso di conflitto, prevale la distribuzione con la priorità più alta, ovvero con il valore più elevato. Se due distribuzioni hanno lo stesso numero di priorità, prevale quella creata più di recente. 
 
 1. Immettere un numero intero positivo in **Priority** (Priorità) per la distribuzione. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
-1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà desiderate dei dispositivi gemelli e deve corrispondere al formato dell'espressione. Ad esempio, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
+1. Specificare una condizione in **Target condition** (Condizione di destinazione) per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio, `tags.environment='test'` o `properties.reported.devicemodel='4000x'`. 
 1. Selezionare **Avanti** per procedere al passaggio finale.
 
 ### <a name="step-5-review-template"></a>Passaggio 5: Rivedere il modello

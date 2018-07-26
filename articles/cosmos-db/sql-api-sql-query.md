@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056818"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205970"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Query SQL per Azure Cosmos DB
 
@@ -522,7 +522,7 @@ Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano
 
 Se il risultato dell'espressione scalare nel filtro è Undefined, il documento corrispondente non verrebbe incluso nel risultato, perché Undefined non è logicamente uguale a "true".
 
-### <a name="between-keyword"></a>Parola chiave BETWEEN
+## <a name="between-keyword"></a>Parola chiave BETWEEN
 È possibile usare anche la parola chiave BETWEEN per esprimere query su intervalli di valori come in SQL ANSI. La parola BETWEEN può essere utilizzata con stringhe o numeri.
 
 Ad esempio, questa query restituisce tutti i documenti della famiglia in cui la classe frequentata dal primo figlio sia compresa tra 1 e 5 (inclusi). 
@@ -561,7 +561,7 @@ Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità l
 | False |True  |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>Parola chiave IN
+## <a name="in-keyword"></a>Parola chiave IN
 La parola chiave IN consente di controllare se un valore specificato corrisponde a qualsiasi valore in un elenco. Ad esempio, questa query restituisce tutti i documenti famiglia dove l'id è uno dei "WakefieldFamily" o "AndersenFamily". 
 
     SELECT *
@@ -574,7 +574,7 @@ In questo esempio restituisce tutti i documenti in cui lo stato è uno dei valor
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>Operatori Ternary (?) e Coalesce (??)
+## <a name="ternary--and-coalesce--operators"></a>Operatori Ternary (?) e Coalesce (??)
 Gli operatori Ternary e Coalesce possono essere usati per compilare espressioni condizionali, analogamente ai linguaggi di programmazione più diffusi come C# e JavaScript. 
 
 L'operatore Ternary (?) può essere molto comodo quando si costruiscono rapidamente nuove proprietà JSON. Ad esempio, ora è possibile scrivere query per classificare i livelli di istruzione in forma leggibile, ad esempio principiante/intermedio/avanzati, come mostrato di seguito.
@@ -594,7 +594,7 @@ L'operatore Coalesce (??) può essere usato per verificare se una proprietà è 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>Funzione di accesso della proprietà di delimitazione
+## <a id="EscapingReservedKeywords"></a>Funzione di accesso della proprietà di delimitazione
 È anche possibile accedere alle proprietà mediante l'operatore della proprietà di delimitazione `[]`. Ad esempio, la sintassi di `SELECT c.grade` and `SELECT c["grade"]` sono equivalenti. Questa sintassi risulta utile quando occorre usare i caratteri di escape per una proprietà che contiene spazi, caratteri speciali o condivide lo stesso nome di una parola chiave SQL o una parola riservata.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ Verrà ora esaminato il ruolo di `$1` . La clausola `SELECT` deve creare un ogge
     }]
 
 
-### <a name="aliasing"></a>Aliasing
+## <a name="aliasing"></a>Aliasing
 L'esempio precedente verrà ora esteso con l'aliasing esplicito dei valori. AS è la parola chiave usata per l'aliasing. È facoltativo, come è possibile vedere durante la proiezione del secondo valore come `NameInfo`. 
 
 Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessario usare l'aliasing per rinominare una o entrambe le proprietà, in modo da evitare ambiguità nel risultato proiettato.
@@ -708,7 +708,7 @@ Nel caso in cui una query avesse due proprietà con lo stesso nome, è necessari
     }]
 
 
-### <a name="scalar-expressions"></a>Espressioni scalari
+## <a name="scalar-expressions"></a>Espressioni scalari
 Oltre ai riferimenti di proprietà, la clausola SELECT supporta anche le espressioni scalari, ad esempio le costanti, le espressioni aritmetiche, le espressioni logiche e così via. Ad esempio, ecco una semplice query "Hello World".
 
 **Query**
@@ -754,7 +754,7 @@ Nell'esempio seguente, il risultato dell'espressione scalare è un valore boolea
     ]
 
 
-### <a name="object-and-array-creation"></a>Creazione di oggetti e matrici
+## <a name="object-and-array-creation"></a>Creazione di oggetti e matrici
 Un'altra funzione fondamentale dell'API SQL è la creazione di matrici/oggetti. Nell'esempio precedente si è osservato che è stato creato un nuovo oggetto JSON. In modo analogo, è possibile creare matrici, come illustrato negli esempi seguenti:
 
 **Query**
@@ -779,7 +779,7 @@ Un'altra funzione fondamentale dell'API SQL è la creazione di matrici/oggetti. 
       }
     ]
 
-### <a id="ValueKeyword"></a>Parola chiave VALUE
+## <a id="ValueKeyword"></a>Parola chiave VALUE
 La parola chiave **VALUE** consente di restituire un valore JSON. Ad esempio, la query mostrata di seguito restituisce l'espressione scalare `"Hello World"` invece di `{$1: "Hello World"}`.
 
 **Query**
@@ -830,7 +830,7 @@ L'esempio seguente estende questo risultato mostrando come restituire valori pri
     ]
 
 
-### <a name="-operator"></a>Operatore *
+## <a name="-operator"></a>Operatore *
 L'operatore speciale (*) è supportato per proiettare il documento così com'è. Quando usato, deve essere l'unico campo proiettato. Benché una query come `SELECT * FROM Families f` sia valida, `SELECT VALUE * FROM Families f ` e `SELECT *, f.id FROM Families f ` non lo sono.
 
 **Query**
@@ -859,7 +859,7 @@ L'operatore speciale (*) è supportato per proiettare il documento così com'è.
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>Operatore TOP
+## <a id="TopKeyword"></a>Operatore TOP
 La parola chiave TOP può essere usata per limitare il numero di valori restituiti da una query. Se si usa TOP in combinazione con la clausola ORDER BY, il set di risultati è limitato al primo numero N di valori ordinati. In caso contrario, restituisce il primo numero N di risultati in un ordine non definito. Come procedura consigliata, in un'istruzione SELECT, usare sempre una clausola ORDER BY con la clausola TOP. Questo è l'unico modo per indicare in modo prevedibile le righe interessate dalla clausola TOP. 
 
 **Query**
@@ -889,7 +889,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
 
 È possibile usare TOP con un valore costante (come illustrato in precedenza) o con un valore della variabile usando le query con parametri. Per altre informazioni dettagliate, vedere le query con parametri seguenti.
 
-### <a id="Aggregates"></a>Funzioni di aggregazione
+## <a id="Aggregates"></a>Funzioni di aggregazione
 È anche possibile eseguire le aggregazioni nella clausola `SELECT`. Le funzioni di aggregazione eseguono un calcolo su un set di valori e restituiscono un singolo valore. Ad esempio, la query seguente restituisce il numero di documenti della famiglia all'interno della raccolta.
 
 **Query**
