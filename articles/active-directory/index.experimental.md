@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
-ms.author: carolz
-ms.openlocfilehash: 134a34f7995e8153f3f28f7ff389ad0254177711
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: mtillman
+ms.openlocfilehash: 218de4388c88161d3277c94fcb859e6ee3dc04e9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594633"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224780"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentazione di Azure Active Directory
 
@@ -82,7 +82,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                         <h3>Authentication</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-passwords-overview">Password</a><br/>
-                        <a href="/azure/active-directory/active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements">Autenticazione a più fattori</a><br/>
+                        <a href="/azure/active-directory/authentication/concept-mfa-howitworks">Autenticazione a più fattori</a><br/>
                         <a href="/azure/active-directory/active-directory-azureadjoin-passport">Windows Hello</a><br/>
                         <a href="/azure/active-directory/active-directory-certificate-based-authentication-get-started">Autenticazione basata su certificati</a>
                         </p>
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
                         <p>
                         <a href="/azure/active-directory/active-directory-identityprotection">Identity Protection</a><br/>
                         <a href="/azure/active-directory/active-directory-conditional-access-azure-portal">Accesso condizionale</a><br/>
-                        <a href="/azure/active-directory/active-directory-privileged-identity-management-configure?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json">Privileged Identity Management</a>
+                        <a href="/azure/active-directory/privileged-identity-management/pim-configure">Privileged Identity Management</a>
                         </p>
                     </div>
                 </div>
@@ -162,7 +162,7 @@ Azure Active Directory (Azure AD) è un servizio di gestione di identità e dire
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Riferimenti</h3>
+                        <h3>riferimento</h3>
                         <p>
                         <a href="/powershell/module/azurerm.resources#active_directory">AzureRM PowerShell</a><br/>
                         <a href="/powershell/azure/active-directory/overview">Azure AD PowerShell</a><br/>

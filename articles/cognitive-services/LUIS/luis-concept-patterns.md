@@ -3,19 +3,19 @@ title: Informazioni su come i criteri aumentano l'accuratezza della stima | Micr
 titleSuffix: Azure
 description: Informazioni su come progettare criteri per migliorare i punteggi della stima della finalità e individuare entità.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888280"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225218"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Migliorare l'accuratezza della stima con i criteri
 I criteri sono progettati per migliorare l'accuratezza quando vi sono più espressioni molto simili. Grazie ai criteri messi a disposizione per le espressioni, LUIS può produrre stime molto affidabili. 
@@ -117,7 +117,7 @@ I segni di punteggiatura, come ad esempio `.`, `!` e `?` possono essere ignorati
 LUIS consente che un'app non abbia espressioni di esempio nella finalità. Questo uso è consentito solo se vengono usati i criteri. I criteri richiedono almeno un'entità in ogni criterio. Per le app con solo criteri, il criterio non deve contenere entità provenienti da Machine Learning in quanto richiedono espressioni di esempio. 
 
 ## <a name="best-practices"></a>Procedure consigliate
-Informazioni sulle [procedure consigliate](luis-concept-best-practices.md).
+Apprendere le [procedure consigliate](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

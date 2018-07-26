@@ -9,18 +9,18 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374772"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223370"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Come creare un classificatore con Visione personalizzata
 
 Per usare il servizio Visione personalizzata, è prima di tutto necessario creare un classificatore. Questo documento illustra come creare un classificatore tramite il web browser.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per creare un classificatore, è prima di tutto necessario:
 
@@ -83,8 +83,6 @@ Per creare un nuovo progetto, usare questa procedura:
     Il servizio Visione personalizzata accetta immagini di training in formato JPG, PNG e BMP, con dimensioni fino a 6 MB per ogni immagine. (Le immagini per la previsione possono avere dimensioni fino a 4 MB per ogni immagine.) È consigliabile che le immagini abbiano dimensioni di 256 pixel sul bordo più corto. Tutte le immagini con dimensioni minori di 256 pixel sul bordo più corto vengono ridimensionate dal servizio Visione personalizzata.
 
     ![Il controllo per l'aggiunta di immagini è visualizzato in alto a sinistra e come pulsante in basso al centro.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![Il pulsante per la selezione di file locali è visualizzato in basso al centro.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > È possibile usare l'API REST per caricare immagini di training da URL.

@@ -58,7 +58,7 @@ Nel portale di Azure è disponibile una procedura guidata che consente di creare
 
 ### <a name="specify-routes"></a>Specificare le route
 
-Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come **FROM /* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
+Per impostazione predefinita, la procedura guidata presenta una route denominata **route** e definita come ** FROM /\* INTO $upstream**, per indicare che i messaggi generati dai moduli vengono inviati all'hub IoT.  
 
 Aggiungere o aggiornare le route con le informazioni riportate in [Dichiarare le route](module-composition.md#declare-routes) e quindi scegliere **Avanti** per proseguire con la sezione di verifica.
 

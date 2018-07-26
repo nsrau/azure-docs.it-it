@@ -2,19 +2,19 @@
 title: Informazioni sul servizio Language Understanding (LUIS) in Azure | Microsoft Docs
 description: Imparare come usare il servizio di Language Understanding (LUIS) per aggiungere la capacità di apprendimento automatico alle proprie applicazioni.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: v-geberr
-ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 072176347adacbabc0a92f1c7e437f8233531003
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952539"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225459"
 ---
 # <a name="what-is-language-understanding-luis"></a>Che cos'è il servizio Language Understanding (LUIS)?
 Il servizio Language Understanding (LUIS) è un servizio basato su cloud che applica l'apprendimento automatico personalizzato al testo in linguaggio naturale parlato di un utente per prevedere il significato generale ed estrarre informazioni rilevanti e dettagliate. 
@@ -91,7 +91,7 @@ Un esempio di [espressione](luis-how-to-add-example-utterances.md) è un input d
 
 |Espressione utente di esempio|Finalità|Entità|
 |-----------|-----------|-----------|
-|"Prenota un volo per __Seattle__?"|PrenotaVolo|Seattle|
+|"Prenota un volo per __Seattle__?"|BookFlight (PrenotaVolo)|Seattle|
 |"Quando __apre__ il negozio?"|OrariePosizioneNegozio|apre|
 |"Programma una riunione alle ore __13:00__ con __Bob__ presso la distribuzione"|ProgrammaRiunione|13:00, Bob|
 

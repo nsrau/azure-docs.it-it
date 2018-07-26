@@ -3,24 +3,25 @@ title: Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di 
 description: Questo argomento illustra come gli amministratori possono configurare la funzionalità Aggiunta ad Azure AD per gli utenti finali (dipendenti, studenti o altri utenti). Vengono inoltre illustrati i diversi scenari reali per l'utilizzo di Azure AD Join.
 services: active-directory
 documentationcenter: ''
-author: femila
+author: MarkusVi
 manager: mtillman
 editor: ''
 tags: azure-classic-portal
+ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 173ad6f07699ca6bfa534dedc053663bba571382
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 29480390e6854dcedeaf8f06c078ed2e4ed2b94d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26732269"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223008"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Scenari di utilizzo e considerazioni sulla distribuzione per Aggiunta di Azure AD
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Scenari di utilizzo per Aggiunta ad Azure AD
@@ -40,7 +41,7 @@ Oltre ai vantaggi descritti sopra, si ottiene anche il vantaggio che gli utenti 
 ### <a name="enable-your-users-to-join-a-company-owned-device-directly-to-azure-ad"></a>Abilitare gli utenti per l'aggiunta di dispositivi di proprietà della società direttamente ad Azure AD
 Le aziende possono fornire account di tipo solo cloud a organizzazioni e società partner. Questi partner possono quindi accedere facilmente alle app e alle risorse aziendali tramite l'accesso Single Sign-On. Questo scenario si applica agli utenti che accedono alle risorse principalmente nel cloud, ad esempio Office 365 e app SaaS che si basano su Azure AD per l'autenticazione.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 **A livello aziendale (amministratore)**
 
 * Sottoscrizione di Azure con Azure Active Directory  
@@ -60,7 +61,7 @@ Le aziende possono fornire account di tipo solo cloud a organizzazioni e societ�
 ## <a name="enable-byod-in-your-organization-for-windows-10"></a>Abilitare le funzionalità BYOD per Windows 10 nell'organizzazione
 È possibile configurare utenti e dipendenti in modo che usino i dispositivi Windows personali (BYOD, Bring Your Own Device) per accedere alle app e alle risorse aziendali. Gli utenti possono aggiungere i propri account Azure AD (account aziendali o dell'istituto di istruzione) a un dispositivo personale Windows per accedere alle risorse in totale sicurezza e conformità.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 **A livello aziendale (amministratore)**
 
 * Sottoscrizione di Azure AD

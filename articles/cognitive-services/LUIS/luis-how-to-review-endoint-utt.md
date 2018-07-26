@@ -2,19 +2,19 @@
 title: Etichettare espressioni consigliate con LUIS | Microsoft Docs
 description: Usare Language Understanding (LUIS) per assegnare un'etichetta a espressioni consigliate e favorire l'apprendimento automatico attivo.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966832"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224552"
 ---
 # <a name="review-endpoint-utterances"></a>Esaminare le espressioni endpoint
 
@@ -79,4 +79,4 @@ Per eliminare diverse espressioni, seleziona ciascun elemento e scegli il cestin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per verificare come le prestazioni migliorino dopo l'assegnazione dell'etichetta alle espressioni consigliate, è possibile accedere alla console di test selezionando **Testa** nel riquadro superiore. Per istruzioni su come testare l'applicazione usando la console di test, vedere [Eseguire il training e testare l'applicazione](interactive-test.md).
+Per verificare come le prestazioni migliorino dopo l'assegnazione dell'etichetta alle espressioni consigliate, è possibile accedere alla console di test selezionando **Testa** nel riquadro superiore. Per istruzioni su come testare l'applicazione usando la console di test, vedere [Eseguire il training e testare l'applicazione](luis-interactive-test.md).

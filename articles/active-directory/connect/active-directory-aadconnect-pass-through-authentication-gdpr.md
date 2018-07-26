@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b785b23b41981efeb7fe160a18dc0c3c38f3772f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915878"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215391"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
 
@@ -75,7 +75,7 @@ Per visualizzare i log correlati all'agente di autenticazione pass-through, apri
 È consigliabile controllare regolarmente il contenuto di **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** ed eliminare il contenuto di questa cartella ogni 48 ore. 
 
 >[!IMPORTANT]
->Se il servizio agente di autenticazione è in esecuzione, non sarà possibile eliminare il file di log corrente nella cartella. Arrestare il servizio prima di riprovare. Per evitare errori di accesso dell'utente, l'autenticazione pass-through deve essere già configurata per la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+>Se il servizio agente di autenticazione è in esecuzione, non sarà possibile eliminare il file di log corrente nella cartella. Arrestare il servizio prima di riprovare. Per evitare errori di accesso dell'utente, l'autenticazione pass-through deve essere già configurata per la [disponibilità elevata](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 È possibile esaminare ed eliminare questi file tramite Esplora risorse oppure è possibile usare lo script seguente per eseguire le azioni necessarie:
 

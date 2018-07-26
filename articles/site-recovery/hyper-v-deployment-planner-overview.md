@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921213"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226561"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
 
@@ -74,14 +74,14 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Sì|Sì|No |Sì*|No 
+Scenari supportati |Yes|Yes|No |Sì*|No 
 Versione supportata | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Azure Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
 
 *Lo strumento è destinato principalmente allo scenario di ripristino di emergenza da Hyper-V ad Azure. Per il ripristino di emergenza da Hyper-V al sito secondario, può essere usato solo per conoscere le raccomandazioni sul lato di origine, ad esempio larghezza di banda di rete necessaria, spazio di archiviazione libero necessario in ogni server Hyper-V di origine e numeri di invio in batch e definizioni dei batch della replica iniziale.  Ignorare le raccomandazioni di Azure e i costi del report. L'operazione per misurare la velocità effettiva non è inoltre applicabile per lo scenario di ripristino di emergenza da Hyper-V al sito secondario.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profilatura e generazione di report. È anche disponibile una quarta opzione per calcolare solo la velocità effettiva. I requisiti per il server in cui devono essere eseguite le diverse fasi sono elencati nella tabella seguente:
 
 | Requisito server | DESCRIZIONE |
@@ -94,13 +94,13 @@ Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profil
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>Procedura per aggiungere i server nell'elenco TrustedHosts
 1.  La VM da cui lo strumento deve essere distribuito deve avere tutti gli host da profilare nell'elenco TrustedHosts. Per aggiungere il client nell'elenco Trustedhosts, eseguire il comando seguente da un'istanza di PowerShell con privilegi elevati sulla VM. La VM può essere Windows Server 2012 R2 o Windows Server 2016. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  Ogni host Hyper-V da profilare deve avere:
 
     a. La VM su cui lo strumento verrà eseguito nell'elenco TrustedHosts. Eseguire il comando seguente da una sessione di PowerShell con privilegi elevati sull'host Hyper-V.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     b. Comunicazione remota di PowerShell abilitata.
 

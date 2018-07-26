@@ -4,23 +4,24 @@ description: Elenco completo di tutte le impostazioni di cui verrà effettuato i
 services: active-directory
 keywords: enterprise state roaming, cloud windows
 documentationcenter: ''
-author: tanning
+author: MarkusVi
 manager: mtillman
 editor: curtand
+ms.component: devices
 ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2017
+ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 741b76935b5a6d9b2a6869ef57caa0ac0dc6351a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159078"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223668"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -30,10 +31,10 @@ La tabella seguente contiene un riepilogo dei dispositivi e dei tipi di account 
 
 | Tipo di account e operazione | Desktop | Mobile |
 | --- | --- | --- |
-| Azure Active Directory: sincronizzazione |Sì |No  |
+| Azure Active Directory: sincronizzazione |Yes |No  |
 | Azure Active Directory: backup e ripristino |No  |No  |
-| Account Microsoft: sincronizzazione |Sì |Sì |
-| Account Microsoft: backup e ripristino |No  |Sì |
+| Account Microsoft: sincronizzazione |Yes |Yes |
+| Account Microsoft: backup e ripristino |No  |Yes |
 
 ## <a name="what-is-backup"></a>Cosa si intende per backup
 Le impostazioni di Windows vengono in genere sincronizzate per impostazione predefinita. Di alcune impostazioni, come ad esempio l'elenco delle applicazioni installate in un dispositivo, viene tuttavia eseguito solo il backup. Al momento il backup è disponibile solo per i dispositivi mobili e non è fruibile dagli utenti del servizio Enterprise State Roaming. Il backup usa un account Microsoft e archivia i dati delle impostazioni e delle applicazioni in OneDrive. Se un utente disabilita la sincronizzazione nel dispositivo usando l'app Impostazioni, i dati dell'applicazione che normalmente vengono sincronizzati diventano solo di backup. L'accesso ai dati di backup è possibile solo con l'operazione di ripristino durante la prima esecuzione di un nuovo dispositivo. I backup possono essere disattivati con le impostazioni del dispositivo e possono essere gestiti ed eliminati tramite l'account OneDrive dell'utente.

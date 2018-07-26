@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 * Un account [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol)  
 
 Prima di poter usare l'account FTP in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account FTP. Fortunatamente, è possibile eseguirePrima di poter usare l'account FTP in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account FTP. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure. questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  
