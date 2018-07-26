@@ -30,6 +30,8 @@
   items:
     - name: Routing dei messaggi
       href: tutorial-routing.md
+    - name: Eseguire il failover manuale
+      href: tutorial-manual-failover.md
     - name: Configurare i dispositivi
       href: tutorial-device-twins.md
     - name: Gestire gli aggiornamenti del firmware
@@ -124,19 +126,22 @@
   items:
     - name: Sviluppo
       items:
-        - name: Usare IoT SDK per dispositivi per C
-          href: iot-hub-device-sdk-c-intro.md
+        - name: Usare SDK per servizi e per dispositivi
+          href: iot-hub-devguide-sdks.md
           items:
-            - name: Usare IoTHubClient
-              href: iot-hub-device-sdk-c-iothubclient.md
-            - name: Usare il serializzatore
-              href: iot-hub-device-sdk-c-serializer.md
-        - name: Eseguire lo sviluppo per dispositivi vincolati
-          href: iot-hub-devguide-develop-for-constrained-devices.md
-        - name: Eseguire lo sviluppo per dispositivi mobili
-          href: iot-hub-how-to-develop-for-mobile-devices.md
-        - name: Gestire la connettività e l'invio affidabile di messaggi
-          href: iot-hub-reliability-features-in-sdks.md
+            - name: Usare IoT SDK per dispositivi per C
+              href: iot-hub-device-sdk-c-intro.md
+              items:
+                - name: Usare IoTHubClient
+                  href: iot-hub-device-sdk-c-iothubclient.md
+                - name: Usare il serializzatore
+                  href: iot-hub-device-sdk-c-serializer.md
+            - name: Eseguire lo sviluppo per dispositivi vincolati
+              href: iot-hub-devguide-develop-for-constrained-devices.md
+            - name: Eseguire lo sviluppo per dispositivi mobili
+              href: iot-hub-how-to-develop-for-mobile-devices.md
+            - name: Gestire la connettività e l'invio affidabile di messaggi
+              href: iot-hub-reliability-features-in-sdks.md
         - name: Eseguire query sui dati di Avro da una route dell'hub
           href: iot-hub-query-avro-data.md
         - name: Inviare messaggi da cloud a dispositivo

@@ -127,10 +127,13 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: Esempio di codice per l'API RateCard
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Scenari di automazione della fatturazione
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Gestire i costi con i budget di Azure
+          href: billing-cost-management-budget-scenario.md
     - name: Panoramica dell'API di fatturazione di Azure
       href: billing-usage-rate-card-overview.md
       items:

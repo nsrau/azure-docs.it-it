@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedure
   items:
-    - name: Creare una zona e un record DNS personalizzati - Interfaccia della riga di comando di Azure
+    - name: Creare una zona privata e un record DNS - Interfaccia della riga di comando di Azure
       href: private-dns-getstarted-cli.md
     - name: Gestire le zone DNS
       items:
@@ -83,7 +83,7 @@
       items:
         - name: Guida per la risoluzione dei problemi
           href: dns-troubleshoot.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=dns'
