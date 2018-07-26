@@ -2,19 +2,19 @@
 title: "Esercitazione: Creare un'app di Language Understanding per ottenere un elenco di dati di corrispondenza di testo esatta - Azure | Microsoft Docs"
 description: Questa esercitazione illustra come creare una semplice app di Language Understanding usando finalità ed entità elenco per estrarre i dati in questa guida introduttiva.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: da0491aae571f085a8cbe3cd372f905202e9db9b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931066"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222971"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Esercitazione: 4. Aggiungere un'entità elenco
 In questa esercitazione si crea un'app che dimostra come ottenere dati corrispondenti a un elenco predefinito. 
@@ -144,11 +144,11 @@ Ora che la finalità **MoveEmployee** ha espressioni, LUIS deve capire cos'è un
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 Language Understanding non rileva le modifiche a finalità ed entità (il modello) finché non viene eseguito il training. 
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Train** (Esegui il training).
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
 
     ![Eseguire il training dell'app](./media/luis-quickstart-intent-and-list-entity/train-button.png)
 
-2. Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
 
     ![Training completato](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
@@ -165,7 +165,7 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
 3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query sull'endpoint con un'espressione diversa
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
 1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
     [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Schermata dell'URL endpoint nella pagina Publish (Pubblica)")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
@@ -293,10 +293,10 @@ Questa app, con un'entità elenco, ha estratto il dipendente corretto.
 Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, `MoveEmployee`, e il dipendente da spostare. 
 
 ## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dall'entità per completare il passaggio successivo. Language Understanding non esegue questa attività a livello di codice per il chatbot o l'applicazione chiamante, ma determina solo la finalità dell'utente. 
+LUIS ha terminato con questa richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i dati dell'entità per completare il passaggio successivo. LUIS non esegue questo lavoro programmatico per il bot o l'applicazione chiamante, ma si limita a determinare l'intenzione dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. Selezionare **My apps** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

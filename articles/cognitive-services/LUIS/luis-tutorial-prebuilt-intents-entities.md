@@ -2,19 +2,19 @@
 title: Aggiungere finalità ed entità predefinite per estrarre i dati comuni in Language Understanding - Azure |Microsoft Docs
 description: Informazioni su come usare finalità ed entità predefinite per estrarre i diversi tipi di dati di entità.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929050"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239036"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Esercitazione: 2. Aggiungere finalità ed entità predefinite
 Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. 
@@ -82,7 +82,7 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 2. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Publish** (Pubblica) per accedere alla relativa pagina. 
 
-3. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Publish** (Pubblica) accanto allo slot di produzione. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web a conferma il completamento.
+3. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Publish** (Pubblica) accanto allo slot di produzione. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
 
     Non è necessario creare una chiave di endpoint Language Understanding nel portale di Azure prima di pubblicare o testare l'URL dell'endpoint. Ogni app Language Understanding dispone di una chiave di avvio gratuita. Tale chiave offre creazione illimitata e [alcuni riscontri di endpoint](luis-boundaries.md#key-limits). 
 
@@ -171,7 +171,7 @@ Sono presenti due valori per il 3 marzo, perché l'espressione non ha indicato s
 Aggiungendo finalità ed entità predefinite in modo facile e veloce, l'applicazione client può integrare la gestione delle conversazioni ed estrarre i datatype comuni. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A questo scopo, scegliere **My apps** (App personali) dal menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. A questo scopo, scegliere **My apps** (App personali) dal menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

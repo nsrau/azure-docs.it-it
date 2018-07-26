@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: 205c62246210373333c1315d5f3a9b3ec8571e59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6178c4a55d24bb37aae787129c9a0d390a2e536b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004371"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226227"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse
 In questa esercitazione verranno esaminate la compilazione e la distribuzione di un modello di Machine Learning usando SQL Data Warehouse (SQL DW) per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). Il modello di classificazione binaria costruito stabilisce se sia stata lasciata o meno una mancia per una corsa. Vengono illustrati anche i modelli per la regressione e la classificazione multiclasse che consentono di stimare la distribuzione delle mance pagate.
@@ -882,7 +882,7 @@ Nella figura di seguito viene fornito un esperimento di assegnazione dei puntegg
 Ricapitolando quanto è stato fatto, durante questa procedura è stato creato un ambiente di analisi scientifica dei dati di Azure da usare con set di dati pubblici di grandi dimensioni, seguendo l'intero Processo di analisi scientifica dei dati per i team, dall'acquisizione dei dati al training del modello e quindi alla distribuzione di un servizio Web Azure Machine Learning.
 
 ### <a name="license-information"></a>Informazioni sulla licenza
-Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPython che la accompagnano sono condivisi da Microsoft nella licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per ulteriori informazioni.
+Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPython che la accompagnano sono condivisi da Microsoft nella licenza MIT. Selezionare il file LICENSE.txt nella directory del codice di esempio in GitHub per altre informazioni.
 
 ## <a name="references"></a>Riferimenti
 •    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  

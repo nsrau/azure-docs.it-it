@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 101b6531601458c33b8cede72f3a63f586df08bb
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337329"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224827"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni
 
@@ -279,7 +279,7 @@ Per ospitare il servizio in Internet Information Services, uno sviluppatore deve
     }
 
     public void Configuration(
-      Owin.IAppBuilder builder) // Defined in in Owin.dll.  
+      Owin.IAppBuilder builder) // Defined in Owin.dll.  
     {
         this.starter.ConfigureApplication(builder);
     }

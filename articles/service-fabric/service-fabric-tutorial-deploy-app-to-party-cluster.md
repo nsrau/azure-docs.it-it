@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 58b7dc532511ae25c7db2bf021a42fecc3dd9bb5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 601742d82c1bd9a0e691de28ff9c4a09f12b538e
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056682"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186380"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 
@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>Eseguire la pubblicazione in un cluster di Service Fabric
 
-Ora che l'applicazione è pronta, è possibile distribuirla in un cluster direttamente da Visual Studio. Un [cluster di Service Fabric](/service-fabric/service-fabric-deploy-anywhere.md) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi.
+Ora che l'applicazione è pronta, è possibile distribuirla in un cluster direttamente da Visual Studio. Un [cluster di Service Fabric](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) è un set di computer fisici o macchine virtuali connesse tramite rete in cui vengono distribuiti e gestiti i microservizi.
 
 Per questa esercitazione sono disponibili due opzioni per distribuire l'applicazione di voto in un cluster di Service Fabric con Visual Studio:
 
@@ -120,7 +120,7 @@ Ora che l'applicazione è pronta, è possibile distribuirla in un cluster dirett
 
 1. Fare clic con il pulsante destro del mouse su **Voting** in Esplora soluzioni e scegliere **Pubblica**. Verrà visualizzata la finestra di dialogo Pubblica.
 
-2. Copiare l'**endpoint di connessione** dalla pagina del party cluster o dalla sottoscrizione di Azure al campo **Endpoint connessione**. Ad esempio, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e verificare che i valori di *FindValue* e *ServerCertThumbprint* corrispondano all'identificazione personale del certificato installato in un passaggio precedente per un party cluster o del certificato corrispondente alla sottoscrizione di Azure.
+2. Copiare l'**endpoint di connessione** dalla pagina del party cluster o dalla sottoscrizione di Azure al campo **Endpoint connessione**. Ad esempio: `zwin7fh14scd.westus.cloudapp.azure.com:19000`. Fare clic su **Parametri di connessione avanzati** e verificare che i valori di *FindValue* e *ServerCertThumbprint* corrispondano all'identificazione personale del certificato installato in un passaggio precedente per un party cluster o del certificato corrispondente alla sottoscrizione di Azure.
 
     ![Finestra di dialogo Pubblica](./media/service-fabric-quickstart-dotnet/publish-app.png)
 

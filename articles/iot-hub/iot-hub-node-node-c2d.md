@@ -9,12 +9,12 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 640a7740e3451a8bd07fdea6a82af2f5cae4c25f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 61b1dd31039df0db777e7e35d849889047a6588d
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637464"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186683"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -83,7 +83,7 @@ In questa sezione si modificherà l'app per il dispositivo simulato creata in [I
    > 
 
 ## <a name="send-a-cloud-to-device-message"></a>Inviare un messaggio da cloud a dispositivo
-In questa sezione si crea un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT] . È necessaria anche la stringa di connessione per l'hub IoT, disponibile nel [Portale di Azure].
+In questa sezione si crea un'app console Node.js che invia messaggi da cloud a dispositivo all'app del dispositivo simulato. È necessario l'ID del dispositivo aggiunto nell'esercitazione [Introduzione all'hub IoT] . È necessaria anche la stringa di connessione per l'hub IoT, disponibile nel [portale di Azure].
 
 1. Creare una cartella vuota denominata **sendcloudtodevicemessage**. Nella cartella **sendcloudtodevicemessage** creare un file package.json eseguendo questo comando al prompt dei comandi. Accettare tutte le impostazioni predefinite:
    
@@ -187,12 +187,12 @@ Per altre informazioni sullo sviluppo delle soluzioni con l'hub IoT, vedere la [
 
 <!-- Links -->
 
-[Introduzione all'hub IoT]: iot-hub-node-node-getstarted.md
+[Introduzione all'hub IoT]: quickstart-send-telemetry-node.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [Guida per sviluppatori dell'hub IoT]: iot-hub-devguide.md
 [Centro per sviluppatori di IoT di Azure]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Portale di Azure]: https://portal.azure.com
+[portale di Azure]: https://portal.azure.com
 [Acceleratore di soluzioni di monitoraggio remoto di Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/

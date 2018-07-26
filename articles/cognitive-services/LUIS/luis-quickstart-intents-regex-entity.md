@@ -2,19 +2,19 @@
 title: "Esercitazione: Creazione di un'app di Language Understanding per ottenere dati di corrispondenza di espressioni regolari - Azure | Microsoft Docs"
 description: Questa esercitazione illustra come creare una semplice app di Language Understanding usando finalità e un'entità di espressione regolare per estrarre dati.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929372"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238336"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Esercitazione: 3. Aggiungere un'entità di espressione regolare
 Questa esercitazione illustra come creare un'app che dimostra come estrarre dati formattati in modo coerente da un'espressione usando l'entità di **espressione regolare**.
@@ -33,7 +33,7 @@ Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#lu
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non è disponibile l'app relativa alle risorse umane descritta nell'esercitazione sulle [entità predefinite](luis-tutorial-prebuilt-intents-entities.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website) dal repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
-Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
+Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di Language Understanding senza modificare la versione originale. 
 
 
 ## <a name="purpose-of-the-regular-expression-entity"></a>Scopo dell'entità di espressione regolare
@@ -139,7 +139,7 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
 3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query sull'endpoint con un'espressione diversa
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
 1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
 
     ![Schermata della pagina Publish (Pubblica) con l'URL endpoint evidenziato](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
@@ -253,7 +253,7 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale, 
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può acquisire il risultato topScoringIntent e i numeri di modulo ed eseguire ricerche in un'API di terze parti. Language Understanding non esegue queste operazioni, ma determina solo l'intenzione dell'utente ed estrae i dati relativi a tale intenzione. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,19 +2,19 @@
 title: Creare un'app semplice con due finalità - Azure | Microsoft Docs
 description: Di seguito viene illustrato come creare una semplice app di Language Understanding usando due finalità e non impiegando entità per identificare le espressioni degli utenti in questa guida introduttiva.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865812"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237775"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Esercitazione: 1. Compilazione di app con dominio personalizzato
 In questa esercitazione si impara a creare un'applicazione in grado di dimostrare come utilizzare le **finalità** per determinare le _intenzioni_ dell'utente in base all'espressione (testo) inviato all'applicazione. Al termine, sarà disponibile un endpoint Language Understanding in esecuzione nel cloud.
@@ -85,23 +85,23 @@ Questa applicazione ha poche finalità. La prima finalità, **`GetJobInformation
 
     Nell'applicazione che effettua la chiamata di Language Understanding, ad esempio un chatbot, se Language Understanding restituisce la finalità **None** (Nessuna) per un'espressione, il bot può chiedere se l'utente intende terminare la conversazione. Il chatbot può anche dare altre indicazioni per proseguire la conversazione, se l'utente non intende terminarla. 
 
-## <a name="train-and-publish-the-app"></a>Eseguire il training e pubblicare l'app
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Train** (Esegui il training). 
+## <a name="train-and-publish-the-app"></a>Eseguire il training dell'app e pubblicarla
+1. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Train** (Esegui il training). 
 
     ![Pulsante per l'esecuzione del training](./media/luis-quickstart-intents-only/train-button.png)
 
-    Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+    Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web a conferma del completamento.
 
     ![Barra di stato di training completato](./media/luis-quickstart-intents-only/trained.png)
 
-2. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Pubblica** per accedere alla relativa pagina. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Pubblica** accanto allo slot di produzione. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+2. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Publish** (Pubblica) per accedere alla relativa pagina. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Publish** (Pubblica) accanto allo slot di produzione. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
 
     Non è necessario creare una chiave di endpoint Language Understanding nel portale di Azure prima di pubblicare o testare l'URL dell'endpoint. Ogni app Language Understanding dispone di una chiave di avvio gratuita. Tale chiave offre creazione illimitata e [alcuni accessi all'endpoint](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Endpoint di query per finalità GetJobInformation
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
+1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `I'm looking for a job with Natual Language Processing`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni di esempio del passaggio 4, per cui rappresenta un buon test e deve restituire la finalità `GetJobInformation` come finalità con il punteggio più alto. 
+2. Andare alla fine dell'URL nell'indirizzo e immettere `I'm looking for a job with Natual Language Processing`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni di esempio del passaggio 4, per cui rappresenta un buon test e deve restituire la finalità `GetJobInformation` come finalità con il punteggio più alto. 
 
     ```
     {
@@ -185,10 +185,10 @@ Questa applicazione, con poche finalità, ha identificato una query di linguaggi
 Il risultato JSON identifica la finalità con il punteggio più alto. Tutti i punteggi sono compresi tra 1 e 0, il punteggio migliore è prossimo a 1. Il punteggio `GetJobInformation` e `None` delle finalità è molto più vicino allo zero. 
 
 ## <a name="where-is-this-luis-data-used"></a>Qual è la destinazione d'uso dei dati di Language Understanding? 
-Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, come una chatbot, può prendere il risultato topScoringIntent e trovare informazioni (non memorizzate in LUIS) per rispondere alla domanda o terminare la conversazione. Queste sono opzioni programmatiche per il bot o per l'applicazione chiamante. Language Understanding non esegue queste operazioni, ma determina solo la finalità dell'utente. 
+Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, come una chatbot, può prendere il risultato topScoringIntent e trovare informazioni (non memorizzate in LUIS) per rispondere alla domanda o terminare la conversazione. Queste sono opzioni programmatiche per il bot o per l'applicazione chiamante. Language Understanding non esegue queste operazioni, ma si limita a determinare l'intenzione dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. A tale scopo, selezionare **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. A tale scopo, selezionare **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

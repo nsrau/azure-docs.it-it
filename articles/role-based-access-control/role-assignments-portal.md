@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435618"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008162"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure
 
@@ -88,7 +88,9 @@ Quando si gestisce l'accesso, si ha l'esigenza di sapere chi ha accesso, quali s
 
    ![Risorse di Azure dell'utente di Azure Active Directory](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Nel pannello delle risorse di Azure sono visualizzati i ruoli assegnati all'utente selezionato. L'elenco include solo le assegnazioni di ruoli per le risorse per le quali si ha l'autorizzazione di lettura. Ad esempio, se l'utente ha anche assegnazioni di ruoli in un'altra sottoscrizione alla quale non si ha accesso in lettura, tali assegnazioni non verranno visualizzate nell'elenco.
+   Nel pannello delle risorse di Azure sono visualizzate le assegnazioni dei ruoli per l'utente e la sottoscrizione selezionati. L'elenco include solo le assegnazioni di ruoli per le risorse per le quali si ha l'autorizzazione di lettura. Ad esempio, se l'utente ha anche assegnazioni di ruoli a cui non si ha accesso in lettura, tali assegnazioni non verranno visualizzate nell'elenco.
+
+1. Se si hanno più sottoscrizioni, è possibile scegliere l'elenco a discesa **Sottoscrizione** per visualizzare le assegnazioni di ruoli in un'altra sottoscrizione.
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
@@ -161,14 +163,6 @@ Per rimuovere un accesso mediante il controllo degli accessi in base al ruolo, s
 1. Nella finestra con il messaggio di rimozione dell'assegnazione di ruolo scegliere **Sì**.
 
 Le assegnazioni di ruolo ereditate non possono essere rimosse. Per rimuovere un'assegnazione di ruolo ereditata, è necessario eseguire questa operazione nell'ambito di creazione dell'assegnazione di ruolo. Nella colonna **Ambito**, accanto a **Ereditato** è presente un collegamento che consente di visualizzare le risorse in cui è stato assegnato questo ruolo. Passare all'ambito indicato nell'elenco per rimuovere l'assegnazione di ruolo.
-
-## <a name="other-tools-to-manage-access"></a>Altri strumenti per gestire l'accesso
-
-È possibile assegnare i ruoli e gestire l'accesso con i comandi del Controllo degli accessi in base al ruolo di Azure in strumenti diversi dal portale di Azure. Per ulteriori informazioni, vedere i collegamenti seguenti:
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Interfaccia della riga di comando di Azure](role-assignments-cli.md)
-* [API REST](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

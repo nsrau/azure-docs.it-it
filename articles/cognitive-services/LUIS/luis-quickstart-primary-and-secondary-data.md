@@ -2,19 +2,19 @@
 title: "Esercitazione: Creazione di un'app di Language Understanding per estrarre dati - Azure | Microsoft Docs"
 description: Questa esercitazione illustra come creare una semplice app di Language Understanding usando finalità e un'entità semplice per estrarre dati di Machine Learning.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952386"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238006"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Esercitazione: 7. Aggiungere un'entità semplice e un elenco di frasi
 In questa esercitazione si crea un'app che illustra come estrarre dati di Machine Learning da un'espressione usando l'entità **semplice**.
@@ -141,7 +141,7 @@ Language Understanding non rileva le modifiche a finalità ed entità (il modell
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 Per ottenere una previsione di Language Understanding in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Publish** (Pubblica). 
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
 
 2. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
 
@@ -149,7 +149,7 @@ Per ottenere una previsione di Language Understanding in un chatbot o in un'altr
 
 3. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query sull'endpoint con un'espressione diversa
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
 Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. 
 
 [![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Schermata della pagina Publish (Pubblica) con l'endpoint evidenziato")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088463"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187724"
 ---
 # <a name="create-a-new-simulated-device"></a>Creare un nuovo dispositivo simulato
 
@@ -83,11 +83,11 @@ Il video seguente mostra una procedura dettagliata di connessione di dispositivi
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questa esercitazione, è necessario quanto segue:
 
-* Un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure. Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md).
+* Un'istanza distribuita della soluzione di monitoraggio remoto nella sottoscrizione di Azure. Se la soluzione di monitoraggio remoto non è stata ancora distribuita, completare l'esercitazione [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](../iot-accelerators/quickstart-remote-monitoring-deploy.md).
 
 * Visual Studio 2017. Se Visual Studio 2017 non è installato, è possibile scaricare l'edizione gratuita [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/).
 

@@ -1,5 +1,5 @@
 ---
-title: Configurare l'ingresso con un cluster del servizio Kubernetes di Azure (AKS)
+title: Configurare l'ingresso con il cluster di Azure Kubernetes Service (AKS)
 description: Informazioni su come installare e configurare un controller di ingresso NGINX che usa Let's Encrypt per la generazione automatica di certificati SSL in un cluster del servizio Kubernetes di Azure (AKS).
 services: container-service
 author: iainfoulds
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d31a3e62aaabf7a865078aa2e7c6d1585466b379
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c65cfec41c2002fd4d4ff27ea74daf0bb4246b5f
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126678"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145598"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Distribuire un controller di ingresso HTTPS nel servizio Kubernetes di Azure (AKS)
 
@@ -124,7 +124,7 @@ Per creare l'autorità di certificazione, usare il comando `kubectl create -f cl
 ```
 $ kubectl create -f cluster-issuer.yaml
 
-clusterissuer.certmanager.k8s.io/letsencrypt-prod created
+clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
 
 ## <a name="create-a-certificate-object"></a>Creare un oggetto certificato
