@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056665"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159652"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>Esercitazione: Creare una connessione da sito a sito con la rete WAN virtuale di Azure (anteprima)
 
 Questa esercitazione illustra come usare la rete WAN virtuale per connettersi alle risorse in Azure tramite una connessione VPN IPSec/IKE (IKEv2). Questo tipo di connessione richiede un dispositivo VPN che si trova in locale con un indirizzo IP pubblico esterno assegnato. Per altre informazioni sulla rete WAN virtuale, vedere la [panoramica sulla rete WAN virtuale](virtual-wan-about.md).
 
 > [!NOTE]
-> Se sono disponibili molti siti, in genere si ricorre ai servizi di un [partner di rete WAN virtuale](https://aka.ms.virtualwan) per creare questa configurazione. È comunque possibile creare questa configurazione in autonomia, se si ha familiarità con le tecnologie e funzionalità di rete e si è esperti della configurazione del dispositivo VPN.
+> Se sono disponibili molti siti, in genere si ricorre ai servizi di un [partner di rete WAN virtuale](https://aka.ms/virtualwan) per creare questa configurazione. È comunque possibile creare questa configurazione in autonomia, se si ha familiarità con le tecnologie e funzionalità di rete e si è esperti della configurazione del dispositivo VPN.
 >
 
 ![Diagramma della rete WAN virtuale](./media/virtual-wan-about/virtualwan.png)
@@ -133,7 +133,7 @@ Creare il numero di siti necessari, corrispondenti alle località fisiche. Ad es
 4. Nell'elenco a discesa selezionare l'area a cui verrà associato all'hub. È consigliabile associare l'hub all'area in cui risiedono le reti virtuali a cui ci si vuole connettere.
 5. Fare clic su **Conferma**. Se non esiste ancora un hub in quest'area, verrà creato automaticamente una rete virtuale dell'hub virtuale. In questo caso viene visualizzata la pagina **Crea hub a livello di area**.
 6. Nella pagina **Crea hub a livello di area** immettere l'intervallo di indirizzi della rete virtuale dell'hub. Si tratta della rete virtuale che conterrà i servizi dell'hub. L'intervallo immesso in questa posizione deve essere un intervallo di indirizzi IP privati e non può sovrapporsi ad alcuno spazio di indirizzi locale o spazio di indirizzi di rete virtuale. Verrà creato un endpoint VPN nella rete virtuale dell'hub. (La creazione automatica di hub e gateway è disponibile solo nel portale.)
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
 ## <a name="vnet"></a>6. Connettere la rete virtuale a un hub
 

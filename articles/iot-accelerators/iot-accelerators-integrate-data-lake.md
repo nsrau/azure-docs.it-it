@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971738"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188068"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrare la soluzione di monitoraggio remoto con Azure Data Lake Store
 
@@ -21,11 +21,11 @@ Se si hanno requisiti di analisi più elevati rispetto a quelli che può soddisf
 
 In questa procedura si userà un processo di Analisi di flusso di Azure per eseguire lo streaming di dati dall'hub IoT nella soluzione di monitoraggio remoto a un'istanza di Azure Data Lake Store.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa procedura, è necessario quanto segue:
 
-* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md).
+* [Distribuire l'acceleratore di soluzioni di monitoraggio remoto](quickstart-remote-monitoring-deploy.md).
   * La soluzione implementerà l'hub IoT e il processo di Analisi di flusso di Azure usati in questo articolo nella sottoscrizione Azure.
 * [Distribuire un'istanza di Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
   * L'istanza di Data Lake Store deve essere distribuita nella stessa area della soluzione di monitoraggio remoto.
@@ -67,7 +67,7 @@ Creare un processo di Analisi di flusso di Azure per eseguire lo streaming dei d
 
 1. Assicurarsi di lasciare l'impostazione predefinita **Cloud** per l'ambiente di hosting.
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
     ![Creare un processo di Analisi di flusso](./media/iot-accelerators-integrate-data-lake/create-stream-analytics-job.png)
 

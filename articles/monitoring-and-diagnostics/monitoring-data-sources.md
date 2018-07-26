@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3820a42e44896f75a2191b0426f2afa5a40461d7
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082999"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248034"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -23,13 +23,13 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 
 | Tipo di dati | Categoria | Servizi supportati | Metodi di accesso |
 | --- | --- | --- | --- |
-| Metriche a livello di piattaforma di Monitoraggio di Azure | Metriche | [Vedere l'elenco di seguito](monitoring-supported-metrics.md) | <ul><li>**API REST:** [API per la metrica di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Archiviazione BLOB o Hub eventi:** [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| Metriche a livello di piattaforma di Monitoraggio di Azure | Metriche | [Vedere l'elenco di seguito](monitoring-supported-metrics.md) | <ul><li>**API REST:** [API per la metrica di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Archiviazione BLOB o Hub eventi:** [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Metriche del sistema operativo guest di calcolo (ad esempio contatori delle prestazioni) | Metriche | Macchine virtuali di [Windows](../virtual-machines-dotnet-diagnostics.md) e Linux (v2), [servizi cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabella di archiviazione o BLOB:**[diagnostica di Azure per Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Hub eventi:**[diagnostica di Azure per Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Metriche personalizzate o dell'applicazione | Metriche | Un'applicazione qualsiasi dotata di Application Insights | <ul><li>**API REST:** [API REST di Application Insights](https://dev.applicationinsights.io/reference)</li></ul> |
 | Metriche di archiviazione | Metrica | Archiviazione di Azure | <ul><li>**Tabella di archiviazione:**[Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Dati di fatturazione | Metriche | Tutti i servizi di Azure | <ul><li>**API REST:**[Introduzione all'API di uso delle risorse di Azure e all’API RateCard](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Log attività | Eventi | Tutti i servizi di Azure | <ul><li>**API REST:** [API per gli eventi di Monitoraggio di Azure](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Archiviazione BLOB o Hub eventi:** [profilo log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Log di diagnostica di Monitoraggio di Azure | Eventi | [Vedere l'elenco di seguito](monitoring-diagnostic-logs-schema.md) | <ul><li>**Archiviazione BLOB o Hub eventi:** [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| Log di diagnostica di Monitoraggio di Azure | Eventi | [Vedere l'elenco di seguito](monitoring-diagnostic-logs-schema.md) | <ul><li>**Archiviazione BLOB o Hub eventi:** [impostazioni di diagnostica](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Log del sistema operativo guest di calcolo (ad esempio IIS, ETW, SysLog) | Eventi | Macchine virtuali di [Windows](../virtual-machines-dotnet-diagnostics.md) e Linux (v2), [servizi cloud](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabella di archiviazione o BLOB:**[diagnostica di Azure per Windows o Linux](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Hub eventi:**[diagnostica di Azure per Windows](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Log del servizio app | Eventi | Servizi app | <ul><li>**File, tabella o archiviazione BLOB:** [diagnostica app Web](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |
 | Log di archiviazione | Eventi | Archiviazione di Azure | <ul><li>**Tabella di archiviazione:**[Analisi archiviazione](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

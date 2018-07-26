@@ -3,19 +3,19 @@ title: Riferimento alla valuta delle entità predefinite LUIS - Azure | Microsof
 titleSuffix: Azure
 description: Questo articolo contiene informazioni sull'entità predefinita valuta in Language Understanding, ovvero LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3e20642f6734b0247d23db1a63317eb8b4a96b5e
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: b383e21f870d15818c540b79a9a56c1dd65fa342
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321513"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236823"
 ---
 # <a name="currency-entity"></a>Entità di valuta
 L'entità predefinita valuta rileva la valuta in numerose denominazioni e nazioni, indipendentemente dalle impostazioni cultura dell'app LUIS. Poiché è già stato eseguito il training per questa entità, non è necessario aggiungere espressioni di esempio contenenti la valuta per le finalità dell'applicazione. L'entità valuta è supportata in [molte impostazioni cultura](luis-reference-prebuilt-entities.md). 

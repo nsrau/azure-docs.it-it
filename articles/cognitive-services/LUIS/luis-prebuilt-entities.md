@@ -2,20 +2,19 @@
 title: Entità predefinite in LUIS | Microsoft Docs
 description: Questo articolo contiene gli elenchi delle entità predefinite incluse in Language Understanding Intelligent Service, ovvero LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann
-ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347341"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248238"
 ---
 # <a name="prebuilt-entities"></a>Entità predefinite
 
@@ -37,7 +36,7 @@ LUIS include un insieme di entità predefinite per il riconoscimento di tipi com
 ## <a name="use-a-prebuilt-number-entity"></a>Usare un'entità predefinita numero
 Quando si include un'entità predefinita nell'applicazione, le relative stime vengono incluse nell'applicazione pubblicata. Si esegue il training preliminare del comportamento delle entità predefinite. **Non è possibile** applicare modifiche a questo comportamento. Seguire questa procedura per vedere in che modo funziona un'entità predefinita:
 
-1. Aggiungere un'entità **numero** all'app, quindi [eseguire il training](interactive-test.md) e [pubblicare](luis-how-to-publish-app.md) l'app.
+1. Aggiungere un'entità **numero** all'app, quindi [eseguire il training](luis-interactive-test.md) e [pubblicare](luis-how-to-publish-app.md) l'app.
 2. Fare clic sull'URL dell'endpoint nella pagina **Pubblica app** per aprire l'endpoint LUIS in un Web browser. 
 3. Accodare un'espressione all'URL che contiene un'espressione numerica. Ad esempio, è possibile digitare `buy two plane ticktets` e vedere come LUIS identifica `two` come entità `builtin.number` e `2` come suo valore nel campo `resolution`. Il campo `resolution` consente di risolvere i numeri e le date in una forma canonica che è più semplice da usare per l'applicazione client. 
 
@@ -70,7 +69,7 @@ L'esempio seguente mostra una risposta JSON di LUIS, che include la risoluzione 
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>Usare un'entità datetimeV2 predefinita
 L'entità predefinita **datetimeV2** riconosce date, orari, intervalli di date e intervalli di tempo. Seguire questa procedura per vedere in che modo funziona l'entità predefinita `datetimeV2`:
 
-1. Aggiungere un'entità **datetimeV2** all'app, quindi [eseguire il training](interactive-test.md) e [pubblicare](luis-how-to-publish-app.md) l'app.
+1. Aggiungere un'entità **datetimeV2** all'app, quindi [eseguire il training](luis-interactive-test.md) e [pubblicare](luis-how-to-publish-app.md) l'app.
 2. Fare clic sull'URL dell'endpoint nella pagina **Pubblica app** per aprire l'endpoint LUIS in un Web browser. 
 3. Accodare un'espressione all'URL che contiene un intervallo di date. Ad esempio, è possibile digitare `book a flight tomorrow` e vedere come LUIS identifica `tomorrow` come entità `builtin.datetimeV2.date` e la data di domani come suo valore nel campo `resolution`. 
 

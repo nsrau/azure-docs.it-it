@@ -4,9 +4,9 @@ description: Creare API Web e API REST per chiamare le API, i servizi o i sistem
 keywords: API Web, API REST, flussi di lavoro, integrazioni di sistema
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172018"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Creare API personalizzate che è possibile chiamare da flussi di lavoro di app per la logica
 
@@ -42,7 +43,8 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 > * [Java](../app-service/app-service-web-get-started-java.md)
 > * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
-> * [Python](../app-service/app-service-web-get-started-python.md)
+> * [Python](../app-service/containers/quickstart-python.md)
+> * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
 > Per gli esempi di app per le API compilate per le app per la logica, visitare il [repository GitHub](http://github.com/logicappsio) o il [blog sulle app per la logica di Azure](http://aka.ms/logicappsblog).
 
@@ -179,7 +181,7 @@ Ad esempio, per verificare periodicamente se nel servizio sono presenti nuovi fi
 | La richiesta include `triggerState`? | Risposta dell'API | 
 | -------------------------------- | -------------| 
 | No  | Restituire uno stato HTTP `202 ACCEPTED` oltre a un'intestazione `location` con `triggerState` impostato sull'ora corrente e l'intervallo `retry-after` su 15 secondi. | 
-| Sì | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
+| Yes | Verificare se nel servizio sono presenti file aggiunti dopo `DateTime` per `triggerState`. | 
 ||| 
 
 | Numero di file trovati | Risposta dell'API | 

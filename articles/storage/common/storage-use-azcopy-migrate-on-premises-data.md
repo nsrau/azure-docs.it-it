@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267444"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205324"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Modificare i dati a scopo di test.
 > * Creare un'attività pianificata o un processo cron per identificare nuovi file da caricare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, scaricare la versione più recente di AzCopy su [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) o [Windows](http://aka.ms/downloadazcopy). 
 
@@ -70,7 +70,7 @@ I nomi dei contenitori devono iniziare con una lettera o un numero e possono con
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 Sostituire `<key>` e `key` con la chiave dell'account. Nel portale di Azure è possibile recuperare la chiave dell'account selezionando **Chiavi di accesso** nelle **Impostazioni** dell'account di archiviazione. Selezionare una chiave e incollarla nel comando AzCopy. Se il contenitore di destinazione specificato non esiste, AzCopy ne crea uno e vi carica il file. Aggiornare il percorso di origine alla directory di dati e sostituire **myaccount** nell'URL di destinazione con il nome dell'account di archiviazione.
@@ -91,7 +91,7 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Creare un'attività pianificata o un processo cron 
@@ -104,7 +104,7 @@ Copiare il comando AzCopy in un editor di testo. Aggiornare i valori di parametr
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy viene eseguito con l'opzione verbose `--verbose` (Linux) o `/V` (Windows). L'output viene reindirizzato in un file di log. 

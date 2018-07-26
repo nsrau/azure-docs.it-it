@@ -8,12 +8,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 05/18/2018
 ms.author: bryanla
-ms.openlocfilehash: 858124ca92ae80313749abbd22c479fef90ce873
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081524"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187275"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Introduzione ad Azure e Internet delle cose
 
@@ -176,7 +176,7 @@ Esplorare le aree di tecnologie e le soluzioni seguenti oppure vedere il sommari
 [lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
 
 [lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
+[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
 [lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: https://aka.ms/iotrefarchitecture

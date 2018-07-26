@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2018
+ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: 16f0460dea75b0dc52c3852d9947db0ad15f8fbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606325"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247279"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
 
@@ -143,33 +143,6 @@ Include la terminologia utilizzata in questi passaggi:
     > [!Important]
     > Se non si fa clic su Smonta, il volume di ripristino resterà montato per 6 ore. Il tempo di montaggio viene tuttavia esteso fino a un massimo di 24 ore in caso di copia dei file in corso. Mentre il volume è montato, non vengono eseguite operazioni di backup. Qualsiasi operazione di backup pianificata durante il periodo in cui il volume è montato verrà eseguita dopo lo smontaggio del volume di ripristino.
     >
-
-## <a name="troubleshooting"></a>risoluzione dei problemi
-Se il montaggio del volume di ripristino non è stato completato da Backup di Azure diversi minuti dopo il clic su **Monta** o ha esito negativo con uno o più errori, seguire questa procedura per avviare normalmente il ripristino.
-
-1.  Annullare il processo di montaggio in corso se è in esecuzione da diversi minuti.
-
-2.  Verificare di usare l'ultima versione dell'agente di Backup di Azure. Per trovare le informazioni relative alla versione dell'agente di Backup di Azure, fare clic su **Informazioni su Agente di Servizi di ripristino di Microsoft Azure** nel riquadro **Azioni** della console di Backup di Microsoft Azure e verificare che il numero in **Versione** sia uguale o superiore alla versione indicata in [questo articolo](https://go.microsoft.com/fwlink/?linkid=229525). È possibile scaricare l'ultima versione da [qui](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-3.  Passare a **Gestione dispositivi** -> **Controller di archiviazione** e verificare di poter individuare **Iniziatore iSCSI Microsoft**. Se si riesce a individuarlo, andare direttamente al passaggio 7 seguente. 
-
-4.  Se non si riesce a individuare il servizio iniziatore iSCSI Microsoft come illustrato nel passaggio 3, verificare se in **Gestione dispositivi** -> **Controller di archiviazione** è presente una voce **Dispositivo sconosciuto** con ID hardware **ROOT\ISCSIPRT**.
-
-5.  Fare clic con il pulsante destro del mouse su **Dispositivo sconosciuto** e scegliere **Aggiornamento software driver**.
-
-6.  Aggiornare il driver selezionando l'opzione **Cerca automaticamente un driver aggiornato**. Al termine dell'aggiornamento, **Dispositivo sconosciuto** verrà modificato in **Iniziatore iSCSI Microsoft**, come illustrato di seguito. 
-
-    ![Crittografia](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
-
-7.  Passare a **Gestione attività** -> **Servizi (computer locale)** -> **Servizio iniziatore iSCSI Microsoft**. 
-
-    ![Crittografia](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
-    
-8.  Riavviare il servizio iniziatore iSCSI Microsoft. A tale scopo, fare clic con il pulsante destro del mouse sul servizio e scegliere **Arresta**, quindi fare di nuovo clic con il pulsante destro del mouse e scegliere **Avvia**.
-
-9.  Riprovare il ripristino istantaneo. 
-
-Se il ripristino ha ancora esito negativo, riavviare il server o il client. Se un riavvio non è auspicabile o il ripristino non riesce anche dopo il riavvio del server, provare a eseguire il ripristino da un altro computer e contattare il supporto di Azure inviando una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Dopo aver ripristinato i file e le cartelle, è possibile [gestire i backup](backup-azure-manage-windows-server.md).

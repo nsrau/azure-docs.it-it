@@ -4,18 +4,18 @@ description: Informazioni sulla registrazione e sulla risoluzione dei problemi n
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e5b3dc1bfa7c7890be83529e863907ec056f188f
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292016"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187350"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Anteprima: monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD
 
@@ -53,7 +53,7 @@ Gli eventi principali relativi alla convalida delle password sono i seguenti:
 
 |   |Modifica della password |Impostazione della password|
 | --- | :---: | :---: |
-|Riuscita |10014 |10015|
+|Pass |10014 |10015|
 |Non riuscita (non ha soddisfatto i criteri password del cliente)| 10016, 30002| 10017, 30003|
 |Non riuscita (non ha soddisfatto i criteri password Microsoft)| 10016, 30004| 10017, 30005|
 |Passaggio di solo controllo (non soddisferebbe i criteri password del cliente)| 10024, 30008| 10025, 30007|
@@ -197,7 +197,7 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Non omettere l'asterisco ("*") alla fine del valore della variabile $keywords.
@@ -209,7 +209,7 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    L'oggetto risultante individuabile tramite il comando `Get-ADObject` può quindi essere inoltrato tramite pipe a `Remove-ADObject` oppure può essere eliminato manualmente.

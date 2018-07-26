@@ -3,8 +3,8 @@ Il **servizio collegato ad Archiviazione di Azure** consente di collegare un acc
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su: **AzureStorage** |Sì |
-| connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Sì |
+| type |La proprietà type deve essere impostata su: **AzureStorage** |Yes |
+| connectionString |Specificare le informazioni necessarie per connettersi all’archivio Azure per la proprietà connectionString. |Yes |
 
 Per i passaggi da seguire per visualizzare o copiare la chiave dell'account per Archiviazione di Azure, vedere [Visualizzare, copiare e rigenerare le chiave di accesso alle risorse di archiviazione](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
@@ -36,8 +36,8 @@ Il servizio collegato di firma di accesso condiviso Archiviazione di Azure conse
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su: **AzureStorageSas** |Sì |
-| sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella.  |Sì |
+| type |La proprietà type deve essere impostata su: **AzureStorageSas** |Yes |
+| sasUri |Specificare l'URI della firma di accesso condiviso per le risorse di Archiviazione di Azure come BLOB, contenitore o tabella.  |Yes |
 
 **Esempio:**
 

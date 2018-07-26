@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 780a215b66fec845bc1df639fedda870881b4027
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34666000"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189385"
 ---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -22,7 +22,7 @@ ms.locfileid: "34666000"
 > * [Node.js su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-node.md)
 > * [C su Raspberry Pi](../articles/iot-accelerators/iot-accelerators-connecting-pi-c.md)
 
-In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti all'[acceleratore di soluzioni](../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) Monitoraggio remoto:
+In questa esercitazione viene implementato un dispositivo **Chiller** che invia i dati di telemetria seguenti all'[acceleratore di soluzioni](../articles/iot-accelerators/about-iot-accelerators.md) Monitoraggio remoto:
 
 * Temperatura
 * Pressione
@@ -44,7 +44,7 @@ Prima di scrivere il codice per il dispositivo, distribuire l'acceleratore di so
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuire l'acceleratore di soluzioni Monitoraggio remoto
 
-Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza dell'acceleratore di soluzioni [Monitoraggio remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md). Se nel proprio account Azure non è già stato effettuato il provisioning dell'acceleratore di soluzioni Monitoraggio remoto, vedere [Distribuire l'acceleratore di soluzioni Monitoraggio remoto](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+Il dispositivo **Chiller** creato in questa esercitazione invia dati a un'istanza dell'acceleratore di soluzioni [Monitoraggio remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md). Se nel proprio account Azure non è già stato effettuato il provisioning dell'acceleratore di soluzioni Monitoraggio remoto, vedere [Distribuire l'acceleratore di soluzioni Monitoraggio remoto](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md)
 
 Al termine del processo di distribuzione della soluzione Monitoraggio remoto, fare clic su **Avvia** per aprire il dashboard della soluzione nel browser.
 

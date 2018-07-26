@@ -3,19 +3,19 @@ title: Aggiungere dati di LUIS ad Application Insights usando C#| Microsoft Docs
 titleSuffix: Azure
 description: Creare un bot integrato con un'applicazione LUIS e Application Insights usando C#.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 52b6ae224b0e8da12eb4903f5100a6e5cc39704d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35378839"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237792"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Aggiungere i risultati LUIS ad Application Insights da un bot app Web
 Questa esercitazione aggiunge le informazioni relative a risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando si dispone dei dati, è possibile eseguire query su di essi con il linguaggio Kusto o Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà come:
 * Acquisire i risultati di query LUIS e inviarli ad Application Insights
 * Eseguire query su Application Insights per finalità principale, punteggio ed espressione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Il bot app Web LUIS dell'**[esercitazione precedente](luis-csharp-tutorial-build-bot-framework-sample.md)** con Application Insights è attivato. 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) è installato localmente nel computer.

@@ -77,7 +77,7 @@
       href: speech-sdk.md
     - name: Speech Devices SDK
       href: speech-devices-sdk.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Lingue supportate
       href: supported-languages.md
@@ -98,7 +98,7 @@
         - name: Domande frequenti sull'API Sintesi vocale
           href: faq-text-to-speech.md
         - name: Domande frequenti su Translator
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

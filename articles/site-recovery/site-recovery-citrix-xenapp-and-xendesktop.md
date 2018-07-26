@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917211"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213634"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Eseguire la replica di una distribuzione Citrix XenApp e XenDesktop multilivello con Azure Site Recovery
 
@@ -33,7 +33,7 @@ Una soluzione di ripristino di emergenza valida deve consentire la modellazione 
 Questo documento fornisce indicazioni dettagliate per la creazione di una soluzione di ripristino di emergenza per le distribuzioni Citrix XenApp locali in piattaforme Hyper-V e VMware vSphere. Questo documento illustra anche come eseguire un failover di test (esercitazione per il ripristino di emergenza) e un failover non pianificato in Azure usando piani di ripristino, configurazioni supportate e prerequisiti.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
@@ -63,9 +63,9 @@ Per le finalità di questo articolo, sono state usate distribuzioni Citrix in ma
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Non nell'ambito | Sì
-**VMware** | Non nell'ambito | Sì
-**Server fisico** | Non nell'ambito | Sì
+**Hyper-V** | Non nell'ambito | Yes
+**VMware** | Non nell'ambito | Yes
+**Server fisico** | Non nell'ambito | Yes
 
 ### <a name="versions"></a>Versioni
 I clienti possono distribuire componenti di XenApp come macchine virtuali in esecuzione su Hyper-V o VMware oppure come server fisici. Azure Site Recovery può proteggere le distribuzioni fisiche e virtuali in Azure.
@@ -182,7 +182,7 @@ Il piano di ripristino personalizzato ha un aspetto simile al seguente:
 
 
    >[!NOTE]
-   >È possibile usare gli script disponibili in questa [pagina](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts) per aggiornare DNS con i nuovi indirizzi IP delle macchine virtuali sottoposte a failover oppure per collegare un servizio di bilanciamento del carico alle macchine virtuali sottoposte a failover, se necessario.
+   >È possibile usare gli script disponibili in questa [pagina](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts) per aggiornare DNS con i nuovi indirizzi IP delle macchine virtuali sottoposte a failover oppure per collegare un servizio di bilanciamento del carico alle macchine virtuali sottoposte a failover, se necessario.
 
 
 ## <a name="doing-a-test-failover"></a>Esecuzione di un failover di test

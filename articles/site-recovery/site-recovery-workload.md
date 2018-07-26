@@ -2,24 +2,17 @@
 title: Quali carichi di lavoro è possibile proteggere con Azure Site Recovery? | Microsoft Docs
 description: Illustra i carichi di lavoro che possono essere protetti usando il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920110"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205953"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
@@ -61,7 +54,6 @@ Site Recovery può replicare qualsiasi app in esecuzione in una macchina support
 | Desktop remoto/VDI |S |S |S |S |S|
 | Linux (sistema operativo e app) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft)|
 | Dynamics AX |S |S |S |S |S|
-| Oracle |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft) |Y (testato da Microsoft)|
 | File Server Windows |S |S |S |S |S|
 | Citrix XenApp e XenDesktop |S|N/D |S |N/D |S |
 
@@ -111,9 +103,9 @@ Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop I
 
 | **SERVIZI DESKTOP REMOTO** |**Replicare le VM di Azure in Azure** | **Replicare le VM Hyper-V in un sito secondario** | **Replicare VM Hyper-V in Azure** | **Replicare VM VMware in un sito secondario** | **Replicare VM VMware in Azure** | **Replicare di server fisici in un sito secondario** | **Replicare i server fisici in Azure** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **Desktop virtuale in pool (non gestito)** |No |Sì |No  |Sì |No  |Sì |No  |
-| **Desktop virtuale in pool (gestito e senza UPD)** |No |Sì |No  |Sì |No  |Sì |No  |
-| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Sì|Sì |Sì |Sì |Sì |Sì |Sì |
+| **Desktop virtuale in pool (non gestito)** |No |Yes |No  |Yes |No  |Yes |No  |
+| **Desktop virtuale in pool (gestito e senza UPD)** |No |Yes |No  |Yes |No  |Yes |No  |
+| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
 
 [Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

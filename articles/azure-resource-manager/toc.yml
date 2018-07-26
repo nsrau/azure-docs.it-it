@@ -96,7 +96,7 @@
         - name: Azure PowerShell
           href: powershell-azure-resource-manager.md
         - name: Interfaccia della riga di comando di Azure
-          href: xplat-cli-azure-resource-manager.md
+          href: cli-azure-resource-manager.md
         - name: Portale di Azure
           href: resource-group-portal.md
         - name: Usare tag per organizzare le risorse

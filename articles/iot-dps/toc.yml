@@ -181,8 +181,6 @@
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: Strumento iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: strumento iothub-explorer
-      href: 'https://github.com/Azure/iothub-explorer'
     - name: Percorso di apprendimento
       href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
     - name: Forum MSDN

@@ -2,25 +2,25 @@
 title: Creare un processo di Analisi di flusso tramite Azure PowerShell
 description: Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212433"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185381"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso tramite Azure PowerShell
 
 Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure tramite cmdlet o script di PowerShell. Questa guida introduttiva illustra in dettaglio l'uso del modulo Azure PowerShell per distribuire ed eseguire un processo di Analisi di flusso di Azure. 
-
-Il processo di esempio legge i dati in streaming da un BLOB nell'archivio BLOB di Azure. Il file di dati di input usati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale si usa il flusso di dati di input per un processo di Analisi di flusso. Il processo trasforma quindi i dati usando il linguaggio di query di analisi di flusso per calcolare la temperatura media quando è superiore a 100 °. Scrive infine gli eventi di output risultanti in un altro file. 
+ 
+Il processo di esempio legge i dati in streaming da un BLOB nell'archivio BLOB di Azure. Il file di dati di input utilizzati in questa guida introduttiva contiene i dati statici solo a scopo illustrativo. In uno scenario reale, si utilizza il flusso di dati di input per un processo di Analisi di flusso. Il processo trasforma quindi i dati usando il linguaggio di query di analisi di flusso per calcolare la temperatura media quando è superiore a 100 °. Scrive infine gli eventi di output risultanti in un altro file. 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

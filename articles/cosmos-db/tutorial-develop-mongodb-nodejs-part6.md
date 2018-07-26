@@ -2,22 +2,22 @@
 title: Esercitazione su MongoDB, Angular e Node per Azure - Parte 6 | Microsoft Docs
 description: Parte 6 della serie di esercitazioni sulla creazione di un'app MongoDB con Angular e Node in Azure Cosmos DB mediante le stesse API usate per MongoDB
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
+ms.date: 06/17/2018
+ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: c3e13ba48e3c8bfe94fb8f6bb5afd02852e1a5da
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bceb984a3f309ce1220204abf5f703cc166ddf82
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798050"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248149"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 6: Aggiungere le funzioni Post, Put e Delete all'app
 
@@ -31,7 +31,7 @@ La Parte 6 dell'esercitazione è basata sulla [Parte 5](tutorial-develop-mongodb
 
 > [!VIDEO https://www.youtube.com/embed/Y5mdAlFGZjc]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 5](tutorial-develop-mongodb-nodejs-part5.md) dell'esercitazione.
 
@@ -54,7 +54,7 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 
    ```javascript
    function postHero(req, res) {
-     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const originalHero = { uid: req.body.uid, name: req.body.name, saying: req.body.saying };
      const hero = new Hero(originalHero);
      hero.save(error => {
        if (checkServerError(res, error)) return;
@@ -105,11 +105,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
 1. In **routes.js** aggiungere i router `put` e `delete` dopo il router post.
 
     ```javascript
-    router.put('/hero/:id', (req, res) => {
+    router.put('/hero/:uid', (req, res) => {
       heroService.putHero(req, res);
     });
 
-    router.delete('/hero/:id', (req, res) => {
+    router.delete('/hero/:uid', (req, res) => {
       heroService.deleteHero(req, res);
     });
     ```
@@ -122,11 +122,11 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
    ```javascript
    function putHero(req, res) {
      const originalHero = {
-       id: parseInt(req.params.id, 10),
+       uid: parseInt(req.params.uid, 10),
        name: req.body.name,
        saying: req.body.saying
      };
-     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+     Hero.findOne({ uid: originalHero.uid }, (error, hero) => {
        if (checkServerError(res, error)) return;
        if (!checkFound(res, hero)) return;
 
@@ -141,8 +141,8 @@ Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completa
    }
 
    function deleteHero(req, res) {
-     const id = parseInt(req.params.id, 10);
-     Hero.findOneAndRemove({ id: id })
+     const uid = parseInt(req.params.uid, 10);
+     Hero.findOneAndRemove({ uid: uid })
        .then(hero => {
          if (!checkFound(res, hero)) return;
          res.status(200).json(hero);

@@ -2,7 +2,7 @@
 title: Configurazione di una rete virtuale con Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Questo argomento descrive le opzioni di configurazione di una rete virtuale con Istanza gestita di database SQL di Azure.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091605"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258101"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -76,7 +76,7 @@ La creazione di una rete virtuale di Azure è un prerequisito per la creazione d
 
    ![Modulo per la creazione della rete virtuale](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
 
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
    Lo spazio indirizzi e la subnet sono specificati nella notazione CIDR. 
 

@@ -8,22 +8,22 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 10617c129212d8196897af750c02647f0086c8e5
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968956"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185891"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Azure Time Series Insights
 
 Un operatore può dover estendere l'output della visualizzazione dei dati nella casella fornita dalla soluzione preconfigurata di monitoraggio dei dati. Il nostro acceleratore di soluzioni offre l'integrazione predefinita con STI. Questa procedura illustra come configurare Azure Time Series Insights per analizzare i dati di telemetria del dispositivo e rilevare anomalie.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa procedura, è necessario quanto segue:
 
-* [Distribuire la soluzione preconfigurata di monitoraggio remoto](iot-accelerators-remote-monitoring-deploy.md)
+* [Distribuire la soluzione preconfigurata di monitoraggio remoto](quickstart-remote-monitoring-deploy.md)
 
 ## <a name="create-a-consumer-group"></a>Creare un gruppo di consumer
 
@@ -64,7 +64,7 @@ Azure Time Series Insights è un servizio di analisi, archiviazione e visualizza
 
     ![Creare Azure Time Series Insights](./media/iot-accelerators-time-series-insights/new-time-series-insights-create.png)
 
-1. Fare clic su **Crea**. La creazione dell'ambiente può richiedere qualche minuto.
+1. Fare clic su **Create**(Crea). La creazione dell'ambiente può richiedere qualche minuto.
 
 ## <a name="create-event-source"></a>Creare un'origine evento
 
@@ -96,7 +96,7 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
 
     ![Creare un'origine evento](./media/iot-accelerators-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 > [!NOTE]
 > Se è necessario concedere ad altri utenti l'accesso allo strumento di esplorazione di Azure Time Series Insights, eseguire la procedura seguente per [concedere l'accesso ai dati](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access).

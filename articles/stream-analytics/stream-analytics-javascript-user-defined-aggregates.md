@@ -2,22 +2,22 @@
 title: Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
 description: Questo articolo descrive come eseguire meccanismi di query avanzati con aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907324"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187055"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure (anteprima)
-
+ 
 Analisi di flusso di Azure supporta le aggregazioni definite dall'utente (UDA) scritte in JavaScript e ciò consente di implementare la logica di business con stato complessa. Le aggregazioni definite dall'utente garantiscono il controllo completo su strutture di dati sullo stato, accumulo di stati, decumulazione di stati e calcolo dei risultati dell'aggregazione. Nell'articolo sono descritte le due diverse interfacce JavaScript per aggregazioni definite dall'utente, le procedure per creare un'aggregazione definita dall'utente e come utilizzare questo tipo di aggregazione con operazioni basate su finestre temporali in query di Analisi di flusso di Azure.
 
 ## <a name="javascript-user-defined-aggregates"></a>aggregazioni JavaScript definite dall'utente

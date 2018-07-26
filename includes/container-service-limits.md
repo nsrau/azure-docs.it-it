@@ -3,10 +3,9 @@
 | Numero massimo nodi per cluster | 100 |
 | Numero massimo pod per nodo ([rete di base con Kubenet][basic-networking]) | 110 |
 | Numero massimo pod per nodo ([rete avanzata con l'interfaccia di rete dei contenitori di Azure][advanced-networking]) | 30<sup>1</sup> |
-| Numero massimo cluster per sottoscrizione | 20<sup>2</sup> |
+| Numero massimo cluster per sottoscrizione | 100 |
 
 <sup>1</sup> Questo valore può essere personalizzato tramite la distribuzione di modelli di Azure Resource Manager. Alcuni esempi sono disponibili [qui][arm-deployment-example].<br />
-<sup>2</sup> Creare una [richiesta di supporto di Azure][azure-support] per richiedere un aumento del limite.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/networking-overview.md#basic-networking

@@ -3,19 +3,19 @@ title: Aggiungere dati di LUIS ad Application Insights usando Node.js | Microsof
 titleSuffix: Azure
 description: Creare un bot integrato con un'applicazione LUIS e Application Insights usando Node.js.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 01/18/2018
-ms.author: v-geberr
-ms.openlocfilehash: 929b6e1cc980d7215f91a616820e257aed26bab7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5b65747bea7d2496558c5b3b533bb8420eee6254
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378185"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236840"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>Aggiungere i risultati LUIS ad Application Insights da un bot app Web
 Questa esercitazione aggiunge le informazioni relative a richieste e risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando si dispone dei dati, è possibile eseguire query su di essi con il linguaggio Kusto o Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà come:
 * Acquisire i risultati di query LUIS e inviarli ad Application Insights
 * Eseguire query su Application Insights per finalità principale, punteggio ed espressione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Il bot app Web LUIS dell'**[esercitazione precedente](luis-nodejs-tutorial-build-bot-framework-sample.md)** con Application Insights è attivato. 
 
@@ -125,14 +125,14 @@ Aprire Application Insights per visualizzare le voci LUIS.
 
 
 > [!Tip]
-> Se si desidera salvare l'elenco di dipendenze e tornarvi in un secondo momento, fare clic su **...More** (…Altro) e quindi su **Save favorite** (Salva preferito).
+> Se si desidera salvare l'elenco di dipendenze e tornarvi in un secondo momento, fare clic su **...Altro** e quindi su **Salva preferito**.
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Eseguire query su Application Insights per finalità, punteggio ed espressione
 Application Insights consente di eseguire query sui dati con il linguaggio [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics), oltre che esportare i dati in [PowerBI](https://powerbi.microsoft.com). 
 
 1. Fare clic su **Analisi** nella parte superiore dell'elenco di dipendenze, sopra la casella di filtro. 
 
-    ![Pulsante Analisi](./media/luis-tutorial-appinsights/analytics-button.png)
+    ![Pulsante Analytics](./media/luis-tutorial-appinsights/analytics-button.png)
 
 2. Verrà aperta una nuova finestra con una finestra di query nella parte superiore e una finestra di tabella di dati al di sotto. Per chi ha già usato database in precedenza, questa disposizione risulta familiare. La query include tutti gli elementi delle ultime 24 ore che iniziano con il nome `LUIS-results`. La colonna **CustomDimensions** contiene i risultati delle query LUIS sotto forma di coppie nome/valore.
 

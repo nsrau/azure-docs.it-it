@@ -3,19 +3,19 @@ title: Regioni del servizio LUIS (Language Understanding) | Microsoft Docs
 titleSuffix: Azure
 description: Questo articolo contiene gli elenchi delle regioni LUIS per il sito Web LUIS, le sottoscrizioni di Azure e le regioni del mondo.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
-ms.author: v-geberr
-ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346453"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238931"
 ---
 # <a name="regions-and-keys"></a>Regioni e chiavi
 
@@ -40,7 +40,7 @@ L'app della regione di creazione può essere pubblicata solo in una regione di p
  Regione globale | Regione di creazione | Regione di pubblicazione e query   |   Sito Web LUIS | Formato URL endpoint   |
 |-----|------|------|------|------|
 | Asia | Stati Uniti occidentali| Asia orientale     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Asia | Stati Uniti occidentali| Asia sudorientale     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asia | Stati Uniti occidentali| Asia sud-orientale     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Australia](#publishing-to-australia) | Australia orientale| Australia orientale     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 | *[Europa](#publishing-to-europe)| Europa occidentale| Europa settentrionale     | [au.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
 | *[Europa](#publishing-to-europe) | Europa occidentale| Europa occidentale     | [au.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
