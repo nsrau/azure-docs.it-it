@@ -1,9 +1,9 @@
 ---
-title: Opzioni di calcolo di Azure - Servizi cloud di Azure | Microsoft Docs
-description: 'Informazioni sulle opzioni di hosting di calcolo di Azure e sul relativo funzionamento: Servizio app, Servizi cloud di Azure e Macchine virtuali'
+title: Informazioni su Servizi cloud di Azure | Microsoft Docs
+description: Informazioni sui servizi cloud di Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
@@ -12,22 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 2871a8c02db0ffc6d9033724e7c9f4a454afef8e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120285"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011659"
 ---
-# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Perché scegliere Servizi cloud di Azure
-Servizi cloud di Azure è la scelta giusta? In Azure sono disponibili diversi modelli di hosting per l'esecuzione di applicazioni. Ognuno fornisce un diverso set di servizi. Quello da scegliere dipende dalle attività che si tenta di eseguire.
-
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
-
-<a name="tellmecs"></a>
-
-## <a name="tell-me-about-azure-cloud-services"></a>Informazioni su Servizi cloud di Azure
+# <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
 
 ![Schema di Servizi cloud di Azure](./media/cloud-services-choose-me/diagram.png)
@@ -54,7 +47,7 @@ Un'applicazione di Servizi cloud di Azure viene in genere resa disponibile agli 
 ## <a name="monitoring"></a>Monitoraggio
 Servizi cloud di Azure offre inoltre funzionalità di monitoraggio. Analogamente a Macchine virtuali, rileva un server fisico in errore e riavvia le VM in esecuzione su tale server in una nuova macchina. Servizi cloud di Azure consente inoltre di rilevare errori di macchine virtuali e applicazioni, non solo errori hardware. A differenza di Macchine virtuali, dispone di un agente in ogni ruolo Web e di lavoro ed è quindi in grado di avviare nuove macchine virtuali e istanze di applicazione in caso di errori.
 
-L'uso della tecnologia PaaS da parte di Servizi cloud di Azure comporta anche altre implicazioni, ad esempio il fatto che le applicazioni basate su tale tecnologia devono essere scritte in modo da essere eseguite correttamente in caso di errore di istanze dei ruoli Web o di lavoro. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud di Azure non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali, le operazioni di scrittura effettuate nelle VM di Servizi cloud di Azure non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud di Azure vengano scritti esplicitamente nel database SQL di Azure, in BLOB, tabelle o altre risorse di archiviazione esterne. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, due obiettivi essenziali di Servizi cloud di Azure.
+L'uso della tecnologia PaaS da parte di Servizi cloud di Azure comporta anche altre implicazioni, A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud non venga salvato nel file system delle rispettive macchine virtuali. A tale scopo, è necessario che lo stato di un'applicazione di Servizi cloud di Azure non venga salvato nel file system delle rispettive macchine virtuali. A differenza delle VM create tramite Macchine virtuali, le operazioni di scrittura effettuate nelle VM di Servizi cloud di Azure non sono persistenti. La persistenza è offerta solo dai dischi dati di Macchine virtuali. È pertanto necessario che tutti gli stati di un'applicazione di Servizi cloud di Azure vengano scritti esplicitamente nel database SQL di Azure, in BLOB, tabelle o altre risorse di archiviazione esterne. Le applicazioni create in questo modo risulteranno più scalabili e più resistenti agli errori, due obiettivi essenziali di Servizi cloud di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare un'app di servizio cloud in .NET](cloud-services-dotnet-get-started.md) 

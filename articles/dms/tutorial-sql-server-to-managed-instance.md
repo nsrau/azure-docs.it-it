@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 07/12/2018
+ms.openlocfilehash: c911b096af6662e11afb4c4262b92c239d252c36
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261611"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990228"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server locale a un'[istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md). Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
@@ -34,7 +34,7 @@ In questa esercitazione si apprenderà come:
 > * Monitorare la migrazione.
 > * Scaricare un report di migrazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, è necessario:
 
 - Creare una rete virtuale per il Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che fornisce la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [ VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Acquisire familiarità con le topologie di rete per la migrazione all'istanza gestita del database SQL di Azure tramite il servizio Migrazione del database di Azure](https://aka.ms/dmsnetworkformi).
@@ -133,7 +133,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1.  Nella schermata **Dettagli destinazione** specificare i dettagli di connessione per la destinazione, ovvero l'Istanza gestita di database SQL di Azure di cui è già stato eseguito il provisioning e in cui verrà eseguita la migrazione del database **AdventureWorks2012**.
+1.  Nella schermata **Dettagli destinazione** specificare i dettagli di connessione per la destinazione, ovvero l'istanza gestita di database SQL di Azure di cui è già stato eseguito il provisioning e in cui deve essere eseguita la migrazione del database **AdventureWorks2012**.
 
     Se non è ancora stato eseguito il provisioning dell'Istanza gestita di database SQL di Azure, selezionare **No** per ottenere un collegamento utile per il provisioning dell'istanza. È comunque possibile procedere con la creazione del progetto e quindi, quando l'Istanza gestita di database SQL di Azure è pronta, tornare a questo progetto specifico per eseguire la migrazione.   
  
@@ -155,11 +155,17 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
 2.  Quando richiesto, immettere le credenziali dei server di origine e di destinazione e quindi selezionare **Salva**.
 
-3.  Nella schermata **Seleziona database di origine** selezionare il database di origine di cui eseguire la migrazione.
+3.  Nella schermata **Seleziona database di origine** selezionare i database di origine di cui eseguire la migrazione.
 
-    ![Selezionare i database di origine](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
+    ![Selezionare i database di origine](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases2.png)
 
-4.  Selezionare **Salva** e quindi, nella schermata **Configura le impostazioni di migrazione**, specificare i dettagli seguenti:
+4.  Selezionare **Salva** e quindi, nella schermata **Seleziona account di accesso**, selezionare gli account di accesso di cui eseguire la migrazione.
+
+    La versione corrente supporta solo la migrazione di account di accesso SQL.
+
+    ![Seleziona account di accesso](media\tutorial-sql-server-to-managed-instance\dms-select-logins.png)
+
+5. Selezionare **Salva** e quindi, nella schermata **Configura le impostazioni di migrazione**, specificare i dettagli seguenti:
 
     | | |
     |--------|---------|
@@ -168,29 +174,31 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     |**Password** | Password per l'utente. |
     |**Impostazioni account di archiviazione** | URI di firma di accesso condiviso che consente al servizio Migrazione del database di Azure di accedere al contenitore dell'account di archiviazione dell'utente per il caricamento dei file di backup e che verrà usato per la migrazione dei database all'Istanza gestita di database SQL di Azure. [Informazioni su come ottenere l'URI di firma di accesso condiviso per un contenitore BLOB](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
-    ![Configurare le impostazioni di migrazione](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
+    ![Configurare le impostazioni di migrazione](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings2.png)
 
 5.  Selezionare **Salva** e quindi nella schermata **Riepilogo migrazione** specificare un nome per l'attività di migrazione nella casella di testo **Nome attività**.
 
-6. Espandere la sezione **Opzione di convalida** per visualizzare la schermata **Scegli l'opzione di convalida**, specificare se si vuole convalidare la correttezza delle query nel database di cui è stata eseguita la migrazione e quindi scegliere **Salva**.  
+    ![Riepilogo della migrazione](media\tutorial-sql-server-to-managed-instance\dms-migration-summary2.png)
 
-    ![Riepilogo della migrazione](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+6. Espandere la sezione **Opzione di convalida** per visualizzare la schermata **Scegli l'opzione di convalida**, specificare se si vuole convalidare la correttezza delle query nel database di cui è stata eseguita la migrazione e quindi scegliere **Salva**.  
 
 7. Selezionare **Esegui migrazione**.
 
     Viene visualizzata la finestra dell'attività di migrazione con il campo Stato dell'attività impostato su **In sospeso**.
 
-   ![Attività di migrazione: In sospeso](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
-
 ## <a name="monitor-the-migration"></a>Monitorare la migrazione
 
-1. Nella schermata dell'attività di migrazione selezionare **Aggiorna** per aggiornare la visualizzazione finché nel campo Stato delle migrazioni non viene indicato **Completata**.
+1. Nella schermata dell'attività di migrazione selezionare **Aggiorna** per aggiornare la visualizzazione.
  
-   ![Attività di migrazione: Completata](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
+   ![Attività di migrazione in corso](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-in-progress.png)
 
-2. Al termine della migrazione, selezionare **Scarica report** per ottenere un report con i dettagli associati al processo di migrazione.
+2. È possibile espandere ulteriormente le categorie di database e account di accesso per monitorare lo stato di migrazione dei rispettivi oggetti server.
+
+   ![Attività di migrazione in corso](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-monitor.png)
+
+3. Al termine della migrazione, selezionare **Scarica report** per ottenere un report con i dettagli associati al processo di migrazione.
  
-3. Verificare il database di destinazione nell'ambiente dell'Istanza gestita di database SQL di Azure di destinazione.
+4. Verificare il database di destinazione nell'ambiente dell'Istanza gestita di database SQL di Azure di destinazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

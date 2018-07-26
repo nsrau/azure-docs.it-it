@@ -1,6 +1,6 @@
 ---
-title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs
-description: Utilizzare il backup periodico di Service Fabric e il ripristino di funzionalità per proteggere le applicazioni dalla perdita di dati.
+title: 'Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs'
+description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114528"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990745"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
 > * [Cluster in Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Cluster autonomi](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -220,13 +220,14 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Anteprima limitazione/avvertenze
+## <a name="preview-limitation-caveats"></a>Limitazioni/avvertenze dell'anteprima
 - Nessun Service Fabric compilato nei cmdlet di PowerShell.
 - Nessun supporto per l’interfaccia della riga di comando Service Fabric.
-- Nessun supporto per l'eliminazione dei backup automatizzati. Richiede la pulizia manuale dei backup.
+-  Nessun supporto per l'eliminazione dei backup automatizzati. [Script di conservazione dei backup](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) può indicare la configurazione di un'automazione esterna basata su script per l'eliminazione di backup.
 - Nessun supporto per i cluster Service Fabric su Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png

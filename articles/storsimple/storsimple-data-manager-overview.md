@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652009"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011939"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Panoramica della soluzione StorSimple Data Manager
 
@@ -85,6 +85,14 @@ Se l'area di Data Manager è diversa da quella della definizione del processo, �
 ## <a name="managing-personal-information"></a>Gestione dei dati personali
 
 StorSimple Data Manager non raccoglie né visualizza dati personali. Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
+
+## <a name="known-limitations"></a>Limitazioni note
+
+Il servizio attualmente presenta le limitazioni seguenti:
+- StorSimple Data Manager attualmente non funziona con i volumi crittografati con BitLocker. Si verificheranno errori nel processo se si tenta di eseguire il servizio con un'unità crittografata.
+- Alcuni metadati di file, inclusi gli ACL, non verranno mantenuti nei dati trasformati.
+- Questo servizio funziona solo con i volumi NTFS.
+- La lunghezza del percorso dei file deve essere inferiore a 256 caratteri altrimenti il processo avrà esito negativo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

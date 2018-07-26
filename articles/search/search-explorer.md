@@ -1,30 +1,23 @@
 ---
-title: 'Eseguire query su un indice: portale e Ricerca di Azure | Microsoft Docs'
-description: Inviare una query di ricerca in Esplora ricerche del portale di Azure.
+title: Esplora ricerche per le query negli indici in Ricerca di Azure | Microsoft Docs
+description: Informazioni su come usare Esplora ricerche per eseguire query negli indici in Ricerca di Azure.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 07/10/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: a3592bd0c304dfb78374eeba432c0d28203980c9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 520d9e7b1899c54d922ff6fb77e0901f9609b029
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790509"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004134"
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Eseguire query su un indice di Ricerca di Azure con Esplora ricerche nel portale di Azure
-> [!div class="op_single_selector"]
-> * [Panoramica](search-query-overview.md)
-> * [Portale](search-explorer.md)
-> * [.NET](search-query-dotnet.md)
-> * [REST](search-query-rest-api.md)
-> 
-> 
+# <a name="how-to-use-search-explorer-to-query-indexes-in-azure-search"></a>Come usare Esplora ricerche per eseguire query negli indici in Ricerca di Azure 
 
-Questo articolo illustra come eseguire query su un indice di Ricerca di Azure con **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio.
+Questo articolo illustra come eseguire query in un indice di Ricerca di Azure esistente usando **Esplora ricerche** nel portale di Azure. È possibile usare Esplora ricerche per inviare stringhe di query Lucene semplici o complete a qualsiasi indice nel servizio.
 
 ## <a name="open-the-service-dashboard"></a>Aprire il dashboard del servizio
 1. Fare clic su **Tutte le risorse** nell'indice sul lato sinistro del [portale di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
@@ -44,7 +37,7 @@ Fare clic sul riquadro Esplora ricerche per aprire la barra di ricerca e il riqu
 
 ## <a name="start-searching"></a>Avviare la ricerca
 
-Quando si usa Esplora ricerche, per formulare la query è possibile specificare [parametri di query](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Quando si usa Esplora ricerche, per formulare la query è possibile specificare i [parametri di query](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 1. In **Stringa di query** digitare una query e quindi fare clic su **Cerca**. 
 

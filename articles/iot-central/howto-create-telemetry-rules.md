@@ -1,23 +1,23 @@
 ---
 title: Creare e gestire regole di telemetria nell'applicazione Azure IoT Central | Microsoft Docs
 description: Le regole di telemetria di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni come l'invio di un messaggio di posta elettronica quando la regola viene attivata.
-author: tbhagwat3
+services: iot-central
+author: tanmaybhagwat
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
-manager: peterpr
-ms.openlocfilehash: caca4e9db898b3766995fde8c5eebd4767abd85b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.topic: article
+ms.prod: microsoft-iot-central
+manager: timlt
+ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629814"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008213"
 ---
-# <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e impostare notifiche nell'applicazione Azure IoT Central
+# <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e configurare un'azione nell'applicazione Azure IoT Central
 
-È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono il monitoraggio dei dispositivi in tempo reale e l'attivazione automatica di azioni quali l'invio di un messaggio di posta elettronica quando la regola si attiva. Con pochi clic è possibile definire la condizione per il monitoraggio dei dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio una regola di telemetria.
+È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi in tempo reale e di richiamare automaticamente azioni, quali l'invio di un messaggio di posta elettronica o l'attivazione di un flusso di lavoro, quando le condizioni della regola vengono soddisfatte. Con pochi clic è possibile definire le condizioni per monitorare i dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio la regola di telemetria.
 
 Azure IoT Central usa [misurazioni di telemetria](howto-set-up-template.md) per acquisire dati dei dispositivi. Ogni tipo di misura include attributi chiave che definiscono la misura stessa. È possibile creare regole per monitorare ogni tipo di misura del dispositivo e generare avvisi quando la regola viene attivata. Una regola di telemetria viene attivata quando la telemetria del dispositivo selezionato supera una soglia specificata.
 
@@ -29,15 +29,15 @@ Questa sezione illustra come creare una regola di telemetria. L'esempio usa un c
 
 1. Se non è ancora stata creata nessuna regola viene visualizzata la schermata seguente:
 
-    ![Nessuna regola](media\howto-create-telemetry-rules\image1.png)
+    ![Nessuna regola](media/howto-create-telemetry-rules/image1.png)
 
 1. Nella scheda **Rules** (Regole) scegliere **+ New Rule** (+ Nuova regola) per visualizzare i tipi di regole che è possibile creare.
 
-    ![Tipi di regola](media\howto-create-telemetry-rules\image2.png)
+    ![Tipi di regola](media/howto-create-telemetry-rules/image2.png)
 
 1. Scegliere il riquadro **Telemetry** (Telemetria) per aprire il modulo che consente di creare la regola.
 
-    ![Regola di telemetria](media\howto-create-telemetry-rules\image3.png)
+    ![Regola di telemetria](media/howto-create-telemetry-rules/image3.png)
 
 1. Scegliere un nome che consente di identificare la regola in questo modello di dispositivo.
 
@@ -51,27 +51,32 @@ Questa sezione illustra come aggiungere una condizione per monitorare la telemet
 
 1. Scegliere il tipo di telemetria **Temperature** (Temperatura) nell'elenco a discesa. Quindi scegliere l'operatore e specificare un valore soglia. È possibile aggiungere più condizioni di telemetria. Se si specificano più condizioni, la regola viene attivata solo quando tutte le condizioni risultano soddisfatte.
 
-    ![Aggiungere una condizione di telemetria](media\howto-create-telemetry-rules\image4.png)
+    ![Aggiungere una condizione di telemetria](media/howto-create-telemetry-rules/image4.png)
 
     > [!NOTE]
     > Quando si definisce una condizione della regola di telemetria, selezionare almeno una misura di telemetria.
 
-### <a name="configure-the-action"></a>Configurare l'azione
+1. Fare clic su **Save** (Salva) per salvare la regola. La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione.
 
-Questa sezione descrive come specificare il comportamento della regola mediante l'aggiunta di un'azione quando la condizione raggiunge la soglia prevista.
+### <a name="add-an-action"></a>Aggiungere un'azione
 
-1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili. L'unica azione supportata per l'anteprima pubblica è **Email** (E-mail).
+Questa sezione illustra come aggiungere un'azione a una regola. Viene spiegato come aggiungere l'azione posta elettronica, ma anche come [aggiungere un'azione di Microsoft Flow](howto-add-microsoft-flow.md) alla regola per avviare un flusso di lavoro in Microsoft Flow quando la regola viene attivata.
 
-    ![Aggiungere un'azione](media\howto-create-telemetry-rules\image5.png)
+> [!NOTE]
+> Per il momento è consentito associare una sola azione a ogni singola regola.
+
+1. Scegliere **+** accanto ad **Actions** (Azioni). Viene visualizzato l'elenco delle azioni disponibili.
+
+    ![Aggiungere un'azione](media/howto-create-telemetry-rules/image5.png)
 
 1. Scegliere l'azione **Email** (E-mail), immettere un indirizzo di posta elettronica valido nel campo **To** (A) e specificare una nota che viene visualizzata nel corpo del messaggio di posta elettronica quando la regola si attiva.
 
     > [!NOTE]
     > I messaggi di posta elettronica vengono inviati solo agli utenti che sono stati aggiunti all'applicazione e hanno eseguito l'accesso almeno una volta. Altre informazioni sulla [gestione degli utenti](howto-administer.md) in Azure IoT Central.
 
-   ![Configurare l'azione](media\howto-create-telemetry-rules\image6.png)
+   ![Configurare l'azione](media/howto-create-telemetry-rules/image6.png)
 
-1. Per salvare la regola, scegliere **Save** (Salva). La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione. Quando si verifica la condizione specificata nella regola, questa attiva l'azione di posta elettronica configurata.
+1. Fare clic su **Save**. La regola diventa attiva entro pochi minuti e avvia il monitoraggio dei dati di telemetria inviati all'applicazione. Quando si verifica la condizione specificata nella regola, questa attiva l'azione di posta elettronica configurata.
 
 ## <a name="parameterize-the-rule"></a>Impostare parametri per la regola
 
@@ -95,7 +100,8 @@ Passare al dispositivo e scegliere la regola che si vuole abilitare o disabilita
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come modificare le regole nell'applicazione Azure IoT Central, il prossimo passo suggerito è:
+Ora che si è appreso come modificare le regole nell'applicazione Azure IoT Central, i prossimi passi suggeriti sono:
 
 > [!div class="nextstepaction"]
-> [Come gestire i dispositivi](howto-manage-devices.md).
+> [Come aggiungere un'azione di Microsoft Flow a una regola](howto-add-microsoft-flow.md)
+> [Come gestire i dispositivi](howto-manage-devices.md)

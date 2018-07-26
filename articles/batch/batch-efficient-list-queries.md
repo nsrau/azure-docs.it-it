@@ -12,28 +12,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/02/2017
+ms.date: 06/26/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 950e422b3076e5abd5db6dd0ac452fa1c2d500d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6bc31e8541797930583e41fb6efbb6473cd4b894
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129269"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004456"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Creare query per elencare le risorse di Batch in modo efficiente
 
-Viene illustrato come migliorare le prestazioni dell'applicazione Azure Batch, riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività e nodi di calcolo con la libreria [Batch .NET][api_net].
+Viene illustrato come migliorare le prestazioni dell'applicazione Azure Batch, riducendo la quantità di dati restituiti dal servizio quando si eseguono query su processi, attività, nodi di calcolo e altre risorse con la libreria [Batch .NET][api_net].
 
 Quasi tutte le applicazioni Batch devono eseguire un tipo di monitoraggio o un'altra operazione che esegue query sul servizio Batch, spesso a intervalli regolari. Per determinare ad esempio se sono ancora presenti attività in coda in un processo, è necessario ottenere dati per ogni attività nel processo. Per determinare lo stato dei nodi nel pool è necessario ottenere dati in ogni nodo nel pool. Questo articolo illustra come eseguire queste query nel modo più efficiente.
 
 > [!NOTE]
-> Il servizio Batch fornisce supporto speciale delle API per lo scenario comune di conteggio delle attività in un processo. Invece di usare una query di tipo elenco a questo scopo, è possibile chiamare l'operazione di [recupero del conteggio delle attività][rest_get_task_counts]. Questa operazione restituisce il numero di attività in sospeso, in esecuzione o completate, nonché di quelle riuscite e non riuscite. L'operazione di recupero dei conteggi delle attività è più efficiente di una query di tipo elenco. Per altre informazioni, vedere [Conteggiare le attività per un processo in base allo stato (anteprima)](batch-get-task-counts.md). 
->
-> Questa operazione non è disponibile nelle versioni del servizio Batch precedenti alla 2017-06-01.5.1. Se si usa una versione meno recente del servizio, usare una query di tipo elenco per conteggiare le attività in un processo.
->
-> 
+> Il servizio Batch offre il supporto speciale delle API per gli scenari comuni di conteggio delle attività in un processo e di conteggio dei nodi di calcolo nel pool di Batch. Anziché usare una query di tipo elenco a questo scopo, è possibile chiamare le operazioni di [recupero del conteggio delle attività][rest_get_task_counts] e [indicazione dei conteggi dei nodi del pool][rest_get_node_counts]. Queste operazioni sono più efficienti rispetto a una query di elenco, ma restituiscono informazioni più limitate. Vedere [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md). 
+
 
 ## <a name="meet-the-detaillevel"></a>Definire livelli di dettaglio
 In un'applicazione Batch di produzione, le entità da elaborare, ad esempio processi, attività e nodi di calcolo, possono essere migliaia. Quando si richiedono informazioni su queste risorse, una grande quantità di dati deve "transitare" dal servizio Batch all'applicazione in ogni query. Limitando il numero di elementi e il tipo di informazioni restituiti da una query, è possibile aumentarne la velocità e quindi migliorare le prestazioni dell'applicazione.
@@ -297,4 +294,5 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [net_schedule]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjobschedule.aspx
 [net_task]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
 
-[rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_task_counts]: /rest/api/batchservice/get-the-task-counts-for-a-job
+[rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts

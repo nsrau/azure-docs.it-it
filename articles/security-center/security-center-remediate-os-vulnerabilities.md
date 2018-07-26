@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285917"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990796"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -27,11 +27,11 @@ Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle mac
 Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio, vedere l'[elenco di regole di configurazione consigliate](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Per informazioni su come personalizzare le valutazioni delle configurazioni di sicurezza, vedere [Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)](security-center-customize-os-security-config.md).
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
-"Remediate security configurations" (Correggere le configurazioni di sicurezza) è una raccomandazione nel Centro sicurezza. La raccomandazione viene visualizzata in **Raccomandazioni** > **Calcolo**.
+"Remediate security configurations" (Correggere le configurazioni di sicurezza) è una raccomandazione nel Centro sicurezza. La raccomandazione viene visualizzata in **Raccomandazioni** > **Risorse di calcolo e app**.
 
-Questo esempio illustra la raccomandazione "Remediate security configurations" (Correggere le configurazioni di sicurezza) in **Calcolo**.
-1. Nel riquadro sinistro del Centro sicurezza selezionare **Calcolo**.  
-  Viene aperta la finestra **Calcolo**.
+Questo esempio illustra la raccomandazione "Correggi le configurazioni di sicurezza" in **Risorse di calcolo e app**.
+1. Nel riquadro sinistro del Centro sicurezza selezionare **Risorse di calcolo e app**.  
+  Viene visualizzata la finestra **Risorse di calcolo e app**.
 
    ![Correggere le configurazioni di sicurezza][1]
 

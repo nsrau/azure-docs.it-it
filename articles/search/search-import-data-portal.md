@@ -1,22 +1,22 @@
 ---
 title: Importare dati in Ricerca di Azure nel portale | Documentazione Microsoft
-description: Usare la procedura guidata Importa dati di Ricerca di Azure nel portale di Azure per effettuare una ricerca per indicizzazione nel database Azure Cosmos DB NoSQL, nell'archivio BLOB, nell'archivio tabelle, nel database SQL e in SQL Server in macchine virtuali di Azure.
+description: Informazioni su come usare la procedura guidata Importa dati nel portale di Azure per inserire i dati di Azure da Cosmos DB, archiviazione BLOB, archiviazione tabelle, database SQL e SQL Server in macchine virtuali di Azure.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795885"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004945"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importare dati in Ricerca di Azure tramite il portale
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Come importare i dati in Ricerca di Azure usando il portale di Azure
+
 Il portale di Azure include una procedura guidata **Importa dati** nel dashboard di Ricerca di Azure che permette di caricare i dati in un indice. 
 
   ![Importa dati sulla barra dei comandi][1]
@@ -26,8 +26,6 @@ Internamente, la procedura guidata configurare e richiama un *indicizzatore*, au
 * Connettersi a un'origine dati esterna nella stessa sottoscrizione di Azure.
 * Generare uno schema dell'indice modificabile basato sulla struttura dei dati di origine.
 * Caricare documenti JSON in un indice usando un set di righe recuperato dall'origine dati.
-
-È possibile provare questo flusso di lavoro con dati di esempio in Azure Cosmos DB. Per istruzioni, vedere [Introduzione a Ricerca di Azure nel portale](search-get-started-portal.md) .
 
 > [!NOTE]
 > È possibile avviare la procedura guidata **Importa dati** dal dashboard di Azure Cosmos DB per semplificare l'indicizzazione dell'origine dati. Nel riquadro di spostamento a sinistra passare a **Raccolte** > **Aggiungi Ricerca di Azure** per iniziare.
@@ -45,8 +43,10 @@ Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'
 
 ## <a name="connect-to-your-data"></a>Connettersi ai dati
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire il dashboard del servizio. Per cercare i servizi di ricerca esistenti nella sottoscrizione corrente, è possibile fare clic su **Tutti i servizi** nell'indice. 
-2. Fare clic su **Importa dati** nella barra dei comandi per aprire il pannello corrispondente.  
-3. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Per le origini dati all'interno della sottoscrizione, la procedura guidata può in genere rilevare e leggere le informazioni di connessione, riducendo al minimo i requisiti di configurazione complessivi.
+
+1. Fare clic su **Importa dati** nella barra dei comandi per aprire il pannello corrispondente.
+
+1. Fare clic su **Definisci la connessione ai dati** per specificare una definizione dell'origine dati usata da un indicizzatore. Per le origini dati all'interno della sottoscrizione, la procedura guidata può in genere rilevare e leggere le informazioni di connessione, riducendo al minimo i requisiti di configurazione complessivi.
 
 |  |  |
 | --- | --- |
@@ -61,25 +61,32 @@ Un set di dati bidimensionale è un input obbligatorio. È possibile eseguire l'
 In genere, un indice preliminare viene dedotto dal set di dati. È possibile aggiungere, modificare o eliminare campi per completare lo schema. È anche possibile impostare attributi a livello di campo per determinarne i comportamenti di ricerca successivi.
 
 1. In **Personalizza indice di destinazione** specificare il nome e una **chiave** usati per identificare in modo univoco ogni documento. La chiave deve essere una stringa. Se i valori dei campi includono spazi o trattini, assicurarsi di impostare le opzioni avanzate in **Importare i dati** per evitare il controllo di convalida per questi caratteri.
-2. Esaminare e modificare i campi rimanenti. Il nome del campo e il tipo sono in genere compilati automaticamente. È possibile modificare il tipo di dati fino alla creazione dell'indice. Successivamente, la modifica rende necessaria la ricompilazione.
-3. Impostare gli attributi dell'indice per ogni campo:
+
+1. Esaminare e modificare i campi rimanenti. Il nome del campo e il tipo sono in genere compilati automaticamente. È possibile modificare il tipo di dati fino alla creazione dell'indice. Successivamente, la modifica rende necessaria la ricompilazione.
+
+1. Impostare gli attributi dell'indice per ogni campo:
    
    * Recuperabile restituisce il campo nei risultati della ricerca.
    * Filtrabile consente di fare riferimento al campo nelle espressioni di filtro.
    * Ordinabile consente di usare il campo in un ordinamento.
    * Con facet abilita il campo per l'esplorazione in base a facet.
    * Ricercabile abilita la ricerca full-text.
-4. Fare clic sulla scheda **Analizzatore** se si vuole specificare un analizzatore del linguaggio a livello di campo. Al momento è possibile specificare solo gli analizzatori del linguaggio. Per usare un analizzatore personalizzato o un analizzatore non del linguaggio come Keyword, Pattern e così via, è necessario scrivere codice.
+
+1. Fare clic sulla scheda **Analizzatore** se si vuole specificare un analizzatore del linguaggio a livello di campo. Al momento è possibile specificare solo gli analizzatori del linguaggio. Per usare un analizzatore personalizzato o un analizzatore non del linguaggio come Keyword, Pattern e così via, è necessario scrivere codice.
    
    * Fare clic su **Ricercabile** per designare la ricerca full-text sul campo e abilitare l'elenco a discesa Analizzatore.
    * Scegliere l'analizzatore da usare. Per informazioni dettagliate, vedere [Creare un indice per i documenti in più lingue](search-language-support.md).
-5. Fare clic su **Strumento suggerimenti** per abilitare i suggerimenti di query con completamento automatico nei campi selezionati.
+
+1. Fare clic su **Strumento suggerimenti** per abilitare i suggerimenti di query con completamento automatico nei campi selezionati.
 
 ## <a name="import-your-data"></a>Importare i dati
 1. In **Importare i dati**specificare un nome per l'indicizzatore. È importante ricordare che il prodotto della procedura guidata Importa dati è un indicizzatore. Successivamente, per visualizzarlo o modificarlo sarà possibile selezionarlo dal portale anziché eseguire nuovamente la procedura guidata. 
-2. Specificare la pianificazione, che è basata sul fuso orario dell'area in cui è stato effettuato il provisioning del servizio.
-3. Impostare le opzioni avanzate per specificare le soglie relative al proseguimento dell'indicizzazione in caso di eliminazione di un documento. È anche possibile specificare se i campi **chiave** possono contenere spazi e barre.  
-4. Fare clic su **OK** per creare l'indice e importare i dati.
+
+1. Specificare la pianificazione, che è basata sul fuso orario dell'area in cui è stato effettuato il provisioning del servizio.
+
+1. Impostare le opzioni avanzate per specificare le soglie relative al proseguimento dell'indicizzazione in caso di eliminazione di un documento. È anche possibile specificare se i campi **chiave** possono contenere spazi e barre.  
+
+1. Fare clic su **OK** per creare l'indice e importare i dati.
 
 È possibile monitorare l'indicizzazione nel portale. Man mano che vengono caricati documenti, il loro conteggio aumenta per l'indice definito. La pagina del portale può impiegare alcuni minuti per rilevare gli aggiornamenti più recenti.
 
@@ -87,9 +94,9 @@ Dopo aver completato il caricamento di tutti i documenti, l'indice è pronto per
 
 ## <a name="query-an-index-using-search-explorer"></a>Eseguire query in un indice usando Esplora ricerche
 
-Il portale include **Esplora ricerche**, che consente di eseguire query in un indice senza dovere scrivere codice. È possibile usare [Esplora ricerche](search-explorer.md) in qualsiasi indice.
+Il portale include **Esplora ricerche** che consente di eseguire query in un indice senza scrivere codice. È possibile usare [Esplora ricerche](search-explorer.md) in qualsiasi indice.
 
-L'esperienza di ricerca è basata sulle impostazioni predefinite, ad esempio la [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e il [parametro di query searchMode(https://docs.microsoft.com/rest/api/searchservice/search-documents) predefinito. 
+L'esperienza di ricerca è basata sulle impostazioni predefinite, ad esempio la [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) e il [parametro di query searchMode](https://docs.microsoft.com/rest/api/searchservice/search-documents) predefinito. 
 
 I risultati vengono restituiti in JSON, in un formato dettagliato, in modo che sia possibile esaminare l'intero documento.
 

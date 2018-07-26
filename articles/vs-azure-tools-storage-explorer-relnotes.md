@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025424"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990898"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -27,13 +27,95 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
+## <a name="version-130"></a>Versione 1.3.0
+09/07/2018
+
+### <a name="download-azure-storage-explorer-130"></a>Scaricare Azure Storage Explorer 1.3.0
+- [Azure Storage Explorer 1.3.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.3.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.3.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+* L'accesso ai contenitori $web usati da siti Web statici è ora supportato. In questo modo è possibile caricare e gestire facilmente i file e le cartelle in uso nel sito Web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* La barra delle applicazioni in macOS è stata riorganizzata. Le modifiche includono un menu File, alcune modifiche ai tasti di scelta rapida e diversi nuovi comandi nel menu dell'app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* L'endpoint dell'autorità per l'accesso ad Azure Governo degli Stati Uniti è stato modificato in https://login.microsoftonline.us/
+* Accessibilità: quando è attiva un'utilità per la lettura dello schermo, la navigazione da tastiera ora funziona con le tabelle usate per visualizzare gli elementi sul lato destro. È possibile usare i tasti di direzione per spostarsi tra righe e colonne, INVIO per richiamare le azioni predefinite, il tasto del menu di scelta rapida per aprire il menu relativo a un elemento e MAIUSC o CTRL per la selezione multipla. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Correzioni
+*  In alcuni computer i processi figlio impiegavano troppo tempo ad avviarsi. Quando si verifica questa situazione, un messaggio di errore indica che il processo figlio non è stato avviato in modo tempestivo. Il tempo a disposizione per l'avvio di un processo figlio è stato aumentato da 20 a 90 secondi. Se si verifica ancora questo problema, aggiungere un commento sul problema GitHub collegato. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* Usando una firma di accesso condiviso priva di autorizzazioni di lettura, in precedenza non era possibile caricare un BLOB di grandi dimensioni. La logica per il caricamento è stata modificata in modo da funzionare in questo scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* L'impostazione del livello di accesso pubblico per un contenitore rimuove tutti i criteri di accesso e viceversa. Ora il livello di accesso pubblico e i criteri di accesso vengono mantenuti quando si imposta uno dei due elementi. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" era troncato nella finestra di dialogo Proprietà. Questo problema è stato risolto. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* Il prefisso "Microsoft Azure Storage Explorer -" mancava nella finestra di dialogo Crea nuova Directory. Questo problema è stato risolto. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Accessibilità: è difficile spostarsi nella finestra di dialogo Aggiungi entità quando si usa VoiceOver. Sono stati apportati miglioramenti. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Accessibilità: il colore di sfondo del pulsante che comprime ed espande il riquadro Azioni e proprietà non era coerente con controlli simili dell'interfaccia utente nel tema Nero a contrasto elevato. Il colore è stato modificato. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Accessibilità: nel tema Nero a contrasto elevato lo stile stato attivo per il pulsante "X" della finestra di dialogo Proprietà non era visibile. Questo problema è stato risolto. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Accessibilità: nelle schede Azioni e Proprietà mancavano diversi valori ARIA e quindi l'esperienza di lettura dello schermo risultava scadente. I valori ARIA mancanti sono stati aggiunti. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Accessibilità: ai nodi dell'albero compressi sul lato sinistro non veniva assegnato false come valore aria-expanded. Questo problema è stato risolto. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Problemi noti
+* Quando si usano gli emulatori, ad esempio Emulatore di archiviazione di Azure o Azurite, è necessario che rimangano in attesa di connessioni sulle porte predefinite. In caso contrario, Storage Explorer non potrà eseguire la connessione degli emulatori.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 1.2.0](#version-120)
+* [Versione 1.1.0](#version-110)
+* [Versione 1.0.0](#version-100)
+* [Versione 0.9.6](#version-096)
+* [Versione 0.9.5](#version-095)
+* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-120"></a>Versione 1.2.0
 06/12/2018
-
-### <a name="download-azure-storage-explorer-120"></a>Scaricare Azure Storage Explorer 1.2.0
-- [Azure Storage Explorer 1.2.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.2.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.2.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>Nuovo
 * Se Storage Explorer non riesce a caricare le sottoscrizioni da un solo subset dei tenant, eventuali sottoscrizioni caricate correttamente verranno visualizzate insieme a un messaggio di errore specifico per i tenant che hanno dato esito negativo. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
@@ -88,41 +170,6 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-
-
-
-
-
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 1.1.0](#version-110)
-* [Versione 1.0.0](#version-100)
-* [Versione 0.9.6](#version-096)
-* [Versione 0.9.5](#version-095)
-* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versione 0.9.2](#version-092)
-* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
-
 
 ## <a name="version-110"></a>Versione 1.1.0
 05/09/2018
@@ -569,7 +616,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 
 * Corretto: il caricamento del file aveva una probabilità elevata di causare un errore di memoria insufficiente
 * Corretto: è ora possibile accedere con PIN/smart card
-* Corretto: l'azione Apri nel portale ora funziona con Azure Cina, Azure Germania, Azure per enti pubblici statunitensi e Azure Stack
+* Corretto: l'azione Apri nel portale ora funziona con Azure China, Azure Germany, Azure US Government e Azure Stack
 * Corretto: durante il caricamento di una cartella in un contenitore BLOB, talvolta si verificava un errore "Operazione non valida"
 * Corretto: selezionare tutto ciò che è stato disabilitato durante la gestione di snapshot
 * Corretto: i metadati del BLOB di base avrebbero potuto venire sovrascritti dopo aver visualizzato le proprietà dei relativi snapshot

@@ -8,17 +8,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 9521bd47db9676c70993c535f1207b3519123353
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633316"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004772"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
 ## <a name="quotas-and-throttling"></a>Quote e limitazioni
-Ogni sottoscrizione di Azure può avere al massimo 10 hub IoT e al massimo un hub gratuito.
+Ogni sottoscrizione di Azure può avere al massimo 50 hub IoT e al massimo un hub gratuito.
 
 Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unità in un livello specifico. Per altre informazioni, vedere [Prezzi di Hub IoT][lnk-pricing]. Il livello e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare.
 

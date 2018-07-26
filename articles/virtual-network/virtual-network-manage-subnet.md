@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702075"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992494"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Aggiungere, modificare o eliminare le subnet di rete virtuale
 
@@ -44,7 +44,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 3. In **Impostazioni** selezionare **Subnet**.
 4. Selezionare **+Subnet**.
 5. Immettere i valori per i parametri seguenti:
-    - **Nome**: il nome deve essere univoco all'interno della rete virtuale.
+    - **Nome**: il nome deve essere univoco all'interno della rete virtuale. Per la massima compatibilità con altri servizi di Azure, è consigliabile usare una lettera come primo carattere del nome. Il gateway applicazione di Azure, ad esempio, non verrà distribuito in una subnet con un nome che inizia con un numero.
     - **Intervallo indirizzi**: l'intervallo deve essere univoco e compreso nello spazio indirizzi per la rete virtuale. L'intervallo non può sovrapporsi ad altri intervalli di indirizzi di subnet all'interno della rete virtuale. Lo spazio degli indirizzi deve essere specificato usando la notazione Classless Interdomain Routing (CIDR). Ad esempio, in una rete virtuale con lo spazio di indirizzi 10.0.0.0/16 è possibile definire lo spazio di indirizzi di subnet 10.0.0.0/24. L'intervallo più piccolo che è possibile specificare è /29, che fornisce otto indirizzi IP per subnet. Azure riserva il primo e l'ultimo indirizzo in ogni subnet per conformità al protocollo. Altri tre indirizzi sono riservati per l'uso da parte del servizio di Azure. Di conseguenza la definizione di una subnet con l'intervallo di indirizzi /29 genera tre indirizzi IP utilizzabili nella subnet. Se si prevede di connettere una rete virtuale a un gateway VPN, è necessario creare una subnet per il gateway. Altre informazioni su [considerazioni specifiche sugli intervalli di indirizzi per le subnet di gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Dopo aver aggiunto la subnet, in determinate condizioni è possibile modificare l'intervallo di indirizzi. Per informazioni su come modificare l'intervallo di indirizzi di una subnet, vedere [Cambiare le impostazioni della subnet](#change-subnet-settings).
     - **Gruppo di sicurezza di rete**: è possibile associare zero o un gruppo di sicurezza di rete esistente alla subnet per filtrare il traffico di rete in ingresso e in uscita per la subnet. Il gruppo di sicurezza di rete deve esistere nello stesso percorso e nella stessa sottoscrizione della rete virtuale. Per altre informazioni, vedere [Gruppi di sicurezza di rete](security-overview.md) e [Creare gruppi di sicurezza di rete mediante il portale di Azure](tutorial-filter-network-traffic.md).
     - **Tabella di route**: è possibile associare zero o una tabella di route esistente a una subnet per controllare il routing del traffico di rete ad altre reti. La tabella di route deve esistere nello stesso percorso e nella stessa sottoscrizione della rete virtuale. Per altre informazioni, vedere [Routing del traffico di rete virtuale](virtual-networks-udr-overview.md) e [Come creare una tabella di route](tutorial-create-route-table-portal.md).
@@ -68,7 +68,7 @@ L'account con cui si accede o con cui ci si collega ad Azure deve essere assegna
 4. Nell'elenco di subnet selezionare la subnet per cui si vogliono modificare le impostazioni. È possibile modificare le impostazioni seguenti:
 
     - **Intervallo di indirizzi:** se nessuna risorsa viene distribuita all'interno della subnet, è possibile modificare l'intervallo di indirizzi. Se esistono risorse nella subnet, è necessario spostare le risorse in un'altra subnet o eliminarle prima di tutto dalla subnet. La procedura per spostare o eliminare una risorsa è diversa a seconda della risorsa. Per informazioni su come spostare o eliminare le risorse disponibili nelle subnet, leggere la documentazione relativa a ogni tipo di risorsa che si vuole spostare o eliminare. Vedere i vincoli per **Intervallo di indirizzi** nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
-    - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
+    - **Utenti**: è possibile controllare l'accesso alla subnet tramite i ruoli predefiniti o i ruoli personalizzati. Per altre informazioni sull'assegnazione di ruoli e utenti per l'accesso alla subnet, leggere l'articolo [Usare l'assegnazione del ruolo per gestire l'accesso alle risorse di Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access).
     - **Gruppo di sicurezza di rete** e **Tabella di route**: vedere il passaggio 5 di [Aggiungere una subnet](#add-a-subnet).
     - **Endpoint del servizio**: vedere gli endpoint di servizio nel passaggio 5 di [Aggiungere una subnet](#add-a-subnet). Quando si abilita un endpoint di servizio per una subnet esistente, assicurarsi che non vi siano attività critiche in esecuzione in nessuna risorsa nella subnet. Gli endpoint del servizio cambiano le route in ogni interfaccia di rete nella subnet dall'uso della route predefinita con il prefisso dell'indirizzo *0.0.0.0/0* e il tipo dell'hop successivo di *Internet*, all'uso di una nuova route con i prefissi dell'indirizzo del servizio e un tipo di hop successivo di *VirtualNetworkServiceEndpoint*. Durante il cambio, tutte le connessioni TCP aperte possono essere terminate. L'endpoint di servizio non è attivato fino a quando i flussi di traffico al servizio per tutte le interfacce di rete non vengono aggiornati con la nuova route. Per altre informazioni sul routing, vedere [Panoramica sul routing](virtual-networks-udr-overview.md).
 5. Selezionare **Salva**.

@@ -46,6 +46,7 @@
 ## Gestire gli utenti
 ### [Aggiungere nuovi utenti ad Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Gestire i profili utente](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Reimpostare le password utente](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Condividere gli account](active-directory-sharing-accounts.md)
 ### [Assegnare utenti a ruoli amministrativi](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Ripristinare un utente eliminato](fundamentals/active-directory-users-restore.md)
@@ -113,26 +114,32 @@
 ### [Utenti a rischio](active-directory-reporting-security-user-at-risk.md)
 ### [Accessi a rischio](active-directory-reporting-security-risky-sign-ins.md)
 ### [Eventi di rischio](active-directory-reporting-risk-events.md)
+### [Monitoraggio dei log con Monitoraggio di Azure](reporting-azure-monitor-diagnostics-overview.md)
 ### [DOMANDE FREQUENTI](active-directory-reporting-faq.md)
+
 ### Attività
 #### [Configurare località denominate](active-directory-named-locations.md)
 #### [Trovare report sull'attività](active-directory-reporting-migration.md)
-#### [Usare il pacchetto di contenuto Power BI di Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Usare il pacchetto di contenuto Power BI per Azure AD](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Correggere gli utenti contrassegnati per il rischio](active-directory-report-security-user-at-risk-remediation.md)
+#### [Instradare i log attività a un hub eventi di Azure](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Archiviare i log attività in un account di archiviazione di Azure](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Integrare i log attività con Splunk usando Monitoraggio di Azure](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### riferimento
 #### [Conservazione](active-directory-reporting-retention.md)
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Informazioni di riferimento sulle attività di controllo](active-directory-reporting-activity-audit-reference.md)
 #### [Codici errore relativi alle attività di accesso](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Autenticazione a più fattori](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Interpretare lo schema del log di controllo in Monitoraggio di Azure](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Interpretare lo schema del log di accesso in Monitoraggio di Azure](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Risolvere problemi
 #### [Dati di controllo mancanti](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dati mancanti nei download](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Errori dei pacchetti di contenuto dei log attività di Azure Active Directory](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Errori nell'API di creazione report di Azure Active Directory](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Errori del pacchetto di contenuto dei log attività per Azure AD](active-directory-reporting-troubleshoot-
+#### [Errori nell'API di creazione report di Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Accesso a livello di codice](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Prerequisiti](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,13 +147,11 @@
 #### [Esempi di accesso](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Uso dei certificati](active-directory-reporting-api-with-certificates.md)
 
-## Gestire le password(active-directory/authentication/concept-sspr-howitworks.md)
+## [Gestire le password](authentication/concept-sspr-howitworks.md)
 ### Documenti degli utenti
 #### [Reimpostare o modificare la password](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Procedure consigliate per le password](active-directory-secure-passwords.md)
 #### [Registrarsi per la reimpostazione della password self-service](user-help/active-directory-passwords-reset-register.md)
-### Amministratori IT: reimpostare le password
-#### [portale di Azure](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## Gestire i dispositivi
 ### [Introduzione](device-management-introduction.md)

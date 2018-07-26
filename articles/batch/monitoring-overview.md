@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 29ac86ed5c744d37150b0f1b2db17f60306fe77e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799802"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001831"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -43,7 +43,7 @@ Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure]
 
 Nelle applicazioni Batch usare le API di Batch per monitorare o recuperare lo stato delle risorse, inclusi processi, attività, nodi e pool. Ad esempio: 
 
-* [Conteggio delle attività in base allo stato](batch-get-task-counts.md)
+* [Conteggiare le attività e i nodi di calcolo in base allo stato](batch-get-resource-counts.md)
 * [Creare query per elencare le risorse di Batch in modo efficiente](batch-efficient-list-queries.md)
 * [Creare relazioni tra attività](batch-task-dependencies.md)
 * Usare un'[attività di gestione dei processi](/rest/api/batchservice/job/add#jobmanagertask)

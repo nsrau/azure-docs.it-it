@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7f01464c4b9063f20a83c3626d7f92a5e0524f7a
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937333"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989126"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -197,7 +197,7 @@ Il valore non deve contenere più di 1 carattere jolly `*`.
 
 Quando si usano le condizioni **match** e **notMatch**, specificare `#` per rappresentare una cifra, `?` per una lettera e qualsiasi altro carattere per rappresentare il carattere effettivo. Ad esempio, vedere [Consentire modelli nome multipli](scripts/allow-multiple-name-patterns.md).
 
-### <a name="fields"></a>Fields
+### <a name="fields"></a>Campi
 
 Le condizioni vengono formate usando i campi. Un campo rappresenta le proprietà nel payload delle richieste di risorse usato per descrivere lo stato della risorsa.  
 
@@ -210,9 +210,13 @@ Sono supportati i seguenti campi:
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
-  - Questa sintassi tra parentesi quadre supporta nomi di tag contenenti periodi
+- `tags.<tagName>`
+  - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
+  - Esempio: `tags.CostCenter` dove **CostCenter** è il nome del tag.
+- `tags[<tagName>]`
+  - Questa sintassi tra parentesi quadre supporta nomi di tag che contengono punti.
+  - Dove **\<tagName\>** è il nome del tag per il quale convalidare la condizione.
+  - Esempio: `tags.[Acct.CostCenter]` dove **Acct.CostCenter** è il nome del tag.
 - alias delle proprietà; per un elenco, vedere [alias](#aliases).
 
 ### <a name="alternative-accessors"></a>Funzioni di accesso alternative

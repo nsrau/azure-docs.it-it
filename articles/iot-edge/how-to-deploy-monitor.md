@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: be52a57f10f286bded9a31d84b36a49717b94006
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029758"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001508"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -75,10 +75,10 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
 1. Nella sezione **Impostazioni registro** della pagina specificare i nomi e le credenziali per i registri contenitori privati che contengono le immagini di modulo per questa distribuzione. L'agente di Edge restituisce l'errore 500 se non trova le credenziali del registro contenitori per un'immagine Docker.
 1. Nella sezione dei **moduli di distribuzione** della pagina fare clic su **Aggiungi**.
 1. Selezionare **Modulo IoT Edge**.
-1. Assegnare un nome al modulo in **Nome**.
+1. Assegnare un nome al modulo in **Name** (Nome).
 1. Nel campo **URI immagine** immettere l'immagine del contenitore per il modulo. 
-1. Specificare le eventuali **Opzioni di creazione del contenitore** da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
-1. Usare il menu a discesa per selezionare **Criteri di riavvio**. È possibile scegliere tra le opzioni seguenti: 
+1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
+1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
    * **On-failed** (In caso di errore): il modulo viene riavviato in caso di arresto anomalo, ma non se viene chiuso normalmente. 

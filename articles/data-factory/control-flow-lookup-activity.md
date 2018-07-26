@@ -1,6 +1,6 @@
 ---
 title: Attività Lookup in Azure Data Factory | Microsoft Docs
-description: Informazioni su come usare l'attività Lookup per cercare un valore da un'origine esterna. Questo output può essere referenziato ulteriormente dalle attività successive.
+description: Informazioni su come usare l'attività Lookup per cercare un valore da un'origine esterna. Questo output può essere usato ulteriormente come riferimento dalle attività successive.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237833"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002921"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
-L'attività di ricerca può essere usata per recuperare un set di dati da qualsiasi origine dati supportata da file di definizione dell'applicazione (AFD).  Può essere usata nel seguente scenario:
-- Determinare in modo dinamico gli oggetti (file, tabelle e così via) su cui operare in un'attività successiva, anziché impostare come hardcoded il nome dell'oggetto
+L'attività Lookup consente di recuperare un set di dati da qualsiasi origine dati supportata da Azure Data Factory. Usarla nel seguente scenario:
+- Determinare in modo dinamico gli oggetti su cui operare in un'attività successiva, anziché impostare come hardcoded il nome dell'oggetto. Alcuni esempi di oggetti sono file e tabelle.
 
-L'attività di ricerca può leggere e restituire il contenuto di un file di configurazione, di una tabella di configurazione o il risultato dell'esecuzione di una query o di una stored procedure.  L'output dall'attività di ricerca può essere usato in un'attività di trasformazione o di copia successive se è un valore singleton, o in un'attività ForEach se è una matrice di attributi.
+L'attività Lookup legge e restituisce il contenuto di un file di configurazione o una tabella. Restituisce anche il risultato dell'esecuzione di una query o di una stored procedure. L'output dall'attività Lookup può essere usato in un'attività di trasformazione o di copia successiva se è un valore singleton. Può essere usato in un'attività ForEach se è una matrice di attributi.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Per l'attività di ricerca attualmente sono supportate le origini dati seguenti. Il numero massimo di righe restituite dall'attività di ricerca è **5000** con una dimensione massima di **2 MB**. E la durata massima per l'attività di ricerca prima del timeout è attualmente un'ora.
+Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il numero massimo di righe restituite dall'attività Lookup è 5.000 e la dimensione massima è 2 MB. Attualmente, la durata massima per l'attività Lookup prima del timeout è un'ora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -56,15 +56,15 @@ Per l'attività di ricerca attualmente sono supportate le origini dati seguenti.
 ## <a name="type-properties"></a>Proprietà del tipo
 NOME | DESCRIZIONE | type | Obbligatorio?
 ---- | ----------- | ---- | --------
-dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione "Proprietà del set di dati" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
-una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione "Proprietà dell'attività di copia" nell'articolo del connettore corrispondente. | Coppia chiave/valore | Sì
+dataset | Fornisce il riferimento al set di dati per la ricerca. Per i dettagli, vedere la sezione **Proprietà del set di dati** nell'articolo del connettore corrispondente. | Coppia chiave/valore | sì
+una sezione source | Contiene proprietà di origine specifiche del set di dati, come per l'origine dell'attività Copy. Visualizzare i dettagli della sezione **Proprietà dell'attività di copia** nell'articolo del connettore corrispondente. | Coppia chiave/valore | sì
 firstRowOnly | Indica se restituire solo la prima riga o tutte le righe. | boolean | No. Il valore predefinito è `true`.
 
-**Tenere presente quanto segue:**
+> [!NOTE]
 
-1. La colonna Source con tipo ByteArray non è supportata.
-2. Structure non è supportato nella definizione del set di dati. In particolare per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
-3. Se l'origine di ricerca è un file JSON, l'impostazione `jsonPathDefinition` per rieseguire il data shaping dell'oggetto JSON non è supportata. Verranno recuperati gli interi oggetti.
+> * Le colonne Source con tipo **ByteArray** non sono supportate.
+> * **Structure** non è supportato nella definizione del set di dati. Per i file in formato testo, è possibile usare la riga di intestazione per specificare il nome della colonna.
+> * Se l'origine della ricerca è un file JSON, l'impostazione `jsonPathDefinition` per la modifica della forma dell'oggetto JSON non è supportata. Vengono recuperati gli interi oggetti.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Usare il risultato dell'attività Lookup in un'attività successiva
 
@@ -82,7 +82,7 @@ Il risultato della ricerca viene restituito nella sezione `output` del risultato
     }
     ```
 
-* **Se `firstRowOnly` è impostato su `false`** , il formato di output è mostrato nel codice seguente. Un campo `count` indica il numero di record restituiti. I valori dettagliati sono visualizzati in un array `value` fisso. In tal caso, l'attività Lookup in genere è seguita da un'[attività ForEach](control-flow-for-each-activity.md). È possibile passare l'array `value` al campo `items` dell'attività ForEach usando il formato di `@activity('MyLookupActivity').output.value`. Per accedere agli elementi nell'array `value`, usare la sintassi seguente: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Di seguito è fornito un esempio: `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Se `firstRowOnly` è impostato su `false`** , il formato di output è mostrato nel codice seguente. Un campo `count` indica il numero di record restituiti. I valori dettagliati sono visualizzati sotto una matrice `value` fissa. In questo caso l'attività Lookup è seguita da un'[attività ForEach](control-flow-for-each-activity.md). Per passare l'array `value` al campo `items` dell'attività ForEach, usare il criterio di `@activity('MyLookupActivity').output.value`. Per accedere agli elementi nell'array `value`, usare la sintassi seguente: `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Un esempio è `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -100,17 +100,16 @@ Il risultato della ricerca viene restituito nella sezione `output` del risultato
     } 
     ```
 
-## <a name="example"></a>Esempio
-In questo esempio, l'attività Copy copia i dati da una tabella SQL dell'istanza del database SQL di Azure in Archiviazione BLOB di Azure. Il nome della tabella SQL viene archiviato in un file JSON in Archiviazione BLOB. L'attività Lookup cerca il nome della tabella in fase di esecuzione. Questo approccio consente di modificare JSON dinamicamente senza dover ridistribuire le pipeline o i set di dati. 
+### <a name="copy-activity-example"></a>Esempio di attività di copia
+In questo esempio l'attività Copy copia i dati da una tabella SQL dell'istanza del database SQL di Azure in Archiviazione BLOB di Azure. Il nome della tabella SQL viene archiviato in un file JSON in Archiviazione BLOB. L'attività Lookup cerca il nome della tabella in fase di esecuzione. Il file JSON viene modificato in modo dinamico usando questo approccio. Non è necessario ridistribuire le pipeline o i set di dati. 
 
 In questo esempio viene illustrata la ricerca solo per la prima riga. Per la ricerca per tutte le righe e per concatenare i risultati con l'attività ForEach, vedere gli esempi in [Copiare più tabelle in blocco con Azure Data Factory](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>Pipeline
-Questa pipeline contiene due attività: *Lookup* e *Copy*. 
+Questa pipeline contiene due attività: Lookup e Copy. 
 
-- L'attività Lookup è configurata per usare LookupDataset, che fa riferimento a un percorso di Archiviazione BLOB di Azure. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
-- L'attività Copy usa l'output dell'attività Lookup (nome della tabella SQL). Nel set di dati di origine (SourceDataset) la proprietà TableName è configurata per usare l'output dall'attività Lookup. L'attività Copy copia i dati dalla tabella SQL in un percorso di Archiviazione BLOB di Azure specificato dalla proprietà SinkDataset. 
-
+- L'attività Lookup è configurata per usare **LookupDataset**, che fa riferimento a un percorso di Archiviazione BLOB di Azure. L'attività Lookup legge il nome della tabella SQL da un file JSON in questo percorso. 
+- L'attività Copy usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. La proprietà **tableName** in **SourceDataset** è configurata in modo da usare l'output dell'attività Lookup. L'attività Copy copia i dati dalla tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dalla proprietà **SinkDataset**. 
 
 ```json
 {
@@ -167,7 +166,7 @@ Questa pipeline contiene due attività: *Lookup* e *Copy*.
 ```
 
 ### <a name="lookup-dataset"></a>Set di dati di ricerca
-Il set di dati di ricerca fa riferimento al file *sourcetable.json* nella cartella di ricerca in Archiviazione di Azure specificata dal tipo AzureStorageLinkedService. 
+Il set di dati di **ricerca** è il file **sourcetable.json** nella cartella di ricerca di Archiviazione di Azure specificata dal tipo **AzureStorageLinkedService**. 
 
 ```json
 {
@@ -190,8 +189,8 @@ Il set di dati di ricerca fa riferimento al file *sourcetable.json* nella cartel
 }
 ```
 
-### <a name="source-dataset-for-the-copy-activity"></a>Set di dati di origine per l'attività Copy
-Il set di dati di origine usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure specificato dal set di dati sink. 
+### <a name="source-dataset-for-copy-activity"></a>Set di dati di **origine** per l'attività Copy
+Il set di dati di **origine** usa l'output dell'attività Lookup, ovvero il nome della tabella SQL. L'attività Copy copia i dati da questa tabella SQL in un percorso di Archiviazione BLOB di Azure. Il percorso è specificato dal set di dati **sink**. 
 
 ```json
 {
@@ -209,8 +208,8 @@ Il set di dati di origine usa l'output dell'attività Lookup, ovvero il nome del
 }
 ```
 
-### <a name="sink-dataset-for-the-copy-activity"></a>Set di dati sink per l'attività Copy
-L'attività Copy copia i dati dalla tabella SQL nel file *filebylookup.csv* nella cartella *csv* in Archiviazione di Azure specificata dalla proprietà AzureStorageLinkedService. 
+### <a name="sink-dataset-for-copy-activity"></a>Set di dati **sink** per l'attività Copy
+L'attività Copy copia i dati dalla tabella SQL nel file **filebylookup.csv** file della cartella **csv** in Archiviazione di Azure. Il file è specificato dalla proprietà **AzureStorageLinkedService**. 
 
 ```json
 {

@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: e5882b2ddc708544a7715da13c1f0d18384ce4e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30318902"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007006"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot 
 
@@ -26,16 +26,21 @@ Fare uno snapshot di un sistema operativo o di un disco dati per il backup o per
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure 
 
-L'esempio seguente richiede che sia installata l'interfaccia della riga di comando Azure 2.0 e che venga eseguito l'accesso all'account Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Nell'esempio seguente è necessario usare [Cloud Shell](https://shell.azure.com/bash) o avere installato Azure CLI 2.0. Eseguire **az --version** per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
 
-La procedura seguente illustra come fare uno snapshot usando il comando `az snapshot create` con il parametro `--source-disk`. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata `myVM` nel gruppo di risorse `myResourceGroup`.
+La procedura seguente illustra come fare uno snapshot usando il comando **az snapshot create** con il parametro **--source-disk**. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*.
 
-Ottenere l'ID del disco.
-```azure-cli
-osDiskId=$(az vm show -g myResourceGroup -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+Ottenere l'ID disco usando [az vm show](/cli/azure/vm#az-vm-show).
+
+```azurecli-interactive
+osDiskId=$(az vm show \
+   -g myResourceGroup \
+   -n myVM \
+   --query "storageProfile.osDisk.managedDisk.id" \
+   -o tsv)
 ```
 
-Creare uno snapshot denominato *osDisk-backup*.
+Creare uno snapshot denominato *osDisk-backup* usando [az snapshot create](/cli/azure/snapshot#az-snapshot-create).
 
 ```azurecli-interactive
 az snapshot create \
@@ -45,18 +50,25 @@ az snapshot create \
 ```
 
 > [!NOTE]
-> Se si vuole archiviare lo snapshot in una risorsa di archiviazione resiliente nella zona, è necessario crearlo in un'area che supporta le [zone di disponibilità](../../availability-zones/az-overview.md) e includere il parametro `--sku Standard_ZRS`.
+> Se si vuole archiviare lo snapshot in una risorsa di archiviazione resiliente nella zona, è necessario crearlo in un'area che supporta le [zone di disponibilità](../../availability-zones/az-overview.md) e includere il parametro **--sku Standard_ZRS**.
+
+È possibile visualizzare un elenco degli snapshot usando [az snapshot list](/cli/azure/snapshot#az-snapshot-list).
+
+```azurecli-interactive
+az snapshot list \
+   -g myResourceGroup \
+   - table
+```
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure 
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. In alto a sinistra fare clic su **Crea una risorsa** e cercare **Snapshot**.
-3. Nel pannello Snapshot, fare clic su **Crea**.
+2. In alto a sinistra fare clic su **Crea una risorsa** e cercare **Snapshot**. Selezionare **Snapshot** dai risultati della ricerca.
+3. Nel pannello **Snapshot**, fare clic su **Crea**.
 4. Immettere un **Nome** per lo snapshot.
-5. Selezionare un [gruppo di risorse](../../azure-resource-manager/resource-group-overview.md#resource-groups) esistente o specificare il nome di un nuovo gruppo. 
-6. Selezionare una località per il data center di Azure.  
+5. Selezionare un gruppo di risorse esistente o specificare il nome di un nuovo gruppo. 
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
-8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. È consigliabile usare il tipo **Standard_LRS** a meno che non sia necessario archiviare lo snapshot su un disco a prestazioni elevate.
+8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
 9. Fare clic su **Crea**.
 
 

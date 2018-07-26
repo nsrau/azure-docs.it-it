@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232678"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008417"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
 Il servizio Importazione/Esportazione di Azure viene usato per importare in modo sicuro grandi quantità di dati nell'archivio BLOB di Azure e in File di Azure tramite la spedizione delle unità disco a un data center di Azure. È anche possibile usare questo servizio per trasferire i dati dall'archivio BLOB di Azure a unità disco per la spedizione al sito locale. È possibile importare dati da uno o più dischi nell'archivio BLOB di Azure o in File di Azure. 
+
+Per il servizio Importazione/Esportazione di Azure è necessario fornire i dischi. Se si vuole trasferire i dati usando dischi forniti da Microsoft è possibile usare Azure Data Box Disk per importare i dati in Azure. Microsoft spedisce fino a 5 dischi SSD (Solid State Disk) crittografati con capacità di 40 TB per ordine al data center del cliente tramite un corriere locale. È quindi possibile configurare rapidamente i dischi, copiarvi i dati su una connessione USB 3.0 e rispedirli ad Azure. Per altre informazioni, vedere [Panoramica di Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
 
 ## <a name="azure-importexport-usecases"></a>Casi d'uso del servizio Importazione/Esportazione di Azure
 

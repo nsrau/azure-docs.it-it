@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7edabc99da5e1466e848336c647a33213c9edd8b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133317"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008145"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Per semplicità, è consigliabile che gli utenti che installano Azure AD Connect
 Tutto il software di rete e tutti i dispositivi fisici o i meccanismi di altro tipo che limitano la durata delle connessioni devono applicare una soglia di almeno cinque minuti (300 secondi) per la connettività tra il server in cui è installato il client AD Azure Connect ed Azure Active Directory. Questo vale anche per tutti gli strumenti di sincronizzazione delle identità di Microsoft rilasciati in precedenza.
 
 **D: I nomi di dominio con etichetta singola sono supportati?**  
-No, Azure AD Connect non supporta foreste e domini locali che usano nomi di dominio con etichetta singola.
+Sebbene questa configurazione di rete non sia consigliata ([vedere l'articolo](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), l'uso della sincronizzazione di Azure AD Connect con un dominio con etichetta singola è supportato, a condizione che la configurazione di rete per il dominio a livello singolo funzioni correttamente.
 
 **D: Le foreste con domini di Active Directory non contigui sono supportate?**  
 No, Azure AD Connect non supporta foreste locali contenenti spazi dei nomi non contigui.

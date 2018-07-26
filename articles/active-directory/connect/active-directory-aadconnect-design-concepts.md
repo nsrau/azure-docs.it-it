@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801933"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "35636889"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -44,7 +44,7 @@ Il valore dell'attributo deve rispettare le regole seguenti:
 
 * La lunghezza del testo deve essere inferiore a 60 caratteri
   * I caratteri diversi da a-z, A-Z o 0-9 vengono codificati e conteggiati come 3 caratteri
-* Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* Non deve contenere un carattere speciale: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * Deve essere globalmente univoco
 * Deve essere una stringa, un valore intero o un numero binario
 * Non deve essere basato sul nome dell'utente, poiché il nome può cambiare
@@ -61,7 +61,7 @@ Se sono presenti più foreste e gli utenti non vengono spostati tra foreste e do
 
 Se si spostano gli utenti tra foreste e domini, è necessario trovare un attributo che non viene modificato o che possa essere spostato con gli utenti durante lo spostamento. Un approccio consigliato consiste nell'introdurre un attributo sintetico. È possibile usare un attributo che include un elemento analogo a un GUID. Un nuovo GUID viene creato e assegnato all'utente durante la creazione di un oggetto. Una regola di sincronizzazione personalizzata può essere creata nel server del motore di sincronizzazione per creare questo valore in base all’ **objectGUID** e aggiornare l'attributo selezionato in ADDS. Quando si sposta l'oggetto, assicurarsi di copiare anche il contenuto di questo valore.
 
-Un'altra soluzione consiste nello scegliere un attributo esistente che si sa che non cambierà. Uno degli attributi più comunemente usati è **employeeID**. Se si prende in considerazione un attributo che contiene lettere, assicurarsi che non vi sia alcuna possibilità che le lettere maiuscole e/o minuscole usate per il valore dell'attributo vengano modificate. Gli attributi non validi che non devono essere usati includono gli attributi con il nome dell'utente. In caso di matrimonio o divorzio è possibile che il nome venga modificato e ciò non è consentito per questo attributo. Per questo motivo non è nemmeno possibile selezionare attributi quali **userPrincipalName**, **mail** e **targetAddress** nell'installazione guidata di Azure AD Connect. Questi attributi contengono anche il carattere "@", che non è consentito in sourceAnchor.
+Un'altra soluzione consiste nello scegliere un attributo esistente che si sa che non cambierà. Uno degli attributi più comunemente usati è **employeeID**. Se si prende in considerazione un attributo che contiene lettere, assicurarsi che non vi sia alcuna possibilità che le lettere maiuscole e/o minuscole usate per il valore dell'attributo vengano modificate. Gli attributi non validi che non devono essere usati includono gli attributi con il nome dell'utente. In caso di matrimonio o divorzio è possibile che il nome venga modificato e ciò non è consentito per questo attributo. Per questo motivo non è nemmeno possibile selezionare attributi quali **userPrincipalName**, **mail** e **targetAddress** nell'installazione guidata di Azure AD Connect. Questi attributi contengono anche il carattere "\@", che non è consentito in sourceAnchor.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>Modifica dell'attributo sourceAnchor
 Il valore dell'attributo sourceAnchor non può essere modificato dopo la creazione dell'oggetto in Azure AD e la sincronizzazione dell'identità.
@@ -180,7 +180,7 @@ Durante l'integrazione della directory locale con Azure AD, è importante capire
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>Scegliere l'attributo per userPrincipalName
 Quando si seleziona l'attributo per specificare il valore di UPN da usare in Azure è necessario verificare quanto segue:
 
-* I valori di attributo devono essere conformi alla sintassi UPN (RFC 822), ovvero devono essere nel formato username@domain
+* I valori di attributo devono essere conformi alla sintassi UPN (RFC 822), ovvero essere nel formato nomeutente\@dominio
 * Il suffisso nei valori deve corrispondere a uno dei domini personalizzati verificati in Azure AD
 
 Nelle impostazioni rapide come attributo deve essere scelto userPrincipalName. Se l'attributo userPrincipalName non contiene il valore che si vuole che gli utenti usino per accedere ad Azure, è necessario scegliere l'opzione **Installazione personalizzata**.
@@ -188,7 +188,7 @@ Nelle impostazioni rapide come attributo deve essere scelto userPrincipalName. S
 ### <a name="custom-domain-state-and-upn"></a>Stato del dominio personalizzato e UPN
 È importante verificare che esista un dominio verificato per il suffisso UPN.
 
-John è un utente di contoso.com. Si vuole fare in modo che John usi l'UPN locale john@contoso.com per l'accesso ad Azure dopo che è stata eseguita la sincronizzazione degli utenti con la directory di Azure AD contoso.onmicrosoft.com. A tale scopo, è necessario aggiungere e verificare contoso.com come dominio personalizzato in Azure AD per poter avviare la sincronizzazione degli utenti. Se il suffisso UPN di John, ad esempio contoso.com, non corrisponde a un dominio verificato in Azure AD, il suffisso UPN viene sostituito con contoso.onmicrosoft.com.
+John è un utente di contoso.com. Si vuole fare in modo che John usi l'UPN locale john\@contoso.com per accedere ad Azure dopo che è stata eseguita la sincronizzazione degli utenti con la directory di Azure AD contoso.onmicrosoft.com. A tale scopo, è necessario aggiungere e verificare contoso.com come dominio personalizzato in Azure AD per poter avviare la sincronizzazione degli utenti. Se il suffisso UPN di John, ad esempio contoso.com, non corrisponde a un dominio verificato in Azure AD, il suffisso UPN viene sostituito con contoso.onmicrosoft.com.
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domini locali non instradabili e UPN per Azure AD
 Alcune organizzazioni usano domini non instradabili, ad esempio contoso.local, o domini semplici con etichetta singola come contoso. In Azure AD non è possibile verificare un dominio non instradabile. Azure AD Connect è in grado eseguire la sincronizzazione con un solo dominio verificato in Azure AD. Quando si crea una directory di Azure AD, viene creato un dominio instradabile che diventa dominio predefinito per Azure AD, ad esempio contoso.onmicrosoft.com. Si rende quindi necessario verificare eventuali altri domini instradabili nello stesso scenario, nel caso in cui non si voglia eseguire la sincronizzazione con il dominio .onmicrosoft.com predefinito.

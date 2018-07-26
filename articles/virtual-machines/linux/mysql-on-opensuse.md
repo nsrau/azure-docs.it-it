@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670931"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006397"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installazione di MySQL in una macchina virtuale che esegue OpenSUSE Linux in Azure
 
@@ -39,7 +39,7 @@ Creare prima un gruppo di risorse. In questo esempio, il gruppo di risorse viene
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-Creare la macchina virtuale In questo esempio la macchina virtuale viene denominata *myVM*. Viene usata una macchina virtuale di dimensioni *Standard_D2s_v3*, ma è consigliabile scegliere le [dimensioni della VM](sizes.md) più adatte al proprio carico di lavoro.
+Creare la macchina virtuale In questo esempio viene usata la macchina virtuale denominata *myVM* di dimensioni *Standard_D2s_v3*, ma è consigliabile scegliere le [dimensioni di macchina virtuale](sizes.md) più adatte al proprio carico di lavoro.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 Il comando dovrebbe restituire "enabled".
 
+Riavviare il server.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>Password MySQL
 
-Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. Eseguire lo script **mysql\_secure\_installation** per proteggere MySQL. Lo script richiederà di cambiare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare gli account di accesso radice remoti, rimuovere i database di test e ricaricare la tabella dei privilegi. 
+Dopo l'installazione, la password radice di MySQL è vuota per impostazione predefinita. Eseguire lo script **mysql\_secure\_installation** per proteggere MySQL. Lo script richiederà di cambiare la password radice di MySQL, rimuovere gli account utente anonimi, disabilitare le informazioni di accesso alla radice remota, rimuovere i database di test e ricaricare la tabella dei privilegi. 
+
+Dopo il riavvio del server, ristabilire la connessione SSH con la macchina virtuale.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>Accedere a MySQL
+## <a name="sign-in-to-mysql"></a>Accedere a MySQL
 
 Ora è possibile accedere ed entrare nel prompt di MySQL.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 I nomi utente e le password per il database sono usati solo da script per la connessione al database.  I nomi di account utente per il database non rappresentano necessariamente account utente effettivi nel sistema.
 
-Abilitare l'accesso da un altro computer. In questo esempio, l'indirizzo IP del computer da cui vogliamo accedere è *10.112.113.114*.
+Abilitare l'accesso da un altro computer. In questo esempio, l'indirizzo IP del computer da cui consentire l'accesso è *10.112.113.114*.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248937"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011829"
 ---
 # <a name="configure-liveness-probes"></a>Configurare probe di attività
 
-Le applicazioni nei contenitori possono essere eseguite per periodi prolungati di tempo e ciò può causare stati interrotti che potrebbe risultare necessario ripristinare riavviando il contenitore. Istanze di contenitore di Azure supporta l'inclusione di configurazioni nei probe di attività, in modo che il contenitore possa essere riavviato se una funzionalità cruciale non è disponibile. 
+Le applicazioni nei contenitori possono essere eseguite per periodi prolungati di tempo e ciò può causare stati interrotti che potrebbe risultare necessario ripristinare riavviando il contenitore. Istanze di contenitore di Azure supporta l'inclusione di configurazioni nei probe di attività, in modo che il contenitore possa essere riavviato se una funzionalità cruciale non è disponibile.
 
 Questo articolo illustra come distribuire un gruppo di contenitori che include un probe di attività, per dimostrare il riavvio automatico di un contenitore non integro simulato.
 
 ## <a name="yaml-deployment"></a>Distribuzione con file YAML
 
-Creare un file `liveness-probe.yaml` con il frammento seguente. Questo file definisce un gruppo di contenitori costituito da un contenitore NGNIX che diventa non integro. 
+Creare un file `liveness-probe.yaml` con il frammento seguente. Questo file definisce un gruppo di contenitori costituito da un contenitore NGNIX che diventa non integro.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ La proprietà `periodSeconds` stabilisce che il comando di verifica dell'attivit
 
 Entro i primi 30 secondi deve essere confermata l'esistenza del file `healthy` creato dal comando di avvio. Quando il comando di verifica dell'attività controlla l'esistenza del file `healthy`, il codice di stato restituisce zero, a indicare l'esito positivo, quindi non si verifica alcun riavvio.
 
-Dopo 30 secondi, inizieranno gli errori per `cat /tmp/healthy`, con conseguente generazione degli eventi per lo stato non integro e la terminazione. 
+Dopo 30 secondi, inizieranno gli errori per `cat /tmp/healthy`, con conseguente generazione degli eventi per lo stato non integro e la terminazione.
 
-Questi eventi possono essere visualizzati dal portale di Azure o dall'interfaccia della riga di comando di Azure 2.0.
+Questi eventi possono essere visualizzati dal portale di Azure o dall'interfaccia della riga di comando di Azure.
 
 ![Evento di non integrità nel portale][portal-unhealthy]
 

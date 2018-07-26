@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130893"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952386"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Esercitazione: 6. Aggiungere un'entità semplice e un elenco di frasi
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Esercitazione: 7. Aggiungere un'entità semplice e un elenco di frasi
 In questa esercitazione si crea un'app che illustra come estrarre dati di Machine Learning da un'espressione usando l'entità **semplice**.
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ In questa esercitazione si crea un'app che illustra come estrarre dati di Machin
 Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
-Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità gerarchica](luis-quickstart-intent-and-hier-entity.md), [importare](create-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+Se non si ha l'app relativa alle risorse umane dell'esercitazione sull'[entità composta](luis-tutorial-composite-entity.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
 
 Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale.  
 
@@ -366,7 +366,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
     ```
 
 ## <a name="phrase-lists"></a>Elenchi di frasi
-L'aggiunta dell'elenco di frasi ha aumentato il segnale delle parole nell'elenco ma **non** è stata usata una corrispondenza esatta. L'elenco di frasi include diverse mansioni con la prima parola corrispondente a `lead` e include anche la mansione `welder`, ma non `lead welder`. Questo elenco di frasi per le mansioni potrebbe non essere completo. Man mano che si [rivedono le espressioni dell'endpoint](label-suggested-utterances.md) su base regolare e si trovano altre parole relative alle mansioni, aggiungerle all'elenco di frasi. Quindi ripetere il training e la pubblicazione.
+L'aggiunta dell'elenco di frasi ha aumentato il segnale delle parole nell'elenco ma **non** è stata usata una corrispondenza esatta. L'elenco di frasi include diverse mansioni con la prima parola corrispondente a `lead` e include anche la mansione `welder`, ma non `lead welder`. Questo elenco di frasi per le mansioni potrebbe non essere completo. Man mano che si [rivedono le espressioni dell'endpoint](luis-how-to-review-endoint-utt.md) su base regolare e si trovano altre parole relative alle mansioni, aggiungerle all'elenco di frasi. Quindi ripetere il training e la pubblicazione.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Quali attività ha eseguito l'app di Language Understanding?
 Con un'entità semplice e un elenco di parole, quest'app ha identificato una finalità di query in linguaggio naturale e ha restituito i dati del lavoro. 
@@ -377,7 +377,7 @@ Il chatbot ha ora informazioni sufficienti per determinare l'azione principale d
 Language Understanding ha completato le attività relative alla richiesta. L'applicazione chiamante, ad esempio un chatbot, può prendere il risultato topScoringIntent e i dati dell'entità per usare un'API di terze parti per inviare le informazioni sulla mansione a un rappresentante del reparto risorse umane. Se sono presenti altre opzioni a livello di codice per l'applicazione chiamante o il bot, Language Understanding non esegue tali operazioni, ma determina solo la finalità dell'utente. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** (App) nel menu in alto a sinistra. Selezionare il menu con i puntini di sospensione (...) a destra del nome dell'app nell'elenco di app, quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app di Language Understanding. Selezionare **My apps** (App) nel menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
