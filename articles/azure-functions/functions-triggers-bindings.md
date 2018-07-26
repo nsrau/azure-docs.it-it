@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887471"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004898"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -32,7 +32,7 @@ Un *trigger* definisce come viene richiamata una funzione. Una funzione deve ave
 
 Le *associazioni* di input e output forniscono una modalità dichiarativa per connettersi ai dati dall'interno del codice. Le associazioni sono facoltative e una funzione può avere più associazioni di input e output. 
 
-I trigger e le associazioni permettono di evitare di inserire dettagli hardcoded dei servizi usati. La funzione riceve i dati, ad esempio il contenuto di un messaggio della coda, nei parametri della funzione. I dati vengono inviati, ad esempio per creare un messaggio della coda, usando il valore restituito della funzione, un parametro `out` o un [oggetto agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
+I trigger e le associazioni permettono di evitare di inserire dettagli hardcoded dei servizi usati. La funzione riceve i dati, ad esempio il contenuto di un messaggio della coda, nei parametri della funzione. I dati vengono inviati, ad esempio per creare un messaggio della coda, usando il valore restituito della funzione. Negli script C# e C# è in alternativa possibile inviare dati tramite i parametri `out` e gli [oggetti dell'agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
 
 Quando si sviluppano funzioni tramite il portale di Azure, i trigger e le associazioni sono configurati in un file *function.json*. Il portale fornisce un'interfaccia utente per questa configurazione, ma è possibile modificare direttamente il file passando all'**editor avanzato**.
 
@@ -224,9 +224,11 @@ Nei linguaggi che hanno un valore restituito è possibile associare a tale valor
 * In una libreria di classi C# applicare l'attributo dell'associazione di output al valore restituito del metodo.
 * In altri linguaggi impostare la proprietà `name` in *function.json* su `$return`.
 
-Se è necessario scrivere più elementi, usare un [oggetto agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values) anziché il valore restituito. Se sono presenti più associazioni di output, usare il valore restituito per una sola di tali associazioni.
+Se sono presenti più associazioni di output, usare il valore restituito per una sola di tali associazioni.
 
-Vedere l'esempio specifico per ciascun linguaggio:
+Negli script C# e C# è in alternativa possibile inviare dati alle associazioni di output dati tramite i parametri `out` e gli [oggetti dell'agente di raccolta](functions-reference-csharp.md#writing-multiple-output-values).
+
+Vedere l'esempio specifico del linguaggio che mostra l'utilizzo del valore restituito:
 
 * [C#](#c-example)
 * [Script C# (file con estensione csx)](#c-script-example)

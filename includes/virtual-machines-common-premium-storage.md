@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806384"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37910052"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 Archiviazione Premium di Azure offre prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. I dischi delle VM che usano Archiviazione Premium memorizzano i dati in unità a stato solido (SSD). È possibile migrare i dischi delle VM esistenti in Archiviazione Premium di Azure per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi.
@@ -52,7 +52,7 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 * **Limiti dei dischi di Archiviazione Premium**
 
-    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta le macchine virtuali serie DS, DSv2, GS, Ls, Fs ed Esv3. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB) e P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
+    Archiviazione Premium supporta i dischi di VM che possono essere collegati a VM delle serie con dimensioni specifiche. Archiviazione Premium supporta un'ampia gamma di macchine virtuali di Azure. È possibile scegliere fra sette dimensioni di disco: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB) e P50 (4095 GB). Attualmente le dimensioni di disco P4 e P6 sono supportate solo per Managed Disks. Ciascuna dimensione di disco ha le proprie specifiche in termini di prestazioni. A seconda dei requisiti dell'applicazione è possibile collegare uno o più dischi alla VM. Le specifiche saranno descritte dettagliatamente nella sezione [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](#scalability-and-performance-targets).
 
 * **BLOB di pagine Premium**
 
@@ -78,16 +78,16 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
 ## <a name="supported-vms"></a>VM supportate
 
-Archiviazione Premium supporta le macchine virtuali serie B, DS, DSv2, DSv3, Esv3, GS, Ls, M e Fs. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
+Archiviazione Premium è supportata da un'ampia gamma di macchine virtuali di Azure. Con questi tipi di VM è possibile usare dischi di archiviazione sia Standard che Premium. Non è possibile usare i dischi di Archiviazione Premium con MV delle serie non compatibili con Archiviazione Premium.
 
 
 Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Windows](../articles/virtual-machines/windows/sizes.md). Per informazioni sui tipi e le dimensioni delle VM in Azure, vedere [Dimensioni delle macchine virtuali Linux](../articles/virtual-machines/linux/sizes.md).
 
-Di seguito sono indicate alcune funzionalità delle VM serie DS, DSv2, GS, Ls e Fs:
+Queste sono alcune delle funzionalità supportate nelle macchine virtuali con Archiviazione Premium:
 
-* **Servizio cloud**
+* **Set di disponibilità**
 
-    È possibile aggiungere VM serie DS a un servizio cloud contenente solo VM serie DS. Non aggiungere VM serie DS a un servizio cloud esistente che include VM diverse dalla serie DS. È possibile eseguire la migrazione dei dischi rigidi virtuali esistenti in un nuovo servizio cloud che esegue solo VM serie DS. Se si vuole usare lo stesso indirizzo IP virtuale per il nuovo servizio cloud che ospita le VM serie DS, usare gli [indirizzi IP riservati](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). È possibile aggiungere le VM serie GS a un servizio cloud esistente che esegue solo VM serie GS.
+    Usando l'esempio di macchine virtuali serie DS, è possibile aggiungere una macchina virtuale serie DS a un servizio cloud contenente solo macchine virtuali serie DS. Non aggiungere VM serie DS a un servizio cloud esistente che include VM diverse dalla serie DS. È possibile eseguire la migrazione dei dischi rigidi virtuali esistenti in un nuovo servizio cloud che esegue solo VM serie DS. Se si vuole usare lo stesso indirizzo IP virtuale per il nuovo servizio cloud che ospita le VM serie DS, usare gli [indirizzi IP riservati](../articles/virtual-network/virtual-networks-instance-level-public-ip.md).
 
 * **Disco del sistema operativo**
 
@@ -104,7 +104,13 @@ Di seguito sono indicate alcune funzionalità delle VM serie DS, DSv2, GS, Ls e 
 
 * **Cache**
 
-    Le VM della serie con dimensioni che supportano Archiviazione Premium hanno una capacità di memorizzazione nella cache unica per livelli elevati di velocità effettiva e latenza. La funzionalità di memorizzazione nella cache supera le prestazioni del disco di Archiviazione Premium sottostante. È possibile impostare i criteri di memorizzazione nella cache del disco per i dischi di Archiviazione Premium su **ReadOnly**, **ReadWrite** o **None**. Il criterio predefinito di memorizzazione nella cache su disco è **ReadOnly** per tutti i dischi dati Premium e **ReadWrite** per i dischi del sistema operativo. Per ottenere prestazioni ottimali per l'applicazione, usare l'impostazione corretta della cache. Ad esempio, per dischi dati con un numero elevato di letture o di sola lettura, come i file di dati di SQL Server, impostare i criteri di memorizzazione nella cache del disco su **ReadOnly**. Per i dischi dati con un numero elevato di scritture o di sola scrittura, come i file di log di SQL Server, impostare i criteri di memorizzazione nella cache del disco su **None**. Per altre informazioni su come ottimizzare la progettazione con Archiviazione Premium, vedere [Progettare ai fini delle prestazioni con Archiviazione Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
+    Le macchine virtuali che supportano Archiviazione Premium hanno una capacità di memorizzazione nella cache unica per livelli elevati di velocità effettiva e una latenza ridotta. La loro funzionalità di memorizzazione nella cache supera le prestazioni del disco di Archiviazione Premium sottostante. Tuttavia, non tutte le macchine virtuali supportano la memorizzazione nella cache ed è quindi necessario consultare le specifiche della macchina virtuale per verificare le dimensioni della macchina virtuale in questione per altre informazioni.  Per le macchine virtuali che supportano la memorizzazione nella cache, questa funzionalità sarà indicata nelle specifiche come "Velocità effettiva massima di archiviazione temporanea e memorizzazione nella cache",  oltre a essere anche specificata direttamente sotto il titolo della macchina virtuale.
+    
+    Con la memorizzazione nella cache è possibile impostare i criteri di memorizzazione nella cache del disco per i dischi di Archiviazione Premium su **ReadOnly**, **ReadWrite** o **None**. Il criterio predefinito di memorizzazione nella cache su disco è **ReadOnly** per tutti i dischi dati Premium e **ReadWrite** per i dischi del sistema operativo. Per ottenere prestazioni ottimali per l'applicazione, ricordare di usare l'impostazione corretta della cache. 
+    
+    Ad esempio, per dischi dati con un numero elevato di letture o di sola lettura, come i file di dati di SQL Server, impostare i criteri di memorizzazione nella cache del disco su **ReadOnly**. Per i dischi dati con un numero elevato di scritture o di sola scrittura, come i file di log di SQL Server, impostare i criteri di memorizzazione nella cache del disco su **None**. 
+    
+    Per altre informazioni su come ottimizzare la progettazione con Archiviazione Premium, vedere [Progettare ai fini delle prestazioni con Archiviazione Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 * **Analisi**
 

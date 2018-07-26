@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798832"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042011"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Riferimento alla query di sintassi SQL in Azure Cosmos DB
 
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     Rappresenta un valore del nome di parametro specificato. I nomi di parametro devono avere un singolo carattere @ come primo carattere.  
+     Rappresenta un valore del nome di parametro specificato. I nomi di parametro devono avere un singolo carattere \@ come primo carattere.  
   
  **Osservazioni:**  
   
@@ -1854,7 +1854,7 @@ SELECT
 |[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
-|[UPPER](#bk_upper)|||  
+|[ToString](#bk_tostring)|[UPPER](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  Restituisce una stringa che rappresenta il risultato della concatenazione di due o più valori di stringa.  
@@ -2367,7 +2367,80 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+####  <a name="bk_tostring"></a> ToString  
+ Restituisce una rappresentazione di espressione scalare. 
   
+ **Sintassi**  
+  
+```  
+ToString(<expr>)
+```  
+  
+ **Argomenti**  
+  
+-   `expr`  
+  
+     È qualsiasi espressione scalare valida.  
+  
+ **Tipi restituiti**  
+  
+ Restituisce un'espressione di stringa.  
+  
+ **esempi**  
+  
+ L'esempio seguente mostra il comportamento di ToString con tipi diversi.   
+  
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+  
+ Questo è il set di risultati.  
+  
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ Con l'input seguente:
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ L'esempio seguente illustra come usare ToString con altre funzioni di stringa come CONCAT.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ Questo è il set di risultati.  
+  
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+Con l'input seguente.
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ L'esempio seguente illustra come usare ToString con altre funzioni di stringa come REPLACE.   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ Questo è il set di risultati.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
 ####  <a name="bk_upper"></a> UPPER  
  Restituisce un'espressione stringa dopo aver convertito i caratteri minuscoli in caratteri maiuscoli.  
   

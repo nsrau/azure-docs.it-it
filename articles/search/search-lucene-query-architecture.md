@@ -1,5 +1,5 @@
 ---
-title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Documentazione Microsoft
+title: Architettura del motore di ricerca full-text (Lucene) in Ricerca di Azure | Microsoft Docs
 description: Spiegazione dell'elaborazione delle query di Lucene e dei concetti del recupero del documento per una ricerca full-text in relazione a Ricerca di Azure.
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195014"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036871"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Funzionamento della ricerca full-text in Ricerca di Azure
 
@@ -185,7 +185,7 @@ L'analizzatore standard suddivide il testo di input nei due token seguenti, anno
 
 ### <a name="exceptions-to-lexical-analysis"></a>Eccezioni all'analisi lessicale 
 
-L'analisi lessicale si applica solo ai tipi di query che richiedono termini completi, una query di termine o una query di frase. Non si applica ai tipi di query con termini incompleti: query di prefisso, query con caratteri jolly, query regex o query fuzzy. Questi tipi di query, tra cui la query di prefisso con il termine *aria condizionata\** nel nostro esempio, vengono aggiunti direttamente all'albero della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini della query di queste tipologie è la conversione in lettere minuscole.
+L'analisi lessicale si applica solo ai tipi di query che richiedono termini completi, una query di termine o una query di frase. Non si applica ai tipi di query con termini incompleti: query di prefisso, query con caratteri jolly, query regex o query fuzzy. Questi tipi di query, tra cui la query di prefisso con il termine `air-condition*` nel nostro esempio, vengono aggiunti direttamente all'albero della query, ignorando la fase di analisi. L'unica trasformazione eseguita per i termini della query di queste tipologie è la conversione in lettere minuscole.
 
 <a name="stage3"></a>
 

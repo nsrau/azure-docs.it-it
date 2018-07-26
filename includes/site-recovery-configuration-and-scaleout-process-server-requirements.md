@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 669966ce21c5c6c2d0653eb51c81fe78aa0b3a12
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319727"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057311"
 ---
 **Requisiti del server di configurazione/elaborazione**
 
@@ -36,7 +36,7 @@ IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applic
 | 
 **IMPOSTAZIONI DI RETE** | 
 Tipo di indirizzo IP | statico 
-Accesso a Internet | Il server deve poter accedere a questi URL (direttamente o tramite proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (se si sta configurando un server di configurazione) <br> - time.nist.gov <br> - time.windows.com 
+Accesso a Internet | Il server deve poter accedere a questi URL (direttamente o tramite proxy): <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com  <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF necessita anche di accedere agli URL seguenti <br> - https://login.microsoftonline.com <br> - https://secure.aadcdn.microsoftonline-p.com <br> - https://login.live.com  <br> - https://auth.gfx.ms <br> - https://graph.windows.net <br> - https://login.windows.net <br> - https://www.live.com <br> - https://www.microsoft.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati) 
 Tipo di scheda di interfaccia di rete | VMXNET3 (se il server di configurazione è una macchina virtuale VMware)
  | 
@@ -48,7 +48,7 @@ MYSQL | MySQL deve essere installato. È possibile eseguire l'installazione manu
 
 **CPU** | **Memoria** | **Disco cache** | **Frequenza di modifica dei dati** | **Computer replicati**
 --- | --- | --- | --- | ---
-8 vCPU<br/><br/> 2 socket * 4 core a 2,5 GHz | 16 GB | 300 GB | 500 GB o inferiore | < 100 computer
-12 vCPU<br/><br/> 2 socket * 6 core a 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | Da 100 a 150 computer
-16 vCPU<br/><br/> 2 socket * 8 core a 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computer
+8 vCPU<br/><br/> 2 socket * 4 core \@ 2,5 GHz | 16 GB | 300 GB | 500 GB o inferiore | < 100 computer
+12 vCPU<br/><br/> 2 socket * 6 core \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | Da 100 a 150 computer
+16 vCPU<br/><br/> 2 socket * 8 core \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computer
 

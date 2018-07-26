@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 7716ff503bd492cc4b5d510758cb20d74eb82a4f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f8874a1d9db754485e9624596465560981bd6425
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035146"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858046"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Usare gli endpoint del servizio Rete virtuale con il bus di servizio di Azure
 
@@ -24,6 +24,12 @@ L'integrazione del bus di servizio con gli [endpoint del servizio della rete vir
 Una volta configurato per essere associato ad almeno un endpoint del servizio della subnet della rete virtuale, lo spazio dei nomi del bus di servizio corrispondente non accetterà più traffico se non dalle reti virtuali autorizzate. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi del bus di servizio a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi del bus di servizio corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
+
+## <a name="enable-service-endpoints-with-service-bus"></a>Abilitare gli endpoint servizio con il bus di servizio
+
+Le reti virtuali sono supportate solo negli spazi dei nomi del bus di servizio di [livello Premium](service-bus-premium-messaging.md). 
+
+Una considerazione importante quando si usano gli endpoint di servizio di rete virtuale con il bus di servizio: è consigliabile non abilitare questi endpoint nelle applicazioni che combinano spazi dei nomi del bus di servizio di livello Standard e Premium. Dato che il livello Standard non supporta le reti virtuali, l'endpoint è limitato ai soli spazi dei nomi di livello Premium. La rete virtuale bloccherà il traffico dello spazio dei nomi Standard. 
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Scenari di sicurezza avanzati resi possibili dall'integrazione della rete virtuale 
 

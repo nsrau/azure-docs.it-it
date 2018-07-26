@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 12/01/2017
 ms.author: maheshu
-ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 07f63eb9ed316f7798bd890bb6125617c6a1e886
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300996"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929638"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerazioni sulla rete per Azure AD Domain Services
 ## <a name="how-to-select-an-azure-virtual-network"></a>Come selezionare una rete virtuale di Azure
@@ -55,7 +55,6 @@ Le indicazioni seguenti semplificano la selezione di una rete virtuale da usare 
 * Non applicare alcun gruppo di sicurezza di rete alla subnet dedicata per il dominio gestito. Se è necessario applicare gruppi di sicurezza di rete alla subnet dedicata, verificare di **non bloccare le porte necessarie per la manutenzione e la gestione del dominio**.
 * Non limitare in modo eccessivo il numero di indirizzi IP disponibili nella subnet dedicata per il dominio gestito. Un'eccessiva limitazione impedisce al servizio di rendere disponibili due controller di dominio per il dominio gestito.
 * **Non abilitare Azure AD Domain Services nella subnet del gateway** della rete virtuale.
-* Non bloccare l'accesso in uscita dalla subnet in cui è abilitato il dominio gestito.
 
 > [!WARNING]
 > Quando si associa un gruppo di sicurezza di rete a una subnet in cui è abilitata la funzionalità Azure AD Domain Services, è possibile che si interferisca con la possibilità di manutenzione e gestione del dominio da parte di Microsoft. Viene inoltre ostacolata la sincronizzazione tra il tenant Azure AD e il dominio gestito. **Il Contratto di servizio non si applica alle distribuzioni in cui è stato creato un gruppo di sicurezza di rete che impedisce ad Azure Active Directory Domain Services di aggiornare e gestire il dominio.**
@@ -80,8 +79,8 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 **Porta 5986 (comunicazione remota di PowerShell)**
 * Usata per eseguire attività di gestione con la comunicazione remota di PowerShell nel dominio gestito.
 * È obbligatorio consentire l'accesso attraverso questa porta nel gruppo di sicurezza di rete. Senza accesso a questa porta, il dominio gestito non può essere aggiornato né configurato e non è possibile eseguirne il monitoraggio o il backup.
-* Per eventuali nuovi domini o domini con una rete virtuale ARM, è possibile limitare l'accesso in ingresso a questa porta per i seguenti indirizzi IP di origine: 52.180.179.108 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
-* Per i domini con una rete virtuale classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Per eventuali nuovi domini o domini con una rete virtuale Azure Resource Manager, è possibile limitare l'accesso in ingresso a questa porta per i seguenti indirizzi IP di origine: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161, 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Per i domini con una rete virtuale classica, è possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine seguenti: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209
 * I controller di dominio del dominio gestito non sono in genere in ascolto su questa porta. Il servizio apre questa porta sui controller di dominio gestiti solo quando per il dominio gestito deve essere eseguita un'operazione di gestione o di manutenzione. Non appena completata l'operazione, il servizio arresta la porta sui controller di dominio gestiti.
 
 **Porta 3389 (Desktop remoto)**
@@ -94,11 +93,9 @@ Azure Active Directory Domain Services richiede le porte seguenti per la manuten
 * L'apertura di questa porta tramite il gruppo di sicurezza di rete è facoltativa. Aprire la porta solo se l'accesso LDAP sicuro via Internet è abilitato.
 * È possibile limitare l'accesso in ingresso a questa porta agli indirizzi IP di origine da cui si prevede di connettersi tramite LDAP sicuro.
 
-**Accesso in uscita** AAD Domain Services deve avere l'accesso in uscita a diversi altri servizi di Azure per gestire e monitorare il dominio gestito ed eseguirne il backup. Non bloccare l'accesso in uscita dalla subnet dedicata in cui è abilitato il dominio gestito.
-
 
 ## <a name="network-security-groups"></a>Gruppi di sicurezza di rete
-Un [gruppo di sicurezza di rete (NSG)](../virtual-network/security-overview.md) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
+Un [gruppo di sicurezza di rete (NSG)](../virtual-network/virtual-networks-nsg.md) contiene un elenco di regole dell'elenco di controllo di accesso (ACL) che consentono o rifiutano il traffico di rete alle istanze di VM in una rete virtuale. I gruppi di sicurezza di rete possono essere associati a subnet o singole istanze VM in una subnet. Quando un gruppo di sicurezza di rete viene associato a una subnet, le regole ACL si applicano a tutte le istanze di VM in tale subnet. Il traffico verso una singola VM può essere inoltre ulteriormente limitato associando un gruppo di sicurezza di rete direttamente a tale VM.
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>Gruppo di sicurezza di rete (NSG) di esempio per le reti virtuali con Azure AD Domain Services
 La tabella seguente illustra un gruppo di sicurezza di rete di esempio che è possibile configurare per una rete virtuale con un dominio gestito di Azure AD Domain Services. Questa regola consente il traffico sulle porte specificate per garantire che il dominio gestito rimanga aggiornato, che vengano applicate le patch e possa essere monitorato da Microsoft. La regola predefinita "DenyAll" si applica a tutto il traffico in ingresso da Internet.

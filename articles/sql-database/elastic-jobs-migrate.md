@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: johnpaulkee
-ms.openlocfilehash: 97d50b6ddcbb46cb291578caab5193e13cc56932
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 7b6dd7d3724f486670b07709d317739d01e9fd21
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868882"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035307"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>Eseguire la migrazione ai nuovi processi di database elastico
 
@@ -22,7 +22,7 @@ ms.locfileid: "37868882"
 Se è disponibile una versione ospitata dal cliente dei [processi di database elastico](sql-database-elastic-jobs-overview.md), vengono forniti cmdlet e script per semplificare la migrazione alla versione più recente.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La versione aggiornata dei processi di database elastico include un nuovo set di cmdlet di PowerShell per l'uso durante la migrazione. Questi nuovi cmdlet consentono di trasferire tutte le credenziali di processo esistenti, le destinazioni (inclusi database, server e raccolte personalizzate), i trigger dei processi, le pianificazioni dei processi, il contenuto dei processi e i processi in un nuovo agente processo elastico.
 
@@ -30,18 +30,25 @@ La versione aggiornata dei processi di database elastico include un nuovo set di
 
 Se non si ha già una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Installare la versione di anteprima più recente del modulo PowerShell AzureRM.Sql per ottenere i cmdlet per i processi elastici.
+Installare il modulo **AzureRM.Sql** 4.8.1-preview per ottenere i cmdlet per processi elastici più recenti. Eseguire questi comandi in PowerShell con accesso amministrativo.
 
 ```powershell
 # Installs the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
 Find-Package PackageManagement -RequiredVersion 1.1.7.2 | Install-Package -Force
 
-# You may need to restart the powershell session
 # Installs the latest PowershellGet module which adds the -AllowPrerelease flag to Install-Module
 Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 
+# Restart your powershell session with administrative access
+
 # Places AzureRM.Sql preview cmdlets side by side with existing AzureRM.Sql version
-Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
+Install-Module -Name AzureRM.Sql -AllowPrerelease -RequiredVersion 4.8.1-preview -Force
+
+# Import the AzureRM.Sql 4.8.1 module
+Import-Module AzureRM.Sql -RequiredVersion 4.8.1
+
+# Confirm if module successfully imported - if the imported version is 4.8.1, then continue
+Get-Module AzureRM.Sql
 ```
 
 ### <a name="create-a-new-elastic-job-agent"></a>Creare un nuovo agente processo elastico

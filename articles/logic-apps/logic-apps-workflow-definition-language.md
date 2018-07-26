@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300182"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059233"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definizioni del flusso di lavoro di App per la logica di Azure con lo schema del linguaggio di definizione del flusso di lavoro
 
@@ -44,7 +44,7 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
   
 | Elemento | Obbligatoria | DESCRIZIONE | 
 |---------|----------|-------------| 
-| Definizione | Sì | Elemento iniziale della definizione del flusso di lavoro | 
+| Definizione | sì | Elemento iniziale della definizione del flusso di lavoro | 
 | $schema | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |   
 | contentVersion | No  | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. | 
 | Parametri | No  | Definizioni di uno o più parametri che trasferiscono i dati nel flusso di lavoro <p><p>Numero massimo di parametri: 50 | 
@@ -76,7 +76,7 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 
 | Elemento | Obbligatoria | type | DESCRIZIONE |  
 |---------|----------|------|-------------|  
-| type | Sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. | Tipo di parametro |
+| type | sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. | Tipo di parametro |
 | defaultValue | No  | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro | 
 | allowedValues | No  | Uguale a `type` | Matrice con valori che il parametro può accettare |  
 | metadata | No  | Oggetto JSON | Qualsiasi altro parametro, ad esempio il nome o una descrizione leggibile dell'app per la logica o i dati di progettazione usati da Visual Studio o altri strumenti |  
@@ -106,9 +106,9 @@ Di seguito è riportata la struttura generale della definizione di un output:
 
 | Elemento | Obbligatoria | type | DESCRIZIONE | 
 |---------|----------|------|-------------| 
-| <*key-name*> | Sì | string | Valore chiave del valore di output restituito |  
-| type | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito | 
-| value | Sì | Uguale a `type` | Valore di output restituito |  
+| <*key-name*> | sì | string | Valore chiave del valore di output restituito |  
+| type | sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito | 
+| value | sì | Uguale a `type` | Valore di output restituito |  
 ||||| 
 
 Per ottenere l'output dall'esecuzione di un flusso di lavoro, esaminare la cronologia di esecuzione e i dettagli dell'app per la logica nel portale di Azure oppure usare l'[API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio PowerBI, per poter creare dashboard. 
@@ -125,7 +125,7 @@ Con JSON è possibile avere valori letterali già esistenti in fase di progettaz
 "rainbowColorsCount": 7 
 ```
 
-È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), variabili, valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso @. Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere @ e si ottiene sempre un altro valore JSON. 
+È anche possibile avere valori che non esistono fino all'esecuzione. Per rappresentare questi valori è possibile usare *espressioni* che vengono valutate in fase di esecuzione. Un'espressione è una sequenza che può contenere una o più [funzioni](#functions), [operatori](#operators), variabili, valori espliciti o costanti. Nella definizione del flusso di lavoro è possibile usare un'espressione in qualsiasi punto di un valore stringa JSON aggiungendo all'espressione il prefisso (\@). Quando si valuta un'espressione che rappresenta un valore JSON, il corpo dell'espressione viene estratto rimuovendo il carattere \@ e si ottiene sempre un altro valore JSON. 
 
 Ad esempio, per la proprietà `customerName` definita in precedenza è possibile ottenere il valore usando la funzione [parameters()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) in un'espressione e assegnare tale valore alla proprietà `accountName`:
 
@@ -134,7 +134,7 @@ Ad esempio, per la proprietà `customerName` definita in precedenza è possibile
 "accountName": "@parameters('customerName')"
 ```
 
-Anche l'*interpolazione delle stringhe* consente di usare più espressioni all'interno delle stringhe, racchiuse dal carattere @ e da parentesi graffe ({}): La sintassi è la seguente:
+Anche l'*interpolazione delle stringhe* consente di usare più espressioni all'interno delle stringhe, racchiuse dal carattere \@ e da parentesi graffe ({}). La sintassi è la seguente:
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -146,7 +146,7 @@ Il risultato è sempre una stringa, rendendo questa funzionalità simile alla fu
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-In presenza di una stringa letterale che inizia con il carattere @, prefissare il carattere @ con un altro carattere @ come carattere di escape: @@
+In presenza di una stringa letterale che inizia con il carattere \@, prefissare il carattere \@ con un altro carattere \@ come carattere di escape: \@\@
 
 Questi esempi mostrano come vengono valutate le espressioni:
 
@@ -154,8 +154,8 @@ Questi esempi mostrano come vengono valutate le espressioni:
 |------------|--------| 
 | "Sophia Owen" | Restituisce questi caratteri: 'Sophia Owen' |
 | "array[1]" | Restituisce questi caratteri: 'array[1]' |
-| \"\@\@\" | Restituisce questi caratteri come stringa di un solo carattere: \'\@\' |   
-| \" \@\" | Restituisce questi caratteri come stringa di due caratteri: \' \@\' |
+| "\@\@" | Restituisce questi caratteri come stringa di un solo carattere: "\@" |   
+| " \@" | Restituisce questi caratteri come stringa di due caratteri: "\@" |
 |||
 
 Per questi esempi si supponga di definire "myBirthMonth" uguale a "January" e "myAge" uguale al numero 42:  
@@ -169,13 +169,13 @@ Questi esempi mostrano come vengono valutate le espressioni seguenti:
 
 | Espressione JSON | Risultato |
 |-----------------|--------| 
-| "@parameters('myBirthMonth')" | Restituisce la stringa: "January" |  
-| "@{parameters('myBirthMonth')}" | Restituisce la stringa: "January" |  
-| "@parameters('myAge')" | Restituisce il numero: 42 |  
-| "@{parameters('myAge')}" | Restituisce questo numero come stringa: "42" |  
-| "My age is @{parameters('myAge')}" | Restituisce la stringa: "My age is 42" |  
-| "@concat('My age is ', string(parameters('myAge')))" | Restituisce la stringa: "My age is 42" |  
-| "My age is @@{parameters('myAge')}" | Restituisce questa stringa, che include l'espressione: "My age is @{parameters('myAge')}` | 
+| "\@parameters('myBirthMonth')" | Restituisce la stringa: "January" |  
+| "\@{parameters('myBirthMonth')}" | Restituisce la stringa: "January" |  
+| "\@parameters('myAge')" | Restituisce il numero: 42 |  
+| "\@{parameters('myAge')}" | Restituisce questo numero come stringa: "42" |  
+| "My age is \@{parameters('myAge')}" | Restituisce la stringa: "My age is 42" |  
+| "\@('My age is ', string(parameters('myAge')))" | Restituisce la stringa: "My age is 42" |  
+| "My age is \@\@{parameters('myAge')}" | Restituisce questa stringa, che include l'espressione: "My age is \@{parameters('myAge')}` | 
 ||| 
 
 Quando si lavora in modo visivo in Progettazione app per la logica, è possibile creare espressioni tramite il generatore di espressioni, ad esempio: 
@@ -241,10 +241,10 @@ Di seguito sono indicati altri modi generali per l'uso delle funzioni nelle espr
 
 | Attività | Sintassi della funzione in un'espressione | 
 | ---- | -------------------------------- | 
-| Eseguire operazioni con un elemento passandolo a una funzione. | "@<*functionName*>(<*item*>)" | 
-| 1. Ottenere il valore di *parameterName* usando la funzione `parameters()` annidata. </br>2. Eseguire operazioni con il risultato passando tale valore a *functionName*. | "@<*functionName*>(parameters('<*parameterName*>'))" | 
-| 1. Ottenere il risultato dalla funzione interna annidata *functionName*. </br>2. Passare il risultato alla funzione esterna *functionName2*. | "@<*functionName2*>(<*functionName*>(<*item*>))" | 
-| 1. Ottenere il risultato da *functionName*. </br>2. Dal momento che il risultato è un oggetto con proprietà *propertyName*, ottenere il valore della proprietà. | "@<*functionName*>(<*item*>).<*propertyName*>" | 
+| Eseguire operazioni con un elemento passandolo a una funzione. | "\@<*functionName*>(<*item*>)" | 
+| 1. Ottenere il valore di *parameterName* usando la funzione `parameters()` annidata. </br>2. Eseguire operazioni con il risultato passando tale valore a *functionName*. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. Ottenere il risultato dalla funzione interna annidata *functionName*. </br>2. Passare il risultato alla funzione esterna *functionName2*. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. Ottenere il risultato da *functionName*. </br>2. Dal momento che il risultato è un oggetto con proprietà *propertyName*, ottenere il valore della proprietà. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
 ||| 
 
 Ad esempio, la funzione `concat()` può accettare due o più valori di stringa come parametri. Questa funzione combina queste stringhe in un'unica stringa. È possibile passare valori letterali di stringa, ad esempio, "Sophia" e "Owen", in modo da ottenere una stringa combinata, ovvero "SophiaOwen":

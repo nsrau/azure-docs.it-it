@@ -5,25 +5,23 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 22fcedfdb1921c941250b63f09bfa7fcff9c2f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783129"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856706"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Eccezioni della messaggistica di Hub eventi
 
-Questo articolo elenca alcune eccezioni generate dalla raccolta di API di messaggistica del bus di servizio di Azure, che include le API di Hub eventi. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
+Questo articolo elenca alcune eccezioni generate dalla raccolta di API di messaggistica del bus di servizio di Azure, che include le API di Hub eventi .NET Framework. Il documento è soggetto a modifica ed è quindi opportuno controllare periodicamente la presenza di aggiornamenti.
 
 ## <a name="exception-categories"></a>Categorie di eccezioni
 
@@ -87,7 +85,7 @@ Questo errore può verificarsi per uno dei due motivi:
 
 2. Lo spazio dei nomi di Hub eventi non dispone di unità di velocità effettiva sufficienti (per conferma, è possibile controllare la schermata **Metrica** nella finestra dello spazio dei nomi di Hub eventi nel [Portale di Azure](https://portal.azure.com)). Si noti che il portale mostra le informazioni aggregate (1 minuto), ma viene misurata la velocità effettiva in tempo reale, quindi si tratta solo di una stima.
 
-    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nella finestra **Scalabilità** della schermata dello spazio dei nomi di Hub eventi.
+    Risoluzione: aumentare le unità di velocità effettiva nello spazio dei nomi. È possibile farlo nel portale, nella finestra **Scalabilità** della schermata dello spazio dei nomi di Hub eventi. In alternativa, è possibile usare [Aumento automatico](event-hubs-auto-inflate.md).
 
 ### <a name="error-code-50001"></a>Codice errore 50001
 
@@ -95,6 +93,7 @@ Questo errore si verifica raramente. Si verifica quando il contenitore che esegu
 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
 * [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)

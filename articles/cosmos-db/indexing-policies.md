@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298298"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072164"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -144,6 +144,7 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
 
 L'esempio seguente configura un percorso specifico con indice di intervallo e un valore di precisione personalizzato pari a 20 byte:
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +165,74 @@ L'esempio seguente configura un percorso specifico con indice di intervallo e un
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+Quando viene aggiunto un percorso per l'indicizzazione, i numeri e le stringhe all'interno di questi percorsi vengono indicizzati. Pertanto, anche se si definisce l'indicizzazione solo per le stringhe, Azure Cosmos DB aggiunge una definizione predefinita anche per i numeri. In altre parole, Azure Cosmos DB offre la funzionalità di esclusione del percorso dai criteri di indicizzazione, ma non digitare esclusione del tipo da un percorso specifico. Di seguito è riportato un esempio, si noti che viene specificato solo un indice per entrambi i percorsi (Percorso =  "/*" e Percorso =  "/\"attr1\"/?") ma al risultato viene aggiunto anche il tipo di dati Number.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+Risultato della creazione dell'indice:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>Tipi di dati, tipologie e valori di precisione degli indici
 Per configurare i criteri di indicizzazione per un percorso, sono disponibili più opzioni. È possibile specificare una o più definizioni di indicizzazione per ogni percorso:

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "23059926"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718941"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Come usare il servizio di posta elettronica SendGrid da PHP
 Questa guida illustra come eseguire attività di programmazione comuni con il servizio di posta elettronica SendGrid in Azure. Gli esempi sono scritti in PHP.
@@ -47,7 +47,7 @@ L'uso di SendGrid in un'applicazione PHP di Azure non richiede speciali attivit�
 È possibile inviare un messaggio di posta elettronica tramite SMTP o con l'API Web di SendGrid.
 
 ### <a name="smtp-api"></a>API SMTP
-Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0. Usare [Composer] per installare Swift Mailer. L'invio di e-mail tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e <span class="auto-style2">Swift\_Message</span>, l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift\_Mailer::send</span>.
+Per inviare un messaggio di posta elettronica tramite l'API SMTP di SendGrid, usare *Swift Mailer*, una libreria basata su componenti per l'invio di messaggi di posta elettronica da applicazioni PHP. Per scaricare la libreria *Swift Mailer*, accedere alla pagina [http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0. Usare [Composer] per installare Swift Mailer. L'invio di e-mail tramite la libreria prevede la creazione di istanze delle classi <span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> e <span class="auto-style2">Swift\_Message</span>, l'impostazione delle proprietà appropriate e la chiamata del metodo <span class="auto-style2">Swift\_Mailer::send</span>.
 
     <?php
      include_once "vendor/autoload.php";

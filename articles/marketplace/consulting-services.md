@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312084"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950407"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Servizi di consulenza in Azure Marketplace
 I Servizi di consulenza in Azure Marketplace consentono ai partner Microsoft di connettere i clienti con servizi per supportare ed estendere l'uso di Azure. Azure Marketplace supporta l'elenco delle offerte di servizi di consulenza dai partner System Integrator (SI) di Microsoft. 
 
-Queste offerte dei servizi di consulenza sono impegni specifici del cliente. Hanno ambito e durata fissi, possono essere a prezzo fisso o gratuite e avere un risultato definito. I potenziali clienti possono facilmente chiedere di essere contattati dai partner. I partner ricevono una notifica nel sistema CRM e cercano di rispondere alle richieste entro 48 ore.
+Queste offerte dei servizi di consulenza sono impegni specifici del cliente. Gli editori hanno la possibilità di determinare il tipo di elenco con ambito e durata predefiniti, a prezzo fisso o gratuito e risultati finali predefiniti per il cliente. I partner ricevono una notifica nel sistema CRM e cercano di rispondere alle richieste entro 48 ore.
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Servizi di consulenza in Azure Marketplace e AppSource Storefront
 Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e prodotti cloud Microsoft per consentire ai clienti di trovare la soluzione di cui hanno bisogno. Ogni vetrina offre specifiche opzioni di pubblicazione che consentono agli editori di sfruttare al massimo l'investimento nella pubblicazione, come illustrato in sintesi nella tabella seguente:
@@ -37,7 +37,8 @@ Le vetrine del marketplace sono organizzate in base a gruppi di destinatari e pr
 |In Esperienza di prodotto      |Portale di gestione di Azure|Office 365, Dynamics 365, app client di Office| 
 |Altri      |Pubblicazione locale tramite Azure Stack|Servizi di consulenza per Dynamics e Power BI|
 
-I servizi di consulenza in Microsoft Azure Marketplace devono sfruttare le offerte rivolte a un pubblico tecnico focalizzato sulle soluzioni e i servizi tecnici di Azure.
+>[!Note]
+>I servizi di consulenza in Microsoft Azure Marketplace devono sfruttare le offerte rivolte a un pubblico tecnico focalizzato *sulle soluzioni e i servizi tecnici di Azure*.
 
 
 Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI sono idonee a essere inserite in AppSource. Per altre informazioni, vedere [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) (Linee guida all'inserzione di servizi di consulenza in Microsoft AppSource). 
@@ -47,7 +48,7 @@ Le offerte di servizio basate su Microsoft Dynamics 365, Office 365 e Power BI s
 
 ## <a name="eligible-partners-and-supported-countries"></a>Partner idonei e Paesi supportati
 
-È anche necessario che i partner abbiano **competenze Silver o Gold** nell'area pertinente per il servizio. Le competenze idonee sono elencate nella tabella seguente:
+I partner devono anche avere **competenze Silver o Gold** nell'area pertinente al servizio offerto. Le competenze idonee sono elencate nella tabella seguente:
 
 |Competenza  |Area soluzione  |
 |---------|---------|
@@ -71,8 +72,16 @@ I partner integratori di sistemi possono inviare offerte di servizi di consulenz
 
 I servizi di consulenza in Azure Marketplace verranno lanciati prima in Australia, Canada, Regno Unito e Stati Uniti. I cataloghi per gli altri paesi verranno attivati dopo che i partner avranno inviato e Microsoft avrà approvato un numero significativo e una selezione accattivante di offerte di servizi.
 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Effettuare la registrazione ai servizi di consulenza in Azure Marketplace
+Iniziare effettuando la registrazione ai servizi di consulenza in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Gli editori possono fare riferimento a [Diventare un editore nel Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) per un elenco di controllo completo dei requisiti di registrazione. 
+
+**Che cosa prevedere dopo la registrazione** il Team di Onboarding si metterà in contatto entro 1-3 giorni lavorativi con un messaggio di benvenuto che include le informazioni di accesso al portale Cloud Partner. Il [portale Cloud Partner](https://cloudpartner.azure.com) è il portale di inserzione delle offerte in cui gli editori inviano informazioni di presentazione e invii. 
+
+>[!Note]
+>I partner devono registrarsi una sola volta per diventare un editore. Dopo avere ricevuto il messaggio di benvenuto e un account di accesso al portale Cloud Partner, gli editori non devono ripetere la registrazione per poter pubblicare tipi di inserzioni diversi. 
+
 ## <a name="prepare-your-publishing-artifacts"></a>Preparare gli artefatti di pubblicazione
-Ancora di prima di dare un nome al servizio, è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 
+Ancora prima della registrazione è possibile iniziare a raccogliere e preparare il contenuto che consentirà di specificare chiaramente il valore del servizio e della soluzione per il cliente di destinazione. 
 
 |Configurazione per i nuovi autori  |
 |---------|
@@ -142,3 +151,12 @@ Durante la revisione delle descrizioni e dei riepiloghi delle offerte, il team a
 |Workshop    |   Includere un'agenda dettagliata giornaliera, settimanale o mensile, in base alla durata dell'offerta. Descrivere in modo articolato gli obiettivi di apprendimento o altri risultati finali del workshop     |   Ottimizzare il riepilogo dell'offerta con le principali parole chiave dell'ottimizzazione motore di ricerca      |
 
 Nel portale Cloud Partner è possibile aggiungere la formattazione all'inserzione usando [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown), un linguaggio di sviluppo leggero che consente di creare facilmente inserzioni eleganti. 
+
+**Note di Markdown di esempio**
+*   Aggiungere * all'inizio e alla fine del blocco di copiam senza spazi, per creare il corsivo (ad es: *content*)
+* Includere un'interruzione di riga dopo i due punti ":"
+*   Spazio dopo "*" per gli elenchi puntati (ad es: *(space)Content)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>spazio per l'intestazione (ad es: ###(space)Agenda/Deliverables)
+*   Interruzione di riga dopo l'intestazione
+*   * * = bold (senza spazi) (ad es: **No Space**) •   Riepilogo corsivo dell'offerta •   Agenda e risultati finali è un'intestazione
+

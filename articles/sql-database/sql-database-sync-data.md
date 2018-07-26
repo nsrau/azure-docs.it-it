@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/01/2018
+ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342658"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069387"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -24,6 +24,16 @@ La sincronizzazione dati SQL è un servizio basato sul database SQL di Azure che
 ## <a name="architecture-of-sql-data-sync"></a>Architettura della sincronizzazione dati SQL
 
 La sincronizzazione dati si basa sul concetto di gruppo di sincronizzazione. Un gruppo di sincronizzazione è un gruppo di database che si vuole sincronizzare.
+
+La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. Uno dei database nel gruppo di sincronizzazione viene definito come database hub. Il resto dei database sono database membri. La sincronizzazione si verifica solo tra l'hub e i singoli membri.
+-   Il **database hub** deve essere un database SQL di Azure.
+-   I **database membri** possono essere database SQL, database di SQL Server locali o istanze di SQL Server in macchine virtuali di Azure.
+-   Il **database di sincronizzazione** contiene i metadati e il log per la sincronizzazione dati. Il database di sincronizzazione deve essere un database SQL di Azure posizionato nella stessa area del database hub. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
+
+> [!NOTE]
+> Se si usa un database locale come database membro, è necessario [installare e configurare un agente di sincronizzazione locale](sql-database-get-started-sql-data-sync.md#add-on-prem).
+
+![Sincronizzare i dati tra database](media/sql-database-sync-data/sync-data-overview.png)
 
 Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
@@ -35,16 +45,6 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 -   I **criteri di risoluzione dei conflitti** sono criteri a livello di gruppo e le impostazioni possono essere *Priorità hub* o *Priorità client*.
 
-La sincronizzazione dati usa una topologia hub-spoke per sincronizzare i dati. Uno dei database nel gruppo viene definito come database hub. Il resto dei database sono database membri. La sincronizzazione si verifica solo tra l'hub e i singoli membri.
--   Il **database hub** deve essere un database SQL di Azure.
--   I **database membri** possono essere database SQL, database di SQL Server locali o istanze di SQL Server in macchine virtuali di Azure.
--   Il **database di sincronizzazione** contiene i metadati e il log per la sincronizzazione dati. Il database di sincronizzazione deve essere un database SQL di Azure posizionato nella stessa area del database hub. Il database di sincronizzazione viene creato dal cliente ed è di sua proprietà.
-
-> [!NOTE]
-> Se si usa un database locale come database membro, è necessario [installare e configurare un agente di sincronizzazione locale](sql-database-get-started-sql-data-sync.md#add-on-prem).
-
-![Sincronizzare i dati tra database](media/sql-database-sync-data/sync-data-overview.png)
-
 ## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
 
 La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
@@ -55,7 +55,7 @@ La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mante
 
 -   **Applicazioni distribuite a livello globale:** molte aziende sono estese a più aree, a volte anche in paesi diversi. Per ridurre al minimo la latenza di rete, è consigliabile posizionare i dati in un'area vicina. Con sincronizzazione dati è possibile mantenere facilmente sincronizzati i database in aree in tutto il mondo.
 
-La sincronizzazione dei dati non è la soluzione ideale per gli scenari seguenti:
+La sincronizzazione dei dati non è la soluzione preferita per gli scenari seguenti:
 
 | Scenario | Alcune soluzioni raccomandate |
 |----------|----------------------------|

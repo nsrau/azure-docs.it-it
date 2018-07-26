@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261577"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049453"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central
 
@@ -82,7 +82,8 @@ Impostazioni attivazione/disattivazione
 | type            | Nome visualizzato | Nome campo | Tipo di dati |
 | --------------- | ------------ | ---------- | --------- |
 | Proprietà dispositivo | Numero stampo   | dieNumber  | number    |
-| Text            | Località     | location   | N/D       |
+| Proprietà dispositivo | Percorso dispositivo   | location  | location    |
+| Text            | Prodotto in     | manufacturedIn   | N/D       |
 
 
 ### <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
@@ -91,8 +92,8 @@ Nell'applicazione Azure IoT Central aggiungere un dispositivo reale dal modello 
 
 ## <a name="prepare-the-devkit-device"></a>Preparare il dispositivo DevKit
 
-> [!TIP]
-> Per il materiale sussidiario per la risoluzione dei problemi del dispositivo DevKit, vedere la [guida introduttiva a IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/).
+> [!NOTE]
+> Se il dispositivo è stato usato in precedenza e le credenziali Wi-Fi sono state salvate, per riconfigurare il dispositivo in modo che usi una rete Wi-Fi, una stringa di connessione o una misura di telemetria differente, premere contemporaneamente i pulsanti **A** e **B** sulla lavagna. Se non funziona, premere il pulsante di **reimpostazione** e riprovare.
 
 Per preparare il dispositivo DevKit:
 
@@ -127,7 +128,7 @@ Per preparare il dispositivo DevKit:
     - la password della rete Wi-Fi 
     - CODICE PIN visualizzato sul display del dispositivo 
     - la stringa di connessione del dispositivo. 
-      È possibile trovare la stringa di connessione su `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (in alto a destra) 
+      È possibile trovare la stringa di connessione su \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (in alto a destra) 
     - Selezionare tutte le misure di telemetria disponibili. 
 
 1. Dopo aver scelto di **configurare il dispositivo**, viene visualizzata questa pagina:
@@ -136,8 +137,7 @@ Per preparare il dispositivo DevKit:
 
 1. Premere il pulsante di **reimpostazione** sul dispositivo.
 
-> [!NOTE]
-> Per riconfigurare il dispositivo in modo che usi una rete Wi-Fi, una stringa di connessione o una misura di telemetria differente, premere contemporaneamente i pulsanti **A** e **B** sulla lavagna. Se non funziona, premere il pulsante di **reimpostazione** e riprovare. 
+
 
 ## <a name="view-the-telemetry"></a>Visualizzare i dati di telemetria
 
@@ -153,19 +153,24 @@ Scuotere il dispositivo aumenta il numero di proprietà segnalate inviate. Il di
 
 1. Usare **Device Explorer** per passare alla pagina delle **misure** per il dispositivo MXChip reale aggiunto:
 
-    ![Passare al dispositivo reale](media/howto-connect-devkit/realdevice.png)
+    ![Passare al dispositivo reale](media/howto-connect-devkit/realdevicenew.png)
 
 1. Nella pagina delle **misure** è possibile visualizzare i dati di telemetria provenienti dal dispositivo MXChip:
 
-    ![Visualizzare i dati di telemetria dal dispositivo reale](media/howto-connect-devkit/realtelemetry.png)
+    ![Visualizzare i dati di telemetria dal dispositivo reale](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. Nella pagina delle **proprietà** è possibile visualizzare l'ultimo numero stampo segnalato dal dispositivo:
+1. Nella pagina delle **proprietà** è possibile visualizzare l'ultimo numero stampo e il percorso dispositivo segnalato dal dispositivo:
 
-    ![Visualizzare le proprietà del dispositivo](media/howto-connect-devkit/deviceproperties.png)
+    ![Visualizzare le proprietà del dispositivo](media/howto-connect-devkit/devicepropertynew.png)
 
 1. Nella pagina delle **impostazioni** è possibile aggiornare le impostazioni per il dispositivo MXChip:
 
-    ![Visualizzare le impostazioni del dispositivo](media/howto-connect-devkit/settings.png)
+    ![Visualizzare le impostazioni del dispositivo](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. Nella pagina **Dashboard** è possibile visualizzare la mappa della posizione
+
+    ![Visualizzare il dashboard dispositivo](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>Scaricare il codice sorgente
 

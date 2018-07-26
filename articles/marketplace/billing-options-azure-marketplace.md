@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b5a50b01da220f8da2f518895a61221f80d098f6
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826046"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38635142"
 ---
 # <a name="billing-options"></a>Opzioni di fatturazione  
 
@@ -67,7 +67,7 @@ Un importante vantaggio derivante dall'uso di opzioni di offerte con transazione
 Nello scenario, Microsoft addebita e riscuote per conto dell'utente. La fatturazione da parte di Microsoft elimina il requisito di stabilire un accordo di approvvigionamento diretto con il cliente. La fatturazione singola può risparmiare tempo e risorse. La fatturazione singola potrebbe aiutare a concentrarsi sulle vendite di destinazione, anziché sulla riscossione delle fatture. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Se si è un cliente Enterprise Agreement (EA) Microsoft, è possibile usare il contratto EA per pagare per i prodotti Microsoft. È possibile fatturare i prodotti tra cui l'utilizzo di Azure. L'uso di EA per il pagamento è stato pensato per le organizzazioni che vogliono concedere licenze software e servizi cloud per un periodo di tre o più anni. È possibile distribuire i pagamenti anziché effettuare un unico pagamento iniziale. Quando si usa il tipo di transazione con pagamento in base al consumo, la fatturazione relativa ai costi di licenza software segue il ciclo di fatturazione trimestrale delle eccedenze del contratto EA.  
+Se si è un cliente Enterprise Agreement (EA) Microsoft, è possibile usare il contratto EA per pagare per i prodotti Microsoft. Potrebbero essere addebitati alcuni prodotti, tra cui l'uso di Azure. L'uso di EA per il pagamento è stato pensato per le organizzazioni che vogliono concedere licenze software e servizi cloud per un periodo di tre o più anni. È possibile distribuire i pagamenti anziché effettuare un unico pagamento iniziale. Quando si usa il tipo di transazione con pagamento in base al consumo, la fatturazione relativa ai costi di licenza software segue il ciclo di fatturazione trimestrale delle eccedenze del contratto EA.  
 
 ### <a name="monetary-commitment"></a>Impegno monetario  
 Se si è un cliente EA, è possibile aggiungere Azure al contratto. È possibile aggiungere Azure al contratto definendo un impegno monetario iniziale per Azure. L'impegno monetario verrà usato nel corso dell'anno. L'impegno include qualsiasi combinazione di utilizzo della vasta gamma di servizi in Azure.  

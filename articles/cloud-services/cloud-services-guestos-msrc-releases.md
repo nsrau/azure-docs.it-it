@@ -12,17 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737538"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902164"
 ---
 # <a name="azure-guest-os"></a>Sistema operativo guest di Azure
 La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Center (MSRC) applicati al sistema operativo guest di Azure. Eseguire ricerche in questo articolo per determinare se un aggiornamento specifico è applicabile al sistema operativo guest in uso. Gli aggiornamento vengono sempre riportati per la [famiglia][family-explain] specifica in cui sono stati introdotti.
+
+## <a name="june-guest-os"></a>Sistema operativo guest di giugno
+| Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Sicurezza di Windows 10 |5.20 |12 giugno 2018 |
+| Rel 18-06 | [4284867] |Solo sicurezza di Windows |2.75 |12 giugno 2018 |
+| Rel 18-06 | [4284846] |Solo sicurezza di Windows |3.62 |12 giugno 2018 |
+| Rel 18-06 | [4284878] |Solo sicurezza di Windows |4.55 |12 giugno 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 giugno 2018 |
+| Rel 18-06 | [4287903] |Lampeggiante |3.62, 4.75, 5.20 |12 giugno 2018 |
+| N/D | [4103718] |Rollup del mese di maggio non correlato alla sicurezza |2.75 |8 maggio 2018 |
+| N/D | [4103730] |Rollup del mese di maggio non correlato alla sicurezza |3.62 |8 maggio 2018 |
+| N/D | [4103725] |Rollup del mese di maggio non correlato alla sicurezza |4.55 |8 maggio 2018 |
+| N/D | [4040980], [4040977] |Rollup .NET del mese di settembre 2017 non correlato alla sicurezza |2.75 |14 novembre 2017 |
+| N/D | [4095874] |Versione .NET 3.5 di maggio non correlata alla sicurezza |2.75 |8 maggio 2018 |
+| N/D | [4096495] |Versione .NET 4.x di maggio non correlata alla sicurezza |2.75 |8 maggio 2018 |
+| N/D | [4040975] |Rollup .NET del mese di settembre 2017 non correlato alla sicurezza |3.62 |14 novembre 2017 |
+| N/D | [4095872] |Versione .NET 3.5 di maggio non correlata alla sicurezza |3.62 |8 maggio 2018 |
+| N/D | [4096494] |Versione .NET 4.x di maggio non correlata alla sicurezza |3.62 |8 maggio 2018 |
+| N/D | [4096416] |Versione .NET 4.5x di maggio non correlata alla sicurezza |3.62 |8 maggio 2018 |
+| N/D | [4040974], [4040972] |Rollup .NET del mese di settembre 2017 non correlato alla sicurezza |4.55 |14 novembre 2017 |
+| N/D | [4043763] |Rollup .NET del mese di ottobre 2017 non correlato alla sicurezza |4.55 |12 settembre 2017 |
+| N/D | [4095876] |Versione .NET 4.x di maggio non correlata alla sicurezza |4.55 |8 maggio 2018 |
+| N/D | [4096417] |Versione .NET 4.5x di maggio non correlata alla sicurezza |4.55 |8 maggio 2018 |
+| N/D | [4132216] |SSU di maggio |5.20 |8 maggio 2018 |
 
 ## <a name="may-guest-os"></a>Sistema operativo guest di maggio
 | Categoria di prodotto | Articolo della Knowledge Base padre | Descrizione delle vulnerabilità | Sistema operativo guest | Data della prima introduzione |
@@ -648,6 +673,32 @@ La tabella seguente mostra gli aggiornamenti di Microsoft Security Response Cent
 | N/D |[3007054] |L'opzione di stampa protetta da PIN viene sempre visualizzata quando si stampa un documento in un'applicazione di Windows Store in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2999802] |In Windows vengono stampate linee a tinta unita invece che linee tratteggiate |4.15, 3.22, 2.34 |13 gennaio 2015 |
 | N/D |[2896881] |È necessario molto tempo per l'accesso quando si usa il comando VBScript AddPrinterConnection per eseguire il mapping delle stampanti per gli utenti durante il processo di accesso in Windows |4.15, 3.22, 2.34 |13 gennaio 2015 |
+
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710407"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38308032"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Creare un'app Web ASP.NET con criteri di iscrizione, accesso, modifica del profilo e reimpostazione della password di Azure Active Directory B2C
 
@@ -31,19 +31,21 @@ Questa esercitazione illustra come:
 - È necessario connettere il tenant B2C a un account Azure. È possibile creare un account Azure gratuito [qui](https://azure.microsoft.com/).
 - Per visualizzare e modificare il codice di esempio, è necessario [Microsoft Visual Studio](https://www.visualstudio.com/) o un programma simile.
 
-## <a name="create-an-azure-ad-b2c-directory"></a>Creare una directory Azure AD B2C
+## <a name="create-an-azure-ad-b2c-tenant"></a>Creare un tenant di Azure AD B2C
 
-Prima di poter usare Azure AD B2C, è necessario creare una directory, o tenant. Una directory è un contenitore per utenti, app, gruppi e altro ancora. Se non è già stato fatto, creare una directory B2C prima di continuare con questa guida.
+Prima di poter usare Azure AD B2C, è necessario creare un tenant. Un tenant è un contenitore per utenti, app, gruppi e altro ancora. Se non è già stato fatto, creare un tenant B2C prima di continuare con questa guida.
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
 > [!NOTE]
 > 
-> È necessario connettere il tenant B2C alla sottoscrizione di Azure. Dopo aver selezionato **Crea**, selezionare l'opzione **Collega un tenant Azure AD B2C esistente alla sottoscrizione di Azure** e quindi selezionare il tenant che si vuole associare nell'elenco a discesa **Tenant Azure AD B2C**.
+> È necessario connettere il tenant Azure AD B2C alla sottoscrizione di Azure. Dopo aver selezionato **Crea**, selezionare l'opzione **Collega un tenant Azure AD B2C esistente alla sottoscrizione di Azure** e quindi selezionare il tenant che si vuole associare nell'elenco a discesa **Tenant Azure AD B2C**.
 
 ## <a name="create-and-register-an-application"></a>Creare e registrare un'applicazione
 
-È quindi necessario creare e registrare l'app nella directory B2C. In questo modo, si forniscono ad Azure AD B2C le informazioni necessarie per comunicare in modo sicuro con l'app. 
+È quindi necessario creare e registrare l'app nel tenant Azure AD B2C. In questo modo, si forniscono ad Azure AD B2C le informazioni necessarie per comunicare in modo sicuro con l'app. 
+
+Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo. A questo punto, dovrebbe essere in uso il tenant creato in precedenza.
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 

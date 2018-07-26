@@ -7,17 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833764"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059223"
 ---
 # <a name="derive-column-by-example-transformation"></a>Trasformazione Deriva colonna dall'esempio
 
@@ -108,18 +108,18 @@ Numero di esempi necessari per questo caso: 3
 
 |Input|Output|
 |:-----|:-----|
-|REINDEER CT & DEAD END; NEW HANOVER; Stazione 332; 12-10-2015 @ 17:10:52;|**New Hanover**|
-|BRIAR PATH & WHITEMARSH LN;  HATFIELD TOWNSHIP; Stazione 345; 12-10-2015 @ 17:29:21;|Hatfield Township|
-|HAWS AVE; NORRISTOWN; 12-10-2015 @ 14:39:21-Stazione:STA27;|**Norristown**|
-|AIRY ST & SWEDE ST;  NORRISTOWN; Stazione 308A; 12-10-2015 @ 16:47:36;|**Norristown**|
-|CHERRYWOOD CT & DEAD END;  LOWER POTTSGROVE; Stazione 329; 12-10-2015 @ 16:56:52;|Lower Pottsgrove|
-|CANNON AVE & W 9TH ST;  LANSDALE; Stazione 345; 12-10-2015 @ 15:39:04;|Lansdale|
-|LAUREL AVE & OAKDALE AVE;  HORSHAM; Stazione 352; 12-10-2015 @ 16:46:48;|Horsham|
-|COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Stazione 336; 12-10-2015 @ 16:17:05;|Skippack|
-|MAIN ST & OLD SUMNEYTOWN PIKE; LOWER SALFORD; Stazione 344; 12-10-2015 @ 16:51:42;|Lower Salford|
-|BLUEROUTE & RAMP I476 NB TO CHEMICAL RD; PLYMOUTH; 12-10-2015 @ 17:35:41;|Plymouth|
-|RT202 PKWY & KNAPP RD; MONTGOMERY; 12-10-2015 @ 17:33:50;|Montgomery|
-|BROOK RD & COLWELL LN; PLYMOUTH; 12-10-2015 @ 16:32:10;|Plymouth|
+|REINDEER CT & DEAD END; NEW HANOVER; Stazione 332; 12-10-2015 \@ 17:10:52;|**New Hanover**|
+|BRIAR PATH & WHITEMARSH LN;  HATFIELD TOWNSHIP; Stazione 345; 12-10-2015 \@ 17:29:21;|Hatfield Township|
+|HAWS AVE; NORRISTOWN; 12-10-2015 \@ 14:39:21-Stazione:STA27;|**Norristown**|
+|AIRY ST & SWEDE ST;  NORRISTOWN; Stazione 308A; 12-10-2015 \@ 16:47:36;|**Norristown**|
+|CHERRYWOOD CT & DEAD END;  LOWER POTTSGROVE; Stazione 329; 12-10-2015 \@ 16:56:52;|Lower Pottsgrove|
+|CANNON AVE & W 9TH ST;  LANSDALE; Stazione 345; 12-10-2015 \@ 15:39:04;|Lansdale|
+|LAUREL AVE & OAKDALE AVE;  HORSHAM; Stazione 352; 12-10-2015 \@ 16:46:48;|Horsham|
+|COLLEGEVILLE RD & LYWISKI RD;  SKIPPACK; Stazione 336; 12-10-2015 \@ 16:17:05;|Skippack|
+|MAIN ST & OLD SUMNEYTOWN PIKE; LOWER SALFORD; Stazione 344; 12-10-2015 \@ 16:51:42;|Lower Salford|
+|BLUEROUTE & RAMP I476 NB TO CHEMICAL RD; PLYMOUTH; 12-10-2015 \@ 17:35:41;|Plymouth|
+|RT202 PKWY & KNAPP RD; MONTGOMERY; 12-10-2015 \@ 17:33:50;|Montgomery|
+|BROOK RD & COLWELL LN; PLYMOUTH; 12-10-2015 \@ 16:32:10;|Plymouth|
 
 ### <a name="s3-date-format-manipulation-during-string-extraction"></a>S3. Modifica del formato della data durante l'estrazione della stringa
 
@@ -127,14 +127,14 @@ Numero di esempi necessari per questo caso: 1
 
 |Input|Output|
 |:-----|:-----|
-|MONTGOMERY AVE & WOODSIDE RD;  LOWER MERION; Stazione 313; 12-11-2015 @ 04:11:35;|**12 novembre 2015 4:00**|
-|DREYCOTT LN & W LANCASTER AVE;  LOWER MERION; Stazione 313; 12-11-2015 @ 01:29:52;|12 novembre 2015 1:00|
-|E LEVERING MILL RD & CONSHOHOCKEN STATE RD; LOWER MERION; 12-11-2015 @ 07:29:58;|12 novembre 2015 7:00|
-|PENN VALLEY RD & MANOR RD;  LOWER MERION; Station 313; 12-10-2015 @ 20:53:30;|12 ottobre 2015 20:00|
-|BELMONT AVE & OVERHILL RD; LOWER MERION; 12-10-2015 @ 23:02:27;|12 ottobre 2015 23:00|
-|W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 12-10-2015 @ 19:25:22;|12 ottobre 2015 19:00|
-|ROSEMONT AVE & DEAD END;  LOWER MERION; Stazione 313; 12-10-2015 @ 18:43:07;|12 ottobre 2015 18:00|
-|AVIGNON DR & DEAD END; LOWER MERION; 12-10-2015 @ 20:01:29-Station:STA24;|12 ottobre 2015 20:00|
+|MONTGOMERY AVE & WOODSIDE RD;  LOWER MERION; Stazione 313; 12-11-2015 \@ 04:11:35;|**12 novembre 2015 4:00**|
+|DREYCOTT LN & W LANCASTER AVE;  LOWER MERION; Stazione 313; 12-11-2015 \@ 01:29:52;|12 novembre 2015 1:00|
+|E LEVERING MILL RD & CONSHOHOCKEN STATE RD; LOWER MERION; 12-11-2015 \@ 07:29:58;|12 novembre 2015 7:00|
+|PENN VALLEY RD & MANOR RD;  LOWER MERION; Station 313; 12-10-2015 \@ 20:53:30;|12 ottobre 2015 20:00|
+|BELMONT AVE & OVERHILL RD; LOWER MERION; 12-10-2015 \@ 23:02:27;|12 ottobre 2015 23:00|
+|W MONTGOMERY AVE & PENNSWOOD RD; LOWER MERION; 12-10-2015 \@ 19:25:22;|12 ottobre 2015 19:00|
+|ROSEMONT AVE & DEAD END;  LOWER MERION; Stazione 313; 12-10-2015 \@ 18:43:07;|12 ottobre 2015 18:00|
+|AVIGNON DR & DEAD END; LOWER MERION; 12-10-2015 \@ 20:01:29-Station:STA24;|12 ottobre 2015 20:00|
 
 ### <a name="s4-concatenating-strings"></a>S4. Concatenazione di stringhe
 
@@ -391,5 +391,5 @@ Il mapping di un periodo di tempo è stato eseguito tramite trasformazioni diver
 ### <a name="conditional-transformations"></a>Trasformazioni condizionali
 In alcuni casi, è impossibile trovare una trasformazione che soddisfi gli esempi specificati. In questi casi, la trasformazione per derivare una colonna dall'esempio tenta di raggruppare gli input in base a un modello e di apprendere trasformazioni diverse per ogni gruppo. Questa operazione si chiama **trasformazione condizionale**. La **trasformazione condizionale** viene tentata solo per le trasformazioni con una sola colonna di input. 
 
-### <a name="reference"></a>Riferimenti
+### <a name="reference"></a>riferimento
 Altre informazioni sulla tecnologia di trasformazione della stringa dall'esempio sono reperibili in [questa pubblicazione](https://www.microsoft.com/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

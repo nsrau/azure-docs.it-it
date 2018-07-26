@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 15f21fd03b0373c189f3b6c4972280d128024217
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: d7cae11314876bf07b9fcf3d3632a9f42b378626
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943522"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38945603"
 ---
 Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono un rapporto memoria-CPU elevato, ideale per server di database relazionali, cache di medie e grandi dimensioni e analisi in memoria. Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, oltre che sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -31,6 +31,10 @@ Le dimensioni delle macchine virtuali con ottimizzazione per la memoria offrono 
 ## <a name="esv3-series"></a>Serie Esv3 
 
 ACU: 160-190 <sup>1</sup>
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
 
 Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz e usare Archiviazione Premium. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
@@ -57,6 +61,10 @@ Le istanze della serie ESv3 sono basate sul processore Intel Xeon® E5-2673 v4 (
 
 ACU: 160 - 190 <sup>1</sup>
 
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
+
 Le istanze della serie Ev3 sono basate sul processore Intel Xeon® E5-2673 v4 (Broadwell) a 2,3 GHz e con la tecnologia Intel Turbo Boost 2.0 possono arrivare fino a 3,5 GHz. Le istanze della serie Ev3 sono ideali per applicazioni aziendali a uso intensivo di memoria.
 
 L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare dischi di archiviazione Premium, usare le dimensioni ESv3. I prezzi e i contatori di fatturazione per le dimensioni ESv3 sono uguali a quelli della serie Ev3. 
@@ -81,22 +89,28 @@ L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtu
 
 ACU: 160-180 <sup>1</sup>
 
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
+
+Acceleratore di scrittura: [supportato](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
 | Dimensione            | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10.000/100 (793)  | 5.000/125 | 4/2.000 |
-| M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20.000/200 (1.587) | 10.000/250 | 8/4.000 |
+| Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218,75 | 256  | 8  | 10.000/100 (793)  | 5.000/125 | 4/2.000 |
+| Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437,5  | 512  | 16 | 20.000/200 (1.587) | 10.000/250 | 8/4.000 |
 | Standard_M32ts | 32 | 192    | 1.024 | 32 | 40.000/400 (3.174) | 20.000/500 | 8 / 8000 |
 | Standard_M32ls | 32 | 256    | 1.024 | 32 | 40.000/400 (3.174) | 20.000/500 | 8 / 8000 |
-| M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1.024 | 32 | 40.000/400 (3.174) | 20.000/500 | 8 / 8000 |
+| Standard_M32ms&nbsp;<sup>3</sup>   | 32 | 875    | 1.024 | 32 | 40.000/400 (3.174) | 20.000/500 | 8 / 8000 |
 | Standard_M64s  | 64 | 1.024   | 2.048 | 64 | 80.000/800 (6.348)| 40.000/1.000 | 8 / 16000          |
-|Standard_M64ls  | 64 | 512    | 2.048 | 64 | 80.000/800 (6.348) | 40.000/1.000 | 8 / 16000 |
-| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1.792 | 2.048 | 64 | 80.000/800 (6.348)| 40.000/1.000 | 8/160,00          |
+| Standard_M64ls  | 64 | 512    | 2.048 | 64 | 80.000/800 (6.348) | 40.000/1.000 | 8 / 16000 |
+| Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1.792 | 2.048 | 64 | 80.000/800 (6.348)| 40.000/1.000 | 8 / 16000          |
 | Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2.048        | 4.096  | 64 | 160.000 / 1.600 (12.696) | 80.000/2.000                            | 8 / 30000          |
 | Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3.892  | 4.096 | 64 | 160.000 / 1.600 (12.696) | 80.000/2.000                            | 8 / 30000          |
-| Standard_M64   | 64  | 1.024 | 7.168  | 64 | 80.000/800 (1.228) | 40.000/1000 | 8 / 16000 |
-| Standard_M64m  | 64  | 1.792 | 7.168  | 64 | 80.000/800 (1.228) | 40.000/1000 | 8 / 16000 |
-| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14.336 | 64 | 250.000/1.600 (2.456) | 80.000/2000 | 8/32000 |
-| Standard_M128m&nbsp;<sup>2 | 128 | 3.892 | 14.336 | 64 | 250.000/1.600 (2.456) | 80.000/2000 | 8/32000 |
+| Standard_M64   | 64  | 1.024 | 7.168  | 64 | 80.000/800 (1.228) | 40.000/1.000 | 8 / 16000 |
+| Standard_M64m  | 64  | 1.792 | 7.168  | 64 | 80.000/800 (1.228) | 40.000/1.000 | 8 / 16000 |
+| Standard_M128&nbsp;<sup>2  | 128 | 2.048 | 14.336 | 64 | 250.000/1.600 (2.456) | 80.000/2.000 | 8 / 32.000 |
+| Standard_M128m&nbsp;<sup>2 | 128 | 3.892 | 14.336 | 64 | 250.000/1.600 (2.456) | 80.000/2.000 | 8 / 32.000 |
 
 
 
@@ -112,6 +126,10 @@ ACU: 160-180 <sup>1</sup>
 ## <a name="gs-series"></a>Serie GS 
 
 ACU: 180 - 240 <sup>1</sup>
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -133,6 +151,10 @@ ACU: 180 - 240 <sup>1</sup>
 
 ACU: 180 - 240
 
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
+
 | Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8/8 x 500                       | 2 / 2000                     |
@@ -148,6 +170,10 @@ ACU: 180 - 240
 ## <a name="dsv2-series-11-15"></a>DSv2-series 11-15
 
 ACU: 210 - 250 <sup>1</sup>
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -171,6 +197,10 @@ ACU: 210 - 250 <sup>1</sup>
 ## <a name="dv2-series-11-15"></a>Dv2-series 11-15
 
 ACU: 210 - 250
+
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
 
 | Dimensione              | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

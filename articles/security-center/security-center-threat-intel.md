@@ -3,23 +3,23 @@ title: Intelligence per le minacce nel Centro sicurezza di Azure | Microsoft Doc
 description: Informazioni su come usare la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per identificare le potenziali minacce nelle VM e nei computer.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 9654c25bf6b51d48dc195d6a536b61312fdcbeff
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/10/2018
+ms.author: terrylan
+ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774574"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38561365"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Intelligence per le minacce nel Centro sicurezza di Azure
 Questo articolo illustra come usare la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
@@ -43,20 +43,24 @@ Uno dei passaggi del [processo di risposta agli eventi imprevisti per la sicurez
 - Identificare i sistemi che sono stati compromessi.
 - Identificare i file a cui è stato eseguito l'accesso e determinarne il grado di riservatezza.
 
-È possibile usare le informazioni dell'intelligence per le minacce nel Centro sicurezza per semplificare queste attività. 
+È possibile usare le informazioni dell'intelligence per le minacce nel Centro sicurezza per semplificare queste attività.
 
 ## <a name="access-the-threat-intelligence"></a>Accedere all'intelligence per le minacce
 Per visualizzare l'intelligence per le minacce corrente per il proprio ambiente, è prima di tutto necessario selezionare l'area di lavoro in cui risiedono le informazioni. Se non sono presenti più aree di lavoro, non viene visualizzato il selettore delle aree di lavoro e si passa direttamente al dashboard **Intelligence per le minacce**. Per accedere al dashboard:
 
 1. Aprire il dashboard **Centro sicurezza**.
 
-2. Nel riquadro sinistro fare clic su **Intelligence per le minacce** in **Rilevamento**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
+2. Nel riquadro sinistro fare clic su **Intelligence per le minacce** in **Protezione dalle minacce**. Si aprirà una mappa.
+
+    ![Mappa di intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel.png)
+
+3. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
 
     ![Dashboard Intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
-    > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure. 
-    > 
+    > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
+    >
 3. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
 
     ![Informazioni di intelligence sulle minacce](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
@@ -97,7 +101,6 @@ In questo articolo si è appreso come usare la funzionalità di intelligence per
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Informazioni su come gestire gli avvisi e rispondere agli eventi imprevisti di sicurezza nel Centro sicurezza.
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
-* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza. 
+* [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
-

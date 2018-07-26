@@ -19,7 +19,7 @@ Quando si usano le impostazioni di base e si seleziona una sola sottoscrizione, 
 La condivisione viene montata come `clouddrive` nella directory `$Home`. Questa azione viene eseguita una sola volta e la condivisione file viene ripetuta automaticamente nelle sessioni successive. 
 
 > [!NOTE]
-> Per la sicurezza, ogni utente deve effettuare il provisioning del proprio spazio di archiviazione.  Per il controllo degli accessi in base al ruolo, gli utenti devono disporre dell'accesso del collaboratore o di quanto indicato in precedenza.
+> Per la sicurezza, ogni utente deve effettuare il provisioning del proprio account di archiviazione.  Per il controllo degli accessi in base al ruolo, gli utenti devono disporre dell'accesso come collaboratore o superiore a livello dell'account di archiviazione.
 
 In Bash la condivisione file contiene anche un'immagine da 5 GB creata per l'utente che rende automaticamente persistenti i dati nella directory `$Home`. 
 
@@ -27,7 +27,7 @@ In Bash la condivisione file contiene anche un'immagine da 5 GB creata per l'ute
 
 Con l'opzione Avanzate è possibile associare risorse esistenti. Al prompt di impostazione dell'archiviazione, selezionare **Mostra impostazioni avanzate** per visualizzare le opzioni aggiuntive. I menu a discesa vengono filtrati in base all'area Cloud Shell assegnata e agli account di archiviazione ridondanti a livello locale o globale.
 
-In Bash le condivisioni file esistenti ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
+Le condivisioni file ricevono un'immagine da 5 GB creata automaticamente per mantenere persistente la directory `$Home`.
 
 ![Impostazione del gruppo di risorse](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

@@ -2,25 +2,25 @@
 title: Integrare Azure Active Directory con il servizio Kubernetes di Azure
 description: Come creare cluster del servizio Kubernetes di Azure abilitati per Azure Active Directory.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 6/17/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7d157d50bbcd25edd9cd6693a71fb04535cbeb79
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937382"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307314"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrare Azure Active Directory con AKS - Anteprima
 
 Il servizio Kubernetes di Azure (AKS) può essere configurato per usare Azure Active Directory per l'autenticazione utente. In questa configurazione, è possibile accedere a un cluster del servizio Kubernetes di Azure tramite il token di autenticazione di Azure Active Directory. Inoltre, gli amministratori di cluster possono configurare il controllo degli accessi in base al ruolo di Kubernetes sulla base delle identità utente o dell'appartenenza a un gruppo della directory.
 
-Questo documento illustra in dettaglio la creazione di tutti i prerequisiti necessari per AKS e Azure AD, la distribuzione di un cluster abilitato per Azure AD e la creazione di un semplice ruolo RBAC nel cluster AKS.
+Questo documento illustra in dettaglio la creazione di tutti i prerequisiti necessari per AKS e Azure AD, la distribuzione di un cluster abilitato per Azure AD e la creazione di un semplice ruolo RBAC nel cluster AKS. Si noti che cluster AKS non abilitati RBAC esistenti non possono essere attualmente aggiornati per usare un ruolo RBAC.
 
 > [!IMPORTANT]
 > L'integrazione di RBAC ed Azure AD per il servizio Kubernetes di Azure (AKS) è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
@@ -59,19 +59,21 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
 4. Tornare all'applicazione di Azure AD, selezionare **Impostazioni** > **Autorizzazioni necessarie** > **Aggiungi** > **Selezionare un'API** > **Microsoft Graph** > **Seleziona**.
 
-  In **Autorizzazioni applicazione** selezionare **Lettura dati directory**.
+  ![Selezionare l'API Graph](media/aad-integration/graph-api.png)
+
+5. In **Autorizzazioni applicazione** selezionare **Lettura dati directory**.
 
   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/read-directory.png)
 
-5. In **Autorizzazioni delegate** selezionare **Accedi e leggi il profilo di un altro utente** e **Lettura dati directory**. Salvare gli aggiornamenti al termine.
+6. In **Autorizzazioni delegate** selezionare **Accedi e leggi il profilo di un altro utente** e **Lettura dati directory**. Salvare gli aggiornamenti al termine.
 
   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/delegated-permissions.png)
 
-6. Selezionare **Chiudi** e **Concedi autorizzazioni** per completare questo passaggio. Questo passaggio avrà esito negativo se l'account corrente non è un amministratore del tenant.
+7. Selezionare **Operazione completata**, scegliere *Microsoft Graph* nell'elenco delle API, quindi selezionare **Concedi autorizzazioni**. Questo passaggio avrà esito negativo se l'account corrente non è un amministratore del tenant.
 
   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/grant-permissions.png)
 
-7. Tornare all'applicazione e prendere nota di **ID applicazione**. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Server application ID`.
+8. Tornare all'applicazione e prendere nota di **ID applicazione**. Quando si distribuisce un cluster AKS abilitato per Azure AD, questo valore viene definito `Server application ID`.
 
   ![Ottenere l'ID applicazione](media/aad-integration/application-id.png)
 
@@ -154,7 +156,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-È anche possibile creare un'associazione di ruolo per tutti i membri di un gruppo di Azure AD. Il manifesto seguente concede a tutti i membri del gruppo `kubernetes-admin` l'accesso amministrativo al cluster.
+È anche possibile creare un'associazione di ruolo per tutti i membri di un gruppo di Azure AD. I gruppi di Azure AD vengono specificati tramite l'ID oggetto del gruppo.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -168,7 +170,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: "kubernetes-admin"
+   name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
 Per altre informazioni sulla protezione di un cluster Kubernetes con RBAC, vedere [Using RBAC Authorization][rbac-authorization] (Uso delle autorizzazioni RBAC).
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 Al termine, il token di autenticazione viene memorizzato nella cache. Verrà richiesto di eseguire di nuovo l'accesso solo dopo la scadenza del token o quando viene ricreato il file di configurazione di Kubernetes.
+
+Se, dopo aver eseguito l'accesso, viene visualizzato un messaggio di errore di autorizzazione, verificare che l'utente con cui si accede non sia un utente Guest in Azure AD (questo è spesso il caso se si usa un account di accesso federato da una directory diversa).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,112 +1,119 @@
 ---
-title: Eseguire script U-SQL in locale con Azure Data Lake U-SQL SDK
-description: Questo articolo descrive come usare Strumenti Azure Data Lake per Visual Studio per eseguire test e debug dei processi U-SQL nella workstation locale.
+title: Eseguire lo script U-SQL di Azure Data Lake sul computer locale | Microsoft Docs
+description: Informazioni su come usare Strumenti Azure Data Lake per Visual Studio per eseguire i processi U-SQL sul computer locale.
 services: data-lake-analytics
-ms.service: data-lake-analytics
-author: mumian
-ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+documentationcenter: ''
+author: yanancai
+manager: ''
+editor: ''
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
-ms.topic: conceptual
-ms.date: 11/15/2016
-ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.service: data-lake-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 07/03/2018
+ms.author: yanacai
+ms.openlocfilehash: a7f43c7e17f36d9b4e0767744eee9604c2628ea8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736004"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888967"
 ---
-# <a name="runing-u-sql-scripts-locally"></a>Eseguire gli script U-SQL in locale
+# <a name="run-u-sql-script-on-your-local-machine"></a>Eseguire lo script U-SQL sul computer locale
 
-Anziché eseguire U-SQL in Azure, è possibile eseguire U-SQL in un computer locale. Questo scenario viene definito "esecuzione locale". 
+Quando si sviluppa uno script U-SQL, è comune eseguire lo script U-SQL in locale, perché questa operazione consente di risparmiare tempo e denaro. Strumenti Azure Data Lake per Visual Studio supporta l'esecuzione degli script U-SQL sul computer locale. 
 
-L'esecuzione locale di U-SQL è disponibile in questi strumenti:
-* Strumenti Azure Data Lake per Visual Studio
-* Azure Data Lake U-SQL SDK
+## <a name="basic-concepts-for-local-run"></a>Concetti di base per l'esecuzione locale
 
-## <a name="understand-the-data-root-folder-and-the-file-path"></a>Comprendere la cartella data-root e il percorso dei file
+Il grafico seguente mostra i componenti per l'esecuzione locale e il mapping di questi componenti per l'esecuzione su cloud.
 
-Sia l'SDK di U-SQL che l'esecuzione locale richiedono una cartella data-root. La cartella data-root è un "archivio locale" per l'account di calcolo locale, equivalente all'account di Azure Data Lake Store di un account Data Lake Analytics. Il passaggio a un'altra cartella data-root è identico al passaggio a un account archivio differente. Se si vuole accedere a dati comunemente condivisi con cartelle data-root diverse, è necessario usare percorsi assoluti negli script. In alternativa è possibile creare collegamenti simbolici del file system (ad esempio **mklink** in un sistema NTFS) nella cartella data-root che puntino ai dati condivisi.
+|Componente|Esecuzione locale|Esecuzione su cloud|
+|---------|---------|---------|
+|Archiviazione|Cartella DataRoot locale|Account di Azure Data Lake Store predefinito|
+|Calcolo|Motore di esecuzione locale di U-SQL|Servizio Azure Data Lake Analytics|
+|Ambiente di esecuzione|Directory di lavoro sul computer locale|Cluster di Azure Data Lake Analytics|
 
-La cartella data-root viene usata per:
+Maggiori informazioni per i componenti di esecuzione locale:
 
-- Archiviare i metadati, inclusi database, tabelle, funzione con valori di tabella e assembly.
-- Cercare i percorsi di input e output che sono definiti come percorsi relativi in U-SQL. L'uso di percorsi relativi semplifica la distribuzione dei progetti di U-SQL in Azure.
+### <a name="local-data-root-folder"></a>Cartella DataRoot locale
 
-Negli script U-SQL è possibile usare sia un percorso relativo sia un percorso assoluto locale. Il percorso relativo è relativo al percorso della cartella data-root specificato. È consigliabile usare "/" come separatore del percorso per rendere gli script compatibili con il lato server. Di seguito sono riportati alcuni esempi di percorsi relativi e dei loro percorsi assoluti equivalenti. In questi esempi la cartella data-root è C:\LocalRunDataRoot.
+La cartella DataRoot è un "archivio locale" per l'account di calcolo locale. Qualsiasi cartella nel file system locale del computer locale può essere una cartella DataRoot locale. Equivale all'account Azure Data Lake Store predefinito di un account Data Lake Analytics. Il passaggio a un'altra cartella DataRoot è identico al passaggio a un account archivio predefinito diverso. 
 
-|Percorso relativo|Percorso assoluto|
-|-------------|-------------|
-|/abc/def/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
-|abc/def/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
-|D:/abc/def/input.csv |D:\abc\def\input.csv|
+La cartella DataRoot viene usata per:
+- Archiviare i metadati, quali database, tabelle, funzioni con valori di tabella e assembly.
+- Cercare i percorsi di input e output che sono definiti come percorsi relativi nello script U-SQL. L'uso di percorsi relativi semplifica la distribuzione degli script U-SQL in Azure.
 
-## <a name="use-local-run-from-visual-studio"></a>Usare l'esecuzione locale per Visual Studio
+### <a name="u-sql-local-run-engine"></a>Motore di esecuzione locale di U-SQL
 
-Gli Strumenti di Data Lake per Visual Studio offrono un'esperienza di esecuzione locale di U-SQL in Visual Studio. Questa funzionalità permette di:
+Il motore di esecuzione locale di U-SQL è un "account di calcolo locale" per i processi U-SQL. Gli utenti possono eseguire i processi U-SQL in locale mediante Strumenti Azure Data Lake per Visual Studio. L'esecuzione locale viene supportata anche tramite le interfacce della riga di comando e di programmazione dell'SDK di U-SQL per Azure Data Lake. [Altre informazioni sull'SDK di U-SQL per Azure Data Lake](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/).
 
-- Eseguire uno script U-SQL in locale, insieme agli assembly C#.
-- Eseguire il debug di un assembly C# localmente.
-- Creare, visualizzare ed eliminare i cataloghi di U-SQL (database locali, assembly, schemi e tabelle) da Esplora server. Il catalogo locale è disponibile anche in Esplora server.
+### <a name="working-directory"></a>Directory di lavoro
 
-    ![Catalogo locale dell'esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-local-catalog.png)
+Quando si esegue uno script U-SQL, è necessaria una cartella directory di lavoro per memorizzare nella cache i risultati di compilazione, i log di esecuzione e così via. In Strumenti Azure Data Lake per Visual Studio la directory di lavoro è la directory di lavoro del progetto U-SQL che in genere si trova in `<U-SQL project root path>/bin/debug>`. La directory di lavoro verrà pulita ogni volta che si avvia una nuova esecuzione.
 
-Il programma di installazione di Strumenti di Data Lake crea la cartella C:\LocalRunRoot che diventa la cartella data-root predefinita. Il parallelismo di esecuzione locale predefinito è 1.
+## <a name="local-run-in-visual-studio"></a>Esecuzione locale in Visual Studio
 
-### <a name="to-configure-local-run-in-visual-studio"></a>Configurare l'esecuzione locale in Visual Studio
+Strumenti Azure Data Lake per Visual Studio è dotato di motore di esecuzione locale predefinito che viene trattato come un account di calcolo locale. Per eseguire uno script U-SQL in locale, selezionare l'account (Local-machine) o (Local-project) nell'elenco a discesa a margine dell'editor nello script e fare clic su **Invia**.
 
-1. Aprire Visual Studio.
-2. Aprire **Esplora server**.
-3. Espandere **Azure** > **Data Lake Analytics**.
-4. Aprire il menu **Data Lake** e fare clic su **Opzioni e impostazioni**.
-5. Nella struttura ad albero a sinistra espandere **Azure Data Lake** e **Generale**.
+![Script di invio degli Strumenti Data Lake per Visual Studio all'account locale](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-submit-script-to-local-account.png) 
+ 
+## <a name="local-run-with-local-machine-account"></a>Esecuzione locale con l'account (Local-machine)
 
-    ![Impostazioni di configurazione dell'esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-configure.png)
+L'account (Local-machine) è un account di calcolo locale condiviso con una sola cartella DataRoot locale come account archivio locale. Per impostazione predefinita la cartella DataRoot si trova in "C:\Utenti\<nome utente > \AppData\Locale\USQLDataRoot", è configurabile anche attraverso **Strumenti > Data Lake > Opzioni e impostazioni**.
 
-Per poter eseguire la funzionalità di esecuzione locale è richiesto un progetto U-SQL di Visual Studio. Questa parte è diversa rispetto all'esecuzione di script U-SQL da Azure.
+![Configurazione della cartella DataRoot locale di Strumenti Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-local-data-root.png)
+  
+Per l'esecuzione locale è necessario avere un progetto U-SQL. La directory di lavoro del progetto U-SQL viene usata per la directory di lavoro di esecuzione locale di U-SQL. I risultati di compilazione, i log di esecuzione e altri file relativi all'esecuzione del processo vengono generati e archiviati nella cartella directory di lavoro durante l'esecuzione locale. Si noti che ogni volta che si esegue di nuovo lo script, tutti i file nella directory di lavoro verranno puliti e rigenerati.
 
-### <a name="to-run-a-u-sql-script-locally"></a>Eseguire uno script U-SQL localmente
-1. Aprire il progetto U-SQL in Visual Studio.   
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse su uno script U-SQL e selezionare **Invia script**.
-3. Selezionare **(Locale)** come account di Analytics per eseguire lo script in locale.
-È anche possibile fare clic sull'account **(Locale)** nella parte superiore della finestra dello script, quindi selezionare **Invia** (o usare la combinazione di tasti CTRL+F5).
+## <a name="local-run-with-local-project-account"></a>Esecuzione locale con l'account (Local-project)
 
-    ![Processi di invio dell'esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
+L'account (Local-project) è un account di calcolo locale isolato dal progetto per ogni progetto con una cartella DataRoot locale isolata. Ogni progetto U-SQL attivo che viene aperto in Esplora soluzioni è dotato di un account `(Local-project: <project name>)` corrispondente elencato a margine dell'editor dello script sia in Esplora server che a margine dell'editor dello script U-SQL. 
 
-### <a name="debug-scripts-and-c-assemblies-locally"></a>Eseguire il debug degli script e delle assembly C# in locale
+L'account (Local-project) offre un ambiente di sviluppo pulito e isolato per gli sviluppatori. A differenza dell'account (Local-machine) che dispone di una cartella DataRoot locale condivisa per l'archiviazione dei metadati e dei dati di input/output per tutti i processi locali, l'account (Local-project) crea una cartella DataRoot locale temporanea nella directory di lavoro del progetto U-SQL ogni volta che uno script U-SQL viene eseguito. La cartella DataRoot temporanea viene pulita quando si avvia la ricompilazione o una nuova esecuzione. 
 
-È possibile eseguire il debug degli assembly C# senza inviarli e registrarli al servizio Azure Data Lake Analytics. È possibile impostare dei punti di interruzione sia nei file dietro il codice, sia nel progetto C# a cui si fa riferimento.
+Il progetto U-SQL offre un'esperienza ottimale per la gestione di questo ambiente di esecuzione locale isolato mediante proprietà e riferimento al progetto. È possibile configurare sia le origini dati di input per gli script U-SQL nel progetto, che gli ambienti del database di riferimento.
 
-#### <a name="to-debug-local-code-in-code-behind-file"></a>Per eseguire il debug del codice locale nel file code-behind
+### <a name="manage-input-data-source-for-local-project-account"></a>Gestire l'origine dati di input per l'account (Local-project)
 
-1. Impostare dei punti di interruzione nel file dietro il codice.
-2. Premere F5 per eseguire il debug dello script in locale.
+Il progetto U-SQL crea la cartella DataRoot locale e imposta i dati per l'account (Local-project). Viene pulita e ricreata una cartella DataRoot temporanea nella directory di lavoro del progetto U-SQL ogni volta che si verifica la ricompilazione e l'esecuzione locale. Tutte le origini dati configurate dal progetto U-SQL vengono copiate in questa cartella DataRoot locale temporanea prima dell'esecuzione del processo locale. 
 
-> [!NOTE]
-   > La procedura seguente funziona solo in Visual Studio 2015. Nella versione precedente di Visual Studio potrebbe essere necessario aggiungere manualmente i file .pdb.  
-   >
-   >
+È possibile configurare la cartella radice delle origini dati **facendo clic con il pulsante destro del mouse sul progetto U-SQL > Proprietà > Test origine dati**. Quando si esegue lo script U-SQL nell'account (Local-project), tutti i file e le sottocartelle, inclusi i file contenuti nelle sottocartelle, della cartella **Test origine dati** vengono copiati nella cartella DataRoot locale temporanea. Al termine dell'esecuzione del processo locale, i risultati di output sono reperibili anche nella cartella DataRoot locale temporanea della directory di lavoro del progetto. Si noti che tutti questi output verranno eliminati e puliti quando il progetto viene ricompilato e pulito. 
 
-#### <a name="to-debug-local-code-in-a-referenced-c-project"></a>Per eseguire il debug del codice locale in un progetto C# a cui si fa riferimento
+![Configurazione dell'origine dati di test del progetto di Strumenti Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-configure-project-test-data-source.png)
 
-1. Creare un progetto Assembly C# e compilarlo per generare l’output dll.
-2. Registrare la dll utilizzando un'istruzione U-SQL:
+### <a name="manage-referenced-database-environment-for-local-project-account"></a>Gestire l'ambiente del database di riferimento per l'account (Local-project) 
 
-        CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
-        
-3. Impostare i punti di interruzione nel codice C#.
-4. Premere F5 per eseguire il debug dello script con riferimento alla DLL C# in locale.
+Se una query U-SQL usa o se si esegue una query con gli oggetti di database U-SQL, è necessario preparare gli ambienti del database in locale prima di eseguire questo script U-SQL in locale. Per l'account (Local-project), le dipendenze del database U-SQL possono essere gestite tramite i riferimenti al progetto U-SQL. È possibile aggiungere i riferimenti al progetto del database U-SQL al proprio progetto U-SQL. Prima di eseguire gli script U-SQL nell'account (Local-project), vengono distribuiti tutti i database di riferimento nella cartella DataRoot locale temporanea. Per ogni esecuzione, la cartella DataRoot temporanea viene pulita come un nuovo ambiente isolato.
 
-## <a name="use-local-run-from-the-data-lake-u-sql-sdk"></a>Usare l'esecuzione locale dall'SDK U-SQL di Data Lake
+Articoli correlati:
+* [Informazioni su come gestire la definizione del database U-SQL tramite il progetto del database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project)
+* [Informazioni su come gestire il riferimento al database U-SQL nel progetto U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 
-Oltre a eseguire gli script U-SQL localmente con Visual Studio, è possibile usare anche l'SDK U-SQL di Azure Data Lake per eseguire gli script U-SQL localmente con le interfacce della riga di comando e di programmazione. In questo modo è possibile scalare il test locale di U-SQL.
+## <a name="difference-between-local-machine-and-local-project-account"></a>Differenza tra l'account (Local-machine) e l'account (Local-project)
 
-Sono disponibili altre informazioni sull'[SDK U-SQL di Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
+L'account (Local-machine) mira a simulare un account Azure Data Lake Analytics nel computer locale degli utenti. Condivide la stessa esperienza con l'account Azure Data Lake Analytics. L'account (Local-project) mira a offrire un ambiente di sviluppo locale intuitivo che consente agli utenti di distribuire i riferimenti al database e i dati di input prima di eseguire lo script in locale. L'account (Local-machine) offre un ambiente permanente condiviso, a cui è possibile accedere da tutti i progetti. L'account (Local-project) offre un ambiente di sviluppo isolato per ogni progetto e viene aggiornato a ogni esecuzione. In base a quanto esposto sopra, l'account (Local-project) offre un'esperienza di sviluppo più veloce applicando rapidamente le nuove modifiche.
 
+Altre differenze tra l'account (Local-machine) e l'account (Local-project) sono illustrate nel grafico seguente:
+
+|Tipo di differenza|(Local-machine)|(Local-project)|
+|----------------|---------------|---------------|
+|Accesso locale|È accessibile da tutti i progetti|Solo il progetto corrispondente può accedere a questo account|
+|Cartella DataRoot locale|Cartella locale permanente. Configurata da **Strumenti > Data Lake > Opzioni e impostazioni**|Una cartella temporanea creata per ogni esecuzione locale nella directory di lavoro del progetto U-SQL. La cartella viene pulita quando si avvia la ricompilazione o una nuova esecuzione|
+|Dati di input per lo script U-SQL|Percorso relativo nella cartella DataRoot locale permanente|Impostare in **U-SQL project property (Proprietà del progetto U-SQL) > Test origine dati**. Tutti i file e le sottocartelle vengono copiati nella cartella DataRoot temporanea prima dell'esecuzione locale|
+|Dati di output per lo script U-SQL|Percorso relativo nella cartella DataRoot locale permanente|Inviati alla cartella DataRoot temporanea. I risultati vengono puliti quando si avvia la ricompilazione o una nuova esecuzione.|
+|Distribuzione del database di riferimento|I database di riferimento non vengono distribuiti automaticamente durante l'esecuzione per l'account (Local-machine). Uguale per l'invio all'account Azure Data Lake Analytics.|I database di riferimento vengono automaticamente distribuiti nell'account (Local-project) prima dell'esecuzione locale. Tutti gli ambienti del database vengono puliti e ridistribuiti quando si esegue la ricompilazione o una nuova esecuzione.|
+
+## <a name="local-run-with-u-sql-sdk"></a>Esecuzione locale con l'SDK U-SQL
+
+Oltre a eseguire gli script U-SQL in locale in Visual Studio, è anche possibile usare l'SDK U-SQL di Azure Data Lake per eseguire gli script U-SQL in locale con le interfacce della riga di comando e di programmazione. Tramite queste interfacce, è possibile automatizzare l'esecuzione locale e il test di U-SQL.
+
+[Altre informazioni sull'SDK U-SQL di Azure Data Lake](data-lake-analytics-u-sql-sdk.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per visualizzare una query più complessa, vedere [Analizzare i log dei siti Web con Analisi Azure Data Lake](data-lake-analytics-analyze-weblogs.md).
-* Per visualizzare i dettagli del processo, vedere [Usare Job Browser e Job View (Visualizzazione processo) per i processi di Azure Data Lake Analytics](data-lake-analytics-data-lake-tools-view-jobs.md).
-* Per usare la visualizzazione esecuzioni vertici, vedere [Usare la visualizzazione esecuzioni vertici in Azure Data Lake Tools per Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
+- [Azure Data Lake U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+- [How to set up CI/CD pipeline for Azure Data Lake Analytics](data-lake-analytics-cicd-overview.md) (Come configurare la pipeline CI/CD per Azure Data Lake Analytics)
+- [Use U-SQL database project to develop U-SQL database](data-lake-analytics-data-lake-tools-develop-usql-database.md) (Usare il progetto di database U-SQL per sviluppare il database U-SQL)
+- [How to test your Azure Data Lake Analytics code](data-lake-analytics-cicd-test.md) (Come testare il codice di Azure Data Lake Analytics)

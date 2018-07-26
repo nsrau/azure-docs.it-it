@@ -1,9 +1,28 @@
-``*.accesscontrol.windows.net``. Usato per il controllo di accesso e la gestione delle identità. L'autenticazione basata su ACS verrà deprecata entro dicembre 2017. <br/>
-``https://login.microsoftonline.com``. Usato per il controllo di accesso e la gestione delle identità tramite Azure Active Directory.
+---
+title: File di inclusione
+description: File di inclusione
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 06/28/2018
+ms.author: raynew
+ms.openlocfilehash: f7d6c3f68618fec839ccff06b73ba44d106999d2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38765539"
+---
+| NOME | URL commerciale | URL per enti pubblici | DESCRIZIONE |
+|---|---|---|---|
+| Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Usato per il controllo di accesso e la gestione delle identità tramite Azure Active Directory |
+| Backup | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Usato per il coordinamento e il trasferimento dei dati di replica |
+| Replica | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Usato per il coordinamento e le operazioni di gestione della replica |
+| Archiviazione | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Usato per l'accesso all'account di archiviazione in cui sono archiviati i dati replicati |
+| Telemetria (facoltativo) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Usato per la telemetria |
 
-``*.backup.windowsazure.com``. Usato per il coordinamento e il trasferimento dei dati di replica. <br/> ``*.blob.core.windows.net``. Usato per l'accesso all'account di archiviazione in cui sono archiviati i dati replicati.<br/> ``*.hypervrecoverymanager.windowsazure.com``. Usato per il coordinamento e le operazioni di gestione della replica.<br/>
-``dc.services.visualstudio.com``. Usato per la telemetria. <br>
-``time.nist.gov`` e ``time.windows.com``. Usati per controllare la sincronizzazione tra ora di sistema e ora globale.
-<br/><br/>
-URL per il cloud di Azure per enti pubblici:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+``time.nist.gov`` e ``time.windows.com`` sono usati per controllare la sincronizzazione tra ora di sistema e ora globale in tutte le distribuzioni.
+
 

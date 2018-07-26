@@ -2,7 +2,7 @@
 title: Interazione umana e timeout in Funzioni permanenti - Azure
 description: Informazioni su come gestire l'interazione umana e i timeout nell'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: cfowler
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168402"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036306"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interazione umana in Funzioni permanenti - Esempio di verifica telefonica
 
@@ -27,7 +27,7 @@ Questo esempio illustra come creare un'orchestrazione di [Funzioni permanenti](d
 
 L'esempio implementa un sistema di verifica telefonica basata su SMS. Questi tipi di flussi vengono spesso usati quando si verifica il numero di telefono di un cliente o per l'autenticazione a più fattori. L'esempio è particolarmente potente perché l'intera implementazione viene eseguita solo tramite un paio di brevi funzioni. Non è necessario alcun archivio dati esterno, ad esempio un database.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Installare Funzioni permanenti](durable-functions-install.md).
 * Completare la procedura dettagliata di esempio [Sequenza di Hello](durable-functions-sequence.md).
@@ -51,7 +51,7 @@ L'articolo illustra le funzioni seguenti nell'app di esempio:
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C# e in JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestrazione di verifica SMS (Visual Studio Code e codice di esempio del portale di Azure) 
 
@@ -61,7 +61,13 @@ La funzione **E4_SmsPhoneVerification** usa il codice *function.json* standard p
 
 Di seguito è riportato il codice che implementa la funzione:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 Dopo l'avvio, le operazioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
@@ -76,7 +82,7 @@ L'utente riceve un messaggio SMS con un codice di quattro cifre e ha 90 secondi 
 > Anche se non è evidente, questa funzione dell'agente di orchestrazione è completamente deterministica. La proprietà `CurrentUtcDateTime` viene usata infatti per calcolare l'ora di scadenza del timer e restituisce lo stesso valore a ogni riesecuzione in questo punto del codice dell'agente di orchestrazione. Questo aspetto è importante per garantire gli stessi risultati `winner` da ogni chiamata ripetuta a `Task.WhenAny`.
 
 > [!WARNING]
-> È importante [annullare i timer tramite un oggetto CancellationTokenSource](durable-functions-timers.md) se non è più necessario che scadano, come illustrato nell'esempio precedente, quando viene accettata una risposta alla richiesta.
+> È importante [annullare i timer](durable-functions-timers.md) se non è più necessario che scadano, come illustrato nell'esempio precedente, quando viene accettata una risposta alla richiesta.
 
 ## <a name="send-the-sms-message"></a>Inviare il messaggio SMS
 
@@ -86,7 +92,13 @@ La funzione **E4_SendSmsChallenge** usa l'associazione a Twilio per inviare il m
 
 Di seguito viene riportato il codice che genera il codice di autenticazione a 4 cifre e invia il messaggio SMS:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
 Questa funzione **E4_SendSmsChallenge** viene chiamata solo una volta, anche se il processo si arresta in modo anomalo o viene rieseguito. Questo aspetto è particolarmente vantaggioso perché non si desidera che l'utente finale riceva più messaggi SMS. Il valore restituito `challengeCode` viene reso permanente in modo automatico e di conseguenza la funzione dell'agente di orchestrazione conosce sempre il codice corretto.
 
@@ -109,6 +121,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Attualmente, le funzioni di avvio dell'orchestrazione JavaScript non possono restituire URI di gestione delle istanze. Questa funzionalità verrà aggiunta in una versione successiva.
 
 La funzione dell'agente di orchestrazione riceve il numero di telefono indicato e invia immediatamente un messaggio SMS con un codice di verifica di 4 cifre generato casualmente &mdash; ad esempio *2168*. La funzione attende quindi 90 secondi per ricevere una risposta.
 

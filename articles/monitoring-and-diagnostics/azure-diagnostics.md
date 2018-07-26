@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 07/13/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267680"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089894"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Cos'è l'estensione Diagnostica di Azure
 L'estensione Diagnostica di Azure è un agente di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati ruoli Web e di lavoro (classici) del servizio cloud di Azure, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric. Altri servizi di Azure hanno altri metodi di diagnostica. Vedere la [panoramica sul monitoraggio in Azure](monitoring-overview.md). 
@@ -32,10 +32,12 @@ L'estensione Diagnostica di Azure può raccogliere i tipi di dati seguenti:
 | Registri eventi di Windows |Informazioni inviate al sistema di registrazione eventi di Windows. |
 | Origine dell'evento .NET |Eventi di scrittura di codice con la classe [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) di .NET |
 | log di IIS |Informazioni sui siti Web di IIS |
-| ETW basato su manifesto |Traccia di eventi per eventi Windows generati da qualsiasi processo |
+| ETW basato su manifesto |Traccia di eventi per eventi Windows generati da qualsiasi processo.(1) |
 | Dump di arresto anomalo del sistema |Informazioni sullo stato del processo in caso di arresto anomalo dell'applicazione. |
 | Log degli errori personalizzati |Log creati dall'applicazione o dal servizio. |
 | Log dell'infrastruttura diagnostica di Azure |Informazioni su Diagnostica |
+
+(1) Per ottenere un elenco di provider ETW, eseguire `c:\Windows\System32\logman.exe query providers` nella finestra della console nel computer da cui si desidera raccogliere informazioni. 
 
 ## <a name="data-storage"></a>Archiviazione dei dati
 L'estensione archivia i dati in un [account di archiviazione di Azure](azure-diagnostics-storage.md) specificato dall'utente. 

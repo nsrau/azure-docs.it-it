@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859148"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055016"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Espressioni e funzioni in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ I valori JSON nella definizione possono essere letterali o espressioni che vengo
 ```
 
 ## <a name="expressions"></a>Espressioni  
-Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (\@). Se è necessaria una stringa letterale che inizia con @, occorre che la stringa sia preceduta da un carattere di escape @@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
+Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e restituiscono sempre un altro valore JSON. Se un valore JSON è un'espressione, il corpo dell'espressione viene estratto rimuovendo il simbolo di chiocciola (\@). Se è necessaria una stringa letterale che inizia con \@, occorre che la stringa sia preceduta da un carattere di escape \@\@. L'esempio seguente illustra la modalità di valutazione delle espressioni.  
   
 |Valore JSON|Risultato|  
 |----------------|------------|  
 |"parameters"|Vengono restituiti i caratteri di tipo 'parameters'.|  
 |"parameters[1]"|Vengono restituiti i caratteri di tipo 'parameters[1]'.|  
-|"\@@"|Viene restituita una stringa da 1 carattere che contiene \'\@\'.|  
-|" \@"|Viene restituita una stringa da 2 caratteri che contiene '\@\'.|  
+|"\@\@"|Viene restituita una stringa da 1 caratteri che contiene "\@".|  
+|" \@"|Viene restituita una stringa da 2 caratteri che contiene "\@".|  
   
  Tramite una funzionalità denominata *interpolazione delle stringhe*, è possibile inserire le espressioni anche all'interno delle stringhe in cui viene eseguito il wrapping delle espressioni in `@{ ... }`. Ad esempio: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ Le espressioni possono trovarsi in qualsiasi punto in un valore stringa JSON e r
 |"\@{pipeline().parameters.myNumber}"| Restituisce `42` come *stringa*.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: 42`.|  
 |"\@concat('Answer is: ', string(pipeline().parameters.myNumber))"| Restituisce la stringa `Answer is: 42`.|  
-|"Answer is: \@@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
+|"Answer is: \@\@{pipeline().parameters.myNumber}"| Restituisce la stringa `Answer is: @{pipeline().parameters.myNumber}`.|  
   
 ### <a name="examples"></a>Esempi
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416490"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479462"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard per 60 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -42,7 +42,7 @@ Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro
 
 ## <a name="upgrade-an-azure-subscription"></a>Aggiornare una sottoscrizione di Azure
 Per aggiornare tutte le sottoscrizioni al livello Standard:
-1. Selezionare **Caricamento** nel menu principale del Centro sicurezza.
+1. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
 2. In **Onboarding nella sicurezza avanzata**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni idonee per il caricamento. È possibile aggiornare tutte le sottoscrizioni elencate selezionando **Applica il piano Standard**.
 
   ![Aggiornare tutte le sottoscrizioni][1]
@@ -113,8 +113,8 @@ Verranno esaminati in dettaglio entrambi i metodi:
 
    ![Panoramica][5]
 
-2. Selezionare il riquadro **Calcolo**.
-3. In **Calcolo** selezionare **Aggiungi computer**.
+2. Selezionare **Compute & apps** (Risorse di calcolo e app).
+3. In **Compute & apps** (Risorse di calcolo e app) selezionare **Aggiungi computer**.
 
    ![Pannello Calcolo][6]
 

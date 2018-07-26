@@ -12,20 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157476"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035772"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scenario di monitoraggio in Funzioni durevoli - Esempio di watcher per il meteo
 
 Il modello di monitoraggio fa riferimento a un processo *ricorrente* flessibile in un flusso di lavoro, ad esempio il polling finché vengono soddisfatte determinate condizioni. Questo articolo illustra un esempio che usa [Funzioni durevoli](durable-functions-overview.md) per implementare il monitoraggio.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Installare Funzioni permanenti](durable-functions-install.md).
 * Completare la procedura dettagliata di esempio [Sequenza di Hello](durable-functions-sequence.md).
@@ -65,7 +65,7 @@ Questo articolo descrive le funzioni seguenti nell'app di esempio:
 * `E3_GetIsClear`: funzione dell'attività che controlla le condizioni meteo correnti per una località.
 * `E3_SendGoodWeatherAlert`: funzione dell'attività che invia un SMS tramite Twilio.
 
-Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C#. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
+Le sezioni seguenti illustrano la configurazione e il codice usati per gli script in C# e in JavaScript. Il codice per lo sviluppo in Visual Studio viene visualizzato alla fine dell'articolo.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Orchestrazione di monitoraggio del meteo (Visual Studio Code e codice di esempio del portale di Azure)
 
@@ -75,7 +75,13 @@ La funzione **E3_Monitor** usa il codice *function.json* standard per le funzion
 
 Di seguito è riportato il codice che implementa la funzione:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
@@ -88,11 +94,13 @@ Le azioni di questa funzione dell'agente di orchestrazione sono le seguenti:
 
 Si possono eseguire simultaneamente più istanze dell'agente di orchestrazione inviando più **MonitorRequest**. Si possono specificare la località da monitorare e il numero di telefono a cui inviare un SMS di avviso.
 
-## <a name="strongly-typed-data-transfer"></a>Trasferimento dei dati fortemente tipizzati
+## <a name="strongly-typed-data-transfer-net-only"></a>Trasferimento dei dati fortemente tipizzati (solo .NET)
 
-Poiché l'agente di orchestrazione richiede più gruppi di dati, per il trasferimento dei dati fortemente tipizzati vengono usati gli [oggetti POCO condivisi](functions-reference-csharp.md#reusing-csx-code): [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+Poiché l'agente di orchestrazione richiede più gruppi di dati, per il trasferimento dei dati fortemente tipizzati vengono usati gli [oggetti POCO condivisi](functions-reference-csharp.md#reusing-csx-code): in C# e nello script C#: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+
+L'esempio di JavaScript usa normali oggetti JSON come parametri.
 
 ## <a name="helper-activity-functions"></a>Funzioni di attività helper
 
@@ -100,9 +108,15 @@ In modo analogo agli altri esempi, le funzioni di attività helper sono normali 
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per il trasferimento dei dati, la logica per gestire la chiamata API e analizzare il codice JSON della risposta viene astratta in una classe condivisa. È possibile trovarla nel [codice di esempio Visual Studio](#run-the-sample).
+Di seguito ne viene riportata l'implementazione. Come gli oggetti POCO usati per il trasferimento dei dati, la logica per gestire la chiamata API e analizzare il codice JSON della risposta viene astratta in una classe condivisa in C#. È possibile trovarla nel [codice di esempio Visual Studio](#run-the-sample).
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
 La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare un SMS che notifica all'utente finale che il tempo è adatto per una passeggiata. Il codice *function.json* è semplice:
 
@@ -110,7 +124,13 @@ La funzione **E3_SendGoodWeatherAlert** usa l'associazione di Twilio per inviare
 
 Di seguito è disponibile il codice che invia l'SMS:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
@@ -131,6 +151,9 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > Attualmente, le funzioni di avvio dell'orchestrazione JavaScript non possono restituire URI di gestione delle istanze. Questa funzionalità verrà aggiunta in una versione successiva.
 
 L'istanza **E3_Monitor** viene avviata ed esegue una query delle condizioni meteo correnti per la località richiesta. Se il tempo è sereno, chiama una funzione dell'attività per inviare un avviso. In caso contrario, imposta un timer. Quando il timer scade, l'orchestrazione viene ripresa.
 

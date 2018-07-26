@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: e6c699fdd57eecc31c51b26ccb7c06c6edbcfd03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27fb8f369ad23592902c05fe5275fc54bc6cf148
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646899"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090470"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurare la replica geografica attiva per il database SQL di Azure nel portale di Azure e avviare il failover
 
@@ -34,7 +34,7 @@ La procedura seguente crea un nuovo database secondario in una relazione di repl
 
 Per aggiungere un database secondario, è necessario essere il proprietario o un comproprietario della sottoscrizione.
 
-Il database secondario ha lo stesso nome del database primario e ha, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere un database singolo o un database in un pool elastico. Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore (anteprima)](sql-database-service-tiers-vcore.md).
+Il database secondario ha lo stesso nome del database primario e ha, per impostazione predefinita, lo stesso livello di servizio. Il database secondario può essere un database singolo o un database in un pool elastico. Per altre informazioni, vedere il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 Dopo aver creato ed eseguito il seeding del database secondario, inizia la replica dei dati dal database primario al nuovo database secondario.
 
 > [!NOTE]

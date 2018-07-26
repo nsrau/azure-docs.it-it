@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34852042"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037654"
 ---
 | Risorsa | Limite massimo |Note|
 | --- | --- |---|
@@ -23,8 +23,9 @@ ms.locfileid: "34852042"
 | Dimensione massima di un modulo |100 MB ||
 | Tempo di esecuzione processo - livello gratuito |500 minuti per sottoscrizione al mese di calendario ||
 | Quantità massima di spazio su disco consentita per sandbox**<sup>1</sup>** |1 GB |Si applica solo alla sandbox Azure|
-| Quantità massima di memoria assegnata a una sandbox**<sup>1</sup>** |400 MB |Si applica solo alla sandbox Azure|
-| Numero massimo di socket di rete consentiti per sandbox**<sup>1</sup>** |1000 |Si applica solo alla sandbox Azure|
+| Quantità massima di memoria assegnata a una sandbox **<sup>1</sup>** |400 MB |Si applica solo alla sandbox Azure|
+| Numero massimo di socket di rete consentiti per sandbox **<sup>1</sup>** |1000 |Si applica solo alla sandbox Azure|
+| Runtime massimo consentito per ogni runbook  **<sup>1</sup>** |3 ore |Si applica solo alla sandbox Azure|
 | Numero massimo di account di automazione in una sottoscrizione |Nessun limite ||
 |Numero massimo di processi simultanei da eseguire su un singolo ruolo di lavoro ibrido per runbook|50 ||
 

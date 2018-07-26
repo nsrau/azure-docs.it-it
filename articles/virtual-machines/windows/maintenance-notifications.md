@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 32d61367790a2b0b43e92c427a366f58e3c12ae9
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 609a688ba2915e57916a6e5e9ea0cbdc66ccdd6a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888984"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069557"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestire gli avvisi relativi alla manutenzione pianificata per le macchine virtuali Windows
 
@@ -56,8 +56,8 @@ La manutenzione self-service non è consigliata per distribuzioni che usano **se
 - Per la manutenzione che non richiede il riavvio, gli aggiornamenti vengono applicati a livello di dominio di errore.
     
 **Non** usare la manutenzione self-service negli scenari seguenti: 
-- Se si arrestano frequentemente le macchine virtuali manualmente, tramite DevTest Labs, con l'arresto automatico o in base a una pianificazione, lo stato di manutenzione potrebbe essere ripristinato con un conseguente aumento del tempo di inattività.
-- Nelle macchine virtuali di breve durata che saranno sicuramente eliminate prima della fine del ciclo di manutenzione. 
+- Se si arrestano di frequente le VM, manualmente, tramite DevTest Labs, con l'arresto automatico o in base a una pianificazione, lo stato di manutenzione potrebbe essere ripristinato con un conseguente aumento del tempo di inattività.
+- Nelle VM di breve durata che si è certi saranno eliminate prima della fine del ciclo di manutenzione. 
 - In carichi di lavoro con uno stato di grandi dimensioni archiviato nel disco locale (temporaneo) che si desidera mantenere dopo l'aggiornamento. 
 - Nei casi in cui si ridimensioni spesso la macchina virtuale perché lo stato di manutenzione potrebbe essere ripristinato.
 - Nel caso in cui siano stati adottati eventi pianificati che consentono il failover proattivo o l'arresto normale del carico di lavoro, 15 minuti prima dell'inizio dell'arresto della manutenzione
@@ -68,7 +68,7 @@ La manutenzione self-service non è consigliata per distribuzioni che usano **se
 
 - Necessità di comunicare un intervallo di manutenzione esatto ai propri responsabili o ai clienti finali. 
 - Necessità di completare la manutenzione entro una data specifica. 
-- Necessità di controllare la sequenza di manutenzione, ad esempio applicazione a più livelli per garantire un recupero sicuro.
+- Necessità di controllare la sequenza di manutenzione, ad esempio, di un'applicazione a più livelli per garantire un recupero sicuro.
 - Necessità di oltre 30 minuti di tempo di recupero per le macchine virtuali tra due domini di aggiornamento. Per controllare l'intervallo tra i domini di aggiornamento, è necessario attivare la manutenzione sulle macchine virtuali di un dominio di aggiornamento alla volta.
 
  
@@ -187,7 +187,7 @@ Per altre informazioni sulla disponibilità elevata, vedere [Regions and availab
 
 **D: Qual è l'esperienza nel caso di set di scalabilità di macchine virtuali?**
 
-**R:** La manutenzione pianificata è ora disponibile per il set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione self-service, vedere la sezione "Procedure -> Gestisci -> Manutenzione pianificata" nella documentazione relativa ai set di scalabilità di macchine virtuali.
+**R:** La manutenzione pianificata è ora disponibile per il set di scalabilità di macchine virtuali. Per istruzioni su come avviare la manutenzione self-service, vedere il documento relativo alla [manutenzione pianificata per VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md).
 
 **D: Qual è l'esperienza nel caso di Servizi cloud (ruolo Web o di lavoro) e Service Fabric?**
 

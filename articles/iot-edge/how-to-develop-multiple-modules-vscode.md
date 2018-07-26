@@ -9,18 +9,18 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048261"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041252"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Sviluppare una soluzione IoT Edge con più moduli in Visual Studio Code
 
 È possibile usare Visual Studio Code per sviluppare una soluzione Azure IoT Edge con più moduli. Questo articolo mostra come creare, aggiornare e distribuire una soluzione IoT Edge che invia dati di sensore su un dispositivo simulato IoT Edge in Visual Studio Code. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare le procedure in questo articolo, sono necessari i prerequisiti seguenti:
 
@@ -39,7 +39,7 @@ Per completare le procedure in questo articolo, sono necessari i prerequisiti se
 
 1. Nel **riquadro comandi** di VS Code immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Selezionare la cartella dell'area di lavoro e specificare il nome della soluzione (il valore predefinito è EdgeSolution). Creare un modulo in C# (con il nome **PipeModule**) come primo modulo utente in questa soluzione. Il modello predefinito di modulo C# è un modulo di pipe, che invia direttamente tramite pipe i messaggi da upstream a downstream. È anche necessario specificare il repository di immagini Docker per il primo modulo. Il repository di immagini predefinito si basa su un registro Docker locale (**localhost:5000/<first module name>**). È possibile sostituirlo con Registro contenitori di Azure o con l'hub Docker. 
 
-2. La finestra VS Code carica l'area di lavoro della soluzione IoT Edge. La cartella radice contiene una cartella **modules**, una cartella **.vscode** e un file modello del manifesto della distribuzione. Le configurazioni di debug si trovano nella cartella .vscode. Tutti i codici di modulo utente sono sottocartelle della cartella modules. Il file deployment.template.json è il modello del manifesto di distribuzione. Alcuni dei parametri in questo file vengono analizzati dal file module.json, presente nella cartella di ogni modulo.
+2. La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. La cartella radice contiene una cartella **modules**, una cartella **.vscode** e un file modello del manifesto della distribuzione. Le configurazioni di debug si trovano nella cartella .vscode. Tutti i codici di modulo utente sono sottocartelle della cartella modules. Il file deployment.template.json è il modello del manifesto di distribuzione. Alcuni dei parametri in questo file vengono analizzati dal file module.json, presente nella cartella di ogni modulo.
 
 3. Aggiungere il secondo modulo a questo progetto di soluzione. Esistono diversi modi per aggiungere un nuovo modulo alla soluzione corrente. Immettere ed eseguire il comando **Azure IoT Edge: Aggiungi modulo IoT Edge**. Selezionare il file del modello di distribuzione da aggiornare. Oppure fare clic con il pulsante destro del mouse sulla cartella modules o fare clic con il pulsante destro del mouse sul file deployment.template.json e scegliere **Aggiungi modulo IoT Edge**. Sarà disponibile un elenco a discesa per selezionare il tipo di modulo. Selezionare un modulo **Funzioni di Azure - C#** con il nome **PipeFunction** e il repository di immagini Docker corrispondente. Il modello predefinito di modulo di funzioni C# è un modulo di pipe, che invia direttamente tramite pipe i messaggi da upstream a downstream.
 
@@ -74,5 +74,7 @@ Per completare le procedure in questo articolo, sono necessari i prerequisiti se
 
 Informazioni su altri scenari per lo sviluppo con Azure IoT Edge in Visual Studio Code:
 
-* [Sviluppare un modulo C# in VS Code](how-to-develop-csharp-module.md)
-* [Sviluppare una funzione C# in VS Code](how-to-develop-csharp-function.md)
+* Sviluppare moduli in VS Code con [c#](how-to-develop-csharp-module.md) o [Node. js](how-to-develop-node-module.md).
+* Sviluppare Funzioni di Azure in VS Code con [C#](how-to-develop-csharp-function.md).
+
+Per sviluppare moduli per i dispositivi IoT Edge, [Comprendere e usare gli SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md).

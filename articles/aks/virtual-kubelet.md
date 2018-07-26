@@ -1,6 +1,6 @@
 ---
 title: Eseguire Virtual Kubelet in un cluster di Azure Kubernetes Service (AKS)
-description: Usare Virtual Kubelet per eseguire i contenitori Kubernetes in Istanze di contenitore di Azure.
+description: Informazioni su come usare Virtual Kubelet con Azure Kubernetes Service (AKS) per eseguire contenitori Linux e Windows in istanze di contenitore di Azure.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 04fdb1620dc6e7147ed10ae6eeeaeb3eeae14b62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097360"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952479"
 ---
-# <a name="virtual-kubelet-with-aks"></a>Virtual Kubelet con AKS
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
 
 Istanze di contenitore di Azure offre un ambiente ospitato per l'esecuzione di contenitori in Azure. Quando si usa Istanze di contenitore di Azure, non è necessario gestire l'infrastruttura di calcolo sottostante, che viene gestita da Azure. Quando si eseguono i contenitori in Istanze di contenitore di Azure, ogni contenitore in esecuzione viene addebitato in base ai secondi effettivi.
 
@@ -33,6 +33,37 @@ Questo documento presuppone che si abbia già un cluster AKS. Se è necessario u
 È anche necessaria l'interfaccia della riga di comando di Azure versione **2.0.33**. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 Per installare Virtual Kubelet, è anche necessario [Helm](https://docs.helm.sh/using_helm/#installing-helm).
+
+### <a name="for-rbac-enabled-clusters"></a>Per i cluster che dispongono dell’abilitazione RBAC
+
+Se il cluster AKS è abilitato per RBAC, è necessario creare un account del servizio e un'associazione di ruolo per l'uso con Tiller. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Helm][helm-rbac].
+
+Deve essere creato anche un oggetto *ClusterRoleBinding* per Virtual Kubelet. Per creare un'associazione, creare un file denominato *rbac-virtualkubelet.yaml* e incollare la definizione seguente:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+Applicare l'associazione con [kubectl apply][kubectl-apply] e specificare il file *rbac-virtualkubelet.yaml*, come illustrato nell'esempio seguente:
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+È ora possibile procedere con l'installazione di Virtual Kubelet nel cluster AKS.
 
 ## <a name="installation"></a>Installazione
 
@@ -61,7 +92,7 @@ Per il comando `aks install-connector` sono disponibili questi argomenti.
 
 Per convalidare l'installazione di Virtual Kubelet, restituire un elenco di nodi Kubernetes con il comando [kubectl get nodes][kubectl-get].
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -102,13 +133,13 @@ spec:
 
 Eseguire l'applicazione con il comando [kubectl create][kubectl-create].
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
 Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod con il nodo pianificato. Si noti che il pod `aci-helloworld` è stato pianificato nel nodo `virtual-kubelet-virtual-kubelet-linux`.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -145,13 +176,13 @@ spec:
 
 Eseguire l'applicazione con il comando [kubectl create][kubectl-create].
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
 Usare il comando [kubectl get pods][kubectl-get] con l'argomento `-o wide` per visualizzare un elenco di pod con il nodo pianificato. Si noti che il pod `nanoserver-iis` è stato pianificato nel nodo `virtual-kubelet-virtual-kubelet-win`.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -182,3 +213,5 @@ Per altre informazioni su Virtual Kubelet, vedere il [progetto GitHub Virtual Ku
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

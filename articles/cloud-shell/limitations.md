@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: juluk
-ms.openlocfilehash: 15e3dd11c371e0b23d5b506da9d824e1409fd359
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 135496e17ae884db580922aa31f6824b2e7fd934
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590522"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855985"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -31,7 +31,7 @@ Di seguito vengono descritte le limitazioni note di Azure Cloud Shell:
 
 Il computer che distribuisce la sessione Cloud Shell è temporaneo e viene riciclato dopo 20 minuti di inattività della sessione. Cloud Shell richiede che sia montata una condivisione file di Azure. La sottoscrizione, quindi, deve essere in grado di configurare le risorse di archiviazione per accedere a Cloud Shell. Altre considerazioni di cui tenere conto:
 
-* Con l'archiviazione montata vengono rese persistenti soltanto le modifiche apportate all'interno della directory `clouddrive`. In Bash anche la directory `$Home` è permanente.
+* Con l'archiviazione montata vengono rese persistenti soltanto le modifiche apportate all'interno della directory `$Home`.
 * Le condivisioni file di Azure possono essere implementate solo dall'interno dell'[area assegnata](persisting-shell-storage.md#mount-a-new-clouddrive).
   * In Bash, eseguire `env` per trovare l'area geografica impostata come `ACC_LOCATION`.
 
@@ -63,21 +63,33 @@ Fare attenzione quando si modifica il file con estensione bashrc, poiché questa
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 
-### <a name="slow-startup-time"></a>Tempo di avvio lento
+### <a name="azuread-module-name"></a>Nome modulo `AzureAD`
 
-L'inizializzazione di PowerShell in Azure Cloud Shell (anteprima) può richiedere fino a 60 secondi durante l'anteprima.
+Il nome del modulo `AzureAD` è attualmente `AzureAD.Standard.Preview`. Il modulo fornisce la stessa funzionalità.
 
-### <a name="no-home-directory-persistence"></a>Nessuna persistenza directory $Home
+### <a name="sqlserver-module-functionality"></a>Funzionalità del modulo `SqlServer`
 
-I dati scritti in `$Home` da qualsiasi applicazione (ad esempio git, vim e così via) non vengono mantenuti nelle sessioni di PowerShell. Per una soluzione alternativa, [vedere qui](troubleshooting.md#powershell-troubleshooting).
+Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle versioni precedenti di PowerShell Core. In particolare, `Invoke-SqlCmd` non è ancora disponibile.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure:
 
-Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella C:\Utenti per impostazione predefinita. 
+Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
 
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
 Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD` o `Connect-AzureRmAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+
+### <a name="tab-completion-crashes-psreadline"></a>Il completamento scheda arresta PSReadline in modo anomalo
+
+Se la proprietà EditMode dell'utente in PSReadline è impostata su Emacs, l'utente tenta di visualizzare tutte le possibilità tramite il completamento scheda e le dimensioni della finestra sono troppo piccole per visualizzare tutte le possibilità, per cui PSReadline si arresterà in modo anomalo.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
+
+Se l'utente esegue un'azione che visualizza un indicatore di stato, come il completamento di una scheda nell'unità `Azure:`, è possibile che il cursore non sia impostato correttamente e che venga visualizzato uno spazio vuoto dove prima era presente l'indicatore di stato.
+
+### <a name="random-characters-appear-inline"></a>Inline vengono visualizzati caratteri casuali
+
+La sequenza di posizione del cursore, ad esempio `5;13R`, può essere visualizzata nell'input dell'utente.  Questi caratteri possono essere rimossi manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

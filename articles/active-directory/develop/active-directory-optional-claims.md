@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ffd774477881be6b7f46dd38bbc88c8d019223aa
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317205"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036752"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
 
@@ -48,31 +48,35 @@ Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-o
 Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito.  Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) più avanti in questo articolo. 
 
 > [!Note]
->La maggior parte di queste attestazioni può essere inclusa in token JWT, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token.  Inoltre, mentre le attestazioni facoltative sono attualmente supportate solo per gli utenti AAD, è in corso l'aggiunta del supporto per l'account del servizio gestito.  Quando l'account del servizio gestito dispone del supporto per le attestazioni facoltative nell'endpoint v2.0, la colonna Tipo di utente indicherà se è disponibile un'attestazione per un utente AAD o dell'account del servizio gestito.  
+>La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token.  Inoltre, mentre le attestazioni facoltative sono attualmente supportate solo per gli utenti AAD, è in corso l'aggiunta del supporto per l'account del servizio gestito.  Quando l'account del servizio gestito dispone del supporto per le attestazioni facoltative nell'endpoint v2.0, la colonna Tipo di utente indicherà se è disponibile un'attestazione per un utente AAD o dell'account del servizio gestito.  
 
 **Tabella 2: set di attestazioni facoltative standard**
 
-| NOME                     | DESCRIZIONE                                                                                                                                                                                     | Tipo di token | Tipo di utente | Note                                                                                                                                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `auth_time`                | Ora dell'ultima autenticazione dell'utente.  Vedere la specifica di OpenID Connect.                                                                                                                                | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_region_scope`      | Area del tenant della risorsa.                                                                                                                                                                   | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | Attestazione dello stato di accesso.                                                                                                                                                                             | Token JSON Web        |           | 6 valori restituiti, come flag:<br> "dvc_mngd": il dispositivo è gestito.<br> "dvc_cmp": il dispositivo è conforme.<br> "dvc_dmjd": il dispositivo è aggiunto a un dominio.<br> "dvc_mngd_app": il dispositivo è gestito tramite MDM.<br> "inknownntwk": il dispositivo si trova in una rete nota.<br> "kmsi": è stata usata l'opzione Mantieni l'accesso. <br> |
-| `controls`                 | Attestazione multivalore contenente i controlli di sessione applicati dai criteri di accesso condizionale.                                                                                                       | Token JSON Web        |           | 3 valori:<br> "app_res": l'app deve applicare restrizioni più granulari. <br> "ca_enf": l'applicazione dell'accesso condizionale è stata rinviata ed è ancora richiesta. <br> "no_cookie": questo token non è sufficiente per lo scambio con un cookie nel browser. <br>                              |
-| `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.                                                                                                                           | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `sid`                      | ID sessione, usato per la disconnessione utente per ogni sessione.                                                                                                                                                  | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `platf`                    | Piattaforma del dispositivo.                                                                                                                                                                                 | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.                                                                                                                                                                                                                              |
-| `verified_primary_email`   | Originato da PrimaryAuthoritativeEmail dell'utente.                                                                                                                                               | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `verified_secondary_email` | Originato da SecondaryAuthoritativeEmail dell'utente.                                                                                                                                             | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente.                                                                                                         | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `vnet`                     | Informazioni sull'identificatore di rete virtuale.                                                                                                                                                                     | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `fwd`                      | Indirizzo IP.  Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale).                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `ctry`                     | Paese dell'utente.                                                                                                                                                                                  | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_ctry`              | Paese del tenant della risorsa.                                                                                                                                                                       | Token JSON Web        |           |                                                                                                                                                                                                                                                                                         |
-| `acct`    | Stato dell'account degli utenti nel tenant.  Se l'utente è membro del tenant, il valore è `0`.  Se si tratta di un utente guest, il valore è `1`.  | JWT, SAML | | |
-| `upn`                      | Attestazione UserPrincipalName.  Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest. | JWT, SAML  |           | Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| NOME                        | DESCRIZIONE   | Tipo di token | Tipo di utente | Note  |
+|-----------------------------|----------------|------------|-----------|--------|
+| `auth_time`                | Ora dell'ultima autenticazione dell'utente.  Vedere la specifica di OpenID Connect.| Token JSON Web        |           |  |
+| `tenant_region_scope`      | Area del tenant della risorsa. | Token JSON Web        |           | |
+| `signin_state`             | Attestazione dello stato di accesso.   | Token JSON Web        |           | 6 valori restituiti, come flag:<br> "dvc_mngd": il dispositivo è gestito.<br> "dvc_cmp": il dispositivo è conforme.<br> "dvc_dmjd": il dispositivo è aggiunto a un dominio.<br> "dvc_mngd_app": il dispositivo è gestito tramite MDM.<br> "inknownntwk": il dispositivo si trova in una rete nota.<br> "kmsi": è stata usata l'opzione Mantieni l'accesso. <br> |
+| `controls`                 | Attestazione multivalore contenente i controlli di sessione applicati dai criteri di accesso condizionale.  | Token JSON Web        |           | 3 valori:<br> "app_res": l'app deve applicare restrizioni più granulari. <br> "ca_enf": l'applicazione dell'accesso condizionale è stata rinviata ed è ancora richiesta. <br> "no_cookie": questo token non è sufficiente per lo scambio con un cookie nel browser. <br>  |
+| `home_oid`                 | Per gli utenti guest, l'ID oggetto dell'utente nel tenant home dell'utente.| Token JSON Web        |           | |
+| `sid`                      | ID sessione, usato per la disconnessione utente per ogni sessione. | Token JSON Web        |           |         |
+| `platf`                    | Piattaforma del dispositivo.    | Token JSON Web        |           | Limitato ai dispositivi gestiti che possono verificare il tipo di dispositivo.|
+| `verified_primary_email`   | Originato da PrimaryAuthoritativeEmail dell'utente.      | Token JSON Web        |           |         |
+| `verified_secondary_email` | Originato da SecondaryAuthoritativeEmail dell'utente.   | Token JSON Web        |           |        |
+| `enfpolids`                | ID criteri applicati. Elenco degli ID criteri valutati per l'utente corrente.  | Token JSON Web |  |  |
+| `vnet`                     | Informazioni sull'identificatore di rete virtuale.    | Token JSON Web        |           |      |
+| `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
+| `ctry`                     | Paese dell'utente. | Token JSON Web |           | Azure AD restituisce l'attestazione facoltativa `ctry` se presente e il valore dell'attestazione è un codice paese di due lettere standard, ad esempio FR, JP, SZ e così via. |
+| `tenant_ctry`              | Paese del tenant della risorsa. | Token JSON Web | | |
+| `xms_pdl`          | Posizione dei dati preferita   | Token JSON Web | | Per i tenant di più aree geografiche, questo è il codice di 3 lettere che indica in quale area geografica si trova l'utente.  Per altre informazioni, vedere la [documentazione di Azure AD Connect sulla posizione dei dati preferita](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation). <br> Ad esempio: `APC` per Asia Pacifico. |
+| `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||La lingua preferita dell'utente, se impostata.  Originato dal proprio tenant principale, negli scenari di accesso guest.  LL-CC formattato ("en-us"). |
+| `xms_tpl`                  | Lingua preferita del tenant| Token JSON Web | | La lingua preferita del tenant risorse, se impostata.  LL formattato ("en"). |
+| `ztdid`                    | ID distribuzione completamente automatico | Token JSON Web | | L'identità del dispositivo usata per [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+| `acct`             | Stato dell'account degli utenti nel tenant.   | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`.  Se si tratta di un utente guest, il valore è `1`.  |
+| `upn`                      | Attestazione UserPrincipalName.  | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  <br> Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
-Queste attestazioni sono sempre incluse nei token v1.0, ma vengono rimosse dai token v2.0 a meno che non sia richiesto.  Queste attestazioni sono applicabili solo per i token JWT (token ID e token di accesso).  
+Queste attestazioni sono sempre incluse nei token v1.0, ma non sono incluse nei token v2.0 a meno che non sia richiesto.  Queste attestazioni sono applicabili solo per i token JWT (token ID e token di accesso).  
 
 **Tabella 3: attestazioni facoltative specifiche di V2.0**
 
@@ -95,7 +99,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 
 | Nome proprietà                                     | Nome proprietà aggiuntiva                                                                                                             | DESCRIZIONE |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |  Può essere usato per le risposte SAML e JWT.            |
 | | `include_externally_authenticated_upn`              | Include l'UPN guest così come è archiviato nel tenant della risorsa.  Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Come sopra, tranne che i cancelletti (`#`) vengono sostituiti con caratteri di sottolineatura (`_`), ad esempio `foo_hometenant.com_EXT_@resourcetenant.com` |             
 
@@ -118,7 +122,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 }
 ```
 
-Questo oggetto OptionalClaims fa in modo che il token ID restituito al client includa un altro UPN con il tenant home aggiuntivo e informazioni sul tenant risorse.  
+Questo oggetto OptionalClaims fa in modo che il token ID restituito al client includa un altro UPN con il tenant home aggiuntivo e informazioni sul tenant risorse.  Questa operazione modificherà l'attestazione `upn` nel token solo se l'utente è un ospite nel tenant (che usa un IDP diverso per l'autenticazione). 
 
 ## <a name="configuring-optional-claims"></a>Configurazione di attestazioni facoltative
 
@@ -131,14 +135,13 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
    {
        "idToken": [
              { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
+                   "name": "auth_time", 
+                   "essential": false
               }
         ],
  "accessToken": [ 
              {
-                    "name": "auth_time", 
+                    "name": "ipaddr", 
                     "essential": false
               }
         ],

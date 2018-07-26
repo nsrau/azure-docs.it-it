@@ -5,15 +5,15 @@ services: virtual-machines-windows, virtual-machines-linux
 author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4b4dcb16adf207b775bd8411848d9e5d69c397a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36902edd7b2df472960d19b8ef9a4ebd4cdfe695
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669799"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906681"
 ---
 Questo articolo fornisce informazioni sulle generazioni precedenti delle dimensioni delle macchine virtuali. Queste dimensioni possono ancora essere usate, ma sono disponibili generazioni più recenti.
 
@@ -21,6 +21,10 @@ Questo articolo fornisce informazioni sulle generazioni precedenti delle dimensi
 ## <a name="ds-series"></a>Serie DS
 
 ACU: 160
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -34,6 +38,10 @@ ACU: 160
 ## <a name="ds-series---memory-optimized"></a>Serie DS - Con ottimizzazione per la memoria
 
 ACU: 160 <sup>1</sup>
+
+Archiviazione Premium: supportata
+
+Memorizzazione nella cache Archiviazione Premium: supportata
 
 | Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Valore massimo per dischi di dati | Velocità effettiva massima di archiviazione temporanea e nella cache: IOPS/MBps (dimensioni della cache in GiB) | Max velocità effettiva del disco non memorizzato nella cache: IOPS/MBps | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,6 +58,10 @@ ACU: 160 <sup>1</sup>
 
 ACU: 160
 
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
+
 | Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3,5         | 50             | 3000 / 46 / 23                                           | 4/4 x 500                         | 2 / 500                 |
@@ -63,6 +75,10 @@ ACU: 160
 
 ACU: 160
 
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
+
 | Dimensione         | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Velocità effettiva massima di archiviazione temporanea: IOPS/Mbps di lettura/Mbps di scrittura | Velocità effettiva/disco di dati massimo: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8/8 x 500                         | 2 / 1000                     |
@@ -75,6 +91,10 @@ ACU: 160
 ## <a name="a-series---compute-intensive-instances"></a>Serie A - Istanze a elevato utilizzo di calcolo
 
 ACU: 225
+
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
 
 Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso di calcolo*. L'hardware che esegue queste dimensioni è progettato e ottimizzato per applicazioni a elevato utilizzo di calcolo e di rete, come applicazioni cluster HPC, modellazione e simulazioni. La serie A8-A11 usa Intel Xeon E5-2670 a 2,6 GHZ, mentre la serie H usa Intel Xeon E5-2667 v3 a 3,2 GHz.  Questo articolo offre informazioni sul numero di vCPU, dischi dati e schede di rete, nonché sulla velocità effettiva di archiviazione e sulla larghezza di banda della rete per ogni dimensione di questo raggruppamento. 
 
@@ -93,6 +113,10 @@ Le dimensioni delle serie A8-A11 e H sono note anche come *istanze a elevato uso
 
 ACU: 50-100
 
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
+
 | Dimensione | vCPU | Memoria: GiB | Spazio di archiviazione temp (HDD): GiB | Valore massimo per dischi di dati | Velocità effettiva del disco di dati max: IOPS | Schede di interfaccia di rete max/larghezza di banda della rete prevista (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1x500 |2 / 100 |
@@ -108,6 +132,7 @@ ACU: 50-100
 <sup>1</sup> La sottoscrizione della dimensione A0 è eccessiva nell'hardware fisico. Solo per questa dimensione specifica, altre distribuzioni dei clienti possono compromettere le prestazioni del carico di lavoro in esecuzione. Le prestazioni relative sono indicate di seguito come linea di base prevista, con variabilità approssimativa del 15%.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 che usa l'interfaccia della riga di comando e PowerShell
+
 Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggermente diversi in PowerShell e nell'interfaccia della riga di comando:
 
 * Standard_A0 è ExtraSmall 
@@ -117,6 +142,10 @@ Nel modello di distribuzione classico, alcuni nomi di dimensioni VM sono leggerm
 * Standard_A4 è ExtraLarge
 
 ## <a name="basic-a"></a>Basic A
+
+Archiviazione Premium: non supportata
+
+Memorizzazione nella cache Archiviazione Premium: non supportata
 
 Le dimensioni del livello Basic sono destinate principalmente ai carichi di lavoro di sviluppo e alle altre applicazioni che non necessitano di bilanciamento del carico, scalabilità automatica o macchine virtuali con utilizzo intensivo della memoria.
 

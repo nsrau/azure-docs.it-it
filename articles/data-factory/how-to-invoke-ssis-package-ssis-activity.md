@@ -8,30 +8,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 07/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: db5941528eedd10cf252607dbe2160bd498a70de
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 3a43c0cd13300918979ae03c7f6c703796b65dc9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951968"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114226"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività di esecuzione del pacchetto SSIS in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azure Data Factory usando un'attività di esecuzione del pacchetto SSIS. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-### <a name="azure-sql-database"></a>database SQL di Azure 
-La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza SQL gestita di Azure (anteprima).
+**Database SQL di Azure**. La procedura dettagliata riportata in questo articolo usa un database SQL di Azure che ospita il catalogo SSIS. È anche possibile usare un'istanza SQL gestita di Azure (anteprima).
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creare un runtime di integrazione SSIS di Azure
 Se non è disponibile, creare un runtime di integrazione SSIS di Azure seguendo le istruzioni dettagliate riportate in [Esercitazione: Distribuire pacchetti SSIS](tutorial-create-azure-ssis-runtime-portal.md).
 
-## <a name="data-factory-ui-azure-portal"></a>Interfaccia utente di Data Factory (portale di Azure)
+## <a name="run-a-package-in-the-azure-portal"></a>Eseguire un pacchetto nel portale di Azure
 In questa sezione viene usata l'interfaccia utente di Data Factory per creare una pipeline di Data Factory con un'attività di esecuzione del pacchetto SSIS che esegue un pacchetto SSIS.
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
@@ -76,7 +75,7 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
     ![Pagina delle attività iniziali](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. Nella casella degli strumenti **Attività** espandere **Generale** e trascinare l'attività **Esegui pacchetto SSIS** nell'area di progettazione della pipeline. 
 
-   ![Trascinare l'attività SSIS nell'area di progettazione](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
+   ![Trascinare l'attività di esecuzione del pacchetto SSIS nell'area di progettazione](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
 3. Nella scheda **Generale** scheda delle proprietà per l'attività di esecuzione del pacchetto SSIS, fornire un nome e una descrizione per l'attività. Facoltativamente, impostare i valori per timeout e ripetizione.
 
@@ -98,7 +97,7 @@ Facoltativamente, assegnare valori, espressioni o funzioni, che possono fare rif
 
 ![Aggiungere parametri per l'attività di esecuzione del pacchetto SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
-### <a name="run-and-monitor-the-pipeline"></a>Eseguire e monitorare la pipeline
+### <a name="run-the-pipeline"></a>Eseguire la pipeline
 In questa sezione si attiva un'esecuzione della pipeline e quindi la si monitora. 
 
 1. Per attivare un'esecuzione della pipeline, fare clic su **Trigger** sulla barra degli strumenti e quindi su **Trigger Now** (Attiva adesso). 
@@ -107,15 +106,17 @@ In questa sezione si attiva un'esecuzione della pipeline e quindi la si monitora
 
 2. Nella finestra **Pipeline Run** (Esecuzione di pipeline) selezionare **Fine**. 
 
-3. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzata l'esecuzione della pipeline e il relativo stato insieme ad altre informazioni (ad esempio l'Ora di inizio dell'esecuzione). Per aggiornare la visualizzazione, fare clic su **Aggiorna**.
+### <a name="monitor-the-pipeline"></a>Monitorare la pipeline
+
+1. Passare alla scheda **Monitoraggio** a sinistra. Verrà visualizzata l'esecuzione della pipeline e il relativo stato insieme ad altre informazioni (ad esempio l'Ora di inizio dell'esecuzione). Per aggiornare la visualizzazione, fare clic su **Aggiorna**.
 
     ![Esecuzioni di pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-4. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verrà visualizzata una sola esecuzione attività dal momento che la pipeline ha una sola attività (l'attività di esecuzione del pacchetto SSIS).
+2. Fare clic sul collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Verrà visualizzata una sola esecuzione attività dal momento che la pipeline ha una sola attività (l'attività di esecuzione del pacchetto SSIS).
 
     ![Esecuzioni attività](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-5. È possibile eseguire la **query** seguente sul database SSISDB nel server SQL Azure per verificare che il pacchetto sia stato eseguito. 
+3. È possibile eseguire la **query** seguente sul database SSISDB nel server SQL Azure per verificare che il pacchetto sia stato eseguito. 
 
     ```sql
     select * from catalog.executions
@@ -123,20 +124,21 @@ In questa sezione si attiva un'esecuzione della pipeline e quindi la si monitora
 
     ![Verificare le esecuzioni del pacchetto](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-6. È anche possibile ottenere l'ID di esecuzione SSISDB dall'output dell'esecuzione di attività della pipeline e usare l'ID per controllare i log di esecuzione più completi e i messaggi di errore in SSMS.
+4. È anche possibile ottenere l'ID di esecuzione SSISDB dall'output dell'esecuzione di attività della pipeline e usare l'ID per controllare i log di esecuzione più completi e i messaggi di errore in SSMS.
 
     ![Ottenere l'ID di esecuzione.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
-> [!NOTE]
-> È anche possibile creare un trigger pianificato per la pipeline in modo che questa venga eseguita in base a una pianificazione (oraria, giornaliera e così via). Per un esempio, vedere [Creare una data factory tramite l'interfaccia utente di Azure Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+### <a name="schedule-the-pipeline-with-a-trigger"></a>Pianificare la pipeline con un trigger
 
-## <a name="azure-powershell"></a>Azure PowerShell
-In questa sezione si userà Azure PowerShell per creare una pipeline di Data Factory con un'attività SSIS che esegue un pacchetto SSIS. 
+È anche possibile creare un trigger pianificato per la pipeline in modo che questa venga eseguita in base a una pianificazione (oraria, giornaliera e così via). Per un esempio, vedere [Creare una data factory tramite l'interfaccia utente di Azure Data Factory](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+
+## <a name="run-a-package-with-powershell"></a>Eseguire un pacchetto con PowerShell
+In questa sezione si usa Azure PowerShell per creare una pipeline di Data Factory con un'attività di esecuzione del pacchetto SSIS che esegue un pacchetto SSIS. 
 
 Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
-È possibile usare la stessa data factory che ha il runtime di integrazione SSIS di Azure oppure crearne una distinta. La procedura seguente descrive le operazioni necessarie per creare una data factory. Si crea una pipeline con un'attività SSIS nella data factory. L'attività SSIS esegue il pacchetto SSIS. 
+È possibile usare la stessa data factory che ha il runtime di integrazione SSIS di Azure oppure crearne una distinta. La procedura seguente descrive le operazioni necessarie per creare una data factory. Si crea una pipeline con un'attività di esecuzione del pacchetto SSIS nella data factory. L'attività di esecuzione del pacchetto SSIS viene eseguita nel pacchetto SSIS. 
 
 1. Definire una variabile per il nome del gruppo di risorse usato in seguito nei comandi di PowerShell. Copiare il testo del comando seguente in PowerShell, specificare un nome per il [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) tra virgolette doppie e quindi eseguire il comando. Ad esempio: `"adfrg"`. 
    
@@ -178,8 +180,8 @@ Tenere presente quanto segue:
 * Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro dei ruoli **collaboratore** o **proprietario** oppure un **amministratore** della sottoscrizione di Azure.
 * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 
-### <a name="create-a-pipeline-with-an-ssis-activity"></a>Creare una pipeline con un'attività SSIS 
-In questo passaggio viene creata una pipeline con un'attività SSIS. L'attività esegue il pacchetto SSIS. 
+### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>Creare una pipeline con un'attività di esecuzione del pacchetto SSIS 
+In questo passaggio si crea una pipeline con un'attività di esecuzione del pacchetto SSIS. L'attività esegue il pacchetto SSIS. 
 
 1. Creare un file JSON denominato **RunSSISPackagePipeline.json** nella cartella **C:\ADF\RunSSISPackage** con contenuto simile all'esempio seguente:
 
@@ -279,7 +281,7 @@ In questo passaggio viene creata una pipeline con un'attività SSIS. L'attività
     Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
     ```
 
-### <a name="create-a-pipeline-run"></a>Creare un'esecuzione della pipeline
+### <a name="run-the-pipeline"></a>Eseguire la pipeline
 Usare il cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** per eseguire la pipeline. Il cmdlet restituisce l'ID di esecuzione della pipeline per il monitoraggio futuro.
 
 ```powershell
@@ -288,7 +290,7 @@ $RunId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataF
                                              -PipelineName $DFPipeLine.Name
 ```
 
-### <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
+### <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 
 Eseguire lo script di PowerShell seguente per verificare continuamente lo stato di esecuzione della pipeline fino al termine della copia dei dati. Copiare/Incollare lo script seguente nella finestra di PowerShell e premere INVIO. 
 
@@ -313,7 +315,7 @@ while ($True) {
 
 È anche possibile monitorare la pipeline tramite il portale di Azure. Per istruzioni dettagliate, vedere [Monitorare la pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
-### <a name="create-a-trigger"></a>Creare un trigger
+### <a name="schedule-the-pipeline-with-a-trigger"></a>Pianificare la pipeline con un trigger
 Nel passaggio precedente è stata eseguita la pipeline su richiesta. È anche possibile creare un trigger di pianificazione per eseguire la pipeline in base a una pianificazione (oraria, giornaliera e così via).
 
 1. Creare un file JSON denominato **MyTrigger.json** nella cartella **C:\ADF\RunSSISPackage** con il contenuto seguente: 
@@ -379,7 +381,6 @@ Nel passaggio precedente è stata eseguita la pipeline su richiesta. È anche po
     ```sql
     select * from catalog.executions
     ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere il post di blog seguente:

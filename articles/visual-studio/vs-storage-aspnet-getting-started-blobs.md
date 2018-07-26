@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696566"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070556"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione ad Archiviazione BLOB di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 
@@ -30,7 +30,7 @@ Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari co
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -135,11 +135,11 @@ I passaggi seguenti illustrano come creare un contenitore BLOB:
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Visualizzazioni**.
 
-2. Nel menu di scelta rapida selezionare **Aggiungi** > **Nuova cartella**. Assegnare alla nuova cartella il nome *Blobs*. 
+1. Se non è presente una cartella **BLOB** crearne una. Nel menu di scelta rapida selezionare **Aggiungi** > **Nuova cartella**. Assegnare alla nuova cartella il nome *Blobs*. 
  
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni** e fare clic con il pulsante destro del mouse su **Blobs**.
 
-4. Nel menu di scelta rapida selezionare **Aggiungi** > **Visualizzazione**.
+1. Nel menu di scelta rapida selezionare **Aggiungi** > **Visualizzazione**.
 
 1. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **CreateBlobContainer** come nome della visualizzazione e selezionare **Aggiungi**.
 

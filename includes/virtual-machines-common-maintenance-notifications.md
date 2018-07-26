@@ -2,22 +2,22 @@
 title: File di inclusione
 description: File di inclusione
 services: virtual-machines
-author: zivraf
+author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: zivr
+ms.date: 07/02/2018
+ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 9666a8fde808981dd798ff712b96a7c620c9003a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958895"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944701"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Visualizzare le macchine virtuali con manutenzione pianificata nel portale
 
-Dopo la pianificazione di un'ondata di manutenzione e l'invio delle relative notifiche, è possibile osservare l'elenco delle macchine virtuali interessate dalla prossima ondata. 
+Dopo la programmazione di un ciclo di manutenzione pianificata è possibile osservare l'elenco delle macchine virtuali interessate dal prossimo ciclo. 
 
 È possibile usare il portale di Azure per cercare le macchine virtuali pianificate per la manutenzione.
 
@@ -29,33 +29,35 @@ Dopo la pianificazione di un'ondata di manutenzione e l'invio delle relative not
 
 4. Selezionare e aggiungere le colonne seguenti:
 
-   **Manutenzione** - Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
+   **Manutenzione**: Mostra lo stato di manutenzione della macchina virtuale. Ecco di seguito i valori possibili:
       
       | Valore | DESCRIZIONE |
       |-------|-------------|
-      | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della VM. | 
-      | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra della pianificazione automatica in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
-      | Completed | La manutenzione della macchina virtuale è stata avviata e completata correttamente. | 
-      | Skipped| Si è scelto di avviare la manutenzione, ma senza successo. Non sarà possibile usare l'usare di manutenzione self-service. e la macchina virtuale dovrà essere riavviata da Azure durante la fase di manutenzione pianificata. | 
+      | Avvia ora | La macchina virtuale si trova nella finestra di manutenzione self-service, il che consente di avviare la manutenzione manualmente. Vedere di seguito per informazioni su come avviare la manutenzione della macchina virtuale. | 
+      | Pianificato | La macchina virtuale è pianificata per la manutenzione senza alcuna opzione per poter avviare manutenzione. Per informazioni relative alla finestra di manutenzione, è possibile selezionare la finestra di manutenzione pianificata in questa visualizzazione oppure fare clic sulla macchina virtuale. | 
+      | Già aggiornato | La macchina virtuale è già aggiornata e in questo momento non è richiesta alcuna azione ulteriore. | 
+      | Riprova più tardi | La manutenzione è stata avviata, ma senza successo. Sarà possibile usare l'usare di manutenzione self-service in un secondo momento. | 
+      | Riprova adesso | È possibile riprovare a eseguire una manutenzione avviata automaticamente non riuscita in precedenza. | 
 
-   **Finestra Manutenzione - Attiva** - Mostra la finestra temporale in cui è possibile avviare autonomamente la manutenzione delle macchine virtuali.
+   **Finestra Manutenzione - Self-service** - Mostra la finestra temporale in cui è possibile avviare autonomamente la manutenzione delle macchine virtuali.
    
-   **Maintenance Scheduled** (Manutenzione pianificata) - Mostra la finestra temporale in cui Azure riavvierà la macchina virtuale per completare la manutenzione. 
-
+   **Finestra Manutenzione - Pianificata**: Mostra la finestra temporale in cui Azure competerà la manutenzione della macchina virtuale. 
 
 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notifiche e avvisi del portale
 
-Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per altre informazioni, vedere [Monitorare l'attività di sottoscrizione con il log attività di Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure comunica il programma di una manutenzione pianificata inviando un messaggio di posta elettronica al proprietario e ai comproprietari della sottoscrizione. È possibile aggiungere altri destinatari e canali a questa comunicazione creando avvisi del log attività di Azure. Per altre informazioni, vedere [Monitorare l'attività di sottoscrizione con il log attività di Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere **Monitoraggio** dal menu a sinistra. 
-3. Nel riquadro **Monitoraggio - Log attività** selezionare **Avvisi**.
-4. Nel riquadro **Monitoraggio - Avvisi** fare clic su **+ Aggiungi avviso del log attività**.
-5. Completare le informazioni nella pagina **Aggiungi avviso del log attività** e assicurarsi di impostare i valori seguenti in **Criteri**: **Tipo**: Manutenzione **Stato**: Tutti (non impostare lo stato su Attivo o Risolto) **Livello**: Tutti
+3. Nel riquadro **Monitoraggio - Avvisi (versione classica)** fare clic su **+ Aggiungi avviso del log attività**.
+5. Completare le informazioni contenute sulla pagina **Aggiungi avviso del log attività** e assicurarsi di impostare i seguenti **Criteri**:
+   - **Categoria evento**: Integrità dei servizi
+   - **Servizi**: Set di scalabilità di macchine virtuali e Macchine virtuali
+   - **Tipo**: Manutenzione pianificata 
     
-Per altre informazioni su come configurare gli avvisi del log attività, vedere [Creare avvisi del log attività](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+Per altre informazioni su come configurare gli avvisi del log attività, vedere [Creare avvisi del log attività](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Avviare la manutenzione della macchina virtuale dal portale
@@ -66,6 +68,6 @@ Nella parte superiore della visualizzazione dei dettagli della macchina virtuale
 
 Fare clic sulla notifica di manutenzione per visualizzare la pagina Manutenzione con maggiori dettagli sulla manutenzione pianificata. Da questa pagina è possibile **avviare la manutenzione** della macchina virtuale.
 
-Dopo l'avvio della manutenzione, la macchina virtuale viene riavviata e lo stato di manutenzione viene aggiornato per riflettere il risultato entro pochi minuti.
+La manutenzione della macchina virtuale viene avviata e lo stato di manutenzione viene aggiornato per riflettere il risultato entro pochi minuti.
 
-Se si perde la finestra in cui è possibile avviare manutenzione, è comunque possibile visualizzarla quando la macchina virtuale viene riavviata da Azure. 
+Se si perde la finestra Self-service, è comunque possibile visualizzarla quando viene eseguita la manutenzione della macchina virtuale da Azure. 

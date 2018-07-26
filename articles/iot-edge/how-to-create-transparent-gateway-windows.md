@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344301"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036085"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creare un dispositivo IoT Edge Windows come gateway trasparente
 
@@ -22,7 +22,7 @@ Questo articolo contiene istruzioni dettagliate per usare un dispositivo IoT Edg
 >[!NOTE]
 >Al momento:
 > * Se il gateway è disconnesso dall'hub IoT, i dispositivi downstream non possono eseguire l'autenticazione tramite gateway.
-> * i dispositivi IoT Edge non possono connettersi ai gateway IoT Edge.
+> * I dispositivi abilitati per Edge non possono connettersi ai gateway IoT Edge. 
 > * I dispositivi downstream non possono usare il caricamento dei file.
 
 La principale difficoltà correlata alla creazione di un gateway trasparente è costituita dalla necessità di connettere il gateway in modo sicuro ai dispositivi downstream. Azure IoT Edge consente di usare l'infrastruttura PKI per impostare connessioni TLS sicure tra questi dispositivi. Nel caso illustrato si consente la connessione di un dispositivo downstream a un dispositivo IoT Edge che funge da gateway trasparente.  Per garantire un ragionevole livello di sicurezza, il dispositivo downstream deve verificare l'identità del dispositivo Edge. L'obiettivo, infatti, è connettere i dispositivi ai gateway, non avere a disposizione un gateway potenzialmente dannoso.
@@ -56,7 +56,7 @@ La procedura seguente illustra il processo di creazione e installazione dei cert
          ```
       1. Aggiungere `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl` alla variabile di ambiente `PATH` in modo che il file `openssl.exe` sia disponibile per la chiamata.
 
-1. Passare alla directory che si vuole usare, che d'ora in poi sarà denominata $WRKDIR.  Tutti i file verranno creati in questa directory.
+1. Passare alla directory che si vuole usare, che da ora in poi sarà denominata $WRKDIR.  Tutti i file verranno creati in questa directory.
    
    cd $WRKDIR
 

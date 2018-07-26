@@ -5,21 +5,17 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/18/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: dd50e4f6ebc5fdf5496a5127fde20bd052087b59
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: abff3f715a1fccba172147f02b83f7209f87cf9e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783523"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902517"
 ---
 # <a name="managed-service-identity-preview"></a>Identità del servizio gestito (anteprima)
 
@@ -59,13 +55,16 @@ Passare alla pagina **Controllo di accesso (IAM)** dello spazio dei nomi nel por
 
 ![](./media/event-hubs-managed-service-identity/msi2.png)
  
-L'identità del servizio gestito dell'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
+L'identità del servizio gestito per l'applicazione Web dispone ora dell'accesso allo spazio dei nomi di Hub eventi e all'hub eventi creato in precedenza. 
 
 ### <a name="run-the-app"></a>Esecuzione dell'app
 
 Modificare ora la pagina predefinita dell'applicazione ASP.NET creata. È anche possibile usare il codice dell'applicazione Web di [questo repository GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
 
-Una volta avviata l'app, aprire nel browser la pagina EventHubsMSIDemo.aspx. In alternativa, impostare questa pagina come iniziale. Il codice è disponibile nel file EventHubsMSIDemo.aspx.cs. Il risultato è un'applicazione Web minima con pochi campi di immissione e con pulsanti di **invio** e **ricezione** che consentono la connessione a Hub eventi per l'invio o la ricezione di messaggi. 
+>[!NOTE] 
+> Mentre la funzionalità di identità del servizio gestita è in anteprima, assicurarsi di usare la [versione di anteprima della libreria del bus di servizio](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) per poter accedere alle nuove API. 
+
+Una volta avviata l'app, aprire nel browser la pagina EventHubsMSIDemo.aspx. In alternativa, impostare questa pagina come iniziale. Il codice è disponibile nel file EventHubsMSIDemo.aspx.cs. Il risultato è un'applicazione Web minima con pochi campi di immissione e con pulsanti di **invio** e **ricezione** che consentono la connessione a Hub eventi per l'invio o la ricezione di eventi. 
 
 Si noti come viene inizializzato l'oggetto [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory). Invece di usare il provider di token di firma di accesso condiviso (SAS), il codice crea un provider di token per l'identità del servizio gestito con la chiamata di `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)`. In questo modo, non ci sono segreti da conservare e usare. Il flusso del contesto dell'identità del servizio gestito in Hub eventi e l'handshake di autorizzazione vengono gestiti automaticamente dal provider di token, offrendo così un modello più semplice rispetto all'uso della firma di accesso condiviso.
 

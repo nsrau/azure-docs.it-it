@@ -1,5 +1,5 @@
 ---
-title: Creare record DNS personalizzati per un'app Web | Documentazione Microsoft
+title: Creare record DNS personalizzati per un'app Web |Microsoft Docs
 description: Come creare record DNS di un dominio personalizzato per un'app Web usando DNS di Azure.
 services: dns
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771974"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058123"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Creare record DNS per un'app Web in un dominio personalizzato
 
@@ -42,7 +42,7 @@ Dopo la creazione di una zona e la relativa delega a DNS di Azure, è quindi pos
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Creare un record A per il dominio personalizzato
 
-Un record A viene usato per eseguire il mapping di un nome al relativo indirizzo IP. Nell'esempio seguente si assegnerà @ come record A a un indirizzo IPv4:
+Un record A viene usato per eseguire il mapping di un nome al relativo indirizzo IP. Nell'esempio seguente si assegnerà \@ come record A a un indirizzo IPv4:
 
 ### <a name="step-1"></a>Passaggio 1
 
@@ -54,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>Passaggio 2
 
-Aggiungere al set di record "\@\" creato in precedenza il valore IPv4 usando la variabile $rs assegnata. Il valore di IPv4 assegnato sarà l'indirizzo IP per l'app Web.
+Aggiungere al set di record "\@" creato in precedenza il valore IPv4 usando la variabile $rs assegnata. Il valore di IPv4 assegnato sarà l'indirizzo IP per l'app Web.
 
 Per trovare l'indirizzo IP per un'app Web, seguire i passaggi in [Configurare un nome di dominio personalizzato nel servizio app di Azure](../app-service/app-service-web-tutorial-custom-domain.md).
 

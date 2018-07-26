@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643499"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858953"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -52,8 +52,9 @@ I criteri di controllo possono essere definiti per un database specifico o come 
 > * Si vuole usare un *account di archiviazione* o un *periodo di conservazione* diverso per un database specifico.
 > * Per un database specifico si vogliono controllare tipi o categorie di eventi diversi dagli altri database nel server. Ad esempio, potrebbe essere necessario controllare gli inserimenti di tabella solo per un database specifico.
 > * Si vuole usare il rilevamento delle minacce, che attualmente è supportato solo con il controllo a livello di database.
->
 
+> [!IMPORTANT]
+>L'abilitazione del controllo su Azure SQL Data Warehouse o su un server che dispone di Azure SQL Data Warehouse **comporta il riavvio del data warehouse**, anche nel caso in cui questo sia stato precedentemente sospeso. **Assicurarsi di sospendere nuovamente il data warehouse dopo l'abilitazione del controllo**.
 
 ## <a id="subheading-5"></a>Configurare il controllo a livello di server per tutti i database
 

@@ -1,12 +1,12 @@
 ---
 title: Scenario di gestione delle eccezioni e registrazione degli errori - App per la logica di Azure | Microsoft Docs
-description: "Viene descritto un caso d'uso reale riguardo a modalità avanzate di gestione delle eccezioni e registrazione degli errori per le app per la logica di Azure"
-keywords: 
+description: Viene descritto un caso d'uso reale riguardo a modalità avanzate di gestione delle eccezioni e registrazione degli errori per le app per la logica di Azure
+keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930274"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Gestione delle eccezioni e registrazione degli errori per le app per la logica
 
@@ -439,7 +440,7 @@ L'app per le API di gestione delle eccezioni delle App per la logica di Azure of
 
 Ogni documento in Azure Cosmos DB deve avere un ID univoco. Viene usato `PatientId` e viene aggiunto un timestamp che sarà convertito in un valore di timestamp Unix (double). Il valore viene troncato per rimuovere il valore frazionario.
 
-È possibile visualizzare il codice sorgente dell'API del controller degli errori [da GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+È possibile visualizzare il codice sorgente dell'API del controller degli errori [da GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs).
 
 L'API viene chiamata da un'app per la logica usando la sintassi seguente:
 

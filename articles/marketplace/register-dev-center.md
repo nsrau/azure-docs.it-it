@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 43fadadc92e9562e1e9abe6d971f85d37a9825c2
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437083"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070435"
 ---
 # <a name="register-in-dev-center"></a>Eseguire la registrazione nel Dev Center  
 Per assicurarsi di non essere connessi a un account personale aprire una nuova sessione di Navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer.  
@@ -84,7 +84,7 @@ Per assicurarsi di non essere connessi a un account personale aprire una nuova s
 
 ---  
 
-## <a name="issue-dev-center-registration"></a>Problema: Registrazione in Dev Center  
+## <a name="get-help-with-dev-center-registration"></a>Guida per la Registrazione in Dev Center  
 Se si hanno problemi con la registrazione in Dev Center, attenersi alla seguente procedura per inviare un ticket di supporto.  
 1.  Andare al supporto Dev Center.  
     *   Per accedere al supporto, visitare la pagina Supporto per gli sviluppatori Windows all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support).  
@@ -151,6 +151,41 @@ Se si hanno problemi con la registrazione in Dev Center, attenersi alla seguente
 *   **Dove si contatta il supporto per problemi di registrazione a Dev Center?**
 Per accedere al supporto, visitare la pagina Supporto per gli sviluppatori Windows all'indirizzo [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support). 
 
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problema: Aggiungere informazioni bancarie e fiscali per i proventi degli editori  
+Le informazioni bancarie e fiscali sono necessarie per tutte le offerte commerciali effettuate mediante il tipo di inserzione Transazione.  
+*   Se si stanno pubblicando offerte commerciali per l'acquisto, è necessario aggiungere le informazioni di pagamento e le imposte e richiedere la convalida in Dev Center.  
+    >[!IMPORTANT]
+    >Per le offerte commerciali (transazione), è necessario completare le informazioni bancarie e fiscali prima di poter passare le offerte in produzione.  
+
+*   Se si stanno pubblicando solo offerte gratuite o di tipo BYOL, non è necessario aggiungere le informazioni. È possibile aggiungere le informazioni in un secondo momento, ma la convalida delle informazioni fiscali richiede un certo tempo. Se si intende proporre offerte commerciali per l'acquisto, è necessario aggiungere le informazioni nel più breve tempo possibile.  
+
+## <a name="add-bank-information"></a>Aggiungere informazioni bancarie  
+1.  Accedere a Dev Center con l'ID Microsoft.  
+    *   Per accedere a Dev Center, visitare la pagina di Windows Dev Center all'indirizzo [dev.windows.com](https://dev.windows.com).  
+2.  Selezionare Account proventi nel menu a sinistra.
+3.  Nella pagina `Choose payment method` selezionare `Bank account` o `PayPal`.  
+    >[!IMPORTANT]
+    >Se si dispone di offerte commerciali che i clienti acquistano nel Marketplace, l'account proventi è quello in cui si riceveranno i pagamenti per tali acquisti.  
+
+4.  Inserire le informazioni di pagamento. Dopo aver verificato che le informazioni siano corrette, fare clic sul pulsante Salva.  
+    >[!IMPORTANT]
+    >Se si aggiorna o si modifica l'account proventi, seguire la stessa procedura e sostituire le informazioni attuali con quelle nuove. Le modifiche al proprio account proventi potrebbero ritardare i pagamenti per un massimo di un ciclo di pagamento. Questo ritardo si verifica perché Microsoft deve verificare la modifica dell'account, nello stesso modo in cui viene fatto quando si configura per la prima volta l'account proventi. Dopo aver verificato l'account, verrà pagato l'intero importo. I pagamenti in scadenza del ciclo di pagamento corrente vengono aggiunti a quello successivo.  
+
+4.  Fare clic sul pulsante Avanti. 
+
+---   
+
+## <a name="add-tax-information"></a>Aggiungere informazioni fiscali  
+1.  Accedere a Dev Center con l'ID Microsoft.  
+    *   Per accedere a Dev Center, visitare la pagina di Windows Dev Center all'indirizzo [dev.windows.com](https://dev.windows.com).  
+2.  Selezionare Profilo fiscale nel menu a sinistra. 
+3.  Nella pagina `Set up your tax form`, selezionare il paese o la regione in cui si ha la residenza permanente.  
+    
+    Selezionare il paese o regione di cui si ha la cittadinanza principale.  
+    
+    Fare clic sul pulsante Avanti. 
+4.  Immettere le informazioni fiscali.  
+5.  Fare clic sul pulsante Avanti.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 *   Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  

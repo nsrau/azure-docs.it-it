@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 65525ffe33ddc100dd3066e7c2b52ef8a856fbc3
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a5e31df435d5e9af8543301e7a4540faa3d6410f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934772"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258066"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -47,7 +47,7 @@ Se non hai una sottoscrizione di Azure che soddisfa questi requisiti, è possibi
 
 Per registrare correttamente Azure Stack, la modalità di linguaggio di PowerShell deve essere impostata su **FullLanguageMode**.  Per verificare che la modalità linguaggio corrente è impostata su full, aprire una finestra di PowerShell con privilegi elevata ed eseguire i comandi PowerShell seguenti:
 
-```powershell
+```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
@@ -78,7 +78,7 @@ Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShe
 
 1. Aggiungere l'account di Azure da usare per registrarsi in Azure Stack. Per aggiungere l'account, eseguire la **Add-AzureRmAccount** cmdlet. Viene chiesto di immettere le credenziali dell'account amministratore globale di Azure e potrebbe essere necessario usare l'autenticazione a 2 fattori in base alla configurazione dell'account.
 
-   ```PowerShell
+   ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
    ```
 
@@ -89,13 +89,13 @@ Per registrare il provider di risorse di Azure Stack con Azure, avviare PowerShe
 
 2. Se si hanno più sottoscrizioni, eseguire il comando seguente per selezionare quello da usare:  
 
-   ```PowerShell
+   ```PowerShell  
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 3. Eseguire il comando seguente per registrare il provider di risorse di Azure Stack nella sottoscrizione di Azure:
 
-   ```PowerShell
+   ```PowerShell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
@@ -105,24 +105,26 @@ Usare questi passaggi per registrare Azure Stack con Azure usando il modello di 
 
 1. Avviare PowerShell ISE come amministratore e passare al **registrazione** cartella il **AzureStack-strumenti-master** directory create quando è [scaricato gli strumenti di Azure Stack](#bkmk_tools). Importa i **RegisterWithAzure.psm1** modulo con PowerShell:
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
 2. Successivamente, nella stessa sessione di PowerShell, assicurarsi che si è connessi al contesto di PowerShell di Azure corretta. Si tratta dell'account di azure che è stato usato per registrare il provider di risorse di Azure Stack precedente. PowerShell per l'esecuzione:
 
-   ```powershell
+   ```PowerShell  
    Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>"
    ```
 
 3. Nella stessa sessione di PowerShell, eseguire la **Set-AzsRegistration** cmdlet. PowerShell per l'esecuzione:  
 
-   ```powershell
+   ```PowerShell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -BillingModel PayAsYouUse
+      -RegistrationName $RegistrationName
    ```
 
   |Parametro|DESCRIZIONE|
@@ -130,7 +132,7 @@ Usare questi passaggi per registrare Azure Stack con Azure usando il modello di 
   |PrivilegedEndpointCredential|Le credenziali utilizzate per [accedere all'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Il nome utente è nel formato **AzureStackDomain\CloudAdmin**.|
   |PrivilegedEndpoint|Una preconfigurati in modo remota console di PowerShell che fornisce le funzionalità di raccolta dei log e di post-attività di distribuzione. Per altre informazioni, vedere la [usando l'endpoint con privilegi](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) articolo.|
   |BillingModel|Il modello di fatturazione che usa la sottoscrizione. I valori per questo parametro consentiti sono: capacità PayAsYouUse e sviluppo.|
-  |  |  |
+  | registrationName | Impostare un nome univoco per la registrazione se si esegue lo script di registrazione in più di un'istanza di Azure Stack usando la stessa sottoscrizione di Azure ID. Il parametro ha un valore predefinito pari **AzureStackRegistration**. Tuttavia, se si usa lo stesso nome in più di un'istanza di Azure Stack, lo script avrà esito negativo. |
 
   Il processo richiederà da 10 a 15 minuti. Al termine del comando, si vedranno il messaggio **"dell'ambiente è ora registrato e attivati mediante i parametri forniti."**
 
@@ -140,13 +142,15 @@ Seguire le stesse istruzioni usate per eseguire la registrazione tramite il mode
 
 PowerShell per l'esecuzione:
 
-```powershell
+```PowerShell  
 $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+$RegistrationName = "<unique-registration-name>"
 Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
     -AgreementNumber <EA agreement number> `
     -BillingModel Capacity
+    -RegistrationName $RegistrationName
 ```
 
 ## <a name="register-azure-stack-in-disconnected-environments"></a>Registrare Azure Stack in ambienti non connessi
@@ -156,7 +160,7 @@ Se si sta registrando Azure Stack in un ambiente disconnesso (con nessuna connet
 
 1. Avviare PowerShell ISE come amministratore e passare al **registrazione** cartella il **AzureStack-strumenti-master** directory create quando è [scaricato gli strumenti di Azure Stack](#bkmk_tools). Importa i **RegisterWithAzure.psm1** modulo:  
 
-   ```powershell
+   ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
@@ -174,18 +178,19 @@ Se si sta registrando Azure Stack in un ambiente disconnesso (con nessuna connet
 
 ### <a name="connect-to-azure-and-register"></a>Connettersi ad Azure e registrazione
 
-Nel computer che è connesso a internet, eseguire la stessa procedura per importare il modulo RegisterWithAzure.psm1 e account di accesso per il contesto di Azure Powershell corretto. Quindi chiamare Register-AzsEnvironment e specificare il token di registrazione da registrare con Azure:
+Nel computer connesso a Internet, eseguire la stessa procedura per importare il modulo RegisterWithAzure.psm1 ed eseguire l'accesso al contesto di Azure Powershell corretto. Quindi chiamare Register-AzsEnvironment. Specificare il token di registrazione da registrare con Azure. Se si desidera registrare più di un'istanza di Azure Stack usando lo stesso ID di sottoscrizione di Azure, specificare un nome di registrazione univoci. Eseguire il cmdlet seguente:
 
-  ```Powershell  
+  ```PowerShell  
   $registrationToken = "<Your Registration Token>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  
+  $RegistrationName = "<unique-registration-name>"
+  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
   ```
 
 Facoltativamente, è possibile usare il cmdlet Get-Content per puntare a un file che contiene il token di registrazione:
 
-  ```Powershell  
+  ```PowerShell  
   $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken  
+  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
   ```
 
   > [!NOTE]  
@@ -208,7 +213,7 @@ Per ottenere la chiave di attivazione, eseguire i comandi PowerShell seguenti:
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Crea una risorsa di attivazione in Azure Stack
 
-Tornare all'ambiente di Azure Stack con il file o il testo dalla chiave di attivazione creata da Get-AzsActivationKey. Si creerà una risorsa di attivazione in Azure Stack tramite tale chiave di attivazione. Per creare una risorsa di attivazione, eseguire i comandi di PowerShell seguenti:  
+Tornare all'ambiente di Azure Stack con il file o il testo dalla chiave di attivazione creata da Get-AzsActivationKey. Si creerà una risorsa di attivazione in Azure Stack tramite tale chiave di attivazione. Per creare una risorsa di attivazione, eseguire i comandi PowerShell seguenti:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -248,18 +253,18 @@ Se viene visualizzato un elenco di elementi disponibili in Azure (ad esempio Wor
 
 Se si desidera modificare la sottoscrizione è utilizzare, è necessario eseguire prima la **Remove-AzsRegistration** cmdlet, quindi verificare che si è connessi al contesto di Azure PowerShell corretto e infine eseguire **Set-AzsRegistration**  con uno qualsiasi per modificare i parametri:
 
-  ```powershell
+  ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-syndication-features"></a>Modificare le funzionalità di syndication o modello di fatturazione
 
 Se si desidera modificare il modello di fatturazione o la funzionalità di diffusione per l'installazione, è possibile chiamare la funzione di registrazione per impostare i nuovi valori. Non è necessario innanzitutto rimuovere la registrazione corrente:
 
-  ```powershell
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse
+  ```PowerShell  
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Rinnova o Modifica registrazione in ambienti non connessi

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 07/13/2018
 ms.author: marsma
-ms.openlocfilehash: ff94a250ca40aa546ebb07faa96563f49dea974a
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887692"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072076"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Usare istanze di contenitore di Azure come agente di compilazione Jenkins
 
@@ -92,31 +92,21 @@ Jenkins è ora configurato e pronto per compilare e distribuire codice. Per ques
 
 ## <a name="create-a-build-job"></a>Creare un'attività di compilazione
 
-Quando si usa un'immagine del contenitore come destinazione di compilazione di Jenkins è necessario specificare un'immagine che includa tutti gli strumenti necessari per una compilazione corretta. Per specificare l'immagine:
+A questo punto, viene creato un processo di compilazione Jenkins per illustrare le compilazioni Jenkins in un'istanza di contenitore di Azure.
 
-1. Selezionare **Manage Jenkins** (Gestisci Jenkins) > **Configure System** (Configura sistema) e scorrere verso il basso nella sezione **Cloud**. Per questo esempio, aggiornare il valore dell'immagine di Docker per **microsoft/java-on-azure-jenkins-slave**.
-
-   Al termine, fare clic su **Save** (Salva) per tornare al dashboard di Jenkins.
-
-   ![Configurazione cloud di Jenkins](./media/container-instances-jenkins/jenkins-aci-image.png)
-
-2. Creare ora un processo di compilazione di Jenkins. Selezionare **New item** (Nuovo elemento), assegnare un nome al progetto di compilazione, ad esempio **aci-java-demo**, selezionare **Freestyle project** (Progetto Freestyle) e fare clic su **OK**.
+1. Selezionare **New item** (Nuovo elemento), assegnare un nome al progetto di compilazione, ad esempio **aci-demo**, selezionare **Freestyle project** (Progetto Freestyle) e fare clic su **OK**.
 
    ![Finestra per il nome del processo di compilazione e l'elenco dei tipi di progetto](./media/container-instances-jenkins/jenkins-new-job.png)
 
-3. In **General** (Generale) verificare che sia selezionata l'opzione **Restrict where this project can be run** (Limita i casi in cui eseguire il progetto). Immettere **linux** per Label Expression (Espressione etichetta). Questa configurazione assicura che il processo di compilazione venga eseguito nel cloud delle istanze di contenitore di Azure.
+2. In **General** (Generale) verificare che sia selezionata l'opzione **Restrict where this project can be run** (Limita i casi in cui eseguire il progetto). Immettere **linux** per Label Expression (Espressione etichetta). Questa configurazione assicura che il processo di compilazione venga eseguito nel cloud delle istanze di contenitore di Azure.
 
    ![Scheda "General" (Generale) con i dettagli di configurazione](./media/container-instances-jenkins/jenkins-job-01.png)
 
-4. In **Source Code Management** (Gestione codice sorgente) selezionare **Git** e immettere **https://github.com/spring-projects/spring-petclinic.git** per l'URL del repository. Questo repository GitHub contiene il codice dell'applicazione di esempio.
+3. In **Build** (Compilazione) selezionare **Add build step** (Aggiungi passaggio di compilazione) e quindi selezionare **Execute Shell** (Esegui shell). Immettere `echo "aci-demo"` come comando.
 
-   ![Scheda "Source Code Management" (Gestione codice sorgente) con informazioni sul codice sorgente](./media/container-instances-jenkins/jenkins-job-02.png)
+   ![Scheda "Build" (Compilazione) con le selezioni per l'istruzione di compilazione](./media/container-instances-jenkins/jenkins-job-02.png)
 
-5. Nella scheda **Build** (Compilazione) selezionare **Add build step** (Aggiungi istruzione di compilazione), quindi scegliere **Invoke top-level Maven targets** (Richiama destinazioni Maven di primo livello). Immettere **package** (pacchetto) come obiettivo del passaggio di compilazione.
-
-   ![Scheda "Build" (Compilazione) con le selezioni per l'istruzione di compilazione](./media/container-instances-jenkins/jenkins-job-03.png)
-
-6. Selezionare **Salva**.
+5. Selezionare **Salva**.
 
 ## <a name="run-the-build-job"></a>Eseguire il processo di compilazione
 

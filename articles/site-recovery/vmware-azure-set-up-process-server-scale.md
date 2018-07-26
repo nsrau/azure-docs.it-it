@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38689001"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056610"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Configurare server di elaborazione aggiuntivi per ottenere scalabilità
 
@@ -31,11 +31,11 @@ Verificare i requisiti di dimensione riepilogati nella tabella. In generale, se 
 
 | **Server di elaborazione aggiuntivo** | **Dimensione disco cache** | **Frequenza di modifica dei dati** | **Computer protetti** |
 | --- | --- | --- | --- |
-|4 vCPU (2 socket * 2 core a 2,5 GHz), 8 GB di memoria |300 GB |250 GB o inferiore |Replicare un massimo di 85 computer. |
-|8 vCPU (2 socket * 4 core a 2,5 GHz), 12 GB di memoria |600 GB |Da 250 GB a 1 TB |Replicare tra 85 e 150 computer. |
-|12 vCPU (2 socket * 6 core a 2,5 GHz), 24 GB di memoria |1 TB |Da 1 TB a 2 TB |Replicare tra 150 e 225 computer. |
+|4 vCPU (2 socket * 2 core \@ 2,5 GHz), 8 GB di memoria |300 GB |250 GB o inferiore |Replicare un massimo di 85 computer. |
+|8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria |600 GB |Da 250 GB a 1 TB |Replicare tra 85 e 150 computer. |
+|12 vCPU (2 socket * 6 core \@ 2,5 GHz), 24 GB di memoria |1 TB |Da 1 TB a 2 TB |Replicare tra 150 e 225 computer. |
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Nella tabella seguente sono riepilogati i prerequisiti per il server di elaborazione aggiuntivo.
 

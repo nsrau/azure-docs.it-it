@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316818"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865234"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Creare relazioni tra attività per eseguire attività che dipendono da altre attività
 
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Questo frammento di codice crea un'attività dipendente con ID attività "Flowers". L'attività "Flowers" dipende dalle attività "Rain" e "Sun". L'esecuzione dell'attività "Flowers" in un nodo di calcolo verrà pianificata solo dopo il corretto completamento delle attività "Rain" e "Sun".
 
 > [!NOTE]
-> Un'attività viene considerata correttamente completata quando l'attività è in **stato completato** e il **codice di uscita** è `0`. In Batch .NET ciò corrisponde a un valore della proprietà [CloudTask][net_cloudtask].[State][net_taskstate] pari a `Completed` e il valore della proprietà [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] è `0`.
+> Per impostazione predefinita, un'attività viene considerata correttamente completata quando l'attività è in **stato completato** e il **codice di uscita** è `0`. In Batch .NET ciò corrisponde a un valore della proprietà [CloudTask][net_cloudtask].[State][net_taskstate] pari a `Completed` e il valore della proprietà [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] è `0`. Per informazioni su come modificare questa impostazione, vedere la sezione [Azioni di dipendenza](#dependency-actions).
 > 
 > 
 
@@ -121,7 +121,9 @@ In una dipendenza da un intervallo di attività padre un'attività dipende dal c
 Per creare la dipendenza, specificare il primo e l'ultimo ID attività dell'intervallo nel metodo statico [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] quando si popola la proprietà [DependsOn][net_dependson] di [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> Quando si usano intervalli di ID attività per le relazioni, gli ID attività inclusi nell'intervallo *devono* essere rappresentazioni di stringa di valori interi.
+> Quando si usano intervalli di ID attività per le dipendenze, verranno selezionate solo le attività con ID che rappresentano valori interi. Pertanto, l'intervallo `1..10` selezionerà le attività `3` e `7`, ma non `5flamingoes`. 
+> 
+> Gli zeri iniziali non sono rilevanti per la valutazione delle dipendenze nell'intervallo, per cui le attività con gli identificatori di stringa `4`, `04` e `004` saranno tutte *all'interno* dell'intervallo e verranno tutte considerate attività `4`, in modo che la prima a essere completata soddisferà la dipendenza.
 > 
 > Ogni attività compresa nell'intervallo deve soddisfare la dipendenza attraverso il corretto completamento o il completamento con un errore associato a un'azione di dipendenza impostata su **Satisfy**. Per informazioni dettagliate, vedere la sezione [Azioni di dipendenza](#dependency-actions).
 >

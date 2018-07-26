@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346060"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035575"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Creare un dispositivo IoT Edge Linux come gateway trasparente
 
@@ -22,7 +22,7 @@ Questo articolo contiene istruzioni dettagliate per usare un dispositivo IoT Edg
 >[!NOTE]
 >Al momento:
 > * Se il gateway è disconnesso dall'hub IoT, i dispositivi downstream non possono eseguire l'autenticazione tramite gateway.
-> * i dispositivi IoT Edge non possono connettersi ai gateway IoT Edge.
+> * I dispositivi abilitati per Edge non possono connettersi ai gateway IoT Edge. 
 > * I dispositivi downstream non possono usare il caricamento dei file.
 
 La principale difficoltà correlata alla creazione di un gateway trasparente è costituita dalla necessità di connettere il gateway in modo sicuro ai dispositivi downstream. Azure IoT Edge consente di usare l'infrastruttura PKI per impostare connessioni TLS sicure tra questi dispositivi. Nel caso illustrato si consente la connessione di un dispositivo downstream a un dispositivo IoT Edge che funge da gateway trasparente.  Per garantire un ragionevole livello di sicurezza, il dispositivo downstream deve verificare l'identità del dispositivo Edge. L'obiettivo, infatti, è connettere i dispositivi ai gateway, non avere a disposizione un gateway potenzialmente dannoso.
@@ -181,7 +181,7 @@ Il runtime IoT Edge può instradare i messaggi inviati dai dispositivi downstrea
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Per altri dettagli sul routing dei messaggi, vedere [articolo composizione modulo][lnk-module-composition].
+Per altri dettagli sul routing dei messaggi, vedere l'[articolo sulla composizione dei moduli][lnk-module-composition].
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev] (Informazioni sui requisiti e sugli strumenti per sviluppare moduli IoT Edge).
@@ -192,6 +192,7 @@ Per altri dettagli sul routing dei messaggi, vedere [articolo composizione modul
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

@@ -14,7 +14,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 
 | Risorsa | Limite |
 | --- | --- |
-| Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |10 |
+| Numero massimo hub IoT a pagamento per ogni sottoscrizione di Azure |50 |
 | Numero massimo hub IoT gratuiti per ogni sottoscrizione di Azure |1 |
 | Numero massimo di caratteri in un ID dispositivo | 128 |
 | Numero massimo di identità del dispositivo<br/> restituito in una singola chiamata |1000 |
@@ -38,7 +38,7 @@ Nella tabella seguente sono elencate le limitazioni che si applicano alle risors
 
 
 > [!NOTE]
-> Se sono necessari più di 10 hub IoT a pagamento in una sottoscrizione di Azure, contattare il supporto tecnico Microsoft.
+> Se sono necessari più di 50 hub IoT a pagamento in una sottoscrizione di Azure, contattare il supporto tecnico Microsoft.
 
 
 > [!NOTE]

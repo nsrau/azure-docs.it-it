@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837439"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887488"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Piani e fatturazione nell'utilità di pianificazione di Azure
 ## <a name="job-collection-plans"></a>Piani di raccolta di processi
@@ -42,12 +42,12 @@ Se si dispone di una raccolta di processi standard e di una raccolta di processi
 ## <a name="standard-billable-units"></a>Unità fatturabili standard
 Un'unità fatturabile standard può includere fino a 10 raccolte di processi standard. Poiché una raccolta processi standard può avere al massimo 50 processi per raccolta, un'unità di fatturazione standard consente che una sottoscrizione abbia fino a 500 processi: fino a quasi 22 milioni di esecuzioni di processi al mese.
 
-Se si trovano tra 1 e 10 raccolte di processi standard, verrà addebitata per 1 unità standard di fatturazione. Se si trovano tra 11 e 20 raccolte di processi standard, verranno addebitate 2 unità standard di fatturazione. Se si trovano tra 21 e 30 raccolte di processi standard, verranno addebitate 3 unità standard di fatturazione.
+Se si trovano tra 1 e 10 raccolte di processi standard, verrà addebitata per una unità standard di fatturazione. Se si trovano tra 11 e 20 raccolte di processi standard, verrà addebitata per due unità standard di fatturazione. Se si trovano tra 21 e 30 raccolte di processi standard, verranno addebitate tre unità standard di fatturazione.
 
 ## <a name="p10-premium-billable-units"></a>Unità fatturabili P10 Premium
 Un'unità fatturabile P10 Premium può includere fino a 10.000 raccolte processi P10 Premium. Poiché una raccolta processi P10 Premium può avere un massimo di 50 processi per raccolta, un'unità di fatturazione Premium consente che una sottoscrizione abbia un massimo di 500.000 processi, fino a quasi 22 miliardi di esecuzioni di processi al mese.
 
-Se il numero di raccolte processi Premium è compreso tra 1 e 10.000 , verrà addebitata 1 unità fatturazione P10 Premium. Se il numero di raccolte processi Premium è compreso tra 10,001 e 20,000, verranno addebitate 2 unità fatturazione P10 Premium e così via.
+Se il numero di raccolte processi Premium è compreso tra 1 e 10.000, verrà addebitata una unità fatturazione P10 Premium. Se il numero di raccolte processi Premium è compreso tra 10,001 e 20,000, verranno addebitate 2 unità fatturazione P10 Premium e così via.
 
 Le raccolte processi P10 Premium hanno la stessa funzionalità delle raccolte processi Standard ma offrono una riduzione di prezzo nel caso in cui l'applicazione richieda una notevole quantità di raccolte processi.
 
@@ -57,7 +57,7 @@ Un'unità fatturabile P20 Premium può includere fino a 5.000 raccolte processi 
 Le raccolte di processi P20 Premium forniscono le stesse funzionalità delle raccolte di processi P10 Premium ma supportano anche un maggiore numero processi per ogni raccolta e un numero totale di processi maggiore rispetto alla raccolta P10 Premium assicurando maggiore scalabilità.
 
 ## <a name="billing-and-active-status"></a>Stato attivo e fatturazione
-Le raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione entri in uno stato di disabilitazione temporanea a causa di problemi di fatturazione. L'unico modo per assicurarsi che una raccolta di processi non venga addebitata è di impostarla sul piano *gratuito* o di eliminarla.
+Le raccolte di processi sono sempre attive, a meno che l'intera sottoscrizione entri in uno stato di disabilitazione temporanea a causa di problemi di fatturazione. L'unico modo per assicurarsi che una raccolta di processi non venga addebitata è di eliminarla.
 
 Anche se è possibile disabilitare tutti i processi all'interno di una raccolta di processi in un'unica operazione, ciò non modifica lo stato di fatturazione della raccolta processi, che pertanto verrà *ancora* fatturata. Analogamente, raccolte di processi vuoto vengono considerati attivi e verranno fatturati.
 

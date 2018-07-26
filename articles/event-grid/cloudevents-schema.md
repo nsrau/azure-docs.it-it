@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625594"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044550"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Usare lo schema CloudEvents con Griglia di eventi
 
@@ -73,9 +73,9 @@ In CloudEvents v0.1 sono disponibili le proprietà seguenti:
 
 Per altre informazioni, vedere la [specifica di CloudEvents](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 
-## <a name="configure-event-grid-for-cloudevents"></a>Configurare Griglia di eventi per CloudEvents
+I valori intestazioni per recapitare gli eventi nello schema CloudEvents e nello Griglia di eventi sono gli stessi, ad eccezione di `content-type`. Per lo schema CloudEvents, tale valore intestazione è `"content-type":"application/cloudevents+json; charset=utf-8"`. Per lo schema Griglia di eventi, tale valore intestazione è `"content-type":"application/json; charset=utf-8"`.
 
-Griglia di eventi di Azure offre attualmente il supporto in anteprima per l'input e l'output in formato JSON di CloudEvents in **Stati Uniti centro-occidentali**, **Stati Uniti centrali** ed **Europa settentrionale**.
+## <a name="configure-event-grid-for-cloudevents"></a>Configurare Griglia di eventi per CloudEvents
 
 È possibile usare Griglia di eventi sia per l'input che per l'output degli eventi nello schema CloudEvents. È possibile usare CloudEvents per gli eventi di sistema, ad esempio gli eventi di archiviazione BLOB, gli eventi dell'hub IoT e gli eventi personalizzati. Può anche trasformare tali eventi in transito in entrambe le direzioni.
 
@@ -91,7 +91,7 @@ Per tutti gli schemi di eventi, Griglia di eventi richiede la convalida quando s
 
 ### <a name="input-schema"></a>Schema di input
 
-Per impostare lo schema di input in un argomento personalizzato su CloudEvents, usare il parametro seguente nell'interfaccia della riga di comando di Azure quando si crea l'argomento `--input-schema cloudeventv01schema`. L'argomento personalizzato prevede ora eventi in ingresso in formato CloudEvents v0.1.
+Per impostare lo schema di input in un argomento personalizzato su CloudEvents, usare il parametro seguente nell'interfaccia della riga di comando di Azure quando si crea l'argomento personalizzato `--input-schema cloudeventv01schema`. L'argomento personalizzato prevede ora eventi in ingresso in formato CloudEvents v0.1.
 
 Per creare un argomento di Griglia di eventi, usare:
 
@@ -124,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-La versione corrente di CloudEvents non supporta l'invio in batch di eventi. Una sottoscrizione di eventi configurata per lo schema CloudEvent riceve singolarmente ogni evento. Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. È necessario usare un trigger HTTP.
+La versione corrente di CloudEvents non supporta l'invio in batch di eventi. Una sottoscrizione di eventi configurata per lo schema CloudEvent riceve singolarmente ogni evento. Attualmente non è possibile usare un trigger di Griglia di eventi per un'app di Funzioni di Azure quando l'evento viene recapitato nello schema CloudEvents. È necessario usare un trigger HTTP. Per esempi di implementazione di un trigger HTTP che riceve gli eventi nello schema CloudEvents, vedere [Usare un trigger HTTP come trigger Griglia di eventi](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

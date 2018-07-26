@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.reviewer: Evgeny.Ternovsky
 ms.author: mbullwin
-ms.openlocfilehash: 95e421278b46015e761764792e11dec0351b9785
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a59b57c546f18a7d91160f2ae7282af82fc42160
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294422"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044714"
 ---
 # <a name="guidance-for-personal-data-stored-in-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Application Insights
 
@@ -82,7 +82,8 @@ Dopo che è stato assegnato il ruolo di Azure Resource Manager, sono disponibili
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
-Anche se la maggior parte delle operazioni di ripulitura possono essere completate molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Application Insights, il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni.
+> [!IMPORTANT]
+>  Anche se la maggior parte delle operazioni di ripulitura possono essere completate molto più rapidamente rispetto al Contratto di servizio, a causa dell'impatto elevato sulla piattaforma dati usata da Application Insights, **il Contratto di servizio formale per il completamento delle operazioni di pulitura è impostato su 30 giorni**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul modo in cui i dati vengono raccolti, elaborati e protetti, vedere [Sicurezza dei dati di Application Insights](app-insights-data-retention-privacy.md).

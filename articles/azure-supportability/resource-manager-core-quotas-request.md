@@ -3,16 +3,16 @@ title: Richieste di aumento della quota di vCPU per Azure Resource Manager | Mic
 description: Richieste di aumento della quota di vCPU per Azure Resource Manager
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392772"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037235"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Richieste di aumento della quota di vCPU per Resource Manager
 
@@ -20,16 +20,31 @@ Le quote di vCPU per Resource Manager sono imposte a livello di area e a livello
 Per altre informazioni su come vengono imposte le quote, vedere la pagina relativa ai [limiti del servizio e della sottoscrizione di Azure](http://aka.ms/quotalimits).
 Per altre informazioni sulle famiglie di SKU e per confrontare costi e prestazioni, vedere la pagina [Prezzi di Macchine virtuali](http://aka.ms/pricingcompute).
 
-Per richiedere un aumento, creare un caso di supporto per la quota delle vCPU nel portale di Azure, all'indirizzo [https://portal.azure.com](https://portal.azure.com).
+Per richiedere un aumento, seguire le istruzioni seguenti per creare una richiesta di supporto tramite il blade "Utilizzo e quote" di Azure disponibile nel portale di Azure. 
 
-> [!NOTE]
-> Informazioni su come [creare una richiesta di supporto](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) nel portale di Azure
+## <a name="request-quota-increase-at-subscription-level"></a>Richiedi aumento di quota a livello di sottoscrizione
 
-1. Nella pagina della nuova richiesta di supporto selezionare "Quota" in Tipo di problema e quindi scegliere "Core" in Tipo di quota.
+1. In https://portal.azure.com, selezionare **Sottoscrizioni**.
 
-    ![Pannello Informazioni di base della quota](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Sottoscrizioni](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. In Modello di distribuzione selezionare "Resource Manager" e quindi scegliere una località.
+2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
+
+   ![Selezionare la sottoscrizione](./media/resource-manager-core-quotas-request/select-subscription.png)
+
+3. Selezionare **Utilizzo e quote**.
+
+   ![Selezionare Utilizzo e quote](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+
+4. Nell'angolo superiore destro selezionare **Richiedi aumento**.
+
+   ![Richiedi aumento](./media/resource-manager-core-quotas-request/request-increase.png)
+
+5. Passaggio: 1 - Selezionare **Core** come tipo di quota. 
+
+   ![Compilare i moduli](./media/resource-manager-core-quotas-request/forms.png)
+   
+6. Passaggio:2 - In Modello di distribuzione selezionare "Resource Manager" e quindi scegliere una località.
 
     ![Pannello Problema della quota](./media/resource-manager-core-quotas-request/Problem-step.png)
 
@@ -43,3 +58,4 @@ Per richiedere un aumento, creare un caso di supporto per la quota delle vCPU ne
 
 - Per rimuovere una riga, deselezionare lo SKU dall'elenco a discesa delle famiglie di SKU oppure fare clic sull'icona di eliminazione "x".
 Dopo aver immesso la quota desiderata per ogni famiglia di SKU, fare clic su "Avanti" nella pagina del passaggio del problema per procedere con la creazione della richiesta di supporto.
+

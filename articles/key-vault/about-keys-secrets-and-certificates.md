@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636607"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972401"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 Azure Key Vault consente agli utenti di archiviare e utilizzare le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. Key Vault supporta più tipi di chiavi e algoritmi e consente l'utilizzo di moduli di protezione hardware (HSM) per le chiavi di valore elevato. Inoltre, Key Vault consente agli utenti di archiviare in modo sicuro i segreti. I segreti sono oggetti ottetto di dimensioni limitate senza alcuna semantica specifica. Key Vault supporta inoltre certificati, che si avvalgono di chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
@@ -122,7 +122,7 @@ La versione iniziale di Azure Key Vault supporta solo le chiavi RS; le versioni 
 -   **RSA**: una chiave RSA a 2048 bit. Si tratta di una chiave "soft", che viene elaborata da Key Vault nel software ma viene archiviata come crittografata quando inattiva tramite l’utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA esistente o richiedere a Azure Key Vault di generarne una.  
 -   **RSA-HSM**: una chiave RSA elaborata in un modulo di protezione hardware. Le chiavi RSA-HSM sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Azure Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA, in forma soft o tramite l'esportazione da un dispositivo del modulo di protezione hardware, o richiedere a Azure Key Vault di generarne una. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.  
 
-     Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/en-us/support/trust-center/privacy/)  
+     Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmi RSA  
  Gli identificatori di algoritmi seguenti sono supportati con le chiavi RSA in Azure Key Vault.  
@@ -172,7 +172,7 @@ Azure Key Vault supporta le seguenti operazioni sugli oggetti chiave:
 -   **Backup**: esporta una chiave in un formato protetto.  
 -   **Ripristina**: importa una chiave precedentemente sottoposta a backup.  
 
-Per ulteriori informazioni, vedere [Operazioni chiave](/rest/api/keyvault/key-operations.md)  
+Per altre informazioni, vedere [Operazioni chiave](/rest/api/keyvault/key-operations).  
 
 Dopo avere creato una chiave in Azure Key Vault, le operazioni crittografiche seguenti potranno essere eseguite utilizzando la chiave:  
 
@@ -281,7 +281,7 @@ Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di 
 -   *elimina*: eliminare il segreto  
 -   *tutte*: tutte le autorizzazioni  
 
-Per ulteriori informazioni sull'uso dei segreti, vedere [operazioni relative ai segreti](/rest/api/keyvault/secret-operations.md).  
+Per ulteriori informazioni sull'uso dei segreti, vedere [operazioni relative ai segreti](/rest/api/keyvault/secret-operations).  
 
 ###  <a name="BKMK_SecretTags"></a> Tag dei segreti  
 È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Azure Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
@@ -443,9 +443,9 @@ Se i criteri del certificato sono impostato per il rinnovo automatico, viene inv
 
 ## <a name="additional-information-for-certificates"></a>Informazioni aggiuntive per i certificati
 
-- [Certificati e criteri](/rest/api/keyvault/certificates-and-policies.md)
-- [Autorità di certificazione](/rest/api/keyvault/certificate-issuers.md)
-- [Contatti relativi al certificato](/rest/api/keyvault/certificate-contacts.md)
+- [Certificati e criteri](/rest/api/keyvault/certificates-and-policies)
+- [Autorità di certificazione](/rest/api/keyvault/certificate-issuers)
+- [Contatti relativi al certificato](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>Vedere anche
 

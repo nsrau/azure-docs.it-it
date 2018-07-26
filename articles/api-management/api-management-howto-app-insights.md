@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323386"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001804"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
 Gestione API di Azure consente una facile integrazione con Azure Application Insights, un servizio estendibile per sviluppatori Web che compilano e gestiscono app in più piattaforme. Questa guida illustra ogni passaggio di tale integrazione e descrive le strategie per ridurre l'impatto sulle prestazioni nell'istanza del servizio Gestione API.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per seguire questa guida, è necessario avere un'istanza di Gestione API di Azure. Se non è disponibile, completare prima l'[esercitazione](get-started-create-service-instance.md).
 
@@ -50,6 +50,9 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 6. È appena stato creato un logger di Azure Application Insights con una chiave di strumentazione. Verrà ora visualizzato nell'elenco.  
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
+
 ## <a name="enable-application-insights-logging-for-your-api"></a>Abilitare la registrazione di Application Insights per l'API
 
 1. Passare all'**istanza del servizio Gestione API di Azure** nel **portale di Azure**.
@@ -63,6 +66,9 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 8. Immettere **100** come **Sampling (%)** (Campionamento - %) e selezionare la casella di controllo **Always log errors** (Registra sempre gli errori).
 9. Immettere **1024** nel campo **First bytes of body** (Primi byte del corpo).
 10. Fare clic su **Save**.
+
+> [!NOTE]
+> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
 | Nome impostazione                        | Tipo di valore                        | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

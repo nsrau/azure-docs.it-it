@@ -1,29 +1,29 @@
 ---
-title: "Crittografia CENC con DRM multiplo e controllo di accesso: informazioni di riferimento per la progettazione e l'implementazione in Azure e Servizi multimediali di Azure | Microsoft Docs"
+title: Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure | Microsoft Docs
 description: Informazioni su come ottenere la licenza per Microsoft Smooth Streaming Client Porting Kit.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: cfowler
 editor: ''
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 8f072f13909190eee194565673ccfa1f381f7503
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783940"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075317"
 ---
-# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>Crittografia CENC con DRM multiplo e controllo di accesso: informazioni di riferimento per la progettazione e l'implementazione in Azure e Servizi multimediali di Azure
- 
-## <a name="introduction"></a>Introduzione
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure
+
+## <a name="overview"></a>Panoramica
+
 La progettazione e la creazione di un sottosistema DRM (Digital Right Management) per una soluzione di streaming online o OTT (Over-The-Top) sono attività complesse. Gli operatori e i provider di video online in genere esternalizzano queste attività a provider di servizi DRM specializzati. L'obiettivo di questo documento è presentare informazioni di riferimento per la progettazione e l'implementazione di un sottosistema DRM end-to-end in una soluzione di streaming online o OTT.
 
 Questo documento è destinato agli ingegneri che utilizzano i sottosistemi DRM di soluzioni multischermo e di streaming online o OTT, ma anche a chiunque sia interessato ai sottosistemi DRM. Il presupposto è che i lettori abbiano familiarità con almeno una delle tecnologie DRM presenti sul mercato, ad esempio PlayReady, Widevine, FairPlay o Adobe Access.
@@ -41,7 +41,8 @@ Microsoft, insieme ad alcuni dei principali leader di settore, promuove attivame
 *  [Annuncio dei servizi di distribuzione delle licenze Google Widevine in Servizi multimediali di Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [Azure Media Services adds Google Widevine packaging for delivering a multi-DRM stream](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) (Aggiunta del pacchetto Google Widevine per la distribuzione di un flusso DRM multiplo in Servizi multimediali di Azure)  
 
-### <a name="overview-of-this-article"></a>Panoramica dell'articolo
+### <a name="goals-of-the-article"></a>Obiettivi dell'articolo
+
 Gli obiettivi di questo articolo sono:
 
 * Fornire informazioni di riferimento per la progettazione di un sottosistema DRM che usi la crittografia CENC con DRM multiplo.
@@ -62,7 +63,6 @@ La tabella seguente riepiloga le app e le piattaforme native, nonché i browser 
 | **Dispositivi Windows 10 (PC Windows, tablet Windows, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Piattaforma UWP (Universal Windows Platform) |DASH (per HLS, PlayReady non è supportato)<br/><br/>DASH, Smooth Streaming (per HLS, PlayReady non è supportato) |
 | **Dispositivi Android (telefoni, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), client OS X e Apple TV** |FairPlay |Safari 8+/EME |HLS |
-
 
 In base allo stato attuale della distribuzione per ogni DRM, un servizio in genere prevede l'implementazione di 2 o 3 DRM per garantire che tutti i tipi di endpoint vengano indirizzati nel modo migliore.
 
@@ -215,8 +215,9 @@ L'implementazione è costituita dai passaggi seguenti:
     | **DRM** | **Browser** | **Risultato per un utente con diritti** | **Risultato per un utente senza diritti** |
     | --- | --- | --- | --- |
     | **PlayReady** |Microsoft Edge o Internet Explorer 11 in Windows 10 |Succeed |Fail |
-    | **Widevine** |Chrome in Windows 10 |Succeed |Fail |
-    | **FairPlay** |Da definire | | |
+    | **Widevine** |Chrome, Firefox, Opera |Succeed |Fail |
+    | **FairPlay** |Safari su macOS      |Succeed |Fail |
+    | **AES-128** |Browser più moderni  |Succeed |Fail |
 
 Per informazioni su come impostare Azure AD per un'app lettore MVC ASP.NET, vedere [Integrate an Azure Media Services OWIN MVC-based app with Azure Active Directory and restrict content key delivery based on JWT claims](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/) (Integrare un'app basata su OWIN MVC di Servizi multimediali di Azure con Azure Active Directory e limitare la distribuzione di chiavi simmetriche in base ad attestazioni JWT).
 
@@ -225,7 +226,7 @@ Per altre informazioni, vedere [JWT token authentication in Azure Media Services
 Per informazioni su Azure AD:
 
 * Le informazioni per gli sviluppatori sono disponibili nella [Guida per gli sviluppatori di Azure Active Directory](../../active-directory/active-directory-developers-guide.md).
-* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/active-directory-administer.md).
+* Le informazioni per gli amministratori sono disponibili in [Amministrare la directory di Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### <a name="some-issues-in-implementation"></a>Problematiche di implementazione
 Usare le informazioni seguenti per la risoluzione dei problemi di implementazione.

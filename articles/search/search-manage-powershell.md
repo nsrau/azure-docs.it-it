@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 08/15/2016
 ms.author: heidist
-ms.openlocfilehash: 8f83f2652f7bd34f53dde1674c022f8792ae7658
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d0024af3bbf9edfe8c43032878a8b61e35cea9c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181988"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000991"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "32181988"
 Questo argomento descrive i comandi di PowerShell che consentono di eseguire molte delle attività di gestione dei servizi di Ricerca di Azure. Illustreremo in dettaglio come creare un servizio di ricerca, come ridimensionarlo e come gestire le relative chiavi API.
 Questi comandi si affiancano alle opzioni di gestione disponibili nella pagina relativa alle [API REST di gestione di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchmanagement).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * È necessario disporre di Azure PowerShell 1.0 o versioni successive. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * In PowerShell è necessario connettersi alla sottoscrizione di Azure come descritto di seguito.
 

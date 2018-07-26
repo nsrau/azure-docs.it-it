@@ -4,15 +4,15 @@ description: Offre una panoramica dell'appliance Agente di raccolta e illustra c
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211670"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951040"
 ---
 # <a name="collector-appliance"></a>Appliance Agente di raccolta
 
@@ -176,7 +176,7 @@ Agente di raccolta si limita a individuare i dati sui computer e inviarli al pro
 In base al numero di macchine virtuali nell'ambito selezionato, sono necessari fino a 15 minuti per l'invio dei metadati statici al progetto. Quando i metadati statici sono disponibili nel portale, è possibile visualizzare l'elenco dei computer nel portale e avviare la creazione di gruppi. Non è possibile creare una valutazione finché il processo di raccolta non viene completato e il progetto non ha elaborato i dati. Una volta completato il processo di raccolta in Agente di raccolta, perché i dati sulle prestazioni siano disponibili nel portale può essere necessaria fino a un'ora, in base al numero di macchine virtuali nell'ambito selezionato.
 
 ## <a name="locking-down-the-collector-appliance"></a>Blocco dell'appliance dell'agente di raccolta
-È consigliabile eseguire aggiornamenti continui di Windows sull'appliance dell'agente di raccolta. Se un agente di raccolta non viene aggiornato per 45 giorni, avvierà l'arresto automatico del computer. Qualora sia in corso un processo di individuazione, anche se viene superato il periodo di 45 giorni, il computer non si spegnerà. Al termine del processo, verrà tuttavia spento. Se si usa l'agente di raccolta per più di 45 giorni, è consigliabile mantenere sempre aggiornato il computer eseguendo Windows Update.
+È consigliabile eseguire aggiornamenti continui di Windows sull'appliance dell'agente di raccolta. Se un agente di raccolta non viene aggiornato per 60 giorni, avvierà l'arresto automatico del computer. Qualora sia in corso un processo di individuazione, anche se viene superato il periodo di 60 giorni, il computer non si spegnerà. Al termine del processo, verrà tuttavia spento. Se si usa l'agente di raccolta per più di 45 giorni, è consigliabile mantenere sempre aggiornato il computer eseguendo Windows Update.
 
 È inoltre consigliabile adottare le seguenti misure per proteggere l'appliance
 1. Non condividere le password di amministratore con parti non autorizzate, né smarrirle.

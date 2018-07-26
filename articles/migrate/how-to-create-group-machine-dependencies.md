@@ -4,18 +4,18 @@ description: Descrive come creare una valutazione usando le dipendenze dei compu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: a9850044266ec05cee5e32c6825609bcf969351d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203196"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919710"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Raggruppare i computer usando il mapping delle dipendenze dei computer
 
-Questo articolo descrive come creare un gruppo di computer per eseguire la valutazione con [Azure Migrate](migrate-overview.md) visualizzando le dipendenze dei computer. Questo metodo viene in genere usato quando si vogliono valutare gruppi di macchine virtuali con livelli di attendibilità più elevati controllando in modo incrociato le dipendenze dei computer prima di eseguire una valutazione. La visualizzazione delle dipendenze è utile per pianificare in modo efficace la migrazione a Azure. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire contemporaneamente la migrazione e determinare se un sistema in esecuzione è ancora utile o se è un candidato alla rimozione anziché alla migrazione. 
+Questo articolo descrive come creare un gruppo di computer per eseguire la valutazione con [Azure Migrate](migrate-overview.md) visualizzando le dipendenze dei computer. Questo metodo viene in genere usato quando si vogliono valutare gruppi di macchine virtuali con livelli di attendibilità più elevati controllando in modo incrociato le dipendenze dei computer prima di eseguire una valutazione. La visualizzazione delle dipendenze è utile per pianificare in modo efficace la migrazione a Azure. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire contemporaneamente la migrazione e determinare se un sistema in esecuzione è ancora utile o se è un candidato alla rimozione anziché alla migrazione.
 
 
 ## <a name="prepare-machines-for-dependency-mapping"></a>Preparare i computer per il mapping delle dipendenze
@@ -23,9 +23,12 @@ Per visualizzare le dipendenze dei computer, è necessario scaricare e installar
 
 ### <a name="download-and-install-the-vm-agents"></a>Scaricare e installare gli agenti di macchine virtuali
 1. In **Panoramica** fare clic su **Gestisci** > **Computer** e selezionare il computer necessario.
-2. Nella colonna **Dipendenze** fare clic su **Installa agenti**. 
+2. Nella colonna **Dipendenze** fare clic su **Installa agenti**.
 3. Nella pagina **Dipendenze** scaricare e installare Microsoft Monitoring Agent (MMA) e Dependency Agent in ogni macchina virtuale che si vuole valutare.
 4. Copiare l'ID e la chiave dell'area di lavoro. Questi dati sono necessari quando si installa MMA nel computer locale.
+
+> [!NOTE]
+> Per automatizzare l'installazione degli agenti è possibile usare qualsiasi strumento di distribuzione come System Center Configuration Manager o [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), uno strumento di partner che dispone di una soluzione di distribuzione dell'agente per Azure Migrate.
 
 ### <a name="install-the-mma"></a>Installare MMA
 
@@ -33,8 +36,8 @@ Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
 2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
-3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**. 
-4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**. 
+3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
+4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro di Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
 
@@ -52,7 +55,9 @@ Per installare l'agente in un computer Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Sono disponibili [altre informazioni](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sui sistemi operativi supportati da Dependency Agent. 
+Sono disponibili [altre informazioni](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) sui sistemi operativi supportati da Dependency Agent.
+
+[Altre informazioni](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sul modo in cui è possibile usare gli script per installare l'agente di dipendenza.
 
 ## <a name="create-a-group"></a>Creare un gruppo
 
@@ -62,7 +67,7 @@ Sono disponibili [altre informazioni](../monitoring/monitoring-service-map-confi
 4. La mappa delle dipendenze del computer mostra i dettagli seguenti:
     - Le connessioni TCP in ingresso (client) e in uscita (server) verso o dal computer
         - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
-        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate 
+        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
     - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
     - Le proprietà di ogni computer, come il nome di dominio completo, il sistema operativo, l'indirizzo MAC e così via: fare clic su ogni casella di computer per visualizzare questi dettagli
 
@@ -70,7 +75,7 @@ Sono disponibili [altre informazioni](../monitoring/monitoring-service-map-confi
 
 4. È possibile esaminare le dipendenze per intervalli di tempo diversi facendo clic sulla durata nell'etichetta dell'intervallo di tempo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
 5. Dopo aver identificato i computer dipendenti da raggruppare, fare clic tenendo premuto CTRL per selezionare più computer nella mappa e quindi fare clic su **Raggruppa macchine virtuali**.
-6. Specificare un nome di gruppo. Verificare che i computer dipendenti siano stati individuati da Azure Migrate. 
+6. Specificare un nome di gruppo. Verificare che i computer dipendenti siano stati individuati da Azure Migrate.
 
     > [!NOTE]
     > Se un computer dipendente non viene individuato da Azure Migrate, non è possibile aggiungerlo al gruppo. Per aggiungere tali computer al gruppo, è necessario eseguire nuovamente il processo di individuazione con l'ambito corretto nel server vCenter e verificare che il computer venga individuato da Azure Migrate.  

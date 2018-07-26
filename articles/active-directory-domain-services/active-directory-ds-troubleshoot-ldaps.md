@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 29554230adc9d30f357c4e8d0082c0fe7d8d9035
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8304ffa7c0cd225f258064d3c1a36a754c684241
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588424"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950717"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - Risoluzione dei problemi relativi alla configurazione di LDAP sicuro
 
@@ -58,7 +58,7 @@ Quando è abilitato LDAP sicuro, è consigliabile creare regole aggiuntive per c
 
 **Messaggio di avviso:**
 
-*The secure LDAP certificate for the managed domain will expire on XX.* (Il certificato LDAP sicuro per il dominio gestito scadrà in data XX.)
+*The secure LDAP certificate for the managed domain will expire on [date]]* (Il certificato LDAP sicuro per il dominio gestito scadrà in [data]]).
 
 **Risoluzione:**
 

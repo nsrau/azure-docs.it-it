@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608951"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856488"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Risoluzione dei problemi e limitazioni di Azure Cloud Shell
 
@@ -52,16 +52,6 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 
 ## <a name="powershell-troubleshooting"></a>Risoluzione dei problemi di PowerShell
 
-### <a name="no-home-directory-persistence"></a>Nessuna persistenza directory $Home
-
-- **Dettagli**: i dati che l'applicazione (ad esempio, git, vim e così via) scrive in `$Home` non verranno resi persistenti tra le sessioni di PowerShell.
-- **Risoluzione**: nel proprio profilo PowerShell, creare un collegamento simbolico alla cartella specifica dell’applicazione in `clouddrive` per $Home.
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>Ctrl+C non consente di uscire da un prompt Cmdlet
-
-- **Dettagli**: quando si prova a uscire dal prompt Cmdlet, `Ctrl+C` non consente di uscire dal prompt.
-- **Risoluzione**: per uscire dal prompt, premere `Ctrl+C` e quindi `Enter`.
-
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
 - **Dettagli**: se un utente avvia un'applicazione GUI, il prompt non ricompare. Ad esempio, quando un utente clona un repository GitHub privato abilitato a due fattori di autenticazione, viene visualizzata una finestra di dialogo per completare l'autenticazione a due fattori.  
@@ -75,18 +65,8 @@ Le soluzioni note per i problemi in Azure Cloud Shell includono:
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Risoluzione dei problemi di gestione remota delle macchine virtuali di Azure
 
 - **Dettagli**: a causa delle impostazioni predefinite di Windows Firewall per la gestione remota Windows, all'utente può comparire l'errore seguente: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Risoluzione**: assicurarsi che la macchina virtuale sia in esecuzione. È possibile eseguire `Get-AzureRmVM -Status` per conoscere lo stato della macchina virtuale.  Aggiungere quindi una nuova regola firewall nella macchina virtuale remota per consentire le connessioni di gestione remota Windows da una qualsiasi subnet, ad esempio,
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- È possibile usare l'[estensione di script personalizzata di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript) per evitare l'accesso alla macchina virtuale remota per l'aggiunta della nuova regola firewall.
- È possibile salvare lo script precedente in un file, ad esempio `addfirerule.ps1`, e caricarlo nel proprio contenitore di archiviazione di Azure.
- Provare quindi il comando seguente:
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **Risoluzione**: eseguire `Enable-AzureRmVMPSRemoting` per abilitare tutti gli aspetti della comunicazione remota di PowerShell nel computer di destinazione.
+ 
 
 ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir` memorizza il risultato nell'unità Azure
 
@@ -133,21 +113,39 @@ Fare attenzione quando si modifica il file con estensione bashrc, poiché questa
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 
-### <a name="slow-startup-time"></a>Tempo di avvio lento
+### <a name="azuread-module-name"></a>Nome modulo `AzureAD`
 
-L'inizializzazione di PowerShell in Azure Cloud Shell (anteprima) può richiedere fino a 60 secondi durante l'anteprima.
+Il nome del modulo `AzureAD` è attualmente `AzureAD.Standard.Preview`. Il modulo fornisce la stessa funzionalità.
+
+### <a name="sqlserver-module-functionality"></a>Funzionalità del modulo `SqlServer`
+
+Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle versioni precedenti di PowerShell Core. In particolare, `Invoke-SqlCmd` non è ancora disponibile.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure:
 
-Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella C:\Utenti per impostazione predefinita. 
+Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
 
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
 Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD` o `Connect-AzureRmAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Conformità al Regolamento generale sulla protezione dei dati (GDPR) per Cloud Shell
+### <a name="tab-completion-crashes-psreadline"></a>Il completamento scheda arresta PSReadline in modo anomalo
+
+Se la proprietà EditMode dell'utente in PSReadline è impostata su Emacs, l'utente tenta di visualizzare tutte le possibilità tramite il completamento scheda e le dimensioni della finestra sono troppo piccole per visualizzare tutte le possibilità, per cui PSReadline si arresterà in modo anomalo.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
+
+Se l'utente esegue un'azione che visualizza un indicatore di stato, come il completamento di una scheda nell'unità `Azure:`, è possibile che il cursore non sia impostato correttamente e che venga visualizzato uno spazio vuoto dove prima era presente l'indicatore di stato.
+
+### <a name="random-characters-appear-inline"></a>Inline vengono visualizzati caratteri casuali
+
+La sequenza di posizione del cursore, ad esempio `5;13R`, può essere visualizzata nell'input dell'utente.  Questi caratteri possono essere rimossi manualmente.
+
+## <a name="personal-data-in-cloud-shell"></a>Dati personali in Cloud Shell
 
 Azure Cloud Shell tratta i dati personali dell'utente con molta cautela: i dati acquisiti e archiviati mediante il servizio Azure Cloud Shell vengono usati per offrire un'esperienza predefinita all'utente, considerando ad esempio l'ultima shell usata, le dimensioni e il tipo di carattere preferiti e i dettagli della condivisione dei file che supportano il clouddrive. Se si desidera esportare o eliminare i dati è possibile fare riferimento alle istruzioni seguenti.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>Esportazione
 Al fine di **esportare** le impostazioni dell'utente che Cloud Shell salva, ad esempio shell preferita, dimensione e tipo di carattere, eseguire i comandi seguenti.

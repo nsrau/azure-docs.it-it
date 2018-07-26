@@ -1,21 +1,21 @@
 ---
-title: Proprietà di un utente di Collaborazione B2B di Azure Active Directory | Documentazione Microsoft
+title: Proprietà di un utente di Collaborazione B2B di Azure Active Directory | Microsoft Docs
 description: Le proprietà di un utente di Collaborazione B2B di Azure Active Directory sono configurabili
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65fd23ecf81aebdb1fe74f800d20df6414c18317
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259604"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057893"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -85,6 +85,9 @@ In alcuni casi può essere necessario dare privilegi più elevati agli utenti gu
 È possibile disabilitare le limitazioni dell'utente guest predefinito per assegnare all'utente guest nella directory aziendale le stesse autorizzazioni di un utente membro.
 
 ![Rimuovere le limitazioni dell'utente guest](media/user-properties/remove-guest-limitations.png)
+
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
+Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere **È possibile creare oggetti guest visibili nell'elenco indirizzi globale?** in [Accesso Guest in gruppi di Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,26 +1,21 @@
 ---
-title: Limiti e quote della sottoscrizione di Azure | Microsoft Docs
+title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Sono incluse informazioni su come aumentare i limiti e i valori massimi.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610773"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069540"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 In questo documento sono elencati alcuni dei limiti più comuni di Microsoft Azure, che vengono definiti anche quote. Al momento nel documento non vengono trattati tutti i servizi di Azure. Nel corso del tempo l'elenco verrà ampliato e aggiornato in modo da coprire un maggior numero di servizi della piattaforma.
@@ -52,6 +47,8 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Application Insights](#application-insights-limits)
 * [Automazione](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Database di Azure per MySQL](#azure-database-for-mysql)
+* [Database di Azure per PostgreSQL](#azure-database-for-postgresql)
 * [Griglia di eventi di Azure](#azure-event-grid-limits)
 * [Mappe di Azure](#azure-maps-limits)
 * [Cache Redis di Azure](#azure-redis-cache-limits)
@@ -69,6 +66,7 @@ Nei limiti indicati di seguito è stata aggiunta una nuova tabella che indica ev
 * [Servizio Migrazione del database di Azure](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Hub eventi](#event-hubs-limits)
+* [Firewall di Azure](#azure-firewall-limits)
 * [Hub IoT](#iot-hub-limits)
 * [Servizio Device Provisioning in hub IoT](#iot-hub-device-provisioning-service-limits)
 * [Insieme di credenziali di chiave](#key-vault-limits)
@@ -153,6 +151,9 @@ La tabella seguente illustra le funzionalità e i limiti dei [livelli di servizi
 #### <a name="dns-limits"></a>Limiti relativi a DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### <a name="azure-firewall-limits"></a>Limiti relativi al Firewall di Azure
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### <a name="storage-limits"></a>Limiti relativi ad Archiviazione
 Per altre informazioni sui limiti dell'account di archiviazione, vedere [Obiettivi di scalabilità e prestazioni per Archiviazione di Azure](storage/common/storage-scalability-targets.md).
 
@@ -215,6 +216,12 @@ La tabella seguente mostra i limiti per i servizi Biztalk di Azure.
 
 ### <a name="azure-cosmos-db-limits"></a>Limiti relativi ad Azure Cosmos DB
 Azure Cosmos DB è un database con scalabilità globale in cui la velocità effettiva e lo spazio di archiviazione possono essere ridimensionati in modo da gestire qualsiasi requisito dell'applicazione. Per eventuali domande sulla scalabilità offerta da Azure Cosmos DB, inviare un messaggio di posta elettronica all'indirizzo askcosmosdb@microsoft.com.
+
+### <a name="azure-database-for-mysql"></a>Database di Azure per MySQL
+Per i limiti del Database di Azure per MySQL, vedere [Limiti di Database di Azure per MySQL](mysql/concepts-limits.md).
+
+### <a name="azure-database-for-postgresql"></a>Database di Azure per PostgreSQL
+Per i limiti del Database di Azure per PostgreSQL, vedere [Limiti di Database di Azure per PostgreSQL](postgresql/concepts-limits.md).
 
 ### <a name="mobile-engagement-limits"></a>Limiti relativi a Mobile Engagement
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

@@ -8,12 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 68d722338562d21d59dd720250a62b8603c8af43
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650129"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075688"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reazione a eventi di Archiviazione BLOB di Azure
 
@@ -26,7 +26,7 @@ La disponibilità degli eventi di archiviazione è legata alla [disponibilità](
 ![Modello di Griglia di eventi di Azure](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Account di archiviazione BLOB
-Gli eventi di archiviazione BLOB sono disponibili in [account di archiviazione di oggetti BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e in [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
+Gli eventi di archiviazione BLOB sono disponibili in [account di archiviazione di oggetti BLOB](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) e in [account di archiviazione per utilizzo generico versione 2](../common/storage-account-options.md#general-purpose-v2-accounts). Gli account di archiviazione per **utilizzo generico versione 2** supportano tutte le funzionalità di tutti i servizi di archiviazione, inclusi oggetti BLOB, file, code e tabelle. Gli **account di archiviazione BLOB** sono account specializzati per l'archiviazione di dati non strutturati come BLOB (oggetti) in Archiviazione di Azure. Gli account di archiviazione BLOB sono simili agli account di archiviazione di uso generico e includono tutte le straordinarie caratteristiche di durabilità, disponibilità, scalabilità e prestazioni che si usano già normalmente, inclusa la coerenza API al 100% per i BLOB in blocchi e i BLOB di aggiunta. Per applicazioni che richiedono solo archivi BLOB in blocchi o BLOB di aggiunta, è consigliabile usare account di archiviazione BLOB. 
 
 ## <a name="available-blob-storage-events"></a>Eventi di archiviazione BLOB disponibili
 Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md#event-subscriptions) per instradare i messaggi di evento ai sottoscrittori.  Le sottoscrizioni di eventi di archiviazione BLOB possono includere due tipi di eventi:  
@@ -37,8 +37,7 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md
 > |`Microsoft.Storage.BlobDeleted`|Generato quando un BLOB viene eliminato tramite un'operazione `DeleteBlob`|
 
 ## <a name="event-schema"></a>Schema di eventi
-Gli eventi di archiviazione BLOB contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati.  Un evento di archiviazione BLOB è riconoscibile perché la proprietà eventType inizia con "Microsoft.Storage".  
-Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia di eventi sono disponibili nello [schema di eventi di Griglia di eventi](../../event-grid/event-schema.md).  
+Gli eventi di archiviazione BLOB contengono tutte le informazioni necessarie per rispondere alle modifiche dei dati.  Un evento di archiviazione BLOB è riconoscibile perché la proprietà eventType inizia con "Microsoft.Storage". Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia di eventi sono disponibili nello [schema di eventi di Griglia di eventi](../../event-grid/event-schema.md).  
 
 > |Proprietà|type|DESCRIZIONE|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
@@ -54,11 +53,11 @@ Informazioni aggiuntive sull'utilizzo delle proprietà degli eventi di Griglia d
 > |data.contentLength|number|Dimensione del BLOB come valore intero che rappresenta un numero di byte, come verrebbe restituita nell'intestazione Content-Length dal BLOB.  Inviato con l'evento BlobCreated ma non con BlobDeleted.|
 > |data.url|stringa|URL dell'oggetto che è l'argomento dell'evento|
 > |data.eTag|stringa|Etag dell'oggetto quando viene generato questo evento.  Non disponibile per l'evento BlobDeleted.|
-> |data.api|stringa|Nome dell'operazione API che ha generato questo evento.  Per gli eventi BlobCreated questo valore è "PutBlob", "PutBlockList" o "CopyBlob".  Per gli eventi BlobDeleted questo valore è "DeleteBlob".  Questi valori sono gli stessi nomi di API che sono presenti nei registri di diagnostica di Archiviazione di Azure.  Vedere [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operazioni e messaggi di stati registrati).|
+> |data.api|stringa|Nome dell'operazione API che ha generato questo evento. Per gli eventi BlobCreated questo valore è "PutBlob", "PutBlockList" o "CopyBlob". Per gli eventi BlobDeleted questo valore è "DeleteBlob". Questi valori sono gli stessi nomi di API che sono presenti nei registri di diagnostica di Archiviazione di Azure. Vedere [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operazioni e messaggi di stati registrati).|
 > |data.sequencer|stringa|Valore stringa opaca che rappresenta la sequenza logica di eventi per qualsiasi nome di BLOB specifico.  Gli utenti possono usare il confronto tra stringhe standard per comprendere la sequenza relativa di due eventi sullo stesso nome di BLOB.|
-> |data.requestId|stringa|ID di richiesta generato dal servizio per l'operazione API di archiviazione.  Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei registri e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
-> |data.clientRequestId|stringa|ID di richiesta generato dal client per l'operazione API di archiviazione.  Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "client-request-id" nei registri e può essere inserito nelle richieste client usando l'intestazione "x-ms-client-request-id". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
-> |data.storageDiagnostics|object|Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure.  Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi.|
+> |data.requestId|stringa|ID di richiesta generato dal servizio per l'operazione API di archiviazione. Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "request-id-header" nei registri e viene restituito dall'avvio di una chiamata API nell'intestazione 'x-ms-request-id'. Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log).|
+> |data.clientRequestId|stringa|ID di richiesta generato dal client per l'operazione API di archiviazione. Può essere usato per la correlazione ai registri di diagnostica di Archiviazione di Azure usando il campo "client-request-id" nei registri e può essere inserito nelle richieste client usando l'intestazione "x-ms-client-request-id". Vedere [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato del log). |
+> |data.storageDiagnostics|object|Dati di diagnostica occasionalmente inclusi dal servizio Archiviazione di Azure. Quando è presente, questa proprietà deve essere ignorata dai consumer di eventi.|
 |data.blobType|stringa|Tipo dell'oggetto BLOB. I valori validi sono "BlockBlob" o "PageBlob".| 
 
 Di seguito è riportato un esempio di un evento BlobCreated:
@@ -117,9 +116,7 @@ Per trovare la corrispondenza di eventi da BLOB creati in un contenitore specifi
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 
-Per trovare la corrispondenza di eventi da BLOB creati in un contenitore specifico che condividono un suffisso di BLOB, usare un filtro `subjectEndsWith`, ad esempio ".log" o ".jpg".
-
-Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](../../event-grid/concepts.md#event-subscriptions).
+Per trovare la corrispondenza di eventi da BLOB creati in un contenitore specifico che condividono un suffisso di BLOB, usare un filtro `subjectEndsWith`, ad esempio ".log" o ".jpg". Per altre informazioni, vedere [Concetti di Griglia di eventi di Azure](../../event-grid/concepts.md#event-subscriptions).
 
 ## <a name="practices-for-consuming-events"></a>Procedure consigliate per l'utilizzo di eventi
 Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consigliabile seguire alcune procedure:
@@ -129,7 +126,7 @@ Per le applicazioni che gestiscono gli eventi di archiviazione BLOB è consiglia
 > * Dal momento che i messaggi non arrivano in ordine e giungono con un po' di ritardo, usare i campi etag per verificare se le informazioni disponibili sugli oggetti sono ancora aggiornate.  È possibile usare anche i campi del sequencer per comprendere l'ordine degli eventi relativi a un oggetto specifico.
 > * Usare il campo blobType per capire il tipo di operazioni consentite sul BLOB e quali tipi di librerie client è consigliabile usare per accedere al BLOB. I valori validi sono `BlockBlob` o `PageBlob`. 
 > * Usare il campo URL con i costruttori `CloudBlockBlob` e `CloudAppendBlob` per accedere al BLOB.
-> * Ignorare i campi che non si conoscono.  Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
+> * Ignorare i campi che non si conoscono. Questa procedura consentirà di rimanere flessibili alle nuove funzionalità che potrebbero essere aggiunte in futuro.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -4,14 +4,14 @@ description: Questo articolo descrive come valutare un elevato numero di compute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214692"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919863"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -23,6 +23,31 @@ Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descri
 - **Account vCenter**: occorre avere un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario disporre delle autorizzazioni per creare una macchina virtuale importando un file in formato OVA.
 - **Impostazioni delle statistiche**: prima di iniziare la distribuzione, è consigliabile impostare le statistiche del server vCenter sul livello 3. Se si imposta un livello inferiore a 3, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. In questo caso, i consigli relativi alle dimensioni si baseranno sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
+
+
+### <a name="set-up-permissions"></a>Impostare le autorizzazioni
+
+Azure Migrate deve avere accesso ai server VMware per l'individuazione automatica delle VM per la valutazione. L'account VMware necessita delle autorizzazioni seguenti:
+
+- Tipo di utente: almeno un utente di sola lettura
+- Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
+- Dettagli: l'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
+- Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to child object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
+
+Se si esegue la distribuzione in un ambiente tenant, ecco un modo per impostare questa funzionalità:
+
+1.  Creare un utente per ogni tenant e, tramite [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assegnare autorizzazioni di sola lettura a tutte le macchine virtuali appartenenti a un particolare tenant. Usare quindi queste credenziali per l'individuazione. RBAC assicura che l'utente vCenter corrispondente possa accedere solo al tenant della macchina virtuale specifica.
+2. È possibile impostare RBAC per utenti tenant diversi, come descritto nell'esempio seguente per Utente#1 e Utente#2:
+
+    - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali in
+    - Datacenter1 - assegnare autorizzazioni di sola lettura per Utente#1 e Utente#2. Non propagare tali autorizzazioni per tutti gli oggetti figlio, perché le autorizzazioni verranno impostate in macchine virtuali singole.
+
+      - VM1 (Tenant#1) (autorizzazione di sola lettura all'Utente#1)
+      - VM2 (Tenant#1) (autorizzazione di sola lettura all'Utente#1)
+      - VM3 (Tenant#2) (autorizzazione di sola lettura all'Utente#2)
+      - VM4 (Tenant#2) (autorizzazione di sola lettura all'Utente#2)
+
+   - Se si esegue l'individuazione usando le credenziali dell'Utente#1, verranno individuate solo VM1 e VM2.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Pianificare i progetti di migrazione e le individuazioni
 
@@ -100,6 +125,14 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
    Esempio di utilizzo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. Verificare che il valore hash generato corrisponda alle impostazioni seguenti.
+
+    Per OVA versione 1.0.9.12
+
+    **Algoritmo** | **Valore hash**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     Per OVA versione 1.0.9.8
 

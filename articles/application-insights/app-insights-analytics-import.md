@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293622"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989758"
 ---
 # <a name="import-data-into-analytics"></a>Importazione di dati in Analytics
 
@@ -116,15 +116,16 @@ Formato JSON
 ]
 ```
  
-Ogni colonna viene identificata da posizione, nome e tipo. 
+Ogni colonna viene identificata da posizione, nome e tipo.
 
 * Location: per un formato file delimitato, indica la posizione del valore di cui è stato eseguito il mapping. Per il formato JSON, è il jpath della chiave di cui è stato eseguito il mapping.
 * Name: nome visualizzato della colonna.
 * Type: tipo di dati della colonna.
  
-Se sono stati usati dati di esempio e se il formato file è delimitato, la definizione dello schema deve eseguire il mapping di tutte le colonne e aggiungere nuove colonne alla fine. 
-
-JSON consente il mapping parziale dei dati, pertanto la definizione dello schema del formato JSON non deve necessariamente eseguire il mapping di ogni chiave individuata nei dati di esempio. Può inoltre eseguire il mapping di colonne non appartenenti ai dati di esempio. 
+> [!NOTE]
+> Se sono stati usati dati di esempio e se il formato file è delimitato, la definizione dello schema deve eseguire il mapping di tutte le colonne e aggiungere nuove colonne alla fine.
+> 
+> JSON consente il mapping parziale dei dati, pertanto la definizione dello schema con un formato JSON non deve necessariamente eseguire il mapping di ogni chiave individuata nei dati di esempio. Può inoltre eseguire il mapping di colonne non appartenenti ai dati di esempio. 
 
 ## <a name="import-data"></a>Importa dati
 

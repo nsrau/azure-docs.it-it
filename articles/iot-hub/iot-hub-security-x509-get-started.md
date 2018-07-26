@@ -8,18 +8,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7330623ac5c9322b067951406920f8c0264f69c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635577"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012249"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
 Questa esercitazione offre una simulazione delle operazioni necessarie per proteggere l'hub IoT di Azure usando l'*l'autenticazione del certificato X.509*. A scopo illustrativo, verrà descritta la procedura per usare lo strumento open source OpenSSL per creare i certificati in locale nel computer Windows. È consigliabile usare questa esercitazione solo a scopo di test. Per l'ambiente di produzione, è necessario acquistare i certificati da un'*autorità di certificazione (CA) radice*. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per questa esercitazione è necessario disporre delle risorse seguenti pronte:
 
 - Un hub IoT creato con la propria sottoscrizione di Azure. Vedere [Creare un hub IoT usando il portale di Azure](iot-hub-create-through-portal.md) per istruzioni dettagliate. 
@@ -33,7 +33,7 @@ La sicurezza basata su certificati X.509 nell'hub IoT richiede prima di tutto un
 È possibile scegliere uno dei modi seguenti per ottenere i certificati:
 - Acquistare i certificati X.509 da un'*autorità di certificazione (CA) radice*. Questo è il modo consigliato per gli ambienti di produzione.
 OPPURE
-- Creare i propri certificati X.509 usando uno strumento di terze parti, ad esempio [OpenSSL](https://www.openssl.org/). Questo modo è appropriato per scopi di sviluppo e test. Le sezioni intitolate *Creare certificati X.509* e *Creare una catena di certificati X.509* nell'articolo [Script PowerShell per la gestione di certificati X.509 firmati da CA](iot-hub-security-x509-create-certificates.md) descrivono in dettaglio uno script di PowerShell di esempio per creare i certificati con OpenSSL e PowerShell. Se si preferisce usare la shell **Bash** anziché PowerShell, vedere le sezioni correlate di [Managing CA Certificates Sample](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Gestione di un esempio di certificati della CA). Nel resto dell'esercitazione verrà usato l'ambiente OpenSSL configurato in questa *guida pratica* per esaminare in dettaglio tutti gli aspetti della sicurezza X.509 nell'hub IoT di Azure.
+- Creare i propri certificati X.509 usando uno strumento di terze parti, ad esempio [OpenSSL](https://www.openssl.org/). Questo modo è appropriato per scopi di sviluppo e test. Vedere [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) per informazioni sulla generazione di certificati CA di prova tramite PowerShell o Bash. Nella parte restante di questa esercitazione vengono usati i certificati CA di prova generati seguendo le istruzioni riportate in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 
 <a id="registercerts"></a>
@@ -59,7 +59,7 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
    ![Verificare il certificato](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-8. A questo punto, è necessario firmare questo *codice di verifica* con la chiave privata associata al certificato della CA X.509, che genera una firma. Sono disponibili vari strumenti per eseguire questo processo di firma, ad esempio OpenSSL. Questa procedura è nota come [verifica del possesso](https://tools.ietf.org/html/rfc5280#section-3.1). Se sono stati usati gli script di esempio di PowerShell nella sezione precedente, eseguire lo script indicato nella sezione intitolata [Verifica del possesso del certificato della CA X.509](iot-hub-security-x509-create-certificates.md#signverificationcode).
+8. A questo punto, è necessario firmare questo *codice di verifica* con la chiave privata associata al certificato della CA X.509, che genera una firma. Sono disponibili vari strumenti per eseguire questo processo di firma, ad esempio OpenSSL. Questa procedura è nota come [verifica del possesso](https://tools.ietf.org/html/rfc5280#section-3.1). Passaggio 3 [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) genera un certificato del dispositivo.
  
 9. Caricare la firma risultante dal passaggio 8 nell'hub IoT nel portale. Nel pannello **Dettagli certificato** nel portale di Azure passare a **File di certificato di verifica con estensione pem o cer** e selezionare la firma, ad esempio, il file *VerifyCert4.cer* creato dal comando di PowerShell di esempio usando l'icona _Esplora file_ accanto.
 
@@ -86,9 +86,9 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 ## <a name="authenticate-your-x509-device-with-the-x509-certificates"></a>Autenticare il dispositivo X.509 con i certificati X.509
 
-Per autenticare il dispositivo X.509, è prima di tutto necessario firmare il dispositivo con il certificato della CA. La firma dei dispositivi foglia viene in genere eseguita nell'impianto di produzione, con strumenti di produzione abilitati di conseguenza. Man mano che il dispositivo passa da un produttore a un altro, ogni azione di firma del costruttore viene acquisita come certificato intermedio all'interno della catena. Il risultato finale è una catena di certificati dal certificato della CA al certificato foglia del dispositivo. Se sono stati usati gli script di PowerShell proposti nelle sezioni precedenti, per simulare il processo è possibile eseguire lo script indicato nella sezione *Creare il certificato X.509 foglia per il dispositivo* nell'articolo [Script PowerShell per la gestione di certificati X.509 con firma CA](iot-hub-security-x509-create-certificates.md).
+Per autenticare il dispositivo X.509, è prima di tutto necessario firmare il dispositivo con il certificato della CA. La firma dei dispositivi foglia viene in genere eseguita nell'impianto di produzione, con strumenti di produzione abilitati di conseguenza. Man mano che il dispositivo passa da un produttore a un altro, ogni azione di firma del costruttore viene acquisita come certificato intermedio all'interno della catena. Il risultato finale è una catena di certificati dal certificato della CA al certificato foglia del dispositivo. Passaggio 4 [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) genera un certificato del dispositivo.
 
-In seguito verrà illustrato come creare un'applicazione C# per simulare il dispositivo X.509 registrato per l'hub IoT. Verranno inviati valori di temperatura e umidità dal dispositivo simulato all'hub. Si noti che in questa esercitazione verrà creata solo l'applicazione del dispositivo. Rimarrà come esercizio per i lettori la creazione dell'applicazione di servizio dell'hub IoT per inviare risposta agli eventi inviati da questo dispositivo simulato. L'applicazione C# presuppone che siano stati seguiti gli script PowerShell indicati nell'articolo [Script PowerShell per la gestione di certificati X.509 con firma CA](iot-hub-security-x509-create-certificates.md).
+In seguito verrà illustrato come creare un'applicazione C# per simulare il dispositivo X.509 registrato per l'hub IoT. Verranno inviati valori di temperatura e umidità dal dispositivo simulato all'hub. Si noti che in questa esercitazione verrà creata solo l'applicazione del dispositivo. Rimarrà come esercizio per i lettori la creazione dell'applicazione di servizio dell'hub IoT per inviare risposta agli eventi inviati da questo dispositivo simulato. L'applicazione C# presuppone che siano stati seguiti i passaggi descritti in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 1. In Visual Studio creare un nuovo progetto desktop classico di Windows Visual C# usando il modello di progetto Applicazione console. Denominare il progetto **SimulateX509Device**.
    ![Creare il progetto di dispositivo X.509 in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project.png)

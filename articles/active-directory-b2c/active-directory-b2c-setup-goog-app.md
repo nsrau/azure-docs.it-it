@@ -1,58 +1,54 @@
 ---
-title: Configurazione di Google+ in Azure Active Directory B2C | Microsoft Docs
-description: Fornire la registrazione e l’accesso agli utenti con account Google+ nelle applicazioni protette da Azure Active Directory B2C.
+title: Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C | Microsoft Docs
+description: Consentire l'iscrizione e l'accesso ai clienti con account Google alle applicazioni da Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe5722e8d5a0a8a5bf172577777ccb899fb7b94d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443427"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915640"
 ---
-# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: fornire l'iscrizione e l'accesso agli utenti con account Google+
-## <a name="create-a-google-application"></a>Creazione di un'applicazione Google+
-Per usare Google+ come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione Google+ e inserire i parametri corretti. Per eseguire questa operazione è necessario disporre di un account Google+. Se non si ha un account, è possibile crearlo nel sito [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+# <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
-1. Visitare [Google Developers Console](https://console.developers.google.com/) e accedere con le credenziali dell'account Google+.
-2. Fare clic su **Crea progetto**, immettere un nome in **Nome progetto**e fare clic su **Crea**.
-   
-    ![Google+ - Introduzione](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
-   
-    ![Google+ - Nuovo progetto](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
-3. Fare clic su **Gestione API** e su **Credenziali** nel riquadro di spostamento sinistro.
-4. Fare clic sulla scheda **Schermata consenso OAuth** nella parte superiore.
-   
-    ![Google+ - Credenziali](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)
-5. Selezionare o specificare un **Indirizzo e-mail** valido, fornire un **Nome prodotto** e fare clic su **Salva**.
-   
-    ![Google+ - Schermata consenso OAuth](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
-6. Fare clic su **Nuove credenziali** e scegliere **ID client OAuth**.
-   
-    ![Google+ - Schermata consenso OAuth](./media/active-directory-b2c-setup-goog-app/google-add-oauth2-client-id.png)
-7. In **Tipo di applicazione** selezionare **Applicazione Web**.
-   
-    ![Google+ - Schermata consenso OAuth](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
-8. Fornire un **Nome** per l'applicazione, immettere `https://login.microsoftonline.com` nel campo **Origini JavaScript Autorizzate** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com. Il valore **{tenant}** distingue tra maiuscole e minuscole. Fare clic su **Create**(Crea).
-   
-    ![Google+ - Creare ID client](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
-9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google+ come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
-   
-    ![Google+ - Segreto client](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
+## <a name="create-a-google-application"></a>Creazione di un'applicazione Google
 
-## <a name="configure-google-as-an-identity-provider-in-your-tenant"></a>Configurare Google+ come provider di identità nel tenant
-1. Seguire questa procedura per [passare al pannello delle funzionalità B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) nel portale di Azure.
-2. Nel pannello delle funzionalità di B2C, fare clic su **Provider di identità**.
-3. Fare clic su **+Aggiungi** nella parte superiore del pannello.
-4. Fornire un **Nome** per la configurazione del provider di identità. Ad esempio, immettere "G+".
-5. Fare clic su **Tipo di provider di identità**, selezionare **Google** e fare clic su **OK**.
-6. Fare clic su **Impostare il provider di identità** e immettere l'ID Client e il segreto client dell'applicazione Google+ creata in precedenza.
-7. Fare clic su **OK** e su **Crea** per salvare la configurazione di Google+.
+Per usare un account Google come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si possiede già un account Google, è possibile crearlo sul sito [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+
+1. Accedere alla [Google Developers Console](https://console.developers.google.com/) con le credenziali dell'account Google.
+2. Selezionare **Crea progetto** e quindi fare clic su **Crea**. Se sono stati già creati altri progetti, selezionare l'elenco dei progetti e quindi selezionare **Nuovo progetto**.
+3. Fare clic su un **Nome progetto** e quindi su **Crea**.
+3. Selezionare **Credenziali** nel menu a sinistra e quindi selezionare **Crea credenziali di accesso** > **ID client Oauth**.
+4. Selezionare **Configure consent screen** (Configura schermata di consenso).
+5. Selezionare o specificare un **Indirizzo di posta elettronica** valido, fornire un **Product name shown to users** (Nome prodotto visualizzato dagli utenti) e fare clic su **Salva**.
+6. In **Tipo di applicazione** selezionare **Applicazione Web**.
+7. Fornire un **Nome** per l'applicazione, immettere `https://login.microsoftonline.com` nel campo **Origini JavaScript autorizzate** e `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.onmicrosoft.com.
+8. Fare clic su **Crea**.
+9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
+
+## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurare un account Google come provider di identità
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
+2. Assicurarsi di usare la directory contenente il tenant Azure AD B2C passando a tale directory nell'angolo in alto a destra del portale di Azure. Selezionare le informazioni sulla sottoscrizione e quindi selezionare **Cambia directory**. 
+
+    ![Passare al tenant di Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
+
+    Scegliere la directory contenente il tenant.
+
+    ![Selezionare la directory](./media/active-directory-b2c-setup-fb-app/select-directory.png)
+
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
+4. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
+5. Immettere un **Nome**. Ad esempio, immettere *Google*.
+6. Fare clic su **Tipo di provider di identità**, selezionare **Google** e fare clic su **OK**.
+7. Selezionare **Set up this identity provider** (Configura provider di identità), immettere l'ID Client registrato in precedenza in **ID Client** e immettere il segreto Client registrato come **Segreto client** dell'applicazione Google creata in precedenza.
+8. Fare clic su **OK** e su **Crea** per salvare la configurazione di Google.
 

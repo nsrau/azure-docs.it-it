@@ -1,28 +1,30 @@
 ---
-title: Risolvere i problemi relativi all'analisi di utilizzo in Azure Application Insights
+title: Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Azure Application Insights
 description: Guida alla risoluzione dei problemi relativi all'analisi dell'utilizzo di siti e app con Application Insights.
 services: application-insights
-documentationcenter: 
-author: numberbycolors
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
+ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: cb5f3052301b23eb10cd6b84ab6fae98bcc7ea18
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 725f67af8178c6c851999d18c771ebdd360d6d01
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992377"
 ---
-# <a name="troubleshoot-usage-analytics-in-application-insights"></a>Risolvere i problemi relativi all'analisi di utilizzo in Application Insights
-Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi dell'utilizzo in Application Insights](app-insights-usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](app-insights-usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](app-insights-usage-flows.md), [Conservazione](app-insights-usage-retention.md) e Coorti, offrendo alcune utili risposte.
+# <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
+Questo articolo prende in esame le domande degli utenti sugli [strumenti di analisi del comportamento degli utenti in Application Insights](app-insights-usage-overview.md), ad esempio [Utenti, Sessioni, Eventi](app-insights-usage-segmentation.md), [Imbuti](usage-funnels.md), [Flussi utente](app-insights-usage-flows.md), [Conservazione](app-insights-usage-retention.md) e Coorti, offrendo alcune utili risposte.
 
 ## <a name="counting-users"></a>Conteggio degli utenti
-**Dagli strumenti di analisi dell'utilizzo risulta che l'app ha un solo utente e una sola sessione, mentre in realtà ha molti utenti e molte sessioni. Come si possono correggere questi errori nei conteggi?**
+**Dagli strumenti di analisi del comportamento degli utenti risulta che l'app ha un solo utente e una sola sessione, mentre in realtà ha molti utenti e molte sessioni. Come si possono correggere questi errori nei conteggi?**
 
 Tutti gli eventi di telemetria in Application Insights hanno un [ID utente anonimo](application-insights-data-model-context.md) e un [ID di sessione](application-insights-data-model-context.md) come proprietà standard. Per impostazione predefinita, tutti gli strumenti di analisi dell'utilizzo eseguono il conteggio degli utenti e delle sessioni in base a questi ID. Se in queste proprietà standard non vengono inseriti ID univoci per ogni utente e sessione dell'app, negli strumenti di analisi dell'utilizzo si vedrà un conteggio errato degli utenti e delle sessioni.
 
@@ -32,12 +34,12 @@ Se si sta monitorando un servizio Web (senza interfaccia utente), [creare un ini
 
 Se l'app invia [ID utente autenticati](app-insights-api-custom-events-metrics.md#authenticated-users), è possibile eseguire il conteggio in base agli ID utente autenticati nello strumento Utenti. Nell'elenco a discesa "Mostra" scegliere "Utenti autenticati".
 
-Gli strumenti di analisi dell'utilizzo non supportano attualmente il conteggio di utenti o sessioni in base a proprietà diverse da ID utente anonimo, ID utente autenticato o ID di sessione.
+Gli strumenti di analisi del comportamento degli utenti non supportano attualmente il conteggio di utenti o sessioni in base a proprietà diverse da ID utente anonimo, ID utente autenticato o ID di sessione.
 
 ## <a name="naming-events"></a>Denominazione degli eventi
-**Nell'app sono presenti migliaia di nomi diversi di visualizzazione pagina e di evento personalizzato. È difficile distinguere tra questi nomi e gli strumenti di analisi dell'utilizzo spesso smettono di rispondere. Come si possono risolvere questi problemi di denominazione?**
+**Nell'app sono presenti migliaia di nomi diversi di visualizzazione pagina e di evento personalizzato. È difficile distinguere tra questi nomi e gli strumenti di analisi del comportamento degli utenti spesso smettono di rispondere. Come si possono risolvere questi problemi di denominazione?**
 
-I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi dell'utilizzo. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è trovare un equilibrio tra un limitato numero di nomi eccessivamente generici ("Button clicked") e un elevato numero di nomi eccessivamente specifici ("Edit button clicked on http://www.contoso.com/index").
+I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è trovare un equilibrio tra un limitato numero di nomi eccessivamente generici ("Button clicked") e un elevato numero di nomi eccessivamente specifici ("Edit button clicked on http://www.contoso.com/index").
 
 Per apportare modifiche ai nomi di visualizzazione pagina e a quelli di evento personalizzato inviati dall'app, è necessario modificare il codice sorgente dell'app ed eseguire nuovamente la distribuzione. **Tutti i dati di telemetria disponibili in Application Insights vengono archiviati per 90 giorni e non possono essere eliminati**. Di conseguenza, le eventuali modifiche apportate ai nomi di evento saranno completamente visibili dopo 90 giorni. Per i 90 giorni successivi alle operazioni di modifica, nei dati di telemetria verranno visualizzati sia i nomi di evento precedenti sia quelli nuovi. Sarà pertanto opportuno modificare le query e comunicare all'interno dei team tenendo presente questo aspetto.
 
@@ -51,7 +53,7 @@ Se l'app invia troppi nomi di evento personalizzato, modificare il nome nel codi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Panoramica dell'analisi di utilizzo](app-insights-usage-overview.md)
+* [Panoramica sugli strumenti di analisi del comportamento degli utenti](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>Ottenere aiuto
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)

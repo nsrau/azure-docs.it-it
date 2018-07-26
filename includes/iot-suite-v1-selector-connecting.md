@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756412"
+---
 > [!div class="op_single_selector"]
 > * [C su Windows](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [C su Linux](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
@@ -24,13 +41,13 @@ Prima di scrivere un codice per il dispositivo, occorre eseguire la soluzione pr
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>Eseguire il provisioning della soluzione preconfigurata per il monitoraggio remoto
 Il dispositivo creato in questa esercitazione invia dati a un'istanza della soluzione preconfigurata per il [monitoraggio remoto][lnk-remote-monitoring]. Se nel proprio account Azure non è già stato eseguito il provisioning della soluzione preconfigurata per il monitoraggio remoto, attenersi alla procedura seguente:
 
-1. Nella pagina <https://www.azureiotsuite.com/> fare clic su **+** per creare una soluzione.
+1. Nella pagina <https://www.azureiotsolutions.com/>, fare clic su **+** per creare una soluzione.
 2. Fare clic su **Seleziona** nel pannello **Remote monitoring** (Monitoraggio remoto) per creare la soluzione.
 3. Nella pagina per la **creazione della soluzione di monitoraggio remoto** immettere il nome desiderato in **Nome soluzione** e selezionare l'**area** in cui eseguire la distribuzione e quindi la sottoscrizione di Azure da usare. Fare clic su **Crea soluzione**.
 4. Attendere finché non viene completato il processo di provisioning.
 
 > [!WARNING]
-> Le soluzioni preconfigurate usano servizi di Azure fatturabili. Al termine, assicurarsi di rimuovere la soluzione preconfigurata dalla sottoscrizione per evitare eventuali addebiti non necessari. Per rimuovere completamente una soluzione preconfigurata dalla sottoscrizione, visitare la pagina <https://www.azureiotsuite.com/>.
+> Le soluzioni preconfigurate usano servizi di Azure fatturabili. Al termine, assicurarsi di rimuovere la soluzione preconfigurata dalla sottoscrizione per evitare eventuali addebiti non necessari. Per rimuovere completamente una soluzione preconfigurata dalla sottoscrizione, visitare la pagina <https://www.azureiotsolutions.com/>.
 > 
 > 
 

@@ -1,5 +1,5 @@
 ---
-title: Introduzione ai microservizi in Azure | Documentazione Microsoft
+title: Introduzione ai microservizi in Azure | Microsoft Docs
 description: Panoramica dell'importanza di compilare applicazioni cloud con un approccio basato su microservizi per lo sviluppo di applicazioni moderne e descrizione dell'uso di Azure Service Fabric come piattaforma per raggiungere questo obiettivo.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04342be06430747ef64cb69c27ee93e6896775e5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642625"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070863"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Perché usare un approccio ai microservizi per la compilazione di applicazioni
 Per gli sviluppatori di software non c'è nulla di nuovo nel modo di considerare la fattorizzazione di un'applicazione nelle parti che la compongono. È il paradigma centrale della programmazione orientata a oggetti, delle astrazioni software e della componentizzazione. Oggi questa fattorizzazione tende ad assumere la forma di classi e interfacce fra livelli di tecnologia e librerie condivise. In genere viene adottato un approccio su più livelli con un archivio nel back-end, la logica di business al livello intermedio e l'interfaccia utente (UI) nel front-end. Ciò che *è* cambiato negli ultimi anni è il fatto che gli sviluppatori creano applicazioni distribuite destinate al cloud e basate sulle esigenze aziendali.
@@ -148,7 +148,7 @@ Service Fabric include tre aree generiche che facilitano la creazione di applica
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrazione di applicazioni esistenti a Service Fabric
 Un approccio chiave a Service Fabric è il riuso del codice esistente, aggiornabile con nuovi microservizi. La modernizzazione delle applicazioni prevede cinque fasi ed è possibile iniziare e terminare con una qualsiasi di queste. Si tratta di:
 
-1) Esecuzione di un'applicazione monolitica tradizionale.  
+1) Iniziare con un'applicazione monolitica tradizionale.  
 2) Trasferimento in modalità lift-and-shift: usare contenitori o file eseguibili guest per ospitare in Service Fabric il codice esistente.  
 3) Modernizzazione: nuovi microservizi aggiunti al codice esistente in contenitori.  
 4) Innovazione: suddivisione della struttura monolitica in microservizi esclusivamente in base alle esigenze.  
@@ -169,7 +169,7 @@ Per molte organizzazioni il processo termina qui. I vantaggi dei contenitori son
 
 **Modernizzazione**: è l'aggiunta di nuovi servizi al codice esistente nei contenitori. Se si prevede di scrivere nuovo codice, è consigliabile orientarsi gradualmente verso i microservizi. Questo approccio può corrispondere all'aggiunta di un nuovo endpoint API REST o di nuova logica di business. In questo modo è possibile iniziare a creare nuovi microservizi e acquisire pratica con lo sviluppo e la distribuzione.
 
-**Innovazione**: all'inizio dell'articolo sono state citate le esigenze di cambiamenti della struttura operativa come motore per la scelta della soluzione con microservizi. In questa fase è necessario determinare se i cambiamenti della struttura operativa sono reali e richiedono il frazionamento della struttura monolitica, ovvero l'adozione di un approccio innovativo. Ad esempio è possibile che un database diventi un collo di bottiglia a livello di elaborazione perché è usato come coda del flusso di lavoro. Se il numero di richieste del flusso di lavoro aumenta è necessario suddividere in scala il carico di lavoro. Tuttavia nel caso di questo componente dell'applicazione che non supporta la ripartizione in scala sarà necessario decidere se applicare aggiornamenti più frequenti o adottare un approccio innovativo e ripartire il carico tra più microservizi. 
+**Innovazione**: all'inizio dell'articolo sono state citate le esigenze di cambiamenti della struttura operativa come motore per la scelta della soluzione con microservizi. In questa fase è necessario determinare se i cambiamenti della struttura operativa sono reali e richiedono il frazionamento dell'app monolitica in servizi, ovvero l'adozione di un approccio innovativo. Ad esempio è possibile che un database usato come coda del flusso di lavoro diventi un collo di bottiglia. Se il numero di richieste del flusso di lavoro aumenta è necessario suddividere in scala il carico di lavoro. Tuttavia nel caso di questo componente dell'applicazione che non supporta la ripartizione in scala sarà necessario decidere se applicare aggiornamenti più frequenti o adottare un approccio innovativo e ripartire il carico tra più microservizi. 
 
 **Trasformazione in microservizi**: in questa fase l'applicazione è totalmente composta da (o scomposta in) microservizi. Per raggiungere questo punto è stata portata a termine l'adozione dei microservizi. È possibile iniziare da questa fase, ma una scelta di questo tipo senza il supporto di una piattaforma per microservizi rappresenta un investimento significativo. 
 

@@ -1,5 +1,5 @@
 ---
-title: Specifiche tecniche StorSimple | Documentazione Microsoft
+title: Specifiche tecniche StorSimple | Microsoft Docs
 description: Vengono descritte le specifiche tecniche e le informazioni di conformità agli standard normativi per i componenti hardware di StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27785527"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056464"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Specifiche e conformità tecniche per il dispositivo StorSimple
 
@@ -41,10 +41,10 @@ Lo chassis EBOD utilizza un PCM 580 W, mentre lo chassis principale utilizza un 
 | Afflusso di corrente massimo |20 A |20 A |
 | Correzione del fattore di potenza |Voltaggio di ingresso nominale > 95% |Voltaggio di ingresso nominale > 95% |
 | Armoniche |Conforme allo standard N61000-3-2 |Conforme allo standard N61000-3-2 |
-| Output |Tensione di standby 5V @ 2.0 A |Tensione di standby 5V @ 2.7 A |
-| +5V @ 42 A |+5V @ 40 A | |
-| +12V @ 38 A |+12V @ 38 A | |
-| Collegabile "hot" |Sì |Sì |
+| Output |Tensione di standby 5V \@ 2.0 A |Tensione di standby 5V \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
+| Collegabile "hot" |sì |sì |
 | LED e commutatori |Commutatore CA ACCESO/SPENTO e quattro indicatori LED di stato |Commutatore CA ACCESO/SPENTO e sei indicatori LED di stato |
 | Raffreddamento chassis |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |Ventole di raffreddamento assiale con controllo di velocità della ventola variabile |
 
@@ -127,8 +127,8 @@ In questa sezione vengono elencate le specifiche relative all'ambiente dello cha
 | Flusso d'aria |Il flusso d'aria di sistema va dalla parte anteriore a quella posteriore. Il sistema deve essere utilizzato con un'installazione a bassa pressione e scarico posteriore. La pressione posteriore creata dalle porte del rack e da ostacoli non deve superare i 5 Pascal (colonna d'acqua da 0,5 mm). |
 | Altitudine, operativa |Da -30 a 3.045 metri (da -100 a 10.000 piedi) con temperatura operativa massima a potenza ridotta di 5°C oltre i 7.000 piedi. |
 | Altitudine, non operativa |Da -305 metri a 12.192 metri (da -1.000 piedi a 40.000 piedi) |
-| Scossa, operativo |5 g 10 ms ½ sinusoidali |
-| Scossa, non operativo |30 g 10 ms ½ sinusoidali |
+| Scossa, operativo |5g 10 ms ½ sinusoidali |
+| Scossa, non operativo |30g 10 ms ½ sinusoidali |
 | Vibrazione, operativa |0,21g RMS 5-500 Hz casuali |
 | Vibrazione, non operativa |1,04 g RMS 2-200 Hz casuali |
 | Vibrazione, trasferimento |3 g 2-200 Hz sinusoidali |

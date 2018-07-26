@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 07/13/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919761"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070910"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice di supporto per la replica di VM VMware e server fisici in Azure
 
@@ -30,7 +30,7 @@ Server fisici | Replica di server fisici Windows/Linux locali in Azure. Si può 
 
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-VMware | Server vCenter 6.5, 6.0 o 5.5 oppure vSphere 6.5, 6.0 o 5.5 | È consigliabile usare un server vCenter.<br/><br/> È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita i componenti del server di elaborazione vengono eseguiti nel server di configurazione, quindi questa sarà la rete in cui configurare il server di configurazione, a meno che non si configuri un server di elaborazione dedicato.
+VMware | Server vCenter 6.7, 6.5, 6.0 o 5.5 oppure vSphere 6.7, 6.5, 6.0 o 5.5 | È consigliabile usare un server vCenter.<br/><br/> È consigliabile che gli host di vSphere e i server vCenter si trovino nella stessa rete del server di elaborazione. Per impostazione predefinita i componenti del server di elaborazione vengono eseguiti nel server di configurazione, quindi questa sarà la rete in cui configurare il server di configurazione, a meno che non si configuri un server di elaborazione dedicato.
 Fisico | N/D
 
 ## <a name="site-recovery-configuration-server"></a>Server di configurazione di Site Recovery
@@ -61,8 +61,9 @@ Site Recovery supporta la replica di qualsiasi carico di lavoro in esecuzione in
 **Componente** | **Dettagli**
 --- | ---
 Impostazioni del computer | I computer che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
-Sistema operativo Windows | Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1. Windows 2016 Nano Server non è supportato.
-Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.4 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.4 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versioni del kernel supportate)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 <br/><br/>L'aggiornamento dei computer replicati da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e abilitarla nuovamente dopo l'aggiornamento.
+Sistema operativo Windows | Windows Server 2016 a 64 bit (Server Core, server con Esperienza desktop), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con almeno SP1. </br></br>  [Windows Server 2008 con almeno SP2 - a 32 e a 64 bit](migrate-tutorial-windows-server-2008.md) (solo per la migrazione). </br></br> * *Windows 2016 Nano Server non è supportato.*
+Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.5 <br/><br/>CentOS: da 5.2 a 5.11, da 6.1 a 6.9, da 7.0 a 7.5 <br/><br/>Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versioni del kernel supportate)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versioni del kernel supportate)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3) <br/><br/></br>* *L'aggiornamento dei computer replicati da SUSE Linux Enterprise Server 11 da SP3 a SP4 non è supportato. Per eseguire l'aggiornamento, disabilitare la replica e abilitarla nuovamente dopo l'aggiornamento.*
+
 
 >[!NOTE]
 >
@@ -70,21 +71,22 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9,
 >
 > - L'aggiornamento di computer protetti tra versioni di distribuzione principali di Linux non è supportato. Per eseguire l'aggiornamento, disabilitare la replica, aggiornare il sistema operativo e quindi abilitare nuovamente la replica.
 >
+> - Sui server che eseguono Red Hat Enterprise Linux da 5.2 a 5.11 o CentOS da 5.2 a 5.11 devono essere installati i componenti di Linux Integration Services(LIS) affinché i computer possano avviarsi in Azure.
 
 ### <a name="ubuntu-kernel-versions"></a>Versioni del kernel Ubuntu
 
 
 **Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
+14.04 LTS | 9.18 | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-130 generica |
 14.04 LTS | 9.17 | Da 3.13.0-24 generica a 3.13.0-149 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-127 generica |
 14.04 LTS | 9.16 | Da 3.13.0-24 generica a 3.13.0-144 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-119 generica |
 14.04 LTS | 9.15 | Da 3.13.0-24 generica a 3.13.0-144 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-119 generica |
-14.04 LTS | 9.14 | Da 3.13.0-24 generica a 3.13.0-142 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-116 generica |
 |||
+16.04 LTS | 9.18 | Da 4.4.0-21 generica a 4.4.0-130 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica |
 16.04 LTS | 9.17 | Da 4.4.0-21 generica a 4.4.0-127 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-43 generica |
 16.04 LTS | 9.16 | Da 4.4.0-21 generica a 4.4.0-119 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-38 generica |
 16.04 LTS | 9.15 | Da 4.4.0-21 generica a 4.4.0-119 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-38 generica |
-16.04 LTS | 9.14 | Da 4.4.0-21 generica a 4.4.0-116 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-36 generica |
 
 
 ### <a name="debian-kernel-versions"></a>Versioni del kernel Debian
@@ -92,13 +94,18 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11, da 6.1 a 6.9,
 
 **Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | 9.17 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.14, 9.15, 9.16 | Da 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17, 9.18 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15, 9.16 | Da 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17, 9.18 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
 Debian 8 | 9.16 | Da 3.16.0-4-amd64 a 3.16.0-5-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.14, 9.15 | Da 3.16.0-4-amd64 a 3.16.0-5-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.15 | Da 3.16.0-4-amd64 a 3.16.0-5-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 (versioni del kernel supportate)
+
+**Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.96 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.85 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.138-94.39 predefinita |
 
 ## <a name="linux-file-systemsguest-storage"></a>File system/archiviazione guest Linux
 
@@ -135,39 +142,39 @@ Più schede di interfaccia rete guest/server | Sì.
 
 **Componente** | **Supportato**
 --- | ---
-Azure ExpressRoute | Sì
-ILB | Sì
-ELB | Sì
-Gestione traffico di Azure | Sì
-Più NIC | Sì
-Indirizzo IP riservato | Sì
-IPv4 | Sì
-Conservazione indirizzo IP di origine | Sì
-Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì
+Azure ExpressRoute | sì
+ILB | sì
+ELB | sì
+Gestione traffico di Azure | sì
+Più NIC | sì
+Indirizzo IP riservato | sì
+IPv4 | sì
+Conservazione indirizzo IP di origine | sì
+Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | sì
 Rete accelerata | No 
 
 ## <a name="storage"></a>Archiviazione
 **Componente** | **Supportato**
 --- | ---
 NFS host | Sì per VMware<br/><br/> No per server fisici
-Host SAN (iSCSI/FC) | Sì
+Host SAN (iSCSI/FC) | sì
 Host vSAN | Sì per VMware<br/><br/> N/D per server fisici
 Percorsi multipli (MPIO) | Sì, testato con DSM Microsoft, EMC PowerPath 5.7 SP4, DSM EMC PowerPath per CLARiiON
 Volumi virtuali host | Sì per VMware<br/><br/> N/D per server fisici
-VMDK guest/server | Sì
+VMDK guest/server | sì
 EFI/UEFI guest/server| Parziale (migrazione ad Azure per macchine virtuali VMware con Windows Server 2012 e versioni successive) </br></br> Vedere la nota alla fine della tabella
 Disco cluster condiviso guest/server | No 
 Disco crittografato guest/server | No 
 NFS guest/server | No 
 SMB 3.0 guest/server | No 
-RDM guest/server | Sì<br/><br/> N/D per server fisici
-Disco guest/server > 1 TB | Sì<br/><br/>Fino a 4.095 GB
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | Sì
-Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | Sì
-Volume con disco con striping > 4 TB guest/server <br><br/>Gestione volumi logici (LVM)| Sì
+RDM guest/server | sì<br/><br/> N/D per server fisici
+Disco guest/server > 1 TB | sì<br/><br/>Fino a 4.095 GB
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 4 KB | sì
+Disco guest/server con dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 KB | sì
+Volume con disco con striping > 4 TB guest/server <br><br/>Gestione volumi logici (LVM)| sì
 Guest/server - Spazi di archiviazione | No 
 Disco di aggiunta/rimozione a caldo guest/server | No 
-Guest/server - esclusione disco | Sì
+Guest/server - esclusione disco | sì
 Percorsi multipli (MPIO) guest/server | No 
 
 > [!NOTE]
@@ -182,14 +189,14 @@ Percorsi multipli (MPIO) guest/server | No
 
 **Componente** | **Supportato**
 --- | ---
-Archiviazione con ridondanza locale | Sì
-Archiviazione con ridondanza geografica | Sì
-Archiviazione con ridondanza geografica e accesso in lettura | Sì
+Archiviazione con ridondanza locale | sì
+Archiviazione con ridondanza geografica | sì
+Archiviazione con ridondanza geografica e accesso in lettura | sì
 Archiviazione ad accesso sporadico | No 
 Archiviazione ad accesso frequente| No 
 BLOB in blocchi | No 
-Crittografia per dati inattivi (servizio di archiviazione di Azure)| Sì
-Archiviazione Premium | Sì
+Crittografia per dati inattivi (servizio di archiviazione di Azure)| sì
+Archiviazione Premium | sì
 Servizio di importazione/esportazione | No 
 Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No 
 Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) | No 
@@ -198,9 +205,9 @@ Account di archiviazione v2 generico (livelli di accesso frequente e sporadico) 
 
 **Funzionalità** | **Supportato**
 --- | ---
-Set di disponibilità | Sì
-HUB | Sì
-Dischi gestiti | Sì
+Set di disponibilità | sì
+HUB | sì
+Dischi gestiti | sì
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
 

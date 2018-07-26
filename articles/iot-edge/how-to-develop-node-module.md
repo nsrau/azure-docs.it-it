@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6b217690b88f303268f5abe66abb7868711d3125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045093"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054727"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Sviluppare ed eseguire il debug di moduli Node.js con Azure IoT Edge per Visual Studio Code
 
@@ -32,7 +32,7 @@ Poiché in questo articolo viene usato Visual Studio Code come strumento di svil
 * [Estensione Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Per creare un modulo, sono necessari Node.js che include npm per compilare la cartella del progetto, Docker per compilare l'immagine del modulo e un registro contenitori in cui memorizzare l'immagine del modulo:
-* [Node.js](https://nodejs.org)
+* [Node.JS](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Registro contenitori di Azure](https://docs.microsoft.com/azure/container-registry/) o [hub Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
@@ -68,7 +68,17 @@ All'interno della soluzione sono presenti tre elementi:
 * Una cartella **.vscode** contenente le configurazioni di debug.
 * Una cartella **modules** contenente le sottocartelle di ogni modulo. Al momento è presente un solo modulo, ma è possibile aggiungerne altri nel riquadro comandi usando il comando **Azure IoT Edge: Aggiungi modulo IoT Edge**. 
 * Un file con estensione **env** in cui sono elencate le variabili di ambiente. Se come registro si usa Registro contenitori di Azure, sono presenti il nome utente e la password di Registro contenitori di Azure. 
+
+   >[!NOTE]
+   >Il file dell'ambiente viene creato solo se si specifica un repository di immagini per il modulo. Se sono state accettate le impostazioni predefinite di localhost per testare ed eseguire il debug in locale, non è necessario dichiarare le variabili di ambiente. 
+
 * Un file **deployment.template.json** in cui sono elencati il nuovo modulo e un modulo **tempSensor** di esempio che simula i dati utilizzabili per il test. Per altre informazioni sul funzionamento dei manifesti della distribuzione, vedere [Informazioni su come usare, configurare e riusare i moduli IoT Edge](module-composition.md).
+
+## <a name="devlop-your-module"></a>Sviluppare un modulo
+
+Il codice funzione di Azure predefinito fornito con la soluzione si trova in **moduli** > **\<nome del modulo\>** > **app.js**. Il modulo e il file deployment.template.json sono impostati in modo che sia possibile compilare la soluzione, inviarla al registro del contenitore e distribuirla in un dispositivo per avviare il test senza toccare alcun codice. Il modulo viene compilato solo per accettare l'input da un'origine (in questo caso, il modulo tempSensor che simula i dati) e collegarlo all'hub IoT. 
+
+Quando si è pronti per personalizzare il modello Node.js con il proprio codice, usare gli [SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md) per compilare i moduli che rispondano alle esigenze chiave delle soluzioni IoT quali sicurezza, gestione dei dispositivi e affidabilità. 
 
 ## <a name="build-and-deploy-your-module-for-debugging"></a>Compilare e distribuire il modulo per il debug
 
@@ -82,7 +92,7 @@ In ogni cartella di modulo sono presenti più file Docker per diversi tipi di co
 2. Nel riquadro comandi di VS Code digitare ed eseguire il comando **Azure IoT Edge: Build IoT Edge solution** (Azure IoT Edge: Compila soluzione IoT Edge).
 3. Selezionare il file `deployment.template.json` per la soluzione dal riquadro comandi. 
 4. Nella finestra di esplorazione dei dispositivi dell'hub Azure IoT fare clic con il pulsante destro del mouse su un ID dispositivo IoT Edge, quindi selezionare **Create deployment for IoT Edge device** (Crea distribuzione per dispositivo IoT Edge). 
-5. Aprire la cartella **config** della soluzione, quindi selezionare il file `deployment.json`. Fare clic su **Select Edge deployment manifest** (Seleziona manifesto distribuzione Edge). 
+5. Aprire la cartella **config** della soluzione, quindi selezionare il file `deployment.json`. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
 
 Si noterà quindi che la distribuzione è stata creata correttamente con un ID distribuzione nel terminale integrato di Visual Studio Code.
 
@@ -106,3 +116,4 @@ L'esempio precedente illustra come eseguire il debug di moduli IoT Edge Node.js 
 
 Dopo aver compilato il modulo, vedere le informazioni su come [distribuire i moduli Azure IoT Edge da Visual Studio Code](how-to-deploy-modules-vscode.md).
 
+Per sviluppare moduli per i dispositivi IoT Edge, [Comprendere e usare gli SDK per l'hub IoT di Azure](../iot-hub/iot-hub-devguide-sdks.md).

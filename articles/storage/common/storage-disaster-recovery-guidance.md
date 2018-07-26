@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323152"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072035"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Cosa fare se si verifica un'interruzione di Archiviazione di Azure
 Microsoft si impegna costantemente per verificare che i servizi siano sempre disponibili. A volte si verificano eventi al di fuori del controllo di Microsoft, che causano interruzioni non pianificate dei servizi in una o più aree. Per riuscire a gestire questi sporadici avvenimenti, viene fornita la guida generale seguente per i servizi di Archiviazione di Azure.
@@ -65,9 +65,8 @@ Quando un'emergenza locale colpisce l'area primaria, per prima cosa si cercherà
 Esistono alcuni approcci consigliati per il backup periodico dei dati di archiviazione.
 
 * Disk di VM: usare il [servizio Backup di Azure](https://azure.microsoft.com/services/backup/) per eseguire il backup dei dischi delle VM usati dalle macchine virtuali di Azure.
-* BLOB in blocchi: creare uno [snapshot](https://msdn.microsoft.com/library/azure/hh488361.aspx) di ogni BLOB in blocchi o copiare i BLOB in un altro account di archiviazione in un'altra area usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
+* BLOB in blocchi: attivare l'[eliminazione temporanea](../blobs/storage-blob-soft-delete.md) per proteggere da eliminazioni e sovrascritture a livello di oggetto o copiare i BLOB in un altro account di archiviazione in un'altra area usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) o la [libreria di spostamento dei dati di Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
 * Tabelle: usare [AzCopy](storage-use-azcopy.md) per esportare i dati delle tabelle in un altro account di archiviazione in un'altra area.
 * File: usare [AzCopy](storage-use-azcopy.md) o [Azure PowerShell](storage-powershell-guide-full.md) per copiare i file in un altro account di archiviazione in un'altra area.
 
 Per informazioni sulla creazione di applicazioni che sfruttano al meglio la funzionalità RA-GRS, vedere l'articolo relativo alla [progettazione di applicazioni a disponibilità elevata con archiviazione RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-

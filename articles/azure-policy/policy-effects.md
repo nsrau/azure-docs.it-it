@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751779"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856947"
 ---
 # <a name="understanding-policy-effects"></a>Informazioni sugli effetti di Criteri
 
@@ -125,7 +125,7 @@ Esempio: uso dell'effetto Deny.
 
 ## <a name="audit"></a>Audit
 
-L'effetto Audit viene usato per creare un evento di avviso in un log di controllo quando viene valutata una risorsa non conforme, ma la richiesta non viene arrestata.
+L'effetto Audit viene usato per creare un evento di avviso in un log attività quando viene valutata una risorsa non conforme, ma la richiesta non viene arrestata.
 
 ### <a name="audit-evaluation"></a>Valutazione di Audit
 

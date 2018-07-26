@@ -3,35 +3,27 @@ title: Guida tecnica alla pubblicazione di applicazioni SaaS in Azure Marketplac
 description: Guida dettagliata ed elenchi di controllo per la pubblicazione di applicazioni SaaS in Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
-author: BrentL-Collabera
-manager: ''
-editor: BrentL-Collabera
+author: keithcharlie
+manager: nunoc
+editor: keithcharlie
 ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 07/09/2018
+ms.author: keithcharlie
+ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809472"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056403"
 ---
-# <a name="saas-applications-technical-publishing-guide"></a>Guida tecnica alla pubblicazione di applicazioni SaaS
+# <a name="saas-applications-offer-publishing-guide"></a>Guida alla pubblicazione dell'offerta di applicazioni SaaS
 
-La Guida tecnica alla pubblicazione di applicazioni SaaS in Azure Marketplace è stata pensata per aiutare gli editori potenziali e quelli già operativi a presentare i propri servizi e applicazioni in Azure Marketplace sfruttando l'offerta esistente di applicazioni SaaS. 
-
-Per illustrare più chiaramente come pubblicare un'offerta SaaS, questa guida è suddivisa nelle sezioni seguenti:
-* Panoramica dell'offerta
-* Requisiti aziendali
-* Requisiti tecnici
-* Processo di pubblicazione
-* Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione
-* Certificazione dell'integrazione di Azure AD per Marketplace
+Le applicazioni SaaS possono essere pubblicate nel marketplace con tre diversi inviti all'azione: "Contattami", "Prova adesso" e "Scarica adesso". Questa guida illustra queste tre opzioni, inclusi i relativi requisiti. 
 
 ## <a name="offer-overview"></a>Panoramica dell'offerta  
 
@@ -42,29 +34,38 @@ Le applicazioni SaaS sono disponibili in entrambe le vetrine di Azure. La tabell
 | AppSource | Sì (Contatta) | Sì (Power BI/Dynamics) |
 | Azure Marketplace | No  | Sì (app SaaS) |   
 
-**Inserzione**: questa opzione di pubblicazione consiste in un'offerta di tipo Contatta e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
+**Elenco:** l’opzione di pubblicazione Elenco consiste in un'offerta di tipo Contatta e viene usata quando non è possibile una partecipazione a livello di valutazione o di transazione. Il vantaggio di questo approccio è dato dall'opportunità offerta agli editori di mettere subito in commercio una soluzione per iniziare a ricevere clienti potenziali che possono trasformarsi in ottimi affari per la crescita della loro azienda.  
 **Versione di valutazione/Transazione**: il cliente ha la possibilità di acquistare direttamente o richiedere una versione di valutazione della soluzione. Un'esperienza di valutazione aumenta il livello di coinvolgimento offerto ai clienti e consente loro di esaminare la soluzione prima di acquistarla. Offrendo un'esperienza di valutazione, si hanno maggiori opportunità di promozione nelle vetrine e con molta probabilità si riesce a raggiungere un numero più ampio di clienti potenziali grazie a questa occasione di coinvolgimento. Le versioni di valutazione devono includere il supporto gratuito almeno per la durata del periodo di valutazione.  
 
 | Offerta di app SaaS | Requisiti aziendali | Requisiti tecnici |  
 | --- | --- | --- |  
-| **Contatta** | Sì | No  |  
-| **PowerBI/Dynamics** | Sì | Sì (integrazione di Azure AD) |  
-| **App SaaS**| Sì | Sì (integrazione di Azure AD) |     
+| **Contatta** | sì | No  |  
+| **PowerBI/Dynamics** | sì | Sì (integrazione di Azure AD) |  
+| **App SaaS**| sì | Sì (integrazione di Azure AD) |     
 
-Per altre informazioni sulle vetrine di Marketplace e per una descrizione delle opzioni di pubblicazione,vedere [Guida alla pubblicazione per Azure Marketplace](https://aka.ms/sellerguide) e [Opzioni di pubblicazione](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+## <a name="saas-list"></a>Elenco SaaS
 
-## <a name="business-requirements"></a>Requisiti aziendali
-I requisiti aziendali dell'offerta SaaS possono essere soddisfatti in parallelo con i requisiti tecnici. La maggior parte delle informazioni e dei requisiti aziendali viene raccolta durante la creazione dell'offerta SaaS nel portale Cloud Partner. Di seguito sono riportati i requisiti aziendali: 
-* Accettare i criteri di partecipazione
-* Implementare l'integrazione con Microsoft 
-* Identificare i destinatari dell'offerta
-* Definire e determinare la modalità di gestione dei clienti potenziali
-* Configurare l'informativa sulla privacy e le condizioni per l'utilizzo
-* Definire i contatti del supporto tecnico  
+L'invito all'azione per un elenco SaaS senza versione di valutazione e funzionalità di fatturazione è "Contattami". 
 
-Altre informazioni sono disponibili nell'argomento [Prerequisiti per la pubblicazione nel Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing).
+Non è necessario configurare Azure Active Directory per elencare un'applicazione SaaS. 
 
-## <a name="technical-requirements"></a>Requisiti tecnici
+|Requisiti  |Dettagli  |
+|---------|---------|
+|L'app è un'offerta SaaS  |   La soluzione è un’offerta SaaS e viene offerto un prodotto SaaS multi-tenant.      |
+
+
+## <a name="saas-trial"></a>Versione di valutazione SaaS
+
+Fornire una soluzione o l'app usando una versione di valutazione basata su SaaS (software-as-a-service) che è possibile provare gratuitamente. Le offerte di versione di valutazione gratuita possono essere presentate come un account di prova con durata o uso limitato. 
+
+
+|Requisiti  |Dettagli  |
+|---------|---------|
+|L'app è un'offerta SaaS  |   La soluzione è un’offerta SaaS e viene offerto un prodotto SaaS multi-tenant.      |
+|L'app è abilitata per AAD     |   Il cliente sarà reindirizzato al dominio e le transazioni verranno effettuate direttamente con il cliente       |
+
+
+## <a name="saas-trial-technical-requirements"></a>Requisiti tecnici della versione di valutazione SaaS
 
 I requisiti tecnici per le applicazioni SaaS sono semplici. Gli editori devono semplicemente garantire l'integrazione con Azure Active Directory (Azure AD) per la pubblicazione. L'integrazione di Azure AD con le applicazioni è documentata in modo dettagliato e Microsoft mette a disposizione una vasta gamma di risorse e SDK a tale scopo.  
 
@@ -96,32 +97,7 @@ Per contenuti di formazione gratuiti per Azure Active Directory, vedere il colle
 * [Microsoft Azure for IT Pros Content Series: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Azure Active Directory fornisce inoltre un sito in cui verificare la disponibilità di aggiornamenti del servizio.   
-* [Aggiornamenti del servizio Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
-
-Per il supporto, è possibile usare le risorse seguenti:
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-
-## <a name="publishing-process"></a>Processo di pubblicazione
-
-Il processo di pubblicazione SaaS include passaggi a livello tecnico e aziendale.  La maggior parte delle operazioni per lo sviluppo e l'integrazione di Azure Active Directory può essere eseguita in parallelo con il lavoro necessario per soddisfare i requisiti aziendali dell'offerta. La maggior parte dei requisiti aziendali fa parte della configurazione dell'offerta di app SaaS nel portale Cloud Partner.  
-Il diagramma seguente illustra i passaggi principali per la pubblicazione dell'offerta Versione di valutazione/Transazione:  
-
-![Procedura per la pubblicazione SaaS](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
-
-La tabella seguente descrive i passaggi di pubblicazione principali:  
-
-| Passaggio di pubblicazione | DESCRIZIONE |   
-| --- | --- |  
-| **Creare l'applicazione SaaS** | Accedere al portale Cloud Partner, selezionare **New** (Nuovo) e quindi selezionare l'offerta relativa alle **app SaaS**. |  
-| **Creare l'integrazione con Azure AD** | Seguire i requisiti tecnici descritti nella sezione precedente per integrare l'offerta SaaS con Azure AD. |  
-| **Definire le impostazioni dell'offerta**| Immettere tutte le informazioni iniziali sull'offerta SaaS, ovvero l'ID e il nome dell'offerta che si vuole usare. |     
-| **Impostare le informazioni tecniche** | Immettere le informazioni tecniche relative all'offerta. Per le applicazioni SaaS, è necessario specificare l'URI della soluzione e il tipo di pulsante di acquisizione dell'offerta (Gratuita, Versione di valutazione o Contatta). |  
-| **Test drive (facoltativo)** | Si tratta di un tipo facoltativo di valutazione gratuita, necessario soprattutto per altri tipi di offerte di Marketplace. Consente di ottenere la versione di valutazione distribuita nelle sottoscrizioni dell'editore anziché in una sottoscrizione di cliente finale. |  
-| **Definire i materiali per la vetrina delle offerte**| In questa sezione l'editore collega e carica i logo, i materiali di marketing e i documenti legali e configura il sistema di gestione dei clienti potenziali. |
-| **Impostare i contatti dell'offerta** | Immettere sia i contatti di progettazione sia le informazioni di contatto del supporto per l'offerta SaaS. |  
-| **Verificare l'integrazione dell'app SaaS con Azure AD** | Prima di inviare l'app SaaS per la pubblicazione, è necessario verificare che l'app sia integrata con Azure AD. |  
-| **Pubblicare l'offerta**| Dopo aver completato l'offerta e le risorse tecniche, è possibile procedere all'invio dell'offerta. Verrà così avviato il processo di pubblicazione, in cui il modello della soluzione viene testato, convalidato, certificato e approvato per la pubblicazione. |
+* [Aggiornamenti del servizio Azure AD](https://azure.microsoft.com/updates/?product=active-directory)|
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Uso di Azure Active Directory per abilitare l'accesso alle versioni di valutazione  
 
@@ -154,3 +130,25 @@ Se non si ha familiarità con l'accesso SSO federato di Azure AD, eseguire quest
 * Sviluppare una test drive per ogni cliente
 * Creare un'app demo di esempio multi-tenant con SSO
 
+## <a name="saas-subscriptions"></a>Sottoscrizioni SaaS
+
+Usare il tipo di offerta di app SaaS per consentire ai clienti di acquistare la soluzione tecnica basata su SaaS come una sottoscrizione. Per l'app SaaS è necessario soddisfare i requisiti seguenti:
+- Prezzo e costi del servizio con tariffe fisse mensili.
+- Fornire un metodo per aggiornare o annullare il servizio in qualsiasi momento.
+Microsoft gestisce la transazione commerciale. Microsoft invia gli addebiti al cliente per conto dell'utente. Per usare un'app SaaS sotto forma di sottoscrizione, è necessario abilitare la propria API del servizio di gestione della sottoscrizione. L'API del servizio di gestione della sottoscrizione deve comunicare direttamente con le API di Azure Resource Manager. L'API del servizio di gestione della sottoscrizione deve supportare il provisioning, l'aggiornamento e l'annullamento del servizio.
+
+| Requisito | Dettagli |  
+|:--- |:--- |  
+|Fatturazione e misurazione | Per l'offerta è prevista una tariffa fissa mensile. Non sono attualmente supportati prezzi basati sull'utilizzo e funzionalità per il calcolo dell'utilizzo effettivo. |  
+|Annullamento | L'offerta può essere annullata dal cliente in qualsiasi momento. |  
+|Pagina di destinazione delle transazioni | L'editore ospita una pagina di destinazione delle transazioni di Azure con co-branding in cui gli utenti possono creare e gestire il proprio account per il servizio SaaS. |   
+| API della sottoscrizione | L'editore espone un servizio che può interagire con la sottoscrizione SaaS per creare, aggiornare ed eliminare un account utente e un piano di servizio. Le modifiche critiche all'API devono essere supportate entro 24 ore. Le modifiche non critiche all'API verranno rilasciate periodicamente. |  
+
+## <a name="next-steps"></a>Passaggi successivi
+Se non è già stato fatto, 
+
+- [Registrarsi](https://azuremarketplace.microsoft.com/sell) in Marketplace
+
+Se la registrazione è già stata effettuata e si sta creando una nuova offerta o lavorando su una esistente,
+
+- [Accedere al portale Cloud Partner](https://cloudpartner.azure.com) per creare e completare l'offerta

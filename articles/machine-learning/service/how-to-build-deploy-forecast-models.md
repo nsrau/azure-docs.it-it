@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
-ms.date: 05/07/2018
-ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 07/13/2018
+ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888671"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070340"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Creare e distribuire modelli di previsione con Azure Machine Learning
 
@@ -27,7 +27,7 @@ Questo articolo illustra come usare il **pacchetto di Azure Machine Learning per
 
 Consultare la [documentazione di riferimento del pacchetto](https://aka.ms/aml-packages/forecasting) per l'elenco completo dei convertitori e dei modelli e informazioni di riferimento dettagliate per ogni modulo e classe.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -36,7 +36,7 @@ Consultare la [documentazione di riferimento del pacchetto](https://aka.ms/aml-p
    - Un account di Gestione modelli di Azure Machine Learning
    - Azure Machine Learning Workbench installato 
 
-    Se questi tre elementi non sono stati ancora creati o installati, seguire le istruzioni dell'articolo [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../service/quickstart-installation.md).
+ Se questi tre elementi non sono stati ancora creati o installati, seguire le istruzioni dell'articolo [Guida introduttiva: Installare e iniziare a usare i servizi di Azure Machine Learning](../service/quickstart-installation.md).
 
 1. È necessario che sia installato il pacchetto di Azure Machine Learning per la previsione. Vedere [qui le istruzioni per installare questo pacchetto](https://aka.ms/aml-packages/forecasting).
 
@@ -77,6 +77,7 @@ import pkg_resources
 from datetime import timedelta
 import matplotlib
 matplotlib.use('agg')
+%matplotlib inline
 from matplotlib import pyplot as plt
 
 from sklearn.linear_model import Lasso, ElasticNet
@@ -84,12 +85,12 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
-from ftk.tsutils import last_n_periods_split
+from ftk.ts_utils import last_n_periods_split
 
 from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
-from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
-from ftk.models.forecasterunion import ForecasterUnion
+from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS, BestOfForecaster
+from ftk.models.forecaster_union import ForecasterUnion
 from ftk.model_selection import TSGridSearchCV, RollingOriginValidator
 
 from azuremltkbase.deployment import AMLSettings
@@ -502,12 +503,11 @@ La funzione [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/pyt
 
 
 ```python
-%matplotlib inline
 whole_tsdf.ts_report()
 ```
 
     --------------------------------  Data Overview  ---------------------------------
-    <class 'ftk.dataframets.TimeSeriesDataFrame'>
+    <class 'ftk.time_series_data_frame.TimeSeriesDataFrame'>
     MultiIndex: 28947 entries, (1990-06-20 23:59:59, 2, dominicks) to (1992-10-07 23:59:59, 137, tropicana)
     Data columns (total 17 columns):
     week            28947 non-null int64
@@ -662,12 +662,6 @@ whole_tsdf.ts_report()
 
 
 ![png](./media/how-to-build-deploy-forecast-models/output_15_6.png)
-
-![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
- 
 
 
 ## <a name="integrate-with-external-data"></a>Integrare dati esterni
@@ -892,7 +886,7 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Pre-elaborare i dati e attribuire i valori mancanti
 
-Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
+Per iniziare, suddividere i dati in un set di training e in un set di testing tramite la funzione di utilità [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest). Il set di testing risultante contiene le ultime 40 osservazioni di ogni serie temporale. 
 
 
 ```python
@@ -974,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
+È possibile notare che la maggior parte delle serie (213 su 249) è irregolare. Per completare i valori mancanti per le quantità di vendita è necessario eseguire una [trasformazione di attribuzione](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest). Sono disponibili numerose opzioni di attribuzione, ma il codice di esempio seguente usa un'interpolazione lineare.
 
 
 ```python
@@ -1040,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combinare più modelli
 
-Lo stimatore [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
+Lo stimatore [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) consente di combinare più stimatori per l'adattamento o la stima usando una sola riga di codice.
 
 
 ```python
@@ -1205,10 +1199,10 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
-    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
-    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+    F1 2018-06-14 23:10:03,472 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:03.845078
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-06-14 23:10:16,499 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:09.182314
                                            feat  price  AGE60  EDUC  ETHNIC  \
     WeekLastDay         store brand                                           
     1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
@@ -1370,13 +1364,16 @@ all_errors.sort_values('MedianAPE')
 
 Alcuni modelli di apprendimento automatico sono riusciti a sfruttare le caratteristiche aggiunte e le analogie tra le serie per ottenere previsioni più precise.
 
-**Convalida incrociata e sweep di parametri**    
+### <a name="cross-validation-parameter-and-model-sweeping"></a>Convalida incrociata, sweep dei parametri e dei modelli    
 
-Il pacchetto adatta alcune funzioni di apprendimento automatico tradizionali per un'applicazione di previsione.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator) esegue la convalida incrociata a livello temporale, rispettando ciò che è presumibilmente noto e ciò che non lo è in un framework di previsione. 
+Il pacchetto adatta alcune funzioni di apprendimento automatico tradizionali per un'applicazione di previsione.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest) esegue la convalida incrociata a livello temporale, rispettando ciò che è presumibilmente noto e ciò che non lo è in un framework di previsione. 
 
 Nella figura seguente ogni quadratino rappresenta i dati relativi a un momento specifico. I quadratini blu rappresentano il training, mentre quelli arancioni rappresentano il testing in ogni fase. I dati di testing devono provenire dai momenti successivi al momento di training più ampio, altrimenti alcuni dati futuri passeranno ai dati di training e la valutazione del modello non risulterà valida. 
-
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
+
+**Sweep dei parametri**  
+La classe [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) ricerca in modo esauriente i valori dei parametri specificati e usa `RollingOriginValidator` per valutare le prestazioni dei parametri in modo da trovare i parametri ottimali.
+
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1395,6 +1392,102 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
     Best paramter: {'estimator__n_estimators': 100}
     
+
+**Sweep dei modelli**  
+La classe `BestOfForecaster` seleziona il modello con le prestazioni migliori da un elenco di modelli specifici. Simile a `TSGridSearchCV`, usa anche RollingOriginValidator per la convalida incrociata e la valutazione delle prestazioni.  
+Di seguito viene riportato un elenco di due modelli per illustrare l'uso di `BestOfForecaster`
+
+
+```python
+best_of_forecaster = BestOfForecaster(forecaster_list=[('naive', naive_model), 
+                                                       ('random_forest', random_forest_model)])
+best_of_forecaster_fitted = best_of_forecaster.fit(train_feature_tsdf,
+                                                   validator=RollingOriginValidator(n_step=20, max_horizon=40))
+best_of_forecaster_prediction = best_of_forecaster_fitted.predict(test_feature_tsdf)
+best_of_forecaster_prediction.head()
+```
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>PointForecast</th>
+      <th>DistributionForecast</th>
+      <th>Quantità</th>
+    </tr>
+    <tr>
+      <th>WeekLastDay</th>
+      <th>store</th>
+      <th>brand</th>
+      <th>ForecastOriginTime</th>
+      <th>ModelName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-08 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>9299.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>11712.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-15 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>10259.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>4032.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-22 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>6828.80</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>6336.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-29 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>16633.60</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>13632.00</td>
+    </tr>
+    <tr>
+      <th>1992-02-05 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>12774.40</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>45120.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **Creare la pipeline finale**   
 Dopo aver identificato il modello migliore è possibile creare e adattare la pipeline finale con tutti i convertitori e il modello migliore. 
@@ -1416,9 +1509,62 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>Operazionalizzazione: distribuzione e utilizzo
+## <a name="visualization"></a>Visualizzazione
+La classe `ForecastDataFrame` fornisce funzioni di tracciato per visualizzare e analizzare i risultati della previsione. Usare i grafici adoperati comunemente con i dati. Vedere il notebook di esempio qui sotto sulle funzioni di tracciato per tutte le funzioni disponibili. 
 
-In questa sezione si distribuisce una pipeline come servizio Web di Azure Machine Learning e si utilizza la pipeline per il training e l'assegnazione di un punteggio. Se si assegna un punteggio al servizio Web distribuito, viene eseguito di nuovo il training del modello e vengono generate previsioni in base ai nuovi dati.
+La funzione `show_error` traccia le metriche delle prestazioni aggregate da una colonna arbitraria. Per impostazione predefinita, la funzione `show_error` esegue l'aggregazione in base a `grain_colnames` di `ForecastDataFrame`. È spesso utile identificare i livelli di dettaglio/i gruppi con le prestazioni migliori o peggiori, specialmente quando si dispone di un numero elevato di serie temporali. L'argomento `performance_percent` di `show_error` consente di specificare un intervallo di prestazioni e di tracciare l'errore di un sottoinsieme di livelli di dettaglio/gruppi.
+
+Tracciare i livelli di dettaglio con l'ultimo 5% di prestazioni, ovvero il primo 5% di MedianAPE
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0.95, 1))
+```
+
+![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+
+
+Tracciare i livelli di dettaglio con il primo 5% di prestazioni, ovvero l'ultimo 5% di MedianAPE.
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0, 0.05))
+```
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+
+
+Quando si ha un'idea delle prestazioni complessive, è possibile esplorare i singoli livelli di dettaglio, soprattutto quelli che hanno registrato prestazioni scadenti. Il metodo `plot_forecast_by_grain` traccia i livelli di dettaglio specificati previsti rispetto a quelli effettivi. In questo caso, viene tracciato il livello di dettaglio con le prestazioni migliori e il livello di dettaglio con le prestazioni peggiori individuate nel tracciato `show_error`.
+
+
+```python
+fig_ax = best_of_forecaster_prediction.plot_forecast_by_grain(grains=[(33, 'tropicana'), (128, 'minute.maid')])
+```
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+
+
+
+## <a name="additional-notebooks"></a>Notebook aggiuntivi
+Per approfondimenti sulle funzionalità principali di AMLPF, consultare i notebook seguenti con altri dettagli ed esempi di ogni funzionalità:  
+[Notebook su TimeSeriesDataFrame](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Introduction_to_TimeSeriesDataFrames.ipynb)  
+[Notebook sul data wrangling](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Data_Wrangling_Sample.ipynb)  
+[Notebook sui convertitori](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Forecast_Package_Transforms.ipynb)  
+[Notebook sui modelli](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/AMLPF_models_sample_notebook.ipynb)  
+[Notebook sulla convalida incrociata](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Time_Series_Cross_Validation.ipynb)  
+[Notebook su Lag Transformer e OriginTime](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Constructing_Lags_and_Explaining_Origin_Times.ipynb)  
+[Notebook sulle funzioni di tracciato](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Plotting_Functions_in_AMLPF.ipynb)
+
+## <a name="operationalization"></a>Operazionalizzazione
+
+In questa sezione si distribuisce una pipeline come servizio Web di Azure Machine Learning e si utilizza la pipeline per il training e l'assegnazione di un punteggio.
+Attualmente solo le pipeline non installate sono supportate per la distribuzione. Se si assegna un punteggio al servizio Web distribuito, viene eseguito di nuovo il training del modello e vengono generate previsioni in base ai nuovi dati.
 
 ### <a name="set-model-deployment-parameters"></a>Impostare i parametri di distribuzione del modello
 
@@ -1485,7 +1631,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/dailyrelease/azuremlftk-0.1.18165.29a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>Creare il servizio Web

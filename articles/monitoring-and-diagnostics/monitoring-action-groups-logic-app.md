@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753094"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049188"
 ---
 # <a name="create-a-logic-app-action"></a>Creare un'azione dell'app per la logica
 
@@ -187,10 +187,10 @@ Le voci di integrità dei servizi di Azure fanno parte del log attività. Il pro
 -  I passaggi 9 e 10 sono gli stessi.
 -  Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
+   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti.  Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("0.1.1") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       !["Condizione di payload di integrità dei servizi"](media/monitoring-action-groups/service-health-payload-condition.png "Condizione di payload di integrità dei servizi")
 
@@ -275,10 +275,10 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
 - I passaggi 9 e 10 sono gli stessi.
 - Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti per assicurarsi che l'app per la logica venga eseguita solo quando i dati di input corrispondono a questi valori:
+   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        !["Condizione di payload dell'avviso per la metrica"](media/monitoring-action-groups/metric-alert-payload-condition.png "Condizione di payload dell'avviso per la metrica")
 
    1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.

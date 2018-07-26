@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050127"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069264"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
@@ -91,7 +91,7 @@ Per altre informazioni su questo scenario e sulla procedura di configurazione pe
 
 Il ripristino di backup nativi (file con estensione bak) ottenuti da SQL Server in locale o [SQL Server in macchine virtuali](https://azure.microsoft.com/services/virtual-machines/sql-server/) e disponibili in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è una delle funzionalità principali di Istanza gestita di database SQL e consente una migrazione di database offline semplice e rapida. 
 
-Il diagramma seguente illustra il processo a livello generale:
+Il diagramma seguente offre una panoramica di alto livello del processo:
 
 ![Flusso della migrazione](./media/sql-database-managed-instance-migration/migration-flow.png)
 
@@ -105,7 +105,8 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 |Eseguire il ripristino da Archiviazione di Azure a Istanza gestita|[Ripristino da URL con credenziali di firma di accesso condiviso](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> Il ripristino di database di sistema non è supportato. Per eseguire la migrazione di oggetti a livello di istanza (archiviati in database master o msdb), è consigliabile inserirli in script ed eseguire gli script T-SQL nell'istanza di destinazione.
+> - In caso di migrazione di un database protetto tramite [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a un'istanza gestita di SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Per i dettagli, vedere [Migrazione del certificato TDE a Istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Il ripristino di database di sistema non è supportato. Per eseguire la migrazione di oggetti a livello di istanza (archiviati in database master o msdb), è consigliabile inserirli in script ed eseguire gli script T-SQL nell'istanza di destinazione.
 
 Per un'esercitazione completa con il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-restore-from-backup-tutorial.md).
 

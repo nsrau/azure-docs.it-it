@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1fd5ac0f9994a4dbf4365c21ac4f31ba0eccbb15
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335755"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069152"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorare l'integrità del contenitore Azure Kubernetes Service (AKS) (anteprima)
 
@@ -38,7 +38,7 @@ Per informazioni sul monitoraggio e la gestione degli host di contenitori Docker
 Prima di iniziare, esaminare i dettagli seguenti in modo da poter comprendere i prerequisiti supportati.
 
 - Un cluster AKS nuovo o esistente
-- Un agente OMS nel contenitore per la versione Linux microsoft/oms:ciprod04202018 e successive. Questo agente viene installato automaticamente durante l'onboarding dell'integrità dei contenitori.  
+- Un agente OMS nel contenitore per la versione Linux microsoft/oms:ciprod04202018 e successive. Il numero di versione è rappresentato da una data con il formato *mmggaaaa*.  L'agente viene installato automaticamente durante l'onboarding dell'integrità dei contenitori.  
 - Un'area di lavoro di Log Analytics.  Può essere creata quando si abilita il monitoraggio del nuovo cluster AKS oppure è possibile crearne una tramite [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) o dal [portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - Membro del ruolo di collaboratore di Log Analytics per abilitare il monitoraggio dei contenitori.  Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md).
 
@@ -54,7 +54,7 @@ Questa funzionalità si basa su un agente OMS nel contenitore per Linux per la r
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Abilitare il monitoraggio dell'integrità dei contenitori per un nuovo cluster
-È possibile abilitare il monitoraggio del cluster AKS solo quando lo si distribuisce dal portale di Azure.  Seguire la procedura descritta nell'articolo introduttivo [Distribuire un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** da abilitare, quindi selezionare un'area di lavoro esistente di Log Analytics o crearne una nuova.  
+È possibile abilitare il monitoraggio di un nuovo cluster AKS durante la distribuzione dal portale di Azure.  Seguire la procedura descritta nell'articolo introduttivo [Distribuire un cluster Azure Kubernetes Service (AKS)](../aks/kubernetes-walkthrough-portal.md).  Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** da abilitare e quindi selezionare un'area di lavoro esistente di Log Analytics o crearne una nuova.  
 
 Dopo avere abilitato il monitoraggio e completato tutte le attività di configurazione, è possibile monitorare le prestazioni del cluster in due modi:
 
@@ -66,22 +66,20 @@ Dopo avere abilitato il monitoraggio e completato tutte le attività di configur
 Dopo aver abilitato il monitoraggio, potrebbero essere necessari circa 15 minuti prima di poter visualizzare i dati operativi per il cluster.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Abilitare il monitoraggio dell'integrità dei contenitori per cluster gestiti esistenti
-L'abilitazione del monitoraggio del contenitore AKS già distribuito può essere eseguita dal portale di Azure o con il modello di Azure Resource Manager fornito tramite il cmdlet di PowerShell **New-AzureRmResourceGroupDeployment** oppure l'interfaccia della riga di comando di Azure.  
+È possibile abilitare il monitoraggio di un cluster AKS già distribuito tramite il portale di Azure o il modello di Azure Resource Manager fornito usando il cmdlet di PowerShell **New-AzureRmResourceGroupDeployment** o l'interfaccia della riga di comando di Azure.  
 
 
 ### <a name="enable-from-azure-portal"></a>Abilitazione dal portale di Azure
 Completare la procedura seguente per abilitare il monitoraggio del contenitore AKS dal portale di Azure.
 
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Contenitori**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Servizi Kubernetes**.<br><br> ![Portale di Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Contenitori**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Servizi Kubernetes**.<br><br> ![portale di Azure](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
 2. Nell'elenco dei contenitori selezionare un contenitore.
 3. Nella pagina di panoramica del contenitore selezionare **Monitorare l'integrità dei contenitori**. Verrà visualizzata la pagina **Onboarding to Container Health and Logs** (Onboarding a integrità e log dei contenitori).
-4. Se nella pagina **Onboarding to Container Health and Logs** (Onboarding a integrità e log dei contenitori) è già presente un'area di lavoro di Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  Nell'elenco sono preselezionati l'area di lavoro predefinita e la posizione in cui è distribuito il contenitore AKS nella sottoscrizione. In alternativa, è possibile selezionare **Crea nuovo** e specificare una nuova area di lavoro nella stessa sottoscrizione.<br><br> ![Abilitare il monitoraggio dell'integrità dei contenitori AKS](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+4. Se nella pagina **Onboarding to Container Health and Logs** (Onboarding a integrità e log dei contenitori) è già presente un'area di lavoro di Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  Nell'elenco sono preselezionati l'area di lavoro predefinita e la posizione in cui è distribuito il contenitore AKS nella sottoscrizione.<br><br> ![Abilitare il monitoraggio dell'integrità dei contenitori AKS](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
 
-    Se si seleziona **Crea nuovo**, viene visualizzato il riquadro **Crea una nuova area di lavoro**. L'opzione **Area** predefinita corrisponde all'area in cui viene creata la risorsa contenitore ed è possibile accettare l'impostazione predefinita oppure selezionare un'area diversa e quindi specificare un nome per l'area di lavoro.  Fare clic su **Crea** per accettare la selezione.<br><br> ![Definire l'area di lavoro per il monitoraggio dei contenitori](./media/monitoring-container-health/create-new-workspace-01.png)  
-
-    >[!NOTE]
-    >Attualmente non è possibile creare una nuova area di lavoro nell'area Stati Uniti centro-occidentali, ma è solo possibile selezionare un'area di lavoro preesistente in questa area.  Benché l'area possa essere selezionata nell'elenco, la distribuzione inizierà, ma restituirà un errore subito dopo.  
-    >
+>[!NOTE]
+>Se si desidera creare una nuova area di lavoro di Log Analytics per archiviare i dati di monitoraggio dal cluster, seguire i passaggi descritti in [Creare un'area di lavoro di Log Analytics nel portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md) e verificare di creare l'area di lavoro nella stessa sottoscrizione in cui è distribuito il contenitore AKS.  
+>
  
 Dopo aver abilitato il monitoraggio, potrebbero essere necessari circa 15 minuti prima di poter visualizzare i dati operativi per il cluster. 
 
@@ -243,8 +241,15 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
         ```
 Dopo aver abilitato il monitoraggio, potrebbero essere necessari circa 15 minuti prima di poter visualizzare i dati operativi per il cluster.  
 
-## <a name="verify-agent-deployed-successfully"></a>Verificare il completamento della distribuzione dell'agente
-Per verificare che l'agente OMS sia stato distribuito correttamente, eseguire il comando seguente: `kubectl get ds omsagent --namespace=kube-system`.
+## <a name="verify-agent-and-solution-deployment"></a>Verificare la distribuzione dell'agente e della soluzione
+L'agente con versione *06072018* e successive consente di verificare che l'agente e la soluzione siano stati distribuiti correttamente.  Con le versioni precedenti dell'agente è possibile verificare solo la distribuzione degli agenti.
+
+### <a name="agent-version-06072018-and-higher"></a>Agente con versione 06072018 e successive
+Eseguire questo comando per verificare che l'agente sia distribuito correttamente.   
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
 
 Se la distribuzione è stata eseguita correttamente, l'output dovrebbe essere simile al seguente:
 
@@ -254,22 +259,72 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-## <a name="view-performance-utilization"></a>Visualizzare l'uso delle prestazioni
-Quando si apre l'integrità dei contenitori, la pagina visualizza immediatamente l'uso delle prestazioni dei nodi del cluster.  La visualizzazione delle informazioni sul cluster AKS è organizzata in base a tre prospettive:
+Per verificare la distribuzione della soluzione, eseguire questo comando:
 
+```
+kubectl get deployment omsagent-rs -n=kube-system
+```
+
+Se la distribuzione è stata eseguita correttamente, l'output dovrebbe essere simile al seguente:
+
+```
+User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+omsagent   1         1         1            1            3h
+```
+
+### <a name="agent-version-earlier-than-06072018"></a>Agente con versione precedente alla 06072018
+
+Per verificare che l'agente OMS rilasciato prima della versione *06072018* sia distribuito in modo corretto, eseguire questo comando:  
+
+```
+kubectl get ds omsagent --namespace=kube-system
+```
+
+Se la distribuzione è stata eseguita correttamente, l'output dovrebbe essere simile al seguente:  
+
+```
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
+NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
+omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+```  
+
+## <a name="view-performance-utilization"></a>Visualizzare l'uso delle prestazioni
+Quando si apre l'integrità dei contenitori, nella pagina viene visualizzato immediatamente l'uso dell'intero cluster.  La visualizzazione delle informazioni sul cluster AKS è organizzata in base a quattro prospettive:
+
+- Cluster
 - Nodi 
 - Controller  
 - Contenitori
 
-La gerarchia di righe segue il modello a oggetti Kubernetes a partire da un nodo del cluster.  Espandendo il nodo, è possibile visualizzare uno o più pod in esecuzione nel nodo e, se sono presenti più contenitori raggruppati in un pod, questi vengono visualizzati nell'ultima riga nella gerarchia.<br><br> ![Gerarchia di nodi Kubernetes di esempio nella vista prestazioni](./media/monitoring-container-health/container-performance-and-health-view-03.png)
+Nella scheda Cluster i grafici delle prestazioni su riga mostrano le metriche delle prestazioni chiave del cluster.  
 
-È possibile selezionare controller o contenitori nella parte superiore della pagina e controllare lo stato e l'uso delle risorse per tali oggetti.  Usare le caselle a discesa nella parte superiore della schermata per filtrare in base a spazio dei nomi, servizio e nodo. Se invece si vuole controllare l'uso della memoria, dall'elenco a discesa **Metrica** selezionare **Memoria RSS** o **Working set della memoria**.  **Memoria RSS** è supportato solo per Kubernetes versione 1.8 e successive. In caso contrario, per i valori di **% media** verrà visualizzato *NaN%*, che è un valore di tipo di dati numerico che rappresenta un valore non definito o non rappresentabile. 
+![Grafici delle prestazioni di esempio nella scheda Cluster](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-![Vista prestazioni dei nodi del contenitore](./media/monitoring-container-health/container-performance-and-health-view-04.png)
+Di seguito vengono indicate in dettaglio le metriche delle prestazioni.
 
-Per impostazione predefinita, i dati sulle prestazioni sono basati sulle ultime sei ore, ma è possibile modificare la finestra tramite l'elenco a discesa **Intervallo di tempo** disponibile nell'angolo superiore destro della pagina. Attualmente, la pagina non viene aggiornata in modo automatico, quindi è necessario aggiornarla manualmente. 
+- Node CPU Utilization % (% uso CPU nodo) - Rappresenta una prospettiva aggregata dell'uso della CPU per l'intero cluster.  È possibile filtrare i risultati per l'intervallo di tempo selezionando *Avg* (Media), *Min*, *Max*, *50th* (50°), *90th* (90°) e *95th* (95°) tramite il selettore di percentili nella parte superiore del grafico, singolarmente o in combinazione. 
+- Node memory utilization % (% uso memoria nodo) - Rappresenta una prospettiva aggregata dell'uso della memoria per l'intero cluster.  È possibile filtrare i risultati per l'intervallo di tempo selezionando *Avg* (Media), *Min*, *Max*, *50th* (50°), *90th* (90°) e *95th* (95°) tramite il selettore di percentili nella parte superiore del grafico, singolarmente o in combinazione. 
+- Node count (Numero di nodi) - Rappresenta il numero e lo stato dei nodi in Kubernetes.  Lo stato dei nodi del cluster rappresentati è *All* (Tutto), *Ready* (Pronto) e *Not Ready* (Non pronto) e può essere filtrato singolarmente o in combinazione tramite il selettore nella parte superiore del grafico.    
+- Activity pod count (Numero di pod attività) - Rappresenta il numero e lo stato dei pod in Kubernetes.  Lo stato dei pod rappresentato può essere *All* (Tutto), *Pending* (In sospeso), *Running* (In esecuzione) e *Unknown* (Sconosciuto) e può essere filtrato singolarmente o in combinazione tramite il selettore nella parte superiore del grafico.  
 
-Nell'esempio seguente è possibile osservare che per il nodo *aks-agentpool-3402399-0* il valore di **Contenitori** è 10, ovvero un rollup del numero totale di contenitori distribuiti.<br><br> ![Esempio di rollup dei contenitori per ogni nodo](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> In questo modo, è possibile determinare rapidamente se i contenitori tra nodi nel cluster sono equilibrati.  
+Nella scheda dei nodi la gerarchia di righe segue il modello a oggetti Kubernetes a partire da un nodo nel cluster.  Espandendo il nodo, è possibile visualizzare uno o più pod in esecuzione nel nodo e, se sono presenti più contenitori raggruppati in un pod, questi vengono visualizzati nell'ultima riga nella gerarchia. È possibile visualizzare anche i carichi di lavoro non-pod correlati in esecuzione nell'host nel caso di uso intensivo del processore o della memoria nell'host stesso.
+
+![Gerarchia di nodi Kubernetes di esempio nella vista prestazioni](./media/monitoring-container-health/container-health-nodes-view.png)
+
+È possibile selezionare controller o contenitori nella parte superiore della pagina e controllare lo stato e l'uso delle risorse per tali oggetti.  Usare le caselle a discesa nella parte superiore della schermata per filtrare in base a spazio dei nomi, servizio e nodo. Se invece si vuole controllare l'uso della memoria, dall'elenco a discesa **Metrica** selezionare **Memoria RSS** o **Working set della memoria**.  **Memoria RSS** è supportato solo per Kubernetes versione 1.8 e successive. In caso contrario, per i valori di **% MIN** verrà visualizzato *NaN%*, ovvero un valore di tipo di dati numerico che rappresenta un valore non definito o non rappresentabile. 
+
+![Visualizzazione delle prestazioni dei nodi del contenitore](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
+
+Per impostazione predefinita, i dati sulle prestazioni sono basati sulle ultime sei ore, ma è possibile modificare la finestra tramite l'elenco a discesa **Intervallo di tempo** disponibile nell'angolo superiore destro della pagina. Attualmente, la pagina non viene aggiornata in modo automatico, quindi è necessario aggiornarla manualmente. È anche possibile filtrare i risultati nell'intervallo di tempo selezionando *Avg* (Media), *Min*, *Max*, *50th* (50°), *90th* (90°) e *95th* (95°) tramite il selettore di percentile. 
+
+![Selezione del percentile per filtrare i dati](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
+
+Nell'esempio seguente è possibile osservare che per il nodo *aks-nodepool-3977305* il valore per **Containers** (Contenitori) è 5, ovvero un rollup del numero totale di contenitori distribuiti.
+
+![Esempio di rollup dei contenitori per ogni nodo](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+
+In questo modo, è possibile determinare rapidamente se i contenitori tra nodi nel cluster sono equilibrati.  
 
 Nella tabella seguente sono descritte le informazioni presentate quando si visualizzano i nodi.
 
@@ -277,54 +332,80 @@ Nella tabella seguente sono descritte le informazioni presentate quando si visua
 |--------|-------------|
 | NOME | Nome dell'host |
 | Status | Visualizzazione Kubernetes dello stato del nodo |
-| % MEDIA | Percentuale media di nodi in base alla metrica selezionata per l'intervallo di tempo selezionato. |
-| MEDIA | Valore medio effettivo dei nodi in base alla metrica selezionata per l'intervallo di tempo selezionato.  Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
+| AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90°) | Percentuale di nodi media in base al percentile durante l'intervallo di tempo selezionato. |
+| AVG, MIN, MAX, 50TH, 90TH (MEDIA, MIN, MAX, 50°, 90°) | Valore effettivo dei nodi medio durante l'intervallo di tempo selezionato.  Il valore medio viene misurato dal limite di CPU/memoria impostato per un nodo. Per i pod e i contenitori, è il valore medio segnalato dall'host. |
 | Contenitori | Numero di contenitori. |
 | Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un nodo. |
-| Pod | Solo per i contenitori. Mostra i pod in cui è presente. |
 | Controller | Solo per i contenitori e i pod. Mostra il controller in cui è presente. Non tutti i pod saranno in un controller, pertanto per alcuni potrebbe essere visualizzato N/A. | 
-| % media tendenza | Grafico a barre della tendenza basato sulla metrica relativa alla percentuale media per il contenitore e il nodo. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90° tendenza) | Grafico a barre della tendenza che presenta il valore percentuale del percentile del controller. |
 
 
-Dal selettore scegliere **Controller**.<br><br> ![Selezionare la visualizzazione controller](./media/monitoring-container-health/container-performance-and-health-view-08.png)
+Dal selettore scegliere **Controller**.
 
-Qui è possibile visualizzare l'integrità delle prestazioni dei controller.<br><br> ![Vista prestazioni dei controller di <nome>](./media/monitoring-container-health/container-performance-and-health-view-05.png)
+![Selezione della visualizzazione per i controller](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-La gerarchia di righe inizia con un controller. Espandendo il controller, vengono visualizzati uno o più pod oppure uno o più contenitori.  Espandendo un pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod.  
+Qui è possibile visualizzare l'integrità delle prestazioni dei controller.
+
+![Vista prestazioni dei controller di <nome>](./media/monitoring-container-health/container-health-controllers-view.png)
+
+La gerarchia di righe inizia con un controller. Se si espande il controller, vengono visualizzati uno o più contenitori.  Espandendo un pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod.  
 
 Nella tabella seguente sono descritte le informazioni presentate quando si visualizzano i controller.
 
-| Colonna | DESCRIZIONE | 
+| Colonna | Descrizione | 
 |--------|-------------|
 | NOME | Nome del tipo di controller.|
-| Status | Stato dei contenitori quando l'esecuzione è stata completata con uno stato, ad esempio *Terminato*, *Non riuscito*, *Arrestato* oppure *In pausa*. Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato sarà *Sconosciuto*. |
-| % MEDIA | Rollup della media della percentuale media di ogni entità per la metrica selezionata. |
-| MEDIA | Rollup del numero medio di millicore della CPU o delle prestazioni della memoria del contenitore.  Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
+| Status | Stato di rollup quando l'esecuzione è stata completata con uno stato, ad esempio *OK*, *Terminated* (Terminato), *Failed* (Non riuscito), *Stopped* (Arrestato) o *Paused* (In pausa). Se il contenitore è in esecuzione, ma lo stato non è stato presentato correttamente o non è stato rilevato dall'agente e non è stata inviata alcuna risposta per più di 30 minuti, lo stato è *Unknown* (Sconosciuto). La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90°) | Media di rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| AVG, MIN, MAX, 50TH, 90TH (MEDIA, MIN, MAX, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato.  Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
 | Contenitori | Numero totale di contenitori per il controller o il pod. |
 | Riavvii | Rollup del numero di riavvii dai contenitori. |
 | Uptime | Rappresenta il tempo dall'avvio di un contenitore. |
-| Pod | Solo per i contenitori. Mostra i pod in cui è presente. |
 | Nodo | Solo per i contenitori e i pod. Mostra il controller in cui è presente. | 
-| % media tendenza | Grafico a barre della tendenza che mostra la metrica relativa alla percentuale media per il contenitore. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90° tendenza)| Grafico a barre della tendenza che presenta il valore del percentile del controller. |
 
-Dal selettore scegliere **Contenitori**.<br><br> ![Selezionare la visualizzazione contenitori](./media/monitoring-container-health/container-performance-and-health-view-09.png)
+Le icone nel campo stato indicano lo stato online dei contenitori:
+ 
+| Icona | Stato | 
+|--------|-------------|
+| ![Icona di stato In esecuzione (Pronto)](./media/monitoring-container-health/container-health-ready-icon.png) | In esecuzione (Pronto)|
+| ![Icona di stato In attesa o In pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | In attesa o In pausa|
+| ![Icona di stato Ultima esecuzione segnalata](./media/monitoring-container-health/container-health-grey-icon.png) | Ultima esecuzione segnalata ma senza risposta da oltre 30 minuti|
+| ![Icona di stato Terminato](./media/monitoring-container-health/container-health-green-icon.png) | Arresto completato o arresto non riuscito|
 
-Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori.<br><br> ![Vista prestazioni dei controller di <nome>](./media/monitoring-container-health/container-performance-and-health-view-06.png)
+L'icona di stato mostra un numero in base a ciò che fornisce il pod. Vengono visualizzati i due stati peggiori. Quando si passa il puntatore del mouse sullo stato, viene visualizzato uno stato di rollup di tutti i pod nel contenitore.  Se non è presente alcuno stato di Pronto, il visualizzato è **(0)**.  
+
+Dal selettore scegliere **Contenitori**.
+
+![Selezione della visualizzazione per i contenitori](./media/monitoring-container-health/container-health-containers-tab.png)
+
+Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori.
+
+![Vista prestazioni dei controller di <nome>](./media/monitoring-container-health/container-health-containers-view.png)
 
 Nella tabella seguente sono descritte le informazioni presentate quando si visualizzano i contenitori.
 
 | Colonna | DESCRIZIONE | 
 |--------|-------------|
 | NOME | Nome del tipo di controller.|
-| Status | Rollup dello stato dei contenitori, se presenti. |
-| % MEDIA | Rollup della media della percentuale media di ogni entità per la metrica selezionata. |
-| MEDIA | Rollup del numero medio di millicore della CPU o delle prestazioni della memoria del contenitore. Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
-| Contenitori | Numero totale di contenitori per il controller.|
+| Status | Stato dei contenitori, se presente. La tabella seguente contiene dettagli aggiuntivi sull'icona dello stato.|
+| AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90°) | Media di rollup della percentuale media di ogni entità per la metrica e il percentile selezionati. |
+| AVG, MIN, MAX, 50TH, 90TH (MEDIA, MIN, MAX, 50°, 90°)  | Rollup della media di millicore della CPU o delle prestazioni di memoria del contenitore per il percentile selezionato.  Il valore medio viene misurato dal limite di CPU/memoria impostato per un pod. |
+| Pod | Contenitore in cui è presente il pod.| 
+| Nodo |  Nodo in cui è presente il contenitore. | 
 | Riavvii | Rappresenta il tempo dall'avvio di un contenitore. |
 | Uptime | Rappresenta il tempo dall'avvio o dal riavvio di un contenitore. |
-| Pod | Informazioni sul pod in cui è presente. |
-| Nodo |  Nodo in cui è presente il contenitore.  | 
-| % media tendenza | Grafico a barre della tendenza che mostra la metrica relativa alla percentuale media per il contenitore. |
+| Trend AVG%, MIN%, MAX%, 50TH%, 90TH% (%MEDIA, %MIN, %MAX, %50°, %90° tendenza) | Grafico a barre della tendenza che mostra il valore percentuale medio del contenitore. |
+
+Le icone nel campo stato indicano lo stato online dei pod:
+ 
+| Icona | Stato | 
+|--------|-------------|
+| ![Icona di stato In esecuzione (Pronto)](./media/monitoring-container-health/container-health-ready-icon.png) | In esecuzione (Pronto)|
+| ![Icona di stato In attesa o In pausa](./media/monitoring-container-health/container-health-waiting-icon.png) | In attesa o In pausa|
+| ![Icona di stato Ultima esecuzione segnalata](./media/monitoring-container-health/container-health-grey-icon.png) | Ultima esecuzione segnalata ma senza risposta da oltre 30 minuti|
+| ![Icona di stato Terminato](./media/monitoring-container-health/container-health-terminated-icon.png) | Arresto completato o arresto non riuscito|
+| ![Icona di stato Non riuscito](./media/monitoring-container-health/container-health-failed-icon.png) | Stato Non riuscito |
 
 ## <a name="container-data-collection-details"></a>Informazioni dettagliate sulla raccolta di dati dei contenitori
 L'integrità dei contenitori raccoglie le varie metriche delle prestazioni e i vari dati di log da host del contenitore e contenitori. I dati vengono raccolti ogni tre minuti.
@@ -333,7 +414,7 @@ L'integrità dei contenitori raccoglie le varie metriche delle prestazioni e i v
 
 La tabella seguente mostra esempi di record raccolti dall'integrità dei contenitori e i tipi di dati visualizzati nei risultati della ricerca log.
 
-| Tipo di dati | Tipo di dati in Ricerca log | Fields |
+| Tipo di dati | Tipo di dati in Ricerca log | Campi |
 | --- | --- | --- |
 | Prestazioni per host e contenitori | `Perf` | Computer, ObjectName, CounterName &#40;% tempo processore, MB di letture disco, MB di scritture disco MB utilizzo di memoria, byte di ricezione di rete, byte di invio di rete, utilizzo del processore in secondi, rete&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
@@ -352,7 +433,9 @@ La tabella seguente mostra esempi di record raccolti dall'integrità dei conteni
 ## <a name="search-logs-to-analyze-data"></a>Eseguire ricerche nei log per analizzare i dati
 Log Analytics consente di individuare tendenze, diagnosticare i colli di bottiglia, effettuare previsioni o correlare dati che consentono di determinare se la configurazione corrente del cluster è ottimale.  Sono disponibili ricerche predefinite nei log che è possibile iniziare immediatamente a usare o personalizzare per restituire le informazioni nel modo che si preferisce. 
 
-È possibile eseguire un'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **Visualizza log**, disponibile all'estrema destra quando si espande un contenitore.  Verrà visualizzata la pagina **Ricerca log** sopra la pagina in cui ci si trovava nel portale.<br><br> ![Analizzare i dati in Log Analytics](./media/monitoring-container-health/container-performance-and-health-view-logs-01.png)   
+È possibile eseguire un'analisi interattiva dei dati nell'area di lavoro selezionando l'opzione **View log** (Visualizza log) disponibile nella parte più a destra quando si espande un controller o un contenitore.  Verrà visualizzata la pagina **Ricerca log** sopra la pagina in cui ci si trovava nel portale.
+
+![Analizzare i dati in Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
 L'output dei log del contenitore inoltrato a Log Analytics è costituito da STDOUT e STDERR. Poiché l'integrità dei contenitori monitora Kubernetes gestito da Azure (AKS), Kube-system attualmente non viene raccolto a causa della grande quantità di dati generati.     
 
@@ -435,7 +518,9 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
     }
     ```
 
-4. Modificare il valore di **aksResourceId** e **aksResourceLocation** con i valori del cluster AKS, indicati nella pagina **Proprietà** per il cluster selezionato.<br><br> ![Pagina delle proprietà del contenitore](./media/monitoring-container-health/container-properties-page.png)<br>
+4. Modificare il valore di **aksResourceId** e **aksResourceLocation** con i valori del cluster AKS, indicati nella pagina **Proprietà** per il cluster selezionato.
+
+    ![Pagina delle proprietà del contenitore](./media/monitoring-container-health/container-properties-page.png)
 
     Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**.  Questo valore è necessario se si decide di eliminare l'area di lavoro di Log Analytics in un secondo momento, operazione che non viene eseguita nell'ambito di questo processo.  
 
@@ -477,16 +562,30 @@ Questa sezione fornisce informazioni sulla risoluzione dei problemi relativi all
 
 Se l'integrità dei contenitori è stata abilitata e configurata correttamente ma non è possibile visualizzare informazioni sullo stato o risultati in Log Analytics quando si esegue una ricerca log, è possibile eseguire la procedura seguente per diagnosticare il problema.   
 
-1. Controllare lo stato dell'agente eseguendo il comando seguente: `kubectl get ds omsagent --namespace=kube-system`
+1. Controllare lo stato dell'agente eseguendo questo comando: 
 
-    Se l'agente è in esecuzione in tutti i nodi del cluster, l'output dovrebbe essere simile al seguente.  Ad esempio, questo cluster dispone di due nodi e il valore dovrebbe essere uguale al numero di nodi.  
+    `kubectl get ds omsagent --namespace=kube-system`
+
+    Se la distribuzione è stata eseguita correttamente, l'output dovrebbe essere simile al seguente:
 
     ```
-    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
+    User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
+    ```  
+2. Verificare lo stato di distribuzione della soluzione tramite l'agente con versione *06072018* o successive eseguendo questo comando:
+
+    `kubectl get deployment omsagent-rs -n=kube-system`
+
+    Se la distribuzione è stata eseguita correttamente, l'output dovrebbe essere simile al seguente:
+
     ```
-2. Controllare lo stato del pod per verificare se è in esecuzione o meno eseguendo il comando seguente: `kubectl get pods --namespace=kube-system`
+    User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
+    NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
+    omsagent   1         1         1            1            3h
+    ```
+
+3. Controllare lo stato del pod per verificare se è in esecuzione o meno eseguendo il comando seguente: `kubectl get pods --namespace=kube-system`
 
     L'output dovrebbe essere simile al seguente con uno stato *In esecuzione* per omsagent:
 
@@ -500,7 +599,8 @@ Se l'integrità dei contenitori è stata abilitata e configurata correttamente m
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-3. Controllare i log dell'agente. Quando l'agente nei contenitori viene distribuito, effettua un rapido controllo eseguendo i comandi OMI e visualizza la versione dell'agente e il provider Docker. Per verificare che l'onboarding dell'agente sia stato effettuato correttamente, eseguire il comando seguente: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Controllare i log dell'agente. Quando l'agente nei contenitori viene distribuito, esegue un rapido controllo tramite i comandi OMI e visualizza la versione dell'agente 
+5.  e del provider. Per verificare che l'onboarding dell'agente sia stato effettuato correttamente, eseguire il comando seguente: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     Lo stato dovrebbe essere simile al seguente:
 

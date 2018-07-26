@@ -1,6 +1,6 @@
 ---
-title: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs
-description: Utilizzare il backup periodico di Service Fabric e il ripristino di funzionalità per proteggere le applicazioni dalla perdita di dati.
+title: 'Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima) | Microsoft Docs'
+description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 9fbf3a6c965bb2f52b71fbac32b289555b922772
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113990"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990300"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Backup e ripristino periodici in Azure Service Fabric (Anteprima)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Avvio rapido: Backup e ripristino periodici in Azure Service Fabric (Anteprima)
 > [!div class="op_single_selector"]
 > * [Cluster in Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Cluster autonomi](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -66,7 +66,7 @@ Service Fabric fornisce un set di API per ottenere le seguenti funzionalità rel
 ## <a name="enabling-backup-and-restore-service"></a>Attivazione del backup e del ripristino del servizio
 È innanzitutto necessario abilitare il _servizio di backup e ripristino_ nel cluster. Ottenere il modello per il cluster che si vuole distribuire. È possibile usare i [modelli di esempio](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) o creare un modello di Resource Manager. Per abilitare il _servizio di backup e ripristino_, seguire questa procedura:
 
-1. Verificare che `apiversion` sia impostato su per la risorsa **`2018-02-01`** e, se `Microsoft.ServiceFabric/clusters`non lo è, aggiornarlo come illustrato nel frammento seguente:
+1. Verificare che `apiversion` sia impostato su ** per la risorsa `2018-02-01` e, se non lo è, aggiornarlo come illustrato nel frammento seguente:
 
     ```json
     {
@@ -223,13 +223,14 @@ CreationTimeUtc         : 2018-04-06T21:25:36Z
 FailureError            : 
 ```
 
-## <a name="preview-limitation-caveats"></a>Anteprima limitazione/avvertenze
+## <a name="preview-limitation-caveats"></a>Limitazioni/avvertenze dell'anteprima
 - Nessun Service Fabric compilato nei cmdlet di PowerShell.
 - Nessun supporto per l’interfaccia della riga di comando Service Fabric.
-- Nessun supporto per l'eliminazione dei backup automatizzati. Richiede la pulizia manuale dei backup.
+- Nessun supporto per l'eliminazione dei backup automatizzati. [Script di conservazione dei backup](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript) può indicare la configurazione di un'automazione esterna basata su script per l'eliminazione di backup.
 - Nessun supporto per i cluster Service Fabric su Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
+- [Informazioni sulla configurazione del backup periodico](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informazioni di riferimento sull'API REST di ripristino backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png

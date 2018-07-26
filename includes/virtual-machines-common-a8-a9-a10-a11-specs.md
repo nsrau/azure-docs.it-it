@@ -5,14 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
-ms.author: azcspmt;jonbeck;cynthn
+ms.date: 05/29/2018
+ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: ee32886ddb74bdbbe0f240310629c8ef26230a68
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34669347"
 ---
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 * **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
@@ -36,4 +37,4 @@ Questa interfaccia consente alle istanze con supporto per RDMA di comunicare att
 > In Azure, IP over IB non è supportato. Solo RDMA over IB è supportato.
 >
 
-Distribuire le macchine virtuali HPC con supporto per RDMA nello stesso set di disponibilità o in un set di scalabilità di macchine virtuali, se si usa il modello di distribuzione Azure Resource Manager, o nello stesso servizio cloud, se si usa il modello di distribuzione classica. Seguono altri requisiti per le macchine virtuali HPC con supporto per RDMA per accedere alla rete RDMA di Azure.
+Distribuire le macchine virtuali HPC con supporto per RDMA nello stesso set di disponibilità o in un set di scalabilità di macchine virtuali, se si usa il modello di distribuzione Azure Resource Manager, o nello stesso servizio cloud, se si usa il modello di distribuzione classica. Se si usa un set di scalabilità di macchine virtuali, assicurarsi comunque di limitare la distribuzione a un singolo gruppo di posizionamento; ad esempio, in un modello di Gestione Risorse, impostare la proprietà *singlePlacementGroup* su *true*. Seguono altri requisiti per le macchine virtuali HPC con supporto per RDMA per accedere alla rete RDMA di Azure.

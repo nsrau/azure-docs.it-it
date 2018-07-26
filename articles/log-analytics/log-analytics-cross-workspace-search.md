@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129252"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049848"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Eseguire ricerche nei log di più risorse con Log Analytics  
 
@@ -32,7 +32,7 @@ Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytic
 Per fare riferimento a un'altra area di lavoro nella query, usare l'identificatore [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()), mentre per un'app di Application Insights usare l'identificatore [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
 
 ### <a name="identifying-workspace-resources"></a>Identificazione delle risorse dell'area di lavoro
-Gli esempi seguenti dimostrano che le query eseguite su più aree di lavoro di Log Analytics restituiscono un riepilogo del numero di aggiornamenti dalla tabella di aggiornamento in un'area di lavoro denominata *contosoretail-it*. 
+Gli esempi seguenti dimostrano che le query eseguite su più aree di lavoro di Log Analytics restituiscono un riepilogo del numero di log dalla tabella di aggiornamento in un'area di lavoro denominata *contosoretail-it*. 
 
 Esistono vari modi per identificare un'area di lavoro:
 
@@ -45,7 +45,7 @@ Esistono vari modi per identificare un'area di lavoro:
 
 * Nome completo - È il nome completo dell'area di lavoro, composto dal nome della sottoscrizione, dal gruppo di risorse e dal nome del componente nel formato seguente: *subscriptionName/resourceGroup/componentName*. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
     >Poiché i nomi delle sottoscrizioni di Azure non sono univoci, questo identificatore potrebbe essere ambiguo. 
@@ -59,7 +59,7 @@ Esistono vari modi per identificare un'area di lavoro:
 
     Ad esempio: 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identificazione di un'applicazione
@@ -88,6 +88,17 @@ L'identificazione di un'applicazione in Application Insights può essere eseguit
     Ad esempio: 
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    ```
+
+### <a name="performing-a-query-across-multiple-resources"></a>Esecuzione di una query in più risorse
+È possibile eseguire una query in più risorse da una qualsiasi delle istanze di risorse, ad esempio aree di lavoro e app combinate.
+    
+Esempio di query in due aree di lavoro:    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

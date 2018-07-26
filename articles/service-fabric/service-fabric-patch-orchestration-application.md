@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970721"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036939"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -57,7 +57,7 @@ Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 > [!NOTE]
 > Patch Orchestration App usa il sistema di servizio di gestione della riparazione di Service Fabric per disabilitare o abilitare il nodo ed eseguire i controlli di integrità. L'attività di riparazione creata da Patch Orchestration App tiene traccia dell'avanzamento di Windows Update per ogni nodo.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Abilitare il servizio di gestione della riparazione (se non è già in esecuzione)
 
@@ -148,7 +148,7 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |**Parametro**        |**Tipo**                          | **Dettagli**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di risultati di Windows Update memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).
+|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti di Windows Update nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Windows Update viene installato un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update viene installato un dominio di aggiornamento alla volta (al massimo, tutti i nodi appartenenti a un dominio di aggiornamento possono passare per Windows Update).<br> Fare riferimento alla sezione delle [domande frequenti](#frequently-asked-questions) su come scegliere i migliori criteri per il cluster.
 |LogsDiskQuotaInMB   |long  <br> Predefinito: 1024               |Dimensione massima in MB dei log di Patch Orchestration App che è possibile salvare in modo permanente e locale sui nodi.
 | WUQuery               | stringa<br>Impostazione predefinita: "IsInstalled = 0"                | Eseguire una query per ottenere gli aggiornamenti di Windows. Per altre informazioni, vedere [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | boolean <br> Predefinito: True                 | Questo flag consente l'installazione degli aggiornamenti del sistema operativo Windows.            |
@@ -304,19 +304,36 @@ D: **Che cosa è possibile fare se il cluster non è integro ed è necessario es
 
 R. Patch Orchestration App non installa gli aggiornamenti mentre il cluster non è in uno stato di integrità. Provare a portare il cluster in uno stato di integrità per sbloccare il flusso di lavoro di Patch Orchestration App.
 
-D: **Perché l'applicazione di patch nei cluster richiede molto tempo?**
+D: **Devo impostare TaskApprovalPolicy come 'NodeWise' o come 'UpgradeDomainWise' per il cluster?**
 
-R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai seguenti fattori:
+R. 'UpgradeDomainWise' rende l'applicazione generare di patch ai cluster più veloce grazie all'applicazione di patch in parallelo a tutti i nodi appartenenti a un dominio di aggiornamento. Ciò significa che i nodi appartenenti a un intero dominio di aggiornamento risulteranno non disponibili (in stato [disabilitato](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) durante il processo dell'applicazione di patch.
 
-- I criteri del Coordinator Service. 
-  - I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch solo un nodo alla volta. In particolare nel caso di cluster più grandi, è consigliabile usare i criteri `UpgradeDomainWise` per ottenere un'applicazione più rapida delle patch nei cluster.
-- Il numero di aggiornamenti disponibili per il download e l'installazione. 
-- Il tempo medio necessario per scaricare e installare un aggiornamento, che non deve superare un paio d'ore.
-- Le prestazioni della VM e la larghezza di banda della rete.
+Al contrario, i criteri 'NodeWise' eseguono la patch di un solo nodo alla volta. Ciò implica che l'applicazione della patch a tutto il cluster richiederà più tempo. Tuttavia, al massimo un solo nodo sarebbe non disponibile (in stato [disabilitato](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) durante il processo dell'applicazione di patch.
+
+Se il cluster è in grado di funzionare con un numero N-1 dei domini di aggiornamento durante il ciclo di applicazione di patch (dove N è il numero totale di domini di aggiornamento nel cluster), è possibile impostare i criteri come 'UpgradeDomainWise'; altrimenti impostarli su 'NodeWise'.
+
+D: **Quanto tempo ci vuole ad applicare una patch a un nodo?**
+
+R. L'applicazione di patch a un nodo può richiedere da dei minuti (ad esempio: [gli aggiornamenti delle definizioni di Windows Defender](https://www.microsoft.com/wdsi/definitions)) a ore (ad esempio: [aggiornamenti cumulativi di Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Il tempo necessario per applicare una patch a un nodo dipende principalmente dai fattori seguenti 
+ - Dimensione degli aggiornamenti
+ - Numero degli aggiornamenti da applicare in una finestra di gestione delle patch
+ - Il tempo impiegato per installare gli aggiornamenti, riavviare il nodo (se richiesto) e completare i passaggi di installazione post-riavvio.
+ - Prestazioni della VM/computer e le condizioni della rete.
+
+D: **Quanto tempo occorre per applicare patch a un intero cluster?**
+
+R. Il tempo necessario per applicare patch a un intero cluster dipende dai fattori seguenti:
+
+- Tempo necessario per applicare patch a un nodo.
+- I criteri del Coordinator Service. I criteri predefiniti, `NodeWise`, comportano l'applicazione di patch a un solo nodo alla volta e tale operazione è più lenta di `UpgradeDomainWise`. Ad esempio: se l'applicazione di patch a un nodo richiede circa 1 ora, per applicare patch a un cluster di 20 nodi (stesso tipo di nodi) con 5 domini di aggiornamento, ognuno dei quali contiene 4 nodi
+    - Sono necessarie circa 20 ore per applicare patch all'intero cluster, se il criterio è `NodeWise`
+    - Sono necessarie 5 ore se il criterio è `UpgradeDomainWise`
+- Caricamento del cluster - ogni operazione di installazione di patch richiede la rilocazione del carico di lavoro dei clienti in altri nodi disponibili nel cluster. Un nodo in fase di patch può essere in stato di [disabilitazione](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) durante l'operazione. Se il cluster è in prossimità di picchi di carico, il processo di disabilitazione richiederà più tempo. Di conseguenza il processo complessivo dell'applicazione di patch in tali condizioni potrebbe risultare lento.
+- Errori di integrità del cluster durante l'applicazione delle patch - Qualsiasi [riduzione delle prestazioni](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) nell'[dell'integrità del cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) interromperebbe il processo dell'applicazione di patch. Questo tempo si aggiungerà al tempo necessario per l'applicazione di patch all'intero cluster.
 
 D: **Qual è il motivo per cui vengono visualizzati alcuni aggiornamenti nei risultati di Windows Update ottenuti tramite l'API REST, ma non nella cronologia di Windows Update sul computer?**
 
-R. Alcuni aggiornamenti del prodotto vengono visualizzati solo nella rispettiva cronologia patch/di aggiornamento. Ad esempio: gli aggiornamenti di Windows Defender non vengono visualizzati nella cronologia di Windows Update in Windows Server 2016.
+R. Alcuni aggiornamenti del prodotto vengono visualizzati solo nella rispettiva cronologia patch/di aggiornamento. Ad esempio gli aggiornamenti di Windows Defender potrebbero essere visualizzati o meno nella cronologia di Windows Update in Windows Server 2016.
 
 D: **È possibile usare Patch Orchestration App per applicare le patch al cluster di sviluppo (cluster con un solo nodo)?**
 

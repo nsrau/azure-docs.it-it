@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644437"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036769"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
 
@@ -49,6 +49,9 @@ Se ci si connette dall'interno di Azure, il criterio di connessione predefinito 
 Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di connessione **proxy** per impostazione predefinita. Il criterio **proxy** significa che la sessione TCP viene stabilita tramite il gateway del database SQL di Azure e che tutti i pacchetti successivi passano attraverso il gateway. Il diagramma seguente illustra il flusso del traffico.
 
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **reindirizzamento** per impostazione predefinita. Pertanto, per abilitare la connettività dall'interno della rete virtuale è necessario consentire le connessioni in uscita per tutti gli indirizzi IP del database SQL di Azure, non solo per i IP gateway. Questa operazione può essere eseguita usando tag di servizio NSG (gruppo di sicurezza di rete), se si desidera consentire le connessioni in uscita solo per gli indirizzi IP, modificare l'impostazione su **Proxy**.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 

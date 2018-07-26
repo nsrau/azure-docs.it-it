@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 2a677d66ebd999d1bcaa4e46eb5b64fef0da006f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 360c6c98227e52f0540b00ef136888d3d143b9fb
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587429"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951075"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - Risolvere i problemi correlati agli avvisi
 Questo articolo fornisce istruzioni per la risoluzione dei problemi correlati agli avvisi che si possono ricevere nel dominio gestito.
@@ -39,7 +39,7 @@ Seguire la procedura di risoluzione dei problemi corrispondente all'ID o al mess
 | AADDS105 | *The service principal with the application ID "d87dcbc6-a371-462e-88e3-28ad15ec4e64" was deleted and then recreated (L'entità servizio con ID applicazione "d87dcbc6-a371-462e-88e3-28ad15ec4e64" è stata eliminata e quindi ricreata). La ricreazione lascia autorizzazioni incoerenti per risorse di Azure AD Domain Services necessarie per gestire il dominio gestito. La sincronizzazione delle password nel dominio gestito può esserne influenzata.* | [L'applicazione di sincronizzazione delle password non è aggiornata](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *The managed domain was last synchronized with Azure AD on [date]. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD. (Il dominio gestito è stato sincronizzato l'ultima volta con Azure AD il {0}. È possibile che gli utenti non siano in grado di accedere al dominio gestito o che le appartenenze a gruppi non siano sincronizzate con Azure AD.)* | [Sincronizzazione non eseguita da qualche tempo](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *The managed domain was last backed up on [date].* (L'ultimo backup del dominio gestito è stato eseguito in data [data].) | [Backup non eseguito da qualche tempo](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *The secure LDAP certificate for the managed domain will expire on XX.* (Il certificato LDAP sicuro per il dominio gestito scadrà in data XX.) | [Certificato LDAP sicuro in scadenza](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *The secure LDAP certificate for the managed domain will expire on [date]]* (Il certificato LDAP sicuro per il dominio gestito scadrà in [data]]). | [Certificato LDAP sicuro in scadenza](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *The managed domain is suspended because the Azure subscription associated with the domain is not active.* (Il dominio gestito è sospeso perché la sottoscrizione di Azure associata al dominio non è attiva.) | [Sospensione per sottoscrizione disabilitata](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *The managed domain is suspended due to an invalid configuration. The service has been unable to manage, patch, or update the domain controllers for your managed domain for a long time.* (Il dominio gestito è sospeso a causa di una configurazione non valida. Il servizio non è riuscito a gestire, applicare patch o aggiornare i controller di dominio per un periodo prolungato.) | [Sospensione per configurazione non valida](#aadds504-suspension-due-to-an-invalid-configuration) |
 
@@ -112,6 +112,9 @@ All'interno della rete virtuale, i computer possono inviare richieste a risorse 
 
 [Verificare l'integrità del dominio](active-directory-ds-check-health.md) per controllare la presenza di avvisi che potrebbero indicare problemi nella configurazione del dominio gestito. In alcuni casi, problemi di configurazione possono impedire a Microsoft di sincronizzare il dominio gestito. Se si è in grado di risolvere i problemi correlati agli avvisi, attendere due ore e quindi controllare se la sincronizzazione è stata completata.
 
+Ecco alcuni motivi comuni per cui la sincronizzazione viene arrestata nei domini gestiti:
+- La connessione di rete è bloccata nel dominio gestito. Per altre informazioni sul controllo dei problemi di rete, leggere la procedura per [Risolvere i problemi dei gruppi di sicurezza di rete](active-directory-ds-troubleshoot-nsg.md) e i [Requisiti di rete per Azure AD Domain Services](active-directory-ds-networking.md).
+-  La sincronizzazione delle password non è stata mai configurata o completata. Per configurare la sincronizzazione delle password, leggere [questo articolo](active-directory-ds-getting-started-password-sync.md).
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: Backup non eseguito da qualche tempo
 
@@ -132,6 +135,9 @@ All'interno della rete virtuale, i computer possono inviare richieste a risorse 
 
 **Risoluzione:**
 
+> [!WARNING]
+> Se il dominio gestito è sospeso per un lungo periodo di tempo, rischia di essere eliminato. È consigliabile risolvere la sospensione nel minor tempo possibile. Per altre informazioni, leggere [questo articolo](active-directory-ds-suspension.md).
+
 Per ripristinare il servizio, [rinnovare la sottoscrizione di Azure](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable) associata al dominio gestito.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: Sospensione per configurazione non valida
@@ -142,7 +148,11 @@ Per ripristinare il servizio, [rinnovare la sottoscrizione di Azure](https://doc
 
 **Risoluzione:**
 
+> [!WARNING]
+> Se il dominio gestito è sospeso per un lungo periodo di tempo, rischia di essere eliminato. È consigliabile risolvere la sospensione nel minor tempo possibile. Per altre informazioni, leggere [questo articolo](active-directory-ds-suspension.md).
+
 [Verificare l'integrità del dominio](active-directory-ds-check-health.md) per controllare la presenza di avvisi che potrebbero indicare problemi nella configurazione del dominio gestito. Se si è in grado di risolvere i problemi correlati agli avvisi, procedere. In seguito, contattare il supporto per riabilitare la sottoscrizione.
+
 
 ## <a name="contact-us"></a>Contatti
 Contattare il team di prodotto di Servizi di dominio Azure AD per [condividere commenti e suggerimenti o per chiedere supporto tecnico](active-directory-ds-contact-us.md).

@@ -3,8 +3,8 @@ title: Guida alla pubblicazione per Azure Marketplace e AppSource | Azure
 description: Presentazione delle opportunità offerte da Azure Marketplace e AppSource agli editori di app e servizi
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
@@ -12,108 +12,81 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309232"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859089"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Guida alla pubblicazione per Azure Marketplace e AppSource  
 
-## <a name="overview"></a>Panoramica  
-Questa è la guida per gli editori per le vetrine del marketplace.
-*  AppSource  
-*  Azure Marketplace  
+## <a name="overview"></a>Panoramica 
 
-Gli editori nuovi ed esistenti possono ottenere maggiori informazioni sugli argomenti seguenti usando questa guida. 
-*   Come usare le vetrine di Azure Marketplace e AppSource
-*   Come pubblicare app e offerte  
-*   Come aumentare il volume d'affari grazie alla collaborazione come partner Microsoft  
+Questa guida alla pubblicazione per Azure Marketplace è stata progettata per aiutare gli aspiranti editori e quelli già operativi a comprendere come usare le vetrine di Azure Marketplace (www.azuremarketplace.com) e AppSource (www.appsource.com) per rafforzare la crescita della propria azienda in partnership con Microsoft pubblicando le applicazioni e i servizi offerti.  
 
-È possibile ottenere una migliore comprensione degli argomenti seguenti.
-*   Quali sono i vantaggi della presentazione in una delle vetrine del marketplace  
-*   Come usare le vetrine  
-*   Quale vetrina è più adatta a determinati servizi e offerte  
-*   Quali tipi di app e offerte è possibile pubblicare  
-*   Quali sono i requisiti tecnici e aziendali per ogni opzione di pubblicazione  
-*   Come creare un elenco di controllo degli asset preliminare alla pubblicazione  
-*   Come diventare un editore  
-*   Dove creare e pubblicare le offerte  
-*   Come ottimizzare un'inserzione e usare le risorse go-to-market per una maggiore visibilità  
-*   Come ottenere supporto  
+Questa guida include gli argomenti seguenti: 
+*   Che cos'è il marketplace e come funziona 
+*   Qual è la differenza tra le vetrine di Azure Marketplace e AppSource 
+*   Vantaggi della partecipazione al Marketplace 
+*   Come diventare un editore ed elencare le applicazioni o i servizi offerti 
+*   Come far crescere la propria azienda 
 
-Per domande e commenti sul marketplace e la guida alla pubblicazione, inviare un messaggio di posta elettronica a [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com).  
+Questa guida contiene informazioni sia tecniche che aziendali sulla procedura che è necessario conoscere prima di pubblicare le applicazioni e i servizi offerti. Usare la barra di navigazione a sinistra della pagina per consultare le diverse sezioni della guida e passare direttamente agli argomenti chiave.   
+
+Per altre domande su Azure Marketplace e AppSource inviare un messaggio da Tipo di problema > Marketplace Onboarding. Il Team Marketplace Publisher Onboarding sarà lieto di offrire il proprio supporto. 
 
 ---  
 
-## <a name="benefits"></a>Vantaggi  
+## <a name="benefits-of-participating-in-the-marketplace"></a>Vantaggi della partecipazione al marketplace 
 
-### <a name="benefits-of-participating-on-the-marketplace"></a>Vantaggi della partecipazione al marketplace  
-Le vetrine nel marketplace sono le rampe di lancio per attività congiunte di Go-To-Market (GTM) con Microsoft.  
-*   AppSource  
-*   Azure Marketplace  
+Marketplace è il punto di partenza per avviare attività di commercializzazione in partnership con Microsoft e dare un forte impulso alla crescita aziendale. Grazie a soluzioni per offerte promozionali di lancio, generazione della domanda e attività di vendita e marketing in collaborazione, un'offerta sul marketplace può costituire il nucleo centrale del proprio motore di espansione aziendale nel cloud. Non sono previste tariffe per la partecipazione al marketplace.  
 
-Le vetrine aprono le porte a opportunità di collaborazione pronte per il co-selling. È possibile scegliere di usare l'app o l'offerta in uno dei ruoli seguenti.  
-*   Elemento centrale per il motore di business cloud  
-*   Volano per la crescita aziendale 
+L'obiettivo è quello di consentire ai clienti di conoscere le migliori soluzioni offerte dall'ecosistema di partner Microsoft. A tale scopo, Microsoft offre il proprio supporto durante l'intero percorso, dal processo di onboarding alla pubblicazione, alla crescita. 
 
-È possibile scegliere di aumentare il volume d'affari grazie alle funzionalità seguenti nel marketplace.  
-*    Promozione del lancio  
-*    Generazione della richiesta  
-*    Vendite e marketing congiunti  
+Sfruttare le opportunità nel marketplace per aumentare il volume d'affari: 
 
-Non sono previsti corrispettivi per la partecipazione alle vetrine nel marketplace. Lo scopo di Microsoft è mettere in contatto i clienti con le soluzioni e i servizi migliori offerti dai partner Microsoft. 
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>Espandersi in segmenti e mercati nuovi e generare nuove opportunità di vendita
 
-Si possono sfruttare le opportunità nel marketplace per aumentare il volume d'affari.  
+Usare il marketplace come canale per accedere a nuovi mercati, segmenti e utenti del cloud Microsoft con il proprio portfolio di soluzioni. Generare nuovi lead di marketing e trasformarli in opportunità di vendita. Beneficiare di attività di vendita e marketing congiunte per ottenere più clienti.  
 
-#### <a name="generate-leads-and-sales-opportunities"></a>Generare opportunità di vendita e clienti potenziali.  
-È possibile accedere a nuovi mercati con un portfolio più ampio di soluzioni nelle vetrine del marketplace e usufruire delle offerte di upselling e cross-selling del marketplace.  
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Migliorare il valore aziendale e aumentare il volume d'affari con clienti nuovi ed esistenti 
 
-#### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>Migliorare il valore aziendale e aumentare il volume d'affari con clienti nuovi ed esistenti  
-È possibile aumentare il volume d'affari e risolvere i problemi dei clienti dopo lo spostamento dei carichi di lavoro in Azure, nonché ridurre i cicli di vendita e aumentare la redditività offerta dalla vendita di soluzioni complete destinate a carichi di lavoro e scenari di settore specifici.  
+Eseguire l'upselling e il cross-selling delle soluzioni risolvendo i problemi dei clienti dopo la migrazione dei carichi di lavoro nel cloud. Attraverso la vendita o la distribuzione tramite il marketplace è possibile ridurre i cicli di vendita e aumentare la redditività offerta dalla vendita di soluzioni complete destinate a carichi di lavoro e scenari di settore specifici. 
+  
+### <a name="get-actionable-insights"></a>Ottenere informazioni dettagliate di utilità pratica 
 
-#### <a name="get-actionable-insights"></a>Ottenere informazioni dettagliate di utilità pratica  
-Per Microsoft il successo dei clienti è il proprio successo. Ottenere informazioni dettagliate sulle prestazioni delle offerte presentate tramite il portale Cloud Partner. Ottenere altre informazioni sulle prestazioni, i clienti potenziali e come ottimizzare le attività delle campagne per l'app.  
+È possibile ottenere informazioni dettagliate sulle prestazioni delle proprie inserzioni tramite informazioni dettagliate e dati analitici messi a disposizione. Ottenere altre informazioni sulle prestazioni della campagna, gli ordini e i proventi e su come ottimizzare le attività delle campagne per la soluzione.  
 
->[!NOTE]
->Le app che estendono Office devono accedere alle informazioni dettagliate tramite il processo di pubblicazione per le app di Office.  
+### <a name="marketplace-go-to-market-benefits"></a>Vantaggi del marketplace Go-To-Market 
 
-### <a name="go-to-market-benefits"></a>Vantaggi del programma Go-To-Market  
-Le vetrine consentono di presentare le soluzioni a milioni di clienti. Per le nuove inserzioni pubblicate nel marketplace viene offerto automaticamente un set di vantaggi Go-To-Market (GTM) gratuiti per incrementare la visibilità dell'offerta nel marketplace.  
+Le nuove inserzioni nel marketplace sono idonee per un set diversificato di vantaggi gratuiti per consentire ai partner di far crescere la propria azienda nel marketplace. Tali vantaggi sono classificabili nelle seguenti categorie: 
 
- La rampa di lancio per le attività GTM congiunte con Microsoft inizia con la pubblicazione dell'offerta nelle vetrine.  Le vetrine aprono le porte a opportunità di collaborazione pronte per il co-selling. Per tutte le nuove app e offerte viene offerto automaticamente un set di vantaggi GTM gratuiti per promuovere l'app o l'offerta presso i clienti Microsoft. I vantaggi GTM includono varie attività di co-marketing e co-selling.  Le attività di co-marketing e co-selling sono progettate per offrire supporto per l'uso degli strumenti seguenti per promuovere le soluzioni e generare vendite.
-*   Marchio Microsoft  
-*   Canali di Microsoft  
-*   Clienti e partner Microsoft  
+*   Tecnica: tutto il che necessario per preparare l'applicazione per il lancio, dal supporto tecnico alla progettazione dell'applicazione, alla progettazione dell'architettura fino ai crediti di Azure per sviluppo e test. 
 
-Non è necessario eseguire alcuna azione aggiuntiva. Dopo aver pubblicato l'offerta, il team Microsoft GTM contatta l'editore per avviare la collaborazione.  
-*   Per altre informazioni sui vantaggi di Microsoft GTM e sui modi per crescere il volume di affari nel marketplace, visitare la pagina dei servizi Go-To-Market Microsoft all'indirizzo [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm).  
+*   Co-Marketing: tutto il necessario per lanciare l'offerta. Accesso gratuito alle nozioni fondamentali di lancio Go-to-Market per lanciare e promuovere la soluzione. Si può anche essere idonei per l'inclusione in altre campagne di marketing di Microsoft e godere dell'opportunità di apparire in primo piano nel marketplace.  
+
+*   Co-selling: iniziare o accelerare il passaggio alla vendita con Microsoft tramite il marketplace. Accedere a programmi e supporto per promuovere le vendite congiunte con Microsoft Teams.  
+
+Una volta [inviata la soluzione](https://azuremarketplace.microsoft.com/sell/signup) nel marketplace, il team di onboarding contatterà l'utente per offrire il proprio supporto nell'esperienza di pubblicazione.  
+
+Per altre informazioni sui vantaggi di Microsoft go-to-market e sui modi per crescere il volume di affari nel marketplace, visitare la [pagina dei servizi Go-To-Market Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 
 ---  
+## <a name="marketplace-and-storefronts"></a>Marketplace e vetrine 
 
-## <a name="storefronts"></a>Vetrine  
-Microsoft offre due vetrine distinte nel marketplace. Queste vetrine consentono di presentare le offerte, attivare versioni di valutazione ed eseguire transazioni direttamente con i clienti Microsoft.  
-*   Confronto tra AppSource e Azure Marketplace
-    *   Per altre informazioni sulle vetrine, visitare la pagina [Confronto tra AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md).
-*   AppSource 
-    *   Per altre informazioni su AppSource, visitare la pagina [Favorire lo sviluppo della propria azienda con AppSource](./grow-your-business-with-appsource.md).  
-*   Azure Marketplace 
-    *   Per altre informazioni su Azure Marketplace, visitare la pagina [Favorire lo sviluppo della propria azienda con Azure Marketplace](./grow-your-business-with-azure-marketplace.md).  
+Microsoft offre due vetrine distinte nel marketplace: AppSource e Azure Marketplace. Le vetrine di Marketplace sono organizzate in base a gruppi di destinatari e prodotti cloud Microsoft per consentire ai clienti di trovare esattamente e con facilità la soluzione di cui hanno bisogno. 
 
-Usando queste vetrine, i clienti possono trovare, provare e acquistare app e servizi per accelerare la propria trasformazione digitale. Le vetrine consentono agli editori di espandere la propria attività grazie a maggiori possibilità di accedere a clienti e partner Microsoft.  
- 
-Ogni vetrina offre specifiche opzioni che consentono agli editori di sfruttare al massimo l'investimento nella pubblicazione, come illustrato in sintesi nella tabella seguente.  
+Quando si sceglie una vetrina è necessario prima di tutto identificare i destinatari della propria soluzione. Usare la tabella seguente per decidere: 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| Destinatari | Decision maker line-of-business<table> <tr> <th>ruoli specialistici </th> </tr> <tr> <td>Contabilità</td> </tr> <tr> <td>Approvvigionamento</td> </tr> <tr> <td>Produzione</td> </tr> </table> | Professionisti IT e sviluppatori<table> <tr> <th>ruoli specialistici </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>Amministratori di database</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| Destinatari | Decision maker line-of-business | Professionisti IT e sviluppatori | 
 | Creata con o per l'estensione | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| Tipi di soluzioni e servizi | App cloud line-of-business finite<br />Componenti aggiuntivi di Office 365 | Soluzioni di infrastruttura<br />Servizi professionali |  
-| Tipo di offerta | Servizi di consulenza<br />Contattami<br />Versione di prova gratuita<br />Scarica adesso<br />Test drive | App di Azure: app gestite<br />App di Azure: modelli di soluzione<br />Servizi di consulenza<br />Contattami<br />Versione di valutazione<br />macchina virtuale |  
-| Esperienza in-app per offrire agli utenti<br />l'accesso alle app e ai servizi nel contesto<br />dell'app | Dynamics 365<br />Office 365<br />App client di Office<br />Power BI | Portale di Azure<br />Interfaccia della riga di comando di Azure Resource Manager |  
+
+Ogni vetrina offre opzioni e funzionalità specifiche per ottimizzare l'opportunità di business. Per un confronto più dettagliato delle vetrine, vedere [Confronto tra AppSource e Azure Marketplace](./comparing-appsource-azure-marketplace.md). 
 
 ---   
 

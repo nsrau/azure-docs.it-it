@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/22/2017
+ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607447"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012059"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 Il Controllo degli accessi in base al ruolo di Azure (RBAC) consente la gestione specifica degli accessi per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
@@ -37,9 +37,9 @@ La tabella seguente riporta le azioni di gestione di Backup e il ruolo Controllo
 | Operazione di gestione | Ruolo RBAC minimo richiesto |
 | --- | --- |
 | Creare un insieme di credenziali di Servizi di ripristino | Collaboratore per il gruppo di risorse dell'insieme di credenziali |
-| Abilitare il backup di VM di Azure | Operatore di backup per l'insieme di credenziali, collaboratore Macchina virtuale in VM |
+| Abilitare il backup di VM di Azure | Operatore di backup definito nell'ambito del gruppo di risorse contenente l'insieme di credenziali, collaboratore Macchina Virtuale nelle macchine virtuali |
 | Backup su richiesta della VM | Operatore di backup |
-| Ripristino della VM | Operatore di backup, collaboratore di gruppo di risorse in cui le VM e le reti virtuali verranno distribuite |
+| Ripristino della VM | Operatore di backup, collaboratore per il gruppo di risorse sulla VM in cui verrà distribuito, Read on Vnet (Lettura su rete virtuale) e Join on subnet (Aggiungi a subnet) selezionati |
 | Ripristinare dischi e singoli file dal backup delle VM | Operatore di backup, collaboratore Macchina Virtuale in VM |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup |
 | Modificare criteri di backup per il backup di VM di Azure | Collaboratore di backup |
