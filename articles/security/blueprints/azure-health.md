@@ -3,23 +3,18 @@ title: Progetto di analisi di Integrità di Azure
 description: Indicazioni per la distribuzione di un progetto di analisi della conformità HIPAA/HITRUST per i dati del settore sanitario
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113232"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214942"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
@@ -31,7 +26,7 @@ Il progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati d
 
 ![](images/components.png)
 
-La soluzione è progettata per usare un set di dati di esempio formattato usando FHIR (Healthcare Interoperability Resources), uno standard globale per lo scambio elettronico di informazioni sanitarie, e per archiviare i dati in modo sicuro. I clienti possono quindi usare Azure Machine Learning per sfruttare i potenti strumenti di business intelligence e le funzionalità di analisi per esaminare le stime eseguite sui dati di esempio. Per illustrare il tipo di esperimento che Azure Machine Learning può aiutare a svolgere, il progetto include un set di dati di esempio, script e strumenti per stimare la durata della degenza di un paziente in ospedale. 
+La soluzione è progettata per usare un set di dati di esempio formattato usando FHIR (Healthcare Interoperability Resources), uno standard globale per lo scambio elettronico di informazioni sanitarie, e per archiviare i dati in modo sicuro. I clienti possono quindi usare Azure Machine Learning Studio per sfruttare i potenti strumenti di business intelligence e le funzionalità di analisi per esaminare le stime eseguite sui dati di esempio. Per illustrare il tipo di esperimento che Azure Machine Learning Studio può aiutare a svolgere, il progetto include un set di dati di esempio, script e strumenti per stimare la durata della degenza di un paziente in ospedale. 
 
 Questo progetto è pensato come base modulare per i clienti, che possono apportare modifiche in base ai requisiti specifici, sviluppando nuovi esperimenti di Azure Machine Learning per soddisfare le esigenze di casi d'uso clinici e operativi. Il progetto è pensato in modo da garantire sicurezza e conformità dopo la distribuzione. Tuttavia, i clienti sono responsabili della corretta configurazione dei ruoli e dell'implementazione delle modifiche. Tenere presente quanto segue:
 
@@ -66,7 +61,7 @@ Per una rapida panoramica del funzionamento di questa soluzione, guardare questo
 
 L'architettura di base è costituita dai componenti seguenti:
 
--   **[Modello di rischio](https://aka.ms/healththreatmodel)** Viene fornito un modello di rischio completo in formato tm7 da usare con [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), che illustra i componenti della soluzione, il flusso di dati tra di essi e i limiti di trust. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema durante lo sviluppo di componenti di apprendimento automatico o quando vengono apportate altre modifiche.
+-   **[Modello di rischio](https://aka.ms/healththreatmodel)** Viene fornito un modello di rischio completo in formato tm7 da usare con [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168), che illustra i componenti della soluzione, il flusso di dati tra di essi e i limiti di trust. Il modello può aiutare i clienti comprendere i punti di rischio potenziale nell'infrastruttura del sistema durante lo sviluppo di componenti di Machine Learning Studio o quando vengono apportate altre modifiche.
 
 -   **[Matrice di implementazione del cliente](https://aka.ms/healthcrmblueprint)** Una cartella di lavoro di Microsoft Excel che elenca i requisiti di HITRUST pertinenti e spiega in che modo Microsoft e il cliente sono responsabili di soddisfare ognuno di questi requisiti.
 
@@ -107,7 +102,7 @@ Non ha accesso ai record dei pazienti.
  ### <a name="data-scientist"></a>Data scientist
 
 
-Il data scientist gestisce il servizio Azure Machine Learning. Può importare, esportare e gestire i dati ed eseguire report. Il data scientist ha accesso ai dati dei pazienti, ma non ha privilegi amministrativi.
+Il data scientist gestisce Azure Machine Learning Studio. Può importare, esportare e gestire i dati ed eseguire report. Il data scientist ha accesso ai dati dei pazienti, ma non ha privilegi amministrativi.
 
 -   Assegnazioni di ruolo predefinite: [Collaboratore Account di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -148,12 +143,12 @@ Il revisore valuta la soluzione per verificarne la conformità. Non ha accesso d
 ## <a name="example-use-case"></a>Esempio di caso d'uso
 
 
-Il caso d'uso di esempio incluso in questo progetto illustra come usare il progetto per applicare l'apprendimento automatico ed eseguire analisi sui dati sanitari nel cloud. Contosoclinic è un piccolo ospedale che si trova negli Stati Uniti. Gli amministratori di rete dell'ospedale vogliono usare Azure Machine Learning per stimare meglio la durata della degenza del paziente al momento del ricovero, allo scopo di aumentare l'efficienza operativa del carico di lavoro e migliorare la qualità dell'assistenza offerta.
+Il caso d'uso di esempio incluso in questo progetto illustra come usare il progetto per applicare l'apprendimento automatico ed eseguire analisi sui dati sanitari nel cloud. Contosoclinic è un piccolo ospedale che si trova negli Stati Uniti. Gli amministratori di rete dell'ospedale vogliono usare Azure Machine Learning Studio per stimare meglio la durata della degenza del paziente al momento del ricovero, allo scopo di aumentare l'efficienza operativa del carico di lavoro e migliorare la qualità dell'assistenza offerta.
 
 ### <a name="predicting-length-of-stay"></a>Previsione della durata della degenza
 
 
-Lo scenario del caso d'uso di esempio usa Azure Machine Learning per stimare la durata della degenza di un paziente appena ricoverato confrontando i dati medici del paziente al momento del ricovero e i dati cronologici aggregati dei pazienti precedenti.
+Lo scenario del caso d'uso di esempio usa Azure Machine Learning Studio per stimare la durata della degenza di un paziente appena ricoverato confrontando i dati medici del paziente al momento del ricovero e i dati cronologici aggregati dei pazienti precedenti.
 Il progetto include un vasto set di cartelle cliniche anonime che illustrano le capacità di training e stima della soluzione. In una distribuzione di produzione i clienti useranno i propri record per il training della soluzione, per ottenere stime più accurate che riflettono le caratteristiche dell'ambiente, delle strutture e dei pazienti specifici.
 
 ### <a name="users-and-roles"></a>Utenti e ruoli
@@ -278,7 +273,7 @@ La funzione di Azure è stata inoltre progettata per leggere e proteggere i dati
 
 **2. Ricovero di nuovi pazienti**
 
-Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a** ** distribuzione ed esecuzione della demo, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
+Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a** distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
 **1. Funzione di Azure** attivata e la funzione richiede un [token di connessione](/rest/api/) da Azure Active Directory.
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
@@ -356,8 +351,8 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   [La registrazione è abilitata](/azure/machine-learning/studio/web-services-logging) per i servizi Web di Machine Learning.
-- L'uso di [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni. L'[integrazione con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) può semplificare la gestione degli esperimenti.
+-   [La registrazione è abilitata](/azure/machine-learning/studio/web-services-logging) per i servizi Web di Machine Learning Studio.
+- L'uso di [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench richiede lo sviluppo di esperimenti, per fornire la capacità di stima in un set di soluzioni. L'[integrazione con Workbench](/azure/machine-learning/desktop-workbench/using-git-ml-project) può semplificare la gestione degli esperimenti.
 
 ## <a name="security"></a>SICUREZZA
 

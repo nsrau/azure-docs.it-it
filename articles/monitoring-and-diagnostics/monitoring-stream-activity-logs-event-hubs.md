@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436706"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257999"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Trasmettere il log attività di Azure a Hub eventi
 È possibile trasmettere il [log attività di Azure](monitoring-overview-activity-logs.md) quasi in tempo reale a qualsiasi applicazione:
@@ -34,7 +34,7 @@ Se non si ha uno spazio dei nomi di Hub eventi, è necessario crearne uno. Se in
 
 Il criterio di accesso condiviso definisce le autorizzazioni per il meccanismo di trasmissione. Attualmente la trasmissione a Hub eventi richiede autorizzazioni di **gestione**, **invio** e **attesa**. È possibile creare o modificare i criteri di accesso condiviso per lo spazio dei nomi di Hub eventi nel portale di Azure, nella scheda **Configura** relativa a tale spazio dei nomi. 
 
-Per aggiornare il profilo del log attività e includere la trasmissione, l'utente che apporta la modifica deve avere l'autorizzazione ListKey nella regola di autorizzazione di Hub eventi. Lo spazio dei nomi di Hub eventi non deve necessariamente trovarsi nella stessa sottoscrizione in cui vengono creati i log, purché l'utente che configura l'impostazione abbia l'accesso RBAC appropriato a entrambe le sottoscrizioni.
+Per aggiornare il profilo del log attività e includere la trasmissione, l'utente che apporta la modifica deve avere l'autorizzazione ListKey nella regola di autorizzazione di Hub eventi. Lo spazio dei nomi di Hub eventi non deve necessariamente trovarsi nella stessa sottoscrizione in cui vengono creati i log, purché l'utente che configura l'impostazione abbia l'accesso RBAC appropriato a entrambe le sottoscrizioni e queste ultime si trovino entrambe nello stesso tenant AAD.
 
 ### <a name="via-the-azure-portal"></a>Tramite il portale di Azure
 1. Passare alla sezione **Log attività** usando la casella di ricerca **Tutti i servizi** sul lato sinistro del portale.
@@ -53,8 +53,9 @@ Per aggiornare il profilo del log attività e includere la trasmissione, l'utent
    > Se si seleziona qualsiasi opzione diversa da **Tutte le aree**, non verranno trovati gli eventi principali che si prevede di ricevere. Il log attività è di tipo globale e non correlato ad aree specifiche. La maggior parte degli eventi, pertanto, non è associata a un'area. 
    >
 
-4. Selezionare **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
-5. Se si hanno più sottoscrizioni, ripetere questa operazione e inviare tutti i dati allo stesso hub eventi.
+4. Scegliere l'opzione **Hub eventi di Azure** e selezionare uno spazio dei nomi di hub eventi a cui inviare i log, quindi fare clic su **OK**.
+5. Selezionare **Salva** per salvare le impostazioni. Le impostazioni vengono applicate immediatamente alla sottoscrizione.
+6. Se si hanno più sottoscrizioni, ripetere questa operazione e inviare tutti i dati allo stesso hub eventi.
 
 ### <a name="via-powershell-cmdlets"></a>Tramite i cmdlet di PowerShell
 Se esiste già un profilo di log, è innanzitutto necessario rimuovere il profilo di log esistente e quindi crearne uno nuovo.

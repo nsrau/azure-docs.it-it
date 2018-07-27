@@ -1,6 +1,6 @@
 ---
-title: Come configurare una macchina virtuale Azure abilitata per l'identità del servizio gestito usando un Azure SDK
-description: Istruzioni dettagliate per la configurazione e l'uso dell'identità del servizio gestito (MSI) in una macchina virtuale Azure usando un Azure SDK.
+title: Come configurare una macchina virtuale di Azure abilitata per l'identità del servizio gestita usando un Azure SDK
+description: Istruzioni dettagliate per la configurazione e l'uso dell'identità del servizio gestita in una macchina virtuale di Azure usando un Azure SDK.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: dee4a3e27623150ce3fa648d73542db0cbb23e93
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 2763c78d309f5a90d68429caa46581e50f8b4303
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901443"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257661"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-an-azure-sdk"></a>Configurare un'identità del servizio gestito (MSI) di macchina virtuale usando un Azure SDK
+# <a name="configure-a-vm-managed-service-identity-using-an-azure-sdk"></a>Configurare un'identità del servizio gestita per una macchina virtuale usando un Azure SDK
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Identità del servizio gestito offre servizi Azure con un'identità gestita automaticamente in Azure Active Directory (AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-In questo articolo si apprende come abilitare e rimuovere l'Identità del servizio gestito per una VM di Azure usando un Azure SDK.
+In questo articolo si apprende come abilitare e rimuovere l'identità del servizio gestita per una macchina virtuale di Azure usando un Azure SDK.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="azure-sdks-with-msi-support"></a>Azure SDK con supporto per l'identità del servizio gestito 
+## <a name="azure-sdks-with-managed-service-identity-support"></a>SDK di Azure con il supporto di identità del servizio gestita 
 
-Azure supporta più piattaforme di programmazione tramite una serie di [Azure SDK](https://azure.microsoft.com/downloads). Alcuni SDK sono stati aggiornati per supportare l'identità del servizio gestito e forniscono esempi che ne illustrano l'utilizzo. L'elenco viene aggiornato quando è disponibile supporto aggiuntivo:
+Azure supporta più piattaforme di programmazione tramite una serie di [Azure SDK](https://azure.microsoft.com/downloads). Alcuni SDK sono stati aggiornati per supportare l'identità del servizio gestita e forniscono esempi che ne illustrano l'utilizzo. L'elenco viene aggiornato quando è disponibile supporto aggiuntivo:
 
 | SDK | Esempio |
 | --- | ------ | 
@@ -47,6 +47,6 @@ Azure supporta più piattaforme di programmazione tramite una serie di [Azure SD
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere gli articoli correlati nella configurazione dell'identità del servizio gestito per una macchina virtuale di Azure per imparare a usare anche il portale di Azure, PowerShell, l'interfaccia della riga di comando e i modelli di risorse.
+- Vedere gli articoli correlati nella configurazione dell'identità del servizio gestita per una macchina virtuale di Azure per imparare a usare anche il portale di Azure, PowerShell, l'interfaccia della riga di comando e i modelli di risorse.
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 8c045bed943427b5cb74291d70ee2eebcb90b2ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 396d514d0d75c43f20ab7b0fcdf8c7351cb3dd89
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625234"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213453"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>Trasmettere i dati dal BLOB di archiviazione di Azure ad Archivio Data Lake usando Analisi di flusso di Azure
 In questo articolo viene descritto come usare Archivio Azure Data Lake come output per un processo di Analisi di flusso di Azure. Questo articolo illustra uno scenario semplice in cui i dati vengono letti da un BLOB di Archiviazione di Azure (input) e scritti in Archivio Data Lake (output).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -64,7 +64,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Delimitatore** selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
 
-    Fare clic su **Crea**. Il portale ora aggiunge l'input e verifica la connessione allo stesso.
+    Fare clic su **Create**(Crea). Il portale ora aggiunge l'input e verifica la connessione allo stesso.
 
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>Creare un output di Archivio Data Lake per il processo
@@ -93,7 +93,7 @@ Iniziare creando un processo di Analisi di flusso che include un'origine di inpu
     * Per **Delimitatore** selezionare **scheda**.
     * Per **Codifica** selezionare **UTF-8**.
     
-    Fare clic su **Crea**. Il portale ora aggiunge l'output e verifica la connessione allo stesso.
+    Fare clic su **Create**(Crea). Il portale ora aggiunge l'output e verifica la connessione allo stesso.
     
 ## <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 

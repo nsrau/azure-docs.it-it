@@ -8,31 +8,35 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918741"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248167"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
-## <a name="what-are-azure-resource-diagnostic-logs"></a>Definizione di log di diagnostica di risorse di Azure
+## <a name="what-are-azure-monitor-diagnostic-logs"></a>Quali sono i log di diagnostica di Monitoraggio di Azure
 
-I **log di diagnostica a livello di risorsa di Azure** sono log generati da una risorsa che presentano dati completi e frequenti sull'attività di tale risorsa. Il contenuto di questi log varia in base al tipo di risorsa. I contatori delle regole di gruppo di sicurezza di rete e i controlli di insieme di credenziali delle chiavi, ad esempio, sono due categorie di log di risorsa.
+**I log di diagnostica di Monitoraggio di Azure** sono log generati da un servizio di Azure che fornisce dati completi e frequenti sul funzionamento di tale servizio. Monitoraggio di Azure rende disponibili due tipi di log di diagnostica:
+* **I log del tenant**. Questi log provengono dai servizi a livello di tenant che esistono di fuori di una sottoscrizione ad Azure, ad esempio i log di Azure Active Directory.
+* **I log di risorsa**. Questi log provengono dai servizi di Azure che distribuiscono le risorse all'interno di una sottoscrizione ad Azure, ad esempio i gruppi di sicurezza di rete o gli account di archiviazione.
 
-I log di diagnostica a livello di risorsa differiscono dal [Log attività](monitoring-overview-activity-logs.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione tramite Resource Manager, ad esempio, la creazione di una macchina virtuale o l'eliminazione di un'app per la logica. Il log attività è un log a livello di sottoscrizione. I log di diagnostica a livello di risorsa includono informazioni sulle operazioni eseguite all'interno della risorsa stessa, ad esempio, il recupero di un segreto da un insieme di credenziali delle chiavi.
+    ![Log di diagnostica di risorsa e altri tipi di log ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-I log di diagnostica a livello di risorsa differiscono anche dal log di diagnostica a livello del sistema operativo guest. I log di diagnostica del sistema operativo guest vengono compilati da un agente in esecuzione all'interno di una macchina virtuale o di un altro tipo di risorsa supportato. I log di diagnostica a livello di risorsa non richiedono l'uso di un agente e acquisiscono i dati specifici della risorsa dalla piattaforma di Azure stessa, mentre i log di diagnostica a livello del sistema operativo guest acquisiscono i dati dal sistema operativo e dalle applicazioni in esecuzione in una macchina virtuale.
+Il contenuto di questi log varia in base al servizio di Azure e al tipo di risorsa. I contatori delle regole di gruppo di sicurezza di rete e i controlli di insieme di credenziali delle chiavi, ad esempio, sono due tipi di log di diagnostica.
 
-Non tutte le risorse supportano il nuovo tipo di log di diagnostica di risorsa descritto di seguito. Questo articolo contiene una sezione che elenca i tipi di risorsa che supportano i nuovi log di diagnostica a livello di risorsa.
+Questi log differiscono dal [log attività](monitoring-overview-activity-logs.md). Il log attività fornisce informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione tramite Resource Manager, ad esempio, la creazione di una macchina virtuale o l'eliminazione di un'app per la logica. Il log attività è un log a livello di sottoscrizione. I log di diagnostica a livello di risorsa includono informazioni sulle operazioni eseguite all'interno della risorsa stessa, ad esempio, il recupero di un segreto da un insieme di credenziali delle chiavi.
 
-![Log di diagnostica di risorsa e altri tipi di log ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+Questi log differiscono anche dal log di diagnostica a livello del sistema operativo guest. I log di diagnostica del sistema operativo guest vengono compilati da un agente in esecuzione all'interno di una macchina virtuale o di un altro tipo di risorsa supportato. I log di diagnostica a livello di risorsa non richiedono l'uso di un agente e acquisiscono i dati specifici della risorsa dalla piattaforma di Azure stessa, mentre i log di diagnostica a livello del sistema operativo guest acquisiscono i dati dal sistema operativo e dalle applicazioni in esecuzione in una macchina virtuale.
 
-## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>Possibili operazioni con i log di diagnostica a livello di risorsa
-Ecco alcune delle attività che è possibile eseguire con i log di diagnostica di risorsa:
+Non tutti i servizi supportano il log di diagnostica descritto di seguito. [Questo articolo contiene una sezione che elenca i servizi supportati dai log di diagnostica](./monitoring-diagnostic-logs-schema.md).
 
-![Posizionamento logico dei log di diagnostica di risorsa](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+## <a name="what-you-can-do-with-diagnostic-logs"></a>Che cosa si può fare con i log di diagnostica
+Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
+
+![Posizione logica dei log di diagnostica](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 * Salvarli in un [**account di archiviazione**](monitoring-archive-diagnostic-logs.md) per il controllo o l'ispezione manuale. È possibile specificare il tempo di conservazione in giorni tramite le **impostazioni di diagnostica di risorsa**.
 * [Trasmetterli a **Hub eventi**](monitoring-stream-diagnostic-logs-to-event-hubs.md) per l'inserimento da parte di un servizio di terze parti o una soluzione di analisi personalizzata come Power BI.
@@ -44,13 +48,13 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica d
 >  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
 
 > [!WARNING]
-> Il formato dei dati di log nell'account di archiviazione verrà modificato a JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
+> Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
-## <a name="resource-diagnostic-settings"></a>Impostazioni di diagnostica di risorsa
+## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 
-I log di diagnostica per le non di calcolo vengono configurati tramite le impostazioni di diagnostica di risorsa. Le **impostazioni di diagnostica di risorsa** permettono di controllare quanto segue:
+I log di diagnostica di risorsa sono configurati usando le impostazioni di diagnostica delle risorse. I log di diagnostica del tenant sono configurati usando un'impostazione di diagnostica del tenant. **Le impostazioni di diagnostica** per un servizio controllano:
 
 * Destinazione dei log di diagnostica di risorsa e delle metriche, ad esempio un account di archiviazione, un Hub eventi e/o Log Analytics.
 * Categorie di log e metriche da inviare.
@@ -59,7 +63,7 @@ I log di diagnostica per le non di calcolo vengono configurati tramite le impost
     - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o Log Analytics, i criteri di conservazione non hanno alcun effetto.
     - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
 
-È possibile configurare facilmente queste impostazioni usando le impostazioni diagnostica di risorsa nel portale di Azure, i comandi di Azure PowerShell e dell'interfaccia della riga di comando di Azure oppure l'[API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+È possibile configurare facilmente queste impostazioni usando le impostazioni diagnostica nel portale di Azure, i comandi di Azure PowerShell e dell'interfaccia della riga di comando di Azure oppure l'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
@@ -68,17 +72,14 @@ I log di diagnostica per le non di calcolo vengono configurati tramite le impost
 >
 >
 
-> [!WARNING]
-> Le metriche e i log di diagnostica per il livello di sistema operativo guest delle risorse di calcolo, ad esempio le macchine virtuali o Service Fabric, usano un [meccanismo distinto per la configurazione e la selezione degli output](../azure-diagnostics.md).
+## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Come abilitare la raccolta dei log di diagnostica
 
-## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Come abilitare la raccolta dei log di diagnostica di risorsa
-
-La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la creazione di una risorsa in un modello di Resource Manager](./monitoring-enable-diagnostic-logs-using-template.md) o successivamente usando la pagina della risorsa nel portale. È possibile abilitare la raccolta anche in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Monitoraggio di Azure.
+La raccolta dei log di diagnostica può essere abilitata [durante la creazione di una risorsa in un modello di Gestione risorse](./monitoring-enable-diagnostic-logs-using-template.md) o successivamente usando la pagina della risorsa nel portale. È possibile abilitare la raccolta anche in qualsiasi momento usando i comandi di Azure PowerShell o l'interfaccia della riga di comando oppure l'API REST di Monitoraggio di Azure.
 
 > [!TIP]
 > Le istruzioni riportate di seguito potrebbero non essere direttamente applicabili a tutte le risorse. Vedere i collegamenti dello schema nella parte inferiore della pagina per comprendere i possibili passaggi speciali per determinati tipi di risorse.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Abilitare la raccolta dei log di diagnostica di risorsa nel portale
+### <a name="enable-collection-of-diagnostic-logs-in-the-portal"></a>Abilitare la raccolta dei log di diagnostica nel portale
 
 È possibile abilitare la raccolta dei log di diagnostica di risorsa nel portale di Azure dopo avere creato una risorsa passando a una risorsa specifica o usando Monitoraggio di Azure. Per abilitare questa raccolta tramite Monitoraggio di Azure:
 
@@ -103,6 +104,10 @@ La raccolta dei log di diagnostica di risorsa può essere abilitata [durante la 
 4. Fare clic su **Save**.
 
 Dopo qualche istante, la nuova impostazione viene visualizzata nell'elenco delle impostazioni per questa risorsa e i log di diagnostica vengono inviati alle destinazioni specifiche non appena vengono generati nuovi dati di eventi.
+
+Impostazioni di diagnostica del tenant possono essere configurate solo nel pannello del portale per il servizio tenant. Queste impostazioni non vengono visualizzate nel pannello impostazioni di diagnostica del Monitoraggio di Azure. Ad esempio, i log di controllo di Azure Active Directory sono configurati facendo clic sui **Esporta impostazioni dati** nel pannello log di controllo.
+
+![Impostazioni di diagnostica di Azure Active Directory](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-aad.png)
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Abilitare la raccolta dei log di diagnostica di risorsa con PowerShell
 
@@ -137,6 +142,8 @@ Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resour
 ```
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
+
+Al momento non è possibile configurare le impostazioni di diagnostica di tenant usando Azure PowerShell.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Abilitare la raccolta dei log di diagnostica di risorsa con l'interfaccia della riga di comando di Azure 2.0
 
@@ -198,9 +205,13 @@ L'argomento `--resource-group` è obbligatorio solo se `--workspace` non è un I
 
 Con qualsiasi comando, è possibile aggiungere altre categorie al log di diagnostica aggiungendo dizionari alla matrice JSON passata come parametro `--logs`. È possibile combinare i parametri `--storage-account`, `--event-hub` e `--workspace` per abilitare più opzioni di output.
 
+Al momento non è possibile configurare le impostazioni di diagnostica di tenant usando Interfaccia della riga di comando.
+
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Abilitare la raccolta dei log di diagnostica di risorsa con l'API REST
 
-Per modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure, vedere [questo documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Per modificare le impostazioni di diagnostica usando l'API REST di Monitoraggio di Azure, vedere [questo documento](https://docs.microsoft.com/rest/api/monitor/).
+
+Al momento non è possibile configurare le impostazioni di diagnostica di tenant usando API REST di Monitoraggio di Azure.
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Gestire le impostazioni di diagnostica di risorsa nel portale
 
@@ -216,7 +227,7 @@ Qui è possibile visualizzare e filtrare tutte le risorse che supportano le impo
 
 Aggiungendo un'impostazione di diagnostica verrà visualizzata la vista Impostazioni di diagnostica in cui è possibile abilitare, disabilitare o modificare le impostazioni di diagnostica per la risorsa selezionata.
 
-## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Servizi, categorie e schemi supportati per i log di diagnostica di risorsa
+## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Servizi, categorie e schemi supportati per i log di diagnostica
 
 [Vedere questo articolo](monitoring-diagnostic-logs-schema.md) per un elenco completo di servizi, categorie di log e schemi supportati usati da questi servizi.
 

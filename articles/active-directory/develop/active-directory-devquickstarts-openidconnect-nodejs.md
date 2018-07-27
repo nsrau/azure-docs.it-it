@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969079"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248316"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introduzione all'app Web Node.js per Azure AD
 Passport viene usato per:
@@ -62,7 +62,10 @@ Al termine dell'esercitazione, verrà fornita anche l'applicazione completata.
 
 6. Dopo la registrazione, Azure AD assegna all'app un ID applicazione univoco. Poiché questo valore sarà necessario nelle sezioni successive, è necessario copiarlo dalla pagina dell'applicazione.
 7. Dalla pagina **Impostazioni** -> **Proprietà** dell'applicazione aggiornare l'URI dell'ID app. L' **URI ID app** è un identificatore univoco dell'applicazione. La convenzione consiste nell'usare il formato `https://<tenant-domain>/<app-name>`, ad esempio: `https://contoso.onmicrosoft.com/my-first-aad-app`.
-8. Per creare una chiave privata, seguire il passaggio 4 in [Aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+8. Dalle **Impostazioni** -> della pagina **URL di risposta** per l'applicazione, aggiungere l'URL aggiunto nell'URL di accesso dal passaggio 5, quindi fare clic su Salva.
+
+9. Per creare una chiave privata, seguire il passaggio 4 in [Aggiungere credenziali dell'applicazione o autorizzazioni per accedere alle API Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
 
    > [!IMPORTANT]
    > Copiare il valore della chiave dell'applicazione. Si tratta del valore per `clientSecret`, necessario per il **passaggio 3** di seguito. 
@@ -91,7 +94,7 @@ In questo caso, verrà configurato Express in modo che usi il protocollo di aute
 
   * `clientID` rappresenta l'**ID applicazione** assegnato all'app nel portale di registrazione.
 
-  * `returnURL` rappresenta l'**URI di reindirizzamento** immesso nel portale.
+  * `returnURL` rappresenta l'**URL di risposta** immesso nel portale.
 
   * `clientSecret` rappresenta il segreto generato nel portale.
 
@@ -382,7 +385,7 @@ Ora il file `app.js` è completo. È sufficiente aggiungere i percorsi e le vist
     <% } %>
     ```
 
-5. Ora viene aggiunto un layout per modificare l'aspetto. Creare la vista '/views/layout.ejs' nella directory radice.
+5. Ora viene aggiunto un layout per modificare l'aspetto. Creare la vista `/views/layout.ejs` nella directory radice.
 
     ```HTML
 
