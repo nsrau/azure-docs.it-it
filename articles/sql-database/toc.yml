@@ -138,9 +138,9 @@
           items:
             - name: Conservazione del backup a lungo termine
               href: sql-database-long-term-retention.md
-            - name: Configurare la conservazione del backup a lungo termine - Archiviazione SQL
+            - name: Configurare con l'archivio BLOB di Azure
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Configurare la conservazione del backup a lungo termine - Insiemi di credenziali di Azure (deprecato)
+            - name: Configurare con l'insieme di credenziali di Azure (deprecato)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Gruppi di failover e replica geografica
           items:

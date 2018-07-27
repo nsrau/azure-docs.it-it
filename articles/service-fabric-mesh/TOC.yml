@@ -45,6 +45,12 @@
       href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
     - name: Ridimensionare in modo indipendente i microservizi in un'app
       href: service-fabric-mesh-howto-app-scale-out.md
+- name: riferimento
+  items:
+    - name: API REST del provider di risorse di Service Fabric Mesh
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: API REST delle risorse client di Service Fabric
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
 - name: Risorse
   items:
     - name: Domande frequenti

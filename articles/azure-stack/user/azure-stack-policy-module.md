@@ -1,6 +1,6 @@
 ---
-title: Usare il modulo criteri di Azure Stack | Documenti Microsoft
-description: Imparare a vincolare una sottoscrizione di Azure si comporta come una sottoscrizione di Azure Stack
+title: Usare il modulo criteri di Azure Stack | Microsoft Docs
+description: Informazioni su come limitare una sottoscrizione di Azure si comporti come una sottoscrizione di Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: mabrigg
-ms.openlocfilehash: 538cf0eb0f9f2351f7a71a1dd24aab05938963c5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 105991296629e04addab33a0611736b379b11688
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259084"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281865"
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gestire i criteri di Azure mediante il modulo criteri di Azure Stack
+# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gestire i criteri di Azure usando il modulo criteri di Azure Stack
 
-*Si applica a: Azure Stack integrate di sistemi Azure Stack Development Kit*
+*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Il modulo criteri di Stack di Azure consente di configurare una sottoscrizione di Azure con lo stesso controllo delle versioni e la disponibilità del servizio come Stack di Azure.  Il modulo viene utilizzato il **New AzureRMPolicyAssignment** per creare un criterio di Azure, che limita i tipi di risorse e i servizi disponibili in una sottoscrizione.  Dopo aver configurato i criteri, è possibile utilizzare la sottoscrizione di Azure per sviluppare app di destinazione per lo Stack di Azure.
+Il modulo criteri di Azure Stack consente di configurare una sottoscrizione di Azure con lo stesso controllo delle versioni e disponibilità dei servizi come Azure Stack.  Il modulo Usa la **New-AzureRMPolicyAssignment** cmdlet per creare un criterio di Azure, che limita i tipi di risorse e servizi disponibili in una sottoscrizione.  Dopo aver configurato i criteri, è possibile usare la sottoscrizione di Azure per sviluppare app di destinazione per Azure Stack.
 
 ## <a name="install-the-module"></a>Installare il modulo
 
-1. Installare la versione richiesta del modulo AzureRM PowerShell, come descritto nel passaggio 1 di [installare PowerShell per Azure Stack](azure-stack-powershell-install.md).
+1. Installare la versione richiesta del modulo AzureRM di PowerShell, come descritto nel passaggio 1 del [installazione di PowerShell per Azure Stack](azure-stack-powershell-install.md).
 2. [Scaricare gli strumenti di Azure Stack da GitHub](azure-stack-powershell-download.md)
 3. [Configurare PowerShell per l'uso con Azure Stack](azure-stack-powershell-configure-user.md)
 
@@ -39,9 +39,9 @@ Il modulo criteri di Stack di Azure consente di configurare una sottoscrizione d
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
-## <a name="apply-policy-to-azure-subscription"></a>Applicare i criteri di sottoscrizione di Azure
+## <a name="apply-policy-to-azure-subscription"></a>Applicare i criteri alla sottoscrizione di Azure
 
-È possibile utilizzare il comando seguente per applicare un criterio di Azure Stack predefinito sulla sottoscrizione Azure. Prima di eseguire questo comando, sostituire *nome della sottoscrizione Azure* con la sottoscrizione di Azure.
+È possibile usare il comando seguente per applicare un criterio di Azure Stack predefinita nella sottoscrizione di Azure. Prima di eseguire questo comando, sostituire *nome della sottoscrizione Azure* nella sottoscrizione di Azure.
 
 ```PowerShell
 Add-AzureRmAccount
@@ -54,20 +54,21 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="apply-policy-to-a-resource-group"></a>Applicare i criteri a un gruppo di risorse
 
-È possibile applicare i criteri che sono più granulari. Ad esempio, si potrebbe avere altre risorse in esecuzione nella stessa sottoscrizione. È possibile definire l'ambito di applicazione dei criteri a un gruppo di risorse specifico, che consente di testare le App per lo Stack di Azure utilizzando le risorse di Azure. Prima di eseguire il comando seguente, sostituire *nome della sottoscrizione Azure* con il nome della sottoscrizione di Azure.
+È possibile applicare i criteri più granulari. Ad esempio, potrebbe essere altre risorse in esecuzione nella stessa sottoscrizione. È possibile definire l'ambito l'applicazione di criteri a un gruppo di risorse specifico, che consente di testare le App per Azure Stack tramite le risorse di Azure. Prima di eseguire il comando seguente, sostituire *nome della sottoscrizione Azure* con il nome della sottoscrizione di Azure.
 
 ```PowerShell
 Add-AzureRmAccount
 $rgName = 'myRG01'
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
 $policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```
 
-## <a name="policy-in-action"></a>Criteri di azione
+## <a name="policy-in-action"></a>Criteri in azione
 
-Dopo aver distribuito i criteri di Azure, viene visualizzato un errore quando si tenta di distribuire una risorsa che non consentita dai criteri.
+Dopo aver distribuito i criteri di Azure, viene visualizzato un errore quando si prova a distribuire una risorsa che non consentita dai criteri.
 
 ![Risultato di errori di distribuzione di risorse a causa di vincoli di criteri](./media/azure-stack-policy-module/image1.png)
 
@@ -75,4 +76,4 @@ Dopo aver distribuito i criteri di Azure, viene visualizzato un errore quando si
 
 * [Distribuire modelli con PowerShell](azure-stack-deploy-template-powershell.md)
 * [Distribuire modelli con l'interfaccia della riga di comando di Azure](azure-stack-deploy-template-command-line.md)
-* [Distribuire i modelli di Visual Studio](azure-stack-deploy-template-visual-studio.md)
+* [Distribuire modelli con Visual Studio](azure-stack-deploy-template-visual-studio.md)

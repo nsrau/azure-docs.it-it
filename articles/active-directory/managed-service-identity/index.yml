@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 7649d78e764c547f2211d8993514a1b793d76609
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264049"
 documentType: LandingData
 title: Documentazione dell'identità del servizio gestita di Azure Active Directory
 metadata:
@@ -15,14 +21,8 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/16/2018
   ms.author: daveba
-  ms.openlocfilehash: ca90d9d2bb3fffb65d2cefe156d0425de9634bdd
-  ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-  ms.translationtype: HT
-  ms.contentlocale: it-IT
-  ms.lasthandoff: 05/20/2018
-  ms.locfileid: "34354283"
 abstract:
-  description: Identità del servizio gestito (MSI) offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità del servizio gestite con le guide introduttive e le esercitazioni.
+  description: L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.  Informazioni su come creare e gestire le identità del servizio gestite con le guide introduttive e le esercitazioni.
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -58,7 +58,7 @@ sections:
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Accedere ad Azure Key Vault</a>
     - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Accedere ad Azure Cosmos DB</a>
     - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Accedere ad Azure Resource Manager con un'identità assegnata dall'utente</a>
-- title: Riferimenti
+- title: riferimento
   items:
   - type: list
     style: cards

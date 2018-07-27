@@ -145,6 +145,8 @@
           href: backup-azure-reports-data-model.md
         - name: Modello di dati di Log Analytics per Backup di Azure
           href: backup-azure-log-analytics-data-model.md
+        - name: Aggiornamento del pacchetto di contenuto per reporting centrale di Backup di Azure
+          href: backup-azure-central-reporting-updates.md
     - name: Data Protection Manager
       items:
         - name: Preparare carichi di lavoro DPM nel portale di Azure
@@ -207,7 +209,7 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup

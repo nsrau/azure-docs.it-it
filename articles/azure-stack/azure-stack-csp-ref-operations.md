@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093179"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264811"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione del tenant in Azure Stack
 
@@ -35,6 +35,13 @@ Questa operazione è usare quando si desidera aggiungere un nuovo tenant per la 
 
 Si noti che una sola sottoscrizione di Azure può essere associata a un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione viene sovrascrittura. 
 
+### <a name="use-api-profiles"></a>Usare i profili delle API
+
+I cmdlet in questo articolo è necessario specificare un profilo di API quando si esegue PowerShell. I profili delle API rappresentano un set di provider di risorse di Azure e le versioni dell'API. Consentono di usare la versione corretta dell'API durante l'interazione con più cloud di Azure, ad esempio quando si lavora con globale di Azure e Azure Stack. I profili vengono specificati da un nome che corrisponde al loro data di rilascio. Con questo articolo, è necessario usare il **2017-09-03** profilo.
+
+Per altre informazioni su Azure Stack e i profili delle API, vedere [profili della versione di gestione API in Azure Stack](user/azure-stack-version-profiles.md). Per istruzioni su come iniziare e in esecuzione con il profilo di API con PowerShell, vedere [profili di usare l'API della versione per PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parametri
 
 | Parametro                  | DESCRIZIONE |
 |---                         | --- |

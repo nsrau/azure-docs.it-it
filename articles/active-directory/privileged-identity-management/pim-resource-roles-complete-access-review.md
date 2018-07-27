@@ -14,19 +14,19 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e21d0240469a9c775e610c97f98c073b8f83ce8e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3b27e4e26899b27557bdac4371283a8095847c94
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442196"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257777"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Completare una verifica di accesso per le risorse di Azure usando Privileged Identity Management
-Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica della sicurezza](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) per le risorse di Azure invia automaticamente un messaggio di posta elettronica che chiede agli utenti di verificare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni su [come eseguire una verifica della sicurezza](pim-resource-roles-perform-access-review.md).
+Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) per le risorse di Azure invia automaticamente un messaggio di posta elettronica che chiede agli utenti di verificare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni su [come eseguire una verifica di accesso](pim-resource-roles-perform-access-review.md).
 
-Trascorso il periodo della verifica, o dopo che tutti gli utenti hanno completato la verifica autonomamente, seguire la procedura descritta in questo articolo per gestire la verifica e visualizzare i risultati.
+Trascorso il periodo della verifica di accesso o al termine della verifica automatica di tutti gli utenti, seguire la procedura descritta in questo articolo per gestire la verifica e visualizzare i risultati.
 
-## <a name="manage-security-reviews"></a>Gestire le verifiche della sicurezza
+## <a name="manage-access-reviews"></a>Gestire le verifiche di accesso
 1. Accedere al [portale di Azure](https://portal.azure.com/). Quindi, nel dashboard, selezionare l'applicazione **Risorse di Azure**.
 
 2. Selezionare la risorsa.

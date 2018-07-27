@@ -59,7 +59,7 @@
           href: container-instances-log-analytics.md
     - name: Eseguire carichi di lavoro
       items:
-        - name: Eseguire attività in contenitori
+        - name: Eseguire attività con criteri di riavvio
           href: container-instances-restart-policy.md
         - name: Agenti di compilazione Jenkins su ACI
           href: container-instances-jenkins.md
@@ -79,7 +79,7 @@
           href: container-instances-get-logs.md
         - name: Risolvere i problemi comuni
           href: container-instances-troubleshooting.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/container

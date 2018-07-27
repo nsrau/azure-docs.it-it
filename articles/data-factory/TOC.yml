@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Eseguire pacchetti SSIS in Azure
       items:
-        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Configurare le prestazioni elevate per il runtime di integrazione SSIS di Azure
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Personalizzare la configurazione del runtime di integrazione SSIS di Azure
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Installare i componenti con licenza per il runtime di integrazione SSIS di Azure
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: Eseguire pacchetti SSIS tramite attività Esecuzione del pacchetto SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Eseguire pacchetti SSIS tramite attività stored procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Pianificare il runtime di integrazione Azure-SSIS
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Abilitare l'autenticazione di Azure AD per il runtime di integrazione SSIS di Azure
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Eseguire il provisioning della Enterprise Edition per il runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Personalizzare la configurazione del runtime di integrazione SSIS di Azure
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Installare i componenti con licenza per il runtime di integrazione SSIS di Azure
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Configurare le prestazioni elevate per il runtime di integrazione SSIS di Azure
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Configurare il ripristino di emergenza per il runtime di integrazione SSIS di Azure
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Creare trigger
       items:
         - name: Creare un trigger di pianificazione
@@ -413,7 +415,7 @@
           href: how-to-create-tumbling-window-trigger.md
         - name: Creare un trigger basato su eventi
           href: how-to-create-event-trigger.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory

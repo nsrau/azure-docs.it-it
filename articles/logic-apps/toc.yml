@@ -290,7 +290,7 @@
           href: logic-apps-scenario-error-and-exception-handling.md
         - name: Elaborazione B2B
           href: logic-apps-enterprise-integration-b2b.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Modelli di architettura
       href: logic-apps-architectures-simple-enterprise-integration.md
@@ -312,9 +312,9 @@
     - name: Schema del linguaggio di definizione del flusso di lavoro
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: Azioni e trigger del flusso di lavoro
+        - name: Informazioni di riferimento su trigger e i tipi di azione
           href: logic-apps-workflow-actions-triggers.md
-        - name: Funzioni del linguaggio di definizione del flusso di lavoro
+        - name: Informazioni di riferimento sulle funzioni
           href: workflow-definition-language-functions-reference.md
         - name: GA - Cronologia degli schemi
           href: logic-apps-schema-2016-04-01.md

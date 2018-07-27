@@ -138,7 +138,7 @@
 ### Risolvere problemi
 #### [Dati di controllo mancanti](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Dati mancanti nei download](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Errori del pacchetto di contenuto dei log attività per Azure AD](active-directory-reporting-troubleshoot-
+#### [Errori del pacchetto di contenuto dei log attività di Azure AD](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Errori nell'API di creazione report di Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Accesso a livello di codice](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Risolvere i problemi](manage-apps/application-proxy-troubleshoot.md)
 
 ### Gestire le app aziendali
+#### [Aggiungere un'applicazione](manage-apps/add-application-portal.md)
+#### [Visualizzare le app di tenant](manage-apps/view-applications-portal.md)
 #### [Assegnare utenti](manage-apps/assign-user-or-group-access-portal.md)
 #### [Modificare la personalizzare](manage-apps/change-name-or-logo-portal.md)
 #### [Disabilitare l'accesso degli utenti](manage-apps/disable-user-sign-in-portal.md)
 #### [Rimuovere utenti](manage-apps/remove-user-or-group-access-portal.md)
-#### [Visualizzare tutte le app personali](manage-apps/view-applications-portal.md)
+
 #### [Gestire il provisioning degli account utente](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Gestire l'accesso Single Sign-On per le app aziendali](manage-apps/configure-single-sign-on-portal.md)
 #### [Firma di certificati avanzata per app SAML](manage-apps/certificate-signing-options.md)

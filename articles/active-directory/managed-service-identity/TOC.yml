@@ -6,7 +6,7 @@
       href: overview.md
 - name: Guide introduttive
   items:
-    - name: Usare un'identità del servizio gestito della VM per accedere ad Azure Resource Manager
+    - name: Usare un'identità gestita per una macchina virtuale per accedere ad Azure Resource Manager
       items:
         - name: Macchina virtuale Windows
           href: tutorial-windows-vm-access-arm.md
@@ -49,11 +49,11 @@
         - name: Accedere ad Azure Resource Manager con un'identità assegnata dall'utente
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Bus di servizio di Azure
-      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Servizio app e Funzioni di Azure
-      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/app-service/app-service-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
     - name: Hub eventi di Azure
-      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/context/msi-context
+      href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-service-identity/context/msi-context
 - name: Guide alle procedure
   items:
     - name: Configurare l'identità per una VM di Azure
@@ -82,7 +82,7 @@
           href: qs-configure-template-windows-vmss.md
         - name: REST
           href: qs-configure-rest-vmss.md
-    - name: Usare l'identità del servizio gestito di una VM
+    - name: Usare un'identità gestita per una macchina virtuale
       items:
         - name: Acquisire un token di accesso
           href: how-to-use-vm-token.md
@@ -102,7 +102,7 @@
           href: how-to-manage-ua-identity-arm.md
         - name: REST
           href: how-to-manage-ua-identity-rest.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: CLI
       href: /cli/azure/identity

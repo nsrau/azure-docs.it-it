@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 05340c8504150ed568e0d5ce5c8250127e59bca0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6d1d90ff0f9a49d3db9f4dc8894c9837942658f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003238"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215000"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-visual-studio-team-services-vsts"></a>Migrazione Contoso:  effettuare il refactoring di una distribuzione di Team Foundation Server per Visual Studio Team Services (VSTS)
 
@@ -33,8 +33,8 @@ Questo documento è l'undicesimo di una serie di articoli che descrivono il modo
 [Articolo 9: Effettuare il refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Illustra come Contoso esegue la migrazione dell'app SmartHotel a un'app Web di Azure basata su contenitori e come esegue la migrazione del database di app ad Azure SQL Server. | Disponibile
 [Articolo 10: Effettuare il refactoring di un'app Linux in Servizio app di Azure e Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | Viene illustrato come Contoso esegue la migrazione dell'app Linux osTicket al Servizio app di Azure, usando il contenitore Docker PHP 7.0. Viene eseguita la migrazione a GitHub di un codebase per la distribuzione. Viene eseguita la migrazione del database dell'app ad Azure MySQL. | Disponibile
 Articolo 11: Eseguire il refactoring di una distribuzione di TFS in Visual Studio Team Services | Eseguire la migrazione dell'app di sviluppo TFS su Visual Studio Team Services di Azure | Questo articolo
-[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Viene illustrato come Contoso esegue la migrazione e riprogetta l'app SmartHotel su Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
-[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Viene illustrato come Contoso ricompila le app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app di Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
+[Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Illustra come Contoso esegue la migrazione e riprogetta l'app SmartHotel in Azure. Il livello dell'app Web viene riprogettato come un contenitore di Windows e il database di app come un database SQL di Azure. | Disponibile
+[Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Illustra come Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizi app, Azure Kubernetes, Funzioni di Azure, servizi cognitivi e Cosmos DB. | Disponibile
 
 
 ## <a name="business-drivers"></a>Driver di business

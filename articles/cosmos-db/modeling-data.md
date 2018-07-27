@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: sngun
-ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acd3fa3367f68d5cc98a4ace82508f028d5fdbf8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612684"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214746"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellazione dei dati di un documento per un database NoSQL
 Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati. 
@@ -281,7 +281,7 @@ Cambiando un po' le cose, si ottiene un modello che rappresenta sempre gli stess
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento dell'editore. Ora abbiamo un solo riferimento all'editore nel documento di ogni libro.
+Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento dell'editore. Ora abbiamo solo un riferimento all'editore nel documento di ogni libro.
 
 ### <a name="how-do-i-model-manymany-relationships"></a>Come modellare le relazioni many:many?
 In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle. 

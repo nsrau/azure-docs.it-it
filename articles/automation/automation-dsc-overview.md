@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f6d49ffa59ed53c0a1966a4132fd5fe1689a13ce
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193258"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247350"
 ---
 # <a name="azure-automation-dsc-overview"></a>Panoramica della piattaforma DSC di Automazione di Azure
 
@@ -27,7 +27,7 @@ Automation DSC per Azure offre diversi vantaggi rispetto all'uso di DSC al di fu
 
 ### <a name="built-in-pull-server"></a>Server di pull predefinito
 
-Automazione di Azure fornisce un [server di pull DSC](https://msdn.microsoft.com/powershell/dsc/pullserver) in modo che i nodi di destinazione ricevano automaticamente le configurazioni, conformemente allo stato desiderato, e segnalino la propria conformità.
+Automazione di Azure fornisce un server di pull DSC simile alla [funzionalità di Windows servizio DSC](/powershell/dsc/pullserver) in modo che i nodi di destinazione ricevano automaticamente le configurazioni, conformemente allo stato desiderato, e segnalino la propria conformità.
 Il server di pull predefinito in Automazione di Azure elimina la necessità di configurare e gestire un proprio server di pull.
 Automazione di Azure può avere come destinazione macchine virtuali o computer fisici Windows o Linux, nel cloud o locali.
 

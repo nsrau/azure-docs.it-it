@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923469"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171984"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice di supporto per la replica Hyper-V in Azure
 
@@ -48,22 +48,27 @@ Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure 
 Sistema operativo guest | Qualsiasi sistema operativo guest supportato da Azure.<br/><br/> Windows Server 2016 Nano Server non è supportato.
 
 
+## <a name="vmdisk-management"></a>Gestione della macchina virtuale/del disco
 
+**Azione** | **Dettagli**
+--- | ---
+Ridimensionare li disco nella macchina virtuale Hyper-V replicata | Non supportati. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
+Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. Disabilitare la replica e apportare la modifica, quindi riabilitare la replica per la macchina virtuale.
 
 ## <a name="hyper-v-network-configuration"></a>Configurazione di rete Hyper-V
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Sì
-Rete host: VLAN | Sì
-Rete host: IPv4 | Sì
+Rete host: gruppo NIC | Yes
+Rete host: VLAN | Yes
+Rete host: IPv4 | Yes
 Rest host: IPv6 | No 
 Rete delle macchine virtuali guest: gruppo NIC | No 
-Rete delle macchine virtuali guest: IPv4 | Sì
+Rete delle macchine virtuali guest: IPv4 | Yes
 Rete delle macchine virtuali guest: IPv6 | No 
-Rete delle macchine virtuali guest: IP statico (Windows) | Sì
+Rete delle macchine virtuali guest: IP statico (Windows) | Yes
 Rete delle macchine virtuali guest: IP statico (Linux) | No 
-Rete delle macchine virtuali guest: più NIC | Sì
+Rete delle macchine virtuali guest: più NIC | Yes
 
 
 
@@ -71,15 +76,15 @@ Rete delle macchine virtuali guest: più NIC | Sì
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Sì | Sì
-ILB | Sì | Sì
-ELB | Sì | Sì
-Gestione traffico di Azure | Sì | Sì
-Più NIC | Sì | Sì
-IP riservato | Sì | Sì
-IPv4 | Sì | Sì
-Conservazione indirizzo IP di origine | Sì | Sì
-Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
+Azure ExpressRoute | Yes | Yes
+ILB | Yes | Yes
+ELB | Yes | Yes
+Gestione traffico di Azure | Yes | Yes
+Più NIC | Yes | Yes
+IP riservato | Yes | Yes
+IPv4 | Yes | Yes
+Conservazione indirizzo IP di origine | Yes | Yes
+Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Yes | Yes
 Rete accelerata | No  | No 
 
 
@@ -88,18 +93,18 @@ Rete accelerata | No  | No
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | --- | ---
 NFS | ND | ND
-SMB 3.0 | Sì | Sì
-SAN (iSCSI) | Sì | Sì
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Sì | Sì
+SMB 3.0 | Yes | Yes
+SAN (iSCSI) | Yes | Yes
+Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
-VHD/VHDX | Sì | Sì
-VM Gen 2 | Sì | Sì
-EFI/UEFI| Sì | Sì
+VHD/VHDX | Yes | Yes
+VM Gen 2 | Yes | Yes
+EFI/UEFI| Yes | Yes
 Disco cluster condiviso | No  | No 
 Disco crittografato | No  | No 
 NFS | ND | ND
@@ -107,25 +112,25 @@ SMB 3.0 | No  | No
 RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche di settore e dimensioni fisiche a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
-Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Sì | Sì
-Spazi di archiviazione | Sì | Sì
+Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Yes |  Yes
+Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Yes | Yes
+Spazi di archiviazione | Yes | Yes
 Aggiunta/rimozione a caldo disco | No  | No 
-Esclusione disco | Sì | Sì
-Percorsi multipli (MPIO) | Sì | Sì
+Esclusione disco | Yes | Yes
+Percorsi multipli (MPIO) | Yes | Yes
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Archiviazione con ridondanza locale | Sì | Sì
-Archiviazione con ridondanza geografica | Sì | Sì
-Archiviazione con ridondanza geografica e accesso in lettura | Sì | Sì
+Archiviazione con ridondanza locale | Yes | Yes
+Archiviazione con ridondanza geografica | Yes | Yes
+Archiviazione con ridondanza geografica e accesso in lettura | Yes | Yes
 Archiviazione ad accesso sporadico | No  | No 
 Archiviazione ad accesso frequente| No  | No 
 BLOB in blocchi | No  | No 
-Crittografia per dati inattivi (SSE)| Sì | Sì
-Archiviazione Premium | Sì | Sì
+Crittografia per dati inattivi (SSE)| Yes | Yes
+Archiviazione Premium | Yes | Yes
 Servizio di importazione/esportazione | No  | No 
 Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No  | No 
 
@@ -134,8 +139,8 @@ Firewall di Archiviazione di Azure per reti virtuali configurate in un account d
 
 **Funzionalità** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Set di disponibilità | Sì | Sì
-HUB | Sì | Sì  
+Set di disponibilità | Yes | Yes
+HUB | Yes | Yes  
 Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure

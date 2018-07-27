@@ -1,6 +1,6 @@
 ---
-title: Considerazioni relative all'integrazione di rete di connettività per i sistemi Azure Stack integrato il bordo | Documenti Microsoft
-description: Informazioni sulle operazioni per la pianificazione dei Data Center bordo la connettività di rete con lo Stack di Azure a più nodi.
+title: Bordo considerazioni relative all'integrazione di rete di connettività per i sistemi integrati di Azure Stack | Microsoft Docs
+description: Informazioni su cosa è possibile fare per pianificare la connettività di rete del bordo Data Center con Azure Stack con più nodi.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,53 +12,55 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 07/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 93dd609df90adac2c84ba8c62cf0d18f55a317bb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919435"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282009"
 ---
-# <a name="border-connectivity"></a>Connettività di bordo 
-Pianificazione dell'integrazione di rete è un importante requisito per la distribuzione di sistemi Azure Stack integrato, gestione e operazione ha esito positivo. Pianificazione della connettività bordo inizia scegliendo o meno di utilizzare il routing dinamico con il protocollo border gateway protocol (BGP). Questa operazione richiede l'assegnazione di un numero sistema autonomo BGP 16 bit (pubblico o privato) o con routing statico, in cui una route statica predefinita viene assegnata ai dispositivi di bordo.
+# <a name="border-connectivity"></a>Connettività del bordo 
+Pianificazione dell'integrazione di rete è un prerequisito fondamentale per la corretta distribuzione di sistemi integrati di Azure Stack, l'operazione e gestione. Pianificazione della connettività di bordo inizia con la scelta di usare il routing dinamico con bordo BGP gateway protocol () o meno. Questo richiede l'assegnazione di un numero sistema autonomo BGP 16 bit (pubblico o privato) o Usa il routing statico, in cui una route predefinita statico viene assegnata ai dispositivi del bordo.
 
 > [!IMPORTANT]
-> Nella parte superiore di commutatori rack (TOR) richiedono uplink Layer 3 con gli indirizzi IP Point to Point (/ 30 reti) configurato nelle interfacce fisiche. Non è supportata per l'utilizzo di porte uplink di livello 2 con commutatori TOR il supporto di operazioni di Stack di Azure. 
+> Parte superiore di opzioni di rack (TOR) richiedono uplink Layer 3 con gli indirizzi IP da punto a punto (/ 30 reti) configurato nelle interfacce fisiche. Non è supportata per l'uso di livello 2 uplink con commutatori TOR che supportano le operazioni di Azure Stack. 
 
 ## <a name="bgp-routing"></a>Routing BGP
-Utilizzando un protocollo di routing dinamico, ad esempio BGP garantisce che il sistema è sempre consapevole delle modifiche di rete e facilita l'amministrazione. 
+Usando un protocollo di routing dinamico, ad esempio BGP garantisce che il sistema è sempre a conoscenza delle modifiche alla rete e facilita l'amministrazione. 
 
-Come illustrato nel diagramma seguente, pubblicità dell'indirizzo IP privato spazio nel commutatore TOR è limitato con un elenco di prefissi. Gli elenchi di prefisso Nega le subnet IP private e applicarlo come una mappa di route per la connessione tra TOR e il bordo.
+Come illustrato nel diagramma seguente, annuncio dell'indirizzo IP privato dello spazio nel commutatore TOR è limitato tramite un elenco di prefissi. Gli elenchi di prefisso Nega le subnet IP private e applicarlo come una mappa di route per la connessione tra il bordo e il commutatore TOR.
 
-Il servizio di bilanciamento di carico Software (SLB) in esecuzione all'interno della soluzione Azure Stack peer per i dispositivi TOR, pertanto è possibile pubblicizzare dinamicamente gli indirizzi VIP.
+Il servizio di bilanciamento di carico Software (SLB) in esecuzione all'interno della soluzione di Azure Stack peer per i dispositivi TOR in modo che è possibile segnalare in modo dinamico gli indirizzi VIP.
 
-Per garantire che il traffico utente immediatamente e in modo trasparente ripristino in caso di errore, di Virtual PC o MLAG configurata tra i dispositivi TOR consente l'utilizzo di più chassis collegamento aggregazione per gli host e HSRP o VRRP che fornisce la ridondanza per le reti IP di rete.
+Per assicurarsi che il traffico utente in modo immediato e in modo trasparente viene ripristinato da un errore, il VPC o MLAG configurata tra i dispositivi TOR consente l'uso del collegamento di più chassis aggregazione di indirizzi e HSRP e VRRP che fornisce la ridondanza per le reti IP di rete.
 
 ![Routing BGP](media/azure-stack-border-connectivity/bgp-routing.png)
 
-## <a name="static-routing"></a>routing statico
-Utilizzo delle route statiche aggiunge la configurazione più predefinita per il bordo e i dispositivi TOR. Richiede analisi approfondita prima di qualsiasi modifica. I problemi causati da un errore di configurazione potrebbero richiedere più tempo per eseguire il rollback a seconda delle modifiche apportate. Non è il metodo di routing consigliato, ma è supportato.
+## <a name="static-routing"></a>Routing statico
+Routing statico richiede configurazioni aggiuntive per i dispositivi del bordo. Richiede ulteriori interventi manuali e gestione, nonché analisi approfondita prima di eventuali modifiche e i problemi causati da un errore di configurazione possono richiedere più tempo per eseguire il rollback a seconda delle modifiche apportate. Non è il metodo di routing consigliato, ma è supportato.
 
-Per integrare Azure Stack in ambiente di rete utilizzando questo metodo, il dispositivo di border deve essere configurato con route statiche che puntano ai dispositivi TOR per il traffico destinato alla rete esterna, VIP pubblici.
+Per integrare Azure Stack nell'ambiente di rete con routing statico, devono essere connesso tutti i quattro collegamenti fisici tra il bordo e il dispositivo TOR e la disponibilità elevata non può essere garantita a causa di funzionamento del routing come statico.
 
-I dispositivi TOR devono essere configurati con una route statica predefinita, l'invio di tutto il traffico per i dispositivi di bordo. L'unica eccezione di traffico a questa regola è privato per il spazio verrà bloccato tramite un elenco di controllo di accesso applicate in TOR alla connessione di bordo.
+Il dispositivo del bordo deve essere configurato con route statiche che puntano ai dispositivi TOR P2P per il traffico destinato alla rete esterna o degli indirizzi VIP pubblici e la rete dell'infrastruttura. Route statiche per la rete BMC richiede per la distribuzione. I clienti possono scegliere di lasciare route statiche sul bordo di accedere a alcune risorse che si trovano sulla rete BMC.  Aggiunta delle route statiche *commutatore infrastruttura* e *passare gestione* reti è facoltativo.
 
-Tutto il resto deve essere lo stesso come il primo metodo. Il routing dinamico del BGP verrà comunque utilizzato all'interno del rack perché non è uno strumento essenziale per la SLB e altri componenti e può essere disabilitato o rimosso.
+I dispositivi TOR dotati configurati una route statica predefinita l'invio di tutto il traffico per i dispositivi del bordo. L'unica eccezione il traffico per la regola predefinita è per lo spazio privato, questa viene bloccato per usare un elenco di controllo di accesso applicato il commutatore TOR alla connessione del bordo.
 
-![routing statico](media/azure-stack-border-connectivity/static-routing.png)
+Routing statico valido solo per le porte uplink tra i commutatori TOR e bordo. Routing dinamico BGP viene utilizzato all'interno del rack perché non è uno strumento essenziale per il bilanciamento del carico software e altri componenti e può essere disabilitato o rimosso.
 
-## <a name="transparent-proxy"></a>Proxy trasparenti
-Se il Data Center richiede tutto il traffico di usare un proxy, è necessario configurare un *proxy trasparente* elaborare tutto il traffico dal rack da gestire in base ai criteri, separare il traffico tra le aree della rete.
+![Routing statico](media/azure-stack-border-connectivity/static-routing.png)
+
+## <a name="transparent-proxy"></a>Proxy trasparente
+Se il tuo Data Center richiede tutto il traffico usi un proxy, è necessario configurare un *proxy trasparente* per elaborare tutto il traffico da rack a gestirla in base ai criteri, che separa il traffico tra le zone nella rete.
 
 > [!IMPORTANT]
-> La soluzione di Stack di Azure non supporta proxy web normale.  
+> La soluzione di Azure Stack non supporta i proxy web normale.  
 
-Un proxy trasparente (noto anche come un'intercettazione inline o proxy forzato) intercetta le normali comunicazioni nel livello rete senza richiedere alcuna configurazione speciale client. I client non devono essere consapevoli dell'esistenza del proxy.
+Un proxy trasparente (noto anche come un'intercettazione, inline o proxy forzato) intercetta le normali comunicazioni a livello di rete senza richiedere alcuna configurazione speciale client. I client non devono essere consapevoli dell'esistenza del proxy.
 
-![Proxy trasparenti](media/azure-stack-border-connectivity/transparent-proxy.png)
+![Proxy trasparente](media/azure-stack-border-connectivity/transparent-proxy.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Integrazione di DNS](azure-stack-integrate-dns.md)
+[Integrazione DNS](azure-stack-integrate-dns.md)

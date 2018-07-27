@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 34b83c54e31ed73af3f776a6add8f218dda35cf7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918921"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258287"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticazione pass-through di Azure Active Directory - Limitazioni correnti
 
@@ -29,36 +29,32 @@ ms.locfileid: "37918921"
 
 ## <a name="supported-scenarios"></a>Scenari supportati
 
-Sono completamente supportati gli scenari seguenti:
+Sono supportati gli scenari seguenti:
 
-- Accessi utente a tutte le applicazioni basate su Web browser.
-- Accessi utente ad applicazioni Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga), ovvero Office 2016 e Office 2013 _con_ l'autenticazione moderna.
-- Accessi utente ai client di Outlook usando protocolli legacy, ad esempio Exchange ActiveSync, SMTP, POP e IMAP.
-- Accessi utente a versioni di Skype for Business che supportano l'autenticazione moderna, incluse le topologie online e ibrida. Altre informazioni sulle topologie supportate sono disponibili [qui](https://technet.microsoft.com/library/mt803262.aspx).
-- Aggiunte al dominio Azure AD per dispositivi Windows 10.
+- Accessi utente alle applicazioni basate su Web browser.
+- Accessi utente ai client di Outlook usando protocolli legacy, ad esempio Exchange ActiveSync, EAS, SMTP, POP e IMAP.
+- Accessi utente ad applicazioni legacy client di Office e di Office stesso che supportano l'[autenticazione moderna](https://aka.ms/modernauthga), ovvero Office 2010, 2013 e Office 2016.
+- Accessi utente alle applicazioni di protocolli legacy, ad esempio PowerShell versione 1.0 e altre.
+- Azure AD Join per dispositivi Windows 10.
 - Password di app per Multi-Factor Authentication.
 
 ## <a name="unsupported-scenarios"></a>Scenari non supportati
 
 _Non_ sono supportati gli scenari seguenti:
 
-- Accessi utente ad applicazioni client legacy di Office ad esclusione di Outlook (vedere **Scenari supportati** più indietro): Office 2010 e Office 2013 _senza_ autenticazione moderna. Le organizzazioni sono incoraggiate a passare all'autenticazione moderna, se possibile. L'autenticazione moderna consente il supporto dell'autenticazione pass-through. Consente anche di proteggere gli account utente tramite funzionalità di [accesso condizionale](../active-directory-conditional-access-azure-portal.md), ad esempio Azure Multi-Factor Authentication.
-- Accesso alla condivisione del calendario e alle informazioni sulla disponibilità negli ambienti ibridi di Exchange solo in Office 2010.
-- Accessi utente per applicazioni client Skype for Business _senza_ autenticazione moderna.
-- Accessi utente a PowerShell versione 1.0. È consigliabile usare PowerShell versione 2.0.
 - Rilevamento di utenti con [credenziali perse](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services necessita della sincronizzazione dell'hash delle password per l'abilitazione nel tenant. I tenant che usano _solo_ l'autenticazione pass-through non funzionano per gli scenari che richiedono Azure AD Domain Services.
 - L'autenticazione pass-through non è integrata con [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- L'Apple Device Enrollment Program (Apple DEP) con l'Assistente configurazione di iOS non supporta l'autenticazione moderna. Non sarà possibile registrare i dispositivi Apple DEP in Intune per i domini gestiti che usano l'autenticazione pass-through. Prendere in considerazione l'uso dell'[app Portale aziendale](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) come alternativa.
 
 >[!IMPORTANT]
->Come soluzione alternativa _solo_ per gli scenari non supportati, abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. Quando gli utenti accedono alle applicazioni elencate nella sezione "Scenari non supportati", queste richieste di accesso specifiche _non_ vengono gestite dagli agenti di autenticazione pass-through e di conseguenza non verranno registrate nei [log di autenticazione pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Come soluzione alternativa _solo_ per gli scenari non supportati, (ad eccezione dell'integrazione Azure AD Connect Health) abilitare la sincronizzazione dell'hash delle password nella pagina [Funzionalità facoltative](active-directory-aadconnect-get-started-custom.md#optional-features) della procedura guidata di Azure AD Connect. Quando gli utenti accedono alle applicazioni elencate nella sezione "Scenari non supportati", queste richieste di accesso specifiche _non_ vengono gestite dagli agenti di autenticazione pass-through e di conseguenza non verranno registrate nei [log di autenticazione pass-through](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
-Abilitando questa funzionalità è possibile effettuare il failover dell'autenticazione se il funzionamento dell'infrastruttura locale è interrotto. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non avviene automaticamente, È necessario cambiare il metodo di accesso manualmente con Azure AD Connect. Se il server che esegue Azure AD Connect smette di funzionare, è necessario chiedere assistenza al supporto tecnico Microsoft per disattivare l'autenticazione pass-through.
+Abilitando questa funzionalità è possibile effettuare il failover dell'autenticazione se il funzionamento dell'infrastruttura locale è interrotto. Il failover dall'autenticazione pass-through alla sincronizzazione dell'hash delle password non avviene automaticamente. È necessario cambiare il metodo di accesso manualmente con Azure AD Connect. Se il server che esegue Azure AD Connect smette di funzionare, è necessario chiedere assistenza al supporto tecnico Microsoft per disattivare l'autenticazione pass-through.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Avvio rapido](active-directory-aadconnect-pass-through-authentication-quick-start.md): iniziare a usare l'autenticazione pass-through di Azure AD.
+- [Eseguire la migrazione da AD FS all'autenticazione pass-through](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx): una guida dettagliata per la migrazione da AD FS (o altre tecnologie federative) per l'autenticazione pass-through.
 - [Blocco smart](../authentication/howto-password-smart-lockout.md): apprendere come configurare la funzionalità di blocco smart nel tenant per proteggere gli account utente.
 - [Approfondimento tecnico](active-directory-aadconnect-pass-through-authentication-how-it-works.md): comprendere come funziona l'autenticazione pass-through.
 - [Domande frequenti](active-directory-aadconnect-pass-through-authentication-faq.md): trovare risposte alle domande frequenti sulla funzionalità di autenticazione pass-through.

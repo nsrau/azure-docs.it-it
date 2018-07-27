@@ -43,6 +43,8 @@
           href: howto-administer.md
         - name: Esportare i dati personali
           href: howto-export-data.md
+        - name: Visualizzare dati in Power BI
+          href: howto-connect-powerbi.md
     - name: Generatore
       items:
         - name: Configurare il modello del dispositivo
