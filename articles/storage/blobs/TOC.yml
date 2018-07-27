@@ -351,7 +351,7 @@
           href: storage-how-to-mount-container-linux.md
         - name: Domande frequenti sulla migrazione di Archiviazione
           href: ../common/storage-migration-faq.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: PowerShell
       href: /powershell/module/azure.storage
@@ -368,9 +368,9 @@
     - name: Java
       items:
         - name: 'BLOB, code, tabelle e file (v7)'
-          href: 'https://docs.microsoft.com/java/api/storage/client?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable'
         - name: SDK per BLOB (v10)
-          href: 'https://docs.microsoft.com/java/api/storage/client?view=azure-java-preview'
+          href: 'https://docs.microsoft.com/en-us/java/api/overview/azure/storage/client?view=azure-java-preview'
     - name: Node.js
       href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
     - name: Ruby

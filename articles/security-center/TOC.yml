@@ -166,10 +166,12 @@
           href: security-center-using-recommendations.md
     - name: Risolvere problemi
       href: security-center-troubleshooting-guide.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: API REST
-      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Aggiornamenti del servizio
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: Risorse
   items:
     - name: Gestire i dati utente
