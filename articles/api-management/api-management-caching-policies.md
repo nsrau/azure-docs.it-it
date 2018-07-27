@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f3734304bdcc4b3f0944ebf568094595eea01a4e
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26344823"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214901"
 ---
 # <a name="api-management-caching-policies"></a>Criteri di memorizzazione nella cache in Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -80,7 +80,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Esempio con espressioni di criteri  
- Questo esempio mostra come per configurare la durata della memorizzazione nella cache di Gestione API corrispondente alla memorizzazione delle risposte nella cache del serivzio back-end, come specificato dalla direttiva `Cache-Control` del servizio in questione. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l' [episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 25:25.  
+ Questo esempio mostra come configurare la durata della memorizzazione nella cache di Gestione API corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio in questione. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l' [episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
@@ -106,7 +106,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|cache-lookup|Elemento radice.|Sì|  
+|cache-lookup|Elemento radice.|Yes|  
 |vary-by-header|Avviare la memorizzazione delle risposte nella cache per ogni valore dell'intestazione specificata, come ad esempio Accept, Accept-Charset, Accept-Encoding, Accept-Language, Authorization, Expect, From, Host e If-Match.|No |  
 |vary-by-query-parameter|Avvia risposte di memorizzazione nella cache per ogni valore dei parametri di query specificati. Immettere un singolo parametro o più parametri. Usare un punto e virgola (;) come separatore. Se non è specificato alcun nome, verranno usati tutti i parametri di query.|No |  
   
@@ -117,8 +117,8 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |allow-private-response-caching|Se impostato su `true`, consente la memorizzazione nella cache delle richieste contenenti un'intestazione di autorizzazione.|No |false|  
 |downstream-caching-type|Questo attributo deve essere impostato su uno dei valori seguenti.<br /><br /> -   none - Non è consentita la memorizzazione nella cache downstream.<br />-   private - È consentita la memorizzazione nella cache downstream privata.<br />-   public - È consentita la memorizzazione nella cache downstream privata e condivisa.|No |Nessuno|  
 |must-revalidate|Quando è abilitata la memorizzazione nella cache downstream, questo attributo attiva o disattiva la direttiva di controllo di memorizzazione della cache `must-revalidate` nelle risposte del gateway.|No |true|  
-|vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|Sì||  
-|vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|Sì||  
+|vary-by-developer|Impostare su `true` per memorizzare le risposte nella cache per ogni chiave sviluppatore.|Yes||  
+|vary-by-developer-groups|Impostare su `true` per memorizzare le risposte nella cache per ogni ruolo utente.|Yes||  
   
 ### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -158,7 +158,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 ```  
   
 #### <a name="example-using-policy-expressions"></a>Esempio con espressioni di criteri  
- Questo esempio mostra come per configurare la durata della memorizzazione nella cache di Gestione API corrispondente alla memorizzazione delle risposte nella cache del serivzio back-end, come specificato dalla direttiva `Cache-Control` del servizio in questione. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l' [episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 25:25.  
+ Questo esempio mostra come configurare la durata della memorizzazione nella cache di Gestione API corrispondente alla memorizzazione delle risposte nella cache del servizio back-end, come specificato dalla direttiva `Cache-Control` del servizio in questione. Per una dimostrazione relativa alla configurazione e all'uso di questi criteri, vedere l' [episodio 177 di Cloud Cover su altre funzionalità di Gestione API con Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) e passare direttamente al minuto 25:25.  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management reponse cache duration with Cache-Control headers sent by the backend service. -->  
@@ -184,13 +184,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|cache-store|Elemento radice.|Sì|  
+|cache-store|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|duration|Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.|Sì|N/D|  
+|duration|Durata (TTL, Time-To-Live) delle voci memorizzate nella cache, in secondi.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere utilizzato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) di criteri seguenti.  
@@ -226,15 +226,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|cache-lookup-value|Elemento radice.|Sì|  
+|cache-lookup-value|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |default-value|Un valore che verrà assegnato alla variabile se la ricerca della chiave nella cache non produce risultati. Se questo attributo viene omesso, viene assegnato `null`.|No |`null`|  
-|key|Valore della chiave della cache da usare nella ricerca.|Sì|N/D|  
-|variable-name|Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.|Sì|N/D|  
+|key|Valore della chiave della cache da usare nella ricerca.|Yes|N/D|  
+|variable-name|Nome della [variabile di contesto](api-management-policy-expressions.md#ContextVariables) a cui verrà assegnato il valore cercato, se la ricerca ha esito positivo. Se la ricerca non produce risultati, alla variabile sarà assegnato il valore dell'attributo `default-value` o `null`, se l'attributo `default-value` è omesso.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -268,15 +268,15 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|cache-store-value|Elemento radice.|Sì|  
+|cache-store-value|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|duration|Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.|Sì|N/D|  
-|key|La chiave della cache in cui verrà archiviato il valore.|Sì|N/D|  
-|value|Il valore da memorizzare nella cache.|Sì|N/D|  
+|duration|Il valore verrà memorizzato nella cache per il valore di durata specificato, espresso in secondi.|Yes|N/D|  
+|key|La chiave della cache in cui verrà archiviato il valore.|Yes|N/D|  
+|value|Il valore da memorizzare nella cache.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -307,13 +307,13 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|cache-remove-value|Elemento radice.|Sì|  
+|cache-remove-value|Elemento radice.|Yes|  
   
 #### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|key|La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.|Sì|N/D|  
+|key|La chiave del valore memorizzato in precedenza nella cache da rimuovere dalla cache.|Yes|N/D|  
   
 #### <a name="usage"></a>Uso  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

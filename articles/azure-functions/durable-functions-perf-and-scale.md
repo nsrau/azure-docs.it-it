@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7e6a5a4f4e449926bfb63425c2f45bd09f63827
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599433"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214768"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -122,7 +122,7 @@ I limiti per la concorrenza per la funzione di attività e per la funzione dell'
 Nell'esempio precedente al massimo 10 funzioni dell'agente di orchestrazione e 10 funzioni di attività possono essere eseguite in una singola macchina virtuale contemporaneamente. Se non specificato, il numero di esecuzioni di funzioni di attività e dell'agente di orchestrazione è limitato a 10 volte il numero di core nella macchina virtuale.
 
 > [!NOTE]
-> Tali impostazioni sono utili per semplificare la gestione della memoria e l'uso della CPU in una singola macchina virtuale. Quando si applica la scalabilità orizzontale a più macchine virtuali, tuttavia, per ogni macchina virtuale viene impostato un set di limiti specifico. Tali impostazioni non possono essere usate per controllare la concorrenza a livello globale.
+> Tali impostazioni sono utili per semplificare la gestione della memoria e l'uso della CPU in una singola macchina virtuale. Tuttavia, se si applica la scalabilità orizzontale a più macchine virtuali, per ogni macchina virtuale verrà impostato un set di limiti specifico. Tali impostazioni non possono essere usate per controllare la concorrenza a livello globale.
 
 ## <a name="orchestrator-function-replay"></a>Riproduzione delle funzioni dell'agente di orchestrazione
 Come accennato in precedenza, le funzioni dell'agente di orchestrazione vengono riprodotte tramite il contenuto della tabella **Cronologia**. Per impostazione predefinita, il codice della funzione dell'agente di orchestrazione viene riprodotto ogni volta che un batch di messaggi viene rimosso da un coda di controllo.

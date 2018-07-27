@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034790"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214677"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale
 
@@ -45,7 +45,7 @@ Trovare il giusto equilibrio tra sicurezza e produttività è una vera e propria
 
 Con l'accesso condizionale di Azure AD è possibile soddisfare questo requisito con un criterio singolo che garantisce l'accesso:
 
-- Alle app cloud selezionate
+- Alle app cloud selezionato
 
 - Per utenti e gruppi selezionati
 

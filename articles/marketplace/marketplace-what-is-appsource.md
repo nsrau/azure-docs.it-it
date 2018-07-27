@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2814e5f8641e9287b94eb23b719601c75afe9c9f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335092"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214833"
 ---
 # <a name="what-is-appsource"></a>Informazioni su AppSource
 AppSource consente ai partner Microsoft di aumentare la visibilità della tecnologia e dei servizi offerti attraverso una vetrina online supportata da Microsoft. Attraverso la pubblicazione in AppSource, è possibile coinvolgere gli utenti aziendali in AppSource per trovare, provare e acquisire applicazioni SaaS line-of-business e servizi di implementazione per favorire la crescita dei risultati aziendali e ridurre il time-to-value: 
@@ -72,7 +72,7 @@ Alcune applicazioni della vetrina di AppSource devono essere integrate con Azure
 | Dynamics NAV Managed Service | No  | Un'offerta basata su licenze non richiede l'integrazione di Azure AD |
 | Power BI | No  | Un'offerta basata su licenze non richiede l'integrazione di Azure AD |
 | Offerte di consulenza | No  | I servizi sono coordinati dal partner, non tramite un'esperienza Web |
-| Cortana Intelligence | Sì | Azure AD è una procedura consigliata per garantire ai clienti un'esperienza trasparente e consente di ottenere lead della massima qualità |
+| Cortana Intelligence | Yes | Azure AD è una procedura consigliata per garantire ai clienti un'esperienza trasparente e consente di ottenere lead della massima qualità |
 | App SaaS (in precedenza App Web) | Preferita | Azure AD è una procedura consigliata per garantire ai clienti un'esperienza trasparente e consente di ottenere lead della massima qualità |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabella: offerte AppSource che richiedono l'integrazione di Azure Active Directory
 
