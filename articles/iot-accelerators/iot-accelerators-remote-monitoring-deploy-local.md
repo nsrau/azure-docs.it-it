@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627232"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188661"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto localmente
 
 Questo articolo illustra come distribuire l'acceleratore di soluzioni di monitoraggio remoto in un computer locale a scopo di test e sviluppo. Questo approccio prevede la distribuzione dei microservizi in un contenitore Docker locale e l'uso di Hub IoT, di Cosmos DB e dei servizi di archiviazione di Azure nel cloud. Per distribuire i servizi cloud di Azure si usa l'interfaccia della riga di comando degli acceleratori di soluzioni (PCS).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per distribuire i servizi di Azure usati dall'acceleratore di soluzioni di monitoraggio remoto, è necessaria una sottoscrizione di Azure attiva.
 
@@ -126,7 +126,7 @@ Usare il comando `docker-compose down --rmi all` per rimuovere le immagini Docke
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Configurare un ambiente di sviluppo locale
@@ -134,6 +134,6 @@ Questa esercitazione illustra come:
 > * Distribuire l'acceleratore di soluzioni
 > * Accedere all'acceleratore di soluzioni
 
-Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità della dashboard della soluzione](iot-accelerators-remote-monitoring-deploy.md).
+Ora che è stata distribuita la soluzione di monitoraggio remoto, il passaggio successivo consiste nell'[esplorare le funzionalità della dashboard della soluzione](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->
