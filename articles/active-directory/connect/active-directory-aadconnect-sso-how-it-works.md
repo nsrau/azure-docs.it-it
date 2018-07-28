@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918255"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213351"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico
 
@@ -36,8 +36,8 @@ Questa sezione è composta da tre parti:
 ### <a name="how-does-set-up-work"></a>Installazione
 
 L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui](active-directory-aadconnect-sso-quick-start.md). Durante l'abilitazione della funzionalità, si verificano i passaggi seguenti:
-- Un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, viene creato in Active Directory (AD) locale.
-- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD.
+- Un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, viene creato in Active Directory (AD) locale in ciascuna foresta di AD.
+- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste Active Directory, ognuna avrà la propria chiave di decrittografia di Kerberos.
 - Vengono anche creati due nomi dell'entità servizio (SPN, Service Principal Name) Kerberos per rappresentare due URL usati durante l'accesso ad Azure AD.
 
 >[!NOTE]

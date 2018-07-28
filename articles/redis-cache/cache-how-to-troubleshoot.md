@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: e5f6f423697d90e889ebde2cd203891e34278b3c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b41fc5c41b2e0d1e5d5ba3e39c7f6063cf57c6c2
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984572"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205783"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Come risolvere i problemi di Cache Redis di Azure
 Questo articolo include indicazioni per la risoluzione delle categorie seguenti di problemi di Cache Redis di Azure.
@@ -67,7 +67,7 @@ Monitorare il cambiamento delle statistiche `ThreadPool` nel corso del tempo usa
 Nel messaggio precedente ci sono diversi problemi interessanti:
 
 1. Si noti che nella sezione `IOCP` e nella sezione `WORKER` è presente un valore `Busy` maggiore del valore `Min`. Questa differenza significa che è necessario modificare le impostazioni di `ThreadPool`.
-2. È anche possibile osservare `in: 64221`. Questo valore indica che sono stati ricevuti 64.211 byte a livello di socket kernel, che però non sono ancora stati letti dall'applicazione, ad esempio StackExchange.Redis. Questa differenza significa in genere che l'applicazione non legge i dati dalla rete con la stessa velocità con cui il server li invia.
+2. È anche possibile osservare `in: 64221` Questo valore indica che sono stati ricevuti 64.211 byte a livello di socket kernel, che però non sono ancora stati letti dall'applicazione, ad esempio StackExchange.Redis. Questa differenza significa in genere che l'applicazione non legge i dati dalla rete con la stessa velocità con cui il server li invia.
 
 #### <a name="resolution"></a>Risoluzione
 Configurare le [impostazioni di ThreadPool](https://gist.github.com/JonCole/e65411214030f0d823cb) in modo che il pool di thread consenta un rapido aumento delle risorse negli scenari di burst.

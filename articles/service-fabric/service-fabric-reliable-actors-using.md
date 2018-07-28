@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212892"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205521"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Implementazione di funzionalità a livello di servizio nel servizio Actor
 Come descritto in [Livelli del servizio](service-fabric-reliable-actors-platform.md#service-layering), il servizio Actor stesso è un servizio affidabile.  È possibile scrivere il proprio servizio che deriva da `ActorService` e implementare funzionalità a livello di servizio così come si farebbe quando si eredita StatefulService, ad esempio:
@@ -149,24 +149,53 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>Implementazione del backup e ripristino dell'attore
 Un servizio Actor personalizzato può esporre un metodo per il backup dei dati dell'attore sfruttando il listener di comunicazione remota già presente in `ActorService`.  Per un esempio, vedere [Backup e ripristino di attori](service-fabric-reliable-actors-backup-and-restore.md).
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Attore che usa lo stack di comunicazione remota V2(InterfaceCompatible)
+Lo stack di comunicazione remota V2(InterfaceCompatible noto anche come V2_1) include tutte le funzionalità dello stack di comunicazione remota V2 oltre ad essere uno stack di interfaccia compatibile con lo stack V1 di comunicazione remota, ma non è compatibile con V1 e V2. Per eseguire l'aggiornamento da V1 a V2_1 senza influire sulla disponibilità del servizio, attenersi al seguente [articolo](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability).
+
+Le modifiche seguenti sono necessarie per usare lo stack V2_1 di comunicazione remota.
+ 1. Aggiungere l'attributo assembly seguente nell'interfaccia dell'attore.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. Compilare e aggiornare ActorService e i progetti client dell'attore per iniziare a usare lo stack V2.
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Aggiornamento del servizio Actor allo stack V2(InterfaceCompatible) di comunicazione remota senza compromettere la disponibilità del servizio.
+Questa modifica sarà un aggiornamento in due passaggi. Seguire i passaggi nella sequenza elencata.
+
+1.  Aggiungere l'attributo assembly seguente nell'interfaccia dell'attore. Questo attributo avvierà due listener per ActorService, il listener V1 esistente e il listener V2_1. Eseguire l'aggiornamento di ActorService con questa modifica.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. Eseguire l'aggiornamento di ActorClients dopo aver completato l'aggiornamento precedente.
+Questo passaggio garantisce che il proxy Actor usi lo stack V2_1 per la comunicazione remota.
+
+3. Questo passaggio è facoltativo. Modificare l'attributo precedente per rimuovere il listener V1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>Attore che usa lo stack di comunicazione remota V2
 Con il pacchetto NuGet 2.8, gli utenti possono usare lo stack V2 per la comunicazione remota, che è più efficiente e fornisce funzioni quali la serializzazione personalizzata. La comunicazione remota V2 non è compatibile con le versioni precedenti dello stack di comunicazione remota esistente, che è stato definito stack V1 di comunicazione remota.
 
 Le modifiche seguenti sono necessarie per usare lo stack V2 di comunicazione remota.
  1. Aggiungere l'attributo assembly seguente nell'interfaccia dell'attore.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. Compilare e aggiornare ActorService e i progetti client dell'attore per iniziare a usare lo stack V2.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Aggiornamento del servizio Actor allo stack V2 di comunicazione remota senza compromettere la disponibilità del servizio.
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Aggiornamento del servizio Actor allo stack V2 di comunicazione remota senza compromettere la disponibilità del servizio.
 Questa modifica sarà un aggiornamento in due passaggi. Seguire i passaggi nella sequenza elencata.
 
 1.  Aggiungere l'attributo assembly seguente nell'interfaccia dell'attore. Questo attributo avvierà due listener per ActorService, il listener V1 esistente e il listener V2. Eseguire l'aggiornamento di ActorService con questa modifica.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. Eseguire l'aggiornamento di ActorClients dopo aver completato l'aggiornamento precedente.
@@ -175,7 +204,7 @@ Questo passaggio garantisce che il proxy Actor usi lo stack V2 per la comunicazi
 3. Questo passaggio è facoltativo. Modificare l'attributo precedente per rimuovere il listener V1.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi

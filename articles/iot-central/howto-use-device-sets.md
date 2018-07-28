@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261679"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206072"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usare i set di dispositivi nell'applicazione Azure IoT Central
 
@@ -112,13 +112,13 @@ Per aggiungere una mappa delle località al dashboard per il set di dispositivi 
     ![Salvare le mappe del dashboard](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. Quando un operatore visualizza il dashboard per il set di dispositivi, ora verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi!
+5. Quando un operatore visualizza il dashboard per il set di dispositivi, ora verranno visualizzati tutti i riquadri configurati inclusa la mappa delle località per visualizzare il riepilogo delle posizioni di tutti i dispositivi! 
 
     ![Vista operatore delle mappe del dashboard](media/howto-use-device-sets/LocationMaps4.png)
 
     Sarà possibile ridimensionare la mappa alle dimensioni desiderate.
 
-
+    Facendo clic su una puntina nella mappa verranno visualizzate le informazioni sul dispositivo, nome e posizione. È possibile fare clic nella finestra popup per passare alla pagina delle proprietà del dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurare l'elenco per il set di dispositivi

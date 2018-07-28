@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916167"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213232"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -55,17 +55,17 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 - Ad esempio, se un'applicazione https://myapps.microsoft.com/contoso.com) inoltra un parametro `domain_hint` (OpenID Connect) o `whr` (SAML) per identificare il tenant o un parametro `login_hint` per identificare l'utente, nella richiesta di accesso ad Azure AD l'accesso degli utenti viene effettuato automaticamente, senza che debbano immettere i nomi utente o le password.
 - Gli utenti possono inoltre usufruire di un'esperienza di accesso automatico nei casi in cui un'applicazione, ad esempio https://contoso.sharepoint.com), invia le richieste di accesso agli endpoint con tenant di Azure AD, ovvero https://login.microsoftonline.com/contoso.com/<..> o https://login.microsoftonline.com/<tenant_ID>/<..>, anziché all'endpoint comune di Azure AD (https://login.microsoftonline.com/common/<...>).
 - La disconnessione è supportata. In questo modo gli utenti possono scegliere di eseguire l'accesso con un altro account di Azure AD anziché accedere automaticamente tramite l'accesso Single Sign-On facile.
-- I client di Office 365 (16.0.8730.xxxx e versioni successive) sono supportati tramite un flusso non interattivo.
+- I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
 - Può essere usata per i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga) nelle piattaforme e nei browser idonei per l'autenticazione Kerberos:
 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì|No |Sì|Sì\*|N/D
-|Windows 8.1|Sì|N/D|Sì|Sì\*|N/D
-|Windows 8|Sì|N/D|Sì|Sì\*|N/D
-|Windows 7|Sì|N/D|Sì|Sì\*|N/D
+|Windows 10|Yes|No |Yes|Sì\*|N/D
+|Windows 8.1|Yes|N/D|Yes|Sì\*|N/D
+|Windows 8|Yes|N/D|Yes|Sì\*|N/D
+|Windows 7|Yes|N/D|Yes|Sì\*|N/D
 |Mac OS X|N/D|N/D|Sì\*|Sì\*|Sì\*
 
 \*Richiede una [configurazione aggiuntiva](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

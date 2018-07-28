@@ -1,5 +1,5 @@
 ---
-title: Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima) | Microsoft Docs
+title: Pianificazione per la distribuzione di Sincronizzazione file di Azure | Microsoft Docs
 description: Informazioni sugli aspetti da considerare quando si pianifica una distribuzione di File di Azure.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335840"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214884"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure (anteprima)
-È possibile usare Sincronizzazione file di Azure (anteprima) per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
+# <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
+Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
 Questo articolo espone considerazioni importanti per la distribuzione di Sincronizzazione file di Azure. È consigliabile leggere anche [Pianificazione per una distribuzione di File di Azure](storage-files-planning.md). 
 
@@ -106,7 +106,7 @@ Le versioni future di Windows Server verranno aggiunte non appena verranno rilas
 > Sono supportati solo i volumi NTFS. Non sono supportati ReFS, FAT, FAT32 e altri file system.
 
 ### <a name="files-skipped"></a>File ignorati
-| File/Cartella | Note |
+| File/cartella | Note |
 |-|-|
 | Desktop.ini | File specifico del sistema |
 | ethumbs.db$ | File temporaneo per anteprime |
@@ -180,18 +180,18 @@ Sincronizzazione file di Azure non funziona con:
 
 - NTFS Encrypted File System (EFS)
 
-In genere, Sincronizzazione file di Azure supporta l'interoperabilità con soluzioni di crittografia sottostanti il file system, ad esempio BitLocker, e con soluzioni implementate nel formato di file, ad esempio BitLocker. Non è stato creato alcun tipo speciale di interoperabilità per soluzioni al di sopra del file system (ad esempio NTFS EFS).
+In genere, Sincronizzazione file di Azure supporta l'interoperabilità con soluzioni di crittografia sottostanti il file system, ad esempio BitLocker, e con soluzioni implementate nel formato di file, ad esempio Azure Information Protection. Non è stato creato alcun tipo speciale di interoperabilità per soluzioni al di sopra del file system (ad esempio NTFS EFS).
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Altre soluzioni di gestione dell'archiviazione gerarchica
 Con Sincronizzazione file di Azure non devono essere usate altre soluzioni di gestione dell'archiviazione gerarchica.
 
 ## <a name="region-availability"></a>Aree di disponibilità
-Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree seguenti:
+Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 
 | Region | Ubicazione del data center |
 |--------|---------------------|
 | Australia orientale | New South Wales |
-| Australia sudorientale | Victoria |
+| Australia sud-orientale | Victoria |
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
 | Stati Uniti centrali | Iowa |
@@ -199,13 +199,35 @@ Sincronizzazione file di Azure è disponibile in anteprima solo nelle aree segue
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
 | Europa settentrionale | Irlanda |
-| Asia sudorientale | Singapore |
+| Asia sud-orientale | Singapore |
 | Regno Unito meridionale | Londra |
 | Regno Unito occidentale | Cardiff |
 | Europa occidentale | Paesi Bassi |
 | Stati Uniti occidentali | California |
 
-In anteprima è supportata solo la sincronizzazione con una condivisione file di Azure nella stessa area del servizio di sincronizzazione archiviazione.
+Sincronizzazione file di Azure supporta solo la sincronizzazione con una condivisione file di Azure nella stessa area del servizio di sincronizzazione archiviazione.
+
+### <a name="azure-disaster-recovery"></a>Ripristino di emergenza di Azure
+Per evitare la perdita di un'area di Azure, Sincronizzazione file di Azure si integra con l'opzione [ di ridondanza dell'archiviazione con ridondanza geografica](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). L'archiviazione con ridondanza geografica funziona usando la replica a blocchi asincrona tra l'archiviazione nell'area primaria, con cui in genere interagisce l'utente, e l'archiviazione nell'area secondaria associata. In caso di un'emergenza che provoca la disconnessione temporanea o definitiva di un'area di Azure, Microsoft eseguirà il failover dell'archiviazione nell'area abbinata. 
+
+Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geografica e la Sincronizzazione file di Azure, tutte le aree di Sincronizzazione file di Azure vengono associate a un'area secondaria che corrisponde a quella secondaria usata dal servizio di archiviazione. Le associazioni sono le seguenti:
+
+| Area primaria      | Area associata      |
+|---------------------|--------------------|
+| Australia orientale      | Australia sud-orientale |
+| Australia sud-orientale | Australia orientale     |
+| Canada centrale      | Canada orientale        |
+| Canada orientale         | Canada centrale     |
+| Stati Uniti centrali          | Stati Uniti orientali 2          |
+| Asia orientale           | Asia sud-orientale     |
+| Stati Uniti orientali             | Stati Uniti occidentali            |
+| Stati Uniti orientali 2           | Stati Uniti centrali         |
+| Europa settentrionale        | Europa occidentale        |
+| Asia sud-orientale      | Asia orientale          |
+| Regno Unito meridionale            | Regno Unito occidentale            |
+| Regno Unito occidentale             | Regno Unito meridionale           |
+| Europa occidentale         | Europa settentrionale       |
+| Stati Uniti occidentali             | Stati Uniti orientali            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

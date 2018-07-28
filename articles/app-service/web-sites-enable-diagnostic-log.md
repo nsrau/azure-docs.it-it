@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 15c580a026495d11ffdeb161d4bf0793850040f5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158767"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206004"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app Web nel servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -52,7 +52,7 @@ Le app Web del servizio app registrano anche le informazioni di distribuzione de
 Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), passare alla pagina dell'app Web e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Parte del log](./media/web-sites-enable-diagnostic-log/logspart.png)
+![Parte dei log](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Livello**. Questa impostazione consente di filtrare le informazioni acquisite classificandole come **messaggi informativi**, **avvisi** o **errori**. Impostando il filtro su **Dettagliato** è possibile registrare tutte le informazioni generate dall'applicazione.
 
@@ -82,7 +82,7 @@ Per impostazione predefinita, i registri non vengono eliminati automaticamente, 
 Benché tutti e tre i percorsi di archiviazione offrano le stesse informazioni di base per gli eventi registrati, l'**archiviazione tabelle** e l'**archiviazione BLOB** consentono di registrare informazioni aggiuntive come l'ID istanza, l'ID di thread e un timestamp maggiormente granulare (formato tick) rispetto alla registrazione sul **file system**.
 
 > [!NOTE]
-> Le informazioni memorizzate nell'**archiviazione tabelle** o **nell'archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](/downloads/#).
+> Le informazioni memorizzate nell'**archiviazione tabelle** o **nell'archiviazione BLOB** sono accessibili solo tramite un client o un'applicazione di archiviazione che possano funzionare direttamente con questi sistemi di archiviazione. Ad esempio, Visual Studio 2013 contiene lo strumento Esplora archivi, che può essere utilizzato per esplorare l'archiviazione tabelle o BLOB, e HDInsight, che può accedere ai dati memorizzati nell'archiviazione BLOB. È inoltre possibile scrivere un'applicazione che acceda all'archiviazione Azure mediante uno degli [Azure SDK](https://azure.microsoft.com/en-us/downloads/).
 >
 > [!NOTE]
 > È inoltre possibile abilitare la diagnostica da Azure PowerShell mediante il cmdlet **Set-AzureWebsite** . Se Azure PowerShell non è stato installato o configurato per l'uso della sottoscrizione di Azure, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
