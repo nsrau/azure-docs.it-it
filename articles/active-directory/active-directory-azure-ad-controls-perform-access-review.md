@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 09/19/2017
+ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 52d832de10de93c5bd4b91df821f96845b3b21be
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e0a522f6125a9e34a37c50f547e725072ec65b4
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446640"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205004"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Verificare l'accesso con le verifiche di accesso di Azure AD
 
@@ -27,7 +27,11 @@ Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscon
 
 ## <a name="open-an-access-review"></a>Aprire una verifica di accesso
 
-Per esaminare le verifiche di accesso in sospeso selezionare il collegamento nel messaggio di posta elettronica. Se non è disponibile il messaggio di posta elettronica, è possibile individuare le verifiche di accesso seguendo questa procedura:
+Per esaminare le verifiche di accesso in sospeso selezionare il collegamento per la verifica dell'accesso nel messaggio di posta elettronica. A partire da agosto 2018, le notifiche tramite posta elettronica per i ruoli di Azure AD avranno un design aggiornato. Di seguito viene illustrato un messaggio di posta elettronica di esempio che viene inviato quando un utente viene invitato da un revisore. 
+
+![Messaggio di posta elettronica di verifica di accesso](./media/active-directory-azure-ad-controls-perform-access-review/new-ar-email.png)
+
+Se non è disponibile il messaggio di posta elettronica, è possibile individuare le verifiche di accesso seguendo questa procedura:
 
 1. Accedere al [pannello di accesso di Azure AD](https://myapps.microsoft.com).
 

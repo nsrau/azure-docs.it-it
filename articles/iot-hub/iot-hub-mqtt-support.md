@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: b553da54cd8ce63638fc52dd078bb517a1f9e713
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34634659"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185476"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicare con l'hub IoT tramite il protocollo MQTT
 
@@ -79,7 +79,9 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
 
   Per altre informazioni su come generare i token di firma di accesso condiviso, vedere la sezione sui dispositivi nell'articolo [Uso dei token di sicurezza dell'hub IoT][lnk-sas-tokens].
 
-  Durante il test è anche possibile usare lo strumento [Device Explorer][lnk-device-explorer] per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
+  Durante il test è anche possibile usare lo strumento [Device Explorer][lnk-device-explorer] o l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) multipiattaforma per generare rapidamente un token di firma di accesso condiviso da copiare e incollare nel codice:
+
+Per Device Explorer:
 
   1. Andare alla scheda **Management** (Gestione) di **Device Explorer**.
   2. Fare clic su **SAS Token** in alto a destra.
@@ -93,6 +95,13 @@ Se un dispositivo non può usare gli SDK per dispositivi, può comunque connette
      La porzione di questo token da usare come campo **Password** per connettersi usando MQTT è:
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
+     
+Per Azure IoT Toolkit:
+
+  1. Espandere la scheda **DISPOSITIVI DELL'HUB AZURE IOT** nell'angolo inferiore sinistro di Visual Studio Code.
+  2. Fare clic con il tasto destro sul dispositivo e selezionare **Genera token di firma di accesso condiviso per dispositivo**.
+  3. Impostare l'**ora di scadenza** premere "Invio".
+  4. Il token di firma di accesso condiviso viene creato e copiato negli appunti.
 
 Per i pacchetti di connessione e disconnessione di MQTT l'hub IoT genera un evento nel canale **Monitoraggio operazioni** . Questo evento contiene informazioni aggiuntive che consentono di risolvere i problemi di connettività.
 

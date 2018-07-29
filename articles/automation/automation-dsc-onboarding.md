@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
-ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 907bb9b998012a5b907c041b3eba061036289cc1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195557"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186986"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Caricamento di computer per la gestione con Automation DSC per Azure
 
@@ -24,9 +24,8 @@ Come [PowerShell DSC (Desired State Configuration)](https://technet.microsoft.co
 
 È possibile usare Automation DSC per Azure in molti tipi di computer.
 
-* Macchine virtuali di Azure (classica)
-* Macchine virtuali di Azure
-* Macchine virtuali di Amazon Web Services (AWS)
+* Macchine virtuali di Azure (distribuite sia in modalità di distribuzione classica sia Azure Resource Manager)
+* Istanze EC2 Amazon Web Services (AWS) 
 * Computer fisici/macchine virtuali Windows locali o in un cloud diverso da Azure/AWS
 * Computer fisici/macchine virtuali Linux locali, in Azure o in un cloud diverso da Azure
 

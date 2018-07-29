@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/18/2018
 ms.author: trinadhk
-ms.openlocfilehash: c9dff77f6b9fffc02ec94caa3454500772651195
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136901"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205341"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -48,7 +48,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per sette giorni. 
 
 * Gli snapshot vengono archiviati in locale per supportare la creazione del punto di ripristino e anche per velocizzare le operazioni di ripristino. Vengono visualizzati pertanto i costi di archiviazione che corrispondono agli snapshot creati durante il periodo di sette giorni.
 
-* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti verranno addebitati gli snapshot per sette giorni archiviati nell'account di archiviazione locale del cliente. In base al modello tariffario corrente, non sono previsti costi per i clienti dei dischi gestiti.
+* Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti verranno addebitati gli snapshot per sette giorni archiviati nell'account di archiviazione locale del cliente. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano gli snapshot dei BLOB a livello di archiviazione sottostante, per i dischi gestiti si noteranno i costi corrispondenti ai [prezzi degli snapshot dei BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-how-snapshots-accrue-charges), i quali sono incrementali. 
 
 * Se si ripristina una macchina virtuale Premium da un punto di ripristino dello snapshot, viene usato un percorso di archiviazione temporaneo durante la creazione della macchina virtuale stessa.
 
@@ -56,7 +56,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per sette giorni. 
 
 ## <a name="upgrade"></a>Aggiornamento
 ### <a name="the-azure-portal"></a>Portale di Azure
-Se si usa il portale di Azure, viene visualizzata una notifica nel dashboard dell'insieme di credenziali. Questa notifica si riferisce al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino.
+Se si usa il portale di Azure, viene visualizzata una notifica nel dashboard dell'insieme di credenziali. Questa notifica si riferisce al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino. In alternativa, è possibile passare alla pagina delle proprietà dell'insieme di credenziali per ottenere l'opzione di aggiornamento.
 
 ![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: notifica relativa al supporto](./media/backup-azure-vms/instant-rp-banner.png) 
 
@@ -72,13 +72,13 @@ Eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
     PS C:> Connect-AzureRmAccount
     ```
 
-2.  Selezionare la sottoscrizione che si vuole registrare per l'anteprima:
+2.  Selezionare la sottoscrizione da registrare:
 
     ```
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
 
-3.  Registrare la sottoscrizione per l'anteprima privata:
+3.  Registrare questa sottoscrizione:
 
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
@@ -101,13 +101,13 @@ Le domande e le risposte seguenti sono state raccolte da forum e da domande dei 
 
 Se si esegue l'aggiornamento alla versione 2, i backup correnti non sono interessati e non è necessario riconfigurare l'ambiente. Eseguire l'aggiornamento e l'ambiente di backup continuerà a funzionare nel modo previsto.
 
-### <a name="what-does-it-cost-to-upgrade-to-azure-backup-stack-v2"></a>Qual è il costo per eseguire l'aggiornamento alla versione 2 dello stack di Backup di Azure?
+### <a name="what-does-it-cost-to-upgrade-to-azure-vm-backup-stack-v2"></a>Qual è il costo per eseguire l'aggiornamento alla versione 2 dello stack di Backup delle macchine virtuali di Azure?
 
-Non sono previsti costi per l'aggiornamento alla versione 2 dello stack di Backup di Azure. Gli snapshot vengono archiviati in locale per velocizzare la creazione di punti di ripristino e le operazioni di ripristino. Vengono visualizzati pertanto i costi di archiviazione che corrispondono agli snapshot creati durante il periodo di sette giorni.
+Non sono previsti costi per l'aggiornamento dello stack a v2. Gli snapshot vengono archiviati in locale per velocizzare la creazione di punti di ripristino e le operazioni di ripristino. Vengono visualizzati pertanto i costi di archiviazione che corrispondono agli snapshot creati durante il periodo di sette giorni.
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>L'aggiornamento alla versione 2 dello stack comporta l'aumento del limite di snapshot degli account di archiviazione Premium da 10 TB?
 
-No.
+Gli snapshot acquisiti come parte dello stack di v2 valgono come limite di 10 TB per gli snapshot di un account di archiviazione premium per dischi non gestiti. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium gli snapshot creati per un punto di ripristino istantaneo occupano il limite di snapshot di 10 TB?
 
@@ -117,14 +117,6 @@ Sì, per gli account di archiviazione Premium gli snapshot creati per il punto d
 
 Ogni giorno viene creato un nuovo snapshot. Sono presenti sette singoli snapshot. Il servizio **non** esegue una copia il primo giorno e aggiunge le modifiche per i sei giorni successivi.
 
-### <a name="what-happens-if-the-default-resource-group-is-deleted-accidentally"></a>Cosa accade se il gruppo di risorse predefinito viene eliminato per errore?
-
-Se il gruppo di risorse viene eliminato, i punti di ripristino istantaneo per tutte le macchine virtuali protette nell'area specifica vengono persi. Quando viene eseguito il backup successivo, il gruppo di risorse viene creato nuovamente e i backup continuano nel modo previsto. Questa funzionalità non è esclusiva per i punti di ripristino istantaneo.
-
-### <a name="can-i-delete-the-default-resource-group-created-for-instant-recovery-points"></a>È possibile eliminare il gruppo di risorse predefinito creato per i punti di ripristino istantaneo?
-
-Il servizio Backup di Azure crea il gruppo di risorse gestite. Attualmente non è possibile cambiare o modificare il gruppo di risorse. Tenere presente anche che non è opportuno bloccare il gruppo di risorse. Queste indicazioni non sono esclusive solo per lo stack versione 2.
- 
 ### <a name="is-a-v2-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Lo snapshot versione 2 è incrementale o completo?
 
-Gli snapshot incrementali vengono usati per i dischi non gestiti. Per i dischi gestiti, lo snapshot usato è quello completo.
+Gli snapshot incrementali vengono usati per i dischi non gestiti. Per i dischi gestiti, la raccolta del punto di ripristino creata da Backup di Azure usa gli snapshot dei BLOB e di conseguenza questi sono incrementali. 
