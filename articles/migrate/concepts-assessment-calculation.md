@@ -4,14 +4,14 @@ description: Offre una panoramica dei calcoli delle valutazioni nel servizio Azu
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/05/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920925"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249190"
 ---
 # <a name="assessment-calculations"></a>Calcoli delle valutazioni
 
@@ -40,7 +40,7 @@ Azure Migrate esamina le proprietà seguenti della VM locale per identificare se
 --- | --- | ---
 **Tipo di avvio** | Azure supporta le VM con il tipo di avvio BIOS e non UEFI. | Idoneo per Azure con condizioni se il tipo di avvio è UEFI.
 **Core** | Il numero di core nei computer deve essere uguale o inferiore al numero massimo di core supportati per una VM di Azure, ovvero 32.<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto i core utilizzati. Se nelle impostazioni di valutazione è specificato un fattore di comfort, il numero di core utilizzati viene moltiplicato per questo fattore.<br/><br/> In mancanza di una cronologia delle prestazioni, Azure Migrate usa i core allocati senza applicare il fattore di comfort. | Non idoneo se il numero di core è maggiore di 32.
-**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima consentita per una VM di Azure, ovvero 448 GB. <br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> In mancanza di una cronologia, si usa la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Non idoneo se la dimensione della memoria è maggiore di 448 GB.
+**Memoria** | La dimensione della memoria del computer deve essere uguale o inferiore alla memoria massima consentita per una macchina virtuale di Azure, ovvero 3892 GB per standard_M128m&nbsp;<sup>2</sup> di Azure serie M. [Altre informazioni](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> Se è disponibile la cronologia delle prestazioni, Azure Migrate prende in considerazione per il confronto la memoria utilizzata. Se è specificato un fattore di comfort, la memoria utilizzata viene moltiplicata per questo fattore.<br/><br/> In mancanza di una cronologia, si usa la memoria allocata senza applicare il fattore di comfort.<br/><br/> | Non idoneo se la dimensione della memoria è maggiore di 448 GB.
 **Disco di archiviazione** | Le dimensioni allocate di un disco non devono superare i 4 TB (4096 GB).<br/><br/> I dischi collegati al computer non devono essere più di 65, incluso il disco del sistema operativo. | Non idoneo se un qualsiasi disco è maggiore di 4 TB o se sono presenti più di 65 dischi collegati al computer.
 **Rete** | A un computer non devono essere collegati più di 32 NIC. | Non idoneo se il computer ha più di 32 schede di interfaccia di rete
 
@@ -58,7 +58,8 @@ Windows Server 2016 e tutti i Service Pack | Azure offre supporto completo. | Id
 Windows Server 2012 R2 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2012 e tutti i Service Pack | Azure offre supporto completo. | Idoneo per Azure
 Windows Server 2008 R2 con tutti i Service Pack | Azure offre supporto completo.| Idoneo per Azure
-Windows Server 2003-2008 | Questi sistemi operativi hanno superato la data di fine supporto e hanno bisogno di un [Contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto di Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
+Windows Server 2008 (32 bit e 64 bit) | Azure offre supporto completo. | Idoneo per Azure
+Windows Server 2003, 2003 R2 | Questi sistemi operativi hanno superato la data di fine supporto e hanno bisogno di un [Contratto di supporto personalizzato (CSA)](https://aka.ms/WSosstatement) per il supporto di Azure. | Idoneo per Azure con condizioni, provare ad aggiornare il sistema operativo prima della migrazione in Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
 Client Windows 7, 8 e 10 | Azure offre supporto solo con la sottoscrizione di Visual Studio. | Idoneo per Azure con condizioni
 Windows Vista, XP Professional | Questi sistemi operativi hanno superato la data di fine supporto, il computer può eseguire l'avvio in Azure, ma Azure non offre alcun supporto del sistema operativo. | Idoneo per Azure con condizioni, si consiglia di aggiornare il sistema operativo prima della migrazione in Azure.
@@ -106,10 +107,9 @@ Per la determinazione della dimensione in base alle prestazioni, Azure Migrate i
 Se il criterio di ridimensionamento è *il ridimensionamento in locale*, Azure Migrate non considera la cronologia delle prestazioni delle macchine virtuali e dei dischi e alloca uno SKUe della macchina virtuale in Azure in base alle dimensioni allocate in locale. Analogamente al ridimensionamento del disco, viene esaminato il tipo di archiviazione specificata nelle proprietà di valutazione, Standard o Premium, e di conseguenza viene consigliato il tipo di disco. Il tipo di archiviazione predefinita dei dischi è Premium.
 
 ### <a name="confidence-rating"></a>Classificazione di attendibilità
+Ogni valutazione basata sulle prestazioni in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate. La classificazione di attendibilità non è applicabile alle valutazioni locali.
 
-Ogni valutazione in Azure Migrate è associata a una classificazione di attendibilità compresa tra 1 stella e 5 stelle, dove 1 stella corrisponde al livello minimo e 5 stelle corrispondono al livello massimo. La classificazione di attendibilità viene assegnata a una valutazione in base alla disponibilità dei punti dati necessari per calcolare la valutazione. La classificazione di attendibilità di una valutazione aiuta a stimare l'affidabilità delle indicazioni relative alla dimensione fornite da Azure Migrate.
-
-La classificazione di attendibilità di una valutazione è più utile per le valutazioni in cui il criterio di ridimensionamento corrisponde alle dimensioni in base alle prestazioni. Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria della macchina virtuale. Per ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco. Analogamente, per ogni scheda di rete collegata a una VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione delle dimensioni in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
+Per una determinazione delle dimensioni in base alle prestazioni, Azure Migrate deve avere a disposizione i dati sull'uso di CPU e memoria della macchina virtuale. Per ogni disco collegato alla macchina virtuale, il servizio deve anche avere i dati relativi alle operazioni di I/O al secondo e alla velocità effettiva del disco. Analogamente, per ogni scheda di rete collegata a una VM, Azure Migrate deve disporre dei dati sull'ingresso/uscita di rete per applicare la determinazione delle dimensioni in base alle prestazioni. Se una qualsiasi delle cifre sull'utilizzo indicate sopra non è disponibile nel server vCenter, l'indicazione relativa alla dimensione fornita da Azure Migrate potrebbe non essere affidabile. Di seguito è indicata la classificazione di attendibilità per la valutazione in base alla percentuale dei punti dati disponibili come riportato di seguito:
 
    **Disponibilità dei punti dati** | **Classificazione di attendibilità**
    --- | ---

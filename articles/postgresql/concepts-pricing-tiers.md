@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970262"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173708"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Piani tariffari di Database di Azure per PostgreSQL
 
@@ -62,11 +62,11 @@ Le risorse di calcolo vengono fornite come vCore, che rappresentano la CPU logic
 | Regno Unito occidentale |  | X |
 | Regno Unito meridionale |  | X |
 | Asia orientale | X | X |
-| Asia sudorientale | X | X |
+| Asia sud-orientale | X | X |
 | Australia orientale |  | X |
 | Australia centrale |  | X |
 | Australia centrale 2 |  | X |
-| Australia sudorientale |  | X |
+| Australia sud-orientale |  | X |
 | India centrale | X | X |
 | India occidentale | X | X |
 | India meridionale |  | X |
@@ -97,6 +97,8 @@ Il server viene contrassegnato di sola lettura quando lo spazio di archiviazione
 Quando il server è impostato come di sola lettura, tutte le sessioni esistenti vengono disconnesse e viene eseguito il rollback delle transazioni non sottoposte a commit. Eventuali operazioni di scrittura e di esecuzione del commit delle transazioni hanno esito negativo. Tutte le query in lettura funzioneranno senza interruzioni.  
 
 È possibile aumentare lo spazio di archiviazione sottoposto a provisioning per il server o avviare una nuova sessione in modalità lettura/scrittura ed eliminare i dati per recuperare spazio di archiviazione. Se si esegue `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` la sessione corrente viene impostata sulla modalità di lettura/scrittura. Per evitare il danneggiamento dei dati, non eseguire operazioni di scrittura quando il server è ancora in stato di sola lettura.
+
+È consigliabile configurare un avviso per ricevere una notifica quando l'archiviazione server sta per raggiungere la soglia in modo tale da evitare di ottenere lo stato di sola lettura. Per altre informazioni, vedere la documentazione sulla [procedura di configurazione di un avviso](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Backup
 

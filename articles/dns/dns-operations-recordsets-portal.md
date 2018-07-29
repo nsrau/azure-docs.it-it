@@ -3,7 +3,7 @@ title: Gestire set di record e record DNS con DNS di Azure | Documentazione Micr
 description: DNS di Azure consente di gestire i set di record DNS in caso di hosting del dominio.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: kumud
-ms.openlocfilehash: da7d2118a0fb6bc5004856d994a01a932094ca45
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b95ec9b4b5077b236c5f3a7183820552b7ccac49
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772331"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174312"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>Gestire record e set di record DNS con il portale di Azure
 
@@ -107,7 +107,7 @@ I record NS e SOA creati automaticamente vengono gestiti in modo diverso rispett
 
 ### <a name="modify-soa-records"></a>Modificare i record SOA
 
-Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
+Non è possibile aggiungere o rimuovere record dal set di record SOA creato automaticamente al vertice della zona (name = "\@"). È tuttavia possibile modificare i parametri all'interno del record SOA, ad eccezione di "Host", e la durata (TTL) del set di record.
 
 ### <a name="modify-ns-records-at-the-zone-apex"></a>Modificare i record NS al vertice della zona
 
@@ -119,7 +119,7 @@ Notare che questo si applica solo al set di record NS al vertice della zona. Gli
 
 ### <a name="delete-soa-or-ns-record-sets"></a>Eliminare set di record SOA o NS
 
-Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = "@") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
+Non è possibile eliminare i set di record SOA e NS al vertice della zona (name = "\@") che vengono creati automaticamente quando viene creata la zona. Vengono eliminate automaticamente quando si elimina la zona.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

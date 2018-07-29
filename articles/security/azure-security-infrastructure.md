@@ -1,6 +1,6 @@
 ---
 title: Sicurezza dell'infrastruttura di Azure | Microsoft Docs
-description: L'articolo descrive come Microsoft garantisce la sicurezza dei data center di Azure.
+description: L'articolo descrive come Microsoft opera per garantire la sicurezza dei data center di Azure.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 397bd1f904b676a6ba020ec78fb1cad05c460be1
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9385c6ea8d2a04e9a8595a22e6e2ff7638394b41
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903857"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172973"
 ---
 # <a name="azure-infrastructure-security"></a>Sicurezza dell'infrastruttura di Azure
 Microsoft Azure è in esecuzione in data center gestiti da Microsoft. Tali data center, distribuiti geograficamente, sono conformi agli standard di settore, ad esempio ISO/IEC 27001:2013 e NIST SP 800-53, per la sicurezza e l'affidabilità. I data center vengono gestiti, monitorati e amministrati da operatori Microsoft. Tali operatori vantano anni di esperienza nella fornitura dei maggiori servizi online nel mondo, con continuità 24 ore su 24, 7 giorni su 7.
@@ -38,18 +38,18 @@ Questa serie di articoli contiene informazioni sulle operazioni eseguite da Micr
 - [Protezione dei dati](azure-protection-of-customer-data.md)
 
 ## <a name="shared-responsibility-model"></a>Modello di responsabilità condivisa
-È importante comprendere la suddivisione di responsabilità tra Microsoft e l'utente. In locale, si è proprietari dell'intero stack ma, con lo spostamento nel cloud, alcune responsabilità vengono trasferite a Microsoft. La matrice di responsabilità seguente illustra le aree dello stack in una distribuzione SaaS, PaaS e IaaS per cui è responsabile il cliente e quelle per cui è responsabile Microsoft.
+È importante comprendere la suddivisione di responsabilità tra Microsoft e l'utente. In locale, si è proprietari dell'intero stack ma, con lo spostamento nel cloud, alcune responsabilità vengono trasferite a Microsoft. Il grafico seguente illustra le aree di responsabilità, a seconda del tipo di distribuzione di stack (software come un servizio [SaaS], piattaforma distribuita come servizio [PaaS], infrastruttura distribuita come servizio [IaaS] e in locale).
 
-![Responsabilità condivisa][1]
+![Il grafico mostra le responsabilità][1]
 
-L'utente ha comunque in ogni caso la responsabilità di quanto segue, a prescindere dal tipo di distribuzione:
+Si è sempre responsabili di quanto segue, indipendentemente dal tipo di distribuzione:
 
 - Dati
 - Endpoint
 - Account
 - gestione degli accessi
 
-Verificare di aver compreso la divisione delle responsabilità tra il cliente e Microsoft in una distribuzione SaaS, PaaS e IaaS. Per altri dettagli, vedere [Shared Responsibilities for Cloud Computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf) (Responsabilità per il cloud computing).
+Verificare di aver compreso la divisione delle responsabilità tra il cliente e Microsoft in una distribuzione SaaS, PaaS e IaaS. Per altri dettagli, vedere [Responsabilità condivise per il cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'infrastruttura di Azure, vedere:
@@ -61,9 +61,9 @@ Per altre informazioni sulle operazioni eseguite da Microsoft per proteggere l'i
 - [Rete di produzione di Azure](azure-production-network.md)
 - [Funzionalità di sicurezza del database SQL di Microsoft Azure](azure-infrastructure-sql.md)
 - [Azure production operations and management](azure-infrastructure-operations.md) (Operazioni e gestione della produzione di Azure)
-- [Monitoring of Azure infrastructure](azure-infrastructure-monitoring.md) (Monitoraggio dell'infrastruttura di Azure)
+- [Monitoraggio dell'infrastruttura di Azure](azure-infrastructure-monitoring.md)
 - [Integrità dell'infrastruttura di Azure](azure-infrastructure-integrity.md)
-- [Protezione dei dati dei clienti in Azure](azure-protection-of-customer-data.md)
+- [Protezione dei dati dei clienti di Azure](azure-protection-of-customer-data.md)
 
 <!--Image references-->
 [1]: ./media/azure-security-infrastructure/responsibility-zones.png
