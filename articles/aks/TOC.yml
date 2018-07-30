@@ -89,6 +89,10 @@
         - name: Soluzione per l'integrità dei contenitori di Azure
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Visualizzare i log dei componenti master
+          href: view-master-logs.md
+        - name: Visualizzare i log di kubelet
+          href: kubelet-logs.md
     - name: Sviluppare ed eseguire applicazioni
       items:
         - name: Eseguire applicazioni con Helm
@@ -121,8 +125,6 @@
       items:
         - name: Accesso SSH ai nodi
           href: aks-ssh.md
-        - name: Ottenere i log di kubelet
-          href: kubelet-logs.md
 - name: riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

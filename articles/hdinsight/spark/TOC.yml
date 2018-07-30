@@ -209,6 +209,8 @@
       items:
         - name: Gestire le risorse cluster
           href: apache-spark-resource-manager.md
+        - name: Gestire le applicazioni Spark tramite il Server cronologia esteso
+          href: apache-azure-spark-history-server.md
         - name: Configurare le impostazioni di Spark
           href: apache-spark-settings.md
         - name: Ottimizzare i processi Spark

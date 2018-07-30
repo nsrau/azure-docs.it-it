@@ -83,6 +83,7 @@
 
 ## Gestire Federation Services
 ### [Gestire e personalizzare](active-directory-aadconnect-federation-management.md)
+### [Gestire il trust di AD FS con Azure AD usando Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Attuare la federazione di più istanze di Azure AD con un'unica istanza di AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
@@ -96,7 +97,7 @@
 ### [Errore LargeObject provocato da userCertificate](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [Come eseguire il ripristino dal limite di 10 GB per LocalDB](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Sincronizzazione delle identità e resilienza degli attributi duplicati](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 ## [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](active-directory-aadconnect-ports.md)
