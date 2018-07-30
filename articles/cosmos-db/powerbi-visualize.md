@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: sngun
-ms.openlocfilehash: 67ea7a9ea1a1be4fd0780f8b8ce22f1a133615e0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615870"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249115"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account Azure Cosmos DB tramite il connettore Azure Cosmos DB per Power BI.   
@@ -34,9 +34,9 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 > Il connettore Power BI per Azure Cosmos DB si connette a Power BI Desktop per estrarre e trasformare i dati. I report creati in Power BI Desktop possono essere quindi pubblicati in PowerBI.com. Non è possibile estrarre e trasformare direttamente in PowerBI.com dati di Azure Cosmos DB. 
 
 > [!NOTE]
-> Per connettere Azure Cosmos DB a Power BI usando l'API di MongoDB, è necessario usare il [driver ODBC per MongoDB di Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> La connessione ad Azure Cosmos DB con il connettore Power BI è attualmente supportata solo per SQL di Azure Cosmos DB e gli account API MongoDB. Per connettere Azure Cosmos DB a Power BI usando l'API di MongoDB, è necessario usare il [driver ODBC per MongoDB di Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:
 
 * [La versione più recente di Power BI Desktop](https://powerbi.microsoft.com/desktop).

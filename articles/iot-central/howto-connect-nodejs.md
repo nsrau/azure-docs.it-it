@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628539"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206038"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connettere un'applicazione client generica all'applicazione Azure IoT Central (Node.js)
 
@@ -25,6 +25,8 @@ Per seguire la procedura descritta in questo articolo, sono necessari gli elemen
 
 1. Un'applicazione Azure IoT Central. Per altre informazioni, vedere [Creare l'applicazione Azure IoT Central](howto-create-application.md).
 1. Un computer di sviluppo con [Node.js](https://nodejs.org/) versione 4.0.0 o successiva installato. Per controllare la versione, è possibile eseguire `node --version` nella riga di comando. Node.js è disponibile per un'ampia gamma di sistemi operativi.
+
+## <a name="create-a-device-template"></a>Creare un modello di dispositivo
 
 Nell'applicazione Azure IoT Central è necessario un modello di dispositivo con le misure e le proprietà definite seguenti:
 
@@ -89,11 +91,11 @@ Aggiungere le impostazioni **numeriche** seguenti nella **pagina delle impostazi
 
 Immettere nel modello di dispositivo il nome del campo esattamente come è visualizzato nella tabella. Se i nomi dei campi non corrispondono, il dispositivo non può ricevere il valore dell'impostazione.
 
-### <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
+## <a name="add-a-real-device"></a>Aggiungere un dispositivo reale
 
 Nell'applicazione Azure IoT Central aggiungere un dispositivo reale dal modello di dispositivo creato e prendere nota della stringa di connessione del dispositivo. Per altre informazioni, vedere [Aggiungere un dispositivo reale all'applicazione Azure IoT Central](tutorial-add-device.md)
 
-## <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
+### <a name="create-a-nodejs-application"></a>Creare un'applicazione Node.js
 
 I passaggi seguenti illustrano come creare un'applicazione client che implementa il dispositivo reale aggiunto all'applicazione.
 
