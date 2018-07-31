@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777078"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188681"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -31,7 +31,7 @@ In questa guida sono riepilogate le soluzioni per gli errori comuni riscontrati 
 
 Gli errori di certificato sono causati da una delle due situazioni seguenti:
 
-1. L'app è connessa tramite un "proxy trasparente", ovvero un server, ad esempio il server aziendale, che intercetta il traffico HTTPS, ne esegue la decrittografia e la crittografia con un certificato autofirmato.
+1. L'app è connessa tramite un "proxy trasparente": questo significa che un server (ad esempio, un server aziendale) intercetta il traffico HTTPS, ne esegue la decrittografia e la crittografia con un certificato autofirmato.
 2. Viene eseguita un'applicazione che inserisce un certificato SSL autofirmato nei messaggi HTTPS ricevuti. Esempi di applicazioni che inseriscono certificati includono il software antivirus e per l'ispezione del traffico di rete.
 
 In presenza di un certificato autofirmato o non attendibile, Storage Explorer non è più in grado di stabilire se il messaggio HTTPS ricevuto è stato modificato. Se è disponibile una copia del certificato autofirmato, è possibile fare in modo che Storage Explorer lo consideri attendibile seguendo questa procedura:
@@ -60,17 +60,35 @@ Se non è possibile trovare alcun certificato autofirmato seguendo i passaggi pr
 
 ## <a name="sign-in-issues"></a>Problemi di accesso
 
-Se non è possibile accedere, provare i metodi di risoluzione dei problemi seguenti:
+### <a name="reauthentication-loop-or-upn-change"></a>Ciclo di riautenticazione o modifica UPN
+Se ci si trova in un ciclo di riautenticazione, o se l'UPN di uno degli account è stato modificato, procedere come segue:
+1. Rimuovere tutti gli account e quindi chiudere Storage Explorer
+2. Eliminare la cartella .IdentityService dal computer. In Windows, la cartella si trova in `C:\users\<username>\AppData\Local`. Per Mac e Linux, è possibile trovare la cartella nella radice della directory dell'utente.
+3. Se si usa Mac o Linux, è necessario anche eliminare la voce Microsoft.Developer.IdentityService dall'archivio chiavi dei sistemi operativi. Su Mac, l'archivio chiavi è l'applicazione "Gnome Keychain". Per Linux, l'applicazione viene in genere chiamata "Keyring", ma il nome può variare a seconda della distribuzione.
 
-* Se si sta usando macOS e la finestra di accesso non appare sulla finestra di dialogo "Waiting for authentication..." (In attesa di autenticazione...), provare [questa procedura](#Resetting-the-Mac-Keychain)
+## <a name="mac-keychain-errors"></a>Errori di Keychain su Mac
+Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libreria di autenticazione di Storage Explorer. Per togliere il keychain da questo stato provare la procedura seguente:
+1. Chiudere Azure Storage Explorer.
+2. Aprire il keychain (**cmd + barra spaziatrice**, digitare keychain, premere Invio).
+3. Selezionare il keychain "login".
+4. Fare clic sull'icona del lucchetto per bloccare il keychain (al termine il lucchetto assumerà un'animazione in posizione di blocco, cosa che potrebbe richiedere alcuni secondi in base a quali applicazioni sono aperte).
+
+    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Avviare Azure Storage Explorer.
+6. Dovrebbe essere visualizzato un menu a comparsa per segnalare qualcosa come "L'hub di servizio vuole accedere al keychain". Quando si verifica, immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Consenti** se **Consenti sempre** non è disponibile).
+7. Provare a effettuare l'accesso.
+
+### <a name="general-sign-in-troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi di accesso generale
+* Se si sta usando macOS e la finestra di accesso non appare sulla finestra di dialogo "Waiting for authentication..." (In attesa di autenticazione...), provare [questa procedura](#Mac-Keychain-Errors)
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
-* Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer
-* Se si usa Windows e si ha accesso a Visual Studio 2017 nello stesso computer e con lo stesso account di accesso, provare ad accedere a Visual Studio 2017
+* Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer.
+* Se si usa Windows e si ha accesso a Visual Studio 2017 nello stesso computer e con lo stesso account, provare ad accedere a Visual Studio 2017. Dopo aver eseguito correttamente l'accesso a Visual Studio 2017, dovrebbe essere possibile aprire Storage Explorer e visualizzare l'account nel pannello account. 
 
 Se nessuno di questi metodi funziona [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="unable-to-retrieve-subscriptions"></a>Impossibile recuperare le sottoscrizioni
+### <a name="missing-subscriptions-and-broken-tenants"></a>Sottoscrizioni mancanti e tenant interrotti
 
 Se non è possibile recuperare le sottoscrizioni dopo aver eseguito correttamente l'accesso, provare i metodi di risoluzione dei problemi seguenti:
 
@@ -78,7 +96,7 @@ Se non è possibile recuperare le sottoscrizioni dopo aver eseguito correttament
 * Assicurarsi di aver effettuato l'accesso usando l'ambiente di Azure corretto, ad esempio Azure, Azure Cina, Azure Germania, Azure Governo degli Stati Uniti o Ambiente personalizzato.
 * Se si è protetti da un proxy, assicurarsi che il proxy Storage Explorer sia stato configurato correttamente.
 * Provare a rimuovere e a aggiungere nuovamente l'account.
-* Controllare la console degli strumenti per sviluppatori (? > Attiva/Disattiva strumenti di sviluppo) mentre Storage Explorer carica le sottoscrizioni. Cercare i messaggi di errore (testo in rosso) o qualsiasi messaggio che contiene il testo "Impossibile caricare le sottoscrizioni per il tenant." Se vengono visualizzati messaggi che destano preoccupazione, [aprire un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se è presente un collegamento "Altre informazioni", esaminare e vedere quali messaggi di errore sono stati segnalati per i tenant con esito negativo. Se non si è certi su che cosa fare con i messaggi di errore visualizzati, è possibile [Segnalare un problema in GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>Non è possibile rimuovere un account o una risorsa di archiviazione collegato
 
@@ -155,19 +173,6 @@ Per distribuzioni Linux diverse da Ubuntu 16.04, è necessario installare manual
 * GCC aggiornato
 
 A seconda del tipo di distribuzione, potrebbe essere necessario installare altri pacchetti. Le [note sulla versione](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) di Storage Explorer contengono passaggi specifici per alcune distribuzioni.
-
-## <a name="resetting-the-mac-keychain"></a>Reimpostare Mac Keychain
-Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libreria di autenticazione di Storage Explorer. Per togliere il keychain da questo stato provare la procedura seguente:
-1. Chiudere Azure Storage Explorer.
-2. Aprire il keychain (**cmd + barra spaziatrice**, digitare keychain, premere Invio).
-3. Selezionare il keychain "login".
-4. Fare clic sull'icona del lucchetto per bloccare il keychain (al termine il lucchetto assumerà un'animazione in posizione di blocco, cosa che potrebbe richiedere alcuni secondi in base a quali applicazioni sono aperte).
-
-    ![immagine](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Avviare Azure Storage Explorer.
-6. Dovrebbe apparire un messaggio popup simile a " Service hub desidera accedere a keychain". Immettere la password dell'account amministratore Mac e fare clic su **Consenti sempre** (o **Consenti** se **Consenti sempre** non è disponibile).
-7. Provare a effettuare l'accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
