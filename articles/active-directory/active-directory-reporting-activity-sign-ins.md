@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3c3737d3a98093f752c1248460a8084436e60941
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d651f9d4fa48cec3a61f1f307f4447fe2cba63b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333599"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248952"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -38,10 +38,10 @@ L'architettura di reporting in Azure Active Directory include i componenti segue
 
 In questo argomento viene offerta una panoramica delle attività di accesso.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="who-can-access-the-data"></a>Chi può accedere ai dati?
-* Gli utenti con ruolo Amministratore della sicurezza, Ruolo con autorizzazioni di lettura per la sicurezza, Lettore report o Amministratore di applicazioni
+* Gli utenti con ruolo Amministratore della sicurezza, Ruolo con autorizzazioni di lettura per la sicurezza, Lettore report
 * Gli amministratori globali
 * Qualsiasi utente (non amministratore) può visualizzare i propri accessi 
 
@@ -57,20 +57,22 @@ Le informazioni contenute nel report relativo all'accesso utente consentono di r
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione **Attività** di Azure Active
+Il primo punto di ingresso a tutte le attività di accesso è **Accessi** nella sezione Attività di **Azure Active Directory**.
 
 
 ![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/61.png "Attività di accesso")
 
 
-Un log di controllo è una visualizzazione elenco predefinita che include:
+Un log di accesso ha una visualizzazione elenco predefinita che include:
 
-- Utente correlato.
-- Applicazione a cui l'utente ha eseguito l'accesso.
-- Stato dell'accesso.
-- Orario di accesso.
+- Data di accesso
+- Utente correlato
+- Applicazione a cui l'utente ha eseguito l'accesso
+- Stato dell'accesso
+- Stato di rilevamento rischi
+- Stato del requisito di autenticazione a più fattori (MFA)
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/41.png "Attività di accesso")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/01.png "Attività di accesso")
 
 Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella barra degli strumenti.
 
@@ -78,58 +80,104 @@ Per personalizzare la visualizzazione elenco, fare clic su **Colonne** nella bar
 
 In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già visualizzati.
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/42.png "Attività di accesso")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/02.png "Attività di accesso")
 
-Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere tutti i dettagli disponibili sull'elemento.
+Facendo clic su un elemento nella visualizzazione elenco, è possibile ottenere tutti i dettagli disponibili sull'elemento in una visualizzazione orizzontale.
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/43.png "Attività di accesso")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/03.png "Attività di accesso")
+
+> [!NOTE]
+> I clienti possono ora risolvere i problemi dei criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sulla scheda di **Accesso condizionale** per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati per l'accesso e il risultato per ogni criterio.
+> Per altre informazioni, vedere [Domande frequenti sulle informazioni di CA in tutti gli accessi](active-directory-reporting-faq.md#conditional-access).
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/ConditionalAccess.png "Attività di accesso")
 
 
-## <a name="filtering-sign-in-activities"></a>Filtro delle attività di accesso
+## <a name="filter-sign-in-activities"></a>Filtrare le attività di accesso
 
-Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di accesso usando i campi seguenti:
+Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di accesso usando i campi predefiniti seguenti:
 
-- Intervallo di tempo
 - Utente
 - Applicazione
-- Client
 - Stato accesso
+- Status of the risk detection (Stato di rilevamento rischi)
+- Data
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/44.png "Attività di accesso")
-
-
-Il filtro **Intervallo di tempo** permette di definire un intervallo di tempo per i dati restituiti.  
-I valori possibili sono:
-
-- 1 mese
-- 7 giorni
-- 24 ore
-- Personalizzate
-
-Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/04.png "Attività di accesso")
 
 Il filtro **Utente** permette di specificare il nome o il nome dell'entità utente (UPN) per l'utente richiesto.
 
 Il filtro **Applicazione** permette di specificare il nome dell'applicazione richiesta.
 
-Il filtro **Client** permette di specificare informazioni sul dispositivo richiesto.
-
-Il filtro **Stato accesso** permette di selezionare uno dei filtri seguenti:
+Il filtro **Stato accesso** permette di selezionare:
 
 - Tutti
 - Success
 - Esito negativo
 
+Il filtro **Risk Detected** (Rischio rilevato) permette di selezionare:
+
+- Tutti
+- Yes
+- No 
+
+Il filtro **Date** (Data) permette di definire un intervallo di tempo per i dati restituiti.  
+I valori possibili sono:
+
+- 1 mese
+- 7 giorni
+- 24 ore
+- Intervallo di tempo personalizzato
+
+Quando si seleziona un intervallo di tempo personalizzato, è possibile configurare un'ora di inizio e un'ora di fine.
+
+Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi verranno aggiunti automaticamente all'elenco dei filtri. Ad esempio, se si aggiunge il campo **App client** all'elenco, si otterrà un'altra opzione di filtro che consente di impostare i filtri seguenti:
+
+- Browser      
+- Exchange ActiveSync (supportato)               
+- Exchange ActiveSync (non supportato)
+- Altri client               
+    - IMAP
+    - MAPI
+    - Client Office precedenti
+    - POP
+    - SMTP
+
+
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/12.png "Attività di accesso")
+
+
+## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
+
+Se occorre usare i dati delle attività di accesso all'esterno del portale di Azure, è possibile scaricarli. Facendo clic su **Scarica**, viene creato un file CSV dei 5.000 record più recenti.  Oltre a un pulsante di download, il portale di Azure offre un'opzione per la generazione di uno script per scaricare i dati.  
+
+![Download](./media/active-directory-reporting-activity-sign-ins/71.png "Download")
+
+Se occorre una maggiore flessibilità, è possibile usare la soluzione tramite script. Facendo clic su **Script** si crea uno script di PowerShell che include tutti i filtri impostati. Scaricare ed eseguire lo script in **modalità amministratore** per generare il file CSV. 
+
+### <a name="running-the-script-on-a-windows-10-machine"></a>Esecuzione dello script in un computer Windows 10
+
+Se si desidera eseguire lo script in un computer **Windows 10**, è necessario eseguire prima alcuni passaggi aggiuntivi. 
+
+1. Installare il [modulo AzureRM](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+2. Importare il modulo aprendo un prompt di PowerShell ed eseguendo il comando **Import-Module AzureRM**.
+3. Eseguire **Set-ExecutionPolicy unrestricted** e scegliere **Sì a tutti**. 
+4. Ora è possibile eseguire lo script di PowerShell scaricato in modalità amministratore per generare il file CSV.
+
+Oltre che dall'implementazione tecnica, il numero di record che è possibile scaricare è limitato anche dai [criteri di conservazione dei report di Azure Active Directory](active-directory-reporting-retention.md).  
+
 
 ## <a name="sign-in-activities-shortcuts"></a>Collegamenti alle attività di accesso
 
-Oltre ad Azure Active Directory, il portale di Azure offre due ulteriori punti di ingresso ai dati sulle attività di accesso:
+Oltre ad Azure Active Directory, il portale di Azure offre ulteriori punti di ingresso ai dati sulle attività di accesso:
 
-- Utenti e gruppi
+- Panoramica di protezione e sicurezza delle identità
+- Utenti
+- Gruppi
 - Applicazioni aziendali
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Attività di accesso di utenti e gruppi
+### <a name="users-sign-ins-activities"></a>Attività di accesso degli utenti
 
 Le informazioni contenute nel report relativo all'accesso utente consentono di rispondere a domande come le seguenti:
 
@@ -137,33 +185,37 @@ Le informazioni contenute nel report relativo all'accesso utente consentono di r
 - Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 - Qual è lo stato di questi accessi?
 
+Il punto di ingresso a questi dati è il grafico relativo agli accessi utente nella pagina della panoramica di **protezione e sicurezza delle identità**. Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/06.png "Attività di accesso")
 
-Il punto di ingresso a questi dati è il grafico relativo agli accessi utente della sezione **Panoramica** in **Utenti e gruppi**.
+Quando si fa clic su un giorno nel grafico degli accessi, si ottiene una panoramica delle attività di accesso per tale giorno.
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/45.png "Attività di accesso")
-
-Il grafico degli accessi utente visualizza le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
-
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/46.png "Attività di accesso")
-
-Quando si fa clic su un giorno nel grafico degli accessi, si ottiene un elenco dettagliato delle attività di accesso per tale giorno.
-
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/41.png "Attività di accesso")
-
-Ogni riga nell'elenco di attività di accesso offre informazioni dettagliate sull'accesso selezionato, ad esempio:
+Ogni riga dell'elenco delle attività di accesso mostra:
 
 * Chi ha effettuato l'accesso?
-* Qual era il nome UPN correlato?
 * Qual era l'applicazione di destinazione dell'accesso?
-* Qual è l'indirizzo IP dell'accesso?
-* Qual era lo stato dell'accesso?
+* Qual è lo stato dell'accesso?
+* Qual è lo stato MFA dell'accesso?
 
-L'opzione **Accessi** offre una panoramica completa di tutti gli accessi utente.
+Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di accesso:
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/51.png "Attività di accesso")
+- ID utente
+- Utente
+- Username
+- ID applicazione
+- Applicazione
+- Client
+- Località
+- Indirizzo IP
+- Data
+- Autenticazione a più fattori obbligatoria
+- Stato accesso
 
+ 
+Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
 
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/08.png "Attività di accesso")
 
 ## <a name="usage-of-managed-applications"></a>Utilizzo di applicazioni gestite
 
@@ -175,7 +227,7 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 
 Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazione nel report sugli ultimi 30 giorni della sezione **Panoramica** in **Applicazioni aziendali**.
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/64.png "Attività di accesso")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/10.png "Attività di accesso")
 
 Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
@@ -183,18 +235,13 @@ Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli 
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-
 ![Report](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Report")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 
-
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/48.png "Attività di accesso")
-
-
 L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
-![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/49.png "Attività di accesso")
+![Attività di accesso](./media/active-directory-reporting-activity-sign-ins/11.png "Attività di accesso")
 
 
 

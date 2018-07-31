@@ -1,0 +1,358 @@
+---
+title: Kubernetes in Azure - Ridimensionamento automatico del cluster
+description: Informazioni su come usare il ridimensionamento automatico del cluster con Azure Kubernetes Service (AKS) per ridimensionare automaticamente il cluster e soddisfare la richiesta.
+services: container-service
+author: sakthivetrivel
+manager: jeconnoc
+ms.service: container-service
+ms.topic: article
+ms.date: 07/19/18
+ms.author: sakthivetrivel
+ms.custom: mvc
+ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186714"
+---
+# <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS) - Anteprima
+
+Il servizio Kubernetes di Azure (AKS) fornisce una soluzione flessibile per la distribuzione di un cluster Kubernetes gestito in Azure. Con la crescita delle richieste di risorsa, il ridimensionamento automatico del cluster consente l'aumento delle dimensioni del cluster per soddisfare tale richiesta, in base ai vincoli impostati. Il ridimensionamento automatico del cluster (CA) esegue tale operazione, ridimensionando i nodi agente in base ai pod in sospeso. Analizza il cluster periodicamente per cercare in pod in sospeso o nodi vuoti e ne aumenta la dimensione, se possibile. Per impostazione predefinita, CA analizza i pod in sospeso ogni 10 secondi e rimuove un nodo, se non risulta necessario per più di 10 minuti. Se usato con il ridimensionamento automatico orizzontale dei pod (HPA), l'attributo di protezione host aggiornerà le repliche di pod e le risorse in base alla richiesta. Se non vi sono nodi sufficienti o nodi non necessari seguendo la scalabilità del pod, CA risponderà e pianificherà i pod nel nuovo set di nodi.
+
+> [!IMPORTANT]
+> L'integrazione di ridimensionamento automatico del cluster di Azure AD per il servizio Kubernetes di Azure (AKS) è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+>
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. Se è necessario un cluster AKS, vedere la [guida introduttiva su Azure Kubernetes Service (AKS)][aks-quick-start].
+
+ Per sfruttare il ridimensionamento automatico del cluster, il cluster deve usare Kubernetes v1.10.X o versione successiva e deve essere abilitato per RBAC. Per aggiornare il cluster, vedere l'articolo sull'[aggiornamento di un cluster AKS][aks-upgrade].
+
+## <a name="gather-information"></a>Raccogliere informazioni
+
+L'elenco seguente mostra tutte le informazioni che è necessario specificare nella definizione del ridimensionamento automatico.
+
+- *ID sottoscrizione*: ID corrispondente alla sottoscrizione usata per questo cluster
+- *Nome gruppo di risorse* : nome del gruppo di risorse a cui appartiene il cluster 
+- *Nome cluster*: il nome del cluster
+- *ID client*: ID dell'app concesso dal passaggio di generazione dell'autorizzazione
+- *Segreto client*: segreto dell'app concesso dal passaggio di generazione dell'autorizzazione
+- *ID tenant*: ID del tenant (proprietario dell'account)
+- *Gruppo di risorse del nodo*: nome del gruppo di risorse che include i nodi agente nel cluster
+- *Nome del pool di nodi*: nome del pool di nodi che si desidera ridimensionare
+- *Numero minimo di nodi*: numero minimo di nodi presenti nel cluster
+- *Numero massimo di nodi*: numero massimo di nodi presenti nel cluster
+- *Tipo di macchina virtuale*: servizio usato per generare il cluster Kubernetes
+
+Ottieni l'ID di sottoscrizione con: 
+
+``` azurecli
+az account show --query id
+```
+
+Generare un set di credenziali di Azure eseguendo il comando seguente:
+
+```console
+$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
+
+"appId": <app-id>,
+"displayName": <display-name>,
+"name": <name>,
+"password": <app-password>,
+"tenant": <tenant-id>
+```
+
+L'ID dell'app, password e ID tenant saranno l'ID client, segreto client e ID tenant nei passaggi seguenti.
+
+Ottenere il nome del pool di nodi eseguendo il comando seguente. 
+
+```console
+$ kubectl get nodes --show-labels
+```
+
+Output:
+
+```console
+NAME                       STATUS    ROLES     AGE       VERSION   LABELS
+aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nodepool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=eastus,failure-domain.beta.kubernetes.io/zone=0,kubernetes.azure.com/cluster=MC_[resource-group]\_[cluster-name]_[location],kubernetes.io/hostname=aks-nodepool1-37756013-0,kubernetes.io/role=agent,storageprofile=managed,storagetier=Premium_LRS
+ ```
+
+Quindi, estrarre il valore dell'etichetta **agentpool**. Il nome predefinito per il pool di nodi di un cluster è "nodepool1".
+
+Per ottenere il nome del gruppo di risorse di nodi, estrarre il valore dell'etichetta **kubernetes.azure.com<span></span>/cluster**. Il nome del gruppo di risorse del nodo è in genere nel formato MC _ [gruppo di risorse]\__ [nome del cluster]_[percorso].
+
+Il parametro vmType fa riferimento al servizio in uso, ovvero in questo caso, servizio Kubernetes di Azure.
+
+Adesso, si dovrebbero avere le informazioni seguenti:
+
+- SubscriptionID
+- ResourceGroup
+- ClusterName
+- ClientID
+- ClientSecret
+- ID tenant
+- NodeResourceGroup
+- VMType
+
+Successivamente, codificare tutti questi valori con codifica base64. Ad esempio, per codificare il valore VMType con codifica base64:
+
+```console
+$ echo AKS | base64
+QUtTCg==
+```
+
+## <a name="create-secret"></a>Creare un segreto
+Usando questi dati, creare un segreto per la distribuzione usando i valori presenti nei passaggi precedenti nel formato seguente:
+
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>
+  ResourceGroup: <base64-encoded-resource-group>
+  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
+```
+
+## <a name="create-a-deployment-chart"></a>Creare un grafico di distribuzione
+
+Creare un file denominato `aks-cluster-autoscaler.yaml` e copiarvi il codice YAML seguente.
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    k8s-addon: cluster-autoscaler.addons.k8s.io
+    k8s-app: cluster-autoscaler
+  name: cluster-autoscaler
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: cluster-autoscaler
+  labels:
+    k8s-addon: cluster-autoscaler.addons.k8s.io
+    k8s-app: cluster-autoscaler
+rules:
+- apiGroups: [""]
+  resources: ["events","endpoints"]
+  verbs: ["create", "patch"]
+- apiGroups: [""]
+  resources: ["pods/eviction"]
+  verbs: ["create"]
+- apiGroups: [""]
+  resources: ["pods/status"]
+  verbs: ["update"]
+- apiGroups: [""]
+  resources: ["endpoints"]
+  resourceNames: ["cluster-autoscaler"]
+  verbs: ["get","update"]
+- apiGroups: [""]
+  resources: ["nodes"]
+  verbs: ["watch","list","get","update"]
+- apiGroups: [""]
+  resources: ["pods","services","replicationcontrollers","persistentvolumeclaims","persistentvolumes"]
+  verbs: ["watch","list","get"]
+- apiGroups: ["extensions"]
+  resources: ["replicasets","daemonsets"]
+  verbs: ["watch","list","get"]
+- apiGroups: ["policy"]
+  resources: ["poddisruptionbudgets"]
+  verbs: ["watch","list"]
+- apiGroups: ["apps"]
+  resources: ["statefulsets"]
+  verbs: ["watch","list","get"]
+- apiGroups: ["storage.k8s.io"]
+  resources: ["storageclasses"]
+  verbs: ["get", "list", "watch"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: Role
+metadata:
+  name: cluster-autoscaler
+  namespace: kube-system
+  labels:
+    k8s-addon: cluster-autoscaler.addons.k8s.io
+    k8s-app: cluster-autoscaler
+rules:
+- apiGroups: [""]
+  resources: ["configmaps"]
+  verbs: ["create"]
+- apiGroups: [""]
+  resources: ["configmaps"]
+  resourceNames: ["cluster-autoscaler-status"]
+  verbs: ["delete","get","update"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-autoscaler
+  labels:
+    k8s-addon: cluster-autoscaler.addons.k8s.io
+    k8s-app: cluster-autoscaler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-autoscaler
+subjects:
+  - kind: ServiceAccount
+    name: cluster-autoscaler
+    namespace: kube-system
+
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: RoleBinding
+metadata:
+  name: cluster-autoscaler
+  namespace: kube-system
+  labels:
+    k8s-addon: cluster-autoscaler.addons.k8s.io
+    k8s-app: cluster-autoscaler
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: cluster-autoscaler
+subjects:
+  - kind: ServiceAccount
+    name: cluster-autoscaler
+    namespace: kube-system
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: cluster-autoscaler
+  name: cluster-autoscaler
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cluster-autoscaler
+  template:
+    metadata:
+      labels:
+        app: cluster-autoscaler
+    spec:
+      serviceAccountName: cluster-autoscaler
+      containers:
+      - image: k8s.gcr.io/cluster-autoscaler:{{ ca_version }}
+        imagePullPolicy: Always
+        name: cluster-autoscaler
+        resources:
+          limits:
+            cpu: 100m
+            memory: 300Mi
+          requests:
+            cpu: 100m
+            memory: 300Mi
+        command:
+        - ./cluster-autoscaler
+        - --v=3
+        - --logtostderr=true
+        - --cloud-provider=azure
+        - --skip-nodes-with-local-storage=false
+        - --nodes=1:10:nodepool1
+        env:
+        - name: ARM_SUBSCRIPTION_ID
+          valueFrom:
+            secretKeyRef:
+              key: SubscriptionID
+              name: cluster-autoscaler-azure
+        - name: ARM_RESOURCE_GROUP
+          valueFrom:
+            secretKeyRef:
+              key: ResourceGroup
+              name: cluster-autoscaler-azure
+        - name: ARM_TENANT_ID
+          valueFrom:
+            secretKeyRef:
+              key: TenantID
+              name: cluster-autoscaler-azure
+        - name: ARM_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              key: ClientID
+              name: cluster-autoscaler-azure
+        - name: ARM_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: ClientSecret
+              name: cluster-autoscaler-azure
+        - name: ARM_VM_TYPE
+          valueFrom:
+            secretKeyRef:
+              key: VMType
+              name: cluster-autoscaler-azure
+        - name: AZURE_CLUSTER_NAME
+          valueFrom:
+            secretKeyRef:
+              key: ClusterName
+              name: cluster-autoscaler-azure
+        - name: AZURE_NODE_RESOURCE_GROUP
+          valueFrom:
+            secretKeyRef:
+              key: NodeResourceGroup
+              name: cluster-autoscaler-azure
+      restartPolicy: Always
+```
+
+Copiare e incollare il segreto creato nel passaggio precedente e inserirlo all'inizio del file.
+
+Successivamente, per impostare l'intervallo di nodi, compilare l'argomento per `--nodes` sotto `command` nel modulo MIN:MAX:NODE_POOL_NAME. Ad esempio: `--nodes=3:10:nodepool1` imposta il numero minimo di nodi a 3, il numero massimo di nodi a 10 e il nome del pool di nodi a nodepool1.
+
+Quindi, compilare il campo immagine sotto **contenitori** con la versione della scalabilità automatica del cluster che si desidera usare. Servizio Kubernetes di Azure richiede v1.2.2 o versione successiva. In questo esempio usa v1.2.2.
+
+## <a name="deployment"></a>Distribuzione
+
+Distribuire il ridimensionamento automatico del cluster eseguendo
+
+```console
+kubectl create -f cluster-autoscaler-containerservice.yaml
+```
+
+Per verificare se il ridimensionamento automatico del cluster è in esecuzione, usare il comando seguente e controllare l'elenco dei pod. Se è presente un pod con il prefisso "cluster-autoscaler" in esecuzione, il ridimensionamento automatico del cluster è stato distribuito.
+
+```console
+kubectl -n kube-system get pods
+```
+
+Per visualizzare lo stato del ridimensionamento automatico del cluster, eseguire
+
+```console
+kubectl -n kube-system describe configmap cluster-autoscaler-status
+```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per utilizzare il ridimensionamento automatico del cluster con il ridimensionamento automatico orizzontale dei pod, consultare [scalabilità dell'applicazione di Kubernetes e infrastruttura][aks-tutorial-scale].
+
+Altre informazioni sulla distribuzione e la gestione del servizio contenitore di Azure sono disponibili nelle relative esercitazioni.
+
+> [!div class="nextstepaction"]
+> [Esercitazione sul servizio contenitore di Azure][aks-tutorial-prepare-app]
+
+<!-- LINKS - internal -->
+[aks-quick-start]: ./kubernetes-walkthrough.md
+[aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
+[aks-upgrade]: ./upgrade-cluster.md
+
+<!-- LINKS - external -->
+[cluster-autoscale]: https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md
