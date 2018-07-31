@@ -1,18 +1,18 @@
-## <a name="navigate-to-your-apim-instance"></a>Passare all'istanza di Gestione API
-
-Per passare all'istanza di Gestione API, seguire questa procedura:
+## <a name="go-to-your-api-management-instance"></a>Passare all'istanza di Gestione API
 
 1. Accedere al [portale di Azure](https://portal.azure.com). 
-2. In alto a sinistra sullo schermo selezionare **Tutti i servizi**.  
-3. Nella casella di ricerca digitare "api".
-4. Fare clic su **Servizi Gestione API**.
+2. Selezionare **Tutti i servizi**.  
+3. Nella casella di ricerca immettere **api**.
+4. Nei risultati della ricerca selezionare **Servizi Gestione API**.
 
-    ![Esplorare](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Selezionare Servizi Gestione API nei risultati della ricerca](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
-5. Selezionare l'istanza del servizio Gestione API.
+5. Selezionare l'istanza del servizio Gestione API in esecuzione.
 
->[!TIP]
->Aggiungere Gestione API ai Preferiti del portale di Azure facendo clic sulla stella. <br/>L'icona Gestione API viene aggiunta al menu disponibile nella parte sinistra del portale. Per visualizzare tutti i servizi di Gestione API, fare clic sull'icona (![icona Gestione API](./media/api-management-navigate-to-instance/apim-icon.png)).
+> [!TIP]
+> Per aggiungere Gestione API ai Preferiti del portale di Azure, selezionare la stella.
+>
+> L'icona della Gestione API (![icona della Gestione API](./media/api-management-navigate-to-instance/apim-icon.png)) viene ora visualizzata nel menu a sinistra nel portale.
  
 
 

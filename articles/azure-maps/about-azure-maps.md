@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040848"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144194"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 Mappe di Azure è una raccolta di servizi geospaziali supportati da dati di mappa aggiornati che consente di fornire un contesto geografico preciso alle applicazioni Web e per dispositivi mobili. Contiene API REST per rendering delle mappe, ricerca di punti di interesse, percorsi ai punti di interesse, condizioni del traffico, fusi orari e servizi da IP a posizione. È possibile usare queste API con strumenti già noti per sviluppare e ridimensionare rapidamente soluzioni che integrano informazioni sulla posizione nelle soluzioni di Azure. Insieme alle API REST, fornisce un controllo JavaScript basato sul Web che rende lo sviluppo semplice, flessibile e compatibile con più supporti. 
@@ -92,6 +92,7 @@ Per altre informazioni, visitare la pagina delle [API del traffico di Mappe di A
 
 Il servizio da IP a posizione è un servizio in anteprima che consente di recuperare il codice paese di due lettere per un determinato indirizzo IP. Il servizio permette di personalizzare l'applicazione per soddisfare vincoli geopolitici speciali e di migliorare l'esperienza utente modificando il contenuto dell'applicazione in base alla posizione geografica. 
 
+Per informazioni sulle API REST per il servizio da IP a posizione, visitare la pagina delle [API per la georilevazione di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/geolocation).
 
 ## <a name="programming-model"></a>Modello di programmazione
 

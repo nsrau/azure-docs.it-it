@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001951"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145319"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -71,7 +71,7 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
 2. In **Nome del gruppo di risorse** immettere **Test-FW-RG**.
 3. In **Sottoscrizione** selezionare la propria sottoscrizione.
 4. In **Località del gruppo di risorse** selezionare una località. Tutte le successive risorse create devono trovarsi nella stessa località.
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 
 
 ### <a name="create-a-vnet"></a>Creare una rete virtuale
@@ -185,7 +185,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 5. In **Sottoscrizione** selezionare la propria sottoscrizione.
 6. In **Gruppo di risorse** selezionare **Usa esistente** e quindi selezionare **Test-FW-RG**.
 7. In **Località** selezionare la stessa località usata in precedenza.
-8. Fare clic su **Crea**.
+8. Fare clic su **Create**(Crea).
 9. Fare clic su **Aggiorna** e quindi fare clic sulla tabella di route **Firewall-route**.
 10. Fare clic su **Subnet** e quindi su **Associa**.
 11. Fare clic su **Rete virtuale** e quindi selezionare **Test-FW-VN**.
@@ -235,7 +235,7 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 6. In **Regole** immettere **AllowDNS** in **Nome**.
 8. In **Protocollo** selezionare **TCP**.
 9. In **Indirizzi di origine** immettere **10.0.2.0/24**.
-10. In Indirizzo di destinazione immettere **209.244.0.3, 209.244.0.4**
+10. In Indirizzo di destinazione immettere **209.244.0.3,209.244.0.4**
 11. In **Porte di destinazione** immettere **53**.
 12. Fare clic su **Aggiungi**.
 

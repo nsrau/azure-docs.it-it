@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967403"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205562"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure
 
@@ -38,7 +38,7 @@ Si apprenderà come:
 > * Esaminare la pipeline di CI/CD VSTS
 > * Configurare il monitoraggio di Azure Application Insights
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. È possibile ottenerne una gratuita tramite [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 * Accedere a GitHub o a un repository Git esterno contenente codice .NET, Java, PHP, Nodo, Python o Web statico.
@@ -141,8 +141,8 @@ Con Azure Application Insights, è possibile monitorare facilmente le prestazion
 
 1. Immettere un **Nome** per l'avviso.
 
-1. Selezionare l'elenco a discesa per l'**origine dell'avviso**.  Scegliere la **risorsa del servizio app**.
-
+1. Selezionare l'elenco a discesa per l'**origine dell'avviso**.  Scegliere la **risorsa del servizio app.**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. L'avviso predefinito è per un **tempo di risposta del server superiore a 1 secondo**.  Selezionare l'elenco a discesa **Metrica** per esaminare le varie metriche di avviso.  È possibile configurare facilmente un'ampia gamma di avvisi per migliorare le funzionalità di monitoraggio dell'app.
 
 1. Selezionare la casella di controllo **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**.  Facoltativamente, è possibile eseguire azioni aggiuntive quando viene generato un avviso tramite l'esecuzione di un'app per la logica di Azure.

@@ -1,6 +1,6 @@
 ---
-title: Usare un'identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Cosmos DB
-description: Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dal sistema su una macchina virtuale Linux per accedere ad Azure Cosmos DB.
+title: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Cosmos DB
+description: Questa esercitazione illustra come usare un'identità del servizio gestita assegnata dal sistema su una macchina virtuale Linux per accedere ad Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904425"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258331"
 ---
-# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestito di una macchina virtuale Linux per accedere ad Azure Cosmos DB 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Linux per accedere ad Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-Questa esercitazione mostra come creare e usare un'identità del servizio gestito di una macchina virtuale Linux. Si apprenderà come:
+Questa esercitazione mostra come creare e usare un'identità del servizio gestita per una macchina virtuale Linux. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una macchina virtuale Linux con l'identità del servizio gestito abilitata
+> * Creare una macchina virtuale Linux con l'identità del servizio gestita abilitata
 > * Creare un account Cosmos DB
 > * Creare una raccolta nell'account Cosmos DB
-> * Concedere all'identità del servizio gestito l'accesso a un'istanza di Azure Cosmos DB
-> * Recuperare il `principalID` dell'identità del servizio gestito della macchina virtuale Linux
+> * Concedere all'identità del servizio gestita l'accesso a un'istanza di Azure Cosmos DB
+> * Recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux
 > * Ottenere un token di accesso e usarlo per chiamare Azure Resource Manager
 > * Ottenere le chiavi di accesso da Azure Resource Manager per eseguire le chiamate a Cosmos DB
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com) prima di continuare.
 
@@ -54,9 +54,9 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Linux in un nuovo gruppo di risorse
 
-Per questa esercitazione, creare una nuova macchina virtuale Linux abilitata per l'identità del servizio gestito.
+Per questa esercitazione, creare una nuova macchina virtuale Linux abilitata per l'identità del servizio gestita.
 
-Per creare una VM abilitata per MSI:
+Per creare una macchina virtuale abilitata all'identità del servizio gestita:
 
 1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az_login). Usare un account associato alla sottoscrizione di Azure in cui si desidera distribuire la macchina virtuale:
 
@@ -70,7 +70,7 @@ Per creare una VM abilitata per MSI:
    az group create --name myResourceGroup --location westus
    ```
 
-3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un'Identità del servizio gestito, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
+3. Creare una macchina virtuale usando il comando [az vm create](/cli/azure/vm/#az_vm_create). L'esempio seguente crea una macchina virtuale denominata *myVM* con un'identità del servizio gestita, come richiesto dal parametro `--assign-identity`. I parametri `--admin-username` e `--admin-password` specificano il nome utente e la password dell'account amministrativo per l'accesso alla macchina virtuale. Aggiornare questi valori in base alle esigenze specifiche dell'ambiente: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -85,7 +85,7 @@ Se non ne è già disponibile uno, creare un account Cosmos DB. È possibile ign
 3. Immettere un **ID** per l'account Cosmos DB, da usare in un secondo momento.  
 4. **API** deve essere impostato su "SQL". L'approccio descritto in questa esercitazione può essere usato con gli altri tipi di API disponibili, ma i passaggi illustrati si riferiscono all'API SQL.
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.  Selezionare un **Percorso** in cui è disponibile Cosmos DB.
-6. Fare clic su **Crea**.
+6. Fare clic su **Create**(Crea).
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>Creare una raccolta nell'account Cosmos DB
 
@@ -95,14 +95,14 @@ Successivamente, aggiungere una raccolta di dati nell'account Cosmos DB su cui �
 2. Nella scheda **Panoramica** fare clic sul pulsante **+/Aggiungi raccolta**. Verrà visualizzato il pannello "Aggiungi raccolta".
 3. Assegnare alla raccolta un ID database e un ID raccolta, selezionare una capacità di archiviazione, immettere una chiave di partizione, specificare un valore di velocità effettiva, quindi fare clic su **OK**.  Per questa esercitazione, è sufficiente usare "Test" come ID database e ID raccolta, selezionare una capacità di archiviazione fissa e una velocità effettiva più bassa (400 UR/sec).  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux
+## <a name="retrieve-the-principalid-of-the-linux-vms-managed-service-identity"></a>Recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux
 
-Per ottenere l'accesso alle chiavi di accesso dell'account Cosmos DB da Gestione risorse nella sezione seguente, è necessario recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux.  Assicurarsi di sostituire i valori dei parametri `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (gruppo di risorse in cui si trova la macchina virtuale) e `<VM NAME>` con valori personalizzati.
+Per ottenere l'accesso alle chiavi di accesso dell'account Cosmos DB da Resource Manager nella sezione seguente, è necessario recuperare il `principalID` dell'identità del servizio gestita della macchina virtuale Linux.  Assicurarsi di sostituire i valori dei parametri `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (gruppo di risorse in cui si trova la macchina virtuale) e `<VM NAME>` con valori personalizzati.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-La risposta include i dettagli dell'identità del servizio gestito assegnata dal sistema (prendere nota del principalID perché viene usato nella prossima sezione):
+La risposta include i dettagli dell'identità del servizio gestita assegnata dal sistema (prendere nota del valore PrincipalId perché viene usato nella prossima sezione):
 
 ```bash  
 {
@@ -114,11 +114,11 @@ La risposta include i dettagli dell'identità del servizio gestito assegnata dal
  }
 
 ```
-## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Concedere all'identità del servizio gestito della macchina virtuale Linux l'accesso alle chiavi di accesso all'account Cosmos DB
+## <a name="grant-your-linux-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Concedere all'identità del servizio gestita della macchina virtuale Linux l'accesso alle chiavi di accesso all'account Cosmos DB
 
-Cosmos DB non supporta l'autenticazione di Azure AD in modo nativo. È tuttavia possibile usare un'identità del servizio gestito per recuperare una chiave di accesso Cosmos DB da Gestione risorse e usarla per accedere a Cosmos DB. In questo passaggio viene concesso all'identità del servizio gestito l'accesso alle chiavi per l'account Cosmos DB.
+Cosmos DB non supporta l'autenticazione di Azure AD in modo nativo. È tuttavia possibile usare un'identità del servizio gestita per recuperare una chiave di accesso Cosmos DB da Resource Manager e usarla per accedere a Cosmos DB. In questo passaggio, all'identità del servizio gestita viene concesso l'accesso alle chiavi dell'account Cosmos DB.
 
-Per concedere all'identità del servizio gestito l'accesso all'account Cosmos DB in Azure Resource Manager mediante l'interfaccia della riga di comando di Azure, aggiornare i valori per `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` per l'ambiente in uso. Sostituire `<MSI PRINCIPALID>` con la proprietà `principalId` restituita dal comando `az resource show` in [Recuperare il principalID dell'identità del servizio gestito della macchina virtuale Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supporta due livelli di granularità quando si usano le chiavi di accesso: accesso all'account in lettura/scrittura e in sola lettura.  Assegnare il ruolo `DocumentDB Account Contributor` se si desidera ottenere le chiavi di lettura/scrittura per l'account o assegnare il ruolo `Cosmos DB Account Reader Role` se si desidera ottenere le chiavi di sola lettura per l'account:
+Per concedere all'identità del servizio gestita l'accesso all'account Cosmos DB in Azure Resource Manager tramite l'interfaccia della riga di comando di Azure, aggiornare i valori per `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` per l'ambiente in uso. Sostituire `<MSI PRINCIPALID>` con la proprietà `principalId` restituita dal comando `az resource show` in [Recuperare il principalID dell'identità del servizio gestito della macchina virtuale Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supporta due livelli di granularità quando si usano le chiavi di accesso: accesso all'account in lettura/scrittura e in sola lettura.  Assegnare il ruolo `DocumentDB Account Contributor` se si desidera ottenere le chiavi di lettura/scrittura per l'account o assegnare il ruolo `Cosmos DB Account Reader Role` se si desidera ottenere le chiavi di sola lettura per l'account:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -140,7 +140,7 @@ La risposta include i dettagli relativi all'assegnazione di ruolo creata:
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-msi-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità del servizio gestito della macchina virtuale Linux e usarlo per chiamare Azure Resource Manager
+## <a name="get-an-access-token-using-the-linux-vms-managed-service-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità del servizio gestita della macchina virtuale Linux per chiamare Azure Resource Manager
 
 La parte rimanente dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126878"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185398"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
 
@@ -144,7 +144,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come creare un modello con Visual Studio Code e come distribuire tale modello usando Cloud Shell nel portale di Azure. Il modello usato in questa guida introduttiva contiene una sola risorsa di Azure.  Nell'esercitazione successiva verrà sviluppato un modello con più risorse,  alcune con risorse dipendenti.
+Questa esercitazione ha illustrato come creare un modello con Visual Studio Code e come distribuire tale modello usando Cloud Shell nel portale di Azure. Nella prossima esercitazione verranno forniti maggiori dettagli su come sviluppare un modello e usare le informazioni di riferimento sui modelli.
 
 > [!div class="nextstepaction"]
-> [Creare modelli con Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [Creare un account di archiviazione crittografato](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

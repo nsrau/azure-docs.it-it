@@ -1,141 +1,85 @@
 ---
-title: Introduzione alle Zone private di DNS di Azure con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come creare una zona DNS privata e un record in DNS Azure. Si tratta di una guida dettagliata per creare e gestire la prima zona privata e il primo record DNS usando l'interfaccia della riga di comando di Azure 2.0.
+title: Creare una zona privata di DNS di Azure con l'interfaccia della riga di comando di Azure
+description: In questa esercitazione verranno creati e testati una zona privata e un record DNS in DNS di Azure. Questa guida dettagliata illustra come creare e gestire la prima zona DNS privata e il primo record usando l'interfaccia della riga di comando di Azure.
 services: dns
-documentationcenter: na
-author: KumuD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: vhorne
 ms.service: dns
-ms.devlang: azurecli
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/15/2018
-ms.author: kumud
-ms.openlocfilehash: d10f3201adb972468d8de7e66a940232ed19562d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: tutorial
+ms.date: 7/25/2018
+ms.author: victorh
+ms.openlocfilehash: 023a1ecb6afc49dd20a14d57558d72a44779dbe9
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30191450"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257566"
 ---
-# <a name="get-started-with-azure-dns-private-zones-using-azure-cli-20"></a>Introduzione alle Zone private di DNS di Azure con l'interfaccia della riga di comando di Azure 2.0
+# <a name="create-an-azure-dns-private-zone-using-azure-cli"></a>Creare una zona privata di DNS di Azure con l'interfaccia della riga di comando di Azure
 
-> [!div class="op_single_selector"]
-> * [PowerShell](private-dns-getstarted-powershell.md)
-> * [Interfaccia della riga di comando di Azure 2.0](private-dns-getstarted-cli.md)
-
-Questo articolo illustra i passaggi per creare la prima zona privata e il primo record DNS usando l'interfaccia della riga di comando di Azure 2.0 tra piattaforme, disponibile per Windows, Mac e Linux. È anche possibile eseguire questi passaggi tramite Azure PowerShell.
+Questa esercitazione illustra i passaggi per creare la prima zona DNS privata e il primo record con l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare una zona DNS privata nella rete virtuale, specificare l'elenco di reti virtuali autorizzate a risolvere i record nella zona.  Tali reti vengono dette "reti virtuali di risoluzione".  È anche possibile specificare una rete virtuale per cui Azure DNS manterrà i record dei nomi host ogni volta che una macchina virtuale viene creata o eliminata definitivamente oppure ne viene modificato l'indirizzo IP.  Tale rete viene definita "rete virtuale di registrazione".
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Per iniziare a ospitare il dominio in DNS di Azure, è necessario creare una zona DNS per il nome di dominio. Ogni record DNS per il dominio viene quindi creato all'interno di questa zona DNS. Per pubblicare una zona DNS privata nella rete virtuale, specificare l'elenco di reti virtuali autorizzate a risolvere i record nella zona.  Tali reti vengono definite *reti virtuali di risoluzione*. È anche possibile specificare una rete virtuale per cui DNS di Azure manterrà i record dei nomi host ogni volta che una macchina virtuale viene creata o eliminata oppure ne viene modificato l'indirizzo IP.  Tale rete viene definita *rete virtuale di registrazione*.
 
-Queste istruzioni presuppongono che l'installazione e l'accesso all'interfaccia della riga di comando di Azure 2.0 siano già stati completati e che sia stata installata anche l'estensione necessaria dell'interfaccia della riga di comando che supporta le zone private. Per informazioni, vedere [Come gestire le zone DNS usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
+In questa esercitazione si apprenderà come:
 
-## <a name="to-installuse-azure-dns-private-zones-feature-public-preview"></a>Per installare/usare la funzionalità Zone private di DNS di Azure (anteprima pubblica)
-La funzionalità Zone private di DNS di Azure viene rilasciata in anteprima pubblica tramite un'estensione dell'interfaccia della riga di comando di Azure. Installare l'estensione "dns" dell'interfaccia della riga di comando di Azure 
+> [!div class="checklist"]
+> * Creare una zona DNS privata
+> * Creare le macchine virtuali di test
+> * Creare un record DNS aggiuntivo
+> * Testare la zona privata
 
-```
-az extension add --name dns
-``` 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](private-dns-getstarted-powershell.md).
+
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
 
-Prima di creare la zona DNS, viene creato un gruppo di risorse per contenere la zona DNS. Di seguito è riportato il comando.
+Innanzitutto, creare un gruppo di risorse per contenere la zona DNS: 
 
 ```azurecli
-az group create --name MyResourceGroup --location "West US"
+az group create --name MyAzureResourceGroup --location "East US"
 ```
 
 ## <a name="create-a-dns-private-zone"></a>Creare una zona DNS privata
 
-Una zona DNS privata viene creata usando il comando `az network dns zone create`. Per visualizzare la guida per questo comando, digitare `az network dns zone create --help`.
+Una zona DNS viene creata tramite l'uso del comando `az network dns zone create` insieme a un valore *Private* per il parametro **ZoneType**. L'esempio seguente crea una zona DNS denominata **contoso.local** nel gruppo di risorse denominato **MyAzureResourceGroup** e rende la zona DNS disponibile per la rete virtuale denominata **MyAzureVnet**.
 
-L'esempio seguente crea una zona DNS privata denominata *contoso.local* nel gruppo di risorse *MyResourceGroup* e la rende disponibile, ovvero la collega, alla rete virtuale *MyAzureVnet* tramite il parametro resolution-vnets. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
-
-```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.local --zone-type Private --resolution-vnets MyAzureVnet
-```
-
-Nota: nell'esempio precedente la rete virtuale "MyAzureVnet" appartiene allo stesso gruppo di risorse e alla stessa sottoscrizione della zona privata. Se è necessario collegare una rete virtuale appartenente a un gruppo di risorse o a una sottoscrizione diversa, occorre specificare l'ID completo di Azure Resource Manager invece del semplice nome di rete virtuale per il parametro --resolution-vnets. 
-
-Se è necessario che Azure crei automaticamente i record dei nomi host nella zona, usare il parametro *registration-vnets* invece di *resolution-vnets*.  Le reti virtuali di registrazione sono abilitate automaticamente per la risoluzione.
+Se il parametro **ZoneType** viene omesso, la zona viene creata come zona pubblica, quindi questo parametro è necessario per creare una zona privata.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.local --zone-type Private --registration-vnets MyAzureVnet
+az network vnet create \
+  --name myAzureVNet \
+  --resource-group MyAzureResourceGroup \
+  --location eastus \
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name backendSubnet \
+  --subnet-prefix 10.2.0.0/24
+
+az network dns zone create -g MyAzureResourceGroup \
+   -n contoso.local \
+  --zone-type Private \
+  --registration-vnets myAzureVNet
 ```
 
-## <a name="create-a-dns-record"></a>Creare un record DNS
+Se si vuole creare una zona solo per la risoluzione dei nomi (senza la creazione automatica dei nomi host), è possibile usare il parametro *resolution-vnets* anziché il parametro *registration-vnets*.
 
-Per creare un record DNS, usare il comando `az network dns record-set [record type] add-record`. Per informazioni, ad esempio per i record A, vedere `azure network dns record-set A add-record --help`.
+> [!NOTE]
+> Non sarà possibile visualizzare i record dei nomi host creati automaticamente. Tuttavia, in un secondo momento verrà eseguito un test per verificare che esistano.
 
-L'esempio seguente crea un record con il nome relativo "ip1" nella zona DNS "contoso.local" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record è "ip1.contoso.local". Il tipo di record è "A", con indirizzo IP "10.0.0.1".
-
-```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.local -n ip1 -a 10.0.0.1
-```
-
-Per altri tipi di record, per set di record con più di un record, per valori TTL alternativi e per modificare i record esistenti, vedere [Gestire record e set di record DNS con l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
-
-## <a name="view-records"></a>Visualizzare i record
-
-Per elencare i record DNS nella zona, usare:
-
-```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
-```
-
-## <a name="get-a-dns-private-zone"></a>Ottenere una zona DNS privata
-
-Per recuperare una zona DNS privata, usare `az network dns zone show`. Per altre informazioni, vedere `az network dns zone show --help`.
-
-L'esempio seguente restituisce la zona DNS *contoso.local* e i relativi dati associati dal gruppo di risorse *MyResourceGroup*. 
-
-```azurecli
-az network dns zone show --resource-group MyResourceGroup --name contoso.local
-```
-
-L'esempio seguente corrisponde alla risposta.
-
-```json
-{
-  "etag": "00000002-0000-0000-3d4d-64aa3689d201",
-  "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/MyResourceGroup/providers/Microsoft.Network/dnszones/contoso.local",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.local",
-  "nameServers": null,
-  "numberOfRecordSets": 1,
-  "registrationVirtualNetworks": [],
-  "resolutionVirtualNetworks": [
-    {
-      "additionalProperties": {},
-      "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/MyResourceGroup/providers/Microsoft.Network/virtualNetworks/MyAzureVnet",
-      "resourceGroup": "MyResourceGroup"
-    }
-  ]
-  "resourceGroup": "MyResourceGroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones",
-  "zoneType": "Private"
-}
-```
-
-Si noti che i record DNS non vengono restituiti da `az network dns zone show`. Per elencare i record DNS, usare `az network dns record-set list`.
-
-
-## <a name="list-dns-zones"></a>Elencare le zone DNS
+### <a name="list-dns-private-zones"></a>Elencare le zone DNS private
 
 Per enumerare le zone DNS, usare `az network dns zone list`. Per altre informazioni, vedere `az network dns zone list --help`.
 
 Se si specifica il gruppo di risorse, vengono elencate solo le zone all'interno del gruppo di risorse:
 
 ```azurecli
-az network dns zone list --resource-group MyResourceGroup
+az network dns zone list \
+  --resource-group MyAzureResourceGroup
 ```
 
 Se invece il gruppo di risorse viene omesso, sono elencate tutte le zone nella sottoscrizione:
@@ -144,47 +88,129 @@ Se invece il gruppo di risorse viene omesso, sono elencate tutte le zone nella s
 az network dns zone list 
 ```
 
-## <a name="update-a-dns-zone"></a>Aggiornare una zona DNS
+## <a name="create-the-test-virtual-machines"></a>Creare le macchine virtuali di test
 
-È possibile apportare modifiche a una risorsa di zona DNS usando `az network dns zone update`. Per altre informazioni, vedere `az network dns zone update --help`.
-
-Questo comando non consente di aggiornare alcun set di record DNS compreso nella zona (vedere [Come gestire i record DNS](dns-operations-recordsets-cli.md)). Questa operazione permette solo di aggiornare le proprietà della risorsa di zona stessa. Per le zone private è possibile aggiornare le reti virtuali di registrazione o di risoluzione collegate a una zona. 
-
-L'esempio seguente mostra come aggiornare la rete virtuale di risoluzione collegata a una zona DNS privata. La rete virtuale di risoluzione collegata esistente viene sostituita dalla nuova rete virtuale specificata.
+A questo punto, creare due macchine virtuali in modo da testare la zona DNS privata:
 
 ```azurecli
-az network dns zone update --resource-group MyResourceGroup --name contoso.local --zone-type Private --resolution-vnets MyNewAzureVnet
+az vm create \
+ -n myVM01 \
+ --admin-username test-user \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --image win2016datacenter
+
+az vm create \
+ -n myVM02 \
+ --admin-username test-user \
+ -g MyAzureResourceGroup \
+ -l eastus \
+ --subnet backendSubnet \
+ --vnet-name myAzureVnet \
+ --image win2016datacenter
 ```
 
-## <a name="delete-a-dns-zone"></a>Eliminare una zona DNS
+Questa operazione richiederà qualche minuto.
 
-Le zone DNS possono essere eliminate usando `az network dns zone delete`. Per altre informazioni, vedere `az network dns zone delete --help`.
+## <a name="create-an-additional-dns-record"></a>Creare un record DNS aggiuntivo
 
-> [!NOTE]
-> L'eliminazione di una zona DNS comporta anche l'eliminazione di tutti i record DNS all'interno della zona. Questa operazione non può essere annullata. Se la zona DNS è in uso, i servizi che la usano rileveranno un errore quando la zona viene eliminata.
->
->Per evitare l'eliminazione accidentale di una zona, vedere [How to protect DNS zones and records](dns-protect-zones-recordsets.md) (Come proteggere le zone e i record DNS).
+Per creare un record DNS, usare il comando `az network dns record-set [record type] add-record`. Per informazioni, ad esempio per l'aggiunta di record A, vedere `azure network dns record-set A add-record --help`.
 
-Questo comando richiede una conferma. Lo switch facoltativo `--yes` elimina questa richiesta.
-
-L'esempio seguente mostra come eliminare la zona *contoso.local* dal gruppo di risorse *MyResourceGroup*.
+ L'esempio seguente crea un record con il nome relativo **db** nella zona DNS **contoso.local** nel gruppo di risorse **MyAzureResourceGroup**. Il nome completo del set di record è **db.contoso.local**. Il tipo di record è "A", con indirizzo IP "10.2.0.4".
 
 ```azurecli
-az network dns zone delete --resource-group myresourcegroup --name contoso.local
+az network dns record-set a add-record \
+  -g MyAzureResourceGroup \
+  -z contoso.local \
+  -n db \
+  -a 10.2.0.4
 ```
+
+### <a name="view-dns-records"></a>Visualizzare i record DNS
+
+Per elencare i record DNS nella zona, eseguire:
+
+```azurecli
+az network dns record-set list \
+  -g MyAzureResourceGroup \
+  -z contoso.local
+```
+Tenere presente che non verranno visualizzati i record creati automaticamente per le due macchine virtuali di test.
+
+## <a name="test-the-private-zone"></a>Testare la zona privata
+
+A questo punto è possibile testare la risoluzione dei nomi per la zona privata **contoso.local**.
+
+### <a name="configure-vms-to-allow-inbound-icmp"></a>Configurare le macchine virtuali per consentire il traffico ICMP in entrata
+
+È possibile usare il comando ping per testare la risoluzione dei nomi. Configurare quindi il firewall in entrambe le macchine virtuali per consentire i pacchetti ICMP in ingresso.
+
+1. Connettersi a myVM01 e aprire una finestra di Windows PowerShell con privilegi di amministratore.
+2. Eseguire il comando seguente:
+
+   ```powershell
+   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   ```
+
+Ripetere l'operazione per myVM02.
+
+### <a name="ping-the-vms-by-name"></a>Effettuare il ping delle macchine virtuali in base al nome
+
+1. Dal prompt dei comandi di Windows PowerShell in myVM02, effettuare il ping di myVM01 usando il nome host registrato automaticamente:
+   ```
+   ping myVM01.contoso.local
+   ```
+   Verrà visualizzato un output simile al seguente:
+   ```
+   PS C:\> ping myvm01.contoso.local
+
+   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 1ms, Average = 0ms
+   PS C:\>
+   ```
+2. Ora effettuare il ping del nome **db** creato in precedenza:
+   ```
+   ping db.contoso.local
+   ```
+   Verrà visualizzato un output simile al seguente:
+   ```
+   PS C:\> ping db.contoso.local
+
+   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+   Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
+
+   Ping statistics for 10.2.0.4:
+       Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+   Approximate round trip times in milli-seconds:
+       Minimum = 0ms, Maximum = 0ms, Average = 0ms
+   PS C:\>
+   ```
 
 ## <a name="delete-all-resources"></a>Eliminare tutte le risorse
- 
-Per eliminare tutte le risorse create in questo articolo, seguire questa procedura:
+
+Quando non è più necessario, eliminare il gruppo di risorse **MyAzureResourceGroup** per eliminare le risorse create in questa esercitazione.
 
 ```azurecli
-az group delete --name MyResourceGroup
+az group delete --name MyAzureResourceGroup
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul servizio DNS Azure, vedere [Panoramica di DNS Azure](dns-overview.md).
+In questa esercitazione è stato descritto come distribuire una zona DNS privata, creare un record DNS e testare la zona.
+A questo punto, è possibile ottenere maggiori informazioni sulle zone DNS private.
 
-Per altre informazioni sulla gestione delle zone DNS in DNS Azure, vedere [Gestire le zone DNS in DNS Azure usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-dnszones-cli.md).
-
-Per altre informazioni sulla gestione dei record DNS in DNS Azure, vedere [Gestire i record e i set di record DNS in DNS Azure usando l'interfaccia della riga di comando di Azure 2.0](dns-operations-recordsets-cli.md).
+> [!div class="nextstepaction"]
+> [Uso di DNS di Azure per i domini privati](private-dns-overview.md)

@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/29/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33767972"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160451"
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
@@ -47,6 +47,8 @@ Per recuperare e rendere persistente lo stato con Istanze di contenitore di Azur
 Istanze di contenitore di Azure consente di pianificare contenitori sia Windows che Linux con la stessa API. È sufficiente specificare il tipo di sistema operativo quando si creano i [gruppi di contenitori](container-instances-container-groups.md).
 
 Alcune funzionalità attualmente sono limitate ai contenitori Linux. Microsoft si sta impegnando per garantire parità di funzionalità rispetto ai contenitori Windows. Nel frattempo, per informazioni sulle attuali differenze tra le piattaforme vedere [Quote e aree disponibili per Istanze di contenitore di Azure](container-instances-quotas.md).
+
+Istanze di contenitore di Azure supporta le immagini di Windows che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

@@ -3,20 +3,19 @@ title: Monitorare e risolvere i problemi relativi a un'applicazione di archiviaz
 description: Usare gli strumenti di diagnostica, le metriche e gli avvisi per risolvere i problemi e monitorare un'applicazione cloud.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418187"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206055"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -30,9 +29,9 @@ Nella quarta parte della serie si apprenderà come:
 > * eseguire il traffico di test con token SAS non corretti
 > * scaricare e analizzare i log
 
-[Analisi archiviazione di Azure](../common/storage-analytics.md) offre la registrazione e i dati metrica per un account di archiviazione. Questi dati offrono informazioni dettagliate sull'integrità dell'account di archiviazione. Prima di ottenere la visibilità nell'account di archiviazione, è necessario configurare la raccolta dati. Questo processo implica l'attivazione della registrazione, la configurazione delle metriche e l'attivazione degli avvisi.
+[Analisi archiviazione di Azure](../common/storage-analytics.md) offre la registrazione e i dati metrica per un account di archiviazione. Questi dati offrono informazioni dettagliate sull'integrità dell'account di archiviazione. Per raccogliere dati analitici dall'archiviazione di Azure, è possibile configurare la registrazione, le metriche e gli avvisi. Questo processo implica l'attivazione della registrazione, la configurazione delle metriche e l'attivazione degli avvisi.
 
-La registrazione e le metriche degli account di archiviazione vengono abilitate dalla scheda **Diagnostica** nel portale di Azure. Esistono due tipi di metriche. Le metriche **aggregate** raccolgono dati in ingresso/uscita, di disponibilità, latenza e percentuale di operazioni riuscite, che vengono aggregate per i servizi BLOB, di accodamento, tabelle e file. **Per API** raccolgono lo stesso set di metriche per ogni operazione di archiviazione nell'API del servizio Archiviazione di Azure. La registrazione di archiviazione consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle tabelle, code e BLOB di Azure. Consentono anche di visualizzare i motivi di fallimento delle richieste, ad esempio errori di timeout, limitazione e autorizzazione.
+La registrazione e le metriche degli account di archiviazione vengono abilitate dalla scheda **Diagnostica** nel portale di Azure. La registrazione di archiviazione consente all'utente di registrare i dettagli delle richieste, riuscite e non riuscite, nel proprio account di archiviazione. Questi log consentono di visualizzare i dettagli delle operazioni di lettura, scrittura ed eliminazione a fronte delle tabelle, code e BLOB di Azure. Consentono anche di visualizzare i motivi di fallimento delle richieste, ad esempio errori di timeout, limitazione e autorizzazione.
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
@@ -42,11 +41,11 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
-In **Diagnostica** impostare **Stato** su **On** (Attivo). Assicurarsi che tutte le opzioni in **Proprietà BLOB** siano abilitate.
+In **Impostazioni di diagnostica (versione classica)** impostare **Stato** su **Attivo**. Assicurarsi che tutte le opzioni in **Proprietà BLOB** siano abilitate.
 
 Al termine, fare clic su **Salva**
 
-![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Attivare gli avvisi
 
@@ -54,34 +53,33 @@ Gli avvisi sono un metodo per inviare messaggi di posta elettronica agli amminis
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Passare all'account di archiviazione nel portale di Azure
 
-Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
+Nella sezione **Monitoraggio** selezionare **Avvisi (versione classica)**.
 
-Selezionare **Regole di avviso** nella sezione **Monitoraggio**.
+Selezionare **Aggiungi avviso per la metrica (versione classica)** e completare il modulo **Aggiungi regola** inserendo le informazioni richieste. Nell'elenco a discesa **Metrica** selezionare `SASClientOtherError`. Per consentire l'attivazione dell'avviso al primo errore, nell'elenco a discesa **Condizione** selezionare **Maggiore o uguale a**.
 
-Selezionare **+ Aggiungi avviso** in **Aggiungi una regola di avviso** e inserire le informazioni necessarie. Scegliere `SASClientOtherError` dall'elenco a discesa **Metrica**.
-
-![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>Simulare un errore
 
-Per simulare un avviso valido, si può provare a richiedere un BLOB inesistente dall'account di archiviazione. A tale scopo, sostituire il valore `<incorrect-blob-name>` con un valore che non esiste. Eseguire il codice di esempio seguente più volte per simulare richieste BLOB non riuscite.
+Per simulare un avviso valido, si può provare a richiedere un BLOB inesistente dall'account di archiviazione. Il comando seguente richiede il nome di un contenitore di archiviazione. È possibile usare il nome di un contenitore esistente o crearne uno nuovo per gli scopi di questo esempio.
+
+Sostituire i segnaposto con valori reali (verificare che `<INCORRECT_BLOB_NAME>` sia impostato su un valore che non esiste) ed eseguire il comando.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 L'immagine seguente è un avviso di esempio che si basa sull'errore simulato eseguito con l'esempio precedente.
 
- ![Avviso di esempio](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Avviso di esempio](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>Scaricare e visualizzare i log
 

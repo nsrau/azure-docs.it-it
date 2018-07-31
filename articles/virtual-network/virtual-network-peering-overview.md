@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267129"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257872"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -85,7 +85,9 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
 
 ## <a name="pricing"></a>Prezzi
 
-È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
+È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni sui prezzi per il peering reti virtuali e per il peering globale di reti virtuali, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Il transito nel gateway è una proprietà del peering che consente a una rete virtuale di usare un gateway VPN in una rete virtuale con peering per la connettività cross-premise o da rete virtuale a rete virtuale. Il traffico che attraversa un gateway remoto in questo scenario è soggetto ai [costi del gateway VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) e non verranno addebitati [costi per il peering reti virtuali.](https://azure.microsoft.com/pricing/details/virtual-network) Se, ad esempio, la rete virtuale A ha un gateway VPN per la connettività locale e la rete virtuale B è associata alla rete virtuale A con le proprietà appropriate configurate, il traffico dalla rete virtuale B ai dati locali viene addebitato solo in uscita in base ai prezzi per il gateway VPN. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

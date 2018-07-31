@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869092"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248890"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Creare regole basate su attributi per l'appartenenza dinamica ai gruppi in Azure Active Directory
-In Azure Active Directory (Azure AD) è possibile creare regole personalizzate per abilitare complesse appartenenze dinamiche ai gruppi basate su attributi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Creare gruppi dinamici con appartenenza basata su attributi in Azure Active Directory
+
+In Azure Active Directory (Azure AD) è possibile creare regole complesse basate su attributi per abilitare appartenenze dinamiche per gruppi. Questo articolo descrive in dettaglio la sintassi e gli attributi per creare regole di appartenenza dinamica per utenti o dispositivi. È possibile configurare una regola per l'appartenenza dinamica nei gruppi di sicurezza o nei gruppi di Office 365.
 
 Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta tutte le regole dinamiche del gruppo in una directory per verificare se la modifica attiverà aggiunte o rimozioni nel gruppo. Se un utente o un dispositivo soddisfa una regola in un gruppo, viene aggiunto come membro a tale gruppo. Se non soddisfano la regola, vengono rimossi.
 
@@ -34,6 +35,7 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 > Al momento non è possibile creare un gruppo di dispositivi in base agli attributi dell'utente proprietario. Le regole di appartenenza dispositivo possono fare riferimento solo ad attributi immediati degli oggetti dispositivo nella directory.
 
 ## <a name="to-create-an-advanced-rule"></a>Per creare una regola avanzata
+
 1. Accedere al [centro amministrativo Azure AD](https://aad.portal.azure.com) con un account di amministratore globale o amministratore di account utente.
 2. Selezionare **Utenti e gruppi**.
 3. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
@@ -58,6 +60,7 @@ Quando gli attributi di un utente o un dispositivo cambiano, il sistema valuta t
 
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elaborazione appartenenza**:
+
 * **Valutazione**: la modifica dei gruppi è stata ricevuta e gli aggiornamenti sono in fase di valutazione.
 * **Elaborazione**: gli aggiornamenti sono in fase di elaborazione.
 * **Aggiornamento completato**: l’elaborazione è stata completata e tutti gli aggiornamenti sono stati apportati.
@@ -65,6 +68,7 @@ I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elabo
 * **Aggiornamento sospeso**: regola di appartenenza dinamica, gli aggiornamenti sono stati sospesi dall'amministratore. MembershipRuleProcessingState è impostato su "Paused".
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ultimo aggiornamento dell'appartenenza**:
+
 * &lt;**Data e ora**&gt;: ora dell'ultimo aggiornamento dell'appartenenza.
 * **In corso**: aggiornamenti in corso.
 * **Sconosciuto**: non è possibile recuperare l'orario dell'ultimo aggiornamento. Potrebbe essere dovuto alla recente creazione di un gruppo.
@@ -74,6 +78,7 @@ Se si verifica un errore durante l'elaborazione della regola di appartenenza per
 ![messaggio di errore di elaborazione](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Creazione del corpo di una regola avanzata
+
 La regola avanzata che è possibile creare per le appartenenze dinamiche ai gruppi è essenzialmente un'espressione binaria composta da tre parti che genera un risultato di tipo true o false. Di seguito sono elencate le tre parti:
 
 * Parametro sinistro
@@ -96,6 +101,7 @@ La lunghezza totale del corpo della regola avanzata non può superare i 2048 car
 > Le stringhe contenenti virgolette (") devono essere precedute dal carattere di escape ', ad esempio user.department -eq \`"Sales".
 
 ## <a name="supported-expression-rule-operators"></a>Operatori delle regole di espressione supportati
+
 Nella tabella seguente sono elencati tutti gli operatori delle regole di espressione supportati e la relativa sintassi da usare nel corpo della regola avanzata:
 
 | Operatore | Sintassi |
@@ -114,6 +120,7 @@ Nella tabella seguente sono elencati tutti gli operatori delle regole di espress
 ## <a name="operator-precedence"></a>Precedenza degli operatori
 
 Tutti gli operatori sono elencati di seguito per la precedenza da una posizione inferiore a quelli superiori. Gli operatori nella stessa riga hanno uguale precedenza:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Tutti gli operatori sono elencati di seguito per la precedenza da una posizione 
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Tutti gli operatori possono essere usati con o senza trattino come prefisso. Le parentesi sono necessarie solo quando la priorità non soddisfa i requisiti.
 Ad esempio: 
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 Equivale a:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Uso degli operatori -In e -notIn
 
 Per confrontare il valore di un attributo utente con una serie di valori diversi è possibile usare gli operatori -In o -notIn. Di seguito è illustrato un esempio con l'operatore -In:
@@ -140,6 +152,7 @@ Si noti l'uso di "[" e "]" all'inizio e alla fine dell'elenco di valori. Questa 
 
 
 ## <a name="query-error-remediation"></a>Correzione degli errori di query
+
 La tabella seguente elenca gli errori comuni con la relativa risoluzione
 
 | Errore di analisi della query | Uso errato | Uso corretto |
@@ -149,9 +162,11 @@ La tabella seguente elenca gli errori comuni con la relativa risoluzione
 | Errore: si è verificato un errore di compilazione della query. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. Operatore mancante. Usare i due predicati di join -and oppure -or<br/><br/>(user.department -eq "Vendite") -or (user.department -eq "Marketing")<br/><br/>2. Errore nell'espressione regolare usata con -match<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), in alternativa: (user.userPrincipalName -match "\@$")|
 
 ## <a name="supported-properties"></a>Proprietà supportate
+
 Di seguito sono elencate tutte le proprietà utente che è possibile usare nelle regole avanzate:
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
+
 Operatori consentiti
 
 * -eq
@@ -163,6 +178,7 @@ Operatori consentiti
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
+
 Operatori consentiti
 
 * -eq
@@ -206,6 +222,7 @@ Operatori consentiti
 | userType |membro guest *null* |(user.userType -eq "Membro") |
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
+
 Operatori consentiti
 
 * -contains
@@ -217,6 +234,7 @@ Operatori consentiti
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Proprietà multivalore
+
 Operatori consentiti
 
 * -any (soddisfatto quando almeno un elemento della raccolta corrisponde alla condizione)
@@ -225,6 +243,7 @@ Operatori consentiti
 | Properties | Valori | Uso |
 | --- | --- | --- |
 | assignedPlans |Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. È possibile usare gli operatori -any e -all per applicare una condizione rispettivamente a uno o a tutti gli elementi della raccolta. Ad esempio: 
 
@@ -234,14 +253,24 @@ assignedPlans è una proprietà multivalore che elenca tutti i piani di servizio
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-L'identificatore GUID identifica il piano di servizio Exchange Online (Piano 2).
+(L'identificatore GUID identifica il piano di servizio Exchange Online (Piano 2.))
 
 > [!NOTE]
 > Questa espressione è utile per identificare tutti gli utenti per i quali è stata abilitata una funzionalità di Office 365 o di un altro servizio online Microsoft. Ad esempio, per identificarli come destinatari di un determinato set di criteri.
 
-L'espressione seguente selezionerà tutti gli utenti che hanno un piano di servizio qualsiasi associato al servizio Intune (identificato dal nome di servizio "SCO"):
+L'espressione seguente seleziona tutti gli utenti che hanno un piano di servizio qualsiasi associato al servizio Intune (identificato dal nome di servizio "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Usando la sintassi del carattere di sottolineatura (\_)
+
+La sintassi del carattere di sottolineatura (\_) combina le occorrenze di un valore specifico in una delle proprietà di raccolta stringa multivalore per aggiungere utenti o dispositivi a un gruppo dinamico. Viene usata con-qualsiasi - o tutti - gli operatori.
+
+Ecco un esempio dell'uso del carattere di sottolineatura (\_) in una regola per aggiungere membri in base a user.proxyAddress (funziona allo stesso modo per user.otherMails). Questa regola aggiunge tutti gli utenti con l'indirizzo del proxy contenente "contoso" al gruppo.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Uso dei valori Null
@@ -256,14 +285,17 @@ Gli attributi di estensione e gli attributi personalizzati sono supportati nelle
 
 Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15.
 Ecco un esempio di regola che usa un attributo di estensione:
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in AAD e [Attributo] è il nome dell'attributo creato.
-Ecco un esempio di regola che usa un attributo personalizzato:
+
+Gli attributi personalizzati vengono sincronizzati dall'istanza locale di Windows Server AD o da un'applicazione SaaS collegata e hanno il formato "user.extension_[GUID]\__[Attributo]", dove [GUID] è l'identificatore univoco in AAD per l'applicazione che ha creato l'attributo in Azure AD e [Attributo] è il nome dell'attributo creato. Ecco un esempio di regola che usa un attributo personalizzato:
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 È possibile trovare il nome dell'attributo personalizzato nella directory eseguendo una query sull'attributo nell'utente con Esplora grafico e cercando il nome dell'attributo.
 
 ## <a name="direct-reports-rule"></a>Regola per i dipendenti diretti

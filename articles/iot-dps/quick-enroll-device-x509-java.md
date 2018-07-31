@@ -1,8 +1,8 @@
 ---
-title: Registrare dispositivi X.509 nel servizio Azure Device Provisioning con Java | Microsoft Docs
-description: Guida introduttiva di Azure - Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con Java Service SDK
-author: dsk-2015
-ms.author: dkshir
+title: Questa guida introduttiva illustra come registrare i dispositivi X.509 nel servizio Device Provisioning di Azure con Java | Microsoft Docs
+description: In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con Java
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,44 +10,35 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091085"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205766"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrare dispositivi X.509 nel servizio Device Provisioning in hub IoT con Java Service SDK
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-Questi passaggi illustrano come registrare a livello di codice un gruppo di dispositivi simulati X.509 nel servizio Device Provisioning in hub IoT di Azure, usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) con l'aiuto di un'applicazione Java di esempio. Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.
+Questa guida introduttiva illustra come usare Java per registrare a livello di codice un gruppo di dispositivi simulati X.509 nel servizio Device Provisioning in hub IoT di Azure. I dispositivi vengono registrati in un'istanza del servizio di provisioning creando un [gruppo di registrazione](concepts-service.md#enrollment-group) o una [registrazione singola](concepts-service.md#individual-enrollment). Questa guida introduttiva illustra come creare entrambi i tipi di registrazione. Le registrazioni vengono create usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) tramite un'applicazione Java di esempio. 
 
-Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare.
+Questa guida introduttiva prevede che siano già stati creati un hub IoT e un'istanza del servizio Device Provisioning. Se queste risorse non sono state ancora create, completare la guida introduttiva [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questo articolo.
 
-<a id="setupdevbox"></a>
+Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.
 
-## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. Verificare che [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) sia installato nel computer. 
+## <a name="prerequisites"></a>Prerequisiti
 
-2. Configurare le variabili di ambiente per l'installazione Java. La variabile `PATH` deve includere il percorso completo della directory *jdk1.8.x\bin*. Se si tratta della prima installazione Java del computer, creare una nuova variabile di ambiente denominata `JAVA_HOME` e fare in modo che punti al percorso completo della directory *jdk1.8.x*. Nel computer Windows questa directory si trova in genere nella cartella *C:\\Programmi\\Java\\* ed è possibile creare o modificare le variabili di ambiente cercando **Modifica le variabili di ambiente relative al sistema** nel **Pannello di controllo** del computer Windows. 
+* Installare [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Installare [Maven 3](https://maven.apache.org/download.cgi). È possibile verificare la versione di Maven corrente eseguendo:
 
-  Per controllare se Java è installato correttamente nel computer, eseguire il comando seguente nella finestra di comando:
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. Scaricare ed estrarre [Maven 3](https://maven.apache.org/download.cgi) nel computer. 
-
-4. Modificare la variabile di ambiente `PATH` in modo che punti alla cartella *apache-maven-3.x.x\\bin* nella cartella in cui viene estratto Maven. Per verificare che Maven sia installato correttamente, eseguire questo comando nella finestra di comando:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. Verificare che [git](https://git-scm.com/download/) sia installato nel computer e venga aggiunto alla variabile di ambiente `PATH`. 
+* Installare [Git](https://git-scm.com/download/).
 
 
 <a id="javasample"></a>
@@ -57,7 +48,7 @@ Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il po
 In questa sezione viene usato un certificato X.509 autofirmato. È importante tenere presente quanto segue:
 
 * I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
-* La data di scadenza predefinita per un certificato autofirmato è 1 anno.
+* La data di scadenza predefinita per un certificato autofirmato è un anno.
 
 La procedura seguente illustra come aggiungere i dettagli del provisioning del dispositivo X.509 al codice di esempio. 
 

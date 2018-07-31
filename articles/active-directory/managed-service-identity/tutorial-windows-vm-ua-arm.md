@@ -1,6 +1,6 @@
 ---
-title: Usare un'identità del servizio gestito assegnata dall'utente di macchina virtuale di Windows per accedere ad Azure Resource Manager
-description: Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dall'utente su una macchina virtuale Windows per accedere ad Azure Resource Manager.
+title: Usare un'identità del servizio gestita assegnata dall'utente su una macchina virtuale Windows per accedere ad Azure Resource Manager
+description: Questa esercitazione illustra come usare un'identità del servizio gestita assegnata dall'utente su una macchina virtuale Windows per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904374"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248388"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità del servizio gestita assegnata dall'utente su una macchina virtuale Windows per accedere ad Azure Resource Manager
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità del servizio gestita assegnata dall'utente su una macchina virtuale Windows per accedere ad Azure Resource Manager
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -41,7 +41,7 @@ Si apprenderà come:
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere le [differenze tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire la proceduta delle attività richieste di creazione delle risorse e gestione dei ruoli in questa esercitazione, l'account deve disporre delle autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](/azure/role-based-access-control/role-assignments-portal).
+- Per eseguire la procedura delle attività richieste di creazione delle risorse e gestione dei ruoli in questa esercitazione, l'account deve disporre delle autorizzazioni "Proprietario" nell'ambito appropriato (sottoscrizione o gruppo di risorse). Se è necessaria assistenza con l'assegnazione, vedere [Usare il controllo degli accessi in base al ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](/azure/role-based-access-control/role-assignments-portal).
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 5.7 o versione successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>Concedere all'identità del servizio gestito a un gruppo di risorse in Azure Resource Manager 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>Concedere all'identità del servizio gestita assegnata dall'utente l'accesso a un gruppo di risorse in Azure Resource Manager 
 
-L'Identità del servizio gestita (MSI) fornisce le identità che il codice può usare per richiedere i token di accesso per l'autenticazione alle API di risorsa che supporta l'autenticazione di Azure Active Directory. In questa esercitazione il codice accede all'API di Azure Resource Manager. 
+L'identità del servizio gestita fornisce le identità che il codice può usare per richiedere i token di accesso per l'autenticazione alle API di risorsa che supportano l'autenticazione di Azure AD. In questa esercitazione il codice accede all'API di Azure Resource Manager. 
 
 Prima che il codice possa accedere all'API, è necessario concedere all'identità l'accesso a una risorsa in Azure Resource Manager. In questo caso si tratta del gruppo di risorse in cui è contenuta la macchina virtuale. Aggiornare il valore per `<SUBSCRIPTION ID>` in base all'ambiente in uso.
 
@@ -144,11 +144,11 @@ Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macch
 
 2. Nel portale passare a **Macchine virtuali**, selezionare la macchina virtuale Windows e in **Panoramica** fare clic su **Connetti**.
 
-3. Inserire il **Nome utente** e la **Password** usati al momento della creazione della macchina virtuale Windows.
+3. Immettere il **Nome utente** e la **Password** usati al momento della creazione della macchina virtuale Windows.
 
 4. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire **PowerShell** nella sessione remota.
 
-5. Con `Invoke-WebRequest` di PowerShell, creare una richiesta all'endpoint locale di identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.
+5. Con `Invoke-WebRequest` di PowerShell eseguire una richiesta all'endpoint locale dell'identità del servizio gestita per ottenere un token di accesso per Azure Resource Manager.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

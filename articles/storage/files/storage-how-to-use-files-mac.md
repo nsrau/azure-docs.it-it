@@ -2,11 +2,11 @@
 title: Montare una condivisione file di Azure tramite SMB con macOS | Microsoft Docs
 description: Informazioni su come montare una condivisione file di Azure tramite SMB con macOS.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
-ms.assetid: 
+editor: tamram
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaa59e0568a6fc6ac9c867c6f05b7bfb22b71055
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206512"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montare una condivisione file di Azure tramite SMB con macOS
-[File di Azure](storage-files-introduction.md) è un servizio di Microsoft che consente di creare e usare condivisioni file di rete in Azure usando lo standard di settore. Le condivisioni file di Azure possono essere montate in macOS Sierra (10.12) ed El Capitan (10.11). Questo articolo illustra due diversi modi di montare una condivisione file di Azure in macOS con l'interfaccia utente del Finder e usando il terminale.
+[File di Azure](storage-files-introduction.md) è un servizio di Microsoft che consente di creare e usare condivisioni file di rete in Azure usando lo standard di settore. Le condivisioni file di Azure possono essere montate in macOS El Capitan (10.11) e versioni successive. Questo articolo illustra due diversi modi di montare una condivisione file di Azure in macOS con l'interfaccia utente del Finder e usando il terminale.
 
 > [!Note]  
 > Prima di montare una condivisione file di Azure tramite SMB, è consigliabile disabilitare la firma dei pacchetti SMB. In caso contrario, si potrebbe verificare una riduzione delle prestazioni quando si accede alla condivisione file di Azure da macOS. La connessione SMB verrà crittografata e la sicurezza della connessione non risulterà compromessa. Dal terminale i comandi seguenti disabiliteranno la firma dei pacchetti SMB, come illustrato da questo [articolo del supporto Apple sulla disabilitazione della firma dei pacchetti SMB](https://support.apple.com/HT205926):  
@@ -45,7 +46,7 @@ ms.lasthandoff: 10/11/2017
 
 2. **Scegliere "Connect to Server" (Connetti al server) dal menu "Vai"**: usando il percorso UNC dei [prerequisiti](#preq), convertire la doppia barra rovesciata iniziale (`\\`) in `smb://` e tutte le altre barre rovesciate (`\`) in barre (`/`). Il collegamento sarà simile al seguente: ![Finestra di dialogo "Connect to Server" (Connetti al server)](./media/storage-how-to-use-files-mac/mount-via-finder-2.png)
 
-3. **Usare il nome condivisione e la chiave dell'account di archiviazione quando vengono chiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connect to Server" (Connetti al server), verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome condivisione o la chiave dell'account di archiviazione nel portachiavi di macOS.
+3. **Usare il nome e la chiave dell'account di archiviazione quando vengono chiesti un nome utente e una password**: quando si fa clic su "Connessione" nella finestra di dialogo "Connetti al server", verranno chiesti il nome utente e la password. Verrà automaticamente inserito il nome utente macOS. È possibile inserire il nome o la chiave dell'account di archiviazione nel keychain di macOS.
 
 4. **Usare la condivisione file di Azure nel modo desiderato**: dopo avere sostituito il nome utente e la password con il nome condivisione e la chiave dell'account di archiviazione, la condivisione verrà montata. È possibile usarla come qualsiasi altra cartella/condivisione file locale, anche ad esempio per trascinare e rilasciare file nella condivisione file:
 

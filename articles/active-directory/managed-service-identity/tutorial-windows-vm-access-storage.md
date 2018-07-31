@@ -1,6 +1,6 @@
 ---
-title: Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure
-description: Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Archiviazione di Azure.
+title: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Archiviazione di Azure
+description: Questa esercitazione illustra come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Archiviazione di Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 94e16156e8accc2460005cb1927a621ec7921c71
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043993"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247374"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Archiviazione di Azure tramite una chiave di accesso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come abilitare Identità del servizio gestito (MSI, Managed Service Identity) per una macchina virtuale Windows e quindi usare l'identità per recuperare le chiavi di accesso dell'account di archiviazione. È possibile usare le chiavi di accesso alle risorse di archiviazione come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione si caricheranno e scaricheranno oggetti BLOB usando PowerShell in Archiviazione di Azure. Si apprenderà come:
+Questa esercitazione illustra come abilitare l'identità del servizio gestita per una macchina virtuale Windows e quindi usare l'identità per recuperare le chiavi di accesso dell'account di archiviazione. È possibile usare le chiavi di accesso alle risorse di archiviazione come di consueto durante le operazioni di archiviazione, ad esempio quando si usa Storage SDK. In questa esercitazione si caricheranno e scaricheranno oggetti BLOB usando PowerShell in Archiviazione di Azure. Si apprenderà come:
 
 
 > [!div class="checklist"]
-> * Abilitare Identità del servizio gestita in una macchina virtuale Windows 
+> * Abilitare l'identità del servizio gestito in una macchina virtuale Windows 
 > * Concedere alla macchina virtuale l'accesso alle chiavi di accesso all'account di archiviazione in Resource Manager 
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per ottenere le chiavi di accesso alle risorse di archiviazione da Resource Manager 
 
@@ -45,7 +45,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Windows, È possibile abilitare l'identità del servizio gestita anche in una macchina virtuale esistente.
 
 1.  Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
 2.  Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
@@ -56,27 +56,27 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows, ma è a
 
     ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale
+## <a name="enable-managed-service-identity-on-your-vm"></a>Abilitare l'identità del servizio gestita nella macchina virtuale
 
-Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestito comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
+Un'identità del servizio gestita della macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. Dietro le quinte, l'abilitazione dell'identità del servizio gestita comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità nella macchina virtuale.
 
 1. Passare al gruppo di risorse della nuova macchina virtuale e selezionare la macchina virtuale creata nel passaggio precedente.
 2. Nella sezione "Impostazioni" della macchina virtuale a sinistra fare clic su **Configurazione**.
-3. Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No.
+3. Per registrare e abilitare l'identità del servizio gestita, selezionare **Sì**. Se si vuole disabilitare questa funzionalità, selezionare No.
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.
 
     ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
-Se non ne è già disponibile uno, creare un account di archiviazione. È anche possibile ignorare questo passaggio e concedere alla macchina virtuale l'accesso Identità del servizio gestito alle chiavi di un account di archiviazione esistente. 
+Se non ne è già disponibile uno, creare un account di archiviazione. È anche possibile ignorare questo passaggio e concedere all'identità del servizio gestita della macchina virtuale l'accesso alle chiavi di un account di archiviazione esistente. 
 
 1. Fare clic sul pulsante **+/Crea nuovo servizio** nell'angolo superiore sinistro del portale di Azure.
 2. Fare clic su **Archiviazione**, quindi **Account di archiviazione**. Viene visualizzato un nuovo pannello "Crea account di archiviazione".
 3. Immettere un nome per l'account di archiviazione, che verrà usato in un secondo momento.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su "Gestione di risorse" e "Utilizzo generico". 
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
-6. Fare clic su **Crea**.
+6. Fare clic su **Create**(Crea).
 
     ![Creare un nuovo account di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -91,9 +91,9 @@ Successivamente verrà caricato e scaricato un file per il nuovo account di arch
 
     ![Creare un contenitore di archiviazione](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>Concedere alla macchina virtuale l'accesso con Identità del servizio gestito per l'utilizzo delle chiavi di accesso dell'account di archiviazione 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>Concedere all'identità del servizio gestita della macchina virtuale l'accesso per l'uso delle chiavi di accesso dell'account di archiviazione 
 
-Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare un'Identità del servizio gestito per recuperare le chiavi di accesso dell'account di archiviazione da Resource Manager e usare una chiave per accedere alle risorse di archiviazione.  In questo passaggio, alla macchina virtuale viene concesso l'accesso con Identità di servizio gestito alle chiavi dell'account di archiviazione.   
+Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.  È tuttavia possibile usare un'identità del servizio gestita per recuperare le chiavi di accesso dell'account di archiviazione da Resource Manager e usare una chiave per accedere alle risorse di archiviazione.  In questo passaggio, all'identità del servizio gestita della macchina virtuale viene concesso l'accesso alle chiavi dell'account di archiviazione.   
 
 1. Tornare all'account di archiviazione appena creato.  
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
@@ -114,7 +114,7 @@ In questa sezione è necessario usare i cmdlet PowerShell di Azure Resource Mana
 1. Nel portale di Azure passare a **Macchine virtuali** selezionare la propria VM Windows, quindi nella pagina **Panoramica** fare clic su **Connetti** nella parte superiore. 
 2. In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
 3. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire PowerShell nella sessione remota.
-4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale di Identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.
+4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale dell'identità del servizio gestita per ottenere un token di accesso per Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419105"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216590"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Usare quindi Azure Cloud Shell per creare un token di sicurezza.
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>Creare una firma di accesso condiviso
-La firma di accesso condiviso viene usata dal codice in esecuzione nel browser per autenticare le richieste inviate all'archivio BLOB. Tramite la firma di accesso condiviso, il client può eseguire l'autenticazione senza la stringa di connessione o la chiave di accesso dell'account. Per altre informazioni sulla firma di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../common/storage-dotnet-shared-access-signature-part-1.md).
+La firma di accesso condiviso viene usata dal codice in esecuzione nel browser per autorizzare le richieste inviate all'archivio BLOB. Tramite la firma di accesso condiviso, il client può autorizzare l'accesso alle risorse di archiviazione senza la chiave di accesso dell'account o la stringa di connessione. Per altre informazioni sulla firma di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../common/storage-dotnet-shared-access-signature-part-1.md).
 
 È possibile creare una firma di accesso condiviso con l'interfaccia della riga di comando di Azure tramite Azure Cloud Shell oppure con Azure Storage Explorer. La tabella seguente descrive i parametri per i quali è necessario specificare valori per generare una firma di accesso condiviso con l'interfaccia della riga di comando.
 
@@ -62,7 +62,7 @@ La firma di accesso condiviso viene usata dal codice in esecuzione nel browser p
 Lo script seguente usa l'interfaccia della riga di comando di Azure per creare una firma di accesso condiviso che è possibile passare a un servizio BLOB JavaScript.
 
 > [!NOTE]
-> Per ottenere risultati ottimali rimuovere gli spazi aggiuntivi tra i parametri prima di incollare il comando in Azure Cloud Shell.
+> Per ottenere risultati ottimali, rimuovere gli spazi aggiuntivi tra i parametri prima di incollare il comando in Azure Cloud Shell.
 
 ```bash
 az storage account generate-sas
@@ -84,7 +84,7 @@ La serie di valori dopo ogni parametro può risultare di difficile interpretazio
 Ora che la firma di accesso condiviso è stata generata, copiare il valore restituito nella console in un editor di testo. Questo valore verrà usato in un passaggio successivo.
 
 > [!IMPORTANT]
-> Nell'ambiente di produzione, passare i token di firma di accesso condiviso usando sempre SSL. I token di firma di accesso condiviso devono essere generati nel server e inviati alla pagina HTML per poter essere passati di nuovo all'archivio BLOB di Azure. È possibile considerare l'uso di una funzione senza server per generare token di firma di accesso condiviso. Il portale di Azure include modelli di funzioni che consentono di generare una firma di accesso condiviso con una funzione JavaScript.
+> Nell'ambiente di produzione, passare i token di firma di accesso condiviso usando sempre SSL. I token di firma di accesso condiviso devono essere generati nel server e inviati alla pagina HTML per poter essere passati di nuovo all'archivio BLOB di Azure. È possibile prendere in considerazione l'uso di una funzione senza server per generare token di firma di accesso condiviso. Il portale di Azure include modelli di funzioni che consentono di generare una firma di accesso condiviso con una funzione JavaScript.
 
 ## <a name="implement-the-html-page"></a>Implementare la pagina HTML
 
@@ -254,4 +254,4 @@ Per eliminare le risorse create durante questa guida introduttiva, tornare al [p
 Esplorare gli esempi per informazioni su come scaricare i BLOB e segnalare lo stato di avanzamento durante il caricamento dei file.
 
 > [!div class="nextstepaction"]
-> [Script client dell'archivio BLOB](https://github.com/Azure/azure-storage-node/tree/master/browser)
+> [Librerie client di archiviazione BLOB](https://github.com/Azure/azure-storage-node/tree/master/browser)

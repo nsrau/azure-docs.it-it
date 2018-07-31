@@ -1,22 +1,22 @@
 ---
-title: Uso degli avvisi e correzione dei problemi dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs
+title: 'Esercitazione: Uso degli avvisi e correzione dei problemi dei dispositivi nella soluzione di monitoraggio remoto - Azure | Microsoft Docs'
 description: Questa esercitazione illustra come usare gli avvisi per identificare e correggere i problemi con dispositivi connessi all'acceleratore della soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081789"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159384"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Risolvere e correggere i problemi dei dispositivi
+# <a name="troubleshoot-and-fix-device-issues"></a>Risolvere e correggere i problemi dei dispositivi
 
 In questa esercitazione si usa l'acceleratore della soluzione di monitoraggio remoto per identificare e correggere problemi con i dispositivi IoT connessi. Gli avvisi visualizzati nel dashboard dell'acceleratore della soluzione consentono di identificare i problemi e di eseguire processi remoti per risolverli.
 
@@ -28,11 +28,9 @@ In questa esercitazione:
 > * Analizzare un avviso di un dispositivo
 > * Risolvere il problema del dispositivo
 
-## <a name="prerequisites"></a>Prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per seguire questa esercitazione, è necessaria un'istanza distribuita dell'acceleratore della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
-
-Se l'acceleratore della soluzione di monitoraggio remoto non è stato ancora distribuito, completare la guida introduttiva [Distribuire la soluzione di monitoraggio remoto basata su cloud](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Analisi di un avviso
 
@@ -58,7 +56,7 @@ Per confermare di aver visto l'avviso, selezionare tutte le occorrenze in **Aler
 
 Quando si conferma l'avviso, lo stato dell'occorrenza passa a **Confermato**.
 
-Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) responsabile della generazione dell'avviso relativo alla temperatura:
+Nell'elenco dei dispositivi avvisati è possibile vedere il dispositivo **Prototype** (Prototipo) responsabile della generazione dell'avviso relativo alla temperatura:
 
 [![Elencare i dispositivi che causano l'avviso](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ Nell'elenco è possibile vedere il dispositivo **Prototype** (Prototipo) respons
 
 Per risolvere il problema per il dispositivo **Prototype** (Prototipo), è necessario chiamare il metodo **DecreaseTemperature** sul dispositivo.
 
-Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi e quindi scegliere **Processi**. Il modello di dispositivo **Prototype** (Prototipo) specifica sei metodi che un dispositivo deve supportare:
+Per eseguire operazioni su un dispositivo, selezionarlo nell'elenco dei dispositivi avvisati e quindi scegliere **Processi**. Il modello di dispositivo **Prototype** (Prototipo) supporta sei metodi:
 
 [![Visualizzare i metodi supportati dai dispositivi](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Scegliere **DecreaseTemperature** e impostare il nome del processo su **DecreaseTemperature**. Scegliere quindi **Apply** (Applica):
+Scegliere **DecreaseTemperature** e impostare il nome del processo su **DecreaseTemperature**. Fare quindi clic su **Applica**:
 
 [![Creare il processo per ridurre la temperatura](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Per tenere traccia dello stato del processo, fare clic su **View job status** (V
 È possibile verificare che la temperatura del dispositivo sia diminuita visualizzando i dati di telemetria sulla pagina **Dashboard**:
 
 [![Visualizzare il calo della temperatura](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

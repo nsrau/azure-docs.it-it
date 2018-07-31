@@ -1,6 +1,6 @@
 ---
-title: Come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Data Lake Store
-description: Esercitazione che illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Data Lake Store.
+title: Come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store
+description: Esercitazione che illustra come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7935aa245239ed32527d2c22fd41845c6da2ae1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007968"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247914"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Esercitazione: usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come usare un'identità del servizio gestito per una macchina virtuale Windows per accedere a un'istanza di Azure Data Lake Store. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
+Questa esercitazione illustra come usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a un'istanza di Azure Data Lake Store. Le Identità del servizio gestito vengono gestite automaticamente da Azure e consentono di eseguire l'autenticazione ai servizi che supportano l'autenticazione di Azure AD senza la necessità di inserire le credenziali nel codice. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Abilitare Identità del servizio gestito in una macchina virtuale Windows 
+> * Abilitare l'identità del servizio gestita in una macchina virtuale Windows 
 > * Concedere alla VM l'accesso a un'istanza di Azure Data Lake Store
 > * Ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per accedere a un'istanza di Azure Data Lake Store
 
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Windows,  È possibile abilitare l'identità del servizio gestita anche in una macchina virtuale esistente.
 
 1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
@@ -55,17 +55,17 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 
    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Abilitare l'identità del servizio gestita nella macchina virtuale 
 
-Un'Identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'Identità del servizio gestito indica ad Azure di creare un'identità gestita per la macchina virtuale. L'abilitazione dell'identità del servizio gestito comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità sulla macchina virtuale.
+Un'identità del servizio gestita della macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. L'abilitazione dell'identità del servizio gestita indica ad Azure di creare un'identità gestita per la macchina virtuale. Dietro le quinte, l'abilitazione dell'identità del servizio gestita comporta due operazioni: la registrazione della macchina virtuale con Azure Active Directory per creare la relativa identità gestita e la configurazione dell'identità nella macchina virtuale.
 
-1. Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
+1. Selezionare la **macchina virtuale** in cui si vuole abilitare l'identità del servizio gestita.  
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
-3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
+3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare l'identità del servizio gestita, selezionare **Sì**. Se si vuole disabilitare questa funzionalità, selezionare No. 
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se identità del servizio gestito è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
+5. Per verificare le estensioni installate nella macchina virtuale, fare clic su **Estensioni**. Se l'identità del servizio gestita è abilitata, nell'elenco sarà inclusa la voce **ManagedIdentityExtensionforWindows**.
 
    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
@@ -73,7 +73,7 @@ Un'Identità del servizio gestito per una macchina virtuale consente di ottenere
 
 È ora possibile concedere alla VM l'accesso a file e cartelle in un'istanza di Azure Data Lake Store.  Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova.  Per creare una nuova istanza di Data Lake Store usando il portale di Azure, seguire questa [guida introduttiva ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Nella [documentazione di Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
-Nell'istanza di Data Lake Store creare una nuova cartella e concedere alla VM l'autorizzazione di identità del servizio gestito per leggere, scrivere ed eseguire file in tale cartella:
+Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identità del servizio gestita per la macchina virtuale l'autorizzazione per leggere, scrivere ed eseguire file in quella cartella:
 
 1. Nel portale di Azure fare clic su **Data Lake Store** nel riquadro di spostamento sinistro.
 2. Fare clic sull'istanza di Data Lake Store che si vuole usare per questa esercitazione.
@@ -87,21 +87,21 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere alla VM l'
 10. Come nel passaggio 5, fare clic su **Aggiungi**, nel campo **Seleziona** immettere il nome della VM, selezionarla e fare clic su **Seleziona**.
 11. Come nel passaggio 6, fare clic su **Selezionare le autorizzazioni**, selezionare **Lettura**, **Scrittura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **Una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**.  Fare clic su **OK**.  L'autorizzazione verrà aggiunta correttamente.
 
-L'identità del servizio gestito della VM può ora eseguire tutte le operazioni sui file nella cartella creata.  Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+L'identità del servizio gestita della macchina virtuale può ora eseguire tutte le operazioni sui file nella cartella creata.  Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vm-msi-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Ottenere un token di accesso usando l'identità del servizio gestito della macchina virtuale e usarlo per chiamare il file system di Azure Data Lake Store
+## <a name="get-an-access-token-using-the-vm-managed-service-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Ottenere un token di accesso usando l'identità del servizio gestita della macchina virtuale e usarlo per chiamare il file system di Azure Data Lake Store
 
-Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, per poter accettare direttamente i token di accesso ottenuti usando l'identità del servizio gestito.  Per eseguire l'autenticazione al file system di Data Lake Store, inviare un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store, in un'intestazione dell'autorizzazione con il formato "Bearer <ACCESS_TOKEN_VALUE>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando l'identità del servizio gestita.  Per eseguire l'autenticazione al file system di Data Lake Store, inviare un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store, in un'intestazione dell'autorizzazione con il formato "Bearer <ACCESS_TOKEN_VALUE>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
 > [!NOTE]
 > Gli SDK client del file system di Data Lake Store non supportano ancora l'identità del servizio gestito.  Questa esercitazione verrà aggiornata quando verrà aggiunto il supporto all'SDK.
 
-In questa esercitazione si esegue l'autenticazione all'API REST del file system di Data Lake Store usando PowerShell per creare richieste REST. Per usare l'identità del servizio gestito della VM per l'autenticazione, è necessario eseguire le richieste dalla VM.
+In questa esercitazione si esegue l'autenticazione all'API REST del file system di Data Lake Store usando PowerShell per creare richieste REST. Per usare l'identità del servizio gestita della macchina virtuale per l'autenticazione, è necessario eseguire le richieste dalla macchina virtuale.
 
 1. Nel portale passare a **Macchine virtuali**, selezionare la VM Windows e in **Panoramica** fare clic su **Connetti**.
 2. In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
 3. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire **PowerShell** nella sessione remota. 
-4. Con `Invoke-WebRequest` di PowerShell, creare una richiesta all'endpoint locale di identità del servizio gestito per ottenere un token di accesso per Azure Data Lake Store.  L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  La barra finale è importante perché Data Lake stabilisce una corrispondenza esatta con l'identificatore della risorsa.
+4. Con `Invoke-WebRequest` di PowerShell eseguire una richiesta all'endpoint locale dell'identità del servizio gestita per ottenere un token di accesso per Azure Data Lake Store.  L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  La barra finale è importante perché Data Lake stabilisce una corrispondenza esatta con l'identificatore della risorsa.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}
@@ -207,7 +207,7 @@ In questa esercitazione si esegue l'autenticazione all'API REST del file system 
 
 Usando altre API del file system di Data Lake Store, è possibile accodare ai file, scaricare i file ed eseguire altre operazioni.
 
-Congratulazioni!  È stata eseguita l'autenticazione al file system di Data Lake Store usando un'identità del servizio gestito della VM.
+Congratulazioni!  È stata eseguita l'autenticazione al file system di Data Lake Store usando un'identità del servizio gestita della macchina virtuale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

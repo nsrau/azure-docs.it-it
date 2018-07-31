@@ -2,19 +2,19 @@
 title: Esercitazione per esaminare le espressioni endpoint in LUIS (Language Understanding) - Azure | Microsoft Docs
 description: In questa esercitazione viene illustrato come esaminare le espressioni endpoint nel dominio relativo alle risorse umane (HR) in LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970507"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237214"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Esercitazione: Esaminare le espressioni endpoint
 In questa esercitazione è possibile migliorare le previsioni delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP del servizio LUIS. 
@@ -34,7 +34,7 @@ Se non è disponibile l'app relativa alle risorse umane creata nell'esercitazion
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
-Se si vuole mantenere l'app relativa alle risorse umane originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `review`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
+Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `review`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
 
 Se sono disponibili tutte le versioni dell'app, tramite la serie di esercitazioni, potrebbe risultare sorprendente il fatto che l'elenco **Review endpoint utterances** (Esamina espressioni endpoint) non subisce alcuna modifica in base alla versione. È disponibile un singolo pool di espressioni da esaminare, indipendentemente dalla versione dell'espressione che si sta modificando attivamente o dalla versione dell'app pubblicata nell'endpoint. 
 
@@ -105,25 +105,25 @@ Mantenere aggiornato l'elenco di frasi inserendo eventuali nomi di lavoro indivi
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
 Language Understanding non riconosce le modifiche fino a quando non è stato eseguito il training. 
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Train** (Esegui il training).
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
 
-2. Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
 Per ottenere il modello aggiornato dell'app LUIS in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web di Language Understanding, selezionare il pulsante **Publish** (Pubblica). 
+1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
 
 2. Se questa app è stata importata, è necessario selezionare **Sentiment analysis** (Analisi del sentiment). 
 
 3. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
 
-4. La pubblicazione è completata quando viene visualizzata la barra di stato verde nella parte superiore del sito Web che conferma il completamento.
+4. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eseguire la query dell'endpoint con un'espressione
 Provare a usare un'espressione simile all'espressione corretta. 
 
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL endpoint nella barra degli indirizzi. 
+1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
 
 2. Passare alla fine dell'URL nell'indirizzo e immettere `Are there any natural language processing jobs in my department right now?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
@@ -236,7 +236,7 @@ Alcune espressioni endpoint presenteranno una percentuale elevata nell'elenco di
 La precisione delle previsioni dell'app è aumentata grazie alla revisione delle espressioni dall'endpoint. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app di Language Understanding. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

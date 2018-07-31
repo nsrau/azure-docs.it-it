@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301608"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188183"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Esercitazione: Assegnare l'accesso ai dati di gestione costi
 
@@ -28,6 +28,8 @@ Al momento della registrazione dell'account o del contratto di Azure, in Cloudyn
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo
 > * Creare un utente con accesso utente
+> * Eliminare un utente
+> * Eliminare o esportare i dati personali
 > * Creare e gestire le entità
 
 
@@ -42,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Anche se si dispone già di un accesso amministrativo, lo stesso potrebbe essere necessario anche per i colleghi all'interno dell'organizzazione. Nel portale di Cloudyn, fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Gestione utenti**. Fare clic su **Aggiunta nuovo utente** per aggiungere un nuovo utente.
 
-Immettere le informazioni necessarie relative all'utente. L'ID di accesso deve essere un indirizzo di posta elettronica valido. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi di destinatari consente all'utente di modificare gli elenchi di destinatari. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. L'utente imposta una password al primo accesso.
+Immettere le informazioni necessarie relative all'utente. L'**ID di accesso** deve essere un indirizzo di posta elettronica valido. Scegliere le autorizzazioni per consentire la Gestione utenti in modo che l'utente possa creare e modificare altri utenti. La gestione degli elenchi di destinatari consente all'utente di modificare gli elenchi di destinatari. Selezionando **Notify user by email** (Notifica utente tramite posta elettronica), all'utente verrà inviato tramite posta elettronica da Cloudyn un collegamento con informazioni di accesso. L'utente imposta una password al primo accesso.
 
 In **User has admin access** (L'utente dispone di un accesso amministrativo), viene selezionata l'entità radice dell'organizzazione. Lasciare la radice selezionata e salvare le informazioni utente. La selezione dell'entità radice consente all'utente di disporre dell'autorizzazione di amministratore non solo per l'entità radice nell'albero, ma anche per tutte le entità che si trovano sotto di essa.  
   ![aggiungere un nuovo utente con accesso amministrativo](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Gli utenti tipici che richiedono l'accesso a dati di gestione dei costi come das
 ![aggiungere un nuovo utente con accesso utente](.\media\tutorial-user-access\new-user-access.png)
 
 Per guardare un video di esercitazione sull'aggiunta di utenti, vedere [Aggiungere utenti in Gestione costi di Azure](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Eliminare un utente
+
+Quando si elimina un utente, tutte le entità a cui ha accesso l'utente rimangono intatte. I report *personali* salvati vengono rimossi quando l'utente viene eliminato. I report *pubblici* salvati creati dall'utente non vengono eliminati.
+
+Non è possibile rimuovere se stessi come utente.
+
+> [!WARNING]
+> Quando si elimina un utente, non può essere ripristinato.
+
+1.  Nel portale di Cloudyn fare clic sul simbolo a forma di ingranaggio in alto a destra e quindi selezionare **Gestione utenti**.
+2.  Nell'elenco di utenti selezionare l'utente che si vuole eliminare e quindi fare clic su **Elimina utente** (simbolo di Cestino).
+3.  Nella finestra Elimina utente fare clic su **Sì** e quindi fare clic su **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Eliminare o esportare i dati personali
+
+Se si vogliono eliminare o esportare i dati personali da Cloudyn, è necessario creare un ticket di supporto. Quando viene creato il ticket di supporto, funge da richiesta formale, ovvero Richiesta del soggetto interessato. Microsoft prenderà quindi velocemente misure per rimuovere l'account ed eliminare eventuali dati del cliente o personali. Per informazioni su come è possibile richiedere l'eliminazione o l'esportazione dei dati, vedere [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests) (Richieste del soggetto interessato per i dati Cloudyn).
 
 ## <a name="create-and-manage-entities"></a>Creare e gestire le entità
 
@@ -100,11 +120,13 @@ Per gli utenti di un contratto Enterprise di Azure, è disponibile un video di e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare un utente con accesso amministrativo
 > * Creare un utente con accesso utente
+> * Eliminare un utente
+> * Eliminare o esportare i dati personali
 > * Creare e gestire le entità
 
 

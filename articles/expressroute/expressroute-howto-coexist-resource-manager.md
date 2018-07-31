@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823564"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259256"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurare connessioni coesistenti ExpressRoute e da sito a sito
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Questo articolo illustra i passaggi necessari per configurare entrambi questi sc
     Se non è disponibile una rete virtuale, questa procedura consente la creazione di una nuova rete virtuale e di nuove connessioni ExpressRoute e VPN da sito a sito usando il modello di distribuzione di Resource Manager. Per configurare una rete virtuale, seguire la procedura in [Per creare una nuova rete virtuale con connessioni coesistenti](#new).
 * È già disponibile una rete virtuale con modello di distribuzione di Azure Resource Manager.
   
-    E’ possibile che esista già una rete virtuale con una connessione VPN da sito a sito o una connessione ExpressRoute. In questo scenario se la subnet mask del gateway è /28 o superiore, è necessario eliminare il gateway esistente. La sezione [Per configurare connessioni coesistenti per una rete virtuale esistente](#add) illustra come eliminare il gateway e quindi come creare nuove connessioni ExpressRoute e VPN da sito a sito.
+    E’ possibile che esista già una rete virtuale con una connessione VPN da sito a sito o una connessione ExpressRoute. In questo scenario se la subnet mask del gateway è /28 o maggiore (/28, /29, e così via), è necessario eliminare il gateway esistente. La sezione [Per configurare connessioni coesistenti per una rete virtuale esistente](#add) illustra come eliminare il gateway e quindi come creare nuove connessioni ExpressRoute e VPN da sito a sito.
   
     Eliminare e ricreare il gateway può causare tempi di inattività delle connessioni cross-premise. Le macchine virtuali e i servizi saranno comunque in grado di comunicare tramite il servizio di bilanciamento del carico mentre si configura il gateway, se sono configurati in questo senso.
 
@@ -91,7 +91,7 @@ Questa procedura illustra come creare una rete virtuale e connessioni da sito a 
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Creare una rete virtuale con una subnet del gateway. Per altre informazioni sulle creazione di una rete virtuale, vedere [Creare una rete virtuale](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Per altre informazioni sulle creazione di subnet, vedere [Creare una subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    

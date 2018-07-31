@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006931"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237870"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Informazioni sull'identità del servizio gestita per le risorse di Azure
 
@@ -59,7 +59,7 @@ Ecco un esempio del funzionamento delle identità assegnate dal sistema con Macc
 6. Viene effettuata una chiamata ad Azure AD per richiedere un token di accesso come specificato nel passaggio 5, usando l'ID client e il certificato di cui è stata eseguita la configurazione nel passaggio 3. Azure AD restituisce un token di accesso JSON Web.
 7. Il codice invia il token di accesso in una chiamata a un servizio che supporta l'autenticazione di Azure AD.
 
-Usando lo stesso diagramma, ecco un esempio del funzionamento di un'identità assegnata dall'utente con Macchine virtuali di Azure.
+Usando lo stesso diagramma, ecco un esempio del funzionamento di un'identità gestita assegnata dall'utente con Macchine virtuali di Azure.
 
 1. Azure Resource Manager riceve una richiesta per creare un'identità assegnata dall'utente.
 2. Azure Resource Manager crea un'entità servizio in Azure AD per rappresentare l'identità assegnata dall'utente. L'entità servizio viene creata nel tenant di Azure AD considerata attendibile da questa sottoscrizione.

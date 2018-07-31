@@ -1,20 +1,20 @@
 ---
-title: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs
+title: 'Esercitazione: Rilevare i problemi dei dispositivi in una soluzione di monitoraggio remoto basata su Azure | Microsoft Docs'
 description: Questa esercitazione mostra come usare regole e azioni per rilevare automaticamente problemi dei dispositivi in base alle soglie nella soluzione di monitoraggio remoto.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098482"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158878"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Esercitazione: rilevare i problemi con i dispositivi connessi alla soluzione di monitoraggio
 
@@ -33,29 +33,19 @@ In questa esercitazione:
 > * Modificare una regola esistente
 > * Attivare e disattivare le regole
 
-## <a name="prerequisites"></a>prerequisiti
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per seguire questa esercitazione, è necessaria un'istanza distribuita dell'acceleratore della soluzione di monitoraggio remoto nella sottoscrizione di Azure.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Se l'acceleratore della soluzione di monitoraggio remoto non è stato ancora distribuito, completare la guida introduttiva [Distribuire la soluzione di monitoraggio remoto basata su cloud](quickstart-remote-monitoring-deploy.md).
-
-## <a name="view-the-existing-rules"></a>Visualizzare le regole esistenti
+## <a name="review-the-existing-rules"></a>Esaminare le regole esistenti
 
 La pagina **Regole** nell'acceleratore di soluzione mostra un elenco di tutte le regole correnti:
 
 [![Pagina delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Per visualizzare solo le regole valide per i dispositivi refrigeratore, applicare un filtro:
-
-[![Filtrare l'elenco delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-Quando si seleziona una regola nell'elenco, è possibile visualizzare altre informazioni sulla regola o modificarla:
+Per visualizzare solo le regole valide per i dispositivi refrigeratore, applicare un filtro. Quando si seleziona una regola nell'elenco, è possibile visualizzare altre informazioni sulla regola o modificarla:
 
 [![Visualizzare i dettagli delle regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Per disabilitare o abilitare una o più regole, selezionare una o più regole nell'elenco:
-
-[![Selezionare più regole](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Creare una regola
 
@@ -80,7 +70,7 @@ Per salvare la nuova regola, fare clic su **Applica**.
 
 [![Regola di avviso attivata](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Creare una regola con più condizioni
+## <a name="create-an-advanced-rule"></a>Creare una regola avanzata
 
 Per creare una regola con più condizioni che genera un avviso critico quando negli ultimi cinque minuti per un dispositivo refrigeratore l'umidità media è superiore a 80% e la temperatura media è superiore a 75 gradi fahrenheit, fare clic su **Nuova regola** . Usare i valori seguenti per creare la regola:
 
@@ -128,23 +118,7 @@ Per disattivare temporaneamente una regola, è possibile disabilitarla nell'elen
 
 È possibile attivare e disattivare più regole contemporaneamente selezionando più regole nell'elenco.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Se si intende passare all'esercitazione successiva, lasciare l'acceleratore della soluzione di monitoraggio remoto distribuito. Per ridurre i costi di esecuzione dell'acceleratore della soluzione mentre non è in uso, è possibile arrestare i dispositivi simulati nel pannello delle impostazioni:
-
-[![Sospendere la telemetria](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Quando si è pronti per iniziare l'esercitazione successiva, è possibile riavviare i dispositivi simulati.
-
-Se l'acceleratore della soluzione non è più necessario, eliminarlo dalla pagina [Soluzioni di cui è stato effettuato il provisioning](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Eliminare la soluzione](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

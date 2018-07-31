@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 692a384c3695001677b7a3d6161b77f3f015ad7c
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125870"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185670"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Esercitazione: Creare, eseguire il debug e distribuire un'applicazione Web multiservizio in Service Fabric Mesh
 
@@ -53,6 +53,8 @@ Prima di iniziare questa esercitazione:
 * Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 * Assicurarsi di [configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md), installando tra l'altro il runtime di Service Fabric, l'SDK, Docker e Visual Studio 2017.
+
+* L'app per questa esercitazione deve, per il momento, essere compilata con le impostazioni locali inglese.
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Creare un progetto Service Fabric Mesh
 
@@ -223,7 +225,7 @@ public static class DataContext
 
 Questo contesto dei dati minimo consente di popolare alcuni elementi di attività di esempio e di accedervi.
 
-### <a name="add-a-controller"></a>Aggiungere un controller
+### <a name="add-a-controller"></a>Aggiunta di un controller
 
 Durante la creazione del progetto **ToDoService** il modello ha fornito un controller predefinito che gestisce le richieste HTPP e crea la risposta HTTP. In **Esplora soluzioni** aprire la cartella **Controllers** in **ToDoService** per visualizzare il file **ValuesController.cs**. 
 

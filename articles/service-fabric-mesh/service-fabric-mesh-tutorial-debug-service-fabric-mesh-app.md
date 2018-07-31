@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125654"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186739"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Esercitazione: Eseguire il debug di un'applicazione Web Service Fabric Mesh
 
@@ -75,8 +75,8 @@ Quando la distribuzione locale è completata e l'app è in esecuzione in Visual 
 **Suggerimenti per il debug**
 
 * Se viene visualizzato l'errore **No Service Fabric local cluster is running** (Nessun cluster locale di Service Fabric è in esecuzione), assicurarsi che Service Local Cluster Manager (SLCM) sia in esecuzione, fare clic con il pulsante destro del mouse sull'icona SLCM sulla barra delle applicazioni e quindi fare clic su **Start Local Cluster** (Avvia cluster locale). Dopo l'avvio, tornare a Visual Studio e premere **F5**.
-* Se viene visualizzato un errore **404** all'avvio dell'app, è probabile che le variabili di ambiente in **service.yaml** non siano corrette. Assicurarsi che `AppName`, `ApiHostPort` e `ServiceName` siano impostati conformemente alle istruzioni della sezione [Impostare le variabili di ambiente](#set-environment-variables).
-* Se sono presenti errori di compilazione in **service.yaml**, assicurarsi che per impostare i rientri delle righe vengano usati gli spazi e non le tabulazioni.
+* Se viene visualizzato un errore **404** all'avvio dell'app, è probabile che le variabili di ambiente in **service.yaml** non siano corrette. Assicurarsi che `ApiHostPort` e `ServiceName` siano impostati conformemente alle istruzioni della sezione [Creare le variabili di ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+* Se sono presenti errori di compilazione in **service.yaml**, assicurarsi che per impostare i rientri delle righe vengano usati gli spazi e non le tabulazioni. Inoltre, per il momento, è necessario compilare l'app usando le impostazioni locali inglese.
 
 ### <a name="debug-in-visual-studio"></a>Eseguire il debug in Visual Studio
 

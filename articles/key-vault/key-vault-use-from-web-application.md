@@ -2,24 +2,25 @@
 title: Usare l'insieme di credenziali delle chiavi di Azure da un'esercitazione per applicazione Web | Microsoft Docs
 description: In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115079"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171324"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Esercitazione: usare l'insieme di credenziali chiave di Azure da un'applicazione Web
-In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web in Azure. Mostra il processo di accesso a un segreto da Azure Key Vault per l'uso in un'applicazione Web. L'esercitazione quindi si basa sul processo e usa un certificato al posto di un segreto client. Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni di base della creazione di applicazioni Web in Azure. 
+
+In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web in Azure. Mostra il processo di accesso a un segreto da Azure Key Vault per l'uso in un'applicazione Web. L'esercitazione quindi si basa sul processo e usa un certificato al posto di un segreto client. Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni di base della creazione di applicazioni Web in Azure.
 
 In questa esercitazione si apprenderà come: 
 
@@ -27,11 +28,11 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere le impostazioni dell'applicazione al file web.config
 > * Aggiungere un metodo per ottenere un token di accesso
 > * Recuperare il token all'avvio dell'applicazione
-> * Autenticazione con un certificato 
+> * Autenticazione con un certificato
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -41,7 +42,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 Completare i passaggi descritti in [Introduzione ad Azure Key Vault](key-vault-get-started.md) per ottenere l'URI per un segreto, ID client e segreto client e registrare l'applicazione. L'applicazione Web accede all’insieme di credenziali e deve essere registrata in Azure Active Directory. Deve anche disporre dei diritti di accesso a Key Vault. Se non è così, tornare a Registrare un'applicazione nell'esercitazione introduttiva e ripetere i passaggi elencati. Per altre informazioni sulla creazione di app Web di Azure, vedere [Panoramica delle app Web](../app-service/app-service-web-overview.md).
 
-Questo esempio dipende dall’esecuzione manuale del provisioning delle identità Azure Active Directory. Attualmente esiste una nuova funzionalità in anteprima, denominata [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), che consente di eseguire automaticamente il provisioning di identità Azure Active Directory. Per ulteriori informazioni, consultare l’esempio su [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e la relativa [esercitazione Identità del servizio gestita con funzioni e servizio app](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
+Questo esempio dipende dall’esecuzione manuale del provisioning delle identità Azure Active Directory. È tuttavia preferibile usare l'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/msi-overview). Le identità del servizio gestite possono effettuare automaticamente il provisioning delle identità di Azure AD. Per ulteriori informazioni, consultare l’esempio su [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e la relativa [esercitazione Identità del servizio gestita con funzioni e servizio app](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). È anche possibile esaminare l'[esercitazione sull'identità del servizio gestita](tutorial-web-application-keyvault.md) specifica di Key Vault
 
 
 ## <a id="packages"></a>Aggiungere i pacchetti NuGet

@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967868"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189410"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967868"
 
    ![Impostazioni di configurazione di Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Al termine dell'operazione, selezionare **Next: Networking** (Avanti: Rete).
+   Al termine, selezionare **Avanti: autenticazione**.
+
+1. Scegliere l'impostazione desiderata per il controllo degli accessi in base al ruolo. Azure Dev Spaces supporta i cluster con il controllo degli accessi in base al ruolo abilitato o disabilitato.
+
+    ![Impostazione del controllo degli accessi in base al ruolo](../media/common/k8s-RBAC.PNG)
 
 1. Assicurarsi che il routing dell'applicazione Http sia abilitato.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967868"
 
     > [!IMPORTANT]
     > È necessario assicurarsi di abilitare il routing dell'applicazione Http quando si crea il cluster AKS. Non è possibile modificare questa impostazione in un secondo momento.
-
-1. Scegliere l'impostazione desiderata per il controllo degli accessi in base al ruolo. Azure Dev Spaces supporta i cluster con il controllo degli accessi in base al ruolo abilitato o disabilitato.
-
-    ![Impostazione del controllo degli accessi in base al ruolo](../media/common/k8s-RBAC.PNG)
 
 1. Al termine dell'operazione, selezionare **Review + create** (Esamina + crea) e quindi **Create** (Crea).

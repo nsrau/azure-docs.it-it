@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a69321aad2fd149461699344062179eff221d26e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2c03b1b4dcdcd224494efca1fd17c04d1d7b8cff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674819"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213283"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
@@ -144,7 +144,7 @@ L'attivazione del ruolo è personalizzabile. Nelle impostazioni di PIM è possib
 
 ## <a name="review-role-activity"></a>Verificare l'attività del ruolo
 
-È possibile verificare l'uso dei ruoli con privilegi da parte di dipendenti e amministratori in due modi. La prima opzione consiste nell'uso della [Cronologia di controllo dei ruoli della directory](pim-how-to-use-audit-log.md). La cronologia di controllo registra il rilevamento delle modifiche nelle assegnazioni di ruolo con privilegi, nella cronologia di attivazione del ruolo, e nelle modifiche alle impostazioni per i ruoli di risorse di Azure (Anteprima). 
+È possibile verificare l'uso dei ruoli con privilegi da parte di dipendenti e amministratori in due modi. La prima opzione consiste nell'uso della [Cronologia di controllo dei ruoli della directory](pim-how-to-use-audit-log.md). La cronologia di controllo registra il rilevamento delle modifiche nelle assegnazioni di ruolo con privilegi, nella cronologia di attivazione del ruolo e nelle modifiche alle impostazioni per i ruoli di risorse di Azure (Anteprima). 
 
 ![Cronologia di attivazione PIM - Schermata](./media/pim-configure/PIM_ActivationHistory.png)
 

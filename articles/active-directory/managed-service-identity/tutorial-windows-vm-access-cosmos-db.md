@@ -1,6 +1,6 @@
 ---
-title: Usare un'identità del servizio gestito per una macchina virtuale Windows per accedere ad Azure Cosmos DB
-description: Questa esercitazione illustra come usare un'identità del servizio gestito assegnata dal sistema su una macchina virtuale Windows per accedere ad Azure Cosmos DB.
+title: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Cosmos DB
+description: Questa esercitazione illustra come usare un'identità del servizio gestita assegnata dal sistema su una macchina virtuale Windows per accedere ad Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005646"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248969"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestita per una macchina virtuale Windows per accedere ad Azure Cosmos DB
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità del servizio gestita su una macchina virtuale Windows per accedere ad Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come creare e usare un'identità del servizio gestito per una macchina virtuale Windows per accedere a Cosmos DB. Si apprenderà come:
+Questa esercitazione illustra come creare e usare un'identità del servizio gestita per una macchina virtuale Windows per accedere a Cosmos DB. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una macchina virtuale Windows abilitata per l'identità del servizio gestito 
+> * Creare una macchina virtuale Windows abilitata all'identità del servizio gestita 
 > * Creare un account Cosmos DB
-> * Concedere all'identità del servizio gestito della macchina virtuale Windows l'accesso alle chiavi di accesso all'account Cosmos DB
-> * Ottenere un token di accesso usando l'identità del servizio gestito della macchina virtuale Windows per chiamare Azure Resource Manager
+> * Concedere all'identità del servizio gestita della macchina virtuale Windows l'accesso alle chiavi di accesso all'account Cosmos DB
+> * Ottenere un token di accesso usando l'identità del servizio gestita della macchina virtuale Windows per chiamare Azure Resource Manager
 > * Ottenere le chiavi di accesso da Azure Resource Manager per eseguire le chiamate a Cosmos DB
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -47,7 +47,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Creare una macchina virtuale Windows in un nuovo gruppo di risorse
 
-Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è anche possibile abilitare l'identità del servizio gestito in una macchina virtuale esistente.
+Per questa esercitazione si creerà una nuova macchina virtuale Windows,  È possibile abilitare l'identità del servizio gestita anche in una macchina virtuale esistente.
 
 1. Fare clic sul pulsante **Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 2. Selezionare **Calcolo** e quindi **Windows Server 2016 Datacenter**. 
@@ -58,13 +58,13 @@ Per questa esercitazione si creerà una nuova macchina virtuale Windows,  ma è 
 
    ![Testo immagine alt](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>Abilitare identità del servizio gestito nella macchina virtuale 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Abilitare l'identità del servizio gestita nella macchina virtuale 
 
-Un'identità del servizio gestito per una macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. Dietro le quinte, l'abilitazione dell'identità del servizio gestito in una macchina virtuale tramite il portale di Azure esegue due operazioni: registra la macchina virtuale in Azure AD per creare un'identità gestita e configura l'identità nella macchina virtuale.
+Un'identità del servizio gestita della macchina virtuale consente di ottenere i token di accesso da Azure AD senza dover inserire le credenziali nel codice. Dietro le quinte, l'abilitazione dell'identità del servizio gestita in una macchina virtuale tramite il portale di Azure esegue due operazioni: registra la macchina virtuale in Azure AD per creare un'identità gestita e configura l'identità nella macchina virtuale.
 
-1. Selezionare la **macchina virtuale** in cui si vuole abilitare identità del servizio gestito.  
+1. Selezionare la **macchina virtuale** in cui si vuole abilitare l'identità del servizio gestita.  
 2. Nella barra di spostamento a sinistra fare clic su **Configurazione**. 
-3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare identità del servizio gestita, scegliere **Sì**. Se si vuole disabilitare questa funzionalità, scegliere No. 
+3. Viene visualizzato **Managed Service Identity** (identità del servizio gestito). Per registrare e abilitare l'identità del servizio gestita, selezionare **Sì**. Se si vuole disabilitare questa funzionalità, selezionare No. 
 4. Assicurarsi di fare clic su **Salva** per salvare la configurazione.  
    ![Testo immagine alt](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -77,7 +77,7 @@ Se non ne è già disponibile uno, creare un account Cosmos DB. È possibile ign
 3. Immettere un **ID** per l'account Cosmos DB, da usare in un secondo momento.  
 4. **API** deve essere impostato su "SQL". L'approccio descritto in questa esercitazione può essere usato con gli altri tipi di API disponibili, ma i passaggi illustrati si riferiscono all'API SQL.
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.  Selezionare un **Percorso** in cui è disponibile Cosmos DB.
-6. Fare clic su **Crea**.
+6. Fare clic su **Create**(Crea).
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>Creare una raccolta nell'account Cosmos DB
 
@@ -87,18 +87,18 @@ Successivamente, aggiungere una raccolta di dati nell'account Cosmos DB su cui �
 2. Nella scheda **Panoramica** fare clic sul pulsante **+/Aggiungi raccolta**. Verrà visualizzato il pannello "Aggiungi raccolta".
 3. Assegnare alla raccolta un ID database e un ID raccolta, selezionare una capacità di archiviazione, immettere una chiave di partizione, specificare un valore di velocità effettiva, quindi fare clic su **OK**.  Per questa esercitazione, è sufficiente usare "Test" come ID database e ID raccolta, selezionare una capacità di archiviazione fissa e una velocità effettiva più bassa (400 UR/sec).  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Concedere all'identità del servizio gestito della macchina virtuale Windows l'accesso alle chiavi di accesso all'account Cosmos DB
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Concedere all'identità del servizio gestita della macchina virtuale Windows l'accesso alle chiavi di accesso all'account Cosmos DB
 
-Cosmos DB non supporta l'autenticazione di Azure AD in modo nativo. È tuttavia possibile usare un'identità del servizio gestito per recuperare una chiave di accesso Cosmos DB da Resource Manager e usarla per accedere a Cosmos DB. In questo passaggio viene concesso all'identità del servizio gestito l'accesso alle chiavi per l'account Cosmos DB.
+Cosmos DB non supporta l'autenticazione di Azure AD in modo nativo. È tuttavia possibile usare un'identità del servizio gestita per recuperare una chiave di accesso Cosmos DB da Resource Manager e usarla per accedere a Cosmos DB. In questo passaggio, all'identità del servizio gestita viene concesso l'accesso alle chiavi dell'account Cosmos DB.
 
-Per concedere all'identità del servizio gestito l'accesso all'account Cosmos DB in Azure Resource Manager mediante PowerShell, aggiornare i valori per `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` per l'ambiente in uso. Sostituire `<MSI PRINCIPALID>` con la proprietà `principalId` restituita dal comando `az resource show` in [Recuperare il principalID dell'identità del servizio gestito della macchina virtuale Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supporta due livelli di granularità quando si usano le chiavi di accesso: accesso all'account in lettura/scrittura e in sola lettura.  Assegnare il ruolo `DocumentDB Account Contributor` se si desidera ottenere le chiavi di lettura/scrittura per l'account o assegnare il ruolo `Cosmos DB Account Reader Role` se si desidera ottenere le chiavi di sola lettura per l'account:
+Per concedere all'identità del servizio gestita l'accesso all'account Cosmos DB in Azure Resource Manager mediante PowerShell, aggiornare i valori per `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` e `<COSMOS DB ACCOUNT NAME>` per l'ambiente in uso. Sostituire `<MSI PRINCIPALID>` con la proprietà `principalId` restituita dal comando `az resource show` in [Recuperare il principalID dell'identità del servizio gestito della macchina virtuale Linux](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB supporta due livelli di granularità quando si usano le chiavi di accesso: accesso all'account in lettura/scrittura e in sola lettura.  Assegnare il ruolo `DocumentDB Account Contributor` se si desidera ottenere le chiavi di lettura/scrittura per l'account o assegnare il ruolo `Cosmos DB Account Reader Role` se si desidera ottenere le chiavi di sola lettura per l'account:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità del servizio gestito della macchina virtuale Windows per chiamare Azure Resource Manager
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità del servizio gestita della macchina virtuale Windows per chiamare Azure Resource Manager
 
 Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza. 
 
@@ -109,7 +109,7 @@ Sarà inoltre necessario installare la versione più recente dell'[interfaccia d
 1. Nel portale di Azure passare a **Macchine virtuali** selezionare la propria VM Windows, quindi nella pagina **Panoramica** fare clic su **Connetti** nella parte superiore. 
 2. In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
 3. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire PowerShell nella sessione remota.
-4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale di Identità del servizio gestito per ottenere un token di accesso per Azure Resource Manager.
+4. Usando Invoke-WebRequest di PowerShell, eseguire una richiesta all'endpoint locale dell'identità del servizio gestita per ottenere un token di accesso per Azure Resource Manager.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
