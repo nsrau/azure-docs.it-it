@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 172c32c1f3796ec95336543d7d0ea149e63cfb22
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 2e884164347239838d08fbbc1616ed54ffc4ff24
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331143"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358736"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -28,8 +28,7 @@ ms.locfileid: "39331143"
 
 [Le quote](azure-stack-plan-offer-quota-overview.md#plans) definire i limiti delle risorse che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali. Ogni risorsa può avere un proprio tipi di quote.
 
-## <a name="compute-quota-types"></a>Tipi di quota di calcolo
-
+## <a name="compute-quota-types"></a>Tipi di quota di calcolo 
 | **Tipo** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Numero massimo di macchine virtuali | 20 | Il numero massimo di macchine virtuali che è possibile creare una sottoscrizione in questa posizione. |
@@ -37,8 +36,7 @@ ms.locfileid: "39331143"
 | Numero massimo di set di disponibilità | 10 | Il numero massimo di set di disponibilità che possono essere create in questa posizione. |
 | Imposta il numero massimo di scalabilità di macchine virtuali | 20 | Il numero massimo di set di scalabilità di macchine virtuali che possono essere create in questa posizione. |
 
-## <a name="storage-quota-types"></a>Tipi di quote di archiviazione
-
+## <a name="storage-quota-types"></a>Tipi di quote di archiviazione 
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Capacità massima (GB) |500 |Capacità di archiviazione totale che può essere utilizzata da una sottoscrizione in questa posizione. |
@@ -47,8 +45,8 @@ ms.locfileid: "39331143"
 > [!NOTE]  
 > Può richiedere fino a due ore prima che viene applicata una quota di archiviazione.
 
-## <a name="network-quota-types"></a>Tipi di quote di rete
 
+## <a name="network-quota-types"></a>Tipi di quote di rete
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
 | Indirizzi IP pubblici max |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
@@ -60,10 +58,23 @@ ms.locfileid: "39331143"
 | Gruppi di sicurezza di rete max |50 |Il numero massimo di gruppi di sicurezza di rete che è possibile creare una sottoscrizione in questa posizione. |
 
 ## <a name="view-an-existing-quota"></a>Visualizzare una quota esistente
-
 1. Nel dashboard predefinito del portale di amministrazione, trovare il **provider di risorse** riquadro.
 2. Selezionare il servizio con la quota che si desidera visualizzare, ad esempio **Compute** oppure **archiviazione**.
 3. Selezionare **quote**e quindi selezionare la quota si desidera visualizzare.
+
+
+## <a name="edit-a-quota"></a>Modifica di una quota  
+È possibile scegliere di modificare la configurazione originale di una quota anziché [usando un piano aggiuntivo](create-add-on-plan.md). Quando si modifica una quota, la nuova configurazione applica automaticamente a livello globale per tutti i piani che usano tale quota e tutte le sottoscrizioni esistenti che usano tali piani. Le modifiche a una quota è diversa quando si usa un piano del componente aggiuntivo per fornire una quota modificata, quale un utente sceglie di sottoscrivere. 
+
+### <a name="to-edit-a-quota"></a>Per modificare una quota  
+1. Nel dashboard predefinito del portale di amministrazione, trovare il **provider di risorse** riquadro.
+2. Selezionare il servizio con la quota che si desidera modificare, ad esempio **Compute**, **Network**, o **archiviazione**.
+3. Successivamente, selezionare **quote**e quindi selezionare la quota che si desidera modificare.
+4. Nel **impostare le quote** riquadro, modificare i valori e quindi selezionare **salvare**. 
+
+I nuovi valori per la quota si applicano globalmente a tutti i piani che usano la quota modificata e per tutte le sottoscrizioni esistenti che usano tali piani. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

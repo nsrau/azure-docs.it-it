@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990133"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344250"
 ---
 # <a name="azure-stack-1804-update"></a>Aggiornamento di Azure Stack 1804
 
@@ -99,6 +99,8 @@ Dopo l'installazione di 1804, installare eventuali hotfix applicabili. Per altre
 Di seguito sono riportati problemi noti di post-installazione per la compilazione **20180513.1**.
 
 #### <a name="portal"></a>Portale
+- <!-- TBD - IS ASDK --> È possibile applicare gli aggiornamenti dei driver tramite un pacchetto di estensione OEM con questa versione di Azure Stack.  Non è disponibile alcuna soluzione per questo problema.
+
 - <!-- 1272111 - IS --> Dopo l'installazione o aggiornamento a questa versione di Azure Stack, potrebbe non essere in grado di visualizzare unità di scala di Azure Stack nel portale di amministrazione.  
   Soluzione alternativa: Utilizzare PowerShell per visualizzare le informazioni sulle unità di scala. Per altre informazioni, vedere la [aiutare](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) contenuto per Azure Stack modulo 1.3.0. 
 
