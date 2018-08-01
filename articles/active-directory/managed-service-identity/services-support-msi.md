@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 462ec359b8c29488a913d036a14b21b28ba27cdc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f63832723a2c33b88d0e5fc9c6a38a0cad63fa38
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005215"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259178"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Servizi che supportano Identità del servizio gestita 
 
-Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. Con un'identità gestita è possibile eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. È in corso l'integrazione dell'autenticazione di Azure AD e dell'Identità del servizio gestito in Azure. Controllare spesso gli aggiornamenti.
+Identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. Con un'identità gestita è possibile eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. È in corso l'integrazione dell'autenticazione di Azure AD e dell'identità del servizio gestita in Azure. Controllare spesso gli aggiornamenti.
 
-## <a name="azure-services-that-support-managed-service-identity"></a>Servizi di Azure che supportano Identità del servizio gestito
+## <a name="azure-services-that-support-managed-service-identity"></a>Servizi di Azure che supportano l'identità del servizio gestita
 
-I servizi di Azure seguenti supportano Identità del servizio gestito.
+I servizi di Azure seguenti supportano l'identità del servizio gestita.
 
 | Service | Stato assegnato dal sistema | Stato assegnato dall'utente| Configurare | Acquisizione di un token |
 | ------- | ------ | ---- | --------- | ----------- |
@@ -35,7 +35,7 @@ I servizi di Azure seguenti supportano Identità del servizio gestito.
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Servizi di Azure che supportano l'autenticazione di Azure AD
 
-I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano l'Identità del servizio gestito.
+I servizi seguenti supportano l'autenticazione di Azure AD e sono stati testati con i servizi client che usano l'identità del servizio gestita.
 
 | Service | ID risorsa | Status | Data | Assegnare l'accesso |
 | ------- | ----------- | ------ | ---- | ------------- |

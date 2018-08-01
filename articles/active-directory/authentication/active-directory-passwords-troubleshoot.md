@@ -4,18 +4,18 @@ description: Risolvere i problemi di reimpostazione della password self-service 
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e24f5070a793f62481bdc80044c97163c5b5c79f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95ec87d2fdc34864b90a6596e7100cc6c1387631
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045190"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161991"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -96,7 +96,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Se l'origine dell'evento è ADSync
 
-| Codice | Nome o messaggio | DESCRIZIONE |
+| Codice | Nome o messaggio | Descrizione |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619 - Una restrizione impedisce la modifica della password in quella corrente specificata. | Questo evento si verifica quando il servizio di writeback delle password cerca di impostare una password nella directory locale che non soddisfa i requisiti di validità, cronologia, complessità o filtro del dominio. <br> <br> Se è prevista una validità minima della password e di recente la password è stata modificata in tale intervallo di tempo, non sarà possibile modificarla di nuovo finché non si raggiunge il periodo di validità specificato nel dominio. A scopo di test, è consigliabile impostare la validità minima su 0. <br> <br> Se sono abilitati i requisiti per la cronologia delle password, sarà necessario selezionare una password che non sia stata usata nelle ultime *N* volte, dove *N* è l'impostazione relativa alla cronologia delle password. Se si seleziona una password che è stata usata nelle ultime *N* volte, si verifica un errore. A scopo di test, è consigliabile impostare la cronologia delle password su 0. <br> <br> Se abilitati, tutti i requisiti di complessità della password vengono applicati quando l'utente tenta di modificare o reimpostare la password. <br> <br> Se sono abilitati i filtri delle password e un utente sceglie una password che non soddisfa i criteri di filtro, l'operazione di reimpostazione o di modifica non riuscirà. |
 | 6329 | MMS(3040): admaexport.cpp(2837): il server non contiene il controllo dei criteri della password LDAP. | Questo problema si verifica se il controllo LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066) non è abilitato nei controller di dominio. Per usare la funzionalità di writeback delle password, è necessario abilitare il controllo. A tale scopo, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recente) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](http://support.microsoft.com/kb/2386717). |
@@ -104,7 +104,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Se l'origine dell'evento è PasswordResetService
 
-| Codice | Nome o messaggio | DESCRIZIONE |
+| Codice | Nome o messaggio | Descrizione |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | Questo evento indica che il servizio locale ha rilevato una richiesta di reimpostazione della password per un utente federato, con autenticazione pass-through o con sincronizzazione dell'hash delle password originata dal cloud. Si tratta del primo evento di ogni operazione di writeback per la reimpostazione della password. |
 | 31002 | PasswordResetSuccess | Questo evento indica che un utente ha selezionato una nuova password durante un'operazione di reimpostazione della password. È stato determinato che la password soddisfa i requisiti aziendali per le password. La password è stata scritta correttamente nell'ambiente Active Directory locale. |

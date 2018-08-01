@@ -1,6 +1,6 @@
 ---
-title: Opzioni di fatturazione su Azure Marketplace | Azure
-description: Opzioni di fatturazione su Azure Marketplace per gli editori.
+title: Opzioni di fatturazione in Azure Marketplace | Azure
+description: Opzioni di fatturazione in Azure Marketplace per gli editori.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,65 +14,66 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 51a614a2411cf60bf88d384119c26bc9d406e66f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635142"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158982"
 ---
-# <a name="billing-options"></a>Opzioni di fatturazione  
+# <a name="billing-options-in-the-azure-marketplace"></a>Opzioni di fatturazione in Azure Marketplace
 
-## <a name="commercial-considerations-on-the-marketplace"></a>Considerazioni di natura commerciale sul Marketplace  
-Marketplace non condivide il fatturato per i seguenti tipi di inserzioni.  
-*   Elenco  
-*   Versione di valutazione  
+Questo articolo descrive le opzioni di fatturazione disponibili in [Azure Marketplace](https://azuremarketplace.microsoft.com).
+
+## <a name="commercial-considerations-in-the-marketplace"></a>Considerazioni di natura commerciale su Marketplace
+Marketplace non prevede la ripartizione del fatturato per i tipi di inserzioni seguenti: 
+*   Elenco
+*   Versione di valutazione
 *   Transazioni che usano il modello di fatturazione Bring Your Own License (BYOL)
 
-Non sono previste tariffe aggiuntive per la partecipazione alle vetrine nel Marketplace.  
-*   Per altre informazioni vedere la pagina Criteri di Partecipazione a Microsoft Azure Marketplace all'indirizzo [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
+Non sono previste tariffe aggiuntive per la partecipazione alle vetrine in Marketplace.
 
-## <a name="pay-as-you-go-and-bring-your-own-license-billing-options"></a>Opzioni di fatturazione con pagamento in base al consumo e Bring Your Own License  
-Quando si usa un modello di fatturazione con pagamento in base al consumo come opzione di pubblicazione, i ricavi risultanti dalla concessione di licenze software in base all'utilizzo vengono ripartiti in percentuale tra l'editore e Microsoft, nella proporzione 80/20. Una singola offerta può avere sia il modello di fatturazione con pagamento in base al consumo sia il modello BYOL. I due modelli di fatturazione coesistono a livello di offerta come SKU separati. I modelli di fatturazione vengono configurati nell'offerta nel portale Cloud Partner. 
+Per altre informazioni, vedere [Criteri di partecipazione a Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
-Si considerino gli esempi seguenti.  
-*   Se si abilita l'opzione con pagamento in base al consumo, il risultato è il seguente.  
-    | Costo della licenza | € 1,00 all'ora |  
-    |:--- |:--- |  
-    | Costo dell'utilizzo di Azure (D1/1-Core) | € 0,14 all'ora |  
-    | *Importo addebitato da Microsoft al cliente* | *€ 1,14 all'ora* |  
+## <a name="pay-as-you-go-and-byol-billing-options"></a>Opzioni di fatturazione con pagamento in base al consumo e Bring Your Own License
+Quando si usa un modello di fatturazione con pagamento in base al consumo come opzione di pubblicazione, i ricavi risultanti dalla concessione di licenze software in base all'utilizzo vengono ripartiti in percentuale tra l'editore e Microsoft, nella proporzione di 80%/20%. Per una singola offerta è possibile usare sia il modello di fatturazione con pagamento in base al consumo sia il modello Bring Your Own License (BYOL). I due modelli di fatturazione coesistono a livello di offerta come SKU separati. Per configurare i modelli di fatturazione nell'offerta viene usato il portale Cloud Partner. 
 
-    In questo scenario Microsoft addebita 1,14 euro all'ora per l'uso dell'immagine di VM pubblicata.  
-    | Microsoft addebita | € 1,14 all'ora |  
-    |:--- |:--- |  
-    | Microsoft paga l'80% del costo della licenza | € 0,80 all'ora |  
-    | Microsoft trattiene il 20% del costo della licenza | € 0,20 all'ora |  
-    | Microsoft trattiene il costo dell'utilizzo di Azure | € 0,14 all'ora |  
+Si considerino gli esempi seguenti:
+*   Se si abilita l'opzione con pagamento in base al consumo, il risultato è il seguente:
+    | Costo della licenza | € 1,00 all'ora |
+    |:--- |:--- |
+    | Costo dell'utilizzo di Azure (D1/1-Core) | € 0,14 all'ora |
+    | *Importo addebitato da Microsoft al cliente* | *€ 1,14 all'ora* |
 
-*   Se si abilita l'opzione BYOL, il risultato è il seguente.  
-    | Costo della licenza | Il costo della licenza viene concordato e addebitato dall'utente |  
-    |:--- |:--- |  
-    | Costo dell'utilizzo di Azure (D1/1-Core) | € 0,14 all'ora |  
-    | *Importo addebitato da Microsoft al cliente* | *€ 0,14 all'ora* |  
+    In questo scenario Microsoft addebita 1,14 euro all'ora per l'uso dell'immagine di VM pubblicata:
+    | Microsoft addebita | € 1,14 all'ora |
+    |:--- |:--- |
+    | Microsoft paga l'80% del costo della licenza | € 0,80 all'ora |
+    | Microsoft trattiene il 20% del costo della licenza | € 0,20 all'ora |
+    | Microsoft trattiene il costo dell'utilizzo di Azure | € 0,14 all'ora |
 
-    In questo scenario Microsoft addebita 0,14 euro all'ora per l'uso dell'immagine di VM pubblicata.  
-    | Microsoft addebita | € 0,14 all'ora |  
-    |:--- |:--- |  
-    | Microsoft trattiene il costo dell'utilizzo di Azure | € 0,14 all'ora |  
-    | Microsoft trattiene lo 0% del costo della licenza | € 0,00 all'ora |  
+*   Se si abilita l'opzione BYOL, il risultato è il seguente:
+    | Costo della licenza | Il costo della licenza viene concordato e addebitato dall'utente |
+    |:--- |:--- |
+    | Costo dell'utilizzo di Azure (D1/1-Core) | € 0,14 all'ora |
+    | *Importo addebitato da Microsoft al cliente* | *€ 0,14 all'ora* |
 
-## <a name="single-billing-and-payment-methods"></a>Metodi di pagamento e fatturazione singola  
-Un importante vantaggio derivante dall'uso di opzioni di offerte con transazione è che i costi di gestione delle licenze e dell'uso di Azure vengono fatturati singolarmente direttamente al cliente.  
+    In questo scenario Microsoft addebita 0,14 euro all'ora per l'uso dell'immagine di VM pubblicata: 
+    | Microsoft addebita | € 0,14 all'ora |
+    |:--- |:--- |
+    | Microsoft trattiene il costo dell'utilizzo di Azure | € 0,14 all'ora |
+    | Microsoft trattiene lo 0% del costo della licenza | € 0,00 all'ora |
 
-Nello scenario, Microsoft addebita e riscuote per conto dell'utente. La fatturazione da parte di Microsoft elimina il requisito di stabilire un accordo di approvvigionamento diretto con il cliente. La fatturazione singola può risparmiare tempo e risorse. La fatturazione singola potrebbe aiutare a concentrarsi sulle vendite di destinazione, anziché sulla riscossione delle fatture. 
+## <a name="single-billing-and-payment-methods"></a>Metodi di pagamento e fatturazione singola
+Un importante vantaggio offerto dall'opzione di pubblicazione con transazione in Marketplace è dato del fatto che i costi di gestione delle licenze e dell'utilizzo di Azure vengono addebitati direttamente al cliente in singola fattura.
+
+In questo scenario Microsoft addebita e riscuote per conto dell'editore. La fatturazione da parte di Microsoft elimina il requisito di stabilire un accordo di approvvigionamento diretto con il cliente. La modalità di fatturazione singola può consentire all'editore di risparmiare tempo e risorse, oltre a concentrarsi maggiormente sulle strategie di vendita anziché occuparsi dell'attività di fatturazione. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Se si è un cliente Enterprise Agreement (EA) Microsoft, è possibile usare il contratto EA per pagare per i prodotti Microsoft. Potrebbero essere addebitati alcuni prodotti, tra cui l'uso di Azure. L'uso di EA per il pagamento è stato pensato per le organizzazioni che vogliono concedere licenze software e servizi cloud per un periodo di tre o più anni. È possibile distribuire i pagamenti anziché effettuare un unico pagamento iniziale. Quando si usa il tipo di transazione con pagamento in base al consumo, la fatturazione relativa ai costi di licenza software segue il ciclo di fatturazione trimestrale delle eccedenze del contratto EA.  
+I clienti con contratto Microsoft Enterprise Agreement possono usare questo contratto per effettuare i pagamenti relativi ai prodotti Microsoft. Ai clienti può essere addebitato il costo dei prodotti, compreso quello relativo all'utilizzo di Azure. La possibilità di usare il contratto Enterprise per i pagamenti è stata pensata per le organizzazioni che vogliono usufruire di licenze relative a software e servizi cloud per un periodo di almeno tre anni. In questo modo è possibile ripartire i pagamenti su più periodi anziché effettuare un unico pagamento iniziale. Quando si usa l'opzione di pubblicazione con pagamento in base al consumo, la fatturazione relativa ai costi di licenza software viene eseguita in base al ciclo di fatturazione trimestrale delle eccedenze del contratto Enterprise.  
 
-### <a name="monetary-commitment"></a>Impegno monetario  
-Se si è un cliente EA, è possibile aggiungere Azure al contratto. È possibile aggiungere Azure al contratto definendo un impegno monetario iniziale per Azure. L'impegno monetario verrà usato nel corso dell'anno. L'impegno include qualsiasi combinazione di utilizzo della vasta gamma di servizi in Azure.  
+### <a name="monetary-commitment"></a>Impegno monetario
+I clienti con contratto Enterprise possono aggiungere Azure al contratto. È possibile aggiungere Azure al contratto definendo un impegno monetario iniziale per Azure. L'impegno monetario verrà usato nel corso dell'anno. L'impegno include una qualsiasi combinazione di utilizzo dei servizi di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-*   Visitare la pagina [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).  
- 
----  
+Rivedere la [Guida alla pubblicazione per Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

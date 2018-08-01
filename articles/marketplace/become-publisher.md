@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005486"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172314"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 
@@ -28,11 +28,11 @@ L'articolo include informazioni sulla registrazione come editore del Marketplace
 
 |  | Passaggio di registrazione | Duration | Dettagli |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Eseguire la registrazione a Microsoft Partner Network | 15 minuti | [Eseguire la registrazione a Microsoft Partner Network](#register-in-microsoft-partner-network) |  
-| 2 | Creare un account Microsoft <ul>(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre)</ul> | 15 minuti | [Creare un ID Microsoft](#create-a-microsoft-id) |  
-| 3 | Inviare il modulo di registrazione a Marketplace | 15 minuti | [Inviare il modulo di candidatura a Marketplace](#submit-the-marketplace-nomination-form) |  
-| 4 |  Accedere al portale Cloud Partner | 1-3 giorni | [Accedere al portale Cloud Partner](#sign-into-cloud-partner-portal) |  
-| 5 | Effettuare la registrazione in Microsoft Developer Center (Dev Center) (per le offerte di transazione di Azure Marketplace) | 5-10 giorni | [Eseguire la registrazione nel Dev Center](#register-in-dev-center) |  
+| 1 | Eseguire la registrazione a Microsoft Partner Network | 15 minuti | [Eseguire la registrazione a Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Creare un account Microsoft <ul>(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre)</ul> | 15 minuti | [Creare un ID Microsoft](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Inviare il modulo di registrazione a Marketplace | 15 minuti | [Inviare il modulo di candidatura a Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Accedere al portale Cloud Partner | 1-3 giorni | [Accedere al portale Cloud Partner](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Eseguire la registrazione in Microsoft Developer Center (Dev Center) (per le offerte di transazione di Azure Marketplace) | 5-10 giorni | [Eseguire la registrazione nel Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Eseguire la registrazione a Microsoft Partner Network  
@@ -65,7 +65,7 @@ Un account Microsoft, ad esempio *@outlook.com o @live.com*, si usa per accedere
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Inviare il modulo di registrazione a Marketplace  
 | 15 min |  
-Completare questo breve modulo di registrazione per diventare un editore del marketplace. Le informazioni presentate in questo modulo verranno usate per creare un account editore nel portale Cloud Partner, che consente di creare, pubblicare e gestire le offerte del marketplace.
+Completare questo breve [modulo di registrazione](https://azuremarketplace.microsoft.com/en-us/sell/signup) per diventare un editore del marketplace. Le informazioni presentate in questo modulo verranno usate per creare un account editore nel portale Cloud Partner, che consente di creare, pubblicare e gestire le offerte del marketplace.
 
 Verrà richiesto di includere le informazioni seguenti:
 *   Dettagli sull'organizzazione, incluso l'ID Microsoft Partner Network, che è reperibile nel [Centro per i Partner](https://partnercenter.microsoft.com/partner/home) o in [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)
@@ -99,7 +99,7 @@ Dopo aver completato la registrazione a [Dev Center](https://developer.microsoft
 >Per evitare di pagare la tariffa di 99 dollari per la registrazione, completare il modulo di registrazione a Marketplace in modo da ricevere un codice promozionale. 
 
 >[!Important]
->Prima di creare un account Microsoft Dev Center, verificare che l'organizzazione non abbia già un account Dev Center per evitare account duplicati. Per altre informazioni, visitare la sezione [How to Register in Dev Center](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) (Come eseguire la registrazione in Dev Center).
+>Prima di creare un account Microsoft Dev Center, verificare che l'organizzazione non abbia già un account Dev Center per evitare account duplicati. Per altre informazioni, visitare la sezione [Eseguire la registrazione nel Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

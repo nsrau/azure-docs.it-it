@@ -1,5 +1,5 @@
 ---
-title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Documentazione Microsoft
+title: Uso di Importazione/Esportazione di Azure per trasferire i dati da e verso Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come creare processi di importazione ed esportazione nel portale di Azure per trasferire dati da e verso Archiviazione di Azure.
 author: alkohli
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008417"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248776"
 ---
 # <a name="what-is-azure-importexport-service"></a>Che cos'è il servizio Importazione/Esportazione di Azure?
 
@@ -71,13 +71,18 @@ In generale, un processo di importazione prevede i passaggi seguenti:
 1. Determinare i dati da importare, il numero di unità necessarie e la posizione del BLOB di destinazione per i dati nell'archiviazione di Azure.
 2. Usare lo strumento WAImportExport per copiare i dati nelle unità disco. Crittografare i dischi con BitLocker.
 3. Creare un processo di importazione nell'account di archiviazione di destinazione nel portale di Azure. Caricare i file journal dell'unità.
-2. Specificare l'indirizzo del mittente e il numero di account del vettore per la restituzione delle unità.
-3. Spedire le unità disco all'indirizzo di spedizione fornito durante la creazione del processo.
-4. Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di importazione e inviare il processo di importazione.
-5. Le unità vengono ricevute ed elaborate nel data center di Azure.
-6. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
-  
-    ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
+4. Specificare l'indirizzo del mittente e il numero di account del vettore per la restituzione delle unità.
+5. Spedire le unità disco all'indirizzo di spedizione fornito durante la creazione del processo.
+6. Aggiornare il numero di tracciabilità della consegna nei dettagli del processo di importazione e inviare il processo di importazione.
+7. Le unità vengono ricevute ed elaborate presso il data center di Azure.
+8. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
+
+> [!NOTE]
+> Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
+>
+> Per le spedizioni estere (all'esterno del paese del data center), condividere un account del vettore internazionale
+
+ ![Figura 1: importazione del flusso di processo](./media/storage-import-export-service/importjob.png)
 
 Per istruzioni dettagliate per l'importazione dei dati, vedere:
 
@@ -101,8 +106,13 @@ In generale, un processo di esortazione prevede i passaggi seguenti:
 8. Le unità vengono ricevute ed elaborate presso il data center di Azure.
 9. Le unità vengono crittografate con BitLocker e le chiavi sono disponibili tramite il portale di Azure.  
 10. Le unità vengono restituite usando l'account del vettore all'indirizzo mittente specificato nel processo di importazione.
+
+> [!NOTE]
+> Per le spedizioni locali (all'interno del paese del data center), condividere un account del vettore nazionale 
+>
+> Per le spedizioni estere (all'esterno del paese del data center), condividere un account del vettore internazionale
   
-    ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
+ ![Figura 2: esportazione del flusso di processo](./media/storage-import-export-service/exportjob.png)
 
 Per istruzioni dettagliate sull'esportazione dei dati, vedere [Export data from Azure Blobs](storage-import-export-data-from-blobs.md) (Esportare dati da BLOB di Azure).
 
@@ -116,11 +126,11 @@ Il servizio Importazione/Esportazione di Azure supporta la copia dei dati da e v
 |Paese  |Paese  |Paese  |Paese  |
 |---------|---------|---------|---------|
 |Stati Uniti orientali    | Europa settentrionale        | India centrale        |Governo degli Stati Uniti - Iowa         |
-|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | Dipartimento della difesa Stati Uniti orientali        |
-|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | Dipartimento della difesa Stati Uniti centrali        |
-|Stati Uniti occidentali 2     | Asia sudorientale        | Canada centrale        | Cina orientale         |
+|Stati Uniti occidentali     |Europa occidentale         | India meridionale        | US DoD (area orientale)        |
+|Stati Uniti orientali 2    | Asia orientale        |  India occidentale        | US DoD (area centrale)        |
+|Stati Uniti occidentali 2     | Asia sud-orientale        | Canada centrale        | Cina orientale         |
 |Stati Uniti centrali     | Australia orientale        | Canada orientale        | Cina settentrionale        |
-|Stati Uniti centro-settentrionali     |  Australia sudorientale       | Brasile meridionale        | Regno Unito meridionale        |
+|Stati Uniti centro-settentrionali     |  Australia sud-orientale       | Brasile meridionale        | Regno Unito meridionale        |
 |Stati Uniti centro-meridionali     | Giappone occidentale        |Corea del Sud centrale         | Germania centrale        |
 |Stati Uniti centro-occidentali     |  Giappone orientale       | US Gov Virginia        | Germania nord-orientale        |
 

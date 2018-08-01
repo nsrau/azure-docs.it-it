@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 0d3f28f0a9f1e9862fabb6ce5e96597f1534abd8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011399"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214619"
 ---
 # <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Eseguire la migrazione di server con Windows Server 2008, 2008 R2 in Azure
 
@@ -110,15 +110,47 @@ Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione *
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Preparare l'ambiente locale per la migrazione
 
 - Scaricare il programma di installazione del server di configurazione (installazione unificata) da [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- [Configurare](physical-azure-disaster-recovery.md#set-up-the-source-environment) l'ambiente di origine usando il file del programma di installazione scaricato nel passaggio precedente.
+- Per configurare l'ambiente di origine usando il file del programma di installazione scaricato nel passaggio precedente, seguire questa procedura.
 
 > [!IMPORTANT]
-> Assicurarsi di usare il file di installazione scaricato nel primo passaggio per installare e registrare il server di configurazione. Non scaricare il file di installazione dal portale di Azure. Il file di installazione disponibile in [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) è l'unica versione che supporta la migrazione di Windows Server 2008.
+> - Assicurarsi di usare il file di installazione scaricato nel primo passaggio per installare e registrare il server di configurazione. Non scaricare il file di installazione dal portale di Azure. Il file di installazione disponibile in [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) è l'unica versione che supporta la migrazione di Windows Server 2008.
 >
-> Non è possibile usare un server di configurazione esistente per eseguire la migrazione di computer che eseguono Windows Server 2008. È necessario configurare un nuovo server di configurazione usando il collegamento specificato sopra.
+> - Non è possibile usare un server di configurazione esistente per eseguire la migrazione di computer che eseguono Windows Server 2008. È necessario configurare un nuovo server di configurazione usando il collegamento specificato sopra.
+>
+> - Seguire questa procedura per installare il server di configurazione. Non tentare di usare la procedura di installazione basata sull'interfaccia utente grafica eseguendo direttamente l'installazione unificata. Questa operazione comporterà l'esito negativo del tentativo di installazione con un messaggio di errore che informa che non è disponibile connettività Internet.
+
+ 
+1) Scaricare il file delle credenziali dell'insieme di credenziali dal portale: nel portale di Azure, selezionare l'insieme di credenziali di Servizi di ripristino creato nel passaggio precedente. Nel menu della pagina dell'insieme di credenziali selezionare **Infrastruttura di Site Recovery** > **Server di configurazione**. Fare quindi clic su **+Server**. Selezionare *Configuration Server for Physical* (Server di configurazione per computer fisico) nell'elenco a discesa della pagina visualizzata. Fare clic sul pulsante per il download nel passaggio 4, per scaricare il file delle credenziali dell'insieme di credenziali.
 
  ![Scaricare la chiave di registrazione dell'insieme di credenziali](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
- 
+
+2) Copiare sul desktop del computer del server di configurazione (il computer Windows Server 2012 R2 o Windows Server 2016 in cui si vuole installare il software del server di configurazione) il file delle credenziali dell'insieme di credenziali scaricato nel passaggio precedente e il file di installazione unificata scaricato in precedenza.
+
+3) Assicurarsi che il server di configurazione disponga di connettività Internet e che l'orologio di sistema e le impostazioni di fuso orario nel computer siano configurate correttamente. Scaricare il file di installazione [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) e posizionarlo nella cartella *C:\Temp\ASRSetup* (creare la directory se non esiste). 
+
+4) Creare un file di credenziali MySQL con le righe seguenti e posizionarlo sul desktop nella cartella **C:\Users\Administrator\MySQLCreds.txt**. Sostituire "Password~1", illustrato di seguito, con una password complessa e appropriata:
+
+```
+[MySQLCredentials]
+MySQLRootPassword = "Password~1"
+MySQLUserPassword = "Password~1"
+```
+
+5) Estrarre sul desktop il contenuto del file di installazione unificata scaricato, eseguendo questo comando:
+
+```
+cd C:\Users\Administrator\Desktop
+
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
+```
+  
+6) Installare il software del server di configurazione usando il contenuto estratto eseguendo questi comandi:
+
+```
+cd C:\Users\Administrator\Desktop\9.18.1
+
+UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
+```
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 

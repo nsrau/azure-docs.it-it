@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115926"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145241"
 ---
 # <a name="grow-your-business-on-marketplace"></a>Favorire lo sviluppo della propria azienda sul marketplace 
 Dopo aver pubblicato l’offerta su AppSource o Azure Marketplace, è possibile utilizzare l’inserzione come piattaforma di lancio per attività congiunte di go-to-market (GTM) con Microsoft. Ad esempio, favorire il traffico verso l'offerta del marketplace e monitorare i potenziali clienti del marketplace sono ottimi modi per accelerare la crescita della propria azienda. In questo articolo, condivideremo diverse procedure consigliate di marketing per far crescere la propria azienda sul marketplace.
@@ -215,7 +215,7 @@ Per promuovere un'offerta o un'app, usare la tabella seguente per accedere ad al
 | Acquisire l'idoneità per il programma di co-selling IP | L'utente potrebbe essere idoneo per il programma di co-selling IP che consente di collaborare direttamente con i venditori Microsoft e con altri partner alla realizzazione di opportunità di vendita e alla pianificazione di account. La soluzione verrà inserita nel catalogo di soluzioni dei venditori Microsoft, acquisendo visibilità. I venditori Microsoft a loro volta verranno ricompensati per l'avvio di una collaborazione di successo in collaborazione con l'editore.<br /> Per altre informazioni sulla conformità di CO-selling, inclusi i requisiti di idoneità, visitare [Alzare di livello la propria azienda](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Attribuzione di ricavi Partner di Azure
+## <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'utilizzo da parte del cliente dei partner di Azure
 
 In qualità di partner software per Azure, le proprie soluzioni richiedono componenti Azure o vengono implementate direttamente sull'infrastruttura Azure.  Oggi, quando una soluzione partner viene implementata dal cliente e utilizza le risorse di Azure fornite dal cliente, è difficile per il partner ottenere visibilità sullo stato di tali implementazioni e difficile ottenere una panoramica sull’impatto della crescita di Azure per l'allineamento con i team di vendita Microsoft e di credito per i programmi dei partner Microsoft.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >Questa azione deve essere eseguita per ogni client, non c'è una configurazione statica globale (si può scegliere di eseguire un factory client per essere sicuri che ogni client lo stia eseguendo). 
 >[Informazioni di riferimento aggiuntive](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>Registrazione di una GUID: 
 
 Come assegnare tag a una distribuzione usando Azure PowerShell o l'interfaccia della riga di comando di Azure: se si distribuiscono risorse tramite AzurePowerShell è possibile aggiungere il GUID usando il metodo seguente:
 
@@ -398,11 +396,14 @@ Durante la distribuzione del nostro software, Microsoft sarà in grado di identi
 
 Per ottenere assistenza, seguire i passaggi seguenti:
  1. Visita la pagina del supporto disponibile all'indirizzo [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Per problemi relativi all'associazione dell'utilizzo: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Altro** e quindi fare clic su **Avvia richiesta.**
-
-Per problemi relativi all'accesso al portale Cloud Partner di Azure Marketplace: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Problema di accesso** e quindi fare clic su **Avvia richiesta.**
+ 2. Per problemi relativi all'associazione dell'utilizzo: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Altro** e quindi fare clic su **Avvia richiesta.** 
+>[!Note]
+>Per problemi relativi all'accesso al portale Cloud Partner di Azure Marketplace: selezionare tipo di problema: **Marketplace Onboarding** e categoria: **Problema di accesso** e quindi fare clic su **Avvia richiesta.**
  3. Completare i campi obbligatori nella pagina successiva e fare clic su **Continua.**
  4. Completare i campi di testo libero nella pagina successiva.  
+ 
+
+
  
 >[!Important] 
 >Compilare il titolo evento imprevisto con **"Rilevamento dell'utilizzo di ISV"** e descrivere il problema in modo dettagliato nel campo di testo libero di grandi dimensioni successivo.  Completare il resto del modulo e fare clic su **Invia**.

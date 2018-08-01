@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051070"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceNow
 
@@ -151,9 +151,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 8. Esistono due modi per configurare **ServiceNow**: automaticamente e manualmente.
 
-9. For configurare **ServiceNow** automaticamente, eseguire questa procedura
+9. Per configurare **ServiceNow** automaticamente, eseguire questa procedura
 
-    a. Tornare alla pagina Single Sign-On per **ServiceNow** nel portale di Azure.
+    a. Tornare alla pagina Single Sign-On **ServiceNow** nel portale di Azure.
 
     b. Per ServiceNow è disponibile un servizio di configurazione con un clic, che consente la configurazione automatica di ServiceNow in Azure AD per l'autenticazione basata su SAML. Per abilitare questo servizio, passare alla sezione **Configurazione di ServiceNow** e fare clic su **Configura ServiceNow** per aprire la finestra Configura accesso.
 
@@ -476,7 +476,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-servicenow-test-user"></a>Creare un utente di test di ServiceNow
 

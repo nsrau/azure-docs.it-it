@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 246943b7e3df955394a6a79f9b3130633fe4ec50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096476"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186614"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Distribuzione continua con Jenkins e Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ Il flusso di lavoro di esempio include i passaggi seguenti:
 > * Viene eseguito il push dell'immagine nel Registro contenitori di Azure (ACR).
 > * L'applicazione in esecuzione nel cluster AKS viene aggiornata con la nuova immagine del contenitore.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare la procedura descritta in questo articolo, è necessario soddisfare i requisiti seguenti.
 
@@ -149,6 +149,9 @@ In precedenza è già stato creato uno script per distribuire una macchina virtu
 
 Eseguire i comandi seguenti per scaricare ed eseguire lo script. L'URL seguente può essere usato anche per esaminare il contenuto dello script.
 
+> [!WARNING]
+> Questo script di esempio è a scopo dimostrativo per effettuare rapidamente il provisioning di un ambiente Jenkins eseguito su una macchina virtuale Azure. Sfrutta l'estensione script personalizzata di Azure per configurare una macchina virtuale e quindi visualizzare le credenziali necessarie. *~/.kube/config* viene copiato sulla macchina virtuale di Jenkins.
+
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
@@ -263,12 +266,11 @@ Al completamento del processo, fare clic su **build #1** nella cronologia di com
 Successivamente agganciare il repository dell'applicazione al server di compilazione di Jenkins in modo che in qualsiasi commit venga attivata una nuova build.
 
 1. Passare al repository GitHub con fork.
-2. Selezionare **Settings** (Impostazioni) e quindi **Integrations & services** (Integrazioni e servizi) sul lato sinistro.
-3. Scegliere **Add Service** (Aggiungi servizio), immettere `Jenkins (GitHub plugin)` nella casella filtro e selezionare il plug-in.
-4. Per l'URL di aggancio di Jenkins, immettere `http://<publicIp:8080>/github-webhook/` in cui `publicIp` è l'indirizzo IP del server di Jenkins. Assicurarsi di includere la barra finale (/).
-5. Selezionare Add service (Aggiungi servizio).
+2. Selezionare **Impostazioni** e quindi **Webhook** sul lato sinistro.
+3. Scegli **Aggiungi webhook**. Per l’*URL di payload* immettere `http://<publicIp:8080>/github-webhook/` dove `publicIp` è l'indirizzo IP del server di Jenkins. Assicurarsi di includere la barra finale (/). Lasciare le altre impostazioni predefinite per il tipo di contenuto e attivare gli eventi *push*.
+4. Selezionare **Aggiungi webhook**.
 
-![Webhook di GitHub](media/aks-jenkins/webhook.png)
+    ![Webhook di GitHub](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>Testare il processo CI/CD end-to-end
 

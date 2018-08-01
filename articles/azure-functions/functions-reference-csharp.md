@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 42b9f574d09429d95fbf79da02c137e1079ac369
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 984fd61eeedf988e5378fd9e1e1d386b09505939
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006948"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161688"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -247,6 +247,8 @@ public async static Task ProcessQueueMessageAsync(
     await blobInput.CopyToAsync(blobOutput, 4096);
 }
 ```
+
+Non è possibile usare i parametri `out` in funzioni asincrone. Per le associazioni di output, usare invece il [valore restituito di funzione](#binding-to-method-return-value) o un [oggetto agente di raccolta](#writing-multiple-output-values).
 
 ## <a name="cancellation-tokens"></a>Token di annullamento
 

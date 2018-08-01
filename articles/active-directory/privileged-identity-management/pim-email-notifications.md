@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058093"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257903"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Notifiche tramite posta elettronica in Azure AD PIM
 
@@ -32,7 +32,7 @@ Quando si verificano eventi chiave in Azure AD Privileged Identity Management (P
 - Quando viene assegnato un ruolo con privilegi
 - Quando viene abilitato Azure AD Privileged Identity Management
 
-A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica inviate con PIM avranno un nuovo indirizzo di posta elettronica del mittente e un nuovo design visivo. Questo aggiornamento influirà sia su PIM per Azure AD che su PIM per le risorse di Azure. Tutti gli eventi che hanno precedentemente attivato una notifica tramite posta elettronica continueranno a inviare un messaggio di posta elettronica. Questo aggiornamento è solo una modifica visiva e non modifica la funzionalità.
+A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica inviate con PIM avranno un nuovo indirizzo di posta elettronica del mittente e un nuovo design visivo. Questo aggiornamento influirà sia su PIM per Azure AD che su PIM per le risorse di Azure. Tutti gli eventi che hanno precedentemente attivato una notifica tramite posta elettronica continueranno a inviare un messaggio di posta elettronica. Alcuni messaggi di posta elettronica avranno contenuto aggiornato con informazioni più mirate.
 
 ## <a name="sender-email-address"></a>Indirizzo di posta elettronica del mittente
 
@@ -45,6 +45,12 @@ In precedenza, le notifiche tramite posta elettronica avevano l'indirizzo seguen
 
 - Indirizzo di posta elettronica: **azureadnotifications@microsoft.com**
 - Nome visualizzato: servizio di notifica di Microsoft Azure AD
+
+## <a name="email-subject-line"></a>Riga dell'oggetto del messaggio di posta elettronica
+
+A partire dalla fine di luglio 2018, le notifiche tramite posta elettronica per Azure AD e i ruoli delle risorse di Azure avranno un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
+
+- PIM: Ad Alain Charon è stato assegnato in modo permanente il ruolo Lettore di backup.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>Messaggi di posta elettronica PIM per i ruoli di Azure AD
 

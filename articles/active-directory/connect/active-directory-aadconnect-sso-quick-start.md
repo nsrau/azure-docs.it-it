@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917517"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259120"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -41,9 +41,15 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     >[!NOTE]
     >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password insieme all'autenticazione pass-through, leggere le [note sulla versione di Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
 
+* **Usare una topologia di Azure AD Connect supportata**: assicurarsi di usare una delle topologie supportate di Azure AD Connect descritte [qui](active-directory-aadconnect-topologies.md).
+
 * **Configurare le credenziali dell'amministratore di dominio**: è necessario disporre di credenziali dell'amministratore di dominio per ogni foresta di Active Directory che:
     * Si sincronizza con Azure AD tramite Azure AD Connect.
     * Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
+    
+* **Abilitare l'autenticazione moderna**: per eseguire questa funzionalità è necessario abilitare l'[autenticazione moderna](https://aka.ms/modernauthga) sul proprio tenant.
+
+* **Usare le versioni più recenti dei client di Office 365**: per ottenere un'esperienza di accesso invisibile all'utente con i client di Office 365 (Outlook, Word, Excel e altri), è necessario usare le versioni 16.0.8730.xxxx o successive.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
@@ -77,21 +83,27 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 
 ## <a name="step-3-roll-out-the-feature"></a>Passaggio 3: Distribuire la funzionalità
 
-Per distribuire la funzionalità agli utenti, è necessario aggiungere l'URL di Azure AD seguente alle impostazioni dell'area Intranet degli utenti usando Criteri di gruppo in Active Directory:
+È possibile distribuire gradualmente la funzionalità Accesso Single Sign-On facile agli utenti usando le istruzioni seguenti. Prima di tutto, aggiungere l'URL di Azure AD seguente alle impostazioni dell'area Intranet di tutti gli utenti o di quelli selezionati usando Criteri di gruppo in Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Inoltre, attraverso Criteri di gruppo è necessario abilitare l'impostazione **Consenti aggiornamenti alla barra di stato tramite script** relativa ai criteri dell'area Intranet. 
 
 >[!NOTE]
-> Le istruzioni seguenti sono valide solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su Mac, leggere la sezione successiva.
+> Le istruzioni seguenti sono valide solo per Internet Explorer e Google Chrome in Windows, se condivide l'insieme di URL di siti attendibili con Internet Explorer. Per istruzioni sulla configurazione di Mozilla Firefox e Google Chrome su macOS, leggere la sezione successiva.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Motivo per cui è necessario modificare le impostazioni della zona Intranet degli utenti
 
 Per impostazione predefinita, il browser calcola automaticamente l'area corretta, Internet o Intranet, in base a un URL specifico. Ad esempio, "http://contoso/" esegue il mapping all'area Intranet, mentre "http://intranet.contoso.com/" esegue il mapping all'area Internet perché l'URL contiene un punto. I browser non invieranno ticket Kerberos a un endpoint del cloud, come l'URL di Azure AD, a meno che l'URL in questione non venga esplicitamente aggiunto all'area Intranet del browser.
 
-### <a name="detailed-steps"></a>Procedura dettagliata
+È possibile modificare le impostazioni dell'area Intranet degli utenti in due modi:
+
+| Opzione | Considerazione relativa all'amministratore | Esperienza utente |
+| --- | --- | --- |
+| Criteri di gruppo | L'amministratore blocca la modifica delle impostazioni dell'area Intranet | Gli utenti non possono modificare le proprie impostazioni |
+| Preferenza di Criteri di gruppo |  L'amministratore consente la modifica delle impostazioni dell'area Intranet | Gli utenti non possono modificare le proprie impostazioni |
+
+### <a name="group-policy-option---detailed-steps"></a>Opzione "Criteri di gruppo" - Procedura dettagliata
 
 1. Aprire l'Editor Gestione Criteri di gruppo.
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
@@ -123,6 +135,32 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
     ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>Opzione "Preferenza di Criteri di gruppo" - Procedura dettagliata
+
+1. Aprire l'Editor Gestione Criteri di gruppo.
+2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
+3. Passare a **Configurazione utente** > **Preferenze** > **Impostazioni di Windows** > **Registro di sistema** > **Nuovo** > **Elemento Registro di sistema**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
+   - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Nome valore**: ***https***.
+   - **Tipo di valore**: ***REG_DWORD***.
+   - **Dati valore**: ***00000001***.
+ 
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Passare a **Configurazione utente** > **Modelli amministrativi** > **Componenti di Windows** > **Internet Explorer** > **Pannello di controllo Internet** > **Scheda Sicurezza** > **Area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
+
+    ![Single sign-on](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (tutte le piattaforme)
@@ -134,15 +172,15 @@ Mozilla Firefox non usa automaticamente l'autenticazione Kerberos. Ogni utente d
 4. Immettere https://autologon.microsoftazuread-sso.com nel campo.
 5. Fare clic su **OK** e quindi riaprire il browser.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Verificare che il computer che esegue Mac OS sia stato aggiunto ad AD. Per istruzioni sull'aggiunta ad AD, vedere [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedure consigliate per l'integrazione di OS X con Active Directory).
+Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Per istruzioni sull'aggiunta ad AD, vedere [Best Practices for Integrating OS X with Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf) (Procedure consigliate per l'integrazione di OS X con Active Directory).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
-Se nel proprio ambiente si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), assicurarsi di aggiungervi anche l'URL di Azure AD (https://autologon.microsoftazuread-sso.com)).
+Se nel proprio ambiente si è scelto di ignorare le impostazioni dei criteri [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) o [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist), assicurarsi di aggiungervi anche l'URL di Azure AD (https://autologon.microsoftazuread-sso.com).
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (solo Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (solo macOS)
 
 Per Google Chrome su Mac OS e altre piattaforme non Windows, vedere l'[elenco dei criteri dei progetti Chromium](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) per informazioni su come aggiungere l'URL di Azure AD all'elenco elementi consentiti per l'autenticazione integrata.
 
@@ -169,7 +207,12 @@ Per testare lo scenario in cui l'utente non è obbligato a immettere il nome ute
 
 ## <a name="step-5-roll-over-keys"></a>Passaggio 5: Rinnovare le chiavi
 
-Nel passaggio 2 Azure AD Connect crea account computer, che rappresentano Azure AD, in tutte le foreste di Active Directory in cui è stato abilitato l'accesso SSO facile. Per altre informazioni, vedere [Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico](active-directory-aadconnect-sso-how-it-works.md). Per una maggiore sicurezza, è consigliabile rinnovare periodicamente le chiavi di decrittografia Kerberos di questi account. Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facile di Azure Active Directory: domande frequenti](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+Nel passaggio 2 Azure AD Connect crea account computer, che rappresentano Azure AD, in tutte le foreste di Active Directory in cui è stato abilitato l'accesso SSO facile. Per altre informazioni, vedere [Accesso Single Sign-On facile di Azure Active Directory: approfondimento tecnico](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>In caso di perdita, la chiave di decrittografia Kerberos su un account computer può essere usata per generare ticket Kerberos per qualsiasi utente nella relativa foresta AD. Eventuali attori malintenzionati possono quindi rappresentare gli accessi di Azure AD per gli utenti di cui è stata compromessa la chiave. È altamente consigliabile eseguire periodicamente il rollover delle chiavi di decrittografia di Kerberos, almeno ogni 30 giorni.
+
+Per istruzioni su come rinnovare le chiavi, vedere [Accesso Single Sign-On facile di Azure Active Directory: domande frequenti](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Microsoft sta sviluppando una funzionalità per introdurre il rollover automatizzato delle chiavi.
 
 >[!IMPORTANT]
 >Non è necessario farlo _subito_ dopo aver abilitato la funzionalità. Rinnovare le chiavi di decrittografia Kerberos almeno una volta ogni 30 giorni.

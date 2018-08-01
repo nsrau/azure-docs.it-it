@@ -1,6 +1,6 @@
 ---
-title: Come configurare MSI in una macchina virtuale di Azure tramite un modello
-description: Istruzioni dettagliate per la configurazione dell'Identità del servizio gestito (MSI) in una macchina virtuale di Azure, tramite un modello di Azure Resource Manager.
+title: Come configurare un'identità del servizio gestita in una macchina virtuale di Azure tramite un modello
+description: Istruzioni dettagliate per la configurazione di un'identità del servizio gestita in una macchina virtuale di Azure, tramite un modello di Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,25 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114880"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258695"
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurare un'Identità del servizio gestito della macchina virtuale tramite un modello
+# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurare un'identità del servizio gestita in una macchina virtuale tramite un modello
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo illustra come eseguire le seguenti operazioni di identità del servizio gestita in una macchina virtuale di Azure usando il Modello di distribuzione Azure Resource Manager:
+Questo articolo illustra come eseguire le seguenti operazioni di identità del servizio gestita in una macchina virtuale di Azure usando il modello di distribuzione Azure Resource Manager:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare una macchina virtuale e abilitare e rimuovere da una macchina virtuale di Azure l'identità gestita assegnata dall'utente e/o dal sistema.
+    - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
+    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare un'identità assegnata dall'utente a una macchina virtuale e rimuoverla.
 
 ## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
@@ -51,7 +55,7 @@ In questa sezione, si abiliterà e disabiliterà un sistema di identità assegna
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Abilitare l'identità assegnata dal sistema durante la creazione di una macchina virtuale di Azure oppure in una macchina virtuale esistente
 
-1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
 
 2. Dopo avere caricato il modello in un editor, individuare la risorsa `Microsoft.Compute/virtualMachines` interessata all'interno della sezione `resources`. Quelle in uso potrebbero avere un aspetto leggermente diverso da quelle mostrate nella schermata seguente, a seconda dell'editor usato o del fatto che si stia modificando un modello per una distribuzione nuova o esistente.
 
@@ -69,7 +73,7 @@ In questa sezione, si abiliterà e disabiliterà un sistema di identità assegna
    },
    ```
 
-4. (Facoltativo) Aggiungere l'estensione MSI della macchina virtuale come elemento `resources`. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Usare la sintassi seguente:
+4. (Facoltativo) Aggiungere l'estensione dell'identità del servizio gestita della macchina virtuale come elemento `resources`. Questo passaggio è facoltativo in quanto è possibile usare anche l'endpoint dell'identità del servizio metadati dell'istanza di Azure per recuperare i token.  Usare la sintassi seguente:
 
    >[!NOTE] 
    > Nell'esempio seguente si presuppone la distribuzione di un'estensione della macchina virtuale Windows (`ManagedIdentityExtensionForWindows`). È possibile eseguire la configurazione anche per Linux usando invece `ManagedIdentityExtensionForLinux` per gli elementi `"name"` e `"type"`.
@@ -105,7 +109,7 @@ In questa sezione, si abiliterà e disabiliterà un sistema di identità assegna
 
 Dopo avere abilitato l'identità assegnata dal sistema sulla macchina virtuale, è possibile autorizzare, ad esempio, un ruolo di accesso **Lettore** al gruppo di risorse in cui è stato creata.
 
-1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi inoltre che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM (ad esempio, "Collaboratore macchine virtuali").
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
  
 2. Caricare il modello in un' [editor](#azure-resource-manager-templates) e aggiungere le informazioni seguenti per assegnare alla macchina virtuale l'accesso come **Lettore** al gruppo di risorse in cui è stato creata.  La struttura del modello può variare a seconda dell'editor e del modello di distribuzione scelto.
    
@@ -149,9 +153,9 @@ Dopo avere abilitato l'identità assegnata dal sistema sulla macchina virtuale, 
 
 Se si dispone di una macchina virtuale per cui non è più necessaria un'identità del servizio gestito:
 
-1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nella VM, ad esempio "Collaboratore macchine virtuali".
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
 
-2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachines`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità assegnata dal sistema, è possibile disabilitarla modificando il tipo di identità a `None`.  Se la macchina virtuale ha sia identità assegnate dal sistema, sia assegnate all'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità assegnate dall'utente.  L'esempio seguente illustra come si rimuove un'identità assegnata dal sistema da una macchina virtuale senza identità assegnate all'utente:
+2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachines`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità assegnata dal sistema, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.  Se la macchina virtuale ha sia identità assegnate dal sistema, sia assegnate all'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità assegnate dall'utente.  L'esempio seguente illustra come si rimuove un'identità assegnata dal sistema da una macchina virtuale senza identità assegnate all'utente:
    
    ```JSON
     {
@@ -218,8 +222,30 @@ In questa sezione si assegna un'identità assegnata dall'utente a una macchina v
 
       ![Screenshot dell'identità assegnata dall'utente](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Rimuovere l'identità assegnata dall'utente da una macchina virtuale di Azure
+
+Se si dispone di una macchina virtuale per cui non è più necessaria un'identità del servizio gestito:
+
+1. Se si accede ad Azure localmente o tramite il portale di Azure, usare un account che sia associato alla sottoscrizione di Azure che contiene la VM.
+
+2. Caricare il modello in un [editor](#azure-resource-manager-templates) e individuare `Microsoft.Compute/virtualMachines`la risorsa interessata`resources` all'interno della sezione. Se si dispone di una macchina virtuale con solo un'identità assegnata dall'utente, è possibile disabilitarla modificando il tipo di identità e impostandolo su `None`.  Se la macchina virtuale ha identità assegnate sia dal sistema sia dall'utente e si vuole mantenere l'identità assegnata dal sistema, rimuovere `UserAssigned` dal tipo di identità insieme alla matrice `identityIds` delle identità assegnate dall'utente.
+    
+   Per rimuovere una singola identità assegnata dall'utente, rimuoverla dalla matrice `identityIds`.
+   
+   L'esempio seguente illustra come rimuovere tutte le identità assegnate dall'utente da una macchina virtuale senza identità assegnate dal sistema:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Contenuti correlati
 
-- Per un punto di vista più ampio su MSI, leggere [Managed Service Identity overview](overview.md) (Panoramica dell'identità del servizio gestito).
+- Per un punto di vista più ampio sull'identità del servizio gestita, vedere [Managed Service Identity overview](overview.md) (Panoramica dell'identità del servizio gestita).
 

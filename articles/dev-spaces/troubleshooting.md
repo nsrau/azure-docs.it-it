@@ -11,24 +11,47 @@ ms.topic: article
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: 4dee39b56cf0f6494f6e79c70b85bbf711d33d65
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044595"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247324"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
 Questa guida contiene informazioni sui problemi comuni in cui si potrebbe incorrere quando si usa Azure Dev Spaces.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Errore "Failed to create Azure Dev Spaces controller" (Non è stato possibile creare il controller di Azure Dev Spaces)
+
+In caso di problemi durante la creazione del controller, è possibile che venga visualizzato questo errore. Se si tratta di un errore temporaneo, è possibile correggerlo eliminando e ricreando il controller.
+
+### <a name="try"></a>Soluzione:
+
+Per eliminare il controller, usare l'interfaccia della riga di comando di Azure Dev Spaces. Non è possibile eseguire questa operazione in Visual Studio o in Cloud Shell. Per installare l'interfaccia della riga di comando di Azure Dev Spaces, installare innanzitutto l'interfaccia della riga di comando di Azure e quindi eseguire questo comando:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+Eseguire quindi questo comando per eliminare il controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+Per ricreare il controller è possibile usare l'interfaccia della riga di comando o Visual Studio. Seguire le istruzioni nelle esercitazioni come se si iniziasse per la prima volta.
+
+
 ## <a name="error-service-cannot-be-started"></a>Errore "Service cannot be started" (Impossibile avviare il servizio).
 
 Si potrebbe verificare questo errore quando il codice del servizio non viene avviato. La causa è spesso nel codice utente. Per ottenere altre informazioni di diagnostica, apportare le modifiche seguenti ai comandi e alle impostazioni:
 
+### <a name="try"></a>Soluzione:
+
 Sulla riga di comando:
 
-1. Quando si usa _azds.exe_, usare l'opzione della riga di comando --verbose e usare l'opzione della riga di comando --output per specificare il formato di output.
+Quando si usa _azds.exe_, usare l'opzione della riga di comando --verbose e usare l'opzione della riga di comando --output per specificare il formato di output.
  
     ```cmd
     azds up --verbose --output json

@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069264"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247211"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'i
 
 La funzionalità Istanza gestita di database SQL è un'espansione del servizio Database SQL esistente e offre una terza opzione di distribuzione oltre ai database singoli e ai pool elastici.  È stata progettata per consentire il trasferimento in modalità lift-and-shift di database a una soluzione PaaS completamente gestita senza riprogettazione dell'applicazione. Istanza gestita di database SQL offre compatibilità elevata con il modello di programmazione di SQL Server in locale e offre supporto predefinito per la maggior parte delle funzionalità di SQL Server e degli strumenti e dei servizi associati.
 
-A livello generale, il processo di migrazione delle applicazioni si presenta come illustrato nel diagramma seguente:
+A livello generale, il processo di migrazione dell'applicazione è simile a quello indicato di seguito:
 
 ![Processo di migrazione](./media/sql-database-managed-instance-migration/migration-process.png)
 

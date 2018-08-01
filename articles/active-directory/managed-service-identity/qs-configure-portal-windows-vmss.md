@@ -1,6 +1,6 @@
 ---
-title: Configurare l'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure
-description: Istruzioni dettagliate per la configurazione dell'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure.
+title: Configurare un'identità del servizio gestita in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure
+description: Istruzioni dettagliate per la configurazione di un'identità del servizio gestita in un set di scalabilità di macchine virtuali di Azure tramite il portale di Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035242"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257760"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurare un'identità del servizio gestita (MDI) in un set di scalabilità di macchine virtuali tramite il portale di Azure
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurare un'identità del servizio gestita in un set di scalabilità di macchine virtuali tramite il portale di Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Identità del servizio gestito offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
+L'identità del servizio gestita offre servizi di Azure con un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
 Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal sistema per un set di scalabilità di macchine virtuali usando il portale di Azure. L'assegnazione e la rimozione delle identità assegnate dall'utente da un set di scalabilità di macchine virtuali di Azure non sono attualmente supportate tramite il portale di Azure.
 
@@ -34,9 +34,10 @@ Questo articolo illustra come abilitare e disabilitare l'identità assegnata dal
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account deve avere l'assegnazione di ruolo seguente:
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per abilitare e rimuovere l'identità gestita assegnata dal sistema da un set di scalabilità di macchine virtuali.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Abilitare l'identità del servizio gestita durante la creazione di un set di scalabilità di macchine virtuali di Azure
 
@@ -44,7 +45,7 @@ Attualmente, la creazione di VM tramite il portale di Azure non supporta operazi
 
 - [Creare un set di scalabilità di macchine virtuali nel portale di Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Procedere quindi alla sezione successiva per informazioni dettagliate sull'abilitazione dell'identità del servizio gestito nel set di scalabilità di macchine virtuali.
+Procedere quindi alla sezione successiva, per informazioni dettagliate sull'abilitazione dell'identità del servizio gestita nel set di scalabilità di macchine virtuali.
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Abilitare l'identità del servizio gestita in un set di scalabilità di macchine virtuali di Azure esistente
 
@@ -60,7 +61,7 @@ Per abilitare l'identità assegnata dal sistema in una macchina virtuale di cui 
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere l'identità del servizio gestita da un set di scalabilità di macchine virtuali di Azure
 
-Se si dispone di un set di scalabilità di macchine virtuali per cui non è più necessaria un'identità del servizio gestito:
+Se si dispone di un set di scalabilità di macchine virtuali per cui non è più necessaria un'identità del servizio gestita:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure che contiene il set di scalabilità di macchine virtuali. Assicurarsi anche che l'account appartenga a un ruolo che fornisce le autorizzazioni di scrittura nel set di scalabilità di macchine virtuali.
 
@@ -76,6 +77,6 @@ Se si dispone di un set di scalabilità di macchine virtuali per cui non è più
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Tramite il portale di Azure concedere all'identità del servizio gestito del set di scalabilità di macchine virtuali di Azure l'[accesso a un'altra risorsa di Azure](howto-assign-access-portal.md).
+- Tramite il portale di Azure, concedere all'identità del servizio gestita del set di scalabilità di macchine virtuali l'[accesso a un'altra risorsa di Azure](howto-assign-access-portal.md).
 
 Usare la sezione dei commenti seguente per fornire commenti e suggerimenti utili per migliorare e organizzare i contenuti disponibili.

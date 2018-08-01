@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0414fa16f277c7495cc7fe4bdd7a51fc3a23ad93
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988623"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185119"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Creare elementi personalizzati per la macchina virtuale di DevTest Labs
 
@@ -53,15 +53,15 @@ L'esempio seguente illustra le sezioni che compongono la struttura di base di un
       }
     }
 
-| Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| $schema |No  |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
-| title |sì |Nome dell'elemento visualizzato nel lab. |
-| description |sì |Descrizione dell'elemento visualizzato nel lab. |
-| iconUri |No  |URI dell'icona visualizzata nel lab. |
-| targetOsType |sì |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
-| Parametri |No  |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
-| runCommand |sì |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
+| $schema |No |Posizione del file di schema JSON. Il file di schema JSON aiuta a testare la validità del file di definizione. |
+| title |Yes |Nome dell'elemento visualizzato nel lab. |
+| description |Yes |Descrizione dell'elemento visualizzato nel lab. |
+| iconUri |No |URI dell'icona visualizzata nel lab. |
+| targetOsType |Yes |Sistema operativo della macchina virtuale in cui è installato l'elemento. Le opzioni supportate sono Windows e Linux. |
+| Parametri |No |Valori forniti quando viene eseguito il comando di installazione dell'elemento in un computer. Questi valori consentono di personalizzare l'elemento. |
+| runCommand |Yes |Il comando di installazione dell’elemento che viene eseguito in una macchina virtuale. |
 
 ### <a name="artifact-parameters"></a>Parametri dell'elemento
 Nella sezione dei parametri del file di definizione è possibile specificare i valori che un utente può immettere quando installa un elemento. È possibile fare riferimento a questi valori nel comando di installazione dell'elemento.
@@ -76,11 +76,11 @@ Per definire i parametri, usare la struttura seguente:
         }
       }
 
-| Nome dell'elemento | Obbligatorio? | DESCRIZIONE |
+| Nome dell'elemento | Obbligatorio? | Descrizione |
 | --- | --- | --- |
-| type |sì |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
-| displayName |sì |Nome del parametro che viene visualizzato a un utente nel lab. | |
-| description |sì |Descrizione del parametro che viene visualizzato nel lab. |
+| type |Yes |Tipo di valore del parametro. Vedere l'elenco seguente per informazioni sui tipi consentiti. |
+| displayName |Yes |Nome del parametro che viene visualizzato a un utente nel lab. | |
+| description |Yes |Descrizione del parametro che viene visualizzato nel lab. |
 
 I tipi consentiti sono:
 
@@ -113,7 +113,7 @@ L'esempio seguente mostra come usare espressioni e funzioni per costruire un val
 1. Installare un editor JSON. È necessario un editor JSON per lavorare con i file di definizione dell'elemento. È consigliabile usare [Visual Studio Code](https://code.visualstudio.com/) disponibile per Windows, Linux e OS X.
 2. Ottenere un file di definizione artifactfile.json di esempio. Esaminare gli elementi creati dal team di DevTest Labs nel [repository GitHub](https://github.com/Azure/azure-devtestlab). È stata creata una libreria completa di elementi utili per creare i propri elementi. Scaricare un file di definizione dell’elemento e apportare modifiche al codice per creare i propri elementi.
 3. Usare IntelliSense. Usare IntelliSense per vedere gli elementi validi che è possibile usare per costruire un file di definizione dell'elemento. È anche possibile vedere le diverse opzioni per i valori di un elemento. Quando, ad esempio, si modifica l'elemento **targetOsType**, IntelliSense mostra due opzioni, per Windows o Linux.
-4. Archiviare l'artefatto nel [repository Git pubblico per DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o nel [repository Git personale](devtest-lab-add-artifact-repo.md).
+4. Archiviare l'artefatto nel [repository Git pubblico per DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o nel [repository Git personale](devtest-lab-add-artifact-repo.md). Nel repository pubblico, è possibile visualizzare gli elementi condivisi da altri utenti che è possibile usare direttamente o personalizzare in base alle esigenze. 
    
    1. Creare una directory distinta per ogni elemento. Il nome della directory deve corrispondere a quello dell'elemento.
    2. Archiviare il file di definizione dell'elemento (artifactfile.json) nella directory creata.

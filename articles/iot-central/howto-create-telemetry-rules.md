@@ -8,16 +8,16 @@ ms.date: 04/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: 083410c6407ce7aa83c3829f884890561b0b44b8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 42516e4dd6a85e0d07d4a8e70e958b2ec6e84aad
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008213"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225201"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Creare una regola di telemetria e configurare un'azione nell'applicazione Azure IoT Central
 
-È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi in tempo reale e di richiamare automaticamente azioni, quali l'invio di un messaggio di posta elettronica o l'attivazione di un flusso di lavoro, quando le condizioni della regola vengono soddisfatte. Con pochi clic è possibile definire le condizioni per monitorare i dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio la regola di telemetria.
+È possibile usare Microsoft Azure IoT Central per monitorare in remoto i dispositivi connessi. Le regole di Azure IoT Central consentono di monitorare i dispositivi in tempo reale e di richiamare automaticamente azioni, quali l'invio di un messaggio di posta elettronica o l'attivazione di un flusso di lavoro in Microsoft Flow, quando le condizioni della regola vengono soddisfatte. Con pochi clic è possibile definire le condizioni per monitorare i dati del dispositivo e configurare l'azione da chiamare. Questo articolo descrive nel dettaglio la regola di telemetria.
 
 Azure IoT Central usa [misurazioni di telemetria](howto-set-up-template.md) per acquisire dati dei dispositivi. Ogni tipo di misura include attributi chiave che definiscono la misura stessa. È possibile creare regole per monitorare ogni tipo di misura del dispositivo e generare avvisi quando la regola viene attivata. Una regola di telemetria viene attivata quando la telemetria del dispositivo selezionato supera una soglia specificata.
 
@@ -60,7 +60,9 @@ Questa sezione illustra come aggiungere una condizione per monitorare la telemet
 
 ### <a name="add-an-action"></a>Aggiungere un'azione
 
-Questa sezione illustra come aggiungere un'azione a una regola. Viene spiegato come aggiungere l'azione posta elettronica, ma anche come [aggiungere un'azione di Microsoft Flow](howto-add-microsoft-flow.md) alla regola per avviare un flusso di lavoro in Microsoft Flow quando la regola viene attivata.
+Questo esempio illustra come aggiungere un'azione a una regola. Questo esempio illustra come aggiungere l'azione di posta elettronica, ma è possibile aggiungere anche altre azioni:
+-  [Azione di Microsoft Flow](howto-add-microsoft-flow.md) per avviare un flusso di lavoro in Microsoft Flow quando viene attivata una regola
+- [Azione webhook](howto-create-webhooks.md) per inviare una notifica agli altri servizi quando viene attivata una regola
 
 > [!NOTE]
 > Per il momento è consentito associare una sola azione a ogni singola regola.

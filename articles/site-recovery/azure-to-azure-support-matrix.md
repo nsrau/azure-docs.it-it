@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070878"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173051"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -27,34 +27,21 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per la rep
 **Interfaccia utente** |  **Supportato / Non supportato**
 --- | ---
 **Portale di Azure** | Supportato
-**Portale classico** | Non supportate
 **PowerShell** | [Replica da Azure ad Azure con PowerShell](azure-to-azure-powershell.md)
 **API REST** | Attualmente non supportato
 **Interfaccia della riga di comando** | Attualmente non supportato
 
 
-## <a name="resource-move-support"></a>Supporto spostamento risorse
+## <a name="resource-support"></a>Supporto delle risorse
 
-**Tipo spostamento risorse** | **Supportato / Non supportato** | **Osservazioni:**  
+**Tipo spostamento risorse** | **Dettagli** 
 --- | --- | ---
-**Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate |È possibile spostare l'insieme di credenziali di servizi di ripristino tra gruppi di risorse.
-**Spostamento di servizi di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportate |Se si sposta una macchina virtuale (o i componenti associati come archiviazione e rete) dopo aver abilitato la replica, è necessario disabilitarla e riabilitarla per la macchina virtuale.
+**Spostamento insieme di credenziali tra gruppi di risorse** | Non supportato<br/><br/> Non è possibile spostare l'insieme di credenziali di Servizi di ripristino tra gruppi di risorse.
+**Spostamento di risorse di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportato<br/><br/> Se si sposta una macchina virtuale o componenti associati come archiviazione o rete dopo la replica, è necessario disabilitare la replica e riabilitarla per la macchina virtuale.
+**Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Non supportata
+**Migrazione di macchine virtuali tra sottoscrizioni** | Non supportata
+**Migrazione di macchine virtuali all'interno della stessa area** | Non supportata
 
-
-
-## <a name="support-for-deployment-models"></a>Supporto per modelli di distribuzione
-
-**Modello di distribuzione** | **Supportato / Non supportato** | **Osservazioni:**  
---- | --- | ---
-**Classico** | Supportato | È possibile eseguire la replica di una macchina virtuale classica e ripristinarla solo come macchina virtuale classica. Non è possibile ripristinarla come macchina virtuale di Resource Manager. Non è possibile distribuire una macchina virtuale classica senza una rete virtuale e direttamente in un'area di Azure.
-**Gestione risorse** | Supportato |
-
->[!NOTE]
->
-> 1. La replica delle macchine virtuali di Azure da una sottoscrizione a un'altra per scenari di ripristino di emergenza non è supportata.
-> 2. La migrazione di macchine virtuali di Azure tra sottoscrizioni non è supportata.
-> 3. La migrazione di macchine virtuali di Azure nella stessa regione non è supportata.
-> 4. La migrazione di macchine virtuali di Azure dal modello di distribuzione Classic al modello di distribuzione di Resource Manager non è supportata.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Supporto per le versioni dei sistemi operativi dei computer replicati
 
@@ -146,6 +133,13 @@ Cina | Cina orientale, Cina settentrionale
 >
 > Per il Brasile meridionale, è possibile eseguire la replica e il failover solo in una delle aree di Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2 e Stati Uniti centro-settentrionali e failback.
 
+## <a name="support-for-vmdisk-management"></a>Supporto della macchina virtuale e del disco
+
+**Azione** | **Dettagli**
+-- | ---
+Ridimensionamento del disco nella macchina virtuale replicata | Supportato
+Aggiunta del disco alla macchina virtuale replicata | Non supportata È necessario disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi riabilitare nuovamente la replica.
+
 
 ## <a name="support-for-compute-configuration"></a>Supporto per la configurazione del servizio di calcolo
 
@@ -185,8 +179,8 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Firewall di Archiviazione di Azure per reti virtuali  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
-Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No  | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Firewall di Archiviazione di Azure per reti virtuali  | No | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.

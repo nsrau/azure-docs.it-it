@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057613"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Esercitazione: Integrazione di Azure Active Directory con Skills Base
 
@@ -110,7 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore contattare il [team di supporto client di Skills Base](mailto:support@skills-base.com).
+    > È possibile ottenere l'URL di accesso dall'applicazione Skills Base. Eseguire l'accesso come amministratore e passare ad Admin -> Settings -> Instance details -> Shortcut link (Amministratore -> Impostazioni -> Dettagli istanza -> Collegamento tasto di scelta rapida). Copiare l'URL di accesso e incollarlo nella casella di testo indicata sopra.
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -141,7 +141,6 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Fare clic su **Save**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
@@ -172,14 +171,14 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
  
 ### <a name="create-a-skills-base-test-user"></a>Creare un utente di test di Skills Base
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Skills Base. Skills Base supporta il provisioning just-in-time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante il tentativo di accesso a Skills Base viene creato un nuovo utente, se questo non esiste già.
 
 >[!Note]
->Per creare un utente manualmente, contattare il [team del supporto clienti di Skills Base](mailto:support@skills-base.com).
+>Se è necessario creare un utente manualmente, seguire le istruzioni riportate in [questa pagina](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
