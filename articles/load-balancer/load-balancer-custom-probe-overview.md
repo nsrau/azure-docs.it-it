@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2018
+ms.date: 07/20/2018
 ms.author: kumud
-ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d354e3f409a51bdbb03ad340c951c39cc6137e1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112723"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186445"
 ---
 # <a name="understand-load-balancer-probes"></a>Informazioni sui probe del servizio di bilanciamento del carico
 
@@ -28,7 +28,7 @@ Azure Load Balancer usa i probe di integrità per determinare quale istanza del 
 
 I probe di integrità determinano quali nuovi flussi vengono stabiliti per le istanze back-end integre. Se il probe di integrità non riesce, Load Balancer interrompe l'invio di nuovi flussi alla rispettiva istanza non integra.  Le connessioni TCP stabilite continuano dopo l'errore di probe di integrità.  I flussi esistenti UDP passeranno dall'istanza del tipo non integro a un'altra istanza integra nel pool di back-end.
 
-Se tutti i probe per un pool di back-end hanno esito negativo, Load Balancer Basic terminerà tutti i flussi TCP esistenti per il pool di back-end, mentre Load Balancer Standard permetterà al flussi TCP stabiliti di continuare; non verranno inviati nuovi flussi per il pool di back-end.  Tutti i flussi UDP esistenti verranno interrotti per Load Balancer Standard e Basic quando tutti i probe per un pool di back-end hanno esito negativo.
+Se tutti i probe per un pool di back-end hanno esito negativo, Load Balancer Basic terminerà tutti i flussi TCP esistenti per il pool di back-end, mentre Load Balancer Standard permetterà al flussi TCP stabiliti di continuare; non verranno inviati nuovi flussi per il pool di back-end.  Tutti i flussi UDP esistenti verranno interrotti per Load Balancer Standard e Basic quando tutti i probe per un pool di back-end hanno esito negativo.  UDP è senza connessione e non esiste uno stato di flusso monitorato per l'UDP.  A condizione che l'hashing produca lo stesso risultato, il flusso di datagrammi rimarrà su un'istanza specifica.  Una modifica di un probe di integrità del pool di back-end potrebbe spostare i nuovi datagrammi in un'altra istanza nel pool di back-end.
 
 I ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe. I probe di integrità personalizzati TCP o HTTP devono essere configurati quando si usano Servizi cloud con macchine virtuali dietro Load Balancer.
 

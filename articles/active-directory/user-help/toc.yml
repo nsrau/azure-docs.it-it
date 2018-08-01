@@ -1,0 +1,72 @@
+- name: Documentazione della Guida dell'utente
+  href: index.md
+- name: Guida alla verifica in due passaggi
+  items:
+    - name: Panoramica
+      href: user-help-two-step-verification-overview.md
+    - name: Configurare l'account
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Gestire le impostazioni
+      href: multi-factor-authentication-end-user-manage-settings.md
+    - name: Ottenere aiuto
+      href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Gestire le password delle app
+      href: multi-factor-authentication-end-user-app-passwords.md
+    - name: Come effettuare l'accesso
+      href: user-help-sign-in.md?toc=./toc.json
+- name: Guida alla reimpostazione delle password
+  items:
+    - name: Panoramica
+      href: user-help-password-reset-overview.md
+    - name: Registrarsi per la reimpostazione delle password
+      href: active-directory-passwords-reset-register.md
+    - name: Reimpostare la password
+      href: user-help-reset-password.md
+- name: Guida alle informazioni di sicurezza (anteprima)
+  items:
+    - name: Panoramica
+      href: user-help-security-info-overview.md
+    - name: Configurare un'app di autenticazione
+      href: security-info-setup-auth-app.md
+    - name: Configurare SMS
+      href: security-info-setup-text-msg.md
+    - name: Configurare chiamate telefoniche
+      href: security-info-setup-phone-number.md
+    - name: Configurare la posta elettronica
+      href: security-info-setup-email.md
+    - name: Configurare le domande di sicurezza
+      href: security-info-setup-questions.md
+    - name: Gestire le password delle app
+      href: security-info-app-passwords.md
+    - name: Gestire le informazioni di sicurezza
+      href: security-info-manage-settings.md
+    - name: Come effettuare l'accesso
+      href: user-help-sign-in.md?toc=./toc.json
+- name: Guida all'app Microsoft Authenticator
+  items:
+    - name: Panoramica
+      href: user-help-auth-app-overview.md
+    - name: Attività iniziali
+      href: microsoft-authenticator-app-how-to.md
+    - name: 'Accedere con il telefono, non con la password'
+      href: microsoft-authenticator-app-phone-signin-faq.md
+    - name: Backup e ripristino
+      href: microsoft-authenticator-app-backup-and-recovery.md
+    - name: Domande frequenti
+      href: microsoft-authenticator-app-faq.md
+- name: Guida al portale delle app personali
+  items:
+    - name: Panoramica
+      href: user-help-my-apps-overview.md
+    - name: Informazioni sul portale delle app personali
+      href: active-directory-saas-access-panel-introduction.md
+    - name: Risolvere i problemi
+      href: active-directory-saas-access-panel-user-help.md
+- name: Guida alla gestione dei dispositivi
+  items:
+    - name: Panoramica
+      href: user-help-device-mgmt-overview.md
+    - name: Aggiungere i dispositivi
+      href: device-management-azuread-joined-devices-setup.md
+    - name: Registrare i dispositivi Windows 10
+      href: device-management-azuread-registered-devices-windows10-setup.md

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866179"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249020"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
 Esistono due set di impostazioni di configurazione per i servizi Reliable Services. Un set è globale per tutti i servizi Reliable Services del cluster, mentre l'altro è specifico per un particolare servizio Reliable Services.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Specifica un GUID unico da utilizzare per l'identificazione del file di log condiviso usato con la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogId, lo deve essere anche SharedLogPath. |
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SlowApiMonitoringDuration |Secondi |300 |Imposta l'intervallo di monitoraggio per le chiamate API gestite. Esempio: funzione di callback di backup fornita dall'utente. Al termine dell'intervallo verrà inviato un report sull'integrità di avviso a Health Manager. |
+| LogTruncationIntervalSeconds |Secondi |0 |Intervallo configurabile in cui il troncamento dei registri verrà avviato a ogni replica. Viene utilizzato per garantire che anche il registro sia troncato in base al tempo invece che in base alla sola dimensione del registro. Questa impostazione forza anche l'eliminazione delle voci cancellate in un dizionario affidabile. Può quindi essere utilizzato per garantire che gli elementi eliminati vengano rimossi in modo tempestivo. |
 
 ### <a name="sample-configuration-via-code"></a>Configurazione di esempio tramite codice
 ```csharp

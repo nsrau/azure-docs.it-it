@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fab9ddefc022cb5643f98cf7fea4ca74d4f7101b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595326"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227779"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0
 Azure Active Directory (Azure AD) usa OAuth 2.0 per consentire di autorizzare l'accesso ad applicazioni Web e API Web nel proprio tenant di Azure AD. Questa guida descrive la procedura, indipendente dal linguaggio, per inviare e ricevere messaggi HTTP senza usare nessuna delle [librerie open source di Microsoft](active-directory-authentication-libraries.md).
@@ -44,7 +44,7 @@ Il flusso del codice di autorizzazione ha inizio con il client che indirizza l'u
 https://login.microsoftonline.com/{tenant}/oauth2/authorize?
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
-&redirect_uri=http%3A%2F%2Flocalhost%3A%12345
+&redirect_uri=http%3A%2F%2Flocalhost%3A12345
 &response_mode=query
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &state=12345
@@ -56,7 +56,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | client_id |Obbligatoria |ID applicazione assegnato all'app quando è stata registrata in Azure AD. ed è reperibile nel portale di Azure. Fare clic su **Azure Active Directory** nella barra laterale dei servizi, fare clic su **Registrazioni per l'app** e scegliere l'applicazione. |
 | response_type |Obbligatoria |Deve includere `code` per il flusso del codice di autorizzazione. |
 | redirect_uri |Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. Per le app native e le app per dispositivi mobili è necessario usare il valore predefinito `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Consigliato |Specifica il metodo da usare per restituire il token risultante all'app. Può essere `query` o `form_post`. `query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento mentre `form_post` esegue un'operazione POST che contiene il codice per l'URI di reindirizzamento. |
+| response_mode |Consigliato |Specifica il metodo da usare per restituire il token risultante all'app. Può essere `query`, `fragment` o `form_post`. `query` fornisce il codice come parametro della stringa di query nell'URI di reindirizzamento. Se si sta richiedendo un token ID usando il flusso implicito, non è possibile usare `query` come indicato nella [specifica OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Se si sta richiedendo solo il codice, è possibile usare `query`, `fragment` o `form_post`. `form_post` esegue un POST contenente il codice all'URI di reindirizzamento. |
 | state |Consigliato |Valore incluso nella richiesta che viene restituito nella risposta del token. Per [evitare gli attacchi di richiesta intersito falsa](http://tools.ietf.org/html/rfc6749#section-10.12), viene in genere usato un valore univoco generato casualmente. Lo stato viene inoltre usato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 | resource | Consigliato |L'URI dell'ID dell'app dell'API Web di destinazione (risorsa protetta). Per trovare l'URI dell'ID dell'app, nel portale di Azure fare clic su **Azure Active Directory**, fare clic su **Registrazioni per l'app**, aprire la pagina **Impostazioni** dell'applicazione e quindi su **Proprietà**. Può anche essere una risorsa esterna, ad esempio `https://graph.microsoft.com`. Questo è necessario in una delle richieste di token o di autorizzazione. Per ottenere un numero inferiore di richieste di autenticazione, inserirlo nella richiesta di autorizzazione per assicurarsi che il consenso sia ricevuto dall'utente. |
 | scope | **Ignorata** | Per Azure AD versione 1 gli ambiti devono essere configurati in modo statico nel portale di Azure, in **Impostazioni** per le applicazioni, **Autorizzazioni obbligatorie**. |

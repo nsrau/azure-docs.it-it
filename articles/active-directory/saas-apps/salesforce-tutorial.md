@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045439"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Esercitazione: Integrazione di Azure Active Directory con Salesforce
 
@@ -60,14 +60,14 @@ Per configurare l'integrazione di Salesforce in Azure AD, è necessario aggiunge
 
 **Per aggiungere Salesforce dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Pulsante Azure Active Directory][1]
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![Pannello Applicazioni aziendali][2]
-    
+
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![Pulsante Nuova applicazione][3]
@@ -103,26 +103,26 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Collegamento Configura accesso Single Sign-On][4]
 
 2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
+
     ![Finestra di dialogo Single Sign-On](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. Nella sezione **URL e dominio Salesforce** seguire questa procedura:
 
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di Salesforce](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. Nella casella di testo **URL di accesso** digitare il valore usando il modello seguente:
-    
+
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
     Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     b. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente:
-    
+
     Account aziendale: `https://<subdomain>.my.salesforce.com`
 
     Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di Salesforce](https://help.salesforce.com/support).
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **Certificato** e quindi salvare il file del certificato nel computer.
@@ -170,14 +170,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nel campo **Issuer** (Autorità emittente) incollare il valore dell'**ID di entità SAML** copiato dal portale di Azure.
 
     c. Nella casella di testo **Entity Id**immettere il nome di dominio di Salesforce nel formato seguente:
-      
+
       * Account aziendale: `https://<subdomain>.my.salesforce.com`
       * Account sviluppatore: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. Per caricare **Identity Provider Certificate** (Certificato provider di identità) fare clic su **Choose file** (Scegli file) per esplorare e selezionare il file di certificato scaricato dal portale di Azure.
 
     e. Nel campo **SAML Identity Type** (Tipo di identità SAML) scegliere una delle opzioni seguenti:
-    
+
       * Selezionare **Assertion contains the User's Salesforce username** (L'asserzione contiene il nome utente Salesforce dell'utente) se il nome utente Salesforce dell'utente viene passato nell'asserzione SAML
 
       * Selezionare **Assertion contains the Federation ID from the User object** (L'asserzione contiene l'ID federazione dell'oggetto User) se l'ID federazione dell'oggetto User viene passato nell'asserzione SAML
@@ -189,7 +189,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     g. Per **Service Provider Initiated Request Binding** selezionare **HTTP Redirect**.
 
     h. Nella casella di testo **Identity Provider Login URL** (URL di accesso provider di identità) incollare il valore dell'**URL del servizio Single Sign-On**  copiato dal portale di Azure.
-    
+
     i. Fare infine clic su **Save** per applicare le impostazioni di SAML Single Sign-On.
 
 14. Nel pannello di navigazione sinistro in Salesforce fare clic su **Company Settings** (Impostazioni aziendali) per espandere la sezione correlata e quindi fare clic su **My Domain** (Dominio personale).
@@ -200,7 +200,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. Nella sezione **Authentication Configuration** (Autenticazione configurazione) selezionare **Login Page** (Pagina di accesso) come **Authentication Service** (Servizio di autenticazione) della configurazione SAML SSO e quindi fare clic su  **Save** (Salva).
+16. Nella sezione **Authentication Configuration** (Autenticazione configurazione) selezionare **AzureSSO** come **Authentication Service** (Servizio di autenticazione) della configurazione SAML SSO e quindi fare clic su  **Save** (Salva).
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 
@@ -237,7 +237,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Create**(Crea).
 
 ### <a name="create-a-salesforce-test-user"></a>Creare un utente test di Salesforce
 
