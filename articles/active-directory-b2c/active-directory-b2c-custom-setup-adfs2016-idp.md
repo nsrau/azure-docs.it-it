@@ -95,7 +95,7 @@ La federazione con account AD FS richiede un segreto client per consentire all'a
 4.  Per **Opzioni** usare **Carica**.
 5.  Per **Nome** usare `ADFSSamlCert`.  
     È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
-6.  In Caricamento file selezionare il file del certificato con estensione PFX, con la chiave privata. Nota: questo certificato (con la chiave privata) deve essere lo stesso rilasciato e usato per la relying party di AD FS.
+6.  In Caricamento file \*\* selezionare il file del certificato con estensione PFX, con la chiave privata. Nota: questo certificato (con la chiave privata) deve essere lo stesso rilasciato e usato per la relying party di AD FS.
 ![Carica chiave criteri](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-cert.png)
 7.  Fare clic su **Crea**
 8.  Confermare di avere creato la chiave `B2C_1A_ADFSSamlCert`.
