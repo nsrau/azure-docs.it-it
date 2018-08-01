@@ -22,7 +22,8 @@
 
 ## Procedure
 ### [Gestire tramite il portale di Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Installare l'ultimo aggiornamento](storsimple-virtual-array-install-update-1.md)
+#### [Installare l'ultimo aggiornamento](storsimple-virtual-array-install-update-11.md)
+##### [Installare l'aggiornamento 1](storsimple-virtual-array-install-update-1.md)
 ##### [Installare l'aggiornamento 0.6](storsimple-virtual-array-install-update-06.md)
 ##### Archiviazione
 ###### [Installare l'aggiornamento 0.5](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Eseguire la configurazione con l'interfaccia utente Web locale](storsimple-ova-web-ui-admin.md)
 
 ## Note sulla versione
-### [Aggiornamento 1: versione corrente](storsimple-virtual-array-update-1-release-notes.md)
+### [Aggiornamento 1.1: versione corrente](storsimple-virtual-array-update-11-release-notes.md)
+### [Aggiornamento 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Aggiornamento 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archiviazione
 #### [Aggiornamento 0.5](storsimple-virtual-array-update-05-release-notes.md)
@@ -201,7 +203,7 @@
 #### [Aggiornamento 0.1](storsimple-october-2014-release-notes.md)
 #### [Versione - Disponibilità generale](storsimple-july-2014-release-notes.md)
 
-## Riferimenti
+## riferimento
 ### [API REST](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell per i cmdlet StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
 

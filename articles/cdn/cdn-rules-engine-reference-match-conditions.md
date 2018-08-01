@@ -738,7 +738,7 @@ Informazioni chiave:
     
 - Specificare più percorsi URL delimitandoli con uno spazio singolo.
 
-   Ad esempio: /marketing/asset.* /sales/*.htm
+   Ad esempio: /marketing/asset.* /sales/\*.htm
 
 - Le stringhe di query nell'URL vengono ignorate.
     

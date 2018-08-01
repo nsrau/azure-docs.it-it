@@ -1,25 +1,30 @@
 ---
-title: Funzionamento della reimpostazione della password self-service - Azure Active Directory
-description: Approfondimenti sulla reimpostazione della password self-service di Azure AD
+title: Approfondimento sulle password self-service di Azure Active Directory
+description: Funzionamento della reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 04a446f43bd39ef7bfca590af67289813eab4032
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048880"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248220"
 ---
-# <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Approfondimenti sulla reimpostazione della password self-service in Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
 Come funziona la reimpostazione della password self-service? Cosa comporta questa opzione per l'interfaccia? Continuare la lettura per ottenere altre informazioni sulla reimpostazione della password self-service di Azure Active Directory (Azure AD).
+
+|     |
+| --- |
+| Notifica dell'app per dispositivi mobili e codice dell'app per dispositivi mobili come metodi per la reimpostazione della password di Azure AD in modalità self-service sono le funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Funzionamento del portale di reimpostazione delle password
 
@@ -35,15 +40,16 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 1. L'utente seleziona il collegamento **Problemi di accesso all'account?** o accede direttamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com).
    * In base alle impostazioni locali del browser viene eseguito il rendering dell'esperienza nella lingua appropriata. L'esperienza di reimpostazione della password viene localizzata nelle stesse lingue supportate da Office 365.
+   * Per visualizzare il portale di reimpostazione della password localizzato in un'altra lingua, accodare"?mkt=" alla fine dell'URL di reimpostazione della password seguendo questo esempio di localizzazione verso lo spagnolo [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 2. L'utente immette un ID utente e un captcha.
 3. Azure AD verifica se l'utente può usare questa funzionalità tramite le operazioni seguenti:
    * Verifica che questa funzionalità sia abilitata per l'utente e che all'utente sia assegnata una licenza Azure AD.
      * Se la funzionalità non è abilitata o se non dispone della licenza, per reimpostare la password l'utente deve contattare il proprio amministratore.
-   * Verifica che per l'account dell'utente siano stati definiti i dati di test corretti, in conformità con i criteri dell'amministratore.
-     * Se i criteri prevedono un solo test, viene verificato se per l'utente sono definiti i dati appropriati per almeno uno dei test abilitati dai criteri dell'amministratore.
-       * Se la verifica utente non è configurata, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
-     * Se i criteri prevedono due test di verifica, viene verificato se per l'utente sono definiti i dati appropriati per almeno due dei test abilitati dai criteri dell'amministratore.
-       * Se la verifica utente non è configurata, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
+   * Verificare che per l'account dell'utente siano stati definiti i metodi di autenticazione corretti, in conformità ai criteri dell'amministratore.
+     * Se i criteri prevedono un solo metodo, viene verificato se per l'utente sono definiti i dati appropriati per almeno uno dei metodi di autenticazione abilitati dai criteri dell'amministratore.
+       * Se i metodi di autenticazione non sono configurati, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
+     * Se i criteri prevedono due metodi, viene verificato se per l'utente sono definiti i dati appropriati per almeno due dei metodi di autenticazione abilitati dai criteri dell'amministratore.
+       * Se i metodi di autenticazione non sono configurati, l'utente verrà invitato a contattare l'amministratore per reimpostare la password.
    * Verifica se la gestione della password dell'utente viene eseguita in locale, con federazione, autenticazione pass-through o con sincronizzazione degli hash delle password.
      * Se il writeback è stato distribuito e la password dell'utente è gestita in locale, l'utente può continuare con il processo di autenticazione e di reimpostazione della password.
      * Se il writeback non è stato distribuito e la password dell'utente viene gestita in locale, all'utente viene richiesto di contattare l'amministratore per reimpostare la password.
@@ -51,31 +57,20 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 
-Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". Si consiglia di scegliere almeno due metodi di autenticazione in modo che gli utenti dispongano di una maggiore flessibilità.
+Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento.
 
+* Notifica dell'app per dispositivi mobili (anteprima)
+* Codice dell'app per dispositivi mobili (anteprima)
 * Email
 * Cellulare
 * Telefono ufficio
 * Domande di sicurezza
 
+Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
+
 ![Autenticazione][Authentication]
 
-### <a name="what-fields-are-used-in-the-directory-for-the-authentication-data"></a>Campi usati nella directory per i dati di autenticazione
-
-* **Telefono ufficio**: corrisponde al telefono dell'ufficio.
-    * Gli utenti non possono impostare questo campo autonomamente. Deve essere definito da un amministratore.
-* **Cellulare**: corrisponde al telefono per l'autenticazione, non visibile al pubblico, o al telefono cellulare, visibile a tutti.
-    * Il servizio cerca prima il telefono per l'autenticazione e quindi usa il cellulare, se il telefono per l'autenticazione non è presente.
-* **Indirizzo e-mail alternativo**: corrisponde all'indirizzo di posta elettronica per l'autenticazione, non visibile a tutti, o all'indirizzo di posta elettronica alternativo.
-    * Il servizio prima cerca l'indirizzo di posta elettronica per l'autenticazione, quindi esegue il failback per l'indirizzo di posta elettronica alternativo.
-
-Per impostazione predefinita, solo gli attributi cloud Telefono ufficio e Cellulare vengono sincronizzati con la directory cloud dalla directory locale per i dati di autenticazione.
-
-Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati e richiesti dall'amministratore.
-
-Se gli utenti non desiderano che il numero di telefono cellulare sia visibile nella directory, ma vogliono comunque utilizzarlo per la reimpostazione della password, gli amministratori non devono inserire i relativi dati nella directory. Gli utenti devono quindi popolare il proprio attributo **Telefono per autenticazione** tramite il [portale di registrazione per la reimpostazione della password](https://aka.ms/ssprsetup). Gli amministratori possono visualizzare queste informazioni nel profilo dell'utente, ma non vengono pubblicate altrove.
-
-### <a name="the-number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
+### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
 Questa opzione determina il numero minimo di metodi di autenticazione o attività di controllo disponibili che un utente deve usare per reimpostare o sbloccare la password. Può essere impostata su 1 o 2.
 
@@ -83,7 +78,17 @@ Gli utenti possono scegliere di definire più metodi di autenticazione, se tali 
 
 Se un utente non ha registrato il numero minimo di metodi richiesti, viene visualizzata una pagina di errore che invita a richiedere la reimpostazione della password a un amministratore.
 
-#### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
+#### <a name="mobile-app-and-sspr-preview"></a>App per dispositivi mobili e reimpostazione della password self-service (anteprima)
+
+Quando si usa un'app per dispositivi mobili, ad esempio l'app Microsoft Authenticator, come un metodo per la reimpostazione della password, gli utenti devono essere a conoscenza delle seguenti informazioni. Allo scopo di reimpostare la password in modalità self-service quando viene richiesto un solo metodo di ripristino, il codice di verifica rappresenta l'unica opzione disponibile per gli utenti. Quando vengono richiesti due metodi, gli utenti sono in grado di eseguire la reimpostazione usando **O** la notifica **O** il codice di verifica, oltre a qualsiasi altro metodo abilitato.
+
+| Numero di metodi da reimpostare | Uno | Due |
+| :---: | :---: | :---: |
+| Funzionalità disponibili delle app per dispositivi mobili | Codice | Codice o notifica |
+
+Gli utenti non avranno la possibilità di registrare l'app per dispositivi mobili quando ci si registra per la reimpostazione della password in modalità self-service. Al contrario, gli utenti possono registrare l'app per dispositivi mobili al link aka.ms/mfasetup o nell'anteprima di registrazione delle informazioni di sicurezza alla pagina aka.ms/setupsecurityinfo. 
+
+### <a name="change-authentication-methods"></a>Modifica dei metodi di autenticazione
 
 Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazione registrato necessario per la reimpostazione o lo sblocco e si passa a due?
 
@@ -95,89 +100,24 @@ Cosa succede se si inizia con un criterio che ha solo un metodo di autenticazion
 
 Se si modificano i tipi di metodi di autenticazione che un utente può usare, si potrebbe impedire inavvertitamente agli utenti l'uso della reimpostazione password self-service se questi non dispongono della quantità minima di dati.
 
-Esempio: 
+Esempio:
 1. Il criterio originale è configurato con due metodi di autenticazione necessari. Vengono usati solo il numero di telefono ufficio e le domande di sicurezza. 
 2. L'amministratore modifica i criteri in modo da non usare più domande di sicurezza, ma da consentire l'uso del telefono cellulare e di un indirizzo di posta elettronica alternativo.
-3. Gli utenti che non inseriscono il numero di telefono cellulare e l'indirizzo di posta elettronica alternativo nei rispettivi campi non possono reimpostare le password.
-
-### <a name="how-secure-are-my-security-questions"></a>Sicurezza delle domande di sicurezza
-
-Se vengono usate le domande di sicurezza, è consigliabile combinare questo metodo con un altro. Le domande di sicurezza possono risultare meno sicure rispetto ad altri metodi perché alcuni utenti potrebbero conoscere le risposte alle domande di un altro utente.
-
-> [!NOTE] 
-> Le domande di sicurezza vengono archiviate privatamente e in modo sicuro in un oggetto utente nella directory e gli utenti possono rispondere a tali domande solo durante la registrazione. All'amministratore non è consentito leggere o modificare le domande e le risposte di un utente.
->
-
-### <a name="security-question-localization"></a>Localizzazione della domanda di sicurezza
-
-Tutte le domande predefinite che seguono sono localizzate nel set completo delle lingue di Office 365 in base alle impostazioni locali del browser dell'utente:
-
-* In quale città hai incontrato tuo marito o il tuo partner?
-* In quale città si sono incontrati i tuoi genitori?
-* In quale città vive tuo fratello/sorella più vicino/a?
-* In quale città è nato tuo padre?
-* In quale città hai avuto il tuo primo lavoro?
-* In quale città è nata tua madre?
-* In quale città hai trascorso il Capodanno del 2000?
-* Qual è il cognome del tuo insegnante preferito delle scuole superiori?
-* Qual è il nome di una delle università a cui hai inviato una richiesta di iscrizione ma che non hai frequentato?
-* In quale luogo si è tenuto il tuo primo ricevimento di matrimonio?
-* Qual è il secondo nome di tuo padre?
-* Qual è il tuo piatto preferito?
-* Qual è il nome e il cognome della nonna materna?
-* Qual è il secondo nome di tua madre?
-* Qual è l'anno e il mese di nascita di tuo/a fratello/sorella maggiore? Ad esempio, novembre 1985
-* Qual è il secondo nome di tuo/a fratello/sorella maggiore?
-* Qual è il nome e il cognome del nonno paterno?
-* Qual è il secondo nome di tuo/a fratello/sorella minore?
-* Quale scuola hai frequentato in prima media?
-* Qual è il nome e il cognome del tuo/a migliore amico/a di infanzia?
-* Qual è il nome e il cognome del primo/a fidanzato/a?
-* Qual è il nome del tuo insegnante preferito delle scuole elementari?
-* Qual è la marca e il modello della tua prima auto o moto?
-* Qual è il nome della prima scuola che hai frequentato?
-* Qual è il nome dell'ospedale in cui sei nato?
-* Qual è il nome della via della tua prima casa di infanzia?
-* Qual è il nome del tuo supereroe preferito dell'infanzia?
-* Qual è il nome del tuo animale di peluche preferito?
-* Qual è il nome del primo animale domestico?
-* Qual era il tuo soprannome da bambino?
-* Qual è il tuo sport preferito alle scuole superiori?
-* Qual è stato il tuo primo lavoro?
-* Quali erano le ultime quattro cifre del tuo numero di telefono quando eri bambino/a?
-* Cosa volevi fare da grande quando eri piccolo?
-* Qual è la persona più famosa che hai mai incontrato?
-
-### <a name="custom-security-questions"></a>Domande di sicurezza personalizzate
-
-Le domande di sicurezza personalizzate non sono localizzate per le diverse impostazioni locali. Tutte le domande personalizzate vengono visualizzate nella lingua in cui vengono immesse nell'interfaccia utente di amministrazione, anche se le impostazioni locali del browser dell'utente sono diverse. Se si desidera disporre domande localizzate, è consigliabile usare le domande predefinite.
-
-La lunghezza massima di una domanda di sicurezza personalizzata è di 200 caratteri.
-
-Per visualizzare il portale di reimpostazione della password e domande localizzati in un'altra lingua, aggiungere "? mkt =<Locale>" alla fine dell'URL di reimpostazione della password seguendo questo esempio di localizzazione verso lo spagnolo [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
-
-### <a name="security-question-requirements"></a>Requisiti della domanda di sicurezza
-
-* Il limite minimo di caratteri della risposta è 3 caratteri.
-* Il limite massimo di caratteri della risposta è 40 caratteri.
-* Gli utenti non possono rispondere alla stessa domanda due volte.
-* Gli utenti non possono dare la stessa risposta a due diverse domande.
-* È possibile usare qualsiasi set di caratteri per definire domande e risposte, compresi i caratteri Unicode.
-* Il numero di domande definite deve essere maggiore o uguale al numero di domande necessarie per la registrazione.
+3. Gli utenti che non inseriscono il numero di telefono cellulare o l'indirizzo di posta elettronica alternativo nei rispettivi campi non possono reimpostare le password.
 
 ## <a name="registration"></a>Registrazione
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Richiedere agli utenti di registrarsi all'accesso
 
-Per abilitare questa opzione è necessario che un utente abilitato alla reimpostazione della password completi la registrazione per la reimpostazione della password se effettua l'accesso ad applicazioni tramite Azure AD. Sono inclusi i componenti seguenti:
+L'abilitazione di questa opzione richiede che un utente completi la registrazione di reimpostazione della password se effettua l'accesso a tutte le applicazioni con Azure AD. Sono incluse le applicazioni seguenti:
 
 * Office 365
 * Portale di Azure
 * Pannello di accesso
 * Applicazioni federate
-* Applicazioni personalizzate tramite Azure AD
+* Applicazioni personalizzate che usano Azure AD
 
-Quando la richiesta di registrazione è disabilitata, gli utenti possono comunque registrare manualmente le informazioni di contatto. È possibile visitare [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) oppure selezionare il collegamento **Registrazione per reimpostazione password** nella scheda **Profilo** nel pannello di accesso.
+Quando la richiesta di registrazione è disabilitata, gli utenti possono eseguire la registrazione manualmente. È possibile visitare [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) oppure selezionare il collegamento **Registrazione per reimpostazione password** nella scheda **Profilo** nel pannello di accesso.
 
 > [!NOTE]
 > Gli utenti possono chiudere il portale per la registrazione della reimpostazione della password selezionando **Annulla** o chiudendo la finestra. Ogni volta che gli utenti eseguono l'accesso verrà tuttavia visualizzata una richiesta di registrazione finché non viene completato il processo di registrazione.
@@ -194,7 +134,7 @@ I valori validi vanno da 0 a 730 giorni, laddove "0" implica che agli utenti non
 
 ### <a name="notify-users-on-password-resets"></a>Inviare notifiche agli utenti al momento della reimpostazione della password
 
-Se questa opzione è impostata su **Sì**, l'utente che reimposta la password riceve un messaggio di posta elettronica che segnala che la password è stata modificata. Questo messaggio viene inviato tramite il portale di reimpostazione della password self-service agli indirizzi di posta elettronica primario e alternativo registrati in Azure AD. La notifica per questo evento di reimpostazione non viene inviata ad altre persone.
+Se questa opzione è impostata su **Sì**, l'utente che reimposta la password riceve un messaggio di posta elettronica che segnala che la password è stata modificata. Questo messaggio viene inviato tramite il portale di reimpostazione della password self-service agli indirizzi di posta elettronica primario e alternativo registrati in Azure AD. La notifica dell'evento di reimpostazione non viene inviata ad altre persone.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Inviare una notifica a tutti gli amministratori quando altri amministratori reimpostano le proprie password
 
@@ -204,7 +144,7 @@ Esempio: nell'ambiente sono presenti quattro amministratori. L'amministratore A 
 
 ## <a name="on-premises-integration"></a>Integrazione locale
 
-Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](howto-sspr-writeback.md#configure-password-writeback).
+Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](howto-sspr-writeback.md).
 
 ![Writeback][Writeback]
 
@@ -214,7 +154,7 @@ Questa pagina fornisce uno stato rapido del client di writeback locale. In base 
 * Azure AD è online e connesso al client di writeback locale. Tuttavia sembra che la versione installata di Azure AD Connect non sia aggiornata. Prendere in considerazione l'[aggiornamento di Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) per assicurarsi di disporre delle funzionalità di connettività più recenti e di importanti correzioni di bug.
 * Purtroppo non è possibile verificare lo stato del client di writeback locale perché la versione installata di Azure AD Connect non è aggiornata. [Aggiornare Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) per essere in grado di controllare lo stato della connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
-* Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](howto-sspr-writeback.md#configure-password-writeback) per ripristinare la connessione.
+* Purtroppo non è possibile eseguire la connessione al client di writeback locale perché il writeback delle password non è stato configurato correttamente. [Configurare il writeback delle password](howto-sspr-writeback.md) per ripristinare la connessione.
 * Purtroppo al momento non è possibile connettersi al client di writeback locale. Ciò può essere dovuto a errori temporanei nel sistema. Se il problema persiste, vedere [Risoluzione dei problemi di Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) per ripristinare la connessione.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Writeback delle password nella directory locale
@@ -231,7 +171,8 @@ Questo controllo stabilisce se gli utenti che visitano il portale per la reimpos
 * Se impostata su **Sì**, agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password.
 * Se impostata su **No**, gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.
 
-## <a name="how-does-password-reset-work-for-b2b-users"></a>Come funziona la reimpostazione della password per gli utenti B2B?
+## <a name="password-reset-for-b2b-users"></a>Reimpostazione della password per utenti B2B
+
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
    * **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati in tale tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
