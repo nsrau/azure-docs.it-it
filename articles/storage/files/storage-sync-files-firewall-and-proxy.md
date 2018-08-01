@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342727"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161742"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Impostazioni di proxy e firewall di Sincronizzazione file di Azure
 Sincronizzazione file di Azure connette i server locali a File di Azure abilitando la sincronizzazione tra più siti e funzionalità di suddivisione in livelli cloud. È necessario quindi che un server locale sia connesso a Internet e che un amministratore IT scelga il percorso migliore per consentire al server di accedere ai servizi cloud di Azure.
@@ -27,7 +27,7 @@ Sincronizzazione file di Azure connette i server locali a File di Azure abilitan
 Questo articolo offre informazioni dettagliate sui requisiti e le opzioni disponibili per connettere un server a Sincronizzazione file di Azure in modo sicuro ed efficiente.
 
 > [!Important]
-> Sincronizzazione file di Azure non supporta ancora firewall e reti virtuali per gli account di archiviazione. 
+> Sincronizzazione file di Azure non supporta ancora firewall e reti virtuali per gli account di archiviazione.
 
 ## <a name="overview"></a>Panoramica
 Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione tra Windows Server, la condivisione file di Azure e altri servizi di Azure per la sincronizzazione dei dati, come descritto nel gruppo di sincronizzazione. Per consentire il corretto funzionamento di Sincronizzazione file di Azure, è necessario configurare i server in modo che possano comunicare con i servizi di Azure seguenti:
@@ -39,7 +39,6 @@ Sincronizzazione file di Azure svolge la funzione di servizio di orchestrazione 
 
 > [!Note]  
 > L'agente Sincronizzazione file di Azure in Windows Server avvia tutte le richieste ai servizi cloud ed è quindi necessario tenere conto del traffico in uscita solo dal punto di vista del firewall. <br /> Nessun servizio di Azure avvia una connessione all'agente Sincronizzazione file di Azure.
-
 
 ## <a name="ports"></a>Porte
 Sincronizzazione file di Azure sposta i dati e i metadati dei file solo su connessioni HTTPS e richiede che la porta 443 sia aperta in uscita.
@@ -79,26 +78,27 @@ La tabella seguente illustra i domini necessari per la comunicazione:
 > [!Important]
 > Quando si consente il traffico a &ast;.one.microsoft.com, il traffico dal server non è più limitato solo al servizio di sincronizzazione. Nei sottodomini sono infatti disponibili molti altri servizi Microsoft.
 
-If &ast;.one.microsoft.com è troppo ampio, è possibile limitare le comunicazioni del server consentendo solo esplicite istanze regionali del servizio Sincronizzazione file di Azure. Le istanze da scegliere dipendono dall'area del servizio di sincronizzazione archiviazione in cui è stato distribuito e registrato il server, che corrisponde all'area che è necessario consentire per il server. Saranno presto disponibili altri URL per l'abilitazione di nuove funzionalità di continuità aziendale. 
+If &ast;.one.microsoft.com è troppo ampio, è possibile limitare le comunicazioni del server consentendo le comunicazioni solo con esplicite istanze regionali del servizio Sincronizzazione file di Azure. Le istanze da scegliere dipendono dall'area del servizio di sincronizzazione archiviazione in cui è stato distribuito e registrato il server. Tale area è chiamata "URL dell'endpoint primario" nella tabella seguente.
 
-| Region | URL dell'endpoint regionale di Sincronizzazione file di Azure |
-|--------|---------------------------------------|
-| Australia orientale | https://kailani-aue.one.microsoft.com |
-| Canada centrale | https://kailani-cac.one.microsoft.com |
-| Stati Uniti orientali | https://kailani1.one.microsoft.com |
-| Asia sudorientale | https://kailani10.one.microsoft.com |
-| Regno Unito meridionale | https://kailani-uks.one.microsoft.com |
-| Europa occidentale | https://kailani6.one.microsoft.com |
-| Stati Uniti occidentali | https://kailani.one.microsoft.com |
+Per ragioni di continuità aziendale e ripristino di emergenza (BCDR) è possibile che siano state specificate condivisioni file di Azure in un account di archiviazione con ridondanza geografica (GRS). In tal caso, le condivisioni file di Azure eseguiranno il failover nell'area abbinata se si verifica un'interruzione duratura a livello di area. Sincronizzazione file di Azure usa le stesse associazioni a livello di area della risorsa di archiviazione. Pertanto, se si usano account di archiviazione con ridondanza geografica, è necessario abilitare URL aggiuntivi per consentire al server di comunicare con l'area abbinata per Sincronizzazione file di Azure. Nella tabella seguente questa è chiamata "area abbinata". Inoltre, vi è anche un URL del profilo di gestione traffico che deve essere abilitato. In questo modo il traffico di rete può essere indirizzato di nuovo con facilità all'area abbinata in caso di failover ed è chiamato "URL di individuazione" nella tabella seguente.
 
-> [!Important]
-> Se si definiscono queste regole dettagliate per il firewall, consultare periodicamente questo documento e aggiornare le regole del firewall per evitare interruzioni del servizio dovute a elenchi di URL obsoleti o incompleti nelle impostazioni del firewall.
+| Area | URL dell'endpoint primario | Area abbinata | URL di individuazione | |---|---| | --------|| ---------------------------------------| | Australia orientale | https://kailani-aue.one.microsoft.com | Australia sud-orientale | https://kailani-aue.one.microsoft.com | | Australia sud-orientale | https://kailani-aus.one.microsoft.com | Australia orientale | https://tm-kailani-aus.one.microsoft.com | | Canada centrale | https://kailani-cac.one.microsoft.com | Canada orientale | https://tm-kailani-cac.one.microsoft.com | | Canada orientale | https://kailani-cae.one.microsoft.com | Canada centrale | https://tm-kailani.cae.one.microsoft.com | | Stati Uniti centrali | https://kailani-cus.one.microsoft.com | Stati Uniti orientali 2 | https://tm-kailani-cus.one.microsoft.com | | Asia orientale | https://kailani11.one.microsoft.com | Asia sud-orientale | https://tm-kailani11.one.microsoft.com | | Stati Uniti orientali | https://kailani1.one.microsoft.com | Stati Uniti occidentali | https://tm-kailani1.one.microsoft.com | | Stati Uniti orientali 2 | https://kailani-ess.one.microsoft.com | Stati Uniti centrali | https://tm-kailani-ess.one.microsoft.com | | Europa settentrionale | https://kailani7.one.microsoft.com | Europa occidentale | https://tm-kailani7.one.microsoft.com | | Asia sud-orientale | https://kailani10.one.microsoft.com | Asia orientale | https://tm-kailani10.one.microsoft.com | | Regno Unito meridionale | https://kailani-uks.one.microsoft.com | Regno Unito occidentale | https://tm-kailani-uks.one.microsoft.com | | Regno Unito occidentale | https://kailani-ukw.one.microsoft.com | Regno Unito meridionale | https://tm-kailani-ukw.one.microsoft.com | | Europa occidentale | https://kailani6.one.microsoft.com | Europa settentrionale | https://tm-kailani6.one.microsoft.com | | Stati Uniti occidentali | https://kailani.one.microsoft.com | Stati Uniti orientali | https://tm-kailani.one.microsoft.com |
+
+- Se si usano account di archiviazione con ridondanza locale (LRS) o con ridondanza della zona (ZRS), è sufficiente abilitare l'URL elencato in "URL dell'endpoint primario".
+
+- Se si usano account di archiviazione con ridondanza geografica (GRS), abilitare tre URL.
+
+**Esempio:** si distribuisce un servizio di sincronizzazione archiviazione in `"West US"` e si registra il server con esso. Gli URL con cui consentire al server di comunicare per questo caso sono:
+
+> - https://kailani.one.microsoft.com (endpoint primario: Stati Uniti occidentali)
+> - https://kailani1.one.microsoft.com (area di failover abbinata: Stati Uniti orientali)
+> - https://tm-kailani.one.microsoft.com (URL di individuazione dell'area primaria)
 
 ## <a name="summary-and-risk-limitation"></a>Riepilogo e limitazione dei rischi
-Gli elenchi riportati in questo documento contengono gli URL con cui comunica attualmente Sincronizzazione file di Azure. I firewall devono essere in grado di consentire il traffico in uscita da questi domini e le loro risposte. Microsoft si impegna a mantenere l'elenco costantemente aggiornato.
+Gli elenchi riportati in questo documento contengono gli URL con cui comunica attualmente Sincronizzazione file di Azure. I firewall devono essere in grado di consentire il traffico in uscita da questi domini. Microsoft si impegna a mantenere l'elenco costantemente aggiornato.
 
-La configurazione di regole del firewall con limitazione del dominio può contribuire a migliorare la sicurezza. Se vengono usate queste configurazioni del firewall, è necessario tenere presente che nel tempo verranno aggiunti nuovi URL e modificati quelli esistenti. È quindi opportuno consultare le tabelle di questo documento nell'ambito del processo di gestione delle modifiche tra più versioni dell'agente Sincronizzazione file di Azure su una distribuzione di prova dell'agente più recente. In questo modo si avrà la certezza che il firewall sia configurato per consentire il traffico verso i domini richiesti dall'agente più recente.
+La configurazione di regole del firewall con limitazione del dominio può contribuire a migliorare la sicurezza. Se vengono usate queste configurazioni del firewall, è necessario tenere presente che nel tempo verranno aggiunti nuovi URL e potrebbero essere modificati quelli esistenti. Controllare periodicamente questo articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Pianificazione per la distribuzione di Sincronizzazione file di Azure](storage-sync-files-planning.md)
-- [Distribuire Sincronizzazione file di Azure (anteprima)](storage-sync-files-deployment-guide.md)
+- [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)

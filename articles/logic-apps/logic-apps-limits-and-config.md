@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8baca0fc46489a22d587ba6e742615b1da79c19a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970228"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238312"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -96,8 +96,9 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 | Chiamate in uscita simultanee di azioni | ~2.500 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | Diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. | 
 | Endpoint di runtime: lettura delle chiamate per 5 minuti  | 60.000 | È possibile distribuire un carico di lavoro tra più app, se necessario. | 
-| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 | È possibile distribuire un carico di lavoro tra più app, se necessario. | 
-|||| 
+| Endpoint di runtime: richiamata delle chiamate per 5 minuti| 45,000 | È possibile distribuire un carico di lavoro tra più app, se necessario. |
+| Velocità effettiva del contenuto per 5 minuti | 600 MB | È possibile distribuire un carico di lavoro tra più app, se necessario. |  
+||||| 
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
@@ -236,7 +237,7 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 | Area di App per la logica | IP in uscita |
 |-------------------|-------------|
 | Australia orientale | 13.75.149.4, 104.210.91.55, 104.210.90.241 |
-| Australia sudorientale | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
+| Australia sud-orientale | 13.73.114.207, 13.77.3.139, 13.70.159.205 |
 | Brasile meridionale | 191.235.82.221, 191.235.91.7, 191.234.182.26 |
 | Canada centrale | 52.233.29.92, 52.228.39.241, 52.228.39.244 |
 | Canada orientale | 52.232.128.155, 52.229.120.45, 52.229.126.25 |
@@ -251,7 +252,7 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 | Europa settentrionale | 40.113.12.95, 52.178.165.215, 52.178.166.21 |
 | Stati Uniti centro-meridionali | 104.210.144.48, 13.65.82.17, 13.66.52.232 |
 | India meridionale | 52.172.50.24, 52.172.55.231, 52.172.52.0 |
-| Asia sudorientale | 13.76.133.155, 52.163.228.93, 52.163.230.166 |
+| Asia sud-orientale | 13.76.133.155, 52.163.228.93, 52.163.230.166 |
 | Stati Uniti centro-occidentali | 52.161.27.190, 52.161.18.218, 52.161.9.108 |
 | Europa occidentale | 40.68.222.65, 40.68.209.23, 13.95.147.65 |
 | India occidentale | 104.211.164.80, 104.211.162.205, 104.211.164.136 |
@@ -264,7 +265,7 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 | Area di App per la logica | IP In ingresso |
 |-------------------|------------|
 | Australia orientale | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
-| Australia sudorientale | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
+| Australia sud-orientale | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Brasile meridionale | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
 | Canada centrale | 13.88.249.209, 52.233.30.218, 52.233.29.79 |
 | Canada orientale | 52.232.129.143, 52.229.125.57, 52.232.133.109 |
@@ -279,7 +280,7 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 | Europa settentrionale | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
 | Stati Uniti centro-meridionali | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | India meridionale | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
-| Asia sudorientale | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
+| Asia sud-orientale | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
 | Stati Uniti centro-occidentali | 52.161.26.172, 52.161.8.128, 52.161.19.82 |
 | Europa occidentale | 13.95.155.53, 52.174.54.218, 52.174.49.6 |
 | India occidentale | 104.211.164.112, 104.211.165.81, 104.211.164.25 |
@@ -300,10 +301,10 @@ Per supportare le chiamate effettuate dai [connettori](../connectors/apis-list.m
 | Area di App per la logica | IP in uscita | 
 |-------------------|-------------|  
 | Australia orientale | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
-| Australia sudorientale | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Australia sud-orientale | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
 | Brasile meridionale | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
-| Canada centrale | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
-| Canada orientale | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Canada centrale | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13, 52.233.26.83 | 
+| Canada orientale | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52, 52.229.120.131 | 
 | India centrale | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
 | Stati Uniti centrali | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
 | Asia orientale | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
@@ -315,14 +316,14 @@ Per supportare le chiamate effettuate dai [connettori](../connectors/apis-list.m
 | Europa settentrionale | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
 | Stati Uniti centro-meridionali | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
 | India meridionale | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
-| Asia sudorientale | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
-| Stati Uniti centro-occidentali | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Asia sud-orientale | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| Stati Uniti centro-occidentali | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212, 52.161.128 | 
 | Europa occidentale | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
 | India occidentale | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
 | Stati Uniti occidentali | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
-| Stati Uniti occidentali 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
-| Regno Unito meridionale | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
-| Regno Unito occidentale | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
+| Stati Uniti occidentali 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14, 13.66.221.19 | 
+| Regno Unito meridionale | 51.140.148.0 - 51.140.148.15, 51.140.80.51 | 
+| Regno Unito occidentale | 51.140.211.0 - 51.140.211.15, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Passaggi successivi  

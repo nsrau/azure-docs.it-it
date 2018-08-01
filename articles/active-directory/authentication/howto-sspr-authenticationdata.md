@@ -4,18 +4,18 @@ description: Requisiti dei dati per la Reimpostazione self-service delle passwor
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044176"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159567"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuire la reimpostazione della password senza richiedere la registrazione dell'utente finale
 
@@ -47,20 +47,19 @@ L'amministratore globale può impostare manualmente le informazioni di contatto 
 
 ![Contatto][Contact]
 
-Se il campo Telefono è popolato e l'opzione Cellulare è abilitata nei criteri SSPR, il numero verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password. 
+Se il campo Telefono è popolato e l'opzione Cellulare è abilitata nei criteri SSPR, il numero verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
 
 Il campo Telefono alternativo non è usato per la reimpostazione della password.
 
 Se il campo Posta elettronica è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica verrà visualizzato nella pagina di registrazione per la reimpostazione della password e durante il flusso di lavoro di reimpostazione della password.
 
-Se il campo Indirizzo di posta elettronica alternativo è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica **non** verrà visualizzato nella pagina di registrazione per la reimpostazione della password ma verrà visualizzato durante il flusso di lavoro di reimpostazione della password. 
-
+Se il campo Indirizzo di posta elettronica alternativo è popolato e l'opzione Posta elettronica è abilitata nei criteri SSPR, l'indirizzo di posta elettronica **non** verrà visualizzato nella pagina di registrazione per la reimpostazione della password ma verrà visualizzato durante il flusso di lavoro di reimpostazione della password.
 
 ## <a name="security-questions-and-answers"></a>Domande di sicurezza e risposte
 
-Le domande di sicurezza e le risposte sono archiviate in modo sicuro nel tenant di Azure AD e sono accessibili agli utenti esclusivamente tramite il [portale di registrazione SSPR](https://aka.ms/ssprsetup). Gli amministratori non possono vedere o modificare il contenuto di domande e risposte di altri utenti.
+Le domande di sicurezza e le risposte sono archiviate in modo sicuro nel tenant di Azure AD e sono accessibili agli utenti esclusivamente tramite il [portale di registrazione SSPR](https://aka.ms/ssprsetup). Gli amministratori non possono vedere, impostare o modificare il contenuto di domande e risposte di altri utenti.
 
-### <a name="what-happens-when-a-user-registers"></a>Cosa accade quando un utente si registra
+## <a name="what-happens-when-a-user-registers"></a>Cosa accade quando un utente si registra
 
 Quando un utente si registra, i campi seguenti vengono impostati nella pagina di registrazione:
 

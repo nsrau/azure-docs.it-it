@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 8851d2cad5958b01df1d21ea44e5c03bb788c83b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904043"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237282"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurare un'identità del servizio gestito in un set di scalabilità di macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -32,16 +32,18 @@ Questo articolo descrive come eseguire le seguenti operazioni di identità del s
 - Aggiungere e rimuovere un'identità assegnata dall'utente in un VMSS di Azure
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Se non si ha familiarità con l'identità del servizio gestita, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità assegnata dall'utente](overview.md#how-does-it-work)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-
-Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
-
-- Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-- Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
-- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
+- Per eseguire le operazioni di gestione in questo articolo, l'account deve avere le assegnazioni di ruolo seguenti:
+    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
+    - [Collaboratore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità assegnata dall'utente.
+    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
+- Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
+    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
+    - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
+    - [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -89,20 +91,26 @@ Se è necessario abilitare l'identità assegnata dal sistema in un set di scalab
 
 ### <a name="disable-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Disabilitare l'identità assegnata dal sistema da un set di scalabilità di macchine virtuali di Azure
 
-> [!NOTE]
-> La disabilitazione dell'identità del servizio gestita da un set di scalabilità di macchine virtuali non è attualmente supportata. Nel frattempo è possibile alternare tra l'uso delle identità assegnate dal sistema e delle identità assegnate dall'utente. Ricontrollare in seguito per aggiornamenti.
-
-Se si dispone di un set di scalabilità di macchine virtuali che non ha più bisogno di un'identità assegnata dal sistema, ma ha ancora bisogno di identità assegnate dagli utenti, eseguire il comando seguente:
+Se un set di scalabilità di macchine virtuali non necessità più dell'identità assegnata dal sistema ma necessita ancora delle identità assegnate dall'utente, usare il comando seguente:
 
 ```azurecli-interactive
-az vmss update -n myVMSS -g myResourceGroup --set identity.type='UserAssigned' 
+az vmss update -n myVM -g myResourceGroup --set identity.type='UserAssigned' 
+```
+
+Se una macchina virtuale non necessita più dell'identità assegnata dal sistema ma non ha identità assegnate dall'utente, usare il comando seguente:
+
+> [!NOTE]
+> Il valore `none` distingue tra maiuscole e minuscole. Deve essere costituito da caratteri in minuscolo. 
+
+```azurecli-interactive
+az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
 Per rimuovere l'estensione identità del servizio gestita della VM, usare il comando [az vmss identity remove](/cli/azure/vmss/identity/#az_vmss_remove_identity) per rimuovere l'identità assegnata dal sistema da un VMSS:
 
-   ```azurecli-interactive
-   az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
-   ```
+```azurecli-interactive
+az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
+```
 
 ## <a name="user-assigned-identity"></a>Identità assegnata dall'utente
 
@@ -120,13 +128,12 @@ Questa sezione descrive come creare un VMSS e assegnare un'identità assegnata d
 
 2. Creare un'identità assegnata dall'utente mediante [az identity create](/cli/azure/identity#az-identity-create).  Il parametro `-g` specifica il gruppo di risorse in cui viene creata l'identità assegnata dall'utente, mentre il parametro `-n` ne specifica il nome. Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` con valori personalizzati:
 
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
-
-    ```azurecli-interactive
-    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
-    ```
-La risposta contiene i dettagli relativi all'identità assegnata dall'utente creata ed è simile all'esempio seguente. Il valore `id` della risorsa assegnato all'identità assegnata dall'utente viene usato nel passaggio seguente.
+   ```azurecli-interactive
+   az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>
+   ```
+   La risposta contiene i dettagli relativi all'identità assegnata dall'utente creata ed è simile all'esempio seguente. Il valore `id` della risorsa assegnato all'identità assegnata dall'utente viene usato nel passaggio seguente.
 
    ```json
    {
@@ -182,20 +189,27 @@ La risposta contiene i dettagli relativi all'identità assegnata dall'utente cre
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
-### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Rimuovere un'identità assegnata dall'utente da un VMSS di Azure
+### <a name="remove-a-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere un'identità assegnata dall'utente da un set di scalabilità di macchine virtuali di Azure
 
-> [!NOTE]
->  La rimozione di tutte le identità assegnate dall'utente da un set di scalabilità di macchine virtuali non è supportata, a meno che non si disponga di un'identità assegnata dal sistema. 
-
-Se il VMSS dispone di più identità assegnate dall'utente, è possibile rimuoverle tutte tranne l'ultima mediante [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VMSS NAME>` con valori personalizzati. `<MSI NAME>` è la proprietà name dell'identità assegnata dall'utente, che si può trovare nella sezione relativa all'identità della VM usando `az vm show`:
+Per rimuovere un'identità assegnata dall'utente da un set di scalabilità di macchine virtuali, usare [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VMSS NAME>` con valori personalizzati. `<MSI NAME>` è la proprietà `name` dell'identità assegnata dall'utente, che si può trovare nella sezione relativa all'identità della VM usando `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
-Se il VMSS ha identità sia assegnate dal sistema che assegnate dall'utente, è possibile rimuovere tutte le identità assegnate dall'utente iniziando a usare solo identità assegnate dal sistema. Usare il comando seguente: 
+
+Se il set di scalabilità di macchine virtuali non ha un'identità assegnata dal sistema e si vogliono rimuovere tutte le identità assegnate dall'utente al suo interno, usare il comando seguente:
+
+> [!NOTE]
+> Il valore `none` distingue tra maiuscole e minuscole. Deve essere costituito da caratteri in minuscolo.
 
 ```azurecli-interactive
-az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
+```
+
+Se il set di scalabilità di macchine virtuali ha identità sia assegnate dal sistema che assegnate dall'utente, è possibile rimuovere tutte le identità assegnate dall'utente iniziando a usare solo identità assegnate dal sistema. Usare il comando seguente:
+
+```azurecli-interactive
+az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

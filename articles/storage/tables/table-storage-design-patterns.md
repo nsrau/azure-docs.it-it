@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0d098b7befe5426db4aff503e9633623b1249dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659768"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227906"
 ---
 # <a name="table-design-patterns"></a>Modelli di progettazione tabella
 Questo articolo descrive alcuni modelli adatti all'uso con le soluzioni di servizio tabelle. Fornisce inoltre informazioni su come risolvere alcuni dei problemi e dei compromessi illustrati negli altri articoli sulla progettazione dell'archiviazione tabelle. Il diagramma seguente contiene un riepilogo delle relazioni tra i diversi modelli:  
@@ -142,7 +142,7 @@ abilita un comportamento di coerenza finale tra i limiti della partizione o i li
 ### <a name="context-and-problem"></a>Contesto e problema
 Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più entità che condividono la stessa chiave di partizione. Per motivi di scalabilità e prestazioni, si può scegliere di archiviare le entità con requisiti di coerenza in partizioni separate o in un sistema di archiviazione separato: in questo caso, non è possibile usare le transazioni ETG per mantenere la coerenza. Ad esempio, potrebbe essere necessario mantenere la coerenza finale tra:  
 
-* Entità archiviate in due partizioni diverse nella stessa tabella, in tabelle diverse, in account di archiviazione diversi.  
+* Entità archiviate in due partizioni diverse nella stessa tabella, in tabelle diverse o in account di archiviazione diversi.  
 * Un'entità archiviata nel servizio tabelle e un BLOB archiviato nel servizio BLOB.  
 * Un'entità archiviata nel servizio tabelle e un file in un file system.  
 * Un'entità archiviata nel servizio tabelle, ma indicizzata mediante Ricerca di Azure.  
@@ -1022,7 +1022,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>Controllo dell'accesso con le firme di accesso condiviso
-È possibile usare i token delle firme di accesso condiviso (SAS) per consentire alle applicazioni client di modificare le entità di tabella, ed eseguire query sulle stesse, direttamente senza la necessità di eseguire l'autenticazione direttamente con il servizio tabelle. In genere, l'uso di SAS nell'applicazione comporta tre vantaggi principali:  
+È possibile usare i token di firma di accesso condiviso (SAS) per consentire alle applicazioni client di modificare le entità di tabella, ed eseguire query sulle stesse, senza la necessità di includere la chiave dell'account di archiviazione nel codice. In genere, l'uso di SAS nell'applicazione comporta tre vantaggi principali:  
 
 * Non è necessario distribuire la chiave dell'account di archiviazione in una piattaforma non sicura (ad esempio un dispositivo mobile) per consentire a tale dispositivo di accedere e modificare le entità nel servizio tabelle.  
 * È possibile scaricare una parte del lavoro eseguito dai ruoli Web e di lavoro nella gestione delle entità per i dispositivi client, ad esempio computer e dispositivi mobili degli utenti finali.  

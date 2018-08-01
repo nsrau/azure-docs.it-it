@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 93532f4b0b2d527a4d5c79e2ee1b2810394b2f11
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442084"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159680"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introduzione all'API di creazione report di Azure Active Directory
 
@@ -34,7 +34,7 @@ Questo articolo offre una roadmap per l'accesso ai dati di report tramite l'API 
 Nel caso di problemi, vedere [Come ottenere supporto per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per accedere all'API di creazione report, anche se si prevede di accedervi tramite uno script, è necessario:
 
@@ -49,11 +49,11 @@ Per istruzioni dettagliate vedere i [prerequisiti di accesso all'API di creazion
 
 ## <a name="apis-with-graph-explorer"></a>API con Graph explorer
 
-È possibile usare [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) per verificare i dati dell'API di accesso e di controllo. Assicurarsi di accedere al proprio account con entrambi i pulsanti di accesso nell'interfaccia utente di Graph explorer e impostare le autorizzazioni **Tasks.ReadWrite** e **Directory.ReadAll** per il tenant come illustrato.   
+È possibile usare [Microsoft Graph explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) per verificare i dati dell'API di accesso e di controllo. Assicurarsi di accedere al proprio account con entrambi i pulsanti di accesso nell'interfaccia utente di Graph Explorer e impostare le autorizzazioni **AuditLog.Read.All** e **Directory.Read.All** per il tenant come illustrato.   
 
-![Graph explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
+![Graph Explorer](./media/active-directory-reporting-api-getting-started-azure-portal/graph-explorer.png)
 
-![Interfaccia utente di modifica autorizzazioni](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
+![Interfaccia utente di Autorizzazioni di modifica](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
 ## <a name="recommendation"></a>Raccomandazione 
 

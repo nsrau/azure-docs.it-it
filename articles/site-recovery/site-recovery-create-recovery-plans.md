@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 853b9c2f50967d7a203e5627bdd2fc6f14e0e4f6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921002"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226669"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
 
@@ -76,7 +76,7 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
 2. In **Inserisci azione** selezionare **Script** o **Azione manuale**.
 3. Se si vuole aggiungere un'azione manuale, eseguire le operazioni seguenti" a. Digitare un nome per l'azione e le istruzioni per l'azione stessa. Queste istruzioni verranno visualizzate dalla persona che esegue il failover.
     b. Specificare se si vuole aggiungere l'azione manuale per tutti i tipi di failover (test, failover, failover pianificato), se pertinente. Fare quindi clic su **OK**.
-4. Se si vuole aggiungere uno script, eseguire le operazioni seguenti: a. Se si aggiunge uno script VMM, selezionare l’opzione relativa al **failover nello script VMM** e in **Percorso script** digitare il percorso relativo alla condivisione. Se ad esempio la condivisione si trova in: \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specificare il percorso \RPScripts\RPScript.PS1.
+4. Se si vuole aggiungere uno script, eseguire le operazioni seguenti: a. Se si aggiunge uno script VMM, selezionare l'opzione **Failover to VMM script** (Failover nello script VMM) e in **Percorso script** digitare il percorso relativo della condivisione. Se ad esempio la condivisione si trova in: \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specificare il percorso \RPScripts\RPScript.PS1.
     b. Se si aggiunge un runbook di automazione di Azure, specificare l'**account di Automazione di Azure** in cui si trova il runbook e selezionare lo **script di runbook di Azure** appropriato.
 5. Per verificare che lo script funzioni come previsto, eseguire un failover di test del piano di ripristino.
 

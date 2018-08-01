@@ -1,31 +1,31 @@
 ---
-title: Criteri di reimpostazione della password self-service - Azure Active Directory
-description: Opzioni dei criteri di reimpostazione password self-service di Azure AD
+title: Criteri di reimpostazione password self-service di Azure AD
+description: Configurare le opzioni dei criteri di reimpostazione password self-service di Azure AD
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054761"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162049"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
 Questo articolo descrive i criteri password e i requisiti di complessità associati agli account utente archiviati nel tenant di Azure Active Directory (Azure AD).
 
-## <a name="administrator-password-policy-differences"></a>Differenze tra i criteri password degli amministratori
+## <a name="administrator-reset-policy-differences"></a>Differenze dei criteri di reimpostazione degli amministratori
 
-Microsoft applica un criterio per la reimpostazione della password predefinita complessa a *due gate* per i ruoli di amministratore di Azure. 
+**Microsoft applica criteri predefiniti di reimpostazione della password basati su una password complessa e *a doppio controllo* per ogni ruolo di amministratore di Azure**; questi criteri possono essere diversi da quelli definiti per gli utenti e non possono essere modificati. È necessario verificare sempre la funzionalità di reimpostazione della password come utente senza ruoli di amministratore di Azure assegnati.
 
-Con il criterio a due gate, gli amministratori non hanno la possibilità di usare le domande di sicurezza.
+Con il criterio a doppio controllo, gli **amministratori non hanno la possibilità di usare le domande di sicurezza**.
 
  Un criterio a due gate richiede due tipi di dati di autenticazione, ad esempio un indirizzo di posta elettronica *e* un numero di telefono. Un criterio a due gate si applica nelle circostanze seguenti:
 
@@ -49,7 +49,7 @@ Con il criterio a due gate, gli amministratori non hanno la possibilità di usar
   * Amministratore del servizio proxy di applicazione
   * Amministratore del servizio CRM
   * Amministratore del servizio Power BI
-  
+
 * Se sono trascorsi 30 giorni per una sottoscrizione di valutazione
 
   oppure
@@ -61,18 +61,18 @@ Con il criterio a due gate, gli amministratori non hanno la possibilità di usar
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
 ### <a name="exceptions"></a>Eccezioni
+
 Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un indirizzo di posta elettronica *o* un numero di telefono. Un criterio a un gate si applica nelle circostanze seguenti:
 
 * Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione
 
   oppure
 
-* Non è presente un dominio personale (*.onmicrosoft.com) 
+* Non è presente un dominio personale (*.onmicrosoft.com)
 
-  e 
+  e
 
   Azure AD Connect non sincronizza le identità
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Criteri UserPrincipalName che si applicano a tutti gli account utente
 
@@ -109,13 +109,13 @@ Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 36
 > [!NOTE]
 > Solo le password degli account utente per cui non è usata la sincronizzazione della directory possono essere configurate per non scadere. Per altre informazioni sulla sincronizzazione delle directory, vedere [Connettere AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Impostare o verificare i criteri password con PowerShell
 
 Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerShell](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0). Al termine dell'installazione è possibile eseguire la procedura seguente per configurare ogni campo.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>Come controllare i criteri di scadenza per una password
+### <a name="check-the-expiration-policy-for-a-password"></a>Controllare i criteri di scadenza per una password
+
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
 2. Eseguire uno di questi comandi:
 

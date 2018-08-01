@@ -131,7 +131,6 @@
 #### [Latenze](active-directory-reporting-latencies-azure-portal.md)
 #### [Informazioni di riferimento sulle attività di controllo](active-directory-reporting-activity-audit-reference.md)
 #### [Codici errore relativi alle attività di accesso](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Autenticazione a più fattori](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Interpretare lo schema del log di controllo in Monitoraggio di Azure](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Interpretare lo schema del log di accesso in Monitoraggio di Azure](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Pianificare l'aggiunta ad Azure AD](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Domande frequenti](device-management-faq.md)
 ### Attività
+#### [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](devices/hybrid-azuread-join-plan.md)
+#### [Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti](devices/hybrid-azuread-join-managed-domains.md)
+#### [Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati](devices/hybrid-azuread-join-federated-domains.md)
+#### [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Configurare i dispositivi Windows 10 registrati in Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Configurare i dispositivi aggiunti ad Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Configurare i dispositivi aggiunti all'istanza ibrida di Azure AD](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Configurare i dispositivi aggiunti all'istanza ibrida di Azure AD](devices/hybrid-azuread-join-manual-steps.md)
 #### [Deploy on-premises](active-directory-device-registration-on-premises-setup.md) (Distribuire in locale)
 #### [Aggiunta ad Azure AD durante il completamento dell'installazione in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Risolvere problemi

@@ -39,8 +39,16 @@
         - name: Crittografia dei dati inattivi
           href: azure-security-encryption-atrest.md
         - name: Crittografia dischi per macchine virtuali IaaS
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Prerequisiti per la crittografia del disco
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Crittografia del disco per le macchine virtuali Windows
+              href: azure-security-disk-encryption-windows.md
+            - name: Crittografia del disco per le macchine virtuali Linux
+              href: azure-security-disk-encryption-linux.md
+            - name: Appendice per la crittografia del disco
+              href: azure-security-disk-encryption-appendix.md
             - name: Domande frequenti sulla crittografia del disco
               href: azure-security-disk-encryption-faq.md
             - name: risoluzione dei problemi
@@ -198,6 +206,16 @@
       items:
         - name: Dati e intelligenza artificiale per il settore sanitario
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Analisi dei dati
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Data warehouse
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: Applicazione Web IaaS
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: Applicazione Web PaaS
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Analisi dei dati

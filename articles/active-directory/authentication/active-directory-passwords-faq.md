@@ -4,18 +4,18 @@ description: Domande frequenti su sulla reimpostazione della password self-servi
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c006e448b8da1acaf51c8339cbcd0b6170f29874
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92f9732adadc4eb580d89f8a43cf76177450aeb7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054812"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160743"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Domande frequenti sulla gestione delle password
 
@@ -115,7 +115,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: In che modo è possibile spiegare agli utenti come fare per reimpostare le proprie password?**
 
-  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione password self-service](howto-sspr-deployment.md#email-based-rollout).
+  > **R:** Provare alcuni dei suggerimenti contenuti nell'articolo relativo alla [distribuzione della reimpostazione password self-service](howto-sspr-deployment.md#sample-communication).
   >
   >
 * **D: Questa pagina può essere usata da un dispositivo mobile?**
@@ -170,7 +170,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Se si sono configurati criteri per richiedere agli utenti di usare domande di sicurezza per la reimpostazione, perché la configurazione risulta diversa per gli amministratori di Azure?**
 
-  > **R:** Si tratta del comportamento previsto. Per qualsiasi ruolo di amministratore di Azure, Microsoft applica criteri avanzati predefiniti di reimpostazione password con doppio controllo che impediscono agli amministratori di usare domande di sicurezza. Per altre informazioni su tali criteri, vedere l'articolo [Restrizioni e criteri password in Azure Active Directory](concept-sspr-policy.md#administrator-password-policy-differences).
+  > **R:** Si tratta del comportamento previsto. Per qualsiasi ruolo di amministratore di Azure, Microsoft applica criteri avanzati predefiniti di reimpostazione password con doppio controllo che impediscono agli amministratori di usare domande di sicurezza. Per altre informazioni su tali criteri, vedere l'articolo [Restrizioni e criteri password in Azure Active Directory](concept-sspr-policy.md).
   >
   >
 * **D: Se un utente ha registrato un numero di domande superiore al numero massimo delle domande necessarie per la reimpostazione, come vengono selezionate le domande di sicurezza durante la reimpostazione?**
@@ -274,7 +274,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   >
 * **D: Il writeback delle password è sicuro?  Come si può essere certi di non essere oggetto di un attacco?**
 
-  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui quattro livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Modello di sicurezza del writeback delle password](howto-sspr-writeback.md#password-writeback-security-model) dell'articolo [Panoramica del writeback delle password](howto-sspr-writeback.md).
+  > **R:** Sì, il writeback delle password è sicuro. Per altre informazioni sui molti livelli di sicurezza implementati dal servizio di writeback delle password, vedere la sezione [Sicurezza del writeback delle password](concept-sspr-writeback.md#password-writeback-security) dell'articolo [Panoramica del writeback delle password](howto-sspr-writeback.md).
   >
   >
 

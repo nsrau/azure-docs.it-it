@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Ricerca di dati
       items:
-        - name: Costruzione di query di base
+        - name: Nozioni fondamentali sulle query
           href: search-query-overview.md
         - name: Esplora ricerche (portale)
           href: search-explorer.md
-        - name: Sintassi di query semplice
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Sintassi di query Lucene
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Esempi di query Lucene
+        - name: Esempi di sintassi semplice
+          href: search-query-simple-examples.md
+        - name: Esempi di sintassi completa
           href: search-query-lucene-examples.md
+        - name: Informazioni di riferimento sulle query
+          items:
+            - name: Sintassi di query semplice
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Sintassi di query Lucene
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Risultati di paging
           href: search-pagination-page-layout.md
         - name: Ottimizzazione della pertinenza
@@ -209,7 +213,7 @@
           href: search-monitor-usage.md
         - name: Analisi del traffico di ricerca
           href: search-traffic-analytics.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search

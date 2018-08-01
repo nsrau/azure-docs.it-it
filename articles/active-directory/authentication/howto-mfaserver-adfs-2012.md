@@ -4,18 +4,18 @@ description: Questo articolo offre una guida introduttiva ad Azure Multi-Factor 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 4ed4db6fa2c712c0fd858815d89dd0094dd5cfbd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: michmcla
+ms.openlocfilehash: 663ed2f42f59093252506fc5bb5fe2581d4dd200
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868229"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160213"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Configurare il server Azure Multi-Factor Authentication per l'uso con AD FS in Windows Server
 
@@ -106,7 +106,7 @@ Se si preferisce non usare un nome utente e una password, seguire questa procedu
 11. Aprire il file CER con codifica Base64 esportato in precedenza. Rimuovere *-----BEGIN CERTIFICATE-----*, *-----END CERTIFICATE-----* e tutte le interruzioni di riga. Copiare la stringa risultante.  
 12. Impostare certificate sulla stringa copiata nel passaggio precedente.  
 13. Impostare enabled su **true**.  
-14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;&#92;&lt;nome utente&gt;.  
+14. Impostare userName su un account membro del gruppo di sicurezza PhoneFactor Admins. Usare il formato &lt;dominio&gt;& #92;&lt;nome utente&gt;.  
 15. Impostare la password su quella dell'account appropriato e quindi chiudere l'editor di configurazione.  
 16. Fare clic sul collegamento **Apply** (Applica).  
 17. Nella directory virtuale dell'SDK del servizio Web fare doppio clic su **Autenticazione**.  

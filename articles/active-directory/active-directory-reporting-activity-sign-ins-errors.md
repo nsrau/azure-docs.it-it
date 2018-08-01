@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971075"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160247"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codici di errore del report delle attività di accesso nel portale di Azure Active Directory
 
@@ -59,6 +59,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 
 |Tipi di errore|DESCRIZIONE|
 |---|---|
+|16000|Questo è un dettaglio di implementazione interno e non una condizione di errore. È possibile ignorare questo messaggio di errore.|
 |20001|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
 |20012|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
 |20033|Si è verificato un problema con il provider di identità federato. Contattare l'IDP per risolvere il problema.|
@@ -174,6 +175,7 @@ La sezione seguente offre una panoramica completa di tutti gli errori possibili 
 |81001|Il ticket Kerberos dell'utente è troppo grande. Ciò può verificarsi se l'utente è incluso in un numero eccessivo di gruppi e quindi il ticket Kerberos contiene troppe appartenenze ai gruppi. Ridurre l'appartenenza a gruppi dell'utente e riprovare.|
 |81005|Il pacchetto di autenticazione non è supportato.|
 |81007|Il tenant non è abilitato per Seamless SSO.|
+|81012|Questa non è una condizione di errore. Indica che l'utente che sta tentando di accedere ad Azure AD è diverso dall'utente che ha eseguito l'accesso al dispositivo. È possibile ignorare questo messaggio di errore nei log.|
 |90010|La richiesta non è supportata per diversi motivi. La richiesta viene effettuata ad esempio con un metodo di richiesta non supportata (solo il metodo POST è supportato) o l'algoritmo di firma del token richiesto non è supportato. Contattare lo sviluppatore dell'applicazione.|
 |90014| Un campo obbligatorio per un messaggio di protocollo non è presente. Contattare il proprietario dell'applicazione. Il proprietario dell'applicazione deve verificare di disporre di tutti i parametri necessari per la richiesta di accesso. |
 |90072| L'account deve essere prima aggiunto come utente esterno nel tenant. Disconnettersi ed eseguire nuovamente l'accesso con un account Azure AD diverso.|

@@ -9,19 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227773"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
-Analisi di flusso di Azure aggrega il "peso" delle prestazioni dell'esecuzione di un processo in unità di streaming. Le unità di streaming rappresentano le risorse di elaborazione che vengono usate per eseguire un processo. Le unità di streaming descrivono la capacità relativa di elaborazione di eventi in base a una misurazione combinata di CPU, memoria e frequenze di lettura e scrittura. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
+Le unità di streaming rappresentano le risorse di calcolo allocate per eseguire un processo. Più alto è il numero di unità di streaming, maggiori sono le risorse di memoria e CPU allocate per il processo. Questa capacità consente di concentrarsi sulla logica di query, senza doversi preoccupare di gestire l'hardware, per eseguire il processo di Analisi di flusso nei tempi previsti.
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
-La metrica è un numero in percentuale compreso tra 0% e 100%. Per un processo di streaming con footprint minimo, la metrica di utilizzo in percentuale delle unità di streaming è in genere compresa tra 10% e 20%. È preferibile mantenere la metrica al di sotto dell'80% in modo da tenere conto dei picchi occasionali. Microsoft consiglia di impostare un avviso quando la metrica di utilizzo delle unità di streaming raggiunge l'80% per evitare l'esaurimento delle risorse. Per altre informazioni, vedere [Esercitazione: Impostare gli avvisi per i processi di Analisi di flusso di Azure](stream-analytics-set-up-alerts.md).
+La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, descrive l'utilizzo di memoria del carico di lavoro. Per un processo di streaming con footprint minimo, questa metrica è in genere compresa tra 10% e 20%. Se il valore in percentuale di utilizzo delle unità di streaming è basso e gli eventi di input vengono gestiti con backlog, è probabile che il carico di lavoro richieda più risorse di calcolo ed è quindi necessario aumentare il numero di unità di streaming. È consigliabile mantenere la metrica delle unità di streaming al di sotto dell'80% in modo da tenere conto dei picchi occasionali. Microsoft consiglia di impostare un avviso quando la metrica di utilizzo delle unità di streaming raggiunge l'80% per evitare l'esaurimento delle risorse. Per altre informazioni, vedere [Esercitazione: Impostare gli avvisi per i processi di Analisi di flusso di Azure](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurare le unità di streaming di Analisi di flusso
 1. Accedere al [portale di Azure](http://portal.azure.com/).
@@ -37,7 +38,7 @@ La metrica è un numero in percentuale compreso tra 0% e 100%. Per un processo d
 ## <a name="monitor-job-performance"></a>Monitorare le prestazioni del processo
 Nel portale di Azure è possibile rilevare la velocità effettiva di un processo:
 
-![Processi di monitoraggio di Analisi di flusso di Azure][img.stream.analytics.monitor.job]
+![Processi di monitoraggio di Analisi dei flussi di Azure][img.stream.analytics.monitor.job]
 
 Calcolare la velocità effettiva prevista del carico di lavoro. Se la velocità effettiva è inferiore al previsto, ottimizzare la partizione di input e la query, quindi aggiungere unità di streaming al processo.
 
@@ -45,7 +46,7 @@ Calcolare la velocità effettiva prevista del carico di lavoro. Se la velocità 
 
 Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita nel processo. La pagina **Ridimensiona** consente di impostare il numero corretto di unità di streaming. È consigliabile allocare più unità di streaming di quelle necessarie. Il motore di elaborazione di Analisi di flusso è ottimizzato per la latenza e la velocità effettiva al costo di allocazione di memoria aggiuntiva.
 
-In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY**. Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming.
+In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY**. Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming. Il numero massimo di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni in ogni passaggio. Altre informazioni sui limiti sono disponibili [qui](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Per altre informazioni sulla scelta del numero corretto di unità di streaming, vedere questa pagina: [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
@@ -103,7 +104,7 @@ Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della 
    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
    ```
 
-In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria utilizzata è proporzionale alla dimensione della finestra e alla frequenza degli eventi. 
+In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
 
 Per risolvere questo problema, inviare gli eventi a Hub eventi partizionandoli in base alle chiavi di join (l'ID in questo caso) e scalare orizzontalmente la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **PARTITION BY**, come mostrato di seguito:
 
@@ -114,7 +115,7 @@ Per risolvere questo problema, inviare gli eventi a Hub eventi partizionandoli i
    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
    ```
 
-In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta la dimensione dello stato mantenuto nell'intervallo di join. 
+In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta le dimensioni dello stato mantenuto nell'intervallo di join. 
 
 ## <a name="temporal-analytic-functions"></a>Funzioni di analisi temporale
 La memoria utilizzata (dimensione dello stato) per una funzione di analisi temporale è proporzionale alla frequenza degli eventi moltiplicata per la durata. La memoria utilizzata dalle funzioni di analisi non è proporzionale alla dimensione della finestra, ma piuttosto al numero di partizioni in ogni finestra temporale.
@@ -122,7 +123,7 @@ La memoria utilizzata (dimensione dello stato) per una funzione di analisi tempo
 La correzione è simile a quella per il join temporale. È possibile scalare orizzontalmente la query usando **PARTITION BY**. 
 
 ## <a name="out-of-order-buffer"></a>Buffer non in ordine 
-L'utente può configurare la dimensione del buffer non in ordine nel riquadro di configurazione Ordinamento eventi. Il buffer viene usato per contenere gli input per la durata dell'intervallo e per riordinarli. La dimensione del buffer è proporzionale alla frequenza di input degli eventi moltiplicata per la dimensione della finestra temporale non in ordine. La dimensione predefinita della finestra è 0. 
+L'utente può configurare le dimensioni del buffer non in ordine nel riquadro di configurazione Ordinamento eventi. Il buffer viene usato per contenere gli input per la durata dell'intervallo e per riordinarli. Le dimensioni del buffer sono proporzionali alla frequenza di input degli eventi moltiplicata per la dimensione dell'intervallo per l'ordine non corretto. La dimensione predefinita dell'intervallo è 0. 
 
 Per correggere l'overflow del buffer non in ordine, scalare orizzontalmente la query usando **PARTITION BY**. In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta il numero di eventi in ogni buffer di riordinamento. 
 
@@ -140,7 +141,7 @@ I dati di riferimento in Analisi di flusso di Azure vengono caricati in memoria 
 Quando si aggiunge una funzione definita dall'utente, Analisi di flusso di Azure carica il runtime JavaScript in memoria. Questo comportamento influisce sulla percentuale di unità di streaming.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Creare query eseguibili in parallelo in Analisi di flusso di Azure](stream-analytics-parallelization.md)
+* [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md) (Creare query eseguibili in parallelo in Analisi di flusso di Azure)
 * [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
 <!--Image references-->
