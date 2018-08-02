@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: Terminazione SSL con Azure PowerShell
           href: tutorial-ssl-powershell.md
+        - name: Terminazione SSL end-to-end con Azure PowerShell
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: Rinnovare i certificati
           href: renew-certificates.md
         - name: Configurare i criteri SSL
@@ -137,7 +139,7 @@
           href: application-gateway-troubleshooting-502.md
         - name: Diagnostica
           href: application-gateway-diagnostics.md
-- name: Riferimenti
+- name: riferimento
   items:
     - name: Regole CRS
       href: application-gateway-crs-rulegroups-rules.md

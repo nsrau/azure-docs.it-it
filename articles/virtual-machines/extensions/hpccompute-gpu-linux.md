@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/03/2018
-ms.author: danis
-ms.openlocfilehash: 1febf81745ed804de59113da4f48376e9564b68f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449189"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413672"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Estensione di driver GPU NVIDIA per Linux
 
@@ -31,7 +31,7 @@ Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux ser
 
 I termini del contratto di licenza dell'utente finale di NVIDIA si trovano qui: https://go.microsoft.com/fwlink/?linkid=874330
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -175,6 +175,6 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità della macchina virtuale per Linux](features-linux.md).
+Per altre informazioni sulle estensioni, vedere [Estensioni e funzionalità delle macchine virtuali per Linux](features-linux.md).
 
 Per altre informazioni sulle macchine virtuali di serie N, vedere [Dimensioni delle macchine virtuali ottimizzate per il GPU](../linux/sizes-gpu.md).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970803"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359073"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -181,7 +181,7 @@ Per Docker Swarm, una volta creato il segreto per l'ID area di lavoro e la chiav
 3. Eseguire il comando seguente per impostare i segreti per l'agente OMS nel contenitore.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
 #### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Configurare un agente OMS per Red Hat OpenShift
@@ -548,7 +548,7 @@ I dati vengono raccolti ogni tre minuti dai tipi di agenti seguenti.
 
 La tabella seguente mostra esempi di record raccolti dalla soluzione Monitoraggio contenitori e i tipi di dati visualizzati nei risultati della ricerca log.
 
-| Tipo di dati | Tipo di dati in Ricerca log | Fields |
+| Tipo di dati | Tipo di dati in Ricerca log | Campi |
 | --- | --- | --- |
 | Prestazioni per host e contenitori | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
 | Inventario contenitori | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |

@@ -3,7 +3,7 @@ title: Associazioni del bus di servizio di Azure per Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni del bus di servizio di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
-ms.openlocfilehash: 0e9e7dcab208d1ffd8410a02a7c1cd713d11b277
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: glenga
+ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753490"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346260"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -537,7 +537,7 @@ In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name 
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione | Riferimenti |
+| Associazione | riferimento |
 |---|---|
 | Bus di servizio | [Codici di errore del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Bus di servizio | [Limiti del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |

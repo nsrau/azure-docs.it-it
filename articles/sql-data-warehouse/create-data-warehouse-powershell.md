@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e0bb014ec0706d458ff2f38e409efba5d66aaf18
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529234"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414001"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguirvi una query con Azure PowerShell
 
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Creare un server logico
 
-Creare un [server logico di SQL di Azure](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) con il comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
+Creare un [server logico di SQL di Azure](../sql-database/sql-database-logical-servers.md) con il comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Un server logico contiene un gruppo di database gestiti come gruppo. L'esempio seguente crea un server con un nome casuale nel gruppo di risorse con un account di accesso amministratore denominato `ServerAdmin` e la password `ChangeYourAdminPassword1`. Sostituire questi valori predefiniti con quelli desiderati.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `
@@ -123,9 +123,9 @@ New-AzureRmSqlDatabase `
 I parametri obbligatori sono:
 
 * **RequestedServiceObjectiveName**: quantità di [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md) richiesta. L'aumento di questa quantità comporta l'aumento dei costi di calcolo. Per un elenco di valori supportati, vedere [Memory and concurrency limits](memory-and-concurrency-limits.md) (Limiti di memoria e concorrenza).
-* **DatabaseName**: nome dell'istanza di SQL Data Warehouse che si sta creando.
+* **DatabaseName**: il nome dell'istanza di SQL Data Warehouse che si sta creando.
 * **ServerName**: nome del server che si sta usando per la creazione.
-* **ResourceGroupName**: gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
+* **ResourceGroupName**: il gruppo di risorse in uso. Per trovare i gruppi di risorse disponibili nella sottoscrizione, usare Get-AzureResource.
 * **Edition**: per creare un'istanza di SQL Data Warehouse, deve essere "DataWarehouse".
 
 I parametri facoltativi sono:

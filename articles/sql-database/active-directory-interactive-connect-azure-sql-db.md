@@ -122,13 +122,13 @@ Il programma in C# si basa sullo spazio dei nomi **Microsoft.IdentityModel.Clien
 
 Uno degli spazi dei nomi su cui si basa l'esempio in C# è **System.Data.SqlClient**. Di particolare interesse è l'enumerazione **SqlAuthenticationMethod**. Questa enumerazione contiene i valori seguenti:
 
-- **SqlAuthenticationMethod.ActiveDirectory*Interactive***:&nbsp;  usare questo valore con un nome utente di Azure AD per raggiungere l'autenticazione a più fattori.
+- **SqlAuthenticationMethod.ActiveDirectory\*Interactive**\*:&nbsp;  usare questo valore con un nome utente di Azure AD per raggiungere l'autenticazione a più fattori.
     - Questo valore è il punto focale del presente articolo. Genera un'esperienza interattiva visualizzando le finestre di dialogo per la password dell'utente e successivamente per la convalida MFA se a questo utente è imposta l'autenticazione a più fattori.
     - Questo valore è disponibile a partire da .NET Framework versione 4.7.2.
 
 - **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp; usare questo valore per un account *federato*. Per un account federato, il nome utente è noto al dominio di Windows. Questo metodo non supporta l'autenticazione a più fattori.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Password***:&nbsp; usare questo valore per l'autenticazione che richiede un utente di Azure AD e la password dell'utente. Il database SQL di Azure esegue l'autenticazione. Questo metodo non supporta l'autenticazione a più fattori.
+- **SqlAuthenticationMethod.ActiveDirectory\*Password**\*:&nbsp; usare questo valore per l'autenticazione che richiede un utente di Azure AD e la password dell'utente. Il database SQL di Azure esegue l'autenticazione. Questo metodo non supporta l'autenticazione a più fattori.
 
 
 

@@ -72,8 +72,6 @@
           href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
         - name: ASP.NET Core
           href: 'https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapp'
-        - name: Node.js
-          href: active-directory-b2c-devquickstarts-web-node.md
     - name: App a singola pagina
       items:
         - name: Panoramica
@@ -225,7 +223,7 @@
                   href: active-directory-b2c-troubleshoot-custom.md
                 - name: Tenere traccia del comportamento degli utenti
                   href: active-directory-b2c-custom-guide-eventlogger-appins.md
-        - name: Riferimenti
+        - name: riferimento
           items:
             - name: Note sulla versione
               href: active-directory-b2c-developer-notes-custom.md
@@ -235,7 +233,7 @@
               href: active-directory-b2c-language-customization-custom.md
             - name: Definizione di framework attendibilità
               href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
-    - name: Riferimenti
+    - name: riferimento
       items:
         - name: Esempi di codice
           href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'

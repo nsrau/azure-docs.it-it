@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c8c1f107e9e70e72c48ea93ef211b2a760ffb5c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213232"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324426"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoraggio delle prestazioni con l'estensione Diagnostica di Microsoft Azure
 
 Questo documento illustra la procedura necessaria per configurare la raccolta dei contatori delle prestazioni tramite l'estensione Diagnostica di Microsoft Azure per i cluster Windows. Per i cluster Linux, configurare l'[agente di OMS](service-fabric-diagnostics-oms-agent.md) per raccogliere i contatori delle prestazioni per i nodi. 
 
  > [!NOTE]
-> Perché questa procedura funzioni, l'estensione Diagnostica di Microsoft Azure deve essere distribuita nel cluster. Se non è configurata, vedere [Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters).
+> Perché questa procedura funzioni, l'estensione Diagnostica di Microsoft Azure deve essere distribuita nel cluster. Se non è configurata, vedere [Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Raccogliere i contatori delle prestazioni tramite WadCfg
 

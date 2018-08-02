@@ -25,6 +25,8 @@
   items:
     - name: Metodi di autenticazione
       href: concept-authentication-methods.md
+    - name: Registrazione convergente
+      href: concept-registration-mfa-sspr-converged.md
     - name: Reimpostazione della password self-service
       items:
         - name: Funzionamento della reimpostazione della password

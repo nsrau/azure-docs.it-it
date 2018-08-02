@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: e0bf18cf6736463740f3ab5c33830dcf84bc0817
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: 4a057b88d8d511965d694aaf4494f79bba88e47a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449058"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412648"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Estensione DSC per Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -292,7 +292,7 @@ Per altri dettagli sul modello di Azure Resource Manager, vedere [Creazione di m
 ### <a name="21-using-azure-cliazure-cli"></a>2.1. Uso dell'[**interfaccia della riga di comando di Azure**][azure-cli]
 Prima di distribuire l'estensione DSCForLinux è necessario configurare i file `public.json` e `protected.json` in base ai diversi scenari descritti nella sezione 3.
 
-#### <a name="211-classic"></a>2.1.1. Classica
+#### <a name="211-classic"></a>2.1.1. Classico
 La modalità classica viene anche denominata modalità Gestione dei servizi di Azure. Per passare a questa modalità, eseguire:
 ```
 $ azure config mode asm
@@ -309,7 +309,7 @@ Per conoscere la versione più recente dell'estensione, eseguire:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. Resource Manager
+#### <a name="212-resource-manager"></a>2.1.2. Gestione risorse
 È possibile passare alla modalità Azure Resource Manager eseguendo:
 ```
 $ azure config mode arm

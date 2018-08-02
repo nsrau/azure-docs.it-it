@@ -3,7 +3,7 @@ title: Come gestire le connessioni in Funzioni di Azure
 description: Informazioni su come evitare i problemi di prestazioni in Funzioni di Azure tramite i client con connessione statica.
 services: functions
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: functions
@@ -11,13 +11,13 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: tdykstra
-ms.openlocfilehash: 9e5c56dc3679e9ffbd67d906ca7d971439319ee5
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.author: glenga
+ms.openlocfilehash: 86727355d36e16f5b3c7edef8ce666fb27805a80
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125377"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346301"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Come gestire le connessioni in Funzioni di Azure
 
@@ -94,7 +94,7 @@ Il codice di funzione può usare il provider di dati .NET Framework per SQL Serv
 ), ADO.NET implementa pool di connessioni per impostazione predefinita. Tuttavia, poiché è ancora possibile esaurire le connessioni, è consigliabile ottimizzare le connessioni al database. Per altre informazioni, vedere [Pool di connessioni SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 > [!TIP]
-> Alcuni framework di dati, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx), in genere ottengono le stringhe di connessione dalla sezione **ConnectionStrings** di un file di configurazione. In questo caso, è necessario aggiungere esplicitamente le stringhe di connessione di database SQL alla raccolta delle **stringhe di connessione** delle impostazioni dell'app per le funzioni e al file [local.settings.json](functions-run-local.md#local-settings-file) nel progetto locale. Se si sta creando una connessione [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni.
+> Alcuni framework di dati, ad esempio [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx), in genere ottengono le stringhe di connessione dalla sezione **ConnectionStrings** di un file di configurazione. In questo caso, è necessario aggiungere esplicitamente le stringhe di connessione di database SQL alla raccolta delle **stringhe di connessione** delle impostazioni dell'app per le funzioni e al file [local.settings.json](functions-run-local.md#local-settings-file) nel progetto locale. Se si crea una connessione [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) nel codice di funzione, è consigliabile archiviare il valore della stringa di connessione nelle **impostazioni dell'applicazione** con le altre connessioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

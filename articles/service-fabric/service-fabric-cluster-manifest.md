@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205366"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412584"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Impostazioni di configurazione per un cluster autonomo in Windows
 Questo articolo descrive come configurare un cluster autonomo di Azure Service Fabric usando il file ClusterConfig.json. Questo file verrà usato per specificare informazioni sui nodi del cluster, le configurazioni di sicurezza, nonché la topologia di rete in termini di domini di errore e di aggiornamento.
@@ -47,9 +47,6 @@ Le Configurazioni generali del cluster comprendono le ampie configurazioni speci
 È possibile attribuire qualsiasi nome descrittivo al cluster di Service Fabric assegnandolo alla variabile name. Il clusterConfigurationVersion è il numero di versione del cluster. Aumentarlo ogni volta che si esegue l'aggiornamento del cluster di Service Fabric. Lasciare la proprietà apiVersion impostata sul valore predefinito.
 
 ## <a name="nodes-on-the-cluster"></a>Nodi del cluster
-
-    <a id="clusternodes"></a>
-
 È possibile configurare i nodi nel cluster di Service Fabric tramite la sezione nodes, come illustrato nel frammento seguente:
 
     "nodes": [{
@@ -88,8 +85,6 @@ La sezione properties in ClusterConfig.json viene usata per configurare il clust
 ### <a name="reliability"></a>Affidabilità
 Il concetto di reliabilityLevel definisce il numero di repliche o istanze dei servizi di sistema di Service Fabric eseguibili nei nodi primari del cluster. Determina l'affidabilità di questi servizi e quindi del cluster. Il valore viene calcolato dal sistema in fase di creazione e di aggiornamento del cluster.
 
-    <a id="reliability"></a>
-
 ### <a name="diagnostics"></a>Diagnostica
 La sezione diagnosticsStore consente di configurare i parametri per consentire la diagnostica e la risoluzione degli errori di nodi o cluster, come illustrato nel frammento riportato di seguito: 
 
@@ -124,9 +119,6 @@ La sezione security è necessaria per la protezione di un cluster di Service Fab
 La variabile metadata descrive il cluster protetto e può essere impostata in base alla configurazione in uso. ClusterCredentialType e ServerCredentialType determinano il tipo di protezione implementata dal cluster e dai nodi. È possibile impostarle su *X509* per una protezione basata su certificato o su *Windows* per una protezione basata su Azure Active Directory. Il resto della sezione security sarà basato sul tipo di protezione. Leggere l'articolo sulla [sicurezza basata su certificati in un cluster autonomo](service-fabric-windows-cluster-x509-security.md) o sulla [sicurezza di Windows in un cluster autonomo](service-fabric-windows-cluster-windows-security.md) per informazioni su come compilare il resto della sezione security.
 
 ### <a name="node-types"></a>Tipi di nodi
-
-    <a id="nodetypes"></a>
-
 La sezione nodeTypes descrive il tipo di nodi del cluster. Per ogni cluster deve essere specificato almeno un tipo di nodo, come illustrato nel frammento riportato di seguito: 
 
     "nodeTypes": [{

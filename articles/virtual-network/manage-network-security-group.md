@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76a7b2f8339798d9580ef989e8931a6776129885
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920512"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346626"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Creare, modificare o eliminare un gruppo di sicurezza di rete
 
@@ -104,7 +104,7 @@ Se un gruppo di sicurezza di rete è associato a una subnet o a un'interfaccia d
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## <a name="work-with-security-rules"></a>Usare le regole di sicurezza
 
@@ -171,7 +171,7 @@ L'elenco contiene tutte le regole create e il gruppo di sicurezza di rete [regol
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell: [Set-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell: [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Eliminare una regola di sicurezza
 
@@ -181,7 +181,7 @@ L'elenco contiene tutte le regole create e il gruppo di sicurezza di rete [regol
 **Comandi**
 
 - Interfaccia della riga di comando di Azure: [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell: [Remove-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell: [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Usare i gruppi di sicurezza delle applicazioni
 

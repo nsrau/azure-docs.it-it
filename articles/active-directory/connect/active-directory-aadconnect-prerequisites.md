@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593368"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326191"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo argomento descrive i prerequisiti e i requisiti hardware per Azure AD Connect.
@@ -43,7 +43,6 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 * Il livello funzionale della foresta e della versione dello schema di Active Directory deve essere Windows Server 2003 o versione successiva. I controller di dominio possono eseguire qualsiasi versione, purché siano soddisfatti i requisiti del livello dello schema e della foresta.
 * Se si prevede di utilizzare la funzionalità **writeback delle password**, i controller di dominio devono essere in Windows Server 2008 (con Service Pack più recenti) o versioni successive. Se i controller di dominio sono nella versione 2008, precedente a R2, è necessario applicare anche l'[hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 * Il controller di dominio usato da Azure AD deve essere scrivibile. **Non è supportato** l'uso di un controller di dominio di sola lettura e Azure AD Connect non segue alcun reindirizzamento di scrittura.
-* **Non è supportato** l'uso di foreste o domini locali con SLD (domini con etichetta singola).
 * **Non è supportato** l'uso di foreste o domini locali con nomi con "punti" (nome contenenti un punto ".") NetBios.
 * È consigliabile [abilitare il Cestino di Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 
@@ -94,7 +93,7 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
     </system.net>
 ```
 
-* Se il server proxy richiede l'autenticazione, l'[account del servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](active-directory-aadconnect-get-started-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. È inoltre necessario modificare il file machine.config, in modo tale che l'installazione guidata e il motore di sincronizzazione rispondano alle richieste di autenticazione provenienti dal server proxy. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
+* Se il server proxy richiede l'autenticazione, l'[account del servizio](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) deve trovarsi nel dominio ed è necessario specificare un [account del servizio personalizzato](active-directory-aadconnect-get-started-custom.md#install-required-components) tramite il percorso di installazione delle impostazioni personalizzate. È inoltre necessario modificare il file machine.config, in modo tale che l'installazione guidata e il motore di sincronizzazione rispondano alle richieste di autenticazione provenienti dal server proxy. In tutte le pagine dell'istallazione guidata, esclusa la pagina **Configura**, vengono usate le credenziali dell'utente che ha effettuato l'accesso. Nella pagina **Configura** alla fine dell'installazione guidata il contesto passa all'[account del servizio](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) creato. La sezione machine.config dovrebbe essere simile alla seguente sezione.
 
 ```
     <system.net>

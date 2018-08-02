@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916480"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346680"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione delle macchine virtuali da Azure a un sito locale
 
@@ -63,7 +63,7 @@ Per distribuire un server di elaborazione in Azure:
 Il server di destinazione master riceve i dati di failback. Per impostazione predefinita, il server di destinazione master viene eseguito nel server di configurazione locale. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback. Di seguito viene illustrata la procedura di creazione:
 
 * [Creare un server di destinazione master Linux](vmware-azure-install-linux-master-target.md) per il failback delle macchine virtuali Linux. È un'operazione obbligatoria.
-* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Dopo aver creato un server di destinazione master, eseguire le attività seguenti:
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0f7f389df96f38bea3634bf712af3f9bf4bdde09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893950"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414573"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -53,7 +53,7 @@ Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 
 ### <a name="supported-vm-instances"></a>Istanze di VM supportate
-La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono DSv2/D e F/Fs
+La funzionalità Rete accelerata è supportata nella maggior parte delle istanze di utilizzo generico e ottimizzate per il calcolo con 2 o più vCPU.  Queste serie supportate sono D/DSv2 e F/Fs
 
 Nelle istanze che supportano l'hyperthreading, la rete accelerata è supportata nelle istanze di VM con 4 o più vCPU. Sono supportate le serie D/DSv3, E/ESv3, Fsv2 e Ms/Mms.
 
@@ -64,8 +64,8 @@ Questa funzionalità è disponibile in tutte le aree di Azure pubbliche e nel cl
 
 ### <a name="network-interface-creation"></a>Creazione dell'interfaccia di rete 
 La funzionalità Rete accelerata può essere abilitata solo per una nuova scheda di interfaccia di rete. Non può essere abilitata per una scheda di interfaccia di rete esistente.
-### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Abilitazione della rete accelerata in una macchina virtuale in esecuzione
-In una dimensione di VM supportata in cui la rete accelerata non è abilitata, è possibile abilitare la funzionalità solo quando la macchina virtuale è arrestata e deallocata.  
+### <a name="enabling-accelerated-networking-on-a-running-vm"></a>Abilitazione della Rete accelerata in una macchina virtuale in esecuzione
+In una dimensione della macchina virtuale supportata in cui la Rete accelerata non è abilitata, è possibile abilitare la funzionalità solo quando la macchina virtuale è arrestata e deallocata.  
 ### <a name="deployment-through-azure-resource-manager"></a>Distribuzione tramite Azure Resource Manager
 Le macchine virtuali (classiche) non possono essere distribuite con la funzionalità Rete accelerata.
 
@@ -73,7 +73,7 @@ Le macchine virtuali (classiche) non possono essere distribuite con la funzional
 
 Questo articolo illustra la procedura per creare una macchina virtuale con rete accelerata tramite l'interfaccia della riga di comando di Azure, ma è anche possibile [creare una macchina virtuale con rete accelerata usando il portale di Azure](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Quando si crea una macchina virtuale nel portale, in **Impostazioni** selezionare **Abilitata** in **Rete accelerata**. L'opzione per abilitare la rete accelerata non compare nel portale a meno che non siano stati selezionati un [sistema operativo supportato](#supported-operating-systems) e [le dimensioni delle macchine virtuali](#supported-vm-instances). Dopo aver creato la macchina virtuale, è necessario eseguire le istruzioni riportate nella sezione [Verificare che la rete accelerata sia abilitata](#confirm-that-accelerated-networking-is-enabled).
 
-### <a name="create-a-virtual-network"></a>Crea rete virtuale
+### <a name="create-a-virtual-network"></a>Creare una rete virtuale
 
 Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2) e accedere a un account Azure tramite il comando [az login](/cli/azure/reference-index#az_login). Nell'esempio seguente sostituire i nomi dei parametri di esempio con i valori desiderati. I nomi dei parametri di esempio includono *myResourceGroup*, *myNic* e *myVM*.
 
@@ -216,11 +216,11 @@ vf_tx_dropped: 0
 ```
 La funzionalità di rete accelerata è ora abilitata per la VM.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la rete accelerata in macchine virtuali esistenti
-Se si è creata una macchina virtuale senza rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Abilitare la funzione Rete accelerata nelle macchine virtuali esistenti
+Se si è creata una macchina virtuale senza Rete accelerata, è possibile abilitare questa funzionalità in una macchina virtuale esistente.  Per il supporto di Rete accelerata, la macchina virtuale deve soddisfare i prerequisiti seguenti, descritti anche in precedenza:
 
-* La VM deve essere di dimensioni supportate per Rete accelerata
-* La VM deve essere un'immagine della raccolta di Azure supportata (e con versione del kernel per Linux)
+* La macchina virtuale deve essere di dimensioni supportate da Rete accelerata
+* La macchina virtuale deve essere un'immagine della raccolta di Azure supportata (e con versione del kernel per Linux)
 * Tutte le macchine virtuali in un set di disponibilità o set di scalabilità di macchine virtuali (VMSS) devono essere arrestate/deallocate prima di abilitare Rete accelerata su qualsiasi scheda di rete
 
 ### <a name="individual-vms--vms-in-an-availability-set"></a>Macchine virtuali singole e in un set di disponibilità
@@ -232,13 +232,13 @@ az vm deallocate \
     --name myVM
 ```
 
-Importante: se la macchina virtuale è stata creata singolarmente, senza un set di disponibilità, per abilitare Rete accelerata è sufficiente arrestare/deallocare la singola VM.  Se la macchina virtuale è stata creata con un set di disponibilità, sarà necessario arrestare/deallocare tutte le macchine virtuali incluse nel set di disponibilità prima di abilitare la rete accelerata in una qualsiasi delle schede di interfaccia di rete. 
+Importante: se la macchina virtuale è stata creata singolarmente, senza un set di disponibilità, per abilitare Rete accelerata è sufficiente arrestare/deallocare la singola macchina virtuale.  Se la macchina virtuale è stata creata con un set di disponibilità, sarà necessario arrestare/deallocare tutte le macchine virtuali incluse nel set di disponibilità prima di abilitare la funzione Rete accelerata in una qualsiasi delle schede di interfaccia di rete. 
 
 Dopo l'arresto, abilitare Rete accelerata nella scheda di rete della macchina virtuale:
 
 ```azurecli
 az network nic update \
-    --name myVM -n myNic \
+    --name myNic \
     --resource-group myResourceGroup \
     --accelerated-networking true
 ```
@@ -251,7 +251,7 @@ az vm start --resource-group myResourceGroup \
 ```
 
 ### <a name="vmss"></a>VMSS
-Il caso dei set di scalabilità di macchine virtuali è leggermente diverso, ma segue stesso flusso di lavoro.  In primo luogo, arrestare le macchine virtuali:
+Il caso dei set di scalabilità di macchine virtuali è leggermente diverso, ma segue lo stesso flusso di lavoro.  In primo luogo, arrestare le macchine virtuali:
 
 ```azurecli
 az vmss deallocate \
@@ -259,7 +259,7 @@ az vmss deallocate \
     --resource-group myrg
 ```
 
-Dopo l'arresto delle macchine virtuali, aggiornare la proprietà Accelerated Networking nell'interfaccia di rete:
+Dopo l'arresto delle macchine virtuali, aggiornare la funzione Rete accelerata nell'interfaccia di rete:
 
 ```azurecli
 az vmss update --name myvmss \
@@ -267,7 +267,7 @@ az vmss update --name myvmss \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
 ```
 
-Si noti che, all'interno di un set di scalabilità di macchine virtuali, gli aggiornamenti delle macchine virtuali vengono applicati in base a tre diverse impostazioni, ossia automaticamente, in sequenza e manualmente.  In queste istruzioni il criterio è impostato sull'aggiornamento automatico, in modo che il VMSS rilevi le modifiche immediatamente dopo il riavvio.  Per impostare l'aggiornamento automatico in modo che le modifiche vengano rilevate immediatamente: 
+Si noti che, all'interno di un set di scalabilità di macchine virtuali, gli aggiornamenti delle macchine virtuali vengono applicati in base a tre diverse impostazioni, ossia automaticamente, in sequenza e manualmente.  In queste istruzioni i criteri sono impostati sull'aggiornamento automatico, in modo che il set di scalabilità di macchine virtuali rilevi le modifiche immediatamente dopo il riavvio.  Per impostare l'aggiornamento automatico in modo che le modifiche vengano rilevate immediatamente: 
 
 ```azurecli
 az vmss update \
@@ -276,7 +276,7 @@ az vmss update \
     --set upgradePolicy.mode="automatic"
 ```
 
-Infine, riavviare il VMSS:
+Infine, riavviare il set di scalabilità di macchine virtuali:
 
 ```azurecli
 az vmss start \
@@ -288,11 +288,11 @@ Dopo il riavvio, attendere che gli aggiornamenti vengano completati. Al termine,
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>Ridimensionamento di macchine virtuali esistenti con rete accelerata
 
-Le VM con Rete accelerata abilitata possono essere ridimensionate solo in VM che supportano questa funzionalità.  
+Le macchine virtuali con la funzione Rete accelerata abilitata possono essere ridimensionate solo nelle macchine virtuali che supportano questa funzionalità.  
 
-Non è possibile ridimensionare una VM con Rete accelerata abilitata in un'istanza di macchina virtuale che non supporta questa funzionalità tramite l'operazione di ridimensionamento.  Per ridimensionare una macchina virtuale di questo tipo: 
+Non è possibile ridimensionare una macchina virtuale con Rete accelerata abilitata in un'istanza di macchina virtuale che non supporta questa funzionalità tramite l'operazione di ridimensionamento.  Per ridimensionare una macchina virtuale di questo tipo: 
 
-* Arrestare/deallocare la macchina virtuale oppure, nel caso di un set di disponibilità/VMSS, tutte le macchine virtuali nel set.
-* La funzionalità Rete accelerata deve essere disabilitata nella scheda di rete della macchina virtuale o, se all'interno di un set di disponibilità/VMSS, in tutte le macchine virtuali nel set di disponibilità/VMSS.
-* Dopo aver disabilitato Rete accelerata, è possibile convertire la VM/il set di disponibilità/il VMSS in una nuova dimensione che non supporta la rete accelerata di rete e riavviare.  
+* Arrestare/deallocare la macchina virtuale oppure, nel caso di un set di disponibilità/set di scalabilità di macchine virtuali, tutte le macchine virtuali nel set/set di scalabilità di macchine virtuali.
+* La funzionalità Rete accelerata deve essere disabilitata nella scheda di rete della macchina virtuale o, se all'interno di un set di disponibilità/set di scalabilità di macchine virtuali, in tutte le macchine virtuali nel set/set di scalabilità di macchine virtuali.
+* Dopo aver disabilitato Rete accelerata, è possibile convertire la macchina virtuale/il set di disponibilità/il set di scalabilità di macchine virtuali in una nuova dimensione che non supporta Rete accelerata e riavviare.  
 

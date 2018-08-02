@@ -319,6 +319,8 @@
       items:
         - name: Eseguire il debug di processi Spark
           href: apache-spark-job-debugging.md
+        - name: Eseguire il debug di processi Spark tramite il grafico del processo
+          href: apache-azure-spark-history-server.md
         - name: Usare IntelliJ per il debug di un processo Spark
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Risolvere i problemi di un cluster HDInsight lento o in errore

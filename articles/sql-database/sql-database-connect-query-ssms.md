@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652201"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412815"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati
 
 [SQL Server Management Studio][ssms-install-latest-84g] (SSMS) è un ambiente integrato per la gestione di qualsiasi infrastruttura SQL, da SQL Server al database SQL per Microsoft Windows. Questa guida introduttiva illustra come usare SSMS per connettersi a un database SQL di Azure e quindi usare istruzioni Transact-SQL per eseguire query e inserire, eliminare e aggiornare dati nel database. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questa guida introduttiva usa come punto di partenza le risorse create in una delle guide introduttive seguenti:
 
@@ -50,7 +50,7 @@ Usare SQL Server Management Studio per stabilire una connessione al server del d
    | Impostazione      | Valore consigliato    | DESCRIZIONE | 
    | ------------ | ------------------ | ----------- | 
    | **Tipo di server** | Motore di database | Questo valore è obbligatorio. |
-   | **Server name** (Nome server) | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
+   | **Nome server** | Nome completo del server | Il nome sarà simile a: **mynewserver20170313.database.windows.net**. |
    | **Autenticazione** | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | **Accesso** | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | **Password** | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
@@ -149,7 +149,6 @@ Usare il codice seguente per eliminare il nuovo prodotto aggiunto in precedenza 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla creazione e gestione di server e database con Transact-SQL, vedere [Informazioni su server e database del database SQL di Azure](sql-database-servers-databases.md).
 - Per informazioni su SSMS, vedere [Usare SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
 - Per connettersi ed eseguire query tramite il portale di Azure, vedere [Connettersi ed eseguire query con l'editor di query SQL del portale di Azure](sql-database-connect-query-portal.md).
 - Per connettersi ed eseguire query usando Visual Studio Code, vedere [Connettersi ed eseguire query con Visual Studio Code](sql-database-connect-query-vscode.md).

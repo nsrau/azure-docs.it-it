@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: d899e037a144892d6d2c843fec08d63a9e3e514a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 93614d4889c9c884f25c5e05cd620e8303226323
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30836096"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39357767"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opzioni di risoluzione dei nomi DNS per macchine virtuali Linux in Azure
 Per impostazione predefinita, Azure fornisce la risoluzione dei nomi DNS per tutte le macchine virtuali contenute in una singola rete virtuale. È possibile implementare la soluzione di risoluzione dei nomi DNS configurando i servizi DNS nelle macchine virtuali ospitate da Azure. Gli scenari seguenti consentono di scegliere quello più adatto alla situazione specifica.
 
-* [Risoluzione dei nomi forniti da Azure](#azure-provided-name-resolution)
+* [Risoluzione dei nomi forniti da Azure](#name-resolution-that-azure-provides)
 * [Risoluzione dei nomi usando il server DNS](#name-resolution-using-your-own-dns-server)
 
 Il tipo di risoluzione dei nomi usato dipende dal modo in cui macchine virtuali e istanze del ruolo devono comunicare.

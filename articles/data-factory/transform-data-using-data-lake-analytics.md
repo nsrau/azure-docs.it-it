@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: b82353418931c872f8ec90f381b27bbb5d5781e9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d406c7f7714e011126be67ad3f65938db62e7bbe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046956"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412849"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,11 +37,11 @@ La tabella seguente fornisce le descrizioni delle proprietà generiche usate nel
 
 | Proprietà                 | DESCRIZIONE                              | Obbligatoria                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Sì                                      |
-| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
+| **type**                 | La proprietà type deve essere impostata su **AzureDataLakeAnalytics**. | Yes                                      |
+| **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Yes                                      |
 | **dataLakeAnalyticsUri** | URI di Azure Data Lake Analytics.           | No                                        |
-| **subscriptionId**       | ID sottoscrizione di Azure                    | No (se non specificata, viene usata la sottoscrizione della Data factory). |
-| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No (se non specificata, viene usato il gruppo di risorse di Data Factory). |
+| **subscriptionId**       | ID sottoscrizione di Azure                    | No                                        |
+| **resourceGroupName**    | Nome del gruppo di risorse di Azure                | No                                        |
 
 ### <a name="service-principal-authentication"></a>Autenticazione di un'entità servizio
 Per connettersi al servizio Azure Data Lake Analytics, il servizio collegato di Azure Data Lake Analytics richiede l'autenticazione di un'entità servizio. Per usare l'autenticazione basata su entità servizio, registrare un'entità applicazione in Azure Active Directory (Azure AD) e concedere a questa l'accesso ai servizi Data Lake Analytics e Data Lake Store che usa. Per la procedura dettaglia, vedere [Autenticazione da servizio a servizio](../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
@@ -56,9 +56,9 @@ Usare l'autenticazione basata su entità servizio specificando le proprietà seg
 
 | Proprietà                | DESCRIZIONE                              | Obbligatoria |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Sì      |
-| **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
-| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì      |
+| **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Yes      |
+| **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Yes      |
+| **tenant**              | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. È possibile recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Yes      |
 
 **Esempio: autenticazione basata su entità servizio**
 ```json
@@ -120,12 +120,12 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 | Proprietà            | DESCRIZIONE                              | Obbligatoria |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | Nome dell'attività nella pipeline     | Sì      |
+| name                | Nome dell'attività nella pipeline     | Yes      |
 | description         | Testo che descrive l'attività.  | No        |
-| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Sì      |
-| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Sì       |
-| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Sì      |
-| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Sì      |
+| type                | Per l'attività U-SQL di Data Lake Analytics, il tipo corrisponde a **DataLakeAnalyticsU-SQL**. | Yes      |
+| linkedServiceName   | Servizio collegato ad Azure Data Lake Analytics. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  |Yes       |
+| scriptPath          | Percorso della cartella contenente lo script U-SQL. Il nome del file distingue tra maiuscole e minuscole. | Yes      |
+| scriptLinkedService | Servizio collegato che collega alla data factory l'archivio **Azure Data Lake Store** o **Archiviazione di Azure** contenente lo script | Yes      |
 | degreeOfParallelism | Il numero massimo di nodi usati contemporaneamente per eseguire il processo. | No        |
 | priority            | Determina quali processi rispetto a tutti gli altri disponibili nella coda devono essere selezionati per essere eseguiti per primi. Più è basso il numero, maggiore sarà la priorità. | No        |
 | Parametri          | Parametri da passare allo script U-SQL.    | No        |

@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: e7926fa488ad38784a3db96035055a80f841aed8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449018"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414773"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Crittografia dischi di Azure per Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -27,19 +27,18 @@ ms.locfileid: "37449018"
 
 Crittografia dischi di Azure sfrutta il sottosistema di dm-crypt di Linux per fornire la crittografia completa del disco nelle [distribuzioni di Linux Azure selezionate](https://aka.ms/adelinux).  Questa soluzione è integrata con Azure Key Vault per gestire le chiavi e i segreti di crittografia dei dischi.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per un elenco completo dei prerequisiti, vedere [Prerequisiti di Crittografia dischi di Azure](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Crittografia dischi di Azure è attualmente supportata nelle distribuzioni e versioni selezionate.  Vedere le [domande frequenti su Crittografia dischi di Azure](../../security/azure-security-disk-encryption-faq.md#what-linux-distributions-does-azure-disk-encryption-support) per un elenco delle distribuzioni di Linux supportate.
+Crittografia dischi di Azure è attualmente supportata nelle distribuzioni e versioni selezionate.  Vedere le [domande frequenti su Crittografia dischi di Azure](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) per un elenco delle distribuzioni di Linux supportate.
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
-Crittografia dischi di Azure per Linux richiede una connessione Internet per accedere a Active Directory, Key Vault, Archiviazione e agli endpoint di gestione pacchetti.  Per altre informazioni, vedere [Prerequisiti Crittografia di Crittografia dischi di Azure](
-../../security/azure-security-disk-encryption.md#prerequisites).
+Crittografia dischi di Azure per Linux richiede una connessione Internet per accedere a Active Directory, Key Vault, Archiviazione e agli endpoint di gestione pacchetti.  Per altre informazioni, vedere [Prerequisiti Crittografia di Crittografia dischi di Azure](../../security/azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 

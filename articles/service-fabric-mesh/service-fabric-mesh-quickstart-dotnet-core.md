@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125504"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412917"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Guida introduttiva: Creare e distribuire un'app Web in Azure Service Fabric Mesh
 
@@ -64,7 +64,7 @@ Dopo aver creato il progetto, premere **F5** per eseguire il debug del servizio 
 
 Dopo aver esaminato il servizio distribuito, arrestare il debug del progetto premendo **MAIUSC+F5** in Visual Studio.
 
-## <a name="publish-to-azure"></a>Pubblicare in Azure
+## <a name="publish-to-azure"></a>Pubblicazione in Azure
 
 Per pubblicare il progetto Service Fabric Mesh in Azure, fare clic con il pulsante destro del mouse sul **progetto Service Fabric Mesh** in Visual Studio e selezionare **Pubblica**.
 
@@ -74,26 +74,13 @@ Viene visualizzata la finestra di dialogo **Pubblica applicazione di Service Fab
 
 ![Finestra di dialogo per la pubblicazione del progetto Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
-Selezionare l'account e la sottoscrizione di Azure. Scegliere una **località**. In questo articolo viene usata l'area **Stati Uniti orientali**.
+Selezionare l'account e la sottoscrizione di Azure. Scegliere una **Posizione**. In questo articolo viene usata l'area **Stati Uniti orientali**.
 
 In **Gruppo di risorse** selezionare **\<Crea nuovo gruppo di risorse**. Viene visualizzata la finestra di dialogo **Crea gruppo di risorse**. Impostare i campi **Nome gruppo di risorse** e **Località**.  In questa guida introduttiva viene usata l'area **Stati Uniti orientali** e viene assegnato il nome **sfmeshTutorial1RG** al gruppo di risorse. Se l'organizzazione include più persone che usano la stessa sottoscrizione, scegliere un nome univoco per il gruppo di risorse.  Fare clic su **Crea** per creare il gruppo di risorse e tornare alla finestra di dialogo per la pubblicazione.
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
 Nella finestra di dialogo **Pubblica applicazione di Service Fabric**, in **Registro contenitori di Azure**, selezionare **\<Crea nuovo registro contenitori**. Nella finestra di dialogo **Crea registro contenitori** usare un nome univoco per **Nome del registro contenitori**. Impostare il campo **Località**. In questa guida introduttiva viene usata l'area **Stati Uniti orientali**. Dall'elenco a discesa selezionare il **gruppo di risorse** creato nel passaggio precedente, ad esempio **sfmeshTutorial1RG**. Impostare **SKU** su **Base** e quindi fare clic su **Crea** per tornare alla finestra di dialogo per la pubblicazione.
-
-Se viene visualizzato un errore per segnalare che un provider di risorse non è stato registrato per la sottoscrizione, è possibile eseguire la registrazione. Verificare prima di tutto se il provider di risorse è disponibile per la sottoscrizione:
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Se il provider del registro contenitori (`Microsoft.ContainerRegistry`) è disponibile, registrarlo da PowerShell:
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
 
 ![Finestra di dialogo del nuovo gruppo di risorse di Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 

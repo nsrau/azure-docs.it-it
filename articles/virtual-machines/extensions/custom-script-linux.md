@@ -3,7 +3,7 @@ title: Eseguire script personalizzati nelle macchine virtuali Linux | Microsoft 
 description: Automatizzare le attività di configurazione delle macchine virtuali Linux usando l'estensione per script personalizzati v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: danis
-ms.openlocfilehash: 850acae818638bb7c823edde03dbbecccf930073
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: roiyz
+ms.openlocfilehash: 439b38af14da85a9ad263645be8a0961c1266d73
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969324"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414726"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 2 con macchine virtuali Linux
 L'estensione per script personalizzati versione 2 scarica ed esegue script nelle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o altre attività di configurazione o gestione. È possibile scaricare gli script da Archiviazione di Azure, o da un altro percorso Internet accessibile, oppure è possibile fornirli al runtime dell'estensione. 
@@ -226,7 +226,7 @@ Le estensioni macchina virtuale di Azure possono essere distribuite con i modell
       },
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/MyPythonScript.py"
+      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
       ]  
     }
   }

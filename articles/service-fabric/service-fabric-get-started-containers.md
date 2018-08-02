@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6577e15ff0773e336da61e7883e6ea7257b6b169
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294813"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358869"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36294813"
 
 Per eseguire un'applicazione esistente in un contenitore Windows in un cluster di Service Fabric non è necessario apportare modifiche all'applicazione. Questo articolo illustra come creare un'immagine Docker contenente un'applicazione Web Python [Flask](http://flask.pocoo.org/) e come distribuirla in un cluster di Service Fabric. Si condividerà anche l'applicazione in contenitore tramite [Registro contenitori di Azure](/azure/container-registry/). L'articolo presuppone una conoscenza di base di Docker. Per informazioni su Docker, vedere [Docker overview](https://docs.docker.com/engine/understanding-docker/) (Panoramica su Docker).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Un computer di sviluppo che esegue:
   * Visual Studio 2015 o Visual Studio 2017.
   * [SDK e strumenti di Service Fabric](service-fabric-get-started.md).
@@ -421,7 +421,7 @@ Considerare la compatibilità del sistema operativo host e del sistema operativo
  
 ## <a name="specify-os-build-specific-container-images"></a>Specificare immagini del contenitore specifiche per la build del sistema operativo 
 
-I contenitori di Windows Server potrebbero non essere compatibili con le diverse versioni del sistema operativo. Ad esempio, i contenitori di Windows Server creati tramite Windows Server 2016 non funzionano in Windows Server versione 1709 in modalità di isolamento dei processi. Se i nodi del cluster vengono aggiornati alla versione più recente, è quindi possibile che si verifichino errori nei servizi contenitori creati usando le versioni precedenti del sistema operativo. Per aggirare questo problema con la versione 6.1 del runtime e con le versioni successive, Service Fabric supporta la possibilità di specificare più immagini del sistema operativo per ogni contenitore e di contrassegnarle con le versioni della build del sistema operativo nel manifesto dell'applicazione. È possibile ottenere la versione della build del sistema operativo eseguendo `winver` al prompt dei comandi di Windows. Aggiornare i manifesti dell'applicazione e specificare gli override delle immagini per ogni versione del sistema operativo prima di aggiornare il sistema operativo nei nodi. Il frammento di codice seguente mostra come specificare più immagini del contenitore nel manifesto dell'applicazione, **ApplicationManifest.xml**:
+I contenitori di Windows Server potrebbero non essere compatibili nelle diverse versioni del sistema operativo. Ad esempio, i contenitori di Windows Server creati tramite Windows Server 2016 non funzionano in Windows Server versione 1709 in modalità di isolamento dei processi. Se i nodi del cluster vengono aggiornati alla versione più recente, è quindi possibile che si verifichino errori nei servizi contenitori creati usando le versioni precedenti del sistema operativo. Per aggirare questo problema con la versione 6.1 del runtime e con le versioni successive, Service Fabric supporta la possibilità di specificare più immagini del sistema operativo per ogni contenitore e di contrassegnarle con le versioni della build del sistema operativo nel manifesto dell'applicazione. È possibile ottenere la versione della build del sistema operativo eseguendo `winver` al prompt dei comandi di Windows. Aggiornare i manifesti dell'applicazione e specificare gli override delle immagini per ogni versione del sistema operativo prima di aggiornare il sistema operativo nei nodi. Il frammento di codice seguente mostra come specificare più immagini del contenitore nel manifesto dell'applicazione, **ApplicationManifest.xml**:
 
 
 ```xml
@@ -601,7 +601,7 @@ Il runtime di Service Fabric alloca 20 minuti per il download e l'estrazione del
 "name": "Hosting",
         "parameters": [
           {
-              "name": " ContainerImageDownloadTimeout ",
+              "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
 ]
