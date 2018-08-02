@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344250"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413517"
 ---
 # <a name="azure-stack-1804-update"></a>Aggiornamento di Azure Stack 1804
 
@@ -80,7 +80,10 @@ Di seguito è ora disponibili, ma non richiede l'aggiornamento di Azure Stack 18
 ## <a name="before-you-begin"></a>Prima di iniziare    
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Installare Azure Stack [1803 aggiornare](azure-stack-update-1803.md) prima di applicare l'aggiornamento di Azure Stack 1804.    
+- Installare Azure Stack [1803 aggiornare](azure-stack-update-1803.md) prima di applicare l'aggiornamento di Azure Stack 1804.  
+  
+- Installare la versione più recente disponibile [update o un hotfix per la versione 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento   
 - Durante l'installazione dell'aggiornamento 1804, si potrebbero visualizzare avvisi con il titolo *Error: modello per FaultType UserAccounts.New è manca.*  È possibile ignorare questi avvisi. Questi avvisi chiuderà automaticamente dopo l'aggiornamento a 1804.   

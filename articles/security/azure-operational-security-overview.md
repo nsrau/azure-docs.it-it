@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c0413678aad16105f732ef23fb60c61fddcdad45
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365713"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413410"
 ---
 # <a name="azure-operational-security-overview"></a>Panoramica sulla sicurezza operativa di Azure
 La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azure-operational-security) include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. È un framework che incorpora le conoscenze acquisite attraverso varie funzionalità uniche di Microsoft. Queste funzionalità includono Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda conoscenza del panorama delle minacce della cybersecurity.
@@ -57,7 +57,6 @@ Per altre informazioni, vedere la [scheda dei componenti del Backup di Azure](ht
 Azure AD include inoltre una suite completa di [funzionalità di gestione delle identità](https://docs.microsoft.com/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), tra cui:
 
 - [Autenticazione a più fattori](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication)
-- [Registrazione del dispositivo]( https://docs.microsoft.com/azure/active-directory/active-directory-device-registration-overview)
 - [Gestione delle password self-service](https://azure.microsoft.com/resources/videos/self-service-password-reset-azure-ad/)
 - [Gestione di gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)
 - [Gestione degli account con privilegi](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)

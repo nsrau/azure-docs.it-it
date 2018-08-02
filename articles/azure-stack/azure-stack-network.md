@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003614"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414426"
 ---
 # <a name="network-connectivity"></a>Connettività di rete
 Questo articolo fornisce informazioni sull'infrastruttura di rete di Azure Stack per decidere come per integrarsi al meglio Azure Stack nell'ambiente di rete esistente. 
@@ -85,7 +85,7 @@ Questo pari a/29 (host 6 indirizzi IP) rete è dedicata alla connessione di port
 ### <a name="ports-and-urls"></a>Porte e URL
 Per rendere i servizi di Azure Stack (ad esempio i portali, Azure Resource Manager, DNS, e così via) disponibili per le reti esterne, è necessario consentire il traffico in ingresso a questi endpoint per gli URL, porte e protocolli specifici.
  
-In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire determinate porte e URL per entrambi [in ingresso](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [uscita](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicazione. Queste sono le porte e URL per identità, diffusione di marketplace, patch e aggiornamenti, registrazione e i dati di utilizzo.
+In una distribuzione in cui un uplink proxy trasparente per un server proxy tradizionali, è necessario consentire determinate porte e URL per entrambi [in ingresso](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) e [uscita](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) comunicazione. Tra le porte e URL per i dati di identità, il marketplace, patch e aggiornamenti, registrazione e utilizzo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Connettività del bordo](azure-stack-border-connectivity.md)

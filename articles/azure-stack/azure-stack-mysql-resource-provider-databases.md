@@ -1,6 +1,6 @@
 ---
-title: Utilizzo di database forniti dal componente Adapter MySQL in AzureStack | Documenti Microsoft
-description: Come creare e gestire i database MySQL il provisioning utilizzando il Provider di risorse MySQL Adapter
+title: Uso di database forniti da Adapter MySQL relying Party in AzureStack | Microsoft Docs
+description: Come creare e gestire i database MySQL, il provisioning utilizzando il Provider di risorse MySQL Adapter
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fdadc29aa1d25e90afe088053ae4fe2139fa7f16
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031829"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413689"
 ---
 # <a name="create-mysql-databases"></a>Creare i database MySQL
 
@@ -27,39 +27,39 @@ ms.locfileid: "37031829"
 
 ## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testare la distribuzione tramite la creazione di un database MySQL
 
-1. Accedere al portale per gli utenti dello Stack di Azure.
-2. Selezionare **+ nuova** > **dati e archiviazione** > **Database MySQL** > **aggiungere**.
+1. Accedere al portale utenti di Azure Stack.
+2. Selezionare **+ nuovo** > **Data + Storage** > **Database MySQL** > **aggiungere**.
 3. Sotto **Create MySQL Database**, immettere il nome del Database e configurare altre impostazioni come richiesto per l'ambiente.
 
     ![Creare un test di database MySQL](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
-4. Sotto **Create Database**, selezionare **SKU**. Sotto **selezionare uno SKU MySQL**, selezionare l'unità SKU per il database.
+4. Sotto **Create Database**, selezionare **SKU**. Sotto **selezionare uno SKU MySQL**, selezionare lo SKU per il database.
 
-    ![Selezionare uno SKU di MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Selezionare uno SKU MySQL](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Come server di hosting che vengono aggiunti allo Stack di Azure, sono state assegnate uno SKU. I database vengono creati nel pool di server in un'unità SKU di hosting.
+    >Come server di hosting vengono aggiunti ad Azure Stack, che vengano loro assegnate uno SKU. I database vengono creati nel pool di server in uno SKU di hosting.
 
-5. Sotto **account di accesso**, selezionare ***Configura le impostazioni obbligatorie***.
-6. Sotto **selezionare un account di accesso**, è possibile scegliere un account di accesso o selezionare **+ crea un nuovo account di accesso** per impostare un nuovo account di accesso.  Immettere un **accesso al Database** nome e **Password**, quindi selezionare **OK**.
+5. Sotto **account di accesso**, selezionare ***configurare le impostazioni necessarie***.
+6. Sotto **selezionare un account di accesso**, è possibile scegliere un account di accesso esistente o selezionare **+ crea un nuovo account di accesso** per configurare un nuovo account di accesso.  Immettere un **accesso al Database** nome e **Password**, quindi selezionare **OK**.
 
     ![Creare un nuovo accesso al database](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
     >[!NOTE]
-    >La lunghezza del nome di account di accesso del Database non può superare i 32 caratteri 5.7 MySQL. Nelle versioni precedenti, non può superare i 16 caratteri.
+    >La lunghezza del nome di account di accesso del Database non può superare i 32 caratteri MySQL 5.7. Nelle versioni precedenti, non può superare 16 caratteri.
 
-7. Selezionare **crea** per completare l'installazione del database.
+7. Selezionare **Create** per completare l'installazione del database.
 
-Dopo aver distribuito il database, prendere nota del **stringa di connessione** sotto **Essentials**. È possibile utilizzare questa stringa in qualsiasi applicazione che deve accedere al database MySQL.
+Dopo aver distribuito il database, prendere nota del **stringa di connessione** sotto **Essentials**. È possibile usare questa stringa in qualsiasi applicazione che richiede l'accesso al database MySQL.
 
 ![Ottenere la stringa di connessione per il database MySQL](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
 ## <a name="update-the-administrative-password"></a>Aggiornare la password amministrativa
 
-È possibile modificare la password può essere modificato nell'istanza del server MySQL.
+È possibile modificare la password modificandolo nell'istanza del server MySQL.
 
 1. Selezionare **risorse amministrative** > **server di Hosting MySQL**. Selezionare il server di hosting.
-2. Sotto **impostazioni**, selezionare **Password**.
+2. Sotto **le impostazioni**, selezionare **Password**.
 3. Sotto **Password**, immettere la nuova password e quindi selezionare **salvare**.
 
 ![Aggiornare la password dell'amministratore](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)

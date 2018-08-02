@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326025"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412900"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare elementi di marketplace di Azure ad Azure Stack
 
@@ -31,7 +31,7 @@ Come operatore di cloud, scaricare gli elementi da Azure Marketplace e renderle 
 Esistono due scenari per la connessione ad Azure Marketplace: 
 
 - **Uno scenario connesso** -che richiede l'ambiente Azure Stack per essere connesso a internet. Usare il portale di Azure Stack per individuare e scaricare gli elementi. 
-- **Uno scenario parzialmente connesso o disconnesso** -che richiede l'accesso a internet utilizzando lo strumento di diffusione di marketplace per scaricare elementi di marketplace. Quindi, visualizzare i download disponibili è trasferire all'installazione di Azure Stack disconnesso. Questo scenario Usa PowerShell.
+- **Uno scenario parzialmente connesso o disconnesso** -che richiede l'accesso a Internet utilizzando lo strumento di diffusione di marketplace per scaricare elementi di marketplace. Quindi, visualizzare i download disponibili è trasferire all'installazione di Azure Stack disconnesso. Questo scenario Usa PowerShell.
 
 Visualizzare [elementi di Azure Marketplace per Azure Stack](azure-stack-marketplace-azure-items.md) per un elenco degli elementi di marketplace, è possibile scaricare.
 

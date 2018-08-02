@@ -1,6 +1,6 @@
 ---
-title: Architettura di identità per lo Stack di Azure | Documenti Microsoft
-description: Informazioni sull'architettura di identità che è possibile utilizzare con lo Stack di Azure.
+title: Architettura di identità per Azure Stack | Microsoft Docs
+description: Informazioni sull'architettura di identità che è possibile usare con Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,89 +12,89 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/28/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a6da27740efd613b8a81ffa85092d6b00b3e47d8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: bf69c71a8b361e4a147263bc60324573c710818f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257489"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412697"
 ---
-# <a name="identity-architecture-for-azure-stack"></a>Architettura di identità per lo Stack di Azure
-Prima di scegliere un provider di identità da usare con lo Stack di Azure, comprendere le differenze principali tra le opzioni di Azure Active Directory (Azure AD) e Active Directory Federation Services (ADFS). 
+# <a name="identity-architecture-for-azure-stack"></a>Architettura di identità per Azure Stack
+Prima di scegliere un provider di identità da usare con Azure Stack, comprendere le differenze principali tra le opzioni di Azure Active Directory (Azure AD) e Active Directory Federation Services (ADFS). 
 
 ## <a name="capabilities-and-limitations"></a>Funzionalità e limitazioni 
-Il provider di identità che si sceglie può limitare le opzioni, incluso il supporto per multi-tenancy. 
+Il provider di identità scelto può limitare le opzioni, tra cui il supporto per multi-tenancy. 
 
   
 
-|Uno scenario o funzionalità        |Azure AD  |AD FS  |
+|Scenario o funzionalità        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
 |Connesso a internet     |Sì       |Facoltativo|
 |Supporto per multi-tenancy     |Sì       |No       |
-|Diffusione di Marketplace       |Sì       |Sì. Richiede l'uso del [offline Marketplace diffusione](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) dello strumento.|
+|Oggetti offerta in Marketplace |Sì       |Sì. Richiede l'uso del [offline Marketplace diffusione](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) dello strumento.|
 |Supporto per Active Directory Authentication Library (ADAL) |Sì |Sì|
-|Supporto per strumenti quali CLI di Azure, Visual Studio e PowerShell  |Sì |Sì|
-|Creare le entità servizio tramite il portale di Azure     |Sì |No |
+|Supporto per gli strumenti, ad esempio di comando di Azure, Visual Studio e PowerShell  |Sì |Sì|
+|Creare entità servizio tramite il portale di Azure     |Sì |No |
 |Creare le entità servizio con i certificati      |Sì |Sì|
-|Creare le entità servizio con segreti (chiavi)    |Sì |No |
-|Le applicazioni possono utilizzare il servizio di Graph           |Sì |No |
-|Le applicazioni possono utilizzare i provider di identità per l'accesso |Sì |Sì. Richiede le applicazioni per la federazione con locale le istanze di AD FS. |
+|Creare le entità servizio con i segreti (chiavi)    |Sì |No |
+|Le applicazioni possono usare il servizio Graph           |Sì |No |
+|Le applicazioni possono usare provider di identità per l'accesso |Sì |Sì. Le applicazioni per la federazione locale le istanze di AD FS. |
 
 ## <a name="topologies"></a>Topologie
-Le sezioni seguenti disco diverse topologie di identità che è possibile utilizzare.
+Disco le sezioni seguenti di diverse topologie di identità che è possibile usare.
 
-### <a name="azure-ad-single-tenant-topology"></a>Azure Active Directory: topologia di single-tenant 
-Per impostazione predefinita, quando si installa Azure Stack e utilizzare Azure AD, Azure Stack utilizza una topologia single-tenant. 
+### <a name="azure-ad-single-tenant-topology"></a>Azure AD: topologia a tenant singolo 
+Per impostazione predefinita, quando si installa Azure Stack e si usa Azure AD, Azure Stack Usa una topologia a tenant singolo. 
 
-Una topologia single-tenant è utile quando:
+Una topologia a tenant singolo è utile quando:
 - Tutti gli utenti fanno parte dello stesso tenant.
-- Un provider del servizio include un'istanza di Azure Stack per un'organizzazione. 
+- Un provider di servizi ospita un'istanza di Azure Stack per un'organizzazione. 
 
-![Topologia di single-tenant Stack Azure con Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
+![Topologia a tenant singolo Stack Azure con Azure AD](media/azure-stack-identity-architecture/single-tenant.png)
 
 Questa topologia offre le caratteristiche seguenti:
-- Azure Stack registra tutte le applicazioni e servizi ad Azure stesso tenant di directory. 
-- Stack Azure autentica solo gli utenti e applicazioni da tale directory, tra cui i token. 
-- Le identità per gli amministratori (agli operatori cloud) e gli utenti tenant sono dello stesso tenant di directory. 
-- Per abilitare un utente da un'altra directory di accedere a questo ambiente dello Stack di Azure, è necessario [invita l'utente come guest](azure-stack-identity-overview.md#guest-users) nella directory del tenant. 
+- Stack di Azure registra tutte le applicazioni e servizi di Azure ad stesso tenant di directory. 
+- Azure Stack autentica solo gli utenti e applicazioni da tale directory, tra cui i token. 
+- Le identità per gli amministratori (operatori di cloud) e gli utenti tenant sono nello stesso tenant di directory. 
+- Per consentire agli utenti da un'altra directory di accedere all'ambiente Azure Stack, è necessario [invitare l'utente come guest](azure-stack-identity-overview.md#guest-users) per la directory del tenant. 
 
 ### <a name="azure-ad-multi-tenant-topology"></a>Azure Active Directory: topologia di multi-tenant
-Gli operatori di cloud è possono configurare dello Stack di Azure per consentire l'accesso alle applicazioni dal tenant da uno o più organizzazioni. Gli utenti di accedere alle applicazioni tramite il portale per gli utenti. In questa configurazione, il portale di amministrazione (usato dall'operatore cloud) è limitato agli utenti di una singola directory. 
+Gli operatori cloud è possono configurare Azure Stack per consentire l'accesso alle applicazioni dal tenant da una o più organizzazioni. Gli utenti accedere alle applicazioni tramite il portale utenti. In questa configurazione, il portale di amministrazione (usato dall'operatore cloud) è limitato agli utenti in una singola directory. 
 
 Una topologia di multi-tenant è utile quando:
-- Un provider di servizi desidera consentire agli utenti di accedere allo Stack di Azure più organizzazioni.
+- Un provider del servizio vuole consentire agli utenti più organizzazioni di accedere a Azure Stack.
 
-![Topologia di multi-tenant Stack Azure con Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
+![Topologia di multi-tenant Azure Stack con Azure AD](media/azure-stack-identity-architecture/multi-tenant.png)
 
 Questa topologia offre le caratteristiche seguenti:
 - Accesso alle risorse deve essere su una base per ogni organizzazione. 
-- Gli utenti da un'organizzazione devono essere non è possibile concedere l'accesso alle risorse agli utenti che sono all'esterno dell'organizzazione. 
-- Le identità per gli amministratori (agli operatori cloud) possono trovarsi in un tenant di directory distinto dalle identità per gli utenti. Questa separazione garantisce l'isolamento di account a livello del provider di identità. 
+- Gli utenti da un'organizzazione devono essere non è possibile concedere l'accesso alle risorse per gli utenti esterni all'organizzazione. 
+- Le identità per gli amministratori (operatori di cloud) possono trovarsi in un tenant di directory separate le identità per gli utenti. Questa separazione garantisce l'isolamento di account a livello del provider di identità. 
  
 ### <a name="ad-fs"></a>AD FS  
 La topologia di AD FS è obbligatorio quando viene soddisfatta una delle condizioni seguenti:
-- Stack di Azure non si connette a internet.
-- Stack di Azure può connettersi a internet, ma si desidera utilizzare ADFS per il provider di identità.
+- Azure Stack non si connette a internet.
+- Azure Stack può connettersi a internet, ma si sceglie di usare ADFS per il provider di identità.
   
-![Azure topologia Stack con ADFS](media/azure-stack-identity-architecture/adfs.png)
+![Topologia dello Stack di Azure tramite AD FS](media/azure-stack-identity-architecture/adfs.png)
 
 Questa topologia offre le caratteristiche seguenti:
-- Per supportare l'utilizzo di questa topologia nell'ambiente di produzione, è necessario integrare l'istanza dello Stack di Azure AD FS predefinita con un'istanza di ADFS esistente che è supportata da Active Directory, tramite una relazione di trust federativa. 
-- È possibile integrare il servizio di Graph nello Stack di Azure con l'istanza di Active Directory esistente. È inoltre possibile utilizzare il servizio basato su OData API Graph che supporta le API che siano coerenti con l'API Graph di Azure AD. 
+- Per supportare l'uso di questa topologia nell'ambiente di produzione, è necessario integrare l'istanza di ADFS di Azure Stack predefinita con un'istanza di AD FS esistente che è supportata da Active Directory, tramite una relazione di trust federativa. 
+- È possibile integrare il servizio Graph in Azure Stack con l'istanza di Active Directory esistente. È anche possibile usare il servizio API Graph basata su OData che supporta le API che siano coerenti con l'API Graph di Azure AD. 
 
-  Per interagire con l'istanza di Active Directory, l'API Graph sono necessarie credenziali utente dall'istanza di Active Directory che dispongono delle autorizzazioni di sola lettura. 
+  Per interagire con l'istanza di Active Directory, l'API Graph richiede le credenziali utente dall'istanza di Active Directory che dispongono delle autorizzazioni di sola lettura. 
   - L'istanza di AD FS incorporato è basato su Windows Server 2016. 
-  - Le istanze di AD FS e Active Directory devono essere basate su Windows Server 2012 o versione successiva. 
+  - Le istanze di AD FS e Active Directory devono essere basate su Windows Server 2012 o versioni successive. 
   
-  Tra l'istanza di Active Directory e l'istanza di AD FS predefinita, le interazioni non sono limitate a OpenID Connect e usano un protocollo supportato si escludono a vicenda. 
-  - Gli account utente vengono creati e gestiti nell'istanza di Active Directory locale.
+  Tra l'istanza di Active Directory e l'istanza di AD FS predefinita, le interazioni non sono limitate a OpenID Connect ed è possibile usare qualsiasi protocollo supportato si escludono a vicenda. 
+  - Gli account utente sono creati e gestiti nell'istanza di Active Directory locale.
   - Le entità servizio e le registrazioni per le applicazioni vengono gestite nell'istanza di Active Directory predefinito.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Panoramica dell'identità](azure-stack-identity-overview.md)   
-- [Integrazione con Data Center - identità](azure-stack-integrate-identity.md)
+- [Datacenter integration - identità](azure-stack-integrate-identity.md)

@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806837"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412448"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Usare i profili delle versioni API con Python in Azure Stack
 
@@ -121,7 +121,7 @@ Gli esempi non sono necessariamente nell'ordine indicato nell'elenco precedente.
 
 6.  Impostare le variabili seguenti ed esportare queste variabili di ambiente nella shell corrente. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ Gli esempi non sono necessariamente nell'ordine indicato nell'elenco precedente.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Per eseguire questo esempio, devono essere presente in Azure Stack Marketplace immagini di Windows Server 2012-R2-Datacenter e Ubuntu 16.04-LTS. Può trattarsi di uno [scaricato da Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) oppure [aggiunto al Repository di immagini di piattaforma](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-8. Run the sample.
+8. Eseguire l'esempio.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>Note
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+Si potrebbe essere tentati di provare a recuperare disco del sistema operativo della macchina virtuale usando `virtual_machine.storage_profile.os_disk`.
+In alcuni casi, si potrebbe eseguire le operazioni desiderate, ma tenere presente che offre un `OSDisk` oggetto.
+Per aggiornare le dimensioni del disco del sistema operativo, come `example.py` , è necessario non un' `OSDisk` oggetti, ma un `Disk` oggetto.
+`example.py` Ottiene il `Disk` oggetto con il codice seguente:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>Passaggi successivi
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Centro per sviluppatori Python Azure](https://azure.microsoft.com/develop/python/)
+- [Documentazione di macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/)
+- [Percorso di apprendimento per macchine virtuali](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Se non hai una sottoscrizione di Microsoft Azure, è possibile ottenere un account di valutazione gratuita [qui](http://go.microsoft.com/fwlink/?LinkId=330212).
