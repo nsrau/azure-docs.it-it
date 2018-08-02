@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237775"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358139"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Esercitazione: 1. Compilazione di app con dominio personalizzato
 In questa esercitazione si impara a creare un'applicazione in grado di dimostrare come utilizzare le **finalità** per determinare le _intenzioni_ dell'utente in base all'espressione (testo) inviato all'applicazione. Al termine, sarà disponibile un endpoint Language Understanding in esecuzione nel cloud.
@@ -32,7 +32,7 @@ Questa app è il tipo più semplice di app Language Understanding perché non es
 > * Aggiungere espressioni di esempio per finalità ApplyForJob 
 > * Eseguire il training, pubblicare ed eseguire di nuovo la query sull'endpoint 
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Scopo dell'app
 Questa applicazione ha poche finalità. La prima finalità, **`GetJobInformation`**, identifica quando un utente desidera informazioni sui lavori disponibili all'interno di un'azienda. La seconda finalità, **`None`**, identifica ogni altro tipo di espressione. Più avanti nella Guida introduttiva viene aggiunta una terza finalità, `ApplyForJob`. 
@@ -49,8 +49,6 @@ Questa applicazione ha poche finalità. La prima finalità, **`GetJobInformation
     ![Nuova app Language Understanding](./media/luis-quickstart-intents-only/create-app.png)
 
 4. Al termine del processo, l'app visualizza la pagina **Intents** (Finalità) con la finalità **None** (Nessuna). 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "Screenshot della pagina di elenco delle finalità")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>Creare finalità GetJobInformation
 1. Selezionare **Create new intent** (Crea nuova finalità). Immettere il nome della nuova finalità `GetJobInformation`. Questa finalità è prevista ogni volta che un utente desidera informazioni sulle posizioni aperte nella propria azienda.
@@ -90,16 +88,16 @@ Questa applicazione ha poche finalità. La prima finalità, **`GetJobInformation
 
     ![Pulsante per l'esecuzione del training](./media/luis-quickstart-intents-only/train-button.png)
 
-    Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web a conferma del completamento.
+2. Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web a conferma del completamento.
 
     ![Barra di stato di training completato](./media/luis-quickstart-intents-only/trained.png)
 
-2. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Publish** (Pubblica) per accedere alla relativa pagina. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Publish** (Pubblica) accanto allo slot di produzione. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+## <a name="publish-app-to-endpoint"></a>Pubblicare l'app su endpoint
 
-    Non è necessario creare una chiave di endpoint Language Understanding nel portale di Azure prima di pubblicare o testare l'URL dell'endpoint. Ogni app Language Understanding dispone di una chiave di avvio gratuita. Tale chiave offre creazione illimitata e [alcuni accessi all'endpoint](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Endpoint di query per finalità GetJobInformation
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Andare alla fine dell'URL nell'indirizzo e immettere `I'm looking for a job with Natual Language Processing`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. Questa espressione non corrisponde ad alcuna delle espressioni di esempio del passaggio 4, per cui rappresenta un buon test e deve restituire la finalità `GetJobInformation` come finalità con il punteggio più alto. 
 
@@ -152,7 +150,10 @@ Tornare alla scheda del browser del sito Language Understanding e creare una nuo
     [Eseguire il training e pubblicare](#train-and-publish-the-app) di nuovo 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Endpoint di query per finalità ApplyForJob
-Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Nella nuova finestra del browser, immettere `Can I submit my resume for job 235986` alla fine dell'URL. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Nella nuova finestra del browser, immettere `Can I submit my resume for job 235986` alla fine dell'URL. 
 
     ```
     {

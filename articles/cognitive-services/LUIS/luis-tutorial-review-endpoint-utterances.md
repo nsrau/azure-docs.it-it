@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: a04c8987bc2e16a41196286e3260b4b7ec11f3c4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237214"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39357842"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Esercitazione: Esaminare le espressioni endpoint
 In questa esercitazione è possibile migliorare le previsioni delle app tramite la verifica o la correzione delle espressioni ricevute tramite l'endpoint HTTP del servizio LUIS. 
@@ -27,7 +27,7 @@ In questa esercitazione è possibile migliorare le previsioni delle app tramite 
 > * Eseguire il training e pubblicare l'app
 > * Eseguire query sull'endpoint dell'app per ottenere una risposta JSON di Language Understanding
 
-Per questo articolo è necessario un account [LUIS](luis-reference-regions.md#luis-website) gratuito per creare un'applicazione LUIS personalizzata.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non è disponibile l'app relativa alle risorse umane creata nell'esercitazione sul [sentiment](luis-quickstart-intent-and-sentiment-analysis.md), importare l'app dal repository [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) di Github. Se si usa questa esercitazione come nuova app importata, è inoltre necessario eseguire il training, pubblicare e quindi aggiungere le espressioni all'endpoint tramite uno [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) o dall'endpoint in un browser. Le espressioni da aggiungere sono le seguenti:
@@ -49,15 +49,13 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
 ## <a name="review-endpoint-utterances"></a>Esaminare le espressioni endpoint
 
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** nella barra dei menu in alto a destra. 
+1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
 
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
-
-1. Selezionare **Review endpoint utterances** (Esamina espressioni endpoint) dal riquadro di spostamento a sinistra. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**. 
+2. Selezionare **Review endpoint utterances** (Esamina espressioni endpoint) dal riquadro di spostamento a sinistra. All'elenco viene applicato un filtro relativo alla finalità **ApplyForJob**. 
 
     [ ![Screenshot dell'elenco di revisione delle espressioni endpoint nel riquadro di spostamento a sinistra](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
 
-2. Attivare/disattivare la **Entities view** (Visualizzazione entità) per visualizzare le entità con etichette. 
+3. Attivare/disattivare la **Entities view** (Visualizzazione entità) per visualizzare le entità con etichette. 
     
     [ ![Screenshot dell'elenco di revisione delle espressioni endpoint con attivazione/disattivazione della visualizzazione entità evidenziata](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
 
@@ -69,27 +67,27 @@ La revisione delle espressioni endpoint consente di verificare o correggere la f
 
     Quando è attiva l'opzione **Tokens View** (Visualizzazione token), è possibile passare il puntatore su qualsiasi testo blu nell'espressione per visualizzare il nome dell'entità prevista. 
 
-3. Per la finalità `I'm looking for a job with Natual Language Processing` selezionare la finalità corretta, **GetJobInformation** nella colonna **Aligned intent** (Finalità allineata). 
+4. Per la finalità `I'm looking for a job with Natual Language Processing` selezionare la finalità corretta, **GetJobInformation** nella colonna **Aligned intent** (Finalità allineata). 
 
     [ ![Screenshot della revisione delle espressioni endpoint per l'allineamento dell'espressione alla finalità](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-4. Nella stessa espressione l'entità per `Natural Language Processing` è keyPhrase. Dovrebbe trattarsi invece ci un'entità **Job**. Selezionare `Natural Language Processing` e quindi selezionare l'entità **Job** dall'elenco.
+5. Nella stessa espressione l'entità per `Natural Language Processing` è keyPhrase. Dovrebbe trattarsi invece ci un'entità **Job**. Selezionare `Natural Language Processing` e quindi selezionare l'entità **Job** dall'elenco.
 
     [ ![Screenshot della revisione delle espressioni endpoint per l'applicazione di etichette a un'entità nell'espressione](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-5. Nella stessa riga selezionare il segno di spunta racchiuso in un cerchio nella colonna **Add to aligned intent** (Aggiungi alla finalità allineata). 
+6. Nella stessa riga selezionare il segno di spunta racchiuso in un cerchio nella colonna **Add to aligned intent** (Aggiungi alla finalità allineata). 
 
     [ ![Screenshot della finalizzazione dell'allineamento delle espressioni nella finalità](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
     Questa azione sposta l'espressione da **Review endpoint utterances** (Esamina espressioni endpoint) alla finalità **GetJobInformation**. L'espressione endpoint è ora un'espressione di esempio per tale finalità. 
 
-6. Esaminare le espressioni rimanenti in questa finalità, assegnando etichette alle espressioni e correggendo il valore di **Aligned intent** (Finalità allineata), in caso di errori.
+7. Esaminare le espressioni rimanenti in questa finalità, assegnando etichette alle espressioni e correggendo il valore di **Aligned intent** (Finalità allineata), in caso di errori.
 
-7. Quando tutte le espressioni sono corrette, selezionare la casella di controllo in ogni riga e quindi selezionare **Add selected** (Aggiungi elementi selezionati) per allineare correttamente le espressioni. 
+8. Quando tutte le espressioni sono corrette, selezionare la casella di controllo in ogni riga e quindi selezionare **Add selected** (Aggiungi elementi selezionati) per allineare correttamente le espressioni. 
 
     [ ![Screenshot della finalizzazione delle espressioni rimanenti per la finalità allineata](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-8. Queste espressioni non dovrebbero essere più incluse nell'elenco. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità e assegnando etichette a eventuali entità mancanti, fino allo svuotamento dell'elenco. Selezionare la finalità successiva nell'elenco di filtri, quindi continuare a correggere le espressioni e ad assegnare etichette alle entità. Occorre ricordare che l'ultimo passaggio per ogni finalità consiste nel selezionare **Add to aligned intent** (Aggiungi alla finalità allineata) nella riga dell'espressione o nel selezionare la casella corrispondente a ogni finalità e quindi selezionare **Add selected** (Aggiungi elementi selezionati) sopra la tabella. 
+9. Queste espressioni non dovrebbero essere più incluse nell'elenco. Se vengono visualizzate altre espressioni, continuare a esaminare l'elenco, correggendo le finalità e assegnando etichette a eventuali entità mancanti, fino allo svuotamento dell'elenco. Selezionare la finalità successiva nell'elenco di filtri, quindi continuare a correggere le espressioni e ad assegnare etichette alle entità. Occorre ricordare che l'ultimo passaggio per ogni finalità consiste nel selezionare **Add to aligned intent** (Aggiungi alla finalità allineata) nella riga dell'espressione o nel selezionare la casella corrispondente a ogni finalità e quindi selezionare **Add selected** (Aggiungi elementi selezionati) sopra la tabella. 
 
     Questa app è molto piccola. Il processo di revisione richiede solo qualche minuto.
 
@@ -103,128 +101,123 @@ Mantenere aggiornato l'elenco di frasi inserendo eventuali nomi di lavoro indivi
 3. Aggiungere `Natural Language Processing` come valore e quindi selezionare **Save** (Salva). 
 
 ## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+
 Language Understanding non riconosce le modifiche fino a quando non è stato eseguito il training. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Train** (Esegui il training).
-
-2. Il training è completato quando nella barra di stato verde nella parte superiore del sito Web viene confermato il completamento.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
-Per ottenere il modello aggiornato dell'app LUIS in un chatbot o in un'altra applicazione, è necessario pubblicare l'app. 
 
-1. Nella parte superiore destra del sito Web LUIS selezionare il pulsante **Publish** (Pubblica). 
+Se questa app è stata importata, è necessario selezionare **Sentiment analysis** (Analisi del sentiment).
 
-2. Se questa app è stata importata, è necessario selezionare **Sentiment analysis** (Analisi del sentiment). 
-
-3. Selezionare lo slot di produzione, quindi fare clic sul pulsante **Publish** (Pubblica).
-
-4. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eseguire la query dell'endpoint con un'espressione
+
 Provare a usare un'espressione simile all'espressione corretta. 
 
-1. Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Passare alla fine dell'URL nell'indirizzo e immettere `Are there any natural language processing jobs in my department right now?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+2. Andare alla fine dell'URL nell'indirizzo e immettere `Are there any natural language processing jobs in my department right now?`. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
-```JSON
-{
-  "query": "are there any natural language processing jobs in my department right now?",
-  "topScoringIntent": {
-    "intent": "GetJobInformation",
-    "score": 0.9247605
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "are there any natural language processing jobs in my department right now?",
+    "topScoringIntent": {
       "intent": "GetJobInformation",
       "score": 0.9247605
     },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.129989788
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006438211
-    },
-    {
-      "intent": "EmployeeFeedback",
-      "score": 0.00408575451
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00194211153
-    },
-    {
-      "intent": "None",
-      "score": 0.00166400627
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00118593348
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.0007885918
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.0006373631
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0005980781
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 3.719905E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "right now",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 64,
-      "endIndex": 72,
-      "resolution": {
-        "values": [
-          {
-            "timex": "PRESENT_REF",
-            "type": "datetime",
-            "value": "2018-07-05 15:23:18"
-          }
-        ]
+    "intents": [
+      {
+        "intent": "GetJobInformation",
+        "score": 0.9247605
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.129989788
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006438211
+      },
+      {
+        "intent": "EmployeeFeedback",
+        "score": 0.00408575451
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00194211153
+      },
+      {
+        "intent": "None",
+        "score": 0.00166400627
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00118593348
+      },
+      {
+        "intent": "MoveEmployee",
+        "score": 0.0007885918
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.0006373631
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0005980781
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 3.719905E-05
       }
-    },
-    {
-      "entity": "natural language processing",
-      "type": "Job",
-      "startIndex": 14,
-      "endIndex": 40,
-      "score": 0.9869922
-    },
-    {
-      "entity": "natural language processing jobs",
-      "type": "builtin.keyPhrase",
-      "startIndex": 14,
-      "endIndex": 45
-    },
-    {
-      "entity": "department",
-      "type": "builtin.keyPhrase",
-      "startIndex": 53,
-      "endIndex": 62
+    ],
+    "entities": [
+      {
+        "entity": "right now",
+        "type": "builtin.datetimeV2.datetime",
+        "startIndex": 64,
+        "endIndex": 72,
+        "resolution": {
+          "values": [
+            {
+              "timex": "PRESENT_REF",
+              "type": "datetime",
+              "value": "2018-07-05 15:23:18"
+            }
+          ]
+        }
+      },
+      {
+        "entity": "natural language processing",
+        "type": "Job",
+        "startIndex": 14,
+        "endIndex": 40,
+        "score": 0.9869922
+      },
+      {
+        "entity": "natural language processing jobs",
+        "type": "builtin.keyPhrase",
+        "startIndex": 14,
+        "endIndex": 45
+      },
+      {
+        "entity": "department",
+        "type": "builtin.keyPhrase",
+        "startIndex": 53,
+        "endIndex": 62
+      }
+    ],
+    "sentimentAnalysis": {
+      "label": "positive",
+      "score": 0.8251864
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "positive",
-    "score": 0.8251864
   }
-}
-}
-```
+  }
+  ```
 
-La finalità corretta è stata prevista con un punteggio elevato e l'entità **Job** viene rilevata come `natural language processing`. 
+  La finalità corretta è stata prevista con un punteggio elevato e l'entità **Job** viene rilevata come `natural language processing`. 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Possibilità di sostituire la revisione tramite l'aggiunta di altre espressioni 
 È possibile che ci si domandi se non sia possibile aggiungere altre espressioni di esempio e quale sia la finalità della revisione delle espressioni endpoint. In un'app LUIS concreta le espressioni endpoint vengono generate da utenti con scelte di parole e strutture di frase non ancora usate. Se fossero state usate le stesse scelte di parole e le stesse strutture, la previsione originale avrebbe avuto una percentuale maggiore. 
@@ -236,7 +229,8 @@ Alcune espressioni endpoint presenteranno una percentuale elevata nell'elenco di
 La precisione delle previsioni dell'app è aumentata grazie alla revisione delle espressioni dall'endpoint. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. Seleziona **App personali** nel menu in alto a sinistra. Selezionare i puntini di sospensione **...** a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

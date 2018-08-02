@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239036"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358523"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Esercitazione: 2. Aggiungere finalità ed entità predefinite
 Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. 
@@ -27,6 +27,8 @@ In questa esercitazione si apprenderà come:
 * Eseguire il training e pubblicare l'app
 * Eseguire una query LUIS e ricevere una risposta di previsione
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>Prima di iniziare
 Se non è disponibile l'app relativa alle [risorse umane](luis-quickstart-intents-only.md) descritta nell'esercitazione precedente, [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON nella nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website) dal repository [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) di Github.
 
@@ -36,8 +38,6 @@ Se si vuole mantenere l'app originale, clonare la versione nella pagina [Setting
 LUIS fornisce diverse finalità predefinite per le intenzioni comuni degli utenti.  
 
 1. Assicurarsi che l'app sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
-
-    [ ![Screenshot dell'app LUIS con il pulsante relativo alla compilazione evidenziato in alto a destra sulla barra di spostamento](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selezionare **Add prebuilt domain intent** (Aggiungi finalità di dominio predefinita). 
 
@@ -71,25 +71,21 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
     ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train-and-publish-the-app"></a>Eseguire il training e pubblicare l'app
-1. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Train** (Esegui il training). 
+## <a name="train-and-publish-the-app"></a>Eseguire il training dell'app e pubblicarla
 
-    ![Pulsante per l'esecuzione del training](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    Il training è completato quando viene visualizzata la barra di stato verde nella parte superiore del sito Web a conferma del completamento.
+## <a name="publish-app-to-endpoint"></a>Pubblicare l'app su endpoint
 
-    ![Barra di stato di training completato](./media/luis-quickstart-intents-only/trained.png)
-
-2. Nella parte superiore destra del sito Web LUIS, selezionare il pulsante **Publish** (Pubblica) per accedere alla relativa pagina. 
-
-3. Lo slot di produzione è selezionato per impostazione predefinita. Fare clic sul pulsante **Publish** (Pubblica) accanto allo slot di produzione. La pubblicazione è completata quando la barra di stato verde nella parte superiore del sito Web conferma il completamento.
-
-    Non è necessario creare una chiave di endpoint Language Understanding nel portale di Azure prima di pubblicare o testare l'URL dell'endpoint. Ogni app Language Understanding dispone di una chiave di avvio gratuita. Tale chiave offre creazione illimitata e [alcuni riscontri di endpoint](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Eseguire query sull'endpoint con un'espressione
-Nella pagina **Publish** (Pubblica) selezionare il collegamento all'**endpoint** nella parte inferiore della pagina. Questa azione apre un'altra finestra del browser con l'URL dell'endpoint nella barra degli indirizzi. Andare alla fine dell'URL nell'indirizzo e immettere `I want to cancel on March 3`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. 
 
-Il risultato ha previsto la finalità Utilities.Cancel e ha estratto la data del 3 marzo e il numero 3. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Andare alla fine dell'URL nell'indirizzo e immettere `I want to cancel on March 3`. L'ultimo parametro della stringa di query è `q`, la **query** dell'espressione. 
+
+    Il risultato ha previsto la finalità Utilities.Cancel e ha estratto la data del 3 marzo e il numero 3. 
 
     ```
     {
@@ -166,12 +162,13 @@ Il risultato ha previsto la finalità Utilities.Cancel e ha estratto la data del
     }
     ```
 
-Sono presenti due valori per il 3 marzo, perché l'espressione non ha indicato se il 3 marzo è relativo al passato o al futuro. L'applicazione che chiama LUIS deve fare una supposizione o richiedere chiarimenti, se necessario. 
+    Sono presenti due valori per il 3 marzo, perché l'espressione non ha indicato se il 3 marzo è relativo al passato o al futuro. L'applicazione che chiama LUIS deve fare una supposizione o richiedere chiarimenti, se necessario. 
 
-Aggiungendo finalità ed entità predefinite in modo facile e veloce, l'applicazione client può integrare la gestione delle conversazioni ed estrarre i datatype comuni. 
+    Aggiungendo finalità ed entità predefinite in modo facile e veloce, l'applicazione client può integrare la gestione delle conversazioni ed estrarre i datatype comuni. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non è più necessaria, eliminare l'app LUIS. A questo scopo, scegliere **My apps** (App personali) dal menu in alto a sinistra. Selezionare i puntini di sospensione (***...***) a destra del nome dell'app nell'elenco di app e quindi selezionare **Delete** (Elimina). Nella finestra di dialogo popup **Delete app?** (Eliminare l'app?) selezionare **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

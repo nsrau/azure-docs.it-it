@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215051"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325480"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -123,20 +123,7 @@ _È consigliabile specificare gli SKU in modo esplicito, anche se non è ancora 
 >[!IMPORTANT]
 >Load Balancer Standard è un nuovo prodotto di Load Balancer e in larga misura un soprainsieme di Load Balancer Basic. Tra i due prodotti ci sono differenze importanti e valutate attentamente. Tutti gli scenari end-to-end possibili con Load Balancer Basic possono essere creati anche con Load Balancer Standard. Se si conosce già Load Balancer Basic, è consigliabile acquisire familiarità con Load Balancer Standard per comprendere le modifiche di comportamento più recenti tra le versioni Standard e Basic e il relativo impatto. Leggere attentamente questa sezione.
 
-| | SKU Standard | SKU Basic |
-| --- | --- | --- |
-| Dimensioni del pool back-end | fino a 1000 istanze | fino a 100 istanze |
-| Endpoint di pool back-end | qualsiasi macchina virtuale in una sola rete virtuale, tra cui un insieme di macchine virtuali, set di disponibilità, set di scalabilità di macchine virtuali. | macchine virtuali in un singolo set di disponibilità o in un set di scalabilità di macchine virtuali |
-| Zone di disponibilità | front-end con ridondanza della zona e front-end di zona per connessioni in entrata e in uscita, mapping di flussi in uscita che superano l'errore di zona, bilanciamento del carico tra più zone | / |
-| Diagnostica | Monitoraggio di Azure, metriche multidimensionali, inclusi contatori di byte e pacchetti, stato del probe di integrità, tentativi di connessione (TCP SYN), integrità della connessione in uscita (flussi SNAT riusciti e non), misurazioni del piano dati attivo | Log Analytics di Azure solo per il bilanciamento del carico pubblico, avviso di esaurimento SNAT, conteggio integrità del pool back-end |
-| Porte a disponibilità elevata | Load Balancer interno | / |
-| Protezione per impostazione predefinita | è necessario usare endpoint predefiniti chiusi per Load Balancer e indirizzi IP pubblici e un gruppo di sicurezza di rete da inserire nell'elenco elementi consentiti in modo esplicito e consentire il traffico | gruppo di sicurezza di rete aperto predefinito facoltativo |
-| [Connessioni in uscita](load-balancer-outbound-connections.md) | Front-end multipli con rifiuto esplicito in base alla regola di bilanciamento del carico. È _necessario_ creare in modo esplicito uno scenario in uscita affinché la macchina virtuale sia in grado di usare la connettività in uscita.  [Gli endpoint del servizio di rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md) possono essere raggiunti senza connettività in uscita e non vengono considerati relativamente ai dati elaborati.  Tutti gli indirizzi IP pubblici, inclusi i servizi PaaS di Azure non disponibili come endpoint del servizio di rete virtuale, devono essere raggiunti tramite connettività in uscita e vengono considerati relativamente ai dati elaborati. Quando una macchina virtuale viene servita solo da un Load Balancer interno, le connessioni in uscita tramite SNAT predefinito non sono disponibili. La programmazione SNAT in uscita è il protocollo di trasporto specifico basato sul protocollo della regola di bilanciamento del carico in ingresso. | Front-end singolo selezionato in modo casuale quando sono presenti più front-end.  Quando una macchina virtuale viene servita solo da un Load Balancer interno, viene usato lo SNAT predefinito., viene usato lo SNAT predefinito. |
-| [Più front-end](load-balancer-multivip-overview.md) | In ingresso e [in uscita](load-balancer-outbound-connections.md) | Solo in ingresso |
-| [Comportamento in caso di inattività dei probe](load-balancer-custom-probe-overview.md) | Le connessioni TCP restano attive in caso di inattività dei probe dell'istanza __e__ di tutti i probe | Le connessioni TCP restano attive in caso di inattività dei probe dell'istanza. Tutte le connessioni TCP vengono terminate in caso di inattività di tutti i probe |
-| Operazioni di gestione | La maggior parte delle operazioni < 30 secondi | in genere 60-90+ secondi |
-| Contratto di servizio | 99,99% per il percorso dei dati con due macchine virtuali integre | Implicito nel contratto di servizio della macchina virtuale | 
-| Prezzi | Addebito in base al numero di regole e dati elaborati in ingresso o in uscita associati alla risorsa  | Nessun addebito |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Per altre informazioni, vedere i [limiti del servizio di Load Balancer](https://aka.ms/lblimits). Per informazioni dettagliate su Load Balancer Standard, vedere [panoramica](load-balancer-standard-overview.md), [prezzi](https://aka.ms/lbpricing) e [contratto di servizio](https://aka.ms/lbsla).
 
